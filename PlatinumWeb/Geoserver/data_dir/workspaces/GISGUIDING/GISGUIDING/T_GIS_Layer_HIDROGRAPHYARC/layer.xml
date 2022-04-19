@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_HIDROGRAPHYARC</name>
+  <id>LayerInfoImpl--dbecf10:1591d9f8b2f:387a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591d9f8b2f:3873</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591d9f8b2f:3879</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

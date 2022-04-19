@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_BurimeShpenzimeLidhurInvestime1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="PRC_RAP_BurimeShpenzimeLidhurInvestimeTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>278, 17</value>
+  </metadata>
+  <data name="gjendjafund.Expression" xml:space="preserve">
+    <value>Iif([shenja] == 'Pozitive',
+Iif( [gjend] - [debi] + [kredi]&gt;=0, [gjend] - [debi] + [kredi],'('+ -([gjend] - [debi] + [kredi])+')') ,
+Iif(-[gjend] + [debi] - [kredi]&gt;=0,-[gjend] + [debi] - [kredi],'('+ -(-[gjend] + [debi] - [kredi])+')' ))</value>
+  </data>
+  <metadata name="ds_Rap_Buxhetimi1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITETI_BUXHETIMTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>   double shumagjendje = 0;
+        double shumaBuxheti2 = 0;
+
+double shumagjendjeRaportit = 0;
+        double shumaBuxheti2Raportit = 0;
+
+double shumagjendjeb = 0;
+        double shumabuxh2b = 0;
+
+ double shumagjendjeb5 = 0;
+        double shumabuxh2b5 = 0;
+
+        double shumagjendjeb4 = 0;
+        double shumabuxh2b4 = 0;
+
+  double shumagjendjeb3 = 0;
+        double shumabuxh2b3 = 0;
+
+ double shumagjendjeb2 = 0;
+        double shumabuxh2b2 = 0;
+
+  double shumagjendjeb1 = 0;
+        double shumabuxh2b1 = 0;
+
+private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  if (Convert.ToInt32(GetCurrentColumnValue("NIVELKATEGORIE")) == 1)
+                e.Cancel = true;
+}
+
+private void xrTableCell13_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+e.Result = String.Format("{0:#,0}", shumaBuxheti2 == 0 ? 0 : (shumagjendje / shumaBuxheti2) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell13_SummaryReset(object sender, System.EventArgs e) {
+shumagjendje = 0;
+            shumaBuxheti2 = 0;
+}
+
+private void xrTableCell13_SummaryRowChanged(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendje += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumaBuxheti2 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrLabel4_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumaBuxheti2Raportit == 0 ? 0 : (shumagjendjeRaportit / shumaBuxheti2Raportit) * 100);
+            e.Handled = true;
+}
+
+private void xrLabel4_SummaryReset(object sender, System.EventArgs e) {
+ shumagjendjeRaportit = 0;
+            shumaBuxheti2Raportit = 0;
+}
+
+private void xrLabel4_SummaryRowChanged(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeRaportit += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumaBuxheti2Raportit += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell64_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumabuxh2b == 0 ? 0 : (shumagjendjeb / shumabuxh2b) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell64_SummaryReset(object sender, System.EventArgs e) {
+ shumagjendjeb = 0;
+            shumabuxh2b = 0;
+}
+
+private void xrTableCell64_SummaryRowChanged(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell24_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumabuxh2b5 == 0 ? 0 : (shumagjendjeb5 / shumabuxh2b5) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell24_SummaryReset(object sender, System.EventArgs e) {
+  shumagjendjeb5 = 0;
+            shumabuxh2b5 = 0;
+}
+
+private void xrTableCell24_SummaryRowChanged(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb5 += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b5 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell32_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumabuxh2b4 == 0 ? 0 : (shumagjendjeb4 / shumabuxh2b4) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell32_SummaryReset(object sender, System.EventArgs e) {
+  shumagjendjeb4 = 0;
+            shumabuxh2b4 = 0;
+}
+
+private void xrTableCell32_SummaryRowChanged(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb4 += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b4 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell40_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumabuxh2b3 == 0 ? 0 : (shumagjendjeb3 / shumabuxh2b3) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell40_SummaryReset(object sender, System.EventArgs e) {
+shumagjendjeb3 = 0;
+            shumabuxh2b3 = 0;
+}
+
+private void xrTableCell40_SummaryRowChanged(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb3 += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b3 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell48_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ e.Result = String.Format("{0:#,0}", shumabuxh2b2 == 0 ? 0 : (shumagjendjeb2 / shumabuxh2b2) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell48_SummaryReset(object sender, System.EventArgs e) {
+shumagjendjeb2 = 0;
+            shumabuxh2b2 = 0;
+}
+
+private void xrTableCell48_SummaryRowChanged(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb2 += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b2 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void xrTableCell56_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+  e.Result = String.Format("{0:#,0}", shumabuxh2b1 == 0 ? 0 : (shumagjendjeb1 / shumabuxh2b1) * 100);
+            e.Handled = true;
+}
+
+private void xrTableCell56_SummaryReset(object sender, System.EventArgs e) {
+  shumagjendjeb1 = 0;
+            shumabuxh2b1 = 0;
+}
+
+private void xrTableCell56_SummaryRowChanged(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("gjendja") != null &amp;&amp; GetCurrentColumnValue("Buxheti2") != null)
+            {
+                shumagjendjeb1 += Convert.ToDouble(GetCurrentColumnValue("gjendja"));
+                shumabuxh2b1 += Convert.ToDouble(GetCurrentColumnValue("Buxheti2"));
+            }
+}
+
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+</value>
+  </data>
+</root>

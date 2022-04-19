@@ -1,0 +1,3 @@
+﻿Ne kete class library do te implementohet logjika e infrastruktures mbi DB.
+
+Note: Interfaces do te deklarohen ne AlphaWeb.Core

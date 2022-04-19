@@ -1,0 +1,15 @@
+<layer>
+  <name>MZHU_Venddepozitime_AL</name>
+  <id>LayerInfoImpl-24b5ff95:159979dc113:54f9</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-24b5ff95:159979dc113:54f3</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-24b5ff95:159979dc113:54f8</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

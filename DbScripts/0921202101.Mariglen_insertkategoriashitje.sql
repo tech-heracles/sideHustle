@@ -1,0 +1,82 @@
+
+--importimi i EIC tek shitja
+
+ declare @idkontrolli t_for_key = (select idkontroll from T_KONTROLLE where KODKONTROLL='txtEIC')
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrolli,'EIC',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'EIC' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='EIC', SHFAQIMPORTI=1 
+where KODKONTROLL like '%txtEIC%'
+
+--importimi i Operatori tek shitja
+declare @idkomponente VARCHAR(100) = (select IDKOMPON from T_KOMPONENTE where KOMPONEMRI ='Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje')
+
+declare @idkontrolliOperator t_for_key= (select idkontroll from T_KONTROLLE where KODKONTROLL='cmbOperatori' AND IDKOMPONENTE=@idkomponente)
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrolliOperator,'Operatori',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'Operatori' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='Operatori', SHFAQIMPORTI=1 
+where KODKONTROLL like '%cmbOperatori%'
+
+--importimi i Procesi tek shitja
+
+declare @idkontrolliProcesi t_for_key = (select idkontroll from T_KONTROLLE where KODKONTROLL='cmbProcesi')
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrolliProcesi,'Procesi',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'Procesi' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='Procesi', SHFAQIMPORTI=1 
+where KODKONTROLL like '%cmbProcesi%'
+--importimi i E-invoice Type tek shitja
+declare @idkontrolliEinvoice t_for_key = (select idkontroll from T_KONTROLLE where KODKONTROLL='cmbeInvoiceType')
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrolliEinvoice,'E-invoice Type',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'E-invoice Type' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='E-invoice Type', SHFAQIMPORTI=1 
+where KODKONTROLL like '%cmbeInvoiceType%'
+--importimi i Tipi i vetefaturimit tek shitja
+declare @idkontrollivetefaturimit t_for_key = (select idkontroll from T_KONTROLLE where KODKONTROLL='cmbTipiIVetefaturimit')
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrollivetefaturimit,'Tipi i vetefaturimit',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'Tipi i vetefaturimit' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='Tipi i vetefaturimit', SHFAQIMPORTI=1 
+where KODKONTROLL like '%cmbTipiIVetefaturimit%'
+--importimi i NIVF kthim tek shitja
+declare @idkontrolliNIVFkthim t_for_key = (select idkontroll from T_KONTROLLE where KODKONTROLL='txtNivfKthim')
+
+INSERT INTO T_TRUPIFORMATIMPORTI(IDKOKA,IDKONTROLL,EMERIMPORTI,DETYRUESHME,SHFAQ,RENDI,VISIBLE,TIPI,DETYRUESHMEDEFAULT,FUSHEKOKEAPOTRUPI,FUSHETYPE)
+ select IDKOKA ,@idkontrolliNIVFkthim,'NIVF kthim',0,1,1,0,1,0,1,'VARCHAR(100)'
+ from T_KOKAFORMATIMPORTI
+ where IDKATEGORI=1 and not exists(SELECT *
+					FROM T_TRUPIFORMATIMPORTI T					
+					WHERE T.EMERIMPORTI = 'NIVF kthim' AND T.IDKOKA=T_KOKAFORMATIMPORTI.IDKOKA)
+
+update T_KONTROLLE set EMERIMPORTI='NIVF kthim', SHFAQIMPORTI=1 
+where KODKONTROLL like '%txtNivfKthim%'
+
+
+

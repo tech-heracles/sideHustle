@@ -1,0 +1,209 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CRMFushaAnkete.aspx.cs" Inherits="PlatinumWeb.CRMFushaAnkete" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxw" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+
+
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Alpha CRM</title>
+    <link id="Link1" runat="server" rel="shortcut icon" href="~/images/CRM/faviconCRM.ico" type="image/x-icon"/>
+    <link id="Link2" runat="server" rel="icon" href="~/images/CRM/faviconCRM.ico" type="image/ico"/>
+    <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="AlphaCRM.css" />
+    <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/JsGlobal.js;~/js/json2.js;~/js/srcCRM/js/jquery.mmenu.min.all.js;~/js/myNrAuto-IMB.2.1.js;~/js/aspx.js/CRMFushaAnkete.aspx-IMB.4.7.js&v49"
+        type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('nav#menu').mmenu({
+                classes: "mm-light",
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="page">
+        <div class="header">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:1%;">
+                        <a href="#menu"></a>
+                    </td>
+                    <td style="width:94%;vertical-align: top;">Fusha Ankete</td>
+                    <td style="width:5%;">
+                        <div id="emriLogout" class="emriLogout">
+                            <div id="userInfo">
+                                <div id="emri" >
+                                    <dx:ASPxLabel  ID="lblUserEmri" ClientInstanceName="lblUserEmri" runat="server" Text=""
+                                        Font-Size="14" ForeColor="White" Font-Names="Calibri">
+                                    </dx:ASPxLabel>
+                                </div>
+                                <div id="logout">
+                                    <a style="position:relative; color:white;background-image: none;" class="fa fa-sign-out fa-2x" ><i class="fa fa-sign-out  fa-lg"></i>&nbsp;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <form id="form1" runat="server" style="top: 0px">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
+                   
+                </asp:ScriptManager>
+                
+                <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel"
+                    Font-Size="9pt" Modal="True" ImagePosition="Top">
+                    <LoadingDivStyle Opacity="30">
+                    </LoadingDivStyle>
+                </dx:ASPxLoadingPanel>
+                <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState" ViewStateMode="Enabled">
+                </dx:ASPxHiddenField>
+                <div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <contenttemplate>
+                            <table width="100%">
+                                <tr>
+                                    <td>
+                                        <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  runat="server" AutoPostBack="true" ClientInstanceName="ASPxMenu1"
+                                            ItemImagePosition="Top" OnDataBound="ASPxMenu1_DataBound" OnItemClick="ASPxMenu1_ItemClick"
+                                            SeparatorWidth="1px" ShowPopOutImages="True" Width="100%">
+                                            <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
+                                            <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
+                                            <ClientSideEvents ItemClick="function(s, e) {
+	                        menu_click(s,e);
+                            }" Init="function(s) {s.SetClientVisible(true);}" />
+                                            <ItemImage Height="32px" Width="32px">
+                                            </ItemImage>
+                                            <SubMenuItemImage Height="16px" Width="16px">
+                                            </SubMenuItemImage>
+                                            <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
+                                                <Paddings PaddingBottom="1px" PaddingTop="9px" />
+                                            </ItemStyle>
+                                            <SubMenuItemStyle Width="32px">
+                                            </SubMenuItemStyle>
+                                        </dx:ASPxMenu>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:UpdatePanel ID="pnlMesazhi" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <dx:ASPxMenu ID="MenuInfo" runat="server" ClientInstanceName="MenuInfo" Width="100%"
+                                                    BorderBetweenItemAndSubMenu="HideRootOnly" ClientIDMode="AutoID" ShowPopOutImages="True">
+                                                    <ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+                                                    <ItemStyle HorizontalAlign="Left" />
+                                                    <SubMenuStyle GutterWidth="17px" />
+                                                </dx:ASPxMenu>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </td>
+                                </tr>
+                            </table>
+                            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popFshi" runat="server" AllowDragging="True" ClientIDMode="AutoID"
+                                ClientInstanceName="popFshi" CloseAction="CloseButton" CssPostfix="Glass" EnableAnimation="False"
+                                EnableViewState="False" Font-Bold="true" HeaderText="Kujdes" Modal="True" PopupHorizontalAlign="WindowCenter"
+                                PopupVerticalAlign="WindowCenter" Width="300px">
+                                <HeaderStyle>
+                                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
+                                </HeaderStyle>
+                                <ContentCollection>
+                                    <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
+                                        <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel1" runat="server" ClientIDMode="AutoID" Width="271px">
+                                            <PanelCollection>
+                                                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                                                    <dx:ASPxLabel ID="lblMsgbox" runat="server" ClientIDMode="AutoID" Text="Jeni i sigurt?">
+                                                    </dx:ASPxLabel>
+                                                    <br />
+                                                    <br />
+                                                    <div style="text-align: right;">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <dx:ASPxButton ID="ButtonOk" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
+                                                                        OnClick="ButtonOk_Click2" Text="Ok">
+                                                                        <ClientSideEvents Click="Click_ButtonOk" />
+                                                                    </dx:ASPxButton>
+                                                                </td>
+                                                                <td>
+                                                                    <dx:ASPxButton ID="ButtonCancel" runat="server" ClientIDMode="AutoID" Text="Anullo">
+                                                                        <ClientSideEvents Click="function(s, e) {
+		popFshi.Hide();
+}" />
+                                                                    </dx:ASPxButton>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </dx:PanelContent>
+                                            </PanelCollection>
+                                        </dx:ASPxPanel >
+                                    </dx:PopupControlContentControl>
+                                </ContentCollection>
+                            </dx:ASPxPopupControl >
+                            <div style="visibility: hidden">
+                                <dx:ASPxButton ID="ASPxButton5" runat="server" ClientInstanceName="btn" Text="ASPxButton">
+                                </dx:ASPxButton>
+                            </div>
+                        </contenttemplate>
+                    </asp:UpdatePanel>
+                    <asp:UpdatePanel ID="pnlGrida" runat="server" UpdateMode="Conditional">
+                        <contenttemplate>
+                            <dx:ASPxGridView ID="gvFushaAnkete" runat="server" Width="100%" OnAfterPerformCallback="gvFushaAnkete_AfterPerformCallback"
+                                OnHeaderFilterFillItems="gvFushaAnkete_HeaderFilterFillItems"  OnDataBound="gvFushaAnkete_DataBound"
+                                OnRowUpdating="gvFushaAnkete_RowUpdating" ClientInstanceName="gvFushaAnkete" Theme="Moderno"
+                                OnProcessColumnAutoFilter="gvFushaAnkete_ProcessColumnAutoFilter" OnCancelRowEditing="gvFushaAnkete_StartRowEditing"
+                                OnRowInserting="gvFushaAnkete_RowInserting" OnRowValidating="gvFushaAnkete_RowValidating"
+                               OnCustomCallback="gvFushaAnkete_CustomCallback"
+                                ClientIDMode="AutoID">
+                                <ClientSideEvents RowDblClick="Row_DblClick"
+                                    EndCallback="function(s, e) { EndCallbackGrida(s, e);}" BeginCallback="function(s, e) {
+	BeginCallback(s,e);
+}" />
+                                <Styles>
+                                    <Header ImageSpacing="5px" SortingImageSpacing="5px">
+                                    </Header>
+                                </Styles>
+                                <SettingsPager PageSize="15">
+                                </SettingsPager>
+                                <StylesEditors>
+                                    <ProgressBar Height="25px">
+                                    </ProgressBar>
+                                </StylesEditors>
+                            </dx:ASPxGridView>
+                            <asp:HiddenField ID="hfRuaj" runat="server" />
+                        </contenttemplate>
+                    </asp:UpdatePanel>
+
+                </div>
+                <dx:ASPxHiddenField ID="hfTeDrejta" runat="server" ClientInstanceName="hfTeDrejta">
+                </dx:ASPxHiddenField>
+
+               
+            </form>
+        </div>
+        <nav id="menu">
+            <ul id="ulMenu">
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

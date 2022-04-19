@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="xrLabel40.NavigateUrl" xml:space="preserve">
+    <value>javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimDokumentash.aspx?scopeID=4c91069e-fa9c-4eee-9fe6-b92d431e1910&amp;newScopeId=True&amp;shitje_blerje=shitje&amp;id=635369&amp;numer=af0&amp;shtim_modifikim=modifikim')</value>
+  </data>
+  <metadata name="ds_prc_kartela_klient1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_KARTELAKLIENTTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.Extensions" xml:space="preserve">
+    <value>[{"IdParametri":6,"Emri":"filterNumerLlogarie","Pershkrimi":"Nr. Llogarie","KolonaDb":"T_LLOGARI.NRLLOGARI","Vlera":"","IdGrupKontroll":6},{"IdParametri":8,"Emri":"IdRaport","Pershkrimi":"","KolonaDb":"","Vlera":null,"IdGrupKontroll":0},{"IdParametri":11,"Emri":"IdNdermarje","Pershkrimi":"Ndermarrja:","KolonaDb":"","Vlera":"Irida ","IdGrupKontroll":0},{"IdParametri":12,"Emri":"filterDtDok1","Pershkrimi":"","KolonaDb":"","Vlera":null,"IdGrupKontroll":1},{"IdParametri":14,"Emri":"filterMonedha","Pershkrimi":"Monedha:","KolonaDb":"T_MONEDHA.IDMONEDHA","Vlera":"","IdGrupKontroll":13},{"IdParametri":52,"Emri":"filterQyteti","Pershkrimi":"Qyteti:","KolonaDb":"T_KLIENTFURNITOR.QYTETIKF","Vlera":"","IdGrupKontroll":24},{"IdParametri":53,"Emri":"filterDtDok","Pershkrimi":"Dt. Dok.:","KolonaDb":"T_GJENDJEKF.DATEDOKGJENDJEKF","Vlera":"01/06/2019 - 30/06/2019","IdGrupKontroll":1},{"IdParametri":54,"Emri":"filterDtRegj","Pershkrimi":"Dt. Regj.","KolonaDb":"T_GJENDJEKF.DTREGJGJENDJEKF","Vlera":"01/01/1900 - 31/12/9999","IdGrupKontroll":2},{"IdParametri":55,"Emri":"filterNumerDokumenti","Pershkrimi":"Nr. Dok.:","KolonaDb":"T_GJENDJEKF.NRDOKGJENDJEKF","Vlera":"","IdGrupKontroll":3},{"IdParametri":56,"Emri":"filterFurnitor","Pershkrimi":"Klient/Furn.:","KolonaDb":"T_KLIENTFURNITOR.KODKLIENTFURNITOR","Vlera":"","IdGrupKontroll":29},{"IdParametri":231,"Emri":"filterAdreseKlienti","Pershkrimi":"Adrese Klienti","KolonaDb":"T_ADRESAKLIENTFURNITOR.ADRESA","Vlera":"","IdGrupKontroll":128},{"IdParametri":265,"Emri":"filterLlojDokumenti","Pershkrimi":"Lloj Dok.:","KolonaDb":"KODKONFIGAMBJENTE","Vlera":"","IdGrupKontroll":8},{"IdParametri":10394,"Emri":"filterKlientVartes","Pershkrimi":"Klienti vartes","KolonaDb":"KFKOKA.KODKLIENTFURNITOR","Vlera":"","IdGrupKontroll":10205},{"IdParametri":20925,"Emri":"filterGrupimKF1","Pershkrimi":"","KolonaDb":"","Vlera":null,"IdGrupKontroll":20473},{"IdParametri":20926,"Emri":"filterGrupimKF2","Pershkrimi":"","KolonaDb":"","Vlera":null,"IdGrupKontroll":20474},{"IdParametri":20927,"Emri":"filterGrupimKF3","Pershkrimi":"","KolonaDb":"","Vlera":"","IdGrupKontroll":20475},{"IdParametri":20989,"Emri":"filterKontabilizuar","Pershkrimi":"","KolonaDb":"","Vlera":"2","IdGrupKontroll":20513}]</value>
+  </data>
+  <data name="$this.Extensions1" xml:space="preserve">
+    <value>{"Ci":"sq-AL","IdNdermarrje":564,"IdPerdoruesi":3655,"GuidString":"fb3aad8c-a148-4f79-970c-2c365e740f91","IdRaporti":41,"IdGjuha":0,"Vjen":"","IdViti":11973,"IdSubRaporti":0,"ScopeID":"4c91069e-fa9c-4eee-9fe6-b92d431e1910","NdermarrjePershkrimi":"Irida ","NdermarrjeKodi":"i2","NdermarrjeNipt":"L16319001V","NdermarrjeVendi":"Rruga e Elbasanit, Tiranë","KodiViti":"2019","EmriPerdorues":"kot","MbiemriPerdorues":"Mbiemer","NdermarrjeQytetiPershkrimi":"tirane","NdermarrjeTel":"045 888-012","NdermarrjeKodiFiskal":"kodifisk"}</value>
+  </data>
+  <data name="$this.Extensions2" xml:space="preserve">
+    <value>"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"</value>
+  </data>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("GJENDJEMBARTUR") != null)
+            {
+                if (GetCurrentColumnValue("GJENDJEMBARTUR").ToString() == "1")
+                {
+                    e.Cancel = true;
+                }
+            }
+}
+      int cnt = 0;
+    double vleraProgresive = 0;
+  double gjendjameparedebi = 0;
+  double gjendjameparekredi = 0;
+double shumadebi = 0;
+   double shumakredi = 0;
+  double debikredi = 0;
+   double gjendjameparedebimonllog = 0;
+double gjendjameparekredimonllog = 0;
+   double vleraProgresive2 = 0;
+      double shumakredimonllog = 0;
+    double debikredimonllog = 0;
+        double shumadebimonllog = 0;
+      
+           
+private void xrLabel48_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("DEBIMONBAZE") != null &amp;&amp; GetCurrentColumnValue("KREDIMONBAZE").ToString() != "")
+            {
+                if (cnt == 1)
+                    vleraProgresive = vleraProgresive + gjendjameparedebi - gjendjameparekredi;
+                vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("DEBIMONBAZE").ToString()) - Convert.ToDouble(GetCurrentColumnValue("KREDIMONBAZE").ToString());
+                xrLabel48.Text = String.Format("{0:#,#.00}", vleraProgresive);
+            }
+}
+
+private void xrLabel29_AfterPrint(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("GJENDJADEBI") != null)
+            {
+                gjendjameparedebi = Convert.ToDouble(GetCurrentColumnValue("GJENDJADEBI").ToString());
+            }
+}
+
+private void xrLabel46_AfterPrint(object sender, System.EventArgs e) {
+
+            if (GetCurrentColumnValue("DEBIMONBAZE") != null)
+            {
+                shumadebi = shumadebi + Convert.ToDouble(GetCurrentColumnValue("DEBIMONBAZE").ToString());
+            }
+}
+
+private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (gjendjameparedebi - gjendjameparekredi &gt;= 0)
+                shumadebi = shumadebi + gjendjameparedebi - gjendjameparekredi;
+            xrLabel61.Text = String.Format("{0:#,#.00}", shumadebi);
+}
+
+private void xrLabel47_AfterPrint(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("KREDIMONBAZE") != null)
+            {
+                shumakredi = shumakredi + Convert.ToDouble(GetCurrentColumnValue("KREDIMONBAZE").ToString());
+            }
+}
+
+private void xrLabel62_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  if (gjendjameparedebi - gjendjameparekredi &lt;= 0)
+                shumakredi = shumakredi - gjendjameparedebi + gjendjameparekredi;
+            xrLabel62.Text = String.Format("{0:#,#.00}", shumakredi);
+}
+
+private void xrLabel30_AfterPrint(object sender, System.EventArgs e) {
+
+            if (GetCurrentColumnValue("GJENDJAKREDI") != null)
+            {
+                gjendjameparekredi = Convert.ToDouble(GetCurrentColumnValue("GJENDJAKREDI").ToString());
+            }
+}
+
+private void xrLabel70_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+debikredi = (shumadebi - shumakredi);
+            if (debikredi &gt;= 0)
+            {
+                xrLabel70.Text = String.Format("{0:#,#.00}", debikredi);
+            }
+            else
+                xrLabel70.Text = ".00";
+}
+
+private void xrLabel71_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ debikredi = (shumadebi - shumakredi);
+            if (debikredi &lt;= 0)
+            {
+                debikredi = -debikredi;
+                xrLabel71.Text = String.Format("{0:#,#.00}", debikredi);
+            }
+            else
+                xrLabel71.Text = ".00";
+}
+
+private void xrLabel32_AfterPrint(object sender, System.EventArgs e) {
+
+            if (GetCurrentColumnValue("GjendjaDebiLlog") != null)
+            {
+                gjendjameparedebimonllog = Convert.ToDouble(GetCurrentColumnValue("GjendjaDebiLlog").ToString()) ;
+            }
+}
+
+private void xrLabel33_AfterPrint(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("GjendjaKrediLlog") != null)
+            {
+                gjendjameparekredimonllog = Convert.ToDouble(GetCurrentColumnValue("GjendjaKrediLlog").ToString());
+            }
+}
+
+private void xrLabel49_AfterPrint(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("DEBIMONLLOG") != null)
+            {
+                shumadebimonllog = shumadebimonllog + Convert.ToDouble(GetCurrentColumnValue("DEBIMONLLOG").ToString());
+            }
+}
+
+private void xrLabel50_AfterPrint(object sender, System.EventArgs e) {
+if (GetCurrentColumnValue("KREDIMONLLOG") != null)
+            {
+                shumakredimonllog = shumakredimonllog + Convert.ToDouble(GetCurrentColumnValue("KREDIMONLLOG").ToString());
+            }
+}
+
+private void xrLabel51_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("DEBIMONLLOG") != null &amp;&amp; GetCurrentColumnValue("KREDIMONLLOG").ToString() != "")
+            {
+                if (cnt == 1)
+                    vleraProgresive2 = vleraProgresive2 + gjendjameparedebimonllog - gjendjameparekredimonllog;
+                vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("DEBIMONLLOG").ToString()) - Convert.ToDouble(GetCurrentColumnValue("KREDIMONLLOG").ToString());
+                xrLabel51.Text = String.Format("{0:#,#.00}", vleraProgresive2);
+            }
+}
+
+private void xrLabel58_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+            if (gjendjameparedebimonllog - gjendjameparekredimonllog &gt;= 0)
+                shumadebimonllog = shumadebimonllog + gjendjameparedebimonllog - gjendjameparekredimonllog;
+            xrLabel58.Text = String.Format("{0:#,#.00}", shumadebimonllog);
+}
+
+private void xrLabel59_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (gjendjameparedebimonllog - gjendjameparekredimonllog &lt;= 0)
+                shumakredimonllog = shumakredimonllog - gjendjameparedebimonllog + gjendjameparekredimonllog;
+            xrLabel59.Text = String.Format("{0:#,#.00}", shumakredimonllog);
+}
+
+private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ debikredimonllog = (shumadebimonllog - shumakredimonllog);
+            if (debikredimonllog &gt;= 0)
+            {
+                xrLabel73.Text = String.Format("{0:#,#.00}", debikredimonllog);
+            }
+            else
+                xrLabel73.Text = ".00";
+}
+
+private void xrLabel74_AfterPrint(object sender, System.EventArgs e) {
+  vleraProgresive = 0;
+            vleraProgresive2 = 0;
+            gjendjameparedebi = 0;
+            gjendjameparedebimonllog = 0;
+            gjendjameparekredi = 0;
+            gjendjameparekredimonllog = 0;
+            shumadebi = 0;
+            shumakredi = 0;
+            debikredi = 0;
+            shumadebimonllog = 0;
+            shumakredimonllog = 0;
+            debikredimonllog = 0;
+            cnt = 0;
+}
+
+private void xrLabel74_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  debikredimonllog = (shumadebimonllog - shumakredimonllog);
+            if (debikredimonllog &lt;= 0)
+            {
+                debikredimonllog = -debikredimonllog;
+                xrLabel74.Text = String.Format("{0:#,#.00}", debikredimonllog);
+            }
+            else
+                xrLabel74.Text = ".00";
+}
+
+private void xrLabel40_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+XRLabel label = (XRLabel)sender;
+XtraReport report = (XtraReport)label.Report; 
+
+ if (GetCurrentColumnValue("DATEDOKGJENDJEKF") != null)
+            {
+                cnt++;
+                xrLabel40.Text = cnt.ToString();
+                string llojDok = GetCurrentColumnValue("NIVELREGJISTRIMI").ToString();
+                string nrDok = GetCurrentColumnValue("NRDOKGJENDJEKF").ToString();
+                string idDok = GetCurrentColumnValue("IDDOKUMENTI").ToString();
+                string url = AlphaWebReports.raporteUtil.ktheUrlDokumentiRaportKlientFurnitor( llojDok, idDok, nrDok, scopeID );
+
+                if (url != "")
+                {
+                    xrLabel40.NavigateUrl = url;
+                    xrLabel40.ForeColor = Color.SteelBlue;
+           		  xrLabel40.Target = "_self";
+                }
+            }
+}
+
+
+
+string scopeID ;
+private void Rap_KartelaKlient_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+     var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+ scopeID = parametraRaporti.ScopeID;
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+
+}</value>
+  </data>
+</root>

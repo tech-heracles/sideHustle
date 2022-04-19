@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MZHULANDFILLS</name>
+  <id>LayerInfoImpl-66de968a:1599c84b894:-43b4</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-66de968a:1599c84b894:-43bb</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-66de968a:1599c84b894:-43b5</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

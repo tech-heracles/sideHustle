@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>System.Collections.Generic.List&lt;object[]&gt; trupi = new System.Collections.Generic.List&lt;object[]&gt;();
+
+
+private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ xrPictureBox1.ImageUrl = "~/images/ALPETROL.png";
+}
+  private XRTable CreateXRTable()
+        {
+            int i = 0;
+            XRTable table = new XRTable();
+            table.Size = new Size(650, 20);
+            table.BeginInit();
+            table.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
+            if (trupi.Count &gt; 0)
+            {
+                for (int j = table.Rows.Count - 1; j &gt;= 1; j--)
+                {
+                    table.Rows.RemoveAt(j);
+                }
+                foreach (object[] obj in trupi)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 20f;
+
+                    XRTableCell nr = new XRTableCell();
+                    nr.WidthF = 26.72f;
+                    nr.Name = "nr";// + i.ToString();
+                    nr.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    nr.Text = obj[0].ToString();
+                    nr.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0);
+                    nr.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    nr.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    nr.BorderColor = System.Drawing.Color.Silver;
+                    nr.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(nr);
+
+                    XRTableCell nrArt = new XRTableCell();
+                    nrArt.WidthF = 62.65f;
+                    nrArt.Name = "nrArt";// + i.ToString();
+                    nrArt.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    nrArt.Text = obj[1].ToString();
+                    nrArt.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0);
+                    nrArt.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    nrArt.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    nrArt.BorderColor = System.Drawing.Color.Silver;
+                    nrArt.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(nrArt);
+
+                    XRTableCell PERSHKRIMI = new XRTableCell();
+                    PERSHKRIMI.WidthF = 189.33f;
+                    PERSHKRIMI.Name = "PERSHKRIMI"; // + i.ToString();
+                    PERSHKRIMI.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    PERSHKRIMI.Text = obj[2].ToString();
+                    PERSHKRIMI.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    PERSHKRIMI.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    PERSHKRIMI.BorderColor = System.Drawing.Color.Silver;
+                    PERSHKRIMI.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(PERSHKRIMI);
+
+                    XRTableCell NJESI = new XRTableCell();
+                    NJESI.WidthF = 45.79f;
+                    NJESI.Name = "NJESI";// + i.ToString();
+                    NJESI.Text = obj[3].ToString();
+                    NJESI.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    NJESI.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    NJESI.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    NJESI.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    NJESI.BorderColor = System.Drawing.Color.Silver;
+                    NJESI.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(NJESI);
+
+                    XRTableCell SASIA = new XRTableCell();
+                    SASIA.WidthF = 48.12f;
+                    SASIA.Name = "SASIA";// + i.ToString();
+                    SASIA.Text = String.Format("{0:n2}", obj[4]);
+                    SASIA.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    SASIA.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    SASIA.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    SASIA.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    SASIA.BorderColor = System.Drawing.Color.Silver;
+                    SASIA.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(SASIA);
+
+                    XRTableCell CMIMIMETVSH = new XRTableCell();
+                    CMIMIMETVSH.WidthF = 98f;
+                    CMIMIMETVSH.Name = "CMIMIMETVSH";// + i.ToString();
+                    CMIMIMETVSH.Text = String.Format("{0:n2}", obj[5]);
+                    CMIMIMETVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    CMIMIMETVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    CMIMIMETVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    CMIMIMETVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    CMIMIMETVSH.BorderColor = System.Drawing.Color.Silver;
+                    CMIMIMETVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(CMIMIMETVSH);
+
+                    XRTableCell CMIMIPATVSH = new XRTableCell();
+                    CMIMIPATVSH.WidthF = 98f;
+                    CMIMIPATVSH.Name = "CMIMIPATVSH";// + i.ToString();
+                    CMIMIPATVSH.Text = String.Format("{0:n2}", obj[6]);
+                    CMIMIPATVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    CMIMIPATVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    CMIMIPATVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    CMIMIPATVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    CMIMIPATVSH.BorderColor = System.Drawing.Color.Silver;
+                    CMIMIPATVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(CMIMIPATVSH);
+
+                    XRTableCell VLEFTAPATVSH = new XRTableCell();
+                    VLEFTAPATVSH.WidthF = 88f;
+                    VLEFTAPATVSH.Name = "VLEFTAPATVSH";// + i.ToString();
+                    VLEFTAPATVSH.Text = String.Format("{0:n2}", obj[7]);
+                    VLEFTAPATVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    VLEFTAPATVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    VLEFTAPATVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    VLEFTAPATVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    VLEFTAPATVSH.BorderColor = System.Drawing.Color.Silver;
+                    VLEFTAPATVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(VLEFTAPATVSH);
+
+                    XRTableCell tvsh = new XRTableCell();
+                    tvsh.WidthF = 53.31f;
+                    tvsh.Name = "VLEFTAPATVSH";// + i.ToString();
+                    tvsh.Text = String.Format("{0:n2}", obj[8]);
+                    tvsh.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    tvsh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    tvsh.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    tvsh.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    tvsh.BorderColor = System.Drawing.Color.Silver;
+                    tvsh.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(tvsh);
+
+                    XRTableCell VLEFTAMETVSH = new XRTableCell();
+                    VLEFTAMETVSH.WidthF = 92.07f;
+                    VLEFTAMETVSH.Name = "VLEFTAMETVSH";// + i.ToString();
+                    VLEFTAMETVSH.Text = String.Format("{0:n2}", obj[9]);
+                    VLEFTAMETVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    VLEFTAMETVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    VLEFTAMETVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    VLEFTAMETVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    VLEFTAMETVSH.BorderColor = System.Drawing.Color.Silver;
+                    VLEFTAMETVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(VLEFTAMETVSH);
+
+                    table.Rows.Add(rr);
+                    i++;
+                }
+                table.EndInit();
+            }
+            return table;
+        }
+
+   private void shtoRreshtatNeTabele(XRTable xrTable2)
+        {
+            int i = 0;
+            if (trupi.Count &gt; 0)
+            {
+                for (int j = xrTable2.Rows.Count - 1; j &gt;= 1; j--)
+                {
+                    xrTable2.Rows.RemoveAt(j);
+                }
+                foreach (object[] obj in trupi)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 20f;
+
+                    XRTableCell nr = new XRTableCell();
+                    nr.WidthF = 26.72f;
+                   // nr.Name = "nr" + i.ToString();
+                    nr.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    nr.Text = obj[0].ToString();
+                    nr.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0);
+                    nr.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    nr.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    nr.BorderColor = System.Drawing.Color.Silver;
+                    nr.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(nr);
+
+                    XRTableCell nrArt = new XRTableCell();
+                    nrArt.WidthF = 62.65f;
+                   // nrArt.Name = "nrArt" + i.ToString();
+                    nrArt.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    nrArt.Text = obj[1].ToString();
+                    nrArt.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0);
+                    nrArt.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    nrArt.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    nrArt.BorderColor = System.Drawing.Color.Silver;
+                    nrArt.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(nrArt);
+
+                    XRTableCell PERSHKRIMI = new XRTableCell();
+                    PERSHKRIMI.WidthF = 189.33f;
+                  //  PERSHKRIMI.Name = "PERSHKRIMI" + i.ToString();
+                    PERSHKRIMI.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    PERSHKRIMI.Text = obj[2].ToString();
+                    PERSHKRIMI.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    PERSHKRIMI.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    PERSHKRIMI.BorderColor = System.Drawing.Color.Silver;
+                    PERSHKRIMI.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(PERSHKRIMI);
+
+                    XRTableCell NJESI = new XRTableCell();
+                    NJESI.WidthF = 45.79f;
+                   // NJESI.Name = "NJESI" + i.ToString();
+                    NJESI.Text = obj[3].ToString();
+                    NJESI.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    NJESI.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+                    NJESI.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    NJESI.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    NJESI.BorderColor = System.Drawing.Color.Silver;
+                    NJESI.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(NJESI);
+
+                    XRTableCell SASIA = new XRTableCell();
+                    SASIA.WidthF = 48.12f;
+                    //SASIA.Name = "SASIA" + i.ToString();
+                    SASIA.Text = String.Format("{0:n2}",obj[4]);
+                    SASIA.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    SASIA.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    SASIA.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    SASIA.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    SASIA.BorderColor = System.Drawing.Color.Silver;
+                    SASIA.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(SASIA);
+
+                    XRTableCell CMIMIMETVSH = new XRTableCell();
+                    CMIMIMETVSH.WidthF = 98f;
+                  //  CMIMIMETVSH.Name = "CMIMIMETVSH" + i.ToString();
+                    CMIMIMETVSH.Text = String.Format("{0:n2}",obj[5]);
+                    CMIMIMETVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    CMIMIMETVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    CMIMIMETVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    CMIMIMETVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    CMIMIMETVSH.BorderColor = System.Drawing.Color.Silver;
+                    CMIMIMETVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(CMIMIMETVSH);
+
+                    XRTableCell CMIMIPATVSH = new XRTableCell();
+                    CMIMIPATVSH.WidthF = 98f;
+                   // CMIMIPATVSH.Name = "CMIMIPATVSH" + i.ToString();
+                    CMIMIPATVSH.Text = String.Format("{0:n2}",obj[6]);
+                    CMIMIPATVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    CMIMIPATVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    CMIMIPATVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    CMIMIPATVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    CMIMIPATVSH.BorderColor = System.Drawing.Color.Silver;
+                    CMIMIPATVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(CMIMIPATVSH);
+
+                    XRTableCell VLEFTAPATVSH = new XRTableCell();
+                    VLEFTAPATVSH.WidthF = 88f;
+                   // VLEFTAPATVSH.Name = "VLEFTAPATVSH" + i.ToString();
+                    VLEFTAPATVSH.Text = String.Format("{0:n2}",obj[7]);
+                    VLEFTAPATVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    VLEFTAPATVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    VLEFTAPATVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    VLEFTAPATVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    VLEFTAPATVSH.BorderColor = System.Drawing.Color.Silver;
+                    VLEFTAPATVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(VLEFTAPATVSH);
+
+                    XRTableCell tvsh = new XRTableCell();
+                    tvsh.WidthF = 53.31f;
+                    //tvsh.Name = "VLEFTAPATVSH" + i.ToString();
+                    tvsh.Text = String.Format("{0:n2}",obj[8]);
+                    tvsh.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    tvsh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    tvsh.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    tvsh.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    tvsh.BorderColor = System.Drawing.Color.Silver;
+                    tvsh.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(tvsh);
+
+                    XRTableCell VLEFTAMETVSH = new XRTableCell();
+                    VLEFTAMETVSH.WidthF = 92.07f;
+                    //VLEFTAMETVSH.Name = "VLEFTAMETVSH" + i.ToString();
+                    VLEFTAMETVSH.Text = String.Format("{0:n2}",obj[9]);
+                    VLEFTAMETVSH.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    VLEFTAMETVSH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+                    VLEFTAMETVSH.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    VLEFTAMETVSH.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                    VLEFTAMETVSH.BorderColor = System.Drawing.Color.Silver;
+                    VLEFTAMETVSH.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(VLEFTAMETVSH);
+
+                    xrTable2.Rows.Insert((i + 1), rr);
+                    i++;
+                }
+            }
+        }
+private void Rap_FormatShitjeAlpetrolA5_2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+this.Detail.Controls.Add(CreateXRTable());
+            System.Data.DataTable dt = ((System.Data.DataSet)(this.DataSource)).Tables[0];
+            for (int i = 0; i &lt; dt.Rows.Count; i++)
+            {
+                object nrArt = dt.Rows[i]["KODI"];
+                object PERSHKRIMI = dt.Rows[i]["PERSHKRIMI"];
+                object NJESI = dt.Rows[i]["PERSHKRIMNJESIA"];
+                object SASIA = dt.Rows[i]["SASIA"];
+                object CMIMIPATVSH = dt.Rows[i]["CMIMIPATVSH"];
+                object CMIMIMETVSH = Convert.ToDouble(Convert.ToDouble(dt.Rows[i]["CMIMIPATVSH"])*(1 + Convert.ToDouble(dt.Rows[i]["TVSH"])));  //[CMIMI]*(1+[TVSH])
+                object VLEFTAPATVSH = dt.Rows[i]["VLEFTAPATVSH"];
+                object tvsh = Convert.ToDouble(dt.Rows[i]["TVSH"]) * Convert.ToDouble(dt.Rows[i]["VLEFTAPATVSH"]);   // Round( [TVSH] * [VLEFTAPATVSH],2)
+                object VLEFTAMETVSH = dt.Rows[i]["VLEFTAMETVSH"];
+                
+                object[] obj = new object[10];
+                obj[0] = (i + 1).ToString();
+                obj[1] = nrArt;
+                obj[2] = PERSHKRIMI;
+                obj[3] = NJESI;
+                obj[4] = SASIA;
+                obj[5] = CMIMIMETVSH;
+                obj[6] = CMIMIPATVSH;
+                obj[7] = VLEFTAPATVSH;
+                obj[8] = tvsh;
+                obj[9] = VLEFTAMETVSH;
+                trupi.Add(obj);
+            }
+}
+
+private void xrTable1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ shtoRreshtatNeTabele(xrTable1);
+}
+
+private void xrTable3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+shtoRreshtatNeTabele(xrTable3);
+}
+
+private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrPictureBox2.ImageUrl = "~/images/ALPETROL.png";
+}
+
+private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("PERSHKRIMNIVELI").ToString() != "Fature shitje")
+                xrLabel2.Visible = false;
+}
+
+private void xrLabel78_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("PERSHKRIMNIVELI").ToString() != "Fature shitje")
+                xrLabel78.Visible = false;
+}
+</value>
+  </data>
+</root>

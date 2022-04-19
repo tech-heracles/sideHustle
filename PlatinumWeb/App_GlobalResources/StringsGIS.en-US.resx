@@ -1,0 +1,2023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADMLOGIN_PAGE_LOGOUT" xml:space="preserve">
+    <value>Log out</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADMLOGIN_PAGE_MSG_TEXT" xml:space="preserve">
+    <value>You have administrator permissions! &lt;br&gt;&lt;br&gt;&lt;br&gt; Please select application!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADMLOGIN_PAGE_TIT" xml:space="preserve">
+    <value>GISAssets</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADMLOGIN_PAGE_ZgjAdmin" xml:space="preserve">
+    <value>Management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADMLOGIN_PAGE_ZgjGis" xml:space="preserve">
+    <value>GIS</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_FSHIJ_JOSUKSES" xml:space="preserve">
+    <value>Error! Permission has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_FSHIJ_SUKSES" xml:space="preserve">
+    <value>Permission has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_GAB_KERK_MSG" xml:space="preserve">
+    <value>Error in syntax!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_GAB_LAYER_MSG" xml:space="preserve">
+    <value>Layer does not exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_GAB_SHERB_MSG" xml:space="preserve">
+    <value>Service does not exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_JOSUKSES_EXIST" xml:space="preserve">
+    <value>Error! Permission exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_JOSUKSES_SAVE" xml:space="preserve">
+    <value>Permission has not been successfully created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_MERRFOLDER_ERR" xml:space="preserve">
+    <value>Error!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_MERRWORK_ERR" xml:space="preserve">
+    <value>Error!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_EDREJTA_SUKSES" xml:space="preserve">
+    <value>New permission successfully created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJLIST_ERRSUKSES_MSG_ZENE" xml:space="preserve">
+    <value>Error! List belong to a layer! Delete connection and then continue </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJLIST_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! List has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJLIST_SUKSES_MSG" xml:space="preserve">
+    <value>List has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJROL_GAB_MSG" xml:space="preserve">
+    <value>Error! Role has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJROL_GAB_MSG_SKEDAR_PROB" xml:space="preserve">
+    <value>Error! Files belong to selected role have not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJROL_GAB_MSG_ZENE" xml:space="preserve">
+    <value>Role belong to a user! Delete the user from role to continue!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJROL_SUKSES_MSG" xml:space="preserve">
+    <value>Role has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJ_LAYER_ERR_MSG" xml:space="preserve">
+    <value>Error! Layer has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJ_LAYER_ERR_MSG_ZENE" xml:space="preserve">
+    <value>Layer belong to a role! Delete layer from role's permission and then can continue</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJ_LAYER_JOSUKSES" xml:space="preserve">
+    <value>Error! Layer has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIJ_LAYER_SUKSES" xml:space="preserve">
+    <value>Layer has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIROL_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! New role has not been created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIUSER_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! User has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_FSHIUSER_SUKSES_MSG" xml:space="preserve">
+    <value>User has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_FshijAtrListAtr" xml:space="preserve">
+    <value>Delete attribute</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_FshijLay" xml:space="preserve">
+    <value>Delete layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_FshijLidhAtr" xml:space="preserve">
+    <value>Delete</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_FshijListAtr" xml:space="preserve">
+    <value>Delete a list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_KerkLidhAtr" xml:space="preserve">
+    <value>Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_KerkListAtr" xml:space="preserve">
+    <value>Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_KerkoLay" xml:space="preserve">
+    <value>Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ModLay" xml:space="preserve">
+    <value>Edit layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ModLidhAtr" xml:space="preserve">
+    <value>Edit a connection</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ModListAtr" xml:space="preserve">
+    <value>Edit a list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ShtoAtrListAtr" xml:space="preserve">
+    <value>Add attribute</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ShtoLay" xml:space="preserve">
+    <value>Add layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ShtoLidhAtr" xml:space="preserve">
+    <value>Create a new connection</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_BTN_ShtoListAtr" xml:space="preserve">
+    <value>Create a new list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_AtrListFshij" xml:space="preserve">
+    <value>No field selected</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_FshiAtrList" xml:space="preserve">
+    <value>Are you sure you want to delete this field?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_FshijLay" xml:space="preserve">
+    <value>Are you sure you want to delete this layer?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_FshijLidhListAtr" xml:space="preserve">
+    <value>Are you sure you want to delete this connection?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_FshijList" xml:space="preserve">
+    <value>Are you sure you want to delete this list ?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_MSG_MSG_kerkeseGeoErro" xml:space="preserve">
+    <value>You do not have the credentials to make such a request for this layer, add this layer with the research  right for the role you are logged in</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_BasLay" xml:space="preserve">
+    <value>Base layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_COL_AtrListAtrA" xml:space="preserve">
+    <value>Attributes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_COL_AtrListAtrPer" xml:space="preserve">
+    <value>Description</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_EmLayGeo" xml:space="preserve">
+    <value>Layer name (Geoserver)</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_EmrListAtr" xml:space="preserve">
+    <value>List name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_Fold" xml:space="preserve">
+    <value>Folder</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_Format" xml:space="preserve">
+    <value>Format</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_LayTit" xml:space="preserve">
+    <value>Title</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_LidhAtrEmKol" xml:space="preserve">
+    <value>Field name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_LidhAtrEmLay" xml:space="preserve">
+    <value>Layer name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_LidhAtrEmList" xml:space="preserve">
+    <value>List name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_Page" xml:space="preserve">
+    <value>Layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_PershListAtr" xml:space="preserve">
+    <value>List description</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_TipiAtListAtr" xml:space="preserve">
+    <value>Attributes type</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_TitUrl" xml:space="preserve">
+    <value>URL</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_TitWorks" xml:space="preserve">
+    <value>Workspace</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_TIT_Vis" xml:space="preserve">
+    <value>Visibility</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_NENTIT_AdminLay" xml:space="preserve">
+    <value>Layer management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_KrijoLay" xml:space="preserve">
+    <value>Create a new layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_KrijoList" xml:space="preserve">
+    <value>Create a list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_LidhListAtr" xml:space="preserve">
+    <value>Manage connection</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_ListAtr" xml:space="preserve">
+    <value>List management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_ModLay" xml:space="preserve">
+    <value>Edit layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLAYERS_WIN_TIT_ModList" xml:space="preserve">
+    <value>Edit a list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRLISTATR_TIT_Page" xml:space="preserve">
+    <value>Attributes list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_BTN_TIT_FshijRol" xml:space="preserve">
+    <value>Delete a role</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_BTN_TIT_Kerk" xml:space="preserve">
+    <value>Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_BTN_TIT_KrijoRol" xml:space="preserve">
+    <value>Create a new role</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_BTN_TIT_ModRol" xml:space="preserve">
+    <value>Modify a new role</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_MSG_MSG_fshijRol" xml:space="preserve">
+    <value>Are you sure you want to delete this role?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_TIT_Emert" xml:space="preserve">
+    <value>Type</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_TIT_Page" xml:space="preserve">
+    <value>Roles</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_WIN_TIT_AdminRol" xml:space="preserve">
+    <value>Role management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLES_WIN_TIT_KrijoRol" xml:space="preserve">
+    <value>Create a rol</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_FshijTeDrejte" xml:space="preserve">
+    <value>Delete permission</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_KerkLayer" xml:space="preserve">
+    <value>Search layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_KerkPerd" xml:space="preserve">
+    <value>Search users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_ShtoPerd" xml:space="preserve">
+    <value>Add users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_ShtoTeDr" xml:space="preserve">
+    <value>Add permission</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_ShtTeDrejte" xml:space="preserve">
+    <value>Add permission</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_BTN_TOOLTIP_Rol" xml:space="preserve">
+    <value>Role detemines permissions</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_MSG_FshijDr" xml:space="preserve">
+    <value>Are you sure you want to delete this permission?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_MSG_HeadMsg" xml:space="preserve">
+    <value>Management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_PAGE_TIT" xml:space="preserve">
+    <value>Set role permissions.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TAB_TIT_AdmDrejt" xml:space="preserve">
+    <value>Permission management settings.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TAB_TIT_AdmPerd" xml:space="preserve">
+    <value>Users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_Emr" xml:space="preserve">
+    <value>Name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_LayerR" xml:space="preserve">
+    <value>Layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_Mb" xml:space="preserve">
+    <value>Surname</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_Sherbimi" xml:space="preserve">
+    <value>Service</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_UsNam" xml:space="preserve">
+    <value>Username</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_TIT_WorkSp" xml:space="preserve">
+    <value>Workspace</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_WIN_TIT_AdPerd" xml:space="preserve">
+    <value>User management settings</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRROLI_WIN_TIT_AdTeDrejt" xml:space="preserve">
+    <value>Permission management settings.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_BTN_KerkPerd" xml:space="preserve">
+    <value>Search </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_BTN_TOOLTIP_Rol" xml:space="preserve">
+    <value>Role detemines permissions</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_FRM_LlogAkt" xml:space="preserve">
+    <value>YES</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_FRM_LlogJoAkt" xml:space="preserve">
+    <value>NO</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_FRM_RolAdm" xml:space="preserve">
+    <value>Administrator</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_FRM_RolPer" xml:space="preserve">
+    <value>User</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_MSG_MSG_FshijPerd" xml:space="preserve">
+    <value>Are you sure you want to delete this users?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_MSG_MSG_PassNKomb" xml:space="preserve">
+    <value>Password does not match!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Email" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Emr" xml:space="preserve">
+    <value>Name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Fjal" xml:space="preserve">
+    <value>Password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_FjalPers" xml:space="preserve">
+    <value>Confirm password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_LlogAkt" xml:space="preserve">
+    <value>Active account</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Mb" xml:space="preserve">
+    <value>Surname</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_PAG" xml:space="preserve">
+    <value>Users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Perd" xml:space="preserve">
+    <value>Users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Poz" xml:space="preserve">
+    <value>Account type</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Roli" xml:space="preserve">
+    <value>Role</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_TBL_Per" xml:space="preserve">
+    <value>Users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_VendNd" xml:space="preserve">
+    <value>Location</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_WIN_TIT_AdminPerd" xml:space="preserve">
+    <value>Manage user account</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_WIN_TIT_FshijPerd" xml:space="preserve">
+    <value>Delete users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_WIN_TIT_KrijoPerd" xml:space="preserve">
+    <value>Create a new account</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_WIN_TIT_ModPerd" xml:space="preserve">
+    <value>Edit users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_WIN_TIT_ShtoPerd" xml:space="preserve">
+    <value>Add users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_KOKA_MEN_TEXT_AdLay" xml:space="preserve">
+    <value>Layers administration</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_KOKA_MEN_TEXT_AdListAtr" xml:space="preserve">
+    <value>Attributes list</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_KOKA_MEN_TEXT_AdPerd" xml:space="preserve">
+    <value>Users administration</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_KOKA_MEN_TEXT_AdRol" xml:space="preserve">
+    <value>Role management</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_EKZ_ERR" xml:space="preserve">
+    <value>Connection exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_EKZ_LIST_KOL_ERR" xml:space="preserve">
+    <value>List exist for this column! Delete connection and then create a new connection!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_FSHIJ_JOSUKSES" xml:space="preserve">
+    <value>Error! Connection has not been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_FSHIJ_SUKSES" xml:space="preserve">
+    <value>Connection has been deleted!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_KRIJO_JOSUKSES" xml:space="preserve">
+    <value>Error! Connection has not been created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_KRIJO_SUKSES" xml:space="preserve">
+    <value>New connection successfully created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_MOD_JOSUKSES" xml:space="preserve">
+    <value>Changes have not been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_LISTATR_LIDHJE_MOD_SUKSES" xml:space="preserve">
+    <value>Changes have been saved successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODIROL_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! Changes have not been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODLAYER_JOSUKSES" xml:space="preserve">
+    <value>Changes have not been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODLAYER_SUKSES" xml:space="preserve">
+    <value>Changes have been saved successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODROL_EKZ_MSG" xml:space="preserve">
+    <value>Error! Role name you set is taken!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODUSER_JOSUKSES_MSG" xml:space="preserve">
+    <value>Changes have not been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MODUSER_SUKSES_MSG" xml:space="preserve">
+    <value>Changes have been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Anullo" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Gabim" xml:space="preserve">
+    <value>Error!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Konf" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Kujdes" xml:space="preserve">
+    <value>Warning</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Ruaj" xml:space="preserve">
+    <value>Save</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_MSG_Sukses" xml:space="preserve">
+    <value>Successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELAYER_EKZIST" xml:space="preserve">
+    <value>Title you set exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELAYER_JOSUKSES" xml:space="preserve">
+    <value>Layer has not been created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELAYER_SUKSES" xml:space="preserve">
+    <value>Layer has been created successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELIST_EKZIST" xml:space="preserve">
+    <value>List name you set exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELIST_EKZ_MSG" xml:space="preserve">
+    <value>Error! List name you put exist!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELIST_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! Changes have not been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVELIST_SUKSES_MSG" xml:space="preserve">
+    <value>Changes have been saved successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVEROLE_EKZIST" xml:space="preserve">
+    <value>Error! Role name you set is taken!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVEROL_SUKSES_MSG" xml:space="preserve">
+    <value>New role has been created successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVEUSER_EKZIST" xml:space="preserve">
+    <value>This username is taken!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVEUSER_JOSUKSES_MSG" xml:space="preserve">
+    <value>User has not been created successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVEUSER_SUKSES_MSG" xml:space="preserve">
+    <value>User has been created successfully</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVE_LIST_JOSUKSES_MSG" xml:space="preserve">
+    <value>Error! List has not been created!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_SAVE_LIST_SUKSES_MSG" xml:space="preserve">
+    <value>List has been created successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="BTN_TOOLTIP_BufferGeo" xml:space="preserve">
+    <value>Buffer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_Kryesor" xml:space="preserve">
+    <value>Base layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_layerHartaFizikeGoogle" xml:space="preserve">
+    <value>Google Terrain</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_layerHartaImgHibrid" xml:space="preserve">
+    <value>Google Hybrid </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_layerHartaImgSat" xml:space="preserve">
+    <value>Google Satellite</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_layerHartaKufinjte" xml:space="preserve">
+    <value>Borders</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_layerHartaRrugeve" xml:space="preserve">
+    <value>Google Map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_ortophoto" xml:space="preserve">
+    <value>Orthophoto 20/35 cm</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_ortophoto_08_2007" xml:space="preserve">
+    <value>Orthophoto 8cm 2007</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_PrintoHartenMF" xml:space="preserve">
+    <value>Print map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_Kontakt" xml:space="preserve">
+    <value>Contact</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_LogOut" xml:space="preserve">
+    <value>Log out</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_AlphaWEB" xml:space="preserve">
+    <value>AlphaWEB</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_ManPerd" xml:space="preserve">
+    <value>User manual</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_MatDist" xml:space="preserve">
+    <value>Measure distance</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_MatKoord" xml:space="preserve">
+    <value>Capture Coordinates</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_MatSip" xml:space="preserve">
+    <value>Measure Area</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_NdrPass" xml:space="preserve">
+    <value>Change password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TEXT_UserGjuha" xml:space="preserve">
+    <value>Shqip</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TOOLTIP_MatDist" xml:space="preserve">
+    <value>Measure distance</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TOOLTIP_MatKoord" xml:space="preserve">
+    <value>Capture Coordinates</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_MENU_TOOLTIP_MatSip" xml:space="preserve">
+    <value>Measure Area</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_EDITbejTopo" xml:space="preserve">
+    <value>Topology</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_EDITperzgj_zon" xml:space="preserve">
+    <value>Select area</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_logim" xml:space="preserve">
+    <value>Log in</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_MerrInfo" xml:space="preserve">
+    <value>Get attributes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_Shpjegues" xml:space="preserve">
+    <value>Legend</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TEXT_UserLoguar" xml:space="preserve">
+    <value>Users</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Editim" xml:space="preserve">
+    <value>Click to open edit panel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_FullExtent" xml:space="preserve">
+    <value>Zoom full </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_ImportNgaGPS" xml:space="preserve">
+    <value>Import data from GPS</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Kerkim" xml:space="preserve">
+    <value>Click to open searching panel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_KerkimShpejte" xml:space="preserve">
+    <value>Search municipalities</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_logim" xml:space="preserve">
+    <value>Log in</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_MerrInfo" xml:space="preserve">
+    <value>Identify features</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Next" xml:space="preserve">
+    <value>Next</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Pan" xml:space="preserve">
+    <value>Pan</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Previous" xml:space="preserve">
+    <value>Previous</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_shfaqTeDhenatHyrese" xml:space="preserve">
+    <value>Display your data</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_ShkoNeXY" xml:space="preserve">
+    <value>Go to XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Shpjegues" xml:space="preserve">
+    <value>Legend</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_ZoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_ZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BufferMsgInfo" xml:space="preserve">
+    <value>Select in map the object for buffering</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BUFFER_DiameterLabel" xml:space="preserve">
+    <value>Radius (m)</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_EmtyText_bufferLayer" xml:space="preserve">
+    <value>Select layer to make buffering</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_EmtyText_KerkimShpejte" xml:space="preserve">
+    <value>Quick Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_EmtyText_TopoPikeLayer" xml:space="preserve">
+    <value>Choose layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_TOOLTIP_bufferLayer" xml:space="preserve">
+    <value>Layers available for buffer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_TOOLTIP_KerkimShpejte" xml:space="preserve">
+    <value>Search LGU</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_COMBO_TOOLTIP_TopoPikeLayer" xml:space="preserve">
+    <value>Choose layer where points should be!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIMPAN_COMBO_emptyText" xml:space="preserve">
+    <value>Select a layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIMPAN_DOK_GabKerkese" xml:space="preserve">
+    <value>error</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIMPAN_MSG_FshijDok" xml:space="preserve">
+    <value>Do you want to delete this file?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIMPAN_MSG_TipiDok" xml:space="preserve">
+    <value>Error in uploaded file type</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Drag" xml:space="preserve">
+    <value>Drag</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Fshij" xml:space="preserve">
+    <value>Delete selected features</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Mod" xml:space="preserve">
+    <value>Modify</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Ruaj" xml:space="preserve">
+    <value>Save</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Selekt" xml:space="preserve">
+    <value>Select features</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_SplitP" xml:space="preserve">
+    <value>Split </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_SplitV" xml:space="preserve">
+    <value>Split</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_VizPike" xml:space="preserve">
+    <value>Create a point</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_VizPol" xml:space="preserve">
+    <value>Create a polygon</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_VizVije" xml:space="preserve">
+    <value>Create a line</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_COMBOFIELDblankText" xml:space="preserve">
+    <value>You need to select a field</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_field_TEXT_Top_pik_brenda" xml:space="preserve">
+    <value>Choose layer where objects should be</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_BashkNeNje" xml:space="preserve">
+    <value>Merge</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_BashkNeSh" xml:space="preserve">
+    <value>Merge</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_SnapGjObj" xml:space="preserve">
+    <value>Snap object</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_SnapN" xml:space="preserve">
+    <value>Snap vertex</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_SnapNF" xml:space="preserve">
+    <value>Snap end point</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MEN_TEXT_Top_pol_mb" xml:space="preserve">
+    <value>There is no overlap</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_BashkNeNje" xml:space="preserve">
+    <value>You need to select 2 or more objects to continue with merging</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_BashkNeSh" xml:space="preserve">
+    <value>You need to select 2 or more objects to continue with merging</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_ErrServ" xml:space="preserve">
+    <value>Service error</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_GeoGabim" xml:space="preserve">
+    <value>Wrong geometry! Data have not been successfully saved!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_GeoGabimHistori" xml:space="preserve">
+    <value>Error! You Are Logging Out!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_IdDytErr" xml:space="preserve">
+    <value>System error! Please delete and recreate the object</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_MergeGeo" xml:space="preserve">
+    <value>Features need to intersect each other to continue with merge process</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_MergeGeoVije" xml:space="preserve">
+    <value>You need to select 2 line to continue with merge process.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_RUAJ" xml:space="preserve">
+    <value>Do you want to save the changes to this layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_RUAJErr" xml:space="preserve">
+    <value>Data have not been successfully modified! Please fill again.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_RuajError" xml:space="preserve">
+    <value>Error! Data has not been saved!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_RuajOk" xml:space="preserve">
+    <value>Data has been saved successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MSG_RuajProg" xml:space="preserve">
+    <value>Saving…</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_TEXT_ObjSelekt" xml:space="preserve">
+    <value>Selected features</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_TIT_RUAJ" xml:space="preserve">
+    <value>Save</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_AnullEdit" xml:space="preserve">
+    <value>Cancel sketch </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_Copy" xml:space="preserve">
+    <value>Dublicate</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_DrejtGjat" xml:space="preserve">
+    <value>Set direction</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_dXdY" xml:space="preserve">
+    <value>Set dXdY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_PerfEdit" xml:space="preserve">
+    <value>Finish sketch</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_PerfMod" xml:space="preserve">
+    <value>Finish editing</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTMENU_TEXT_XY" xml:space="preserve">
+    <value>Set XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHT_WIN_TIT_PlotXY" xml:space="preserve">
+    <value>Fill</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_TEXTFIELDblankText" xml:space="preserve">
+    <value>You need to select a field</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_WIN_TIT" xml:space="preserve">
+    <value>Edit</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_emriMinistrise_text" xml:space="preserve">
+    <value />
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_ERROR_TIPI_MSG_UPLOAD_SHP" xml:space="preserve">
+    <value>Error in file type! Upload only (*.shp) file</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_BTN_MENU_ExCad" xml:space="preserve">
+    <value>Export in Autocad (.dxf)</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_BTN_MENU_ExGml" xml:space="preserve">
+    <value>Export in GML</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_BTN_MENU_ExShp" xml:space="preserve">
+    <value>Export in shapefile (.shp)</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_BTN_MENU_ExExcel" xml:space="preserve">
+    <value>Export in Excel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_BTN_MENU_ExCSV" xml:space="preserve">
+    <value>Export in CSV</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_MSG_WAIT" xml:space="preserve">
+    <value>Exporting…</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_MSG_ZgjidhLay" xml:space="preserve">
+    <value>Select layers you want to export!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPMOD_WIN_BTN_TEXT" xml:space="preserve">
+    <value>Export</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_MSG_Satellite" xml:space="preserve">
+    <value>Maximum print scale 1: 1066</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_MSG_Terrain" xml:space="preserve">
+    <value>Maximum print scale 1: 17061</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_MSG_WAIT" xml:space="preserve">
+    <value>Generating pdf</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_WIN_FRM_BTN_TEXT" xml:space="preserve">
+    <value>Print</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_WIN_FRM_FL_Sc" xml:space="preserve">
+    <value>Map scale</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_WIN_FRM_FL_Tit" xml:space="preserve">
+    <value>Map Title</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDFMOD_WIN_TIT" xml:space="preserve">
+    <value>Print </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EXPPDF_BTN_TEXT" xml:space="preserve">
+    <value>Print image</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_DELBTN_TOOLTIP" xml:space="preserve">
+    <value>Delete file</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_BTN_NGARKO" xml:space="preserve">
+    <value>Upload</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_BTN_PastroFushat" xml:space="preserve">
+    <value>Delete fields</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_BTN_SKD" xml:space="preserve">
+    <value>Error</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_BTN_UPLOAD_SHP" xml:space="preserve">
+    <value>Choose File</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_FIELDNAME_EMR" xml:space="preserve">
+    <value>Name</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_FIELDNAME_SHP" xml:space="preserve">
+    <value>Shapefile</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GPSPAN_FORM_FIELDNAME_SKD" xml:space="preserve">
+    <value>Gpx file</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_BBAR_MSG_afterPageText" xml:space="preserve">
+    <value>from {0}</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_BBAR_MSG_beforePageText" xml:space="preserve">
+    <value>Page</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_BBAR_MSG_displayMsg" xml:space="preserve">
+    <value>{0} - {1} Displayed from {2}</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_BBAR_MSG_emptyMsg" xml:space="preserve">
+    <value>No results found</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_PrColModelNameText" xml:space="preserve">
+    <value>Attributes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_GRID_PrColModelValueText" xml:space="preserve">
+    <value>Values</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFORMACION_WIN_TIT" xml:space="preserve">
+    <value>Info</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAPTABPANREZ_GRID_TIT" xml:space="preserve">
+    <value>Search results</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAPTABPAN_COMBO_TIT" xml:space="preserve">
+    <value>Choose layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAPTABPAN_TIT" xml:space="preserve">
+    <value>GeoSpatial Search</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TEXT_KerFshij" xml:space="preserve">
+    <value>Clear</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TEXT_Kerko" xml:space="preserve">
+    <value>Search </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TOOLTIP_KerFshij" xml:space="preserve">
+    <value>Clear</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TOOLTIP_KerkoPol" xml:space="preserve">
+    <value>Select features by rectangle</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TOOLTIP_KerRR" xml:space="preserve">
+    <value>Select features by square</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_BTN_TOOLTIP_KerVije" xml:space="preserve">
+    <value>Select features line</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_COMBO_Kolonat" xml:space="preserve">
+    <value>Select field</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_COMBO_Operatoret" xml:space="preserve">
+    <value>Select operators</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMHAP_MSG_MSG_RrezKerk" xml:space="preserve">
+    <value>Radius</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMTABPANREZ_GRID_TIT" xml:space="preserve">
+    <value>Search results</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMTABPAN_COMBO_TIT" xml:space="preserve">
+    <value>Choose layer</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIMTABPAN_TIT" xml:space="preserve">
+    <value>Search by attributes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIM_BTN_TEXT_ExEx" xml:space="preserve">
+    <value>Export in exel (.xsl)</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIM_BTN_Title_ExEx" xml:space="preserve">
+    <value>Search results</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIM_BTN_TOOLTIP_ExEx" xml:space="preserve">
+    <value>Export in exel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KERKIM_MSG_MSG_LoadGrid" xml:space="preserve">
+    <value>Searching…</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_Gjat" xml:space="preserve">
+    <value>Length</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_Alb86_em" xml:space="preserve">
+    <value>Albanian 1986 / Gauss-Kruger Zone 4</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_headLind" xml:space="preserve">
+    <value>East</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_headSistGeo" xml:space="preserve">
+    <value>Coordinative System</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_headV" xml:space="preserve">
+    <value>North</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_UTM_em" xml:space="preserve">
+    <value>UTM Zone 34N </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_koord_WGS84_em" xml:space="preserve">
+    <value>WGS 84</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_KRYEJMATJE_MSG_Sip" xml:space="preserve">
+    <value>Area</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_LAYERPAN_MEN_TIT_TRANS" xml:space="preserve">
+    <value>Change transparency</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_LEGPAN_TIT_Shpjegues" xml:space="preserve">
+    <value>Legend</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_LOADMASK_LOAD_SHP" xml:space="preserve">
+    <value>Uploading data from shapefile...</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_LOADMASK_TEXT_AJAX_TOP" xml:space="preserve">
+    <value>Topology loading</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_buttonTextCancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_buttonTextNo" xml:space="preserve">
+    <value>No</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_buttonTextOk" xml:space="preserve">
+    <value>Ok</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_buttonTextYes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_Load_layer_buffer" xml:space="preserve">
+    <value>Loading...</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_Load_layer_topoPike" xml:space="preserve">
+    <value>Uploading...</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_asnjeEdheneUploadShp" xml:space="preserve">
+    <value>There is no data uploaded!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_EditimPanKerkimHap" xml:space="preserve">
+    <value>Close search panel before open edit panel </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_ERR_skaDokument" xml:space="preserve">
+    <value>There is no uploaded document</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_ERR_skedaretGps" xml:space="preserve">
+    <value>File has not been uploaded!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_FshijGpsSkedare" xml:space="preserve">
+    <value>Do you want to delete this file?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_gabim" xml:space="preserve">
+    <value>Error!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_G_teDhenatHyresePerObjektGis" xml:space="preserve">
+    <value>Wrong Id !</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_KerkimPanEditHap" xml:space="preserve">
+    <value>Close edit panel before open search panel.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_KryejMatjePanEditHap" xml:space="preserve">
+    <value>Close edit panel before make measure!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_LoadShpSukses_msg" xml:space="preserve">
+    <value>Shapefile data uploaded successfully, click on save button to save them!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_MerrInfoPanEditHap" xml:space="preserve">
+    <value>Close edit panel before identifying features.</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_MerrTeDhenatZonatZone" xml:space="preserve">
+    <value>Wrong Alpha Id!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_NukKeniLayerBuffer" xml:space="preserve">
+    <value>You do not have permission in any layer to make buffering</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_NukKeniLayerTopo" xml:space="preserve">
+    <value>Error! There is no layer selected for topology!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_sukses" xml:space="preserve">
+    <value>Successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_updateTeDhenHyrPasGisEdit" xml:space="preserve">
+    <value>Error!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_TEXT_NoMetadata" xml:space="preserve">
+    <value>There is no metadata for this layer!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_TIT_Informacion" xml:space="preserve">
+    <value>Information</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_TIT_konfirmim" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_TIT_kujdes" xml:space="preserve">
+    <value>Warning!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_BTN_Anullo" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_BTN_Ruaj" xml:space="preserve">
+    <value>Save</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_FIELDLAB_FJRi" xml:space="preserve">
+    <value>New password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_FIELDLAB_FJRiK" xml:space="preserve">
+    <value>Confirm password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_FIELDLAB_FJVj" xml:space="preserve">
+    <value>Old password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_NDRPASSPAN_MSG_WAIT" xml:space="preserve">
+    <value>Saving…</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_OPACITY_SLIDER_PERC" xml:space="preserve">
+    <value>Opacity:</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_PANEL_BTN_TEXT_metadata" xml:space="preserve">
+    <value>Metadata</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_PANEL_TIT_metadata" xml:space="preserve">
+    <value>Matadata</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_PRINTGOO_TEXT_SHK" xml:space="preserve">
+    <value>Map scale</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_PRINTGOO_TITLEG" xml:space="preserve">
+    <value>Legend</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_HistoriMenuFshijText" xml:space="preserve">
+    <value>Delete point</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_HistoriMenuZmadhoText" xml:space="preserve">
+    <value>Zoom to selection</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_HistoriToolTipText" xml:space="preserve">
+    <value>Points</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_PANBTN_Title" xml:space="preserve">
+    <value>Go to X ,Y</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_PANBTN_ToolTip" xml:space="preserve">
+    <value>Go to XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_SHTOBTN_Title" xml:space="preserve">
+    <value>Add points in XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_SHTOBTN_ToolTip" xml:space="preserve">
+    <value>Add points in XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_ZOOMBTN_Title" xml:space="preserve">
+    <value>Zoom to  XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_ZOOMBTN_ToolTip" xml:space="preserve">
+    <value>Zoom to  XY</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHPPAN_FORM_BTN_NGARKO" xml:space="preserve">
+    <value>Upload</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHPPAN_FORM_BTN_PastroFushat" xml:space="preserve">
+    <value>Delete fields</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TIPI_GEOM_SHAPE_LOAD_GAB" xml:space="preserve">
+    <value>Geometry of shapefile does not match with the geometry of choosed layer! Uploading failed!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TITLE_PAN_layerave" xml:space="preserve">
+    <value>Map layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TITPAGE" xml:space="preserve">
+    <value>Alpha GIS</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOLTIP_BTN_Topologji_edit" xml:space="preserve">
+    <value>Topology - Intersected Objekted</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOLTIP_BTN_Upload_edit" xml:space="preserve">
+    <value>Upload shapefile</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOOLTIP_TEXT_EDITperzgj_zon" xml:space="preserve">
+    <value>Select area for topology</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOPOLOGJI_MSG_KUJD_skaLayerTePerzgjedhur" xml:space="preserve">
+    <value>Choose layer to continue with topology!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOPOLOGJI_MSG_KUJD_skaObjekte" xml:space="preserve">
+    <value>Select zone to validate topology</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOPOLOGJI_MSG_KUJD_skaRregulla" xml:space="preserve">
+    <value>Please select rules for topology!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TOPOLOGJI_MSG_nukKaobjekte_eRregull" xml:space="preserve">
+    <value>There is no objects error in topology!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_TREENODEPAN_TIT" xml:space="preserve">
+    <value>Layers</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_UPLOAD_SHP_ERROR_MSG_UP" xml:space="preserve">
+    <value>Shapefile did not upload!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_MSG_mesazhiFillimit" xml:space="preserve">
+    <value>Click on map to get Info for municipalities</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_NDRPASS_TIT" xml:space="preserve">
+    <value>Change password</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_creatingPdfText" xml:space="preserve">
+    <value>Generating pdf</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_dpiText" xml:space="preserve">
+    <value>DPI</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_LabelShenText" xml:space="preserve">
+    <value>Notes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_LabelTitText" xml:space="preserve">
+    <value>Map title</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_printText" xml:space="preserve">
+    <value>Generate in pdf</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_rotationText" xml:space="preserve">
+    <value>Rotation angel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_scaleText" xml:space="preserve">
+    <value>Map scale</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TEXT_title" xml:space="preserve">
+    <value>Log in</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_BufferLayerWin" xml:space="preserve">
+    <value>Select the layer you want to make buffering</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_BufferMultiSelect" xml:space="preserve">
+    <value>Select the object to make buffering</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_InfoDrit" xml:space="preserve">
+    <value>Info</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_JoinMultiSelect" xml:space="preserve">
+    <value>Select the object which will merge others</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_ModMultiSelect" xml:space="preserve">
+    <value>Select feature to edit</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_NgarkoGpsFile" xml:space="preserve">
+    <value>Upload data from GPS</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_NgarkoShpFile" xml:space="preserve">
+    <value>Upload data from shapefile</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_PRINTMF" xml:space="preserve">
+    <value>Print</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_TeDhenaHyreseNgaAlpha" xml:space="preserve">
+    <value>Data entry from Alpha</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TIT_topologji" xml:space="preserve">
+    <value>Topology</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_TOOLTIP_geolocation" xml:space="preserve">
+    <value>Geolocation</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_MSG_MSG_NoGeolocation" xml:space="preserve">
+    <value>No Geolocation</value>
+  </data>
+  <data name="GP_PrintimAddPage" xml:space="preserve">
+    <value>Add page</value>
+  </data>
+  <data name="GP_PrintimDefaultTitle" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="GP_PrintimLayout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="GP_MSG_Text_NoLogoUrlPrintim" xml:space="preserve">
+    <value>A logo for your enterprise can't be found!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_PRINTMF_LabelText" xml:space="preserve">
+    <value>Set logo</value>
+    <comment>GIS-label i checkbox per logon ne dritaren e printimit</comment>
+  </data>
+  <data name="GP_EDITIM_BTN_TOOLTIP_Zoom" xml:space="preserve">
+    <value>Zoom to object</value>
+    <comment>Afrohet ne objektin qe po punohet</comment>
+  </data>
+  <data name="GP_BASELAYER_Empty" xml:space="preserve">
+    <value>Empty Map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BASELAYER_Hijezim" xml:space="preserve">
+    <value>Add shadow</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BASELAYER_Topografike" xml:space="preserve">
+    <value>Topographic Map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_Arkiva" xml:space="preserve">
+    <value>Archives</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_Elementet" xml:space="preserve">
+    <value>Elements</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_File" xml:space="preserve">
+    <value>Files</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_Kodi" xml:space="preserve">
+    <value>Code</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_Serial" xml:space="preserve">
+    <value>Serial</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BLAYERPAN_TIT_ortophoto_08_2015" xml:space="preserve">
+    <value>Orthophoto 8cm 2015</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_GradeE" xml:space="preserve">
+    <value>Longitude (E) </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_GradeN" xml:space="preserve">
+    <value>Latitude (N) </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_MetrikeX" xml:space="preserve">
+    <value>Metric (X) </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_MetrikeY" xml:space="preserve">
+    <value>Metric (Y) </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_Metrike" xml:space="preserve">
+    <value>Metric</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_Tab1Title" xml:space="preserve">
+    <value>Select Projection:</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_Title" xml:space="preserve">
+    <value>Go to the map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_FatureBlerje" xml:space="preserve">
+    <value>Purchase Invoice</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_HiqLidhjen" xml:space="preserve">
+    <value>Remove Connection</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Kartela" xml:space="preserve">
+    <value>Cartel</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_LidhObjektet" xml:space="preserve">
+    <value>Connect Objects</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_ObjekteTePalidhura" xml:space="preserve">
+    <value>Unconnected</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_Prinderit" xml:space="preserve">
+    <value>Find parents</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_BlerjeFemijet" xml:space="preserve">
+    <value>Objects that have been made to purchase the warehouse provided</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_LidhjeFemijet" xml:space="preserve">
+    <value>Objects connected with a given object</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_TOOLTIP_RefreshSnap" xml:space="preserve">
+    <value>Snap refress on scale (1:1066)!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_BTN_RUAJBUTTON_Attention" xml:space="preserve">
+    <value>Are you sure to delete the object?</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_SHKOXYWIN_EnderValueAttention" xml:space="preserve">
+    <value>The value given is out of Albanian border</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_FSHIOK" xml:space="preserve">
+    <value>Erasing successfully finished!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_MODIFIKOOK" xml:space="preserve">
+    <value>Modification completed successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MSG_RUAJOK" xml:space="preserve">
+    <value>Saving completed successfully!</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_RIGHTCLICK_SHTO" xml:space="preserve">
+    <value>Add to map</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_CONN_DISTANCE" xml:space="preserve">
+    <value>Distance</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_CONN_WINTITLE" xml:space="preserve">
+    <value>Select object to connect</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_EDITIM_MERGE_WINTITLE" xml:space="preserve">
+    <value>Select object to merge</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="suffixMesazhNjejesReloadGabimi" xml:space="preserve">
+    <value>reload can not be done! </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="suffixMesazhShumesReloadGabimi" xml:space="preserve">
+    <value>can not be made reload! </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="suffixMesazhNjejesReloadSukses" xml:space="preserve">
+    <value>u bë reload me sukses! </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="suffixMesazhShumesReloadSukses" xml:space="preserve">
+    <value>it was successfully reload! </value>
+    <comment>GIS</comment>
+  </data>
+  <data name="MenuItemGISKonfigurime" xml:space="preserve">
+    <value>GIS Configurations</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="MenuItemGISKonfiguroWS" xml:space="preserve">
+    <value>Workspace</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="labelGjendjaAktuale" xml:space="preserve">
+    <value>Actual inventory</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="labelGjendjaFillestare" xml:space="preserve">
+    <value>Initial inventory</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="listItemMinuta" xml:space="preserve">
+    <value>Minutes</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="listItemOre" xml:space="preserve">
+    <value>Hours</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="listItemSekonda" xml:space="preserve">
+    <value>Seconds</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Dergo" xml:space="preserve">
+    <value>Sent</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="ADUI_GRUSERS_TIT_Mesazhi" xml:space="preserve">
+    <value>Your message</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_INFO_Raport" xml:space="preserve">
+    <value>Report</value>
+    <comment>GIS</comment>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyAirpVal" xml:space="preserve">
+    <value>meters away from airport</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyCentVal" xml:space="preserve">
+    <value>meters away from center</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyDistance" xml:space="preserve">
+    <value>Distanc</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyHousVal" xml:space="preserve">
+    <value>meters away from houses</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyNatiVal" xml:space="preserve">
+    <value>meter away from motorway and national roads</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyRailVal" xml:space="preserve">
+    <value>meter away from railway</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodySettVal" xml:space="preserve">
+    <value>meters away from settlements</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyWatLVal" xml:space="preserve">
+    <value>meters away from water banks</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_BodyWatPVal" xml:space="preserve">
+    <value>meters away from water resources</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderHabitant" xml:space="preserve">
+    <value>habitants</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderPopVal" xml:space="preserve">
+    <value>Population No.</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderQuaVal" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderTonDay" xml:space="preserve">
+    <value>tons/day</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderSanitar" xml:space="preserve">
+    <value>SANITARY</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_HeaderJoSanitar" xml:space="preserve">
+    <value>UNSANITARY</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_Skica" xml:space="preserve">
+    <value>VIEW DRAFTS</value>
+  </data>
+  <data name="GP_WIN_MZHUINFO_Title" xml:space="preserve">
+    <value>LANDFILLS</value>
+  </data>
+</root>

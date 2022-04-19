@@ -1,0 +1,856 @@
+.dxeButtonEditButtonHover_IMB .dxEditors_edtDropDown_IMB,
+.dxeButtonEditButtonHover_IMB .dxEditors_edtEllipsis_IMB,
+.dxeButtonEditButtonPressed_IMB .dxEditors_edtDropDown_IMB,
+.dxeButtonEditButtonPressed_IMB .dxEditors_edtEllipsis_IMB,
+.dxEditors_caRefresh_IMB,
+.dxEditors_edtCalendarFNNextYear_IMB,
+.dxEditors_edtCalendarFNPrevYear_IMB,
+.dxEditors_edtCalendarNextMonth_IMB,
+.dxEditors_edtCalendarNextMonthDisabled_IMB,
+.dxEditors_edtCalendarNextYear_IMB,
+.dxEditors_edtCalendarNextYearDisabled_IMB,
+.dxEditors_edtCalendarPrevMonth_IMB,
+.dxEditors_edtCalendarPrevMonthDisabled_IMB,
+.dxEditors_edtCalendarPrevYear_IMB,
+.dxEditors_edtCalendarPrevYearDisabled_IMB,
+.dxEditors_edtDETSClockFace_IMB,
+.dxEditors_edtDETSHourHand_IMB,
+.dxEditors_edtDETSMinuteHand_IMB,
+.dxEditors_edtDETSSecondHand_IMB,
+.dxEditors_edtDropDown_IMB,
+.dxEditors_edtDropDownDisabled_IMB,
+.dxEditors_edtEllipsis_IMB,
+.dxEditors_edtEllipsisDisabled_IMB,
+.dxEditors_edtError_IMB,
+.dxEditors_edtRadioButtonChecked_IMB,
+.dxEditors_edtRadioButtonCheckedDisabled_IMB,
+.dxEditors_edtRadioButtonUnchecked_IMB,
+.dxEditors_edtRadioButtonUncheckedDisabled_IMB,
+.dxEditors_edtSpinEditDecrementImage_IMB,
+.dxEditors_edtSpinEditDecrementImageDisabled_IMB,
+.dxEditors_edtSpinEditIncrementImage_IMB,
+.dxEditors_edtSpinEditIncrementImageDisabled_IMB,
+.dxEditors_edtSpinEditLargeDecImage_IMB,
+.dxEditors_edtSpinEditLargeDecImageDisabled_IMB,
+.dxEditors_edtSpinEditLargeIncImage_IMB,
+.dxEditors_edtSpinEditLargeIncImageDisabled_IMB,
+.dxEditors_edtTBDecBtn_IMB,
+.dxEditors_edtTBDecBtnDisabled_IMB,
+.dxEditors_edtTBDecBtnHover_IMB,
+.dxEditors_edtTBDecBtnPressed_IMB,
+.dxEditors_edtTBIncBtn_IMB,
+.dxEditors_edtTBIncBtnDisabled_IMB,
+.dxEditors_edtTBIncBtnHover_IMB,
+.dxEditors_edtTBIncBtnPressed_IMB,
+.dxEditors_edtTokenBoxTokenRemoveButton_IMB,
+.dxEditors_edtTokenBoxTokenRemoveButtonDisabled_IMB,
+.dxEditors_fcadd_IMB,
+.dxEditors_fcaddhot_IMB,
+.dxEditors_fcgroupaddcondition_IMB,
+.dxEditors_fcgroupaddgroup_IMB,
+.dxEditors_fcgroupand_IMB,
+.dxEditors_fcgroupnotand_IMB,
+.dxEditors_fcgroupnotor_IMB,
+.dxEditors_fcgroupor_IMB,
+.dxEditors_fcgroupremove_IMB,
+.dxEditors_fcopany_IMB,
+.dxEditors_fcopbegin_IMB,
+.dxEditors_fcopbetween_IMB,
+.dxEditors_fcopblank_IMB,
+.dxEditors_fcopcontain_IMB,
+.dxEditors_fcopend_IMB,
+.dxEditors_fcopequal_IMB,
+.dxEditors_fcopgreater_IMB,
+.dxEditors_fcopgreaterorequal_IMB,
+.dxEditors_fcopless_IMB,
+.dxEditors_fcoplessorequal_IMB,
+.dxEditors_fcoplike_IMB,
+.dxEditors_fcopnotany_IMB,
+.dxEditors_fcopnotbetween_IMB,
+.dxEditors_fcopnotblank_IMB,
+.dxEditors_fcopnotcontain_IMB,
+.dxEditors_fcopnotequal_IMB,
+.dxEditors_fcopnotlike_IMB,
+.dxEditors_fcremove_IMB,
+.dxEditors_fcremovehot_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeSpinDecButtonHover_IMB .dxEditors_edtSpinEditDecrementImage_IMB,
+.dxeSpinDecButtonPressed_IMB .dxEditors_edtSpinEditDecrementImage_IMB,
+.dxeSpinIncButtonHover_IMB .dxEditors_edtSpinEditIncrementImage_IMB,
+.dxeSpinIncButtonPressed_IMB .dxEditors_edtSpinEditIncrementImage_IMB,
+.dxeSpinLargeDecButtonHover_IMB .dxEditors_edtSpinEditLargeDecImage_IMB,
+.dxeSpinLargeDecButtonPressed_IMB .dxEditors_edtSpinEditLargeDecImage_IMB,
+.dxeSpinLargeIncButtonHover_IMB .dxEditors_edtSpinEditLargeIncImage_IMB,
+.dxeSpinLargeIncButtonPressed_IMB .dxEditors_edtSpinEditLargeIncImage_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDH_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHDisabled_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHDisabled_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDH_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDHDisabled_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHDisabled_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxeButtonEditButtonHover_IMB .dxEditors_edtDropDown_IMB
+{
+    background-position: -181px -133px;
+    width: 10px;
+    height: 14px;
+}
+.dxeButtonEditButtonHover_IMB .dxEditors_edtEllipsis_IMB
+{
+    background-position: -180px -28px;
+    width: 11px;
+    height: 14px;
+}
+.dxeButtonEditButtonPressed_IMB .dxEditors_edtDropDown_IMB
+{
+    background-position: 0px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxeButtonEditButtonPressed_IMB .dxEditors_edtEllipsis_IMB
+{
+    background-position: -180px -43px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_caRefresh_IMB
+{
+    background-position: -75px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarFNNextYear_IMB
+{
+    background-position: -168px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarFNPrevYear_IMB
+{
+    background-position: -125px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextMonth_IMB
+{
+    background-position: -143px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextMonthDisabled_IMB
+{
+    background-position: -130px -33px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextYear_IMB
+{
+    background-position: -50px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextYearDisabled_IMB
+{
+    background-position: -130px -58px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevMonth_IMB
+{
+    background-position: -100px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevMonthDisabled_IMB
+{
+    background-position: 0px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevYear_IMB
+{
+    background-position: -155px -40px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevYearDisabled_IMB
+{
+    background-position: -155px 0px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtDETSClockFace_IMB
+{
+    background-position: 0px 0px;
+    width: 107px;
+    height: 107px;
+}
+.dxEditors_edtDETSHourHand_IMB
+{
+    background-position: -114px 0px;
+    width: 7px;
+    height: 64px;
+}
+.dxEditors_edtDETSMinuteHand_IMB
+{
+    background-position: -122px 0px;
+    width: 7px;
+    height: 64px;
+}
+.dxEditors_edtDETSSecondHand_IMB
+{
+    background-position: -108px 0px;
+    width: 5px;
+    height: 72px;
+}
+.dxEditors_edtDropDown_IMB
+{
+    background-position: -22px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxEditors_edtDropDownDisabled_IMB
+{
+    background-position: -11px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxEditors_edtEllipsis_IMB
+{
+    background-position: -181px -58px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_edtEllipsisDisabled_IMB
+{
+    background-position: -180px 0px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_edtError_IMB
+{
+    background-position: -155px -25px;
+    width: 14px;
+    height: 14px;
+}
+.dxEditors_edtRadioButtonChecked_IMB
+{
+    background-position: -134px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonCheckedDisabled_IMB
+{
+    background-position: -117px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonUnchecked_IMB
+{
+    background-position: -100px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonUncheckedDisabled_IMB
+{
+    background-position: -175px -108px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtSpinEditDecrementImage_IMB
+{
+    background-position: -171px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditDecrementImageDisabled_IMB
+{
+    background-position: -182px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditIncrementImage_IMB
+{
+    background-position: -154px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditIncrementImageDisabled_IMB
+{
+    background-position: -176px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditLargeDecImage_IMB
+{
+    background-position: -108px -87px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeDecImageDisabled_IMB
+{
+    background-position: -175px -125px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeIncImage_IMB
+{
+    background-position: -113px -87px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeIncImageDisabled_IMB
+{
+    background-position: -188px -20px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtTBDecBtn_IMB
+{
+    background-position: -150px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnDisabled_IMB
+{
+    background-position: -118px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnHover_IMB
+{
+    background-position: -50px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnPressed_IMB
+{
+    background-position: 0px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtn_IMB
+{
+    background-position: -130px 0px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnDisabled_IMB
+{
+    background-position: -25px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnHover_IMB
+{
+    background-position: -75px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnPressed_IMB
+{
+    background-position: -25px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTokenBoxTokenRemoveButton_IMB
+{
+    background-position: -151px -133px;
+    width: 15px;
+    height: 15px;
+}
+.dxEditors_edtTokenBoxTokenRemoveButtonDisabled_IMB
+{
+    background-position: -114px -67px;
+    width: 15px;
+    height: 15px;
+}
+.dxEditors_fcadd_IMB
+{
+    background-position: -61px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcaddhot_IMB
+{
+    background-position: -140px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupaddcondition_IMB
+{
+    background-position: -98px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupaddgroup_IMB
+{
+    background-position: -154px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupand_IMB
+{
+    background-position: 0px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupnotand_IMB
+{
+    background-position: -117px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupnotor_IMB
+{
+    background-position: -145px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupor_IMB
+{
+    background-position: -173px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupremove_IMB
+{
+    background-position: -14px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopany_IMB
+{
+    background-position: -159px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopbegin_IMB
+{
+    background-position: -131px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopbetween_IMB
+{
+    background-position: -70px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopblank_IMB
+{
+    background-position: -47px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopcontain_IMB
+{
+    background-position: -168px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopend_IMB
+{
+    background-position: -89px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopequal_IMB
+{
+    background-position: -84px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopgreater_IMB
+{
+    background-position: -42px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopgreaterorequal_IMB
+{
+    background-position: -167px -133px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopless_IMB
+{
+    background-position: 0px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcoplessorequal_IMB
+{
+    background-position: -28px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcoplike_IMB
+{
+    background-position: -126px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotany_IMB
+{
+    background-position: -112px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotbetween_IMB
+{
+    background-position: -42px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotblank_IMB
+{
+    background-position: -28px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotcontain_IMB
+{
+    background-position: -75px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotequal_IMB
+{
+    background-position: -103px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotlike_IMB
+{
+    background-position: -56px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcremove_IMB
+{
+    background-position: -33px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcremovehot_IMB
+{
+    background-position: -14px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB
+{
+    background-position: -128px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB
+{
+    background-position: -120px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB
+{
+    background-position: -104px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB
+{
+    background-position: -112px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB
+{
+    background-position: -182px -158px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+    background-position: -80px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB
+{
+    background-position: -180px -125px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB
+{
+    background-position: -155px -65px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB
+{
+    background-position: -154px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB
+{
+    background-position: -128px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB
+{
+    background-position: -155px -75px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+    background-position: -180px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeSpinDecButtonHover_IMB .dxEditors_edtSpinEditDecrementImage_IMB
+{
+    background-position: -165px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinDecButtonPressed_IMB .dxEditors_edtSpinEditDecrementImage_IMB
+{
+    background-position: -149px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinIncButtonHover_IMB .dxEditors_edtSpinEditIncrementImage_IMB
+{
+    background-position: -143px -27px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinIncButtonPressed_IMB .dxEditors_edtSpinEditIncrementImage_IMB
+{
+    background-position: -160px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinLargeDecButtonHover_IMB .dxEditors_edtSpinEditLargeDecImage_IMB
+{
+    background-position: -149px -187px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeDecButtonPressed_IMB .dxEditors_edtSpinEditLargeDecImage_IMB
+{
+    background-position: -170px -75px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeIncButtonHover_IMB .dxEditors_edtSpinEditLargeIncImage_IMB
+{
+    background-position: -187px -172px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeIncButtonPressed_IMB .dxEditors_edtSpinEditLargeIncImage_IMB
+{
+    background-position: -108px -75px;
+    width: 4px;
+    height: 7px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDH_IMB
+{
+    background-position: -170px -27px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHDisabled_IMB
+{
+    background-position: -96px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHHover_IMB
+{
+    background-position: -88px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_IMB
+{
+    background-position: -56px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDH_IMB
+{
+    background-position: -180px -15px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHDisabled_IMB
+{
+    background-position: -72px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_IMB
+{
+    background-position: -64px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+    background-position: -110px -95px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDH_IMB
+{
+    background-position: -130px -25px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHDisabled_IMB
+{
+    background-position: -102px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHHover_IMB
+{
+    background-position: -141px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_IMB
+{
+    background-position: -115px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDH_IMB
+{
+    background-position: -136px -187px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHDisabled_IMB
+{
+    background-position: -180px -75px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_IMB
+{
+    background-position: -168px -65px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+    background-position: -167px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeFocused_IMB .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeFocused_IMB .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHHover_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxEditors_edtTBDecBtnHover_IMB,
+.dxEditors_edtTBDecBtnPressed_IMB,
+.dxEditors_edtTBIncBtnHover_IMB,
+.dxEditors_edtTBIncBtnPressed_IMB,
+.dxEditors_edtRadioButtonChecked_IMB,
+.dxEditors_edtRadioButtonCheckedDisabled_IMB,
+.dxEditors_edtRadioButtonUnchecked_IMB,
+.dxEditors_edtRadioButtonUncheckedDisabled_IMB
+{
+    background-color: #00A74F;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_IMB,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_IMB,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_IMB
+{
+	z-index: 7;
+}
+.dxEditors_edtError_IMB,
+.dxEditors_edtCalendarPrevYear_IMB,
+.dxEditors_edtCalendarPrevYearDisabled_IMB,
+.dxEditors_edtCalendarPrevMonth_IMB,
+.dxEditors_edtCalendarPrevMonthDisabled_IMB,
+.dxEditors_edtCalendarNextMonth_IMB,
+.dxEditors_edtCalendarNextMonthDisabled_IMB,
+.dxEditors_edtCalendarNextYear_IMB,
+.dxEditors_edtCalendarNextYearDisabled_IMB,
+.dxEditors_edtCalendarFNPrevYear_IMB,
+.dxEditors_edtCalendarFNNextYear_IMB,
+.dxEditors_edtEllipsis_IMB,
+.dxEditors_edtEllipsisDisabled_IMB,
+.dxEditors_edtDropDown_IMB,
+.dxEditors_edtDropDownDisabled_IMB,
+.dxEditors_edtSpinEditIncrementImage_IMB,
+.dxEditors_edtSpinEditIncrementImageDisabled_IMB,
+.dxEditors_edtSpinEditDecrementImage_IMB,
+.dxEditors_edtSpinEditDecrementImageDisabled_IMB,
+.dxEditors_edtSpinEditLargeIncImage_IMB,
+.dxEditors_edtSpinEditLargeIncImageDisabled_IMB,
+.dxEditors_edtSpinEditLargeDecImage_IMB,
+.dxEditors_edtSpinEditLargeDecImageDisabled_IMB
+{
+	display:block;
+	margin:auto;
+}
+.dxEditors_edtCalendarFNPrevYear_IMB
+{
+    margin-right: 8px;
+}
+.dxEditors_edtCalendarFNNextYear_IMB
+{
+    margin-left: 8px;
+}
+

@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_MarzhiShitjesSipasArtikujveDheKlienteve1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="pRC_RAP_MARZHISHITJES_SIPASARTIKUJVE_DHE_KLIENTEVETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <data name="$this.Extensions" xml:space="preserve">
+    <value>[{"IdParametri":8,"Emri":"IdRaport","Pershkrimi":"","KolonaDb":"","Vlera":null},{"IdParametri":11,"Emri":"IdNdermarje","Pershkrimi":"Ndermarrja:","KolonaDb":"","Vlera":"FARMATECH SHPK"},{"IdParametri":12,"Emri":"filterDtDok1","Pershkrimi":"","KolonaDb":"","Vlera":null},{"IdParametri":13,"Emri":"filterLlojDokumenti","Pershkrimi":"Lloj Dok.:","KolonaDb":"T_KONFIGAMBJENTE.KODKONFIGAMBJENTE","Vlera":""},{"IdParametri":15,"Emri":"filterDtDok","Pershkrimi":"Dt. Dok.:","KolonaDb":"T_KOKASHITJE.DTDOK","Vlera":"01/12/2017 - 31/12/2017"},{"IdParametri":19,"Emri":"filterNumerDokumenti","Pershkrimi":"Nr. Dok.:","KolonaDb":"T_KOKASHITJE.NRDOK","Vlera":""},{"IdParametri":20,"Emri":"filterFurnitor","Pershkrimi":"Klient/Furn.:","KolonaDb":"T_KLIENTFURNITOR.KODKLIENTFURNITOR","Vlera":""},{"IdParametri":39,"Emri":"filterKartela","Pershkrimi":"Artikulli:","KolonaDb":"T_ARTIKULLI.KODARTIKULLI","Vlera":""},{"IdParametri":52,"Emri":"filterQyteti","Pershkrimi":"Qyteti:","KolonaDb":"T_KLIENTFURNITOR.QYTETIKF","Vlera":""},{"IdParametri":66,"Emri":"filterDtDok2","Pershkrimi":"Dt. DokMbarim.:","KolonaDb":"","Vlera":null},{"IdParametri":89,"Emri":"filterPikeshitjeFurnizmi","Pershkrimi":"Pike Shitje/Furnizimi :","KolonaDb":"T_PIKESHITJEFURNIZIMI.KODI","Vlera":""},{"IdParametri":103,"Emri":"filterLlojArtikulli","Pershkrimi":"Lloj Artikulli :","KolonaDb":"T_ARTIKULLI.LLOJIART","Vlera":"Afatshkurter"},{"IdParametri":120,"Emri":"filterKlasaArtikullit","Pershkrimi":"Klasa artikullit :","KolonaDb":" T_ARTIKULLI.KLASA","Vlera":"te ndryshme nga Pastokueshem dhe te ndryshme nga Sherbim"},{"IdParametri":129,"Emri":"filterFurnitorArt","Pershkrimi":"Furnitor Art :","KolonaDb":"T_KLIENTFURNITOR.KODKLIENTFURNITOR","Vlera":""},{"IdParametri":130,"Emri":"filterGrupimPKF","Pershkrimi":"Grupi 1 :","KolonaDb":"T_GRUPEKF.KODGRUPI","Vlera":""},{"IdParametri":131,"Emri":"filterGrupimDKF","Pershkrimi":"Grupi 2 :","KolonaDb":"T_GRUPEKF.KODGRUPI","Vlera":""},{"IdParametri":132,"Emri":"filterGrupimTKF","Pershkrimi":"Grupi 3 :","KolonaDb":"T_GRUPEKF.KODGRUPI","Vlera":""},{"IdParametri":141,"Emri":"filterDegeAdministrative","Pershkrimi":"Dega Administrative :","KolonaDb":"T_DEGEADMINISTRATIVE.KODI","Vlera":""},{"IdParametri":155,"Emri":"filterGrupimDokP","Pershkrimi":"Grupim Dok. 1:","KolonaDb":"gd1.kodi","Vlera":""},{"IdParametri":156,"Emri":"filterGrupimDokD","Pershkrimi":"Grupim Dok. 2:","KolonaDb":"gd2.kodi","Vlera":""},{"IdParametri":157,"Emri":"filterGrupimDokT","Pershkrimi":"Grupim Dok. 3:","KolonaDb":"gd3.kodi","Vlera":""},{"IdParametri":177,"Emri":"filterkodifikimartP","Pershkrimi":"Grup Artikulli 1:","KolonaDb":"","Vlera":""},{"IdParametri":178,"Emri":"filterkodifikimartD","Pershkrimi":"Grup Artikulli 2:","KolonaDb":"","Vlera":""},{"IdParametri":229,"Emri":"filterAdreseKlienti","Pershkrimi":"Adrese Klienti","KolonaDb":"T_ADRESAKLIENTFURNITOR.ADRESA","Vlera":""},{"IdParametri":248,"Emri":"filterpershkrimArt","Pershkrimi":"Pershkrimi artikullit:","KolonaDb":"T_ARTIKULLI.PERSHKRIMARTIKULLI","Vlera":""}]</value>
+  </data>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+private double marzhiBrutoMeZbritje = 0;
+private double vleraShitjesMeZbritje = 0;
+private double marzhiBrutoMeZbritjeGrup = 0;
+double cmimiShitjesTotal = 0.00;
+double cmimiShitjesTotalGrup = 0.00;
+double kmshtotale = 0.00;
+double kmshtotalegrup = 0.00;
+double sasiatotale = 0.00;
+double sasiatotalegrup = 0.00;
+double KOSTOARTIKULLItotale   = 0.00;
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) { 
+            
+}
+
+private void xrLabel6_AfterPrint(object sender, System.EventArgs e) {
+ double vl;
+            if (xrLabel6.Text == "" || xrLabel5.Text == null)
+            {
+                vl = 0;
+            }
+            else
+            {
+                vl = Convert.ToDouble(xrLabel6.Text);
+            }
+            marzhiBrutoMeZbritje = marzhiBrutoMeZbritje + vl;
+}
+
+private void xrLabel5_AfterPrint(object sender, System.EventArgs e) {
+ double vl;
+            if (xrLabel5.Text == "" || xrLabel5.Text == null)
+            {
+                vl = 0;
+            }
+            else
+            {
+                vl = Convert.ToDouble(xrLabel5.Text);
+            }
+            vleraShitjesMeZbritje = vleraShitjesMeZbritje + vl;
+}
+
+private void xrLabel1_AfterPrint(object sender, System.EventArgs e) {
+ if (GetCurrentColumnValue("SASIA") != null)
+            {
+                sasiatotale = sasiatotale + Convert.ToDouble(GetCurrentColumnValue("SASIA"));                
+            }
+}
+
+private void xrLabel3_AfterPrint(object sender, System.EventArgs e) {
+  if (GetCurrentColumnValue("VLERASHITJESPATVSH") != null &amp;&amp; GetCurrentColumnValue("SASIA") != null)
+            {
+                kmshtotale = kmshtotale + Convert.ToDouble(GetCurrentColumnValue("VLERASHITJESPATVSH")) * Convert.ToDouble(GetCurrentColumnValue("SASIA"));
+            }
+
+}
+private void MarzhiPerqindjeTotali_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (vleraShitjesMeZbritje != 0)
+            {
+                MarzhiPerqindjeTotali.Text = String.Format("{0:N2}", (marzhiBrutoMeZbritje / vleraShitjesMeZbritje) * 100);
+            }
+            else
+                MarzhiPerqindjeTotali.Text = String.Format("{0:N2}",0);
+}
+
+double totSasia = 0;
+double totKMSH = 0;
+private void xrLabel35_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+if(totSasia != 0)
+ {
+e.Result = String.Format( "{0:N2}", totKMSH  / totSasia) ;
+ e.Handled = true;
+}
+ else
+{ e.Result = String.Format( "{0:N2}", 0);
+ e.Handled  = true;
+}
+}
+
+private void xrLabel35_SummaryReset(object sender, System.EventArgs e) {
+totSasia = 0;
+totKMSH  = 0;
+}
+
+private void xrLabel35_SummaryRowChanged(object sender, System.EventArgs e) {
+ totSasia  += Convert.ToDouble(GetCurrentColumnValue("SASIA"));
+  totKMSH  += Convert.ToDouble(GetCurrentColumnValue("KMSH"));
+}
+
+double totVleraShitjes = 0;  
+ double totSasiaCmim = 0;
+private void xrLabel37_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+if( totSasiaCmim != 0)
+  {
+e.Result = String.Format( "{0:N2}", totVleraShitjes / totSasiaCmim) ;
+ e.Handled = true;
+}
+else{
+ e.Result = String.Format( "{0:N2}", 0) ;
+ e.Handled = true;
+}
+}
+
+private void xrLabel37_SummaryReset(object sender, System.EventArgs e) {
+totVleraShitjes  =0;
+totSasiaCmim = 0;
+}
+
+private void xrLabel37_SummaryRowChanged(object sender, System.EventArgs e) {
+totVleraShitjes  += Convert.ToDouble(GetCurrentColumnValue("VLERAMEZBRITJE"));
+totSasiaCmim += Convert.ToDouble(GetCurrentColumnValue("SASIA"));
+}
+
+double totalMarzhiBrutoMeZbritje  = 0;
+double totVleraShitjesPerq  = 0;
+private void xrLabel40_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+if(totVleraShitjesPerq != 0)
+{ e.Result = String.Format( "{0:N2}",(totalMarzhiBrutoMeZbritje / totVleraShitjesPerq) * 100) ;
+ e.Handled = true;
+}
+else 
+{ e.Result = String.Format( "{0:N2}", 0 ) ;
+ e.Handled = true;
+}
+
+}
+
+private void xrLabel40_SummaryReset(object sender, System.EventArgs e) {
+totalMarzhiBrutoMeZbritje  = 0;
+totVleraShitjesPerq  =0;
+
+}
+
+private void xrLabel40_SummaryRowChanged(object sender, System.EventArgs e) {
+totalMarzhiBrutoMeZbritje  += Convert.ToDouble(GetCurrentColumnValue("MARZHIBRUTOMEZBRITJE"));
+totVleraShitjesPerq  += Convert.ToDouble(GetCurrentColumnValue("VLERAMEZBRITJE"));
+
+}
+
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, kokaTable, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+
+private void Rap_MarzhiShitjeve_SipasKlienteve_SePDeFn_131574600912575929_BandHeightChanged(object sender, DevExpress.XtraReports.UI.BandEventArgs e) {
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+}
+</value>
+  </data>
+</root>

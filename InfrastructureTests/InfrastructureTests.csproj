@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Moq" Version="4.12.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AlphaWeb.Core">
+      <HintPath>..\AlphaWebCommon\bin\Debug\AlphaWeb.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AlphaWeb.Infrastructure.Data.AdoNet">
+      <HintPath>..\AlphaWebCommon\bin\Debug\AlphaWeb.Infrastructure.Data.AdoNet.dll</HintPath>
+    </Reference>
+    <Reference Include="AlphaWebCommon">
+      <HintPath>..\AlphaWebCommon\bin\Debug\AlphaWebCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

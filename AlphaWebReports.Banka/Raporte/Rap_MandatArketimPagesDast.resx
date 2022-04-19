@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_mandatArketimiPagese1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_MANDAT_ARKETIM_PAGESETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>219, 17</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>System.Collections.Generic.List&lt;object[]&gt; trupi = new System.Collections.Generic.List&lt;object[]&gt;();
+System.Resources.ResourceManager  rm = new System.Resources.ResourceManager("Resources.Strings",System.Reflection.Assembly.Load("App_GlobalResources"));
+
+private void xrTableCell2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+            if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell2.Text = "Mandat - Arketimi" + "                   " +  rm.GetString("labelRaportArketimi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell2.Text = "Mandat - Pagese" + "                        " + rm.GetString("labelRaportPagese", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell2.Text = "Mandat - Arketimi" + "                   " + rm.GetString("labelRaportDerdhje", parametraRaporti.Ci); 
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell2.Text = "Mandat - Pagese" + "                        " +  rm.GetString("labelRaportTerheqje", parametraRaporti.Ci); 
+            }
+}
+
+private void Rap_MandatArketimPagesDast_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+ System.Data.DataTable dt = ((System.Data.DataSet)(this.DataSource)).Tables[0];
+  trupi.Clear();
+            for (int i = 0; i &lt; dt.Rows.Count; i++)
+            {
+                object pershkrimiTrupi = dt.Rows[i]["PERSHKRIMITRUPI"];
+                object vleraPaguar = dt.Rows[i]["VLERAPAGUAR"];
+                object kodSubjekti = dt.Rows[i]["kodSubjekti"];
+                object emertimSubjekti = dt.Rows[i]["emertimSubjekti"];
+                object[] obj = new object[3];
+                obj[0] = kodSubjekti + " (" + emertimSubjekti + " )";
+                obj[1] = pershkrimiTrupi;
+                obj[2] = vleraPaguar;
+                trupi.Add(obj);
+            }
+}
+
+private void xrTable2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+shtoRreshtatNeTabele(xrTable2);
+}
+
+private void xrTable5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+   shtoRreshtatNeTabele(xrTable5);
+}
+   private void shtoRreshtatNeTabele(XRTable xrTable2)
+        {
+            int i = 0;
+            if (trupi.Count &gt; 0)
+            {
+                for (int j = xrTable2.Rows.Count - 1; j &gt;= 2; j--)
+                {
+                    xrTable2.Rows.RemoveAt(j);
+                }
+                foreach (object[] obj in trupi)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 25f;
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+                    XRTableCell lbl = new XRTableCell();
+                    lbl.WidthF = 257.77f;
+                  //  lbl.Name = "lbl" + i.ToString();
+                    lbl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+                    lbl.Text = obj[0].ToString();
+                    lbl.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0);
+                    lbl.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    lbl.Borders = DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Left;
+                    rr.Cells.Add(lbl);
+
+                    XRTableCell lblPer = new XRTableCell();
+                    lblPer.WidthF = 52.08f;
+                  //  lblPer.Name = "lblPer" + i.ToString();
+                    lblPer.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+                    lblPer.Text = rm.GetString("labelRaportPer", parametraRaporti.Ci);
+                    lblPer.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    lblPer.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+                    rr.Cells.Add(lblPer);
+
+                    XRTableCell pershkrimi = new XRTableCell();
+                    pershkrimi.WidthF = 196.25f;
+                   // pershkrimi.Name = "pershkrimi" + i.ToString();
+                    pershkrimi.Text = obj[1].ToString();
+                    pershkrimi.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0);
+                    pershkrimi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    pershkrimi.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    pershkrimi.Borders = DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right;
+                    rr.Cells.Add(pershkrimi);
+
+                    XRTableCell lblShuma = new XRTableCell();
+                    lblShuma.WidthF = 96.87f;
+                  //  lblShuma.Name = "lblShuma" + i.ToString();
+                    lblShuma.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic);
+                    lblShuma.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    lblShuma.Text = rm.GetString("labelRaportiShuma", parametraRaporti.Ci) + ":";
+                    lblShuma.Borders = DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom;
+                    rr.Cells.Add(lblShuma);
+
+                    XRTableCell vleraPaguar = new XRTableCell();
+                    vleraPaguar.WidthF = 95.08f;
+                  // vleraPaguar.Name = "vleraPaguar" + i.ToString();
+                    vleraPaguar.Text = String.Format("{0:#,#.00}", obj[2]);
+                    vleraPaguar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    vleraPaguar.Padding = new DevExpress.XtraPrinting.PaddingInfo(7, 7, 0, 0);
+                    vleraPaguar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+                    vleraPaguar.Borders = DevExpress.XtraPrinting.BorderSide.Bottom | DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right;
+                    rr.Cells.Add(vleraPaguar);
+                    xrTable2.Rows.Insert((i + 2), rr);
+                    i++;
+                }
+            }
+        }
+
+private void xrTableCell38_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ xrTableCell38.Text =  GetCurrentColumnValue("NDERMARJEKODI").ToString();
+}
+
+private void xrTableCell85_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  xrTableCell85.Text = GetCurrentColumnValue("NDERMARJEKODI").ToString();
+}
+
+private void xrTableCell79_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell79.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell79.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell26.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell26.Text = "___________________";
+            }
+}
+
+private void xrTableCell26_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell26.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell26.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell26.Text = "___________________";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell26.Text = "___________________";
+            }
+}
+
+private void xrTableCell20_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+ if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell20.Text = rm.GetString("labelRaportDhenesi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell20.Text = rm.GetString("labelRaportMarresi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell20.Text = rm.GetString("labelRaportDhenesi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell20.Text = rm.GetString("labelRaportMarresi", parametraRaporti.Ci);
+            }
+}
+
+private void xrTableCell74_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell74.Text = rm.GetString("labelRaportDhenesi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell74.Text = rm.GetString("labelRaportMarresi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell74.Text = rm.GetString("labelRaportDhenesi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell74.Text = rm.GetString("labelRaportMarresi", parametraRaporti.Ci);
+            }
+}
+
+private void xrTableCell61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+ if (GetCurrentColumnValue("VLERA") != null)
+            {
+                string vlera = String.Format("{0:#,#.00}", GetCurrentColumnValue("VLERA"));
+                if (Convert.ToDouble(vlera) &gt; 1)
+                    xrTableCell61.Text = AlphaWebReports.NumberConverter.changeToWords(vlera, parametraRaporti.Ci);
+            }
+}
+
+private void xrTableCell56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+ if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell56.Text = rm.GetString("labelRaportArketoniNga", parametraRaporti.Ci)+ ":";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell56.Text = rm.GetString("labelRAportUPaguaPer", parametraRaporti.Ci)+ ":";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell56.Text = rm.GetString("labelRaportUrdherXhirimKlienti", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell56.Text = rm.GetString("labelRaportUrdherXhirimYne", parametraRaporti.Ci);
+            }
+}
+
+private void xrTableCell46_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+  if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell46.Text = "Mandat - Arketimi" + "                   " + rm.GetString("labelRaportArketimi", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell46.Text = "Mandat - Pagese" + "                        " + rm.GetString("labelRaportPagese", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell46.Text = "Mandat - Arketimi" + "                   " + rm.GetString("labelRaportDerdhje", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell46.Text = "Mandat - Pagese" + "                        " + rm.GetString("labelRaportTerheqje", parametraRaporti.Ci); 
+            }
+}
+
+private void xrTableCell12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+  if (GetCurrentColumnValue("VLERA") != null)
+            {
+                string vlera = String.Format("{0:#,#.00}", GetCurrentColumnValue("VLERA"));
+                if (Convert.ToDouble(vlera) &gt; 1)
+                    xrTableCell12.Text = AlphaWebReports.NumberConverter.changeToWords(vlera, parametraRaporti.Ci);
+            }
+}
+
+private void xrTableCell9_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+ if (GetCurrentColumnValue("LLOJIVEPRIMIT") != null)
+            {
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Arketim")
+                    xrTableCell9.Text = rm.GetString("labelRaportArketoniNga", parametraRaporti.Ci)+ ":";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Pagese")
+                    xrTableCell9.Text = rm.GetString("labelRAportUPaguaPer", parametraRaporti.Ci) + ":";
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Derdhje")
+                    xrTableCell9.Text = rm.GetString("labelRaportUrdherXhirimKlienti", parametraRaporti.Ci);
+                if (GetCurrentColumnValue("LLOJIVEPRIMIT").ToString() == "Terheqje")
+                    xrTableCell9.Text = rm.GetString("labelRaportUrdherXhirimYne", parametraRaporti.Ci);
+            }
+}
+</value>
+  </data>
+</root>

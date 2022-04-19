@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_TOPOGRAPHY</name>
+  <id>LayerInfoImpl--31ac6b01:15926dd26f1:-7fed</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--31ac6b01:15926dd26f1:-7ff1</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--31ac6b01:15926dd26f1:-7fee</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

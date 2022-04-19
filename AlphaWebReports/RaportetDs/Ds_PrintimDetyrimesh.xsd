@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_PrintimDetyrimesh" targetNamespace="http://tempuri.org/Ds_PrintimDetyrimesh.xsd" xmlns:mstns="http://tempuri.org/Ds_PrintimDetyrimesh.xsd" xmlns="http://tempuri.org/Ds_PrintimDetyrimesh.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_PrintimDetyrimesh" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Ds_PrintimDetyrimesh" msprop:Generator_UserDSName="Ds_PrintimDetyrimesh">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="detyrime" msprop:Generator_TableClassName="detyrimeDataTable" msprop:Generator_TableVarName="tabledetyrime" msprop:Generator_RowChangedName="detyrimeRowChanged" msprop:Generator_TablePropName="detyrime" msprop:Generator_RowDeletingName="detyrimeRowDeleting" msprop:Generator_RowChangingName="detyrimeRowChanging" msprop:Generator_RowEvHandlerName="detyrimeRowChangeEventHandler" msprop:Generator_RowDeletedName="detyrimeRowDeleted" msprop:Generator_RowClassName="detyrimeRow" msprop:Generator_UserTableName="detyrime" msprop:Generator_RowEvArgName="detyrimeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DETYRIMETEMEPARSHME" msprop:Generator_ColumnVarNameInTable="columnDETYRIMETEMEPARSHME" msprop:Generator_ColumnPropNameInRow="DETYRIMETEMEPARSHME" msprop:Generator_ColumnPropNameInTable="DETYRIMETEMEPARSHMEColumn" msprop:Generator_UserColumnName="DETYRIMETEMEPARSHME" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FATURAMUJORE" msprop:Generator_ColumnVarNameInTable="columnFATURAMUJORE" msprop:Generator_ColumnPropNameInRow="FATURAMUJORE" msprop:Generator_ColumnPropNameInTable="FATURAMUJOREColumn" msprop:Generator_UserColumnName="FATURAMUJORE" type="xs:string" minOccurs="0" />
+              <xs:element name="EMER" msprop:Generator_ColumnVarNameInTable="columnEMER" msprop:Generator_ColumnPropNameInRow="EMER" msprop:Generator_ColumnPropNameInTable="EMERColumn" msprop:Generator_UserColumnName="EMER" type="xs:string" minOccurs="0" />
+              <xs:element name="DATA" msprop:Generator_ColumnVarNameInTable="columnDATA" msprop:Generator_ColumnPropNameInRow="DATA" msprop:Generator_ColumnPropNameInTable="DATAColumn" msprop:Generator_UserColumnName="DATA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NRFATURE" msprop:Generator_ColumnVarNameInTable="columnNRFATURE" msprop:Generator_ColumnPropNameInRow="NRFATURE" msprop:Generator_ColumnPropNameInTable="NRFATUREColumn" msprop:Generator_UserColumnName="NRFATURE" type="xs:string" minOccurs="0" />
+              <xs:element name="PERIUDHAFATURIMIT" msprop:Generator_ColumnVarNameInTable="columnPERIUDHAFATURIMIT" msprop:Generator_ColumnPropNameInRow="PERIUDHAFATURIMIT" msprop:Generator_ColumnPropNameInTable="PERIUDHAFATURIMITColumn" msprop:Generator_UserColumnName="PERIUDHAFATURIMIT" type="xs:string" minOccurs="0" />
+              <xs:element name="MSISDN" msprop:Generator_ColumnVarNameInTable="columnMSISDN" msprop:Generator_ColumnPropNameInRow="MSISDN" msprop:Generator_ColumnPropNameInTable="MSISDNColumn" msprop:Generator_UserColumnName="MSISDN" type="xs:string" minOccurs="0" />
+              <xs:element name="NRLLOGARIE" msprop:Generator_ColumnVarNameInTable="columnNRLLOGARIE" msprop:Generator_ColumnPropNameInRow="NRLLOGARIE" msprop:Generator_ColumnPropNameInTable="NRLLOGARIEColumn" msprop:Generator_UserColumnName="NRLLOGARIE" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTALIPERTUPAGUAR" msprop:Generator_ColumnVarNameInTable="columnTOTALIPERTUPAGUAR" msprop:Generator_ColumnPropNameInRow="TOTALIPERTUPAGUAR" msprop:Generator_ColumnPropNameInTable="TOTALIPERTUPAGUARColumn" msprop:Generator_UserColumnName="TOTALIPERTUPAGUAR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcI
+        CQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwM
+        DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAuADEDASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+        MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+        V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+        BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+        YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+        8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD997u4S1gZ3IVUGST0ArAfULvWzuhY2doTw5XMso9RkYUfXn2F
+        Sa1L/aWsR2PWCECaYdQ/OFX9CT9PeuJ/ai+Mq/BP4WSXlvJbpq1+4tLDzfuJIVLPK3+xHGskh9QmOpFT
+        KagnJ9DbDYepXqxo0leUnZHKftDftMeE/gPBcxSxXOu6zbxefLZwSBzbqQdrTyOdsQOOM8kZKqcV8u/A
+        n9sj4uftofFjUrDwLbeG/CPhnQiG1HVmt5bxk3E7Y4ySqu5w2MqAAM/X4w/ag/a7u/ite3ej6DPdRaGs
+        7PPdSuTdavKchp5W7luw6AYAAAAr0T/gnp/wUv8ADv7G/hW68L+IvDd3Ppuq3puZtVs5A00eVCjdGQNy
+        jHY556V8bHiKNfHqg58tNb+fzP6Pn4SVsq4cljfYe1xUrWT+ynu7aXZ+rfhL4m3nhmK2tNcuDfhUCSXv
+        lLG5buzKuFwfavTbO5ju4FljdXRwCrKcgg96+c9M+IWifFfwNY+IfDmoQarpGpwiW3uYTkOD65wQR0IP
+        II5rtf2ePH7z39x4fuHJMC+fbbjztz8y/QZB/Gvt7JwUo7H83VoThUcKis+q7HrtFJhvUUVBmchFqOzx
+        DqOfvCbb9QEUf4/nXwf/AMF4fide+G/CfgzTLV3SPWEvEZh/DgwbufUoWH0Y19reNJzoPi6UElVu1WZT
+        2JACn+X618v/APBVL9nq+/aX/ZzFxoUBu/EvhSY39pbj713GRiWNf9rb8wHcoB3FcGc0qlTA1I0d7H3H
+        hvjMLhOIsLiMZ8Ckr389F+J+P9uQGwOh7Cm6hZpdWzqRzimxajDG0iTBraeJirxyDaykHBBqrrPiSGzt
+        yI3V2I4x0FfjEaM+eyTTR/obmGYYGpQdXmVrH3H/AMEUfirfJa+N/Bc8ryadbrHqturHIhdmEUmPTcNh
+        /wCA190fCnxA1p8ddCEbf62VoWA7qY24r4s/4JR/BLUPhh8LdZ8aazbvZXXiwpHYQSDa5tE+bzSOwdzx
+        7JnoRX2N+y9pUvjD47W1yqlrfSI3uZW7AlSij8Sc/hX7RksakcFFVd7H+eHiLiMLWz6tPCW5b9O/U+sf
+        Pf3oqTafU0V3XR8Sc/8AErwa3jDRCsLCO8gy8DngZx0Psa8QvfEdxoV/LaXayW9xAcMj8Ef/AFvevpFn
+        3Diuc8cfDXR/iDb7NQtsyqPknjOyVPow/wD1U4S5dAT7Hwr+0N+w38Kv2idYl1TWNIk07V5yTNfabN9m
+        kmPq4wUY+5XJ9a4T4e/8E5/g78INYTUY9MvfEF9AQ8R1e5E8UbDofLUKp/4ECOOlfaHiH9jy4lkY6b4h
+        KxdluoNzD8VIB/KsrTv2Ip9RnDan4lPkg8ra2+GI9NzEgflWDwOEcvaOCufQLivOFQ+rfWJcna54rqGs
+        XnivVIdO0u3e9urlgkUMKZY+mAOgH5CvrP8AZx+Cw+D/AIMENwUl1W+YTXsq8jd2RfZR+ZJNaXww+CXh
+        34UQEaVYqLlxiS6lO+eT2LHt7DiuyVtorolO6stj5693zMdtPqaKWiouhn//2Q==
+</value>
+  </data>
+  <data name="xrLabel29.Text" xml:space="preserve">
+    <value>Ju duhet te specifikoni zonen/ at ne te cilen/ at do te vini ne perdorim produktin tuaj, ne menyre qe perfaqesuesi i shitjeve tju informoje dhe qartesoje per mbulimin perkates ne kete zone.
+Ju keni te drejten te vini ne perdorim produktin tuaj pergjate nje periudhe prove jo me shume se 3 (tre) dite dhe te perdorni deri ne 200 MB. Nese ju e tejkaloni periudhen kohore te proves 3 ditore, si dhe vleren e 200 MB perdorim,atehere ju nuk mund te dorezoni produktin tuaj dhe te kompensoheni ne vlere ne para per kete produkt.
+Ju mund te riktheni produktin tuaj VMB,vetem atehere kur ky produkt eshte ne te nejtat kushte si ato te blerjes,duke perfshire ketu nje celes usb ne gjendje totalisht funksionale, nje karte SIM ne gjendje te mire fizike dhe funksionale, kutine e aparatit te pademtuar, dhe produktu mos te kete gervishtje apo plasaritje qofte edhe te lehta.
+Gjithashtu, ju duhet te ktheni karten SIM perkatese ne menyre qe te kryhet shkeputja e lidhjes nga rrjeti Vodafone dhe duhet qe te vini ne dispozicion te perfaqesuesit te shitjeve faturen e blerjes se produktit ne menyre qe te vertetohet blerja dhe afati 3 ditor i proves.</value>
+  </data>
+  <data name="xrLabel27.Text" xml:space="preserve">
+    <value>Pasi te bindeni qe produkti nuk funksionon sic duhet, paraqituni ne dyqanin Vodafone ku e keni blere ate ose ne cdo dyqan tjeter Vodafone ne territorin e Republikes se Shqiperise me produktin si dhe me Formularin e Garancise dhe faturen origjinale te blerjes.
+Gjate periudhes se garancise, Vodafone apo nje kompani tjeter e autorizuar nga Vodafone,do te riparoje defektin ose do te zevendesoje produktin brenda nje kohe te arsyeshme (ne varesi te defektit) pa asnje pagese shtese nga ana e klientit. Garancia nuk mbulon rastet e keqperdorimit te produktit ne kundershtim me manualin e perdorimit, demtimet fizike apo demtimet si pasoje e renies ne toke dhe /ose ne uje, kur preket nga viruset e pranishme te palicensuara, perdoret me aksesore te paautorizuar sipas manualit, hapet, riparohet apo modifikohet nga servise/dyqane te cilat nuk jane te autorizuar nga Vodafone si dhe defektet per pasoje mbi/nen tensionin gjate karikimit.</value>
+  </data>
+  <metadata name="ds_FleteGarancia1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="prc_RAP_FLETEGARANCIATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>166, 17</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value> 
+private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if((GetCurrentColumnValue("KODKONFIGAMBJENTE")).ToString() != "VFONE" )
+	{
+		xrLabel36.Visible = false;
+		xrLabel37.Visible = false;
+	}
+	else {
+		xrLabel36.Visible = true;
+		xrLabel37.Visible = true;
+
+	}
+
+}
+
+private void xrLabel37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	xrLabel37.Text = (GetCurrentColumnValue("TOTALIMETVSHMEZBRITJE")).ToString();
+}
+</value>
+  </data>
+</root>

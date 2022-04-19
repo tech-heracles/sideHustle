@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_KONTROLLESIPERFAQE</name>
+  <id>LayerInfoImpl-5cbec5c7:15ba145037a:66dc</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5cbec5c7:15ba145037a:66d3</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5cbec5c7:15ba145037a:66db</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

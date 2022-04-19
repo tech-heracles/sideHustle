@@ -1,0 +1,132 @@
+/// <XRTypeInfo>
+///   <AssemblyFullName>DevExpress.XtraReports.v10.2, Version=10.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</AssemblyFullName>
+///   <AssemblyLocation>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraReports.v10.2\10.2.6.0__b88d1754d700e49a\DevExpress.XtraReports.v10.2.dll</AssemblyLocation>
+///   <TypeName>DevExpress.XtraReports.UI.XtraReport</TypeName>
+///   <Localization>en-US</Localization>
+/// </XRTypeInfo>
+namespace XtraReportSerialization {
+    
+    public class XtraReport : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.XRControlStyle FiltratKoka;
+        private DevExpress.XtraReports.UI.XRControlStyle FiltratPermbajtja;
+        private DevExpress.XtraReports.UI.XRControlStyle Copyright;
+        private DevExpress.XtraReports.UI.XRControlStyle TitulliRaport;
+        private DevExpress.XtraReports.UI.XRControlStyle TabelaKryesore;
+        private DevExpress.XtraReports.UI.XRControlStyle PermbajtjaRaport;
+        private DevExpress.XtraReports.UI.XRControlStyle PermbajtjaRaportEven;
+        private DevExpress.XtraReports.UI.XRControlStyle PermbajtjaRaportOdd;
+        private DevExpress.XtraReports.UI.XRControlStyle GrupimShuma1;
+        private DevExpress.XtraReports.UI.XRControlStyle GrupimTop1;
+        private System.Resources.ResourceManager _resources;
+        public XtraReport() {
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    string resourceString = "zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJza" +
+                        "W9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4O" +
+                        "SNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA";
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.FiltratKoka = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FiltratPermbajtja = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.Copyright = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.TitulliRaport = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.TabelaKryesore = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PermbajtjaRaport = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PermbajtjaRaportEven = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PermbajtjaRaportOdd = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.GrupimShuma1 = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.GrupimTop1 = new DevExpress.XtraReports.UI.XRControlStyle();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // FiltratKoka
+            // 
+            this.FiltratKoka.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FiltratKoka.ForeColor = System.Drawing.Color.Gray;
+            this.FiltratKoka.Name = "FiltratKoka";
+            this.FiltratKoka.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.FiltratKoka.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // FiltratPermbajtja
+            // 
+            this.FiltratPermbajtja.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.FiltratPermbajtja.ForeColor = System.Drawing.Color.Gray;
+            this.FiltratPermbajtja.Name = "FiltratPermbajtja";
+            // 
+            // Copyright
+            // 
+            this.Copyright.Font = new System.Drawing.Font("Times New Roman", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Copyright.ForeColor = System.Drawing.Color.CadetBlue;
+            this.Copyright.Name = "Copyright";
+            // 
+            // TitulliRaport
+            // 
+            this.TitulliRaport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TitulliRaport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TitulliRaport.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitulliRaport.ForeColor = System.Drawing.Color.CadetBlue;
+            this.TitulliRaport.Name = "TitulliRaport";
+            // 
+            // TabelaKryesore
+            // 
+            this.TabelaKryesore.BackColor = System.Drawing.Color.LightBlue;
+            this.TabelaKryesore.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TabelaKryesore.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+                        | DevExpress.XtraPrinting.BorderSide.Right) 
+                        | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.TabelaKryesore.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabelaKryesore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TabelaKryesore.Name = "TabelaKryesore";
+            // 
+            // PermbajtjaRaport
+            // 
+            this.PermbajtjaRaport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PermbajtjaRaport.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PermbajtjaRaport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PermbajtjaRaport.Name = "PermbajtjaRaport";
+            this.PermbajtjaRaport.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+			// 
+            // PermbajtjaRaportEven
+            // 
+            this.PermbajtjaRaportEven.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PermbajtjaRaportEven.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PermbajtjaRaportEven.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PermbajtjaRaportEven.Name = "PermbajtjaRaportEven";
+            this.PermbajtjaRaportEven.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+			// 
+            // PermbajtjaRaportOdd
+            // 
+            this.PermbajtjaRaportOdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.PermbajtjaRaportOdd.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PermbajtjaRaportOdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PermbajtjaRaportOdd.Name = "PermbajtjaRaportOdd";
+            this.PermbajtjaRaportOdd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // GrupimShuma1
+            // 
+            this.GrupimShuma1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrupimShuma1.ForeColor = System.Drawing.Color.CadetBlue;
+            this.GrupimShuma1.Name = "GrupimShuma1";
+            // 
+            // GrupimTop1
+            // 
+            this.GrupimTop1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrupimTop1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.GrupimTop1.Name = "GrupimTop1";
+            // 
+            // XtraReport
+            // 
+            this.Name = "XtraReport";
+            this.PageHeight = 1100;
+            this.PageWidth = 850;
+            this.Version = "10.2";
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}

@@ -1,0 +1,1589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52CC5227-FC3F-4A68-ACE1-57B2146B4588}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.Blerje</RootNamespace>
+    <AssemblyName>AlphaWebReports.Blerje</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DsRapBlerjetSipasSasiveKrahasuese.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsRapBlerjetSipasSasiveKrahasuese.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ArtBlereDetajime1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ArtBlereDetajime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ArtBlerjeSipasDtSkadenceDheSeri1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ArtBlerjeSipasDtSkadenceDheSeri.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ArtikujBlereDegeAdministrative1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ArtikujBlereDegeAdministrative.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ArtikujTeBlere1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ArtikujTeBlere.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_BlerjeMbi500Euro1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BlerjeMbi500Euro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_BlerjePermb1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BlerjePermb.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Dpsh_InfoShkresa1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Dpsh_InfoShkresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Dpsh_MonitorimiAjeror1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Dpsh_MonitorimiAjeror.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Dpsh_RasteKultivimi1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Dpsh_RasteKultivimi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Fatura.cs">
+      <DependentUpon>Ds_Fatura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Fatura.Designer.cs">
+      <DependentUpon>Ds_Fatura.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_FleteDoganoreImport1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_FleteDoganoreImport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_KartelaArtikulli1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaArtikulli.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_KartelaArtikulliFormat21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaArtikulliFormat2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_KontrateFurnitori1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KontrateFurnitori.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LiberBlerjeshKosove1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LiberBlerjeshKosove.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LiberBlerjeshKosove20151.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LiberBlerjeshKosove2015.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LiberBlerjeshKosove2016.cs">
+      <DependentUpon>Ds_LiberBlerjeshKosove2016.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LiberBlerjeshKosove2016.Designer.cs">
+      <DependentUpon>Ds_LiberBlerjeshKosove2016.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LiberBlerje_SipasMuajve1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LiberBlerje_SipasMuajve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes20151.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LibriBlerjes2015.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes2015_KESH1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LibriBlerjes2015_KESH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes2019.cs">
+      <DependentUpon>Ds_LibriBlerjes2019.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes2019.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LibriBlerjes2019.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes_AlphaBank1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LibriBlerjes_AlphaBank.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_LibriBlerjes_BiznesetVogla1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LibriBlerjes_BiznesetVogla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_ListeCmimeshBlerje.cs">
+      <DependentUpon>DS_ListeCmimeshBlerje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_ListeCmimeshBlerje.Designer.cs">
+      <DependentUpon>DS_ListeCmimeshBlerje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_POROSI.Designer.cs">
+      <DependentUpon>Ds_POROSI.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_RapBlerjeRegjistri.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapBlerjeRegjistri.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_RapLiberBlerje1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapLiberBlerje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_RapLiberBlerjeProcredit1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapLiberBlerjeProcredit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_RaportiBlerjeAnalitike1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RaportiBlerjeAnalitike.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_AparateteBleraNgaDealer1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_RAP_ArtikujTeBlereMeSeriale1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RAP_ArtikujTeBlereMeSeriale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_BlerjetSipasFurnitoreve_statistikor1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_BuxhetimiSipasShpenzimeve1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BuxhetimiSipasShpenzimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_DPSHKONTROLLTERRITORI1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_DPSHKONTROLLTERRITORI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_Ekspotimi_faturave_blerjeve1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Ekspotimi_faturave_blerjeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_KonvertimiIKontrataveTeBlerjes1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KonvertimiIKontrataveTeBlerjes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_RegjistriAnalitikDoganimeImport1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_RegjistriAnalitikDoganimeImport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_RegjAnalitikBlerjeFormat21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RegjAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ShpenzimeJoTeZbritshme1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ShpenzimeJoTeZbritshme.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_ShpenzimeParapaguara1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ShpenzimeParapaguara.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeDast.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeDast.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeDast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeModelA5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeModelA5.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeModelA5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeZodiac.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeZodiac.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeZodiac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeGoodsReceipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerjeGoodsReceipt.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeGoodsReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerje_AlPetrol.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerje_AlPetrol.Designer.cs">
+      <DependentUpon>Rap_FatureBlerje_AlPetrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerje_Fear.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FatureBlerje_Fear.Designer.cs">
+      <DependentUpon>Rap_FatureBlerje_Fear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj.Designer.cs">
+      <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.Designer.cs">
+      <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.Designer.cs">
+      <DependentUpon>Rap_FormatKerkeseBlerjeVodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatPrintimiBlerje_TopLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatPrintimiBlerje_TopLine.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiBlerje_TopLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_Format_Printimi_Blerje_KerkeseperFurnizim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_Format_Printimi_Blerje_KerkeseperFurnizim.Designer.cs">
+      <DependentUpon>Rap_Format_Printimi_Blerje_KerkeseperFurnizim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_Format_Printimi_Blerje_Model4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_Format_Printimi_Blerje_Model4.Designer.cs">
+      <DependentUpon>Rap_Format_Printimi_Blerje_Model4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.Designer.cs">
+      <DependentUpon>Rap_UrdherBlerje2Vodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimi_BlerjeVodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_UrdherBlerjeVodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Format_Printimi\Rap_UrdherBlerjeVodafone.Designer.cs">
+      <DependentUpon>Rap_UrdherBlerjeVodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes.Designer.cs">
+      <DependentUpon>LibriBlerjes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2019MeNrReference.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2019MeNrReference.Designer.cs">
+      <DependentUpon>LibriBlerjes2019MeNrReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2019.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2019.Designer.cs">
+      <DependentUpon>LibriBlerjes2019.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2015.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2015.Designer.cs">
+      <DependentUpon>LibriBlerjes2015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2015REF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2015REF.Designer.cs">
+      <DependentUpon>LibriBlerjes2015REF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2015_Raportuese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2015_Raportuese.Designer.cs">
+      <DependentUpon>LibriBlerjes2015_Raportuese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes2015_SunPetrolium.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes2015_SunPetrolium.Designer.cs">
+      <DependentUpon>LibriBlerjes2015_SunPetrolium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove.Designer.cs">
+      <DependentUpon>LibriBlerjesKosove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove2015.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove2015.Designer.cs">
+      <DependentUpon>LibriBlerjesKosove2015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove2016.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjesKosove2016.Designer.cs">
+      <DependentUpon>LibriBlerjesKosove2016.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjesPaMerge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjesPaMerge.Designer.cs">
+      <DependentUpon>LibriBlerjesPaMerge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjesSunPetrolium.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjesSunPetrolium.Designer.cs">
+      <DependentUpon>LibriBlerjesSunPetrolium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes_AlphaBank.Designer.cs">
+      <DependentUpon>LibriBlerjes_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibriBlerjes_Procredit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibriBlerjes_Procredit.Designer.cs">
+      <DependentUpon>LibriBlerjes_Procredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RapArtikujTeBlereMeSeriale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RapArtikujTeBlereMeSeriale.Designer.cs">
+      <DependentUpon>RapArtikujTeBlereMeSeriale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_AparateteBleraNgaDealer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_AparateteBleraNgaDealer.Designer.cs">
+      <DependentUpon>Rap_AparateteBleraNgaDealer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujBlereDet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujBlereDet.Designer.cs">
+      <DependentUpon>Rap_ArtikujBlereDet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujBlereDtSkadenceDheSeri.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujBlereDtSkadenceDheSeri.Designer.cs">
+      <DependentUpon>Rap_ArtikujBlereDtSkadenceDheSeri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjePermbledhesEinvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjePermbledhesEinvoice.Designer.cs">
+      <DependentUpon>Rap_BlerjePermbledhesEinvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlere.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlere.Designer.cs">
+      <DependentUpon>Rap_ArtikujTeBlere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlereDegeAdministrative.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlereDegeAdministrative.Designer.cs">
+      <DependentUpon>Rap_ArtikujTeBlereDegeAdministrative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.Designer.cs">
+      <DependentUpon>Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.Designer.cs">
+      <DependentUpon>Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeKontrateFurnitori.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeKontrateFurnitori.Designer.cs">
+      <DependentUpon>Rap_BlerjeKontrateFurnitori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeMbi500Euro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeMbi500Euro.Designer.cs">
+      <DependentUpon>Rap_BlerjeMbi500Euro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitikDEKOLL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitikDEKOLL.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitikDEKOLL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitikFormat2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitikFormat2.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitikFormat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_ALPETROL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_ALPETROL.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_ALPETROL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_Barkod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_Barkod.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_Barkod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_Format2.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_mag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_mag.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_mag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_meDetajime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriAnalitik_meDetajime.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_meDetajime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhes.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhesMag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhesMag.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhesMag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhesPortrait.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhesPortrait.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhesPortrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeShpenzimeTeParapaguara.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeShpenzimeTeParapaguara.Designer.cs">
+      <DependentUpon>Rap_BlerjeShpenzimeTeParapaguara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAP_BlerjetSipasFurnitoreveStatistikor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RAP_BlerjetSipasFurnitoreveStatistikor.Designer.cs">
+      <DependentUpon>RAP_BlerjetSipasFurnitoreveStatistikor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Blerje_Analitike.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Blerje_Analitike.Designer.cs">
+      <DependentUpon>Rap_Blerje_Analitike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BuxhetimiSipasShpenzimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BuxhetimiSipasShpenzimeve.designer.cs">
+      <DependentUpon>Rap_BuxhetimiSipasShpenzimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_DPSHINFOSHKRESA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_DPSHINFOSHKRESA.Designer.cs">
+      <DependentUpon>Rap_DPSHINFOSHKRESA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_DPSHKONTROLLTERRITORI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_DPSHKONTROLLTERRITORI.Designer.cs">
+      <DependentUpon>Rap_DPSHKONTROLLTERRITORI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_DPSHMONITORIMIAJROR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_DPSHMONITORIMIAJROR.Designer.cs">
+      <DependentUpon>Rap_DPSHMONITORIMIAJROR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_DPSHRASTEKULTIVIMI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_DPSHRASTEKULTIVIMI.Designer.cs">
+      <DependentUpon>Rap_DPSHRASTEKULTIVIMI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Eksportimi_faturave_blerjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Eksportimi_faturave_blerjeve.Designer.cs">
+      <DependentUpon>Rap_Eksportimi_faturave_blerjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikujTeGrupuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikujTeGrupuar.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeMeArtikujTeGrupuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131312145548222287.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131312145548222287.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj_SePDeFn_131312145548222287.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131504728868062722.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131504728868062722.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj_SePDeFn_131504728868062722.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj2.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj_SePDeFn_131485739653257217.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerjePaArtikuj_SePDeFn_131485739653257217.Designer.cs">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj_SePDeFn_131485739653257217.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FatureBlerje_Hromodhomia.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FatureBlerje_Hromodhomia.Designer.cs">
+      <DependentUpon>Rap_FatureBlerje_Hromodhomia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FleteDoganoreImport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FleteDoganoreImport.Designer.cs">
+      <DependentUpon>Rap_FleteDoganoreImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.Designer.cs">
+      <DependentUpon>Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjeAlbamediaAng.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjeAlbamediaAng.Designer.cs">
+      <DependentUpon>Rap_FormatBlerjeAlbamediaAng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjeKlimateknika.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjeKlimateknika.Designer.cs">
+      <DependentUpon>Rap_FormatBlerjeKlimateknika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjePaArtikuj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FormatBlerjePaArtikuj.Designer.cs">
+      <DependentUpon>Rap_FormatBlerjePaArtikuj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_FormatPrintimiModelDetajime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_FormatPrintimiModelDetajime.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiModelDetajime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli.Designer.cs">
+      <DependentUpon>Rap_KartelaArtikulli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_KartelaArtikulli_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaArtikulli_Format2.Designer.cs">
+      <DependentUpon>Rap_KartelaArtikulli_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KonvertimiIKontrataveTeBlerjes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KonvertimiIKontrataveTeBlerjes.Designer.cs">
+      <DependentUpon>Rap_KonvertimiIKontrataveTeBlerjes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_LibriBlerjes_BiznesetVogla.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_LibriBlerjes_BiznesetVogla.Designer.cs">
+      <DependentUpon>Rap_LibriBlerjes_BiznesetVogla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_LibriBlerjeveSipasMuajve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_LibriBlerjeveSipasMuajve.Designer.cs">
+      <DependentUpon>Rap_LibriBlerjeveSipasMuajve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ListeCmimeshBlerje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ListeCmimeshBlerje.Designer.cs">
+      <DependentUpon>Rap_ListeCmimeshBlerje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Porosi_Vodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Porosi_Vodafone.Designer.cs">
+      <DependentUpon>Rap_Porosi_Vodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_RegjistriAnalitikDoganimeImport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_RegjistriAnalitikDoganimeImport.Designer.cs">
+      <DependentUpon>Rap_RegjistriAnalitikDoganimeImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeSipasSasiveKrahasuese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeSipasSasiveKrahasuese.Designer.cs">
+      <DependentUpon>Rap_BlerjeSipasSasiveKrahasuese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ShpenzimeJoTeZbritshme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ShpenzimeJoTeZbritshme.Designer.cs">
+      <DependentUpon>Rap_ShpenzimeJoTeZbritshme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_UrdherBlerjeMeArtikuj.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_UrdherBlerjeMeArtikuj.Designer.cs">
+      <DependentUpon>Rap_UrdherBlerjeMeArtikuj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegjistriAnalitikBlerje1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegjistriAnalitikBlerje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RegjistriAnalitikBlerjeFormat21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegjistriAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RegjistriAnalitikBlerje_meDetajime1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegjistriAnalitikBlerje_meDetajime.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DsRapBlerjetSipasSasiveKrahasuese.xsc">
+      <DependentUpon>DsRapBlerjetSipasSasiveKrahasuese.xsd</DependentUpon>
+    </None>
+    <None Include="DsRapBlerjetSipasSasiveKrahasuese.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsRapBlerjetSipasSasiveKrahasuese.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsRapBlerjetSipasSasiveKrahasuese.xss">
+      <DependentUpon>DsRapBlerjetSipasSasiveKrahasuese.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtBlereDetajime.xsc">
+      <DependentUpon>Ds_ArtBlereDetajime.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtBlereDetajime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ArtBlereDetajime1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ArtBlereDetajime.xss">
+      <DependentUpon>Ds_ArtBlereDetajime.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtBlerjeSipasDtSkadenceDheSeri.xsc">
+      <DependentUpon>Ds_ArtBlerjeSipasDtSkadenceDheSeri.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtBlerjeSipasDtSkadenceDheSeri.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ArtBlerjeSipasDtSkadenceDheSeri1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ArtBlerjeSipasDtSkadenceDheSeri.xss">
+      <DependentUpon>Ds_ArtBlerjeSipasDtSkadenceDheSeri.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtikujBlereDegeAdministrative.xsc">
+      <DependentUpon>Ds_ArtikujBlereDegeAdministrative.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtikujBlereDegeAdministrative.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ArtikujBlereDegeAdministrative1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ArtikujBlereDegeAdministrative.xss">
+      <DependentUpon>Ds_ArtikujBlereDegeAdministrative.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtikujTeBlere.xsc">
+      <DependentUpon>Ds_ArtikujTeBlere.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ArtikujTeBlere.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ArtikujTeBlere1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ArtikujTeBlere.xss">
+      <DependentUpon>Ds_ArtikujTeBlere.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_BlerjeMbi500Euro.xsc">
+      <DependentUpon>Ds_BlerjeMbi500Euro.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_BlerjeMbi500Euro.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BlerjeMbi500Euro1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_BlerjeMbi500Euro.xss">
+      <DependentUpon>Ds_BlerjeMbi500Euro.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_BlerjePermb.xsc">
+      <DependentUpon>Ds_BlerjePermb.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_BlerjePermb.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BlerjePermb1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_BlerjePermb.xss">
+      <DependentUpon>Ds_BlerjePermb.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_InfoShkresa.xsc">
+      <DependentUpon>Ds_Dpsh_InfoShkresa.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_InfoShkresa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Dpsh_InfoShkresa1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Dpsh_InfoShkresa.xss">
+      <DependentUpon>Ds_Dpsh_InfoShkresa.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_MonitorimiAjeror.xsc">
+      <DependentUpon>Ds_Dpsh_MonitorimiAjeror.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_MonitorimiAjeror.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Dpsh_MonitorimiAjeror1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Dpsh_MonitorimiAjeror.xss">
+      <DependentUpon>Ds_Dpsh_MonitorimiAjeror.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_RasteKultivimi.xsc">
+      <DependentUpon>Ds_Dpsh_RasteKultivimi.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Dpsh_RasteKultivimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Dpsh_RasteKultivimi1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Dpsh_RasteKultivimi.xss">
+      <DependentUpon>Ds_Dpsh_RasteKultivimi.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Fatura.xsc">
+      <DependentUpon>Ds_Fatura.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Fatura.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Fatura.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Fatura.xss">
+      <DependentUpon>Ds_Fatura.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_FleteDoganoreImport.xsc">
+      <DependentUpon>Ds_FleteDoganoreImport.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_FleteDoganoreImport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FleteDoganoreImport1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_FleteDoganoreImport.xss">
+      <DependentUpon>Ds_FleteDoganoreImport.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KartelaArtikulli.xsc">
+      <DependentUpon>Ds_KartelaArtikulli.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KartelaArtikulli.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaArtikulli1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_KartelaArtikulli.xss">
+      <DependentUpon>Ds_KartelaArtikulli.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KartelaArtikulliFormat2.xsc">
+      <DependentUpon>Ds_KartelaArtikulliFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KartelaArtikulliFormat2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaArtikulliFormat21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_KartelaArtikulliFormat2.xss">
+      <DependentUpon>Ds_KartelaArtikulliFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KontrateFurnitori.xsc">
+      <DependentUpon>Ds_KontrateFurnitori.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_KontrateFurnitori.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KontrateFurnitori1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_KontrateFurnitori.xss">
+      <DependentUpon>Ds_KontrateFurnitori.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove.xsc">
+      <DependentUpon>Ds_LiberBlerjeshKosove.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LiberBlerjeshKosove1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove.xss">
+      <DependentUpon>Ds_LiberBlerjeshKosove.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2015.xsc">
+      <DependentUpon>Ds_LiberBlerjeshKosove2015.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2015.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LiberBlerjeshKosove20151.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2015.xss">
+      <DependentUpon>Ds_LiberBlerjeshKosove2015.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2016.xsc">
+      <DependentUpon>Ds_LiberBlerjeshKosove2016.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2016.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LiberBlerjeshKosove20161.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LiberBlerjeshKosove2016.xss">
+      <DependentUpon>Ds_LiberBlerjeshKosove2016.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerje_SipasMuajve.xsc">
+      <DependentUpon>Ds_LiberBlerje_SipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LiberBlerje_SipasMuajve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LiberBlerje_SipasMuajve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LiberBlerje_SipasMuajve.xss">
+      <DependentUpon>Ds_LiberBlerje_SipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2015.xsc">
+      <DependentUpon>Ds_LibriBlerjes2015.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2015.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LibriBlerjes20151.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LibriBlerjes2015.xss">
+      <DependentUpon>Ds_LibriBlerjes2015.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2015_KESH.xsc">
+      <DependentUpon>Ds_LibriBlerjes2015_KESH.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2015_KESH.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LibriBlerjes2015_KESH1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LibriBlerjes2015_KESH.xss">
+      <DependentUpon>Ds_LibriBlerjes2015_KESH.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2019.xsc">
+      <DependentUpon>Ds_LibriBlerjes2019.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes2019.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LibriBlerjes2019.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Ds_LibriBlerjes2019.xss">
+      <DependentUpon>Ds_LibriBlerjes2019.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes_AlphaBank.xsc">
+      <DependentUpon>Ds_LibriBlerjes_AlphaBank.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes_AlphaBank.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LibriBlerjes_AlphaBank1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LibriBlerjes_AlphaBank.xss">
+      <DependentUpon>Ds_LibriBlerjes_AlphaBank.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes_BiznesetVogla.xsc">
+      <DependentUpon>Ds_LibriBlerjes_BiznesetVogla.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_LibriBlerjes_BiznesetVogla.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LibriBlerjes_BiznesetVogla1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_LibriBlerjes_BiznesetVogla.xss">
+      <DependentUpon>Ds_LibriBlerjes_BiznesetVogla.xsd</DependentUpon>
+    </None>
+    <None Include="DS_ListeCmimeshBlerje.xsc">
+      <DependentUpon>DS_ListeCmimeshBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="DS_ListeCmimeshBlerje.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ListeCmimeshBlerje1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_ListeCmimeshBlerje.xss">
+      <DependentUpon>DS_ListeCmimeshBlerje.xsd</DependentUpon>
+    </None>
+    <Content Include="Ds_POROSI.xsc">
+      <DependentUpon>Ds_POROSI.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_POROSI.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_POROSI.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_POROSI.xss">
+      <DependentUpon>Ds_POROSI.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_RapBlerjeRegjistri.xsc">
+      <DependentUpon>Ds_RapBlerjeRegjistri.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RapBlerjeRegjistri.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapBlerjeRegjistri.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RapBlerjeRegjistri.xss">
+      <DependentUpon>Ds_RapBlerjeRegjistri.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RapLiberBlerje.xsc">
+      <DependentUpon>Ds_RapLiberBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RapLiberBlerje.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapLiberBlerje1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RapLiberBlerje.xss">
+      <DependentUpon>Ds_RapLiberBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RapLiberBlerjeProcredit.xsc">
+      <DependentUpon>Ds_RapLiberBlerjeProcredit.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RapLiberBlerjeProcredit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapLiberBlerjeProcredit1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RapLiberBlerjeProcredit.xss">
+      <DependentUpon>Ds_RapLiberBlerjeProcredit.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RaportiBlerjeAnalitike.xsc">
+      <DependentUpon>Ds_RaportiBlerjeAnalitike.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RaportiBlerjeAnalitike.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RaportiBlerjeAnalitike1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RaportiBlerjeAnalitike.xss">
+      <DependentUpon>Ds_RaportiBlerjeAnalitike.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_AparateteBleraNgaDealer.xsc">
+      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_AparateteBleraNgaDealer.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_AparateteBleraNgaDealer1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_AparateteBleraNgaDealer.xss">
+      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RAP_ArtikujTeBlereMeSeriale.xsc">
+      <DependentUpon>Ds_RAP_ArtikujTeBlereMeSeriale.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RAP_ArtikujTeBlereMeSeriale.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_ArtikujTeBlereMeSeriale1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RAP_ArtikujTeBlereMeSeriale.xss">
+      <DependentUpon>Ds_RAP_ArtikujTeBlereMeSeriale.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xsc">
+      <DependentUpon>Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BlerjetSipasFurnitoreve_statistikor1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xss">
+      <DependentUpon>Ds_Rap_BlerjetSipasFurnitoreve_statistikor.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_BuxhetimiSipasShpenzimeve.xsc">
+      <DependentUpon>Ds_Rap_BuxhetimiSipasShpenzimeve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_BuxhetimiSipasShpenzimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BuxhetimiSipasShpenzimeve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_BuxhetimiSipasShpenzimeve.xss">
+      <DependentUpon>Ds_Rap_BuxhetimiSipasShpenzimeve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_DPSHKONTROLLTERRITORI.xsc">
+      <DependentUpon>Ds_Rap_DPSHKONTROLLTERRITORI.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_DPSHKONTROLLTERRITORI.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_DPSHKONTROLLTERRITORI1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_DPSHKONTROLLTERRITORI.xss">
+      <DependentUpon>Ds_Rap_DPSHKONTROLLTERRITORI.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Ekspotimi_faturave_blerjeve.xsc">
+      <DependentUpon>Ds_Rap_Ekspotimi_faturave_blerjeve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Ekspotimi_faturave_blerjeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Ekspotimi_faturave_blerjeve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_Ekspotimi_faturave_blerjeve.xss">
+      <DependentUpon>Ds_Rap_Ekspotimi_faturave_blerjeve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_KonvertimiIKontrataveTeBlerjes.xsc">
+      <DependentUpon>Ds_Rap_KonvertimiIKontrataveTeBlerjes.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_KonvertimiIKontrataveTeBlerjes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KonvertimiIKontrataveTeBlerjes1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_KonvertimiIKontrataveTeBlerjes.xss">
+      <DependentUpon>Ds_Rap_KonvertimiIKontrataveTeBlerjes.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_RegjistriAnalitikDoganimeImport.xsc">
+      <DependentUpon>Ds_Rap_RegjistriAnalitikDoganimeImport.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_RegjistriAnalitikDoganimeImport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_RegjistriAnalitikDoganimeImport1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_RegjistriAnalitikDoganimeImport.xss">
+      <DependentUpon>Ds_Rap_RegjistriAnalitikDoganimeImport.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RegjAnalitikBlerjeFormat2.xsc">
+      <DependentUpon>Ds_RegjAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_RegjAnalitikBlerjeFormat2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RegjAnalitikBlerjeFormat21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_RegjAnalitikBlerjeFormat2.xss">
+      <DependentUpon>Ds_RegjAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ShpenzimeJoTeZbritshme.xsc">
+      <DependentUpon>Ds_ShpenzimeJoTeZbritshme.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ShpenzimeJoTeZbritshme.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ShpenzimeJoTeZbritshme1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ShpenzimeJoTeZbritshme.xss">
+      <DependentUpon>Ds_ShpenzimeJoTeZbritshme.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ShpenzimeParapaguara.xsc">
+      <DependentUpon>Ds_ShpenzimeParapaguara.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_ShpenzimeParapaguara.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ShpenzimeParapaguara1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_ShpenzimeParapaguara.xss">
+      <DependentUpon>Ds_ShpenzimeParapaguara.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerje.xsc">
+      <DependentUpon>RegjistriAnalitikBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerje.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegjistriAnalitikBlerje1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RegjistriAnalitikBlerje.xss">
+      <DependentUpon>RegjistriAnalitikBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerjeFormat2.xsc">
+      <DependentUpon>RegjistriAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerjeFormat2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegjistriAnalitikBlerjeFormat21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RegjistriAnalitikBlerjeFormat2.xss">
+      <DependentUpon>RegjistriAnalitikBlerjeFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerje_meDetajime.xsc">
+      <DependentUpon>RegjistriAnalitikBlerje_meDetajime.xsd</DependentUpon>
+    </None>
+    <None Include="RegjistriAnalitikBlerje_meDetajime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegjistriAnalitikBlerje_meDetajime1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RegjistriAnalitikBlerje_meDetajime.xss">
+      <DependentUpon>RegjistriAnalitikBlerje_meDetajime.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerjeDast.resx">
+      <DependentUpon>Rap_FatureBlerjeDast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerjeModelA5.resx">
+      <DependentUpon>Rap_FatureBlerjeModelA5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerjeZodiac.resx">
+      <DependentUpon>Rap_FatureBlerjeZodiac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerjeGoodsReceipt.resx">
+      <DependentUpon>Rap_FatureBlerjeGoodsReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerje_AlPetrol.resx">
+      <DependentUpon>Rap_FatureBlerje_AlPetrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FatureBlerje_Fear.resx">
+      <DependentUpon>Rap_FatureBlerje_Fear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj.resx">
+      <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.resx">
+      <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.resx">
+      <DependentUpon>Rap_FormatKerkeseBlerjeVodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FormatPrintimiBlerje_TopLine.resx">
+      <DependentUpon>Rap_FormatPrintimiBlerje_TopLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.resx">
+      <DependentUpon>Rap_FormatPrintimi_BlerjeVodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Blerje_KerkeseperFurnizim.resx">
+      <DependentUpon>Rap_Format_Printimi_Blerje_KerkeseperFurnizim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Blerje_Model4.resx">
+      <DependentUpon>Rap_Format_Printimi_Blerje_Model4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.resx">
+      <DependentUpon>Rap_UrdherBlerje2Vodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Printimi\Rap_UrdherBlerjeVodafone.resx">
+      <DependentUpon>Rap_UrdherBlerjeVodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes.resx">
+      <DependentUpon>LibriBlerjes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2019MeNrReference.resx">
+      <DependentUpon>LibriBlerjes2019MeNrReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2019.resx">
+      <DependentUpon>LibriBlerjes2019.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2015.resx">
+      <DependentUpon>LibriBlerjes2015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2015REF.resx">
+      <DependentUpon>LibriBlerjes2015REF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2015_Raportuese.resx">
+      <DependentUpon>LibriBlerjes2015_Raportuese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes2015_SunPetrolium.resx">
+      <DependentUpon>LibriBlerjes2015_SunPetrolium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjesKosove.resx">
+      <DependentUpon>LibriBlerjesKosove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjesKosove2015.resx">
+      <DependentUpon>LibriBlerjesKosove2015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjesKosove2016.resx">
+      <DependentUpon>LibriBlerjesKosove2016.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjesPaMerge.resx">
+      <DependentUpon>LibriBlerjesPaMerge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjesSunPetrolium.resx">
+      <DependentUpon>LibriBlerjesSunPetrolium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes_AlphaBank.resx">
+      <DependentUpon>LibriBlerjes_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibriBlerjes_Procredit.resx">
+      <DependentUpon>LibriBlerjes_Procredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RapArtikujTeBlereMeSeriale.resx">
+      <DependentUpon>RapArtikujTeBlereMeSeriale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_AparateteBleraNgaDealer.resx">
+      <DependentUpon>Rap_AparateteBleraNgaDealer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujBlereDet.resx">
+      <DependentUpon>Rap_ArtikujBlereDet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujBlereDtSkadenceDheSeri.resx">
+      <DependentUpon>Rap_ArtikujBlereDtSkadenceDheSeri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjePermbledhesEinvoice.resx">
+      <DependentUpon>Rap_BlerjePermbledhesEinvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujTeBlere.resx">
+      <DependentUpon>Rap_ArtikujTeBlere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujTeBlereDegeAdministrative.resx">
+      <DependentUpon>Rap_ArtikujTeBlereDegeAdministrative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.resx">
+      <DependentUpon>Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.resx">
+      <DependentUpon>Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeKontrateFurnitori.resx">
+      <DependentUpon>Rap_BlerjeKontrateFurnitori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeMbi500Euro.resx">
+      <DependentUpon>Rap_BlerjeMbi500Euro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitikDEKOLL.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitikDEKOLL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitikFormat2.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitikFormat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_ALPETROL.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_ALPETROL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_Barkod.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_Barkod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_Format2.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_mag.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_mag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_meDetajime.resx">
+      <DependentUpon>Rap_BlerjeRegjistriAnalitik_meDetajime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhes.resx">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhesMag.resx">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhesMag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhesPortrait.resx">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhesPortrait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.resx">
+      <DependentUpon>Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeShpenzimeTeParapaguara.resx">
+      <DependentUpon>Rap_BlerjeShpenzimeTeParapaguara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAP_BlerjetSipasFurnitoreveStatistikor.resx">
+      <DependentUpon>RAP_BlerjetSipasFurnitoreveStatistikor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Blerje_Analitike.resx">
+      <DependentUpon>Rap_Blerje_Analitike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BuxhetimiSipasShpenzimeve.resx">
+      <DependentUpon>Rap_BuxhetimiSipasShpenzimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_DPSHINFOSHKRESA.resx">
+      <DependentUpon>Rap_DPSHINFOSHKRESA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_DPSHKONTROLLTERRITORI.resx">
+      <DependentUpon>Rap_DPSHKONTROLLTERRITORI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_DPSHMONITORIMIAJROR.resx">
+      <DependentUpon>Rap_DPSHMONITORIMIAJROR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_DPSHRASTEKULTIVIMI.resx">
+      <DependentUpon>Rap_DPSHRASTEKULTIVIMI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Eksportimi_faturave_blerjeve.resx">
+      <DependentUpon>Rap_Eksportimi_faturave_blerjeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjeMeArtikuj.resx">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjeMeArtikujTeGrupuar.resx">
+      <DependentUpon>Rap_FatureBlerjeMeArtikujTeGrupuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131312145548222287.resx">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj_SePDeFn_131312145548222287.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjeMeArtikuj_SePDeFn_131504728868062722.resx">
+      <DependentUpon>Rap_FatureBlerjeMeArtikuj_SePDeFn_131504728868062722.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjePaArtikuj.resx">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjePaArtikuj2.resx">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerjePaArtikuj_SePDeFn_131485739653257217.resx">
+      <DependentUpon>Rap_FatureBlerjePaArtikuj_SePDeFn_131485739653257217.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FatureBlerje_Hromodhomia.resx">
+      <DependentUpon>Rap_FatureBlerje_Hromodhomia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FleteDoganoreImport.resx">
+      <DependentUpon>Rap_FleteDoganoreImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.resx">
+      <DependentUpon>Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FormatBlerjeAlbamediaAng.resx">
+      <DependentUpon>Rap_FormatBlerjeAlbamediaAng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FormatBlerjeKlimateknika.resx">
+      <DependentUpon>Rap_FormatBlerjeKlimateknika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FormatBlerjePaArtikuj.resx">
+      <DependentUpon>Rap_FormatBlerjePaArtikuj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_FormatPrintimiModelDetajime.resx">
+      <DependentUpon>Rap_FormatPrintimiModelDetajime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaArtikulli.resx">
+      <DependentUpon>Rap_KartelaArtikulli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaArtikulli_AlphaBank.resx">
+      <DependentUpon>Rap_KartelaArtikulli_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaArtikulli_Format2.resx">
+      <DependentUpon>Rap_KartelaArtikulli_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KonvertimiIKontrataveTeBlerjes.resx">
+      <DependentUpon>Rap_KonvertimiIKontrataveTeBlerjes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_LibriBlerjes_BiznesetVogla.resx">
+      <DependentUpon>Rap_LibriBlerjes_BiznesetVogla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_LibriBlerjeveSipasMuajve.resx">
+      <DependentUpon>Rap_LibriBlerjeveSipasMuajve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ListeCmimeshBlerje.resx">
+      <DependentUpon>Rap_ListeCmimeshBlerje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Porosi_Vodafone.resx">
+      <DependentUpon>Rap_Porosi_Vodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_RegjistriAnalitikDoganimeImport.resx">
+      <DependentUpon>Rap_RegjistriAnalitikDoganimeImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeSipasSasiveKrahasuese.resx">
+      <DependentUpon>Rap_BlerjeSipasSasiveKrahasuese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ShpenzimeJoTeZbritshme.resx">
+      <DependentUpon>Rap_ShpenzimeJoTeZbritshme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_UrdherBlerjeMeArtikuj.resx">
+      <DependentUpon>Rap_UrdherBlerjeMeArtikuj.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

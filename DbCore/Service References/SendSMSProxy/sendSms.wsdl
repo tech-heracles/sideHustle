@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://SMSGateWay.al.vodafone" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://SMSGateWay.al.vodafone" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>VFALSendSMSGateWay</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://SMSGateWay.al.vodafone">
+      <xs:element name="eBillSendSMS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="originator" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eBillSendSMSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendSMS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="originator" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendSMSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="eBillSendSMSRequest">
+    <wsdl:part name="parameters" element="ns:eBillSendSMS" />
+  </wsdl:message>
+  <wsdl:message name="eBillSendSMSResponse">
+    <wsdl:part name="parameters" element="ns:eBillSendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSRequest">
+    <wsdl:part name="parameters" element="ns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSResponse">
+    <wsdl:part name="parameters" element="ns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VFALSendSMSGateWayPortType">
+    <wsdl:operation name="eBillSendSMS">
+      <wsdl:input wsaw:Action="urn:eBillSendSMS" message="ns:eBillSendSMSRequest" />
+      <wsdl:output wsaw:Action="urn:eBillSendSMSResponse" message="ns:eBillSendSMSResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input wsaw:Action="urn:SendSMS" message="ns:SendSMSRequest" />
+      <wsdl:output wsaw:Action="urn:SendSMSResponse" message="ns:SendSMSResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VFALSendSMSGateWaySoap11Binding" type="ns:VFALSendSMSGateWayPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eBillSendSMS">
+      <soap:operation soapAction="urn:eBillSendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="urn:SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VFALSendSMSGateWaySoap12Binding" type="ns:VFALSendSMSGateWayPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eBillSendSMS">
+      <soap12:operation soapAction="urn:eBillSendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="urn:SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VFALSendSMSGateWayHttpBinding" type="ns:VFALSendSMSGateWayPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="eBillSendSMS">
+      <http:operation location="eBillSendSMS" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="SendSMS" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VFALSendSMSGateWay">
+    <wsdl:port name="VFALSendSMSGateWayHttpSoap11Endpoint" binding="ns:VFALSendSMSGateWaySoap11Binding">
+      <soap:address location="http://10.100.100.118/axis2/services/VFALSendSMSGateWay.VFALSendSMSGateWayHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VFALSendSMSGateWayHttpSoap12Endpoint" binding="ns:VFALSendSMSGateWaySoap12Binding">
+      <soap12:address location="http://10.100.100.118/axis2/services/VFALSendSMSGateWay.VFALSendSMSGateWayHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VFALSendSMSGateWayHttpEndpoint" binding="ns:VFALSendSMSGateWayHttpBinding">
+      <http:address location="http://10.100.100.118/axis2/services/VFALSendSMSGateWay.VFALSendSMSGateWayHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

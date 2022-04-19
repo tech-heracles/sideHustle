@@ -1,0 +1,1681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DitariIKontabilitetitTitulli" xml:space="preserve">
+    <value>Ditari i Kontabilitetit</value>
+  </data>
+  <data name="DitariIKontabilitetitTitulli1" xml:space="preserve">
+    <value>Ditari i Kontabilitetit</value>
+  </data>
+  <data name="DitariIKontabilitetitTitulli2" xml:space="preserve">
+    <value>Ditari i Kontabilitetit</value>
+  </data>
+  <data name="DitariIKontabilitetitTitulli3" xml:space="preserve">
+    <value>Ditari i Kontabilitetit</value>
+  </data>
+  <data name="filterArkaBanka" xml:space="preserve">
+    <value>Arka/Banka:</value>
+  </data>
+  <data name="filterArkaBanka1" xml:space="preserve">
+    <value>Arka/Banka:</value>
+  </data>
+  <data name="filterArkaBanka2" xml:space="preserve">
+    <value>Arka/Banka:</value>
+  </data>
+  <data name="filterArkaBankaEmer" xml:space="preserve">
+    <value>Njesia:</value>
+  </data>
+  <data name="filterArkaBankaEmer1" xml:space="preserve">
+    <value>Njesia:</value>
+  </data>
+  <data name="filterArkaBankaEmer2" xml:space="preserve">
+    <value>Njesia:</value>
+  </data>
+  <data name="FilterAzhornim" xml:space="preserve">
+    <value>Azhornim:</value>
+  </data>
+  <data name="filterAzhornim1" xml:space="preserve">
+    <value>Azhornim:</value>
+  </data>
+  <data name="filterAzhornim2" xml:space="preserve">
+    <value>Azhornim:</value>
+  </data>
+  <data name="filterAzhornim3" xml:space="preserve">
+    <value>Azhornim:</value>
+  </data>
+  <data name="filterCikli" xml:space="preserve">
+    <value>Cikli :</value>
+  </data>
+  <data name="filterCikli1" xml:space="preserve">
+    <value>Cikli :</value>
+  </data>
+  <data name="filterCikli2" xml:space="preserve">
+    <value>Cikli :</value>
+  </data>
+  <data name="filterCmimeArtikulli" xml:space="preserve">
+    <value>Çmime Artikulli :</value>
+  </data>
+  <data name="filterCmimeArtikulli1" xml:space="preserve">
+    <value>Çmime Artikulli :</value>
+  </data>
+  <data name="filterCmimeArtikulli2" xml:space="preserve">
+    <value>Çmime Artikulli :</value>
+  </data>
+  <data name="FilterDateDokumenti" xml:space="preserve">
+    <value>Dt. Dok.:</value>
+  </data>
+  <data name="FilterDateRegjistrimi" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="FilterDateRegjistrimi1" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="FilterDateRegjistrimi2" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="FilterDateRegjistrimi3" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="filterDegeAdministrative" xml:space="preserve">
+    <value>Dega Administrative :</value>
+  </data>
+  <data name="filterDegeAdministrative1" xml:space="preserve">
+    <value>Dega Administrative :</value>
+  </data>
+  <data name="filterDegeAdministrative2" xml:space="preserve">
+    <value>Dega Administrative :</value>
+  </data>
+  <data name="filterDetajimD" xml:space="preserve">
+    <value>Detajimi 2:</value>
+  </data>
+  <data name="filterDetajimD1" xml:space="preserve">
+    <value>Detajimi 2:</value>
+  </data>
+  <data name="filterDetajimD2" xml:space="preserve">
+    <value>Detajimi 2:</value>
+  </data>
+  <data name="filterDetajimP" xml:space="preserve">
+    <value>Detajimi 1:</value>
+  </data>
+  <data name="filterDetajimP1" xml:space="preserve">
+    <value>Detajimi 1:</value>
+  </data>
+  <data name="filterDetajimP2" xml:space="preserve">
+    <value>Detajimi 1:</value>
+  </data>
+  <data name="filterDtAprovimit" xml:space="preserve">
+    <value>Dt. Aprovimit :</value>
+  </data>
+  <data name="filterDtAprovimit1" xml:space="preserve">
+    <value>Dt. Aprovimit :</value>
+  </data>
+  <data name="filterDtAprovimit2" xml:space="preserve">
+    <value>Dt. Aprovimit :</value>
+  </data>
+  <data name="filterDtDok" xml:space="preserve">
+    <value>Dt. Dok.:</value>
+  </data>
+  <data name="filterDtDok1" xml:space="preserve">
+    <value>Dt. Dok.:</value>
+  </data>
+  <data name="filterDtDok2" xml:space="preserve">
+    <value>Dt. Dok.:</value>
+  </data>
+  <data name="filterDtDokCmimArtikulli" xml:space="preserve">
+    <value>Dt. Aktivizimit</value>
+  </data>
+  <data name="filterDtDokCmimArtikulli1" xml:space="preserve">
+    <value>Dt. Aktivizimit</value>
+  </data>
+  <data name="filterDtDokCmimArtikulli2" xml:space="preserve">
+    <value>Dt. Aktivizimit</value>
+  </data>
+  <data name="filterDtDokKrahasues" xml:space="preserve">
+    <value>Dt. Dok. Krahasues:</value>
+  </data>
+  <data name="filterDtDokKrahasues1" xml:space="preserve">
+    <value>Dt. Dok. Krahasues:</value>
+  </data>
+  <data name="filterDtDokKrahasues2" xml:space="preserve">
+    <value>Dt. Dok. Krahasues:</value>
+  </data>
+  <data name="filterDtDokKryesor" xml:space="preserve">
+    <value>Dt. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterDtDokKryesor1" xml:space="preserve">
+    <value>Dt. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterDtDokKryesor2" xml:space="preserve">
+    <value>Dt. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterDtDokLidhes" xml:space="preserve">
+    <value>Dt. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterDtDokLidhes1" xml:space="preserve">
+    <value>Dt. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterDtDokLidhes2" xml:space="preserve">
+    <value>Dt. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterDtRegj" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="filterDtRegj1" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="filterDtRegj2" xml:space="preserve">
+    <value>Dt. Regj.:</value>
+  </data>
+  <data name="filterDtUrdherPagese" xml:space="preserve">
+    <value>Dt. Urdher Pagese :</value>
+  </data>
+  <data name="filterDtUrdherPagese1" xml:space="preserve">
+    <value>Dt. Urdher Pagese :</value>
+  </data>
+  <data name="filterDtUrdherPagese2" xml:space="preserve">
+    <value>Dt. Urdher Pagese :</value>
+  </data>
+  <data name="filterFurnitor" xml:space="preserve">
+    <value>Klient/Furn.:</value>
+  </data>
+  <data name="filterFurnitor1" xml:space="preserve">
+    <value>Klient/Furn.:</value>
+  </data>
+  <data name="filterFurnitor2" xml:space="preserve">
+    <value>Klient/Furn.:</value>
+  </data>
+  <data name="filterFurnitorArt" xml:space="preserve">
+    <value>Furnitor Art :</value>
+  </data>
+  <data name="filterFurnitorArt1" xml:space="preserve">
+    <value>Furnitor Art :</value>
+  </data>
+  <data name="filterFurnitorArt2" xml:space="preserve">
+    <value>Furnitor Art :</value>
+  </data>
+  <data name="filterGrupimD" xml:space="preserve">
+    <value>Grupim 2 :</value>
+  </data>
+  <data name="filterGrupimD1" xml:space="preserve">
+    <value>Grupim 2 :</value>
+  </data>
+  <data name="filterGrupimD2" xml:space="preserve">
+    <value>Grupim 2 :</value>
+  </data>
+  <data name="filterGrupimDKF" xml:space="preserve">
+    <value>Grupi 2 :</value>
+  </data>
+  <data name="filterGrupimDKF1" xml:space="preserve">
+    <value>Grupi 2 :</value>
+  </data>
+  <data name="filterGrupimDKF2" xml:space="preserve">
+    <value>Grupi 2 :</value>
+  </data>
+  <data name="filterGrupimDokD" xml:space="preserve">
+    <value>Grupim Dok. 2:</value>
+  </data>
+  <data name="filterGrupimDokD1" xml:space="preserve">
+    <value>Grupim Dok. 2:</value>
+  </data>
+  <data name="filterGrupimDokD2" xml:space="preserve">
+    <value>Grupim Dok. 2:</value>
+  </data>
+  <data name="filterGrupimDokP" xml:space="preserve">
+    <value>Grupim Dok. 1:</value>
+  </data>
+  <data name="filterGrupimDokP1" xml:space="preserve">
+    <value>Grupim Dok. 1:</value>
+  </data>
+  <data name="filterGrupimDokP2" xml:space="preserve">
+    <value>Grupim Dok. 1:</value>
+  </data>
+  <data name="filterGrupimDokT" xml:space="preserve">
+    <value>Grupim Dok. 3:</value>
+  </data>
+  <data name="filterGrupimDokT1" xml:space="preserve">
+    <value>Grupim Dok. 3:</value>
+  </data>
+  <data name="filterGrupimDokT2" xml:space="preserve">
+    <value>Grupim Dok. 3:</value>
+  </data>
+  <data name="filterGrupimP" xml:space="preserve">
+    <value>Grupim 1 :</value>
+  </data>
+  <data name="filterGrupimP1" xml:space="preserve">
+    <value>Grupim 1 :</value>
+  </data>
+  <data name="filterGrupimP2" xml:space="preserve">
+    <value>Grupim 1 :</value>
+  </data>
+  <data name="filterGrupimPKF" xml:space="preserve">
+    <value>Grupi 1 :</value>
+  </data>
+  <data name="filterGrupimPKF1" xml:space="preserve">
+    <value>Grupi 1 :</value>
+  </data>
+  <data name="filterGrupimPKF2" xml:space="preserve">
+    <value>Grupi 1 :</value>
+  </data>
+  <data name="filterGrupimTKF" xml:space="preserve">
+    <value>Grupi 3 :</value>
+  </data>
+  <data name="filterGrupimTKF1" xml:space="preserve">
+    <value>Grupi 3 :</value>
+  </data>
+  <data name="filterGrupimTKF2" xml:space="preserve">
+    <value>Grupi 3 :</value>
+  </data>
+  <data name="filterKartela" xml:space="preserve">
+    <value>Artikulli:</value>
+  </data>
+  <data name="filterKartela1" xml:space="preserve">
+    <value>Artikulli:</value>
+  </data>
+  <data name="filterKartela2" xml:space="preserve">
+    <value>Artikulli:</value>
+  </data>
+  <data name="filterKlasaArtikullit" xml:space="preserve">
+    <value>Klasa artikullit :</value>
+  </data>
+  <data name="filterKlasaArtikullit1" xml:space="preserve">
+    <value>Klasa artikullit :</value>
+  </data>
+  <data name="filterKlasaArtikullit2" xml:space="preserve">
+    <value>Klasa artikullit :</value>
+  </data>
+  <data name="filterKodbari" xml:space="preserve">
+    <value>Kodbari :</value>
+  </data>
+  <data name="filterKodbari1" xml:space="preserve">
+    <value>Kodbari :</value>
+  </data>
+  <data name="filterKodbari2" xml:space="preserve">
+    <value>Kodbari :</value>
+  </data>
+  <data name="filterKodDep" xml:space="preserve">
+    <value>Departamenti :</value>
+  </data>
+  <data name="filterKodDep1" xml:space="preserve">
+    <value>Departamenti :</value>
+  </data>
+  <data name="filterKodDep2" xml:space="preserve">
+    <value>Departamenti :</value>
+  </data>
+  <data name="filterKodNenDep" xml:space="preserve">
+    <value>Nendepartamenti :</value>
+  </data>
+  <data name="filterKodNenDep1" xml:space="preserve">
+    <value>Nendepartamenti :</value>
+  </data>
+  <data name="filterKodNenDep2" xml:space="preserve">
+    <value>Nendepartamenti :</value>
+  </data>
+  <data name="filterLikuiduar" xml:space="preserve">
+    <value>Dokumenta :</value>
+  </data>
+  <data name="filterLikuiduar1" xml:space="preserve">
+    <value>Dokumenta :</value>
+  </data>
+  <data name="filterLikuiduar2" xml:space="preserve">
+    <value>Dokumenta :</value>
+  </data>
+  <data name="filterLlogariEkonomike" xml:space="preserve">
+    <value>Llogaria ekonomike :</value>
+  </data>
+  <data name="filterLlogariEkonomike1" xml:space="preserve">
+    <value>Llogaria ekonomike :</value>
+  </data>
+  <data name="filterLlogariEkonomike2" xml:space="preserve">
+    <value>Llogaria ekonomike :</value>
+  </data>
+  <data name="filterLlojArtikulli" xml:space="preserve">
+    <value>Lloj Artikulli :</value>
+  </data>
+  <data name="filterLlojArtikulli1" xml:space="preserve">
+    <value>Lloj Artikulli :</value>
+  </data>
+  <data name="filterLlojArtikulli2" xml:space="preserve">
+    <value>Lloj Artikulli :</value>
+  </data>
+  <data name="FilterLlojDokumenti" xml:space="preserve">
+    <value>Lloj Dok.:</value>
+  </data>
+  <data name="filterLlojDokumenti1" xml:space="preserve">
+    <value>Lloj Dok.:</value>
+  </data>
+  <data name="filterLlojDokumenti2" xml:space="preserve">
+    <value>Lloj Dok.:</value>
+  </data>
+  <data name="filterLlojDokumentiKryesor" xml:space="preserve">
+    <value>Lloj Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterLlojDokumentiKryesor1" xml:space="preserve">
+    <value>Lloj Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterLlojDokumentiKryesor2" xml:space="preserve">
+    <value>Lloj Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterLlojDokumentiLidhes" xml:space="preserve">
+    <value>Lloj Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterLlojDokumentiLidhes1" xml:space="preserve">
+    <value>Lloj Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterLlojDokumentiLidhes2" xml:space="preserve">
+    <value>Lloj Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterLlojiArtBurim" xml:space="preserve">
+    <value>Lloji:</value>
+  </data>
+  <data name="filterLlojiArtBurim1" xml:space="preserve">
+    <value>Lloji:</value>
+  </data>
+  <data name="filterLlojiArtBurim2" xml:space="preserve">
+    <value>Lloji:</value>
+  </data>
+  <data name="filterMagazina" xml:space="preserve">
+    <value>Magazina:</value>
+  </data>
+  <data name="filterMagazina1" xml:space="preserve">
+    <value>Magazina:</value>
+  </data>
+  <data name="filterMagazina2" xml:space="preserve">
+    <value>Magazina:</value>
+  </data>
+  <data name="FilterMbylljeViti" xml:space="preserve">
+    <value>Me mbyllje viti :</value>
+  </data>
+  <data name="filterMeMbylljeViti" xml:space="preserve">
+    <value>Me mbyllje viti :</value>
+  </data>
+  <data name="filterMeMbylljeViti1" xml:space="preserve">
+    <value>Me mbyllje viti :</value>
+  </data>
+  <data name="filterMeMbylljeViti2" xml:space="preserve">
+    <value>Me mbyllje viti :</value>
+  </data>
+  <data name="filterMonedha" xml:space="preserve">
+    <value>Monedha:</value>
+  </data>
+  <data name="filterMonedha1" xml:space="preserve">
+    <value>Monedha:</value>
+  </data>
+  <data name="filterMonedha2" xml:space="preserve">
+    <value>Monedha:</value>
+  </data>
+  <data name="filterMuaji" xml:space="preserve">
+    <value>Muaji :</value>
+  </data>
+  <data name="filterMuaji1" xml:space="preserve">
+    <value>Muaji :</value>
+  </data>
+  <data name="filterMuaji2" xml:space="preserve">
+    <value>Muaji :</value>
+  </data>
+  <data name="filterNenLlogariEkonomike" xml:space="preserve">
+    <value>Nenllogaria ekonomike :</value>
+  </data>
+  <data name="filterNenLlogariEkonomike1" xml:space="preserve">
+    <value>Nenllogaria ekonomike :</value>
+  </data>
+  <data name="filterNenLlogariEkonomike2" xml:space="preserve">
+    <value>Nenllogaria ekonomike :</value>
+  </data>
+  <data name="filterNiveli" xml:space="preserve">
+    <value>Nenkategori:</value>
+  </data>
+  <data name="filterNiveli1" xml:space="preserve">
+    <value>Nenkategori:</value>
+  </data>
+  <data name="filterNiveli2" xml:space="preserve">
+    <value>Nenkategori:</value>
+  </data>
+  <data name="filterNjesiArtikulli" xml:space="preserve">
+    <value>Njesi artikulli :</value>
+  </data>
+  <data name="filterNjesiArtikulli1" xml:space="preserve">
+    <value>Njesi artikulli :</value>
+  </data>
+  <data name="filterNjesiArtikulli2" xml:space="preserve">
+    <value>Njesi artikulli :</value>
+  </data>
+  <data name="filterNrAprovimit" xml:space="preserve">
+    <value>Nr. Aprovimit :</value>
+  </data>
+  <data name="filterNrAprovimit1" xml:space="preserve">
+    <value>Nr. Aprovimit :</value>
+  </data>
+  <data name="filterNrAprovimit2" xml:space="preserve">
+    <value>Nr. Aprovimit :</value>
+  </data>
+  <data name="filterNrDokKonvertuar" xml:space="preserve">
+    <value>Nr. Dok. Konvertuar:</value>
+  </data>
+  <data name="filterNrDokKonvertuar1" xml:space="preserve">
+    <value>Nr. Dok. Konvertuar:</value>
+  </data>
+  <data name="filterNrDokKonvertuar2" xml:space="preserve">
+    <value>Nr. Dok. Konvertuar:</value>
+  </data>
+  <data name="filterNrPersonalPunonjesi" xml:space="preserve">
+    <value>Kodi :</value>
+  </data>
+  <data name="filterNrPersonalPunonjesi1" xml:space="preserve">
+    <value>Kodi :</value>
+  </data>
+  <data name="filterNrPersonalPunonjesi2" xml:space="preserve">
+    <value>Kodi :</value>
+  </data>
+  <data name="filterNrReference" xml:space="preserve">
+    <value>Nr. Reference:</value>
+  </data>
+  <data name="filterNrReference1" xml:space="preserve">
+    <value>Nr. Reference:</value>
+  </data>
+  <data name="filterNrReference2" xml:space="preserve">
+    <value>Nr. Reference:</value>
+  </data>
+  <data name="filterNrSerialUrdherPagese" xml:space="preserve">
+    <value>Seriali :</value>
+  </data>
+  <data name="filterNrSerialUrdherPagese1" xml:space="preserve">
+    <value>Seriali :</value>
+  </data>
+  <data name="filterNrSerialUrdherPagese2" xml:space="preserve">
+    <value>Seriali :</value>
+  </data>
+  <data name="filterNrUrdherPagese" xml:space="preserve">
+    <value>Nr. Urdher Pagese :</value>
+  </data>
+  <data name="filterNrUrdherPagese1" xml:space="preserve">
+    <value>Nr. Urdher Pagese :</value>
+  </data>
+  <data name="filterNrUrdherPagese2" xml:space="preserve">
+    <value>Nr. Urdher Pagese :</value>
+  </data>
+  <data name="FilterNumerDokumenti" xml:space="preserve">
+    <value>Nr. Dok.:</value>
+  </data>
+  <data name="FilterNumerDokumenti1" xml:space="preserve">
+    <value>Nr. Dok.:</value>
+  </data>
+  <data name="FilterNumerDokumenti2" xml:space="preserve">
+    <value>Nr. Dok.:</value>
+  </data>
+  <data name="filterNumerDokumentiKryesor" xml:space="preserve">
+    <value>Nr. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterNumerDokumentiKryesor1" xml:space="preserve">
+    <value>Nr. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterNumerDokumentiKryesor2" xml:space="preserve">
+    <value>Nr. Dok. që rrit detyrimin:</value>
+  </data>
+  <data name="filterNumerDokumentiLidhes" xml:space="preserve">
+    <value>Nr. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterNumerDokumentiLidhes1" xml:space="preserve">
+    <value>Nr. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="filterNumerDokumentiLidhes2" xml:space="preserve">
+    <value>Nr. Dok. që ul detyrimin:</value>
+  </data>
+  <data name="FilterNumerLlogarie" xml:space="preserve">
+    <value>Nr. Llogarie:</value>
+  </data>
+  <data name="filterNumerLlogarie1" xml:space="preserve">
+    <value>Nr. Llogarie:</value>
+  </data>
+  <data name="filterNumerLlogarie2" xml:space="preserve">
+    <value>Nr. Llogarie:</value>
+  </data>
+  <data name="FilterNumerReference" xml:space="preserve">
+    <value>Nr. Reference:</value>
+  </data>
+  <data name="FilterPershkrimi" xml:space="preserve">
+    <value>Pershkrimi:</value>
+  </data>
+  <data name="filterPershkrimi1" xml:space="preserve">
+    <value>Pershkrimi:</value>
+  </data>
+  <data name="filterPershkrimi2" xml:space="preserve">
+    <value>Pershkrimi:</value>
+  </data>
+  <data name="filterPikeshitjeFurnizmi" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi :</value>
+  </data>
+  <data name="filterPikeshitjeFurnizmi1" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi :</value>
+  </data>
+  <data name="filterPikeshitjeFurnizmi2" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi :</value>
+  </data>
+  <data name="filterQyteti" xml:space="preserve">
+    <value>Qyteti:</value>
+  </data>
+  <data name="filterQyteti1" xml:space="preserve">
+    <value>Qyteti:</value>
+  </data>
+  <data name="filterQyteti2" xml:space="preserve">
+    <value>Qyteti:</value>
+  </data>
+  <data name="filterRaportAzhornim" xml:space="preserve">
+    <value>Azhornim</value>
+  </data>
+  <data name="filterRaportIdNdermarje" xml:space="preserve">
+    <value>Ndermarrja:</value>
+  </data>
+  <data name="FilterRaportiNumerDokumenti" xml:space="preserve">
+    <value>Nr. Dok.:</value>
+  </data>
+  <data name="filterRaportiNumerLlogarie" xml:space="preserve">
+    <value>Nr. Llogarie:</value>
+  </data>
+  <data name="filterRaportLlojDokumenti" xml:space="preserve">
+    <value>Lloj Dok.:</value>
+  </data>
+  <data name="filterRaportPershkrimi" xml:space="preserve">
+    <value>Pershkrimi:</value>
+  </data>
+  <data name="filterShfaqVlerat" xml:space="preserve">
+    <value>Vlerat :</value>
+  </data>
+  <data name="filterShfaqVlerat1" xml:space="preserve">
+    <value>Vlerat :</value>
+  </data>
+  <data name="filterShfaqVlerat2" xml:space="preserve">
+    <value>Vlerat :</value>
+  </data>
+  <data name="filterTipGrafiku" xml:space="preserve">
+    <value>Tip Grafiku :</value>
+  </data>
+  <data name="filterTipGrafiku1" xml:space="preserve">
+    <value>Tip Grafiku :</value>
+  </data>
+  <data name="filterTipGrafiku2" xml:space="preserve">
+    <value>Tip Grafiku :</value>
+  </data>
+  <data name="filterTipGrafikuKrahasues" xml:space="preserve">
+    <value>Grafiku :</value>
+  </data>
+  <data name="filterTipGrafikuKrahasues1" xml:space="preserve">
+    <value>Grafiku :</value>
+  </data>
+  <data name="filterTipGrafikuKrahasues2" xml:space="preserve">
+    <value>Grafiku :</value>
+  </data>
+  <data name="FiltratEmertimi" xml:space="preserve">
+    <value>Filtrat</value>
+  </data>
+  <data name="FiltratEmertimi1" xml:space="preserve">
+    <value>Filtrat</value>
+  </data>
+  <data name="FiltratEmertimi2" xml:space="preserve">
+    <value>Filtrat</value>
+  </data>
+  <data name="FiltratEmertimi3" xml:space="preserve">
+    <value>Filtrat</value>
+  </data>
+  <data name="IdNdermarje" xml:space="preserve">
+    <value>Ndermarrja:</value>
+  </data>
+  <data name="IdNdermarje1" xml:space="preserve">
+    <value>Ndermarrja:</value>
+  </data>
+  <data name="labelDeri" xml:space="preserve">
+    <value>Deri</value>
+  </data>
+  <data name="labelDeri1" xml:space="preserve">
+    <value>Deri</value>
+  </data>
+  <data name="labelDeri2" xml:space="preserve">
+    <value>Deri</value>
+  </data>
+  <data name="labelDiferenca" xml:space="preserve">
+    <value>Diferenca</value>
+  </data>
+  <data name="labelDiferenca1" xml:space="preserve">
+    <value>Diferenca</value>
+  </data>
+  <data name="labelDtRegj" xml:space="preserve">
+    <value>Dt. Regj</value>
+  </data>
+  <data name="labelDtRegj1" xml:space="preserve">
+    <value>Dt. Regj</value>
+  </data>
+  <data name="labelDtRegj2" xml:space="preserve">
+    <value>Dt. Regj</value>
+  </data>
+  <data name="labelFilteKlasaArtikullit" xml:space="preserve">
+    <value>Klasa artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarArkaBanka" xml:space="preserve">
+    <value>Arka/Banka</value>
+  </data>
+  <data name="labelFilterAvancuarArkaBanka1" xml:space="preserve">
+    <value>Arka/Banka</value>
+  </data>
+  <data name="labelFilterAvancuarArkaBanka2" xml:space="preserve">
+    <value>Arka/Banka</value>
+  </data>
+  <data name="labelFilterAvancuarAzhornim" xml:space="preserve">
+    <value>Azhornim</value>
+  </data>
+  <data name="labelFilterAvancuarAzhornim1" xml:space="preserve">
+    <value>Azhornim</value>
+  </data>
+  <data name="labelFilterAvancuarCikli" xml:space="preserve">
+    <value>Cikli</value>
+  </data>
+  <data name="labelFilterAvancuarCikli1" xml:space="preserve">
+    <value>Cikli</value>
+  </data>
+  <data name="labelFilterAvancuarCmimi" xml:space="preserve">
+    <value>Çmime Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarCmimi1" xml:space="preserve">
+    <value>Çmime Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarCmimi2" xml:space="preserve">
+    <value>Çmime Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarDegeAdministrative" xml:space="preserve">
+    <value>Dege Administrative</value>
+  </data>
+  <data name="labelFilterAvancuarDegeAdministrative1" xml:space="preserve">
+    <value>Dege Administrative</value>
+  </data>
+  <data name="labelFilterAvancuarDegeAdministrative2" xml:space="preserve">
+    <value>Dege Administrative</value>
+  </data>
+  <data name="labelFilterAvancuarDepartamenti" xml:space="preserve">
+    <value>Departamenti</value>
+  </data>
+  <data name="labelFilterAvancuarDepartamenti1" xml:space="preserve">
+    <value>Departamenti</value>
+  </data>
+  <data name="labelFilterAvancuarDepartamenti2" xml:space="preserve">
+    <value>Departamenti</value>
+  </data>
+  <data name="labelFilterAvancuarDok" xml:space="preserve">
+    <value>Dokumenta</value>
+  </data>
+  <data name="labelFilterAvancuarDok1" xml:space="preserve">
+    <value>Dokumenta</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokKryesor" xml:space="preserve">
+    <value>Datë dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokKryesor1" xml:space="preserve">
+    <value>Datë dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokKryesor2" xml:space="preserve">
+    <value>Datë dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokLidhes" xml:space="preserve">
+    <value>Datë dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokLidhes1" xml:space="preserve">
+    <value>Datë dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtDokLidhes2" xml:space="preserve">
+    <value>Datë dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarDtMaturimi" xml:space="preserve">
+    <value>Datë Maturimi</value>
+  </data>
+  <data name="labelFilterAvancuarDtMaturimi1" xml:space="preserve">
+    <value>Datë Maturimi</value>
+  </data>
+  <data name="labelFilterAvancuarDtMaturimi2" xml:space="preserve">
+    <value>Datë Maturimi</value>
+  </data>
+  <data name="labelFilterAvancuarDtRegjistrimi" xml:space="preserve">
+    <value>Datë regjistrimi</value>
+  </data>
+  <data name="labelFilterAvancuarDtRegjistrimi1" xml:space="preserve">
+    <value>Datë regjistrimi</value>
+  </data>
+  <data name="labelFilterAvancuarDtRegjistrimi2" xml:space="preserve">
+    <value>Datë regjistrimi</value>
+  </data>
+  <data name="labelFilterAvancuarFormati" xml:space="preserve">
+    <value>Formati</value>
+  </data>
+  <data name="labelFilterAvancuarFormati1" xml:space="preserve">
+    <value>Formati</value>
+  </data>
+  <data name="labelFilterAvancuarFormati2" xml:space="preserve">
+    <value>Formati</value>
+  </data>
+  <data name="labelFilterAvancuarFurnArt" xml:space="preserve">
+    <value>Furnitor Art.</value>
+  </data>
+  <data name="labelFilterAvancuarFurnArt1" xml:space="preserve">
+    <value>Furnitor Art.</value>
+  </data>
+  <data name="labelFilterAvancuarFurnArt2" xml:space="preserve">
+    <value>Furnitor Art.</value>
+  </data>
+  <data name="labelFilterAvancuarGjendja" xml:space="preserve">
+    <value>Gjendja</value>
+  </data>
+  <data name="labelFilterAvancuarGjendja1" xml:space="preserve">
+    <value>Gjendja</value>
+  </data>
+  <data name="labelFilterAvancuarGjendjaLlog" xml:space="preserve">
+    <value>Gjendja e llogarise</value>
+  </data>
+  <data name="labelFilterAvancuarGjendjaLlog1" xml:space="preserve">
+    <value>Gjendja e llogarise</value>
+  </data>
+  <data name="labelFilterAvancuarGjendjaLlog2" xml:space="preserve">
+    <value>Gjendja e llogarise</value>
+  </data>
+  <data name="labelFilterAvancuarGrupi" xml:space="preserve">
+    <value>Grupi</value>
+  </data>
+  <data name="labelFilterAvancuarGrupi1" xml:space="preserve">
+    <value>Grupi</value>
+  </data>
+  <data name="labelFilterAvancuarGrupi2" xml:space="preserve">
+    <value>Grupi</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim1KF" xml:space="preserve">
+    <value>Grup Klienti 1</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim1KF1" xml:space="preserve">
+    <value>Grup Klienti 1</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim1KF2" xml:space="preserve">
+    <value>Grup Klienti 1</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim2KF" xml:space="preserve">
+    <value>Grup Klienti 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim2KF1" xml:space="preserve">
+    <value>Grup Klienti 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim2KF2" xml:space="preserve">
+    <value>Grup Klienti 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim3KF" xml:space="preserve">
+    <value>Grup Klienti 3</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim3KF1" xml:space="preserve">
+    <value>Grup Klienti 3</value>
+  </data>
+  <data name="labelFilterAvancuarGrupim3KF2" xml:space="preserve">
+    <value>Grup Klienti 3</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimD" xml:space="preserve">
+    <value>Grupimi 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimD1" xml:space="preserve">
+    <value>Grupimi 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimD2" xml:space="preserve">
+    <value>Grupimi 2</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok1" xml:space="preserve">
+    <value>Grupim Dok. 1:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok11" xml:space="preserve">
+    <value>Grupim Dok. 1:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok2" xml:space="preserve">
+    <value>Grupim Dok. 2:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok21" xml:space="preserve">
+    <value>Grupim Dok. 2:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok3" xml:space="preserve">
+    <value>Grupim Dok. 3:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimDok31" xml:space="preserve">
+    <value>Grupim Dok. 3:</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimP" xml:space="preserve">
+    <value>Grupimi 1</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimP1" xml:space="preserve">
+    <value>Grupimi 1</value>
+  </data>
+  <data name="labelFilterAvancuarGrupimP2" xml:space="preserve">
+    <value>Grupimi 1</value>
+  </data>
+  <data name="labelFilterAvancuarIntervalet" xml:space="preserve">
+    <value>Intervalet</value>
+  </data>
+  <data name="labelFilterAvancuarIntervalet1" xml:space="preserve">
+    <value>Intervalet</value>
+  </data>
+  <data name="labelFilterAvancuarIntervalet2" xml:space="preserve">
+    <value>Intervalet</value>
+  </data>
+  <data name="labelFilterAvancuarKlasaArtikullit" xml:space="preserve">
+    <value>Klasa artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarKlasaArtikullit1" xml:space="preserve">
+    <value>Klasa artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarKodArt" xml:space="preserve">
+    <value>Kodi artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarKodArt1" xml:space="preserve">
+    <value>Kodi artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarKodArt2" xml:space="preserve">
+    <value>Kodi artikullit</value>
+  </data>
+  <data name="labelFilterAvancuarKodbari" xml:space="preserve">
+    <value>Kodbari</value>
+  </data>
+  <data name="labelFilterAvancuarKodbari1" xml:space="preserve">
+    <value>Kodbari</value>
+  </data>
+  <data name="labelFilterAvancuarLlogEkonomike" xml:space="preserve">
+    <value>Llogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarLlogEkonomike1" xml:space="preserve">
+    <value>Llogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarLlogEkonomike2" xml:space="preserve">
+    <value>Llogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarLlogKoresp" xml:space="preserve">
+    <value>Llogari koresponduese</value>
+  </data>
+  <data name="labelFilterAvancuarLlogKoresp1" xml:space="preserve">
+    <value>Llogari koresponduese</value>
+  </data>
+  <data name="labelFilterAvancuarLlogKoresp2" xml:space="preserve">
+    <value>Llogari koresponduese</value>
+  </data>
+  <data name="labelFilterAvancuarLlojArtBur" xml:space="preserve">
+    <value>Lloji (Artikull/Burim)</value>
+  </data>
+  <data name="labelFilterAvancuarLlojArtBur1" xml:space="preserve">
+    <value>Lloji (Artikull/Burim)</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDok" xml:space="preserve">
+    <value>Lloji i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDok1" xml:space="preserve">
+    <value>Lloji i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDok2" xml:space="preserve">
+    <value>Lloji i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDokLidhes" xml:space="preserve">
+    <value>Lloji i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDokLidhes1" xml:space="preserve">
+    <value>Lloji i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarLlojDokLidhes2" xml:space="preserve">
+    <value>Lloji i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarLlojGrafiku" xml:space="preserve">
+    <value>Lloji i Grafikut</value>
+  </data>
+  <data name="labelFilterAvancuarLlojGrafiku1" xml:space="preserve">
+    <value>Lloji i Grafikut</value>
+  </data>
+  <data name="labelFilterAvancuarMagazina" xml:space="preserve">
+    <value>labelFilterAvancuarLlojDokLidhes</value>
+  </data>
+  <data name="labelFilterAvancuarMagazina1" xml:space="preserve">
+    <value>labelFilterAvancuarLlojDokLidhes</value>
+  </data>
+  <data name="labelFilterAvancuarMagazina2" xml:space="preserve">
+    <value>labelFilterAvancuarLlojDokLidhes</value>
+  </data>
+  <data name="labelFilterAvancuarMbylljeViti" xml:space="preserve">
+    <value>Me mbyllje viti aktuale</value>
+  </data>
+  <data name="labelFilterAvancuarMbylljeViti1" xml:space="preserve">
+    <value>Me mbyllje viti aktuale</value>
+  </data>
+  <data name="labelFilterAvancuarMonedha" xml:space="preserve">
+    <value>Monedha</value>
+  </data>
+  <data name="labelFilterAvancuarMonedha1" xml:space="preserve">
+    <value>Monedha</value>
+  </data>
+  <data name="labelFilterAvancuarMonedha2" xml:space="preserve">
+    <value>Monedha</value>
+  </data>
+  <data name="labelFilterAvancuarMonedheKF" xml:space="preserve">
+    <value>Monedha Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterAvancuarMonedheKF1" xml:space="preserve">
+    <value>Monedha Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterAvancuarMonedheKF2" xml:space="preserve">
+    <value>Monedha Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterAvancuarNendepartamenti" xml:space="preserve">
+    <value>Nendepartamenti</value>
+  </data>
+  <data name="labelFilterAvancuarNendepartamenti1" xml:space="preserve">
+    <value>Nendepartamenti</value>
+  </data>
+  <data name="labelFilterAvancuarNendepartamenti2" xml:space="preserve">
+    <value>Nendepartamenti</value>
+  </data>
+  <data name="labelFilterAvancuarNengrupi" xml:space="preserve">
+    <value>Nëngrupi</value>
+  </data>
+  <data name="labelFilterAvancuarNengrupi1" xml:space="preserve">
+    <value>Nëngrupi</value>
+  </data>
+  <data name="labelFilterAvancuarNengrupi2" xml:space="preserve">
+    <value>Nëngrupi</value>
+  </data>
+  <data name="labelFilterAvancuarNenllogEkonomike" xml:space="preserve">
+    <value>Nenllogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarNenllogEkonomike1" xml:space="preserve">
+    <value>Nenllogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarNenllogEkonomike2" xml:space="preserve">
+    <value>Nenllogari Ekonomike</value>
+  </data>
+  <data name="labelFilterAvancuarNiveli" xml:space="preserve">
+    <value>Nen Kategori</value>
+  </data>
+  <data name="labelFilterAvancuarNiveli1" xml:space="preserve">
+    <value>Nen Kategori</value>
+  </data>
+  <data name="labelFilterAvancuarNiveli2" xml:space="preserve">
+    <value>Nen Kategori</value>
+  </data>
+  <data name="labelFilterAvancuarNjesia" xml:space="preserve">
+    <value>Njesi Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarNjesia1" xml:space="preserve">
+    <value>Njesi Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarNjesia2" xml:space="preserve">
+    <value>Njesi Artikulli</value>
+  </data>
+  <data name="labelFilterAvancuarNjesiAB" xml:space="preserve">
+    <value>Njesi Arka/Banka</value>
+  </data>
+  <data name="labelFilterAvancuarNjesiAB1" xml:space="preserve">
+    <value>Njesi Arka/Banka</value>
+  </data>
+  <data name="labelFilterAvancuarNrAprovimi" xml:space="preserve">
+    <value>Nr. Aprovimit</value>
+  </data>
+  <data name="labelFilterAvancuarNrAprovimi1" xml:space="preserve">
+    <value>Nr. Aprovimit</value>
+  </data>
+  <data name="labelFilterAvancuarNrAprovimi2" xml:space="preserve">
+    <value>Nr. Aprovimit</value>
+  </data>
+  <data name="labelFilterAvancuarNrDok" xml:space="preserve">
+    <value>Numri i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarNrDok1" xml:space="preserve">
+    <value>Numri i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarNrDok2" xml:space="preserve">
+    <value>Numri i dokumentit</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokKryesor" xml:space="preserve">
+    <value>Numri i dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokKryesor1" xml:space="preserve">
+    <value>Numri i dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokKryesor2" xml:space="preserve">
+    <value>Numri i dok. që rrit detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokLidhes" xml:space="preserve">
+    <value>Numri i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokLidhes1" xml:space="preserve">
+    <value>Numri i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrDokLidhes2" xml:space="preserve">
+    <value>Numri i dok. që ul detyrimin</value>
+  </data>
+  <data name="labelFilterAvancuarNrLlogarie" xml:space="preserve">
+    <value>Numri i llogarisë</value>
+  </data>
+  <data name="labelFilterAvancuarNrLlogarie1" xml:space="preserve">
+    <value>Numri i llogarisë</value>
+  </data>
+  <data name="labelFilterAvancuarNrLlogarie2" xml:space="preserve">
+    <value>Numri i llogarisë</value>
+  </data>
+  <data name="labelFilterAvancuarNrPunonjesi" xml:space="preserve">
+    <value>Numer Personal Punonjesi</value>
+  </data>
+  <data name="labelFilterAvancuarNrPunonjesi1" xml:space="preserve">
+    <value>Numer Personal Punonjesi</value>
+  </data>
+  <data name="labelFilterAvancuarNrPunonjesi2" xml:space="preserve">
+    <value>Numer Personal Punonjesi</value>
+  </data>
+  <data name="labelFilterAvancuarNrReference" xml:space="preserve">
+    <value>Numri i referencës</value>
+  </data>
+  <data name="labelFilterAvancuarNrReference1" xml:space="preserve">
+    <value>Numri i referencës</value>
+  </data>
+  <data name="labelFilterAvancuarNrReference2" xml:space="preserve">
+    <value>Numri i referencës</value>
+  </data>
+  <data name="labelFilterAvancuarNrSerial" xml:space="preserve">
+    <value>Numri Serial</value>
+  </data>
+  <data name="labelFilterAvancuarNrSerial1" xml:space="preserve">
+    <value>Numri Serial</value>
+  </data>
+  <data name="labelFilterAvancuarNrSerial2" xml:space="preserve">
+    <value>Numri Serial</value>
+  </data>
+  <data name="labelFilterAvancuarNrUrdherPagese" xml:space="preserve">
+    <value>Nr. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterAvancuarNrUrdherPagese1" xml:space="preserve">
+    <value>Nr. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterAvancuarNrUrdherPagese2" xml:space="preserve">
+    <value>Nr. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterAvancuarPerdorues" xml:space="preserve">
+    <value>Përdoruesi</value>
+  </data>
+  <data name="labelFilterAvancuarPerdorues1" xml:space="preserve">
+    <value>Përdoruesi</value>
+  </data>
+  <data name="labelFilterAvancuarPerdorues2" xml:space="preserve">
+    <value>Përdoruesi</value>
+  </data>
+  <data name="labelFilterAvancuarPershkVeprimi" xml:space="preserve">
+    <value>Përshkrimi i veprimit</value>
+  </data>
+  <data name="labelFilterAvancuarPershkVeprimi1" xml:space="preserve">
+    <value>Përshkrimi i veprimit</value>
+  </data>
+  <data name="labelFilterAvancuarPershkVeprimi2" xml:space="preserve">
+    <value>Përshkrimi i veprimit</value>
+  </data>
+  <data name="labelFilterAvancuarPikeShF" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi</value>
+  </data>
+  <data name="labelFilterAvancuarPikeShF1" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi</value>
+  </data>
+  <data name="labelFilterAvancuarPikeShF2" xml:space="preserve">
+    <value>Pike Shitje/Furnizimi</value>
+  </data>
+  <data name="labelFilterAvancuarQyteti" xml:space="preserve">
+    <value>Rrethi/Qyteti</value>
+  </data>
+  <data name="labelFilterAvancuarQyteti1" xml:space="preserve">
+    <value>Rrethi/Qyteti</value>
+  </data>
+  <data name="labelFilterAvancuarQyteti2" xml:space="preserve">
+    <value>Rrethi/Qyteti</value>
+  </data>
+  <data name="labelFilterAvancuarStatusi" xml:space="preserve">
+    <value>Statusi</value>
+  </data>
+  <data name="labelFilterAvancuarStatusi1" xml:space="preserve">
+    <value>Statusi</value>
+  </data>
+  <data name="labelFilterAvancuarTipi" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="labelFilterAvancuarTipi1" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="labelFilterAvancuarTipi2" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="labelFilterAvancuarVlerat" xml:space="preserve">
+    <value>Vlerat</value>
+  </data>
+  <data name="labelFilterAvancuarVlerat1" xml:space="preserve">
+    <value>Vlerat</value>
+  </data>
+  <data name="labelFilterKryeAvancKlientFurnitor" xml:space="preserve">
+    <value>Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterKryeAvancKlientFurnitor1" xml:space="preserve">
+    <value>Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterKryeAvancKlientFurnitor2" xml:space="preserve">
+    <value>Klient/Furnitor</value>
+  </data>
+  <data name="labelFilterKryesorDtAprovimi" xml:space="preserve">
+    <value>Dt. Aprovimi</value>
+  </data>
+  <data name="labelFilterKryesorDtAprovimi1" xml:space="preserve">
+    <value>Dt. Aprovimi</value>
+  </data>
+  <data name="labelFilterKryesorDtAprovimi2" xml:space="preserve">
+    <value>Dt. Aprovimi</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumenti" xml:space="preserve">
+    <value>Datë dokumenti</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumenti1" xml:space="preserve">
+    <value>Datë dokumenti</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumenti2" xml:space="preserve">
+    <value>Datë dokumenti</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumentiKrahasues" xml:space="preserve">
+    <value>Datë dokumenti krahasues</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumentiKrahasues1" xml:space="preserve">
+    <value>Datë dokumenti krahasues</value>
+  </data>
+  <data name="labelFilterKryesorDtDokumentiKrahasues2" xml:space="preserve">
+    <value>Datë dokumenti krahasues</value>
+  </data>
+  <data name="labelFilterKryesorDtUrdherPagese" xml:space="preserve">
+    <value>Dt. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterKryesorDtUrdherPagese1" xml:space="preserve">
+    <value>Dt. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterKryesorDtUrdherPagese2" xml:space="preserve">
+    <value>Dt. Urdher Pagese</value>
+  </data>
+  <data name="labelFilterKryesorMuaji" xml:space="preserve">
+    <value>Muaji</value>
+  </data>
+  <data name="labelFilterKryesorMuaji1" xml:space="preserve">
+    <value>Muaji</value>
+  </data>
+  <data name="labelFilterKryesorMuaji2" xml:space="preserve">
+    <value>Muaji</value>
+  </data>
+  <data name="labelFilterKryesorRaporti" xml:space="preserve">
+    <value>Raporti</value>
+  </data>
+  <data name="labelFilterKryesorRaporti1" xml:space="preserve">
+    <value>Raporti</value>
+  </data>
+  <data name="labelFilterKryesorRaporti2" xml:space="preserve">
+    <value>Raporti</value>
+  </data>
+  <data name="labelFilterKryesorTipGrafikuKrahasues" xml:space="preserve">
+    <value>Grafiku</value>
+  </data>
+  <data name="labelFilterKryesorTipGrafikuKrahasues1" xml:space="preserve">
+    <value>Grafiku</value>
+  </data>
+  <data name="labelFilterKryesorTipGrafikuKrahasues2" xml:space="preserve">
+    <value>Grafiku</value>
+  </data>
+  <data name="LabelFshiFilter" xml:space="preserve">
+    <value>Jeni i sigurtë që doni ta fshini këtë filter?</value>
+  </data>
+  <data name="LabelFshiFilter1" xml:space="preserve">
+    <value>Jeni i sigurtë që doni ta fshini këtë filter?</value>
+  </data>
+  <data name="LabelFshiFilter2" xml:space="preserve">
+    <value>Jeni i sigurtë që doni ta fshini këtë filter?</value>
+  </data>
+  <data name="labelIMB" xml:space="preserve">
+    <value>Copyright © IMB
+Instituti i Modelimeve ne Biznes 
+www.imb.al</value>
+  </data>
+  <data name="labelIMB1" xml:space="preserve">
+    <value>Copyright © IMB
+Instituti i Modelimeve ne Biznes 
+www.imb.al</value>
+  </data>
+  <data name="labelLloji" xml:space="preserve">
+    <value>Lloji</value>
+  </data>
+  <data name="labelLloji1" xml:space="preserve">
+    <value>Lloji</value>
+  </data>
+  <data name="labelLogoIMB" xml:space="preserve">
+    <value>Copyright © IMB
+Instituti i Modelimeve ne Biznes 
+www.imb.al</value>
+  </data>
+  <data name="labelNga" xml:space="preserve">
+    <value>Nga</value>
+  </data>
+  <data name="labelNga1" xml:space="preserve">
+    <value>Nga</value>
+  </data>
+  <data name="labelNrDok" xml:space="preserve">
+    <value>Nr. dok</value>
+  </data>
+  <data name="labelNrDok1" xml:space="preserve">
+    <value>Nr. dok</value>
+  </data>
+  <data name="labelNrLlogari" xml:space="preserve">
+    <value>Nr. Llogari</value>
+  </data>
+  <data name="labelNrLlogari1" xml:space="preserve">
+    <value>Nr. Llogari</value>
+  </data>
+  <data name="labelNrRef" xml:space="preserve">
+    <value>Nr ref.</value>
+  </data>
+  <data name="labelNrRef1" xml:space="preserve">
+    <value>Nr ref.</value>
+  </data>
+  <data name="labelNrRef2" xml:space="preserve">
+    <value>Nr ref.</value>
+  </data>
+  <data name="labelPershkrimi" xml:space="preserve">
+    <value>Përshkrimi</value>
+  </data>
+  <data name="labelPershkrimi1" xml:space="preserve">
+    <value>Përshkrimi</value>
+  </data>
+  <data name="labelRaportiDiferenca" xml:space="preserve">
+    <value>Diferenca</value>
+  </data>
+  <data name="labelRaportiDtDok" xml:space="preserve">
+    <value>Dt. Dok</value>
+  </data>
+  <data name="labelRaportiLloji" xml:space="preserve">
+    <value>Lloji</value>
+  </data>
+  <data name="labelRaportiNga" xml:space="preserve">
+    <value>Nga</value>
+  </data>
+  <data name="labelRaportiNrDok" xml:space="preserve">
+    <value>Nr. dok</value>
+  </data>
+  <data name="labelRaportiNrLlogari" xml:space="preserve">
+    <value>Nr. Llogari</value>
+  </data>
+  <data name="labelRaportiPershkrimi" xml:space="preserve">
+    <value>Përshkrimi</value>
+  </data>
+  <data name="labelRaportiKodi" xml:space="preserve">
+    <value>Kodi</value>
+  </data>
+  <data name="labelRaportiTotaliVeprimeve" xml:space="preserve">
+    <value>Totali i veprimeve</value>
+  </data>
+  <data name="labelRaportiVleftaDebi" xml:space="preserve">
+    <value>Vlefta Debi</value>
+  </data>
+  <data name="labelRaportiVleftaKredi" xml:space="preserve">
+    <value>Vlefta Kredi</value>
+  </data>
+  <data name="labelRaportMsgboxFshiRaport" xml:space="preserve">
+    <value>Jeni i sigurtë që doni ta fshini këtë raport?</value>
+  </data>
+  <data name="labelRaportMsgboxFshiRaport1" xml:space="preserve">
+    <value>Jeni i sigurtë që doni ta fshini këtë raport?</value>
+  </data>
+  <data name="labelTotaliVeprimeve" xml:space="preserve">
+    <value>Totali i veprimeve</value>
+  </data>
+  <data name="labelTotaliVeprimeve1" xml:space="preserve">
+    <value>Totali i veprimeve</value>
+  </data>
+  <data name="labelVleftaDebi" xml:space="preserve">
+    <value>Nr. Llogari</value>
+  </data>
+  <data name="labelVleftaDebi1" xml:space="preserve">
+    <value>Nr. Llogari</value>
+  </data>
+  <data name="labelVleftaKredi" xml:space="preserve">
+    <value>Vlefta Kredi</value>
+  </data>
+  <data name="labelVleftaKredi1" xml:space="preserve">
+    <value>Vlefta Kredi</value>
+  </data>
+  <data name="navbarGroupfiltraAvancuar" xml:space="preserve">
+    <value>Filtra të avancuar</value>
+  </data>
+  <data name="navbarGroupfiltraAvancuar1" xml:space="preserve">
+    <value>Filtra të avancuar</value>
+  </data>
+  <data name="navbarGroupfiltraAvancuar2" xml:space="preserve">
+    <value>Filtra të avancuar</value>
+  </data>
+  <data name="navbarGroupFiltraKryesore" xml:space="preserve">
+    <value>Filtra kryesorë</value>
+  </data>
+  <data name="navbarGroupFiltraKryesore1" xml:space="preserve">
+    <value>Filtra kryesorë</value>
+  </data>
+  <data name="navbarGroupFiltraKryesore2" xml:space="preserve">
+    <value>Filtra kryesorë</value>
+  </data>
+  <data name="RadioButtonListEditItemAktuale" xml:space="preserve">
+    <value>Aktuale</value>
+  </data>
+  <data name="RadioButtonListEditItemAktuale1" xml:space="preserve">
+    <value>Aktuale</value>
+  </data>
+  <data name="RadioButtonListEditItemAktuale2" xml:space="preserve">
+    <value>Aktuale</value>
+  </data>
+  <data name="RadioButtonListEditItemPeriudha" xml:space="preserve">
+    <value>Periudha</value>
+  </data>
+  <data name="RadioButtonListEditItemPeriudha1" xml:space="preserve">
+    <value>Periudha</value>
+  </data>
+  <data name="RadioButtonListEditItemPeriudha2" xml:space="preserve">
+    <value>Periudha</value>
+  </data>
+  <data name="RadioButtonListEditItemVitiUshtrimor" xml:space="preserve">
+    <value>Viti Ushtrimor</value>
+  </data>
+  <data name="RadioButtonListEditItemVitiUshtrimor1" xml:space="preserve">
+    <value>Viti Ushtrimor</value>
+  </data>
+  <data name="RadioButtonListEditItemVitiUshtrimor2" xml:space="preserve">
+    <value>Viti Ushtrimor</value>
+  </data>
+  <data name="nrBankeArtegBankaBKT" xml:space="preserve">
+    <value>AL7920511667273936CLPRCLALLA</value>
+  </data>
+  <data name="nrBankeArtegBankaCredins" xml:space="preserve">
+    <value>AL22212260650000000000032606</value>
+  </data>
+  <data name="nrBankeArtegBankaIntesa" xml:space="preserve">
+    <value>AL03208260260000063012935301</value>
+  </data>
+  <data name="nrBankeArtegBankaRaiffeisen" xml:space="preserve">
+    <value>AL14202260000000000000532669</value>
+  </data>
+  <data name="lblCelAnoria" xml:space="preserve">
+    <value>+355 68 40 83 272</value>
+  </data>
+  <data name="lblFaxAnoria" xml:space="preserve">
+    <value>+355 4 2 237 189</value>
+  </data>
+  <data name="lblKontaktiKlimateknika" xml:space="preserve">
+    <value>Bulevardi "Gjergj Fishta" Tirane, Albania.
+Tel/Fax: +355 4 341 757, Mob.: +355 692090699/ +355 692037384,
+Email: info@klimateknika-alb.com,
+Email: klimateknika@yahoo.com
+web: www.klimateknika-alb.com</value>
+  </data>
+  <data name="lblFormat001" xml:space="preserve">
+    <value>001</value>
+  </data>
+  <data name="lblRaportMiratuarNga" xml:space="preserve">
+    <value>Formati i ketij Urdher Shpenzimi eshte miratuar nga Ministri i Financave me shkresen nr.6135 date 27.05.2009</value>
+  </data>
+  <data name="lblRaportMiratuarNga2" xml:space="preserve">
+    <value>Shenim : Qelizat per "Nr. i kuponit" dhe "Aprovuar date", plotesohen nga nepunesi i Deges se Thesarit</value>
+  </data>
+  <data name="nrBankeArtegBankaAlphaBank" xml:space="preserve">
+    <value>AL28902113884111230012188121</value>
+  </data>
+  <data name="nrBankeArtegBankaProCredit" xml:space="preserve">
+    <value>AL51209267170000700273780001</value>
+  </data>
+  <data name="MenuItemGrupCRM" xml:space="preserve">
+    <value>CRM</value>
+  </data>
+  <data name="MenuItemGrupAnalizBuxheti" xml:space="preserve">
+    <value>Analiza e Buxhetit</value>
+  </data>
+  <data name="MenuItemGIS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MenuItemGroupBusinessIntelligence" xml:space="preserve">
+    <value>inteligjenca e Biznesit</value>
+  </data>
+  <data name="MenuItemGroupGIS" xml:space="preserve">
+    <value>GIS</value>
+  </data>
+  <data name="MenuFundDokumenti" xml:space="preserve">
+    <value>Fund Dokumeti</value>
+  </data>
+  <data name="MenuItemRaporteCRM" xml:space="preserve">
+    <value>Raportet CRM</value>
+  </data>
+  <data name="MenuItem_0_AnalizBuzheti" xml:space="preserve">
+    <value>Konfigurimi i zerave per ambjentet e analizes se buxhetit</value>
+  </data>
+  <data name="MenuItem_0_Harta" xml:space="preserve">
+    <value>Hartat e Njesive Administrative</value>
+  </data>
+  <data name="MenuItem_10_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i inventarit sipas perdoruesve</value>
+  </data>
+  <data name="MenuItem_11_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i inventarit sipas viteve</value>
+  </data>
+  <data name="MenuItem_12_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i pasqyres organike</value>
+  </data>
+  <data name="MenuItem_13_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i evidences statistikore</value>
+  </data>
+  <data name="MenuItem_14_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per projekt buxhetin permbledhes</value>
+  </data>
+  <data name="MenuItem_15_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per parashikimin e te ardhurave</value>
+  </data>
+  <data name="MenuItem_16_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per parashikimin e shpenzimeve per personelin</value>
+  </data>
+  <data name="MenuItem_17_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne vitet pasardhes</value>
+  </data>
+  <data name="MenuItem_18_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne 3 vitet pasardhese</value>
+  </data>
+  <data name="MenuItem_19_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per shpenzimet operative ne baze mujore</value>
+  </data>
+  <data name="MenuItem_1_AnalizBuzheti" xml:space="preserve">
+    <value>Konfigurimi i parashikimit te shpenzimeve</value>
+  </data>
+  <data name="MenuItem_1_Harta" xml:space="preserve">
+    <value>Hartat e shitjeve sipas magazinave</value>
+  </data>
+  <data name="MenuItem_20_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per projekt buxhetin 3 vjecar</value>
+  </data>
+  <data name="MenuItem_21_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per planifikimin e produkteve te programit</value>
+  </data>
+  <data name="MenuItem_22_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per parashikimin e shpenzimeve kapitale</value>
+  </data>
+  <data name="MenuItem_23_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti per parashikimin e shpenzimeve per vitin pasardhes(Raportuese)</value>
+  </data>
+  <data name="MenuItem_24_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti permbledhes per shpenzimet operative</value>
+  </data>
+  <data name="MenuItem_25_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti i inventarit sipas viteve (Raportuese)</value>
+  </data>
+  <data name="MenuItem_26_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti i inventarit sipas perdoruesve (Raportuese)</value>
+  </data>
+  <data name="MenuItem_27_AnalizBuxheti" xml:space="preserve">
+    <value>Raporti i evidences statistikore(Raportuese)</value>
+  </data>
+  <data name="MenuItem_2_AnalizBuzheti" xml:space="preserve">
+    <value>Konfigurimi i shpenzimeve operative</value>
+  </data>
+  <data name="MenuItem_2_Harta" xml:space="preserve">
+    <value>Harta e shitjeve sipas klienteve</value>
+  </data>
+  <data name="MenuItem_3_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i buxhetit permbledhes</value>
+  </data>
+  <data name="MenuItem_3_Harta" xml:space="preserve">
+    <value>Harta e shitjeve sipas furnitoreve</value>
+  </data>
+  <data name="MenuItem_4_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i parashikimit te shpenzimeve per personelin</value>
+  </data>
+  <data name="MenuItem_4_Harta_Marzhi" xml:space="preserve">
+    <value>Marzhi i shitjes sipas klienteve</value>
+  </data>
+  <data name="MenuItem_5_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i parashikimit te te ardhurave</value>
+  </data>
+  <data name="MenuItem_5_Harta" xml:space="preserve">
+    <value>Harta e shitjeve sipas pikave te shitjes</value>
+  </data>
+  <data name="MenuItem_6_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i shpenzimeve kapitale</value>
+  </data>
+  <data name="MenuItem_6_Harta" xml:space="preserve">
+    <value>Harta e gjendjes se magazinave</value>
+  </data>
+  <data name="MenuItem_7_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i projektbuxhetit per tre vite</value>
+  </data>
+  <data name="MenuItem_7_Harta" xml:space="preserve">
+    <value>Harta e amortizimit te aseteve ne perqindje</value>
+  </data>
+  <data name="MenuItem_8_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i planifikimit te produkteve</value>
+  </data>
+  <data name="MenuItem_9_AnalizBuxheti" xml:space="preserve">
+    <value>Regjistrimi i shpenzimeve operative</value>
+  </data>
+  <data name="MenuKokeDokumenti" xml:space="preserve">
+    <value> Koke Dokumenti</value>
+  </data>
+  <data name="MenuTrupDocumenti" xml:space="preserve">
+    <value>Trup Dokumenti</value>
+  </data>
+  <data name="lblShfaqKoston" xml:space="preserve">
+    <value>Shfaq koston e artikujve</value>
+  </data>
+  <data name="MenuItemSettings" xml:space="preserve">
+    <value>Personalizo</value>
+  </data>
+</root>

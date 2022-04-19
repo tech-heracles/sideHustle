@@ -1,0 +1,96 @@
+using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+using System.Globalization;
+using System.Resources;
+using System.Reflection;
+namespace AlphaWebReports.RaportetDs.Blerje
+{
+    public partial class LibriBlerjes_Procredit : DevExpress.XtraReports.UI.XtraReport
+    {
+		public LibriBlerjes_Procredit(){InitializeComponent();} 
+    
+        public LibriBlerjes_Procredit(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
+            this(param.Ci, param.IdNdermarrje, param.IdViti, param.IdPerdoruesi, report)
+        {
+
+        }
+        public LibriBlerjes_Procredit(CultureInfo ci, int idNdermarrje, int idViti, int idPerdoruesi,
+            DevExpress.XtraReports.UI.XtraReport raport)
+        {
+            InitializeComponent();
+            EmrateLabelave(ci);
+
+           string data = raport.Parameters["filterDtDok"].Value.ToString();
+            string dtFillimi = data.Split('-')[0];
+            string muaji = dtFillimi.Split('/')[1];
+
+            parameterMuaji.Value= muaji.TrimStart('0');
+            caktoFormatinENumrave();
+        }
+
+        private void caktoFormatinENumrave()
+        {
+            xrLabel71.XlsxFormatString = xrLabel72.XlsxFormatString = xrLabel73.XlsxFormatString = xrLabel74.XlsxFormatString = xrLabel75.XlsxFormatString
+          = xrLabel76.XlsxFormatString = xrLabel77.XlsxFormatString = xrLabel78.XlsxFormatString = xrLabel79.XlsxFormatString = xrLabel80.XlsxFormatString
+          = xrLabel81.XlsxFormatString = xrLabel82.XlsxFormatString = 0.ToString("N2");
+        }
+
+        //kaluar eventi beforeprint ne script events
+        /// <summary>
+        /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
+        /// </summary>
+        /// <param name="ci"> kthen CultureInfo nga sesioni ne baze te gjuhes se perdoruesit</param>
+        private void EmrateLabelave(CultureInfo ci)
+        {
+           ResourceManager rm = new ResourceManager("Resources.Strings",
+                     System.Reflection.Assembly.Load("App_GlobalResources"));          
+            xrLabel1.Text = rm.GetString("RaportLibriBlerjeveTitulli", ci);
+            xrLabel2.Text = rm.GetString("labelShoqeria", ci);
+            xrLabel3.Text = rm.GetString("labelNipti", ci);
+            xrLabel4.Text = rm.GetString("labelViti", ci);
+            xrLabel5.Text = rm.GetString("labelFilterKryesorMuaji", ci);
+            xrLabel6.Text = rm.GetString("labelPaVeprimtari", ci);
+            xrLabel8.Text = rm.GetString("labelKonfirmimTransaksioni", ci);
+            xrLabel9.Text = rm.GetString("labelFature", ci);
+            xrLabel10.Text = rm.GetString("labelNrFature", ci);
+            xrLabel11.Text = rm.GetString("labelFilterAvancuarNrSerial", ci);
+            xrLabel12.Text = rm.GetString("labelDataFormat", ci);
+            xrLabel13.Text = rm.GetString("labelShitesi", ci);
+            xrLabel14.Text = rm.GetString("labelEmerTregtarPerson", ci);
+            xrLabel15.Text = rm.GetString("labelRrethi", ci);
+            xrLabel16.Text = rm.GetString("labelNiptKodFermeri", ci);
+            xrLabel17.Text = rm.GetString("labelTotalBlerjeshMeTVSH", ci);
+            xrLabel18.Text = rm.GetString("labelBlerje", ci);
+            xrLabel19.Text = rm.GetString("labelTePerjashtuaraMeTVSH", ci);
+            xrLabel20.Text = rm.GetString("labelImporte", ci) + " 20%";
+            xrLabel21.Text = rm.GetString("labelImporte", ci) + " 10%";
+            xrLabel22.Text = rm.GetString("labelFurnitorVendas", ci) + " 20%";
+            xrLabel23.Text = rm.GetString("labelFurnitorVendas", ci) + " 10%";
+            xrLabel24.Text = rm.GetString("labelFermerVendas", ci);
+            xrLabel25.Text = rm.GetString("labelVleraTatueshme", ci);
+            xrLabel26.Text = rm.GetString("labelTVSH", ci);
+            xrLabel27.Text = rm.GetString("labelVleraTatueshme", ci);
+            xrLabel28.Text = rm.GetString("labelTVSH", ci);
+            xrLabel29.Text = rm.GetString("labelVleraTatueshme", ci);
+            xrLabel30.Text = rm.GetString("labelTVSH", ci);
+            xrLabel31.Text = rm.GetString("labelVleraTatueshme", ci);
+            xrLabel32.Text = rm.GetString("labelTVSH", ci);
+            xrLabel33.Text = rm.GetString("labelVleraTatueshme", ci);
+            xrLabel34.Text = rm.GetString("labelTVSH", ci);
+            xrLabel70.Text = rm.GetString("labelShumaTotale", ci);
+            xrLabel94.Text = rm.GetString("labelKutiaFormularitTeDeklarimitTePageses", ci);
+            xrLabel96.Text = rm.GetString("labelshpjegim", ci);
+            xrLabel97.Text = rm.GetString("labelEmerMbiemer", ci);
+            xrLabel95.Text = rm.GetString("labelShpjegimPrintimi", ci);
+            xrLabel98.Text = rm.GetString("labelShtimNrRreshtash", ci);
+            xrLabel15.Text = rm.GetString("labelRrethi", ci);
+            xrLabel16.Text = rm.GetString("labelNiptKodFermeri", ci);
+            xrLabel17.Text = rm.GetString("labelTotalBlerjeshMeTVSH", ci);
+            xrLabel18.Text = rm.GetString("labelBlerje", ci);
+            xrLabel19.Text = rm.GetString("labelTePerjashtuaraMeTVSH", ci);
+        }
+    }
+}

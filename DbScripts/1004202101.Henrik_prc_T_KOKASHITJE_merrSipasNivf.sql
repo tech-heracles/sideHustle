@@ -1,0 +1,24 @@
+IF OBJECT_ID('prc_T_KOKASHITJE_merrSipasNivf') IS NOT NULL
+	DROP PROCEDURE prc_T_KOKASHITJE_merrSipasNivf
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[prc_T_KOKASHITJE_merrSipasNivf]
+(
+   @NIVFKTHIM       varchar(100)
+)
+AS
+    BEGIN
+        DECLARE @Err INT;
+        SELECT NIVF,
+		IIC,
+		DTKRIJIMIPAJISJE,
+		DTFATURE
+        FROM T_KOKASHITJE
+        WHERE NIVF = @NIVFKTHIM
+              AND [T_KOKASHITJE].IDSTATUSDOK <> 2;
+        SET @Err = @@Error;
+        RETURN @Err;
+    END;

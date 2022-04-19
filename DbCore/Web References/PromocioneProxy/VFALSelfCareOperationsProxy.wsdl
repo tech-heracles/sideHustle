@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://www.w3.org/2006/05/addressing/wsdl" xmlns:WL5G3N1="http://Operations.SelfCare.vodafone.al" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Operations.SelfCare.vodafone.al" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:documentation>VFALSelfCareOperationsNew</WL5G3N0:documentation>
+  <WL5G3N0:types>
+    <xs:schema xmlns:ax219="http://Operations.SelfCare.vodafone.al/xsd" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N5="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://Operations.SelfCare.vodafone.al" xmlns:WL5G3N6="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://Operations.SelfCare.vodafone.al/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CommandResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="XMLResponse" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="balance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="buckets" nillable="true" type="ax219:ListOfBuckets" />
+          <xs:element minOccurs="0" name="bundleCost" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="bundleExpDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="bundleId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="bundles" nillable="true" type="ax219:ListOfBundles" />
+          <xs:element minOccurs="0" name="classOfService" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="commandName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="commandResult" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="creditExpiryDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="discountCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="discountPercent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="extend" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="groupListNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="msisdn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="prepaidUser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="reference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resultMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subscriberState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tariffPlan" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ListOfBuckets">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bucket" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ListOfBundles">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bundle" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ax219="http://Operations.SelfCare.vodafone.al/xsd" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N5="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax220="http://Operations.SelfCare.vodafone.al/xsd" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://Operations.SelfCare.vodafone.al" xmlns:WL5G3N6="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://Operations.SelfCare.vodafone.al" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://Operations.SelfCare.vodafone.al/xsd" />
+      <xs:element name="VFALGetSurePaySubscriberProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSurePaySubscriberProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALTopupSubscriberAOA">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TransactionID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SessionID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PostEventBalance" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PreEventBalance" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALTopupSubscriberAOAResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBonus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Services" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBonusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALCreateSubscriber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ClientTransactionId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Distributor" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="InitialAirtime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PackagePlan" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SimSerialNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALCreateSubscriberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALRechargeServices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="DonorMsisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TextSMS" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="DonorTextSMS" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALRechargeServicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscribeLoyaltyBonus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="DestinationMsisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BonusCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscribeLoyaltyBonusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetLoyaltyInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetLoyaltyInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBundle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBundleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBundleNS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetEligibleBundleNSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberProfileNS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberProfileNSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetPostPayProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetPostPayProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscribeProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscribeProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALRoamingServiceOperations">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CommandName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PromotionId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALRoamingServiceOperationsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberBasicData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALGetSubscriberBasicDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscrbeBundle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BundleId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="DiscountPercent" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="DiscountCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BundleCost" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Extend" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALSubscrbeBundleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALProvisioningCommand">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Service" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Msisdn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VFALProvisioningCommandResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax220:CommandResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="VFALGetEligibleBundleNSRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBundleNS" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetEligibleBundleNSResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBundleNSResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALRoamingServiceOperationsRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALRoamingServiceOperations" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALRoamingServiceOperationsResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALRoamingServiceOperationsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscrbeBundleRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscrbeBundle" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscrbeBundleResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscrbeBundleResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSurePaySubscriberProfileRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSurePaySubscriberProfile" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSurePaySubscriberProfileResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSurePaySubscriberProfileResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALCreateSubscriberRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALCreateSubscriber" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALCreateSubscriberResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALCreateSubscriberResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetEligibleBundleRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBundle" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetEligibleBundleResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBundleResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALProvisioningCommandRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALProvisioningCommand" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALProvisioningCommandResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALProvisioningCommandResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberBasicDataRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberBasicData" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberBasicDataResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberBasicDataResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetLoyaltyInfoRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetLoyaltyInfo" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetLoyaltyInfoResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetLoyaltyInfoResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetPostPayProductRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetPostPayProduct" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetPostPayProductResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetPostPayProductResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetEligibleBonusRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBonus" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetEligibleBonusResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetEligibleBonusResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberProfileRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberProfile" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberProfileResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberProfileResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberProfileNSRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberProfileNS" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALGetSubscriberProfileNSResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALGetSubscriberProfileNSResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALTopupSubscriberAOARequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALTopupSubscriberAOA" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALTopupSubscriberAOAResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALTopupSubscriberAOAResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALRechargeServicesRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALRechargeServices" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALRechargeServicesResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALRechargeServicesResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscribeLoyaltyBonusRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscribeLoyaltyBonus" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscribeLoyaltyBonusResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscribeLoyaltyBonusResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscribeProductRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscribeProduct" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="VFALSubscribeProductResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:VFALSubscribeProductResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="VFALSelfCareOperationsNewPortType">
+    <WL5G3N0:operation name="VFALGetEligibleBundleNS">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetEligibleBundleNS" message="WL5G3N1:VFALGetEligibleBundleNSRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetEligibleBundleNSResponse" message="WL5G3N1:VFALGetEligibleBundleNSResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALRoamingServiceOperations">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALRoamingServiceOperations" message="WL5G3N1:VFALRoamingServiceOperationsRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALRoamingServiceOperationsResponse" message="WL5G3N1:VFALRoamingServiceOperationsResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscrbeBundle">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALSubscrbeBundle" message="WL5G3N1:VFALSubscrbeBundleRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALSubscrbeBundleResponse" message="WL5G3N1:VFALSubscrbeBundleResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSurePaySubscriberProfile">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetSurePaySubscriberProfile" message="WL5G3N1:VFALGetSurePaySubscriberProfileRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetSurePaySubscriberProfileResponse" message="WL5G3N1:VFALGetSurePaySubscriberProfileResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALCreateSubscriber">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALCreateSubscriber" message="WL5G3N1:VFALCreateSubscriberRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALCreateSubscriberResponse" message="WL5G3N1:VFALCreateSubscriberResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetEligibleBundle">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetEligibleBundle" message="WL5G3N1:VFALGetEligibleBundleRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetEligibleBundleResponse" message="WL5G3N1:VFALGetEligibleBundleResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALProvisioningCommand">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALProvisioningCommand" message="WL5G3N1:VFALProvisioningCommandRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALProvisioningCommandResponse" message="WL5G3N1:VFALProvisioningCommandResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberBasicData">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetSubscriberBasicData" message="WL5G3N1:VFALGetSubscriberBasicDataRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetSubscriberBasicDataResponse" message="WL5G3N1:VFALGetSubscriberBasicDataResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetLoyaltyInfo">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetLoyaltyInfo" message="WL5G3N1:VFALGetLoyaltyInfoRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetLoyaltyInfoResponse" message="WL5G3N1:VFALGetLoyaltyInfoResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetPostPayProduct">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetPostPayProduct" message="WL5G3N1:VFALGetPostPayProductRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetPostPayProductResponse" message="WL5G3N1:VFALGetPostPayProductResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetEligibleBonus">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetEligibleBonus" message="WL5G3N1:VFALGetEligibleBonusRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetEligibleBonusResponse" message="WL5G3N1:VFALGetEligibleBonusResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberProfile">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetSubscriberProfile" message="WL5G3N1:VFALGetSubscriberProfileRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetSubscriberProfileResponse" message="WL5G3N1:VFALGetSubscriberProfileResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberProfileNS">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALGetSubscriberProfileNS" message="WL5G3N1:VFALGetSubscriberProfileNSRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALGetSubscriberProfileNSResponse" message="WL5G3N1:VFALGetSubscriberProfileNSResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALTopupSubscriberAOA">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALTopupSubscriberAOA" message="WL5G3N1:VFALTopupSubscriberAOARequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALTopupSubscriberAOAResponse" message="WL5G3N1:VFALTopupSubscriberAOAResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALRechargeServices">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALRechargeServices" message="WL5G3N1:VFALRechargeServicesRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALRechargeServicesResponse" message="WL5G3N1:VFALRechargeServicesResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscribeLoyaltyBonus">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALSubscribeLoyaltyBonus" message="WL5G3N1:VFALSubscribeLoyaltyBonusRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALSubscribeLoyaltyBonusResponse" message="WL5G3N1:VFALSubscribeLoyaltyBonusResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscribeProduct">
+      <WL5G3N0:input WL5G3N2:Action="urn:VFALSubscribeProduct" message="WL5G3N1:VFALSubscribeProductRequest" />
+      <WL5G3N0:output WL5G3N2:Action="urn:VFALSubscribeProductResponse" message="WL5G3N1:VFALSubscribeProductResponse" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="VFALSelfCareOperationsNewSoap12Binding" type="WL5G3N1:VFALSelfCareOperationsNewPortType">
+    <WL5G3N3:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="VFALGetEligibleBundleNS">
+      <WL5G3N3:operation soapAction="urn:VFALGetEligibleBundleNS" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALRoamingServiceOperations">
+      <WL5G3N3:operation soapAction="urn:VFALRoamingServiceOperations" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscrbeBundle">
+      <WL5G3N3:operation soapAction="urn:VFALSubscrbeBundle" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSurePaySubscriberProfile">
+      <WL5G3N3:operation soapAction="urn:VFALGetSurePaySubscriberProfile" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALCreateSubscriber">
+      <WL5G3N3:operation soapAction="urn:VFALCreateSubscriber" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetEligibleBundle">
+      <WL5G3N3:operation soapAction="urn:VFALGetEligibleBundle" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberBasicData">
+      <WL5G3N3:operation soapAction="urn:VFALGetSubscriberBasicData" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALProvisioningCommand">
+      <WL5G3N3:operation soapAction="urn:VFALProvisioningCommand" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetLoyaltyInfo">
+      <WL5G3N3:operation soapAction="urn:VFALGetLoyaltyInfo" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetPostPayProduct">
+      <WL5G3N3:operation soapAction="urn:VFALGetPostPayProduct" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetEligibleBonus">
+      <WL5G3N3:operation soapAction="urn:VFALGetEligibleBonus" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberProfile">
+      <WL5G3N3:operation soapAction="urn:VFALGetSubscriberProfile" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALGetSubscriberProfileNS">
+      <WL5G3N3:operation soapAction="urn:VFALGetSubscriberProfileNS" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALTopupSubscriberAOA">
+      <WL5G3N3:operation soapAction="urn:VFALTopupSubscriberAOA" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALRechargeServices">
+      <WL5G3N3:operation soapAction="urn:VFALRechargeServices" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscribeLoyaltyBonus">
+      <WL5G3N3:operation soapAction="urn:VFALSubscribeLoyaltyBonus" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="VFALSubscribeProduct">
+      <WL5G3N3:operation soapAction="urn:VFALSubscribeProduct" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="VFALSelfCareOperationsNewSoap12BindingQSService">
+    <WL5G3N0:port name="VFALSelfCareOperationsNewSoap12BindingQSPort" binding="WL5G3N1:VFALSelfCareOperationsNewSoap12Binding">
+      <WL5G3N3:address location="http://osb-preprod-vfal.internal.vodafone.com:80/VFALSelfCareOperationsOSBProxy/proxy/VFALSelfCareOperationsProxy" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

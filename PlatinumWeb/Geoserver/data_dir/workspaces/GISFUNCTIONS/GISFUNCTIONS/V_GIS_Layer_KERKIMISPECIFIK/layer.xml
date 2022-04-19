@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_KERKIMISPECIFIK</name>
+  <id>LayerInfoImpl--dbecf10:1591b74e9c1:-7529</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591b74e9c1:-752c</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591b74e9c1:-752a</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

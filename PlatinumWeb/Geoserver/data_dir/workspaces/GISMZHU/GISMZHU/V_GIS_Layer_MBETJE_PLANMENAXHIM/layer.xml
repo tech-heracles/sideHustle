@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJE_PLANMENAXHIM</name>
+  <id>LayerInfoImpl--7f58d7b8:15ab2df690a:6791</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--7f58d7b8:15ab2df690a:66e4</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--7f58d7b8:15ab2df690a:6790</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

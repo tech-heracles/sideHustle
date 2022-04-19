@@ -1,0 +1,2033 @@
+#===========================================================================
+# allowed DPIs
+#===========================================================================
+dpis: [96, 150, 200, 254]
+#===========================================================================
+# the allowed scales
+#===========================================================================
+scales:
+  - 533
+  - 1066
+  - 2132
+  - 4265
+  - 8530
+  - 17061
+  - 34123
+  - 68247
+  - 136494
+  - 272988
+  - 545977
+  - 1091955
+  - 2183910
+  - 4367821
+#===========================================================================
+# the list of allowed hosts
+#===========================================================================
+hosts:
+  - !localMatch
+    dummy: true
+  - !ipMatch
+    ip:0.0.0.0
+    mask:0.0.0.0
+  - !dnsMatch
+    host: 0.0.0.0
+  - !dnsMatch
+    host: maps.google.com
+
+#===========================================================================
+# allowed Formats '*' means any formats
+#===========================================================================
+formats: ['pdf', 'png', 'tiff']
+
+outputFilename: 'MAP_${yyyy-MM-dd}_T${HHmmss}'
+
+#These two settings let the print server open lots of connections to the source dataset.
+globalParallelFetches: 10
+perHostParallelFetches: 10
+tilecacheMerging: true
+
+#Connection timeouts for connecting to the map servers in ms
+connectionTimeout: 60000           
+socketTimeout: 360000    
+printTimeoutMinutes: 20
+             
+disableScaleLocking: false
+brokenUrlPlaceholder: http://localhost:8090/geoserver/www/transparent.gif
+
+layouts:		
+  A4 Portrait:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A4 Portrait: 595 x 842'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A4 
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 6
+          absoluteY: 836
+          width: 583
+          height: 830
+        #The map border
+        - !columns
+          config:
+            borderWidth: 1
+          absoluteX: 6
+          absoluteY: 836
+          width: 583
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 11
+          absoluteY: 831
+          width: 35
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 35
+              maxHeight: 35
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim				  
+        #Title Box 
+        - !columns
+          absoluteX: 191
+          absoluteY: 831
+          width: 200	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 18
+              align: center
+              fontSize: 16	
+              fontColor: #FFFFFF	
+              condition: mapTitle	
+        - !columns
+          absoluteX: 190.5
+          absoluteY: 830.5
+          width: 200	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 18
+              align: center
+              fontSize: 16		
+              condition: mapTitle	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 544
+          absoluteY: 831
+          width: 40 
+          items:		  
+            - !image			
+              maxWidth: 40
+              maxHeight: 40
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default/Nord.png'
+              rotation: '${rotation}' 			  
+        #ScaleBar	    
+        - !columns
+          absoluteX: 544
+          absoluteY: 785
+          width: 70
+          items:
+            - !scalebar		
+              maxSize: 60	
+              type: bar
+              fontSize: 5
+              align: left
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 544
+          absoluteY: 12
+          width: 70			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 4.8
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   				  		  
+
+			  
+    lastPage:
+      pageSize: A4
+      items:		
+        #Legend   
+        - !columns
+          absoluteX: 21
+          absoluteY: 800
+          width: 250	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: 'Shpjegues (Legend)'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 21
+          absoluteY: 770
+          width: 250
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 130
+              iconMaxHeight: 130
+              defaultScale: 1.0
+              maxWidth: 230
+              #Padding between layers
+              layerSpace: 6
+              layerFont: Helvetica
+              layerFontSize: 12
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 15
+              classFont: Helvetica
+              classFontSize: 6
+              backgroundColor: white
+              inline:true	
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 350
+          absoluteY: 800
+          width: 230
+          items:	
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: right
+              text: ""		
+
+  #===========================================================================
+  
+  A4 Landscape:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A4 landscape: 842 x 595'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A4 
+      landscape: true	
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 6
+          absoluteY: 589
+          width: 830
+          height: 583
+        #The map border
+        - !columns
+          config:
+            borderWidth: 1
+          absoluteX: 6
+          absoluteY: 589
+          width: 830
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 11
+          absoluteY: 584
+          width: 35
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 35
+              maxHeight: 35
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim				  
+        #Title Box 
+        - !columns
+          absoluteX: 275
+          absoluteY: 584
+          width: 280	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 18
+              align: center
+              fontSize: 16	
+              fontColor: #FFFFFF	
+              condition: mapTitle	
+        - !columns
+          absoluteX: 274.5
+          absoluteY: 583.5
+          width: 280	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 18
+              align: center
+              fontSize: 16		
+              condition: mapTitle	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 791
+          absoluteY: 584
+          width: 40 
+          items:		  
+            - !image			
+              maxWidth: 40
+              maxHeight: 40
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 			  
+        #ScaleBar	    
+        - !columns
+          absoluteX: 791
+          absoluteY: 540
+          width: 70
+          items:
+            - !scalebar		
+              maxSize: 60	
+              type: bar
+              fontSize: 5
+              align: left
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 791
+          absoluteY: 12
+          width: 70			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 4.8
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   				  		  
+
+			  
+    lastPage:
+      pageSize: A4
+      landscape: true	
+      items:		
+        #Legend   
+        - !columns
+          absoluteX: 21
+          absoluteY: 575
+          width: 250	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: 'Shpjegues (Legend)'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 21
+          absoluteY: 550
+          width: 250
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 130
+              iconMaxHeight: 130
+              defaultScale: 1.0
+              maxWidth: 230
+              #Padding between layers
+              layerSpace: 6
+              layerFont: Helvetica
+              layerFontSize: 12
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 15
+              classFont: Helvetica
+              classFontSize: 6
+              backgroundColor: white
+              inline:true	
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 570
+          absoluteY: 575
+          width: 250
+          items:	
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: right
+              text: ""		
+
+  #===========================================================================
+  
+  A3 Portrait:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A3 Portrait: 842 x 1190'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A3 
+      rotation: true 
+      items:
+        # The Map
+        - !map
+          absoluteX: 12
+          absoluteY: 1178
+          width: 818
+          height: 1166
+        #The map border
+        - !columns
+          config:
+            borderWidth: 1.5
+          absoluteX: 12
+          absoluteY: 1178
+          width: 818
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 22
+          absoluteY: 1168
+          width: 45
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 45
+              maxHeight: 45
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 284  
+          absoluteY: 1168
+          width: 250	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 30
+              align: center
+              fontSize: 22	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 283.5
+          absoluteY: 1167.5
+          width: 250	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 30
+              align: center
+              fontSize: 22		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 690
+          absoluteY: 1168
+          width: 130	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 689.5
+          absoluteY: 1167.5
+          width: 130	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 690
+          absoluteY: 1153
+          width: 130
+          config:
+            borderWidth: 1
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 5
+          items:		  
+            - !legends
+              iconMaxWidth: 60
+              iconMaxHeight: 60
+              defaultScale: 0
+              maxWidth: 120
+              #Padding between layers
+              layerSpace: 2
+              layerFont: Helvetica
+              layerFontSize: 8
+              #Padding between text and icon within layer
+              classSpace: 1
+              classIndentation: 4
+              classFont: Helvetica
+              classFontSize: 2
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 22
+          absoluteY: 70
+          width: 50 
+          items:		  
+            - !image			
+              maxWidth: 50
+              maxHeight: 50
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 82
+          absoluteY: 65
+          width: 100
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 7
+              align: left
+        - !columns
+          absoluteX: 82
+          absoluteY: 45
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 82
+          absoluteY: 30
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 7.5
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 200
+          absoluteY: 65
+          width: 200
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 9
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 670
+          absoluteY: 65
+          width: 150
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 5.5
+              align: right
+              text: ""
+  #===========================================================================
+
+  A3 Landscape:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A3 Landscape: 1190 x 842'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A3 
+      landscape: true
+      items:
+        # The Map
+        - !map
+          absoluteX: 12
+          absoluteY: 830
+          width: 1166
+          height: 818
+        #The map border
+        - !columns
+          config:
+            borderWidth: 1.5
+          absoluteX: 12
+          absoluteY: 830
+          width: 1166
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 22
+          absoluteY: 820
+          width: 45
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 45
+              maxHeight: 45
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 383  
+          absoluteY: 820
+          width: 400	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 30
+              align: center
+              fontSize: 22	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 382.5	  
+          absoluteY: 819.5
+          width: 400	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 30
+              align: center
+              fontSize: 22		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 1038
+          absoluteY: 820
+          width: 130	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 1037.5
+          absoluteY: 819.5
+          width: 130	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 1038
+          absoluteY: 805
+          width: 130
+          config:
+            borderWidth: 1
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 5
+          items:		  
+            - !legends
+              iconMaxWidth: 60
+              iconMaxHeight: 60
+              defaultScale: 0
+              maxWidth: 120
+              #Padding between layers
+              layerSpace: 2
+              layerFont: Helvetica
+              layerFontSize: 8
+              #Padding between text and icon within layer
+              classSpace: 1
+              classIndentation: 4
+              classFont: Helvetica
+              classFontSize: 2
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 22
+          absoluteY: 70
+          width: 50 
+          items:		  
+            - !image			
+              maxWidth: 50
+              maxHeight: 50
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 82
+          absoluteY: 65
+          width: 100
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 7
+              align: left
+        - !columns
+          absoluteX: 82
+          absoluteY: 45
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 82
+          absoluteY: 30
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 7.5
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 200
+          absoluteY: 65
+          width: 200
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 9
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 1018
+          absoluteY: 65
+          width: 150
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 5.5
+              align: right
+              text: ""
+  #===========================================================================
+
+  A2 Portrait:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A2 Portrait: 1190 x 1684'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A2 
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 22
+          absoluteY: 1662
+          width: 1146
+          height: 1640
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 22
+          absoluteY: 1662
+          width: 1146
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 42
+          absoluteY: 1642
+          width: 50
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 50
+              maxHeight: 50
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 373  
+          absoluteY: 1642
+          width: 400	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 70
+              align: center
+              fontSize: 28	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 371	  
+          absoluteY: 1641
+          width: 400	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 70
+              align: center
+              fontSize: 28		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 998
+          absoluteY: 1642
+          width: 150	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 10
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 997
+          absoluteY: 1642
+          width: 150	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 10
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 998
+          absoluteY: 1624
+          width: 150
+          config:
+            borderWidth: 1
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 5
+          items:		  
+            - !legends
+              iconMaxWidth: 70
+              iconMaxHeight: 70
+              defaultScale: 0
+              maxWidth: 140
+              #Padding between layers
+              layerSpace: 4
+              layerFont: Helvetica
+              layerFontSize: 10
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 9
+              classFont: Helvetica
+              classFontSize: 3
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 42
+          absoluteY: 70
+          width: 50 
+          items:		  
+            - !image			
+              maxWidth: 50
+              maxHeight: 50
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 112
+          absoluteY: 65
+          width: 100
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 8
+              align: left
+        - !columns
+          absoluteX: 112
+          absoluteY: 45
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 112
+          absoluteY: 30
+          width: 100			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 7.5
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 232
+          absoluteY: 120
+          width: 200
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 9
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 998
+          absoluteY: 85
+          width: 150
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 7
+              align: right
+              text: ""
+
+  #===========================================================================
+  
+  A2 Landscape:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A2 Landscape: 1684 x 1190'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A2 
+      landscape: true
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 22
+          absoluteY: 1168
+          width: 1640
+          height: 1146
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 22
+          absoluteY: 1168
+          width: 1640
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 42
+          absoluteY: 1148
+          width: 60
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 60
+              maxHeight: 60
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 545  
+          absoluteY: 1148
+          width: 550	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 70
+              align: center
+              fontSize: 28	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 543	  
+          absoluteY: 1147
+          width: 550	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 70
+              align: center
+              fontSize: 28		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 1442
+          absoluteY: 1148
+          width: 200	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 12
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 1442
+          absoluteY: 1148
+          width: 200	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 12
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 1442
+          absoluteY: 1130
+          width: 200
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 70
+              iconMaxHeight: 70
+              defaultScale: 0
+              maxWidth: 180
+              #Padding between layers
+              layerSpace: 4
+              layerFont: Helvetica
+              layerFontSize: 10
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 9
+              classFont: Helvetica
+              classFontSize: 3
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 42
+          absoluteY: 100
+          width: 60 
+          items:		  
+            - !image			
+              maxWidth: 60
+              maxHeight: 60
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 122
+          absoluteY: 90
+          width: 120
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 10
+              align: left
+        - !columns
+          absoluteX: 122
+          absoluteY: 70
+          width: 120			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 10
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 122
+          absoluteY: 55
+          width: 120			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 262
+          absoluteY: 90
+          width: 300
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 10
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 1442
+          absoluteY: 90
+          width: 200
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 8
+              align: right
+              text: ""
+
+  #===========================================================================
+  
+  A1 Portrait:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A1 Portrait: 1685 x 2384'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A1 
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 27
+          absoluteY: 2357
+          width: 1631
+          height: 2330
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 27
+          absoluteY: 2357
+          width: 1631
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 52
+          absoluteY: 2332
+          width: 85
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 85
+              maxHeight: 85
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 515  
+          absoluteY: 2332
+          width: 600	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 40	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 513	  
+          absoluteY: 2331
+          width: 600	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 40		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 1403
+          absoluteY: 2332
+          width: 230	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 1403
+          absoluteY: 2332
+          width: 230	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 1403
+          absoluteY: 2314
+          width: 230
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 130
+              iconMaxHeight: 130
+              defaultScale: 1.0
+              maxWidth: 210
+              #Padding between layers
+              layerSpace: 5
+              layerFont: Helvetica
+              layerFontSize: 10
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 13
+              classFont: Helvetica
+              classFontSize: 5
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 52
+          absoluteY: 135
+          width: 85 
+          items:		  
+            - !image			
+              maxWidth: 85
+              maxHeight: 85
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 162
+          absoluteY: 120
+          width: 150
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 12
+              align: left
+        - !columns
+          absoluteX: 162
+          absoluteY: 90
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 12
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 162
+          absoluteY: 65
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 337
+          absoluteY: 120
+          width: 400
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 10
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 1403
+          absoluteY: 120
+          width: 230
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 8.5
+              align: right
+              text: ""
+
+  #===========================================================================
+  
+  A1 Landscape:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A1 Landscape: 2384 x 1685'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A1 
+      landscape: true
+      rotation: true 
+      items:
+        # The Map
+        - !map
+          absoluteX: 27
+          absoluteY: 1658
+          width: 2330
+          height: 1631
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 27
+          absoluteY: 1658
+          width: 2330
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 52
+          absoluteY: 1633
+          width: 85
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 85
+              maxHeight: 85
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 665  
+          absoluteY: 1633
+          width: 1000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 40	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 663	  
+          absoluteY: 1632
+          width: 1000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 40		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 2102
+          absoluteY: 1633
+          width: 230	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 2101
+          absoluteY: 1633
+          width: 230	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 2102
+          absoluteY: 1615
+          width: 230
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 130
+              iconMaxHeight: 130
+              defaultScale: 1.0
+              maxWidth: 210
+              #Padding between layers
+              layerSpace: 5
+              layerFont: Helvetica
+              layerFontSize: 10
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 13
+              classFont: Helvetica
+              classFontSize: 5
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 52
+          absoluteY: 135
+          width: 85 
+          items:		  
+            - !image			
+              maxWidth: 85
+              maxHeight: 85
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 162
+          absoluteY: 120
+          width: 150
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 12
+              align: left
+        - !columns
+          absoluteX: 162
+          absoluteY: 90
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 12
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 162
+          absoluteY: 65
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 337
+          absoluteY: 120
+          width: 400
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 10
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 2102
+          absoluteY: 120
+          width: 230
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 8.5
+              align: right
+              text: ""		
+
+  #===========================================================================
+  
+  A0 Portrait:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A0 Portrait: 2384 x 3371'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A0 
+      rotation: true  
+      items:
+        # The Map
+        - !map
+          absoluteX: 32
+          absoluteY: 3339
+          width: 2320
+          height: 3307
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 32
+          absoluteY: 3339
+          width: 2320
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 62
+          absoluteY: 3309
+          width: 120
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 120
+              maxHeight: 120
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 660  
+          absoluteY: 3309
+          width: 1000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 60	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 658	  
+          absoluteY: 3308
+          width: 1000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 60		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 2072
+          absoluteY: 3309
+          width: 250	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 2071
+          absoluteY: 3309
+          width: 250	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 2072
+          absoluteY: 3289
+          width: 250
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 151
+              iconMaxHeight: 151
+              defaultScale: 1.0
+              maxWidth: 230
+              #Padding between layers
+              layerSpace: 6
+              layerFont: Helvetica
+              layerFontSize: 12
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 15
+              classFont: Helvetica
+              classFontSize: 6
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 62
+          absoluteY: 180
+          width: 120 
+          items:		  
+            - !image			
+              maxWidth: 120
+              maxHeight: 120
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 212
+          absoluteY: 150
+          width: 150
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 14
+              align: left
+        - !columns
+          absoluteX: 212
+          absoluteY: 120
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: 'Scale  1:${format %,d scale}'
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 212
+          absoluteY: 90
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 10
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 392
+          absoluteY: 150
+          width: 562
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 12
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 2072
+          absoluteY: 120
+          width: 250
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: right
+              text: ""		
+
+  #===========================================================================
+  
+  A0 Landscape:
+  #===========================================================================
+    metaData:
+      title:    'MAP'
+      author:   'Instituti i Modelimeve ne Business'
+      subject:  'A0 Landscape: 3371 x 2384'
+      keywords: 'Map,Print'
+      creator:  'Denisa IMB'
+      supportLegacyReader: false
+    #-------------------------------------------------------------------------	
+    mainPage:
+      pageSize: A0
+      landscape: true	  
+      rotation: true 
+      items:
+        # The Map
+        - !map
+          absoluteX: 32
+          absoluteY: 2352
+          width: 3307
+          height: 2320
+        #The map border
+        - !columns
+          config:
+            borderWidth: 2
+          absoluteX: 32
+          absoluteY: 2352
+          width: 3307
+          items:
+            - !text
+              text: ''
+			  
+        # MAP Logo
+        - !columns
+          absoluteX: 62
+          absoluteY: 2322
+          width: 120
+          config:
+            borderWidth: 1
+          items:
+            - !image
+              maxWidth: 120
+              maxHeight: 120
+              align: left
+              vertAlign: middle
+              url: '${logoNdermarrjeUrl}'
+              condition: vendosLogoPrintim	
+        #Title Box 
+        - !columns
+          absoluteX: 684	  
+          absoluteY: 2322
+          width: 2000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 60	
+              fontColor: #FFFFFF	
+              condition: mapTitle	  
+        - !columns
+          absoluteX: 682	  
+          absoluteY: 2321
+          width: 2000	           		  
+          items:
+            - !text
+              text: '${mapTitle}'
+              spacingAfter: 100
+              align: center
+              fontSize: 60		
+              condition: mapTitle	
+        #Legend   
+        - !columns
+          absoluteX: 3059
+          absoluteY: 2322
+          width: 250	        
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: '${legendTitle}'
+              fontColor: #FFFFFF	
+              condition: legends
+        - !columns
+          absoluteX: 3058
+          absoluteY: 2322
+          width: 250	       
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 16
+              align: left
+              text: '${legendTitle}'
+              condition: legends
+        - !columns
+          condition: legends
+          absoluteX: 3059
+          absoluteY: 2302
+          width: 250
+          config:
+            borderWidth: 2
+            cells:
+              - borderWidth: 1
+                borderColor: black
+                padding: 10
+          items:		  
+            - !legends
+              iconMaxWidth: 151
+              iconMaxHeight: 151
+              defaultScale: 1.0
+              maxWidth: 230
+              #Padding between layers
+              layerSpace: 6
+              layerFont: Helvetica
+              layerFontSize: 12
+              #Padding between text and icon within layer
+              classSpace: 2
+              classIndentation: 15
+              classFont: Helvetica
+              classFontSize: 6
+              backgroundColor: white
+              inline:true	
+			  
+        ##North Arrow
+        - !columns
+          absoluteX: 62
+          absoluteY: 180
+          width: 120 
+          items:		  
+            - !image			
+              maxWidth: 120
+              maxHeight: 120
+              align: left
+              vertAlign: bottom	  
+              url:  '${projectUrl}Geoserver/www/Default//Nord.png'
+              rotation: '${rotation}' 
+        #ScaleBar	    
+        - !columns
+          absoluteX: 212
+          absoluteY: 150
+          width: 150
+          items:
+            - !scalebar			
+              type: bar
+              fontSize: 14
+              align: left
+        - !columns
+          absoluteX: 212
+          absoluteY: 120
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 14
+              align: left
+              text: 'Scale  1:${format %,d scale}' 
+			  
+        #Date Box	     
+        - !columns
+          absoluteX: 212
+          absoluteY: 90
+          width: 150			  
+          items:		  
+            - !text
+              font: Helvetica
+              fontSize: 10
+              align: left
+              text: '${now yyyy-MM-dd HH:mm:ss}'   	
+			  
+        #Comments box  
+        - !columns
+          absoluteX: 392
+          absoluteY: 150
+          width: 562
+          items:
+            - !text
+              font: Helvetica	  
+              fontSize: 12
+              align: left	
+              text: '${comment}'	
+              condition: comment	
+              backgroundColor: #FFFFFF				  
+			  
+        #Contact details	  	  
+        - !columns
+          absoluteX: 3059
+          absoluteY: 120
+          width: 250
+          items:	
+#            - !image			
+#              maxWidth: 250
+#              maxHeight: 70
+#              spacingAfter: 0
+#              align: left
+#              vertAlign: top
+#              url: '${projectUrl}Geoserver/www/Default//Panel.jpg'	
+#              condition: vendosLogoPrintim		
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: right
+              text: ""
+
+  #===========================================================================

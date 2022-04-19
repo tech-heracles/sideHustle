@@ -1,0 +1,445 @@
+.dxscControl_Vodafone
+{
+    background: #c0c0c0;
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxscLoadingPanel_Vodafone
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxscLoadingPanel_Vodafone td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxscLoadingPanel_Vodafone .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+/* Headers */
+.dxscDateHeader_Vodafone, 
+.dxscAlternateDateHeader_Vodafone,
+.dxscDayHeader_Vodafone,
+.dxscDateCellHeader_Vodafone,
+.dxscTodayCellHeader_Vodafone,
+.dxscTimelineDateHeader_Vodafone,
+.dxscHorizontalResourceHeader_Vodafone,
+.dxscVerticalResourceHeader_Vodafone
+{    
+    background: white;
+    border: solid 1px #c0c0c0;
+    border-width: 0 1px 1px 0;
+    padding: 4px;
+    text-align: center;
+    vertical-align: top;
+    
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.dxscAlternateTimelineDateHeader_Vodafone,
+.dxscAlternateDateHeader_Vodafone
+{
+    background: #ffd554;
+}
+.dxscDayHeader_Vodafone
+{
+    border-width: 1px 1px 0 0;
+}
+.dxscDateCellHeader_Vodafone
+{
+    border-width: 1px;
+}
+.dxscTodayCellHeader_Vodafone
+{    
+    border-top-width: 1px;
+    background: #ffd554;
+}
+.dxscTimelineDateHeader_Vodafone
+{
+    border-width: 1px 1px 1px 0;
+}
+.dxscHorizontalResourceHeader_Vodafone
+{
+    border-width: 1px 1px 1px 0;
+    background: white;
+}
+.dxscVerticalResourceHeader_Vodafone
+{
+    border-width: 1px 1px 0 0;
+    background: white;
+    white-space: normal;
+}
+.dxscSelectionBar_Vodafone 
+{	
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    height: 30px;
+}
+
+/* Corners */
+.dxscLeftTopCorner_Vodafone, 
+.dxscRightTopCorner_Vodafone
+{
+    background: white;
+    width: 1px;
+    border-style: solid;
+    border-color: #c0c0c0;	
+    border-width: 0 0 1px;
+}
+.dxscLeftTopCorner_Vodafone
+{    
+    border-width: 1px 1px 1px 0;
+    font-size: 0.91em;
+    text-align: center;
+    padding: 2px;
+    overflow: hidden;
+}
+
+/* Separators */
+.dxscGroupSeparatorVertical_Vodafone, 
+.dxscGroupSeparatorHorizontal_Vodafone
+{
+    background: white;
+    border: solid 1px #c0c0c0;
+}
+
+.dxscGroupSeparatorVertical_Vodafone
+{
+    width: 1px; 
+    border-width: 0 1px;
+}
+.dxscGroupSeparatorHorizontal_Vodafone
+{
+    height: 1px;
+    border-width: 1px 0 0;
+    font-size: 0;
+}
+
+/* Apts Area */
+.dxscAllDayArea_Vodafone
+{
+    background: white;
+    border: solid 1px #c0c0c0;
+    border-width: 0 1px 1px 0;
+}
+.dxscDateCellBody_Vodafone 
+{
+    	height: 100px;
+    	border: solid 1px;
+    	border-width: 0 1px 0 0;	
+}
+.dxscTimeCellBody_Vodafone
+{
+	border: 1px solid;
+	background-color: White;
+}
+.dxscTimelineCellBody_Vodafone
+{
+    	height: 300px;
+    	border-style: solid;
+    	border-width: 1px 1px 0 0;
+}
+
+.dxscAppointment_Vodafone
+{
+    font-size: 0.91em;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -moz-box-sizing: content-box; 
+    box-sizing: content-box;
+}
+.dxscAppointmentInnerBorders_Vodafone
+{	
+    padding: 0px;
+}
+.dxscAppointmentHorizontalSeparator_Vodafone 
+{
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+.dxscMoreButton_Vodafone
+{
+    font-size: 0.91em;
+    color: #ED1B24;    
+    text-decoration: underline;	
+    padding: 0;
+}
+
+/* Rulers */
+.dxscTimeRulerHoursItem_Vodafone, .dxscTimeRulerMinuteItem_Vodafone
+{
+    color: #6f6f6f;
+    background: white;
+    border: solid 1px #c0c0c0;
+    border-width: 0px 1px 1px 0;
+    vertical-align: top;
+    white-space: nowrap;
+} 
+.dxscTimeRulerHoursItem_Vodafone
+{
+    border-right-width: 0;
+    border-left-color: #c0c0c0;
+    font-size: 1.42em;
+    text-align: right;
+    width: 45px;
+    padding: 2px 4px 0px;
+}
+.dxscTimeRulerMinuteItem_Vodafone
+{
+    border-left-width: 0px;
+    text-align: center;
+    width: 18px;
+    font-size: 0.91em;
+    padding: 4px 1px 4px 1px;
+}
+
+.dxscTimeRulerHeaderHourItem_Vodafone
+{
+    width: 55px;
+}	
+.dxscTimeRulerHeaderMinuteItem_Vodafone
+{
+    width: 16px;
+}
+.dxscScrollHeaderItem_Vodafone
+{
+    width: 16px;
+}
+
+
+/* Control elements */
+.dxscToolbarContainer_Vodafone
+{
+	padding: 8px 0;
+	border: 0px none;
+	background-color: White;
+}
+.dxscToolbar_Vodafone
+{
+    border: none;
+    padding: 4px 7px;    
+}
+.dxscToolbar_Vodafone .dxeCalendar_Vodafone,
+.dxscToolbar_Vodafone .dxeCalendar_Vodafone.dxeFocused_Vodafone
+{
+    border: 1px Solid Silver;
+}
+.dxscResourceNavigator_Vodafone 
+{    
+    background: white;
+    padding: 7px;
+    border: solid 1px #c0c0c0;
+}
+.dxscViewVisibleInterval_Vodafone
+{    
+	white-space: nowrap;
+	font-size: 1.5em;
+	color: #ED1B24;
+}
+.dxscInplaceEditor_Vodafone
+{
+    background: #fdfdfd;
+    border: solid 2px #303030;
+    padding: 0;
+    color: #303030;
+}
+.dxscControlAreaForm_Vodafone
+{
+    font-size: 1.33em;
+    background-color: #efefef;
+    border: none;
+    white-space: normal;
+    padding: 9px 12px;
+}
+.dxscErrorInfo_Vodafone
+{
+    background: #f1abab;
+    color: #853a3a;
+    padding: 10px;
+}
+
+/* Buttons */
+.dxscViewNavigatorButton_Vodafone,
+.dxscViewNavigatorGotoDateButton_Vodafone
+{    
+	font-size: 1.17em;
+    line-height: 100%;
+	padding: 0 4px;
+
+    min-height: 1em;
+    display: block!important;
+}
+.dxscViewNavigatorGotoDateButton_Vodafone 
+{
+	padding: 0 0 0 4px;
+}
+.dxscViewNavigatorButton_Vodafone.dxscViewNavigatorGotoTodayButton
+{    
+    padding: 3px 4px;
+}
+.dxscViewNavigatorButtonHover_Vodafone,
+.dxscViewNavigatorGotoDateButtonHover_Vodafone
+{
+}
+.dxscViewNavigatorButtonHover_Vodafone.dxscViewNavigatorGotoTodayButton
+{    
+    text-decoration: underline;
+}
+.dxscViewNavigatorButtonPressed_Vodafone,
+.dxscViewNavigatorGotoDateButtonPressed_Vodafone
+{
+}
+
+.dxscResourceNavigatorButton_Vodafone,
+.dxscNavigationButton_Vodafone,
+.dxscDVTopMoreButton_Vodafone,
+.dxscDVBottomMoreButton_Vodafone
+{
+	cursor: pointer;
+	padding: 2px;
+}
+
+.dxscResourceNavigator_Vodafone table td:nth-child(6) table  td.dxscResourceNavigatorButton_Vodafone
+{
+	padding: 2px 8px 2px 2px;
+}
+
+.dxscSmartTagButton_Vodafone 
+{
+    border: solid 1px black;
+    background: #ffffee;
+    padding: 4px 5px;
+    cursor: pointer;
+}
+
+.dxscViewSelectorButton_Vodafone 
+{
+	padding: 6px 18px;
+	border: 1px solid White;
+}
+.dxscViewSelectorButtonHover_Vodafone
+{
+    	background-color: #ED1B24;        
+    	color: White;
+}
+.dxscViewSelectorButtonPressed_Vodafone
+{
+	background-color: #C0C0C0;
+    	color: White;
+}
+.dxscViewSelectorButtonChecked_Vodafone
+{
+    	background: #ED1B24;
+    	color: White;
+}
+
+.dxscNoBorderButton_Vodafone
+{
+    border: solid 1px #FDFDFD;
+    background: none;
+    cursor: pointer;
+}
+.dxscNoBorderButtonHover_Vodafone
+{
+    border: solid 1px #A8A8A8;
+}
+
+.dxscToolTipRoundedCornersTopBottomRow_Vodafone 
+{
+    font-size: 0;
+}
+.dxscToolTipRoundedCornersTopSide_Vodafone 
+{
+    border-top: 1px black solid; 
+    vertical-align:bottom; 
+    height:1px;	
+    background-color:#fafad2;
+}
+.dxscToolTipRoundedCornersLeftSide_Vodafone 
+{
+    border-left: 1px black solid; 
+    vertical-align:bottom; 
+    background-color:#fafad2;
+}
+.dxscToolTipRoundedCornersRightSide_Vodafone 
+{
+    border-right: 1px black solid; 
+    vertical-align:bottom; 
+    background-color:#fafad2;
+}
+.dxscToolTipRoundedCornersBottomSide_Vodafone 
+{
+    border-bottom: 1px black solid; 
+    vertical-align:bottom; 
+    height:1px;	
+    background-color:#fafad2;
+}
+.dxscToolTipRoundedCornersContent_Vodafone 
+{
+    background-color:#fafad2;
+    padding:0;
+}
+.dxscToolTipSquaredCorners_Vodafone 
+{
+    background: #f9f9cd;
+    padding: 1px 1px;
+    font-size: 0;
+    color: #303030;
+    white-space: nowrap;
+    border: solid 1px black;
+}
+.dxscTimeMarker_Vodafone 
+{
+    top:-4px;
+}
+.dxscTimeMarkerLine_Vodafone 
+{
+    top:-2px;
+    background-color:Red;
+    height:3px;
+    font-size: 0;
+    
+}
+.dxscTimeMarkerLineV_Vodafone 
+{
+    position:absolute;
+    
+    background-color:#4E4E4E;
+    width:1px;
+    font-size: 0;
+    border:solid 1px #FFC029;
+    border-top-width:0;
+    border-bottom-width:0;
+}
+.dxscTimeMarkerLineH_Vodafone
+{
+    position:absolute;
+    top:-2px;
+    background-color:#4E4E4E;
+    height:1px;
+    font-size: 0;
+    border:solid 1px #FFC029;
+    border-left-width:0;
+    border-right-width:0;
+}
+
+

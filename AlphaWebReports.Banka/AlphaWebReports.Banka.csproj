@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9F06AE5-757C-4D34-AE77-2F960CFAD9AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.Banka</RootNamespace>
+    <AssemblyName>AlphaWebReports.Banka</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSource\Ds_ARKABANKA_DITARIPERMBLEDHES.Designer.cs">
+      <DependentUpon>Ds_ARKABANKA_DITARIPERMBLEDHES.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_BANKA_DITARIKLASIK.Designer.cs">
+      <DependentUpon>Ds_BANKA_DITARIKLASIK.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs">
+      <DependentUpon>Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_BANKA_GJENDJAPERMBLEDHUR.Designer.cs">
+      <DependentUpon>Ds_BANKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_GjendjePermbledhur_ArkeBanke.Designer.cs">
+      <DependentUpon>Ds_GjendjePermbledhur_ArkeBanke.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_LidhjaDokumentave.Designer.cs">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_LidhjaDokumentaveLidhes.Designer.cs">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\ds_mandatArketimiPagese.Designer.cs">
+      <DependentUpon>ds_mandatArketimiPagese.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_MandatPagesa.Designer.cs">
+      <DependentUpon>Ds_MandatPagesa.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Pagesat.Designer.cs">
+      <DependentUpon>Ds_Pagesat.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_PermbledheseDetajuarUrdherPagesave.Designer.cs">
+      <DependentUpon>Ds_PermbledheseDetajuarUrdherPagesave.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Permbledhese_UrdherPagesave.Designer.cs">
+      <DependentUpon>Ds_Permbledhese_UrdherPagesave.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_RapKontabiliteti.Designer.cs">
+      <DependentUpon>Ds_RapKontabiliteti.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\DS_RAP_BANKA_DITARITOTAL.Designer.cs">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTAL.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\DS_RAP_BANKA_DITARITOTALRAPORTUES.Designer.cs">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTALRAPORTUES.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs">
+      <DependentUpon>Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_CSV_Accounting_shitje.Designer.cs">
+      <DependentUpon>Ds_Rap_CSV_Accounting_shitje.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Shpenzimet_Parapaguara.Designer.cs">
+      <DependentUpon>Ds_Shpenzimet_Parapaguara.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Shpenzime_Perllogaritura.Designer.cs">
+      <DependentUpon>Ds_Shpenzime_Perllogaritura.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raporte\RAP_ARKABANKA_DITARIPERMBLEDHES.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKABANKA_DITARIPERMBLEDHES.Designer.cs">
+      <DependentUpon>RAP_ARKABANKA_DITARIPERMBLEDHES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKPORTRAIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_Gethe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_levizje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_levizje.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_levizje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_NrRend.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARITOTAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTALRAPORTUES.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTALRAPORTUES.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARITOTALRAPORTUES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_Gethe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_NrRend.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_SUBJEKTI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_SUBJEKTI.Designer.cs">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_SUBJEKTI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR.Designer.cs">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_ARKEBANKE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_ARKEBANKE.Designer.cs">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR_ARKEBANKE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_CSV_Accounting.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_CSV_Accounting.Designer.cs">
+      <DependentUpon>Rap_CSV_Accounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_CSV_Accounting_shitje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_CSV_Accounting_shitje.Designer.cs">
+      <DependentUpon>Rap_CSV_Accounting_shitje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_FormatPrintimiA5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_FormatPrintimiA5.Designer.cs">
+      <DependentUpon>rap_FormatPrintimiA5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentave.Designer.cs">
+      <DependentUpon>Rap_LidhjaDokumentave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.Designer.cs">
+      <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone2A5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone2A5.designer.cs">
+      <DependentUpon>rap_MandatArketimiVodafone2A5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone2.designer.cs">
+      <DependentUpon>rap_MandatArketimiVodafone2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages.Designer.cs">
+      <DependentUpon>rap_MandatArketimPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagesDast.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagesDast.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagesDast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131369848687543283.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131369848687543283.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL_SePDeFn_131369848687543283.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131383654829987964.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131383654829987964.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL_SePDeFn_131383654829987964.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagese_Model3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagese_Model3.Designer.cs">
+      <DependentUpon>rap_MandatArketimPagese_Model3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model4.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model5.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model5_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model5_Format2.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model5_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model6.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model7.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatArketimPagese_Model9.Designer.cs">
+      <DependentUpon>Rap_MandatArketimPagese_Model9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagesFastech.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagesFastech.Designer.cs">
+      <DependentUpon>rap_MandatArketimPagesFastech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagesKlimaTeknika.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPagesKlimaTeknika.Designer.cs">
+      <DependentUpon>rap_MandatArketimPagesKlimaTeknika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131370645061717747.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131370645061717747.Designer.cs">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131370645061717747.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131370740113862825.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131370740113862825.Designer.cs">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131370740113862825.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131437329481286891.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimPages_SePDeFn_131437329481286891.Designer.cs">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131437329481286891.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatPagesa_ProCredit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MandatPagesa_ProCredit.Designer.cs">
+      <DependentUpon>Rap_MandatPagesa_ProCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_Model8_A5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_Model8_A5.Designer.cs">
+      <DependentUpon>rap_Model8_A5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Pagesat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Pagesat.Designer.cs">
+      <DependentUpon>Rap_Pagesat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledheseDetajuar_UrdherPagesave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledheseDetajuar_UrdherPagesave.Designer.cs">
+      <DependentUpon>Rap_PermbledheseDetajuar_UrdherPagesave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Permbledhese_UrdherPagesave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Permbledhese_UrdherPagesave.Designer.cs">
+      <DependentUpon>Rap_Permbledhese_UrdherPagesave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_RegjistriAnalitikIVeprimeveArkeBanke.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_RegjistriAnalitikIVeprimeveArkeBanke.Designer.cs">
+      <DependentUpon>Rap_RegjistriAnalitikIVeprimeveArkeBanke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Shpenzimet_Parapaguara.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Shpenzimet_Parapaguara.Designer.cs">
+      <DependentUpon>Rap_Shpenzimet_Parapaguara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Shpenzime_perllogaritura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Shpenzime_perllogaritura.Designer.cs">
+      <DependentUpon>Rap_Shpenzime_perllogaritura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Raporte\RAP_ARKABANKA_DITARIPERMBLEDHES.resx">
+      <DependentUpon>RAP_ARKABANKA_DITARIPERMBLEDHES.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKPORTRAIT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_Gethe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_levizje.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_levizje.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_NrRend.resx">
+      <DependentUpon>RAP_BANKA_DITARIKLASIK_NrRend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL.resx">
+      <DependentUpon>RAP_BANKA_DITARITOTAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTALRAPORTUES.resx">
+      <DependentUpon>RAP_BANKA_DITARITOTALRAPORTUES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.resx">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_Gethe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL_NrRend.resx">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_NrRend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL_SUBJEKTI.resx">
+      <DependentUpon>RAP_BANKA_DITARITOTAL_SUBJEKTI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR.resx">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_ARKEBANKE.resx">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR_ARKEBANKE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.resx">
+      <DependentUpon>RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_CSV_Accounting.resx">
+      <DependentUpon>Rap_CSV_Accounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_CSV_Accounting_shitje.resx">
+      <DependentUpon>Rap_CSV_Accounting_shitje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_FormatPrintimiA5.resx">
+      <DependentUpon>rap_FormatPrintimiA5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentave.resx">
+      <DependentUpon>Rap_LidhjaDokumentave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentaveLidhes.resx">
+      <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone2A5.resx">
+      <DependentUpon>rap_MandatArketimiVodafone2A5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone2.resx">
+      <DependentUpon>rap_MandatArketimiVodafone2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPages.resx">
+      <DependentUpon>rap_MandatArketimPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagesDast.resx">
+      <DependentUpon>Rap_MandatArketimPagesDast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPageseSHMEL.resx">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131369848687543283.resx">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL_SePDeFn_131369848687543283.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPageseSHMEL_SePDeFn_131383654829987964.resx">
+      <DependentUpon>Rap_MandatArketimPageseSHMEL_SePDeFn_131383654829987964.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPagese_Model3.resx">
+      <DependentUpon>rap_MandatArketimPagese_Model3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model4.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model5.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model5_Format2.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model5_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model6.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model7.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatArketimPagese_Model9.resx">
+      <DependentUpon>Rap_MandatArketimPagese_Model9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPagesFastech.resx">
+      <DependentUpon>rap_MandatArketimPagesFastech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPagesKlimaTeknika.resx">
+      <DependentUpon>rap_MandatArketimPagesKlimaTeknika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPages_SePDeFn_131370645061717747.resx">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131370645061717747.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPages_SePDeFn_131370740113862825.resx">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131370740113862825.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimPages_SePDeFn_131437329481286891.resx">
+      <DependentUpon>rap_MandatArketimPages_SePDeFn_131437329481286891.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MandatPagesa_ProCredit.resx">
+      <DependentUpon>Rap_MandatPagesa_ProCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_Model8_A5.resx">
+      <DependentUpon>rap_Model8_A5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Pagesat.resx">
+      <DependentUpon>Rap_Pagesat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledheseDetajuar_UrdherPagesave.resx">
+      <DependentUpon>Rap_PermbledheseDetajuar_UrdherPagesave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Permbledhese_UrdherPagesave.resx">
+      <DependentUpon>Rap_Permbledhese_UrdherPagesave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_RegjistriAnalitikIVeprimeveArkeBanke.resx">
+      <DependentUpon>Rap_RegjistriAnalitikIVeprimeveArkeBanke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Shpenzimet_Parapaguara.resx">
+      <DependentUpon>Rap_Shpenzimet_Parapaguara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Shpenzime_perllogaritura.resx">
+      <DependentUpon>Rap_Shpenzime_perllogaritura.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSource\Ds_ARKABANKA_DITARIPERMBLEDHES.xsc">
+      <DependentUpon>Ds_ARKABANKA_DITARIPERMBLEDHES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKABANKA_DITARIPERMBLEDHES.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKABANKA_DITARIPERMBLEDHES.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKABANKA_DITARIPERMBLEDHES.xss">
+      <DependentUpon>Ds_ARKABANKA_DITARIPERMBLEDHES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIK.xsc">
+      <DependentUpon>Ds_BANKA_DITARIKLASIK.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BANKA_DITARIKLASIK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIK.xss">
+      <DependentUpon>Ds_BANKA_DITARIKLASIK.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsc">
+      <DependentUpon>Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xss">
+      <DependentUpon>Ds_BANKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_GJENDJAPERMBLEDHUR.xsc">
+      <DependentUpon>Ds_BANKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_BANKA_GJENDJAPERMBLEDHUR.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BANKA_GJENDJAPERMBLEDHUR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_BANKA_GJENDJAPERMBLEDHUR.xss">
+      <DependentUpon>Ds_BANKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_GjendjePermbledhur_ArkeBanke.xsc">
+      <DependentUpon>Ds_GjendjePermbledhur_ArkeBanke.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_GjendjePermbledhur_ArkeBanke.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_GjendjePermbledhur_ArkeBanke.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_GjendjePermbledhur_ArkeBanke.xss">
+      <DependentUpon>Ds_GjendjePermbledhur_ArkeBanke.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xsc">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LidhjaDokumentave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xss">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xsc">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LidhjaDokumentaveLidhes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xss">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_mandatArketimiPagese.xsc">
+      <DependentUpon>ds_mandatArketimiPagese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_mandatArketimiPagese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mandatArketimiPagese.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_mandatArketimiPagese.xss">
+      <DependentUpon>ds_mandatArketimiPagese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_MandatPagesa.xsc">
+      <DependentUpon>Ds_MandatPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_MandatPagesa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_MandatPagesa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_MandatPagesa.xss">
+      <DependentUpon>Ds_MandatPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Pagesat.xsc">
+      <DependentUpon>Ds_Pagesat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Pagesat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Pagesat.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Pagesat.xss">
+      <DependentUpon>Ds_Pagesat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PermbledheseDetajuarUrdherPagesave.xsc">
+      <DependentUpon>Ds_PermbledheseDetajuarUrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PermbledheseDetajuarUrdherPagesave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PermbledheseDetajuarUrdherPagesave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PermbledheseDetajuarUrdherPagesave.xss">
+      <DependentUpon>Ds_PermbledheseDetajuarUrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Permbledhese_UrdherPagesave.xsc">
+      <DependentUpon>Ds_Permbledhese_UrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Permbledhese_UrdherPagesave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Permbledhese_UrdherPagesave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Permbledhese_UrdherPagesave.xss">
+      <DependentUpon>Ds_Permbledhese_UrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RapKontabiliteti.xsc">
+      <DependentUpon>Ds_RapKontabiliteti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RapKontabiliteti.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapKontabiliteti.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RapKontabiliteti.xss">
+      <DependentUpon>Ds_RapKontabiliteti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTAL.xsc">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTAL.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTAL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RAP_BANKA_DITARITOTAL.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTAL.xss">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTAL.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTALRAPORTUES.xsc">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTALRAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTALRAPORTUES.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RAP_BANKA_DITARITOTALRAPORTUES.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\DS_RAP_BANKA_DITARITOTALRAPORTUES.xss">
+      <DependentUpon>DS_RAP_BANKA_DITARITOTALRAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsc">
+      <DependentUpon>Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xss">
+      <DependentUpon>Ds_RAP_BANKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_CSV_Accounting_shitje.xsc">
+      <DependentUpon>Ds_Rap_CSV_Accounting_shitje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_CSV_Accounting_shitje.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_CSV_Accounting_shitje.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_CSV_Accounting_shitje.xss">
+      <DependentUpon>Ds_Rap_CSV_Accounting_shitje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Shpenzimet_Parapaguara.xsc">
+      <DependentUpon>Ds_Shpenzimet_Parapaguara.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Shpenzimet_Parapaguara.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Shpenzimet_Parapaguara.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Shpenzimet_Parapaguara.xss">
+      <DependentUpon>Ds_Shpenzimet_Parapaguara.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Shpenzime_Perllogaritura.xsc">
+      <DependentUpon>Ds_Shpenzime_Perllogaritura.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Shpenzime_Perllogaritura.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Shpenzime_Perllogaritura.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Shpenzime_Perllogaritura.xss">
+      <DependentUpon>Ds_Shpenzime_Perllogaritura.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xsc">
+      <DependentUpon>PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xss">
+      <DependentUpon>PRC_Rap_RegjistriAnalitikIVeprimeveArkeBanke.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651FC1-C3F6-4FC3-8C7A-2B50BD966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982BDEF8-564A-4BE5-ACA9-6915741EA904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,13 @@
+span#lblEmerNderm, span#lblEmerNIpti, span#lblEmerViti, span#lblEmerQyteti, span#lblNrTel, span#lblEmerWebPage{
+	color: #CD379B;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+
+a#hlAdministrimi, a#hlKonfigurimet , a#hlInventare , a#hlInventare , a#hlArkaBanka , a#hlKontabilitet, a#hlRaporte {
+	color: #1478B4;
+    font-size: Medium;
+    font-weight: bold;
+    text-decoration: none;
+}

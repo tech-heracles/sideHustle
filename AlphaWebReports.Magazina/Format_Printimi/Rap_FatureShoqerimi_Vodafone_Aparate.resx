@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="dS_Format_Printimi1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_HYRJEDALJEMAGAZINETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>System.Data.DataTable dt;
+
+
+private void xrTable12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+shtoRreshtatNeTabele(xrTable12);
+
+}
+
+ private void shtoRreshtatNeTabele(XRTable xrTable12)
+        {
+          
+                	int i = 0;
+	if (dt.Rows.Count &gt; 0)
+	{ for (int j = xrTable12.Rows.Count - 1; j &gt;= 1; j--)
+		{
+			xrTable12.Rows.RemoveAt(j);
+		}
+
+                  
+                Font arial = new Font("Century Gothic", 9.00F, FontStyle.Regular);
+                PaddingInfo padding = new PaddingInfo(2, 2, 0, 0);
+               BorderSide borders = ((BorderSide)((BorderSide.Left | BorderSide.Bottom)));
+               BorderSide borderLast = ((BorderSide)((BorderSide.Left | BorderSide.Bottom | BorderSide.Right  )));
+                 foreach (System.Data.DataRow row in dt.Rows)
+                { if(Convert.ToInt32(row["grup2"]) == 2)
+			{
+	                    XRTableRow rr = new XRTableRow();
+	                    rr.HeightF = 20f;
+	
+	                    XRTableCell nr = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(43.27f, "", (i + 1).ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(nr);
+	
+	                    XRTableCell nrdok= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(76.89f,  "", row["NRDOK"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(nrdok);
+	
+	                    XRTableCell nrserial= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(70.64f,  "", row["NRSERIAL"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(nrserial);
+	
+	                    XRTableCell kodmag= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(79.49f, "",row["kodi"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(kodmag);
+
+	                     XRTableCell data= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(94.33f, "" ,String.Format("{0:dd/MM/yyyy}", Convert.ToDateTime(row["DTDOK"])), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, borders, padding);
+	                    rr.Cells.Add(data);
+	
+	                    XRTableCell kodifikimart= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(123.53f,  "", row["KODARTIKULLI"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(kodifikimart);
+	
+	                    XRTableCell kodKF= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(98.14f, "", row["KLIENTI"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(kodKF);
+	                    
+	                    XRTableCell serialK= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(124.04f, "", row["SERIALI_KRYESOR"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(serialK);
+
+	                    XRTableCell pr= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(58.46f,  "", row["PR"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borderLast , padding);
+	                    rr.Cells.Add(pr);   
+	
+	                    xrTable12.Rows.Insert((i + 1), rr);
+	                    i++;
+
+                }
+              }
+           } 
+        }
+
+
+private void Rap_FatureShoqerimi_Vodafone_Aparate_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  dt = ((System.Data.DataSet)(this.DataSource)).Tables[0];
+           
+	for (int i = 0; i &lt; dt.Rows.Count; i++)
+{            if (dt.Rows.Count &gt; 0)
+      
+                setData(dt.Rows[0] );
+	if (  Convert.ToInt32(dt.Rows[i]["grup2"])==2 &amp;&amp; Convert.ToInt32(dt.Rows[i]["grup1"])==0 )
+				SubBand1.Visible=true;
+}
+
+}
+ private void setData(System.Data.DataRow row)
+        {
+
+         
+            xrLabel46.Text = String.Format("{0:dd/MM/yyyy}", Convert.ToDateTime(row["DTDOK"]));
+            xrLabel21.Text = String.Format("{0:dd-MMM-yy}", Convert.ToDateTime(row["DTKRIJIMI"]));
+            xrLabel24.Text = String.Format("{0:HH:mm}", Convert.ToDateTime(row["DTKRIJIMI"]));
+
+            xrLabel17.Text = row["NRDOK"].ToString();
+            xrLabel9.Text = row["NRSERIAL"].ToString();
+            xrLabel19.Text = row["PERSHKRIMDESTMAG"].ToString();
+
+            xrLabel18.Text = row["pshmag"].ToString();
+		xrLabel65.Text = row["EMERMBIEMERPERDORUES"].ToString();
+		xrLabel66.Text = row["SHOFERI"].ToString();
+	      xrLabel25.Text = row["TARGA"].ToString();
+		xrLabel6.Text = row["NDERMARJETEL"].ToString();
+		xrLabel3.Text = row["NDERMARJEPERSHK"].ToString();
+		xrLabel49.Text = row["NDERMARJEVEND"].ToString();
+		xrLabel10.Text = row["NDERMARJENIPT"].ToString();
+                   
+        }
+
+
+
+private void xrTable1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+shtoRreshtatNeTabele1(xrTable1);
+
+
+}
+private void shtoRreshtatNeTabele1(XRTable xrTable1)
+        {
+          int i = 0;
+            if (dt.Rows.Count &gt; 0)
+{
+             for (int j = xrTable1.Rows.Count - 1; j &gt;= 1; j--)
+		{
+			xrTable1.Rows.RemoveAt(j);
+		}
+
+            
+                          Font arial = new Font("Century Gothic", 9.00F, FontStyle.Regular);
+                PaddingInfo padding = new PaddingInfo(2, 2, 0, 0);
+                BorderSide borders = ((BorderSide)((BorderSide.Left | BorderSide.Bottom)));
+ 		    BorderSide borderLast = ((BorderSide)((BorderSide.Left | BorderSide.Bottom | BorderSide.Right )));
+                foreach (System.Data.DataRow row in dt.Rows)
+                { if(Convert.ToInt32(row["grup1"]) == 1)
+			{
+	                    XRTableRow rr = new XRTableRow();
+	                    rr.HeightF = 20f;
+	
+	                    XRTableCell nr = AlphaWebReports.raporteUtil.shtoQelizeNeTabele( 57.87f, "", (i + 1).ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(nr);
+	
+	                    XRTableCell pershk= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(206.18f,  "", row["PERSHKRIMARTIKULLI"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(pershk);
+	
+	                    XRTableCell njesia= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(91.47f,  "", row["KODNJESIA"].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+	                    rr.Cells.Add(njesia);
+	                   XRTableCell sasia = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(109.9f, "" ,String.Format("{0:N2}", row["SASIA"]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, borders, padding);
+				rr.Cells.Add(sasia);
+				XRTableCell cmimi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(109.9f, "" ,String.Format("{0:N2}", row["CMIMI"]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, borders, padding);
+				rr.Cells.Add(cmimi);
+
+				XRTableCell vlefta= AlphaWebReports.raporteUtil.shtoQelizeNeTabele(131f, "" , String.Format("{0:N2}", row["VLEFTA"]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, borderLast , padding);
+				rr.Cells.Add(vlefta);
+					
+	                    xrTable1.Rows.Insert((i + 1), rr);
+	                    i++;
+
+                }
+              }
+            }
+        }
+
+
+
+</value>
+  </data>
+</root>

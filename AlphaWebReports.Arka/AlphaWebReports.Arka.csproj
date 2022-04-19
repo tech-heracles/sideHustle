@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A85DB29-CF7A-4E92-ADE3-D9F26A93D1C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.Arka</RootNamespace>
+    <AssemblyName>AlphaWebReports.Arka</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSource\Ds_ARKA_ARKETIMETDITORE.Designer.cs">
+      <DependentUpon>Ds_ARKA_ARKETIMETDITORE.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_ARKA_DITARIKLASIK.Designer.cs">
+      <DependentUpon>Ds_ARKA_DITARIKLASIK.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs">
+      <DependentUpon>Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_ARKA_GJENDJAPERMBLEDHUR.Designer.cs">
+      <DependentUpon>Ds_ARKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_ARKA_PAGESADEALER.Designer.cs">
+      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Arka_Sipas_Kategorise.Designer.cs">
+      <DependentUpon>Ds_Arka_Sipas_Kategorise.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Bill_Payments_Per_Day.Designer.cs">
+      <DependentUpon>Ds_Bill_Payments_Per_Day.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_DailyGuaranteePayment.Designer.cs">
+      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_LidhjaDokumentave.Designer.cs">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_LidhjaDokumentaveLidhes.Designer.cs">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_LISTA_ARKETIME_ANULLIME.Designer.cs">
+      <DependentUpon>Ds_LISTA_ARKETIME_ANULLIME.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.cs">
+      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Post_Paid_Payments.Designer.cs">
+      <DependentUpon>Ds_Post_Paid_Payments.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_PRC_RAP_ARKETIMETORARE.Designer.cs">
+      <DependentUpon>Ds_PRC_RAP_ARKETIMETORARE.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\DS_RAP_ARKA_DITARITOTAL.Designer.cs">
+      <DependentUpon>DS_RAP_ARKA_DITARITOTAL.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs">
+      <DependentUpon>Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_LevizjetELikujditeteve.Designer.cs">
+      <DependentUpon>Ds_Rap_LevizjetELikujditeteve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.Designer.cs">
+      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs">
+      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_VleratDitoreteArkes.Designer.cs">
+      <DependentUpon>Ds_Rap_VleratDitoreteArkes.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSource\Ds_UserKrediti.Designer.cs">
+      <DependentUpon>Ds_UserKrediti.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_ARKETIMETDITORE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_ARKETIMETDITORE.Designer.cs">
+      <DependentUpon>RAP_ARKA_ARKETIMETDITORE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKPORTRAIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT_NrRend.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKPORTRAIT_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_Gethe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_NrRend.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARITOTAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_Gethe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_NrRend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_NrRend.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_NrRend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_SUBJEKTI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_SUBJEKTI.Designer.cs">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_SUBJEKTI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR.Designer.cs">
+      <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs">
+      <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_PAGESADEALER.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_PAGESADEALER.Designer.cs">
+      <DependentUpon>RAP_ARKA_PAGESADEALER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_SIPAS_KATEGORISE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_ARKA_SIPAS_KATEGORISE.Designer.cs">
+      <DependentUpon>RAP_ARKA_SIPAS_KATEGORISE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ARKETIMETORARE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ARKETIMETORARE.Designer.cs">
+      <DependentUpon>Rap_ARKETIMETORARE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ArketimetSipasDiteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ArketimetSipasDiteve.Designer.cs">
+      <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_DailyGuaranteePayment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_DailyGuaranteePayment.Designer.cs">
+      <DependentUpon>Rap_DailyGuaranteePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LevizjetELikujditeteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LevizjetELikujditeteve.Designer.cs">
+      <DependentUpon>Rap_LevizjetELikujditeteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentave.Designer.cs">
+      <DependentUpon>Rap_LidhjaDokumentave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.Designer.cs">
+      <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ListaArketimeAnullimePostpaid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ListaArketimeAnullimePostpaid.Designer.cs">
+      <DependentUpon>Rap_ListaArketimeAnullimePostpaid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ListaArketimeAnullime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ListaArketimeAnullime.Designer.cs">
+      <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\rap_MandatArketimiVodafone.Designer.cs">
+      <DependentUpon>rap_MandatArketimiVodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PagesatEKryeraPerMPesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PagesatEKryeraPerMPesa.Designer.cs">
+      <DependentUpon>Rap_PagesatEKryeraPerMPesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs">
+      <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PostPaidPayments.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PostPaidPayments.Designer.cs">
+      <DependentUpon>Rap_PostPaidPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_UserKrediti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_UserKrediti.Designer.cs">
+      <DependentUpon>RAP_UserKrediti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_VleratDitoreteArkes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_VleratDitoreteArkes.Designer.cs">
+      <DependentUpon>Rap_VleratDitoreteArkes.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_ARKETIMETDITORE.resx">
+      <DependentUpon>RAP_ARKA_ARKETIMETDITORE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKPORTRAIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIKPORTRAIT_NrRend.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKPORTRAIT_NrRend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_Gethe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_NrRend.resx">
+      <DependentUpon>RAP_ARKA_DITARIKLASIK_NrRend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL.resx">
+      <DependentUpon>RAP_ARKA_DITARITOTAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.resx">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_Gethe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL_NrRend.resx">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_NrRend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL_SUBJEKTI.resx">
+      <DependentUpon>RAP_ARKA_DITARITOTAL_SUBJEKTI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR.resx">
+      <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.resx">
+      <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_PAGESADEALER.resx">
+      <DependentUpon>RAP_ARKA_PAGESADEALER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_ARKA_SIPAS_KATEGORISE.resx">
+      <DependentUpon>RAP_ARKA_SIPAS_KATEGORISE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ARKETIMETORARE.resx">
+      <DependentUpon>Rap_ARKETIMETORARE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ArketimetSipasDiteve.resx">
+      <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_DailyGuaranteePayment.resx">
+      <DependentUpon>Rap_DailyGuaranteePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LevizjetELikujditeteve.resx">
+      <DependentUpon>Rap_LevizjetELikujditeteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentave.resx">
+      <DependentUpon>Rap_LidhjaDokumentave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentaveLidhes.resx">
+      <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullimePostpaid.resx">
+      <DependentUpon>Rap_ListaArketimeAnullimePostpaid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullime.resx">
+      <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone.resx">
+      <DependentUpon>rap_MandatArketimiVodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PagesatEKryeraPerMPesa.resx">
+      <DependentUpon>Rap_PagesatEKryeraPerMPesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.resx">
+      <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PostPaidPayments.resx">
+      <DependentUpon>Rap_PostPaidPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_UserKrediti.resx">
+      <DependentUpon>RAP_UserKrediti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_VleratDitoreteArkes.resx">
+      <DependentUpon>Rap_VleratDitoreteArkes.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWebReports.Banka\AlphaWebReports.Banka.csproj">
+      <Project>{E9F06AE5-757C-4D34-AE77-2F960CFAD9AA}</Project>
+      <Name>AlphaWebReports.Banka</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982BDEF8-564A-4BE5-ACA9-6915741EA904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSource\Ds_ARKA_ARKETIMETDITORE.xsc">
+      <DependentUpon>Ds_ARKA_ARKETIMETDITORE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_ARKETIMETDITORE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKA_ARKETIMETDITORE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKA_ARKETIMETDITORE.xss">
+      <DependentUpon>Ds_ARKA_ARKETIMETDITORE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIK.xsc">
+      <DependentUpon>Ds_ARKA_DITARIKLASIK.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKA_DITARIKLASIK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIK.xss">
+      <DependentUpon>Ds_ARKA_DITARIKLASIK.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsc">
+      <DependentUpon>Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xss">
+      <DependentUpon>Ds_ARKA_DITARIKLASIKSIPASAUTORIZIMEVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_GJENDJAPERMBLEDHUR.xsc">
+      <DependentUpon>Ds_ARKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_GJENDJAPERMBLEDHUR.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKA_GJENDJAPERMBLEDHUR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKA_GJENDJAPERMBLEDHUR.xss">
+      <DependentUpon>Ds_ARKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xsc">
+      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ARKA_PAGESADEALER.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xss">
+      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Arka_Sipas_Kategorise.xsc">
+      <DependentUpon>Ds_Arka_Sipas_Kategorise.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Arka_Sipas_Kategorise.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Arka_Sipas_Kategorise.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Arka_Sipas_Kategorise.xss">
+      <DependentUpon>Ds_Arka_Sipas_Kategorise.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Bill_Payments_Per_Day.xsc">
+      <DependentUpon>Ds_Bill_Payments_Per_Day.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Bill_Payments_Per_Day.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Bill_Payments_Per_Day.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Bill_Payments_Per_Day.xss">
+      <DependentUpon>Ds_Bill_Payments_Per_Day.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_DailyGuaranteePayment.xsc">
+      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_DailyGuaranteePayment.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_DailyGuaranteePayment.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_DailyGuaranteePayment.xss">
+      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xsc">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LidhjaDokumentave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentave.xss">
+      <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xsc">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LidhjaDokumentaveLidhes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LidhjaDokumentaveLidhes.xss">
+      <DependentUpon>Ds_LidhjaDokumentaveLidhes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LISTA_ARKETIME_ANULLIME.xsc">
+      <DependentUpon>Ds_LISTA_ARKETIME_ANULLIME.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LISTA_ARKETIME_ANULLIME.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LISTA_ARKETIME_ANULLIME.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LISTA_ARKETIME_ANULLIME.xss">
+      <DependentUpon>Ds_LISTA_ARKETIME_ANULLIME.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsc">
+      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xss">
+      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Post_Paid_Payments.xsc">
+      <DependentUpon>Ds_Post_Paid_Payments.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Post_Paid_Payments.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Post_Paid_Payments.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Post_Paid_Payments.xss">
+      <DependentUpon>Ds_Post_Paid_Payments.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_ARKETIMETORARE.xsc">
+      <DependentUpon>Ds_PRC_RAP_ARKETIMETORARE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_ARKETIMETORARE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_RAP_ARKETIMETORARE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_ARKETIMETORARE.xss">
+      <DependentUpon>Ds_PRC_RAP_ARKETIMETORARE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_ARKA_DITARITOTAL.xsc">
+      <DependentUpon>DS_RAP_ARKA_DITARITOTAL.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DS_RAP_ARKA_DITARITOTAL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RAP_ARKA_DITARITOTAL.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\DS_RAP_ARKA_DITARITOTAL.xss">
+      <DependentUpon>DS_RAP_ARKA_DITARITOTAL.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsc">
+      <DependentUpon>Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xss">
+      <DependentUpon>Ds_RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_LevizjetELikujditeteve.xsc">
+      <DependentUpon>Ds_Rap_LevizjetELikujditeteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_LevizjetELikujditeteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_LevizjetELikujditeteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_LevizjetELikujditeteve.xss">
+      <DependentUpon>Ds_Rap_LevizjetELikujditeteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xsc">
+      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_PagesatEKryeraPerMPesa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xss">
+      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsc">
+      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xss">
+      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_VleratDitoreteArkes.xsc">
+      <DependentUpon>Ds_Rap_VleratDitoreteArkes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_VleratDitoreteArkes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_VleratDitoreteArkes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_VleratDitoreteArkes.xss">
+      <DependentUpon>Ds_Rap_VleratDitoreteArkes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_UserKrediti.xsc">
+      <DependentUpon>Ds_UserKrediti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_UserKrediti.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_UserKrediti.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_UserKrediti.xss">
+      <DependentUpon>Ds_UserKrediti.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

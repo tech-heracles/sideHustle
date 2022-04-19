@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Konfigurime" class="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome HR</title>
+
+    <style>
+        html {
+            background: url(images/HRbck.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+		
+		html.moh {
+            background: rgba(205,214,221,0.5) url(images/mohBcg2.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+		
+
+        body {
+            width: 60%;
+            margin: auto;
+            margin-top: 13%;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: Calibri, Verdana, Arial, sans-serif;
+            color: #333;
+            font-size: 45pt;
+            display: inline;
+        }
+
+        h2 {
+            font-family: Calibri, Verdana, Arial, sans-serif;
+            color: #333;
+            font-size: 30pt;
+        }
+		
+		.moh h1, .moh h2{
+			color: #4D5057;
+		}
+		
+		.moh h1.variable, .moh h2.variable{
+			color: #ABA194;
+		}
+		
+		h1.variable, h2.variable{
+            color: #e60000;
+		}
+		
+        p {
+            color: #e60000;
+        }
+        }
+    </style>
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="js/Utils-IMB.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+                var elem = $("#app");
+                var body = "<h1> Welcome to </h1><h1 class='variable'>" + Utils.getUrlVar("NdermarrjePershkrimi") + "</h1><hr width='100%' size='0' align='center' /><h2>Year</h2><h2 class='variable' style='margin-top: -23px;'>" + Utils.getUrlVar("KodiViti") + "</h2>";
+
+                elem.html(body);
+
+         
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h1> Welcome to </h1><h1 style="color: #e60000;">Vodafone Albania sh.a.</h1>
+        <hr style=" " width="100%" size="0" align="center" />
+        <h2>Year</h2>
+        <h2 style="color: #e60000; margin-top: -23px;">....</h2>
+    </div>
+
+</body>
+</html>

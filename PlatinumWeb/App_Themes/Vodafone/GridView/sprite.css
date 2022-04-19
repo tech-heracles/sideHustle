@@ -1,0 +1,402 @@
+.dxGridView_gvCellError_Vodafone,
+.dxGridView_gvCMClearFilter_Vodafone,
+.dxGridView_gvCMClearGrouping_Vodafone,
+.dxGridView_gvCMCollapseDetailRow_Vodafone,
+.dxGridView_gvCMCollapseDetailRowDisabled_Vodafone,
+.dxGridView_gvCMCollapseRow_Vodafone,
+.dxGridView_gvCMCollapseRowDisabled_Vodafone,
+.dxGridView_gvCMDeleteRow_Vodafone,
+.dxGridView_gvCMEditRow_Vodafone,
+.dxGridView_gvCMExpandDetailRow_Vodafone,
+.dxGridView_gvCMExpandDetailRowDisabled_Vodafone,
+.dxGridView_gvCMExpandRow_Vodafone,
+.dxGridView_gvCMExpandRowDisabled_Vodafone,
+.dxGridView_gvCMFullCollapse_Vodafone,
+.dxGridView_gvCMFullExpand_Vodafone,
+.dxGridView_gvCMGroupByColumn_Vodafone,
+.dxGridView_gvCMNewRow_Vodafone,
+.dxGridView_gvCMRefresh_Vodafone,
+.dxGridView_gvCMShowCustomizationWindow_Vodafone,
+.dxGridView_gvCMShowFilterEditor_Vodafone,
+.dxGridView_gvCMShowGroupPanel_Vodafone,
+.dxGridView_gvCMSortAscending_Vodafone,
+.dxGridView_gvCMSortDescending_Vodafone,
+.dxGridView_gvCMSummaryAverage_Vodafone,
+.dxGridView_gvCMSummaryCount_Vodafone,
+.dxGridView_gvCMSummaryMax_Vodafone,
+.dxGridView_gvCMSummaryMin_Vodafone,
+.dxGridView_gvCMSummarySum_Vodafone,
+.dxGridView_gvCMUngroupColumn_Vodafone,
+.dxGridView_gvCollapsedButton_Vodafone,
+.dxGridView_gvCollapsedButtonRtl_Vodafone,
+.dxGridView_gvDetailCollapsedButton_Vodafone,
+.dxGridView_gvDetailCollapsedButtonRtl_Vodafone,
+.dxGridView_gvDetailExpandedButton_Vodafone,
+.dxGridView_gvDetailExpandedButtonRtl_Vodafone,
+.dxGridView_gvDragAndDropArrowDown_Vodafone,
+.dxGridView_gvDragAndDropArrowUp_Vodafone,
+.dxGridView_gvDragAndDropHideColumn_Vodafone,
+.dxGridView_gvExpandedButton_Vodafone,
+.dxGridView_gvExpandedButtonRtl_Vodafone,
+.dxGridView_gvFilterRowButton_Vodafone,
+.dxGridView_gvHeaderFilter_Vodafone,
+.dxGridView_gvHeaderFilterActive_Vodafone,
+.dxGridView_gvHeaderSortDown_Vodafone,
+.dxGridView_gvHeaderSortUp_Vodafone,
+.dxGridView_gvParentGroupRows_Vodafone,
+.dxGridView_WindowResizer_Vodafone,
+.dxGridView_WindowResizerRtl_Vodafone,
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvCollapsedButton_Vodafone,
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvCollapsedButtonRtl_Vodafone,
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvExpandedButton_Vodafone,
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvExpandedButtonRtl_Vodafone,
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailCollapsedButton_Vodafone,
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailCollapsedButtonRtl_Vodafone,
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailExpandedButton_Vodafone,
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailExpandedButtonRtl_Vodafone
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxGridView_gvCellError_Vodafone
+{
+    background-position: -49px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvCMClearFilter_Vodafone
+{
+    background-position: 0px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMClearGrouping_Vodafone
+{
+    background-position: -19px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRow_Vodafone
+{
+    background-position: -19px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRowDisabled_Vodafone
+{
+    background-position: -76px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRow_Vodafone
+{
+    background-position: 0px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRowDisabled_Vodafone
+{
+    background-position: 0px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMDeleteRow_Vodafone
+{
+    background-position: -19px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMEditRow_Vodafone
+{
+    background-position: -76px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRow_Vodafone
+{
+    background-position: -38px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRowDisabled_Vodafone
+{
+    background-position: -61px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRow_Vodafone
+{
+    background-position: -38px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRowDisabled_Vodafone
+{
+    background-position: -19px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullCollapse_Vodafone
+{
+    background-position: -76px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullExpand_Vodafone
+{
+    background-position: -19px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMGroupByColumn_Vodafone
+{
+    background-position: -38px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMNewRow_Vodafone
+{
+    background-position: -57px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMRefresh_Vodafone
+{
+    background-position: -57px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowCustomizationWindow_Vodafone
+{
+    background-position: -57px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowFilterEditor_Vodafone
+{
+    background-position: -38px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowGroupPanel_Vodafone
+{
+    background-position: -57px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortAscending_Vodafone
+{
+    background-position: -38px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortDescending_Vodafone
+{
+    background-position: 0px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryAverage_Vodafone
+{
+    background-position: -42px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryCount_Vodafone
+{
+    background-position: 0px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMax_Vodafone
+{
+    background-position: -76px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMin_Vodafone
+{
+    background-position: -57px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummarySum_Vodafone
+{
+    background-position: -23px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMUngroupColumn_Vodafone
+{
+    background-position: -76px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCollapsedButton_Vodafone
+{
+    background-position: 0px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvCollapsedButtonRtl_Vodafone
+{
+    background-position: -28px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButton_Vodafone
+{
+    background-position: -28px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButtonRtl_Vodafone
+{
+    background-position: -42px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButton_Vodafone
+{
+    background-position: 0px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButtonRtl_Vodafone
+{
+    background-position: -70px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDragAndDropArrowDown_Vodafone
+{
+    background-position: -68px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropArrowUp_Vodafone
+{
+    background-position: -56px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropHideColumn_Vodafone
+{
+    background-position: 0px 0px;
+    width: 22px;
+    height: 22px;
+}
+.dxGridView_gvExpandedButton_Vodafone
+{
+    background-position: -14px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvExpandedButtonRtl_Vodafone
+{
+    background-position: -14px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvFilterRowButton_Vodafone
+{
+    background-position: -64px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvHeaderFilter_Vodafone
+{
+    background-position: -80px 0px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderFilterActive_Vodafone
+{
+    background-position: -34px -118px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderSortDown_Vodafone
+{
+    background-position: -87px -17px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvHeaderSortUp_Vodafone
+{
+    background-position: -84px -149px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvParentGroupRows_Vodafone
+{
+    background-position: 0px -135px;
+    width: 18px;
+    height: 13px;
+}
+.dxGridView_WindowResizer_Vodafone
+{
+    background-position: 0px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxGridView_WindowResizerRtl_Vodafone
+{
+    background-position: -17px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvCollapsedButton_Vodafone
+{
+    background-position: -56px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvCollapsedButtonRtl_Vodafone
+{
+    background-position: -47px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvExpandedButton_Vodafone
+{
+    background-position: -75px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Vodafone .dxGridView_gvExpandedButtonRtl_Vodafone
+{
+    background-position: -19px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailCollapsedButton_Vodafone
+{
+    background-position: -61px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailCollapsedButtonRtl_Vodafone
+{
+    background-position: -79px -118px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailExpandedButton_Vodafone
+{
+    background-position: -33px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Vodafone .dxGridView_gvDetailExpandedButtonRtl_Vodafone
+{
+    background-position: -42px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvHeaderFilterActive_Vodafone
+{
+	background-color: #ED1B24;
+}
+

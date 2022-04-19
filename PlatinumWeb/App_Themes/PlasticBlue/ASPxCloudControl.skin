@@ -1,0 +1,14 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxcc" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dxcc:ASPxCloudControl runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" HorizontalAlign="Left" MaxColor="#5A83D0" CssPostfix="PlasticBlue" MinColor="#91ACE0">
+    <RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+        <dxcc:RankProperties></dxcc:RankProperties>
+    </RankProperties>
+</dxcc:ASPxCloudControl>

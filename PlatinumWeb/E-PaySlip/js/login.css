@@ -1,0 +1,263 @@
+﻿/*@import url('openSans.css');*/
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans.ttf') format('truetype'), url('openSans.woff') format('woff');
+}
+        body *{
+            font-family: 'Open Sans', sans-serif;
+            font-size:16px;
+        }
+        .cpyright,.ndihmeKontakt,article,.kosove,.vizitori,.labelInfo,.infoLbl,.keniHarruar{
+            font-family:'Open Sans';
+        }
+        .styleLoginButton {
+            height: 28px;
+            float: right;
+            vertical-align: top;
+            margin-top: 0px;
+        }
+
+        .keniHarruar {
+            text-align:left;
+            display:block;
+            font:medium;
+            font-weight:bold;
+            color:#00A74F;
+            height:auto;
+            font-size:13px;
+        }
+
+.labelInfo {
+padding-top: 20px;
+padding-bottom: 20px;
+text-align: center;
+display: block;
+height:auto;
+}
+        .login {    
+            display:block;      
+            padding:40px;
+            margin:0;  
+            background-color:#f7f7f7;
+            border-radius:2px;
+            border:#f7f7f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+       
+        .input {
+            display:block;
+            width: 250px;
+            padding-top: 10px;
+            height:40px;
+            position:relative;
+            border:0.5px #999999;
+
+        }
+        .submain {
+            display: inline-block;
+        }
+
+.gjuha {
+    float: right;
+    margin-right: 5px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow:hidden;
+  
+   
+}
+
+        .content {
+            border-top: 1px #00a74f solid;
+            border-bottom: 1px #00a74f solid;
+            padding: 0;
+            margin:0;
+            clear:both;
+        }
+
+      
+
+        footer {
+            clear: both;           
+            margin:0;
+            padding-top:20px;
+            box-sizing:border-box;
+            text-align:right;
+        }
+
+.cpyright {
+    /* clear: both; */
+    float: left;
+    font-size: 16px;
+    text-align: left;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+        
+        .contact {
+            float: right;
+            line-height: 24px;
+           
+        }
+        article{
+            display:block;
+        }
+        .ndihmeKontakt, .kosove, .vizitori {
+            font-size:14px;
+            text-align:right;
+        }
+
+        .LoginError {
+            height:auto;
+            color: red;
+            text-align:left;
+            padding-top:0;
+        }
+
+                .main {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .submain {
+            margin-top:60px;
+        }
+
+        .mainContent {
+            padding-top:60px;
+            display:table-cell;
+            vertical-align:middle;
+            padding: 0px;
+            position: relative;   
+            height:400px;
+            width:900px;   
+            box-sizing:border-box;      
+        }
+
+.info {
+    max-width: 300px;
+    display: table-cell;
+    text-align: left;
+}
+
+        .loginForm {
+           max-width: 332px;
+            display: table-cell;
+            text-align:right;
+       
+        }
+        .infoLbl{
+            font-size:16px;
+            color:#333333;
+            width:auto;
+
+        }
+        .gjuhet {
+            float: right;
+            height: 66px;
+           max-width: 200px;
+        }
+        .logo{
+            float:left;
+            width:235px;
+            height:66px;
+            padding-bottom:10px;
+        }
+          .infoIcon{
+            width:32px;
+            height:32px;
+        }
+       
+           input[type="text"].dxeEditAreaSys, input[type="password"].dxeEditAreaSys{
+               padding-left:7px;
+           }
+
+           .left,.right{
+               display:table;
+               height:inherit;
+           }
+           .left{
+               float:left;
+           }
+           .right{
+               float:right;
+           }
+
+      
+        @media all and (max-width:760px) {
+           .login{
+               padding:20px;
+           }
+            .infoLbl{
+                max-width:250px;
+            }
+                .ndihmeKontakt, .kosove, .vizitori {
+            font-size:11px;
+          
+        }
+        }
+        @media all and (max-width:450px) {
+            .main {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                box-sizing:border-box;
+            }
+            .logo{
+            width:150px;
+            height:42.13px;
+            padding-bottom:7px;
+        }
+            .gjuhet{
+                height:42.13px;
+            }
+            .submain {
+                width:100%;
+                padding: 0;
+                margin: 0;
+                margin-top: 40px;
+                box-sizing:border-box;
+            }
+            .mainContent{
+                width:100%;
+                box-sizing:border-box;
+            }
+
+        }
+        
+        @media all and (min-width:690px) {
+            .info,.loginForm {
+                vertical-align:middle;
+            }
+        } 
+          @media all and (max-width:690px) {
+           
+              .left,.right,.loginForm,.info{
+                  float:none;
+                  display:inline-block;
+              }
+              .left,.right{
+                  height:auto;
+              }
+            .loginForm,.info{
+                margin-bottom:20px;
+            }
+            .input{
+                padding-top:0;
+                padding-bottom:0;
+            }
+            .mainContent{
+                margin-top:20px;
+            }
+            .info{
+                padding-top:0px;
+                margin-top:20px;
+            }
+        }
+    
+

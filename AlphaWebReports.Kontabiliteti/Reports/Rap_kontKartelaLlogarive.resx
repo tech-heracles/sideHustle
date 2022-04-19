@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_KontLibriimadh1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITET_LIBRIiMADHTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 17</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>        double vleraProgresive = 0;
+        double vleraProgresive2 = 0;
+        double vleraProgresivGjithsej = 0;
+        double vleraProgresivGjithsej2 = 0;  
+        double gjendjamepare = 0;
+        double shumadebi = 0;
+        double shumakredi = 0;
+        double shumakredimonllog = 0;
+        double shumadebimonllog = 0;
+        double shumadebigjithsej = 0;
+        double shumakredigjithsej = 0;
+        double shumadebimonlloggjithsej = 0;
+        double shumakredimonlloggjithsej = 0;
+        int cnt = 0;
+	  string scopeID;
+
+
+private void xrTableCell58_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+ if (GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI") != null &amp;&amp; GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString() != "")
+            {
+                vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                xrTableCell58.Text = String.Format("{0:#,#.00}", vleraProgresive);
+            } 
+ }
+
+private void xrTableCell60_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null &amp;&amp; GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString() != "")
+            {                vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+                xrTableCell60.Text = String.Format("{0:#,#.00}", vleraProgresive2);
+            }
+}
+
+private void xrTableCell62_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) 
+{
+ e.Result = shumadebi;
+            e.Handled = true;
+}
+
+private void xrTableCell62_SummaryReset(object sender, System.EventArgs e) 
+{
+ shumadebi = 0;
+}
+
+private void xrTableCell62_SummaryRowChanged(object sender, System.EventArgs e)
+ {
+            if (GetCurrentColumnValue("gjendjambartuar") != null)
+                {
+                if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
+                    {
+                    gjendjamepare = Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                    if (gjendjamepare &gt; 0)
+                        {
+                        shumadebi += gjendjamepare;
+                        shumadebigjithsej += gjendjamepare;
+                        }
+                    }
+                else
+                    {
+                    shumadebi += Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString());
+                    shumadebigjithsej += Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString());
+                    }
+                }
+}
+
+private void xrTableCell63_SummaryReset(object sender, System.EventArgs e) 
+{
+
+              shumakredi = 0;
+}
+private void xrTableCell63_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+    e.Result = shumakredi;
+            e.Handled = true;
+}
+
+private void xrTableCell63_SummaryRowChanged(object sender, System.EventArgs e)
+ {
+  if (GetCurrentColumnValue("gjendjambartuar") != null)
+                {
+                if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
+                    {
+                    gjendjamepare = Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                    if (gjendjamepare &lt; 0)
+                        {
+                        shumakredi +=Math.Abs( gjendjamepare);
+                        shumakredigjithsej +=Math.Abs( gjendjamepare); ;
+                        }
+                    }
+                else
+                    {
+                    shumakredi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                    shumakredigjithsej += Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                    }
+                }
+}
+
+private void xrTableCell67_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e)
+ {
+  e.Result = shumadebimonllog;
+            e.Handled = true;
+}
+private void xrTableCell67_SummaryReset(object sender, System.EventArgs e) 
+{
+shumadebimonllog = 0;
+}
+
+private void xrTableCell67_SummaryRowChanged(object sender, System.EventArgs e) 
+{
+if (GetCurrentColumnValue("gjendjambartuar") != null)
+                {
+                if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
+                    {
+                    gjendjamepare = Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+                    if (gjendjamepare &gt; 0)
+                        {
+                        shumadebimonllog += gjendjamepare;
+                        shumadebimonlloggjithsej += gjendjamepare;
+                        }
+                    }
+                else
+                    {
+                    shumadebimonllog += Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString());
+                    shumadebimonlloggjithsej += Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString());
+                    }
+                }
+}
+
+private void xrTableCell68_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e)
+ {
+  e.Result = shumakredimonllog;
+            e.Handled = true;
+}
+
+private void xrTableCell68_SummaryReset(object sender, System.EventArgs e) 
+{
+               shumakredimonllog = 0;
+}
+
+private void xrTableCell68_SummaryRowChanged(object sender, System.EventArgs e) 
+{
+if (GetCurrentColumnValue("gjendjambartuar") != null)
+                {
+                if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
+                    {
+                    gjendjamepare = Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+                    if (gjendjamepare &lt; 0)
+                        {
+                        shumakredimonllog += Math.Abs(gjendjamepare);
+                        shumakredimonlloggjithsej += Math.Abs(gjendjamepare); ;
+                        }
+                    }
+                else
+                    {
+                    shumakredimonllog += Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+                    shumakredimonlloggjithsej += Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+                    }
+                }
+}
+
+
+private void xrTableCell72_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e)
+ {
+ e.Result = shumadebigjithsej;
+            e.Handled = true;
+}
+
+
+private void xrTableCell73_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e)
+ {
+  e.Result = shumakredigjithsej;
+            e.Handled = true;
+}
+
+private void xrTableCell51_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+ {
+ if (GetCurrentColumnValue("KODKONFIGAMBJENTE") != null &amp;&amp; GetCurrentColumnValue("KODKONFIGAMBJENTE").ToString() == "NKM")
+            {
+                xrTableCell51.NavigateUrl = "";
+                this.xrTableCell51.ForeColor = System.Drawing.Color.Black;
+                return;
+            }
+                
+                xrTableCell51.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_FleteKontabel.aspx?scopeID=" + scopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("IDKOKAFLETEKONTABEL") + "&amp;numur=" + GetCurrentColumnValue("NRKOKAFLETEKONTABEL") + "')";
+                this.xrTableCell51.ForeColor = System.Drawing.Color.SteelBlue;
+                xrTableCell51.Target = "_self";
+      
+}
+private void xrTableCell75_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+if (vleraProgresivGjithsej &gt; 0)
+            {
+                xrTableCell75.Text = String.Format("{0:#,#.00}", vleraProgresivGjithsej);
+                vleraProgresivGjithsej = 0;
+            }
+            else xrTableCell75.Text = String.Format("{0:#,#.00}", 0);
+}
+
+private void xrTableCell76_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+if (vleraProgresivGjithsej &lt; 0)
+            {
+                xrTableCell76.Text = String.Format("{0:#,#.00}", Math.Abs(vleraProgresivGjithsej));
+                vleraProgresivGjithsej = 0;
+            }
+            else xrTableCell76.Text = String.Format("{0:#,#.00}", 0);
+}
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+ 
+}
+private void xrTableCell72_SummaryReset(object sender, System.EventArgs e) {
+shumadebigjithsej = 0;
+}
+
+private void xrTableCell73_SummaryReset(object sender, System.EventArgs e) {
+ shumakredigjithsej = 0;
+}
+
+private void Rap_kontKartelaLlogarive_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+ {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+	scopeID = parametraRaporti.ScopeID;	
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);	
+
+}
+
+private void xrTableCell80_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+            vleraProgresivGjithsej += vleraProgresive;
+            if (vleraProgresive &gt;= 0)
+            {
+                xrTableCell80.Text = String.Format("{0:#,#.00}", vleraProgresive);
+                vleraProgresive = 0;
+            }
+            else xrTableCell80.Text = String.Format("{0:#,#.00}", 0);
+}
+
+
+
+
+private void xrTableCell80_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) 
+{
+double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                sum += Convert.ToDouble(e.CalculatedValues[i]);
+            if (sum &gt; 0)
+                e.Result = sum;
+            e.Handled = true;
+
+}
+
+private void xrTableCell81_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+          if (vleraProgresive &lt;= 0)
+            {
+                xrTableCell81.Text = String.Format("{0:#,#.00}", Math.Abs(vleraProgresive));
+                vleraProgresive = 0;
+           }
+           else xrTableCell81.Text = String.Format("{0:#,#.00}", 0);
+}
+
+private void xrTableCell81_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) 
+{
+
+                   double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                sum += Convert.ToDouble(e.CalculatedValues[i]);
+            if (sum &gt; 0)
+                e.Result = sum;
+            e.Handled = true;
+}
+
+private void xrTableCell82_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+
+ if (vleraProgresive2 &gt; 0)
+            {
+                xrTableCell82.Text = String.Format("{0:#,#.00}", vleraProgresive2);
+                vleraProgresive2 = 0;
+            }
+            else xrTableCell82.Text = String.Format("{0:#,#.00}", 0);
+            vleraProgresivGjithsej2 += vleraProgresive2;
+
+
+}
+
+private void xrTableCell82_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e)
+ {
+
+ double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                sum += Convert.ToDouble(e.CalculatedValues[i]);
+            if (sum &gt; 0)
+                e.Result = sum;
+            e.Handled = true;
+ 
+
+}
+
+private void xrTableCell83_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+{
+ if (vleraProgresive2 &lt; 0)
+            {
+                xrTableCell83.Text = String.Format("{0:#,#.00}", Math.Abs(vleraProgresive2));
+                vleraProgresive2 = 0;
+            }
+            else xrTableCell83.Text = String.Format("{0:#,#.00}", 0);
+}
+
+
+
+private void xrTableCell83_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) 
+{
+
+     double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                sum += Convert.ToDouble(e.CalculatedValues[i]);
+            if (sum &gt; 0)
+                e.Result = sum;
+            e.Handled = true;
+}
+
+
+private void xrTableCell48_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if (GetCurrentColumnValue("vleftadebipare") != null &amp;&amp; GetCurrentColumnValue("vleftakredipare").ToString() != "")
+                    vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("vleftadebipare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredipare").ToString());
+}
+
+private void xrTableCell50_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if (GetCurrentColumnValue("vleftadebimonhuajpare") != null &amp;&amp; GetCurrentColumnValue("vleftakredimonhuajpare").ToString() != "")
+       	vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
+               
+}
+
+
+private void filtraTable_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra((XRTable)sender, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+
+}
+
+private void xrTableCell54_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+     var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+                if (GetCurrentColumnValue("idgjenerues") != null &amp;&amp; GetCurrentColumnValue("IDKATEGORIA") != null)
+                {
+                    switch (GetCurrentColumnValue("IDKATEGORIA").ToString())
+                    {
+                        case "1":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimDokumentash.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shitje_blerje=shitje&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "2":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimDokumentash.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shitje_blerje=blerje&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "3":
+                        case "4":
+                            if (GetCurrentColumnValue("LlojiVeprimit") != null)
+                            {
+                            xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('ShtoVeprimBanka.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;lloji=" + GetCurrentColumnValue("LlojiVeprimit").ToString().ToLower() + "&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                                this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                            xrTableCell54.Target = "_self";
+                            }
+                            break;
+
+                        case "5":
+                  	xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_FleteKontabel.aspx?scopeID="+scopeID+"&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("IDKOKAFLETEKONTABEL") + "&amp;numur=" + GetCurrentColumnValue("NRKOKAFLETEKONTABEL") + "')";
+				this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "6":
+                            string lloji = "";
+
+                            if (GetCurrentColumnValue("IdLlojDokumentiMagazine") != null)
+                            {
+                                if (Convert.ToInt32(GetCurrentColumnValue("IdLlojDokumentiMagazine")) == 1)
+                                    lloji = "hyrje";
+                                else lloji = "dalje";
+
+                            xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimMagazine.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;lloj=" + lloji + "&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                                this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                            xrTableCell54.Target = "_self";
+                            }
+                            break;
+
+                        case "7":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_ShperndarjeShpenzimesh.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "8":
+                            lloji = "";
+                            if (GetCurrentColumnValue("ImportExport") != null)
+                            {
+                                if (Convert.ToInt32(GetCurrentColumnValue("ImportExport")) == 1)
+                                    lloji = "import";
+                                else
+                                    lloji = "export";
+
+                            xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_FleteDoganore.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;lloji=" + lloji + "&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                                this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                            xrTableCell54.Target = "_self";
+                            }
+                            break;
+
+                        case "10":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('LidhjaDokumentave.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "11":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_AzhornimKlientFurnitor.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;vep=azhornim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "20":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_VeprimeKF.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "38":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_ListPagesa.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "45":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_Ekzekutim.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "64":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_AzhornimKlientFurnitor.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;vep=mbyllje&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "86":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimAmortizimi.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "95":
+                        xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimNdryshimCmimSasi.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "')";
+                            this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                        xrTableCell54.Target = "_self";
+                            break;
+
+                        case "90":
+                            string llojiam = "amortizim";
+                            if (GetCurrentColumnValue("KODINIVELIT") != null)
+                            {
+                                if (GetCurrentColumnValue("KODINIVELIT").ToString() == "RIAM")
+                                    llojiam = "rivleresim";
+                            xrTableCell54.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RivleresimeAmortizimi.aspx?scopeID=" + parametraRaporti.ScopeID + "&amp;newScopeId=True&amp;lloj=" + llojiam + "&amp;id=" + GetCurrentColumnValue("idgjenerues").ToString() + "&amp;shtim_modifikim=modifikim')";
+                                this.xrTableCell54.ForeColor = System.Drawing.Color.SteelBlue;
+                            xrTableCell54.Target = "_self";
+                            }
+                            break;
+
+	             default:
+	              break;
+		  }
+							         
+            }
+
+}
+</value>
+  </data>
+</root>

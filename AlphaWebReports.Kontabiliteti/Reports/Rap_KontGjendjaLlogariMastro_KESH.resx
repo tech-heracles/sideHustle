@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_KontDitari1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>635, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITET_DITARITableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="ds_KontDitari2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>511, 17</value>
+  </metadata>
+  <metadata name="ds_KontGjendjaLlogari1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITET_GJENDJALLOGTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>186, 17</value>
+  </metadata>
+  <metadata name="realTimeSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 93</value>
+  </metadata>
+  <metadata name="realTimeSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 132</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+double debiPara = 0, krediPara = 0, debiTani = 0, krediTani = 0;
+double debiParaSintetike = 0, krediParaSintetike = 0, debiTaniSintetike = 0, krediTaniSintetike = 0;
+private string windowWidth = "";
+string scopeID;
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e){
+
+   
+        }
+
+ private void xrLabel31_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+		 	if(Convert.ToBoolean(this.Parameters["sintetike"].Value)) 
+				sum =debiParaSintetike;
+			else
+			{
+sum = shumaGjendjeParaDebi ;
+			}
+		e.Result = sum;
+		e.Handled = true;
+                  }
+
+        private void xrLabel32_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double sum = 0;
+       for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+	 if(Convert.ToBoolean(this.Parameters["sintetike"].Value)) 
+	 sum =krediParaSintetike;	
+     else
+     {
+        sum = shumaGjendjeParaKredi ;
+      }
+            e.Result = sum;
+            e.Handled = true;
+        }
+
+        private void xrLabel21_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+           double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+ if(Convert.ToBoolean(this.Parameters["sintetike"].Value)) 
+sum =debiTaniSintetike;
+else
+{
+
+ sum = shumaGjendjePasDebi ;
+}
+            e.Result = sum;
+            e.Handled = true;        }
+
+        private void xrLabel22_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+           double sum = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+ if(Convert.ToBoolean(this.Parameters["sintetike"].Value)) 
+sum =krediTaniSintetike;
+else
+{
+
+ sum = shumaGjendjePasKredi ;
+}
+            e.Result = sum;
+            e.Handled = true;
+        }
+
+private void xrTableCell5_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			debiParaSintetike += shuma;
+		}else e.Result = "";
+            e.Handled = true;
+        }
+
+        private void xrTableCell6_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			krediParaSintetike += shuma;
+            }else e.Result = "";
+            e.Handled = true;
+
+        }
+
+        private void xrTableCell9_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			
+            }else e.Result = "(" + -shuma + ")";
+            e.Handled = true;
+        }
+
+        private void xrTableCell10_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			debiTaniSintetike += shuma;
+            }else e.Result = "";
+            e.Handled = true;
+        }
+
+        private void xrTableCell8_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			krediTaniSintetike += shuma;
+            }else e.Result = "";
+            e.Handled = true;
+        }
+
+        private void xrTableCell14_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			debiPara += shuma;
+			shumaGjendjeParaDebi += shuma ;
+            }else e.Result = "";
+            e.Handled = true;
+        }
+
+        private void xrTableCell15_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			krediPara += shuma;			
+			shumaGjendjeParaKredi += shuma ;
+
+            }else e.Result = "";
+            e.Handled = true;
+        }
+
+        
+        private void xrTableCell18_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (GetCurrentColumnValue("levizja") != null)
+            {
+                double vlera = Convert.ToDouble(GetCurrentColumnValue("levizja"));
+                if (vlera &lt; 0)
+                    xrTableCell28.Text = String.Format("{0:#,#.00}", Math.Abs(vlera));
+                else
+                    xrTableCell28.Text = String.Format("{0:#,#.00}", vlera);
+            }
+        }
+
+        private void xrTableCell18_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0)
+                e.Result = shuma;
+            else e.Result = "(" + -shuma + ")";
+            e.Handled = true;
+        }
+
+        private void xrTableCell19_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+
+             double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+             if (shuma &gt;= 0){
+                e.Result = shuma;
+			debiTani += shuma;
+			shumaGjendjePasDebi += shuma ;
+            }
+     else e.Result = "";
+            e.Handled = true;        }
+
+        private void xrTableCell20_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+           double shuma = 0;
+            for (int i = 0; i &lt; e.CalculatedValues.Count; i++)
+                shuma += double.Parse(e.CalculatedValues[i].ToString());
+            if (shuma &gt;= 0){
+                e.Result = shuma;
+			krediTani += shuma;
+shumaGjendjePasKredi += shuma ;
+            }else e.Result = "";
+            e.Handled = true;        }
+
+        private void xrTableCell28_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (GetCurrentColumnValue("levizja") != null)
+            {
+                double vlera = Convert.ToDouble(GetCurrentColumnValue("levizja"));
+                if (vlera &lt; 0)
+                    xrTableCell28.Text = String.Format("{0:#,#.00}", Math.Abs(vlera));
+                else
+                    xrTableCell28.Text = String.Format("{0:#,#.00}", vlera);
+            }
+        }
+
+        private void xrTableCell21_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+           var  parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]); 
+                xrTableCell21.NavigateUrl = xrTableCell1.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('RaportiShpejte.aspx?scopeID="+scopeID +"&amp;guidString=" + parametraRaporti.GuidString+ "&amp;idraporti=" + parametraRaporti.IdSubRaporti + "&amp;filterNumerLlogarie=" + GetCurrentColumnValue("NRLLOGARI") + "&amp;printo=0&amp;Sesioni=true')";
+                xrTableCell21.Target = xrTableCell1.Target = "_self";
+       }
+
+
+
+
+int row = 0;
+
+private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e){
+            if (row == 0){
+                GroupHeader1.Styles.Style = (DevExpress.XtraReports.UI.XRControlStyle)StyleSheet["PermbajtjaRaportEven"];
+			row=1;
+			}
+            else{
+                GroupHeader1.Styles.Style = (DevExpress.XtraReports.UI.XRControlStyle)StyleSheet["PermbajtjaRaportOdd"];
+            row=0;
+		}
+}
+
+private void GroupHeader2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e){
+            if (row == 0){
+                GroupHeader2.Styles.Style = (DevExpress.XtraReports.UI.XRControlStyle)StyleSheet["PermbajtjaRaportEven"];
+			row=1;
+			}
+            else{
+                GroupHeader2.Styles.Style = (DevExpress.XtraReports.UI.XRControlStyle)StyleSheet["PermbajtjaRaportOdd"];
+            row=0;
+		}
+}
+  private void xrTableCell11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e){
+ var  parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]); 
+                xrTableCell11.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('RaportiShpejte.aspx?scopeID="+scopeID+"&amp;guidString=" + parametraRaporti.GuidString+ "&amp;idraporti=" + parametraRaporti.IdSubRaporti + "&amp;filterNumerLlogarie=" + GetCurrentColumnValue("NRLLOGARI") + "&amp;printo=0&amp;Sesioni=true')";
+                xrTableCell11.Target = "_self";       
+}
+
+private void Rap_KontGjendjaLlogariMastro_KESH_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)  {
+	var  parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]); 
+	var filtrat = AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]); 
+Filtrat (filtrat );
+
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+}
+
+double shumaGjendjeParaDebi = 0;
+double shumaGjendjeParaKredi = 0;
+
+
+private void xrTableCell24_AfterPrint(object sender, System.EventArgs e) {
+	shumaGjendjeParaDebi += Convert.ToDouble(xrTableCell24.Text);
+}
+
+private void xrTableCell25_AfterPrint(object sender, System.EventArgs e) {	
+	shumaGjendjeParaKredi += Convert.ToDouble(xrTableCell25.Text);
+}
+
+
+double shumaGjendjePasDebi = 0;
+double shumaGjendjePasKredi = 0;
+
+
+private void xrTableCell29_AfterPrint(object sender, System.EventArgs e) {
+shumaGjendjePasDebi += Convert.ToDouble(xrTableCell29.Text);
+}
+
+private void xrTableCell30_AfterPrint(object sender, System.EventArgs e) {
+shumaGjendjePasKredi += Convert.ToDouble(xrTableCell30.Text);
+}
+
+private void Filtrat(System.Collections.Generic.List&lt;DbCore.DbShare.clsParameter&gt; filtrat)
+
+  {          foreach (var filter in filtrat){
+                switch(filter.Emri)
+        {      case "filterLlogariSintetike":
+                    xrLabel71.Text = filter.Pershkrimi.ToString();
+
+                if(filter.Vlera.ToString() == "Po")
+                {
+                    this.Parameters["sintetike"].Value = true;
+                    xrLabel72.Text = "Po";
+                }
+               else{
+                    xrLabel72.Text = "Jo";
+                    this.Parameters["sintetike"].Value = false;
+                   }
+            break;
+            case "filterDtDok":
+                xrLabel54.Text = filter.Pershkrimi.ToString();
+                xrLabel23.Text = filter.Vlera.ToString();
+            break;
+            case "filterDtRegj":
+                xrLabel55.Text = filter.Pershkrimi.ToString();
+                xrLabel48.Text = filter.Vlera.ToString();
+            break;
+                  case "filterNumerDokumenti":
+                xrLabel56.Text = filter.Pershkrimi.ToString();
+                xrLabel52.Text = filter.Vlera.ToString();
+            break;
+
+                  case "filterNrReference":
+                xrLabel57.Text = filter.Pershkrimi.ToString();
+                xrLabel53.Text = filter.Vlera.ToString();
+            break;
+
+                  case "IdNdermarje":
+                xrLabel59.Text = filter.Pershkrimi.ToString();
+                xrLabel62.Text = filter.Vlera.ToString();
+            break;
+
+                  case "filterLlojDokumenti":
+                xrLabel34.Text = filter.Pershkrimi.ToString();
+                xrLabel35.Text = filter.Vlera.ToString();
+            break;
+
+                  case "filterMonedha":
+                azhornimLabel.Text = filter.Pershkrimi.ToString();
+                xrLabel100.Text = filter.Vlera.ToString();
+            break;
+                  case "monedheLl":
+                xrLabel73.Text = filter.Pershkrimi.ToString();
+                xrLabel74.Text = filter.Vlera.ToString();
+            break;
+                 
+
+                  
+            default:
+            break;        
+        }
+}
+}
+
+</value>
+  </data>
+</root>

@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Rap_Format_UrdherPagese1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_URDHER_PAGESATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (GetCurrentColumnValue("nenLlogaria").ToString().IndexOf(".") != -1)
+            {
+                xrTableCell16.Text = GetCurrentColumnValue("nenLlogaria").ToString().Substring(0, GetCurrentColumnValue("nenLlogaria").ToString().IndexOf("."));
+            }
+        }
+private void xrTableCell13_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  {
+            if (GetCurrentColumnValue("Kapitulli").ToString().IndexOf(".") != -1)
+            {
+                xrTableCell13.Text = GetCurrentColumnValue("Kapitulli").ToString().Substring(0, GetCurrentColumnValue("Kapitulli").ToString().IndexOf("."));
+            }
+        }
+
+}
+
+private static string[] onesMapping =
+         new string[] {
+            "Zero", "Nje", "Dy", "Tre", "Kater", "Pese", "Gjashte", "Shtate", "Tete", "Nente",
+            "Dhjete", "Njembedhjete", "Dymbedhjete", "Trembedhjete", "Katermbedhjete", "Pesembedhjete",
+            "Gjashtembedhjete", "Shtatembedhjete", "Tetembedhjete", "Nentembedhjete"
+        };
+        private static string[] tensMapping =
+            new string[] {
+            "Njezet", "Tridhjete", "Dyzet", "Pesedhjete", "Gjashtedhjete", "Shtatedhjete", "Tetedhjete", "Nentedhjete"
+        };
+        private static string[] groupMapping =
+            new string[] {
+            "Qind", "Mije", "Milion", "Miliard", "Trilion"
+        };
+private void xrLabel5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ object vlera = xrLabel4.Summary.GetResult();
+            if (vlera != null)
+            {
+                if (Convert.ToDouble(vlera) &gt; 1)
+                {
+                    string shumaNeFjale = changeToWords(String.Format("{0:#,#.00}", vlera)).ToLower();
+                    xrLabel5.Text = char.ToUpper(shumaNeFjale[0]) + shumaNeFjale.Substring(1); 
+                }
+            }
+}
+ public String changeToWords(String numb)
+        {
+            String val = "", wholeNo = numb, points = "", andStr = "", pointStr = "";
+            String endStr = ("");
+            if (numb.Trim() == "")
+                return "";
+            try
+            {
+                int decimalPlace = numb.IndexOf(".");
+                int idxPresjes = numb.IndexOf(",");
+                if (decimalPlace &gt; 0 &amp;&amp; idxPresjes &lt;= 0)
+                {
+                    wholeNo = numb.Substring(0, decimalPlace);
+                    points = numb.Substring(decimalPlace + 1);
+                    if (Convert.ToInt32(points) &gt; 0)
+                    {
+                        andStr = ("Dhe");
+                        pointStr = (" ") + EnglishFromNumber(int.Parse(points)) + (" Qindarka");
+                    }
+                }
+                else if (idxPresjes &gt; 0 &amp;&amp; decimalPlace &lt;= 0)
+                {
+                    string[] pjeset = numb.Split(',');
+                    string numri = "";
+                    for (int i = 0; i &lt; pjeset.Length; i++)
+                        numri += pjeset[i];
+                    wholeNo = numri;
+                }
+                else if (idxPresjes &gt; 0 &amp;&amp; decimalPlace &gt; 0)
+                {
+                    string[] pjeset = numb.Split(',');
+                    string numri = "";
+                    for (int i = 0; i &lt; pjeset.Length; i++)
+                        numri += pjeset[i];
+                    numb = numri;
+                    decimalPlace = numb.IndexOf(".");
+                    wholeNo = numb.Substring(0, decimalPlace);
+                    points = numb.Substring(decimalPlace + 1);
+                    if (Convert.ToInt32(points) &gt; 0)
+                    {
+                        andStr = ("Dhe");
+                        pointStr = (" ") + EnglishFromNumber(int.Parse(points)) + (" Qindarka");
+                    }
+                }
+                val = String.Format("{0} {1}{2} {3}", EnglishFromNumber(int.Parse(wholeNo)).Trim(), andStr, pointStr, endStr);
+            }
+            catch { ;}
+
+            string fundi = val.Substring(val.Length - 4, 3);
+            if (fundi == " E ")
+                val = val.Substring(0, val.Length - 4);
+
+            return val;
+        }
+ public static string EnglishFromNumber(long number)
+        {
+            if (number == 0)
+            {
+                return onesMapping[number];
+            }
+
+            string retVal = null;
+            int group = 0;
+            while (number &gt; 0)
+            {
+                int numberToProcess = (int)(number % 1000);
+                number = number / 1000;
+
+                string groupDescription = ProcessGroup(numberToProcess);
+                if (groupDescription != null)
+                {
+                    if (group &gt; 0)
+                    {
+                        retVal = groupMapping[group] + " E " + retVal;
+                    }
+                    retVal = groupDescription + " " + retVal;
+                }
+
+                group++;
+            }
+
+            return /*sign + */" " + retVal;
+        }
+  private static string ProcessGroup(int number)
+        {
+            int tens = number % 100;
+            int hundreds = number / 100;
+
+            string retVal = null;
+            if (hundreds &gt; 0)
+            {
+                retVal = onesMapping[hundreds] + " " + groupMapping[0];
+            }
+            if (tens &gt; 0)
+            {
+                if (tens &lt; 20)
+                {
+                    retVal += ((retVal != null) ? " E " : "") + onesMapping[tens];
+                }
+                else
+                {
+                    int ones = tens % 10;
+                    tens = (tens / 10) - 2; // 20's offset
+
+                    retVal += ((retVal != null) ? "  E " : "") + tensMapping[tens];
+
+                    if (ones &gt; 0)
+                    {
+                        retVal += ((retVal != null) ? " E " : "") + onesMapping[ones];
+                    }
+                }
+            }
+            return retVal;
+        }
+
+
+</value>
+  </data>
+</root>

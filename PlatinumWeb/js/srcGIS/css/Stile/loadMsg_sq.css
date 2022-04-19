@@ -1,0 +1,25 @@
+
+.olControlLoadingPanel {
+   background-image:url(../../../../images/GIS/loading.gif);
+    opacity:0.90;
+    position:absolute;
+    height: 15px;
+    background-position:41%;
+    background-repeat:no-repeat;
+    width:100%;
+    bottom:30px;
+    right: 0px;
+    background-color:#ebebeb;
+    opacity: 0.7;
+    display: none;
+    z-index: 1000;
+}
+
+.olControlLoadingPanel:after {
+    content: 'Duke u ngarkuar... ';
+    color: grey;
+    display: inline-block;
+    position:absolute;
+    left:42%;
+    color:gray;
+}

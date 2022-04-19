@@ -1,0 +1,262 @@
+.dxtlControl_Kesh
+{
+	cursor: default;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	border: 1px none #c0c0c0;
+}
+.dxtlControl_Kesh caption
+{
+	background: #ACACAC none;
+	border-bottom: 0 solid #c0c0c0;
+	border: 1px solid #c0c0c0;
+	color: White;
+	font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+}
+
+/* Indent cells */
+.dxtlIndent_Kesh,
+.dxtlIndentWithButton_Kesh
+{
+	vertical-align: top;
+	background: white none no-repeat top center;
+}
+.dxtlIndent_Kesh
+{
+	padding: 0 11px;
+}
+.dxtlIndentWithButton_Kesh
+{
+	padding: 5px 7px 6px;
+}
+.dxtlSelectionCell_Kesh
+{
+	border: 1px solid #cfcfcf;
+	padding: 3px 5px 5px 6px;
+}
+
+/* Tree-lines cells */
+.dxtlLineRoot_Kesh
+{
+
+}
+
+.dxtlLineFirst_Kesh
+{
+
+}
+.dxtlLineMiddle_Kesh
+{
+
+}
+.dxtlLineLast_Kesh
+{
+
+}
+
+.dxtlLineFirstRtl_Kesh
+{
+}
+.dxtlLineMiddleRtl_Kesh
+{
+
+}
+.dxtlLineLastRtl_Kesh
+{
+}
+
+/* Headers */
+.dxtlHeader_Kesh
+{
+    background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 4px 6px 5px;
+	font-weight: normal;
+}
+.dxtlHeader_Kesh table.dxtl
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+.dxtlHeader_Kesh td.dxtl
+{
+	padding: 0;
+}
+.dxtlHeader_Kesh,
+.dxtlHeader_Kesh td.dxtl
+{
+	white-space: nowrap;
+	text-align: left;
+	overflow: hidden;
+}
+/* Nodes */
+.dxtlNode_Kesh
+{
+	background: white none;
+}
+.dxtlAltNode_Kesh
+{
+	background-color: WhiteSmoke;
+}
+.dxtlSelectedNode_Kesh
+{
+	background: #e0e0e0 none;
+}
+.dxtlFocusedNode_Kesh
+{
+	background: #5D9AD3 none;
+	color: white;
+}
+.dxtlInlineEditNode_Kesh
+{
+	background: white none;
+}
+.dxtlEditFormDisplayNode_Kesh
+{
+	background: white none;
+}
+
+.dxtlNode_Kesh td.dxtl, 
+.dxtlAltNode_Kesh  td.dxtl, 
+.dxtlSelectedNode_Kesh td.dxtl, 
+.dxtlFocusedNode_Kesh td.dxtl,
+.dxtlEditFormDisplayNode_Kesh td.dxtl,
+.dxtlCommandCell_Kesh
+{
+	padding: 3px 6px 4px;
+	border: 1px solid #cfcfcf;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.dxtlInlineEditNode_Kesh td.dxtl
+{
+	border: 1px solid #cfcfcf;
+	padding: 1px;
+}
+
+/* Preview */
+.dxtlPreview_Kesh
+{
+	color: #7f7f7f;
+	padding: 14px;
+	border: 1px solid #cfcfcf;
+	overflow: hidden;
+}
+
+/* Footers */
+.dxtlGroupFooter_Kesh
+{
+}
+.dxtlFooter_Kesh
+{
+}
+.dxtlGroupFooter_Kesh td.dxtl,
+.dxtlFooter_Kesh td.dxtl
+{
+	padding: 5px 6px 6px;
+	white-space: nowrap;
+	border: 1px solid #cfcfcf;
+	overflow: hidden;
+}
+
+/* Pagers */
+.dxtlPagerTopPanel_Kesh
+{
+	border-bottom: 1px none #c0c0c0;
+	padding: 4px 0;
+}
+.dxtlPagerBottomPanel_Kesh
+{
+	border-top: 1px none #c0c0c0;
+	padding: 7px 0;
+}
+
+/* Editing */
+.dxtlEditForm_Kesh
+{
+	border: 1px solid #D3D3D3;
+	padding: 8px 10px 10px;
+}
+.dxtlEditFormCaption_Kesh,
+.dxtlEditFormEditCell_Kesh
+{
+	padding: 4px;
+}
+.dxtlEditFormCaption_Kesh
+{
+	padding-left: 10px;
+	white-space: nowrap;
+}
+.dxtlError_Kesh
+{
+	background: #FFC8C8 none;
+	color: #FF0000;
+	padding: 6px 10px;
+	border: 1px solid #cfcfcf;
+}
+.dxtlPopupEditForm_Kesh
+{
+	padding: 10px;
+	min-width: 300px;
+}
+
+/* Links */
+.dxtlControl_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxtlControl_Kesh a:hover
+{
+}
+.dxtlFocusedNode_Kesh a
+{
+	color: White;
+}
+.dxtlSelectedNode_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxtlCommandCell_Kesh a
+{
+	margin-right: 3px;
+}
+/* Customization window */
+.dxtlControl_Kesh .dxpcLite_Kesh .dxpc-content
+{
+	min-width: 220px;
+}
+
+/* Loading panel */
+.dxtlLoadingPanel_Kesh
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxtlLoadingPanel_Kesh td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxtlLoadingPanel_Kesh .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+/* Disabled */
+.dxtlDisabled_Kesh,
+.dxtlDisabled_Kesh .dxtl
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+

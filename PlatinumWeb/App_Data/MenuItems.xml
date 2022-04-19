@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MenuItems>
+  <RootItem Text="Ruaj" Name ="Ruaj" ImageUrl="~/images/new/disk_blue.png" >
+    <SubItem Text="Si draft" Name ="Draft" ImageUrl="~/images/new/draft.png" />    
+  </RootItem>
+  <RootItem Text="Shto" Name="Shto" ImageUrl="~/images/new/add.png" BeginGroup="True" />
+  <RootItem Text="Modifiko" Name ="Modifiko" ImageUrl="~/images/new/file edit.png" />
+  <RootItem Text="Fshi" Name ="Fshi" ImageUrl="~/images/new/stop.png" />  
+  <RootItem Text="Ndihme" Name ="Ndihme" ImageUrl="~/images/new/help.png" BeginGroup="True" />
+
+</MenuItems>

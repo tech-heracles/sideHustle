@@ -1,0 +1,35 @@
+<dataStore>
+  <id>DataStoreInfoImpl-51ee9591:1531deb2f2c:-7ffd</id>
+  <name>GISASETEOSHE</name>
+  <type>Microsoft SQL Server</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl-51ee9591:1531deb2f2c:-7fff</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="Connection timeout">200</entry>
+    <entry key="port">1432</entry>
+    <entry key="passwd">crypt1:aI3EUwJDzZCF8T5WaPpR7jN2Fuo3udzY</entry>
+    <entry key="dbtype">sqlserver</entry>
+    <entry key="Geometry metadata table">T_GIS_App_GEOMETRYCOLS</entry>
+    <entry key="Evictor tests per run">3</entry>
+    <entry key="host">denisa</entry>
+    <entry key="Use native geometry serialization">false</entry>
+    <entry key="Integrated Security">false</entry>
+    <entry key="Force spatial index usage via hints">false</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="max connections">1000</entry>
+    <entry key="database">WebInfDPSH</entry>
+    <entry key="namespace">localhost:8090/gisaseteoshe</entry>
+    <entry key="Evictor run periodicity">300</entry>
+    <entry key="Max connection idle time">300</entry>
+    <entry key="schema">dbo</entry>
+    <entry key="Test while idle">true</entry>
+    <entry key="Expose primary keys">true</entry>
+    <entry key="Use Native Paging">true</entry>
+    <entry key="fetch size">10000</entry>
+    <entry key="user">websa</entry>
+    <entry key="min connections">1</entry>
+  </connectionParameters>
+  <__default>false</__default>
+</dataStore>

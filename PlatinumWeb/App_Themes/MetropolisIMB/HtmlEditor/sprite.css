@@ -1,0 +1,1256 @@
+.dxHtmlEditor_heConstrainProportionsBottom_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsBottomRtl_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsMiddleOff_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsMiddleOffRtl_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsMiddleOn_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsMiddleOnRtl_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsTop_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsTopRtl_MetropolisIMB,
+.dxHtmlEditor_heErrorFrameCloseButton_MetropolisIMB,
+.dxHtmlEditor_heSizeGrip_MetropolisIMB,
+.dxHtmlEditor_heSizeGripRtl_MetropolisIMB,
+.dxHtmlEditor_heToolbarPopOut_MetropolisIMB,
+.dxHtmlEditor_Icons_heBackColor_MetropolisIMB,
+.dxHtmlEditor_Icons_heBackColorDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heBold_MetropolisIMB,
+.dxHtmlEditor_Icons_heBoldDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heCenter_MetropolisIMB,
+.dxHtmlEditor_Icons_heCenterDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableCellDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableCellDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableColumnDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableColumnDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableRowDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heChangeTableRowDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heCheckSpelling_MetropolisIMB,
+.dxHtmlEditor_Icons_heCheckSpellingDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heCopy_MetropolisIMB,
+.dxHtmlEditor_Icons_heCopyDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heCut_MetropolisIMB,
+.dxHtmlEditor_Icons_heCutDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTable_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTableColumn_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTableColumnDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTableDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTableRow_MetropolisIMB,
+.dxHtmlEditor_Icons_heDeleteTableRowDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heForeColor_MetropolisIMB,
+.dxHtmlEditor_Icons_heForeColorDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heFullscreen_MetropolisIMB,
+.dxHtmlEditor_Icons_heFullscreenDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heIndent_MetropolisIMB,
+.dxHtmlEditor_Icons_heIndentDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertImageDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertImageDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertLinkDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertLinkDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertOrderedList_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertOrderedListDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableColumnOnLeft_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableColumnOnLeftDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableColumnOnRight_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableColumnOnRightDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableDialog_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableDialogDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableRowAbove_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableRowAboveDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableRowBelow_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertTableRowBelowDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertUnorderedList_MetropolisIMB,
+.dxHtmlEditor_Icons_heInsertUnorderedListDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heItalic_MetropolisIMB,
+.dxHtmlEditor_Icons_heItalicDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heJustifyFull_MetropolisIMB,
+.dxHtmlEditor_Icons_heJustifyFullDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heLeft_MetropolisIMB,
+.dxHtmlEditor_Icons_heLeftDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heMergeTableCellHorizontal_MetropolisIMB,
+.dxHtmlEditor_Icons_heMergeTableCellHorizontalDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heMergeTableCellVertical_MetropolisIMB,
+.dxHtmlEditor_Icons_heMergeTableCellVerticalDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heOutdent_MetropolisIMB,
+.dxHtmlEditor_Icons_heOutdentDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_hePaste_MetropolisIMB,
+.dxHtmlEditor_Icons_hePasteDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_hePasteFromWord_MetropolisIMB,
+.dxHtmlEditor_Icons_hePasteFromWordDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_hePrint_MetropolisIMB,
+.dxHtmlEditor_Icons_hePrintDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heRedo_MetropolisIMB,
+.dxHtmlEditor_Icons_heRedoDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heRemoveFormat_MetropolisIMB,
+.dxHtmlEditor_Icons_heRemoveFormatDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heRight_MetropolisIMB,
+.dxHtmlEditor_Icons_heRightDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsDocx_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsDocxDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsMht_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsMhtDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsOdt_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsOdtDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsPdf_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsPdfDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsRtf_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsRtfDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsTxt_MetropolisIMB,
+.dxHtmlEditor_Icons_heSaveAsTxtDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSplitTableCellHorizontal_MetropolisIMB,
+.dxHtmlEditor_Icons_heSplitTableCellHorizontalDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSplitTableCellVertical_MetropolisIMB,
+.dxHtmlEditor_Icons_heSplitTableCellVerticalDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heStrikethrough_MetropolisIMB,
+.dxHtmlEditor_Icons_heStrikethroughDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSubscript_MetropolisIMB,
+.dxHtmlEditor_Icons_heSubscriptDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heSuperscript_MetropolisIMB,
+.dxHtmlEditor_Icons_heSuperscriptDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heUnderline_MetropolisIMB,
+.dxHtmlEditor_Icons_heUnderlineDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heUndo_MetropolisIMB,
+.dxHtmlEditor_Icons_heUndoDisabled_MetropolisIMB,
+.dxHtmlEditor_Icons_heUnlink_MetropolisIMB,
+.dxHtmlEditor_Icons_heUnlinkDisabled_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_heToolbarPopOut_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heBackColor_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heBold_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heCenter_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableCellDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableColumnDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableRowDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heCheckSpelling_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heCopy_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heCut_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTable_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTableColumn_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTableRow_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heForeColor_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heFullscreen_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heIndent_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertImageDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertLinkDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertOrderedList_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableColumnOnLeft_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableColumnOnRight_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableDialog_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableRowAbove_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableRowBelow_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heInsertUnorderedList_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heItalic_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heJustifyFull_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heLeft_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heMergeTableCellHorizontal_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heMergeTableCellVertical_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heOutdent_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_hePaste_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_hePasteFromWord_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_hePrint_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heRedo_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heRemoveFormat_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heRight_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsDocx_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsMht_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsOdt_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsPdf_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsRtf_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsTxt_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSplitTableCellHorizontal_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSplitTableCellVertical_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heStrikethrough_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSubscript_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heSuperscript_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heUnderline_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heUndo_MetropolisIMB,
+.dxm-hovered .dxHtmlEditor_Icons_heUnlink_MetropolisIMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxHtmlEditor_heConstrainProportionsBottom_MetropolisIMB
+{
+    background-position: -867px -34px;
+    width: 11px;
+    height: 7px;
+}
+.dxHtmlEditor_heConstrainProportionsBottomRtl_MetropolisIMB
+{
+    background-position: -879px -34px;
+    width: 11px;
+    height: 7px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOff_MetropolisIMB
+{
+    background-position: -663px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOffRtl_MetropolisIMB
+{
+    background-position: -833px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOn_MetropolisIMB
+{
+    background-position: -544px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOnRtl_MetropolisIMB
+{
+    background-position: -442px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heConstrainProportionsTop_MetropolisIMB
+{
+    background-position: -891px -34px;
+    width: 11px;
+    height: 6px;
+}
+.dxHtmlEditor_heConstrainProportionsTopRtl_MetropolisIMB
+{
+    background-position: -903px -34px;
+    width: 11px;
+    height: 6px;
+}
+.dxHtmlEditor_heErrorFrameCloseButton_MetropolisIMB
+{
+    background-position: -918px 0px;
+    width: 9px;
+    height: 9px;
+}
+.dxHtmlEditor_heSizeGrip_MetropolisIMB
+{
+    background-position: -374px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heSizeGripRtl_MetropolisIMB
+{
+    background-position: -204px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heToolbarPopOut_MetropolisIMB
+{
+    background-position: -923px -13px;
+    width: 5px;
+    height: 3px;
+}
+.dxHtmlEditor_Icons_heBackColor_MetropolisIMB
+{
+    background-position: -476px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heBackColorDisabled_MetropolisIMB
+{
+    background-position: -68px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heBold_MetropolisIMB
+{
+    background-position: -782px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heBoldDisabled_MetropolisIMB
+{
+    background-position: -340px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCenter_MetropolisIMB
+{
+    background-position: -765px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCenterDisabled_MetropolisIMB
+{
+    background-position: -323px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableCellDialog_MetropolisIMB
+{
+    background-position: -476px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableCellDialogDisabled_MetropolisIMB
+{
+    background-position: -187px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableColumnDialog_MetropolisIMB
+{
+    background-position: -425px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableColumnDialogDisabled_MetropolisIMB
+{
+    background-position: -799px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableDialog_MetropolisIMB
+{
+    background-position: -765px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableDialogDisabled_MetropolisIMB
+{
+    background-position: -323px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableRowDialog_MetropolisIMB
+{
+    background-position: -238px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heChangeTableRowDialogDisabled_MetropolisIMB
+{
+    background-position: -255px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCheckSpelling_MetropolisIMB
+{
+    background-position: -816px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCheckSpellingDisabled_MetropolisIMB
+{
+    background-position: -680px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCopy_MetropolisIMB
+{
+    background-position: -391px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCopyDisabled_MetropolisIMB
+{
+    background-position: -17px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCut_MetropolisIMB
+{
+    background-position: -289px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heCutDisabled_MetropolisIMB
+{
+    background-position: -136px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTable_MetropolisIMB
+{
+    background-position: -17px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTableColumn_MetropolisIMB
+{
+    background-position: -884px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTableColumnDisabled_MetropolisIMB
+{
+    background-position: -697px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTableDisabled_MetropolisIMB
+{
+    background-position: -459px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTableRow_MetropolisIMB
+{
+    background-position: -782px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heDeleteTableRowDisabled_MetropolisIMB
+{
+    background-position: -306px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heForeColor_MetropolisIMB
+{
+    background-position: -799px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heForeColorDisabled_MetropolisIMB
+{
+    background-position: -187px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heFullscreen_MetropolisIMB
+{
+    background-position: -85px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heFullscreenDisabled_MetropolisIMB
+{
+    background-position: -493px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heIndent_MetropolisIMB
+{
+    background-position: -255px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heIndentDisabled_MetropolisIMB
+{
+    background-position: -119px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertImageDialog_MetropolisIMB
+{
+    background-position: -884px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertImageDialogDisabled_MetropolisIMB
+{
+    background-position: -510px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertLinkDialog_MetropolisIMB
+{
+    background-position: -527px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertLinkDialogDisabled_MetropolisIMB
+{
+    background-position: -850px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertOrderedList_MetropolisIMB
+{
+    background-position: -442px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertOrderedListDisabled_MetropolisIMB
+{
+    background-position: -85px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableColumnOnLeft_MetropolisIMB
+{
+    background-position: -425px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableColumnOnLeftDisabled_MetropolisIMB
+{
+    background-position: -697px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableColumnOnRight_MetropolisIMB
+{
+    background-position: -816px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableColumnOnRightDisabled_MetropolisIMB
+{
+    background-position: -221px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableDialog_MetropolisIMB
+{
+    background-position: -646px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableDialogDisabled_MetropolisIMB
+{
+    background-position: -680px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableRowAbove_MetropolisIMB
+{
+    background-position: -221px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableRowAboveDisabled_MetropolisIMB
+{
+    background-position: -136px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableRowBelow_MetropolisIMB
+{
+    background-position: -595px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertTableRowBelowDisabled_MetropolisIMB
+{
+    background-position: -408px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertUnorderedList_MetropolisIMB
+{
+    background-position: -901px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heInsertUnorderedListDisabled_MetropolisIMB
+{
+    background-position: -833px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heItalic_MetropolisIMB
+{
+    background-position: -748px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heItalicDisabled_MetropolisIMB
+{
+    background-position: -170px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heJustifyFull_MetropolisIMB
+{
+    background-position: -102px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heJustifyFullDisabled_MetropolisIMB
+{
+    background-position: -476px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heLeft_MetropolisIMB
+{
+    background-position: -459px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heLeftDisabled_MetropolisIMB
+{
+    background-position: -663px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heMergeTableCellHorizontal_MetropolisIMB
+{
+    background-position: -357px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heMergeTableCellHorizontalDisabled_MetropolisIMB
+{
+    background-position: -850px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heMergeTableCellVertical_MetropolisIMB
+{
+    background-position: -357px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heMergeTableCellVerticalDisabled_MetropolisIMB
+{
+    background-position: -527px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heOutdent_MetropolisIMB
+{
+    background-position: -51px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heOutdentDisabled_MetropolisIMB
+{
+    background-position: -731px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePaste_MetropolisIMB
+{
+    background-position: -102px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePasteDisabled_MetropolisIMB
+{
+    background-position: -272px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePasteFromWord_MetropolisIMB
+{
+    background-position: -340px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePasteFromWordDisabled_MetropolisIMB
+{
+    background-position: -561px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePrint_MetropolisIMB
+{
+    background-position: -374px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_hePrintDisabled_MetropolisIMB
+{
+    background-position: -697px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRedo_MetropolisIMB
+{
+    background-position: -612px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRedoDisabled_MetropolisIMB
+{
+    background-position: -272px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRemoveFormat_MetropolisIMB
+{
+    background-position: -255px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRemoveFormatDisabled_MetropolisIMB
+{
+    background-position: -578px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRight_MetropolisIMB
+{
+    background-position: -561px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heRightDisabled_MetropolisIMB
+{
+    background-position: -663px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsDocx_MetropolisIMB
+{
+    background-position: -204px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsDocxDisabled_MetropolisIMB
+{
+    background-position: -289px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsMht_MetropolisIMB
+{
+    background-position: -850px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsMhtDisabled_MetropolisIMB
+{
+    background-position: -748px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsOdt_MetropolisIMB
+{
+    background-position: -391px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsOdtDisabled_MetropolisIMB
+{
+    background-position: -561px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsPdf_MetropolisIMB
+{
+    background-position: -425px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsPdfDisabled_MetropolisIMB
+{
+    background-position: -612px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsRtf_MetropolisIMB
+{
+    background-position: -629px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsRtfDisabled_MetropolisIMB
+{
+    background-position: -833px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsTxt_MetropolisIMB
+{
+    background-position: -510px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSaveAsTxtDisabled_MetropolisIMB
+{
+    background-position: -153px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSplitTableCellHorizontal_MetropolisIMB
+{
+    background-position: -493px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSplitTableCellHorizontalDisabled_MetropolisIMB
+{
+    background-position: -34px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSplitTableCellVertical_MetropolisIMB
+{
+    background-position: -68px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSplitTableCellVerticalDisabled_MetropolisIMB
+{
+    background-position: -374px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heStrikethrough_MetropolisIMB
+{
+    background-position: -527px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heStrikethroughDisabled_MetropolisIMB
+{
+    background-position: -51px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSubscript_MetropolisIMB
+{
+    background-position: -34px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSubscriptDisabled_MetropolisIMB
+{
+    background-position: -816px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSuperscript_MetropolisIMB
+{
+    background-position: -187px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heSuperscriptDisabled_MetropolisIMB
+{
+    background-position: -221px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUnderline_MetropolisIMB
+{
+    background-position: -408px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUnderlineDisabled_MetropolisIMB
+{
+    background-position: -544px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUndo_MetropolisIMB
+{
+    background-position: -629px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUndoDisabled_MetropolisIMB
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUnlink_MetropolisIMB
+{
+    background-position: -782px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_Icons_heUnlinkDisabled_MetropolisIMB
+{
+    background-position: -119px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_MetropolisIMB
+{
+    background-position: -921px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_MetropolisIMB
+{
+    background-position: -913px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_MetropolisIMB
+{
+    background-position: -921px -26px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_MetropolisIMB
+{
+    background-position: -897px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_MetropolisIMB
+{
+    background-position: -881px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_MetropolisIMB
+{
+    background-position: -873px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_MetropolisIMB
+{
+    background-position: -915px -34px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_MetropolisIMB
+{
+    background-position: -905px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_MetropolisIMB
+{
+    background-position: -918px -17px;
+    width: 7px;
+    height: 7px;
+}
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_MetropolisIMB
+{
+    background-position: -889px -43px;
+    width: 7px;
+    height: 7px;
+}
+.dxm-hovered .dxHtmlEditor_heToolbarPopOut_MetropolisIMB
+{
+    background-position: -923px -34px;
+    width: 5px;
+    height: 3px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heBackColor_MetropolisIMB
+{
+    background-position: -323px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heBold_MetropolisIMB
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heCenter_MetropolisIMB
+{
+    background-position: -102px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableCellDialog_MetropolisIMB
+{
+    background-position: -340px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableColumnDialog_MetropolisIMB
+{
+    background-position: -136px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableDialog_MetropolisIMB
+{
+    background-position: -68px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heChangeTableRowDialog_MetropolisIMB
+{
+    background-position: -17px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heCheckSpelling_MetropolisIMB
+{
+    background-position: -510px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heCopy_MetropolisIMB
+{
+    background-position: -306px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heCut_MetropolisIMB
+{
+    background-position: -629px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTable_MetropolisIMB
+{
+    background-position: -170px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTableColumn_MetropolisIMB
+{
+    background-position: -612px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heDeleteTableRow_MetropolisIMB
+{
+    background-position: -680px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heForeColor_MetropolisIMB
+{
+    background-position: -714px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heFullscreen_MetropolisIMB
+{
+    background-position: -408px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heIndent_MetropolisIMB
+{
+    background-position: -867px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertImageDialog_MetropolisIMB
+{
+    background-position: -238px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertLinkDialog_MetropolisIMB
+{
+    background-position: -391px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertOrderedList_MetropolisIMB
+{
+    background-position: -901px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableColumnOnLeft_MetropolisIMB
+{
+    background-position: -748px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableColumnOnRight_MetropolisIMB
+{
+    background-position: -714px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableDialog_MetropolisIMB
+{
+    background-position: -289px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableRowAbove_MetropolisIMB
+{
+    background-position: -867px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertTableRowBelow_MetropolisIMB
+{
+    background-position: -357px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heInsertUnorderedList_MetropolisIMB
+{
+    background-position: -578px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heItalic_MetropolisIMB
+{
+    background-position: -544px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heJustifyFull_MetropolisIMB
+{
+    background-position: -153px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heLeft_MetropolisIMB
+{
+    background-position: -272px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heMergeTableCellHorizontal_MetropolisIMB
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heMergeTableCellVertical_MetropolisIMB
+{
+    background-position: -646px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heOutdent_MetropolisIMB
+{
+    background-position: -238px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_hePaste_MetropolisIMB
+{
+    background-position: -153px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_hePasteFromWord_MetropolisIMB
+{
+    background-position: -170px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_hePrint_MetropolisIMB
+{
+    background-position: -646px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heRedo_MetropolisIMB
+{
+    background-position: -85px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heRemoveFormat_MetropolisIMB
+{
+    background-position: -595px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heRight_MetropolisIMB
+{
+    background-position: -306px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsDocx_MetropolisIMB
+{
+    background-position: -714px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsMht_MetropolisIMB
+{
+    background-position: -731px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsOdt_MetropolisIMB
+{
+    background-position: -595px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsPdf_MetropolisIMB
+{
+    background-position: -459px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsRtf_MetropolisIMB
+{
+    background-position: -493px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSaveAsTxt_MetropolisIMB
+{
+    background-position: -34px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSplitTableCellHorizontal_MetropolisIMB
+{
+    background-position: -119px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSplitTableCellVertical_MetropolisIMB
+{
+    background-position: -799px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heStrikethrough_MetropolisIMB
+{
+    background-position: -204px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSubscript_MetropolisIMB
+{
+    background-position: -731px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heSuperscript_MetropolisIMB
+{
+    background-position: -51px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heUnderline_MetropolisIMB
+{
+    background-position: -442px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heUndo_MetropolisIMB
+{
+    background-position: -578px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxHtmlEditor_Icons_heUnlink_MetropolisIMB
+{
+    background-position: -765px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOn_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsMiddleOff_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsBottom_MetropolisIMB,
+.dxHtmlEditor_heConstrainProportionsTop_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_MetropolisIMB,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_MetropolisIMB,
+.dxHtmlEditor_Icons_heForeColor_MetropolisIMB,
+.dxHtmlEditor_Icons_heBackColor_MetropolisIMB
+{
+	display:block;
+}

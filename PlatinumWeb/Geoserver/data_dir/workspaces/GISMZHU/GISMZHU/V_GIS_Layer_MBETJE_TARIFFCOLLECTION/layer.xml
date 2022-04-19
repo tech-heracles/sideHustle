@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJE_TARIFFCOLLECTION</name>
+  <id>LayerInfoImpl--7f58d7b8:15ab2df690a:6795</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--7f58d7b8:15ab2df690a:6787</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--7f58d7b8:15ab2df690a:6794</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

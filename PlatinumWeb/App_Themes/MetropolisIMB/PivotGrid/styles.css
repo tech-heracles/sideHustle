@@ -1,0 +1,516 @@
+.dxpgControl_MetropolisIMB, .dxpgCustForm_MetropolisIMB
+{
+	color: #333333;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	border: solid 1px #c0c0c0;
+	background-color: white;
+}
+.dxpgContainerCell_MetropolisIMB
+{
+	vertical-align: top;
+}
+.dxpgMainTable_MetropolisIMB
+{
+	border: 0px;
+	border-collapse: separate;
+	width: 100%;
+	text-align: left;
+}
+div.dxpgMainTable_MetropolisIMB
+{
+	-ms-touch-action: pinch-zoom;
+}
+.dxpgMainTable_MetropolisIMB caption 
+{
+	background: #ACACAC;
+	color: white;
+	border-bottom: Solid 1px #9F9F9F;
+    font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+}
+.dxpgHeader_MetropolisIMB
+{
+	border-width: 0px;
+	cursor: pointer;
+	white-space: nowrap;
+    	text-align: left;
+}
+.dxpgHeaderTable_MetropolisIMB
+{
+	border: solid 1px #c0c0c0;
+	width: 100%;
+	border-collapse: separate !important;
+}
+.dxpgMSDraggable_MetropolisIMB .dxpgHeaderTable_MetropolisIMB,
+.dxpgCustFieldsDiv_MetropolisIMB .dxpgHeaderTable_MetropolisIMB
+{
+	-ms-touch-action: pinch-zoom;
+}
+
+.dxpgHeaderGroupButton_MetropolisIMB
+{
+	padding-left: 4px;
+	vertical-align: middle;
+}
+.dxpgHeaderText_MetropolisIMB
+{
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+.dxpgHeaderSort_MetropolisIMB
+{
+	padding-left: 0px;
+	padding-right: 4px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+}
+.dxpgHeaderFilter_MetropolisIMB
+{
+	padding-left: 0px;
+	padding-right: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;	
+}
+.dxpgArea_MetropolisIMB
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: none;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-right-style: none;
+}
+.dxpgColumnArea_MetropolisIMB
+{
+	border-bottom-style: solid;
+}
+.dxpgRowArea_MetropolisIMB
+{
+}
+.dxpgDataArea_MetropolisIMB
+{
+}
+.dxpgFilterArea_MetropolisIMB
+{
+	border-bottom-style: solid;
+}
+.dxpgEmptyArea_MetropolisIMB
+{
+	cursor: default;
+	padding-top: 6px;
+	padding-left: 6px;
+	padding-bottom: 7px;
+	padding-right: 6px;
+}
+.dxpgColumnFieldValue_MetropolisIMB
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+	padding: 4px 6px;
+	font-weight: normal;
+	text-align: left;	
+}
+.dxpgColumnTotalFieldValue_MetropolisIMB
+{
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+}
+.dxpgColumnGrandTotalFieldValue_MetropolisIMB
+{
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+}
+.dxpgRowFieldValue_MetropolisIMB
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+	padding: 3px 6px 4px 6px;
+	font-weight: normal;
+	text-align: left;
+}
+.dxpgRowTotalFieldValue_MetropolisIMB
+{
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+}
+.dxpgRowTreeFieldValue_MetropolisIMB
+{	
+	padding: 0;
+	font-size: 0;
+}
+.dxpgRowGrandTotalFieldValue_MetropolisIMB
+{
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+	padding-top: 5px;
+	padding-bottom: 6px;	
+}
+.dxpgCollapsedButton_MetropolisIMB
+{
+	vertical-align: -1px;
+	border: 0px;
+	margin-right: 5px;
+}
+.dxpgSortByColumnImage_MetropolisIMB
+{
+	vertical-align: -1px;
+	border: 0px;
+	margin-left: 5px;
+}
+.dxpgCell_MetropolisIMB
+{
+	text-align: right;
+	background-color: White;	
+	border-color: #cecece;
+	border-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-bottom-style: none;
+	border-right-style: none;
+	padding: 4px;
+	padding-top:3px;
+	white-space: nowrap;
+}
+.dxpgKPICell_MetropolisIMB
+{
+	text-align: center;
+	vertical-align: middle;
+}
+.dxpgTotalCell_MetropolisIMB
+{
+}
+.dxpgGrandTotalCell_MetropolisIMB
+{
+}
+.dxpgFilterItem_MetropolisIMB
+{
+    white-space: nowrap;
+}
+.dxpgFilterButton_MetropolisIMB
+{
+	padding: 2px 6px;
+}
+.dxpgTopPager_MetropolisIMB
+{
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: solid 1px #c0c0c0;
+	padding: 4px 0;
+}
+.dxpgBottomPager_MetropolisIMB
+{
+	border-top: solid 1px #c0c0c0;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	padding: 7px 0;
+}
+.dxpgTopPager_MetropolisIMB,
+.dxpgBottomPager_MetropolisIMB
+{
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+.dxpgCustomizationFieldsHeader_MetropolisIMB
+{
+	color: White;
+	font-size: 0.91em;
+	background-image: none!important;
+}
+.dxpgCustomizationFieldsContent_MetropolisIMB
+{
+	padding: 0px !important;
+	min-width: 300px;
+}
+.dxpgMenuItem_MetropolisIMB 
+{
+}
+.dxpgDataHeadersImage_MetropolisIMB
+{
+	margin-right: 5px;
+	vertical-align: -2px;
+}
+.dxpgPrefilterPanelContainer_MetropolisIMB
+{
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-style: none;
+}
+.dxpgPrefilterPanel_MetropolisIMB
+{
+	border: none;
+}
+.dxpgPrefilterPanelLink_MetropolisIMB
+{
+	color: #00A74F;
+	text-decoration: underline;
+}
+.dxpgPrefilterPanelCheckBoxCell_MetropolisIMB
+{
+	padding: 0 7px;
+}
+.dxpgPrefilterPanelImageCell_MetropolisIMB
+{
+	padding: 0 3px;
+	padding-right: 1px;
+	cursor: pointer;
+}
+.dxpgPrefilterPanelExpressionCell_MetropolisIMB
+{
+	padding: 5px 5px 8px 0;	
+	white-space: nowrap;
+}
+.dxpgPrefilterPanelClearButtonCell_MetropolisIMB
+{
+	padding: 5px 6px 8px;
+}
+.dxpgFilterBuilderMainArea_MetropolisIMB
+{
+	background: white;
+	padding: 6px 2px;
+} 
+.dxpgFilterBuilderButtonArea_MetropolisIMB
+{
+	border-top: solid 1px #c0c0c0;
+	padding: 6px;
+	white-space: nowrap;
+}
+.dxpgGroupSeparator_MetropolisIMB 
+{
+	vertical-align: middle;
+}
+.dxpgCustFieldsFilterAreaHeaders_MetropolisIMB,
+.dxpgCustFieldsRowAreaHeaders_MetropolisIMB,
+.dxpgCustFieldsColumnAreaHeaders_MetropolisIMB,
+.dxpgCustFieldsDataAreaHeaders_MetropolisIMB,
+.BottomPanelOnly1by4 .dxpgFLFRDiv_MetropolisIMB,
+.BottomPanelOnly1by4 .dxpgFLCDDiv_MetropolisIMB
+{
+width:100%;
+height:50%;
+}
+.StackedDefault .dxpgCustFieldsFieldList_MetropolisIMB
+{
+height:34%;
+}
+.StackedDefault .dxpgFLFRDiv_MetropolisIMB
+{
+width:50%;
+height:66%;
+float:left;
+}
+.StackedDefault .dxpgFLCDDiv_MetropolisIMB
+{
+width:50%;
+height:66%;
+float:right;
+}
+.StackedDefault .dxpgCustFieldsFilterAreaHeaders_MetropolisIMB .dxpgFLTextDiv_MetropolisIMB,
+.StackedDefault .dxpgCustFieldsColumnAreaHeaders_MetropolisIMB .dxpgFLTextDiv_MetropolisIMB
+{
+height:47px;
+}
+.TopPanelOnly .dxpgCustFieldsFieldList_MetropolisIMB
+{
+width:100%;
+height:100%;
+}
+.TopPanelOnly .dxpgFLDefereDiv_MetropolisIMB .dxeBase_MetropolisIMB,
+.TopPanelOnly .dxpgFLDefereDiv_MetropolisIMB .dxpgFLDefereDB_MetropolisIMB,
+.TopPanelOnly .dxpgFLFRDiv_MetropolisIMB,
+.TopPanelOnly .dxpgFLCDDiv_MetropolisIMB,
+.BottomPanelOnly1by4 .dxpgCustFieldsFieldList_MetropolisIMB,
+.BottomPanelOnly2by2 .dxpgCustFieldsFieldList_MetropolisIMB,
+.TopPanelOnly .dxpgFLTextDiv_MetropolisIMB div
+{
+display:none;
+}
+.TopPanelOnly .dxpgFLTextDiv_MetropolisIMB
+{
+ height:19px;   
+}
+.TopPanelOnly .dxpgFLDefereDiv_MetropolisIMB
+{
+ height:16px;   
+}
+.BottomPanelOnly2by2 .dxpgFLFRDiv_MetropolisIMB,
+.StackedSideBySide .dxpgCustFieldsFieldList_MetropolisIMB
+{
+width:50%;
+height:100%;
+float:left;
+}
+.BottomPanelOnly2by2 .dxpgFLCDDiv_MetropolisIMB
+{
+width:50%;
+height:100%;
+float:right;
+}
+.StackedSideBySide .dxpgFLFRDiv_MetropolisIMB,
+.StackedSideBySide .dxpgFLCDDiv_MetropolisIMB
+{
+width:50%;
+height:50%;
+float:right;
+}
+.dxpgCustFields_MetropolisIMB
+{
+    	display:block;
+position:relative;
+}
+.dxpgFLListDiv_MetropolisIMB > div
+{
+    border:1px solid #c0c0c0;
+    position:relative;
+    display:block;
+    height:100%;
+    padding:1px;
+    background:#FFFFFF;
+    overflow:hidden;
+}
+.dxpgFLListDiv_MetropolisIMB > div > div
+{
+    position:relative;
+    display:block;
+    background:#FFFFFF;
+    height:100%;
+    padding:0px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.DragOver .dxpgFLListDiv_MetropolisIMB > div
+{
+    background:#FFD324;
+}
+.dxpgFLListDiv_MetropolisIMB 
+{
+    padding:0px 3px 0px 3px;
+}
+.dxpgFLButtonDiv_MetropolisIMB .dxbButton_MetropolisIMB div.dxb
+{
+	border: dotted 1px transparent;	
+	padding:1px 7px 0px;
+}
+.dxpgFLButtonDiv_MetropolisIMB .dxbButton_MetropolisIMB div.dxbf
+{
+	border: dotted 1px black;	
+}
+.dxpgFLTextDiv_MetropolisIMB
+{
+ height:28px;
+}
+.dxpgFLTextDiv_MetropolisIMB div
+{
+   display:block;
+   float:left;
+   margin:-17px 0px 3px 0px;
+   left:6px;
+   top:100%;
+   position:relative;
+}
+div.dxpgFLTextImgDiv_MetropolisIMB
+{
+    display:block;
+    height:16px;
+    width:16px;
+    margin:-18px 0px 3px 0px;
+    left:3px;
+}
+.dxpgFLButtonDiv_MetropolisIMB
+{
+    float:right;
+    height:28px;
+    position:relative;
+    z-index:1;
+}
+.dxpgFLDefereDiv_MetropolisIMB
+{
+    height:50px;
+}
+.dxpgCustFieldsDiv_MetropolisIMB
+{
+ clear:both;   
+ padding:0px 9px;
+}
+.dxpgFLButton_MetropolisIMB 
+{
+ margin:12px 12px 0px 0px;
+ width:40px;
+ height:23px;
+}
+.dxpgFLDefereDiv_MetropolisIMB .dxeBase_MetropolisIMB
+{
+ float:left;
+ display:block;
+ border-collapse:separate;
+ padding:17px 0px 0px 0px; 
+ margin-left:8px;  
+}
+.dxpgFLDefereDB_MetropolisIMB
+{
+float:right;
+display:block;
+margin: 16px 12px 0 0;
+}
+.dxpgFLDefereDiv_MetropolisIMB .dxbButton_MetropolisIMB div.dxb
+{
+    padding:1px 13px 1px 13px;
+    border: dotted 1px transparent;	
+}
+.dxpgFLDefereDiv_MetropolisIMB .dxbButton_MetropolisIMB div.dxbf
+{
+    border: dotted 1px black;	
+}
+.dxpgFLListDiv_MetropolisIMB table 
+{
+ width:100%;
+ table-layout:fixed;  
+ overflow:visible;
+}
+.dxpgFLListDiv_MetropolisIMB table table td
+{
+     overflow:hidden; 
+}
+/*Loading Panel*/
+.dxpgLoadingPanel_MetropolisIMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxpgLoadingPanel_MetropolisIMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxpgLoadingPanel_MetropolisIMB .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+

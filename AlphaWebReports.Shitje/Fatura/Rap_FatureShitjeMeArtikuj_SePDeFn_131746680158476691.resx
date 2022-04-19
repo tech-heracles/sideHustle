@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcI
+        CQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwM
+        DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAA5AK0DASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+        MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+        V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+        BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+        YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+        8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9+SDwMAGjcNwAIBpy+pPIr8+/+Cx/7X/izQfDnhrwb8JfF0mh
+        63e3882t31gd11aQ25Mf2foSjNKST0OIx2avHzzOsNlWEljMXK0Y/e7tKyObE4mFCm6lTZH6A5A455+t
+        BkXgAgk1/PT4c/bM+LPwv0zXvGvif4k+N/E02laqNF8Pabc6zcR2WoX+wSy3E6oyloYI2RvLBAd5owTg
+        MK/TD/giZ/wUF8WftnfC/wAT6b8QZ4Lnxf4XvUkjukthbC+sph8jbBwSkiupI6gp3zXl5TxdhMdUp0op
+        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
+        oUp81KCTta6Vnbsf/9k=
+</value>
+  </data>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>double totalipatvsh = 0;
+        double totalimetvsh = 0;
+        double totalipatvshkursi = 0;
+        double totalimetvshkursi = 0;
+        double furnizimeTeTatueshme = 0;
+        double furnizimeTePaTatueshme = 0;
+        double totalVleftaPaTvshPerArtMeTvsh = 0;
+        double totalVleftaPaTvshPerArtPaTvsh = 0;
+
+
+private void xrLabel65_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = totalipatvsh - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) - Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"));
+            e.Handled = true;
+}
+
+private void xrLabel65_SummaryReset(object sender, System.EventArgs e) {
+            totalipatvsh = 0;
+}
+
+private void xrLabel65_SummaryRowChanged(object sender, System.EventArgs e) {
+            totalipatvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
+}
+
+private void xrLabel31_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = (totalipatvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) - Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+}
+
+private void xrLabel31_SummaryReset(object sender, System.EventArgs e) {
+            totalipatvshkursi = 0;
+}
+
+private void xrLabel31_SummaryRowChanged(object sender, System.EventArgs e) {
+            totalipatvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
+}
+
+private void xrLabel66_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"));
+            e.Handled = true;
+}
+
+private void xrLabel36_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL")) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+}
+
+private void xrLabel67_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = totalimetvsh - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE"));
+            e.Handled = true;
+}
+
+private void xrLabel67_SummaryReset(object sender, System.EventArgs e) {
+            totalimetvsh = 0;
+}
+
+private void xrLabel67_SummaryRowChanged(object sender, System.EventArgs e) {
+            totalimetvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
+}
+
+private void xrLabel33_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+}
+
+private void xrLabel33_SummaryReset(object sender, System.EventArgs e) {
+            totalimetvshkursi = 0;
+}
+
+private void xrLabel33_SummaryRowChanged(object sender, System.EventArgs e) {
+            totalimetvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
+}
+
+private void xrLabel44_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            furnizimeTeTatueshme = totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTeTatueshme, 2);
+            e.Handled = true;
+}
+
+private void xrLabel44_SummaryReset(object sender, System.EventArgs e) {
+            furnizimeTeTatueshme = 0;
+}
+
+private void xrLabel44_SummaryRowChanged(object sender, System.EventArgs e) {
+            furnizimeTeTatueshme = totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}
+
+
+private void xrTableCell14_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+            if (GetCurrentColumnValue("tvsh").ToString() != "" &amp;&amp; Convert.ToDouble(GetCurrentColumnValue("tvsh")) != 0)
+                totalVleftaPaTvshPerArtMeTvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAPATVSH"));
+            else
+                totalVleftaPaTvshPerArtPaTvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAPATVSH"));
+}
+
+private void xrLabel78_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            furnizimeTePaTatueshme = totalVleftaPaTvshPerArtPaTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTePaTatueshme, 2);
+            e.Handled = true;
+}
+
+private void xrLabel78_SummaryReset(object sender, System.EventArgs e) {
+            furnizimeTePaTatueshme = 0;
+}
+
+private void xrLabel78_SummaryRowChanged(object sender, System.EventArgs e) {
+            furnizimeTePaTatueshme = totalVleftaPaTvshPerArtPaTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}
+private void tableCell51_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ string format = "HH:mm"; 
+            tableCell51.Text = DateTime.Now.ToString(format);
+}
+private void tableCell77_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+            e.Result = Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL")) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+
+}
+
+private void tableCell80_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ furnizimeTeTatueshme = Convert.ToDouble(GetCurrentColumnValue("KURSI")) * totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTeTatueshme, 2);
+            e.Handled = true;
+}
+
+private void tableCell80_SummaryReset(object sender, System.EventArgs e) {
+ furnizimeTeTatueshme = 0;
+}
+
+private void tableCell80_SummaryRowChanged(object sender, System.EventArgs e) {
+  furnizimeTeTatueshme = Convert.ToDouble(GetCurrentColumnValue("KURSI"))* totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}
+
+private void tableCell82_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ furnizimeTePaTatueshme = Convert.ToDouble(GetCurrentColumnValue("KURSI"))* totalVleftaPaTvshPerArtPaTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTePaTatueshme, 2);
+            e.Handled = true;
+}
+
+private void tableCell82_SummaryReset(object sender, System.EventArgs e) {
+  furnizimeTeTatueshme = 0;
+}
+
+private void tableCell82_SummaryRowChanged(object sender, System.EventArgs e) {
+furnizimeTeTatueshme =  Convert.ToDouble(GetCurrentColumnValue("KURSI"))* totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}
+private void tableCell70_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+furnizimeTeTatueshme = totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTeTatueshme, 2);
+            e.Handled = true;
+}
+
+private void tableCell70_SummaryReset(object sender, System.EventArgs e) {
+ furnizimeTeTatueshme = 0;
+}
+
+private void tableCell70_SummaryRowChanged(object sender, System.EventArgs e) {
+  furnizimeTeTatueshme = totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}
+
+private void tableCell73_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+ furnizimeTePaTatueshme = totalVleftaPaTvshPerArtPaTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+            e.Result = Math.Round(furnizimeTePaTatueshme, 2);
+            e.Handled = true;
+}
+
+private void tableCell73_SummaryReset(object sender, System.EventArgs e) {
+  furnizimeTeTatueshme = 0;
+}
+
+private void tableCell73_SummaryRowChanged(object sender, System.EventArgs e) {
+   furnizimeTeTatueshme = totalVleftaPaTvshPerArtMeTvsh * (1 - (Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) / Convert.ToDouble(GetCurrentColumnValue("TOTALI"))));
+}</value>
+  </data>
+</root>

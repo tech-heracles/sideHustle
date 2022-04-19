@@ -1,0 +1,258 @@
+.dxm-hovered .dxXtraReports_BtnFirstPage_Kesh,
+.dxm-hovered .dxXtraReports_BtnLastPage_Kesh,
+.dxm-hovered .dxXtraReports_BtnNextPage_Kesh,
+.dxm-hovered .dxXtraReports_BtnPrevPage_Kesh,
+.dxm-hovered .dxXtraReports_BtnPrint_Kesh,
+.dxm-hovered .dxXtraReports_BtnPrintPage_Kesh,
+.dxm-hovered .dxXtraReports_BtnSave_Kesh,
+.dxm-hovered .dxXtraReports_BtnSaveWindow_Kesh,
+.dxm-hovered .dxXtraReports_BtnSearch_Kesh,
+.dxXtraReports_BtnFirstPage_Kesh,
+.dxXtraReports_BtnFirstPageDisabled_Kesh,
+.dxXtraReports_BtnLastPage_Kesh,
+.dxXtraReports_BtnLastPageDisabled_Kesh,
+.dxXtraReports_BtnNextPage_Kesh,
+.dxXtraReports_BtnNextPageDisabled_Kesh,
+.dxXtraReports_BtnPrevPage_Kesh,
+.dxXtraReports_BtnPrevPageDisabled_Kesh,
+.dxXtraReports_BtnPrint_Kesh,
+.dxXtraReports_BtnPrintDisabled_Kesh,
+.dxXtraReports_BtnPrintPage_Kesh,
+.dxXtraReports_BtnPrintPageDisabled_Kesh,
+.dxXtraReports_BtnSave_Kesh,
+.dxXtraReports_BtnSaveDisabled_Kesh,
+.dxXtraReports_BtnSaveWindow_Kesh,
+.dxXtraReports_BtnSaveWindowDisabled_Kesh,
+.dxXtraReports_BtnSearch_Kesh,
+.dxXtraReports_BtnSearchDisabled_Kesh,
+.dxXtraReports_PageBorder_blc_Kesh,
+.dxXtraReports_PageBorder_brc_Kesh,
+.dxXtraReports_PageBorder_tlc_Kesh,
+.dxXtraReports_PageBorder_trc_Kesh
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxm-hovered .dxXtraReports_BtnFirstPage_Kesh
+{
+    background-position: 0px -272px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnLastPage_Kesh
+{
+    background-position: 0px -68px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnNextPage_Kesh
+{
+    background-position: 0px -357px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrevPage_Kesh
+{
+    background-position: 0px -51px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrint_Kesh
+{
+    background-position: 0px -187px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrintPage_Kesh
+{
+    background-position: 0px -102px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSave_Kesh
+{
+    background-position: 0px -221px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSaveWindow_Kesh
+{
+    background-position: 0px -391px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSearch_Kesh
+{
+    background-position: 0px -374px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnFirstPage_Kesh
+{
+    background-position: 0px -289px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnFirstPageDisabled_Kesh
+{
+    background-position: 0px -119px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPage_Kesh
+{
+    background-position: 0px -323px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPageDisabled_Kesh
+{
+    background-position: 0px -306px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPage_Kesh
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPageDisabled_Kesh
+{
+    background-position: 0px -136px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPage_Kesh
+{
+    background-position: 0px -255px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPageDisabled_Kesh
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrint_Kesh
+{
+    background-position: 0px -85px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintDisabled_Kesh
+{
+    background-position: 0px -204px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPage_Kesh
+{
+    background-position: 0px -425px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPageDisabled_Kesh
+{
+    background-position: 0px -442px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSave_Kesh
+{
+    background-position: 0px -238px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveDisabled_Kesh
+{
+    background-position: 0px -170px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindow_Kesh
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindowDisabled_Kesh
+{
+    background-position: 0px -340px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearch_Kesh
+{
+    background-position: 0px -153px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearchDisabled_Kesh
+{
+    background-position: 0px -408px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_PageBorder_blc_Kesh
+{
+    background-position: 0px -481px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_brc_Kesh
+{
+    background-position: 0px -470px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_tlc_Kesh
+{
+    background-position: 0px -492px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_trc_Kesh
+{
+    background-position: 0px -459px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_t_Kesh,
+.dxXtraReports_PageBorder_l_Kesh,
+.dxXtraReports_PageBorder_r_Kesh,
+.dxXtraReports_PageBorder_b_Kesh {
+    padding: 0px;
+    background-color: transparent;
+}
+
+.dxXtraReports_PageBorder_t_Kesh {
+    background-image: url('pageTopBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+
+.dxXtraReports_PageBorder_l_Kesh {
+    background-image: url('pageLeftBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_r_Kesh {
+    background-image: url('pageRightBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_b_Kesh {
+    background-image: url('pageBottomBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+

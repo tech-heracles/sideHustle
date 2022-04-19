@@ -1,0 +1,5 @@
+﻿Kjo librari eshte e perkohshme.
+Qellimi i saj eshte te sherbej si nje projekt ndermjetesues per te kaluar pak nga pak kodin e infraskturkures si dhe klasat ndihmese
+ne vendet perkatese ne arkitekturen e re.
+
+Kodi qe do te vendoset perkohesisht ketu nuk duhet te kete varesi nga projekte te tjera ne AlphaWeb.

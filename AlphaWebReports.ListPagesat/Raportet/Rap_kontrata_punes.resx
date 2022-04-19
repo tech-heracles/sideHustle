@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="xrLabel192.Text" xml:space="preserve">
+    <value>Kuptohet se natyra e punës mund të kërkojë që Punëmarrësi të udhëtojë herë pas here jashtë Shqipërisë dhe të punojë edhe në vende të tjera ku Punëdhënësi ushtron aktivitet apo kur duhet t’i shërbejë shoqërive të lidhura me Punëdhënësin, ashtu siç do të udhëzohet nga Punëdhënësi kohë pas kohe. Dërgimi i punëmarrësit për të punuar jashtë Republikës së Shqipërisë, për një periudhë më shumë se një muaj, do të shoqërohet me një letër transferimi në të cilën do të përcaktohen dhe kushtet e punës së Punëmarrësit për periudhën e transferimit, në përputhje me Kodin e Punës së Republikës së Shqipërisë. </value>
+  </data>
+  <data name="xrLabel120.Text" xml:space="preserve">
+    <value>Nëse Punëmarrësi pengohet të kryejë punën e tij për shkak të forcës madhore, ai/ajo duhet të njoftojë Shoqërinë sa më shpejt të jetë e mundur dhe duhet të paraqitet në punë menjëherë pasi këto rrethana të jenë eliminuar.</value>
+  </data>
+  <data name="xrLabel135.Text" xml:space="preserve">
+    <value>Gjatë kohëzgjatjes së kësaj kontrate, Palët mund të bëjnë ndryshime të nevojshme në kontratë vetëm me marrëveshje dhe miratim me shkrim të të dyja Palëve.
+
+Kjo kontratë është përgatitur në shqip, në dy kopje origjinale.  
+
+Palët pasi e lexuan kontratën nënshkruan me vullnetin e tyre të lirë.
+</value>
+  </data>
+  <data name="xrLabel141.Text" xml:space="preserve">
+    <value>Punëmarrësi duhet të njoftojë dhe informojë Shoqërinë me shkrim dhe në detaje për çdo shpikje ose të drejtë të pronësisë intelektuale të bërë, të origjinuar ose të zhvilluar në çdo kohë gjate punës se tij/saj dhe Punëmarrësi nuk do t’i zbuloje këto detaje për askënd pa miratimin paraprak të shprehur të Shoqërisë. Punëmarrësit i kërkohet të asistojë Shoqërinë (me shpenzimet e Shoqërisë) për depozitimin, mbrojtjen ose zbatimin e çdo të drejte të pronësisë intelektuale që i përket Shoqërisë dhe të plotësojë/zbatojë çdo dokument të kërkuar për qëllime të tilla”. </value>
+  </data>
+  <data name="xrLabel165.Text" xml:space="preserve">
+    <value>Anekset I, II,  III, IV dhe V janë pjesë përbërëse e kësaj kontrate sipas parashikimeve të mëposhtme:
+
+Aneksi I – Detyrimet për mbrojtjen &amp; Respektimin e Konfidencialitetit &amp; Sigurisë së të Dhënave Konfidenciale dhe me karakter Sekret;
+Aneksi II  -Veprimet e Punëmarrësit në lidhje me Informacionin Konfidencial Tregtar;
+Aneksi III - Puna me turne;
+Aneksi IV -Gatishmëria (Stand By); dhe
+Aneksi V - Përshkrimi i Punës 
+
+Anekset  I, II dheV janë pjesë e pandashme e Kontratës së Punës dhe janë të aplikueshem për të gjithë punëmarrësit, ndërsa Anekset III dhe IV janë të detyrueshme vetëm për punëmarrësit të cilët i kanë nënshkruar ato.
+
+Për çfarë nuk është parashikuar në këtë kontratë, zbatohet legjislacioni shqiptar i punës në fuqi.
+
+Kjo kontratë mund të ndryshohet me marrëveshjen e palëve.  Çdo ndryshim i kësaj kontrate është i vlefshëm vetëm nëse është nënshkruar rregullisht nga të dyja palët dhe konsiderohet pjesë përbërëse e kësaj kontrate.</value>
+  </data>
+  <data name="xrLabel167.Text" xml:space="preserve">
+    <value>Ligji shqiptar zbatohet për këtë kontratë.
+
+Çdo mosmarrëveshje midis dy palëve, e cila nuk mund të zgjidhet me mirëkuptim të ndërsjellë midis palëve do të zgjidhet në përputhje me legjislacionin shqiptar në fuqi dhe me vendim të gjykatës kompetente shqiptare.
+</value>
+  </data>
+  <data name="xrLabel170.Text" xml:space="preserve">
+    <value>Çdo formë e pronësisë intelektuale, si p.sh. shpikjet e bëra, të lindura ose të zhvilluara gjatë kryerjes së detyrave të zakonshme të Punëmarrësit ose rezultatet e arritura nga detyrat caktuar Punëmarrësit do t’i përkasë Shoqërisë dhe Punëmarrësi nuk ka të drejtë të identifikohet si zotëruesi ose krijuesi i kësaj pune.
+
+Punëmarrësi ka të drejtën e një shpërblimi në varësi të pagës së tij, vlerës ekonomike të kësaj pune/shpikjeje dhe gjithashtu përfitimit të Shoqërisë nga kjo punë/shpikje në përputhje me dispozitat ligjore përkatëse.
+
+Te drejtat e pronësisë intelektuale përfshijnë: 
+</value>
+  </data>
+  <data name="xrLabel134.Text" xml:space="preserve">
+    <value>Punëmarrësi do të autorizohet për akses në të dhënat e tij personale te mbledhura nga Punëdhënësi dhe do të ketë te drejtën të kërkojë korrigjimin e këtyre të dhënave nëse është e nevojshme. 
+
+Me kërkesë të Punëdhënësit, Punëmarrësi do të paraqesë të dhënat e kërkuara dhe Punëmarrësi do t’i komunikojë Punëdhënësit çdo kërkesë për ndryshim të të dhënave pa vonesë të paarsyeshme.
+
+Punëdhënësi do t’i  mbajë të dhënat gjatë kohëzgjatjes së Punësimit për qëllime biznesi siç përcaktohet në këtë marrëveshje dhe në përputhje me Ligjet përkatëse për Mbrojtjen e të Dhënave Personale. Në funksion të kësaj marrëveshjeje, periudha e përpunimit të të dhënave pas punësimit të Punëmarrësit do të zgjasë jo më tepër kohë sesa është e nevojshme për Punëdhënësin të mbyllë llogarinë e Punëmarrësit dhe të përfundojë proçesin e pas punësimit.
+</value>
+  </data>
+  <data name="xrLabel125.Text" xml:space="preserve">
+    <value>Punëmarrësi do t’i bindet të gjithë ligjeve të zbatueshme, si dhe të gjitha rregullave dhe rregulloreve që kanë forcën e ligjit, të cilat kanë të bëjnë ose kanë lidhje me përmbushjen e kësaj kontrate.
+
+Punëmarrësi ka për detyrë t’i bindet dhe të zbatojë të gjitha politikat, Proçedurat dhe udhëzimet e miratuara nga Shoqëria.</value>
+  </data>
+  <data name="xrLabel122.Text" xml:space="preserve">
+    <value>Sëmundja e Punëmarrësit përfshihet gjithashtu në forcën madhore.  Në këto raste, Punëmarrësi duhet të lejojë doktorin e Shoqërisë t’i bëjë një kontroll mjekësor atij/asaj.  Gjithashtu, Punëmarrësi duhet t’i sjellë Shoqërisë brenda 3 (tre) ditësh nga dita e parë e mungesës në punë, raportin e ligjshëm, i cili justifikon sëmundjen e tij/e saj dhe mungesën në punë.  Mosparaqitja e këtyre raporteve është një arsye për t’a cilësuar mungesën e Punëmarrësit si të pajustifikuar.</value>
+  </data>
+  <data name="xrLabel113.Text" xml:space="preserve">
+    <value>kur të dhënat sensitive kanë të bëjnë me shëndetin e Punëmarrësit, çdo përpunim në lidhje me funksionimin e politikave të mungesës ose sëmundjes së Punëmarrësit (ose të ndonjë anëtari tjetër të Vodafone Group) ose ndonjë skemë përkatëse pensioni, sigurimi ose për monitorimin e mungesave;
+të dhëna lidhur me gjendjen penale, siç përcaktohet në Politikën e Rekrutimit të Vodafone Albania sh.a. 
+për të gjitha të dhënat sensitive të mbledhura nga Punëdhënësi në përputhje me ligjin e zbatueshëm, çdo përpunim në lidhje më ndonjë shkrirje, blerje ose marrje të një kompanie ose biznesi në të cilin Punëdhënësi ose ndonjë anëtar tjetër i Vodafone Group është i përfshirë ose ndonjë transferim i ndonjë biznesi në të cilën Punëmarrësi përmbush detyrime ose detyra si Punëmarrës; 
+për të gjitha të dhënat sensitive, çdo përpunim për interesa legjitime të Punëdhënësit, ose të ndonjë anëtari tjetër të Vodafone Group ose funksione të Vodafone Group; dhe
+transferimin e të dhënave sensitive drejt funksioneve të Vodafone 
+Group me qëllim krijimin e raporteve të Vodafone Group, të prodhuara, përpunuara dhe kontrolluara në lidhje me politikat e aksesit dhe në përputhje me politikën përkatëse për privatësinë të Vodafone Group.</value>
+  </data>
+  <data name="xrLabel112.Text" xml:space="preserve">
+    <value>Punëmarrësi gjithashtu i jep miratimin në menyrë të shprehur Punëdhënësit dhe Vodafone Group të përpunojë të dhëna sensitive (brenda kuptimit të Ligjeve përkatëse për Mbrojtjen e të Dhënave Personale) në çdo kohë, (përpara, gjatë ose pas punësimit të Punëmërrësit) për qëllimet e mëposhtëme: </value>
+  </data>
+  <data name="xrLabel42.Text" xml:space="preserve">
+    <value>Punëmarrësi në vazhdim jep miratimin në mënyrë të shprehur mbi transferimin e sigurtë dhe konfidencial të të dhënave tek funksionet e Vodafone Group me qëllim krijimin e raporteve të Vodafone Group të prodhuara, përpunuara dhe kontrolluara në perputhje me politikat e aksesit dhe në përputhje me politikën përkatëse të privatësisë së Vodafone Group. </value>
+  </data>
+  <data name="xrLabel111.Text" xml:space="preserve">
+    <value>Përmbushjen e detyrimeve të Punëmarrësit sipas kësaj kontrate; 
+Interesat legjitime të Punëmarrësit dhe të Vodafone Group, gjithmonë duke marrë në konsideratë kërkesat dhe të drejtën e privatësisë së Punëmarrësit; 
+Transferimin e të dhënave tek funksionet përkatëse të Vodafone Group dhe për qendrat kryesore të përpunimit të të dhënave të Vodafone Group, të cilat mund të mos ndodhen në shtetin ku Punëmarrësi është punësuar, për të mbështetur dhe këshilluar Punëdhënësin në përmbushjen e detyrimeve sipas kësaj kontrate; 
+Përpunimin në bashkëpunim në ndonjë shkrirje, blerje ose marrje të një kompanie ose një biznesi në të cilin është i përfshirë Punëdhënësi ose ndonjë anëtar i Vodafone Group, ose ndonjë transferim ose biznes në të cilin Punëmarrësi përmbush detyrime ose detyra si Punëmarrës;
+Transferimin e të dhënave drejt shteteve jashtë Zonës Ekonomike Europiane për ndonjë nga qëllimet e mësipërme, duke u siguruar se zbatohet një nivel i mjaftueshëm i mbrojtjes së të dhënave. </value>
+  </data>
+  <data name="xrLabel110.Text" xml:space="preserve">
+    <value>Punëmarrësi i jep miratimin Punëdhënësit (dhe çdo anëtari tjetër të Vodafone Group) që përpunon të dhënat Personale të Punonjësit (“të dhënat”) në çdo kohë (para, gjatë, ose pas punësimit të Punëmarrësit) në përputhje me politikën e privatësisë së Punëmarresit e hartuar në përputhshmëri me legjislacionin shqiptar në fuqi “Për mbrojtjen e të dhënave personale”  (sic azhurnohet herë pas here nga Punëdhënësi) për qëllimet e mëposhtëme:</value>
+  </data>
+  <data name="xrLabel103.Text" xml:space="preserve">
+    <value>Shoqëria rezervon të drejtën t’a zgjidhë këtë kontratë sipas dëshirës për shkaqe që lidhen me aftësinë dhe/ose sjelljen e Punëmarrësit ose kërkesat operacionale të Shoqërisë duke i dhënë njoftim me shkrim Punëmarrësit.  Kontrata konsiderohet e zgjidhur në fund të afatit të njoftimit. Kur Punëmarrësi ka kryer deri në gjashtë muaj pune, afati i njoftimit është 2 (dy) javë.  Kur Punëmarrësi ka kryer më shumë se 
+gjashtë muaj punë deri në 2 (dy) vjet punës, afati i njoftimit për zgjidhjen e kontratës është 1 (një) muaj, kur Punëmarrësi ka kryer më shumë se 2 (dy) vjet punë  deri në pesë vjet punë afati i njoftimit është 2 (dy) muaj, dhe për më shumë se 5 (pesë) vjet punë afati i njoftimit është 3 (tre muaj).  Pas dhënies së këtij njoftimi, Punëmarrësi do të vazhdojë të kompensohet sipas nenit IV të kontratës deri në ditën e zgjidhjes së kontratës.  
+Gjatë afatit të njoftimit, Punëmarrësi përfiton 20 (njëzet) orë leje të pagueshme në javë për të kërkuar punë të re. 
+
+Kohëzgjatja dhe proçedura për marrjen e lejes së pagueshme,  si më sipër, përcaktohet në rregulloren e brendshme te Shoqërisë.
+
+Punëmarrësi rezervon të drejtën t’a zgjidhë këtë kontratë sipas dëshirës për çdo shkak duke i dhënë njoftim me shkrim Shoqërisë. Kur Punëmarrësi ka kryer deri në 6 (gjashtë) muaj punë, afati i njoftimit është dy javë. Kur Punëmarrësi ka kryer më shumë se 6 (gjashtë) muaj punë deri në 2 (dy) vjet punë, afati i njoftimit për zgjidhjen e kontratës është 1 (një) muaj, kur Punëmarrësi ka kryer më shumë se 2 (dy) vjet punë  deri në 5 (pesë) vjet punë, afati i njoftimit është 2 (dy) muaj, dhe për më shumë se 5 (pesë) vjet punë, afati i njoftimit është 3 (tre) muaj.  Pas dhënies së këtij njoftimi, Punëmarrësi duhet të kompensohet për ditët që ai ka punuar, ose që Punëmarrësi ka dëshirë të punojë, deri në ditën e zgjidhjes së kontratës.
+
+Pas zgjidhjes së kontratës, e drejta e Punëmarrësit për kompensim pushon.  Me përjashtim të shpenzimeve që rrjedhin nga kryerja e punës, asnjë shpenzim tjetër i çfarëdolloji i marrë përsipër nga Punëmarrësi pas datës që i është paraqitur atij/asaj njoftimi për zgjidhjen e kontratës nuk do të rimbursohet sipas kësaj kontrate.  Në qoftë se Shoqëria i ka dhënë Punëmarrësit ndonjë paradhënie udhëtimi në lidhje me periudhën pas përfundimit të afatit të njoftimit, Punëmarrësi duhet menjëherë të kthejë paratë për këtë paradhënie mbi bazën e udhëzimeve e Proçedurave të Shoqërisë.  Punëmarrësi bie dakord që Shoqëria mund të likuidojë ndonjë paradhënie të papaguar prej tij me ndonjë pagesë të papaguar që Shoqëria i detyrohet Punëmarrësit sipas kësaj kontrate.
+
+Për qëllime të këtij neni XII të kësaj kontrate dhe të pasojave që rrjedhin nga përfundimi i marrëdhënies së punës, si datë e fillimit të punës do të konsiderohet Data e Fillimit e përcaktuar në nenin XX. të kësaj kontrate.
+</value>
+  </data>
+  <data name="xrLabel105.Text" xml:space="preserve">
+    <value>Punëmarrësi duhet të mbrojë dhe mirëmbajë pronën në posedim të Punëmarrësit, në të cilën Shoqëria ka një interes.  Dëmtimi ose humbja e Pronës së Shoqërisë, kur është bërë për shkak të fajit apo pakujdesise së Punëmarrësit, sjell si pasojë përgjegjësinë e Punëmarrësit për riparimin ose zëvendësimin e saj.  Shoqëria mund të mbajë nga paga e Punëmarrësit çdo shumë që normalisht i detyrohet t’ia paguajë këtij të fundit dhe që Shoqëria vendos se është e nevojshme për të mbrojtur Shoqërinë nga humbjet. </value>
+  </data>
+  <data name="xrLabel101.Text" xml:space="preserve">
+    <value>Në rast të shkeljes nga Punëmarrësi të detyrimeve të kësaj kontrate dhe/ose të rregulloreve të brendshme të Punëdhënësit, Punëmarrësi mund të jetë objekt i masave disiplinore të përcaktuara në rregulloren e brendshme  të Shoqërisë mbi masat disiplinore “siç mund të ndryshohet, rishikohet dhe përditesohet herë pas here, e cila është e publikuar në rrjetin e brendshëm të Shoqërisë (intranet) dhe është pjesë përbërëse dhe e pandarë e kësaj kontrate. 
+
+Me nënshkrimin e kësaj Kontrate, Punëmarrësi deklaron se ai/ajo ka marrë një kopje të rregullores, se ai/ajo e kupton dhe bie dakord me kushtet dhe përmbajtjen e saj dhe se ai/ajo merr përsipër të përmbushë çdo detyrim të zbatueshëm në bazë të kësaj rregullore.  
+
+Punëdhënësi ka të drejtë të marrë kundër Punëmarrësit masat e mëposhtme disiplinore:
+
+</value>
+  </data>
+  <data name="xrLabel99.Text" xml:space="preserve">
+    <value>Nëse Punëmarrësi është gjetur fajtor per sjellje të keqe, pandershmëri, mashtrim apo çdo vepër penale, çdo shkelje apo moszbatim të çdonjërit prej kushteve të kësaj kontrate, që konsiderohet e rëndë nga Shoqëria, ose për moszbatim apo refuzim për të zbatuar detyrat e ngarkuara sipas kësaj kontrate pune, atëherë Shoqëria ka të drejtë të marrë masa disiplinore kundër Punëmarrësit. 
+
+Proçedurat dhe llojet e masave disiplinore  parashikohen në rregulloren e brendshme të Shoqërisë mbi masat disiplinore. Nëse Punëmarrësi ka ndonjë ankesë për ndonjë koleg të tij, ai vepron në përputhje me parashikimet e Speak Up Policy, rregullore kjo e publikuar në rrjetin e brendshëm të Shoqërisë.</value>
+  </data>
+  <data name="xrLabel80.Text" xml:space="preserve">
+    <value>kur ai/ajo shkel detyrimet që lindin nga kjo kontratë për shkak të fajit apo pakujdesisë së Punëmarrësit.
+
+Punëmarrësi është përgjegjës për kujdesin që duhet të ushtrojë për shëndetin dhe sigurinë e vetes së tij dhe personave të tjerë që mund të preken nga veprimet ose mosveprimet e tij në punë.  Punëmarrësi është gjithashtu përgjegjës për zbatimin e të gjitha rregullave dhe rregulloreve të miratuara nga Shoqëria.  Shkeljet serioze të këtyre rregullave dhe rregulloreve mund te çojnë në fillimin e Proçedurave dhe pushimin e menjëhershëm nga puna.  </value>
+  </data>
+  <data name="xrLabel73.Text" xml:space="preserve">
+    <value>ligjshme të Shoqërisë.  Punëmarrësi respekton detyrimet që ai ka në lidhje me natyrën konfidenciale të punës dhe mbrojtjen e sekreteve, siç parashikohet në Shtojcat 1 dhe 2 të kësaj kontrate. Shoqëria ruan të drejtën ta zgjidhë menjëherë këtë kontratë pune, në rast se Punëmarrësi nuk ka plotesuar ose ka shkelur detyrimet e parashikuara në Anekset 1 dhe 2. Gjatë vlefshmërisë së kontratës dhe pas mbarimit të saj, Punëmarrësi duhet të ruajë faktet, të dhënat dhe informacionin e destinuar të mbetet sekret, që ai ka pasur dijeni për shkak se është në shërbim të Shoqërisë.
+
+Gjatë vazhdimit të kësaj kontrate dhe pa miratimin me shkrim nga ana e Drejtorit të Përgjithshëm të Shoqërisë, Punëmarrësi nuk duhet të angazhohet ose të ketë interes, në mënyrë direkte ose indirekte, në çfarëdo tregti, biznes apo punë, që ka ose mund të ketë konflikt me interesat e Shoqërisë dhe/ose që përfshin përdorimin e kohës së punës, pasurisë, mjeteve ose burimeve të çfarëdo natyre, që i përkasin Shoqërisë.</value>
+  </data>
+  <data name="xrLabel64.Text" xml:space="preserve">
+    <value>Punëmarrësi i kthen menjëherë Shoqërisë çdo gjë që ai/ajo ka marrë për shkak të detyrës së tij/të saj, me përjashtim të bakshisheve dhe dhuratave personale.
+
+Punëmarrësi i kthen menjëherë Shoqërisë çdo gjë të prodhuar nga aktiviteti i tij/i saj në përputhje me këtë kontratë.  </value>
+  </data>
+  <data name="xrLabel54.Text" xml:space="preserve">
+    <value>nalisht, me përjashtim kur me marrëveshje është rënë dakort ndryshe.  Punëmarrësi zëvendësohet ose ndihmohet nga një person i tretë, vetëm kur Shoqëria ka dhënë shprehimisht miratimin e saj.  Në këtë rast, personi zëvendësues ose ndihmësi konsiderohet si i punësuar i Shoqërisë.  Çdo marrëveshje e kundërt është absolutisht e pavlefshme.</value>
+  </data>
+  <data name="xrLabel61.Text" xml:space="preserve">
+    <value>e saj dhe të mbrojë interesat e Shoqërisë në çdo mënyrë. Metoda dhe mënyra e kryerjes së punës diktohen gjithmonë nga Shoqëria, dhe janë objekt i ndryshimeve në përputhje me gjykimin e Shoqërisë, gjithmonë në përputhje me ligjin shqiptar të punës në fuqi. 
+
+Në kryerjen e punës, Punëmarrësi duhet të përdorë veglat e punës, makineritë dhe pajisjet e Shoqërisë në përputhje me rregullat e sigurimit të vendosura nga Shoqëria.  
+
+Në rast rreziku ose fatkeqësie, Punëmarrësi ndihmon punëmarrësit e tjerë ose Punëdhënësin.
+</value>
+  </data>
+  <data name="xrLabel49.Text" xml:space="preserve">
+    <value>Punëmarrësi kryen detyrat dhe mban përgjegjësitë që i janë caktuar nga Drejtori i Departamentit dhe përgjegjësi i drejtpërdrejtë, si dhe detyra të tjera që mund t’i caktohen Punëmarrësit nga Shoqëria herë pas here.  Një pershkrim i përgjithshëm i detyrave dhe përgjegjësive ruhet në dosjen personale të Punëmarrësit.
+  
+Shoqëria, sipas gjykimit të saj, ka të drejtë ta angazhojë Punëmarrësin edhe në pozicione të tjera.
+
+Punëmarrësi ka detyrimet e mëposhtme:
+</value>
+  </data>
+  <data name="xrLabel41.Text" xml:space="preserve">
+    <value>gjatë, Punëmarrësi ka të drejtën e pushimeve të shkurtra, të paguara, që zgjasin 20 (njëzet) minuta për çdo 4 (katër) orë pune të vazhdueshme, dhe në rast se Punëmarrësi është shtatzënë pushimet e shkurtra, të paguara jepen çdo 3 (tre) orë me një kohëzgjatje prej 30 (tridhjetë) minutash.</value>
+  </data>
+  <data name="xrLabel47.Text" xml:space="preserve">
+    <value>ose pasardhësve të tij të drejtpërdrejtë, Punëmarrësi përfiton 5 (pesë) ditë pushimi ditor të paguar.  Punëmarrësi ka të drejtën e pushimeve të paguara në rast të sëmundjes së rëndë të paraardhësve ose pasardhësve të tij/saj të drejtpërdrejtë, në rast të përkujdesjes së domosdoshme për fëmijët në ngarkim, dhe në rast të sëmundjes së fëmijës/fëmijëve të mitur deri në 3 (tre) vjeç, në përputhje me Kodin e Punës së Shqipërisë dhe e vërtetuar me raport mjekësor.  Në rast lindje fëmije, bashkëshorti /bashkëjetuesi përfiton 3 ditë pushimi të paguar.</value>
+  </data>
+  <data name="xrLabel29.Text" xml:space="preserve">
+    <value>Shoqëria merr përsipër t’i sigurojë Punëmarrësit trajnim të përshtatshëm brenda ose jashtë Shqipërisë, në rastet kur Shoqëria e gjykon të arsyeshme.  Në rast se Punëmarrësi ka gjetur një mundësi trajnimi jashtë kuadrit të Shoqërisë, ai/ajo duhet ta informojë Shoqërinë dhe mund të ndjekë trajnimin pasi të ketë marrë miratimin e Shoqërisë.</value>
+  </data>
+  <data name="xrLabel33.Text" xml:space="preserve">
+    <value>darike (28 ditë kalendarike), të cilat merren me miratimin e Shoqërisë.  Në rastin kur Punëmarrësi nuk ka mbushur një vit të plotë pune, Shoqëria përcakton kohëzgjatjen e pushimeve vjetore të paguara në raport me kohëzgjatjen faktike të punësimit të Punëmarrësit në Shoqëri.  Pushimet e paguara, të marra përpara se Punëmarrësi të ketë kryer ditët e nevojshme të punës, mund t’i jepen më përpara Punëmarrësit sipas diskrecionit të Shoqërisë.
+</value>
+  </data>
+  <data name="xrLabel23.Text" xml:space="preserve">
+    <value>Rishikimi i pagës dhe vlerësimi i punës janë në diskrecion të Shoqërisë dhe bëhen prej saj.  Çdo rritje e pagës është vetëm brenda diskrecionit të Shoqërisë dhe bazohet në rezultatet ekonomike të Shoqerisë dhe në rezultatet e përgjithshme të kryerjes se punës nga ana e të Punësuarit. </value>
+  </data>
+  <data name="xrLabel148.Text" xml:space="preserve">
+    <value>Për punën e kryer në ditën e pushimit javor (të shtunën dhe/ose të dielën), Punëmarrësi kompensohet me një shtesë page, prej 25 %, ose me një pushim të pagueshëm, të barabartë me kohëzgjatjen e punës së kryer plus një pushim shtesë, prej 25 % të kohëzgjatjes së kësaj pune.</value>
+  </data>
+  <data name="xrLabel43.Text" xml:space="preserve">
+    <value>Për punën e kryer në ditët e festave zyrtare, kur ato bien ditë pune, Punëmarrësi kompensohet me një shtesë mbi pagë, prej 25 % dhe me një pushim të pagueshëm, të  barabartë me kohëzgjatjen  e punës së kryer në ditët e festave zyrtare.
+
+</value>
+  </data>
+  <data name="xrLabel151.Text" xml:space="preserve">
+    <value>Për orët e punës shtesë të kryera në ditët e pushimit javor (të shtunën dhe/ose të dielën) ose në ditët e festave zyrtare, Shoqëria i paguan Punëmarrësit pagën dhe një shpërblim prej 50% të pagës normale, ose në të kundërt i jep atij një pushim të barabartë me kohëzgjatjen e punës së kryer plus një pushim shtesë prej 50% të kohëzgjatjes së kësaj pune. </value>
+  </data>
+  <data name="xrLabel19.Text" xml:space="preserve">
+    <value>javore e punës është 40 orë. Ky orar pune mund të jetë subjekt i ndryshimeve të mëtejshme dhe Shoqëria është personi i vetëm që ka diskrecionin për të bërë ndryshime të tilla në përputhje me Kodin e Punës së Shqipërisë. Orët e fillimit dhe mbarimit të punës (orari i punës) përcaktohen në rregulloren e brendshme të Shoqërisë.  
+ 
+Gjatë ditës së punës, Punëmarrësi ka të drejtën e një pushimi prej gjysëm ore në ditë për drekë, që Punëmarrësi ka të drejtë ta marrë dhe që merret në një kohë të përshtatshme për të dyja palët, si për Punëmarësin, ashtu edhe për Shoqërinë. Orari i fillimit dhe mbarimit të pushimit përcaktohet në rregulloren e brendshme të Shoqerisë.
+
+Punëmarrësi ka të drejtën e një pushimi të përditshëm pa pagesë prej 30 minuta, i cili mund të merret pas tri orësh dhe jo më vonë se pas 6 (gjashtë) orësh pune të vazhdueshme.
+Nëse punëmarrësi punon më shumë se 9 (nëntë) orë të vazhdueshme në ditë, i jepet një tjetër pushim, prej 20 minutash.
+
+Punëdhënësi mund të kërkojë kryerjen e orëve shtesë të punës dhe numri maksimal i orëve shtesë është 200 (dyqind) orë në vit. Në lidhje me shpërndarjen e orëve shtesë të punës do të respektohen  dispozitat e Kodit të Punës së Republikës së Shqipërisë dhe legjislacioni i zbatueshëm.
+
+Orët shtesë të punës dhe pagesa për këto orë shtesë fillojnë të llogariten pasi Punëmarrësi ka përmbushur kohëzgjatjen normale ditore të punës ose kohën javore maksimale të punës prej 40 orë. Punëmarrësi duhet të fillojë të kryejë orë shtesë pune vetëm pas miratimit të mbikqyrësit të tij/saj.  Çdo orë pune shtesë e kryer në kundërshtim me këtë nen nuk i jep të drejtë Punëmarrësit për ndonjë shpërblim në para ose kompesim me kohë pushimi.
+
+Nëse pozicioni i punës së Punëmarrësit kërkon të punohet me turne, koha normale e punës do të përcaktohet sipas listës së turneve të aprovuara nga mbikqyrësi (Shih Aneksin III të kësaj kontrate)   </value>
+  </data>
+  <data name="xrLabel12.Text" xml:space="preserve">
+    <value>Sipas kësaj kontrate, Punëmarrësi bie dakort t’i shërbejë Shoqërisë dhe në rastet kur i kërkohet nga kjo e fundit, t’i shërbejë edhe shoqërive të tjera të lidhura me Shoqërinë, apo shoqërive në të cilat Shoqëria është pjesëmarrëse, shoqëri të cilat ekzistojnë ose do të ekzistojnë në të ardhmen.
+Punësimi i Punëmarrësit në këtë Shoqëri dhe në një ose më shumë shoqëri të lidhura me të, ose shoqëri në të cilat Shoqëria është pjesëmarrëse, gjatë orëve normale të punës nuk i jep atij/asaj të drejtën e një shpërblimi shtesë.
+</value>
+  </data>
+  <data name="xrLabel10.Text" xml:space="preserve">
+    <value>Punëmarrësi do të punojë në zyrat e Shoqërisë në adresën: Autostrada Tiranë–Durrës, Rr. “Pavarësia”, Nr. 61, Kashar Tiranë, Shqipëri dhe, kur është e nevojshme, në vende të tjera pune brenda Shqipërisë në përputhje me nevojat e Shoqërisë.
+
+Shoqëria ka të drejtë ta caktojë Punëmarrësin në çdo vend pune për të njëjtat detyra dhe në të njëjtin pozicion siç përcaktohet në kontratë, në përputhje me nevojat e saj, për sa kohë që kjo bazohet në këtë kontratë të nënshkruar nga Punëmarrësi. 
+
+Çdo ndryshim i tillë do t’i komunikohet Punëmarrësit personalisht në kohën e duhur dhe do të regjistrohet.  Punëmarrësi nuk duhet ta ndërpresë këtë marrëveshje në mënyrë të paarsyeshme për shkakun e sipërpërmendur. Përcaktimi i arsyeshmërisë së çështjes është vetëm në diskrecionin e Shoqërisë.  Çdo ndryshim i vendit të punës nuk duhet te gjykohet si një ndryshim i kushteve të kësaj kontrate pune në tërësi.</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>Vodafone Albania SHA regjistruar pranë Qendrës Kombëtare të Biznesit me NIPT: K11715005L, me seli në Autostrada Tiranë – Durrës, Rr. “Pavarësia”, Nr. 61, Kashar, Tiranë, Shqipëri , përfaqësuar nga Znj. Christina Samoulada, Drejtore, Departamenti i Burimeve Njerëzore, sipas Prokurës Nr. 2038 Rep dhe Nr. 736 Kol. date 14.08.2015 të lëshuar nga  Administratori, Z. Dietlof Ziegfried Mare, këtu e mëposhtë referuar si Shoqëria, dhe</value>
+  </data>
+  <metadata name="ds_Rap_Amendament1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_Rap_AmendamentTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+</root>

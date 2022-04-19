@@ -1,0 +1,19 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxe" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxgv" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %> 
+
+<dxgv:ASPxGridLookup runat="server" CssFilePath="~/App_Themes/BlackGlass/{0}/styles.css" 
+    SpriteCssFilePath="~/App_Themes/BlackGlass/{0}/sprite.css" CssPostfix="BlackGlass">
+    <GridViewImages SpriteCssFilePath="~/App_Themes/BlackGlass/{0}/sprite.css">
+    </GridViewImages>
+    <GridViewStyles CssPostfix="BlackGlass" CssFilePath="~/App_Themes/BlackGlass/{0}/styles.css">
+        <Header SortingImageSpacing="5px" ImageSpacing="5px"></Header>
+    </GridViewStyles>
+    <GridViewProperties>
+        <SettingsPager CurrentPageNumberFormat="{0}">
+            <FirstPageButton Visible="True"></FirstPageButton>
+            <LastPageButton Visible="True"></LastPageButton>
+        </SettingsPager>
+    </GridViewProperties>
+</dxgv:ASPxGridLookup>
+

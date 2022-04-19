@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJE_MENYRESHERBIMI</name>
+  <id>LayerInfoImpl--7f58d7b8:15ab2df690a:76cb</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--7f58d7b8:15ab2df690a:76c2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--7f58d7b8:15ab2df690a:76ca</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

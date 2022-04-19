@@ -1,0 +1,32 @@
+<settings>
+  <id>SettingsInfoImpl-24b5ff95:159979dc113:54fd</id>
+  <workspace>
+    <id>WorkspaceInfoImpl-24b5ff95:159979dc113:54ed</id>
+    <name>GISMZHUPUBLIC</name>
+  </workspace>
+  <contact>
+    <id>contact</id>
+    <addressCity>Alexandria</addressCity>
+    <addressCountry>Albania</addressCountry>
+    <addressType>Work</addressType>
+    <contactEmail>denisa.kola@imb.al</contactEmail>
+    <contactOrganization>Ministria e Zhvillimit Urban</contactOrganization>
+    <contactPerson>MZHU</contactPerson>
+    <contactPosition>Kontrolli i te dhenave dhe ekzekutimeve</contactPosition>
+  </contact>
+  <charset>UTF-8</charset>
+  <numDecimals>8</numDecimals>
+  <onlineResource>http://geoserver.org</onlineResource>
+  <proxyBaseUrl>http://denisa:8003/GISPublicProxy.ashx?url=geoserverRequestForPublic&amp;WS=GISMZHUPUBLIC&amp;</proxyBaseUrl>
+  <verbose>true</verbose>
+  <verboseExceptions>true</verboseExceptions>
+  <metadata>
+    <map>
+      <entry>
+        <string>quietOnNotFound</string>
+        <boolean>false</boolean>
+      </entry>
+    </map>
+  </metadata>
+  <localWorkspaceIncludesPrefix>false</localWorkspaceIncludesPrefix>
+</settings>

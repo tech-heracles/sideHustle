@@ -1,0 +1,258 @@
+.dxm-hovered .dxXtraReports_BtnFirstPage_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnLastPage_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnNextPage_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnPrevPage_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnPrint_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnPrintPage_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnSave_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnSaveWindow_MetropolisIMB,
+.dxm-hovered .dxXtraReports_BtnSearch_MetropolisIMB,
+.dxXtraReports_BtnFirstPage_MetropolisIMB,
+.dxXtraReports_BtnFirstPageDisabled_MetropolisIMB,
+.dxXtraReports_BtnLastPage_MetropolisIMB,
+.dxXtraReports_BtnLastPageDisabled_MetropolisIMB,
+.dxXtraReports_BtnNextPage_MetropolisIMB,
+.dxXtraReports_BtnNextPageDisabled_MetropolisIMB,
+.dxXtraReports_BtnPrevPage_MetropolisIMB,
+.dxXtraReports_BtnPrevPageDisabled_MetropolisIMB,
+.dxXtraReports_BtnPrint_MetropolisIMB,
+.dxXtraReports_BtnPrintDisabled_MetropolisIMB,
+.dxXtraReports_BtnPrintPage_MetropolisIMB,
+.dxXtraReports_BtnPrintPageDisabled_MetropolisIMB,
+.dxXtraReports_BtnSave_MetropolisIMB,
+.dxXtraReports_BtnSaveDisabled_MetropolisIMB,
+.dxXtraReports_BtnSaveWindow_MetropolisIMB,
+.dxXtraReports_BtnSaveWindowDisabled_MetropolisIMB,
+.dxXtraReports_BtnSearch_MetropolisIMB,
+.dxXtraReports_BtnSearchDisabled_MetropolisIMB,
+.dxXtraReports_PageBorder_blc_MetropolisIMB,
+.dxXtraReports_PageBorder_brc_MetropolisIMB,
+.dxXtraReports_PageBorder_tlc_MetropolisIMB,
+.dxXtraReports_PageBorder_trc_MetropolisIMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxm-hovered .dxXtraReports_BtnFirstPage_MetropolisIMB
+{
+    background-position: 0px -272px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnLastPage_MetropolisIMB
+{
+    background-position: 0px -68px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnNextPage_MetropolisIMB
+{
+    background-position: 0px -357px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrevPage_MetropolisIMB
+{
+    background-position: 0px -51px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrint_MetropolisIMB
+{
+    background-position: 0px -187px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnPrintPage_MetropolisIMB
+{
+    background-position: 0px -102px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSave_MetropolisIMB
+{
+    background-position: 0px -221px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSaveWindow_MetropolisIMB
+{
+    background-position: 0px -391px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxXtraReports_BtnSearch_MetropolisIMB
+{
+    background-position: 0px -374px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnFirstPage_MetropolisIMB
+{
+    background-position: 0px -289px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnFirstPageDisabled_MetropolisIMB
+{
+    background-position: 0px -119px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPage_MetropolisIMB
+{
+    background-position: 0px -323px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPageDisabled_MetropolisIMB
+{
+    background-position: 0px -306px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPage_MetropolisIMB
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPageDisabled_MetropolisIMB
+{
+    background-position: 0px -136px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPage_MetropolisIMB
+{
+    background-position: 0px -255px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPageDisabled_MetropolisIMB
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrint_MetropolisIMB
+{
+    background-position: 0px -85px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintDisabled_MetropolisIMB
+{
+    background-position: 0px -204px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPage_MetropolisIMB
+{
+    background-position: 0px -425px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPageDisabled_MetropolisIMB
+{
+    background-position: 0px -442px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSave_MetropolisIMB
+{
+    background-position: 0px -238px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveDisabled_MetropolisIMB
+{
+    background-position: 0px -170px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindow_MetropolisIMB
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindowDisabled_MetropolisIMB
+{
+    background-position: 0px -340px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearch_MetropolisIMB
+{
+    background-position: 0px -153px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearchDisabled_MetropolisIMB
+{
+    background-position: 0px -408px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_PageBorder_blc_MetropolisIMB
+{
+    background-position: 0px -481px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_brc_MetropolisIMB
+{
+    background-position: 0px -470px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_tlc_MetropolisIMB
+{
+    background-position: 0px -492px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_trc_MetropolisIMB
+{
+    background-position: 0px -459px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_t_MetropolisIMB,
+.dxXtraReports_PageBorder_l_MetropolisIMB,
+.dxXtraReports_PageBorder_r_MetropolisIMB,
+.dxXtraReports_PageBorder_b_MetropolisIMB {
+    padding: 0px;
+    background-color: transparent;
+}
+
+.dxXtraReports_PageBorder_t_MetropolisIMB {
+    background-image: url('pageTopBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+
+.dxXtraReports_PageBorder_l_MetropolisIMB {
+    background-image: url('pageLeftBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_r_MetropolisIMB {
+    background-image: url('pageRightBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_b_MetropolisIMB {
+    background-image: url('pageBottomBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+

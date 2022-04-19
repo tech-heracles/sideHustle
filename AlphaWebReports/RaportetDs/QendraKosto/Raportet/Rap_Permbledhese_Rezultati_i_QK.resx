@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_QendraKosto_SipasLlogarive1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_QendraKosto_sipas_llogariveTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>247, 17</value>
+  </metadata>
+  <metadata name="ds_Rap_Permbledhese_Rezultati_i_QK1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="pRC_RAP_QENDRA_KOSTO_REZULTATI_PERMBLEDHESTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	ReportFooter.Visible = Convert.ToInt32(GetCurrentColumnValue("MonedheBaze")) == 1;
+}
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	 if (this.PrintingSystem.Document.PageCount == 0)
+            {
+                e.Cancel = true;
+                return;
+            }
+}
+double diferencaVlere1 = 0,diferencaVlere2 = 0,diferencaVlere3 = 0,diferencaVlere4 = 0,diferencaVlere5 = 0,diferencaVlere6 = 0;
+double buxheti1 = 0, buxheti2 = 0,buxheti3 = 0,buxheti4 = 0,buxheti5 = 0,buxheti6 = 0;
+
+double diferencaShpVlere1,diferencaShpVlere2,diferencaShpVlere3,diferencaShpVlere4,diferencaShpVlere5,diferencaShpVlere6;
+double buxhetiShp1, buxhetiShp2,buxhetiShp3,buxhetiShp4,buxhetiShp5,buxhetiShp6;
+
+
+private void xrLabel77_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti1 == 0 ? 0 : (diferencaVlere1/buxheti1) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel77_SummaryReset(object sender, System.EventArgs e) {
+	buxheti1 = 0;
+	diferencaVlere1 = 0;	
+}
+
+private void xrLabel77_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti1 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere1 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+
+}
+
+private void xrLabel87_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti2 == 0 ? 0 : (diferencaVlere2/buxheti2) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel87_SummaryReset(object sender, System.EventArgs e) {
+	buxheti2 = 0;
+	diferencaVlere2 = 0;	
+}
+
+private void xrLabel87_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti2 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere2 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+}
+
+private void xrLabel98_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti3 == 0 ? 0 : (diferencaVlere3/buxheti3) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel98_SummaryReset(object sender, System.EventArgs e) {
+	buxheti3 = 0;
+	diferencaVlere3 = 0;
+}
+
+private void xrLabel98_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti3 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere3 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+}
+
+private void xrLabel109_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti4 == 0 ? 0 : (diferencaVlere4/buxheti4) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel109_SummaryReset(object sender, System.EventArgs e) {
+	buxheti4 = 0;
+	diferencaVlere4 = 0;
+}
+
+private void xrLabel109_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti4 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere4 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+}
+
+private void xrLabel120_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti5 == 0 ? 0 : (diferencaVlere5/buxheti5) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel120_SummaryReset(object sender, System.EventArgs e) {
+	buxheti5 = 0;
+	diferencaVlere5 = 0;
+}
+
+private void xrLabel120_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti5 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere5 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+}
+
+private void xrLabel131_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxheti6 == 0 ? 0 : (diferencaVlere6/buxheti6) * 100;
+	e.Handled = true;
+
+}
+
+private void xrLabel131_SummaryReset(object sender, System.EventArgs e) {
+	buxheti6 = 0;
+	diferencaVlere6 = 0;
+
+}
+
+private void xrLabel131_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxheti6 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaVlere6 += Convert.ToDouble(GetCurrentColumnValue("diferencaVlere"));
+}
+
+private void xrLabel78_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp1 == 0 ? 0 : (diferencaShpVlere1/buxhetiShp1 ) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel78_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp1 = 0;
+	diferencaShpVlere1= 0;
+}
+
+private void xrLabel78_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp1 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere1 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+
+}
+
+private void xrLabel89_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp2 == 0 ? 0 : (diferencaShpVlere2/buxhetiShp2 ) * 100;
+	e.Handled = true;
+
+}
+
+private void xrLabel89_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp2 = 0;
+	diferencaShpVlere2 = 0;
+
+}
+
+private void xrLabel89_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp2 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere2 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+}
+
+private void xrLabel100_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp3 == 0 ? 0 : (diferencaShpVlere3/buxhetiShp3 ) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel100_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp3 = 0;
+	diferencaShpVlere3 = 0;
+}
+
+private void xrLabel100_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp3 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere3 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+}
+
+private void xrLabel111_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp4 == 0 ? 0 : (diferencaShpVlere4/buxhetiShp4) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel111_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp4 = 0;
+	diferencaShpVlere4 = 0;
+}
+
+private void xrLabel111_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp4 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere4 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+}
+
+private void xrLabel122_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp5 == 0 ? 0 : (diferencaShpVlere5/buxhetiShp5) * 100;
+	e.Handled = true;
+}
+
+private void xrLabel122_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp5 = 0;
+	diferencaShpVlere5 = 0;
+}
+
+private void xrLabel122_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp5 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere5 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+}
+
+private void xrLabel133_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+	e.Result = buxhetiShp6 == 0 ? 0 : (diferencaShpVlere6/buxhetiShp6) * 100;
+	e.Handled = true;
+
+}
+
+private void xrLabel133_SummaryReset(object sender, System.EventArgs e) {
+	buxhetiShp6 = 0;
+	diferencaShpVlere6 = 0;
+}
+
+private void xrLabel133_SummaryRowChanged(object sender, System.EventArgs e) {
+	buxhetiShp6 += Convert.ToDouble(GetCurrentColumnValue("buxheti"));
+	diferencaShpVlere6 += Convert.ToDouble(GetCurrentColumnValue("diferencaShpVlere"));
+}
+</value>
+  </data>
+</root>

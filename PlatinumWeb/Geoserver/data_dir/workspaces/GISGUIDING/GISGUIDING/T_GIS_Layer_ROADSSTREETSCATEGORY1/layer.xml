@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_ROADSSTREETSCATEGORY1</name>
+  <id>LayerInfoImpl-24b5ff95:159979dc113:54dc</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--31ac6b01:15926dd26f1:-7fc2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-24b5ff95:159979dc113:54db</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

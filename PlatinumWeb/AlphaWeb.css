@@ -1,0 +1,1026 @@
+﻿.imb-jqgrid-buttonEdit {
+    display:inline-flex;
+    width:100%;
+}
+.border-textbox {
+box-sizing:border-box;
+}
+.imb-jqgrid-buttonEdit input[type="text"]  {
+    width:100%;
+}
+.imb-jqgrid-combo {
+    width:100%;
+}
+.imb-jqgrid-combo select {
+    width:100%;
+}
+.custom-combobox {
+    width: 100%;
+}
+.renditKontrolle
+{       
+    width: 100%;
+    min-width: 800px;
+    padding: 5px 5px 5px 5px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+.renditKontrolleTre
+{             
+    width: 75%;
+    min-width: 800px;
+    padding: 5px 5px 5px 5px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+.renditKontrolleDy
+{             
+    width: 50%;
+    min-width: 800px;
+    padding: 5px 5px 5px 5px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+.CustomRenditKontrolleDy
+{             
+    width: 98%;
+    min-width: 800px;
+    padding: 5px 1px 5px 1px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+
+.CustomRenditKontrolleDy2
+{             
+    width: 35%;
+    min-width: 800px;
+    padding: 5px 5px 5px 5px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+.CustomRenditKontrolleNje
+{             
+    width: 50%;
+    min-width: 400px;
+    padding: 5px 1px 5px 1px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+
+.CustomRenditKontrolleDy3
+{             
+    width: 100%;
+    min-width: 400px;
+    padding: 5px 1px 5px 1px;
+    border-collapse: collapse;
+    border-spacing: 10px;    
+}
+
+.renditKontrolleNje
+{             
+    width: 25%;
+    min-width: 400px;
+    padding: 5px 5px 5px 5px;
+    border-collapse: collapse;
+    border-spacing: 10px;
+}
+.renditKontrolleCell
+{
+    padding: 2px 30px 2px 3px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleCaption
+{
+    padding: 2px 3px 2px 7px;
+    border-collapse: collapse;
+}
+
+.atributeDiveFshehur
+{
+    width: 100%; 
+    height: 100%; 
+    display: none;
+}
+.renditKontrolleCellMeWidth0
+{
+    width:0%;
+    padding: 2px 7px 2px 3px;
+    border-collapse: collapse;
+}
+.renditKontrolleCellMeWidth33
+{
+    width:33%;
+    padding: 2px 7px 2px 3px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleLabelMeWidth33
+{
+    width:33%;
+    padding: 2px 3px 2px 7px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleLabelMeWidth50
+{
+    width:50%;
+    padding: 2px 3px 2px 7px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleCellMeWidth50
+{
+    width:50%;
+    padding: 2px 7px 2px 3px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleCellMeWidth75
+{
+    width:75%;
+    padding: 2px 7px 2px 3px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleCellMeWidth25
+{
+    width:25%;
+    padding: 2px 7px 2px 3px;
+    border-collapse: collapse;
+}
+
+.renditKontrolleLabelMeWidth25
+{
+    width:25%;
+    padding: 2px 3px 2px 7px;
+    border-collapse: collapse;
+}
+
+.CustomRenditKontrolleCellMeWidth50
+{
+    width:50%;
+    padding: 2px 7px 5px 3px;
+    border-collapse: collapse;
+}
+/* Accordion begin*/
+.ui-accordion .ui-accordion-content {
+    padding: 1em 0.3em 1em 0.3em;
+}
+
+ui-not-accordion-icon {
+    position: absolute;
+}
+
+.ui-not-accordion-header-text {
+    margin-left: 20px;
+}
+.ui-accordion h3 {
+    display: flex;
+}
+/* Accordion end*/
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-state-default .ui-icon {
+    background-image: url(images/ui-icons_888888_256x240.png);
+}
+
+.custom-combobox-toggle {
+    position: absolute;
+    /*float: right;*/
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-left: -1px;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: white;
+}
+
+.custom-combobox-input {
+    margin: 0;
+    padding: 5px 0px;
+    width: 95%;
+    height: 10px;
+}
+
+.autocomplete-odd a {
+    background: #DCDCDC;
+}
+
+.autocomplete-odd.pershk {
+    background: #F5F5F5;
+}
+
+
+/*heq ngjyren e gjelber per batchediting*/
+ .dxgvBatchEditModifiedCell
+    {
+        background-color: white !important;
+    }
+
+ .clsBoxNrRreshtashTeShfaqura{
+     width: 1.2em;
+ }
+
+ .klasePerLblKonfigurimi{
+
+ }
+
+ .klasePerDialogtitlebar{
+     color: white !important;
+     background: #0072c6 !important;
+     font-size: 13px !important;
+ }
+
+ .klasePerDialogtitlebar .ui-icon {
+     background-image: url(js/css/flick/images/ui-icons_ff0084_256x240.png) !important;
+}
+
+ .klasePerDialogtitlebar .ui-icon:hover { 
+    background-image: url(js/css/flick/images/ui-icons_ffffff_256x240.png) !important;
+}
+
+ .klasePerDialogtitlebar .ui-dialog-content{
+     padding: 1.5em 1em 0em !important;
+ }
+ .carousel-inner > .item > img{
+       width:460px !important;
+       height:360px !important;
+       object-fit: contain;
+
+     }
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70% !important;
+      margin: auto !important;
+  }
+.carousel {
+    background-color: black;
+}
+
+.myAltRowClass,
+.myAltRowClass:focus {
+    background-image: none !important;
+    background: #f1f6f6 !important;
+}
+
+.myAltRowEvenClass,
+.myAltRowEvenClass:focus {
+    background-image: none !important;
+    background: #ffffff !important;
+}
+
+.myAltRowClass:hover,
+.myAltRowEvenClass:hover {
+    background: #0072c6 !important;
+    color : #ffffff !important;
+    border-color: #0072c6 !important;
+}
+
+.thumbnailDefault 
+{
+    border-style: outset !important;
+    border-color: inherit !important;
+    border-width: 10px;
+}
+
+.dxh0Custom {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.dxh2Custom {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.dxhCustom {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    position: relative;
+}
+#fileManager_Splitter_Items .dxhCustom2{
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+
+
+div.noUndoGrida .dx-datagrid-revert-tooltip{
+    display:none;
+}
+
+
+div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlight-outline::after {
+    border: none !important;
+}
+
+
+.KlasePerLlogariKlienti .dxmMenu_DevEx {
+	background: #dac7c2 repeat-x left top !important;
+}
+
+.KlasePerLlogariKlienti .renditKontrolleCaption{
+	color: #5c3125 !important;
+}
+
+.KlasePerLlogariKlienti  tr.ui-widget-content {
+    background: #dac7c2 50% bottom repeat-x !important;
+}
+
+.KlasePerLlogariKlienti .ui-widget-content .ui-state-default{
+    color: #ffffff !important;
+    background: #844735 50% 50% repeat-x !important;
+    font-size: small !important;
+    font-weight: normal;
+}
+
+.KlasePerLlogariKlienti .ui-state-default .ui-icon{
+	background-image: url(images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.KlasePerLlogariKlienti .ui-state-hover .ui-icon, .ui-state-focus .ui-icon{
+	background-image: url(images/ui-icons_844735_256x240.png) !important;
+}
+
+.KlasePerLlogariKlienti tr.ui-widget-content.ui-state-hover{
+    color: #844735 !important ;
+	background: #f2ecea 50% 50% repeat-x !important;
+}
+
+.KlasePerLlogariKlienti .ui-widget-content .ui-state-default.ui-state-hover{
+    color: #844735 !important ;
+	background: #f2ecea 50% 50% repeat-x !important;
+    font-weight: normal;
+}
+
+.KlasePerLlogariKlienti tr.ui-widget-content.ui-state-highlight {
+    background: #f2ecea 50% 50% repeat-x !important;
+}
+
+.KlasePerLlogariKlienti .dxm-item.dxm-noSubMenu{
+    background: #dac7c2 repeat-x left top !important;
+}
+
+.KlasePerLlogariKlienti .dxm-item.dxm-hovered, .dxmMenuLargeItemHoverWithImage_DevEx {
+	background: #f2ecea repeat-x left top !important;
+    color: #000000;
+}
+
+.KlasePerLlogariKlienti .dxm-horizontal .dxm-separator b, .dxmMenuFullHeightSeparator_DevEx {
+	background: #5c3125 no-repeat left top !important;
+}
+
+
+.KlasePerArketimAbonenti .dxmMenu_DevEx {
+	background: #ebbfc0 repeat-x left top !important;
+}
+
+.KlasePerArketimAbonenti .renditKontrolleCaption{
+	color: #be2a2e !important;
+}
+
+.KlasePerArketimAbonenti  tr.ui-widget-content {
+    background: #ebbfc0 50% bottom repeat-x !important;
+}
+
+.KlasePerArketimAbonenti .ui-widget-content .ui-state-default{
+    color: #ffffff !important;
+    background: #be2a2e 50% 50% repeat-x !important;
+    font-size: small !important;
+    font-weight: normal;
+}
+
+.KlasePerArketimAbonenti .ui-state-default .ui-icon{
+	background-image: url(images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.KlasePerArketimAbonenti .ui-state-hover .ui-icon, .ui-state-focus .ui-icon{
+	background-image: url(images/ui-icons_be2a2e_256x240.png) !important;
+}
+
+.KlasePerArketimAbonenti tr.ui-widget-content.ui-state-hover{
+    color: #be2a2e !important ;
+	background: #f8e9ea 50% 50% repeat-x !important;
+}
+
+.KlasePerArketimAbonenti .ui-widget-content .ui-state-default.ui-state-hover{
+    color: #be2a2e !important ;
+	background: #f8e9ea 50% 50% repeat-x !important;
+    font-weight: normal;
+}
+.KlasePerArketimAbonenti tr.ui-widget-content.ui-state-highlight {
+    background: #f8e9ea 50% 50% repeat-x !important;
+}
+
+.KlasePerArketimAbonenti .dxm-item.dxm-noSubMenu{
+    background: #ebbfc0 repeat-x left top !important;
+}
+
+.KlasePerArketimAbonenti .dxm-item.dxm-hovered, .dxmMenuLargeItemHoverWithImage_DevEx {
+	background: #f8e9ea repeat-x left top !important;
+    color: #000000;
+}
+
+.KlasePerArketimAbonenti .dxm-horizontal .dxm-separator b, .dxmMenuFullHeightSeparator_DevEx {
+	background: #851d20 no-repeat left top !important;
+}
+
+
+.KlasePerArketim .dxmMenu_DevEx {
+	background: #b2d4ed repeat-x left top !important;
+}
+
+.KlasePerArketim .renditKontrolleCaption{
+	color: #004f8a !important;
+}
+
+.KlasePerArketim  tr.ui-widget-content {
+    background: #b2d4ed 50% bottom repeat-x !important;
+}
+
+.KlasePerArketim .ui-widget-content .ui-state-default{
+    color: #ffffff !important;
+    background: #0072c6 50% 50% repeat-x !important;
+    font-size: small !important;
+    font-weight: normal;
+}
+
+.KlasePerArketim .ui-state-default .ui-icon{
+	background-image: url(images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.KlasePerArketim .ui-state-hover .ui-icon, .ui-state-focus .ui-icon{
+	background-image: url(images/ui-icons_0072c6_256x240.png) !important;
+}
+
+.KlasePerArketim tr.ui-widget-content.ui-state-hover{
+    color: #0072c6 !important ;
+	background: #e5f0f9 50% 50% repeat-x !important;
+}
+
+.KlasePerArketim .ui-widget-content .ui-state-default.ui-state-hover{
+    color: #0072c6 !important ;
+	background: #e5f0f9 50% 50% repeat-x !important;
+    font-weight: normal;
+}
+.KlasePerArketim tr.ui-widget-content.ui-state-highlight {
+    background: #e5f0f9 50% 50% repeat-x !important;
+}
+
+.KlasePerArketim .dxm-item.dxm-noSubMenu{
+    background: #b2d4ed repeat-x left top !important;
+}
+
+.KlasePerArketim .dxm-item.dxm-hovered, .dxmMenuLargeItemHoverWithImage_DevEx {
+	background: #e5f0f9 repeat-x left top !important;
+    color: #000000;
+}
+
+.KlasePerArketim .dxm-horizontal .dxm-separator b, .dxmMenuFullHeightSeparator_DevEx {
+	background: #004f8a no-repeat left top !important;
+}
+
+
+.KlasePerKthimetEGarancive .dxmMenu_DevEx {
+	background: #b2e4ca repeat-x left top !important;
+}
+
+.KlasePerKthimetEGarancive .renditKontrolleTre{
+	color: #007437 !important;
+}
+
+.KlasePerKthimetEGarancive  tr.ui-widget-content {
+    background: #b2e4ca 50% bottom repeat-x !important;
+}
+
+.KlasePerKthimetEGarancive .ui-widget-content .ui-state-default{
+    color: #ffffff !important;
+    background: #00a74f 50% 50% repeat-x !important;
+    font-size: small !important;
+    font-weight: normal;
+}
+
+.KlasePerKthimetEGarancive .ui-state-default .ui-icon{
+	background-image: url(images/ui-icons_ffffff_256x240.png) !important;
+}
+
+.KlasePerKthimetEGarancive .ui-state-hover .ui-icon, .ui-state-focus .ui-icon{
+	background-image: url(images/ui-icons_00a74f_256x240.png) !important;
+}
+
+.KlasePerKthimetEGarancive tr.ui-widget-content.ui-state-hover{
+    color: #00a74f !important ;
+	background: #e5f6ed 50% 50% repeat-x !important;
+    font-weight: normal;
+}
+
+.KlasePerKthimetEGarancive .ui-widget-content .ui-state-default.ui-state-hover{
+    color: #00a74f !important ;
+	background: #e5f6ed 50% 50% repeat-x !important;
+}
+.KlasePerKthimetEGarancive tr.ui-widget-content.ui-state-highlight {
+    background: #e5f6ed 50% 50% repeat-x !important;
+}
+
+.KlasePerKthimetEGarancive .dxm-item.dxm-noSubMenu{
+    background: #b2e4ca repeat-x left top !important;
+}
+
+.KlasePerKthimetEGarancive .dxm-item.dxm-hovered, .dxmMenuLargeItemHoverWithImage_DevEx {
+	background: #e5f6ed repeat-x left top !important;
+    color: #000000;
+}
+
+.KlasePerKthimetEGarancive .dxm-horizontal .dxm-separator b, .dxmMenuFullHeightSeparator_DevEx {
+	background: #007437 no-repeat left top !important;
+}
+
+.master-detail-caption {
+    padding: 0 0 5px 10px;
+    font-size: 14px;
+    /*font-weight: bold;*/
+}
+
+.dx-datagrid-content .dx-datagrid-table.dx-datagrid-table-fixed {
+   max-width: 100% !important;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-editor-cell {
+   max-width: 100% !important;
+}
+
+.dx-treelist-content .dx-treelist-table.dx-treelist-table-fixed {
+   max-width: 100% !important;
+}
+
+.dx-datagrid-rowsview .dx-row > .dx-master-detail-cell {
+   max-width: 100% !important;
+}
+
+.dx-treelist-content .dx-treelist-table .dx-row .dx-editor-cell {
+   max-width: 100% !important;
+}
+
+.dx-treelist-rowsview .dx-row > .dx-master-detail-cell {
+   max-width: 100% !important;
+}
+
+#kokeKonfigurimiPermbajtje{
+    overflow: inherit;
+}
+.Important{
+    font-weight:bolder;
+    color:orangered;
+}
+
+.dx-datagrid-rowsview .dx-row > .dx-master-detail-cell {
+    max-width: 100% !important;
+}
+
+.dx-treelist-content .dx-treelist-table .dx-row .dx-editor-cell {
+    max-width: 100% !important;
+}
+
+.dx-treelist-rowsview .dx-row > .dx-master-detail-cell {
+    max-width: 100% !important;
+}
+
+.divTableCell {
+    background-color: #EEE;
+    border-bottom: 1px solid #999999 !important;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    font-weight: bold;
+}
+
+.selectize-control .option .kodiSelectize {
+    display: block;
+}
+
+.selectize-control .option .pershkrimiSelectize {
+    font-size: 12px;
+    display: block;
+    color: #a0a0a0;
+}
+
+.custom-toolbar-item {
+    vertical-align: top;
+    display: inline-block;
+    padding: 14px 4px 16px;
+}
+
+.custom-toolbar-item-editor {
+    height: 27px;
+}
+
+.custom-design-selector-item {
+    width: 10%;
+}
+
+.custom-design-selector-item-editor {
+    width: 100% !important;
+}
+
+.custom-button-export-tatime {
+    background-image: url(images/CustomToolbar/exportTatime.svg);
+    background-repeat: no-repeat;
+}
+
+.custom-button-export-veprimtari-ditore {
+    background-image: url(images/CustomToolbar/exportVeprimtari.svg);
+    background-repeat: no-repeat;
+}
+
+.custom-button-export-birthday-card {
+    background-image: url(images/CustomToolbar/exportBirthday.svg);
+    background-repeat: no-repeat;
+}
+
+.dxrd-designer-wrapper {
+    background-color: white !important;
+}
+.dxrd-right-panel{
+    background-color:white !important;
+}
+.dxrd-right-tabs {
+    background-color: white !important;
+}
+
+.dxrd-right-panel-collapse {
+    border-left: 1px solid #ddd !important;
+}
+
+.dx-designer {
+    border-top: 1px solid #ddd !important;
+    border-right: 1px solid #ddd !important;
+}
+
+.dxrd-preview-progress{
+    bottom: unset !important;
+}
+
+.dx-dateview-time{
+    width: 110px;
+}
+
+/*#region DevExtreme Menu*/
+.menuToolbar {
+    margin-bottom: 10px;
+    overflow-x: auto;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(245, 245, 245);
+    height: 62px;
+    overflow-y: hidden;
+}
+
+
+.menuToolbar > div > ul {
+    width: 100%;
+    /*background: #f0f0f0;*/
+}
+
+.menuToolbar .rightMenuItem{
+    float:right;
+}
+
+.menuToolbar .dx-item-content {
+    padding: unset !important;
+}
+
+.menuToolbar .dx-item-content > div {
+    padding: 8px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 100px;
+    /*background: #f0f0f0;*/
+    /*border-right: 1px solid white;
+    border-left: 1px solid white;*/
+    height: 10%;
+}
+
+.menuToolbar .dx-item-content > div:hover {
+    background: rgba(0, 114, 197, 1);
+}
+
+.menuItemImage {
+    height: 25px;
+    width: 25px;
+    margin-left: 35%;
+    display: block;
+    margin-bottom: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.whiteText {
+    color: whitesmoke;
+}
+/*#endregion */
+
+/*#region MbylljePeriudhe Wizard*/
+.wizard-pop-up{
+    min-width:700px;
+}
+
+.multiview-item {
+    margin: 25px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 20px 0 30px;
+    height: 90%;
+}
+
+.multiview-item > div > h3 {
+    margin-left: 1.3%;
+    margin-top: 0;
+    margin-bottom: 0.5%;
+    color: #4d4d4d;
+}
+
+.multiview-item > div {
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 100%;
+}
+
+.wizard-progressBar {
+    margin-top: 20px;
+}
+
+.wizard-buttons {
+
+}
+
+.previous-button {
+    margin-right: 1%;
+    float:right;
+}
+
+.next-button {
+    margin-right: 4%;
+    float: right;
+}
+
+.stop-button {
+    margin-right: 4%;
+    float: right;
+}
+
+.cancel-button {
+    margin-left: 4%;
+}
+
+.complete-wizard-progressBar .dx-progressbar-range {
+    background-color: rgba(0,167,79,1);
+    border-color: rgba(0,167,79,1);
+}
+
+.process-progressBar .dx-progressbar-container {
+    height: 15px;
+}
+
+
+.process-progressBar .dx-progressbar-status {
+    margin-top: 1%;
+    color: #333;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif;
+}
+
+.process-progressBar {
+    width: 98.5%;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: -1%;
+}
+
+.multiview-item-body {
+    text-align: center;
+    height: 75%;
+}
+
+.checkbox-row {
+    margin-top: 20px;
+}
+
+.viti-label {
+    text-align: center;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.viti-container {
+    display: flex;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.entiete-radio-value{
+    width:30px;
+}
+
+.entitete-radio-container {
+    margin-top: 20px !important;
+}
+
+.multiview-item .blockOverlay {
+    background-color: rgba(0, 0, 0,0.5) !important;
+}
+
+.multiview-item .blockElement {
+    top: 40% !important;
+    left: 35% !important;
+}
+
+.gridToolbarBeforeItem {
+    max-width: unset !important;
+}
+
+.reportPopUp .dx-popup-title {
+    padding: 10px !important;
+}
+/*#endregion*/
+
+
+.grayBackground {
+    background-color: #f5f5f5;
+}
+
+.dx-datagrid-header-panel {
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.dx-toolbar{
+    background-color:transparent !important;
+}
+.dx-datagrid-headers {
+    background: #f5f5f5;
+}
+
+.dx-datagrid-headers .dx-datagrid-filter-row {
+    background-color: rgb(253,253,253);
+}
+
+.blue-border-toolbar-widget > div > div {
+    border: 1px solid rgba(0, 114, 198, 1) !important;
+}
+
+.dx-datagrid-total-footer .grayBackground {
+    background-color: transparent;
+}
+
+
+.mbylljePeriudheDrawer .dx-drawer-panel-content {
+    width: 97% !important;
+}
+
+#toolbar {
+    background-color: rgba(191, 191, 191, .15);
+    padding: 0.6%;
+}
+
+.dx-drawer-expand.dx-drawer-right .panel-list {
+    float: left;
+}
+
+#accordion h1 {
+    font-size: 20px;
+}
+
+#accordion h1,
+#accordion p {
+    margin: 0;
+}
+.dx-theme-material #accordion .dx-accordion-item-opened .dx-accordion-item-title {
+    display: flex;
+}
+
+.dx-theme-material #accordion .dx-accordion-item-opened h1 {
+    align-self: center;
+}
+
+.mbylljePeriudheDrawer .dx-drawer-panel-content {
+    z-index: 0;
+}
+
+
+.mbylljePeriudheDrawer .dx-drawer-content {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(221, 221, 221);
+}
+
+/*Sessioni per tabet*/
+.mbylljePeriudheTab .tabpanel-item {
+    height: 60%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 25px;
+    padding-top: 55px;
+}
+
+.mbylljePeriudheTab .mobile .tabpanel-item {
+    padding-top: 10px;
+}
+
+.mbylljePeriudheTab .tabpanel-item > div {
+    float: left;
+    padding: 0 85px 10px 10px
+}
+
+.mbylljePeriudheTab .tabpanel-item p {
+    font-size: 16px;
+}
+
+.mbylljePeriudheTab .item-box {
+    font-size: 16px;
+    margin: 15px 0 45px 10px;
+}
+
+.mbylljePeriudheTab .options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+    margin-top: 20px;
+}
+
+.mbylljePeriudheTab .caption {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.mbylljePeriudheTab .option {
+    margin-top: 10px;
+}
+
+.mbylljePeriudheTab .dx-tab-content {
+    width: 100%;
+}
+
+.mbylljePeriudheTab .close-icon {
+    font-size: 13px !important;
+    margin-right: 0 !important;
+    margin-left: 10% !important;
+}
+
+.mbylljePeriudheTab .close-icon:hover {
+    color: red;
+}
+
+.mbylljePeriudheTab .dx-multiview{
+    height: 100%;
+}
+.mbylljePeriudheTab {
+    height: 100%;
+}
+
+.dxtlFilterRow_MetropolisBlue > td {
+    border-left: 0.1px Solid #c0c0c0;
+    border-right: 0.1px Solid #c0c0c0;
+    padding: 2px;
+    overflow: hidden;
+}
+

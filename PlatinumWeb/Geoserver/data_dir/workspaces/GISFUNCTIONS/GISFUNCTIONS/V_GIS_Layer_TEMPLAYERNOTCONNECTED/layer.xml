@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_TEMPLAYERNOTCONNECTED</name>
+  <id>LayerInfoImpl--dbecf10:1591b74e9c1:-7f1d</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591b74e9c1:-7f20</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591b74e9c1:-7f1e</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>   object total2 = 0;
+ double total = 0;
+float distancaLartesi = 25F;
+        float koordinataX = 5F;
+        float koordinataLlogariX = 115F;
+ float koordinataY = 0F;
+    System.Collections.Generic.List&lt;object[]&gt; trupi = new System.Collections.Generic.List&lt;object[]&gt;();
+        double totalimetvsh = 0;
+        double totalipatvshkursi = 0;
+        double totalipatvsh = 0;
+  double totalimetvshkursi = 0;
+
+
+private void xrLabel20_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+}
+
+private void xrLabel31_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+    e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")));
+            e.Handled = true;
+}
+
+private void xrLabel23_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+  e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+            total2 = e.Result;
+}
+
+private void xrTable1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  shtoRreshtatNeTabele(xrTable1);
+}
+
+private void xrTable2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+   shtoRreshtatNeTabele(xrTable2);
+}
+
+private void xrLabel34_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+
+            e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")));
+            e.Handled = true;
+}
+
+private void xrLabel34_SummaryReset(object sender, System.EventArgs e) {
+  totalimetvshkursi = 0;
+}
+
+private void xrLabel34_SummaryRowChanged(object sender, System.EventArgs e) {
+  totalimetvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
+            total = totalimetvshkursi;
+}
+
+private void xrLabel1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+}
+
+private void Rap_FormatShitjeA5Gani_2kopje_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  this.Detail.Controls.Add(CreateXRTable());
+            System.Data.DataTable dt = ((System.Data.DataSet)(this.DataSource)).Tables[0];
+
+            trupi.Clear();
+            for (int i = 0; i &lt; dt.Rows.Count; i++)
+            {
+                object kodi = dt.Rows[i]["KODI"]; 
+                object pershkrimi = dt.Rows[i]["PERSHKRIMI"]; 
+                object njesia = dt.Rows[i]["PERSHKRIMNJESIA"];
+                object sasia = dt.Rows[i]["SASIA"];
+                object cmimi = Convert.ToDouble(Convert.ToDouble(dt.Rows[i]["VLEFTAMETVSH"]) / (1 - Convert.ToDouble(dt.Rows[i]["ZBRITJEPERQ"]) / 100) / Convert.ToDouble(dt.Rows[i]["SASIA"]));
+                object vleraMeTvsh = dt.Rows[i]["VLEFTAMETVSH"];
+                object[] obj = new object[10];
+
+                obj[0] = (i + 1).ToString();
+                obj[1] = kodi;
+                obj[2] = pershkrimi;
+                obj[3] = njesia;
+                obj[4] = sasia;
+                obj[5] = cmimi;
+                obj[6] = vleraMeTvsh;
+                
+                trupi.Add(obj);
+}
+
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]); 
+
+  AlphaWebReports.raporteUtil.shfaqLlogariteBankare( parametraRaporti.IdNdermarrje, parametraRaporti.IdPerdoruesi, null, null, distancaLartesi,
+koordinataY, koordinataX, koordinataLlogariX, "Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, Color.Black,
+ 100F, 20F, 663.23F, 20F, 0);
+}
+
+  private void shtoRreshtatNeTabele(XRTable xrTable2)
+        {
+            int i = 0;
+            if (trupi.Count &gt; 0)
+            {
+                for (int j = xrTable2.Rows.Count - 1; j &gt;= 1; j--)
+                {
+                    xrTable2.Rows.RemoveAt(j);
+                }
+                Font arial = new Font("Arial", 9.75F, FontStyle.Regular);
+                PaddingInfo padding = new PaddingInfo(2, 2, 0, 0);
+                foreach (object[] obj in trupi)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 20f;
+
+                    XRTableCell nr = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(22.24f, "" , obj[0].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, BorderSide.Bottom, padding);
+                    rr.Cells.Add(nr);
+                    
+                    XRTableCell kodi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(105.13f, "" , obj[1].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, BorderSide.Bottom, padding);
+                    rr.Cells.Add(kodi);
+                    
+                    XRTableCell pershkrimi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(190.32f, "" , obj[2].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleLeft, BorderSide.Bottom, padding);
+                    rr.Cells.Add(pershkrimi);
+                    
+                    XRTableCell njesia = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(44f, "" , obj[3].ToString(), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, BorderSide.Bottom, padding);
+                    rr.Cells.Add(njesia);
+                    
+                    XRTableCell sasia = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(49.76f, "" , String.Format("{0:n3}", obj[4]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, BorderSide.Bottom, padding);
+                    rr.Cells.Add(sasia);
+                    
+                    XRTableCell cmimi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(67.29f, "" , String.Format("{0:#,#.00}", obj[5]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, BorderSide.Bottom, padding);
+                    rr.Cells.Add(cmimi);
+                    
+                    XRTableCell vleraMeTvsh = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(70.26f, "" , String.Format("{0:#,#.00}", obj[6]), arial, Color.Silver, Color.Transparent, TextAlignment.MiddleRight, BorderSide.Bottom, padding);
+                    rr.Cells.Add(vleraMeTvsh);
+
+                    xrTable2.Rows.Insert((i + 1), rr);
+                    i++;
+                }
+            }
+        }
+
+
+    private XRTable CreateXRTable()
+        {
+            int i = 0;
+            XRTable table = new XRTable();
+            table.Size = new Size(650, 20);//.HeightF = 25f;
+            table.BeginInit();
+            //table.WidthF = 650f;
+            table.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
+            if (trupi.Count &gt; 0)
+            {
+               
+                for (int j = table.Rows.Count - 1; j &gt;= 1; j--)
+                {
+                    table.Rows.RemoveAt(j);
+                }
+                foreach (object[] obj in trupi)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 20f;
+                    //Cell NR
+                    XRTableCell nr = new XRTableCell();
+                    nr.WidthF = 22.24f;
+                    nr.Name = "nr" ;//+ i.ToString();
+                    nr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    nr.Text = obj[0].ToString();
+                    nr.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    nr.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+                    nr.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    nr.BorderColor = System.Drawing.Color.Silver;
+                    nr.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(nr);
+                    //Cell kodi
+                    XRTableCell kodi = new XRTableCell();
+                    kodi.WidthF = 105.13f;
+                    kodi.Name = "kodi";// + i.ToString();
+                    kodi.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    kodi.Text = obj[1].ToString();
+                    kodi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    kodi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    kodi.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    kodi.BorderColor = System.Drawing.Color.Silver;
+                    kodi.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(kodi);
+                    //Cell pershkrimi
+                    XRTableCell pershkrimi = new XRTableCell();
+                    pershkrimi.WidthF = 190.32f;
+                    pershkrimi.Name = "pershkrimi" ;//+ i.ToString();
+                    pershkrimi.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    pershkrimi.Text = obj[2].ToString();
+                    pershkrimi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    pershkrimi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+                    pershkrimi.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    pershkrimi.BorderColor = System.Drawing.Color.Silver;
+                    pershkrimi.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(pershkrimi);
+                    //Cell njesia
+                    XRTableCell njesia = new XRTableCell();
+                    njesia.WidthF = 44f;
+                    njesia.Name = "njesia";// + i.ToString();
+                    njesia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    njesia.Text = obj[3].ToString();
+                    njesia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    njesia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    njesia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    njesia.BorderColor = System.Drawing.Color.Silver;
+                    njesia.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(njesia);
+                    //Cell sasia
+                    XRTableCell sasia = new XRTableCell();
+                    sasia.WidthF = 49.76f;
+                    sasia.Name = "sasia" ;//+ i.ToString();
+                    sasia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    sasia.Text = String.Format("{0:n3}", obj[4]);
+                    sasia.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    sasia.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    sasia.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    sasia.BorderColor = System.Drawing.Color.Silver;
+                    sasia.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(sasia);
+                    //Cell cmimi
+                    XRTableCell cmimi = new XRTableCell();
+                    cmimi.WidthF = 67.29f;
+                    cmimi.Name = "cmimi" ;//+ i.ToString();
+                    cmimi.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    cmimi.Text = String.Format("{0:#,#.00}", obj[5]);
+                    cmimi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    cmimi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    cmimi.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    cmimi.BorderColor = System.Drawing.Color.Silver;
+                    cmimi.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(cmimi);
+                    //Cell vleraMeTvsh
+                    XRTableCell vleraMeTvsh = new XRTableCell();
+                    vleraMeTvsh.WidthF = 70.26f;
+                    vleraMeTvsh.Name = "vleraMeTvsh" ;//+ i.ToString();
+                    vleraMeTvsh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular);
+                    vleraMeTvsh.Text = String.Format("{0:#,#.00}", obj[6]);
+                    vleraMeTvsh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0);
+                    vleraMeTvsh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    vleraMeTvsh.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    vleraMeTvsh.BorderColor = System.Drawing.Color.Silver;
+                    vleraMeTvsh.BackColor = System.Drawing.Color.Transparent;
+                    rr.Cells.Add(vleraMeTvsh);
+                    table.Rows.Add(rr);
+                    i++;
+                }
+                table.EndInit();
+            }
+            return table;
+        }
+private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+
+}
+</value>
+  </data>
+</root>

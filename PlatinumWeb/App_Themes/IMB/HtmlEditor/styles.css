@@ -1,0 +1,257 @@
+/* ----------------- Main ----------------- */
+/* Loading panel */
+.dxheLoadingDiv_IMB
+{
+    background: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+.dxheLoadingPanel_IMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxheLoadingPanel_IMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxheLoadingPanel_IMB .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+.dxheControl_IMB
+{
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+
+/* Area */
+.dxheContentArea_IMB
+{
+    padding: 6px 4px;
+}
+.dxheErrorFrame_IMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #D00707;
+	background-color: #FBC7C7;
+	margin-bottom: 6px;
+}
+.dxheErrorFrame_IMB .dxhe 
+{
+    padding: 5px;
+}
+.dxheErrorFrame_IMB .dxhe td 
+{
+    padding: 0;
+}
+.dxheErrorFrame_IMB .dxheErrorFrameCloseButton_IMB 
+{
+    cursor: pointer;
+}
+.dxheContentArea_IMB td.dxheViewArea_IMB /*B209529*/
+{
+    line-height: 0;
+}
+.dxheControl_IMB .dxheHtmlViewArea_IMB,
+.dxheDesignViewArea_IMB,
+.dxhePreviewArea_IMB 
+{
+    margin: 0px;
+    background: none #FFFFFF;
+    border: 0;
+    font-size: smaller;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.dxheContentArea_IMB .dxeMemo_IMB td,
+body.dxheDesignViewArea_IMB,
+body.dxhePreviewArea_IMB
+{
+    padding: 0 4px 0 4px;
+}
+.dxheControl_IMB .dxheContentArea_IMB .dxeMemo_IMB td
+{
+    padding-right: 0;
+}
+.dxheContentArea_IMB .dxeMemoEditArea_IMB
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+.dxheControl_IMB.dxhe-rtl .dxheContentArea_IMB .dxeMemo_IMB td
+{
+	padding: 0 4px 0 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    .dxheControl_IMB.dxhe-rtl .dxheContentArea_IMB .dxeMemo_IMB td
+    {
+	    padding: 0 0 0 4px;
+    }
+}
+.dxheControl_IMB .dxeMemo_IMB textarea 
+{
+	resize: none;
+}
+/* Element appearance in DesignView */
+body.dxheDesignViewArea_IMB table.dxEmptyBorderTable,
+body.dxheDesignViewArea_IMB table.dxEmptyBorderTable td  {
+    border:1px dotted gray;
+}
+@media print 
+{
+	body.dxheDesignViewArea_IMB table.dxEmptyBorderTable,
+	body.dxheDesignViewArea_IMB table.dxEmptyBorderTable td  
+	{
+		border:0px;
+	}
+}
+body.dxheDesignViewArea_IMB
+{
+    word-wrap: inherit;
+}
+body.dxheDesignViewArea_IMB pre
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Status Bar */
+.dxheStatusBar_IMB 
+{
+}
+.dxheControl_IMB .dxheStatusBar_IMB .dxheStatusBarTab_IMB .dxtc-link 
+{
+    padding: 4px 12px 5px 11px;
+}
+.dxheStatusBarActiveTab_IMB 
+{
+}
+.dxHtmlEditor_heSizeGrip_IMB
+{
+    cursor: se-resize;
+}
+.dxHtmlEditor_heSizeGripRtl_IMB
+{
+    cursor: ne-resize;
+}
+.dxheSizeGripContainer_IMB
+{
+    width: 100%;
+    text-align: right;
+    font-size: 0;
+    margin-top: -16px;
+}
+.dxheControl_IMB.dxhe-rtl .dxheSizeGripContainer_IMB 
+{
+	text-align: left;
+}
+/* ----------------- Dialog Forms ----------------- */
+.dxpcLite_IMB .dxheDlgFooter,
+.dxpcLite_IMB .dxheCustomDialog_IMB .dxhecd-Buttons
+{
+    background-color: white;
+    border-top: Solid 1px #E0E0E0;
+	padding: 10px 11px;
+	text-align: right;
+}
+.dxpcLite_IMB.dxRtl .dxheDlgFooter,
+.dxpcLite_IMB.dxRtl .dxheCustomDialog_IMB .dxhecd-Buttons
+{
+    text-align: left;
+}
+.dxpcLite_IMB .dxheDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxpcLite_IMB.dxRtl .dxheDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+/* Insert Image Form */
+.dxpcLite_IMB .dxheDlgInsertImageForm .dxheDlgImagePreviewCell,
+.dxpcLite_IMB .dxheDlgSelectImageForm .dxheDlgImagePreviewCell
+{
+    color: #878787;
+    border: dashed 1px #cac8c8;
+}
+.dxpcLite_IMB .dxheDlgPasteFromWordForm .dxheDlgPasteContainerCell td
+{
+	border: Solid 1px #9F9F9F;
+}
+/*----------------- Toolbars -----------------*/
+.dxtbSpacing_IMB
+{
+	height: 1px;
+}
+.dxtbControl_IMB 
+{
+    color: #333333;
+    width: 100%;
+    border-bottom: Solid 1px #c0c0c0;
+}
+.dxtbControl_IMB td.dxmMenu_IMB
+{
+	border-width: 0px;
+}
+.dxtbControl_IMB .dxmLite_IMB .dxm-main 
+{
+	background-color: #FFFFFF;
+}
+.dxtbControl_IMB .dxmLite_IMB .dxmtb.dxm-horizontal .dxm-separator b
+{
+	background-color: #c0c0c0;
+}
+.dxtbComboBoxMenuItem_IMB
+{
+    padding-top: 2px;
+}
+.dxheControl_IMB .dxrControl_IMB .dxr-minBtn
+{
+    padding-right: 8px;
+}
+.dxheControl_IMB .dxtbControl_IMB.dxtbr_IMB,
+.dxheControl_IMB .dxrControl_IMB .dxpc-mainDiv.dxr-minPopup
+{
+    border: 0;
+}
+
+/* Toolbars Lightweight Mode */
+.dxtbControl_IMB .dxmLite_IMB .dxm-main 
+{
+    border-width: 0px;
+}
+.dxmLite_IMB .dxhetipControl_IMB img
+{
+	vertical-align: top;
+}
+.dxtbControl_IMB .dxm-horizontal.dxmtb .dxm-dropDownMode .dxtcbColorDiv_IMB
+{
+    margin-top: -1px;
+    margin-bottom: -2px;
+}
+
+/* ToolbarColorButton */
+.dxtcbControl_IMB { }
+.dxtcbColorDiv_IMB
+{
+	width: 16px;
+	height: 3px;
+	font-size: 0;
+	background-color: Transparent;
+}
+
+/*----------------- RoundPanel -----------------*/
+.dxheRP.dxrpControl_IMB .dxrpcontent_IMB
+{
+    padding: 9px 10px 10px 10px !important;
+}

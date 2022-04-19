@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_INFOSHKRESA_NR1</name>
+  <id>LayerInfoImpl--3aeaaee:15b24e6899c:-485a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--3aeaaee:15b24e6899c:5eb4</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3aeaaee:15b24e6899c:-485b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

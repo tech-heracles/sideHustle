@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value> System.Data.DataTable dt;
+
+    System.Collections.Generic.List&lt;object[]&gt; trupi = new System.Collections.Generic.List&lt;object[]&gt;();
+
+ private void ReportHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {   
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+ 
+
+      System.Data.DataTable dt = ((System.Data.DataSet)(this.DataSource)).Tables[0];
+		System.Data.DataView view = new System.Data.DataView(dt);
+          System.Data.DataTable aprovuesit = view.ToTable(true, "aprovimPERSHKRIMI", "Aprovuesi", "DateAprovimi", "SASIA", "NIVELI", "KOMENT");
+     
+            trupi.Clear();	
+            for (int i = 0; i &lt; aprovuesit.Rows.Count; i++)
+            {
+         object PERSHKRIMI = dt.Rows[i]["aprovimPERSHKRIMI"]; 
+                object Aprovuesi= dt.Rows[i]["Aprovuesi"]; 
+                object DateAprovimi= dt.Rows[i]["DateAprovimi"];
+                object SASIA = dt.Rows[i]["SASIA"];
+                 object NIVELI = dt.Rows[i]["NIVELI"];
+                 object KOMENT= dt.Rows[i]["KOMENT"];
+
+
+               object[] obj = new object[7];
+
+                obj[0] = (i + 1).ToString();
+                obj[1] = PERSHKRIMI;
+                obj[2] = Aprovuesi;
+                obj[3] = DateAprovimi;
+                obj[4] = SASIA ;
+                obj[5] = NIVELI;
+               obj[6] = KOMENT;
+           trupi.Add(obj);
+ }
+
+            foreach (System.Data.DataRow dr in dt.Rows)
+            {
+                string niveliUserit = dr["aprovimPERSHKRIMI"].ToString();
+                if (niveliUserit.ToLower()=="finance department only")
+                {
+                    xrLabel62.Text = dr["Aprovuesi"].ToString();
+                    xrLabel64.Text = "DATE";
+                    xrLabel65.Text = Convert.ToDateTime(dr["DateAprovimi"]).ToString("dd/MM/yyyy") ;
+			  xrTableCell51.Text=dr["KOMENT"].ToString();
+		
+                }
+                else if (niveliUserit.ToLower() == "purchasing dept. only")
+                 {
+                    xrLabel66.Text = dr["Aprovuesi"].ToString();
+                    xrLabel68.Text = "DATE";
+                    xrLabel69.Text = Convert.ToDateTime(dr["DateAprovimi"]).ToString("dd/MM/yyyy");
+                 }
+      
+          }
+ }
+
+
+    
+  private void shtoRreshtatNeTabele(XRTable xrTable8)
+        {
+            int i = 0;
+            if (trupi.Count &gt; 0)
+            {
+
+                for (int j = xrTable8.Rows.Count - 1; j &gt;= 1; j--)
+                {
+                    xrTable8.Rows.RemoveAt(j);
+                }
+                Font arial = new Font("Times New Roman", 9.00F, FontStyle.Regular);
+                PaddingInfo padding = new PaddingInfo(2, 2, 0, 0);
+                DevExpress.XtraPrinting.BorderSide borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top))));
+                foreach (object[] obj in trupi)
+
+                {
+	 			if  ( obj[2].ToString()  == "" )
+					return;
+
+
+                    borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top))));
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 20f;
+                    double vlerefatura = Convert.ToDouble(Report.GetCurrentColumnValue("TOTALI").ToString());
+                    double kursi = Convert.ToDouble(Report.GetCurrentColumnValue("KURSIVF").ToString());
+			  string pershkriminivelit = obj[1].ToString();
+			  string kodiMonedhes = Report.GetCurrentColumnValue("MONEDHAKOD").ToString();
+                    if ((vlerefatura/kursi &lt; 5000 &amp;&amp; pershkriminivelit.ToLower() == "ceo" &amp;&amp; kodiMonedhes.ToLower()=="lek") || (vlerefatura &lt; 5000 &amp;&amp; pershkriminivelit.ToLower() == "ceo" &amp;&amp; kodiMonedhes.ToLower() == "eur" ) || ( pershkriminivelit.ToLower()== "finance department only") || ( pershkriminivelit.ToLower() == "purchasing dept. only"))
+                       continue;
+                    XRTableCell pershkrimi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(84.8F, "", obj[1].ToString(), arial, Color.Black, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+                    rr.Cells.Add(pershkrimi);
+                    XRTableCell Aprovuesi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(93.9f, "", obj[2].ToString(), arial, Color.Black, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+                    Aprovuesi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+				    rr.Cells.Add(Aprovuesi);
+				Aprovuesi.Font =  new Font(Aprovuesi.Font.FontFamily, Aprovuesi.Font.Size, FontStyle.Bold);
+                   string date = Convert.ToDateTime(obj[3]).ToString("dd/MM/yyyy");
+                    XRTableCell DateAprovimi = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(76.3F, "", date, arial, Color.Black,Color.Transparent,TextAlignment.MiddleRight, borders, padding);
+                    DateAprovimi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+			  DateAprovimi.Font =  new Font(DateAprovimi.Font.FontFamily, DateAprovimi.Font.Size, FontStyle.Bold);
+
+                    rr.Cells.Add(DateAprovimi);
+                    borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right))));
+                    XRTableCell BOSH = AlphaWebReports.raporteUtil.shtoQelizeNeTabele(68F, "", "Approved", arial, Color.Black, Color.Transparent, TextAlignment.MiddleLeft, borders, padding);
+                    rr.Cells.Add(BOSH);
+
+                    xrTable8.Rows.Insert((i + 1), rr);
+                    i++;
+                }
+            }
+        }
+   
+
+private void xrLabel25_BeforePrint(object sender, PrintEventArgs e)
+        {
+         xrLabel25.Text=Report.GetCurrentColumnValue("KODKONFIGAMBJENTE").ToString();
+ 
+        }
+private void xrTable8_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+shtoRreshtatNeTabele(xrTable8);
+
+}
+
+private void detailBand1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("RowNumber") != null &amp;&amp; GetCurrentColumnValue("RowNumber").ToString() != "1")
+                e.Cancel = true;
+
+}
+    double shumaVLEFTAPATVSH = 0.00;
+private void xrTableCell69_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrTableCell69.Text = String.Format("{0:n2}", GetCurrentColumnValue("VLEFTAPATVSH")).ToString();
+shumaVLEFTAPATVSH  +=  Convert.ToDouble(xrTableCell69.Text);
+
+}
+
+private void xrLabel39_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrLabel39.Text = String.Format("{0:n2}", shumaVLEFTAPATVSH).ToString();
+
+}
+</value>
+  </data>
+</root>

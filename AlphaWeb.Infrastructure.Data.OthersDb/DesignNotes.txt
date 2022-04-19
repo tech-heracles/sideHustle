@@ -1,0 +1,1 @@
+﻿per momentin kjo librari do te sherbej si data access layer vetem per microsoft Access meqenese ne .NET Standard API nuk suportohet MS Access

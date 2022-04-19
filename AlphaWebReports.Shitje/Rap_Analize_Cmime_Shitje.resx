@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="pRC_RAP_Analize_Cmime_ShitjeTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="ds_Analize_Cmime_Shitje1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+
+private void Rap_Analize_Cmime_Shitje_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+System.Resources.ResourceManager  rm = new System.Resources.ResourceManager("Resources.Strings",System.Reflection.Assembly.Load("App_GlobalResources"));
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+  var parameters = AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]);
+      var formati = parameters.Find(param =&gt; param.Emri == "filterFormatNumri");
+	string shifraPasPresjes = (formati != null) ? formati.Vlera : "2";	
+
+  // Percakton kolonat e pivot grides
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldKodi = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Kodi", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldKodi.FieldName = "KODARTIKULLI";
+            fieldKodi.Caption = rm.GetString("cmbCmimeArtikulliCaptionKodi", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldPershkrimArtikulli = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Pershkrimi", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldPershkrimArtikulli.FieldName = "PERSHKRIMARTIKULLI";
+            fieldPershkrimArtikulli.Caption = rm.GetString("labelRaportiPershkrimi", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldFurnitori = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Furnitori", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldFurnitori.FieldName = "FURNITORIKRYESOR";
+            fieldFurnitori.Caption = rm.GetString("lblFurnKryesor", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldGrupimi1 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Grupimi", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldGrupimi1.FieldName = "GRUPIMI1";
+            fieldGrupimi1.Caption = rm.GetString("labelGrupimKlientPare", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldGrupimi2 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Grupimi2", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldGrupimi2.FieldName = "GRUPIMI2";
+            fieldGrupimi2.Caption = rm.GetString("labelGrupimKlientDyte", parametraRaporti.Ci);
+
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldNjesia = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Njesia1", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldNjesia.FieldName = "NJESIA1";
+            fieldNjesia.Caption = rm.GetString("labelNjesia1", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldNjesia2 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Njesia2", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldNjesia2.FieldName = "NJESIA2";
+            fieldNjesia2.Caption = rm.GetString("labelNjesia2", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldKoeficenti = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Koeficenti", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldKoeficenti.FieldName = "KOEFICENTARTIKULLI";
+            fieldKoeficenti.Caption = rm.GetString("lblKoef", parametraRaporti.Ci);
+            fieldKoeficenti.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldKoeficenti.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldKoeficenti.ValueFormat.FormatString = "F" + shifraPasPresjes;
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldBlerje = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Blerje", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldBlerje.FieldName = "HYRJE";
+            fieldBlerje.Caption = rm.GetString("lblSasiaBlerje", parametraRaporti.Ci);
+            fieldBlerje.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldBlerje.CellFormat.FormatString = "F" + shifraPasPresjes;
+            fieldBlerje.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldBlerje.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldBlerje.ValueFormat.FormatString = "F" + shifraPasPresjes; 
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldShitje = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Shitje", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldShitje.FieldName = "DALJE";
+            fieldShitje.Caption = rm.GetString("lblSasiashitje", parametraRaporti.Ci);
+            fieldShitje.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldShitje.CellFormat.FormatString = "F" + shifraPasPresjes;
+            fieldShitje.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldShitje.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldShitje.ValueFormat.FormatString = "F" + shifraPasPresjes; 
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldGjendje = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Gjendje", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldGjendje.FieldName = "GJENDJASASI";
+            fieldGjendje.Caption = rm.GetString("labelRaportGjendje", parametraRaporti.Ci);
+            fieldGjendje.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldGjendje.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldGjendje.ValueFormat.FormatString = "F" + shifraPasPresjes; 
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldKosto = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Kosto", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldKosto.FieldName = "KOSTO";
+            fieldKosto.Caption = rm.GetString("labelRaportKosto", parametraRaporti.Ci);
+            fieldKosto.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldKosto.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldKosto.ValueFormat.FormatString = "F" + shifraPasPresjes; 
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldVlefta = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Vlera", DevExpress.XtraPivotGrid.PivotArea.RowArea);
+            fieldVlefta.FieldName = "GJENDJEVLEFTA";
+            fieldVlefta.Caption = rm.GetString("labelRaportVlefta", parametraRaporti.Ci);
+            fieldVlefta.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldVlefta.ValueFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldVlefta.ValueFormat.FormatString = "F" + shifraPasPresjes; 
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldNivelCmimi = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Cmimet", DevExpress.XtraPivotGrid.PivotArea.ColumnArea);
+            fieldNivelCmimi.FieldName = "KODNIVELCMIMI";
+            fieldNivelCmimi.Caption = rm.GetString("labelRaportiCmimet", parametraRaporti.Ci);
+
+            DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldVleraCmimi = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField("Cmimet", DevExpress.XtraPivotGrid.PivotArea.DataArea);
+            fieldVleraCmimi.FieldName = "CMIMI";
+            fieldVleraCmimi.Caption = rm.GetString("labelRaportiCmimet", parametraRaporti.Ci);
+            fieldVleraCmimi.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            fieldVleraCmimi.CellFormat.FormatString = "F" + shifraPasPresjes;
+           
+             cmimetPivotGrid.Fields.Clear();
+            cmimetPivotGrid.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {fieldKodi,  fieldPershkrimArtikulli,
+                fieldFurnitori, fieldGrupimi1, fieldGrupimi2, fieldNjesia, fieldNjesia2, fieldKoeficenti, fieldBlerje, fieldShitje, fieldGjendje, fieldKosto,
+                fieldVlefta ,fieldNivelCmimi, fieldVleraCmimi});
+            
+            
+            cmimetPivotGrid.Styles.FieldHeaderStyle = cmimetPivotGrid.Styles.FieldHeaderStyle;
+            cmimetPivotGrid.Styles.FieldValueStyle = cmimetPivotGrid.Styles.FieldHeaderStyle;
+            cmimetPivotGrid.FieldValueGrandTotalStyleName = cmimetPivotGrid.Styles.FieldHeaderStyle.Name;
+
+}
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ this.DataSource = null;
+}
+</value>
+  </data>
+</root>

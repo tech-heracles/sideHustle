@@ -1,0 +1,402 @@
+.dxGridView_gvCellError_MetropolisIMB,
+.dxGridView_gvCMClearFilter_MetropolisIMB,
+.dxGridView_gvCMClearGrouping_MetropolisIMB,
+.dxGridView_gvCMCollapseDetailRow_MetropolisIMB,
+.dxGridView_gvCMCollapseDetailRowDisabled_MetropolisIMB,
+.dxGridView_gvCMCollapseRow_MetropolisIMB,
+.dxGridView_gvCMCollapseRowDisabled_MetropolisIMB,
+.dxGridView_gvCMDeleteRow_MetropolisIMB,
+.dxGridView_gvCMEditRow_MetropolisIMB,
+.dxGridView_gvCMExpandDetailRow_MetropolisIMB,
+.dxGridView_gvCMExpandDetailRowDisabled_MetropolisIMB,
+.dxGridView_gvCMExpandRow_MetropolisIMB,
+.dxGridView_gvCMExpandRowDisabled_MetropolisIMB,
+.dxGridView_gvCMFullCollapse_MetropolisIMB,
+.dxGridView_gvCMFullExpand_MetropolisIMB,
+.dxGridView_gvCMGroupByColumn_MetropolisIMB,
+.dxGridView_gvCMNewRow_MetropolisIMB,
+.dxGridView_gvCMRefresh_MetropolisIMB,
+.dxGridView_gvCMShowCustomizationWindow_MetropolisIMB,
+.dxGridView_gvCMShowFilterEditor_MetropolisIMB,
+.dxGridView_gvCMShowGroupPanel_MetropolisIMB,
+.dxGridView_gvCMSortAscending_MetropolisIMB,
+.dxGridView_gvCMSortDescending_MetropolisIMB,
+.dxGridView_gvCMSummaryAverage_MetropolisIMB,
+.dxGridView_gvCMSummaryCount_MetropolisIMB,
+.dxGridView_gvCMSummaryMax_MetropolisIMB,
+.dxGridView_gvCMSummaryMin_MetropolisIMB,
+.dxGridView_gvCMSummarySum_MetropolisIMB,
+.dxGridView_gvCMUngroupColumn_MetropolisIMB,
+.dxGridView_gvCollapsedButton_MetropolisIMB,
+.dxGridView_gvCollapsedButtonRtl_MetropolisIMB,
+.dxGridView_gvDetailCollapsedButton_MetropolisIMB,
+.dxGridView_gvDetailCollapsedButtonRtl_MetropolisIMB,
+.dxGridView_gvDetailExpandedButton_MetropolisIMB,
+.dxGridView_gvDetailExpandedButtonRtl_MetropolisIMB,
+.dxGridView_gvDragAndDropArrowDown_MetropolisIMB,
+.dxGridView_gvDragAndDropArrowUp_MetropolisIMB,
+.dxGridView_gvDragAndDropHideColumn_MetropolisIMB,
+.dxGridView_gvExpandedButton_MetropolisIMB,
+.dxGridView_gvExpandedButtonRtl_MetropolisIMB,
+.dxGridView_gvFilterRowButton_MetropolisIMB,
+.dxGridView_gvHeaderFilter_MetropolisIMB,
+.dxGridView_gvHeaderFilterActive_MetropolisIMB,
+.dxGridView_gvHeaderSortDown_MetropolisIMB,
+.dxGridView_gvHeaderSortUp_MetropolisIMB,
+.dxGridView_gvParentGroupRows_MetropolisIMB,
+.dxGridView_WindowResizer_MetropolisIMB,
+.dxGridView_WindowResizerRtl_MetropolisIMB,
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvCollapsedButton_MetropolisIMB,
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvCollapsedButtonRtl_MetropolisIMB,
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvExpandedButton_MetropolisIMB,
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvExpandedButtonRtl_MetropolisIMB,
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailCollapsedButton_MetropolisIMB,
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailCollapsedButtonRtl_MetropolisIMB,
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailExpandedButton_MetropolisIMB,
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailExpandedButtonRtl_MetropolisIMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxGridView_gvCellError_MetropolisIMB
+{
+    background-position: -49px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvCMClearFilter_MetropolisIMB
+{
+    background-position: 0px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMClearGrouping_MetropolisIMB
+{
+    background-position: -19px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRow_MetropolisIMB
+{
+    background-position: -19px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRowDisabled_MetropolisIMB
+{
+    background-position: -76px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRow_MetropolisIMB
+{
+    background-position: 0px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRowDisabled_MetropolisIMB
+{
+    background-position: 0px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMDeleteRow_MetropolisIMB
+{
+    background-position: -19px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMEditRow_MetropolisIMB
+{
+    background-position: -76px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRow_MetropolisIMB
+{
+    background-position: -38px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRowDisabled_MetropolisIMB
+{
+    background-position: -61px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRow_MetropolisIMB
+{
+    background-position: -38px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRowDisabled_MetropolisIMB
+{
+    background-position: -19px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullCollapse_MetropolisIMB
+{
+    background-position: -76px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullExpand_MetropolisIMB
+{
+    background-position: -19px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMGroupByColumn_MetropolisIMB
+{
+    background-position: -38px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMNewRow_MetropolisIMB
+{
+    background-position: -57px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMRefresh_MetropolisIMB
+{
+    background-position: -57px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowCustomizationWindow_MetropolisIMB
+{
+    background-position: -57px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowFilterEditor_MetropolisIMB
+{
+    background-position: -38px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowGroupPanel_MetropolisIMB
+{
+    background-position: -57px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortAscending_MetropolisIMB
+{
+    background-position: -38px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortDescending_MetropolisIMB
+{
+    background-position: 0px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryAverage_MetropolisIMB
+{
+    background-position: -42px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryCount_MetropolisIMB
+{
+    background-position: 0px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMax_MetropolisIMB
+{
+    background-position: -76px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMin_MetropolisIMB
+{
+    background-position: -57px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummarySum_MetropolisIMB
+{
+    background-position: -23px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMUngroupColumn_MetropolisIMB
+{
+    background-position: -76px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCollapsedButton_MetropolisIMB
+{
+    background-position: 0px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvCollapsedButtonRtl_MetropolisIMB
+{
+    background-position: -28px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButton_MetropolisIMB
+{
+    background-position: -28px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButtonRtl_MetropolisIMB
+{
+    background-position: -42px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButton_MetropolisIMB
+{
+    background-position: 0px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButtonRtl_MetropolisIMB
+{
+    background-position: -70px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDragAndDropArrowDown_MetropolisIMB
+{
+    background-position: -68px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropArrowUp_MetropolisIMB
+{
+    background-position: -56px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropHideColumn_MetropolisIMB
+{
+    background-position: 0px 0px;
+    width: 22px;
+    height: 22px;
+}
+.dxGridView_gvExpandedButton_MetropolisIMB
+{
+    background-position: -14px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvExpandedButtonRtl_MetropolisIMB
+{
+    background-position: -14px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvFilterRowButton_MetropolisIMB
+{
+    background-position: -64px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvHeaderFilter_MetropolisIMB
+{
+    background-position: -80px 0px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderFilterActive_MetropolisIMB
+{
+    background-position: -34px -118px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderSortDown_MetropolisIMB
+{
+    background-position: -87px -17px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvHeaderSortUp_MetropolisIMB
+{
+    background-position: -84px -149px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvParentGroupRows_MetropolisIMB
+{
+    background-position: 0px -135px;
+    width: 18px;
+    height: 13px;
+}
+.dxGridView_WindowResizer_MetropolisIMB
+{
+    background-position: 0px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxGridView_WindowResizerRtl_MetropolisIMB
+{
+    background-position: -17px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvCollapsedButton_MetropolisIMB
+{
+    background-position: -56px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvCollapsedButtonRtl_MetropolisIMB
+{
+    background-position: -47px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvExpandedButton_MetropolisIMB
+{
+    background-position: -75px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_MetropolisIMB .dxGridView_gvExpandedButtonRtl_MetropolisIMB
+{
+    background-position: -19px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailCollapsedButton_MetropolisIMB
+{
+    background-position: -61px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailCollapsedButtonRtl_MetropolisIMB
+{
+    background-position: -79px -118px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailExpandedButton_MetropolisIMB
+{
+    background-position: -33px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_MetropolisIMB .dxGridView_gvDetailExpandedButtonRtl_MetropolisIMB
+{
+    background-position: -42px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvHeaderFilterActive_MetropolisIMB
+{
+	background-color: #00A74F;
+}
+

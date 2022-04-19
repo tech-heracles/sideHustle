@@ -1,0 +1,1 @@
+﻿Ne kete class library do te implementohen Service te cilat do te permbajne Use Case te AlphaWeb.

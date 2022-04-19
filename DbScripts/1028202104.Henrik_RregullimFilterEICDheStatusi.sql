@@ -1,0 +1,6 @@
+insert into T_PARAM(SPPARAMETEREMRI,SPPARAMETERPERSHK,SPCOLDBEMERLOGJIK)
+select 'filterEIC', 'EIC', 'T_FATURAEINVOICE.EIC'
+where NOT EXISTS(select * from T_PARAM where SPPARAMETEREMRI = 'filterEIC')
+insert into T_PARAM(SPPARAMETEREMRI,SPPARAMETERPERSHK,SPCOLDBEMERLOGJIK)
+select 'filterStatusEinvoice', 'StatusiEinvoice', 'T_FATURAEINVOICE.Status'
+where NOT EXISTS(select * from T_PARAM where SPPARAMETEREMRI = 'filterStatusEinvoice')

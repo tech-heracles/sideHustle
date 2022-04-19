@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_MemoAnnualBonus1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_Rap_MemoAnnualBonusTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="ds_Rap_KartelaPages1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="pRC_Rap_KartelaPagesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <metadata name="ds_Rap_KartelaPages_Format21.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 173</value>
+  </metadata>
+  <metadata name="pRC_Rap_KartelaPages_Format2TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 212</value>
+  </metadata>
+  <data name="totalNetIncomeEu.Expression" xml:space="preserve">
+    <value>([FUNKSIONI] + [JASHTEORARIT] + [KUALIFIKIMI] + [ppKomp] + [prKomp] + [shpKomp] + [SHTESATETJERA] + [VESHTIRESIA] + [VJETERSIA] - [SIGPUNONJESI] - [SIGNDERMARJE] - [vleraTP] - [NDALESATETJERA])  * [kursi]</value>
+  </data>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+		private void Rap_KartelaPages_Format2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+System.Data.DataSet ds = ((System.Data.DataSet)this.DataSource);
+            if (ds == null || ds.Tables[0].Rows.Count == 0)
+            {
+                GroupHeader1.Visible = false;
+                Detail.Visible = false;
+                GroupFooter1.Visible = false;
+            }
+}
+
+private void PageFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	System.Data.DataSet ds = ((System.Data.DataSet)this.DataSource);
+            if (ds == null || ds.Tables[0].Rows.Count == 0)
+                GroupFooter1.Visible = false;
+}
+ public static string ktheMuaj(int index)
+        {
+            switch (index)
+            {
+                case 1: return "Janar";
+                case 2: return "Shkurt";
+                case 3: return "Mars";
+                case 4: return "Prill";
+                case 5: return "Maj";
+                case 6: return "Qershor";
+                case 7: return "Korrik";
+                case 8: return "Gusht";
+                case 9: return "Shtator";
+                case 10: return "Tetor";
+                case 11: return "Nentor";
+                case 12: return "Dhjetor";
+                default: return "gabim";
+            }
+
+        }
+        public static string getMonth(int index)
+        {
+            switch (index)
+            {
+                case 1: return "Jannuary";
+                case 2: return "February";
+                case 3: return "March";
+                case 4: return "April";
+                case 5: return "May";
+                case 6: return "June";
+                case 7: return "July";
+                case 8: return "August";
+                case 9: return "September";
+                case 10: return "October";
+                case 11: return "November";
+                case 12: return "December";
+                default: return "gabim";
+            }
+
+        }
+private void xrLabel42_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+//this.GetCurrentColumnValue("MUAJI").ToString()
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; GetCurrentColumnValue("MUAJI") != null )
+	xrLabel42.Text = (Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 1)
+				? getMonth(Convert.ToInt32(GetCurrentColumnValue("MUAJI").ToString()))
+				: ktheMuaj(Convert.ToInt32(GetCurrentColumnValue("MUAJI").ToString()));}
+
+
+
+private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrLabel2.Text = "Muaji:";
+	else 
+		xrLabel2.Text = "Month:";
+}
+
+
+private void xrTableCell2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell2.Text = "PAGA MUJORE BRUTO";	
+	else 
+		xrTableCell2.Text = "GROSS MONTHLY INCOME";
+}
+
+private void xrTableCell7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell7.Text = "Paga Baze Mujore Bruto e Kontraktuar";	
+	else
+		xrTableCell7.Text = "Contractual Gross Monthly Basic Salary";	
+}
+
+private void xrTableCell1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell1.Text = "Dite Pune";	
+	else
+		xrTableCell1.Text = "Working Days";
+}
+
+private void xrTableCell17_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell17.Text = "Semundje + Ditet e papaguara te pushimeve";	
+	else
+		xrTableCell17.Text = "Sick + Unpaid Leave days";
+
+}
+
+private void xrTableCell13_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell13.Text = "Paga Bruto per dite pune";	
+	else
+		xrTableCell13.Text = "Gross Salary for working days";
+}
+
+private void xrTableCell21_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell21.Text = "Paga Bruto per ditet me raport mjeksor";	
+	else
+		xrTableCell21.Text = "Gross Salary for sick leave days";
+
+}
+
+private void xrTableCell45_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell45.Text = "NDALESA PER SIGURIMET SHOQ.  SHEND. DHE TE ARDHURAT PERSONALE";
+	else
+		xrTableCell45.Text = "KEPT FOR SOCIAL &amp; HEALTH INSURANCE &amp; INCOME TAX";
+}
+
+private void xrTableCell41_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell41.Text = "Kontributi i Sigurimeve Shoqerore paguar nga Punemarresi";
+	else
+		xrTableCell41.Text = "Social Insurance Contribution Paid by the Employee";
+
+}
+
+private void xrTableCell37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell37.Text = "Kontributi i Sigurimeve Shendetesore paguar nga Punemarresi";
+	else
+		xrTableCell37.Text = "Health Insurance Contribution Paid by the Employee";
+}
+
+private void xrTableCell29_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell29.Text = "E Ardhura Personale";
+	else
+		xrTableCell29.Text = "Income Tax";
+}
+
+private void xrTableCell69_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell69.Text = "PAGA BAZE MUJORE BRUTO";
+	else
+		xrTableCell69.Text = "GROSS MONTHLY BASIC SALARY";
+}
+
+private void xrTableCell65_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell65.Text = "Pagesa per oret jashte orarit";
+	else
+		xrTableCell65.Text = "Overtime Payment";
+}
+
+private void xrTableCell61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell61.Text = "Pagesat per turnin";
+	else
+		xrTableCell61.Text = "Shifts Payment";
+}
+
+private void xrTableCell53_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell53.Text = "Bonus per performancen";
+	else
+		xrTableCell53.Text = "Productivity Bonus";
+}
+
+private void xrTableCell57_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell57.Text = "Martesa / Leje Lindje / Vdekje";
+	else 
+		xrTableCell57.Text = "Marriage / New Baby / Bereavement bonus";
+}
+
+private void xrTableCell49_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell49.Text = "Bonus vjetor";
+	else
+		xrTableCell49.Text = "Annual Bonus";
+}
+
+private void xrTableCell97_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell97.Text = "Ditet e mbetura te pushimeve vjetore";
+	else
+		xrTableCell97.Text = "Remained Annual Leaves";
+}
+
+private void xrTableCell105_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell105.Text = "Axhustime";
+	else
+		xrTableCell105.Text = "Adjustment";
+
+}
+
+
+private void xrTableCell93_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell93.Text = "LLOGARITJA E PAGES NETO";
+	else
+		xrTableCell93.Text = "NET INCOME CALCULATED";
+
+}
+
+private void xrTableCell89_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell89.Text = "Parapagime";
+	else
+		xrTableCell89.Text = "Payments in Advance";
+
+}
+
+private void xrTableCell85_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell85.Text = "Detyrime/ Ndalesa";
+	else
+		xrTableCell85.Text = "Liabilities";
+
+}
+
+private void xrTableCell109_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell109.Text = "TOTAL I PAGES MUJORE BRUTO";
+	else
+		xrTableCell109.Text = "TOTAL GROSS MONTHLY SALARY";
+
+}
+
+private void xrTableCell113_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell113.Text = "PAGA NETO PAGUAR NE BANKE";
+	else
+		xrTableCell113.Text = "NET INCOME PAID UP IN BANK";
+
+}
+
+private void xrTableCell117_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell117.Text = "DETAJET E LLOGARITJES SE PAGES";
+	else
+		xrTableCell117.Text = "PAYROLL CALCULATION DETAILS";
+
+}
+
+private void xrTableCell190_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell190.Text = "Paga Baze per llogaritjen e Kontributeve Shoqerore";
+	else
+		xrTableCell190.Text = "Basic salary for social contributions calculation";
+
+}
+
+private void xrTableCell194_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell194.Text = "Paga Baze per llogaritjen e Kontributeve Shendetesore";
+	else
+		xrTableCell194.Text = "Basic salary for health insurance calculation";
+
+}
+
+private void xrTableCell198_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell198.Text = "Paga Baze per llogaritjen e te Ardhurave Personale";
+	else
+		xrTableCell198.Text = "Basic salary for Income Tax";
+
+}
+
+private void xrTableCell118_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell118.Text = "Dite pune per muajin aktual (E hene-Premte)";
+	else
+		xrTableCell118.Text = "Working days of current month (Monday-Friday)";
+
+}
+
+private void xrTableCell119_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell119.Text = "Ore pune zyrtare/Dite";
+	else
+		xrTableCell119.Text = "Official working hours/day";
+
+}
+
+private void xrTableCell124_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell124.Text = "Paga/Dite pune";
+	else
+		xrTableCell124.Text = "Salary/working day";
+
+}
+
+private void xrTableCell127_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell127.Text = "Paga/Ore pune";
+	else
+		xrTableCell124.Text = "Salary/working hour";
+
+}
+
+private void xrTableCell202_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell202.Text = "Kontributi i Sigurimeve Shoqerore paguar nga Punedhenesi";
+	else
+		xrTableCell202.Text = "Social insurance contribution paid by the company";
+}
+
+private void xrTableCell206_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell206.Text = "Kontributi i Sigurimeve Shendetesore paguar nga Punedhenesi";
+	else
+		xrTableCell206.Text = "Medical insurance contribution paid by the company";
+}
+
+private void xrTableCell210_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell210.Text = "Plani pensionit, Kontribute paguar nga Punedhenesi";
+	else
+		xrTableCell210.Text = "Retirement plan, contributon paid by the company";
+}
+
+private void xrTableCell133_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell133.Text = "Dite jave";
+	else
+		xrTableCell133.Text = "Weekday";
+}
+
+private void xrTableCell134_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell134.Text = "Fundjave";
+	else
+		xrTableCell134.Text = "Weekend";
+
+}
+
+private void xrTableCell135_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell135.Text = "Dite pushimi";
+	else
+		xrTableCell135.Text = "Holiday";
+
+
+}
+
+private void xrTableCell132_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell132.Text = "Oret ne total";
+	else
+		xrTableCell132.Text = "Total hours";
+
+}
+
+private void xrTableCell167_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell167.Text = "Turni";
+	else
+		xrTableCell167.Text = "Shifts";
+
+}
+
+private void xrTableCell149_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell149.Text = "Turni pare";
+	else
+		xrTableCell149.Text = "1st Shift";
+}
+
+private void xrTableCell150_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell150.Text = "Turni dyte";
+	else
+		xrTableCell150.Text = "2nd Shift";
+
+}
+
+private void xrTableCell151_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell151.Text = "Turni trete";
+	else
+				xrTableCell151.Text = "3rd Shift";
+
+}
+
+private void xrTableCell153_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell153.Text = "Total Ditet";
+	else
+		xrTableCell153.Text = "Total Days";
+
+}
+
+private void xrTableCell154_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell154.Text = "Dite jave";
+	else
+		xrTableCell154.Text = "Weekday";
+
+}
+
+private void xrTableCell160_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell160.Text = "Fundjave";
+	else
+		xrTableCell160.Text = "Weekend";
+
+}
+
+private void xrTableCell172_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell172.Text = "INFORMACION PERSONAL";
+	else
+		xrTableCell172.Text = "PERSONAL INFORMATION";
+
+}
+
+private void xrTableCell173_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell173.Text = "Nr. i Sigurimeve Shoqerore";
+	else
+		xrTableCell173.Text = "Social Insurance No.";
+
+}
+
+private void xrTableCell174_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell174.Text = "Nr. i Kartes se Identitetit";
+	else
+		xrTableCell174.Text = "Employee ID";
+}
+
+private void xrTableCell179_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell179.Text = "Dita e fillimit te punes";
+	else
+		xrTableCell179.Text = "Work Starting Day";
+}
+
+private void xrTableCell182_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell182.Text = "Pozicioni";
+	else
+		xrTableCell182.Text = "Position Title";
+
+}
+
+private void xrTableCell185_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell185.Text = "Departamenti";
+	else
+		xrTableCell185.Text = "Department";
+
+}
+
+private void xrTableCell188_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell188.Text = "INFORMACION";
+	else
+		xrTableCell188.Text = "CONTACT INFORMATION";
+
+}
+
+private void xrTableCell189_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell189.Text = "Per sqarime te metejshme ose per me shume informacion ju lutem kontaktoni Departamentin e Burimeve Njerezore.";
+	else
+		xrTableCell189.Text = "For further clarifications or information please contact HR Department.";
+
+}
+
+private void xrTableCell136_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell136.Text = "Oret jashte orarit";
+	else
+		xrTableCell136.Text = "Overtime Hours";
+
+
+}
+
+private void xrTableCell214_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	if(GetCurrentColumnValue("idgjuha") != null &amp;&amp; Convert.ToInt32(GetCurrentColumnValue("idgjuha").ToString()) == 2)
+		xrTableCell214.Text = "KOSTOJA MUJORE E PAGES SE PUNONJESIT PER KOMPANINE";
+	else
+		xrTableCell214.Text = "EMPLOYEE MONTHLY COST TO THE COMPANY";
+}</value>
+  </data>
+</root>

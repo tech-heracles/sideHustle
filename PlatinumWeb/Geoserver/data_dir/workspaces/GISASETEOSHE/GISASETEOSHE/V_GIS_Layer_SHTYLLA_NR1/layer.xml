@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_SHTYLLA_NR1</name>
+  <id>LayerInfoImpl--42e05b88:1531e0c3ab3:-7e43</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--42e05b88:1531e0c3ab3:-7f10</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--42e05b88:1531e0c3ab3:-7e44</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

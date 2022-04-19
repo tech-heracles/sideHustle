@@ -1,0 +1,70 @@
+.dxwscCheckedTextContainer_MetropolisIMB
+{
+	background-color: white;
+	border: solid 1px #c0c0c0;
+	vertical-align:top;
+	overflow:auto;
+	height: 110px;
+	width: 340px;
+	padding: 5px;
+}
+.dxwscErrorWord_MetropolisIMB 
+{
+	background: url('scErrorUnderline.gif') bottom;
+	background-repeat:repeat-x;
+	padding-bottom: 3px;
+	color: #333333;
+	font-weight: bold;
+}
+/* -- Loading panel -- */
+.dxwscLoadingPanel_MetropolisIMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxwscLoadingPanel_MetropolisIMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxwscLoadingPanel_MetropolisIMB .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+/* -- Forms -- */
+.dxwsc-main .dxpcLite_MetropolisIMB .dxwscDlgFooter
+{
+	border-top: 1px solid #c0c0c0;
+	padding: 10px 15px;
+	text-align: right;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_MetropolisIMB .dxwscDlgFooter
+{
+    text-align: left;
+}
+.dxwsc-main .dxpcLite_MetropolisIMB .dxwscDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_MetropolisIMB .dxwscDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+.dxwsc-main .dxpcLite_MetropolisIMB .dxwscDlgSpellCheckBtn
+{
+    width: 120px;
+}
+.dxwsc-main .dxpcLite_MetropolisIMB .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB,
+.dxwsc-main .dxpcLite_MetropolisIMB .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB td.dxrp
+{
+	font-size: 1.83em;
+}
+

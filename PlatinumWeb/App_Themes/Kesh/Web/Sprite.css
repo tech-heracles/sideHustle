@@ -1,0 +1,1198 @@
+.dxigControl_Kesh.dxTouchUI .dxWeb_igCloseButton_Kesh,
+.dxigControl_Kesh.dxTouchUI .dxWeb_igPauseButton_Kesh,
+.dxigControl_Kesh.dxTouchUI .dxWeb_igPlayButton_Kesh,
+.dxm-hovered .dxWeb_fmCopyButton_Kesh,
+.dxm-hovered .dxWeb_fmCreateButton_Kesh,
+.dxm-hovered .dxWeb_fmDeleteButton_Kesh,
+.dxm-hovered .dxWeb_fmDwnlButton_Kesh,
+.dxm-hovered .dxWeb_fmMoveButton_Kesh,
+.dxm-hovered .dxWeb_fmRefreshButton_Kesh,
+.dxm-hovered .dxWeb_fmRenameButton_Kesh,
+.dxm-hovered .dxWeb_mHorizontalPopOut_Kesh,
+.dxm-hovered .dxWeb_mVerticalPopOut_Kesh,
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_Kesh,
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_Kesh,
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_Kesh,
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_Kesh,
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_Kesh,
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_Kesh,
+.dxp-hoverDropDownButton .dxWeb_pPopOut_Kesh,
+.dxp-pressedDropDownButton .dxWeb_pPopOut_Kesh,
+.dxr-itemHover .dxWeb_rPopOut_Kesh,
+.dxrpCollapsed .dxWeb_rpCollapseButton_Kesh,
+.dxWeb_edtCheckBoxChecked_Kesh,
+.dxWeb_edtCheckBoxCheckedDisabled_Kesh,
+.dxWeb_edtCheckBoxGrayed_Kesh,
+.dxWeb_edtCheckBoxGrayedDisabled_Kesh,
+.dxWeb_edtCheckBoxUnchecked_Kesh,
+.dxWeb_edtCheckBoxUncheckedDisabled_Kesh,
+.dxWeb_fmCopyButton_Kesh,
+.dxWeb_fmCopyButtonDisabled_Kesh,
+.dxWeb_fmCreateButton_Kesh,
+.dxWeb_fmCreateButtonDisabled_Kesh,
+.dxWeb_fmDeleteButton_Kesh,
+.dxWeb_fmDeleteButtonDisabled_Kesh,
+.dxWeb_fmDwnlButton_Kesh,
+.dxWeb_fmDwnlButtonDisabled_Kesh,
+.dxWeb_fmFolder_Kesh,
+.dxWeb_fmFolderLocked_Kesh,
+.dxWeb_fmMoveButton_Kesh,
+.dxWeb_fmMoveButtonDisabled_Kesh,
+.dxWeb_fmRefreshButton_Kesh,
+.dxWeb_fmRefreshButtonDisabled_Kesh,
+.dxWeb_fmRenameButton_Kesh,
+.dxWeb_fmRenameButtonDisabled_Kesh,
+.dxWeb_fmThumbnailCheck_Kesh,
+.dxWeb_igCloseButton_Kesh,
+.dxWeb_igNavigationBarMarker_Kesh,
+.dxWeb_igNextButton_Kesh,
+.dxWeb_igNextButtonDisabled_Kesh,
+.dxWeb_igNextButtonHover_Kesh,
+.dxWeb_igNextButtonPressed_Kesh,
+.dxWeb_igPauseButton_Kesh,
+.dxWeb_igPlayButton_Kesh,
+.dxWeb_igPrevButton_Kesh,
+.dxWeb_igPrevButtonDisabled_Kesh,
+.dxWeb_igPrevButtonHover_Kesh,
+.dxWeb_igPrevButtonPressed_Kesh,
+.dxWeb_isDot_Kesh,
+.dxWeb_isDotDisabled_Kesh,
+.dxWeb_isDotPressed_Kesh,
+.dxWeb_isDotSelected_Kesh,
+.dxWeb_isNextBtnHor_Kesh,
+.dxWeb_isNextBtnHorDisabled_Kesh,
+.dxWeb_isNextBtnVert_Kesh,
+.dxWeb_isNextBtnVertDisabled_Kesh,
+.dxWeb_isNextPageBtnHor_Kesh,
+.dxWeb_isNextPageBtnHorDisabled_Kesh,
+.dxWeb_isNextPageBtnHorOutside_Kesh,
+.dxWeb_isNextPageBtnHorOutsideDisabled_Kesh,
+.dxWeb_isNextPageBtnVert_Kesh,
+.dxWeb_isNextPageBtnVertDisabled_Kesh,
+.dxWeb_isNextPageBtnVertOutside_Kesh,
+.dxWeb_isNextPageBtnVertOutsideDisabled_Kesh,
+.dxWeb_isPauseBtn_Kesh,
+.dxWeb_isPlayBtn_Kesh,
+.dxWeb_isPrevBtnHor_Kesh,
+.dxWeb_isPrevBtnHorDisabled_Kesh,
+.dxWeb_isPrevBtnVert_Kesh,
+.dxWeb_isPrevBtnVertDisabled_Kesh,
+.dxWeb_isPrevPageBtnHor_Kesh,
+.dxWeb_isPrevPageBtnHorDisabled_Kesh,
+.dxWeb_isPrevPageBtnHorOutside_Kesh,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Kesh,
+.dxWeb_isPrevPageBtnVert_Kesh,
+.dxWeb_isPrevPageBtnVertDisabled_Kesh,
+.dxWeb_isPrevPageBtnVertOutside_Kesh,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Kesh,
+.dxWeb_izEWCloseButton_Kesh,
+.dxWeb_izHint_Kesh,
+.dxWeb_mHorizontalPopOut_Kesh,
+.dxWeb_mScrollDown_Kesh,
+.dxWeb_mScrollUp_Kesh,
+.dxWeb_mSubMenuItem_Kesh,
+.dxWeb_mSubMenuItemChecked_Kesh,
+.dxWeb_mVerticalPopOut_Kesh,
+.dxWeb_mVerticalPopOutRtl_Kesh,
+.dxWeb_nbCollapse_Kesh,
+.dxWeb_nbExpand_Kesh,
+.dxWeb_pAll_Kesh,
+.dxWeb_pAllDisabled_Kesh,
+.dxWeb_pcCloseButton_Kesh,
+.dxWeb_pcCollapseButton_Kesh,
+.dxWeb_pcMaximizeButton_Kesh,
+.dxWeb_pcPinButton_Kesh,
+.dxWeb_pcRefreshButton_Kesh,
+.dxWeb_pcSizeGrip_Kesh,
+.dxWeb_pcSizeGripRtl_Kesh,
+.dxWeb_pFirst_Kesh,
+.dxWeb_pFirstDisabled_Kesh,
+.dxWeb_pLast_Kesh,
+.dxWeb_pLastDisabled_Kesh,
+.dxWeb_pNext_Kesh,
+.dxWeb_pNextDisabled_Kesh,
+.dxWeb_pPopOut_Kesh,
+.dxWeb_pPopOutDisabled_Kesh,
+.dxWeb_pPrev_Kesh,
+.dxWeb_pPrevDisabled_Kesh,
+.dxWeb_rMinBtn_Kesh,
+.dxWeb_rMinBtn_Kesh.dxWeb_rMinBtnHover_Kesh,
+.dxWeb_rMinBtn_Kesh.dxWeb_rMinBtnPressed_Kesh,
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtn_Kesh,
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtnHover_Kesh,
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtnPressed_Kesh,
+.dxWeb_rpCollapseButton_Kesh,
+.dxWeb_rPopOut_Kesh,
+.dxWeb_splHCollapseBackwardButton_Kesh,
+.dxWeb_splHCollapseBackwardButtonHover_Kesh,
+.dxWeb_splHCollapseForwardButton_Kesh,
+.dxWeb_splHCollapseForwardButtonHover_Kesh,
+.dxWeb_splHSeparator_Kesh,
+.dxWeb_splHSeparatorHover_Kesh,
+.dxWeb_splVCollapseBackwardButton_Kesh,
+.dxWeb_splVCollapseBackwardButtonHover_Kesh,
+.dxWeb_splVCollapseForwardButton_Kesh,
+.dxWeb_splVCollapseForwardButtonHover_Kesh,
+.dxWeb_splVSeparator_Kesh,
+.dxWeb_splVSeparatorHover_Kesh,
+.dxWeb_tcScrollLeft_Kesh,
+.dxWeb_tcScrollLeftDisabled_Kesh,
+.dxWeb_tcScrollLeftHover_Kesh,
+.dxWeb_tcScrollLeftPressed_Kesh,
+.dxWeb_tcScrollRight_Kesh,
+.dxWeb_tcScrollRightDisabled_Kesh,
+.dxWeb_tcScrollRightHover_Kesh,
+.dxWeb_tcScrollRightPressed_Kesh,
+.dxWeb_tvColBtn_Kesh,
+.dxWeb_tvColBtnRtl_Kesh,
+.dxWeb_tvExpBtn_Kesh,
+.dxWeb_tvExpBtnRtl_Kesh,
+.dxWeb_ucClearButton_Kesh,
+.dxWeb_ucClearButtonDisabled_Kesh
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxigControl_Kesh.dxTouchUI .dxWeb_igCloseButton_Kesh
+{
+    background-position: -50px -327px;
+    width: 23px;
+    height: 23px;
+}
+.dxigControl_Kesh.dxTouchUI .dxWeb_igPauseButton_Kesh
+{
+    background-position: -100px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxigControl_Kesh.dxTouchUI .dxWeb_igPlayButton_Kesh
+{
+    background-position: -78px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxm-hovered .dxWeb_fmCopyButton_Kesh
+{
+    background-position: -119px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmCreateButton_Kesh
+{
+    background-position: 0px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDeleteButton_Kesh
+{
+    background-position: -102px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDwnlButton_Kesh
+{
+    background-position: -119px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmMoveButton_Kesh
+{
+    background-position: -68px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRefreshButton_Kesh
+{
+    background-position: -102px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRenameButton_Kesh
+{
+    background-position: -17px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_mHorizontalPopOut_Kesh
+{
+    background-position: -89px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOut_Kesh
+{
+    background-position: -134px -198px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_Kesh
+{
+    background-position: -136px -407px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_Kesh
+{
+    background-position: -28px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_Kesh
+{
+    background-position: -56px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_Kesh
+{
+    background-position: -16px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_Kesh
+{
+    background-position: 0px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_Kesh
+{
+    background-position: -104px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxp-hoverDropDownButton .dxWeb_pPopOut_Kesh
+{
+    background-position: -128px -222px;
+    width: 7px;
+    height: 4px;
+}
+.dxp-pressedDropDownButton .dxWeb_pPopOut_Kesh
+{
+    background-position: -117px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxr-itemHover .dxWeb_rPopOut_Kesh
+{
+    background-position: -130px -144px;
+    width: 5px;
+    height: 3px;
+}
+.dxrpCollapsed .dxWeb_rpCollapseButton_Kesh
+{
+    background-position: 0px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_edtCheckBoxChecked_Kesh
+{
+    background-position: -119px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxCheckedDisabled_Kesh
+{
+    background-position: -34px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayed_Kesh
+{
+    background-position: 0px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayedDisabled_Kesh
+{
+    background-position: -68px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUnchecked_Kesh
+{
+    background-position: -124px -372px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUncheckedDisabled_Kesh
+{
+    background-position: -51px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButton_Kesh
+{
+    background-position: -51px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButtonDisabled_Kesh
+{
+    background-position: -68px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButton_Kesh
+{
+    background-position: -17px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButtonDisabled_Kesh
+{
+    background-position: -102px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButton_Kesh
+{
+    background-position: -85px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButtonDisabled_Kesh
+{
+    background-position: -34px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButton_Kesh
+{
+    background-position: -34px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButtonDisabled_Kesh
+{
+    background-position: -17px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolder_Kesh
+{
+    background-position: -85px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolderLocked_Kesh
+{
+    background-position: 0px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButton_Kesh
+{
+    background-position: -51px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButtonDisabled_Kesh
+{
+    background-position: -85px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButton_Kesh
+{
+    background-position: -102px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButtonDisabled_Kesh
+{
+    background-position: -17px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButton_Kesh
+{
+    background-position: 0px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButtonDisabled_Kesh
+{
+    background-position: -51px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmThumbnailCheck_Kesh
+{
+    background-position: -130px -132px;
+    width: 10px;
+    height: 11px;
+}
+.dxWeb_igCloseButton_Kesh
+{
+    background-position: -84px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_igNavigationBarMarker_Kesh
+{
+    background-position: -119px -352px;
+    width: 20px;
+    height: 16px;
+}
+.dxWeb_igNextButton_Kesh
+{
+    background-position: -46px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonDisabled_Kesh
+{
+    background-position: 0px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonHover_Kesh
+{
+    background-position: -92px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonPressed_Kesh
+{
+    background-position: -46px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPauseButton_Kesh
+{
+    background-position: -111px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPlayButton_Kesh
+{
+    background-position: -98px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPrevButton_Kesh
+{
+    background-position: 0px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonDisabled_Kesh
+{
+    background-position: -92px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonHover_Kesh
+{
+    background-position: 0px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonPressed_Kesh
+{
+    background-position: -46px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_isDot_Kesh
+{
+    background-position: -70px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotDisabled_Kesh
+{
+    background-position: -124px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotPressed_Kesh
+{
+    background-position: -110px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotSelected_Kesh
+{
+    background-position: -14px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isNextBtnHor_Kesh
+{
+    background-position: -111px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnHorDisabled_Kesh
+{
+    background-position: -92px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnVert_Kesh
+{
+    background-position: -30px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextBtnVertDisabled_Kesh
+{
+    background-position: -89px -327px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextPageBtnHor_Kesh
+{
+    background-position: -125px -302px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorDisabled_Kesh
+{
+    background-position: -74px -327px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorOutside_Kesh
+{
+    background-position: -13px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnHorOutsideDisabled_Kesh
+{
+    background-position: 0px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnVert_Kesh
+{
+    background-position: -66px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertDisabled_Kesh
+{
+    background-position: 0px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertOutside_Kesh
+{
+    background-position: 0px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isNextPageBtnVertOutsideDisabled_Kesh
+{
+    background-position: -98px -488px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPauseBtn_Kesh
+{
+    background-position: -72px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPlayBtn_Kesh
+{
+    background-position: -85px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPrevBtnHor_Kesh
+{
+    background-position: -103px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnHorDisabled_Kesh
+{
+    background-position: -122px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnVert_Kesh
+{
+    background-position: 0px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevBtnVertDisabled_Kesh
+{
+    background-position: -60px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevPageBtnHor_Kesh
+{
+    background-position: -125px -252px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorDisabled_Kesh
+{
+    background-position: -125px -277px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorOutside_Kesh
+{
+    background-position: -26px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Kesh
+{
+    background-position: -39px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnVert_Kesh
+{
+    background-position: -44px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertDisabled_Kesh
+{
+    background-position: -22px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertOutside_Kesh
+{
+    background-position: -90px -352px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Kesh
+{
+    background-position: -29px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_izEWCloseButton_Kesh
+{
+    background-position: -52px -198px;
+    width: 25px;
+    height: 25px;
+}
+.dxWeb_izHint_Kesh
+{
+    background-position: -36px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_mHorizontalPopOut_Kesh
+{
+    background-position: -122px -223px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_mScrollDown_Kesh
+{
+    background-position: 0px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mScrollUp_Kesh
+{
+    background-position: -42px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mSubMenuItem_Kesh
+{
+    background-position: -95px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mSubMenuItemChecked_Kesh
+{
+    background-position: -80px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mVerticalPopOut_Kesh
+{
+    background-position: -136px -218px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_mVerticalPopOutRtl_Kesh
+{
+    background-position: -136px -390px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_nbCollapse_Kesh
+{
+    background-position: -25px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_nbExpand_Kesh
+{
+    background-position: -100px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAll_Kesh
+{
+    background-position: -50px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAllDisabled_Kesh
+{
+    background-position: -75px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pcCloseButton_Kesh
+{
+    background-position: -88px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcCollapseButton_Kesh
+{
+    background-position: -64px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcMaximizeButton_Kesh
+{
+    background-position: -48px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcPinButton_Kesh
+{
+    background-position: -32px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcRefreshButton_Kesh
+{
+    background-position: -120px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcSizeGrip_Kesh
+{
+    background-position: -68px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pcSizeGripRtl_Kesh
+{
+    background-position: -85px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pFirst_Kesh
+{
+    background-position: -25px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pFirstDisabled_Kesh
+{
+    background-position: -75px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLast_Kesh
+{
+    background-position: 0px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLastDisabled_Kesh
+{
+    background-position: -25px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNext_Kesh
+{
+    background-position: -100px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNextDisabled_Kesh
+{
+    background-position: -100px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPopOut_Kesh
+{
+    background-position: -109px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPopOutDisabled_Kesh
+{
+    background-position: -101px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPrev_Kesh
+{
+    background-position: 0px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPrevDisabled_Kesh
+{
+    background-position: -75px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rMinBtn_Kesh
+{
+    background-position: -93px -189px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_Kesh.dxWeb_rMinBtnHover_Kesh
+{
+    background-position: -130px -157px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_Kesh.dxWeb_rMinBtnPressed_Kesh
+{
+    background-position: -130px -148px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtn_Kesh
+{
+    background-position: -92px -180px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtnHover_Kesh
+{
+    background-position: -92px -171px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Kesh.dxWeb_rMinBtnPressed_Kesh
+{
+    background-position: -127px -488px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rpCollapseButton_Kesh
+{
+    background-position: 0px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rPopOut_Kesh
+{
+    background-position: -95px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_splHCollapseBackwardButton_Kesh
+{
+    background-position: -125px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseBackwardButtonHover_Kesh
+{
+    background-position: -133px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButton_Kesh
+{
+    background-position: -90px -365px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButtonHover_Kesh
+{
+    background-position: -92px -164px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHSeparator_Kesh
+{
+    background-position: -58px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splHSeparatorHover_Kesh
+{
+    background-position: -82px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splVCollapseBackwardButton_Kesh
+{
+    background-position: -106px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseBackwardButtonHover_Kesh
+{
+    background-position: -113px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButton_Kesh
+{
+    background-position: -120px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButtonHover_Kesh
+{
+    background-position: -134px -210px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVSeparator_Kesh
+{
+    background-position: -125px -227px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_splVSeparatorHover_Kesh
+{
+    background-position: -122px -198px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_tcScrollLeft_Kesh
+{
+    background-position: -50px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftDisabled_Kesh
+{
+    background-position: 0px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftHover_Kesh
+{
+    background-position: -100px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftPressed_Kesh
+{
+    background-position: -75px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRight_Kesh
+{
+    background-position: -25px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightDisabled_Kesh
+{
+    background-position: -50px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightHover_Kesh
+{
+    background-position: -50px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightPressed_Kesh
+{
+    background-position: -25px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tvColBtn_Kesh
+{
+    background-position: -119px -327px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvColBtnRtl_Kesh
+{
+    background-position: -54px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtn_Kesh
+{
+    background-position: -18px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtnRtl_Kesh
+{
+    background-position: 0px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_ucClearButton_Kesh
+{
+    background-position: -34px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_ucClearButtonDisabled_Kesh
+{
+    background-position: -119px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxChecked_Kesh,
+.dxWeb_edtCheckBoxCheckedDisabled_Kesh,
+.dxWeb_edtCheckBoxGrayed_Kesh,
+.dxWeb_edtCheckBoxGrayedDisabled_Kesh,
+.dxWeb_edtCheckBoxUnchecked_Kesh,
+.dxWeb_edtCheckBoxUncheckedDisabled_Kesh
+{
+    background-color: #5D9AD3;
+}
+
+.dxWeb_rpHeaderTopLeftCorner_Kesh,
+.dxWeb_rpHeaderTopRightCorner_Kesh,
+.dxWeb_rpBottomLeftCorner_Kesh,
+.dxWeb_rpBottomRightCorner_Kesh,
+.dxWeb_rpTopLeftCorner_Kesh,
+.dxWeb_rpTopRightCorner_Kesh,
+.dxWeb_rpGroupBoxBottomLeftCorner_Kesh,
+.dxWeb_rpGroupBoxBottomRightCorner_Kesh,
+.dxWeb_rpGroupBoxTopLeftCorner_Kesh,
+.dxWeb_rpGroupBoxTopRightCorner_Kesh,
+.dxWeb_mHorizontalPopOut_Kesh,
+.dxWeb_mHorizontalPopOutHover_Kesh,
+.dxWeb_mVerticalPopOut_Kesh,
+.dxWeb_mVerticalPopOutHover_Kesh,
+.dxWeb_mVerticalPopOutRtl_Kesh,
+.dxWeb_mVerticalPopOutHoverRtl_Kesh,
+.dxWeb_mSubMenuItem_Kesh,
+.dxWeb_mSubMenuItemChecked_Kesh,
+.dxWeb_mScrollUp_Kesh,
+.dxWeb_mScrollUpHover_Kesh,
+.dxWeb_mScrollDown_Kesh,
+.dxWeb_mScrollDownHover_Kesh,
+.dxWeb_tcScrollLeft_Kesh,
+.dxWeb_tcScrollRight_Kesh,
+.dxWeb_tcScrollLeftHover_Kesh,
+.dxWeb_tcScrollRightHover_Kesh,
+.dxWeb_tcScrollLeftPressed_Kesh,
+.dxWeb_tcScrollRightPressed_Kesh,
+.dxWeb_tcScrollLeftDisabled_Kesh,
+.dxWeb_tcScrollRightDisabled_Kesh,
+.dxWeb_nbCollapse_Kesh,
+.dxWeb_nbExpand_Kesh,
+.dxWeb_splVSeparator_Kesh,
+.dxWeb_splVSeparatorHover_Kesh,
+.dxWeb_splHSeparator_Kesh,
+.dxWeb_splHSeparatorHover_Kesh,
+.dxWeb_splVCollapseBackwardButton_Kesh,
+.dxWeb_splVCollapseBackwardButtonHover_Kesh,
+.dxWeb_splHCollapseBackwardButton_Kesh,
+.dxWeb_splHCollapseBackwardButtonHover_Kesh,
+.dxWeb_splVCollapseForwardButton_Kesh,
+.dxWeb_splVCollapseForwardButtonHover_Kesh,
+.dxWeb_splHCollapseForwardButton_Kesh,
+.dxWeb_splHCollapseForwardButtonHover_Kesh,
+.dxWeb_pcCloseButton_Kesh,
+.dxWeb_pcPinButton_Kesh,
+.dxWeb_pcRefreshButton_Kesh,
+.dxWeb_pcCollapseButton_Kesh,
+.dxWeb_pcMaximizeButton_Kesh,
+.dxWeb_pcSizeGrip_Kesh,
+.dxWeb_pcSizeGripRtl_Kesh,
+.dxWeb_pPopOut_Kesh,
+.dxWeb_pPopOutDisabled_Kesh,
+.dxWeb_pAll_Kesh,
+.dxWeb_pAllDisabled_Kesh,
+.dxWeb_pPrev_Kesh,
+.dxWeb_pPrevDisabled_Kesh,
+.dxWeb_pNext_Kesh,
+.dxWeb_pNextDisabled_Kesh,
+.dxWeb_pLast_Kesh,
+.dxWeb_pLastDisabled_Kesh,
+.dxWeb_pFirst_Kesh,
+.dxWeb_pFirstDisabled_Kesh,
+.dxWeb_tvColBtn_Kesh,
+.dxWeb_tvColBtnRtl_Kesh,
+.dxWeb_tvExpBtn_Kesh,
+.dxWeb_tvExpBtnRtl_Kesh,
+.dxWeb_fmFolder_Kesh,
+.dxWeb_fmFolderLocked_Kesh,
+.dxWeb_fmCreateButton_Kesh,
+.dxWeb_fmMoveButton_Kesh,
+.dxWeb_fmRenameButton_Kesh,
+.dxWeb_fmDeleteButton_Kesh,
+.dxWeb_fmRefreshButton_Kesh,
+.dxWeb_fmDwnlButton_Kesh,
+.dxWeb_fmCreateButtonDisabled_Kesh,
+.dxWeb_fmMoveButtonDisabled_Kesh,
+.dxWeb_fmRenameButtonDisabled_Kesh,
+.dxWeb_fmDeleteButtonDisabled_Kesh,
+.dxWeb_fmRefreshButtonDisabled_Kesh,
+.dxWeb_fmDwnlButtonDisabled_Kesh,
+.dxWeb_fmThumbnailCheck_Kesh,
+.dxWeb_ucClearButton_Kesh,
+.dxWeb_isPrevBtnHor_Kesh,
+.dxWeb_isNextBtnHor_Kesh,
+.dxWeb_isPrevBtnVert_Kesh,
+.dxWeb_isNextBtnVert_Kesh,
+.dxWeb_isPrevPageBtnHor_Kesh,
+.dxWeb_isPrevPageBtnHorOutside_Kesh,
+.dxWeb_isNextPageBtnHor_Kesh,
+.dxWeb_isNextPageBtnHorOutside_Kesh,
+.dxWeb_isPrevPageBtnVert_Kesh,
+.dxWeb_isPrevPageBtnVertOutside_Kesh,
+.dxWeb_isNextPageBtnVert_Kesh,
+.dxWeb_isNextPageBtnVertOutside_Kesh,
+.dxWeb_isPrevBtnHorDisabled_Kesh,
+.dxWeb_isNextBtnHorDisabled_Kesh,
+.dxWeb_isPrevBtnVertDisabled_Kesh,
+.dxWeb_isNextBtnVertDisabled_Kesh,
+.dxWeb_isPrevPageBtnHorDisabled_Kesh,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Kesh,
+.dxWeb_isNextPageBtnHorDisabled_Kesh,
+.dxWeb_isNextPageBtnHorOutsideDisabled_Kesh,
+.dxWeb_isPrevPageBtnVertDisabled_Kesh,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Kesh,
+.dxWeb_isNextPageBtnVertDisabled_Kesh,
+.dxWeb_isNextPageBtnVertOutsideDisabled_Kesh,
+.dxWeb_isDot_Kesh,
+.dxWeb_isDotDisabled_Kesh,
+.dxWeb_isDotSelected_Kesh,
+.dxWeb_isPlayBtn_Kesh,
+.dxWeb_isPauseBtn_Kesh,
+.dxWeb_igCloseButton_Kesh,
+.dxWeb_igNextButton_Kesh,
+.dxWeb_igPrevButton_Kesh,
+.dxWeb_igPlayButton_Kesh,
+.dxWeb_igPauseButton_Kesh,
+.dxWeb_igNavigationBarMarker_Kesh
+{
+    display: block;
+}
+.dxWeb_mScrollUp_Kesh, .dxWeb_mScrollDown_Kesh
+{
+	margin: auto;
+}
+

@@ -1,0 +1,79 @@
+
+.opacityLayerPanel .x-panel-header {
+    /*
+    background-color: white;*/
+    background-image: none;
+    border: none;
+}
+
+.tableclass
+{
+    /*border:1px solid #B2DFEE;
+    background-color:#B0E2FF;*/
+}
+.tablelabel
+{
+    background-color:#B2DFEE;
+    color:white;
+}
+.tableinput
+{
+    background-color:#B2DFEE;
+
+}
+.tablerow
+{
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+
+    padding: 6px 6px 6px 12px;
+    /*color: #5959AB;
+    background: #C3E4ED;*/
+
+}
+
+
+.ngjyraGjelber {
+    /* background-color: #CCFFCC;
+    background-color: #d5e5e3;*/
+    background-color:#d5e5e3;
+}
+.ngjyraGjelber2 {
+
+    background-color:#d3e1ea;
+}
+
+.ngjyraKuqe {
+    background-color: #f29195;
+}
+
+
+
+.titulliInformacionit
+{
+    text-align:justify;
+    color:#bc2828;
+    font-weight: bold;
+    font-style:bold;
+    font-size: 13px;
+}
+.trupiInformacionit
+{
+    padding:2px;
+    font-size: 13px;
+}
+.divInformacionOverLayInfo
+{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-right:10px;
+    padding-left:10px;
+
+    text-align:justify;
+}
+
+
+.olImageLoadError { 
+    /* when OL encounters a 404, don't display the pink image */
+    display: none !important;
+} 

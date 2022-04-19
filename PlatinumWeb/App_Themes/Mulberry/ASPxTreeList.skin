@@ -1,0 +1,16 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxTreeList" Assembly="DevExpress.Web.ASPxTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dx:ASPxTreeList runat="server" CssFilePath="{0}/styles.css" CssPostfix="Mulberry">
+    <SettingsPager CurrentPageNumberFormat="{0}">
+    </SettingsPager>
+
+    <Images SpriteCssFilePath="{0}/sprite.css">
+    </Images>
+
+    <Styles CssPostfix="Mulberry" CssFilePath="{0}/styles.css">
+        <CustomizationWindowContent VerticalAlign="Top"></CustomizationWindowContent>
+    </Styles>
+</dx:ASPxTreeList>
+
+

@@ -1,0 +1,257 @@
+/* ----------------- Main ----------------- */
+/* Loading panel */
+.dxheLoadingDiv_Vodafone
+{
+    background: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+.dxheLoadingPanel_Vodafone
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxheLoadingPanel_Vodafone td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxheLoadingPanel_Vodafone .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+.dxheControl_Vodafone
+{
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+
+/* Area */
+.dxheContentArea_Vodafone
+{
+    padding: 6px 4px;
+}
+.dxheErrorFrame_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #D00707;
+	background-color: #FBC7C7;
+	margin-bottom: 6px;
+}
+.dxheErrorFrame_Vodafone .dxhe 
+{
+    padding: 5px;
+}
+.dxheErrorFrame_Vodafone .dxhe td 
+{
+    padding: 0;
+}
+.dxheErrorFrame_Vodafone .dxheErrorFrameCloseButton_Vodafone 
+{
+    cursor: pointer;
+}
+.dxheContentArea_Vodafone td.dxheViewArea_Vodafone /*B209529*/
+{
+    line-height: 0;
+}
+.dxheControl_Vodafone .dxheHtmlViewArea_Vodafone,
+.dxheDesignViewArea_Vodafone,
+.dxhePreviewArea_Vodafone 
+{
+    margin: 0px;
+    background: none #FFFFFF;
+    border: 0;
+    font-size: smaller;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.dxheContentArea_Vodafone .dxeMemo_Vodafone td,
+body.dxheDesignViewArea_Vodafone,
+body.dxhePreviewArea_Vodafone
+{
+    padding: 0 4px 0 4px;
+}
+.dxheControl_Vodafone .dxheContentArea_Vodafone .dxeMemo_Vodafone td
+{
+    padding-right: 0;
+}
+.dxheContentArea_Vodafone .dxeMemoEditArea_Vodafone
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+.dxheControl_Vodafone.dxhe-rtl .dxheContentArea_Vodafone .dxeMemo_Vodafone td
+{
+	padding: 0 4px 0 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    .dxheControl_Vodafone.dxhe-rtl .dxheContentArea_Vodafone .dxeMemo_Vodafone td
+    {
+	    padding: 0 0 0 4px;
+    }
+}
+.dxheControl_Vodafone .dxeMemo_Vodafone textarea 
+{
+	resize: none;
+}
+/* Element appearance in DesignView */
+body.dxheDesignViewArea_Vodafone table.dxEmptyBorderTable,
+body.dxheDesignViewArea_Vodafone table.dxEmptyBorderTable td  {
+    border:1px dotted gray;
+}
+@media print 
+{
+	body.dxheDesignViewArea_Vodafone table.dxEmptyBorderTable,
+	body.dxheDesignViewArea_Vodafone table.dxEmptyBorderTable td  
+	{
+		border:0px;
+	}
+}
+body.dxheDesignViewArea_Vodafone
+{
+    word-wrap: inherit;
+}
+body.dxheDesignViewArea_Vodafone pre
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Status Bar */
+.dxheStatusBar_Vodafone 
+{
+}
+.dxheControl_Vodafone .dxheStatusBar_Vodafone .dxheStatusBarTab_Vodafone .dxtc-link 
+{
+    padding: 4px 12px 5px 11px;
+}
+.dxheStatusBarActiveTab_Vodafone 
+{
+}
+.dxHtmlEditor_heSizeGrip_Vodafone
+{
+    cursor: se-resize;
+}
+.dxHtmlEditor_heSizeGripRtl_Vodafone
+{
+    cursor: ne-resize;
+}
+.dxheSizeGripContainer_Vodafone
+{
+    width: 100%;
+    text-align: right;
+    font-size: 0;
+    margin-top: -16px;
+}
+.dxheControl_Vodafone.dxhe-rtl .dxheSizeGripContainer_Vodafone 
+{
+	text-align: left;
+}
+/* ----------------- Dialog Forms ----------------- */
+.dxpcLite_Vodafone .dxheDlgFooter,
+.dxpcLite_Vodafone .dxheCustomDialog_Vodafone .dxhecd-Buttons
+{
+    background-color: white;
+    border-top: Solid 1px #E0E0E0;
+	padding: 10px 11px;
+	text-align: right;
+}
+.dxpcLite_Vodafone.dxRtl .dxheDlgFooter,
+.dxpcLite_Vodafone.dxRtl .dxheCustomDialog_Vodafone .dxhecd-Buttons
+{
+    text-align: left;
+}
+.dxpcLite_Vodafone .dxheDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxpcLite_Vodafone.dxRtl .dxheDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+/* Insert Image Form */
+.dxpcLite_Vodafone .dxheDlgInsertImageForm .dxheDlgImagePreviewCell,
+.dxpcLite_Vodafone .dxheDlgSelectImageForm .dxheDlgImagePreviewCell
+{
+    color: #878787;
+    border: dashed 1px #cac8c8;
+}
+.dxpcLite_Vodafone .dxheDlgPasteFromWordForm .dxheDlgPasteContainerCell td
+{
+	border: Solid 1px #9F9F9F;
+}
+/*----------------- Toolbars -----------------*/
+.dxtbSpacing_Vodafone
+{
+	height: 1px;
+}
+.dxtbControl_Vodafone 
+{
+    color: #333333;
+    width: 100%;
+    border-bottom: Solid 1px #c0c0c0;
+}
+.dxtbControl_Vodafone td.dxmMenu_Vodafone
+{
+	border-width: 0px;
+}
+.dxtbControl_Vodafone .dxmLite_Vodafone .dxm-main 
+{
+	background-color: #FFFFFF;
+}
+.dxtbControl_Vodafone .dxmLite_Vodafone .dxmtb.dxm-horizontal .dxm-separator b
+{
+	background-color: #c0c0c0;
+}
+.dxtbComboBoxMenuItem_Vodafone
+{
+    padding-top: 2px;
+}
+.dxheControl_Vodafone .dxrControl_Vodafone .dxr-minBtn
+{
+    padding-right: 8px;
+}
+.dxheControl_Vodafone .dxtbControl_Vodafone.dxtbr_Vodafone,
+.dxheControl_Vodafone .dxrControl_Vodafone .dxpc-mainDiv.dxr-minPopup
+{
+    border: 0;
+}
+
+/* Toolbars Lightweight Mode */
+.dxtbControl_Vodafone .dxmLite_Vodafone .dxm-main 
+{
+    border-width: 0px;
+}
+.dxmLite_Vodafone .dxhetipControl_Vodafone img
+{
+	vertical-align: top;
+}
+.dxtbControl_Vodafone .dxm-horizontal.dxmtb .dxm-dropDownMode .dxtcbColorDiv_Vodafone
+{
+    margin-top: -1px;
+    margin-bottom: -2px;
+}
+
+/* ToolbarColorButton */
+.dxtcbControl_Vodafone { }
+.dxtcbColorDiv_Vodafone
+{
+	width: 16px;
+	height: 3px;
+	font-size: 0;
+	background-color: Transparent;
+}
+
+/*----------------- RoundPanel -----------------*/
+.dxheRP.dxrpControl_Vodafone .dxrpcontent_Vodafone
+{
+    padding: 9px 10px 10px 10px !important;
+}

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mbyllje Periudhe</title>
+
+    <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="Content/dx.common.css" />
+    <link rel="dx-theme" data-theme="generic.alphaweb" href="Content/dx.generic.alphaweb.css" data-active="true" />
+    <link rel="dx-theme" data-theme="generic.alphaweb.compact" href="Content/dx.generic.alphaweb-compact.css" data-active="false" />
+
+
+    <!-- A DevExtreme library -->
+    <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
+    <link href="css/awStepper.css" type="text/css" rel="stylesheet" />
+    <script src="DX.ashx?jsfileset=~/Scripts/jquery-3.4.1.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui.min.js;~/js/myMesazh-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/myDxDataGrid.js;~/js/components/MenuToolbar.js;~/js/components/Wizard.js;~/js/components/ReportViewer.js;;~/js/components/TabPanel.js;~/js/components/awStepper.js;~/js/html.js/MbylljePeriudheWizard-IMB.9.2.js;~/js/html.js/MbylljePeriudhe-IMB.9.2.js&v76"
+            type="text/javascript"></script>
+    <style>
+        html {
+            width: 99%;
+            height: 95.95%;
+        }
+
+        @media screen and (min-width: 1366px) {
+            html {
+                width: 99%;
+                height: 97.6%;
+            }
+        }
+
+        body {
+            width: 100%;
+            height: inherit;
+            margin: 0.5%;
+        }
+
+        #pageContainer {
+            height: inherit;
+        }
+    </style>
+</head>
+<body id="mbylljePeriudhe" class="dx-viewport">
+    <!--#region PageContainer-->
+    <div id="pageContainer">
+        <div id="drawer" class="mbylljePeriudheDrawer">
+            <div id="toolbar" class="mbylljePeriudheDrawer"></div>
+            <div id="tabPanel" class="mbylljePeriudheTab"></div>
+        </div>
+    </div>
+    <!--#endregion -->
+
+    <!--#region PopUp Container-->
+    <div id="wizardPopUp"></div>
+    <!--#endregion -->
+
+    <!--#region Wizard Templates-->
+
+    <script type="text/html" id="entitetiTemplate">
+        <div id="entiteti-view" class="multiview-item">
+            <div class="scrollable-container">
+                <div id="entitete-items" class="bootstrap-iso col-md-12">
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="veprimiTemplate">
+        <div id="action-view" class="multiview-item">
+            <div>
+                <div class="scrollable-container">
+                    <div id="actions-items" class="bootstrap-iso col-md-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="periudhaTemplate">
+        <div id="periudha-view" class="multiview-item">
+            <div>
+                <div class="viti-container">
+                    <div class="viti-label">Viti</div>
+                    <div id="years-items" class="viti-editor"></div>
+                </div>
+                <div class="scrollable-container">
+                    <div id="months-items" class="container bootstrap-iso col-md-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="progresiTemplate">
+        <div id="progress-view" class="multiview-item">
+            <div>
+                <div class="multiview-item-body"><div id='process-progressBar' class="process-progressBar"></div></div>
+            </div>
+        </div>
+    </script>
+    <!--#endregion -->
+
+</body>
+</html>

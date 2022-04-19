@@ -1,0 +1,15 @@
+<svg width="23.999999999999996" height="23.999999999999996" xmlns="http://www.w3.org/2000/svg">
+
+ <style>.st0{fill:#3D3D3D;}</style>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect fill="none" height="24" width="24" y="0" x="0" id="svgEditorBackground"/>
+  <path id="svg_1" d="m18,6l-6,0l0,-6l-12,0l0,20l8,0l0,-10l2,-2l8,0l0,-2z" class="st0"/>
+  <polygon fill=" rgb(61, 61, 61)" points="14 3.94118 17.9118 3.94118 14 0.0588235" id="e2_polygon"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Junction, sans-serif" font-size="null" id="svg_3" y="21.004937" x="10.618423" stroke-width="NaN" stroke="#333333" fill="#333333">B</text>
+ </g>
+</svg>

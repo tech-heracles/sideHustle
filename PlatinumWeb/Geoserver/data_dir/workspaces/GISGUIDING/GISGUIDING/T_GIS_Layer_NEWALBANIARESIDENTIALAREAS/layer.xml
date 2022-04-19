@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_NEWALBANIARESIDENTIALAREAS</name>
+  <id>LayerInfoImpl--dbecf10:1591d9f8b2f:389e</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591d9f8b2f:389a</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591d9f8b2f:389d</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

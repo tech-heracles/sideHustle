@@ -1,0 +1,645 @@
+/*DEAFULT Ext*/
+.x-window {
+    width: auto;
+    height: auto;
+}
+
+.x-tab-panel {
+    width: auto;
+    height: auto;
+}
+
+.x-panel {
+    width: auto;
+    height: auto;
+}
+
+/*END DEAFULT Ext*/
+
+.fshiheRecNeInfo {
+    display: none;
+}
+
+.kordinatatPoshte {
+    margin-top : 2px;
+    margin-bottom : 2px;
+    margin-left : 10px;
+    margin-right : 10px;
+
+    background-color: white;
+    opacity: 0.8;
+    position: relative;
+    font-family: Tahoma;
+    font-size: 12px;
+}
+
+div.olControlMousePosition {
+    bottom: 20px;
+    right: 0;
+    background-color: white;
+    opacity: 0.8;
+    font-family: Tahoma;
+}
+
+#teProjektuaraMousePosition {
+    bottom:15px;
+}
+
+/*Sessioni i mesazheve ne fund te hartes*/
+a[href^="http://maps.google.com/maps"] {
+    display: compact;
+}
+
+.gmnoprint a, .gmnoprint span {
+    display: inherit;
+}
+.gmnoprint div {
+    display:none;
+}
+
+#map-report a img { 
+    display:none;
+} 
+
+.gm-style-cc:last-child {
+    display:none;
+}
+
+.njoftimeRezultateCss {
+    position : absolute;   
+    right:30%;
+    font-family: Arial;
+    font-size: smaller;
+    bottom: 32px;
+    background-color:white;
+    color: #56769e;
+    border:1px solid #a1a1a1;
+    text-align: center;
+    width: 400px; 
+}
+
+.njoftimeRezultateCss table {
+    padding:10px; 
+    background-color:white;
+    width:450px;height:200px;
+    table-layout:fixed;
+}
+
+.njoftimeRezultateCss td {
+    width:100px;
+    text-align:center;
+    color:#000000;
+}
+
+.njoftimeRezultateCss th {
+    background-color: #ebebeb;
+    font-weight:bold;
+    text-align:center;
+}
+
+.njoftimeRezultateCss .elem1 {
+    text-align:left;
+}
+
+.prevon {
+    background-image: url(../../../../images/GIS/DEFAULT/menuBackActiv.png)!important;
+    background: no-repeat;
+}
+ .prevoff {
+    background-image: url(../../../../images/GIS/DEFAULT/menuBackInactiv.png)!important;
+    background: no-repeat;
+}
+.nexton {
+    background-image: url(../../../../images/GIS/DEFAULT/menuForwardActiv.png)!important;
+    background: no-repeat;
+}
+.nextoff {
+    background-image: url(../../../../images/GIS/DEFAULT/menuForwardInactiv.png)!important;
+    background: no-repeat;
+}
+.olControlLoadingPanel {
+    background-image:url(../../../../images/GIS/loading.gif);
+    position:absolute;
+    background-position:90%;
+    background-repeat:no-repeat;
+    position: center;
+    height: 20px;
+    width: 100px;
+    bottom:50px;
+    left: 50%;
+    background-color:#ebebeb;
+    opacity: 0.9;
+    display: none;
+    z-index: 1000;
+}
+
+.olControlLoadingPanel:after {
+    content: 'Loading ... ';
+    font-family: Tahoma;
+    font-size: 13px;
+    position: relative;
+    color: grey;
+    display: inline-block;
+    left: 10px;
+    color:gray;
+}
+
+.olControlLayerSwitcher .layersDiv {
+    background-color:#ebebeb !important;
+    color:#000000 !important;
+    opacity:0.90;
+    font-family: sans-serif !important;
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    width: 180px;
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.olControlLayerSwitcher {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: smaller;
+    font-weight: bold;    
+}
+
+div.olMapViewport {
+    text-align: left;
+}
+
+div.olMap {
+    cursor: default;
+}
+
+.olAlphaImg {
+    background-color:#ebebeb;  
+}
+
+div.olControlScaleLine {
+   display: block;
+   position: absolute;
+   left: 5px;
+   bottom: 30px;
+   font-family: Tahoma;
+   font-size: 7pt;
+}
+div.olControlScaleLineBottom {
+   border: solid 2px ;
+   border-bottom: none;
+   margin-top:-2px;
+   text-align: center;
+   background-color: white;
+   opacity: 0.7;
+}
+div.olControlScaleLineTop {
+   border: solid 2px ;
+   border-top: none;
+   text-align: center;
+   background-color: white;
+   opacity: 0.7;
+}
+
+div.olControlOverviewMapContainer {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+div.olControlOverviewMapElement {
+    opacity: 0.8;
+    padding: 8px 15px 8px 8px;
+    background-color: #f9f9f9;
+    -moz-border-radius: 1em 0 0 0;
+}
+div.olControlOverviewMapMinimizeButton,
+div.olControlOverviewMapMaximizeButton {
+    height: 15px;
+    width: 15px;
+    right: 0;
+    bottom: 85px;
+    cursor: pointer;
+}
+
+
+.headerImgPanel {
+    display:inline-block;  
+    vertical-align:top;
+}
+
+.headerdivTitlePanel {
+    display:inline-block;
+    float: left;
+    padding:5px 20px 5px 20px;
+}
+
+.x-toolbar td {
+    vertical-align: bottom;
+}
+
+.x-toolbar .xtb-sep {
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    font-size: 1px;
+    height: 16px;
+    width: 5px;
+    overflow: hidden;
+    cursor: default;
+    margin: 0 2px 0;
+    border: 0;
+}
+
+.ext-webkit .x-small-editor .x-form-text {
+    padding-top: 2px;
+    font-size: 100%;
+    padding-bottom: 2px;
+}
+
+.btn_usr_log {
+    color: #ffffff;
+    font-family: Georgia;
+    font-size: large;
+    font-weight: bold;
+}
+
+.x-panel-body {
+    border-top: 0 none;
+    overflow: hidden;
+    position: relative;
+}
+
+.x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
+    border-width: 0 0 0 0px;
+}
+
+.combBlackText {
+    color: #000;   
+}
+
+.textFieldKerkimiTabelarCss {
+    position: relative;
+    margin-top: 5%;
+    margin-bottom: 5%;    
+}
+
+.combokerkimFilter {
+    width: 130px;
+}
+
+.ExcelButtonKerkim {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.butoniKerkimHapesinor {
+    margin-top: 50%;
+    margin-bottom: 45%;
+    padding: 10px;    
+}
+
+.x-btn-tl,.x-btn-tr, .x-btn-tc, .x-btn-ml,.x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc {
+    background-image: url("../../ext-3.4.0/resources/images/gray/button/btn.gif");
+}
+
+div.olControlZoom a {
+    color: #9FB6CD !important;
+    background: #130085;
+    display: block;
+    margin: 1px;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    height: 22px;
+    width: 22px;
+    line-height: 19px;
+    background: rgba(230, 230, 230, 0.8) !important;
+    filter: alpha(opacity=80);
+}
+
+/* Dritare Printimi */
+.printWindow .x-panel-body {
+    padding: 3px;
+}
+
+.printWindow .x-panel-tbar {
+    height: 0px;
+}
+
+.printWindow .x-panel-bbar {
+    height: 0px;
+}
+
+/* MZHU Dritare Info */
+.mzhuInfoHeaderWindow .x-window-header-text {
+    font-size: 14px;
+    font-family: tahoma;
+}
+.mzhuInfoHeaderPanel {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+}
+.mzhuInfoHeaderPanelTabe .x-tab-strip-top .x-tab-strip-active .x-tab-right span.x-tab-strip-text { 
+    color: #6c1b78;
+    font-family: tahoma;
+    font-size: 13px;
+}
+.mzhuInfoHeaderPanelTabe .x-tab-strip-top .x-tab-right span.x-tab-strip-text {
+    font-family: tahoma;
+}
+.mzhuInfoHeaderBackground {
+    height: 175px;
+    width: 750px; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display:inline-block;
+ }
+.mzhuInfoHeaderTabelaRed {
+    position: relative;
+    left: 5px;
+    bottom: -108px;
+    color: #dcdcdc;  
+    background: rgba(255,0,0,0.6); /*rgba(108,27,120,0.8);*/
+}
+.mzhuInfoHeaderTabelaGreen {
+    position: relative;
+    left: 5px;
+    bottom: -108px;
+    color: #dcdcdc;  
+    background: rgba(0,128,0,0.78); 
+}
+.mzhuInfoHeaderTabelaTrCss1 {
+   padding-top: 10px; 
+}
+.mzhuInfoHeaderTabelaTrCss2 td {
+   padding-top: 10px; 
+}
+.mzhuInfoHeaderTabelaTdCss1 {
+    font-weight: bold;
+    font-size: 11px;
+    font-family: Tahoma;
+    vertical-align: top;
+    padding-left: 5px; 
+    padding-top: 5px; 
+}
+.mzhuInfoHeaderTabelaTdCss2 {
+    font-size: 11px;
+    font-family: Tahoma;
+    text-align:left;
+    padding-right: 5px;
+    padding-top: 5px; 
+}
+.mzhuInfoHeaderTabelaTdCss3 {
+    font-size: 11px;
+    font-family: Tahoma;
+    padding-right: 7px;
+    padding-top: 5px; 
+}
+.mzhuInfoHeaderTabelaLabelCss1 {
+    width: 92px;
+    height: 6px;
+    display: inline-block;
+    font-family: Tahoma;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 12px;
+}
+.mzhuInfoHeaderDivSkica {
+    color: #6c1b78;
+    float: right;
+    float: right;
+    margin-right: 5px;
+    margin-top: 70px;
+}
+.mzhuInfoHeaderSkicaButton {
+    width: 133px;
+    height: 37px;
+    display: inline-block;
+    font-family: 'Tahoma';
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    color: #6c1b78;
+    background-color: rgba(235,235,235,0.7); 
+    cursor: pointer;
+}
+
+.mzhuInfoBodyPanel {
+    margin:20px;  
+}
+.mzhuInfoBodyDivAttribute {
+    display: inline;
+    float: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    width: 97%;    
+}
+.mzhuInfoBodyTable {
+    color: black;
+    font-family: Arial;
+    font-size: 14px;    
+}
+.mzhuInfoBodyTableTdCss2 {
+    text-align: right;
+    padding-top: 4px; 
+}
+.mzhuInfoBodyTableTdCss1 {
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Arial;
+    vertical-align: top;
+    padding-left: 5px; 
+    padding-top: 5px; 
+    width: 20%;
+}
+
+.mzhuInfoFooterDivImages {
+    width: 720px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 180px;
+    white-space:nowrap;
+}
+.mzhuInfoFooterImage {
+    padding-top: 20px;  
+    padding-left: 10px;  
+    padding-right: 10px;  
+    padding-bottom: 20px; 
+    width: 220px;
+    height: 130px;    
+}
+.mzhuInfoFooterPanel {
+    float: left;
+    border-top: 2px solid;
+    border-color: #6c1b78;
+    margin: 10px;
+    margin: 20px;
+}
+/* END MZHU Dritare Info */
+
+
+/* Ngjyrosje */
+/* RED */
+.toolbarKryesorRed {
+     background-color: #bc2828;
+     background-image: none;
+}
+.copyRightRed {
+    color: #bc2828;
+    position: absolute;
+    height: 19px;
+    width: 100%;
+    left:40%;
+    font-family: Arial;
+    font-size: 10px;
+    bottom: -6px;    
+}
+.popWindowRed .x-window-tl .x-window-header {
+    color: #bc2828;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+.popPanelRed .x-panel-header {
+    color:#bc2828;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border-color: #d0d0d0;  
+}
+.cmbKerkimShpejtRed {
+    color: #bc2828;   
+    font-weight: bold;
+}
+.butoniKerkimHapesinorRed .x-btn.x-btn-icon.x-btn-pressed {
+    background: #bc2828 !important;      
+}
+.dritarjaInformueseOverlayRed .x-window-header-text:before {
+    content: url(../images/GIS/Red/infoTitle.png);
+    padding-right: 10px;
+    padding-right: 10px;
+}
+.divPoshtefigTabDivRed {
+    border-color: #bc2828;
+    float: left;
+    border-top: 2px solid;
+    margin: 10px;
+    margin: 20px;      
+}
+.layerSwitchTitulliRed {
+    color:  #bc2828;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+
+
+/* PURPLE */
+.toolbarKryesorPurple {
+     background-color:  #6c1b78;
+     background-image: none;
+}
+.copyRightPurple {
+    color: #6c1b78;
+    position: absolute;
+    height: 19px;
+    width: 100%;
+    left:40%;
+    font-family: Arial;
+    font-size: 10px;
+    bottom: -6px;    
+}
+.popWindowPurple .x-window-tl .x-window-header {
+    color: #6c1b78;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+.popPanelPurple .x-panel-header {
+    color: #6c1b78;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border-color: #d0d0d0;  
+}
+.cmbKerkimShpejtPurple {
+    color: #6c1b78;   
+    font-weight: bold;
+}
+.butoniKerkimHapesinorPurple .x-btn.x-btn-icon.x-btn-pressed {
+    background:#6c1b78 !important;      
+}
+.dritarjaInformueseOverlayPurple .x-window-header-text:before {
+    content: url(../images/GIS/Purple/infoTitle.png);
+    padding-right: 10px;
+    padding-right: 10px;
+}
+.divPoshtefigTabDivPurple {
+    border-color: #6c1b78;
+    float: left;
+    border-top: 2px solid;
+    margin: 10px;
+    margin: 20px;      
+}
+.layerSwitchTitulliPurple {
+    color:  #6c1b78;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+
+
+
+/* BLUE */
+.toolbarKryesorBlue {
+     background-color:  #0072C6;
+     background-image: none;
+}
+.copyRightBlue {
+    color: #6c1b78;
+    position: absolute;
+    height: 19px;
+    width: 100%;
+    left:40%;
+    font-family: Arial;
+    font-size: 10px;
+    bottom: -6px;    
+}
+.popWindowBlue .x-window-tl .x-window-header {
+    color: #0072C6;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+.popPanelBlue .x-panel-header {
+    color:#0072C6;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border-color: #d0d0d0;  
+}
+.cmbKerkimShpejtBlue {
+    color: #0072C6;   
+    font-weight: bold;
+}
+.butoniKerkimHapesinorBlue .x-btn.x-btn-icon.x-btn-pressed {
+    background:#0072C6 !important;      
+}
+.dritarjaInformueseOverlayBlue .x-window-header-text:before {
+    content: url(../images/GIS/Blue/infoTitle.png);
+    padding-right: 10px;
+    padding-right: 10px;
+}
+.divPoshtefigTabDivBlue {
+    border-color: #0072C6;
+    float: left;
+    border-top: 2px solid;
+    margin: 10px;
+    margin: 20px;      
+}
+.layerSwitchTitulliBlue {
+    color:  #0072C6;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+
+.bntUserMenu {
+    background-size: 21px;
+    width: 21px !important;
+    height: 21px !important;
+}

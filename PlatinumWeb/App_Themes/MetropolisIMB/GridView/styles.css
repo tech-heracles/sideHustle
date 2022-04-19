@@ -1,0 +1,560 @@
+.dxgvControl_MetropolisIMB,
+.dxgvDisabled_MetropolisIMB
+{
+	border: 1px Solid #c0c0c0;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	background-color: White;
+	color: #333333;
+	cursor: default;
+}
+.dxgvDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+}
+.dxgvControl_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxgvDisabled_MetropolisIMB a
+{
+	color: #b8b8b8;
+}
+
+.dxgvEmptyDataRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvDataRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvGroupRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvSelectedRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvFocusedRow_MetropolisIMB.dxgvBELVR > td.dxgv
+{
+    border-bottom-width: 0;
+}
+
+.dxgvRBB .dxgvEmptyDataRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvDataRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvGroupRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvSelectedRow_MetropolisIMB.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvFocusedRow_MetropolisIMB.dxgvBELVR > td.dxgv
+{
+    border-bottom-width: 1px !important;
+}
+
+.dxgvLoadingPanel_MetropolisIMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxgvLoadingPanel_MetropolisIMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxgvLoadingPanel_MetropolisIMB .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+.dxgvLoadingPanelStatusBar_MetropolisIMB .dxlp-loadingImage 
+{
+	background-image: url('gvLoadingOnStatusBar.gif');
+	height: 16px;
+	width: 16px;
+}
+.dxgvLoadingPanelStatusBar_MetropolisIMB
+{
+	background-color: Transparent;
+}
+.dxgvLoadingPanelStatusBar_MetropolisIMB td
+{
+	white-space: nowrap;
+	text-align: center;
+	padding: 0px 2px;
+}
+
+.dxgvTable_MetropolisIMB
+{
+	background-color: White;
+	border-width: 0;
+	border-collapse: separate!important;
+	overflow: hidden;
+}
+.dxgvTable_MetropolisIMB .dxgvHEC
+{
+	background-color: White;
+	border-width: 0;
+	overflow: hidden;
+}
+.dxgvControl_MetropolisIMB .dxgvFSDC .dxgvFooter_MetropolisIMB td.dxgv
+{
+    border-bottom: 0;
+}
+.dxgvInlineEditRow_MetropolisIMB,
+.dxgvDataRow_MetropolisIMB
+{
+}
+.dxgvInlineEditRow_MetropolisIMB td.dxgv
+{
+	border-bottom: 1px Solid #D3D3D3;
+	border-right: 1px Solid #D3D3D3;
+}
+.dxgvDataRowAlt_MetropolisIMB
+{
+	background-color: WhiteSmoke;
+}
+.dxgvFilterRow_MetropolisIMB
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvEditForm_MetropolisIMB
+{
+}
+.dxgvEditForm_MetropolisIMB td.dxgv
+{
+	border-bottom: 1px Solid #D3D3D3;
+	padding: 8px 10px 10px;
+}
+.dxgvEditForm_MetropolisIMB td.dxgvIndentCell
+{
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+.dxgvSelectedRow_MetropolisIMB
+{
+	background-color: #e0e0e0;
+	color: #333333;
+}
+.dxgvFocusedRow_MetropolisIMB
+{
+	background-color: #00A74F;
+	color: White;
+}
+.dxgvFocusedRow_MetropolisIMB a,
+.dxgvFocusedRow_MetropolisIMB .dxgvCommandColumn_MetropolisIMB a
+{
+	color: White;
+}
+.dxgvSelectedRow_MetropolisIMB .dxgvCommandColumn_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxgvPreviewRow_MetropolisIMB
+{
+	color: #999999;
+}
+.dxgvDetailCell_MetropolisIMB,
+.dxgvPreviewRow_MetropolisIMB td.dxgv,
+.dxgvEmptyDataRow_MetropolisIMB td.dxgv
+{
+	padding: 20px 2px 20px 4px;
+	border-bottom: 1px Solid #D3D3D3;
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+}
+.dxgvPreviewRow_MetropolisIMB td.dxgv
+{
+	padding: 10px 10px 10px 15px;
+}
+.dxgvDetailCell_MetropolisIMB
+{
+	padding: 16px 18px;
+}
+.dxgvDetailRow_MetropolisIMB td.dxgvIndentCell
+{
+	padding-right: 0px;
+	border-bottom: 1px Solid #D3D3D3;
+}
+.dxgvEmptyDataRow_MetropolisIMB
+{
+	color: Gray;
+}
+.dxgvEmptyDataRow_MetropolisIMB td.dxgv
+{
+	border-bottom: 1px Solid #CFCFCF;
+	text-align: center;
+}
+
+.dxgvEditFormDisplayRow_MetropolisIMB td.dxgv,
+.dxgvDataRow_MetropolisIMB td.dxgv,
+.dxgvDataRowAlt_MetropolisIMB td.dxgv,
+.dxgvSelectedRow_MetropolisIMB td.dxgv,
+.dxgvFocusedRow_MetropolisIMB td.dxgv
+{
+	overflow: hidden;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right: 1px Solid #c0c0c0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 3px 6px 4px;
+}
+.dxgvEditFormDisplayRow_MetropolisIMB
+{
+}
+.dxgvEditFormDisplayRow_MetropolisIMB td.dxgv
+{
+}
+.dxgvEditFormDisplayRow_MetropolisIMB td.dxgvIndentCell
+{
+	background: #EDEDED none;
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+
+.dxgvEditingErrorRow_MetropolisIMB
+{
+	background-color: #FFC8C8;
+	color: #FF0000;
+}
+.dxgvEditingErrorRow_MetropolisIMB td.dxgv
+{
+	white-space: pre-wrap;
+	border-bottom: 1px Solid #D3D3D3;
+	border-right-width: 0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 6px 10px;
+}
+
+.dxgvFilterRow_MetropolisIMB td.dxgv
+{
+	border-bottom: 1px Solid #c0c0c0;
+	border-right: 1px Solid #c0c0c0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 2px;
+	overflow: hidden;
+}
+.dxgvGroupRow_MetropolisIMB
+{
+}
+.dxgvFocusedGroupRow_MetropolisIMB
+{
+	background-color: #00A74F;
+	color: White;
+}
+.dxgvGroupRow_MetropolisIMB td.dxgv,
+.dxgvFocusedGroupRow_MetropolisIMB td.dxgv
+{
+	border: 0 none;
+	vertical-align: middle;
+	white-space: nowrap;
+	border-bottom: 1px Solid #D3D3D3;
+	padding: 3px 6px 4px;
+}
+.dxgvFocusedRow_MetropolisIMB td.dxgvIndentCell,
+.dxgvFocusedGroupRow_MetropolisIMB td.dxgvIndentCell,
+.dxgvSelectedRow_MetropolisIMB td.dxgvIndentCell
+{
+	background-color: white!important;
+	border-right: 1px solid #CFCFCF;
+	border-left: 1px solid #CFCFCF;
+	border-top-width: 0px;
+}
+.dxgvHeaderPanel_MetropolisIMB
+{
+	background-color: #F9F9F9;
+	padding: 8px 6px;
+	border-bottom: 1px Solid #9F9F9F;
+}
+
+.dxgvMSDraggable_MetropolisIMB .dxgvHeader_MetropolisIMB,
+.dxgvMSDraggable_MetropolisIMB.dxgvGroupPanel_MetropolisIMB
+{
+    -ms-touch-action: pinch-zoom;
+}
+.dxgvHeader_MetropolisIMB
+{
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 4px 6px 5px;
+	border: 1px Solid #c0c0c0;
+    background-color: white;
+	overflow: hidden;
+	font-weight: normal;
+	text-align: left;
+}
+.dxgvHeader_MetropolisIMB,
+.dxgvHeader_MetropolisIMB table
+{
+}
+.dxgvHeader_MetropolisIMB td
+{
+	white-space: nowrap;
+}
+.dxgvHeader_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxgvHeader_MetropolisIMB a.dxgvCommandColumnItem_MetropolisIMB
+{
+	margin: 0 3px 0 0;
+	color: #00A74F;
+}
+.dxgvPopupEditForm_MetropolisIMB
+{
+	padding: 4px;
+	margin: 0;
+}
+.dxgvCustomization_MetropolisIMB
+{
+	margin: 0;
+	padding: 10px;
+	min-width: 220px;
+}
+.dxgvGroupPanel_MetropolisIMB
+{
+	white-space: nowrap;
+	border-bottom: 1px Solid #c0c0c0;
+	padding: 7px 4px 8px 6px;
+}
+.dxgvFooter_MetropolisIMB
+{
+	white-space: nowrap;
+}
+.dxgvFooter_MetropolisIMB td.dxgv
+{
+	padding: 5px 6px 6px;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right-width: 0;
+}
+.dxgvGroupFooter_MetropolisIMB
+{
+}
+.dxgvGroupFooter_MetropolisIMB td.dxgv
+{
+	white-space: nowrap;
+}
+.dxgvGroupFooter_MetropolisIMB td.dxgv
+{
+	padding: 5px 4px 6px 6px;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right-width: 0;
+}
+.dxgvDataRow_MetropolisIMB td.dxgvIndentCell,
+.dxgvGroupRow_MetropolisIMB td.dxgvIndentCell,
+.dxgvGroupFooter_MetropolisIMB td.dxgvIndentCell
+{
+	background-color: white;
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+
+.dxgvTitlePanel_MetropolisIMB, 
+.dxgvTable_MetropolisIMB caption
+{
+	font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+	color: #999999;
+	border-bottom: 1px Solid #c0c0c0;
+}
+.dxgvStatusBar_MetropolisIMB
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvStatusBar_MetropolisIMB tr.dxgv
+{
+	height: 20px;
+}
+.dxgvStatusBar_MetropolisIMB tr.dxgv > td
+{
+	padding: 4px;
+}
+.dxgvCommandColumn_MetropolisIMB
+{
+	padding: 8px 4px;
+}
+.dxgvCommandColumn_MetropolisIMB a
+{
+	margin: 0 3px 0 0;
+	color: #00A74F;
+}
+.dxgvCommandColumn_MetropolisIMB a:hover
+{
+}
+
+.dxgvCommandColumnItem_MetropolisIMB
+{
+}
+.dxgvEditFormTable_MetropolisIMB
+{
+	padding: 2px 6px 6px 4px;
+	font-size: 0.91em;
+	min-width: 300px;
+}
+.dxgvEditFormTable_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxgvEditFormTable_MetropolisIMB a:hover
+{
+}
+
+.dxgvEditFormCaption_MetropolisIMB
+{
+	padding: 4px 4px 4px 10px;
+	white-space: nowrap;
+}
+
+.dxgvInlineEditCell_MetropolisIMB
+{
+	padding: 1px;
+}
+
+.dxgvEditFormCell_MetropolisIMB
+{
+	padding: 4px;
+	border-width: 0;
+}
+
+.dxgvPagerTopPanel_MetropolisIMB,
+.dxgvPagerBottomPanel_MetropolisIMB
+{
+	padding: 4px 0;
+}
+.dxgvPagerTopPanel_MetropolisIMB
+{
+	border-bottom: 1px Solid #c0c0c0;
+}
+
+.dxgvDetailButton_MetropolisIMB
+{
+}
+
+.dxgvFilterBar_MetropolisIMB
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvFilterBar_MetropolisIMB a
+{
+	color: #00A74F;
+	text-decoration: underline;
+}
+.dxgvFilterBarCheckBoxCell_MetropolisIMB
+{
+	padding: 0 7px;
+}
+.dxgvFilterBarImageCell_MetropolisIMB
+{
+	padding: 0 1px 0 3px;
+	cursor: pointer;
+}
+.dxgvFilterBarExpressionCell_MetropolisIMB
+{
+	padding: 5px 5px 8px 0;
+	white-space: nowrap;
+}
+.dxgvFilterBarClearButtonCell_MetropolisIMB
+{
+	padding: 5px 6px 8px;
+}
+.dxgvFilterBuilderMainArea_MetropolisIMB
+{
+	background: white none;
+	padding: 6px 2px;
+} 
+.dxgvFilterBuilderButtonArea_MetropolisIMB
+{
+	border-top: 1px solid #c0c0c0;
+	padding: 6px;
+	white-space: nowrap;
+}
+
+.dxgvDataRowHover_MetropolisIMB
+{
+	background-color: #f0f0f0;
+	color: #333333;
+}
+.dxgvDataRowHover_MetropolisIMB a
+{
+	color: #00A74F!important;
+}
+
+.dxgvControl_MetropolisIMB .dxpLite_MetropolisIMB,
+.dxgvDisabled_MetropolisIMB .dxpLite_MetropolisIMB
+{
+	padding-top: 4px;
+}
+
+.dxgvControl_MetropolisIMB .dxgvHFSAC
+{
+    padding: 9px 0 0 4px;
+}
+.dxgvControl_MetropolisIMB .dxgvHFSC
+{
+    padding: 9px 0 6px;
+}
+.dxgvControl_MetropolisIMB .dxgvHFSC div
+{
+    height: 1px;
+    background: #c0c0c0;
+}
+.dxgvControl_MetropolisIMB div[id$='DXEPLPC']
+{
+    height: 53px;
+}
+
+/* Removes flicking in iOS Safari*/
+.dxgvTable_MetropolisIMB
+{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.dxgvControl_MetropolisIMB td.dxgvBatchEditCell_MetropolisIMB
+{
+    padding: 0;
+}
+.dxgvControl_MetropolisIMB td.dxgvBatchEditModifiedCell_MetropolisIMB
+{
+    background: #d7f9c7;
+}
+.dxgvControl_MetropolisIMB .dxgvErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxgvControl_MetropolisIMB .dxgvErrorCell img
+{
+    margin: -3px 0;
+}
+.dxgvStatusBar_MetropolisIMB .dxgvCommandColumn_MetropolisIMB a
+{
+    margin-right: 10px;
+}
+.dxgvControl_MetropolisIMB td.dxgvBatchEditCell_MetropolisIMB .dxichCellSys
+{
+    padding-left: 0;
+}
+
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-content {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image,
+.dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image {
+	margin-top: -2px;
+    margin-bottom: -2px;
+	margin-left: -1px;
+    border: 1px solid transparent;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image.dxgvcm-chk,
+.dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image.dxgvcm-chk {
+	background-color: #e0e0e0;
+	border-color: #c2c2c2;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image {
+	margin-right: 9px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image.dxWeb_mSubMenuItem_MetropolisIMB,
+.dxmLite_MetropolisIMB.dxm-ltr .dxgvContextMenu_MetropolisIMB.dxm-popup .dxm-image.dxWeb_mSubMenuItemChecked_MetropolisIMB {
+	margin-left: 1px;
+	margin-right: 11px;
+}

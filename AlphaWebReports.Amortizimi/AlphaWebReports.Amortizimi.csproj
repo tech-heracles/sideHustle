@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1899E543-4280-46AF-8BB7-88A5E0124A77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.Amortizimi</RootNamespace>
+    <AssemblyName>AlphaWebReports.Amortizimi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ds_Gjendja_Aseteve.Designer.cs">
+      <DependentUpon>Ds_Gjendja_Aseteve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Gjendja_Aseteve_Raportues.Designer.cs">
+      <DependentUpon>Ds_Gjendja_Aseteve_Raportues.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_KartelaAseteve.Designer.cs">
+      <DependentUpon>Ds_KartelaAseteve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_PermbledheseSipasGrupeveRaportues.Designer.cs">
+      <DependentUpon>Ds_PermbledheseSipasGrupeveRaportues.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_AmortiziimiParashikim.Designer.cs">
+      <DependentUpon>Ds_Rap_AmortiziimiParashikim.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_Amortizimi.Designer.cs">
+      <DependentUpon>Ds_Rap_Amortizimi.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_AseteJashtePerdorimit.Designer.cs">
+      <DependentUpon>Ds_Rap_AseteJashtePerdorimit.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_BlerjeMujore.cs">
+      <DependentUpon>Ds_Rap_BlerjeMujore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_BlerjeMujore.Designer.cs">
+      <DependentUpon>Ds_Rap_BlerjeMujore.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_JashtePerdorimiRezervaRivleresimi.Designer.cs">
+      <DependentUpon>Ds_Rap_JashtePerdorimiRezervaRivleresimi.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_KartelaPermbledheseArtikullit.Designer.cs">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.Designer.cs">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_PermbledhesePerAsetetRaportuese.Designer.cs">
+      <DependentUpon>Ds_Rap_PermbledhesePerAsetetRaportuese.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_PermbledheseSipasGrupeveAsete.Designer.cs">
+      <DependentUpon>Ds_Rap_PermbledheseSipasGrupeveAsete.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_Permbledhese_Asete.Designer.cs">
+      <DependentUpon>Ds_Rap_Permbledhese_Asete.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_PrintimiSerialeve.Designer.cs">
+      <DependentUpon>Ds_Rap_PrintimiSerialeve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.Designer.cs">
+      <DependentUpon>Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_Regjistri_Aktiveve.Designer.cs">
+      <DependentUpon>Ds_Rap_Regjistri_Aktiveve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_Rivleresimet_Kolateraleve.cs">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_Rivleresimet_Kolateraleve.Designer.cs">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_Rivleresimet_Kolateraleve_IFRS.cs">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Rap_Rivleresimet_Kolateraleve_IFRS.Designer.cs">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Rap_TabelaAmortizimit.Designer.cs">
+      <DependentUpon>Ds_Rap_TabelaAmortizimit.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ds_Regjistri_Aseteve.Designer.cs">
+      <DependentUpon>Ds_Regjistri_Aseteve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rap_Amortizimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Amortizimi.Designer.cs">
+      <DependentUpon>Rap_Amortizimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_AseteJashtePerdorimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_AseteJashtePerdorimit.Designer.cs">
+      <DependentUpon>Rap_AseteJashtePerdorimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_AseteJashtePerdorimitMeRezerveRivleresimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_AseteJashtePerdorimitMeRezerveRivleresimi.Designer.cs">
+      <DependentUpon>Rap_AseteJashtePerdorimitMeRezerveRivleresimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_BlerjeMujore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_BlerjeMujore.Designer.cs">
+      <DependentUpon>Rap_BlerjeMujore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Gjendja_Aseteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Gjendja_Aseteve.Designer.cs">
+      <DependentUpon>Rap_Gjendja_Aseteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Gjendja_Aseteve_SipasNdermarrjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Gjendja_Aseteve_SipasNdermarrjeve.Designer.cs">
+      <DependentUpon>Rap_Gjendja_Aseteve_SipasNdermarrjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaAseteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaAseteve.Designer.cs">
+      <DependentUpon>Rap_KartelaAseteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaPermbledheseArtikullit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaPermbledheseArtikullit.Designer.cs">
+      <DependentUpon>Rap_KartelaPermbledheseArtikullit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_KartelaPermbledheseArtikullit_SipasNdermarrjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_KartelaPermbledheseArtikullit_SipasNdermarrjeve.Designer.cs">
+      <DependentUpon>Rap_KartelaPermbledheseArtikullit_SipasNdermarrjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_ParashikimiAmortizimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_ParashikimiAmortizimit.Designer.cs">
+      <DependentUpon>Rap_ParashikimiAmortizimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_PermbledhesePerAsetet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_PermbledhesePerAsetet.Designer.cs">
+      <DependentUpon>Rap_PermbledhesePerAsetet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_PermbledhesePerAsetet_Raportuese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_PermbledhesePerAsetet_Raportuese.Designer.cs">
+      <DependentUpon>Rap_PermbledhesePerAsetet_Raportuese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_PermbledheseSipasGrupeveAsete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_PermbledheseSipasGrupeveAsete.Designer.cs">
+      <DependentUpon>Rap_PermbledheseSipasGrupeveAsete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_PermbledheseSipasGrupeveRaportues.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_PermbledheseSipasGrupeveRaportues.Designer.cs">
+      <DependentUpon>Rap_PermbledheseSipasGrupeveRaportues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_PrintimiSerialeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_PrintimiSerialeve.Designer.cs">
+      <DependentUpon>Rap_PrintimiSerialeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_RegjistriAseteveMeRezerveRivleresimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_RegjistriAseteveMeRezerveRivleresimi.Designer.cs">
+      <DependentUpon>Rap_RegjistriAseteveMeRezerveRivleresimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Regjistri_Aktiveve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Regjistri_Aktiveve.Designer.cs">
+      <DependentUpon>Rap_Regjistri_Aktiveve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Regjistri_Aseteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Regjistri_Aseteve.Designer.cs">
+      <DependentUpon>Rap_Regjistri_Aseteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Rivleresimet_Kolateraleve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Rivleresimet_Kolateraleve.Designer.cs">
+      <DependentUpon>Rap_Rivleresimet_Kolateraleve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_Rivleresimet_Kolateraleve_IFRS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_Rivleresimet_Kolateraleve_IFRS.Designer.cs">
+      <DependentUpon>Rap_Rivleresimet_Kolateraleve_IFRS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rap_TabelaAmortizimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rap_TabelaAmortizimit.Designer.cs">
+      <DependentUpon>Rap_TabelaAmortizimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ds_Gjendja_Aseteve.xsc">
+      <DependentUpon>Ds_Gjendja_Aseteve.xsd</DependentUpon>
+    </Content>
+    <None Include="app.config" />
+    <None Include="Ds_Gjendja_Aseteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Gjendja_Aseteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Gjendja_Aseteve.xss">
+      <DependentUpon>Ds_Gjendja_Aseteve.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Gjendja_Aseteve_Raportues.xsc">
+      <DependentUpon>Ds_Gjendja_Aseteve_Raportues.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Gjendja_Aseteve_Raportues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Gjendja_Aseteve_Raportues.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Gjendja_Aseteve_Raportues.xss">
+      <DependentUpon>Ds_Gjendja_Aseteve_Raportues.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_KartelaAseteve.xsc">
+      <DependentUpon>Ds_KartelaAseteve.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_KartelaAseteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaAseteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_KartelaAseteve.xss">
+      <DependentUpon>Ds_KartelaAseteve.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_PermbledheseSipasGrupeveRaportues.xsc">
+      <DependentUpon>Ds_PermbledheseSipasGrupeveRaportues.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_PermbledheseSipasGrupeveRaportues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PermbledheseSipasGrupeveRaportues.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_PermbledheseSipasGrupeveRaportues.xss">
+      <DependentUpon>Ds_PermbledheseSipasGrupeveRaportues.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_AmortiziimiParashikim.xsc">
+      <DependentUpon>Ds_Rap_AmortiziimiParashikim.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_AmortiziimiParashikim.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_AmortiziimiParashikim.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_AmortiziimiParashikim.xss">
+      <DependentUpon>Ds_Rap_AmortiziimiParashikim.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_Amortizimi.xsc">
+      <DependentUpon>Ds_Rap_Amortizimi.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_Amortizimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Amortizimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_Amortizimi.xss">
+      <DependentUpon>Ds_Rap_Amortizimi.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_AseteJashtePerdorimit.xsc">
+      <DependentUpon>Ds_Rap_AseteJashtePerdorimit.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_AseteJashtePerdorimit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_AseteJashtePerdorimit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_AseteJashtePerdorimit.xss">
+      <DependentUpon>Ds_Rap_AseteJashtePerdorimit.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_BlerjeMujore.xsc">
+      <DependentUpon>Ds_Rap_BlerjeMujore.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_BlerjeMujore.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BlerjeMujore.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_BlerjeMujore.xss">
+      <DependentUpon>Ds_Rap_BlerjeMujore.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_JashtePerdorimiRezervaRivleresimi.xsc">
+      <DependentUpon>Ds_Rap_JashtePerdorimiRezervaRivleresimi.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_JashtePerdorimiRezervaRivleresimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_JashtePerdorimiRezervaRivleresimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_JashtePerdorimiRezervaRivleresimi.xss">
+      <DependentUpon>Ds_Rap_JashtePerdorimiRezervaRivleresimi.xsd</DependentUpon>
+    </None>
+    <Content Include="Ds_Rap_KartelaPermbledheseArtikullit.xsc">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_KartelaPermbledheseArtikullit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaPermbledheseArtikullit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_KartelaPermbledheseArtikullit.xss">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xsc">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xss">
+      <DependentUpon>Ds_Rap_KartelaPermbledheseArtikullit_Raportuese.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_Permbledhese_Asete.xsc">
+      <DependentUpon>Ds_Rap_Permbledhese_Asete.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_PermbledhesePerAsetetRaportuese.xsc">
+      <DependentUpon>Ds_Rap_PermbledhesePerAsetetRaportuese.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_PermbledhesePerAsetetRaportuese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PermbledhesePerAsetetRaportuese.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_PermbledhesePerAsetetRaportuese.xss">
+      <DependentUpon>Ds_Rap_PermbledhesePerAsetetRaportuese.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_PermbledheseSipasGrupeveAsete.xsc">
+      <DependentUpon>Ds_Rap_PermbledheseSipasGrupeveAsete.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_PermbledheseSipasGrupeveAsete.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PermbledheseSipasGrupeveAsete.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_PermbledheseSipasGrupeveAsete.xss">
+      <DependentUpon>Ds_Rap_PermbledheseSipasGrupeveAsete.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_Permbledhese_Asete.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Permbledhese_Asete.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_Permbledhese_Asete.xss">
+      <DependentUpon>Ds_Rap_Permbledhese_Asete.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_PrintimiSerialeve.xsc">
+      <DependentUpon>Ds_Rap_PrintimiSerialeve.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_PrintimiSerialeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PrintimiSerialeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_PrintimiSerialeve.xss">
+      <DependentUpon>Ds_Rap_PrintimiSerialeve.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Rap_Regjistri_Aktiveve.xsc">
+      <DependentUpon>Ds_Rap_Regjistri_Aktiveve.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xsc">
+      <DependentUpon>Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xss">
+      <DependentUpon>Ds_Rap_RegjistriAseteveMeRezerveRivleresimi.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Regjistri_Aktiveve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Regjistri_Aktiveve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_Regjistri_Aktiveve.xss">
+      <DependentUpon>Ds_Rap_Regjistri_Aktiveve.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve.xsc">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Rivleresimet_Kolateraleve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve.xss">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsc">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Rivleresimet_Kolateraleve_IFRS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xss">
+      <DependentUpon>Ds_Rap_Rivleresimet_Kolateraleve_IFRS.xsd</DependentUpon>
+    </None>
+    <Content Include="Ds_Rap_TabelaAmortizimit.xsc">
+      <DependentUpon>Ds_Rap_TabelaAmortizimit.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Rap_TabelaAmortizimit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_TabelaAmortizimit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Rap_TabelaAmortizimit.xss">
+      <DependentUpon>Ds_Rap_TabelaAmortizimit.xsd</DependentUpon>
+    </Content>
+    <Content Include="Ds_Regjistri_Aseteve.xsc">
+      <DependentUpon>Ds_Regjistri_Aseteve.xsd</DependentUpon>
+    </Content>
+    <None Include="Ds_Regjistri_Aseteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Regjistri_Aseteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Ds_Regjistri_Aseteve.xss">
+      <DependentUpon>Ds_Regjistri_Aseteve.xsd</DependentUpon>
+    </Content>
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Rap_Amortizimi.resx">
+      <DependentUpon>Rap_Amortizimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_AseteJashtePerdorimit.resx">
+      <DependentUpon>Rap_AseteJashtePerdorimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_AseteJashtePerdorimitMeRezerveRivleresimi.resx">
+      <DependentUpon>Rap_AseteJashtePerdorimitMeRezerveRivleresimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_BlerjeMujore.resx">
+      <DependentUpon>Rap_BlerjeMujore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Gjendja_Aseteve.resx">
+      <DependentUpon>Rap_Gjendja_Aseteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Gjendja_Aseteve_SipasNdermarrjeve.resx">
+      <DependentUpon>Rap_Gjendja_Aseteve_SipasNdermarrjeve.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaAseteve.resx">
+      <DependentUpon>Rap_KartelaAseteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaPermbledheseArtikullit.resx">
+      <DependentUpon>Rap_KartelaPermbledheseArtikullit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_KartelaPermbledheseArtikullit_SipasNdermarrjeve.resx">
+      <DependentUpon>Rap_KartelaPermbledheseArtikullit_SipasNdermarrjeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_ParashikimiAmortizimit.resx">
+      <DependentUpon>Rap_ParashikimiAmortizimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_PermbledhesePerAsetet.resx">
+      <DependentUpon>Rap_PermbledhesePerAsetet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_PermbledhesePerAsetet_Raportuese.resx">
+      <DependentUpon>Rap_PermbledhesePerAsetet_Raportuese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_PermbledheseSipasGrupeveAsete.resx">
+      <DependentUpon>Rap_PermbledheseSipasGrupeveAsete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_PermbledheseSipasGrupeveRaportues.resx">
+      <DependentUpon>Rap_PermbledheseSipasGrupeveRaportues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_PrintimiSerialeve.resx">
+      <DependentUpon>Rap_PrintimiSerialeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_RegjistriAseteveMeRezerveRivleresimi.resx">
+      <DependentUpon>Rap_RegjistriAseteveMeRezerveRivleresimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Regjistri_Aktiveve.resx">
+      <DependentUpon>Rap_Regjistri_Aktiveve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Regjistri_Aseteve.resx">
+      <DependentUpon>Rap_Regjistri_Aseteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Rivleresimet_Kolateraleve.resx">
+      <DependentUpon>Rap_Rivleresimet_Kolateraleve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_Rivleresimet_Kolateraleve_IFRS.resx">
+      <DependentUpon>Rap_Rivleresimet_Kolateraleve_IFRS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rap_TabelaAmortizimit.resx">
+      <DependentUpon>Rap_TabelaAmortizimit.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACEFD10F-7C9C-4E41-BEF4-BFC8E7F0A1A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DbCore</RootNamespace>
+    <AssemblyName>DbCore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\PlatinumWeb\dlls\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.Core, Version=1.1.2.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.Core.1.1.2\lib\net45\CacheManager.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.SystemRuntimeCaching, Version=1.1.2.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.SystemRuntimeCaching.1.1.2\lib\net45\CacheManager.SystemRuntimeCaching.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Data, Version=1.9.0.0, Culture=neutral, PublicKeyToken=c29dbf30e059ca9d, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Data.1.9\lib\net40-Client\DotSpatial.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Mono, Version=1.9.0.0, Culture=neutral, PublicKeyToken=425ba4de41127026, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Mono.1.9\lib\net40-Client\DotSpatial.Mono.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Projections, Version=1.9.0.0, Culture=neutral, PublicKeyToken=272632bddd08a38b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Projections.1.9\lib\net40-Client\DotSpatial.Projections.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Serialization, Version=1.9.0.0, Culture=neutral, PublicKeyToken=441f200f827611e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Serialization.1.9\lib\net40-Client\DotSpatial.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Topology, Version=1.9.0.0, Culture=neutral, PublicKeyToken=a66b5e9434ca3671, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Topology.1.9\lib\net40-Client\DotSpatial.Topology.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Web">
+      <HintPath>..\ExternalDlls\EO.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7, processorArchitecture=MSIL">
+      <HintPath>..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.Core.1.7.5\lib\net45\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI.CoordinateSystems, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.CoordinateSystems.1.7.5\lib\net45\GeoAPI.CoordinateSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\PlatinumWeb\dlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IMB.Transactions.FileManager">
+      <HintPath>..\PlatinumWeb\dlls\IMB.Transactions.FileManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PlatinumWeb\dlls\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.15.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.Core.1.15.0\lib\net45\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.CoordinateSystems, Version=1.15.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.CoordinateSystems.1.15.0\lib\net45\NetTopologySuite.CoordinateSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.Features, Version=1.15.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.Features.1.15.0\lib\net45\NetTopologySuite.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoJSON, Version=1.15.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.GeoJSON.1.15.0\lib\net45\NetTopologySuite.IO.GeoJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.GeoTools.1.13.2\lib\net403-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomEntites\Detajim.cs" />
+    <Compile Include="CustomEntites\ListeDokKontrolloKonvertuar.cs" />
+    <Compile Include="CustomEntites\ListePergjigjeRegjistrimListepagese.cs" />
+    <Compile Include="CustomEntites\ListeVleraTePlotaArtikulli.cs" />
+    <Compile Include="CustomEntites\LlojMarreveshje.cs" />
+    <Compile Include="CustomEntites\MyMenuFilterModel.cs" />
+    <Compile Include="CustomEntites\StatusDokumenti.cs" />
+    <Compile Include="CustomEntites\TitulliKlientFurnitor.cs" />
+    <Compile Include="DbAccessIntegration\DbAccess.cs" />
+    <Compile Include="DbAccessIntegration\DbISKSH\ClsIntegrimFaturaISKSH.cs" />
+    <Compile Include="DbAccessIntegration\DbISKSH\CustomEntitiesISKSH.cs" />
+    <Compile Include="DbAccessIntegration\DbISKSH\FaturaFactoryISKSH.cs" />
+    <Compile Include="DbAccessIntegration\DbISKSH\StructsISKSH.cs" />
+    <Compile Include="DbAccessIntegration\enumSqlCommand.cs" />
+    <Compile Include="DbAdmin\clsDatabaseAdmin2.cs" />
+    <Compile Include="DbAdmin\clsDokumentAbstract.cs" />
+    <Compile Include="DbAdmin\clsKonfigurimEmailKI.cs" />
+    <Compile Include="DbAdmin\clsKonfigurimFtp.cs" />
+    <Compile Include="DbAdmin\clsSerialeunikeKategoriXKonfigurimeftp.cs" />
+    <Compile Include="DbAdmin\clsServerConnectionString.cs" />
+    <Compile Include="DbAdmin\clsShopsHierarkiLeaveReason.cs" />
+    <Compile Include="DbAdmin\clsShopsHierarkiStatus.cs" />
+    <Compile Include="DbAdmin\clsShopsHierarkiUniform.cs" />
+    <Compile Include="DbAdmin\clsWebhooks.cs" />
+    <Compile Include="DbAdmin\colKonfigurimEmailKI.cs" />
+    <Compile Include="DbAdmin\colSerialeunikeKategoriXKonfigurimeftp.cs" />
+    <Compile Include="DbAdmin\colKonfigurimFtp.cs" />
+    <Compile Include="DbAdmin\colServerConnectionStrings.cs" />
+    <Compile Include="DbAdmin\colShopsHierarkiLeaveReason.cs" />
+    <Compile Include="DbAdmin\colShopsHierarkiStatus.cs" />
+    <Compile Include="DbAdmin\colShopsHierarkiUniform.cs" />
+    <Compile Include="DbAdmin\Komponente.cs" />
+    <Compile Include="DbAdmin\LlojModeliFushaShtese.cs" />
+    <Compile Include="DbAdmin\LlojObjekti.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsPlanifikimRealizim.cs" />
+    <Compile Include="DbAnalizeBuxheti\colPlanifikimRealizim.cs" />
+    <Compile Include="DbArkaBanka\ArketimeMailHelper.cs" />
+    <Compile Include="DbArkaBanka\clsGjendjeArkeDitore.cs" />
+    <Compile Include="DbArkaBanka\colKlienteTerminated.cs" />
+    <Compile Include="DbArkaBanka\LlojVeprimi.cs" />
+    <Compile Include="DbAsete\clsAmortizimiTrupi.cs" />
+    <Compile Include="DbAsete\clsAmortizimiTrupiRezerva.cs" />
+    <Compile Include="DbAsete\clsAseteNormaAmortizimi.cs" />
+    <Compile Include="DbAsete\clsDatabazeAseteAbstract.cs" />
+    <Compile Include="DbAsete\clsDatabazeAseteRezerva.cs" />
+    <Compile Include="DbAsete\clsNormaAmortizimiRezerva.cs" />
+    <Compile Include="DbAsete\colAmortizimiTrupi.cs" />
+    <Compile Include="DbAsete\colAmortizimiTrupiRezerva.cs" />
+    <Compile Include="DbAsete\colAseteNormaAmortizimi.cs" />
+    <Compile Include="DbAsete\colNormaAmortizimiRezerva.cs" />
+    <Compile Include="DbAsete\enumObjekteAmortizimi.cs" />
+    <Compile Include="DbAuth\clsAuthRefreshToken.cs" />
+    <Compile Include="DbAuth\clsDatabaseAuthentication.cs" />
+    <Compile Include="DbBuxheti\clsB_Komponente.cs" />
+    <Compile Include="DbBuxheti\clsB_KomponenteLidhje.cs" />
+    <Compile Include="DbBuxheti\clsB_KomponenteVlere.cs" />
+    <Compile Include="DbBuxheti\colB_Komponente.cs" />
+    <Compile Include="DbBuxheti\colB_KomponenteLidhje.cs" />
+    <Compile Include="DbBuxheti\colB_KomponenteVlere.cs" />
+    <Compile Include="DbBuxheti\enumB_Lloje.cs" />
+    <Compile Include="DbBuxheti\clsB_Muajt.cs" />
+    <Compile Include="DbBuxheti\clsB_TrupiBuxheti.cs" />
+    <Compile Include="DbBuxheti\clsB_KokaBuxheti.cs" />
+    <Compile Include="DbBuxheti\clsB_KategoriBuxhetimi.cs" />
+    <Compile Include="DbBuxheti\clsB_LlojBuxheti.cs" />
+    <Compile Include="DbBuxheti\clsB_ValidimBuxheti.cs" />
+    <Compile Include="DbBuxheti\clsDatabaseBuxheti.cs" />
+    <Compile Include="DbBuxheti\colB_TrupiBuxheti.cs" />
+    <Compile Include="DbBuxheti\colB_KokaBuxheti.cs" />
+    <Compile Include="DbBuxheti\colB_KategoriBuxhetimi.cs" />
+    <Compile Include="DbBuxheti\colB_LlojBuxheti.cs" />
+    <Compile Include="DbDashboard\clsDashboard.cs" />
+    <Compile Include="DbDashboard\clsDashboardDatasource.cs" />
+    <Compile Include="DbDashboard\clsDatabaseDashboard.cs" />
+    <Compile Include="DbDashboard\colDashboard.cs" />
+    <Compile Include="DbDashboard\colDashboardDatasource.cs" />
+    <Compile Include="DbGIS\clsDisplayLayersGIS.cs" />
+    <Compile Include="DbGIS\clsElementGIS.cs" />
+    <Compile Include="DbGIS\clsGeoserverGIS.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsKokaRealizimProkurimesh.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsTrupiRealizimProkurimesh.cs" />
+    <Compile Include="DbAnalizeBuxheti\colKokaRealizimProkurimesh.cs" />
+    <Compile Include="DbAnalizeBuxheti\colTrupiRealizimProkurimesh.cs" />
+    <Compile Include="DbGIS\clsLayersKokaGIS.cs" />
+    <Compile Include="DbGIS\clsLayersTrupiGIS.cs" />
+    <Compile Include="DbGIS\colDisplayLayersGIS.cs" />
+    <Compile Include="DbGIS\colLayersKokaGIS.cs" />
+    <Compile Include="DbGIS\colLayersTrupiGIS.cs" />
+    <Compile Include="DbImporte\clsImportoArtikuj.cs" />
+    <Compile Include="DbImporte\clsImportoKlientFurnitore.cs" />
+    <Compile Include="DbImporte\EnumImporti.cs" />
+    <Compile Include="DbImporte\ImporteUtils.cs" />
+    <Compile Include="DbIntegrime\clsDatabaseIntegrime.cs" />
+    <Compile Include="DbIntegrime\clsJobAutomatikeParametra.cs" />
+    <Compile Include="DbIntegrime\colJobAutomatikeParametra.cs" />
+    <Compile Include="DbInventari\ArtikujMeSeriale.cs" />
+    <Compile Include="DbInventari\clsArtikujMeSasi.cs" />
+    <Compile Include="DbInventari\clsArtikullVfone.cs" />
+    <Compile Include="DbInventari\clsOperator.cs" />
+    <Compile Include="DbInventari\clsSerialeUnike.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeAparate.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeFusha.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeKarta.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeFormate.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeKategori.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeMagazina.cs" />
+    <Compile Include="DbInventari\clsSerialeUnikeRingarkues.cs" />
+    <Compile Include="DbInventari\colArtikullVfone.cs" />
+    <Compile Include="DbInventari\colSerialeUnike.cs" />
+    <Compile Include="DbInventari\colSerialeUnikeFusha.cs" />
+    <Compile Include="DbInventari\colSerialeUnikeFormate.cs" />
+    <Compile Include="DbInventari\colSerialeUnikeKategori.cs" />
+    <Compile Include="DbInventari\colSerialeUnikeMagazina.cs" />
+    <Compile Include="DbInventari\colSerialeUnikeRingarkues.cs" />
+    <Compile Include="DbInventari\DateFillimiMaturiteti.cs" />
+    <Compile Include="DbInventari\enumKategoriSerialesh.cs" />
+    <Compile Include="DbInventari\enumSerialeUnike_Lloje.cs" />
+    <Compile Include="DbInventari\KrijuesKategoriSerialesh.cs" />
+    <Compile Include="DbInventari\KategoriDetajimi.cs" />
+    <Compile Include="DbInventari\PeriudheMaturiteti.cs" />
+    <Compile Include="DbInventari\SerialeUnike_MetodeTransferimi.cs" />
+    <Compile Include="DbInventari\LlojDetajimi.cs" />
+    <Compile Include="DbInventari\TransferimSerialeUnike.cs" />
+    <Compile Include="DbListPagesat\clsBandaPunonjes.cs" />
+    <Compile Include="DbListPagesat\colBandaPunonjes.cs" />
+    <Compile Include="DbListPagesat\Helpers\colMuajTeLlogariturTrack.cs" />
+    <Compile Include="DbListPagesat\Helpers\MuajTeLlogariturTrack.cs" />
+    <Compile Include="DbListPagesat\PunonjesMeData.cs" />
+    <Compile Include="DbListPagesat\cdPunonjesitMeVleraPerMuajt.cs" />
+    <Compile Include="DbListPagesat\ListePagesaRegjistrues.cs" />
+    <Compile Include="DbListPagesat\PunonjesMeSigurime.cs" />
+    <Compile Include="DbOTC\clsDatabaseOTC.cs" />
+    <Compile Include="DbOTC\colOTCFatura.cs" />
+    <Compile Include="DbOTC\LlojFatureOSHEE.cs" />
+    <Compile Include="DbOTC\OTCcheckBalance.cs" />
+    <Compile Include="DbOTC\OTCFatura.cs" />
+    <Compile Include="DbOTC\OTCLlojSherbimi.cs" />
+    <Compile Include="DbOTC\OTCLogData.cs" />
+    <Compile Include="DbOTC\OTCMPESABaseOperation.cs" />
+    <Compile Include="DbOTC\OTCPagesa.cs" />
+    <Compile Include="DbOTC\OTCPaguesi.cs" />
+    <Compile Include="DbOTC\OTCStatusMPESA.cs" />
+    <Compile Include="DbOTC\OTCTransferMoney.cs" />
+    <Compile Include="DbOTC\OTCUserMPESA.cs" />
+    <Compile Include="DbOTC\TipKomisioni.cs" />
+    <Compile Include="DbOTC\TripleDes.cs" />
+    <Compile Include="DbRegjistrim\clsAzhornimKFKoka.cs" />
+    <Compile Include="DbRegjistrim\clsAzhornimKFTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsDatabaseRegjistrim.cs" />
+    <Compile Include="DbRegjistrim\clsDegeAdministrative.cs" />
+    <Compile Include="DbRegjistrim\clsDetajimArtikulliRegjistrim.cs" />
+    <Compile Include="DbRegjistrim\Dhurata.cs" />
+    <Compile Include="DbRegjistrim\clsDokumenti.cs" />
+    <Compile Include="DbRegjistrim\clsDokumentLidhesKoka.cs" />
+    <Compile Include="DbRegjistrim\clsDokumentLidhesTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsEmail.cs" />
+    <Compile Include="DbRegjistrim\clsEtapeAprovimi.cs" />
+    <Compile Include="DbRegjistrim\clsFazaKontrate.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreDetajim.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreDetajimSub.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreKoka.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreTaksa.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsFleteDoganoreTVSH.cs" />
+    <Compile Include="DbRegjistrim\clsFushaRecetaOptike.cs" />
+    <Compile Include="DbRegjistrim\clsGaranciArtikulli.cs" />
+    <Compile Include="DbRegjistrim\clsGjendjeKlientFurnitor.cs" />
+    <Compile Include="DbRegjistrim\clsGrupimDokumentiKoka.cs" />
+    <Compile Include="DbRegjistrim\clsGrupimDokumentiTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsGrupimeKolone_PivotGrid.cs" />
+    <Compile Include="DbRegjistrim\clsInventarizim.cs" />
+    <Compile Include="DbRegjistrim\clsKarta.cs" />
+    <Compile Include="DbRegjistrim\clsKasaKoka.cs" />
+    <Compile Include="DbRegjistrim\clsKasaKokaDLL.cs" />
+    <Compile Include="DbRegjistrim\clsKasaKokaFile.cs" />
+    <Compile Include="DbRegjistrim\clsKasaTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsKategoriNivelDok.cs" />
+    <Compile Include="DbRegjistrim\clsKlientMeKupon.cs" />
+    <Compile Include="DbRegjistrim\clsKlientMeMSISDN.cs" />
+    <Compile Include="DbRegjistrim\clsKlientPerBazaar.cs" />
+    <Compile Include="DbRegjistrim\clsKokaInventarizim.cs" />
+    <Compile Include="DbRegjistrim\clsKokaMagazina.cs" />
+    <Compile Include="DbRegjistrim\clsKokaMbylljeKF.cs" />
+    <Compile Include="DbRegjistrim\clsKokaNdryshimCmimSasi.cs" />
+    <Compile Include="DbRegjistrim\clsKokaRecetaOptike.cs" />
+    <Compile Include="DbRegjistrim\clsKokaRezervime.cs" />
+    <Compile Include="DbRegjistrim\clsKokaRiparime.cs" />
+    <Compile Include="DbRegjistrim\clsKokaShitje.cs" />
+    <Compile Include="DbRegjistrim\clsKomenteAprovimi.cs" />
+    <Compile Include="DbRegjistrim\clsKonfigPivotGridaKoka.cs" />
+    <Compile Include="DbRegjistrim\clsKonfigPivotGridaTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsKonvertimi.cs" />
+    <Compile Include="DbRegjistrim\clsKrahasimInventarizimi.cs" />
+    <Compile Include="DbRegjistrim\clsLidhesPerKontroll.cs" />
+    <Compile Include="DbRegjistrim\clsLidhjaMagazinaInventarizim.cs" />
+    <Compile Include="DbRegjistrim\clsLimitKarta.cs" />
+    <Compile Include="DbRegjistrim\clsLlojDokumentiMagazine.cs" />
+    <Compile Include="DbRegjistrim\clsLlojTakse.cs" />
+    <Compile Include="DbRegjistrim\clsNivelRegjistrimi.cs" />
+    <Compile Include="DbRegjistrim\clsNjesiAdministrative.cs" />
+    <Compile Include="DbRegjistrim\clsNjesiProdhimi.cs" />
+    <Compile Include="DbRegjistrim\clsPikeShitjeFurnizimi.cs" />
+    <Compile Include="DbRegjistrim\clsPolitikeKarta.cs" />
+    <Compile Include="DbRegjistrim\clsRetryTrans.cs" />
+    <Compile Include="DbRegjistrim\clsShperndarjeShpenzimeFaturat.cs" />
+    <Compile Include="DbRegjistrim\clsShperndarjeShpenzimeKoka.cs" />
+    <Compile Include="DbRegjistrim\clsShperndarjeShpenzimeLlogarite.cs" />
+    <Compile Include="DbRegjistrim\clsShperndarjeShpenzimeTrupi.cs" />
+    <Compile Include="DbRegjistrim\clsShperndarjeShpenzimeTrupiFaturat.cs" />
+    <Compile Include="DbRegjistrim\clsSkemaAzhornimi.cs" />
+    <Compile Include="DbRegjistrim\clsTabPerKontroll.cs" />
+    <Compile Include="DbRegjistrim\clsTaksa.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiInventarizim.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiMagazina.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiMbylljeKF.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiNdryshimCmimSasi.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiPolitikeKarta.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiRecetaOptikePunime.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiRecetaOptikeSyri.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiRezervime.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiRiparime.cs" />
+    <Compile Include="DbRegjistrim\clsTrupiShitje.cs" />
+    <Compile Include="DbRegjistrim\clsVeprimeKFKoka.cs" />
+    <Compile Include="DbRegjistrim\clsVeprimeKFTrupi.cs" />
+    <Compile Include="DbRegjistrim\colAzhornimKFKoka.cs" />
+    <Compile Include="DbRegjistrim\colAzhornimKFTrupi.cs" />
+    <Compile Include="DbRegjistrim\colDegeAdministrative.cs" />
+    <Compile Include="DbRegjistrim\colDetajimeArtikulliRegjistrim.cs" />
+    <Compile Include="DbRegjistrim\colDokumentat.cs" />
+    <Compile Include="DbRegjistrim\colDokumentLidhesKoka.cs" />
+    <Compile Include="DbRegjistrim\colDokumentLidhesTrupi.cs" />
+    <Compile Include="DbRegjistrim\colEmail.cs" />
+    <Compile Include="DbRegjistrim\colEtapeAprovimi.cs" />
+    <Compile Include="DbRegjistrim\colFazaKontrate.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreDetajim.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreDetajimSub.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreKoka.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreTaksa.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreTrupi.cs" />
+    <Compile Include="DbRegjistrim\colFleteDoganoreTVSH.cs" />
+    <Compile Include="DbRegjistrim\colFushaRecetaOptike.cs" />
+    <Compile Include="DbRegjistrim\colGaranciArtikulli.cs" />
+    <Compile Include="DbRegjistrim\colGjendjeKlientFurnitor.cs" />
+    <Compile Include="DbRegjistrim\colGrupimDokumentiKoka.cs" />
+    <Compile Include="DbRegjistrim\colGrupimDokumentiTrupi.cs" />
+    <Compile Include="DbRegjistrim\colGrupimeKolone_PivotGrid.cs" />
+    <Compile Include="DbRegjistrim\colInventarizim.cs" />
+    <Compile Include="DbRegjistrim\colKarta.cs" />
+    <Compile Include="DbRegjistrim\colKategoriNiveleDok.cs" />
+    <Compile Include="DbRegjistrim\colKlientMeKupon.cs" />
+    <Compile Include="DbRegjistrim\colKlientMeMSISDN.cs" />
+    <Compile Include="DbRegjistrim\colKlientPerBazaar.cs" />
+    <Compile Include="DbRegjistrim\colKokaInventarizim.cs" />
+    <Compile Include="DbRegjistrim\colKokaMagazina.cs" />
+    <Compile Include="DbRegjistrim\colKokaMbylljeKF.cs" />
+    <Compile Include="DbRegjistrim\colKokaNdryshimCmimSasi.cs" />
+    <Compile Include="DbRegjistrim\colKokaRecetaOptike.cs" />
+    <Compile Include="DbRegjistrim\colKokaRezervime.cs" />
+    <Compile Include="DbRegjistrim\colKokaRiparime.cs" />
+    <Compile Include="DbRegjistrim\colKokaShitje.cs" />
+    <Compile Include="DbRegjistrim\colKomenteAprovimi.cs" />
+    <Compile Include="DbRegjistrim\colKonfigPivotGridaKoka.cs" />
+    <Compile Include="DbRegjistrim\colKonfigPivotGridaTrupi.cs" />
+    <Compile Include="DbRegjistrim\colKonvertimi.cs" />
+    <Compile Include="DbRegjistrim\colKrahasimInventarizimics.cs" />
+    <Compile Include="DbRegjistrim\colLidhesPerKontroll.cs" />
+    <Compile Include="DbRegjistrim\colLidhjaMagazinaInventarizim.cs" />
+    <Compile Include="DbRegjistrim\colLlojDokumentashMagazine.cs" />
+    <Compile Include="DbRegjistrim\colLlojTakse.cs" />
+    <Compile Include="DbRegjistrim\colNivelRegjistrimi.cs" />
+    <Compile Include="DbRegjistrim\colNjesiAdministrative.cs" />
+    <Compile Include="DbRegjistrim\colNjesiProdhimi.cs" />
+    <Compile Include="DbRegjistrim\colPikaShitjeFurnizimi.cs" />
+    <Compile Include="DbRegjistrim\colShperndarjeShpenzimeFaturat.cs" />
+    <Compile Include="DbRegjistrim\colShperndarjeShpenzimeKoka.cs" />
+    <Compile Include="DbRegjistrim\colShperndarjeShpenzimeLlogarite.cs" />
+    <Compile Include="DbRegjistrim\colShperndarjeShpenzimeTrupi.cs" />
+    <Compile Include="DbRegjistrim\colShperndarjeShpenzimeTrupiFaturat.cs" />
+    <Compile Include="DbRegjistrim\colSkemaAzhornimi.cs" />
+    <Compile Include="DbRegjistrim\colTabPerKontroll.cs" />
+    <Compile Include="DbRegjistrim\colTaksa.cs" />
+    <Compile Include="DbRegjistrim\colTrupiInventarizim.cs" />
+    <Compile Include="DbRegjistrim\colTrupiMagazina.cs" />
+    <Compile Include="DbRegjistrim\colTrupiMbylljeKF.cs" />
+    <Compile Include="DbRegjistrim\colTrupiNdryshimCmimSasi.cs" />
+    <Compile Include="DbRegjistrim\colTrupiPolitikeKarta.cs" />
+    <Compile Include="DbRegjistrim\colTrupiRecetaOptikePunime.cs" />
+    <Compile Include="DbRegjistrim\colTrupiRecetaOptikeSyri.cs" />
+    <Compile Include="DbRegjistrim\colTrupiRezervime.cs" />
+    <Compile Include="DbRegjistrim\colTrupiRiparime.cs" />
+    <Compile Include="DbRegjistrim\colTrupiShitje.cs" />
+    <Compile Include="DbRegjistrim\colVeprimeKFKoka.cs" />
+    <Compile Include="DbRegjistrim\colVeprimeKFTrupi.cs" />
+    <Compile Include="DbRegjistrim\KonfigurimTVSHGjateRregj.cs" />
+    <Compile Include="DbRegjistrim\KrijuesKasash.cs" />
+    <Compile Include="DbRegjistrim\LlojPromocionMsisdn.cs" />
+    <Compile Include="DbRegjistrim\LlojMsisdn.cs" />
+    <Compile Include="DbRegjistrim\LlojTakse.cs" />
+    <Compile Include="DbRegjistrim\MarreveshjeExcelReader.cs" />
+    <Compile Include="DbRegjistrim\StatusAprovimi.cs" />
+    <Compile Include="DbRegjistrim\statusEmail.cs" />
+    <Compile Include="DbRegjistrim\StatusMarreveshje.cs" />
+    <Compile Include="DbRegjistrim\StatusTrasferimi.cs" />
+    <Compile Include="DbRegjistrim\structVlera.cs" />
+    <Compile Include="DbShare\AlternativaKushtesh.cs" />
+    <Compile Include="DbShare\clsKonfigMenu.cs" />
+    <Compile Include="DbIntegrime\clsJobAutomatike.cs" />
+    <Compile Include="DbShare\clsNjoftime.cs" />
+    <Compile Include="DbShare\clsNjoftimePerdorues.cs" />
+    <Compile Include="DbIntegrime\colJobAutomatike.cs" />
+    <Compile Include="DbShare\colNjoftime.cs" />
+    <Compile Include="DbShare\colNjoftimePerdorues.cs" />
+    <Compile Include="DbShare\KlientSpecifik.cs" />
+    <Compile Include="DbShare\KushteBase.cs" />
+    <Compile Include="DbShare\KushteFushaShtese.cs" />
+    <Compile Include="DbShare\LlojFusheFormatNumri.cs" />
+    <Compile Include="Email\AttachmentType.cs" />
+    <Compile Include="CustomEntites\AutoCompleteItem.cs" />
+    <Compile Include="Ftp\clsFtpManager.cs" />
+    <Compile Include="IMBUtils\ClassExtensions.cs" />
+    <Compile Include="IMBUtils\DataBase\DbBuilder.cs" />
+    <Compile Include="IMBUtils\DataBase\DbData.cs" />
+    <Compile Include="IMBUtils\DataBase\IDbBuilder.cs" />
+    <Compile Include="IMBUtils\DataBase\IDbData.cs" />
+    <Compile Include="IMBUtils\DataBase\IMyTransactionScope.cs" />
+    <Compile Include="IMBUtils\DataBase\MyTransactionScope.cs" />
+    <Compile Include="DbAdmin\clsServerConfiguration.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsRealizimProkurorimeshKonfig.cs" />
+    <Compile Include="DbAnalizeBuxheti\colRealizimProkurorimeshKonfig.cs" />
+    <Compile Include="DbGIS\clsGeoProjectionsGIS.cs" />
+    <Compile Include="DbGIS\clsLayersTypeGIS.cs" />
+    <Compile Include="DbGIS\clsWorkspaceGIS.cs" />
+    <Compile Include="DbGIS\colGeoProjectionsGIS.cs" />
+    <Compile Include="DbGIS\colLayersTypeGIS.cs" />
+    <Compile Include="DbGIS\colWorkspaceGIS.cs" />
+    <Compile Include="DbImporte\colImportSQL.cs" />
+    <Compile Include="DbInventari\clsElementePerIntegrim.cs" />
+    <Compile Include="DbInventari\clsLlojElementiPerIntegrim.cs" />
+    <Compile Include="DbInventari\colElementePerIntegrim.cs" />
+    <Compile Include="DbInventari\colLlojElementiPerIntegrim.cs" />
+    <Compile Include="DbKontabiliteti\transactionCache.cs" />
+    <Compile Include="DbListPagesat\Gjinia.cs" />
+    <Compile Include="DbListPagesat\Months.cs" />
+    <Compile Include="DbListPagesat\Utils.cs" />
+    <Compile Include="IMBUtils\clsFunksione.cs" />
+    <Compile Include="IMBUtils\Cache\SessionKeyUtils.cs" />
+    <Compile Include="CustomEntites\clsLoginVodafone.cs" />
+    <Compile Include="Email\clsMailSender.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsShpenzimeOperativeCeshtje.cs" />
+    <Compile Include="CustomEntites\clsShtoDyqanVodafone.cs" />
+    <Compile Include="CustomEntites\clsShtoUserVodafone.cs" />
+    <Compile Include="CustomEntites\comboList.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsAmbjenti.cs" />
+    <Compile Include="DbAnalizeBuxheti\AnalizeBuxheti.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsInventariPerdorues.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsInventariVite.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsKokaEvidencaStatistikore.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsKokaPasqyraOrganike.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsNjesiMatese.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsPivotGrid.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsTrupiEvidencaStatistikore.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsTrupiPasqyraOrganike.cs" />
+    <Compile Include="DbAnalizeBuxheti\colInventariPerdorues.cs" />
+    <Compile Include="DbAnalizeBuxheti\colInventariVite.cs" />
+    <Compile Include="DbAnalizeBuxheti\colKokaEvidencaStatistikore.cs" />
+    <Compile Include="DbAnalizeBuxheti\colKokaPasqyraOrganike.cs" />
+    <Compile Include="DbAnalizeBuxheti\colNjesiMatese.cs" />
+    <Compile Include="DbAnalizeBuxheti\colTrupiEvidencaStatistikore.cs" />
+    <Compile Include="DbAnalizeBuxheti\colTrupiPasqyraOrganike.cs" />
+    <Compile Include="DbAsete\clsSerialPerRivleresim.cs" />
+    <Compile Include="DbAsete\clsSerialPerRivleresimKoka.cs" />
+    <Compile Include="DbAsete\colSerialetPerRivleresim.cs" />
+    <Compile Include="DbAsete\colSerialetPerRivlersimKoka.cs" />
+    <Compile Include="DbInventari\clsGjendjeArtikulli.cs" />
+    <Compile Include="DbInventari\clsPajisje.cs" />
+    <Compile Include="DbInventari\colGjendjeArtikulli.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsDatabaseAnalizeBuxheti.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsParashikimiTeArdhura.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsParashikimShpenzPersoneli.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsParashikimShpenzPersoneliConfig.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsPBuxheti3Vjecar.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsPBuxhetPermbledhes.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsPlanifikimiProdukteve.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsRreshtaAmbjenti.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsShpenzimeKapitale.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsShpenzimeOperative.cs" />
+    <Compile Include="DbAnalizeBuxheti\clsShpenzimeOperativeKonfig.cs" />
+    <Compile Include="DbAnalizeBuxheti\colAmbjenti.cs" />
+    <Compile Include="DbAnalizeBuxheti\colParashikimiTeArdhura.cs" />
+    <Compile Include="DbAnalizeBuxheti\colParashikimShpenzPersoneli.cs" />
+    <Compile Include="DbAnalizeBuxheti\colParashikimShpenzPersoneliConfig.cs" />
+    <Compile Include="DbAnalizeBuxheti\colPBuxheti3Vjecar.cs" />
+    <Compile Include="DbAnalizeBuxheti\colPBuxhetPermbledhes.cs" />
+    <Compile Include="DbAnalizeBuxheti\colPlanifikimiProdukteve.cs" />
+    <Compile Include="DbAnalizeBuxheti\colRreshtaAmbjenti.cs" />
+    <Compile Include="DbAnalizeBuxheti\colShpenzimeKapitale.cs" />
+    <Compile Include="DbAnalizeBuxheti\colShpenzimeOperative.cs" />
+    <Compile Include="DbAnalizeBuxheti\colShpenzimeOperativeKonfig.cs" />
+    <Compile Include="DbInventari\colPajisjet.cs" />
+    <Compile Include="DbKontabiliteti\clsMarreveshjePerKlient.cs" />
+    <Compile Include="DbKontabiliteti\colMarreveshjetPerKlient.cs" />
+    <Compile Include="CustomEntites\ComboListTvsh.cs" />
+    <Compile Include="DbShare\TipKoloneBatchEdit.cs" />
+    <Compile Include="DbAdmin\clsAmbjent.cs" />
+    <Compile Include="DbAdmin\clsDrejtaTabi.cs" />
+    <Compile Include="DbAdmin\clsFiltraGIS.cs" />
+    <Compile Include="DbAdmin\clsGjenerimPIN.cs" />
+    <Compile Include="DbAdmin\clsKokaErrorImporti.cs" />
+    <Compile Include="DbAdmin\colFiltraGIS.cs" />
+    <Compile Include="DbAdmin\colLogetPeopleFinder.cs" />
+    <Compile Include="DbAdmin\clsLogRivleresimInventari.cs" />
+    <Compile Include="DbAdmin\clsLogu.cs" />
+    <Compile Include="DbAdmin\clsKonfigurimeFjalekalimi.cs" />
+    <Compile Include="DbAdmin\clsLoguPeopleFinder.cs" />
+    <Compile Include="DbAdmin\clsTeDrejtaRoliKoka.cs" />
+    <Compile Include="DbAdmin\clsTrupiErrorImporti.cs" />
+    <Compile Include="DbAdmin\colAmbjent.cs" />
+    <Compile Include="DbAdmin\colDrejtaTabi.cs" />
+    <Compile Include="DbAdmin\colTeDrejtaRoliKoka.cs" />
+    <Compile Include="DbAdmin\colTrupiErrorImporti.cs" />
+    <Compile Include="DbAsete\clsAmortizimiFillestar.cs" />
+    <Compile Include="DbAsete\clsAmortizimiKoka.cs" />
+    <Compile Include="DbAsete\clsAmortizimiTrupiAbstract.cs" />
+    <Compile Include="DbAsete\clsAQTSeriale.cs" />
+    <Compile Include="DbAsete\clsAseteLlojAmortizimi.cs" />
+    <Compile Include="DbAsete\clsAseteNormaAmortizimiAbstract.cs" />
+    <Compile Include="DbAsete\clsDatabazeAsete.cs" />
+    <Compile Include="DbAsete\clsGrupNormaAmortizimi.cs" />
+    <Compile Include="DbAsete\clsHistorikAQTSeriale.cs" />
+    <Compile Include="DbAsete\clsHistorikStatusMagazine.cs" />
+    <Compile Include="DbAsete\clsKarakteristikaStandarti.cs" />
+    <Compile Include="DbAsete\clsKarakteristikaStandartiTrupi.cs" />
+    <Compile Include="DbAsete\clsLlojNjesiAdministrative.cs" />
+    <Compile Include="DbAsete\clsPeriudhaLlogaritje.cs" />
+    <Compile Include="DbAsete\clsSerialetMagazine.cs" />
+    <Compile Include="DbAsete\clsStandarteAmortizim.cs" />
+    <Compile Include="DbAsete\clsStatusMagazine_Asete.cs" />
+    <Compile Include="DbAsete\colAmortizimiFillestar.cs" />
+    <Compile Include="DbAsete\colAmortizimiKoka.cs" />
+    <Compile Include="DbAsete\colAmortizimiTrupiAbstract.cs" />
+    <Compile Include="DbAsete\colAQTSeriale.cs" />
+    <Compile Include="DbAsete\colAseteLlojAmortizimi.cs" />
+    <Compile Include="DbAsete\colAseteNormaAmortizimiAbstract.cs" />
+    <Compile Include="DbAsete\colGrupNormaAmortizimi.cs" />
+    <Compile Include="DbAsete\colHistorikAQTSeriale.cs" />
+    <Compile Include="DbAsete\colHistorikStatusMagazine.cs" />
+    <Compile Include="DbAsete\colKarakteristikaStandarti.cs" />
+    <Compile Include="DbAsete\colKarakteristikaStandartiTrupi.cs" />
+    <Compile Include="DbAsete\colLlojNjesiAdministrative.cs" />
+    <Compile Include="DbAsete\colPeriudhaLlogaritje.cs" />
+    <Compile Include="DbAsete\colSerialetMagazine.cs" />
+    <Compile Include="DbAsete\colStandarteAmortizimi.cs" />
+    <Compile Include="DbAsete\colStatusMagazine_Asete.cs" />
+    <Compile Include="DbCRM\clsDatabaseCRM.cs" />
+    <Compile Include="DbCRM\clsDetyra.cs" />
+    <Compile Include="DbCRM\clsDetyreKlient.cs" />
+    <Compile Include="DbCRM\clsDetyreKlientAgjent.cs" />
+    <Compile Include="DbCRM\clsFotoAnkete.cs" />
+    <Compile Include="DbCRM\clsKlientAnketa.cs" />
+    <Compile Include="DbCRM\clsKokaAnketa.cs" />
+    <Compile Include="DbCRM\clsKokaKlientAnketaAgjent.cs" />
+    <Compile Include="DbCRM\clsOpsioneAnkete.cs" />
+    <Compile Include="DbCRM\clsSkeduler.cs" />
+    <Compile Include="DbCRM\clsTakimePerKontroll.cs" />
+    <Compile Include="DbCRM\clsTrupiAnketa.cs" />
+    <Compile Include="DbCRM\clsTrupiKlientAnketaAgjent.cs" />
+    <Compile Include="DbCRM\colDetyra.cs" />
+    <Compile Include="DbCRM\colDetyreKlient.cs" />
+    <Compile Include="DbCRM\colDetyreKlientAgjent.cs" />
+    <Compile Include="DbCRM\colFotoAnkete.cs" />
+    <Compile Include="DbCRM\colKlientAnketa.cs" />
+    <Compile Include="DbCRM\colKokaAnketa.cs" />
+    <Compile Include="DbCRM\colKokaKlientAnketaAgjent.cs" />
+    <Compile Include="DbCRM\colOpsioneAnkete.cs" />
+    <Compile Include="DbCRM\colSkeduler.cs" />
+    <Compile Include="DbCRM\colTakimePerKontroll.cs" />
+    <Compile Include="DbCRM\colTrupiAnketa.cs" />
+    <Compile Include="DbCRM\colTrupiKlientAnketaAgjent.cs" />
+    <Compile Include="DbCRM\LlojDetyre.cs" />
+    <Compile Include="DbGIS\clsLayersColsGIS.cs" />
+    <Compile Include="DbGIS\clsLayersFoldersGIS.cs" />
+    <Compile Include="DbGIS\clsLidhjeObjekteWebGis.cs" />
+    <Compile Include="DbGIS\clsObjBounds.cs" />
+    <Compile Include="DbGIS\clsDatabaseGIS.cs" />
+    <Compile Include="DbGIS\clsFunksioneGIS.cs" />
+    <Compile Include="DbGIS\clsJSONHelper.cs" />
+    <Compile Include="DbGIS\clsKonfigurimeGIS.cs" />
+    <Compile Include="DbGIS\clsPerkthimElement.cs" />
+    <Compile Include="DbGIS\clsPerkthimet.cs" />
+    <Compile Include="DbGIS\clsSkedaretGIS.cs" />
+    <Compile Include="DbGIS\colKonfigurimeGIS.cs" />
+    <Compile Include="DbGIS\colLayersColsGIS.cs" />
+    <Compile Include="DbGIS\colLayersFoldersGIS.cs" />
+    <Compile Include="DbGIS\colLidhjeObjekteWebGis.cs" />
+    <Compile Include="DbGIS\colSkedaretGIS.cs" />
+    <Compile Include="DbGIS\clsObjPoint.cs" />
+    <Compile Include="DbImporte\colEksportSQL.cs" />
+    <Compile Include="DbImporte\clsDatabazeImporte.cs" />
+    <Compile Include="DbImporte\colImportKokaFleteKontabel.cs" />
+    <Compile Include="DbImporte\colImportTrupiFleteKontabel.cs" />
+    <Compile Include="DbInventari\clsAutomjete.cs" />
+    <Compile Include="DbInventari\clsModelAutomjeti.cs" />
+    <Compile Include="DbInventari\clsTransportues.cs" />
+    <Compile Include="DbInventari\colAutomjete.cs" />
+    <Compile Include="DbInventari\colModeleAutomjetesh.cs" />
+    <Compile Include="DbInventari\colPrintimeNeKase.cs" />
+    <Compile Include="DbInventari\colTransportues.cs" />
+    <Compile Include="DbImporte\clsImportKokaFleteKontabel.cs" />
+    <Compile Include="DbImporte\clsImportTrupiFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\LlojPorosie.cs" />
+    <Compile Include="DbAdmin\clsPassword_History.cs" />
+    <Compile Include="DbListPagesat\clsBankaPunonjes.cs" />
+    <Compile Include="DbListPagesat\clsDiteLeje.cs" />
+    <Compile Include="DbListPagesat\clsGrupimeLocaleGlobale.cs" />
+    <Compile Include="DbListPagesat\clsGrupKomponente.cs" />
+    <Compile Include="DbListPagesat\clsKalendariFestave.cs" />
+    <Compile Include="DbListPagesat\clsKodeProfesione.cs" />
+    <Compile Include="DbListPagesat\clsKokaKonfigListOrari.cs" />
+    <Compile Include="DbListPagesat\clsKomponenteMuaji.cs" />
+    <Compile Include="DbListPagesat\clsKomponenteNr.cs" />
+    <Compile Include="DbListPagesat\clsKontrolliMjekesor.cs" />
+    <Compile Include="DbListPagesat\clsLegjendaListOrareve.cs" />
+    <Compile Include="DbListPagesat\clsListOrare.cs" />
+    <Compile Include="DbListPagesat\clsOreShtese.cs" />
+    <Compile Include="DbListPagesat\clsProfesioneTitujPune.cs" />
+    <Compile Include="DbListPagesat\clsQendraKostoPunonjes.cs" />
+    <Compile Include="DbListPagesat\clsTrupiKonfigListOrari.cs" />
+    <Compile Include="DbListPagesat\clsVendndodhjet.cs" />
+    <Compile Include="DbListPagesat\colBankaPunonjes.cs" />
+    <Compile Include="DbListPagesat\colDiteLeje.cs" />
+    <Compile Include="DbListPagesat\colGrupimeLocaleGlobale.cs" />
+    <Compile Include="DbListPagesat\colGrupKomponente.cs" />
+    <Compile Include="DbListPagesat\colKalendariFestave.cs" />
+    <Compile Include="DbListPagesat\colKodeProfesione.cs" />
+    <Compile Include="DbListPagesat\colKokaKonfigListOrari.cs" />
+    <Compile Include="DbListPagesat\colKomponenteMuaji.cs" />
+    <Compile Include="DbListPagesat\colKomponenteNr.cs" />
+    <Compile Include="DbListPagesat\colKontrolliMjekesor.cs" />
+    <Compile Include="DbListPagesat\colLegjendaListOrareve.cs" />
+    <Compile Include="DbListPagesat\colListOrare.cs" />
+    <Compile Include="DbListPagesat\colOreShtese.cs" />
+    <Compile Include="DbListPagesat\colProfesioneTitujPune.cs" />
+    <Compile Include="DbListPagesat\colQendraKostoPunonjes.cs" />
+    <Compile Include="DbListPagesat\colTrupiKonfigListOrari.cs" />
+    <Compile Include="DbListPagesat\colVendndodhjet.cs" />
+    <Compile Include="DbListPagesat\Edukimi.cs" />
+    <Compile Include="DbListPagesat\PunaMeparshme.cs" />
+    <Compile Include="DbProdhimi\clsKokaSkedulimProdhimics.cs" />
+    <Compile Include="DbProdhimi\clsTrupiSkedulimProdhimi.cs" />
+    <Compile Include="DbProdhimi\colKokaSkedulimProdhimi.cs" />
+    <Compile Include="DbProdhimi\colTrupiSkedulimProdhimi.cs" />
+    <Compile Include="DbShare\clsFormatKonfigTrup.cs" />
+    <Compile Include="DbShare\clsKategoriArkive.cs" />
+    <Compile Include="IMBUtils\Fiskalizimi\API\clsFunksioneFiskalizimi.cs" />
+    <Compile Include="IMBUtils\Fiskalizimi\API\DokumenteShteseEinvoice.cs" />
+    <Compile Include="IMBUtils\Fiskalizimi\Controls\clsKontrollePerFiskalizimin.cs" />
+    <Compile Include="IMBUtils\Messages\MessagesResource.cs" />
+    <Compile Include="Integrime\BrmAdapter.cs" />
+    <Compile Include="Integrime\clsSocket.cs" />
+    <Compile Include="Integrime\clsWebRequest.cs" />
+    <Compile Include="Integrime\clsWebServiceAuten.cs" />
+    <Compile Include="Integrime\clsWebServiceKasaVodafone.cs" />
+    <Compile Include="Integrime\KonfigurimeStatikeIntegrimi.cs" />
+    <Compile Include="Integrime\OTC\MPESAAdapter.cs" />
+    <Compile Include="Integrime\OTC\MPESAObjects.cs" />
+    <Compile Include="Integrime\OTC\MPESAStatusCode.cs" />
+    <Compile Include="Integrime\OTC\OTCPagesaAdapter.cs" />
+    <Compile Include="Integrime\OTC\SendSMSAdapter.cs" />
+    <Compile Include="Integrime\OTC\SMSHelper.cs" />
+    <Compile Include="Integrime\PromocioneAdapter.cs" />
+    <Compile Include="Integrime\StatuseNgaBrm.cs" />
+    <Compile Include="KodGjuhePerPerkthim.cs" />
+    <Compile Include="MbylljePeriudhe\Commons\ClosedPeriod.cs" />
+    <Compile Include="MbylljePeriudhe\Commons\Process.cs" />
+    <Compile Include="MbylljePeriudhe\ConcreteProducts\PeriodSummaryDetailKontabiliteti.cs" />
+    <Compile Include="MbylljePeriudhe\AbstractProducts\PeriodSummaryDetail.cs" />
+    <Compile Include="MbylljePeriudhe\Database\DatabasePeriodClosingCommon.cs" />
+    <Compile Include="DbRegjistrim\KategoriDokumenti.cs" />
+    <Compile Include="MbylljePeriudhe\Enumerations\PcAction.cs" />
+    <Compile Include="MbylljePeriudhe\Enumerations\Modul.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IClosedPeriod.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IDatabasePeriodClosing.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IDatabasePeriodClosingCommon.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IPeriodSummaryDetail.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IPeriodSummaryDetailKontabiliteti.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IProcess.cs" />
+    <Compile Include="MbylljePeriudhe\Statics\PeriodClosing.cs" />
+    <Compile Include="MbylljePeriudhe\Commons\Month.cs" />
+    <Compile Include="MbylljePeriudhe\Interfaces\IProcesetContainer.cs" />
+    <Compile Include="MbylljePeriudhe\Database\DatabasePeriodClosingKontabiliteti.cs" />
+    <Compile Include="MbylljePeriudhe\Singletons\ProcesetContainer.cs" />
+    <Compile Include="MbylljePeriudhe\AbstractProducts\PeriodSummary.cs" />
+    <Compile Include="MbylljePeriudhe\ConcreteProducts\PeriodSummaryKontabiliteti.cs" />
+    <Compile Include="MbylljePeriudhe\AbstractFactories\PeriodSummaryFactory.cs" />
+    <Compile Include="MbylljePeriudhe\ConcreteFactories\PeriodSummaryFactoryKontabiliteti.cs" />
+    <Compile Include="MbylljePeriudhe\Enumerations\Status.cs" />
+    <Compile Include="Otp\Base32.cs" />
+    <Compile Include="Otp\OtpAuthenticator.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\clsReportDesigner.cs" />
+    <Compile Include="DbShare\colFormatKonfigTrupi.cs" />
+    <Compile Include="DbShare\colKategoriArkive.cs" />
+    <Compile Include="DbTollona\clsArtikullTolloni.cs" />
+    <Compile Include="DbTollona\clsDatabazeTollona.cs" />
+    <Compile Include="DbTollona\clsPerdoruesTollona.cs" />
+    <Compile Include="DbTollona\clsShitjeMeSerial.cs" />
+    <Compile Include="DbTollona\clsTollonaElektronik.cs" />
+    <Compile Include="DbTollona\clsTollonaLeter.cs" />
+    <Compile Include="DbTollona\colArtikullTolloni.cs" />
+    <Compile Include="DbTollona\colShitjeMeSerial.cs" />
+    <Compile Include="DbTollona\colTollonaElektronik.cs" />
+    <Compile Include="DbTollona\colTollonaLeter.cs" />
+    <Compile Include="CustomEntites\konfigAmbientiSlim.cs" />
+    <Compile Include="DbAdmin\ClientScriptJsonUtilities.cs" />
+    <Compile Include="DbAdmin\clsAgjentShitje.cs" />
+    <Compile Include="DbAdmin\clsAmbientModuli.cs" />
+    <Compile Include="DbAdmin\clsAuditim.cs" />
+    <Compile Include="DbAdmin\clsAutorizimKoka.cs" />
+    <Compile Include="DbAdmin\clsAutorizimTrupi.cs" />
+    <Compile Include="DbAdmin\clsDatabaseAdmin.cs" />
+    <Compile Include="DbAdmin\clsDrejtim.cs" />
+    <Compile Include="DbAdmin\clsFiltraExporti.cs" />
+    <Compile Include="DbAdmin\clsFiltraGrida.cs" />
+    <Compile Include="DbAdmin\clsFushaShtese.cs" />
+    <Compile Include="DbAdmin\clsGridaKoka.cs" />
+    <Compile Include="DbAdmin\clsGridaTrupi.cs" />
+    <Compile Include="DbAdmin\clsGrupAuditimi.cs" />
+    <Compile Include="DbAdmin\clsGrupAuditimiTrupi.cs" />
+    <Compile Include="DbAdmin\clsGrupeKFPerWorkFlow.cs" />
+    <Compile Include="DbAdmin\clsGrupetPerdoruesit.cs" />
+    <Compile Include="DbAdmin\clsGrupiPerdorues.cs" />
+    <Compile Include="DbAdmin\clsGrupNdermarrje.cs" />
+    <Compile Include="DbAdmin\clsInfoArt.cs" />
+    <Compile Include="DbAdmin\clsInfoKoka.cs" />
+    <Compile Include="DbAdmin\clsInfoTrupi.cs" />
+    <Compile Include="DbAdmin\clsKategoriNrAuto.cs" />
+    <Compile Include="DbAdmin\clsKlaseObjektesh.cs" />
+    <Compile Include="DbAdmin\clsKokaFormatImporti.cs" />
+    <Compile Include="DbAdmin\clsKokaSkemaWorkFlow.cs" />
+    <Compile Include="DbAdmin\clsKoloneEmerLogjik.cs" />
+    <Compile Include="DbAdmin\clsKomponente.cs" />
+    <Compile Include="DbAdmin\clsKonfigExporti.cs" />
+    <Compile Include="DbImporte\clsKonfigImporti.cs" />
+    <Compile Include="DbAdmin\clsKonfigurime.cs" />
+    <Compile Include="DbAdmin\clsKonfigurimEmail.cs" />
+    <Compile Include="DbAdmin\clsKonfigurimKase.cs" />
+    <Compile Include="DbAdmin\clsKontrolleGrida.cs" />
+    <Compile Include="DbAdmin\clsKurset.cs" />
+    <Compile Include="DbAdmin\clsKushtDergimi.cs" />
+    <Compile Include="DbAdmin\clsLicenca.cs" />
+    <Compile Include="DbAdmin\clsLidhjeAutorizim.cs" />
+    <Compile Include="DbAdmin\clsListeAmbjenteCeljeRegjistrim.cs" />
+    <Compile Include="DbAdmin\clsLlojDokumenti.cs" />
+    <Compile Include="DbAdmin\clsLlojKodi.cs" />
+    <Compile Include="DbAdmin\clsLlojLicence.cs" />
+    <Compile Include="DbAdmin\clsLlojModeliFushaShtese.cs" />
+    <Compile Include="DbAdmin\clsLlojPeriudhe.cs" />
+    <Compile Include="DbAdmin\clsLlojVeprimi.cs" />
+    <Compile Include="DbAdmin\clsMenyreTransporti.cs" />
+    <Compile Include="DbAdmin\clsModeliFushaShtese.cs" />
+    <Compile Include="DbAdmin\clsModuli.cs" />
+    <Compile Include="DbAdmin\clsMonedha.cs" />
+    <Compile Include="DbAdmin\clsNdermarrje.cs" />
+    <Compile Include="DbAdmin\clsNdermarrjeViti.cs" />
+    <Compile Include="DbAdmin\clsNrAutom.cs" />
+    <Compile Include="DbAdmin\clsNrAutomatikFundit.cs" />
+    <Compile Include="DbAdmin\clsOnlineUsers.cs" />
+    <Compile Include="DbAdmin\clsPeme.cs" />
+    <Compile Include="DbAdmin\clsPerdorues.cs" />
+    <Compile Include="DbAdmin\clsPeriudhaInfoArtikulli.cs" />
+    <Compile Include="DbAdmin\clsPeriudhaKontabel.cs" />
+    <Compile Include="DbAdmin\clsQyteti.cs" />
+    <Compile Include="DbAdmin\clsRoli.cs" />
+    <Compile Include="DbAdmin\clsRolPerdorues.cs" />
+    <Compile Include="DbAdmin\ReportStyle.cs" />
+    <Compile Include="DbAdmin\clsTabeleEmerLogjik.cs" />
+    <Compile Include="DbAdmin\clsTeDrejtaRoli.cs" />
+    <Compile Include="DbAdmin\clsTeDrejtat.cs" />
+    <Compile Include="DbAdmin\clsTeDrejtaVeprim.cs" />
+    <Compile Include="DbAdmin\clsTheme.cs" />
+    <Compile Include="DbAdmin\clsThemesAmbjente.cs" />
+    <Compile Include="DbAdmin\clsThemesDevExpressJQuery.cs" />
+    <Compile Include="DbAdmin\clsTipiFushaShtese.cs" />
+    <Compile Include="DbAdmin\clsTrackUser.cs" />
+    <Compile Include="DbAdmin\clsTrupiFormatImporti.cs" />
+    <Compile Include="DbAdmin\clsTrupiSkemaWorkFlow.cs" />
+    <Compile Include="DbAdmin\clsTrupPasqyreFinanciare.cs" />
+    <Compile Include="DbAdmin\clsViti.cs" />
+    <Compile Include="DbAdmin\clsVleraFushaShtese.cs" />
+    <Compile Include="DbAdmin\clsVleraKonfigurimiKasa.cs" />
+    <Compile Include="DbAdmin\colAgjenteShitje.cs" />
+    <Compile Include="DbAdmin\colAmbientModuli.cs" />
+    <Compile Include="DbAdmin\colAuditime.cs" />
+    <Compile Include="DbAdmin\colAutorizimetKoka.cs" />
+    <Compile Include="DbAdmin\colAutorizimetTrupi.cs" />
+    <Compile Include="DbAdmin\colFiltraExporti.cs" />
+    <Compile Include="DbAdmin\colFiltratGrida.cs" />
+    <Compile Include="DbAdmin\colFushatShtese.cs" />
+    <Compile Include="DbAdmin\colGridaKoka.cs" />
+    <Compile Include="DbAdmin\colGridaTrupi.cs" />
+    <Compile Include="DbAdmin\colGrupAuditimiTrupi.cs" />
+    <Compile Include="DbAdmin\colGrupeAuditimi.cs" />
+    <Compile Include="DbAdmin\colGrupeKFPerWorkFlow.cs" />
+    <Compile Include="DbAdmin\colGrupetPerdoruesit.cs" />
+    <Compile Include="DbAdmin\colGrupetPerdoruesve.cs" />
+    <Compile Include="DbAdmin\colGrupiPerdorues.cs" />
+    <Compile Include="DbAdmin\colGrupNdermarrje.cs" />
+    <Compile Include="DbAdmin\colInfoArt.cs" />
+    <Compile Include="DbAdmin\colInfoKoka.cs" />
+    <Compile Include="DbAdmin\colInfoTrupi.cs" />
+    <Compile Include="DbAdmin\colKategoriNrAuto.cs" />
+    <Compile Include="DbAdmin\colKlaseObjektesh.cs" />
+    <Compile Include="DbAdmin\colKokaFormatImporti.cs" />
+    <Compile Include="DbAdmin\colKokaSkemaWorkFlow.cs" />
+    <Compile Include="DbAdmin\colKolonatEmerLogjik.cs" />
+    <Compile Include="DbAdmin\colKomponentet.cs" />
+    <Compile Include="DbAdmin\colKonfigurime.cs" />
+    <Compile Include="DbAdmin\colKonfigurimeEmaili.cs" />
+    <Compile Include="DbAdmin\colKonfigurimeKase.cs" />
+    <Compile Include="DbAdmin\colKontrolleGrida.cs" />
+    <Compile Include="DbAdmin\colKurset.cs" />
+    <Compile Include="DbAdmin\colKushteDergimi.cs" />
+    <Compile Include="DbAdmin\colLidhjetAutorizim.cs" />
+    <Compile Include="DbAdmin\colListeAmbjenteshCeljeRegjistrim.cs" />
+    <Compile Include="DbAdmin\colLlojDokumenti.cs" />
+    <Compile Include="DbAdmin\colLlojeVeprimesh.cs" />
+    <Compile Include="DbAdmin\colLlojKodi.cs" />
+    <Compile Include="DbAdmin\colLlojLicence.cs" />
+    <Compile Include="DbAdmin\colLlojModeleshFushaShtese.cs" />
+    <Compile Include="DbAdmin\colLlojPeriudhe.cs" />
+    <Compile Include="DbAdmin\colMenyraTransporti.cs" />
+    <Compile Include="DbAdmin\colModeletFushaShtese.cs" />
+    <Compile Include="DbAdmin\colModulet.cs" />
+    <Compile Include="DbAdmin\colMonedhat.cs" />
+    <Compile Include="DbAdmin\colNdermarrjet.cs" />
+    <Compile Include="DbAdmin\colNdermarrjeVitet.cs" />
+    <Compile Include="DbAdmin\colNrAutom.cs" />
+    <Compile Include="DbAdmin\colNrAutomatikFundit.cs" />
+    <Compile Include="DbAdmin\colOnlineUsers.cs" />
+    <Compile Include="DbAdmin\colPeme.cs" />
+    <Compile Include="DbAdmin\colPerdoruesit.cs" />
+    <Compile Include="DbAdmin\colPeriudhaKontabel.cs" />
+    <Compile Include="DbAdmin\colQytetet.cs" />
+    <Compile Include="DbAdmin\colRoli.cs" />
+    <Compile Include="DbAdmin\colRolPerdorues.cs" />
+    <Compile Include="DbAdmin\colTabelatEmerLogjik.cs" />
+    <Compile Include="DbAdmin\colTeDrejtaRoli.cs" />
+    <Compile Include="DbAdmin\colTeDrejtat.cs" />
+    <Compile Include="DbAdmin\colTeDrejtatVeprimet.cs" />
+    <Compile Include="DbAdmin\colTheme.cs" />
+    <Compile Include="DbAdmin\colThemesAmbjente.cs" />
+    <Compile Include="DbAdmin\colThemesDevExpressJQuery.cs" />
+    <Compile Include="DbAdmin\colTipeFushaShtese.cs" />
+    <Compile Include="DbAdmin\colTrackUser.cs" />
+    <Compile Include="DbAdmin\colTrupiFormatImporti.cs" />
+    <Compile Include="DbAdmin\colTrupiSkemaWorkFlow.cs" />
+    <Compile Include="DbAdmin\colTrupPasqyreFinaciare.cs" />
+    <Compile Include="DbAdmin\colVitet.cs" />
+    <Compile Include="DbAdmin\colVleraFushaShtese.cs" />
+    <Compile Include="DbAdmin\colVleratKonfigurimiKasa.cs" />
+    <Compile Include="DbAdmin\clsTeDrejtaRaporte.cs" />
+    <Compile Include="DbAdmin\Formula.cs" />
+    <Compile Include="DbAdmin\LlojInfo.cs" />
+    <Compile Include="DbAdmin\NrAuto.cs" />
+    <Compile Include="DbAdmin\Permbledhes.cs" />
+    <Compile Include="DbAdmin\StringCipher.cs" />
+    <Compile Include="DbArkaBanka\clsBanka.cs" />
+    <Compile Include="DbArkaBanka\clsDatabaseArkaBanka.cs" />
+    <Compile Include="DbArkaBanka\clsGrupBanke.cs" />
+    <Compile Include="DbArkaBanka\clsKokaUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\clsKonfigUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\clsOpsionePagese.cs" />
+    <Compile Include="DbArkaBanka\clsTrupiUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\clsVeprimBankaKoka.cs" />
+    <Compile Include="DbArkaBanka\clsVeprimBankaTrupi.cs" />
+    <Compile Include="DbArkaBanka\colBankat.cs" />
+    <Compile Include="DbArkaBanka\colGrupeBanke.cs" />
+    <Compile Include="DbArkaBanka\colKokaUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\colKonfigUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\colOpsionePagese.cs" />
+    <Compile Include="DbArkaBanka\colTrupiUrdherPagese.cs" />
+    <Compile Include="DbArkaBanka\colVeprimBankaKoka.cs" />
+    <Compile Include="DbArkaBanka\colVeprimBankaTrupi.cs" />
+    <Compile Include="DbArkaBanka\LlojDokumentiNgjitur.cs" />
+    <Compile Include="DbArkaBanka\LlojeKonfigurimeUrdherPagese.cs" />
+    <Compile Include="DbInventari\clsArtikulli.cs" />
+    <Compile Include="DbInventari\clsArtikulliPerberes.cs" />
+    <Compile Include="DbInventari\clsArtikulliPerberesTemplateTrupi.cs" />
+    <Compile Include="DbInventari\clsArtikullPerberesTemplateKoka.cs" />
+    <Compile Include="DbInventari\clsArtikullZevendesues.cs" />
+    <Compile Include="DbInventari\clsCmimArtikulli.cs" />
+    <Compile Include="DbInventari\clsDatabaseInventari.cs" />
+    <Compile Include="DbInventari\clsDetajimArtikulli.cs" />
+    <Compile Include="DbInventari\clsDetajimPerArt.cs" />
+    <Compile Include="DbInventari\clsFormula.cs" />
+    <Compile Include="DbInventari\clsFunksionMakro.cs" />
+    <Compile Include="DbInventari\clsFurnitoreArtikulli.cs" />
+    <Compile Include="DbInventari\clsGarancia.cs" />
+    <Compile Include="DbInventari\clsKategoriDetajimArtikulli.cs" />
+    <Compile Include="DbInventari\clsKlasaArtikulli.cs" />
+    <Compile Include="DbInventari\clsKodbari.cs" />
+    <Compile Include="DbInventari\clsKodifikimArtikulli.cs" />
+    <Compile Include="DbInventari\clsKokaKategoriZbritje.cs" />
+    <Compile Include="DbInventari\clsKokaMakro.cs" />
+    <Compile Include="DbInventari\clsLlojDifekti.cs" />
+    <Compile Include="DbInventari\clsLlojMakro.cs" />
+    <Compile Include="DbInventari\clsMaturimi.cs" />
+    <Compile Include="DbInventari\clsMetodeKostoje.cs" />
+    <Compile Include="DbInventari\clsNivelCmimi.cs" />
+    <Compile Include="DbInventari\clsNivelZbritje.cs" />
+    <Compile Include="DbInventari\clsNjesiArtikulli.cs" />
+    <Compile Include="DbInventari\clsNjesiVartese.cs" />
+    <Compile Include="DbInventari\clsPrintimeKase.cs" />
+    <Compile Include="DbInventari\clsSkemaKontabilitetiArtikulli.cs" />
+    <Compile Include="DbInventari\clsStatusRiparimi.cs" />
+    <Compile Include="DbInventari\clsTrupiKategoriZbritje.cs" />
+    <Compile Include="DbInventari\clsTrupiMakro.cs" />
+    <Compile Include="DbInventari\clsZbritjeAnalitike.cs" />
+    <Compile Include="DbInventari\colArtikujt.cs" />
+    <Compile Include="DbInventari\colArtikujtZevendesues.cs" />
+    <Compile Include="DbInventari\colArtikulliPerberes.cs" />
+    <Compile Include="DbInventari\colArtikulliPerberesTemplateKoka.cs" />
+    <Compile Include="DbInventari\colArtikulliPerberesTemplateTrupi.cs" />
+    <Compile Include="DbInventari\colCmimeArtikujsh.cs" />
+    <Compile Include="DbInventari\colDetajimeArtikulli.cs" />
+    <Compile Include="DbInventari\colDetajimePerArt.cs" />
+    <Compile Include="DbInventari\colFormulat.cs" />
+    <Compile Include="DbInventari\colFunksioneMakrosh.cs" />
+    <Compile Include="DbInventari\colFurnitoreArtikujsh.cs" />
+    <Compile Include="DbInventari\colGarancite.cs" />
+    <Compile Include="DbInventari\colKategoriDetajimArtikulli.cs" />
+    <Compile Include="DbInventari\colKlasaArtikulli.cs" />
+    <Compile Include="DbInventari\colKodbare.cs" />
+    <Compile Include="DbInventari\colKodifikimeArtikulli.cs" />
+    <Compile Include="DbInventari\colKokatKategoriteZbritje.cs" />
+    <Compile Include="DbInventari\colKokatMakro.cs" />
+    <Compile Include="DbInventari\colLlojDifekti.cs" />
+    <Compile Include="DbInventari\colLlojeMakrosh.cs" />
+    <Compile Include="DbInventari\colMaturimet.cs" />
+    <Compile Include="DbInventari\colMetodeKostoje.cs" />
+    <Compile Include="DbInventari\colNiveleCmimesh.cs" />
+    <Compile Include="DbInventari\colNiveleZbritjesh.cs" />
+    <Compile Include="DbInventari\colNjesiteArtikulli.cs" />
+    <Compile Include="DbInventari\colNjesiVartese.cs" />
+    <Compile Include="DbInventari\colSkematKontabilitetiArtikulli.cs" />
+    <Compile Include="DbInventari\colStatusRiparimi.cs" />
+    <Compile Include="DbInventari\colTrupatKategoriteZbritjes.cs" />
+    <Compile Include="DbInventari\colTrupatMakro.cs" />
+    <Compile Include="DbInventari\colZbritjetAnalitike.cs" />
+    <Compile Include="DbKontabiliteti\clsAdresaKlientFurnitor.cs" />
+    <Compile Include="DbKontabiliteti\clsBuxheti.cs" />
+    <Compile Include="DbKontabiliteti\clsDatabaseKontabilitet.cs" />
+    <Compile Include="DbKontabiliteti\clsGrupeKF.cs" />
+    <Compile Include="DbKontabiliteti\clsGrupiLlogaria.cs" />
+    <Compile Include="DbKontabiliteti\clsGrupKontabilizimi.cs" />
+    <Compile Include="DbKontabiliteti\clsKategoriShpenzimi.cs" />
+    <Compile Include="DbKontabiliteti\clsKlientFurnitor.cs" />
+    <Compile Include="DbKontabiliteti\clsKokaFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\clsKokaSkemaFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\clsKontaktiKlientFurnitor.cs" />
+    <Compile Include="DbKontabiliteti\clsKPF.cs" />
+    <Compile Include="DbKontabiliteti\clsKushtPageseKoka.cs" />
+    <Compile Include="DbKontabiliteti\clsKushtPageseTrupi.cs" />
+    <Compile Include="DbKontabiliteti\clsLlogari.cs" />
+    <Compile Include="DbKontabiliteti\clsLlogariaTrupipasqyres.cs" />
+    <Compile Include="DbKontabiliteti\clsLlojBuxheti.cs" />
+    <Compile Include="DbKontabiliteti\clsLlojLlogarish.cs" />
+    <Compile Include="DbKontabiliteti\clsNenGrupiLlogaria.cs" />
+    <Compile Include="DbKontabiliteti\clsNenLlojLlogarish.cs" />
+    <Compile Include="DbKontabiliteti\clsPasqyreFinanciare.cs" />
+    <Compile Include="DbKontabiliteti\clsSkemaKontabelNew.cs" />
+    <Compile Include="DbKontabiliteti\clsSkemakontabelTrupiNew.cs" />
+    <Compile Include="DbKontabiliteti\clsTipAdrese.cs" />
+    <Compile Include="DbKontabiliteti\clsTrupiFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\clsTrupiSkemaFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\clsTrupPasqyreFinanciare.cs" />
+    <Compile Include="DbKontabiliteti\colAdresatKlientFurnitor.cs" />
+    <Compile Include="DbKontabiliteti\colBuxhetet.cs" />
+    <Compile Include="DbKontabiliteti\colGrupeKF.cs" />
+    <Compile Include="DbKontabiliteti\colGrupeKontabilizimi.cs" />
+    <Compile Include="DbKontabiliteti\colGrupetLlogaria.cs" />
+    <Compile Include="DbKontabiliteti\colKategoriShpenzimi.cs" />
+    <Compile Include="DbKontabiliteti\colKlienteFurnitore.cs" />
+    <Compile Include="DbKontabiliteti\colKokatFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\colKokatSkematFletetKontabel.cs" />
+    <Compile Include="DbKontabiliteti\colKontaktiKlientFurnitor.cs" />
+    <Compile Include="DbKontabiliteti\colKPFte.cs" />
+    <Compile Include="DbKontabiliteti\colKushtPageseKoka.cs" />
+    <Compile Include="DbKontabiliteti\colKushtPageseTrupi.cs" />
+    <Compile Include="DbKontabiliteti\colLlogariaTrupiPasqyres.cs" />
+    <Compile Include="DbKontabiliteti\colLlogarite.cs" />
+    <Compile Include="DbKontabiliteti\colLlojeBuxhetesh.cs" />
+    <Compile Include="DbKontabiliteti\colLlojLlogarish.cs" />
+    <Compile Include="DbKontabiliteti\colNenGrupetLlogaria.cs" />
+    <Compile Include="DbKontabiliteti\colNenLlojLlogarish.cs" />
+    <Compile Include="DbKontabiliteti\colPasqyratFinaciare.cs" />
+    <Compile Include="DbKontabiliteti\colSkemaKontabelNew.cs" />
+    <Compile Include="DbKontabiliteti\colSkemaKontabelTrupiNew.cs" />
+    <Compile Include="DbKontabiliteti\colTipeAdresash.cs" />
+    <Compile Include="DbKontabiliteti\colTrupatFleteKontabel.cs" />
+    <Compile Include="DbKontabiliteti\colTrupatSkematFletetKontabel.cs" />
+    <Compile Include="DbKontabiliteti\colTrupPasqyreFinaciare.cs" />
+    <Compile Include="DbListPagesat\clsDatabazeListPagesa.cs" />
+    <Compile Include="DbListPagesat\clsGrupPunonjesish.cs" />
+    <Compile Include="DbListPagesat\clsKategoriPage.cs" />
+    <Compile Include="DbListPagesat\clsKokaListPagese.cs" />
+    <Compile Include="DbListPagesat\clsKompListPagese.cs" />
+    <Compile Include="DbListPagesat\clsKomponenteListPagesePunonjesi.cs" />
+    <Compile Include="DbListPagesat\clsKomponentePage.cs" />
+    <Compile Include="DbListPagesat\clsPagaShtesa.cs" />
+    <Compile Include="DbListPagesat\clsPunesim.cs" />
+    <Compile Include="DbListPagesat\clsPunonjes.cs" />
+    <Compile Include="DbQendraKosto\clsKokaQendraKosto.cs" />
+    <Compile Include="DbQendraKosto\clsKokaSkemaQK.cs" />
+    <Compile Include="DbQendraKosto\clsObjektivaKosto.cs" />
+    <Compile Include="DbQendraKosto\clsQendraKosto.cs" />
+    <Compile Include="DbListPagesat\clsShtesaPage.cs" />
+    <Compile Include="DbListPagesat\clsSigurimeSuplementare.cs" />
+    <Compile Include="DbListPagesat\clsSigurimet.cs" />
+    <Compile Include="DbListPagesat\clsSkemaSigurimi.cs" />
+    <Compile Include="DbListPagesat\clsStrukturaAdministrative.cs" />
+    <Compile Include="DbListPagesat\clsTatime.cs" />
+    <Compile Include="DbListPagesat\clsTipeKontrate.cs" />
+    <Compile Include="DbListPagesat\clsTrupiListPagese.cs" />
+    <Compile Include="DbListPagesat\colGrupePunonjesish.cs" />
+    <Compile Include="DbListPagesat\colKategoriPage.cs" />
+    <Compile Include="DbListPagesat\colKokaListPagese.cs" />
+    <Compile Include="DbListPagesat\colKompListPagese.cs" />
+    <Compile Include="DbListPagesat\colKomponenteListPagesePunonjesi.cs" />
+    <Compile Include="DbListPagesat\colKomponentePage.cs" />
+    <Compile Include="DbListPagesat\colPagaShtesa.cs" />
+    <Compile Include="DbListPagesat\colPunesim.cs" />
+    <Compile Include="DbListPagesat\colPunonjes.cs" />
+    <Compile Include="DbQendraKosto\clsTrupiQendraKosto.cs" />
+    <Compile Include="DbQendraKosto\clsTrupiSkemaQK.cs" />
+    <Compile Include="DbQendraKosto\colKokaQendraKosto.cs" />
+    <Compile Include="DbQendraKosto\colKokaSkemaQK.cs" />
+    <Compile Include="DbQendraKosto\colObjektivaKosto.cs" />
+    <Compile Include="DbQendraKosto\colQendraKosto.cs" />
+    <Compile Include="DbListPagesat\colShtesaPage.cs" />
+    <Compile Include="DbListPagesat\colSigurimeSuplementare.cs" />
+    <Compile Include="DbListPagesat\colSigurimet.cs" />
+    <Compile Include="DbListPagesat\colSkemaSigurimi.cs" />
+    <Compile Include="DbListPagesat\colStrukturatAdministrative.cs" />
+    <Compile Include="DbListPagesat\colTatimet.cs" />
+    <Compile Include="DbListPagesat\colTipeKontrate.cs" />
+    <Compile Include="DbListPagesat\colTrupiListPagese.cs" />
+    <Compile Include="DbListPagesat\LlojKomponentePage.cs" />
+    <Compile Include="DbListPagesat\LlojPagese.cs" />
+    <Compile Include="DbListPagesat\Menyra.cs" />
+    <Compile Include="DbListPagesat\Model.cs" />
+    <Compile Include="DbListPagesat\Muajt.cs" />
+    <Compile Include="DbListPagesat\NjesiPagese.cs" />
+    <Compile Include="DbListPagesat\TipeShtesaPage.cs" />
+    <Compile Include="DbListPagesat\TipPagese.cs" />
+    <Compile Include="DbProdhimi\clsAktiviteteKoka.cs" />
+    <Compile Include="DbProdhimi\clsAktiviteteTrupi.cs" />
+    <Compile Include="DbProdhimi\clsBurime.cs" />
+    <Compile Include="DbProdhimi\clsDatabazeProdhimi.cs" />
+    <Compile Include="DbProdhimi\clsKokaEkzekutim.cs" />
+    <Compile Include="DbProdhimi\clsKokaPlanifikim.cs" />
+    <Compile Include="DbProdhimi\clsPlanifikimEkzekutim.cs" />
+    <Compile Include="DbProdhimi\clsProduktProdhimi.cs" />
+    <Compile Include="DbProdhimi\clsProjektProdhimi.cs" />
+    <Compile Include="DbProdhimi\clsRecepturaProdhimi.cs" />
+    <Compile Include="DbProdhimi\clsTrupiPlanifikim.cs" />
+    <Compile Include="DbProdhimi\clsUrdherPorosiPlanifikim.cs" />
+    <Compile Include="DbProdhimi\colAktiviteteKoka.cs" />
+    <Compile Include="DbProdhimi\colAktiviteteTrupi.cs" />
+    <Compile Include="DbProdhimi\colBurimet.cs" />
+    <Compile Include="DbProdhimi\colKokaEkzekutim.cs" />
+    <Compile Include="DbProdhimi\colKokaPlanifikim.cs" />
+    <Compile Include="DbProdhimi\colPlanifikimEkzekutim.cs" />
+    <Compile Include="DbProdhimi\colProduktProdhimi.cs" />
+    <Compile Include="DbProdhimi\colProjektProdhimi.cs" />
+    <Compile Include="DbProdhimi\colRecepturaProdhimi.cs" />
+    <Compile Include="DbProdhimi\colTrupiPlanifikim.cs" />
+    <Compile Include="DbProdhimi\colUrdherPorosiPlanifikim.cs" />
+    <Compile Include="DbProdhimi\NjesiKohe.cs" />
+    <Compile Include="DbProdhimi\TipBurimi.cs" />
+    <Compile Include="DbQendraKosto\clsDatabaseQendraKosto.cs" />
+    <Compile Include="DbQendraKosto\clsKonfigurimQK.cs" />
+    <Compile Include="DbQendraKosto\clsLlogariShperndarjeQK.cs" />
+    <Compile Include="DbQendraKosto\clsMenyreMesazhi.cs" />
+    <Compile Include="DbQendraKosto\colKonfigurimQK.cs" />
+    <Compile Include="DbQendraKosto\colLlogariShperndarjeQK.cs" />
+    <Compile Include="DbQendraKosto\colMenyreMesazhi.cs" />
+    <Compile Include="DbQendraKosto\colTrupiQendraKosto.cs" />
+    <Compile Include="DbQendraKosto\colTrupiSkemaQK.cs" />
+    <Compile Include="DbQendraKosto\PrioritetShperndarje.cs" />
+    <Compile Include="DbShare\clsAlternativaKushti.cs" />
+    <Compile Include="DbShare\clsArkiva.cs" />
+    <Compile Include="DbShare\clsAtributeTrupi.cs" />
+    <Compile Include="DbShare\clsDatabaseShare.cs" />
+    <Compile Include="DbShare\clsFilterKoka.cs" />
+    <Compile Include="DbShare\clsFilterPerRaport.cs" />
+    <Compile Include="DbShare\clsFilterTrupi.cs" />
+    <Compile Include="DbShare\clsFormatKonfig.cs" />
+    <Compile Include="DbShare\clsFormatNr.cs" />
+    <Compile Include="DbShare\clsGrupKontrolli.cs" />
+    <Compile Include="DbShare\clsKomponentPerFilter.cs" />
+    <Compile Include="DbShare\clsKonfigurimAmbjenti.cs" />
+    <Compile Include="DbShare\clsKonfLlojRreshti.cs" />
+    <Compile Include="DbShare\clsKonfLlojRreshtiVlere.cs" />
+    <Compile Include="DbShare\clsKontroll.cs" />
+    <Compile Include="DbShare\clsKusht.cs" />
+    <Compile Include="DbShare\clsMenuItem.cs" />
+    <Compile Include="DbShare\clsRaportDesign.cs" />
+    <Compile Include="DbShare\clsRaporti.cs" />
+    <Compile Include="DbShare\clsSP.cs" />
+    <Compile Include="DbShare\clsXML.cs" />
+    <Compile Include="DbShare\colAlternativatKushti.cs" />
+    <Compile Include="DbShare\colArkiva.cs" />
+    <Compile Include="DbShare\colAtributeTrupi.cs" />
+    <Compile Include="DbShare\colFilterKoka.cs" />
+    <Compile Include="DbShare\colFilterPerRaport.cs" />
+    <Compile Include="DbShare\colFilterTrupi.cs" />
+    <Compile Include="DbShare\colFormatKonfig.cs" />
+    <Compile Include="DbShare\colFormatNr.cs" />
+    <Compile Include="DbShare\colGrupKontrolli.cs" />
+    <Compile Include="DbShare\colKomponentPerFilter.cs" />
+    <Compile Include="DbShare\colKonfigurimAmbjenti.cs" />
+    <Compile Include="DbShare\colKonfLlojRreshti.cs" />
+    <Compile Include="DbShare\colKontrolle.cs" />
+    <Compile Include="DbShare\colKusht.cs" />
+    <Compile Include="DbShare\colMenuItem.cs" />
+    <Compile Include="DbShare\colParameter.cs" />
+    <Compile Include="DbShare\colRaporteDesign.cs" />
+    <Compile Include="DbShare\colRaporti.cs" />
+    <Compile Include="DbShare\TipeKontrolli.cs" />
+    <Compile Include="CustomEntites\ListeVleraArtikulli.cs" />
+    <Compile Include="CustomEntites\ListeVleraArtikulliMeNjesiKodbaresh.cs" />
+    <Compile Include="CustomEntites\ListeVleraCmimi.cs" />
+    <Compile Include="CustomEntites\ListeVleraInfo.cs" />
+    <Compile Include="CustomEntites\ListeVleraLlogaria.cs" />
+    <Compile Include="CustomEntites\ListPeriudha.cs" />
+    <Compile Include="CustomEntites\llojRreshtiArkeBanke.cs" />
+    <Compile Include="CustomEntites\llojRreshtiShitje.cs" />
+    <Compile Include="CustomEntites\MenyrePagese.cs" />
+    <Compile Include="IMBUtils\Cache\mySessionObjects.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\colRekordeTeEksportuar.cs" />
+    <Compile Include="Raporte\CustomUntypedDataSetSerializer.cs" />
+    <Compile Include="Raporte\ParametraRaporti.cs" />
+    <Compile Include="Raporte\ReportFunctions.cs" />
+    <Compile Include="IMBUtils\Cache\StaticCache.cs" />
+    <Compile Include="Raporte\VeprimtariaDitoreExporter.cs" />
+    <Compile Include="Service References\MPESARequestProxy\Reference.cs" />
+    <Compile Include="Service References\MPESARequestProxy\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SendSMSProxy\Reference.cs" />
+    <Compile Include="Service References\SendSMSProxy\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DotSpatialEx.cs" />
+    <Compile Include="Utility\GeometryConverterToDotSpatial.cs" />
+    <Compile Include="Utility\GeometryConverterToGeoAPI.cs" />
+    <Compile Include="Web References\BRMAdapterServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\KasaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Email\EmailComposer.cs" />
+    <Compile Include="Web References\PromocioneProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VodSendSMS_Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebAutoFear\clsDatabaseWebAutoFear.cs" />
+    <Compile Include="WebAutoFear\Klasat\Address.cs" />
+    <Compile Include="WebAutoFear\Klasat\ArticleAction.cs" />
+    <Compile Include="WebAutoFear\Klasat\AvailState.cs" />
+    <Compile Include="WebAutoFear\Klasat\BillingMode.cs" />
+    <Compile Include="WebAutoFear\Klasat\Criterion.cs" />
+    <Compile Include="WebAutoFear\Klasat\GenericArticle.cs" />
+    <Compile Include="WebAutoFear\Klasat\InstalledItemInfo.cs" />
+    <Compile Include="WebAutoFear\Klasat\Item.cs" />
+    <Compile Include="WebAutoFear\Klasat\ItemBase.cs" />
+    <Compile Include="WebAutoFear\Klasat\ItemInfo.cs" />
+    <Compile Include="WebAutoFear\Klasat\ItemOrder.cs" />
+    <Compile Include="WebAutoFear\Klasat\Order.cs" />
+    <Compile Include="WebAutoFear\Klasat\PaymentMode.cs" />
+    <Compile Include="WebAutoFear\Klasat\Price.cs" />
+    <Compile Include="WebAutoFear\Klasat\Quantity.cs" />
+    <Compile Include="WebAutoFear\Klasat\ResponseLimit.cs" />
+    <Compile Include="WebAutoFear\Klasat\ShipmentMode.cs" />
+    <Compile Include="WebAutoFear\Klasat\Status.cs" />
+    <Compile Include="WebAutoFear\Klasat\TecdocType.cs" />
+    <Compile Include="WebAutoFear\Klasat\Tour.cs" />
+    <Compile Include="WebAutoFear\Klasat\User.cs" />
+    <Compile Include="WebAutoFear\Klasat\Warehouse.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\BaseGetBack.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackBillingModes.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackDeliveryAddresses.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackItems.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackOrder.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackPaymentModes.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackShipmentModes.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackTours.cs" />
+    <Compile Include="WebAutoFear\Pergjigjet\GetBackWarehouses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWeb.Data.AdoNet\AlphaWeb.Infrastructure.Data.AdoNet.csproj">
+      <Project>{55de6cc3-b86d-41de-b4ae-f7de678da4cb}</Project>
+      <Name>AlphaWeb.Infrastructure.Data.AdoNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWeb.Infrastructure.Data.OthersDb\AlphaWeb.Infrastructure.Data.OthersDb.csproj">
+      <Project>{ed27a952-d781-4bd9-8039-ff6e51c4ff55}</Project>
+      <Name>AlphaWeb.Infrastructure.Data.OthersDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
+      <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
+      <Name>AlphaWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CacheLayer\CacheLayer.csproj">
+      <Project>{771f7c02-cc33-4955-b406-9e03dd7bc268}</Project>
+      <Name>CacheLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MPESARequestProxy\BizTalkServiceInstance.wsdl" />
+    <None Include="Service References\MPESARequestProxy\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SendSMSProxy\sendSms.wsdl" />
+    <None Include="Web References\BRMAdapterServices\PCM_OP_VF_BALANCE_INQUIRY_RPLY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BRMAdapterServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl" />
+    <None Include="Web References\BRMAdapterServices\VF_OP_BAL_RETRIEVE_BAL_RPLY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BRMAdapterServices\VF_OP_PYMT_APPLY_ERP_PAYMENT_RPLY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BRMAdapterServices\VF_OP_PYMT_REVERSE_PAYMENT_RPLY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\KasaService\KasaWebService.wsdl" />
+    <None Include="Web References\KasaService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PromocioneProxy\CommandResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PromocioneProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PromocioneProxy\VFALSelfCareOperationsProxy.wsdl" />
+    <None Include="Web References\VodSendSMS_Service\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VodSendSMS_Service\VFALSendSMSGateWay.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\Users\alda\Desktop\TFS Alpha\DbCore\Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BRMAdapterServices\</RelPath>
+      <UpdateFromURL>C:\Users\alda\Desktop\TFS Alpha\DbCore\Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DbCore_BRMAdapterServices_BRMAdapterServicesSoap12BindingQSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Users\getson\Desktop\TfsProjects\AlphaWeb\DbCore\Web References\VFALSelfCareOperations\VFALSelfCareOperationsProxy.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PromocioneProxy\</RelPath>
+      <UpdateFromURL>C:\Users\getson\Desktop\TfsProjects\AlphaWeb\DbCore\Web References\VFALSelfCareOperations\VFALSelfCareOperationsProxy.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DbCore_PromocioneProxy1_VFALSelfCareOperations</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Users\ridi\Desktop\VFALSendSMSGateWay.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VodSendSMS_Service\</RelPath>
+      <UpdateFromURL>C:\Users\ridi\Desktop\VFALSendSMSGateWay.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DbCore_VodSendSMS_Service_VFALSendSMSGateWay</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.5.47.2/Kasa/KasaWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\KasaService\</RelPath>
+      <UpdateFromURL>http://10.5.47.2/Kasa/KasaWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DbCore_KasaService_KasaWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\KasaService\KasaWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\MPESARequestProxy\configuration.svcinfo" />
+    <Content Include="Service References\MPESARequestProxy\configuration91.svcinfo" />
+    <Content Include="Service References\MPESARequestProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\SendSMSProxy\configuration.svcinfo" />
+    <Content Include="Service References\SendSMSProxy\configuration91.svcinfo" />
+    <Content Include="Service References\SendSMSProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\OSHEEProxy\" />
+    <Folder Include="Service References\UKTProxy\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

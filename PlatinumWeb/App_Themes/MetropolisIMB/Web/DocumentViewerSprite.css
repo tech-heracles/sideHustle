@@ -1,0 +1,720 @@
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMap_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPage_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPage_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPageLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPage_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPageLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParameters_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParametersLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPage_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrint_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPage_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSave_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindow_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearch_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearchLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsv_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsvLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtml_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImg_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImgLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMht_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMhtLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdf_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdfLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtf_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtfLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxt_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxtLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXls_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsLarge_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsx_MetropolisIMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMap_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPage_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPage_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPage_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnParameters_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPage_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrint_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPage_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSave_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindow_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSearch_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchLargeDisabled_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToCsv_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToCsvLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToHtml_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToImg_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToImgLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToMht_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToMhtLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToPdf_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToPdfLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToRtf_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToRtfLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToTxt_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToTxtLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToXls_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsLarge_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsx_MetropolisIMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_MetropolisIMB
+{
+    background-image: url('DocumentViewerSprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMap_MetropolisIMB
+{
+    background-position: -595px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_MetropolisIMB
+{
+    background-position: -495px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPage_MetropolisIMB
+{
+    background-position: -629px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_MetropolisIMB
+{
+    background-position: -231px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPage_MetropolisIMB
+{
+    background-position: -17px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPageLarge_MetropolisIMB
+{
+    background-position: -99px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPage_MetropolisIMB
+{
+    background-position: -799px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPageLarge_MetropolisIMB
+{
+    background-position: -132px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParameters_MetropolisIMB
+{
+    background-position: -782px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParametersLarge_MetropolisIMB
+{
+    background-position: -462px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPage_MetropolisIMB
+{
+    background-position: -170px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_MetropolisIMB
+{
+    background-position: -759px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrint_MetropolisIMB
+{
+    background-position: -187px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintLarge_MetropolisIMB
+{
+    background-position: -528px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPage_MetropolisIMB
+{
+    background-position: -459px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_MetropolisIMB
+{
+    background-position: -165px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSave_MetropolisIMB
+{
+    background-position: -425px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveLarge_MetropolisIMB
+{
+    background-position: -693px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindow_MetropolisIMB
+{
+    background-position: -34px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_MetropolisIMB
+{
+    background-position: -165px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearch_MetropolisIMB
+{
+    background-position: -765px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearchLarge_MetropolisIMB
+{
+    background-position: -396px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsv_MetropolisIMB
+{
+    background-position: -255px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsvLarge_MetropolisIMB
+{
+    background-position: -99px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtml_MetropolisIMB
+{
+    background-position: -374px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_MetropolisIMB
+{
+    background-position: -330px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImg_MetropolisIMB
+{
+    background-position: -476px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImgLarge_MetropolisIMB
+{
+    background-position: -396px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMht_MetropolisIMB
+{
+    background-position: -697px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMhtLarge_MetropolisIMB
+{
+    background-position: -231px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdf_MetropolisIMB
+{
+    background-position: -748px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdfLarge_MetropolisIMB
+{
+    background-position: -363px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtf_MetropolisIMB
+{
+    background-position: -204px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtfLarge_MetropolisIMB
+{
+    background-position: -264px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxt_MetropolisIMB
+{
+    background-position: -510px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxtLarge_MetropolisIMB
+{
+    background-position: -594px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXls_MetropolisIMB
+{
+    background-position: -238px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsLarge_MetropolisIMB
+{
+    background-position: -33px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsx_MetropolisIMB
+{
+    background-position: -119px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_MetropolisIMB
+{
+    background-position: -726px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMap_MetropolisIMB
+{
+    background-position: -68px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapDisabled_MetropolisIMB
+{
+    background-position: -323px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_MetropolisIMB
+{
+    background-position: 0px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLargeDisabled_MetropolisIMB
+{
+    background-position: -825px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPage_MetropolisIMB
+{
+    background-position: 0px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageDisabled_MetropolisIMB
+{
+    background-position: -527px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_MetropolisIMB
+{
+    background-position: -297px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLargeDisabled_MetropolisIMB
+{
+    background-position: -792px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPage_MetropolisIMB
+{
+    background-position: -646px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageDisabled_MetropolisIMB
+{
+    background-position: -102px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageLarge_MetropolisIMB
+{
+    background-position: -462px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageLargeDisabled_MetropolisIMB
+{
+    background-position: -363px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPage_MetropolisIMB
+{
+    background-position: -136px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageDisabled_MetropolisIMB
+{
+    background-position: -612px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageLarge_MetropolisIMB
+{
+    background-position: -429px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageLargeDisabled_MetropolisIMB
+{
+    background-position: -33px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParameters_MetropolisIMB
+{
+    background-position: -825px -33px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersDisabled_MetropolisIMB
+{
+    background-position: -578px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersLarge_MetropolisIMB
+{
+    background-position: -495px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersLargeDisabled_MetropolisIMB
+{
+    background-position: -561px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPage_MetropolisIMB
+{
+    background-position: -391px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageDisabled_MetropolisIMB
+{
+    background-position: -221px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_MetropolisIMB
+{
+    background-position: -132px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLargeDisabled_MetropolisIMB
+{
+    background-position: -429px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrint_MetropolisIMB
+{
+    background-position: -153px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintDisabled_MetropolisIMB
+{
+    background-position: -340px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintLarge_MetropolisIMB
+{
+    background-position: -627px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintLargeDisabled_MetropolisIMB
+{
+    background-position: -66px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPage_MetropolisIMB
+{
+    background-position: -493px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageDisabled_MetropolisIMB
+{
+    background-position: -85px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_MetropolisIMB
+{
+    background-position: -726px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLargeDisabled_MetropolisIMB
+{
+    background-position: -198px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSave_MetropolisIMB
+{
+    background-position: -51px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveDisabled_MetropolisIMB
+{
+    background-position: -731px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveLarge_MetropolisIMB
+{
+    background-position: -198px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveLargeDisabled_MetropolisIMB
+{
+    background-position: -660px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindow_MetropolisIMB
+{
+    background-position: -561px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowDisabled_MetropolisIMB
+{
+    background-position: -306px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_MetropolisIMB
+{
+    background-position: -264px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLargeDisabled_MetropolisIMB
+{
+    background-position: -297px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearch_MetropolisIMB
+{
+    background-position: -408px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchDisabled_MetropolisIMB
+{
+    background-position: -357px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchLarge_MetropolisIMB
+{
+    background-position: -792px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchLargeDisabled_MetropolisIMB
+{
+    background-position: -528px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToCsv_MetropolisIMB
+{
+    background-position: -842px -33px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToCsvLarge_MetropolisIMB
+{
+    background-position: -66px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToHtml_MetropolisIMB
+{
+    background-position: -442px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_MetropolisIMB
+{
+    background-position: -594px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToImg_MetropolisIMB
+{
+    background-position: -663px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToImgLarge_MetropolisIMB
+{
+    background-position: -660px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToMht_MetropolisIMB
+{
+    background-position: -544px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToMhtLarge_MetropolisIMB
+{
+    background-position: 0px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToPdf_MetropolisIMB
+{
+    background-position: -714px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToPdfLarge_MetropolisIMB
+{
+    background-position: -693px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToRtf_MetropolisIMB
+{
+    background-position: -680px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToRtfLarge_MetropolisIMB
+{
+    background-position: -627px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToTxt_MetropolisIMB
+{
+    background-position: -272px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToTxtLarge_MetropolisIMB
+{
+    background-position: -561px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXls_MetropolisIMB
+{
+    background-position: -816px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsLarge_MetropolisIMB
+{
+    background-position: -330px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsx_MetropolisIMB
+{
+    background-position: -289px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_MetropolisIMB
+{
+    background-position: -759px 0px;
+    width: 32px;
+    height: 32px;
+}
+

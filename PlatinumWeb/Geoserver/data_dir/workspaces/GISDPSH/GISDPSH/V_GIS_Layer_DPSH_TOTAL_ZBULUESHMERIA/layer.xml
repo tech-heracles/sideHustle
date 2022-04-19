@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_TOTAL_ZBULUESHMERIA</name>
+  <id>LayerInfoImpl--24ced6b:15c538eecc4:-7f1f</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--24ced6b:15c538eecc4:-7f29</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--24ced6b:15c538eecc4:-7f20</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

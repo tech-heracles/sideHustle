@@ -1,0 +1,102 @@
+﻿body {
+}
+/*#region chati*/
+    .myUser {
+        color: grey;
+    }
+
+    .notMyUser {
+        color: blue;
+    }
+
+    .globalUser {
+        color: #ff0000;
+    }
+
+    .supportUser {
+        color: green;
+    }
+
+    .chat {
+        display: none;
+        max-width: 600px;
+        max-height: 400px;
+    }
+
+    .chat ul {
+        list-style: none;
+        display: table;
+        padding-left: 8px;
+    }
+
+    .chat ul li {
+        display: table-row;
+        padding-left: 1em;
+        font-size: small;
+    }
+
+    .chat ul li span {
+        display: table-cell;
+    }
+
+    .chat .mesazh {
+        width: 90%;
+        padding-left: .5em;
+    }
+
+    .chat ul li:before {
+        content: attr(data-username);
+        display: table-cell;
+        text-align: right;
+        /*margin: 0 1em;*/ /* any design */
+    }
+
+    .chat .footer {
+        display: table;
+        width: 100%;
+    }
+
+    .chat .footer .text, .chat .footer .send {
+        display: table-cell;
+        vertical-align: middle;
+        width: auto;
+    }
+
+    .chat .footer .text {
+        width: 90%;
+    }
+
+    .sendText {
+        font: inherit;
+        color: inherit;
+        text-align: left;
+        outline: none;
+        cursor: text;
+        width: 100%;
+        right: -2px;
+    }
+
+    .chat input.ui-button {
+        padding: .4em 0;
+    }
+
+    .send input.ui-button {
+        padding: .4em 1em;
+    }
+
+    #chatTabs .ui-tabs-panel {
+        overflow: auto; /* add scrolling to content-divs (panel-wrappers) */
+        max-height: 250px;
+    }
+
+    #chatTabs .ui-state-highlight {
+        top: -4px;
+    }
+
+    #mail {
+        height: 23px;
+        margin: 0 5px 0 5px;
+        width: 1.6em;
+    }
+
+    /*#endregion chati*/

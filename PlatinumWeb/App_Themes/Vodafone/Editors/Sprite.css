@@ -1,0 +1,856 @@
+.dxeButtonEditButtonHover_Vodafone .dxEditors_edtDropDown_Vodafone,
+.dxeButtonEditButtonHover_Vodafone .dxEditors_edtEllipsis_Vodafone,
+.dxeButtonEditButtonPressed_Vodafone .dxEditors_edtDropDown_Vodafone,
+.dxeButtonEditButtonPressed_Vodafone .dxEditors_edtEllipsis_Vodafone,
+.dxEditors_caRefresh_Vodafone,
+.dxEditors_edtCalendarFNNextYear_Vodafone,
+.dxEditors_edtCalendarFNPrevYear_Vodafone,
+.dxEditors_edtCalendarNextMonth_Vodafone,
+.dxEditors_edtCalendarNextMonthDisabled_Vodafone,
+.dxEditors_edtCalendarNextYear_Vodafone,
+.dxEditors_edtCalendarNextYearDisabled_Vodafone,
+.dxEditors_edtCalendarPrevMonth_Vodafone,
+.dxEditors_edtCalendarPrevMonthDisabled_Vodafone,
+.dxEditors_edtCalendarPrevYear_Vodafone,
+.dxEditors_edtCalendarPrevYearDisabled_Vodafone,
+.dxEditors_edtDETSClockFace_Vodafone,
+.dxEditors_edtDETSHourHand_Vodafone,
+.dxEditors_edtDETSMinuteHand_Vodafone,
+.dxEditors_edtDETSSecondHand_Vodafone,
+.dxEditors_edtDropDown_Vodafone,
+.dxEditors_edtDropDownDisabled_Vodafone,
+.dxEditors_edtEllipsis_Vodafone,
+.dxEditors_edtEllipsisDisabled_Vodafone,
+.dxEditors_edtError_Vodafone,
+.dxEditors_edtRadioButtonChecked_Vodafone,
+.dxEditors_edtRadioButtonCheckedDisabled_Vodafone,
+.dxEditors_edtRadioButtonUnchecked_Vodafone,
+.dxEditors_edtRadioButtonUncheckedDisabled_Vodafone,
+.dxEditors_edtSpinEditDecrementImage_Vodafone,
+.dxEditors_edtSpinEditDecrementImageDisabled_Vodafone,
+.dxEditors_edtSpinEditIncrementImage_Vodafone,
+.dxEditors_edtSpinEditIncrementImageDisabled_Vodafone,
+.dxEditors_edtSpinEditLargeDecImage_Vodafone,
+.dxEditors_edtSpinEditLargeDecImageDisabled_Vodafone,
+.dxEditors_edtSpinEditLargeIncImage_Vodafone,
+.dxEditors_edtSpinEditLargeIncImageDisabled_Vodafone,
+.dxEditors_edtTBDecBtn_Vodafone,
+.dxEditors_edtTBDecBtnDisabled_Vodafone,
+.dxEditors_edtTBDecBtnHover_Vodafone,
+.dxEditors_edtTBDecBtnPressed_Vodafone,
+.dxEditors_edtTBIncBtn_Vodafone,
+.dxEditors_edtTBIncBtnDisabled_Vodafone,
+.dxEditors_edtTBIncBtnHover_Vodafone,
+.dxEditors_edtTBIncBtnPressed_Vodafone,
+.dxEditors_edtTokenBoxTokenRemoveButton_Vodafone,
+.dxEditors_edtTokenBoxTokenRemoveButtonDisabled_Vodafone,
+.dxEditors_fcadd_Vodafone,
+.dxEditors_fcaddhot_Vodafone,
+.dxEditors_fcgroupaddcondition_Vodafone,
+.dxEditors_fcgroupaddgroup_Vodafone,
+.dxEditors_fcgroupand_Vodafone,
+.dxEditors_fcgroupnotand_Vodafone,
+.dxEditors_fcgroupnotor_Vodafone,
+.dxEditors_fcgroupor_Vodafone,
+.dxEditors_fcgroupremove_Vodafone,
+.dxEditors_fcopany_Vodafone,
+.dxEditors_fcopbegin_Vodafone,
+.dxEditors_fcopbetween_Vodafone,
+.dxEditors_fcopblank_Vodafone,
+.dxEditors_fcopcontain_Vodafone,
+.dxEditors_fcopend_Vodafone,
+.dxEditors_fcopequal_Vodafone,
+.dxEditors_fcopgreater_Vodafone,
+.dxEditors_fcopgreaterorequal_Vodafone,
+.dxEditors_fcopless_Vodafone,
+.dxEditors_fcoplessorequal_Vodafone,
+.dxEditors_fcoplike_Vodafone,
+.dxEditors_fcopnotany_Vodafone,
+.dxEditors_fcopnotbetween_Vodafone,
+.dxEditors_fcopnotblank_Vodafone,
+.dxEditors_fcopnotcontain_Vodafone,
+.dxEditors_fcopnotequal_Vodafone,
+.dxEditors_fcopnotlike_Vodafone,
+.dxEditors_fcremove_Vodafone,
+.dxEditors_fcremovehot_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeSpinDecButtonHover_Vodafone .dxEditors_edtSpinEditDecrementImage_Vodafone,
+.dxeSpinDecButtonPressed_Vodafone .dxEditors_edtSpinEditDecrementImage_Vodafone,
+.dxeSpinIncButtonHover_Vodafone .dxEditors_edtSpinEditIncrementImage_Vodafone,
+.dxeSpinIncButtonPressed_Vodafone .dxEditors_edtSpinEditIncrementImage_Vodafone,
+.dxeSpinLargeDecButtonHover_Vodafone .dxEditors_edtSpinEditLargeDecImage_Vodafone,
+.dxeSpinLargeDecButtonPressed_Vodafone .dxEditors_edtSpinEditLargeDecImage_Vodafone,
+.dxeSpinLargeIncButtonHover_Vodafone .dxEditors_edtSpinEditLargeIncImage_Vodafone,
+.dxeSpinLargeIncButtonPressed_Vodafone .dxEditors_edtSpinEditLargeIncImage_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHDisabled_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHDisabled_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDHDisabled_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHDisabled_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxeButtonEditButtonHover_Vodafone .dxEditors_edtDropDown_Vodafone
+{
+    background-position: -181px -133px;
+    width: 10px;
+    height: 14px;
+}
+.dxeButtonEditButtonHover_Vodafone .dxEditors_edtEllipsis_Vodafone
+{
+    background-position: -180px -28px;
+    width: 11px;
+    height: 14px;
+}
+.dxeButtonEditButtonPressed_Vodafone .dxEditors_edtDropDown_Vodafone
+{
+    background-position: 0px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxeButtonEditButtonPressed_Vodafone .dxEditors_edtEllipsis_Vodafone
+{
+    background-position: -180px -43px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_caRefresh_Vodafone
+{
+    background-position: -75px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarFNNextYear_Vodafone
+{
+    background-position: -168px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarFNPrevYear_Vodafone
+{
+    background-position: -125px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextMonth_Vodafone
+{
+    background-position: -143px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextMonthDisabled_Vodafone
+{
+    background-position: -130px -33px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextYear_Vodafone
+{
+    background-position: -50px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarNextYearDisabled_Vodafone
+{
+    background-position: -130px -58px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevMonth_Vodafone
+{
+    background-position: -100px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevMonthDisabled_Vodafone
+{
+    background-position: 0px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevYear_Vodafone
+{
+    background-position: -155px -40px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtCalendarPrevYearDisabled_Vodafone
+{
+    background-position: -155px 0px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtDETSClockFace_Vodafone
+{
+    background-position: 0px 0px;
+    width: 107px;
+    height: 107px;
+}
+.dxEditors_edtDETSHourHand_Vodafone
+{
+    background-position: -114px 0px;
+    width: 7px;
+    height: 64px;
+}
+.dxEditors_edtDETSMinuteHand_Vodafone
+{
+    background-position: -122px 0px;
+    width: 7px;
+    height: 64px;
+}
+.dxEditors_edtDETSSecondHand_Vodafone
+{
+    background-position: -108px 0px;
+    width: 5px;
+    height: 72px;
+}
+.dxEditors_edtDropDown_Vodafone
+{
+    background-position: -22px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxEditors_edtDropDownDisabled_Vodafone
+{
+    background-position: -11px -172px;
+    width: 10px;
+    height: 14px;
+}
+.dxEditors_edtEllipsis_Vodafone
+{
+    background-position: -181px -58px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_edtEllipsisDisabled_Vodafone
+{
+    background-position: -180px 0px;
+    width: 11px;
+    height: 14px;
+}
+.dxEditors_edtError_Vodafone
+{
+    background-position: -155px -25px;
+    width: 14px;
+    height: 14px;
+}
+.dxEditors_edtRadioButtonChecked_Vodafone
+{
+    background-position: -134px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonCheckedDisabled_Vodafone
+{
+    background-position: -117px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonUnchecked_Vodafone
+{
+    background-position: -100px -133px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtRadioButtonUncheckedDisabled_Vodafone
+{
+    background-position: -175px -108px;
+    width: 16px;
+    height: 16px;
+}
+.dxEditors_edtSpinEditDecrementImage_Vodafone
+{
+    background-position: -171px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditDecrementImageDisabled_Vodafone
+{
+    background-position: -182px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditIncrementImage_Vodafone
+{
+    background-position: -154px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditIncrementImageDisabled_Vodafone
+{
+    background-position: -176px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxEditors_edtSpinEditLargeDecImage_Vodafone
+{
+    background-position: -108px -87px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeDecImageDisabled_Vodafone
+{
+    background-position: -175px -125px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeIncImage_Vodafone
+{
+    background-position: -113px -87px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtSpinEditLargeIncImageDisabled_Vodafone
+{
+    background-position: -188px -20px;
+    width: 4px;
+    height: 7px;
+}
+.dxEditors_edtTBDecBtn_Vodafone
+{
+    background-position: -150px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnDisabled_Vodafone
+{
+    background-position: -118px -83px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnHover_Vodafone
+{
+    background-position: -50px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBDecBtnPressed_Vodafone
+{
+    background-position: 0px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtn_Vodafone
+{
+    background-position: -130px 0px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnDisabled_Vodafone
+{
+    background-position: -25px -108px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnHover_Vodafone
+{
+    background-position: -75px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTBIncBtnPressed_Vodafone
+{
+    background-position: -25px -133px;
+    width: 24px;
+    height: 24px;
+}
+.dxEditors_edtTokenBoxTokenRemoveButton_Vodafone
+{
+    background-position: -151px -133px;
+    width: 15px;
+    height: 15px;
+}
+.dxEditors_edtTokenBoxTokenRemoveButtonDisabled_Vodafone
+{
+    background-position: -114px -67px;
+    width: 15px;
+    height: 15px;
+}
+.dxEditors_fcadd_Vodafone
+{
+    background-position: -61px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcaddhot_Vodafone
+{
+    background-position: -140px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupaddcondition_Vodafone
+{
+    background-position: -98px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupaddgroup_Vodafone
+{
+    background-position: -154px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupand_Vodafone
+{
+    background-position: 0px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupnotand_Vodafone
+{
+    background-position: -117px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupnotor_Vodafone
+{
+    background-position: -145px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupor_Vodafone
+{
+    background-position: -173px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcgroupremove_Vodafone
+{
+    background-position: -14px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopany_Vodafone
+{
+    background-position: -159px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopbegin_Vodafone
+{
+    background-position: -131px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopbetween_Vodafone
+{
+    background-position: -70px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopblank_Vodafone
+{
+    background-position: -47px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopcontain_Vodafone
+{
+    background-position: -168px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopend_Vodafone
+{
+    background-position: -89px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopequal_Vodafone
+{
+    background-position: -84px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopgreater_Vodafone
+{
+    background-position: -42px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopgreaterorequal_Vodafone
+{
+    background-position: -167px -133px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopless_Vodafone
+{
+    background-position: 0px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcoplessorequal_Vodafone
+{
+    background-position: -28px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcoplike_Vodafone
+{
+    background-position: -126px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotany_Vodafone
+{
+    background-position: -112px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotbetween_Vodafone
+{
+    background-position: -42px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotblank_Vodafone
+{
+    background-position: -28px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotcontain_Vodafone
+{
+    background-position: -75px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotequal_Vodafone
+{
+    background-position: -103px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcopnotlike_Vodafone
+{
+    background-position: -56px -158px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcremove_Vodafone
+{
+    background-position: -33px -172px;
+    width: 13px;
+    height: 13px;
+}
+.dxEditors_fcremovehot_Vodafone
+{
+    background-position: -14px -187px;
+    width: 13px;
+    height: 13px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone
+{
+    background-position: -128px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone
+{
+    background-position: -120px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone
+{
+    background-position: -104px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone
+{
+    background-position: -112px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone
+{
+    background-position: -182px -158px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+    background-position: -80px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone
+{
+    background-position: -180px -125px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone
+{
+    background-position: -155px -65px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone
+{
+    background-position: -154px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone
+{
+    background-position: -128px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone
+{
+    background-position: -155px -75px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+    background-position: -180px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeSpinDecButtonHover_Vodafone .dxEditors_edtSpinEditDecrementImage_Vodafone
+{
+    background-position: -165px -187px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinDecButtonPressed_Vodafone .dxEditors_edtSpinEditDecrementImage_Vodafone
+{
+    background-position: -149px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinIncButtonHover_Vodafone .dxEditors_edtSpinEditIncrementImage_Vodafone
+{
+    background-position: -143px -27px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinIncButtonPressed_Vodafone .dxEditors_edtSpinEditIncrementImage_Vodafone
+{
+    background-position: -160px -195px;
+    width: 10px;
+    height: 5px;
+}
+.dxeSpinLargeDecButtonHover_Vodafone .dxEditors_edtSpinEditLargeDecImage_Vodafone
+{
+    background-position: -149px -187px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeDecButtonPressed_Vodafone .dxEditors_edtSpinEditLargeDecImage_Vodafone
+{
+    background-position: -170px -75px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeIncButtonHover_Vodafone .dxEditors_edtSpinEditLargeIncImage_Vodafone
+{
+    background-position: -187px -172px;
+    width: 4px;
+    height: 7px;
+}
+.dxeSpinLargeIncButtonPressed_Vodafone .dxEditors_edtSpinEditLargeIncImage_Vodafone
+{
+    background-position: -108px -75px;
+    width: 4px;
+    height: 7px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDH_Vodafone
+{
+    background-position: -170px -27px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHDisabled_Vodafone
+{
+    background-position: -96px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHHover_Vodafone
+{
+    background-position: -88px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_Vodafone
+{
+    background-position: -56px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDH_Vodafone
+{
+    background-position: -180px -15px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHDisabled_Vodafone
+{
+    background-position: -72px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_Vodafone
+{
+    background-position: -64px -187px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+    background-position: -110px -95px;
+    width: 7px;
+    height: 12px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDH_Vodafone
+{
+    background-position: -130px -25px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHDisabled_Vodafone
+{
+    background-position: -102px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHHover_Vodafone
+{
+    background-position: -141px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_Vodafone
+{
+    background-position: -115px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDH_Vodafone
+{
+    background-position: -136px -187px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHDisabled_Vodafone
+{
+    background-position: -180px -75px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_Vodafone
+{
+    background-position: -168px -65px;
+    width: 12px;
+    height: 7px;
+}
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+    background-position: -167px -150px;
+    width: 12px;
+    height: 7px;
+}
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBVSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedMDHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDH_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeFocused_Vodafone .dxeTBHSys .dxeFocusedSDHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHHover_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHHover_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxEditors_edtTBDecBtnHover_Vodafone,
+.dxEditors_edtTBDecBtnPressed_Vodafone,
+.dxEditors_edtTBIncBtnHover_Vodafone,
+.dxEditors_edtTBIncBtnPressed_Vodafone,
+.dxEditors_edtRadioButtonChecked_Vodafone,
+.dxEditors_edtRadioButtonCheckedDisabled_Vodafone,
+.dxEditors_edtRadioButtonUnchecked_Vodafone,
+.dxEditors_edtRadioButtonUncheckedDisabled_Vodafone
+{
+    background-color: #ED1B24;
+}
+.dxeTBVSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBVSys .dxEditors_edtTBSecondaryDHPressed_Vodafone,
+.dxeTBHSys .dxEditors_edtTBMainDHPressed_Vodafone,
+.dxeTBHSys .dxEditors_edtTBSecondaryDHPressed_Vodafone
+{
+	z-index: 7;
+}
+.dxEditors_edtError_Vodafone,
+.dxEditors_edtCalendarPrevYear_Vodafone,
+.dxEditors_edtCalendarPrevYearDisabled_Vodafone,
+.dxEditors_edtCalendarPrevMonth_Vodafone,
+.dxEditors_edtCalendarPrevMonthDisabled_Vodafone,
+.dxEditors_edtCalendarNextMonth_Vodafone,
+.dxEditors_edtCalendarNextMonthDisabled_Vodafone,
+.dxEditors_edtCalendarNextYear_Vodafone,
+.dxEditors_edtCalendarNextYearDisabled_Vodafone,
+.dxEditors_edtCalendarFNPrevYear_Vodafone,
+.dxEditors_edtCalendarFNNextYear_Vodafone,
+.dxEditors_edtEllipsis_Vodafone,
+.dxEditors_edtEllipsisDisabled_Vodafone,
+.dxEditors_edtDropDown_Vodafone,
+.dxEditors_edtDropDownDisabled_Vodafone,
+.dxEditors_edtSpinEditIncrementImage_Vodafone,
+.dxEditors_edtSpinEditIncrementImageDisabled_Vodafone,
+.dxEditors_edtSpinEditDecrementImage_Vodafone,
+.dxEditors_edtSpinEditDecrementImageDisabled_Vodafone,
+.dxEditors_edtSpinEditLargeIncImage_Vodafone,
+.dxEditors_edtSpinEditLargeIncImageDisabled_Vodafone,
+.dxEditors_edtSpinEditLargeDecImage_Vodafone,
+.dxEditors_edtSpinEditLargeDecImageDisabled_Vodafone
+{
+	display:block;
+	margin:auto;
+}
+.dxEditors_edtCalendarFNPrevYear_Vodafone
+{
+    margin-right: 8px;
+}
+.dxEditors_edtCalendarFNNextYear_Vodafone
+{
+    margin-left: 8px;
+}
+

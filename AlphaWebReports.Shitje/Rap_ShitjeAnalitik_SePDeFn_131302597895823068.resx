@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Rap_ShitjeAnalitik1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_ShitjeAnalitikTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <data name="$this.Extensions" xml:space="preserve">
+    <value>[{"IdParametri":5,"Emri":"filterNiveli","Pershkrimi":"Nenkategori:","KolonaDb":"t_nivelregjistrimi.idnivel","Vlera":""},{"IdParametri":8,"Emri":"IdRaport","Pershkrimi":"","KolonaDb":"","Vlera":null},{"IdParametri":11,"Emri":"IdNdermarje","Pershkrimi":"Ndermarrja:","KolonaDb":"","Vlera":"MAGAZINA KLIMATEKNIKA "},{"IdParametri":12,"Emri":"filterDtDok1","Pershkrimi":"","KolonaDb":"","Vlera":null},{"IdParametri":13,"Emri":"filterLlojDokumenti","Pershkrimi":"Lloj Dok.:","KolonaDb":"T_KONFIGAMBJENTE.KODKONFIGAMBJENTE","Vlera":""},{"IdParametri":14,"Emri":"filterMonedha","Pershkrimi":"Monedha:","KolonaDb":"T_MONEDHA.IDMONEDHA","Vlera":""},{"IdParametri":15,"Emri":"filterDtDok","Pershkrimi":"Dt. Dok.:","KolonaDb":"T_KOKASHITJE.DTDOK","Vlera":"01/02/2017 - 28/02/2017"},{"IdParametri":17,"Emri":"filterDtRegj","Pershkrimi":"Dt. Regj.","KolonaDb":"T_KOKASHITJE.DTREGJISTRIMI","Vlera":"01/01/1900 - 31/12/9999"},{"IdParametri":19,"Emri":"filterNumerDokumenti","Pershkrimi":"Nr. Dok.:","KolonaDb":"T_KOKASHITJE.NRDOK","Vlera":"fsm422"},{"IdParametri":20,"Emri":"filterFurnitor","Pershkrimi":"Klient/Furn.:","KolonaDb":"T_KLIENTFURNITOR.KODKLIENTFURNITOR","Vlera":""},{"IdParametri":26,"Emri":"filterMagazina","Pershkrimi":"Magazina","KolonaDb":"T_NJESIADMINISTRATIVE.KODI","Vlera":""},{"IdParametri":39,"Emri":"filterKartela","Pershkrimi":"Artikulli:","KolonaDb":"T_ARTIKULLI.KODARTIKULLI","Vlera":""},{"IdParametri":50,"Emri":"idPerdoruesi","Pershkrimi":"","KolonaDb":"","Vlera":null},{"IdParametri":52,"Emri":"filterQyteti","Pershkrimi":"Qyteti:","KolonaDb":"T_KLIENTFURNITOR.QYTETIKF","Vlera":""},{"IdParametri":87,"Emri":"filterKodbari","Pershkrimi":"Kodbari:","KolonaDb":"T_KODBARI.PERSHKRIMI","Vlera":""},{"IdParametri":88,"Emri":"filterNjesiArtikulli","Pershkrimi":"Njesi artikulli :","KolonaDb":"","Vlera":""},{"IdParametri":89,"Emri":"filterPikeshitjeFurnizmi","Pershkrimi":"Pike Shitje/Furnizimi :","KolonaDb":"T_PIKESHITJEFURNIZIMI.KODI","Vlera":""},{"IdParametri":129,"Emri":"filterFurnitorArt","Pershkrimi":"Furnitor Art :","KolonaDb":"T_KLIENTFURNITOR.KODKLIENTFURNITOR","Vlera":""},{"IdParametri":141,"Emri":"filterDegeAdministrative","Pershkrimi":"Dega Administrative :","KolonaDb":"T_DEGEADMINISTRATIVE.KODI","Vlera":""},{"IdParametri":155,"Emri":"filterGrupimDokP","Pershkrimi":"Grupim Dok. 1:","KolonaDb":"gd1.kodi","Vlera":""},{"IdParametri":156,"Emri":"filterGrupimDokD","Pershkrimi":"Grupim Dok. 2:","KolonaDb":"gd2.kodi","Vlera":""},{"IdParametri":157,"Emri":"filterGrupimDokT","Pershkrimi":"Grupim Dok. 3:","KolonaDb":"gd3.kodi","Vlera":""},{"IdParametri":163,"Emri":"filterPerdoruesi","Pershkrimi":"Perdoruesi:","KolonaDb":"T_PERDORUESI.PERDORUESUSERNAME","Vlera":""},{"IdParametri":164,"Emri":"filterPershkrimFature","Pershkrimi":"Pershk. Fature:","KolonaDb":"T_KOKASHITJE.PERSHKRIMI","Vlera":""},{"IdParametri":169,"Emri":"filterAgjentShitje","Pershkrimi":"Agjentet e Shitjes :","KolonaDb":"T_AGJENTSHITJE.KODIAGJENTSHITJE","Vlera":""},{"IdParametri":177,"Emri":"filterkodifikimartP","Pershkrimi":"Grup Artikulli 1:","KolonaDb":"","Vlera":""},{"IdParametri":178,"Emri":"filterkodifikimartD","Pershkrimi":"Grup Artikulli 2:","KolonaDb":"","Vlera":""},{"IdParametri":189,"Emri":"shikoGjitheDokumentat","Pershkrimi":"","KolonaDb":"","Vlera":""},{"IdParametri":197,"Emri":"filterAuto","Pershkrimi":"Automjeti","KolonaDb":"T_AUTOMJETE.NRSHASIE","Vlera":""},{"IdParametri":229,"Emri":"filterAdreseKlienti","Pershkrimi":"Adrese Klienti","KolonaDb":"T_ADRESAKLIENTFURNITOR.ADRESA","Vlera":""},{"IdParametri":230,"Emri":"filterGrupKFP1","Pershkrimi":"Grup Klienti 1","KolonaDb":" ","Vlera":null},{"IdParametri":231,"Emri":"filterGrupKFP2","Pershkrimi":"Grup Klienti 1","KolonaDb":" ","Vlera":null},{"IdParametri":232,"Emri":"filterGrupKFP3","Pershkrimi":"Grup Klienti 1","KolonaDb":" ","Vlera":""},{"IdParametri":233,"Emri":"filterGrupKFD1","Pershkrimi":"Grup Klienti 2","KolonaDb":" ","Vlera":null},{"IdParametri":234,"Emri":"filterGrupKFD2","Pershkrimi":"Grup Klienti 2","KolonaDb":" ","Vlera":null},{"IdParametri":235,"Emri":"filterGrupKFD3","Pershkrimi":"Grup Klienti 2","KolonaDb":" ","Vlera":""},{"IdParametri":236,"Emri":"filterGrupKFT1","Pershkrimi":"Grup Klienti 3","KolonaDb":" ","Vlera":null},{"IdParametri":237,"Emri":"filterGrupKFT2","Pershkrimi":"Grup Klienti 3","KolonaDb":" ","Vlera":null},{"IdParametri":238,"Emri":"filterGrupKFT3","Pershkrimi":"Grup Klienti 3","KolonaDb":" ","Vlera":""},{"IdParametri":248,"Emri":"filterpershkrimArt","Pershkrimi":"Pershkrimi artikullit:","KolonaDb":"T_ARTIKULLI.PERSHKRIMARTIKULLI","Vlera":""},{"IdParametri":253,"Emri":"filterPershkrimDetajimi","Pershkrimi":"Pershkrimi i Detajimit:","KolonaDb":"PERSHKRIMDETAJIMARTIKULLI","Vlera":""},{"IdParametri":255,"Emri":"filterAdresaFaturimit","Pershkrimi":"Adrese faturimi:","KolonaDb":"T_KOKASHITJE.ADRESAFATURIMIT","Vlera":""},{"IdParametri":296,"Emri":"filterFormatNumri","Pershkrimi":"","KolonaDb":"","Vlera":"2"},{"IdParametri":331,"Emri":"filterMenyrePagese","Pershkrimi":"Menyre Pagese","KolonaDb":"T_KOKASHITJE.IDMENYREPAGESE","Vlera":""},{"IdParametri":335,"Emri":"filterShenim2Shitje","Pershkrimi":"Pershkrimi artikullit:","KolonaDb":"T_TRUPISHITJE.SHENIME2","Vlera":null},{"IdParametri":352,"Emri":"filterShenimeShitje","Pershkrimi":"","KolonaDb":"T_TRUPISHITJE.SHENIME","Vlera":""},{"IdParametri":428,"Emri":"filterCmimMePaTVSH","Pershkrimi":"Cmimi","KolonaDb":"","Vlera":"Cmimi pa TVSH"}]</value>
+  </data>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+int shifraPasPresjes = 0;
+private void xrLabel11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+            if ( GetCurrentColumnValue("IDSHITJEKOKA") != null &amp;&amp; GetCurrentColumnValue("NRDOK") != null)
+            {
+                xrLabel11.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_RegjistrimDokumentash.aspx?scopeID=" + parametraRaporti.ScopeID+ "&amp;newScopeId=True&amp;shitje_blerje=shitje&amp;id=" + GetCurrentColumnValue("IDSHITJEKOKA").ToString() + "&amp;numer=" + GetCurrentColumnValue("NRDOK").ToString() + "&amp;shtim_modifikim=modifikim')";
+                this.xrLabel11.ForeColor = System.Drawing.Color.SteelBlue;
+                   this.xrLabel11.Target = "_self";
+            }
+}
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+            
+}
+
+
+
+private void xrLabel113_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+System.Resources.ResourceManager  rm = new System.Resources.ResourceManager("Resources.Strings",System.Reflection.Assembly.Load("App_GlobalResources"));
+var parameters = AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]);
+ var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+var filtri= parameters.Find(param =&gt; param.Emri == "filterCmimMePaTVSH");
+if (filtri.Vlera == "Cmimi pa TVSH"){
+xrLabel113.Text = rm.GetString("labelCmimi", parametraRaporti.Ci);
+}
+else
+{
+  xrLabel113.Text = rm.GetString("labelRaportCmimiMeTVSH", parametraRaporti.Ci);
+}
+}
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+
+private void Rap_ShitjeAnalitik_SePDeFn_131302597895823068_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+
+}
+</value>
+  </data>
+</root>

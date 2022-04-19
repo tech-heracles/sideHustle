@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_HIDROGRAPHYPOINT</name>
+  <id>LayerInfoImpl--31ac6b01:15926dd26f1:-7fde</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--31ac6b01:15926dd26f1:-7fe2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--31ac6b01:15926dd26f1:-7fdf</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

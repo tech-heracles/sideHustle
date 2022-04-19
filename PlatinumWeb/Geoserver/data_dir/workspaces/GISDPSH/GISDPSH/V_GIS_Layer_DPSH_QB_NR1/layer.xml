@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_QB_NR1</name>
+  <id>LayerInfoImpl--3aeaaee:15b24e6899c:-409d</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5cbec5c7:15b9b995771:-c3f</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3aeaaee:15b24e6899c:-409e</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

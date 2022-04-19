@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37933692-0684-4A56-A7C5-BF00442AAC07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.Kontabiliteti</RootNamespace>
+    <AssemblyName>AlphaWebReports.Kontabiliteti</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSources\DsBilanciVertetues.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsBilanciVertetues.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Ds_FleteKontabel.Designer.cs">
+      <DependentUpon>Ds_FleteKontabel.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\Ds_KartelaLlogarive_Progresive.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaLlogarive_Progresive.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Ds_KontDitari.Designer.cs">
+      <DependentUpon>Ds_KontDitari.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\Ds_KontGjendjaLlogari1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KontGjendjaLlogari.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Ds_KontLibriimadh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KontLibriimadh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Ds_kontLibriiMadh_degeadm.Designer.cs">
+      <DependentUpon>Ds_kontLibriiMadh_degeadm.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\DS_KrahasimiTeArdhuraShpenzimeFitim.cs">
+      <DependentUpon>DS_KrahasimiTeArdhuraShpenzimeFitim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\DS_KrahasimiTeArdhuraShpenzimeFitim.Designer.cs">
+      <DependentUpon>DS_KrahasimiTeArdhuraShpenzimeFitim.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\Ds_LevizjaLlogarive.Designer.cs">
+      <DependentUpon>Ds_LevizjaLlogarive.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\Ds_PASH_SIPAS_MUAJVE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PASH_SIPAS_MUAJVE.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\Ds_TeArdhuraShpenzimeFitimGraf.Designer.cs">
+      <DependentUpon>Ds_TeArdhuraShpenzimeFitimGraf.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataSources\PRC_Rap_KartelaLlogariveMeKunderparti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRC_Rap_KartelaLlogariveMeKunderparti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Rap_FleteKontabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_FleteKontabel.Designer.cs">
+      <DependentUpon>Rap_FleteKontabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogariveMeLevizje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogariveMeLevizje.Designer.cs">
+      <DependentUpon>Rap_GjendjaLlogariveMeLevizje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotale.Designer.cs">
+      <DependentUpon>Rap_GjendjaLlogTotale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotaleLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotaleLandscape.Designer.cs">
+      <DependentUpon>Rap_GjendjaLlogTotaleLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotale_Vodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_GjendjaLlogTotale_Vodafone.Designer.cs">
+      <DependentUpon>Rap_GjendjaLlogTotale_Vodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KartelaLlogariveMeKunderparti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KartelaLlogariveMeKunderparti.Designer.cs">
+      <DependentUpon>Rap_KartelaLlogariveMeKunderparti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontDitari.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontDitari.Designer.cs">
+      <DependentUpon>Rap_KontDitari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontDitari_Kastrati.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontDitari_Kastrati.Designer.cs">
+      <DependentUpon>Rap_KontDitari_Kastrati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariaVodafone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariaVodafone.Designer.cs">
+      <DependentUpon>Rap_KontGjendjaLlogariaVodafone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogaria.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogaria.Designer.cs">
+      <DependentUpon>Rap_KontGjendjaLlogaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariMastro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariMastro.Designer.cs">
+      <DependentUpon>Rap_KontGjendjaLlogariMastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariMastro_KESH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontGjendjaLlogariMastro_KESH.Designer.cs">
+      <DependentUpon>Rap_KontGjendjaLlogariMastro_KESH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogariveThjeshte_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogariveThjeshte_Format2.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogariveThjeshte_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2_new.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2_new.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2_NrSerial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Format2_NrSerial.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2_NrSerial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_new.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_new.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Progresive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_kontKartelaLlogarive_Progresive.Designer.cs">
+      <DependentUpon>Rap_kontKartelaLlogarive_Progresive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KontLibriiMadh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KontLibriiMadh.Designer.cs">
+      <DependentUpon>Rap_KontLibriiMadh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_KrahasimiTeArdhuraShpenzimiDheFitimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_KrahasimiTeArdhuraShpenzimiDheFitimi.Designer.cs">
+      <DependentUpon>Rap_KrahasimiTeArdhuraShpenzimiDheFitimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rap_PASH_SIPAS_MUAJVE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rap_PASH_SIPAS_MUAJVE.Designer.cs">
+      <DependentUpon>Rap_PASH_SIPAS_MUAJVE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rap_TeArdhuraShpenzimiDheFitimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rap_TeArdhuraShpenzimiDheFitimi.Designer.cs">
+      <DependentUpon>rap_TeArdhuraShpenzimiDheFitimi.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
+      <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
+      <Name>AlphaWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="DataSources\DsBilanciVertetues.xsc">
+      <DependentUpon>DsBilanciVertetues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\DsBilanciVertetues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsBilanciVertetues1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\DsBilanciVertetues.xss">
+      <DependentUpon>DsBilanciVertetues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_FleteKontabel.xsc">
+      <DependentUpon>Ds_FleteKontabel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_FleteKontabel.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FleteKontabel1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_FleteKontabel.xss">
+      <DependentUpon>Ds_FleteKontabel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KartelaLlogarive_Progresive.xsc">
+      <DependentUpon>Ds_KartelaLlogarive_Progresive.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KartelaLlogarive_Progresive.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaLlogarive_Progresive1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_KartelaLlogarive_Progresive.xss">
+      <DependentUpon>Ds_KartelaLlogarive_Progresive.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontDitari.xsc">
+      <DependentUpon>Ds_KontDitari.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontDitari.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KontDitari1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_KontDitari.xss">
+      <DependentUpon>Ds_KontDitari.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontGjendjaLlogari.xsc">
+      <DependentUpon>Ds_KontGjendjaLlogari.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontGjendjaLlogari.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KontGjendjaLlogari.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\Ds_KontGjendjaLlogari.xss">
+      <DependentUpon>Ds_KontGjendjaLlogari.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontLibriimadh.xsc">
+      <DependentUpon>Ds_KontLibriimadh.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_KontLibriimadh.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KontLibriimadh.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_KontLibriimadh.xss">
+      <DependentUpon>Ds_KontLibriimadh.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_kontLibriiMadh_degeadm.xsc">
+      <DependentUpon>Ds_kontLibriiMadh_degeadm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_kontLibriiMadh_degeadm.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_kontLibriiMadh_degeadm1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_kontLibriiMadh_degeadm.xss">
+      <DependentUpon>Ds_kontLibriiMadh_degeadm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\DS_KrahasimiTeArdhuraShpenzimeFitim.xsc">
+      <DependentUpon>DS_KrahasimiTeArdhuraShpenzimeFitim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\DS_KrahasimiTeArdhuraShpenzimeFitim.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_KrahasimiTeArdhuraShpenzimeFitim1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\DS_KrahasimiTeArdhuraShpenzimeFitim.xss">
+      <DependentUpon>DS_KrahasimiTeArdhuraShpenzimeFitim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_LevizjaLlogarive.xsc">
+      <DependentUpon>Ds_LevizjaLlogarive.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_LevizjaLlogarive.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LevizjaLlogarive1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_LevizjaLlogarive.xss">
+      <DependentUpon>Ds_LevizjaLlogarive.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_PASH_SIPAS_MUAJVE.xsc">
+      <DependentUpon>Ds_PASH_SIPAS_MUAJVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_PASH_SIPAS_MUAJVE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PASH_SIPAS_MUAJVE1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_PASH_SIPAS_MUAJVE.xss">
+      <DependentUpon>Ds_PASH_SIPAS_MUAJVE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_TeArdhuraShpenzimeFitimGraf.xsc">
+      <DependentUpon>Ds_TeArdhuraShpenzimeFitimGraf.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\Ds_TeArdhuraShpenzimeFitimGraf.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_TeArdhuraShpenzimeFitimGraf1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources\Ds_TeArdhuraShpenzimeFitimGraf.xss">
+      <DependentUpon>Ds_TeArdhuraShpenzimeFitimGraf.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\PRC_Rap_KartelaLlogariveMeKunderparti.xsc">
+      <DependentUpon>PRC_Rap_KartelaLlogariveMeKunderparti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources\PRC_Rap_KartelaLlogariveMeKunderparti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PRC_Rap_KartelaLlogariveMeKunderparti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSources\PRC_Rap_KartelaLlogariveMeKunderparti.xss">
+      <DependentUpon>PRC_Rap_KartelaLlogariveMeKunderparti.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Rap_FleteKontabel.resx">
+      <DependentUpon>Rap_FleteKontabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_GjendjaLlogariveMeLevizje.resx">
+      <DependentUpon>Rap_GjendjaLlogariveMeLevizje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_GjendjaLlogTotale.resx">
+      <DependentUpon>Rap_GjendjaLlogTotale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_GjendjaLlogTotaleLandscape.resx">
+      <DependentUpon>Rap_GjendjaLlogTotaleLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_GjendjaLlogTotale_Vodafone.resx">
+      <DependentUpon>Rap_GjendjaLlogTotale_Vodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KartelaLlogariveMeKunderparti.resx">
+      <DependentUpon>Rap_KartelaLlogariveMeKunderparti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontDitari.resx">
+      <DependentUpon>Rap_KontDitari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontDitari_Kastrati.resx">
+      <DependentUpon>Rap_KontDitari_Kastrati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogariaVodafone.resx">
+      <DependentUpon>Rap_KontGjendjaLlogariaVodafone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogaria.resx">
+      <DependentUpon>Rap_KontGjendjaLlogaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogariMastro.resx">
+      <DependentUpon>Rap_KontGjendjaLlogariMastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogariMastro_KESH.resx">
+      <DependentUpon>Rap_KontGjendjaLlogariMastro_KESH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogariveThjeshte_Format2.resx">
+      <DependentUpon>Rap_kontKartelaLlogariveThjeshte_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_Format2.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_Format2_new.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_Format2_NrSerial.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_Format2_NrSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_new.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_Progresive.resx">
+      <DependentUpon>Rap_kontKartelaLlogarive_Progresive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KontLibriiMadh.resx">
+      <DependentUpon>Rap_KontLibriiMadh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_KrahasimiTeArdhuraShpenzimiDheFitimi.resx">
+      <DependentUpon>Rap_KrahasimiTeArdhuraShpenzimiDheFitimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rap_PASH_SIPAS_MUAJVE.resx">
+      <DependentUpon>Rap_PASH_SIPAS_MUAJVE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rap_TeArdhuraShpenzimiDheFitimi.resx">
+      <DependentUpon>rap_TeArdhuraShpenzimiDheFitimi.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

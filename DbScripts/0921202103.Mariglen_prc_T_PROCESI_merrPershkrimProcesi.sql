@@ -1,0 +1,15 @@
+IF OBJECT_ID('prc_T_PROCESI_merrPershkrimProcesi') IS NOT NULL
+	DROP PROCEDURE prc_T_PROCESI_merrPershkrimProcesi
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[prc_T_PROCESI_merrPershkrimProcesi]
+(
+@KODI T_KOD_VAR
+)
+AS
+    BEGIN
+        Select PERSHKRIMI from T_PROCESI WHERE KODI = @KODI;
+    END;

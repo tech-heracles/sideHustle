@@ -1,0 +1,1198 @@
+.dxigControl_IMB.dxTouchUI .dxWeb_igCloseButton_IMB,
+.dxigControl_IMB.dxTouchUI .dxWeb_igPauseButton_IMB,
+.dxigControl_IMB.dxTouchUI .dxWeb_igPlayButton_IMB,
+.dxm-hovered .dxWeb_fmCopyButton_IMB,
+.dxm-hovered .dxWeb_fmCreateButton_IMB,
+.dxm-hovered .dxWeb_fmDeleteButton_IMB,
+.dxm-hovered .dxWeb_fmDwnlButton_IMB,
+.dxm-hovered .dxWeb_fmMoveButton_IMB,
+.dxm-hovered .dxWeb_fmRefreshButton_IMB,
+.dxm-hovered .dxWeb_fmRenameButton_IMB,
+.dxm-hovered .dxWeb_mHorizontalPopOut_IMB,
+.dxm-hovered .dxWeb_mVerticalPopOut_IMB,
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_IMB,
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_IMB,
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_IMB,
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_IMB,
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_IMB,
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_IMB,
+.dxp-hoverDropDownButton .dxWeb_pPopOut_IMB,
+.dxp-pressedDropDownButton .dxWeb_pPopOut_IMB,
+.dxr-itemHover .dxWeb_rPopOut_IMB,
+.dxrpCollapsed .dxWeb_rpCollapseButton_IMB,
+.dxWeb_edtCheckBoxChecked_IMB,
+.dxWeb_edtCheckBoxCheckedDisabled_IMB,
+.dxWeb_edtCheckBoxGrayed_IMB,
+.dxWeb_edtCheckBoxGrayedDisabled_IMB,
+.dxWeb_edtCheckBoxUnchecked_IMB,
+.dxWeb_edtCheckBoxUncheckedDisabled_IMB,
+.dxWeb_fmCopyButton_IMB,
+.dxWeb_fmCopyButtonDisabled_IMB,
+.dxWeb_fmCreateButton_IMB,
+.dxWeb_fmCreateButtonDisabled_IMB,
+.dxWeb_fmDeleteButton_IMB,
+.dxWeb_fmDeleteButtonDisabled_IMB,
+.dxWeb_fmDwnlButton_IMB,
+.dxWeb_fmDwnlButtonDisabled_IMB,
+.dxWeb_fmFolder_IMB,
+.dxWeb_fmFolderLocked_IMB,
+.dxWeb_fmMoveButton_IMB,
+.dxWeb_fmMoveButtonDisabled_IMB,
+.dxWeb_fmRefreshButton_IMB,
+.dxWeb_fmRefreshButtonDisabled_IMB,
+.dxWeb_fmRenameButton_IMB,
+.dxWeb_fmRenameButtonDisabled_IMB,
+.dxWeb_fmThumbnailCheck_IMB,
+.dxWeb_igCloseButton_IMB,
+.dxWeb_igNavigationBarMarker_IMB,
+.dxWeb_igNextButton_IMB,
+.dxWeb_igNextButtonDisabled_IMB,
+.dxWeb_igNextButtonHover_IMB,
+.dxWeb_igNextButtonPressed_IMB,
+.dxWeb_igPauseButton_IMB,
+.dxWeb_igPlayButton_IMB,
+.dxWeb_igPrevButton_IMB,
+.dxWeb_igPrevButtonDisabled_IMB,
+.dxWeb_igPrevButtonHover_IMB,
+.dxWeb_igPrevButtonPressed_IMB,
+.dxWeb_isDot_IMB,
+.dxWeb_isDotDisabled_IMB,
+.dxWeb_isDotPressed_IMB,
+.dxWeb_isDotSelected_IMB,
+.dxWeb_isNextBtnHor_IMB,
+.dxWeb_isNextBtnHorDisabled_IMB,
+.dxWeb_isNextBtnVert_IMB,
+.dxWeb_isNextBtnVertDisabled_IMB,
+.dxWeb_isNextPageBtnHor_IMB,
+.dxWeb_isNextPageBtnHorDisabled_IMB,
+.dxWeb_isNextPageBtnHorOutside_IMB,
+.dxWeb_isNextPageBtnHorOutsideDisabled_IMB,
+.dxWeb_isNextPageBtnVert_IMB,
+.dxWeb_isNextPageBtnVertDisabled_IMB,
+.dxWeb_isNextPageBtnVertOutside_IMB,
+.dxWeb_isNextPageBtnVertOutsideDisabled_IMB,
+.dxWeb_isPauseBtn_IMB,
+.dxWeb_isPlayBtn_IMB,
+.dxWeb_isPrevBtnHor_IMB,
+.dxWeb_isPrevBtnHorDisabled_IMB,
+.dxWeb_isPrevBtnVert_IMB,
+.dxWeb_isPrevBtnVertDisabled_IMB,
+.dxWeb_isPrevPageBtnHor_IMB,
+.dxWeb_isPrevPageBtnHorDisabled_IMB,
+.dxWeb_isPrevPageBtnHorOutside_IMB,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_IMB,
+.dxWeb_isPrevPageBtnVert_IMB,
+.dxWeb_isPrevPageBtnVertDisabled_IMB,
+.dxWeb_isPrevPageBtnVertOutside_IMB,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_IMB,
+.dxWeb_izEWCloseButton_IMB,
+.dxWeb_izHint_IMB,
+.dxWeb_mHorizontalPopOut_IMB,
+.dxWeb_mScrollDown_IMB,
+.dxWeb_mScrollUp_IMB,
+.dxWeb_mSubMenuItem_IMB,
+.dxWeb_mSubMenuItemChecked_IMB,
+.dxWeb_mVerticalPopOut_IMB,
+.dxWeb_mVerticalPopOutRtl_IMB,
+.dxWeb_nbCollapse_IMB,
+.dxWeb_nbExpand_IMB,
+.dxWeb_pAll_IMB,
+.dxWeb_pAllDisabled_IMB,
+.dxWeb_pcCloseButton_IMB,
+.dxWeb_pcCollapseButton_IMB,
+.dxWeb_pcMaximizeButton_IMB,
+.dxWeb_pcPinButton_IMB,
+.dxWeb_pcRefreshButton_IMB,
+.dxWeb_pcSizeGrip_IMB,
+.dxWeb_pcSizeGripRtl_IMB,
+.dxWeb_pFirst_IMB,
+.dxWeb_pFirstDisabled_IMB,
+.dxWeb_pLast_IMB,
+.dxWeb_pLastDisabled_IMB,
+.dxWeb_pNext_IMB,
+.dxWeb_pNextDisabled_IMB,
+.dxWeb_pPopOut_IMB,
+.dxWeb_pPopOutDisabled_IMB,
+.dxWeb_pPrev_IMB,
+.dxWeb_pPrevDisabled_IMB,
+.dxWeb_rMinBtn_IMB,
+.dxWeb_rMinBtn_IMB.dxWeb_rMinBtnHover_IMB,
+.dxWeb_rMinBtn_IMB.dxWeb_rMinBtnPressed_IMB,
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtn_IMB,
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtnHover_IMB,
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtnPressed_IMB,
+.dxWeb_rpCollapseButton_IMB,
+.dxWeb_rPopOut_IMB,
+.dxWeb_splHCollapseBackwardButton_IMB,
+.dxWeb_splHCollapseBackwardButtonHover_IMB,
+.dxWeb_splHCollapseForwardButton_IMB,
+.dxWeb_splHCollapseForwardButtonHover_IMB,
+.dxWeb_splHSeparator_IMB,
+.dxWeb_splHSeparatorHover_IMB,
+.dxWeb_splVCollapseBackwardButton_IMB,
+.dxWeb_splVCollapseBackwardButtonHover_IMB,
+.dxWeb_splVCollapseForwardButton_IMB,
+.dxWeb_splVCollapseForwardButtonHover_IMB,
+.dxWeb_splVSeparator_IMB,
+.dxWeb_splVSeparatorHover_IMB,
+.dxWeb_tcScrollLeft_IMB,
+.dxWeb_tcScrollLeftDisabled_IMB,
+.dxWeb_tcScrollLeftHover_IMB,
+.dxWeb_tcScrollLeftPressed_IMB,
+.dxWeb_tcScrollRight_IMB,
+.dxWeb_tcScrollRightDisabled_IMB,
+.dxWeb_tcScrollRightHover_IMB,
+.dxWeb_tcScrollRightPressed_IMB,
+.dxWeb_tvColBtn_IMB,
+.dxWeb_tvColBtnRtl_IMB,
+.dxWeb_tvExpBtn_IMB,
+.dxWeb_tvExpBtnRtl_IMB,
+.dxWeb_ucClearButton_IMB,
+.dxWeb_ucClearButtonDisabled_IMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxigControl_IMB.dxTouchUI .dxWeb_igCloseButton_IMB
+{
+    background-position: -50px -327px;
+    width: 23px;
+    height: 23px;
+}
+.dxigControl_IMB.dxTouchUI .dxWeb_igPauseButton_IMB
+{
+    background-position: -100px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxigControl_IMB.dxTouchUI .dxWeb_igPlayButton_IMB
+{
+    background-position: -78px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxm-hovered .dxWeb_fmCopyButton_IMB
+{
+    background-position: -119px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmCreateButton_IMB
+{
+    background-position: 0px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDeleteButton_IMB
+{
+    background-position: -102px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDwnlButton_IMB
+{
+    background-position: -119px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmMoveButton_IMB
+{
+    background-position: -68px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRefreshButton_IMB
+{
+    background-position: -102px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRenameButton_IMB
+{
+    background-position: -17px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_mHorizontalPopOut_IMB
+{
+    background-position: -89px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOut_IMB
+{
+    background-position: -134px -198px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_IMB
+{
+    background-position: -136px -407px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_IMB
+{
+    background-position: -28px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_IMB
+{
+    background-position: -56px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_IMB
+{
+    background-position: -16px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_IMB
+{
+    background-position: 0px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_IMB
+{
+    background-position: -104px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxp-hoverDropDownButton .dxWeb_pPopOut_IMB
+{
+    background-position: -128px -222px;
+    width: 7px;
+    height: 4px;
+}
+.dxp-pressedDropDownButton .dxWeb_pPopOut_IMB
+{
+    background-position: -117px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxr-itemHover .dxWeb_rPopOut_IMB
+{
+    background-position: -130px -144px;
+    width: 5px;
+    height: 3px;
+}
+.dxrpCollapsed .dxWeb_rpCollapseButton_IMB
+{
+    background-position: 0px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_edtCheckBoxChecked_IMB
+{
+    background-position: -119px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxCheckedDisabled_IMB
+{
+    background-position: -34px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayed_IMB
+{
+    background-position: 0px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayedDisabled_IMB
+{
+    background-position: -68px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUnchecked_IMB
+{
+    background-position: -124px -372px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUncheckedDisabled_IMB
+{
+    background-position: -51px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButton_IMB
+{
+    background-position: -51px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButtonDisabled_IMB
+{
+    background-position: -68px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButton_IMB
+{
+    background-position: -17px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButtonDisabled_IMB
+{
+    background-position: -102px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButton_IMB
+{
+    background-position: -85px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButtonDisabled_IMB
+{
+    background-position: -34px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButton_IMB
+{
+    background-position: -34px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButtonDisabled_IMB
+{
+    background-position: -17px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolder_IMB
+{
+    background-position: -85px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolderLocked_IMB
+{
+    background-position: 0px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButton_IMB
+{
+    background-position: -51px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButtonDisabled_IMB
+{
+    background-position: -85px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButton_IMB
+{
+    background-position: -102px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButtonDisabled_IMB
+{
+    background-position: -17px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButton_IMB
+{
+    background-position: 0px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButtonDisabled_IMB
+{
+    background-position: -51px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmThumbnailCheck_IMB
+{
+    background-position: -130px -132px;
+    width: 10px;
+    height: 11px;
+}
+.dxWeb_igCloseButton_IMB
+{
+    background-position: -84px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_igNavigationBarMarker_IMB
+{
+    background-position: -119px -352px;
+    width: 20px;
+    height: 16px;
+}
+.dxWeb_igNextButton_IMB
+{
+    background-position: -46px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonDisabled_IMB
+{
+    background-position: 0px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonHover_IMB
+{
+    background-position: -92px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonPressed_IMB
+{
+    background-position: -46px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPauseButton_IMB
+{
+    background-position: -111px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPlayButton_IMB
+{
+    background-position: -98px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPrevButton_IMB
+{
+    background-position: 0px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonDisabled_IMB
+{
+    background-position: -92px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonHover_IMB
+{
+    background-position: 0px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonPressed_IMB
+{
+    background-position: -46px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_isDot_IMB
+{
+    background-position: -70px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotDisabled_IMB
+{
+    background-position: -124px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotPressed_IMB
+{
+    background-position: -110px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotSelected_IMB
+{
+    background-position: -14px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isNextBtnHor_IMB
+{
+    background-position: -111px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnHorDisabled_IMB
+{
+    background-position: -92px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnVert_IMB
+{
+    background-position: -30px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextBtnVertDisabled_IMB
+{
+    background-position: -89px -327px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextPageBtnHor_IMB
+{
+    background-position: -125px -302px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorDisabled_IMB
+{
+    background-position: -74px -327px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorOutside_IMB
+{
+    background-position: -13px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnHorOutsideDisabled_IMB
+{
+    background-position: 0px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnVert_IMB
+{
+    background-position: -66px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertDisabled_IMB
+{
+    background-position: 0px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertOutside_IMB
+{
+    background-position: 0px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isNextPageBtnVertOutsideDisabled_IMB
+{
+    background-position: -98px -488px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPauseBtn_IMB
+{
+    background-position: -72px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPlayBtn_IMB
+{
+    background-position: -85px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPrevBtnHor_IMB
+{
+    background-position: -103px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnHorDisabled_IMB
+{
+    background-position: -122px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnVert_IMB
+{
+    background-position: 0px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevBtnVertDisabled_IMB
+{
+    background-position: -60px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevPageBtnHor_IMB
+{
+    background-position: -125px -252px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorDisabled_IMB
+{
+    background-position: -125px -277px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorOutside_IMB
+{
+    background-position: -26px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnHorOutsideDisabled_IMB
+{
+    background-position: -39px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnVert_IMB
+{
+    background-position: -44px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertDisabled_IMB
+{
+    background-position: -22px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertOutside_IMB
+{
+    background-position: -90px -352px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPrevPageBtnVertOutsideDisabled_IMB
+{
+    background-position: -29px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_izEWCloseButton_IMB
+{
+    background-position: -52px -198px;
+    width: 25px;
+    height: 25px;
+}
+.dxWeb_izHint_IMB
+{
+    background-position: -36px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_mHorizontalPopOut_IMB
+{
+    background-position: -122px -223px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_mScrollDown_IMB
+{
+    background-position: 0px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mScrollUp_IMB
+{
+    background-position: -42px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mSubMenuItem_IMB
+{
+    background-position: -95px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mSubMenuItemChecked_IMB
+{
+    background-position: -80px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mVerticalPopOut_IMB
+{
+    background-position: -136px -218px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_mVerticalPopOutRtl_IMB
+{
+    background-position: -136px -390px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_nbCollapse_IMB
+{
+    background-position: -25px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_nbExpand_IMB
+{
+    background-position: -100px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAll_IMB
+{
+    background-position: -50px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAllDisabled_IMB
+{
+    background-position: -75px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pcCloseButton_IMB
+{
+    background-position: -88px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcCollapseButton_IMB
+{
+    background-position: -64px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcMaximizeButton_IMB
+{
+    background-position: -48px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcPinButton_IMB
+{
+    background-position: -32px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcRefreshButton_IMB
+{
+    background-position: -120px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcSizeGrip_IMB
+{
+    background-position: -68px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pcSizeGripRtl_IMB
+{
+    background-position: -85px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pFirst_IMB
+{
+    background-position: -25px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pFirstDisabled_IMB
+{
+    background-position: -75px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLast_IMB
+{
+    background-position: 0px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLastDisabled_IMB
+{
+    background-position: -25px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNext_IMB
+{
+    background-position: -100px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNextDisabled_IMB
+{
+    background-position: -100px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPopOut_IMB
+{
+    background-position: -109px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPopOutDisabled_IMB
+{
+    background-position: -101px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPrev_IMB
+{
+    background-position: 0px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPrevDisabled_IMB
+{
+    background-position: -75px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rMinBtn_IMB
+{
+    background-position: -93px -189px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_IMB.dxWeb_rMinBtnHover_IMB
+{
+    background-position: -130px -157px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_IMB.dxWeb_rMinBtnPressed_IMB
+{
+    background-position: -130px -148px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtn_IMB
+{
+    background-position: -92px -180px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtnHover_IMB
+{
+    background-position: -92px -171px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_IMB.dxWeb_rMinBtnPressed_IMB
+{
+    background-position: -127px -488px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rpCollapseButton_IMB
+{
+    background-position: 0px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rPopOut_IMB
+{
+    background-position: -95px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_splHCollapseBackwardButton_IMB
+{
+    background-position: -125px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseBackwardButtonHover_IMB
+{
+    background-position: -133px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButton_IMB
+{
+    background-position: -90px -365px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButtonHover_IMB
+{
+    background-position: -92px -164px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHSeparator_IMB
+{
+    background-position: -58px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splHSeparatorHover_IMB
+{
+    background-position: -82px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splVCollapseBackwardButton_IMB
+{
+    background-position: -106px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseBackwardButtonHover_IMB
+{
+    background-position: -113px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButton_IMB
+{
+    background-position: -120px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButtonHover_IMB
+{
+    background-position: -134px -210px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVSeparator_IMB
+{
+    background-position: -125px -227px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_splVSeparatorHover_IMB
+{
+    background-position: -122px -198px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_tcScrollLeft_IMB
+{
+    background-position: -50px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftDisabled_IMB
+{
+    background-position: 0px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftHover_IMB
+{
+    background-position: -100px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftPressed_IMB
+{
+    background-position: -75px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRight_IMB
+{
+    background-position: -25px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightDisabled_IMB
+{
+    background-position: -50px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightHover_IMB
+{
+    background-position: -50px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightPressed_IMB
+{
+    background-position: -25px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tvColBtn_IMB
+{
+    background-position: -119px -327px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvColBtnRtl_IMB
+{
+    background-position: -54px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtn_IMB
+{
+    background-position: -18px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtnRtl_IMB
+{
+    background-position: 0px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_ucClearButton_IMB
+{
+    background-position: -34px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_ucClearButtonDisabled_IMB
+{
+    background-position: -119px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxChecked_IMB,
+.dxWeb_edtCheckBoxCheckedDisabled_IMB,
+.dxWeb_edtCheckBoxGrayed_IMB,
+.dxWeb_edtCheckBoxGrayedDisabled_IMB,
+.dxWeb_edtCheckBoxUnchecked_IMB,
+.dxWeb_edtCheckBoxUncheckedDisabled_IMB
+{
+    background-color: #00A74F;
+}
+
+.dxWeb_rpHeaderTopLeftCorner_IMB,
+.dxWeb_rpHeaderTopRightCorner_IMB,
+.dxWeb_rpBottomLeftCorner_IMB,
+.dxWeb_rpBottomRightCorner_IMB,
+.dxWeb_rpTopLeftCorner_IMB,
+.dxWeb_rpTopRightCorner_IMB,
+.dxWeb_rpGroupBoxBottomLeftCorner_IMB,
+.dxWeb_rpGroupBoxBottomRightCorner_IMB,
+.dxWeb_rpGroupBoxTopLeftCorner_IMB,
+.dxWeb_rpGroupBoxTopRightCorner_IMB,
+.dxWeb_mHorizontalPopOut_IMB,
+.dxWeb_mHorizontalPopOutHover_IMB,
+.dxWeb_mVerticalPopOut_IMB,
+.dxWeb_mVerticalPopOutHover_IMB,
+.dxWeb_mVerticalPopOutRtl_IMB,
+.dxWeb_mVerticalPopOutHoverRtl_IMB,
+.dxWeb_mSubMenuItem_IMB,
+.dxWeb_mSubMenuItemChecked_IMB,
+.dxWeb_mScrollUp_IMB,
+.dxWeb_mScrollUpHover_IMB,
+.dxWeb_mScrollDown_IMB,
+.dxWeb_mScrollDownHover_IMB,
+.dxWeb_tcScrollLeft_IMB,
+.dxWeb_tcScrollRight_IMB,
+.dxWeb_tcScrollLeftHover_IMB,
+.dxWeb_tcScrollRightHover_IMB,
+.dxWeb_tcScrollLeftPressed_IMB,
+.dxWeb_tcScrollRightPressed_IMB,
+.dxWeb_tcScrollLeftDisabled_IMB,
+.dxWeb_tcScrollRightDisabled_IMB,
+.dxWeb_nbCollapse_IMB,
+.dxWeb_nbExpand_IMB,
+.dxWeb_splVSeparator_IMB,
+.dxWeb_splVSeparatorHover_IMB,
+.dxWeb_splHSeparator_IMB,
+.dxWeb_splHSeparatorHover_IMB,
+.dxWeb_splVCollapseBackwardButton_IMB,
+.dxWeb_splVCollapseBackwardButtonHover_IMB,
+.dxWeb_splHCollapseBackwardButton_IMB,
+.dxWeb_splHCollapseBackwardButtonHover_IMB,
+.dxWeb_splVCollapseForwardButton_IMB,
+.dxWeb_splVCollapseForwardButtonHover_IMB,
+.dxWeb_splHCollapseForwardButton_IMB,
+.dxWeb_splHCollapseForwardButtonHover_IMB,
+.dxWeb_pcCloseButton_IMB,
+.dxWeb_pcPinButton_IMB,
+.dxWeb_pcRefreshButton_IMB,
+.dxWeb_pcCollapseButton_IMB,
+.dxWeb_pcMaximizeButton_IMB,
+.dxWeb_pcSizeGrip_IMB,
+.dxWeb_pcSizeGripRtl_IMB,
+.dxWeb_pPopOut_IMB,
+.dxWeb_pPopOutDisabled_IMB,
+.dxWeb_pAll_IMB,
+.dxWeb_pAllDisabled_IMB,
+.dxWeb_pPrev_IMB,
+.dxWeb_pPrevDisabled_IMB,
+.dxWeb_pNext_IMB,
+.dxWeb_pNextDisabled_IMB,
+.dxWeb_pLast_IMB,
+.dxWeb_pLastDisabled_IMB,
+.dxWeb_pFirst_IMB,
+.dxWeb_pFirstDisabled_IMB,
+.dxWeb_tvColBtn_IMB,
+.dxWeb_tvColBtnRtl_IMB,
+.dxWeb_tvExpBtn_IMB,
+.dxWeb_tvExpBtnRtl_IMB,
+.dxWeb_fmFolder_IMB,
+.dxWeb_fmFolderLocked_IMB,
+.dxWeb_fmCreateButton_IMB,
+.dxWeb_fmMoveButton_IMB,
+.dxWeb_fmRenameButton_IMB,
+.dxWeb_fmDeleteButton_IMB,
+.dxWeb_fmRefreshButton_IMB,
+.dxWeb_fmDwnlButton_IMB,
+.dxWeb_fmCreateButtonDisabled_IMB,
+.dxWeb_fmMoveButtonDisabled_IMB,
+.dxWeb_fmRenameButtonDisabled_IMB,
+.dxWeb_fmDeleteButtonDisabled_IMB,
+.dxWeb_fmRefreshButtonDisabled_IMB,
+.dxWeb_fmDwnlButtonDisabled_IMB,
+.dxWeb_fmThumbnailCheck_IMB,
+.dxWeb_ucClearButton_IMB,
+.dxWeb_isPrevBtnHor_IMB,
+.dxWeb_isNextBtnHor_IMB,
+.dxWeb_isPrevBtnVert_IMB,
+.dxWeb_isNextBtnVert_IMB,
+.dxWeb_isPrevPageBtnHor_IMB,
+.dxWeb_isPrevPageBtnHorOutside_IMB,
+.dxWeb_isNextPageBtnHor_IMB,
+.dxWeb_isNextPageBtnHorOutside_IMB,
+.dxWeb_isPrevPageBtnVert_IMB,
+.dxWeb_isPrevPageBtnVertOutside_IMB,
+.dxWeb_isNextPageBtnVert_IMB,
+.dxWeb_isNextPageBtnVertOutside_IMB,
+.dxWeb_isPrevBtnHorDisabled_IMB,
+.dxWeb_isNextBtnHorDisabled_IMB,
+.dxWeb_isPrevBtnVertDisabled_IMB,
+.dxWeb_isNextBtnVertDisabled_IMB,
+.dxWeb_isPrevPageBtnHorDisabled_IMB,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_IMB,
+.dxWeb_isNextPageBtnHorDisabled_IMB,
+.dxWeb_isNextPageBtnHorOutsideDisabled_IMB,
+.dxWeb_isPrevPageBtnVertDisabled_IMB,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_IMB,
+.dxWeb_isNextPageBtnVertDisabled_IMB,
+.dxWeb_isNextPageBtnVertOutsideDisabled_IMB,
+.dxWeb_isDot_IMB,
+.dxWeb_isDotDisabled_IMB,
+.dxWeb_isDotSelected_IMB,
+.dxWeb_isPlayBtn_IMB,
+.dxWeb_isPauseBtn_IMB,
+.dxWeb_igCloseButton_IMB,
+.dxWeb_igNextButton_IMB,
+.dxWeb_igPrevButton_IMB,
+.dxWeb_igPlayButton_IMB,
+.dxWeb_igPauseButton_IMB,
+.dxWeb_igNavigationBarMarker_IMB
+{
+    display: block;
+}
+.dxWeb_mScrollUp_IMB, .dxWeb_mScrollDown_IMB
+{
+	margin: auto;
+}
+

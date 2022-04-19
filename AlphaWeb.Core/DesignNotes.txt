@@ -1,0 +1,1 @@
+﻿Kjo class library do te jete Core i AlphaWeb. Ne kete projekt do te vendosen interfaces qe i duhen AlphaWeb te funksionoj si skelet (interfaces per database, logging, email, context, messages etj). Nuk duhet te kete ne asnje menyre kod qe i perket domainit (shitje,magazine, artikull etj).

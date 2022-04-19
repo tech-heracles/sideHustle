@@ -1,0 +1,48 @@
+.dxSpreadsheet_Copy_IMB,
+.dxSpreadsheet_Cut_IMB,
+.dxSpreadsheet_Delete_Hyperlink_IMB,
+.dxSpreadsheet_Hyperlink_IMB,
+.dxSpreadsheet_OpenHyperlink_IMB,
+.dxSpreadsheet_Paste_IMB
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxSpreadsheet_Copy_IMB
+{
+    background-position: -17px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Cut_IMB
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Delete_Hyperlink_IMB
+{
+    background-position: -17px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Hyperlink_IMB
+{
+    background-position: -17px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_OpenHyperlink_IMB
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Paste_IMB
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+

@@ -1,0 +1,39 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--3aeaaee:15b24e6899c:-485e</id>
+  <name>V_GIS_Layer_DPSH_DREJTORIVENDORE_NR1</name>
+  <nativeName>V_GIS_Layer_DPSH_DREJTORIVENDORE_NR1</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl-4c307eff:159db3c48ff:-7e4c</id>
+  </namespace>
+  <title>V_GIS_Layer_DPSH_DREJTORIVENDORE_NR1</title>
+  <keywords>
+    <string>V_GIS_Layer_DPSH_DREJTORIVENDORE_NR1</string>
+    <string>features</string>
+  </keywords>
+  <srs>EPSG:32634</srs>
+  <nativeBoundingBox>
+    <minx>352896.20879999927</minx>
+    <maxx>504847.454699999</maxx>
+    <miny>4388655.469799998</miny>
+    <maxy>4723980.840199999</maxy>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>19.205285603757797</minx>
+    <maxx>21.059154654848818</maxx>
+    <miny>39.63504006302534</miny>
+    <maxy>42.66828196976153</maxy>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl-4c307eff:159db3c48ff:-7e4b</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

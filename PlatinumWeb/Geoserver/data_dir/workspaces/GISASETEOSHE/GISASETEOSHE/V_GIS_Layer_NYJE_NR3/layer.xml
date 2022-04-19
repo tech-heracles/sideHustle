@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_NYJE_NR3</name>
+  <id>LayerInfoImpl--42e05b88:1531e0c3ab3:-7e57</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--42e05b88:1531e0c3ab3:-7f2f</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--42e05b88:1531e0c3ab3:-7e58</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

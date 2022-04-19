@@ -1,0 +1,2715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34483C01-47CD-48E5-AEEC-009191F9363D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports</RootNamespace>
+    <AssemblyName>AlphaWebReports</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CacheManager.Core, Version=1.1.2.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.Core.1.1.2\lib\net45\CacheManager.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.SystemRuntimeCaching, Version=1.1.2.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.SystemRuntimeCaching.1.1.2\lib\net45\CacheManager.SystemRuntimeCaching.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7, processorArchitecture=MSIL">
+      <HintPath>..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PlatinumWeb\dlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyReference.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_PRC_RapBuxhetiIKontraktuarPerVitin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaAlokimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaMiratimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaRialokimBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapTeArdhuratSipasBurimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapTeArdhuratSipasBurimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\DS_RegjistriAnalitikIVeprimeveTeBuxhetit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RialokimidheEkzekutimiBuxhetitQeveritar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.cs">
+      <DependentUpon>Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_RapEvidenceBuxheti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RapEvidenceBuxheti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\DataSource\Ds_ShperndarjaEBuxhetitTePacaktuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ShperndarjaEBuxhetitTePacaktuar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaAlokimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaAlokimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaAlokimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPlanifikimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPlanifikimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaPlanifikimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaMiratimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaMiratimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaMiratimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatFatureKategoriaPlanifikimEkzekutimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatFatureKategoriaPlanifikimEkzekutimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatFatureKategoriaPlanifikimEkzekutimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaEkzekutimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaEkzekutimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaEkzekutimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaRialokimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaRialokimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaRialokimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPerfitimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPerfitimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiKategoriaPerfitimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiMiratimBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiMiratimBuxheti.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiMiratimBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapPerfitimiBuxhetitSipasArtikujveSherbim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapPerfitimiBuxhetitSipasArtikujveSherbim.Designer.cs">
+      <DependentUpon>RapPerfitimiBuxhetitSipasArtikujveSherbim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapBuxhetiIKontraktuarPerVitin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapBuxhetiIKontraktuarPerVitin.Designer.cs">
+      <DependentUpon>RapBuxhetiIKontraktuarPerVitin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapTeArdhuratSipasBurimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapTeArdhuratSipasBurimit.Designer.cs">
+      <DependentUpon>RapTeArdhuratSipasBurimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapRegjistriAnalitikIVeprimeveTeBuxhetit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapRegjistriAnalitikIVeprimeveTeBuxhetit.Designer.cs">
+      <DependentUpon>RapRegjistriAnalitikIVeprimeveTeBuxhetit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapShperndarjaEBuxhetitTePacaktuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapShperndarjaEBuxhetitTePacaktuar.Designer.cs">
+      <DependentUpon>RapShperndarjaEBuxhetitTePacaktuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapRialokimidheEkzekutimiBuxhetitQeveritar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapRialokimidheEkzekutimiBuxhetitQeveritar.Designer.cs">
+      <DependentUpon>RapRialokimidheEkzekutimiBuxhetitQeveritar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapPlanifikimitMiratimitRialokimitTeBuxhetit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapPlanifikimitMiratimitRialokimitTeBuxhetit.Designer.cs">
+      <DependentUpon>RapPlanifikimitMiratimitRialokimitTeBuxhetit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapEvidenceBuxheti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\B_Buxheti\Raporte\RapEvidenceBuxheti.Designer.cs">
+      <DependentUpon>RapEvidenceBuxheti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.Designer.cs">
+      <DependentUpon>RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.Designer.cs">
+      <DependentUpon>Rap_AnalitikAnketa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Ds_OfertaBlerje.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_OfertaBlerje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Ds_PrintimDetyrimesh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PrintimDetyrimesh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Ds_RapGabimesh.Designer.cs">
+      <DependentUpon>Ds_RapGabimesh.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Aktiveve_Qarkulluese.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Analiza_Aktiveve_Qarkulluese.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Detyrimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Analiza_Detyrimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Bilanci.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Bilanci.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciKontabelFormat2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BilanciKontabelFormat2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciQK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BilanciQK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BurimeShpenzimeLidhurInvestime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BurimeShpenzimeLidhurInvestime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlow.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_CashFlow.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlowQK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_CashFlowQK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KartelaKategoriveShpenzimit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaKategoriveShpenzimit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KontGjendjaLlogariMastroRaportuese.cs">
+      <DependentUpon>Ds_KontGjendjaLlogariMastroRaportuese.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KontGjendjaLlogariMastroRaportuese1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KontGjendjaLlogariMastroRaportuese.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PASH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PashKesh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PashKesh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASHQK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PASHQK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraAktiviteteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraAktiviteteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraFlukseveMjeteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraFlukseveMjeteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraLevizjesCash.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraLevizjesCash.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraPozicionFinanciar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraPozicionFinanciar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyratLevizjesFondeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyratLevizjesFondeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_e_Amortizimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Pasqyra_e_Amortizimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_levizjeve_AQT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Pasqyra_levizjeve_AQT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PKSHF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PKSHF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Analiza_Ardhurave_Shpenzimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetiDheFondesh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BuxhetiDheFondesh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Buxhetimi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Buxhetimi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetimiSipasUrdherPagesave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BuxhetimiSipasUrdherPagesave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajDebitoreve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\DS_RAP_PermbledheseRealizimevedheParashikimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RAP_PermbledheseRealizimevedheParashikimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_SituacionShpenzimesh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_SituacionShpenzimesh.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Aktiveve_Qarkulluese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Aktiveve_Qarkulluese.Designer.cs">
+      <DependentUpon>Rap_Analiza_Aktiveve_Qarkulluese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Ardhurave_Shpenzimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Ardhurave_Shpenzimeve.Designer.cs">
+      <DependentUpon>Rap_Analiza_Ardhurave_Shpenzimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Detyrimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Detyrimeve.Designer.cs">
+      <DependentUpon>Rap_Analiza_Detyrimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetiDheFondesh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetiDheFondesh.Designer.cs">
+      <DependentUpon>Rap_BuxhetiDheFondesh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow_buxhetor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow_buxhetor.Designer.cs">
+      <DependentUpon>Rap_CashFlow_buxhetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.Designer.cs">
+      <DependentUpon>Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.Designer.cs">
+      <DependentUpon>Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeveTeArdhuraShpenzime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeveTeArdhuraShpenzime.Designer.cs">
+      <DependentUpon>Rap_PermbledheseRealizimevedheParashikimeveTeArdhuraShpenzime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraFlukseveMjeteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraFlukseveMjeteve.Designer.cs">
+      <DependentUpon>Rap_PasqyraFlukseveMjeteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraAktiviteteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraAktiviteteve.Designer.cs">
+      <DependentUpon>Rap_PasqyraAktiviteteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPozicionFinanciar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPozicionFinanciar.Designer.cs">
+      <DependentUpon>Rap_PasqyraPozicionFinanciar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Bilanci.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Bilanci.Designer.cs">
+      <DependentUpon>Rap_Bilanci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciBuxh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciBuxh.Designer.cs">
+      <DependentUpon>Rap_BilanciBuxh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciiKontabelFormat2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciiKontabelFormat2.Designer.cs">
+      <DependentUpon>Rap_BilanciiKontabelFormat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciKESH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciKESH.Designer.cs">
+      <DependentUpon>Rap_BilanciKESH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciQK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciQK.Designer.cs">
+      <DependentUpon>Rap_BilanciQK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BurimeShpenzimeLidhurInvestime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BurimeShpenzimeLidhurInvestime.Designer.cs">
+      <DependentUpon>Rap_BurimeShpenzimeLidhurInvestime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Buxhetimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Buxhetimi.designer.cs">
+      <DependentUpon>Rap_Buxhetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetimiSipasUrdherPagesave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetimiSipasUrdherPagesave.designer.cs">
+      <DependentUpon>Rap_BuxhetimiSipasUrdherPagesave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow.Designer.cs">
+      <DependentUpon>Rap_CashFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlowQK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlowQK.Designer.cs">
+      <DependentUpon>Rap_CashFlowQK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Gjendja_ndryshimet_aktiveve_te_qendrueshme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Gjendja_ndryshimet_aktiveve_te_qendrueshme.Designer.cs">
+      <DependentUpon>Rap_Gjendja_ndryshimet_aktiveve_te_qendrueshme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_KartelaKategoriveShpenzimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_KartelaKategoriveShpenzimit.Designer.cs">
+      <DependentUpon>Rap_KartelaKategoriveShpenzimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciVertetuesSipasNdermarrjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciVertetuesSipasNdermarrjeve.Designer.cs">
+      <DependentUpon>Rap_BilanciVertetuesSipasNdermarrjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH.Designer.cs">
+      <DependentUpon>Rap_PASH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH_Format2.Designer.cs">
+      <DependentUpon>Rap_PASH_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHBUXH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHBUXH.Designer.cs">
+      <DependentUpon>Rap_PASHBUXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHQK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHQK.Designer.cs">
+      <DependentUpon>Rap_PASHQK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesCash.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesCash.Designer.cs">
+      <DependentUpon>Rap_PasqyraLevizjesCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesFondeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesFondeve.Designer.cs">
+      <DependentUpon>Rap_PasqyraLevizjesFondeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajDebitoreve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajDebitoreve.Designer.cs">
+      <DependentUpon>Rap_PasqyraPermbledheseNdajDebitoreve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajFurnitoreve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajFurnitoreve.Designer.cs">
+      <DependentUpon>Rap_PasqyraPermbledheseNdajFurnitoreve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Amortizimit_Asete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Amortizimit_Asete.Designer.cs">
+      <DependentUpon>Rap_Pasqyra_Amortizimit_Asete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_e_Amortizimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_e_Amortizimeve.Designer.cs">
+      <DependentUpon>Rap_Pasqyra_e_Amortizimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ.Designer.cs">
+      <DependentUpon>RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Konsoliduar_Gjendje_Financiare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Konsoliduar_Gjendje_Financiare.Designer.cs">
+      <DependentUpon>Rap_Pasqyra_Konsoliduar_Gjendje_Financiare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Levizjeve_AQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Levizjeve_AQT.Designer.cs">
+      <DependentUpon>Rap_Pasqyra_Levizjeve_AQT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeve.Designer.cs">
+      <DependentUpon>Rap_PermbledheseRealizimevedheParashikimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_SituacionPermbledhesShpenzimesh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_SituacionPermbledhesShpenzimesh.Designer.cs">
+      <DependentUpon>Rap_SituacionPermbledhesShpenzimesh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_AnalizaProduktiSipasRecepturave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_AnalizaProduktiSipasRecepturave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_FormatPlanifikimi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_FormatPlanifikimi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_HistorikReceptura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_HistorikReceptura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_KonsumiRecepturaveSipasProdukteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KonsumiRecepturaveSipasProdukteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_ListaRecepturave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListaRecepturave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_PlanifikimAnalitik.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PlanifikimAnalitik.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiAnalitik.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ProdhimiAnalitik.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiUnivers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ProdhimiUnivers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_ProduktIProdhuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ProduktIProdhuar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_RegjistriPoduktitDheRecepturave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RegjistriPoduktitDheRecepturave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_UrdherPune.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_UrdherPune1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\DataSource\Ds_VleresimiKostos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_VleresimiKostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_AnalizaProduktiSipasRecepturave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_AnalizaProduktiSipasRecepturave.Designer.cs">
+      <DependentUpon>Rap_AnalizaProduktiSipasRecepturave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2_SePDeFn_131433100338355750.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2_SePDeFn_131433100338355750.Designer.cs">
+      <DependentUpon>Rap_EkzProdhimi_Model2_SePDeFn_131433100338355750.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_HistorikRecepturat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_HistorikRecepturat.Designer.cs">
+      <DependentUpon>Rap_HistorikRecepturat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.Designer.cs">
+      <DependentUpon>Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiRecepturaveSipasProdukteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiRecepturaveSipasProdukteve.Designer.cs">
+      <DependentUpon>Rap_KonsumiRecepturaveSipasProdukteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ListaReceptura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ListaReceptura.Designer.cs">
+      <DependentUpon>Rap_ListaReceptura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitik.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitik.Designer.cs">
+      <DependentUpon>Rap_PlanifikimAnalitik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitikAnoria.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitikAnoria.Designer.cs">
+      <DependentUpon>Rap_PlanifikimAnalitikAnoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProdhimiAnalitik.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProdhimiAnalitik.Designer.cs">
+      <DependentUpon>Rap_ProdhimiAnalitik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_Prodhimi_Univers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_Prodhimi_Univers.Designer.cs">
+      <DependentUpon>Rap_Prodhimi_Univers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuar.Designer.cs">
+      <DependentUpon>Rap_ProduktProdhuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuarAnoria.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuarAnoria.Designer.cs">
+      <DependentUpon>Rap_ProduktProdhuarAnoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriIProduktitERecepturaveMeDetajime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriIProduktitERecepturaveMeDetajime.Designer.cs">
+      <DependentUpon>Rap_RegjistriIProduktitERecepturaveMeDetajime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturave.Designer.cs">
+      <DependentUpon>Rap_RegjistriProduktitDheRecepturave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturaveAnoria.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturaveAnoria.Designer.cs">
+      <DependentUpon>Rap_RegjistriProduktitDheRecepturaveAnoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2.Designer.cs">
+      <DependentUpon>Rap_EkzProdhimi_Model2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika_SePDeFn_131607389966058119.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika_SePDeFn_131607389966058119.Designer.cs">
+      <DependentUpon>Rap_UrdherPune_Klimateknika_SePDeFn_131607389966058119.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_UrdherPuneMeReceptura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_UrdherPuneMeReceptura.Designer.cs">
+      <DependentUpon>Rap_UrdherPuneMeReceptura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune.Designer.cs">
+      <DependentUpon>Rap_UrdherPune.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika.Designer.cs">
+      <DependentUpon>Rap_UrdherPune_Klimateknika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_VleresimiKostos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Raportet\Rap_VleresimiKostos.Designer.cs">
+      <DependentUpon>Rap_VleresimiKostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimi1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimi1.Designer.cs">
+      <DependentUpon>Rap_FormatPlanifikimi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimiAnoria.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimiAnoria.Designer.cs">
+      <DependentUpon>Rap_FormatPlanifikimiAnoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Analiza_QenderKosto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto_Format2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Analiza_QenderKosto_Format2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_BuxhetimiMeFaza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_BuxhetimiMeFaza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_NdryshimetBuxhetore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_NdryshimetBuxhetore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.cs">
+      <DependentUpon>Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_BilanciKomponenteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_QendraKosto_BilanciKomponenteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_SipasLlogarive.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_QendraKosto_SipasLlogarive.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_Rap_Permbledhese_Rezultati_i_QK.cs">
+      <DependentUpon>Ds_Rap_Permbledhese_Rezultati_i_QK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_Rap_Permbledhese_Rezultati_i_QK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Permbledhese_Rezultati_i_QK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.cs">
+      <DependentUpon>Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\DataSource\Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.Designer.cs">
+      <DependentUpon>RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RezultatiQendraveTeKostosMeZeraDheNenzera.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RezultatiQendraveTeKostosMeZeraDheNenzera.Designer.cs">
+      <DependentUpon>RezultatiQendraveTeKostosMeZeraDheNenzera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_dtMod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_dtMod.Designer.cs">
+      <DependentUpon>Rap_Analiza_QendraKosto_dtMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto.Designer.cs">
+      <DependentUpon>Rap_Analiza_QendraKosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_Format2.Designer.cs">
+      <DependentUpon>Rap_Analiza_QendraKosto_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_BilanciKomponentesKostos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_BilanciKomponentesKostos.Designer.cs">
+      <DependentUpon>Rap_BilanciKomponentesKostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Permbledhese_Rezultati_i_QK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_Permbledhese_Rezultati_i_QK.Designer.cs">
+      <DependentUpon>Rap_Permbledhese_Rezultati_i_QK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RapRezultatiQendraveTeKostosMeZera.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\RapRezultatiQendraveTeKostosMeZera.Designer.cs">
+      <DependentUpon>RapRezultatiQendraveTeKostosMeZera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_BuxhetimiMeFaza.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_BuxhetimiMeFaza.Designer.cs">
+      <DependentUpon>Rap_QendraKosto_BuxhetimiMeFaza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_NdryshimetBuxhetore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_NdryshimetBuxhetore.Designer.cs">
+      <DependentUpon>Rap_QendraKosto_NdryshimetBuxhetore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_SipasLlogarive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_SipasLlogarive.Designer.cs">
+      <DependentUpon>Rap_QendraKosto_SipasLlogarive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\RapGabimesh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\RapGabimesh.Designer.cs">
+      <DependentUpon>RapGabimesh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\RapOfertaBlerje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\RapOfertaBlerje.Designer.cs">
+      <DependentUpon>RapOfertaBlerje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_dokumentaintegrimi.Designer.cs">
+      <DependentUpon>Ds_dokumentaintegrimi.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_FushatShteseHistorikuVeprimeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_FushatShteseHistorikuVeprimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_HistorikuVeprimeve.Designer.cs">
+      <DependentUpon>Ds_HistorikuVeprimeve.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveMujore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LargimetPerfaqsuesveMujore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveVjetore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LargimetPerfaqsuesveVjetore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveBuxhetimi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveBuxhetimi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveCmimet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveCmimet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_LogPunonjes.Designer.cs">
+      <DependentUpon>Ds_Rap_LogPunonjes.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_VeprimetDitoreAlphaBank.Designer.cs">
+      <DependentUpon>Ds_Rap_VeprimetDitoreAlphaBank.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Ds_StrukturaOrganizative.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_StrukturaOrganizative.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveCmimet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveCmimet.Designer.cs">
+      <DependentUpon>Rap_HistorikuVeprimeveCmimet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_StrukturaOrganizative.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_StrukturaOrganizative.Designer.cs">
+      <DependentUpon>Rap_StrukturaOrganizative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_DokumentaNgaIntegrimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_DokumentaNgaIntegrimi.Designer.cs">
+      <DependentUpon>Rap_DokumentaNgaIntegrimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_FushatShteseHistorikuVeprimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_FushatShteseHistorikuVeprimeve.Designer.cs">
+      <DependentUpon>Rap_FushatShteseHistorikuVeprimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.Designer.cs">
+      <DependentUpon>Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveBuxhetimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveBuxhetimi.Designer.cs">
+      <DependentUpon>Rap_HistorikuVeprimeveBuxhetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeve.Designer.cs">
+      <DependentUpon>Rap_HistorikuVeprimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesMujore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesMujore.Designer.cs">
+      <DependentUpon>Rap_LargimetPerfaqesuesveTeShitjesMujore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesVjetore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesVjetore.Designer.cs">
+      <DependentUpon>Rap_LargimetPerfaqesuesveTeShitjesVjetore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LogPunonjes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_LogPunonjes.Designer.cs">
+      <DependentUpon>Rap_LogPunonjes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_VeprimetDitoreAlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Raporte_Menaxheriale\Rap_VeprimetDitoreAlphaBank.Designer.cs">
+      <DependentUpon>Rap_VeprimetDitoreAlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Rap_Fatura_RECETAOPTIKE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rap_Fatura_RECETAOPTIKE.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Rap_PrintoDetyrim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Rap_PrintoDetyrim.designer.cs">
+      <DependentUpon>Rap_PrintoDetyrim.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaAlokimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaAlokimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPlanifikimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaPlanifikimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaMiratimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaMiratimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatFatureKategoriaPlanifikimEkzekutimBuxheti.resx">
+      <DependentUpon>Rap_FormatFatureKategoriaPlanifikimEkzekutimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaEkzekutimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaEkzekutimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaRialokimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaRialokimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiKategoriaPerfitimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiKategoriaPerfitimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Fatura\Rap_FormatPrintimiMiratimBuxheti.resx">
+      <DependentUpon>Rap_FormatPrintimiMiratimBuxheti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapPerfitimiBuxhetitSipasArtikujveSherbim.resx">
+      <DependentUpon>RapPerfitimiBuxhetitSipasArtikujveSherbim.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapBuxhetiIKontraktuarPerVitin.resx">
+      <DependentUpon>RapBuxhetiIKontraktuarPerVitin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapTeArdhuratSipasBurimit.resx">
+      <DependentUpon>RapTeArdhuratSipasBurimit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapRegjistriAnalitikIVeprimeveTeBuxhetit.resx">
+      <DependentUpon>RapRegjistriAnalitikIVeprimeveTeBuxhetit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapShperndarjaEBuxhetitTePacaktuar.resx">
+      <DependentUpon>RapShperndarjaEBuxhetitTePacaktuar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapRialokimidheEkzekutimiBuxhetitQeveritar.resx">
+      <DependentUpon>RapRialokimidheEkzekutimiBuxhetitQeveritar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapPlanifikimitMiratimitRialokimitTeBuxhetit.resx">
+      <DependentUpon>RapPlanifikimitMiratimitRialokimitTeBuxhetit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\B_Buxheti\Raporte\RapEvidenceBuxheti.resx">
+      <DependentUpon>RapEvidenceBuxheti.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="RaportetDs\UrdherPagesa\Ds_Rap_Format_UrdherPagese.Designer.cs">
+      <DependentUpon>Ds_Rap_Format_UrdherPagese.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese.Designer.cs">
+      <DependentUpon>Rap_Format_UrdherPagese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2.Designer.cs">
+      <DependentUpon>Rap_Format_UrdherPagese_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_3.Designer.cs">
+      <DependentUpon>Rap_Format_UrdherPagese_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\Rap_fature_ReceteOptike.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\Rap_fature_ReceteOptike.Designer.cs">
+      <DependentUpon>Rap_fature_ReceteOptike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2_SePDeFn_131389697118925707.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2_SePDeFn_131389697118925707.Designer.cs">
+      <DependentUpon>Rap_Format_UrdherPagese_2_SePDeFn_131389697118925707.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
+      <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
+      <Name>AlphaWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Amortizimi\AlphaWebReports.Amortizimi.csproj">
+      <Project>{1899e543-4280-46af-8bb7-88a5e0124a77}</Project>
+      <Name>AlphaWebReports.Amortizimi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Arka\AlphaWebReports.Arka.csproj">
+      <Project>{6a85db29-cf7a-4e92-ade3-d9f26a93d1c0}</Project>
+      <Name>AlphaWebReports.Arka</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Banka\AlphaWebReports.Banka.csproj">
+      <Project>{e9f06ae5-757c-4d34-ae77-2f960cfad9aa}</Project>
+      <Name>AlphaWebReports.Banka</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Blerje\AlphaWebReports.Blerje.csproj">
+      <Project>{52cc5227-fc3f-4a68-ace1-57b2146b4588}</Project>
+      <Name>AlphaWebReports.Blerje</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.KlientFurnitor\AlphaWebReports.KlientFurnitor.csproj">
+      <Project>{52196eef-151c-4635-9f4a-72ed561c4b94}</Project>
+      <Name>AlphaWebReports.KlientFurnitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Kontabiliteti\AlphaWebReports.Kontabiliteti.csproj">
+      <Project>{37933692-0684-4a56-a7c5-bf00442aac07}</Project>
+      <Name>AlphaWebReports.Kontabiliteti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.ListPagesat\AlphaWebReports.ListPagesat.csproj">
+      <Project>{0dd6e693-cb17-4e39-909f-cd46220d7dcf}</Project>
+      <Name>AlphaWebReports.ListPagesat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Magazina\AlphaWebReports.Magazina.csproj">
+      <Project>{9c296ac0-bcc1-40a0-b597-7e8da4d3813b}</Project>
+      <Name>AlphaWebReports.Magazina</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Shitje\AlphaWebReports.Shitje.csproj">
+      <Project>{a78e90c4-5d89-4b0f-9c74-47c2684d9110}</Project>
+      <Name>AlphaWebReports.Shitje</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CacheLayer\CacheLayer.csproj">
+      <Project>{771f7c02-cc33-4955-b406-9e03dd7bc268}</Project>
+      <Name>CacheLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Framework\Web.Framework.csproj">
+      <Project>{f7a826ec-65ae-45c2-8100-bfed109f3ff6}</Project>
+      <Name>Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DesignNotes.txt" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xsc">
+      <DependentUpon>Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_RapBuxhetiIKontraktuarPerVitin.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xss">
+      <DependentUpon>Ds_PRC_RapBuxhetiIKontraktuarPerVitin.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatFatureKategoriaPlanifikimEkzekutimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaAlokimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaAlokimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaEkzekutimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaMiratimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaMiratimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPerfitimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaPlanifikimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xsc">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapFormatPrintimiKategoriaRialokimBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xss">
+      <DependentUpon>Ds_RapFormatPrintimiKategoriaRialokimBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xsc">
+      <DependentUpon>Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xss">
+      <DependentUpon>Ds_RapPerfitimiBuxhetitSipasArtikujveSherbim.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapTeArdhuratSipasBurimeve.xsc">
+      <DependentUpon>Ds_RapTeArdhuratSipasBurimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapTeArdhuratSipasBurimeve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapTeArdhuratSipasBurimeve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapTeArdhuratSipasBurimeve.xss">
+      <DependentUpon>Ds_RapTeArdhuratSipasBurimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xsc">
+      <DependentUpon>DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RegjistriAnalitikIVeprimeveTeBuxhetit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xss">
+      <DependentUpon>DS_RegjistriAnalitikIVeprimeveTeBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xsc">
+      <DependentUpon>Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RialokimidheEkzekutimiBuxhetitQeveritar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xss">
+      <DependentUpon>Ds_RialokimidheEkzekutimiBuxhetitQeveritar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsc">
+      <DependentUpon>Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xss">
+      <DependentUpon>Ds_RaportiPlanifikimitMiratimitRialokimitTeBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapEvidenceBuxheti.xsc">
+      <DependentUpon>Ds_RapEvidenceBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapEvidenceBuxheti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapEvidenceBuxheti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_RapEvidenceBuxheti.xss">
+      <DependentUpon>Ds_RapEvidenceBuxheti.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_ShperndarjaEBuxhetitTePacaktuar.xsc">
+      <DependentUpon>Ds_ShperndarjaEBuxhetitTePacaktuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_ShperndarjaEBuxhetitTePacaktuar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ShperndarjaEBuxhetitTePacaktuar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\B_Buxheti\DataSource\Ds_ShperndarjaEBuxhetitTePacaktuar.xss">
+      <DependentUpon>Ds_ShperndarjaEBuxhetitTePacaktuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xsc">
+      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_EvidencaDetyrave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xss">
+      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xsc">
+      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Prc_Rap_AnalitikAnketa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xss">
+      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_OfertaBlerje.xsc">
+      <DependentUpon>Ds_OfertaBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_OfertaBlerje.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_OfertaBlerje.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Ds_OfertaBlerje.xss">
+      <DependentUpon>Ds_OfertaBlerje.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_PrintimDetyrimesh.xsc">
+      <DependentUpon>Ds_PrintimDetyrimesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_PrintimDetyrimesh.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PrintimDetyrimesh.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Ds_PrintimDetyrimesh.xss">
+      <DependentUpon>Ds_PrintimDetyrimesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_RapGabimesh.xsc">
+      <DependentUpon>Ds_RapGabimesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Ds_RapGabimesh.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RapGabimesh.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Ds_RapGabimesh.xss">
+      <DependentUpon>Ds_RapGabimesh.xsd</DependentUpon>
+    </None>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_dokumentaintegrimi.xsc">
+      <DependentUpon>Ds_dokumentaintegrimi.xsd</DependentUpon>
+    </Content>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Aktiveve_Qarkulluese.xsc">
+      <DependentUpon>Ds_Analiza_Aktiveve_Qarkulluese.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Aktiveve_Qarkulluese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Analiza_Aktiveve_Qarkulluese.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Aktiveve_Qarkulluese.xss">
+      <DependentUpon>Ds_Analiza_Aktiveve_Qarkulluese.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Detyrimeve.xsc">
+      <DependentUpon>Ds_Analiza_Detyrimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Detyrimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Analiza_Detyrimeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Analiza_Detyrimeve.xss">
+      <DependentUpon>Ds_Analiza_Detyrimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Bilanci.xsc">
+      <DependentUpon>Ds_Bilanci.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Bilanci.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Bilanci.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Bilanci.xss">
+      <DependentUpon>Ds_Bilanci.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciKontabelFormat2.xsc">
+      <DependentUpon>Ds_BilanciKontabelFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciKontabelFormat2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BilanciKontabelFormat2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciKontabelFormat2.xss">
+      <DependentUpon>Ds_BilanciKontabelFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciQK.xsc">
+      <DependentUpon>Ds_BilanciQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciQK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BilanciQK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BilanciQK.xss">
+      <DependentUpon>Ds_BilanciQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BurimeShpenzimeLidhurInvestime.xsc">
+      <DependentUpon>Ds_BurimeShpenzimeLidhurInvestime.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BurimeShpenzimeLidhurInvestime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BurimeShpenzimeLidhurInvestime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_BurimeShpenzimeLidhurInvestime.xss">
+      <DependentUpon>Ds_BurimeShpenzimeLidhurInvestime.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlow.xsc">
+      <DependentUpon>Ds_CashFlow.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlow.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_CashFlow.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlow.xss">
+      <DependentUpon>Ds_CashFlow.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlowQK.xsc">
+      <DependentUpon>Ds_CashFlowQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlowQK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_CashFlowQK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_CashFlowQK.xss">
+      <DependentUpon>Ds_CashFlowQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xsc">
+      <DependentUpon>Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xss">
+      <DependentUpon>Ds_GjendjaDheNdryshimet_AktiveveTeQendrueshme.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KartelaKategoriveShpenzimit.xsc">
+      <DependentUpon>Ds_KartelaKategoriveShpenzimit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KartelaKategoriveShpenzimit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaKategoriveShpenzimit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KartelaKategoriveShpenzimit.xss">
+      <DependentUpon>Ds_KartelaKategoriveShpenzimit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KontGjendjaLlogariMastroRaportuese.xsc">
+      <DependentUpon>Ds_KontGjendjaLlogariMastroRaportuese.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KontGjendjaLlogariMastroRaportuese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KontGjendjaLlogariMastroRaportuese1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_KontGjendjaLlogariMastroRaportuese.xss">
+      <DependentUpon>Ds_KontGjendjaLlogariMastroRaportuese.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xsc">
+      <DependentUpon>Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xss">
+      <DependentUpon>Ds_New_RAP_PermbledheseRealizimeveDheParashikimeveTeArdhuraShpenzime.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASH.xsc">
+      <DependentUpon>Ds_PASH.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASH.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PASH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASH.xss">
+      <DependentUpon>Ds_PASH.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PashKesh.xsc">
+      <DependentUpon>Ds_PashKesh.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PashKesh.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PashKesh.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PashKesh.xss">
+      <DependentUpon>Ds_PashKesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASHQK.xsc">
+      <DependentUpon>Ds_PASHQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASHQK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PASHQK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASHQK.xss">
+      <DependentUpon>Ds_PASHQK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraAktiviteteve.xsc">
+      <DependentUpon>Ds_PasqyraAktiviteteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraAktiviteteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraAktiviteteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraAktiviteteve.xss">
+      <DependentUpon>Ds_PasqyraAktiviteteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraFlukseveMjeteve.xsc">
+      <DependentUpon>Ds_PasqyraFlukseveMjeteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraFlukseveMjeteve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraFlukseveMjeteve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraFlukseveMjeteve.xss">
+      <DependentUpon>Ds_PasqyraFlukseveMjeteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraLevizjesCash.xsc">
+      <DependentUpon>Ds_PasqyraLevizjesCash.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraLevizjesCash.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraLevizjesCash.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraLevizjesCash.xss">
+      <DependentUpon>Ds_PasqyraLevizjesCash.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraPozicionFinanciar.xsc">
+      <DependentUpon>Ds_PasqyraPozicionFinanciar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraPozicionFinanciar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraPozicionFinanciar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyraPozicionFinanciar.xss">
+      <DependentUpon>Ds_PasqyraPozicionFinanciar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyratLevizjesFondeve.xsc">
+      <DependentUpon>Ds_PasqyratLevizjesFondeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyratLevizjesFondeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyratLevizjesFondeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PasqyratLevizjesFondeve.xss">
+      <DependentUpon>Ds_PasqyratLevizjesFondeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_e_Amortizimeve.xsc">
+      <DependentUpon>Ds_Pasqyra_e_Amortizimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_e_Amortizimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Pasqyra_e_Amortizimeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_e_Amortizimeve.xss">
+      <DependentUpon>Ds_Pasqyra_e_Amortizimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xsc">
+      <DependentUpon>Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xss">
+      <DependentUpon>Ds_PASQYRA_KONSOLIDUAR_GJENDJE_FINANCIARE.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_levizjeve_AQT.xsc">
+      <DependentUpon>Ds_Pasqyra_levizjeve_AQT.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_levizjeve_AQT.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Pasqyra_levizjeve_AQT.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Pasqyra_levizjeve_AQT.xss">
+      <DependentUpon>Ds_Pasqyra_levizjeve_AQT.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PKSHF.xsc">
+      <DependentUpon>Ds_PKSHF.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PKSHF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PKSHF.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_PKSHF.xss">
+      <DependentUpon>Ds_PKSHF.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xsc">
+      <DependentUpon>Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Analiza_Ardhurave_Shpenzimeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xss">
+      <DependentUpon>Ds_Rap_Analiza_Ardhurave_Shpenzimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetiDheFondesh.xsc">
+      <DependentUpon>Ds_Rap_BuxhetiDheFondesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetiDheFondesh.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BuxhetiDheFondesh.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetiDheFondesh.xss">
+      <DependentUpon>Ds_Rap_BuxhetiDheFondesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Buxhetimi.xsc">
+      <DependentUpon>Ds_Rap_Buxhetimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Buxhetimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Buxhetimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_Buxhetimi.xss">
+      <DependentUpon>Ds_Rap_Buxhetimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetimiSipasUrdherPagesave.xsc">
+      <DependentUpon>Ds_Rap_BuxhetimiSipasUrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetimiSipasUrdherPagesave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BuxhetimiSipasUrdherPagesave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_BuxhetimiSipasUrdherPagesave.xss">
+      <DependentUpon>Ds_Rap_BuxhetimiSipasUrdherPagesave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xsc">
+      <DependentUpon>Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xss">
+      <DependentUpon>Ds_Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xsc">
+      <DependentUpon>Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xss">
+      <DependentUpon>Ds_Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xsc">
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PasqyraPermbledheseNdajDebitoreve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xss">
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajDebitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xsc">
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xss">
+      <DependentUpon>Ds_Rap_PasqyraPermbledheseNdajFurnitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xsc">
+      <DependentUpon>Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xss">
+      <DependentUpon>Ds_RAP_Pasqyra_e_Amortizimit_te_Aseteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\DS_RAP_PermbledheseRealizimevedheParashikimeve.xsc">
+      <DependentUpon>DS_RAP_PermbledheseRealizimevedheParashikimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\DS_RAP_PermbledheseRealizimevedheParashikimeve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RAP_PermbledheseRealizimevedheParashikimeve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\DS_RAP_PermbledheseRealizimevedheParashikimeve.xss">
+      <DependentUpon>DS_RAP_PermbledheseRealizimevedheParashikimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_SituacionShpenzimesh.xsc">
+      <DependentUpon>Ds_SituacionShpenzimesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_SituacionShpenzimesh.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_SituacionShpenzimesh.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\PasqyratFinaciare\DataSource\Ds_SituacionShpenzimesh.xss">
+      <DependentUpon>Ds_SituacionShpenzimesh.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_AnalizaProduktiSipasRecepturave.xsc">
+      <DependentUpon>Ds_AnalizaProduktiSipasRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_AnalizaProduktiSipasRecepturave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_AnalizaProduktiSipasRecepturave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_AnalizaProduktiSipasRecepturave.xss">
+      <DependentUpon>Ds_AnalizaProduktiSipasRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_FormatPlanifikimi.xsc">
+      <DependentUpon>Ds_FormatPlanifikimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_FormatPlanifikimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FormatPlanifikimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_FormatPlanifikimi.xss">
+      <DependentUpon>Ds_FormatPlanifikimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_HistorikReceptura.xsc">
+      <DependentUpon>Ds_HistorikReceptura.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_HistorikReceptura.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_HistorikReceptura.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_HistorikReceptura.xss">
+      <DependentUpon>Ds_HistorikReceptura.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_KonsumiRecepturaveSipasProdukteve.xsc">
+      <DependentUpon>Ds_KonsumiRecepturaveSipasProdukteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_KonsumiRecepturaveSipasProdukteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KonsumiRecepturaveSipasProdukteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_KonsumiRecepturaveSipasProdukteve.xss">
+      <DependentUpon>Ds_KonsumiRecepturaveSipasProdukteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ListaRecepturave.xsc">
+      <DependentUpon>Ds_ListaRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ListaRecepturave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListaRecepturave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ListaRecepturave.xss">
+      <DependentUpon>Ds_ListaRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_PlanifikimAnalitik.xsc">
+      <DependentUpon>Ds_PlanifikimAnalitik.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_PlanifikimAnalitik.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PlanifikimAnalitik.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_PlanifikimAnalitik.xss">
+      <DependentUpon>Ds_PlanifikimAnalitik.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiAnalitik.xsc">
+      <DependentUpon>Ds_ProdhimiAnalitik.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiAnalitik.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ProdhimiAnalitik.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiAnalitik.xss">
+      <DependentUpon>Ds_ProdhimiAnalitik.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiUnivers.xsc">
+      <DependentUpon>Ds_ProdhimiUnivers.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiUnivers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ProdhimiUnivers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProdhimiUnivers.xss">
+      <DependentUpon>Ds_ProdhimiUnivers.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProduktIProdhuar.xsc">
+      <DependentUpon>Ds_ProduktIProdhuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProduktIProdhuar.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ProduktIProdhuar.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_ProduktIProdhuar.xss">
+      <DependentUpon>Ds_ProduktIProdhuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xsc">
+      <DependentUpon>Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xss">
+      <DependentUpon>Ds_Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_RegjistriPoduktitDheRecepturave.xsc">
+      <DependentUpon>Ds_RegjistriPoduktitDheRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_RegjistriPoduktitDheRecepturave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RegjistriPoduktitDheRecepturave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_RegjistriPoduktitDheRecepturave.xss">
+      <DependentUpon>Ds_RegjistriPoduktitDheRecepturave.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune.xsc">
+      <DependentUpon>Ds_UrdherPune.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_UrdherPune.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune.xss">
+      <DependentUpon>Ds_UrdherPune.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune1.xsc">
+      <DependentUpon>Ds_UrdherPune1.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_UrdherPune1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_UrdherPune1.xss">
+      <DependentUpon>Ds_UrdherPune1.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_VleresimiKostos.xsc">
+      <DependentUpon>Ds_VleresimiKostos.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_VleresimiKostos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_VleresimiKostos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\Prodhimi\DataSource\Ds_VleresimiKostos.xss">
+      <DependentUpon>Ds_VleresimiKostos.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto.xsc">
+      <DependentUpon>Ds_Analiza_QenderKosto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Analiza_QenderKosto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto.xss">
+      <DependentUpon>Ds_Analiza_QenderKosto.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto_Format2.xsc">
+      <DependentUpon>Ds_Analiza_QenderKosto_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto_Format2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Analiza_QenderKosto_Format2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Analiza_QenderKosto_Format2.xss">
+      <DependentUpon>Ds_Analiza_QenderKosto_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_BuxhetimiMeFaza.xsc">
+      <DependentUpon>Ds_BuxhetimiMeFaza.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_BuxhetimiMeFaza.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_BuxhetimiMeFaza.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_BuxhetimiMeFaza.xss">
+      <DependentUpon>Ds_BuxhetimiMeFaza.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_NdryshimetBuxhetore.xsc">
+      <DependentUpon>Ds_NdryshimetBuxhetore.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_NdryshimetBuxhetore.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_NdryshimetBuxhetore.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsc">
+      <DependentUpon>Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xss">
+      <DependentUpon>Ds_PRC_Rap_RezultatiQendraveTeKostosMeZera.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_BilanciKomponenteve.xsc">
+      <DependentUpon>Ds_QendraKosto_BilanciKomponenteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_BilanciKomponenteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_QendraKosto_BilanciKomponenteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_BilanciKomponenteve.xss">
+      <DependentUpon>Ds_QendraKosto_BilanciKomponenteve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_SipasLlogarive.xsc">
+      <DependentUpon>Ds_QendraKosto_SipasLlogarive.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_SipasLlogarive.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_QendraKosto_SipasLlogarive.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_QendraKosto_SipasLlogarive.xss">
+      <DependentUpon>Ds_QendraKosto_SipasLlogarive.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xsc">
+      <DependentUpon>Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xss">
+      <DependentUpon>Ds_RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Rap_Permbledhese_Rezultati_i_QK.xsc">
+      <DependentUpon>Ds_Rap_Permbledhese_Rezultati_i_QK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Rap_Permbledhese_Rezultati_i_QK.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Permbledhese_Rezultati_i_QK.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_Rap_Permbledhese_Rezultati_i_QK.xss">
+      <DependentUpon>Ds_Rap_Permbledhese_Rezultati_i_QK.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsc">
+      <DependentUpon>Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\QendraKosto\DataSource\Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xss">
+      <DependentUpon>Ds_RezultatiQendraveTeKostosMeZeraDheNenzera.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_dokumentaintegrimi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_dokumentaintegrimi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_dokumentaintegrimi.xss">
+      <DependentUpon>Ds_dokumentaintegrimi.xsd</DependentUpon>
+    </Content>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_HistorikuVeprimeve.xsc">
+      <DependentUpon>Ds_HistorikuVeprimeve.xsd</DependentUpon>
+    </Content>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_FushatShteseHistorikuVeprimeve.xsc">
+      <DependentUpon>Ds_FushatShteseHistorikuVeprimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_FushatShteseHistorikuVeprimeve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FushatShteseHistorikuVeprimeve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_FushatShteseHistorikuVeprimeve.xss">
+      <DependentUpon>Ds_FushatShteseHistorikuVeprimeve.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_HistorikuVeprimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_HistorikuVeprimeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_HistorikuVeprimeve.xss">
+      <DependentUpon>Ds_HistorikuVeprimeve.xsd</DependentUpon>
+    </Content>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_LogPunonjes.xsc">
+      <DependentUpon>Ds_Rap_LogPunonjes.xsd</DependentUpon>
+    </Content>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveMujore.xsc">
+      <DependentUpon>Ds_LargimetPerfaqsuesveMujore.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveMujore.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LargimetPerfaqsuesveMujore.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveMujore.xss">
+      <DependentUpon>Ds_LargimetPerfaqsuesveMujore.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveVjetore.xsc">
+      <DependentUpon>Ds_LargimetPerfaqsuesveVjetore.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveVjetore.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LargimetPerfaqsuesveVjetore.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_LargimetPerfaqsuesveVjetore.xss">
+      <DependentUpon>Ds_LargimetPerfaqsuesveVjetore.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xsc">
+      <DependentUpon>Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xss">
+      <DependentUpon>Ds_Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveBuxhetimi.xsc">
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveBuxhetimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveBuxhetimi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_HistorikuVeprimeveBuxhetimi.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveBuxhetimi.xss">
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveBuxhetimi.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveCmimet.xsc">
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveCmimet.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveCmimet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_HistorikuVeprimeveCmimet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_HistorikuVeprimeveCmimet.xss">
+      <DependentUpon>Ds_Rap_HistorikuVeprimeveCmimet.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_LogPunonjes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_LogPunonjes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_LogPunonjes.xss">
+      <DependentUpon>Ds_Rap_LogPunonjes.xsd</DependentUpon>
+    </Content>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_VeprimetDitoreAlphaBank.xsc">
+      <DependentUpon>Ds_Rap_VeprimetDitoreAlphaBank.xsd</DependentUpon>
+    </Content>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_VeprimetDitoreAlphaBank.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_VeprimetDitoreAlphaBank.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RaportetDs\Raporte_Menaxheriale\Ds_Rap_VeprimetDitoreAlphaBank.xss">
+      <DependentUpon>Ds_Rap_VeprimetDitoreAlphaBank.xsd</DependentUpon>
+    </Content>
+    <Content Include="RaportetDs\UrdherPagesa\Ds_Rap_Format_UrdherPagese.xsc">
+      <DependentUpon>Ds_Rap_Format_UrdherPagese.xsd</DependentUpon>
+    </Content>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_StrukturaOrganizative.xsc">
+      <DependentUpon>Ds_StrukturaOrganizative.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_StrukturaOrganizative.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_StrukturaOrganizative.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Raporte_Menaxheriale\Ds_StrukturaOrganizative.xss">
+      <DependentUpon>Ds_StrukturaOrganizative.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Rap_Fatura_RECETAOPTIKE.xsc">
+      <DependentUpon>Rap_Fatura_RECETAOPTIKE.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\Rap_Fatura_RECETAOPTIKE.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Rap_Fatura_RECETAOPTIKE.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RaportetDs\Rap_Fatura_RECETAOPTIKE.xss">
+      <DependentUpon>Rap_Fatura_RECETAOPTIKE.xsd</DependentUpon>
+    </None>
+    <None Include="RaportetDs\UrdherPagesa\Ds_Rap_Format_UrdherPagese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Format_UrdherPagese.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RaportetDs\UrdherPagesa\Ds_Rap_Format_UrdherPagese.xss">
+      <DependentUpon>Ds_Rap_Format_UrdherPagese.xsd</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.resx">
+      <DependentUpon>RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.resx">
+      <DependentUpon>Rap_AnalitikAnketa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Aktiveve_Qarkulluese.resx">
+      <DependentUpon>Rap_Analiza_Aktiveve_Qarkulluese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Ardhurave_Shpenzimeve.resx">
+      <DependentUpon>Rap_Analiza_Ardhurave_Shpenzimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Detyrimeve.resx">
+      <DependentUpon>Rap_Analiza_Detyrimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetiDheFondesh.resx">
+      <DependentUpon>Rap_BuxhetiDheFondesh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow_buxhetor.resx">
+      <DependentUpon>Rap_CashFlow_buxhetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.resx">
+      <DependentUpon>Rap_PasqyraNdryshimeveNeAktivetNetoFondetNeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.resx">
+      <DependentUpon>Rap_GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeveTeArdhuraShpenzime.resx">
+      <DependentUpon>Rap_PermbledheseRealizimevedheParashikimeveTeArdhuraShpenzime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraFlukseveMjeteve.resx">
+      <DependentUpon>Rap_PasqyraFlukseveMjeteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraAktiviteteve.resx">
+      <DependentUpon>Rap_PasqyraAktiviteteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPozicionFinanciar.resx">
+      <DependentUpon>Rap_PasqyraPozicionFinanciar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Bilanci.resx">
+      <DependentUpon>Rap_Bilanci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciBuxh.resx">
+      <DependentUpon>Rap_BilanciBuxh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciiKontabelFormat2.resx">
+      <DependentUpon>Rap_BilanciiKontabelFormat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciKESH.resx">
+      <DependentUpon>Rap_BilanciKESH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciQK.resx">
+      <DependentUpon>Rap_BilanciQK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BurimeShpenzimeLidhurInvestime.resx">
+      <DependentUpon>Rap_BurimeShpenzimeLidhurInvestime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Buxhetimi.resx">
+      <DependentUpon>Rap_Buxhetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BuxhetimiSipasUrdherPagesave.resx">
+      <DependentUpon>Rap_BuxhetimiSipasUrdherPagesave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlow.resx">
+      <DependentUpon>Rap_CashFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_CashFlowQK.resx">
+      <DependentUpon>Rap_CashFlowQK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Gjendja_ndryshimet_aktiveve_te_qendrueshme.resx">
+      <DependentUpon>Rap_Gjendja_ndryshimet_aktiveve_te_qendrueshme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_KartelaKategoriveShpenzimit.resx">
+      <DependentUpon>Rap_KartelaKategoriveShpenzimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_BilanciVertetuesSipasNdermarrjeve.resx">
+      <DependentUpon>Rap_BilanciVertetuesSipasNdermarrjeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH.resx">
+      <DependentUpon>Rap_PASH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASH_Format2.resx">
+      <DependentUpon>Rap_PASH_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHBUXH.resx">
+      <DependentUpon>Rap_PASHBUXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PASHQK.resx">
+      <DependentUpon>Rap_PASHQK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesCash.resx">
+      <DependentUpon>Rap_PasqyraLevizjesCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraLevizjesFondeve.resx">
+      <DependentUpon>Rap_PasqyraLevizjesFondeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajDebitoreve.resx">
+      <DependentUpon>Rap_PasqyraPermbledheseNdajDebitoreve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PasqyraPermbledheseNdajFurnitoreve.resx">
+      <DependentUpon>Rap_PasqyraPermbledheseNdajFurnitoreve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Amortizimit_Asete.resx">
+      <DependentUpon>Rap_Pasqyra_Amortizimit_Asete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_e_Amortizimeve.resx">
+      <DependentUpon>Rap_Pasqyra_e_Amortizimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ.resx">
+      <DependentUpon>RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Konsoliduar_Gjendje_Financiare.resx">
+      <DependentUpon>Rap_Pasqyra_Konsoliduar_Gjendje_Financiare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Pasqyra_Levizjeve_AQT.resx">
+      <DependentUpon>Rap_Pasqyra_Levizjeve_AQT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_PermbledheseRealizimevedheParashikimeve.resx">
+      <DependentUpon>Rap_PermbledheseRealizimevedheParashikimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_SituacionPermbledhesShpenzimesh.resx">
+      <DependentUpon>Rap_SituacionPermbledhesShpenzimesh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_AnalizaProduktiSipasRecepturave.resx">
+      <DependentUpon>Rap_AnalizaProduktiSipasRecepturave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2_SePDeFn_131433100338355750.resx">
+      <DependentUpon>Rap_EkzProdhimi_Model2_SePDeFn_131433100338355750.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_HistorikRecepturat.resx">
+      <DependentUpon>Rap_HistorikRecepturat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.resx">
+      <DependentUpon>Rap_KonsumiPermbledhesIBurimeveSipasSkedulimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_KonsumiRecepturaveSipasProdukteve.resx">
+      <DependentUpon>Rap_KonsumiRecepturaveSipasProdukteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_ListaReceptura.resx">
+      <DependentUpon>Rap_ListaReceptura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitik.resx">
+      <DependentUpon>Rap_PlanifikimAnalitik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_PlanifikimAnalitikAnoria.resx">
+      <DependentUpon>Rap_PlanifikimAnalitikAnoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_ProdhimiAnalitik.resx">
+      <DependentUpon>Rap_ProdhimiAnalitik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_Prodhimi_Univers.resx">
+      <DependentUpon>Rap_Prodhimi_Univers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuar.resx">
+      <DependentUpon>Rap_ProduktProdhuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_ProduktProdhuarAnoria.resx">
+      <DependentUpon>Rap_ProduktProdhuarAnoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriIProduktitERecepturaveMeDetajime.resx">
+      <DependentUpon>Rap_RegjistriIProduktitERecepturaveMeDetajime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturave.resx">
+      <DependentUpon>Rap_RegjistriProduktitDheRecepturave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_RegjistriProduktitDheRecepturaveAnoria.resx">
+      <DependentUpon>Rap_RegjistriProduktitDheRecepturaveAnoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_EkzProdhimi_Model2.resx">
+      <DependentUpon>Rap_EkzProdhimi_Model2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika_SePDeFn_131607389966058119.resx">
+      <DependentUpon>Rap_UrdherPune_Klimateknika_SePDeFn_131607389966058119.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Rap_UrdherPuneMeReceptura.resx">
+      <DependentUpon>Rap_UrdherPuneMeReceptura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune.resx">
+      <DependentUpon>Rap_UrdherPune.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_UrdherPune_Klimateknika.resx">
+      <DependentUpon>Rap_UrdherPune_Klimateknika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Raportet\Rap_VleresimiKostos.resx">
+      <DependentUpon>Rap_VleresimiKostos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimi1.resx">
+      <DependentUpon>Rap_FormatPlanifikimi1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Prodhimi\Rap_FormatPlanifikimiAnoria.resx">
+      <DependentUpon>Rap_FormatPlanifikimiAnoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.resx">
+      <DependentUpon>RaportiQendraveTeKostosSipasZeraveDheNenzeraveTeDetajuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\RezultatiQendraveTeKostosMeZeraDheNenzera.resx">
+      <DependentUpon>RezultatiQendraveTeKostosMeZeraDheNenzera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto.resx">
+      <DependentUpon>Rap_Analiza_QendraKosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_dtMod.resx">
+      <DependentUpon>Rap_Analiza_QendraKosto_dtMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_Analiza_QendraKosto_Format2.resx">
+      <DependentUpon>Rap_Analiza_QendraKosto_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_BilanciKomponentesKostos.resx">
+      <DependentUpon>Rap_BilanciKomponentesKostos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_Permbledhese_Rezultati_i_QK.resx">
+      <DependentUpon>Rap_Permbledhese_Rezultati_i_QK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\RapRezultatiQendraveTeKostosMeZera.resx">
+      <DependentUpon>RapRezultatiQendraveTeKostosMeZera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_BuxhetimiMeFaza.resx">
+      <DependentUpon>Rap_QendraKosto_BuxhetimiMeFaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_NdryshimetBuxhetore.resx">
+      <DependentUpon>Rap_QendraKosto_NdryshimetBuxhetore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\QendraKosto\Raportet\Rap_QendraKosto_SipasLlogarive.resx">
+      <DependentUpon>Rap_QendraKosto_SipasLlogarive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\RapGabimesh.resx">
+      <DependentUpon>RapGabimesh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\RapOfertaBlerje.resx">
+      <DependentUpon>RapOfertaBlerje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveCmimet.resx">
+      <DependentUpon>Rap_HistorikuVeprimeveCmimet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_StrukturaOrganizative.resx">
+      <DependentUpon>Rap_StrukturaOrganizative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_DokumentaNgaIntegrimi.resx">
+      <DependentUpon>Rap_DokumentaNgaIntegrimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_FushatShteseHistorikuVeprimeve.resx">
+      <DependentUpon>Rap_FushatShteseHistorikuVeprimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.resx">
+      <DependentUpon>Rap_HistorikuTeDhenaveTePerfaqesuesveTeShitjes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeveBuxhetimi.resx">
+      <DependentUpon>Rap_HistorikuVeprimeveBuxhetimi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_HistorikuVeprimeve.resx">
+      <DependentUpon>Rap_HistorikuVeprimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesMujore.resx">
+      <DependentUpon>Rap_LargimetPerfaqesuesveTeShitjesMujore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_LargimetPerfaqesuesveTeShitjesVjetore.resx">
+      <DependentUpon>Rap_LargimetPerfaqesuesveTeShitjesVjetore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_LogPunonjes.resx">
+      <DependentUpon>Rap_LogPunonjes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Raporte_Menaxheriale\Rap_VeprimetDitoreAlphaBank.resx">
+      <DependentUpon>Rap_VeprimetDitoreAlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Rap_fature_ReceteOptike.resx">
+      <DependentUpon>Rap_fature_ReceteOptike.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\Rap_PrintoDetyrim.resx">
+      <DependentUpon>Rap_PrintoDetyrim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese.resx">
+      <DependentUpon>Rap_Format_UrdherPagese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2.resx">
+      <DependentUpon>Rap_Format_UrdherPagese_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_2_SePDeFn_131389697118925707.resx">
+      <DependentUpon>Rap_Format_UrdherPagese_2_SePDeFn_131389697118925707.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportetDs\UrdherPagesa\Rap_Format_UrdherPagese_3.resx">
+      <DependentUpon>Rap_Format_UrdherPagese_3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

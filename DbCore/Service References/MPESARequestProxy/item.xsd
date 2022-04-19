@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://cps.huawei.com/cpsinterface/request" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" elementFormDefault="qualified" targetNamespace="http://cps.huawei.com/cpsinterface/request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RequestMsg" type="xs:string" />
+  <xs:element name="ResponseMsg" type="xs:string" />
+</xs:schema>

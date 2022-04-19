@@ -1,0 +1,16 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxe" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxgv" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %> 
+
+<dxgv:ASPxGridLookup runat="server" SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css" CssPostfix="SoftOrange" CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css">
+    <GridViewProperties>
+        <SettingsPager CurrentPageNumberFormat="{0}" />
+        <SettingsLoadingPanel ImagePosition="Top" />
+    </GridViewProperties>
+    <GridViewImages SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css">
+    </GridViewImages>
+    <GridViewStyles GroupButtonWidth="28">
+        <Header SortingImageSpacing="5px" ImageSpacing="5px" />
+    </GridViewStyles>
+</dxgv:ASPxGridLookup>
+

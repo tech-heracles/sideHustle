@@ -1,0 +1,1452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DD6E693-CB17-4E39-909F-CD46220D7DCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AlphaWebReports.ListPagesat</RootNamespace>
+    <AssemblyName>AlphaWebReports.ListPagesat</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0169;CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSource\Ds_AnalitikiParadhenieve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_AnalitikiParadhenieve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_AnnualEmployeeRegister1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_AnnualEmployeeRegister.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ConfirmationOfEmployement1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ConfirmationOfEmployement.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ContractChanges1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ContractChanges.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_CostCenterReport1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_CostCenterReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_EmployeeRegister1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_EmployeeRegister.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_FormulariPagesesMbiTeArdhurat1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_FormulariPagesesMbiTeArdhurat.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_FormulariSigurimeveShoqShend1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_FormulariSigurimeveShoqShend.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaPunonjesve.cs">
+      <DependentUpon>Ds_KartelaPunonjesve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaPunonjesve.Designer.cs">
+      <DependentUpon>Ds_KartelaPunonjesve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_kontrata_punes.cs">
+      <DependentUpon>Ds_kontrata_punes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_kontrata_punes.Designer.cs">
+      <DependentUpon>Ds_kontrata_punes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_LabourOffice1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_LabourOffice.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListaPunonjesveMePagat1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListaPunonjesveMePagat.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListepagesaBankaNeNivelRaportues1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListepagesaBankaNeNivelRaportues.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_listepagesaStandarte_format2.cs">
+      <DependentUpon>Ds_listepagesaStandarte_format2.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="DataSource\Ds_listepagesaStandarte_format2.Designer.cs">
+      <DependentUpon>Ds_listepagesaStandarte_format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_listepagesaStandarte_format21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_listepagesaStandarte_format2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListepagesatBanka1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListepagesatBanka.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListepagesatBanka_RFZ1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListepagesatBanka_RFZ.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListepagesatStandarteDinamike1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ListepagesatStandarteDinamike.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListpagesaPermbledhese.cs">
+      <DependentUpon>Ds_ListpagesaPermbledhese.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="DataSource\Ds_ListpagesaPermbledhese.Designer.cs">
+      <DependentUpon>Ds_ListpagesaPermbledhese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_MemoAnnualBonus1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_MemoAnnualBonus.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_NrPunonjes_FondiPagave1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_NrPunonjes_FondiPagave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PasqyraSigurimeveTatimeve1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportuese1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportuese.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportueseMujore1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Prc_LibriPagave1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Prc_LibriPagave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PRC_Rap_KontrataEPensionit1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PRC_Rap_KontrataEPensionit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Prc_Rap_ListepagesaStandarte1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Prc_Rap_ListepagesaStandarte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PunonjesPunesuarRishtaziDheLarguar1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PunonjesPunesuarRishtaziDheLarguar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Amendament1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Amendament.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_AnalitikiParadhenieve.cs">
+      <DependentUpon>Ds_Rap_AnalitikiParadhenieve.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_AnalitikiParadhenieve.Designer.cs">
+      <DependentUpon>Ds_Rap_AnalitikiParadhenieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_BirthdayCard1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BirthdayCard.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_BorderojaPagave1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BorderojaPagave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_BorderojaPagaveBuxhetor1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BorderojaPagaveBuxhetor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_FinanceDeclaration1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_FinanceDeclaration.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_HistorikPagePunonjesi1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_HistorikPagePunonjesi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPages.cs">
+      <DependentUpon>Ds_Rap_KartelaPages.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPages.Designer.cs">
+      <DependentUpon>Ds_Rap_KartelaPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPages_Format2.cs">
+      <DependentUpon>Ds_Rap_KartelaPages_Format2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPages_Format2.Designer.cs">
+      <DependentUpon>Ds_Rap_KartelaPages_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPersonaleEPages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KartelaPersonaleEPages.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPunonjesve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KartelaPunonjesve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaPunonjesveMePagesa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KartelaPunonjesveMePagesa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_LejetVjetore1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_LejetVjetore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep.cs">
+      <DependentUpon>Ds_rap_ListepagesaPermbledheseSipasDep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep.Designer.cs">
+      <DependentUpon>Ds_rap_ListepagesaPermbledheseSipasDep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_rap_ListepagesaPermbledheseSipasDep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_MemoAnnualDeclaration1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_MemoAnnualDeclaration.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_PasqyraSigSuplementare1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PasqyraSigSuplementare.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_PerAprovim1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PerAprovim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_RAP_PermbledheseListepagesaFormat21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_RAP_PermbledheseListepagesaFormat2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Raportet\DS_PRC_RAP_PermbledhesParadhenieve.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_Amendament.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_Amendament.Designer.cs">
+      <DependentUpon>Rap_Amendament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_AnalitikiParadhenieve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_AnalitikiParadhenieve.Designer.cs">
+      <DependentUpon>Rap_AnalitikiParadhenieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_AnnualEmployeeRegister.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_AnnualEmployeeRegister.Designer.cs">
+      <DependentUpon>Rap_AnnualEmployeeRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_BirthdayCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_BirthdayCard.Designer.cs">
+      <DependentUpon>Rap_BirthdayCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagave.Designer.cs">
+      <DependentUpon>Rap_BorderojaPagave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagave2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagave2.Designer.cs">
+      <DependentUpon>Rap_BorderojaPagave2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagaveBuxhetor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_BorderojaPagaveBuxhetor.Designer.cs">
+      <DependentUpon>Rap_BorderojaPagaveBuxhetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ConfirmationOfEmployement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ConfirmationOfEmployement.Designer.cs">
+      <DependentUpon>Rap_ConfirmationOfEmployement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ContractChanges.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ContractChanges.Designer.cs">
+      <DependentUpon>Rap_ContractChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_CostCenterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_CostCenterReport.Designer.cs">
+      <DependentUpon>Rap_CostCenterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_EmployeeRegister.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_EmployeeRegister.Designer.cs">
+      <DependentUpon>Rap_EmployeeRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_FinanceDeclaration.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_FinanceDeclaration.Designer.cs">
+      <DependentUpon>Rap_FinanceDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_FormularPagesesMbiTeArdhuratNgaPunesimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_FormularPagesesMbiTeArdhuratNgaPunesimi.Designer.cs">
+      <DependentUpon>Rap_FormularPagesesMbiTeArdhuratNgaPunesimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_FormularSigShoqShend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_FormularSigShoqShend.Designer.cs">
+      <DependentUpon>Rap_FormularSigShoqShend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_HistorikPunonjesi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_HistorikPunonjesi.Designer.cs">
+      <DependentUpon>Rap_HistorikPunonjesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages.Designer.cs">
+      <DependentUpon>Rap_KartelaPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages_ESC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages_ESC.Designer.cs">
+      <DependentUpon>Rap_KartelaPages_ESC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPages_Format2.Designer.cs">
+      <DependentUpon>Rap_KartelaPages_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPersonaleEPages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPersonaleEPages.Designer.cs">
+      <DependentUpon>Rap_KartelaPersonaleEPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesveMePagesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesveMePagesa.Designer.cs">
+      <DependentUpon>Rap_KartelaPunonjesveMePagesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve.Designer.cs">
+      <DependentUpon>Rap_KartelaPunonjesve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesvemeParameter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesvemeParameter.Designer.cs">
+      <DependentUpon>Rap_KartelaPunonjesvemeParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve_A5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve_A5.Designer.cs">
+      <DependentUpon>Rap_KartelaPunonjesve_A5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.Designer.cs">
+      <DependentUpon>Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_KontrataEPensionit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_KontrataEPensionit.Designer.cs">
+      <DependentUpon>Rap_KontrataEPensionit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_kontrata_punes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_kontrata_punes.Designer.cs">
+      <DependentUpon>Rap_kontrata_punes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_LabourOffice .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_LabourOffice .Designer.cs">
+      <DependentUpon>Rap_LabourOffice .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_LejetVjetore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_LejetVjetore.Designer.cs">
+      <DependentUpon>Rap_LejetVjetore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_LibriPagave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_LibriPagave.Designer.cs">
+      <DependentUpon>Rap_LibriPagave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListaPunonjeveMePagat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListaPunonjeveMePagat.Designer.cs">
+      <DependentUpon>Rap_ListaPunonjeveMePagat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListaPunonjeveMePagatLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListaPunonjeveMePagatLandscape.Designer.cs">
+      <DependentUpon>Rap_ListaPunonjeveMePagatLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBanka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaCCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaCCY.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaCCY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMin.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaMin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMM.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMM_SePDeFn_131303523500258767.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaMM_SePDeFn_131303523500258767.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaMM_SePDeFn_131303523500258767.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaNeNivelRaportues.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaNeNivelRaportues.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaNeNivelRaportues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaTabelar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBankaTabelar.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBankaTabelar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka_Cobalt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka_Cobalt.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBanka_Cobalt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka_RFZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaBanka_RFZ.Designer.cs">
+      <DependentUpon>Rap_ListepagesaBanka_RFZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaSipasDep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaSipasDep.Designer.cs">
+      <DependentUpon>Rap_ListepagesaSipasDep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamike.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamike.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarteDinamike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamike2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamike2.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarteDinamike2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamikeTotale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteDinamikeTotale.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarteDinamikeTotale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteGjykata.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarteGjykata.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarteGjykata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarte_format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2_2.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarte_format2_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.Designer.cs">
+      <DependentUpon>Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListpagesaPermbledhese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListpagesaPermbledhese.Designer.cs">
+      <DependentUpon>Rap_ListpagesaPermbledhese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListpagesaPermbledheseFormat3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_ListpagesaPermbledheseFormat3.Designer.cs">
+      <DependentUpon>Rap_ListpagesaPermbledheseFormat3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_MarreveshjeEPensionit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_MarreveshjeEPensionit.Designer.cs">
+      <DependentUpon>Rap_MarreveshjeEPensionit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_MemoAnnualBonus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_MemoAnnualBonus.Designer.cs">
+      <DependentUpon>Rap_MemoAnnualBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_MemoAnnualDeclaration.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_MemoAnnualDeclaration.Designer.cs">
+      <DependentUpon>Rap_MemoAnnualDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_NrPunonjes_FondiPagave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_NrPunonjes_FondiPagave.Designer.cs">
+      <DependentUpon>Rap_NrPunonjes_FondiPagave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigSuplementare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigSuplementare.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigSuplementare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeve.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveDyPunesim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveDyPunesim.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveDyPunesim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportuese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportuese.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveRaportuese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportueseMujore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportueseMujore.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveRaportueseMujore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandart.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveStandart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandartKesh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandartKesh.Designer.cs">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveStandartKesh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PerAprovim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PerAprovim.Designer.cs">
+      <DependentUpon>Rap_PerAprovim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PermbledheseListepagesaFormat2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PermbledheseListepagesaFormat2.Designer.cs">
+      <DependentUpon>Rap_PermbledheseListepagesaFormat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PermbledhesParadhenieve .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PermbledhesParadhenieve .Designer.cs">
+      <DependentUpon>Rap_PermbledhesParadhenieve .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_PunonjesTePunesuarRishtaziDheLarguar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_PunonjesTePunesuarRishtaziDheLarguar.Designer.cs">
+      <DependentUpon>Rap_PunonjesTePunesuarRishtaziDheLarguar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raportet\Rap_VertetimPuneQKB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raportet\Rap_VertetimPuneQKB.Designer.cs">
+      <DependentUpon>Rap_VertetimPuneQKB.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DataSource\Ds_AnalitikiParadhenieve.xsc">
+      <DependentUpon>Ds_AnalitikiParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_AnalitikiParadhenieve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_AnalitikiParadhenieve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_AnalitikiParadhenieve.xss">
+      <DependentUpon>Ds_AnalitikiParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_AnnualEmployeeRegister.xsc">
+      <DependentUpon>Ds_AnnualEmployeeRegister.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_AnnualEmployeeRegister.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_AnnualEmployeeRegister1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_AnnualEmployeeRegister.xss">
+      <DependentUpon>Ds_AnnualEmployeeRegister.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ConfirmationOfEmployement.xsc">
+      <DependentUpon>Ds_ConfirmationOfEmployement.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ConfirmationOfEmployement.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ConfirmationOfEmployement1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ConfirmationOfEmployement.xss">
+      <DependentUpon>Ds_ConfirmationOfEmployement.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ContractChanges.xsc">
+      <DependentUpon>Ds_ContractChanges.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ContractChanges.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ContractChanges1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ContractChanges.xss">
+      <DependentUpon>Ds_ContractChanges.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_CostCenterReport.xsc">
+      <DependentUpon>Ds_CostCenterReport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_CostCenterReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_CostCenterReport1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_CostCenterReport.xss">
+      <DependentUpon>Ds_CostCenterReport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_EmployeeRegister.xsc">
+      <DependentUpon>Ds_EmployeeRegister.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_EmployeeRegister.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_EmployeeRegister1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_EmployeeRegister.xss">
+      <DependentUpon>Ds_EmployeeRegister.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_FormulariPagesesMbiTeArdhurat.xsc">
+      <DependentUpon>Ds_FormulariPagesesMbiTeArdhurat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_FormulariPagesesMbiTeArdhurat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FormulariPagesesMbiTeArdhurat1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_FormulariPagesesMbiTeArdhurat.xss">
+      <DependentUpon>Ds_FormulariPagesesMbiTeArdhurat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_FormulariSigurimeveShoqShend.xsc">
+      <DependentUpon>Ds_FormulariSigurimeveShoqShend.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_FormulariSigurimeveShoqShend.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_FormulariSigurimeveShoqShend1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_FormulariSigurimeveShoqShend.xss">
+      <DependentUpon>Ds_FormulariSigurimeveShoqShend.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaPunonjesve.xsc">
+      <DependentUpon>Ds_KartelaPunonjesve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaPunonjesve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaPunonjesve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_KartelaPunonjesve.xss">
+      <DependentUpon>Ds_KartelaPunonjesve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_kontrata_punes.xsc">
+      <DependentUpon>Ds_kontrata_punes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_kontrata_punes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_kontrata_punes.xss">
+      <DependentUpon>Ds_kontrata_punes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LabourOffice.xsc">
+      <DependentUpon>Ds_LabourOffice.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_LabourOffice.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_LabourOffice1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_LabourOffice.xss">
+      <DependentUpon>Ds_LabourOffice.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListaPunonjesveMePagat.xsc">
+      <DependentUpon>Ds_ListaPunonjesveMePagat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListaPunonjesveMePagat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListaPunonjesveMePagat1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListaPunonjesveMePagat.xss">
+      <DependentUpon>Ds_ListaPunonjesveMePagat.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesaBankaNeNivelRaportues.xsc">
+      <DependentUpon>Ds_ListepagesaBankaNeNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesaBankaNeNivelRaportues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListepagesaBankaNeNivelRaportues1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListepagesaBankaNeNivelRaportues.xss">
+      <DependentUpon>Ds_ListepagesaBankaNeNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_listepagesaStandarte_format2.xsc">
+      <DependentUpon>Ds_listepagesaStandarte_format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_listepagesaStandarte_format2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_listepagesaStandarte_format21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_listepagesaStandarte_format2.xss">
+      <DependentUpon>Ds_listepagesaStandarte_format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka.xsc">
+      <DependentUpon>Ds_ListepagesatBanka.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListepagesatBanka1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka.xss">
+      <DependentUpon>Ds_ListepagesatBanka.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka_RFZ.xsc">
+      <DependentUpon>Ds_ListepagesatBanka_RFZ.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka_RFZ.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListepagesatBanka_RFZ1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatBanka_RFZ.xss">
+      <DependentUpon>Ds_ListepagesatBanka_RFZ.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatStandarteDinamike.xsc">
+      <DependentUpon>Ds_ListepagesatStandarteDinamike.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatStandarteDinamike.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ListepagesatStandarteDinamike1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListepagesatStandarteDinamike.xss">
+      <DependentUpon>Ds_ListepagesatStandarteDinamike.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListpagesaPermbledhese.xsc">
+      <DependentUpon>Ds_ListpagesaPermbledhese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ListpagesaPermbledhese.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ListpagesaPermbledhese.xss">
+      <DependentUpon>Ds_ListpagesaPermbledhese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_MemoAnnualBonus.xsc">
+      <DependentUpon>Ds_MemoAnnualBonus.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_MemoAnnualBonus.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_MemoAnnualBonus1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_MemoAnnualBonus.xss">
+      <DependentUpon>Ds_MemoAnnualBonus.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_NrPunonjes_FondiPagave.xsc">
+      <DependentUpon>Ds_NrPunonjes_FondiPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_NrPunonjes_FondiPagave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_NrPunonjes_FondiPagave1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_NrPunonjes_FondiPagave.xss">
+      <DependentUpon>Ds_NrPunonjes_FondiPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeve.xsc">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraSigurimeveTatimeve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeve.xss">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportuese.xsc">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportuese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportuese.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraSigurimeveTatimeveRaportuese1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportuese.xss">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportuese.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xsc">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PasqyraSigurimeveTatimeveRaportueseMujore1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xss">
+      <DependentUpon>Ds_PasqyraSigurimeveTatimeveRaportueseMujore.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Prc_LibriPagave.xsc">
+      <DependentUpon>Ds_Prc_LibriPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Prc_LibriPagave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Prc_LibriPagave1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Prc_LibriPagave.xss">
+      <DependentUpon>Ds_Prc_LibriPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_Rap_KontrataEPensionit.xsc">
+      <DependentUpon>Ds_PRC_Rap_KontrataEPensionit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_Rap_KontrataEPensionit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_Rap_KontrataEPensionit1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PRC_Rap_KontrataEPensionit.xss">
+      <DependentUpon>Ds_PRC_Rap_KontrataEPensionit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Prc_Rap_ListepagesaStandarte.xsc">
+      <DependentUpon>Ds_Prc_Rap_ListepagesaStandarte.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Prc_Rap_ListepagesaStandarte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Prc_Rap_ListepagesaStandarte1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Prc_Rap_ListepagesaStandarte.xss">
+      <DependentUpon>Ds_Prc_Rap_ListepagesaStandarte.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PunonjesPunesuarRishtaziDheLarguar.xsc">
+      <DependentUpon>Ds_PunonjesPunesuarRishtaziDheLarguar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PunonjesPunesuarRishtaziDheLarguar.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PunonjesPunesuarRishtaziDheLarguar1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PunonjesPunesuarRishtaziDheLarguar.xss">
+      <DependentUpon>Ds_PunonjesPunesuarRishtaziDheLarguar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Amendament.xsc">
+      <DependentUpon>Ds_Rap_Amendament.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Amendament.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Amendament1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Amendament.xss">
+      <DependentUpon>Ds_Rap_Amendament.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikiParadhenieve.xsc">
+      <DependentUpon>Ds_Rap_AnalitikiParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikiParadhenieve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_AnalitikiParadhenieve1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikiParadhenieve.xss">
+      <DependentUpon>Ds_Rap_AnalitikiParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BirthdayCard.xsc">
+      <DependentUpon>Ds_Rap_BirthdayCard.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BirthdayCard.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BirthdayCard1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_BirthdayCard.xss">
+      <DependentUpon>Ds_Rap_BirthdayCard.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagave.xsc">
+      <DependentUpon>Ds_Rap_BorderojaPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BorderojaPagave1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagave.xss">
+      <DependentUpon>Ds_Rap_BorderojaPagave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagaveBuxhetor.xsc">
+      <DependentUpon>Ds_Rap_BorderojaPagaveBuxhetor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagaveBuxhetor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BorderojaPagaveBuxhetor1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_BorderojaPagaveBuxhetor.xss">
+      <DependentUpon>Ds_Rap_BorderojaPagaveBuxhetor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_FinanceDeclaration.xsc">
+      <DependentUpon>Ds_Rap_FinanceDeclaration.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_FinanceDeclaration.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_FinanceDeclaration1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_FinanceDeclaration.xss">
+      <DependentUpon>Ds_Rap_FinanceDeclaration.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_HistorikPagePunonjesi.xsc">
+      <DependentUpon>Ds_Rap_HistorikPagePunonjesi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_HistorikPagePunonjesi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_HistorikPagePunonjesi1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_HistorikPagePunonjesi.xss">
+      <DependentUpon>Ds_Rap_HistorikPagePunonjesi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPages.xsc">
+      <DependentUpon>Ds_Rap_KartelaPages.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPages.xsd" />
+    <None Include="DataSource\Ds_Rap_KartelaPages.xss">
+      <DependentUpon>Ds_Rap_KartelaPages.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPages_Format2.xsc">
+      <DependentUpon>Ds_Rap_KartelaPages_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPages_Format2.xsd" />
+    <None Include="DataSource\Ds_Rap_KartelaPages_Format2.xss">
+      <DependentUpon>Ds_Rap_KartelaPages_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPersonaleEPages.xsc">
+      <DependentUpon>Ds_Rap_KartelaPersonaleEPages.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPersonaleEPages.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaPersonaleEPages.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPersonaleEPages.xss">
+      <DependentUpon>Ds_Rap_KartelaPersonaleEPages.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesve.xsc">
+      <DependentUpon>Ds_Rap_KartelaPunonjesve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaPunonjesve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesve.xss">
+      <DependentUpon>Ds_Rap_KartelaPunonjesve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesveMePagesa.xsc">
+      <DependentUpon>Ds_Rap_KartelaPunonjesveMePagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesveMePagesa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaPunonjesveMePagesa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaPunonjesveMePagesa.xss">
+      <DependentUpon>Ds_Rap_KartelaPunonjesveMePagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_LejetVjetore.xsc">
+      <DependentUpon>Ds_Rap_LejetVjetore.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_LejetVjetore.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_LejetVjetore1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_LejetVjetore.xss">
+      <DependentUpon>Ds_Rap_LejetVjetore.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep.xsc">
+      <DependentUpon>Ds_rap_ListepagesaPermbledheseSipasDep.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_rap_ListepagesaPermbledheseSipasDep1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_rap_ListepagesaPermbledheseSipasDep.xss">
+      <DependentUpon>Ds_rap_ListepagesaPermbledheseSipasDep.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MemoAnnualDeclaration.xsc">
+      <DependentUpon>Ds_Rap_MemoAnnualDeclaration.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MemoAnnualDeclaration.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_MemoAnnualDeclaration1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_MemoAnnualDeclaration.xss">
+      <DependentUpon>Ds_Rap_MemoAnnualDeclaration.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PasqyraSigSuplementare.xsc">
+      <DependentUpon>Ds_Rap_PasqyraSigSuplementare.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PasqyraSigSuplementare.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PasqyraSigSuplementare1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_PasqyraSigSuplementare.xss">
+      <DependentUpon>Ds_Rap_PasqyraSigSuplementare.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PerAprovim.xsc">
+      <DependentUpon>Ds_Rap_PerAprovim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PerAprovim.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PerAprovim1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_PerAprovim.xss">
+      <DependentUpon>Ds_Rap_PerAprovim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PermbledheseListepagesaFormat2.xsc">
+      <DependentUpon>Ds_RAP_PermbledheseListepagesaFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_RAP_PermbledheseListepagesaFormat2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_RAP_PermbledheseListepagesaFormat21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_RAP_PermbledheseListepagesaFormat2.xss">
+      <DependentUpon>Ds_RAP_PermbledheseListepagesaFormat2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Raportet\DS_PRC_RAP_PermbledhesParadhenieve.xsc">
+      <DependentUpon>DS_PRC_RAP_PermbledhesParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Raportet\DS_PRC_RAP_PermbledhesParadhenieve.xsd" />
+    <None Include="DataSource\Raportet\DS_PRC_RAP_PermbledhesParadhenieve.xss">
+      <DependentUpon>DS_PRC_RAP_PermbledhesParadhenieve.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Raportet\Rap_Amendament.resx">
+      <DependentUpon>Rap_Amendament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_AnalitikiParadhenieve.resx">
+      <DependentUpon>Rap_AnalitikiParadhenieve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_AnnualEmployeeRegister.resx">
+      <DependentUpon>Rap_AnnualEmployeeRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_BirthdayCard.resx">
+      <DependentUpon>Rap_BirthdayCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_BorderojaPagave.resx">
+      <DependentUpon>Rap_BorderojaPagave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_BorderojaPagave2.resx">
+      <DependentUpon>Rap_BorderojaPagave2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_BorderojaPagaveBuxhetor.resx">
+      <DependentUpon>Rap_BorderojaPagaveBuxhetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ConfirmationOfEmployement.resx">
+      <DependentUpon>Rap_ConfirmationOfEmployement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ContractChanges.resx">
+      <DependentUpon>Rap_ContractChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_CostCenterReport.resx">
+      <DependentUpon>Rap_CostCenterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_EmployeeRegister.resx">
+      <DependentUpon>Rap_EmployeeRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_FinanceDeclaration.resx">
+      <DependentUpon>Rap_FinanceDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_FormularPagesesMbiTeArdhuratNgaPunesimi.resx">
+      <DependentUpon>Rap_FormularPagesesMbiTeArdhuratNgaPunesimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_FormularSigShoqShend.resx">
+      <DependentUpon>Rap_FormularSigShoqShend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_HistorikPunonjesi.resx">
+      <DependentUpon>Rap_HistorikPunonjesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPages.resx">
+      <DependentUpon>Rap_KartelaPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPages_ESC.resx">
+      <DependentUpon>Rap_KartelaPages_ESC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPages_Format2.resx">
+      <DependentUpon>Rap_KartelaPages_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPersonaleEPages.resx">
+      <DependentUpon>Rap_KartelaPersonaleEPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesveMePagesa.resx">
+      <DependentUpon>Rap_KartelaPunonjesveMePagesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesve.resx">
+      <DependentUpon>Rap_KartelaPunonjesve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesvemeParameter.resx">
+      <DependentUpon>Rap_KartelaPunonjesvemeParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesve_A5.resx">
+      <DependentUpon>Rap_KartelaPunonjesve_A5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.resx">
+      <DependentUpon>Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_KontrataEPensionit.resx">
+      <DependentUpon>Rap_KontrataEPensionit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_kontrata_punes.resx">
+      <DependentUpon>Rap_kontrata_punes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_LabourOffice .resx">
+      <DependentUpon>Rap_LabourOffice .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_LejetVjetore.resx">
+      <DependentUpon>Rap_LejetVjetore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_LibriPagave.resx">
+      <DependentUpon>Rap_LibriPagave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListaPunonjeveMePagat.resx">
+      <DependentUpon>Rap_ListaPunonjeveMePagat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListaPunonjeveMePagatLandscape.resx">
+      <DependentUpon>Rap_ListaPunonjeveMePagatLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBanka.resx">
+      <DependentUpon>Rap_ListepagesaBanka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaCCY.resx">
+      <DependentUpon>Rap_ListepagesaBankaCCY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaMin.resx">
+      <DependentUpon>Rap_ListepagesaBankaMin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaMM.resx">
+      <DependentUpon>Rap_ListepagesaBankaMM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaMM_SePDeFn_131303523500258767.resx">
+      <DependentUpon>Rap_ListepagesaBankaMM_SePDeFn_131303523500258767.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaNeNivelRaportues.resx">
+      <DependentUpon>Rap_ListepagesaBankaNeNivelRaportues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBankaTabelar.resx">
+      <DependentUpon>Rap_ListepagesaBankaTabelar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBanka_Cobalt.resx">
+      <DependentUpon>Rap_ListepagesaBanka_Cobalt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaBanka_RFZ.resx">
+      <DependentUpon>Rap_ListepagesaBanka_RFZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaSipasDep.resx">
+      <DependentUpon>Rap_ListepagesaSipasDep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte.resx">
+      <DependentUpon>Rap_ListepagesaStandarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarteDinamike.resx">
+      <DependentUpon>Rap_ListepagesaStandarteDinamike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarteDinamike2.resx">
+      <DependentUpon>Rap_ListepagesaStandarteDinamike2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarteDinamikeTotale.resx">
+      <DependentUpon>Rap_ListepagesaStandarteDinamikeTotale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarteGjykata.resx">
+      <DependentUpon>Rap_ListepagesaStandarteGjykata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_format2.resx">
+      <DependentUpon>Rap_ListepagesaStandarte_format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_format2_2.resx">
+      <DependentUpon>Rap_ListepagesaStandarte_format2_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.resx">
+      <DependentUpon>Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.resx">
+      <DependentUpon>Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListpagesaPermbledhese.resx">
+      <DependentUpon>Rap_ListpagesaPermbledhese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_ListpagesaPermbledheseFormat3.resx">
+      <DependentUpon>Rap_ListpagesaPermbledheseFormat3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_MarreveshjeEPensionit.resx">
+      <DependentUpon>Rap_MarreveshjeEPensionit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_MemoAnnualBonus.resx">
+      <DependentUpon>Rap_MemoAnnualBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_MemoAnnualDeclaration.resx">
+      <DependentUpon>Rap_MemoAnnualDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_NrPunonjes_FondiPagave.resx">
+      <DependentUpon>Rap_NrPunonjes_FondiPagave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigSuplementare.resx">
+      <DependentUpon>Rap_PasqyraSigSuplementare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.resx">
+      <DependentUpon>Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeve.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeveDyPunesim.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveDyPunesim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportuese.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveRaportuese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeveRaportueseMujore.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveRaportueseMujore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandart.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveStandart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeveStandartKesh.resx">
+      <DependentUpon>Rap_PasqyraSigurimeveTatimeveStandartKesh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PerAprovim.resx">
+      <DependentUpon>Rap_PerAprovim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PermbledheseListepagesaFormat2.resx">
+      <DependentUpon>Rap_PermbledheseListepagesaFormat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PermbledhesParadhenieve .resx">
+      <DependentUpon>Rap_PermbledhesParadhenieve .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_PunonjesTePunesuarRishtaziDheLarguar.resx">
+      <DependentUpon>Rap_PunonjesTePunesuarRishtaziDheLarguar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raportet\Rap_VertetimPuneQKB.resx">
+      <DependentUpon>Rap_VertetimPuneQKB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

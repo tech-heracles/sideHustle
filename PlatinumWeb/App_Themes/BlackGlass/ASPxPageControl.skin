@@ -1,0 +1,7 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxtc" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dxtc:ASPxPageControl EnableHierarchyRecreation="false" runat="server" CssPostfix="BlackGlass" CssFilePath="~/App_Themes/BlackGlass/{0}/styles.css"
+    SpriteCssFilePath="~/App_Themes/BlackGlass/{0}/sprite.css">
+</dxtc:ASPxPageControl >
+

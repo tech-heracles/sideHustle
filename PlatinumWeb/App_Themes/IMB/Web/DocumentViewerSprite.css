@@ -1,0 +1,720 @@
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMap_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPage_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPage_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPageLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPage_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPageLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParameters_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParametersLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPage_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrint_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPage_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSave_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindow_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearch_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearchLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsv_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsvLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtml_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImg_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImgLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMht_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMhtLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdf_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdfLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtf_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtfLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxt_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxtLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXls_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsLarge_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsx_IMB,
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMap_IMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPage_IMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPage_IMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnLastPageLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPage_IMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnNextPageLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnParameters_IMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnParametersLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPage_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrint_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPage_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSave_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindow_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSearch_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchLarge_IMB,
+.dxWeb_xrdvRibbonIcon_BtnSearchLargeDisabled_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToCsv_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToCsvLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToHtml_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToImg_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToImgLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToMht_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToMhtLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToPdf_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToPdfLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToRtf_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToRtfLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToTxt_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToTxtLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToXls_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsLarge_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsx_IMB,
+.dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_IMB
+{
+    background-image: url('DocumentViewerSprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMap_IMB
+{
+    background-position: -595px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_IMB
+{
+    background-position: -495px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPage_IMB
+{
+    background-position: -629px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_IMB
+{
+    background-position: -231px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPage_IMB
+{
+    background-position: -17px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnLastPageLarge_IMB
+{
+    background-position: -99px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPage_IMB
+{
+    background-position: -799px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnNextPageLarge_IMB
+{
+    background-position: -132px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParameters_IMB
+{
+    background-position: -782px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnParametersLarge_IMB
+{
+    background-position: -462px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPage_IMB
+{
+    background-position: -170px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_IMB
+{
+    background-position: -759px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrint_IMB
+{
+    background-position: -187px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintLarge_IMB
+{
+    background-position: -528px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPage_IMB
+{
+    background-position: -459px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_IMB
+{
+    background-position: -165px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSave_IMB
+{
+    background-position: -425px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveLarge_IMB
+{
+    background-position: -693px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindow_IMB
+{
+    background-position: -34px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_IMB
+{
+    background-position: -165px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearch_IMB
+{
+    background-position: -765px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_BtnSearchLarge_IMB
+{
+    background-position: -396px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsv_IMB
+{
+    background-position: -255px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToCsvLarge_IMB
+{
+    background-position: -99px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtml_IMB
+{
+    background-position: -374px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_IMB
+{
+    background-position: -330px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImg_IMB
+{
+    background-position: -476px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToImgLarge_IMB
+{
+    background-position: -396px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMht_IMB
+{
+    background-position: -697px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToMhtLarge_IMB
+{
+    background-position: -231px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdf_IMB
+{
+    background-position: -748px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToPdfLarge_IMB
+{
+    background-position: -363px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtf_IMB
+{
+    background-position: -204px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToRtfLarge_IMB
+{
+    background-position: -264px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxt_IMB
+{
+    background-position: -510px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToTxtLarge_IMB
+{
+    background-position: -594px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXls_IMB
+{
+    background-position: -238px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsLarge_IMB
+{
+    background-position: -33px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsx_IMB
+{
+    background-position: -119px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_IMB
+{
+    background-position: -726px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMap_IMB
+{
+    background-position: -68px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapDisabled_IMB
+{
+    background-position: -323px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLarge_IMB
+{
+    background-position: 0px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnDocumentMapLargeDisabled_IMB
+{
+    background-position: -825px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPage_IMB
+{
+    background-position: 0px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageDisabled_IMB
+{
+    background-position: -527px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLarge_IMB
+{
+    background-position: -297px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnFirstPageLargeDisabled_IMB
+{
+    background-position: -792px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPage_IMB
+{
+    background-position: -646px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageDisabled_IMB
+{
+    background-position: -102px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageLarge_IMB
+{
+    background-position: -462px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnLastPageLargeDisabled_IMB
+{
+    background-position: -363px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPage_IMB
+{
+    background-position: -136px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageDisabled_IMB
+{
+    background-position: -612px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageLarge_IMB
+{
+    background-position: -429px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnNextPageLargeDisabled_IMB
+{
+    background-position: -33px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParameters_IMB
+{
+    background-position: -825px -33px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersDisabled_IMB
+{
+    background-position: -578px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersLarge_IMB
+{
+    background-position: -495px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnParametersLargeDisabled_IMB
+{
+    background-position: -561px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPage_IMB
+{
+    background-position: -391px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageDisabled_IMB
+{
+    background-position: -221px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLarge_IMB
+{
+    background-position: -132px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrevPageLargeDisabled_IMB
+{
+    background-position: -429px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrint_IMB
+{
+    background-position: -153px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintDisabled_IMB
+{
+    background-position: -340px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintLarge_IMB
+{
+    background-position: -627px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintLargeDisabled_IMB
+{
+    background-position: -66px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPage_IMB
+{
+    background-position: -493px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageDisabled_IMB
+{
+    background-position: -85px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLarge_IMB
+{
+    background-position: -726px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnPrintPageLargeDisabled_IMB
+{
+    background-position: -198px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSave_IMB
+{
+    background-position: -51px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveDisabled_IMB
+{
+    background-position: -731px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveLarge_IMB
+{
+    background-position: -198px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveLargeDisabled_IMB
+{
+    background-position: -660px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindow_IMB
+{
+    background-position: -561px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowDisabled_IMB
+{
+    background-position: -306px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLarge_IMB
+{
+    background-position: -264px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSaveWindowLargeDisabled_IMB
+{
+    background-position: -297px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearch_IMB
+{
+    background-position: -408px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchDisabled_IMB
+{
+    background-position: -357px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchLarge_IMB
+{
+    background-position: -792px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_BtnSearchLargeDisabled_IMB
+{
+    background-position: -528px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToCsv_IMB
+{
+    background-position: -842px -33px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToCsvLarge_IMB
+{
+    background-position: -66px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToHtml_IMB
+{
+    background-position: -442px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToHtmlLarge_IMB
+{
+    background-position: -594px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToImg_IMB
+{
+    background-position: -663px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToImgLarge_IMB
+{
+    background-position: -660px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToMht_IMB
+{
+    background-position: -544px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToMhtLarge_IMB
+{
+    background-position: 0px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToPdf_IMB
+{
+    background-position: -714px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToPdfLarge_IMB
+{
+    background-position: -693px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToRtf_IMB
+{
+    background-position: -680px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToRtfLarge_IMB
+{
+    background-position: -627px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToTxt_IMB
+{
+    background-position: -272px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToTxtLarge_IMB
+{
+    background-position: -561px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXls_IMB
+{
+    background-position: -816px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsLarge_IMB
+{
+    background-position: -330px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsx_IMB
+{
+    background-position: -289px -66px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_xrdvRibbonIcon_ExportToXlsxLarge_IMB
+{
+    background-position: -759px 0px;
+    width: 32px;
+    height: 32px;
+}
+

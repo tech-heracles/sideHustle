@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJE_KOSTOTONBANOR</name>
+  <id>LayerInfoImpl-70183d70:159702f8fcb:-4926</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-70183d70:159702f8fcb:-4930</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-70183d70:159702f8fcb:-4927</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

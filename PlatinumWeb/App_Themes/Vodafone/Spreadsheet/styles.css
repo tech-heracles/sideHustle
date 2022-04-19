@@ -1,0 +1,105 @@
+.dxssControl_Vodafone 
+{
+	font: 12px Tahoma, Geneva, sans-serif;
+}
+.dxssControl_Vodafone .dxss-gl .dxss-v,
+.dxssControl_Vodafone .dxss-gl .dxss-h 
+{
+	border-color: #c0c0c0;
+}
+.dxssControl_Vodafone .dxss-rowHeader 
+{	
+	border-right: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+}
+.dxssControl_Vodafone .dxss-colHeader 
+{
+	border-bottom: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+}
+.dxssControl_Vodafone .dxss-trbe 
+{
+	border-top-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxss-rrbe 
+{
+	border-right-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxss-brbe 
+{
+	border-bottom-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxss-lrbe 
+{
+	border-left-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-leftIndent
+{
+	width: 3px;
+}
+.dxssControl_Vodafone .dxtcLite_Vodafone.dxtc-bottom .dxtc-leftIndent
+{
+	width: 8px;
+}
+.dxssControl_Vodafone .dxrControl_Vodafone .dxr-minBtn
+{
+	padding-right: 7px;
+}
+.dxssControl_Vodafone .dxss-hrg,
+.dxssControl_Vodafone .dxss-vrg
+{
+	background-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxss-md 
+{
+	border-left: 1px solid #c0c0c0 !important;
+	border-right: 1px solid #c0c0c0 !important;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dxssControl_Vodafone .dxss-tse 
+{
+	border-color: #ED1B24;
+}
+.dxssControl_Vodafone .dxss-tre
+{
+	background: url('TouchResize.png');
+}
+/* Loading panel */
+.dxssLoadingDiv_Vodafone
+{
+    background: white;
+    opacity: 0.85 !important;
+    filter: alpha(opacity=85);
+}
+.dxssLoadingPanel_Vodafone
+{
+	border: 1px solid #c0c0c0;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxssLoadingPanel_Vodafone td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+	padding: 10px 14px;
+}
+.dxssLoadingPanel_Vodafone .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+/* --------------Dialogs----------------- */
+.dxpcLite_Vodafone .dxssDlgFooter
+{
+	border-top: 1px #c0c0c0 solid;
+}
+.dxpcLite_Vodafone .dxssDlgInsertImageForm .dxssDlgImagePreviewCell
+{
+    color: #878787;
+    border: dashed 1px #cac8c8;
+}

@@ -1,0 +1,2190 @@
+.dxr-itemHover .dxWeb_heRibbonIcons_heBackColor_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heBackColorLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heBold_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heBoldLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCenter_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCenterLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableCellDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableCellDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableColumnDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableColumnDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableRowDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableRowDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCheckSpelling_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCheckSpellingLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCopy_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCopyLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCut_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heCutLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTable_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableColumn_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableColumnLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableRow_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableRowLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heFontGroup_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heForeColor_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heForeColorLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heFullscreen_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heFullscreenLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heIndent_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heIndentLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertImageDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertImageDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertLinkDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertLinkDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertOrderedList_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertOrderedListLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnLeft_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnRight_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnRightLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableDialog_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableDialogLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowAbove_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowAboveLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowBelow_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowBelowLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertUnorderedList_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertUnorderedListLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heItalic_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heItalicLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heJustifyFull_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heJustifyFullLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heLeft_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heLeftLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellHorizontal_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellHorizontalLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellVertical_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellVerticalLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heOutdent_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heOutdentLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePaste_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteFromWord_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteFromWordLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePrint_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_hePrintLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRedo_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRedoLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRemoveFormat_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRemoveFormatLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRight_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heRightLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsDocx_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsDocxLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsMht_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsMhtLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsOdt_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsOdtLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsPdf_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsPdfLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsRtf_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsRtfLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsTxt_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsTxtLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellHorizontal_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellHorizontalLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellVertical_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellVerticalLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heStrikethrough_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heStrikethroughLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSubscript_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSubscriptLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSuperscript_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heSuperscriptLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnderline_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnderlineLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUndo_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUndoLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnlink_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnlinkLarge_Vodafone,
+.dxr-itemHover .dxWeb_heRibbonIcons_heViewsGroup_Vodafone,
+.dxWeb_heRibbonIcons_heBackColor_Vodafone,
+.dxWeb_heRibbonIcons_heBackColorDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heBackColorLarge_Vodafone,
+.dxWeb_heRibbonIcons_heBackColorLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heBold_Vodafone,
+.dxWeb_heRibbonIcons_heBoldDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heBoldLarge_Vodafone,
+.dxWeb_heRibbonIcons_heBoldLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCenter_Vodafone,
+.dxWeb_heRibbonIcons_heCenterDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCenterLarge_Vodafone,
+.dxWeb_heRibbonIcons_heCenterLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableCellDialog_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableCellDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableCellDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableCellDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableColumnDialog_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableDialog_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableRowDialog_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableRowDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableRowDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heChangeTableRowDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCheckSpelling_Vodafone,
+.dxWeb_heRibbonIcons_heCheckSpellingDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCheckSpellingLarge_Vodafone,
+.dxWeb_heRibbonIcons_heCheckSpellingLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCopy_Vodafone,
+.dxWeb_heRibbonIcons_heCopyDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCopyLarge_Vodafone,
+.dxWeb_heRibbonIcons_heCopyLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCut_Vodafone,
+.dxWeb_heRibbonIcons_heCutDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heCutLarge_Vodafone,
+.dxWeb_heRibbonIcons_heCutLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTable_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableColumn_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableColumnDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableColumnLarge_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableColumnLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableLarge_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableRow_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableRowDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableRowLarge_Vodafone,
+.dxWeb_heRibbonIcons_heDeleteTableRowLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heFontGroup_Vodafone,
+.dxWeb_heRibbonIcons_heFontGroupDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heForeColor_Vodafone,
+.dxWeb_heRibbonIcons_heForeColorDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heForeColorLarge_Vodafone,
+.dxWeb_heRibbonIcons_heForeColorLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heFullscreen_Vodafone,
+.dxWeb_heRibbonIcons_heFullscreenDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heFullscreenLarge_Vodafone,
+.dxWeb_heRibbonIcons_heFullscreenLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heIndent_Vodafone,
+.dxWeb_heRibbonIcons_heIndentDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heIndentLarge_Vodafone,
+.dxWeb_heRibbonIcons_heIndentLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertImageDialog_Vodafone,
+.dxWeb_heRibbonIcons_heInsertImageDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertImageDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertImageDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertLinkDialog_Vodafone,
+.dxWeb_heRibbonIcons_heInsertLinkDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertLinkDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertLinkDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertOrderedList_Vodafone,
+.dxWeb_heRibbonIcons_heInsertOrderedListDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertOrderedListLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertOrderedListLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeft_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRight_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableDialog_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableDialogDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableDialogLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableDialogLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowAbove_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowAboveDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowAboveLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowAboveLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowBelow_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowBelowDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowBelowLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertTableRowBelowLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertUnorderedList_Vodafone,
+.dxWeb_heRibbonIcons_heInsertUnorderedListDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heInsertUnorderedListLarge_Vodafone,
+.dxWeb_heRibbonIcons_heInsertUnorderedListLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heItalic_Vodafone,
+.dxWeb_heRibbonIcons_heItalicDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heItalicLarge_Vodafone,
+.dxWeb_heRibbonIcons_heItalicLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heJustifyFull_Vodafone,
+.dxWeb_heRibbonIcons_heJustifyFullDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heJustifyFullLarge_Vodafone,
+.dxWeb_heRibbonIcons_heJustifyFullLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heLeft_Vodafone,
+.dxWeb_heRibbonIcons_heLeftDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heLeftLarge_Vodafone,
+.dxWeb_heRibbonIcons_heLeftLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontal_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalLarge_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellVertical_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalLarge_Vodafone,
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heOutdent_Vodafone,
+.dxWeb_heRibbonIcons_heOutdentDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heOutdentLarge_Vodafone,
+.dxWeb_heRibbonIcons_heOutdentLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePaste_Vodafone,
+.dxWeb_heRibbonIcons_hePasteDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePasteFromWord_Vodafone,
+.dxWeb_heRibbonIcons_hePasteFromWordDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePasteFromWordLarge_Vodafone,
+.dxWeb_heRibbonIcons_hePasteFromWordLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePasteLarge_Vodafone,
+.dxWeb_heRibbonIcons_hePasteLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePrint_Vodafone,
+.dxWeb_heRibbonIcons_hePrintDisabled_Vodafone,
+.dxWeb_heRibbonIcons_hePrintLarge_Vodafone,
+.dxWeb_heRibbonIcons_hePrintLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRedo_Vodafone,
+.dxWeb_heRibbonIcons_heRedoDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRedoLarge_Vodafone,
+.dxWeb_heRibbonIcons_heRedoLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRemoveFormat_Vodafone,
+.dxWeb_heRibbonIcons_heRemoveFormatDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRemoveFormatLarge_Vodafone,
+.dxWeb_heRibbonIcons_heRemoveFormatLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRight_Vodafone,
+.dxWeb_heRibbonIcons_heRightDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heRightLarge_Vodafone,
+.dxWeb_heRibbonIcons_heRightLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsDocx_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsDocxDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsDocxLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsDocxLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsMht_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsMhtDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsMhtLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsMhtLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsOdt_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsOdtDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsOdtLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsOdtLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsPdf_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsPdfDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsPdfLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsPdfLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsRtf_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsRtfDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsRtfLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsRtfLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsTxt_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsTxtDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsTxtLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSaveAsTxtLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontal_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellVertical_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heStrikethrough_Vodafone,
+.dxWeb_heRibbonIcons_heStrikethroughDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heStrikethroughLarge_Vodafone,
+.dxWeb_heRibbonIcons_heStrikethroughLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSubscript_Vodafone,
+.dxWeb_heRibbonIcons_heSubscriptDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSubscriptLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSubscriptLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSuperscript_Vodafone,
+.dxWeb_heRibbonIcons_heSuperscriptDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heSuperscriptLarge_Vodafone,
+.dxWeb_heRibbonIcons_heSuperscriptLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUnderline_Vodafone,
+.dxWeb_heRibbonIcons_heUnderlineDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUnderlineLarge_Vodafone,
+.dxWeb_heRibbonIcons_heUnderlineLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUndo_Vodafone,
+.dxWeb_heRibbonIcons_heUndoDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUndoLarge_Vodafone,
+.dxWeb_heRibbonIcons_heUndoLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUnlink_Vodafone,
+.dxWeb_heRibbonIcons_heUnlinkDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heUnlinkLarge_Vodafone,
+.dxWeb_heRibbonIcons_heUnlinkLargeDisabled_Vodafone,
+.dxWeb_heRibbonIcons_heViewsGroup_Vodafone,
+.dxWeb_heRibbonIcons_heViewsGroupDisabled_Vodafone
+{
+    background-image: url('HESprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heBackColor_Vodafone
+{
+    background-position: -136px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heBackColorLarge_Vodafone
+{
+    background-position: -363px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heBold_Vodafone
+{
+    background-position: -102px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heBoldLarge_Vodafone
+{
+    background-position: 0px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCenter_Vodafone
+{
+    background-position: -627px -231px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCenterLarge_Vodafone
+{
+    background-position: -594px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableCellDialog_Vodafone
+{
+    background-position: -187px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableCellDialogLarge_Vodafone
+{
+    background-position: -99px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableColumnDialog_Vodafone
+{
+    background-position: -323px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableColumnDialogLarge_Vodafone
+{
+    background-position: -561px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableDialog_Vodafone
+{
+    background-position: -544px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableDialogLarge_Vodafone
+{
+    background-position: -429px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableRowDialog_Vodafone
+{
+    background-position: -85px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heChangeTableRowDialogLarge_Vodafone
+{
+    background-position: -528px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCheckSpelling_Vodafone
+{
+    background-position: -578px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCheckSpellingLarge_Vodafone
+{
+    background-position: -528px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCopy_Vodafone
+{
+    background-position: -204px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCopyLarge_Vodafone
+{
+    background-position: -165px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCut_Vodafone
+{
+    background-position: -102px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heCutLarge_Vodafone
+{
+    background-position: -330px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTable_Vodafone
+{
+    background-position: -374px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableColumn_Vodafone
+{
+    background-position: -289px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableColumnLarge_Vodafone
+{
+    background-position: -33px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableLarge_Vodafone
+{
+    background-position: -33px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableRow_Vodafone
+{
+    background-position: -510px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heDeleteTableRowLarge_Vodafone
+{
+    background-position: -495px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heFontGroup_Vodafone
+{
+    background-position: -330px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heForeColor_Vodafone
+{
+    background-position: -221px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heForeColorLarge_Vodafone
+{
+    background-position: -627px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heFullscreen_Vodafone
+{
+    background-position: -425px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heFullscreenLarge_Vodafone
+{
+    background-position: -165px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heIndent_Vodafone
+{
+    background-position: -255px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heIndentLarge_Vodafone
+{
+    background-position: -561px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertImageDialog_Vodafone
+{
+    background-position: -408px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertImageDialogLarge_Vodafone
+{
+    background-position: -330px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertLinkDialog_Vodafone
+{
+    background-position: -136px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertLinkDialogLarge_Vodafone
+{
+    background-position: -33px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertOrderedList_Vodafone
+{
+    background-position: -459px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertOrderedListLarge_Vodafone
+{
+    background-position: -462px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnLeft_Vodafone
+{
+    background-position: -493px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLarge_Vodafone
+{
+    background-position: -132px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnRight_Vodafone
+{
+    background-position: -391px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableColumnOnRightLarge_Vodafone
+{
+    background-position: -429px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableDialog_Vodafone
+{
+    background-position: -289px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableDialogLarge_Vodafone
+{
+    background-position: -99px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowAbove_Vodafone
+{
+    background-position: -272px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowAboveLarge_Vodafone
+{
+    background-position: -66px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowBelow_Vodafone
+{
+    background-position: -136px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertTableRowBelowLarge_Vodafone
+{
+    background-position: -198px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertUnorderedList_Vodafone
+{
+    background-position: -51px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heInsertUnorderedListLarge_Vodafone
+{
+    background-position: -165px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heItalic_Vodafone
+{
+    background-position: -595px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heItalicLarge_Vodafone
+{
+    background-position: -396px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heJustifyFull_Vodafone
+{
+    background-position: -391px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heJustifyFullLarge_Vodafone
+{
+    background-position: -33px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heLeft_Vodafone
+{
+    background-position: -51px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heLeftLarge_Vodafone
+{
+    background-position: -462px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellHorizontal_Vodafone
+{
+    background-position: -153px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellHorizontalLarge_Vodafone
+{
+    background-position: -429px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellVertical_Vodafone
+{
+    background-position: -595px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heMergeTableCellVerticalLarge_Vodafone
+{
+    background-position: -297px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heOutdent_Vodafone
+{
+    background-position: -34px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heOutdentLarge_Vodafone
+{
+    background-position: -297px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePaste_Vodafone
+{
+    background-position: -119px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteFromWord_Vodafone
+{
+    background-position: -68px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteFromWordLarge_Vodafone
+{
+    background-position: -33px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePasteLarge_Vodafone
+{
+    background-position: -264px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePrint_Vodafone
+{
+    background-position: -561px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_hePrintLarge_Vodafone
+{
+    background-position: -495px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRedo_Vodafone
+{
+    background-position: -459px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRedoLarge_Vodafone
+{
+    background-position: -561px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRemoveFormat_Vodafone
+{
+    background-position: -476px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRemoveFormatLarge_Vodafone
+{
+    background-position: -363px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRight_Vodafone
+{
+    background-position: -561px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heRightLarge_Vodafone
+{
+    background-position: -363px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsDocx_Vodafone
+{
+    background-position: -510px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsDocxLarge_Vodafone
+{
+    background-position: -561px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsMht_Vodafone
+{
+    background-position: -221px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsMhtLarge_Vodafone
+{
+    background-position: -528px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsOdt_Vodafone
+{
+    background-position: -170px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsOdtLarge_Vodafone
+{
+    background-position: -264px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsPdf_Vodafone
+{
+    background-position: -323px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsPdfLarge_Vodafone
+{
+    background-position: -66px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsRtf_Vodafone
+{
+    background-position: -476px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsRtfLarge_Vodafone
+{
+    background-position: -627px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsTxt_Vodafone
+{
+    background-position: -17px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSaveAsTxtLarge_Vodafone
+{
+    background-position: 0px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellHorizontal_Vodafone
+{
+    background-position: -408px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellHorizontalLarge_Vodafone
+{
+    background-position: -66px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellVertical_Vodafone
+{
+    background-position: -629px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSplitTableCellVerticalLarge_Vodafone
+{
+    background-position: -231px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heStrikethrough_Vodafone
+{
+    background-position: -476px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heStrikethroughLarge_Vodafone
+{
+    background-position: 0px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSubscript_Vodafone
+{
+    background-position: -306px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSubscriptLarge_Vodafone
+{
+    background-position: -396px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSuperscript_Vodafone
+{
+    background-position: -340px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heSuperscriptLarge_Vodafone
+{
+    background-position: -396px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnderline_Vodafone
+{
+    background-position: -238px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnderlineLarge_Vodafone
+{
+    background-position: -429px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUndo_Vodafone
+{
+    background-position: -119px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUndoLarge_Vodafone
+{
+    background-position: -198px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnlink_Vodafone
+{
+    background-position: -493px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heUnlinkLarge_Vodafone
+{
+    background-position: -66px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxr-itemHover .dxWeb_heRibbonIcons_heViewsGroup_Vodafone
+{
+    background-position: -165px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heBackColor_Vodafone
+{
+    background-position: -527px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heBackColorDisabled_Vodafone
+{
+    background-position: -306px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heBackColorLarge_Vodafone
+{
+    background-position: -429px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heBackColorLargeDisabled_Vodafone
+{
+    background-position: -231px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heBold_Vodafone
+{
+    background-position: -17px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heBoldDisabled_Vodafone
+{
+    background-position: -493px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heBoldLarge_Vodafone
+{
+    background-position: -66px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heBoldLargeDisabled_Vodafone
+{
+    background-position: -528px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCenter_Vodafone
+{
+    background-position: -612px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCenterDisabled_Vodafone
+{
+    background-position: -510px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCenterLarge_Vodafone
+{
+    background-position: -297px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCenterLargeDisabled_Vodafone
+{
+    background-position: -264px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableCellDialog_Vodafone
+{
+    background-position: -153px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableCellDialogDisabled_Vodafone
+{
+    background-position: -340px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableCellDialogLarge_Vodafone
+{
+    background-position: -528px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableCellDialogLargeDisabled_Vodafone
+{
+    background-position: -462px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableColumnDialog_Vodafone
+{
+    background-position: -68px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogDisabled_Vodafone
+{
+    background-position: -595px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogLarge_Vodafone
+{
+    background-position: -495px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableColumnDialogLargeDisabled_Vodafone
+{
+    background-position: -99px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableDialog_Vodafone
+{
+    background-position: -170px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableDialogDisabled_Vodafone
+{
+    background-position: -272px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableDialogLarge_Vodafone
+{
+    background-position: -429px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableDialogLargeDisabled_Vodafone
+{
+    background-position: -264px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableRowDialog_Vodafone
+{
+    background-position: -187px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableRowDialogDisabled_Vodafone
+{
+    background-position: -374px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heChangeTableRowDialogLarge_Vodafone
+{
+    background-position: -198px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heChangeTableRowDialogLargeDisabled_Vodafone
+{
+    background-position: -627px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCheckSpelling_Vodafone
+{
+    background-position: 0px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCheckSpellingDisabled_Vodafone
+{
+    background-position: -170px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCheckSpellingLarge_Vodafone
+{
+    background-position: -594px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCheckSpellingLargeDisabled_Vodafone
+{
+    background-position: -561px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCopy_Vodafone
+{
+    background-position: -595px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCopyDisabled_Vodafone
+{
+    background-position: -374px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCopyLarge_Vodafone
+{
+    background-position: -429px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCopyLargeDisabled_Vodafone
+{
+    background-position: -231px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCut_Vodafone
+{
+    background-position: -255px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCutDisabled_Vodafone
+{
+    background-position: -612px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heCutLarge_Vodafone
+{
+    background-position: -33px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heCutLargeDisabled_Vodafone
+{
+    background-position: -132px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTable_Vodafone
+{
+    background-position: -629px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableColumn_Vodafone
+{
+    background-position: -459px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableColumnDisabled_Vodafone
+{
+    background-position: -544px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableColumnLarge_Vodafone
+{
+    background-position: -561px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableColumnLargeDisabled_Vodafone
+{
+    background-position: -363px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableDisabled_Vodafone
+{
+    background-position: -612px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableLarge_Vodafone
+{
+    background-position: -561px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableLargeDisabled_Vodafone
+{
+    background-position: -462px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableRow_Vodafone
+{
+    background-position: -238px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableRowDisabled_Vodafone
+{
+    background-position: -85px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableRowLarge_Vodafone
+{
+    background-position: -396px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heDeleteTableRowLargeDisabled_Vodafone
+{
+    background-position: -495px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heFontGroup_Vodafone
+{
+    background-position: -495px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heFontGroupDisabled_Vodafone
+{
+    background-position: -396px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heForeColor_Vodafone
+{
+    background-position: -289px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heForeColorDisabled_Vodafone
+{
+    background-position: -425px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heForeColorLarge_Vodafone
+{
+    background-position: -495px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heForeColorLargeDisabled_Vodafone
+{
+    background-position: -561px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heFullscreen_Vodafone
+{
+    background-position: -459px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heFullscreenDisabled_Vodafone
+{
+    background-position: 0px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heFullscreenLarge_Vodafone
+{
+    background-position: -627px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heFullscreenLargeDisabled_Vodafone
+{
+    background-position: -231px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heIndent_Vodafone
+{
+    background-position: -306px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heIndentDisabled_Vodafone
+{
+    background-position: -153px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heIndentLarge_Vodafone
+{
+    background-position: -396px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heIndentLargeDisabled_Vodafone
+{
+    background-position: -528px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertImageDialog_Vodafone
+{
+    background-position: -527px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertImageDialogDisabled_Vodafone
+{
+    background-position: -34px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertImageDialogLarge_Vodafone
+{
+    background-position: -198px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertImageDialogLargeDisabled_Vodafone
+{
+    background-position: -99px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertLinkDialog_Vodafone
+{
+    background-position: -204px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertLinkDialogDisabled_Vodafone
+{
+    background-position: -442px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertLinkDialogLarge_Vodafone
+{
+    background-position: -495px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertLinkDialogLargeDisabled_Vodafone
+{
+    background-position: -33px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertOrderedList_Vodafone
+{
+    background-position: -17px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertOrderedListDisabled_Vodafone
+{
+    background-position: -408px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertOrderedListLarge_Vodafone
+{
+    background-position: -594px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertOrderedListLargeDisabled_Vodafone
+{
+    background-position: -297px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeft_Vodafone
+{
+    background-position: -527px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftDisabled_Vodafone
+{
+    background-position: -221px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLarge_Vodafone
+{
+    background-position: -330px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnLeftLargeDisabled_Vodafone
+{
+    background-position: -363px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRight_Vodafone
+{
+    background-position: -544px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightDisabled_Vodafone
+{
+    background-position: -425px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightLarge_Vodafone
+{
+    background-position: -330px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableColumnOnRightLargeDisabled_Vodafone
+{
+    background-position: -528px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableDialog_Vodafone
+{
+    background-position: -119px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableDialogDisabled_Vodafone
+{
+    background-position: -187px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableDialogLarge_Vodafone
+{
+    background-position: -363px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableDialogLargeDisabled_Vodafone
+{
+    background-position: -297px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowAbove_Vodafone
+{
+    background-position: -272px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowAboveDisabled_Vodafone
+{
+    background-position: -476px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowAboveLarge_Vodafone
+{
+    background-position: -330px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowAboveLargeDisabled_Vodafone
+{
+    background-position: -132px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowBelow_Vodafone
+{
+    background-position: -442px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowBelowDisabled_Vodafone
+{
+    background-position: -357px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowBelowLarge_Vodafone
+{
+    background-position: 0px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertTableRowBelowLargeDisabled_Vodafone
+{
+    background-position: -627px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertUnorderedList_Vodafone
+{
+    background-position: -85px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertUnorderedListDisabled_Vodafone
+{
+    background-position: -391px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heInsertUnorderedListLarge_Vodafone
+{
+    background-position: -66px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heInsertUnorderedListLargeDisabled_Vodafone
+{
+    background-position: -66px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heItalic_Vodafone
+{
+    background-position: 0px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heItalicDisabled_Vodafone
+{
+    background-position: -51px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heItalicLarge_Vodafone
+{
+    background-position: -264px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heItalicLargeDisabled_Vodafone
+{
+    background-position: -132px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heJustifyFull_Vodafone
+{
+    background-position: -357px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heJustifyFullDisabled_Vodafone
+{
+    background-position: 0px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heJustifyFullLarge_Vodafone
+{
+    background-position: -231px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heJustifyFullLargeDisabled_Vodafone
+{
+    background-position: -297px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heLeft_Vodafone
+{
+    background-position: -408px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heLeftDisabled_Vodafone
+{
+    background-position: -578px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heLeftLarge_Vodafone
+{
+    background-position: -396px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heLeftLargeDisabled_Vodafone
+{
+    background-position: -132px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontal_Vodafone
+{
+    background-position: -255px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalDisabled_Vodafone
+{
+    background-position: -544px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalLarge_Vodafone
+{
+    background-position: -165px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellHorizontalLargeDisabled_Vodafone
+{
+    background-position: -33px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellVertical_Vodafone
+{
+    background-position: -340px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalDisabled_Vodafone
+{
+    background-position: -357px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalLarge_Vodafone
+{
+    background-position: -627px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heMergeTableCellVerticalLargeDisabled_Vodafone
+{
+    background-position: -330px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heOutdent_Vodafone
+{
+    background-position: -272px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heOutdentDisabled_Vodafone
+{
+    background-position: -442px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heOutdentLarge_Vodafone
+{
+    background-position: -231px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heOutdentLargeDisabled_Vodafone
+{
+    background-position: -99px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePaste_Vodafone
+{
+    background-position: -238px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePasteDisabled_Vodafone
+{
+    background-position: -561px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePasteFromWord_Vodafone
+{
+    background-position: -578px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePasteFromWordDisabled_Vodafone
+{
+    background-position: -323px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePasteFromWordLarge_Vodafone
+{
+    background-position: -198px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePasteFromWordLargeDisabled_Vodafone
+{
+    background-position: -165px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePasteLarge_Vodafone
+{
+    background-position: -594px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePasteLargeDisabled_Vodafone
+{
+    background-position: -429px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePrint_Vodafone
+{
+    background-position: -629px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePrintDisabled_Vodafone
+{
+    background-position: -119px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_hePrintLarge_Vodafone
+{
+    background-position: -198px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_hePrintLargeDisabled_Vodafone
+{
+    background-position: -594px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRedo_Vodafone
+{
+    background-position: -34px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRedoDisabled_Vodafone
+{
+    background-position: -306px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRedoLarge_Vodafone
+{
+    background-position: -528px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRedoLargeDisabled_Vodafone
+{
+    background-position: -99px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRemoveFormat_Vodafone
+{
+    background-position: -442px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRemoveFormatDisabled_Vodafone
+{
+    background-position: -221px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRemoveFormatLarge_Vodafone
+{
+    background-position: -297px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRemoveFormatLargeDisabled_Vodafone
+{
+    background-position: -363px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRight_Vodafone
+{
+    background-position: -425px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRightDisabled_Vodafone
+{
+    background-position: -68px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heRightLarge_Vodafone
+{
+    background-position: -264px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heRightLargeDisabled_Vodafone
+{
+    background-position: -264px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsDocx_Vodafone
+{
+    background-position: -289px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsDocxDisabled_Vodafone
+{
+    background-position: -187px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsDocxLarge_Vodafone
+{
+    background-position: -462px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsDocxLargeDisabled_Vodafone
+{
+    background-position: -198px -198px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsMht_Vodafone
+{
+    background-position: -527px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsMhtDisabled_Vodafone
+{
+    background-position: -204px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsMhtLarge_Vodafone
+{
+    background-position: -132px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsMhtLargeDisabled_Vodafone
+{
+    background-position: -99px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsOdt_Vodafone
+{
+    background-position: -17px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsOdtDisabled_Vodafone
+{
+    background-position: -323px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsOdtLarge_Vodafone
+{
+    background-position: -231px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsOdtLargeDisabled_Vodafone
+{
+    background-position: -363px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsPdf_Vodafone
+{
+    background-position: -102px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsPdfDisabled_Vodafone
+{
+    background-position: -612px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsPdfLarge_Vodafone
+{
+    background-position: -330px -231px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsPdfLargeDisabled_Vodafone
+{
+    background-position: -462px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsRtf_Vodafone
+{
+    background-position: -578px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsRtfDisabled_Vodafone
+{
+    background-position: -153px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsRtfLarge_Vodafone
+{
+    background-position: -495px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsRtfLargeDisabled_Vodafone
+{
+    background-position: -594px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsTxt_Vodafone
+{
+    background-position: -51px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsTxtDisabled_Vodafone
+{
+    background-position: -34px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSaveAsTxtLarge_Vodafone
+{
+    background-position: 0px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSaveAsTxtLargeDisabled_Vodafone
+{
+    background-position: -462px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontal_Vodafone
+{
+    background-position: -255px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalDisabled_Vodafone
+{
+    background-position: -493px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalLarge_Vodafone
+{
+    background-position: -594px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellHorizontalLargeDisabled_Vodafone
+{
+    background-position: 0px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellVertical_Vodafone
+{
+    background-position: -374px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalDisabled_Vodafone
+{
+    background-position: -644px -231px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalLarge_Vodafone
+{
+    background-position: -132px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSplitTableCellVerticalLargeDisabled_Vodafone
+{
+    background-position: -165px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heStrikethrough_Vodafone
+{
+    background-position: -340px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heStrikethroughDisabled_Vodafone
+{
+    background-position: -510px -298px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heStrikethroughLarge_Vodafone
+{
+    background-position: -594px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heStrikethroughLargeDisabled_Vodafone
+{
+    background-position: -396px -165px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSubscript_Vodafone
+{
+    background-position: -102px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSubscriptDisabled_Vodafone
+{
+    background-position: -238px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSubscriptLarge_Vodafone
+{
+    background-position: -231px -33px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSubscriptLargeDisabled_Vodafone
+{
+    background-position: -132px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSuperscript_Vodafone
+{
+    background-position: -68px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSuperscriptDisabled_Vodafone
+{
+    background-position: -85px -281px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heSuperscriptLarge_Vodafone
+{
+    background-position: -462px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heSuperscriptLargeDisabled_Vodafone
+{
+    background-position: 0px 0px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUnderline_Vodafone
+{
+    background-position: -561px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUnderlineDisabled_Vodafone
+{
+    background-position: -204px -315px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUnderlineLarge_Vodafone
+{
+    background-position: -264px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUnderlineLargeDisabled_Vodafone
+{
+    background-position: -165px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUndo_Vodafone
+{
+    background-position: -136px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUndoDisabled_Vodafone
+{
+    background-position: -391px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUndoLarge_Vodafone
+{
+    background-position: -198px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUndoLargeDisabled_Vodafone
+{
+    background-position: -297px -99px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUnlink_Vodafone
+{
+    background-position: -170px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUnlinkDisabled_Vodafone
+{
+    background-position: -357px -264px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_heRibbonIcons_heUnlinkLarge_Vodafone
+{
+    background-position: -99px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heUnlinkLargeDisabled_Vodafone
+{
+    background-position: -627px -132px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heViewsGroup_Vodafone
+{
+    background-position: 0px -66px;
+    width: 32px;
+    height: 32px;
+}
+.dxWeb_heRibbonIcons_heViewsGroupDisabled_Vodafone
+{
+    background-position: -66px -165px;
+    width: 32px;
+    height: 32px;
+}
+

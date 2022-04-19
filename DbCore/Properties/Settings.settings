@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DbCore.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DbCore_KasaService_KasaWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.5.47.2/Kasa/KasaWebService.asmx</Value>
+    </Setting>
+    <Setting Name="DbCore_EmriDatabaze_Import" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebInf</Value>
+    </Setting>
+    <Setting Name="DbCore_EmriTabeles_ImportKokaFleteKontabel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">T_TEMP_KOKA_IMPORT_FLETEKONTABEL</Value>
+    </Setting>
+    <Setting Name="DbCore_EmriTabeles_ImportTrupiFleteKontabel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">T_TEMP_TRUPI_IMPORT_FLETEKONTABEL</Value>
+    </Setting>
+    <Setting Name="DbCore_EmriTabeles_ImportAlbSigFleteKontabel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">T_TEMP_IMPORTPOLICA</Value>
+    </Setting>
+    <Setting Name="DbCoreKontrollFkPresjeDhjetore" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="DbCore_VodSendSMS_Service_VFALSendSMSGateWay" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://195.233.190.109/axis2/services/VFALSendSMSGateWay.VFALSendSMSGateWayHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="DbCore_PromocioneProxy1_VFALSelfCareOperations" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://osb-preprod-vfal.internal.vodafone.com:80/VFALSelfCareOperationsOSBProxy/proxy/VFALSelfCareOperationsProxy</Value>
+    </Setting>
+    <Setting Name="DbCore_BRMAdapterServices_BRMAdapterServicesSoap12BindingQSService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://osb-preprod-vfal.internal.vodafone.com:80/VFALBRMServicesOSBProject/proxy/VFALBRMServicesOSBProxy</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_KontLibriimadh1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITET_LIBRIiMADHTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 17</value>
+  </metadata>
+  <metadata name="ds_kontLibriiMadh_degeadm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="pRC_RAP_KONTABILITET_LIBRIiMADH_DEGEADMTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+	double vleraProgresive = 0;
+	double vleraProgresive2 = 0;
+	double vleraProgresivGjithsej = 0;
+	double vleraProgresivGjithsej2 = 0;
+	double gjendjamepare = 0;
+	double shumadebi = 0;
+	double shumakredi = 0;
+	double shumakredimonllog = 0;
+	double shumadebimonllog = 0;
+	double shumadebigjithsej = 0;
+	double shumakredigjithsej = 0;
+	double shumadebimonlloggjithsej = 0;
+	double shumakredimonlloggjithsej = 0;
+	int cnt = 0;
+
+	string scopeID;
+        
+   private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            cnt = 0;
+            vleraProgresive = 0;
+        }     
+   private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (GetCurrentColumnValue("NRREFERENCEKOKAFLETEKONTABEL") == null || GetCurrentColumnValue("NRREFERENCEKOKAFLETEKONTABEL").ToString() == "")
+                e.Cancel = true;
+            else
+                cnt++;
+        }
+
+              
+
+        private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            vleraProgresivGjithsej += vleraProgresive;
+            if (vleraProgresive &gt;= 0)
+            {
+                xrTableCell65.Text = String.Format("{0:n2}", vleraProgresive);
+                vleraProgresive = 0;
+            }
+        }
+
+        private void xrLabel37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (vleraProgresive &lt; 0)
+            {
+                xrTableCell66.Text = String.Format("{0:n2}", Math.Abs(vleraProgresive));
+                vleraProgresive = 0;
+            }
+        }
+
+
+        private void xrLabel39_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            vleraProgresivGjithsej2 += vleraProgresive2;
+            if (vleraProgresive2 &gt; 0)
+            {
+                xrTableCell69.Text = String.Format("{0:n2}", vleraProgresive2);
+                vleraProgresive2 = 0;
+            }
+        }
+
+       
+ 
+        private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (vleraProgresivGjithsej &gt;= 0)
+            {
+                xrTableCell55.Text = String.Format("{0:#,#.00}", vleraProgresivGjithsej);
+            }
+            
+        }
+
+        private void xrLabel67_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (vleraProgresivGjithsej &lt; 0)
+            {
+                xrTableCell56.Text = String.Format("{0:#,#.00}", Math.Abs(vleraProgresivGjithsej));
+            }
+           
+        }
+
+        private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+              
+        }
+
+      
+      
+               private void xrLabel33_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrTableCell48.Text = String.Format("{0:#,#.00}", (shumadebi + Convert.ToDouble(GetCurrentColumnValue("Gjendjameparedebi"))));
+        }
+
+        private void xrLabel34_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrTableCell52.Text = String.Format("{0:#,#.00}", (shumakredi + Convert.ToDouble(GetCurrentColumnValue("Gjendjameparekredi"))));
+        }
+
+       
+        private void xrTableCell3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+            if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null &amp;&amp; GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString() != "")
+            {
+                if (cnt == 1)
+                    vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
+                vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
+             //   xrLabel34.Text = String.Format("{0:#,#.00}", vleraProgresive2);
+            }        }
+
+        private void xrTableCell12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+  if (GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI") != null &amp;&amp; GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString() != "")
+            {
+                if (cnt == 1)
+                    vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("vleftadebipare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredipare").ToString());
+                vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
+                //  xrLabel33.Text = String.Format("{0:#,#.00}", vleraProgresive);
+            }
+
+                   }
+
+        private void xrTableCell2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {	
+		var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+            if (GetCurrentColumnValue("KODKONFIGAMBJENTE") != null &amp;&amp; GetCurrentColumnValue("KODKONFIGAMBJENTE").ToString() == "NKM")
+            {
+                xrTableCell2.NavigateUrl = "";
+                this.xrTableCell2.ForeColor = System.Drawing.Color.Black;
+                return;
+            }
+                       xrTableCell2.NavigateUrl = "javascript:window.myFaqeCelje.hapFaqeNeTabTeRi('Shto_FleteKontabel.aspx?scopeID="+scopeID+"&amp;newScopeId=True&amp;shtim_modifikim=modifikim&amp;id=" + GetCurrentColumnValue("IDKOKAFLETEKONTABEL") + "&amp;numur=" + GetCurrentColumnValue("NRKOKAFLETEKONTABEL") + "')";
+                this.xrTableCell2.ForeColor = System.Drawing.Color.SteelBlue;
+                xrTableCell2.Target = "_self";
+
+        }
+
+    
+  
+
+        private void GroupFooter1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrTableCell65.Text = "";
+            xrTableCell66.Text = "";
+            xrTableCell69.Text = "";
+            xrTableCell67.Text = "";
+        }
+
+        private void xrTableCell70_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrTableCell70.Text = String.Format("{0:#,#.00}", (shumadebimonllog + Convert.ToDouble(GetCurrentColumnValue("Gjendjameparedebihuaj"))));
+        }
+
+        private void xrTableCell54_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrTableCell54.Text = String.Format("{0:#,#.00}", (shumakredimonllog + Convert.ToDouble(GetCurrentColumnValue("Gjendjameparekredihuaj"))));
+        }
+
+        private void xrTableCell67_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (vleraProgresive2 &lt; 0)
+            {
+                xrTableCell67.Text = String.Format("{0:n2}", Math.Abs(vleraProgresive2));
+                vleraProgresive2 = 0;
+            }
+        }
+	private void Rap_kontKartelaLlogarive_Format2_NrSerial_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) 
+	{
+		var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+     		scopeID = parametraRaporti.ScopeID;
+         xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+	}
+
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+</value>
+  </data>
+</root>

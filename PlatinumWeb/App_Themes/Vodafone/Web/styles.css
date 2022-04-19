@@ -1,0 +1,4319 @@
+/* CheckBox */
+.dxICBFocused_Vodafone 
+{
+    outline: 1px dotted #ED1B24;
+
+	*border: 1px dotted #ED1B24;
+	*margin: 0;
+}
+.dxICheckBox_Vodafone 
+{
+}
+/* -- ASPxCallbackPanel -- */
+/* Disabled */
+.dxcpDisabled_Vodafone
+{
+	color: #acacac;
+	cursor: default;
+}
+
+/* -- ASPxCloudControl -- */
+.dxccControl_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	color: #ED1B24;
+	background-color: #FFFFFF;
+}
+.dxccControl_Vodafone a
+{
+	text-decoration: none!important;
+	color: #ED1B24;
+}
+.dxccControl_Vodafone a:hover
+{
+	text-decoration: underline!important;
+}
+.dxccControl_Vodafone .dxccValue
+{
+    color: silver;
+}
+/* Disabled */
+.dxccDisabled_Vodafone,
+.dxccDisabled_Vodafone span.dxccValue,
+.dxccDisabled_Vodafone span.dxccBEText
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxDataView -- */
+.dxdvControl_Vodafone 
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxdvControl_Vodafone td.dxdvCtrl_Vodafone
+{
+	padding: 12px 40px;
+}
+.dxdvContent_Vodafone
+{
+	border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+}
+.dxdvItem_Vodafone,
+.dxdvFlowItem_Vodafone
+{
+	padding: 12px 12px 12px 14px;
+	height: 180px;
+	height: expression("154px");
+}
+.dxdvFlowItem_Vodafone
+{
+	float: left;
+	overflow: hidden;
+}
+.dxdvFlowItemsContainer_Vodafone 
+{
+}
+.dxdvEmptyItem_Vodafone
+{
+	text-align: left;
+	vertical-align: top;
+	padding: 12px 12px 12px 14px;
+	height: 180px;
+	height: expression("154px");
+}
+.dxdvPagerPanel_Vodafone
+{
+}
+.dxdvEmptyData_Vodafone
+{
+	color: Gray;
+}
+.dxdvEPContainer_Vodafone
+{
+    height: 50px;
+	text-align: center;
+}
+.dxdvEPContainer_Vodafone div
+{
+	padding-top: 16px;
+}
+.dxdvEPContainer_Vodafone a
+{
+	color: #ED1B24;
+}
+/* Disabled */
+.dxdvDisabled_Vodafone
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+/* -- ASPxHeadline -- */
+.dxhlControl_Vodafone 
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: black;
+}
+.dxhlControl_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxhlContent_Vodafone
+{
+} 
+.dxhlContent_Vodafone img
+{
+	display: none!important;
+}
+.dxhlDate_Vodafone
+{
+	white-space: nowrap;
+	display: inline;
+	color: silver;
+}
+.dxhlHeader_Vodafone
+{
+	font-size: 2em;
+	color: #ED1B24;
+	vertical-align: top;
+}
+.dxhlDateHeader_Vodafone
+{
+	color: white;
+	background-color: Silver;
+	padding: 0 4px;
+	margin: 4px 0;
+}
+.dxhlLeftPanel_Vodafone,
+.dxhlRightPanel_Vodafone
+{
+	padding: 2px 0;
+}
+.dxhlDateLeftPanel_Vodafone,
+.dxhlDateRightPanel_Vodafone
+{
+    padding: 12px 0 0;
+	white-space: nowrap;
+}
+.dxhlTailDiv_Vodafone,
+.dxhlTailDiv_Vodafone a
+{
+	color: #999999;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxhlTailDiv_Vodafone
+{
+	padding: 8px 0;
+}
+.dxhlTailDiv_Vodafone img
+{
+	vertical-align: middle;
+	margin-top: -2px;
+}
+/* Disabled */
+.dxhlDisabled_Vodafone
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxLoadingPanel -- */
+.dxlpLoadingPanel_Vodafone,
+.dxlpLoadingPanelWithContent_Vodafone
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxlpLoadingPanel_Vodafone td.dx,
+.dxlpLoadingPanelWithContent_Vodafone td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxlpLoadingPanel_Vodafone .dxlp-loadingImage,
+.dxlpLoadingPanelWithContent_Vodafone .dxlp-loadingImage {
+	background-image: url('Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+.dxlpControl_Vodafone.dxlpLoadingDiv_Vodafone
+{
+	background-color: white;
+	opacity: 0.7;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+}
+
+/* -- ASPxMenu Lite -- */
+.dxmLite_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxmLite_Vodafone .dxm-main 
+{
+	background-color: #f0f0f0;
+	padding: 0;
+}
+
+.dxmLite_Vodafone .dxm-vertical 
+{
+	width: 150px;
+}
+
+.dxmLite_Vodafone .dxm-popup 
+{
+	color: #333333;
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 1px;
+}
+
+.dxmBrdCor_Vodafone 
+{
+	background-color: white;
+}
+
+.dxmLite_Vodafone .dxm-item
+{
+	cursor: default;
+    text-align: left;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-item
+{
+	text-align: right;
+}
+.dxmLite_Vodafone .dxm-image-t .dxm-item,
+.dxmLite_Vodafone .dxm-image-b .dxm-item
+{
+	text-align: center;
+}
+
+.dxmLite_Vodafone .dxm-content 
+{
+    display: block;
+	white-space: nowrap;
+}
+
+.dxmLite_Vodafone,
+.dxmLite_Vodafone .dxm-item a.dx 
+{
+	color: #333333;
+}
+.dxmLite_Vodafone .dxm-disabled,
+.dxmLite_Vodafone .dxm-disabled a.dx 
+{
+	color: #b8b8b8;
+}
+.dxmLite_Vodafone .dxm-item a.dx 
+{
+	text-decoration: none;
+}
+
+.dxmLite_Vodafone .dxm-item 
+{
+	border: 0px;
+}
+.dxmLite_Vodafone .dxm-popOut
+{
+    border: solid 1px transparent;
+}
+
+/* Checked, Selected, Hovered */
+.dxmLite_Vodafone .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_Vodafone .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_Vodafone .dxm-dropDownMode.dxm-hovered .dxm-popOut 
+{
+    border-left-color: white;
+}
+.dxmLite_Vodafone .dxm-image-r .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_Vodafone .dxm-image-r .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_Vodafone .dxm-image-r .dxm-dropDownMode.dxm-hovered .dxm-popOut, 
+.dxmLite_Vodafone.dxm-rtl .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_Vodafone.dxm-rtl .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_Vodafone.dxm-rtl .dxm-dropDownMode.dxm-hovered .dxm-popOut 
+{
+    border-right-color: white;
+}
+.dxmLite_Vodafone .dxm-main .dxm-checked,
+.dxmLite_Vodafone .dxm-main .dxm-selected 
+{
+    background-color: #e0e0e0;
+}
+.dxmLite_Vodafone .dxm-main .dxm-hovered
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxmLite_Vodafone .dxm-main .dxm-hovered a.dx
+{
+	color: #FFFFFF;
+}
+.dxmLite_Vodafone .dxm-popup .dxm-selected 
+{
+	background-color: #e0e0e0;
+}
+.dxmLite_Vodafone .dxm-popup .dxm-hovered
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxmLite_Vodafone .dxm-popup .dxm-hovered a.dx
+{
+	color: #FFFFFF;
+}
+
+/* Content */
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-content 
+{
+	padding: 3px 7px 4px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-content 
+{
+	padding: 3px 11px 4px 10px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-noImage .dxm-content {
+	padding: 4px 11px 5px 10px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-subMenu .dxm-content 
+{
+	padding-right: 3px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 4px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-subMenu .dxm-content 
+{
+	padding-left: 3px;
+	padding-right: 5px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-dropDownMode .dxm-content 
+{
+	padding-left: 4px;
+	padding-right: 5px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-dropDownMode .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 8px;
+}
+
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-content,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-content,
+.dxmLite_Vodafone .dxm-popup .dxm-content 
+{
+	padding: 3px 18px 4px 3px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-vertical .dxm-image-l .dxm-content,
+.dxmLite_Vodafone.dxm-rtl .dxm-vertical .dxm-image-r .dxm-content,
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-content 
+{
+	padding: 3px 2px 4px 18px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-noSubMenu .dxm-content,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 5px;
+	padding-left: 14px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-content,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-content 
+{
+	padding: 5px 10px 6px;
+}
+
+/* Image */
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-hasText .dxm-image
+{
+	margin-right: 5px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-hasText .dxm-image
+{
+	margin-left: 5px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-hasText .dxm-image 
+{
+	margin-bottom: 4px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-hasText .dxm-image 
+{
+	margin-top: 4px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-image 
+{
+	margin-right: 7px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-image 
+{
+	margin-left: 7px;
+}
+.dxmLite_Vodafone.dxm-ltr .dxm-popup .dxm-image 
+{
+	margin-right: 12px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-image 
+{
+	margin-left: 12px;
+}
+
+/* Image replacement */
+.dxmLite_Vodafone.dxm-ltr .dxm-vertical .dxm-image-l.dxm-noImages .dxm-content,
+.dxmLite_Vodafone.dxm-ltr .dxm-vertical .dxm-image-r.dxm-noImages .dxm-content  
+{
+	padding-left: 7px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-vertical .dxm-image-l.dxm-noImages .dxm-content,
+.dxmLite_Vodafone.dxm-rtl .dxm-vertical .dxm-image-r.dxm-noImages .dxm-content  
+{
+	padding-right: 7px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-noImage 
+{
+	padding-left: 23px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-noImage 
+{
+	padding-right: 23px;
+}
+.dxmLite_Vodafone.dxm-ltr .dxm-popup .dxm-noImage 
+{
+	padding-left: 28px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-noImage 
+{
+	padding-right: 28px;
+}
+
+/* PopOut */
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t.dxm-noImages .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-noImage .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b.dxm-noImages .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-noImage .dxm-popOut 
+{
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-popOut 
+{
+	padding-top: 18px;
+	padding-bottom: 19px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-l .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-t .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-b .dxm-popOut 
+{
+	padding-right: 5px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-image-r .dxm-popOut 
+{
+	padding-left: 7px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-dropDownMode .dxm-popOut 
+{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-popOut,
+.dxmLite_Vodafone .dxm-popup .dxm-popOut 
+{
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t.dxm-noImages .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-noImage .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b.dxm-noImages .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-noImage .dxm-popOut 
+{
+	padding-top: 8px;
+	padding-bottom: 9px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-popOut 
+{
+	padding-top: 18px;
+	padding-bottom: 19px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-popOut,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-popOut,
+.dxmLite_Vodafone .dxm-popup .dxm-popOut 
+{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+/* PopOut replacement */
+.dxmLite_Vodafone.dxm-ltr .dxm-popup .dxm-noSubMenu 
+{
+	padding-right: 13px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-noSubMenu 
+{
+	padding-left: 13px;
+}
+
+/* Spacings, Separator */
+.dxmLite_Vodafone .dxm-horizontal .dxm-spacing 
+{
+	width: 2px;
+    min-width: 2px;
+	height: 1px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-spacing,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-spacing,
+.dxmLite_Vodafone .dxm-popup .dxm-spacing 
+{
+	height: 1px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-spacing,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-spacing 
+{
+	height: 2px;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-separator 
+{
+	padding: 0px 2px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-l .dxm-separator,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-r .dxm-separator,
+.dxmLite_Vodafone .dxm-popup .dxm-separator 
+{
+	padding: 1px 0px;
+}
+.dxmLite_Vodafone.dxm-ie7 .dxm-vertical .dxm-image-l .dxm-separator,
+.dxmLite_Vodafone.dxm-ie7 .dxm-vertical .dxm-image-r .dxm-separator,
+.dxmLite_Vodafone.dxm-ie7 .dxm-popup .dxm-separator 
+{
+	padding-top: 0px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-image-t .dxm-separator,
+.dxmLite_Vodafone .dxm-vertical .dxm-image-b .dxm-separator 
+{
+	padding: 2px 0px;
+}
+.dxmLite_Vodafone.dxm-ie7 .dxm-vertical .dxm-image-t .dxm-separator,
+.dxmLite_Vodafone.dxm-ie7 .dxm-vertical .dxm-image-b .dxm-separator 
+{
+	padding-top: 1px;
+}
+
+.dxmLite_Vodafone .dxm-separator b
+{
+	background-color: #FFFFFF;
+}
+.dxmLite_Vodafone .dxm-popup .dxm-separator b
+{
+	background-color: #C0C0C0;
+}
+.dxmLite_Vodafone .dxm-horizontal .dxm-separator b 
+{
+	height: 100%;
+	width: 1px;
+}
+.dxmLite_Vodafone .dxm-vertical .dxm-separator b,
+.dxmLite_Vodafone .dxm-popup .dxm-separator b 
+{
+	height: 1px;
+}
+.dxmLite_Vodafone.dxm-ltr .dxm-popup .dxm-separator
+{
+	padding-left: 29px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-separator
+{
+	padding-right: 29px;
+}
+.dxmLite_Vodafone.dxm-ltr .dxm-popup .dxm-noImages .dxm-separator
+{
+	padding-left: 0;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup .dxm-noImages .dxm-separator
+{
+	padding-left: 0;
+}
+/* Scroll elements */
+.dxmLite_Vodafone .dxm-scrollUpBtn, 
+.dxmLite_Vodafone .dxm-scrollDownBtn
+{
+	background-color: white;
+	cursor: pointer;
+	font-size: 0;
+	padding: 1px;
+	text-align: center;
+}
+.dxmLite_Vodafone .dxm-scrollUpBtn
+{
+	margin-bottom: 1px;
+}
+.dxmLite_Vodafone .dxm-scrollDownBtn
+{
+	margin-top: 1px;
+}
+.dxmLite_Vodafone .dxm-scrollBtnHovered
+{
+	background-color: #ED1B24;
+}
+.dxmLite_Vodafone .dxm-scrollBtnPressed
+{
+	background-color: #f0f0f0;
+}
+.dxmLite_Vodafone .dxm-scrollBtnDisabled
+{
+	cursor: default;
+}
+.dxmLite_Vodafone .dxm-scrollArea
+{
+	overflow: hidden;
+	position: relative;
+}
+
+/* -- ASPxMenu Lite Toolbar mode -- */
+.dxmLite_Vodafone .dxm-main.dxmtb {
+	padding: 2px;
+}
+/* has image */
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-subMenu .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-subMenu .dxm-content
+{
+	padding: 4px;
+}
+/* no image */
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-noImage .dxm-content
+{
+	padding: 4px 4px 5px;
+}
+/* dd has image */
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-dropDownMode .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-dropDownMode .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-dropDownMode .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-dropDownMode .dxm-content 
+{
+	padding: 4px 5px 4px 4px;
+}
+/* dd no image */
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-l .dxm-dropDownMode.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-r .dxm-dropDownMode.dxm-noImage .dxm-content, 
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-t .dxm-dropDownMode.dxm-noImage .dxm-content,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-image-b .dxm-dropDownMode.dxm-noImage .dxm-content 
+{
+	padding: 4px;
+}
+
+.dxmLite_Vodafone .dxm-popup.dxmtb .dxm-image 
+{
+	margin-right: 10px;
+	margin-top: -1px;
+}
+.dxmLite_Vodafone.dxm-rtl .dxm-popup.dxmtb .dxm-image 
+{
+	margin-right: 0px;
+}
+
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-popOut,
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-dropDownMode .dxm-popOut 
+{
+	padding: 9px 3px;
+}
+.dxmLite_Vodafone .dxmtb .dxtb-comboBoxMenuItem 
+{
+	padding: 2px 2px 1px;
+}
+.dxmLite_Vodafone .dxm-horizontal.dxmtb .dxtb-labelMenuItem 
+{
+	padding: 7px 2px 0!important;
+    padding: 6px 2px 0\0!important;
+}
+@-moz-document url-prefix() {
+    .dxmLite_Vodafone .dxm-horizontal.dxmtb .dxtb-labelMenuItem 
+    {
+	    padding: 6px 2px 0!important;
+    }
+}
+/* -- ASPxNavBar Lite -- */
+.dxnbLite_Vodafone 
+{
+	color: #333333;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	list-style: none none outside;
+	margin: 0;
+	padding: 0px;
+	float: left;
+	width: 200px;
+}
+.dxnbLite_Vodafone a
+{
+	color: black;
+	text-decoration: none;
+}
+.dxnbLite_Vodafone .dxnb-gr 
+{
+	margin-bottom: 13px;
+}
+.dxnbLite_Vodafone .dxnb-header,
+.dxnbLite_Vodafone .dxnb-headerCollapsed 
+{
+	background-color: #f0f0f0;
+	padding: 9px 10px 6px;
+	color: #666666;
+	font-weight: bold;
+	overflow: hidden;
+	cursor: pointer;
+	clear: both;
+    white-space: nowrap;
+}
+.dxnbLite_Vodafone .dxnb-header a,
+.dxnbLite_Vodafone .dxnb-headerCollapsed a
+{
+	color: #666666;
+	text-decoration: underline;
+}
+.dxnbLite_Vodafone .dxnb-content 
+{
+	list-style: none none outside;
+	margin: 0;
+	padding: 5px;
+	overflow: hidden;
+}
+.dxnbLite_Vodafone.dxnb-noHeads .dxnb-content
+{
+	border-top-width: 1px;
+}
+.dxnbLite_Vodafone .dxnb-item,
+.dxnbLite_Vodafone .dxnb-large,
+.dxnbLite_Vodafone .dxnb-bullet 
+{
+	color: black;
+	clear: both;
+	overflow: hidden;
+	cursor: default;
+}
+.dxnbLite_Vodafone .dxnb-item,
+.dxnbLite_Vodafone .dxnb-large,
+.dxnbLite_Vodafone .dxnb-tmpl
+{
+	margin-bottom: 1px;
+}
+.dxnbLite_Vodafone .dxnb-item.dxnb-link,
+.dxnbLite_Vodafone .dxnb-item .dxnb-link
+{
+	padding: 3px 4px 4px;
+    white-space: nowrap;
+}
+.dxnbLite_Vodafone .dxnb-large.dxnb-link,
+.dxnbLite_Vodafone .dxnb-large .dxnb-link
+{
+	padding: 6px 12px 7px;
+    white-space: nowrap;
+}
+.dxnbLite_Vodafone .dxnb-bullet,
+.dxnbLite_Vodafone .dxnb-bulletHover,
+.dxnbLite_Vodafone .dxnb-bulletSelected 
+{
+	padding: 0 5px;
+	overflow: visible;
+	margin-bottom: 6px;
+}
+.dxnbLite_Vodafone .dxnb-itemSelected,
+.dxnbLite_Vodafone .dxnb-largeSelected
+{
+    background-color: #f0f0f0;
+}
+.dxnbLite_Vodafone .dxnb-itemHover,
+.dxnbLite_Vodafone .dxnb-itemHover a,
+.dxnbLite_Vodafone .dxnb-largeHover,
+.dxnbLite_Vodafone .dxnb-largeHover a
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxnbLite_Vodafone .dxnb-header,
+.dxnbLite_Vodafone .dxnb-headerCollapsed, 
+.dxnbLite_Vodafone .dxnb-item,
+.dxnbLite_Vodafone .dxnb-itemHover,
+.dxnbLite_Vodafone .dxnb-itemSelected,
+.dxnbLite_Vodafone .dxnb-bullet,
+.dxnbLite_Vodafone .dxnb-bulletHover,
+.dxnbLite_Vodafone .dxnb-bulletSelected
+{
+	text-align: left;
+}
+.dxnbLite_Vodafone .dxnb-large,
+.dxnbLite_Vodafone .dxnb-largeHover,
+.dxnbLite_Vodafone .dxnb-largeSelected
+{
+	text-align: center;
+}
+.dxnbLite_Vodafone .dxnb-headerHover
+{
+}
+.dxnbLite_Vodafone .dxnb-headerCollapsedHover
+{
+}
+.dxnbLite_Vodafone .dxnb-last
+{
+	margin-bottom: 0;
+}
+.dxnbLite_Vodafone .dxnb-btn,
+.dxnbLite_Vodafone .dxnb-btnLeft,
+.dxnbLite_Vodafone .dxnb-img
+{
+	border-width: 0;
+}
+
+.dxnbLite_Vodafone .dxnb-btn
+{
+	float: right;
+	margin: 0 0 0 4px;
+}
+.dxnbLite_Vodafone .dxnb-btnLeft,
+.dxnbLite_Vodafone .dxnb-rtlHeader .dxnb-btn 
+{
+	float: left;
+	margin: 0 4px 0 0;
+}
+.dxnbLite_Vodafone .dxnb-img
+{
+	margin: 0 4px 0 0;
+}
+.dxnbLite_Vodafone .dxnb-right .dxnb-item .dxnb-img,
+.dxnbLite_Vodafone .dxnb-rtlHeader .dxnb-img
+{
+	margin: 0 0 0 4px;
+}
+.dxnbLite_Vodafone .dxnb-header.dxnb-header-left,
+.dxnbLite_Vodafone .dxnb-headerCollapsed.dxnb-header-left,
+.dxnbLite_Vodafone .dxnb-rtlHeader
+{
+	text-align: right;
+}
+.dxnbLite_Vodafone .dxnb-top .dxnb-large .dxnb-img
+{
+	margin-bottom: 3px;
+}
+.dxnbLite_Vodafone .dxnb-bottom .dxnb-large .dxnb-img
+{
+	margin-top: 3px;
+}
+.dxnbLite_Vodafone .dxnb-large .dxnb-img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.dxnbLiteDisabled_Vodafone,
+.dxnbLite_Vodafone .dxnbLiteDisabled_Vodafone,
+.dxnbLiteDisabled_Vodafone a,
+.dxnbLiteDisabled_Vodafone .dxnb-item,
+.dxnbLiteDisabled_Vodafone .dxnb-large,
+.dxnbLiteDisabled_Vodafone .dxnb-bullet,
+.dxnbLiteDisabled_Vodafone .dxnb-header,
+.dxnbLiteDisabled_Vodafone .dxnb-headerCollapsed 
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxNewsControl -- */
+.dxncControl_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	background-color: White;
+}
+.dxncControl_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxncControl_Vodafone td.dxncCtrl_Vodafone
+{
+	padding: 18px;
+}
+.dxncContent_Vodafone
+{
+}
+.dxncPagerPanel_Vodafone
+{
+	padding: 0px 3px;
+}
+.dxncItem_Vodafone
+{
+	vertical-align: top;
+	border-bottom: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+	padding: 12px 8px;
+}
+.dxncEmptyItem_Vodafone
+{
+	vertical-align: top;
+	padding: 12px 12px 12px 14px;
+}
+.dxncBackToTop_Vodafone
+{
+	padding: 12px 0;
+	margin-top: -40px!important;
+}
+.dxncBackToTop_Vodafone,
+.dxncBackToTop_Vodafone a
+{
+	color: #999999;
+	text-align: right;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxncBackToTop_Vodafone img
+{
+	float: right;
+	margin-left: 4px;
+	margin-top: -4px;
+	vertical-align: middle;
+}
+.dxncEPContainer_Vodafone
+{
+    height: 50px;
+	text-align: center;
+}
+.dxncEPContainer_Vodafone div
+{
+	padding-top: 16px;
+}
+.dxncEPContainer_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxncItem_Vodafone > table:not(:last-child) .dxhlContent_Vodafone:last-child
+{
+	margin-bottom: 40px!important;
+} 
+.dxncControl_Vodafone .dxhlTailDiv_Vodafone a
+{
+    color: #999999;
+}
+.dxncEmptyData_Vodafone
+{
+	color: Gray;
+}
+/* Disabled */
+.dxncDisabled_Vodafone
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxPager Lite -- */
+.dxpLite_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	float: left;
+	padding: 2px 8px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.dxpLite_Vodafone .dxp-summary,
+.dxpLite_Vodafone .dxp-sep,
+.dxpLite_Vodafone .dxp-button,
+.dxpLite_Vodafone .dxp-pageSizeItem,
+.dxpLite_Vodafone .dxp-num,
+.dxpLite_Vodafone .dxp-current,
+.dxpLite_Vodafone .dxp-ellip
+{
+	margin-left: 4px;
+	font-weight: normal;
+}
+.dxpLite_Vodafone .dxp-lead
+{
+	margin-left: 0!important;
+}
+
+.dxpLite_Vodafone a
+{
+	color: #333333;
+	text-decoration: underline;
+}
+
+.dxpLite_Vodafone .dxp-button
+{
+	white-space: nowrap;
+	text-align: center;
+	cursor: pointer;
+	padding: 6px 14px;
+	text-decoration: none;
+}
+.dxpLite_Vodafone .dxp-button img
+{
+	border: none;
+	text-decoration: none;
+}
+.dxpLite_Vodafone .dxp-button span
+{
+	text-decoration: none;
+}
+.dxpLite_Vodafone .dxp-button.dxp-bi 
+{
+	padding: 0 3px;
+}
+.dxpLite_Vodafone .dxp-button.dxp-bti 
+{
+	padding: 0 14px;
+}
+.dxpLite_Vodafone .dxp-disabledButton
+{
+	text-decoration: none;
+	color: #acacac;
+	cursor: default;
+}
+.dxpLite_Vodafone .dxp-pageSizeItem
+{
+    padding: 1px 4px 0 16px;
+    white-space: nowrap;
+}
+@-moz-document url-prefix() {
+    .dxpLite_Vodafone .dxp-pageSizeItem
+    {
+        padding: 2px 4px 0 16px;
+    }
+}
+.dxpLite_Vodafone .dxp-pageSizeItem .dx
+{
+    display: block;
+    float: left;
+    margin-top: 3px;
+    white-space: nowrap;
+}
+.dxpLite_Vodafone .dxp-comboBox
+{
+    display: block;
+    float: left;
+    background-color: White;
+    border: 1px solid #c0c0c0;
+    padding: 0px;
+    margin: -2px 0px;
+}
+.dxpLite_Vodafone .dxp-comboBox input
+{
+    margin: 4px 1px 4px 3px;
+}
+.dxpLite_Vodafone .dxp-hoverComboBox
+{
+}
+.dxpLite_Vodafone .dxp-pressedComboBox
+{
+}
+.dxpLite_Vodafone .dxp-dropDownButton
+{
+    display: block;
+    float: left;
+    cursor: pointer;
+    font-size: 0;
+    padding: 10px 5px 9px;
+	background-color: White;
+}
+.dxpLite_Vodafone .dxp-hoverDropDownButton
+{
+	background-color: #ED1B24;
+}
+.dxpLite_Vodafone .dxp-pressedDropDownButton
+{
+	background-color: Silver;
+}
+.dxpLite_Vodafone .dxp-dropDownButton img
+{
+    border: none;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.dxpLite_Vodafone .dxp-num
+{
+	color: #333333;
+	text-decoration: none;
+	padding: 3px 14px;
+    margin-top: 3px;
+	cursor: pointer;
+}
+
+.dxpLite_Vodafone .dxp-current
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+	text-decoration: none;
+	cursor: text;
+}
+
+.dxpLite_Vodafone .dxp-summary,
+.dxpLite_Vodafone .dxp-ellip
+{
+	white-space: nowrap;
+	padding: 6px 16px;
+}
+
+.dxpLite_Vodafone .dxp-sep
+{
+	background-color: #cccccc;
+	width: 1px;
+	height: 15px;
+	margin-top: 5px;
+}
+
+.dxpLiteDisabled_Vodafone,
+.dxpLiteDisabled_Vodafone a,
+.dxpLiteDisabled_Vodafone .dxp-summary,
+.dxpLiteDisabled_Vodafone .dxp-sep, 
+.dxpLiteDisabled_Vodafone .dxp-button,
+.dxpLiteDisabled_Vodafone .dxp-num,
+.dxpLiteDisabled_Vodafone .dxp-current,
+.dxpLiteDisabled_Vodafone .dxp-ellip
+{
+	color: #acacac;
+	border-color: #808080;
+	cursor: default;
+}
+
+.dxpLite_Vodafone .dxp-disabledComboBox
+{
+    border: 1px solid #9F9F9F;
+}
+
+.dxpLite_Vodafone .dxp-disabledComboBox input
+{
+    color: #acacac;
+}
+
+.dxpLite_Vodafone .dxp-disabledDropDownButton
+{
+    border-color: #C3C3C3;
+    cursor: default;
+}
+
+/* -- ASPxPopupControl Lite -- */
+.dxpcLite_Vodafone,
+.dxdpLite_Vodafone  
+{
+	width: 250px;
+	left: 0;
+	top: 0;
+	display: none;
+	position: absolute;
+	visibility: hidden;
+	border-spacing: 0;
+
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: black;
+}
+
+.dxpcLite_Vodafone .dxpc-shadow,
+.dxpcLite_Vodafone.dxpc-shadow,
+.dxdpLite_Vodafone .dxpc-shadow,
+.dxdpLite_Vodafone.dxpc-shadow
+{
+	-moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dxpcLite_Vodafone .dxpc-mainDiv,
+.dxpcLite_Vodafone.dxpc-mainDiv,
+.dxdpLite_Vodafone .dxpc-mainDiv,
+.dxdpLite_Vodafone.dxpc-mainDiv  
+{
+	top: 0;
+	left: 0;
+	background-color: white;
+	border: 1px solid silver;
+}
+
+.dxpcLite_Vodafone a.dxpc-link,
+.dxdpLite_Vodafone a.dxpc-link
+{
+	color: #ED1B24;
+}
+.dxpcLite_Vodafone a.dxpc-link *,
+.dxdpLite_Vodafone a.dxpc-link *
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.dxpcLite_Vodafone .dxpc-closeBtn,
+.dxpcLite_Vodafone .dxpc-pinBtn,
+.dxpcLite_Vodafone .dxpc-refreshBtn,
+.dxpcLite_Vodafone .dxpc-collapseBtn,
+.dxpcLite_Vodafone .dxpc-maximizeBtn,
+.dxdpLite_Vodafone .dxpc-closeBtn,
+.dxdpLite_Vodafone .dxpc-pinBtn,
+.dxdpLite_Vodafone .dxpc-refreshBtn,
+.dxdpLite_Vodafone .dxpc-collapseBtn,
+.dxdpLite_Vodafone .dxpc-maximizeBtn
+{
+	padding: 6px;
+	float: right;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-closeBtn,
+.dxpcLite_Vodafone.dxRtl .dxpc-pinBtn,
+.dxpcLite_Vodafone.dxRtl .dxpc-refreshBtn,
+.dxpcLite_Vodafone.dxRtl .dxpc-collapseBtn,
+.dxpcLite_Vodafone.dxRtl .dxpc-maximizeBtn,
+.dxdpLite_Vodafone.dxRtl .dxpc-closeBtn,
+.dxdpLite_Vodafone.dxRtl .dxpc-pinBtn,
+.dxdpLite_Vodafone.dxRtl .dxpc-refreshBtn,
+.dxdpLite_Vodafone.dxRtl .dxpc-collapseBtn,
+.dxdpLite_Vodafone.dxRtl .dxpc-maximizeBtn
+{
+	float: left;
+}
+
+.dxpcLite_Vodafone .dxpc-closeBtnHover,
+.dxpcLite_Vodafone .dxpc-pinBtnHover,
+.dxpcLite_Vodafone .dxpc-refreshBtnHover,
+.dxpcLite_Vodafone .dxpc-collapseBtnHover,
+.dxpcLite_Vodafone .dxpc-maximizeBtnHover,
+.dxdpLite_Vodafone .dxpc-closeBtnHover,
+.dxdpLite_Vodafone .dxpc-pinBtnHover,
+.dxdpLite_Vodafone .dxpc-refreshBtnHover,
+.dxdpLite_Vodafone .dxpc-collapseBtnHover,
+.dxdpLite_Vodafone .dxpc-maximizeBtnHover
+{
+}
+
+.dxpcLite_Vodafone .dxpc-header,
+.dxdpLite_Vodafone .dxpc-header 
+{
+	color: #ED1B24;
+	font-size: 1.66em;
+	padding: 7px 2px 7px 12px;
+	white-space: nowrap;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-header,
+.dxdpLite_Vodafone.dxRtl .dxpc-header  
+{
+	padding: 7px 12px 7px 2px;
+}
+
+.dxpcLite_Vodafone .dxpc-headerText,
+.dxdpLite_Vodafone .dxpc-headerText
+{
+	white-space: nowrap;
+	margin-top: -2px;
+}
+
+.dxpcLite_Vodafone .dxpc-headerImg,
+.dxdpLite_Vodafone .dxpc-headerImg
+{
+	margin: 0 16px 0 0;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-headerImg,
+.dxdpLite_Vodafone.dxRtl .dxpc-headerImg
+{
+	margin: 0 0 0 16px;
+}
+
+.dxpcLite_Vodafone .dxpc-expandableDiv,
+.dxdpLite_Vodafone .dxpc-expandableDiv 
+{
+	float: left;
+	overflow: hidden;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-expandableDiv,
+.dxdpLite_Vodafone.dxRtl .dxpc-expandableDiv 
+{
+	float: right;
+}
+
+.dxpcLite_Vodafone .dxpc-content,
+.dxdpLite_Vodafone .dxpc-content
+{
+	white-space: normal;
+	padding: 9px 12px;
+}
+
+.dxpcLite_Vodafone .dxpc-footer,
+.dxdpLite_Vodafone .dxpc-footer
+{
+	color: #c0c0c0;
+}
+
+.dxpcLite_Vodafone .dxpc-footerContent,
+.dxdpLite_Vodafone .dxpc-footerContent
+{
+	padding: 6px 20px 8px 12px;
+	min-height: 8px;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-footerContent,
+.dxdpLite_Vodafone.dxRtl .dxpc-footerContent
+{
+	padding: 6px 12px 8px 20px;
+}
+
+.dxpcLite_Vodafone .dxpc-footerText,
+.dxdpLite_Vodafone .dxpc-footerText
+{
+	white-space: nowrap;
+}
+
+.dxpcLite_Vodafone .dxpc-footerImg,
+.dxdpLite_Vodafone .dxpc-footerImg
+{
+	margin: 0 8px 0 0;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-footerImg,
+.dxdpLite_Vodafone.dxRtl .dxpc-footerImg
+{
+	margin: 0 0 0 8px;
+}
+
+.dxpcLite_Vodafone .dxpc-sizeGrip,
+.dxdpLite_Vodafone .dxpc-sizeGrip
+{
+	float: right;
+}
+
+.dxpcLite_Vodafone.dxRtl .dxpc-sizeGrip,
+.dxdpLite_Vodafone.dxRtl .dxpc-sizeGrip
+{
+	float: left;
+}
+
+.dxpcModalBackLite_Vodafone,
+.dxdpModalBackLite_Vodafone
+{
+	background-color: #777777;
+	opacity: 0.7;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+	position: fixed;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+}
+.dxpcLiteDisabled_Vodafone,
+.dxdpLiteDisabled_Vodafone
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxRoundPanel -- */
+.dxrpControl_Vodafone,
+.dxrpControlGB_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxrpControl_Vodafone .dxrpCI
+{
+	display:block;
+}
+/* Header */
+.dxrpControl_Vodafone td.dxrpHeader_Vodafone
+{
+	color: #ED1B24;
+	font-size: 1.66em;
+}
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone span.dx-vam,
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone span.dx-vat,
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone span.dx-vab,
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone a.dx-vam,
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone a.dx-vat,
+*+html .dxrpControl_Vodafone .dxrpHeader_Vodafone a.dx-vab 
+{
+	padding-bottom:12px;
+}
+.dxrpControlGB_Vodafone span.dxrpHeader_Vodafone
+{
+	font-weight: bold;
+	color: Silver;
+}
+.dxrpControl_Vodafone  > tbody > tr > .dxrpHeader_Vodafone > a,
+.dxrpControl_Vodafone  > tbody > tr > .dxrpHeader_Vodafone > a > span.dxrpHT,
+.dxrpControlGB_Vodafone span.dxrpHeader_Vodafone a
+{
+    color: #1E3695;
+}
+.dxrpControl_Vodafone td.dxrpHeader_Vodafone
+{
+	line-height: 100%;
+	white-space: nowrap;
+}
+/* Header image */
+.dxrpControl_Vodafone .dxrpHI
+{
+	margin-right: 4px;
+}
+.dxrpControl_Vodafone .dxrpHIR
+{
+	margin-left: 4px;
+}
+/* Content */
+.dxrpControl_Vodafone > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControlGB_Vodafone > tbody > tr.dxrpCR > .dxrpcontent
+{
+	vertical-align: top;
+}
+.dxrpControlGB_Vodafone 
+{
+	border: 1px solid Silver;
+}
+.dxrpControl_Vodafone
+{
+	border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+}
+.dxrpControlGB_Vodafone > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControlGB_Vodafone span.dxrpHeader_Vodafone
+{
+    background: white none;
+}
+/* Paddings */
+.dxrpControl_Vodafone td.dxrpHeader_Vodafone 
+{
+	padding: 7px 15px 8px 10px;
+}
+.dxrpControlGB_Vodafone span.dxrpHeader_Vodafone 
+{
+	padding: 0px 3px 0px 3px;
+}
+.dxrpControl_Vodafone.dxrp-noCollapsing > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControl_Vodafone > tbody > tr.dxrpCR > .dxrpcontent > .dxrpAW > .dxrpCW, .dxrpControl_Vodafone > tbody > tr.dxrpCR > .dxrpcontent >  .dxrpCW
+{
+	padding: 9px 10px 10px 10px;
+}
+.dxrpControlGB_Vodafone > tbody > tr.dxrpCR > .dxrpcontent
+{
+	padding: 6px 10px 10px 10px;
+}
+/* GroupboxCaptionOffset */
+.dxrpControlGB_Vodafone > tbody > tr.dxrpCR > .dxrpcontent > div:first-child
+{
+	top: -13px;
+	left: -6px;
+	margin-bottom: -7px;
+}
+.dxrpControlGB_Vodafone {
+	margin-top: 6px;
+}
+/* Disabled */
+.dxrpDisabled_Vodafone,
+.dxrpDisabled_Vodafone td.dxrp
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+.dxrpDisabled_Vodafone.dxrpCollapsed > tbody > tr > td.dxrpHeader_Vodafone
+{
+    border-radius: 0px;
+    border: 0px none #ED1B24;
+}
+
+/* -- ASPxSiteMapControl -- */
+.dxsmControl_Vodafone 
+{
+	color: #333333;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxsmControl_Vodafone a:hover
+{
+	text-decoration: none!important;
+}
+.dxsmControl_Vodafone a:visited
+{
+	color: #996085!important;
+}
+/* - Category Level - */
+.dxsmCategoryLevel_Vodafone,
+.dxsmCategoryLevel_Vodafone a
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #999999;
+}
+.dxsmCategoryLevel_Vodafone
+{
+    font-size: 1.5em;
+	white-space: nowrap;
+	padding: 0px 0px 5px;
+}
+.dxsmCategoryLevel_Vodafone
+{
+	border-bottom: 1px solid #B8B8B8;
+}
+ /*flow layout*/
+.dxsmLevelCategoryFlow_Vodafone,
+.dxsmLevelCategoryFlow_Vodafone a
+{
+	color: #1E3695;
+    font-weight: bold;
+	text-decoration: underline;
+}
+.dxsmLevelCategoryFlow_Vodafone
+{
+	font-size: 1.5em;
+}
+/* - Level 0 - */
+.dxsmLevel0_Vodafone,
+.dxsmLevel0_Vodafone a,
+.dxsmLevel0Categorized_Vodafone a,
+.dxsmLevel0Categorized_Vodafone
+{
+	color: #999999;
+	text-decoration: none;
+}
+.dxsmLevel0_Vodafone,
+.dxsmLevel0Categorized_Vodafone
+{
+    font-size: 1.5em;
+	white-space: nowrap;
+	padding: 0px 0px 2px;
+}
+.dxsmLevel0_Vodafone
+{
+	padding: 0px 0px 5px;
+}
+ /*flow layout*/
+.dxsmLevel0Flow_Vodafone,
+.dxsmLevel0Flow_Vodafone a,
+.dxsmLevel0CategorizedFlow_Vodafone a,
+.dxsmLevel0CategorizedFlow_Vodafone
+{
+	color: #ED1B24;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.dxsmLevel0Flow_Vodafone
+{
+	padding: 0px;
+}
+.dxsmLevel0Flow_Vodafone
+{
+	text-decoration: none;
+}
+
+/* - Level 1 - */
+.dxsmLevel1_Vodafone,
+.dxsmLevel1_Vodafone a,
+.dxsmLevel1Categorized_Vodafone a,
+.dxsmLevel1Categorized_Vodafone
+{
+	color: #ED1B24;
+	text-decoration: none;
+}
+.dxsmLevel1_Vodafone,
+.dxsmLevel1Categorized_Vodafone
+{
+	white-space: nowrap;
+	padding: 0px;
+}
+.dxsmLevel1_Vodafone ul,
+.dxsmLevel1Categorized_Vodafone ul
+{
+	list-style-type: none!important;
+}
+
+/*flow layout*/
+.dxsmLevel1Flow_Vodafone,
+.dxsmLevel1Flow_Vodafone a,
+.dxsmLevel1CategorizedFlow_Vodafone,
+.dxsmLevel1CategorizedFlow_Vodafone a
+{
+	color: #ED1B24;
+	text-decoration: underline;
+}
+.dxsmLevel1Flow_Vodafone
+{
+	text-decoration: none;
+	padding: 0px;
+}
+
+/* - Level 2 - */
+.dxsmLevel2_Vodafone,
+.dxsmLevel2_Vodafone a,
+.dxsmLevel2Categorized_Vodafone a,
+.dxsmLevel2Categorized_Vodafone
+{
+	color: #ED1B24;
+	text-decoration: none;
+}
+.dxsmLevel2_Vodafone,
+.dxsmLevel2Categorized_Vodafone
+{
+    font-size: 0.91em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel2Flow_Vodafone,
+.dxsmLevel2Flow_Vodafone a
+{
+	color: #5078DC;
+	text-decoration: underline;
+}
+.dxsmLevel2Flow_Vodafone
+{
+    font-size: 0.91em;
+	padding: 0px;
+}
+/* - Level 3 - */
+.dxsmLevel3_Vodafone,
+.dxsmLevel3_Vodafone a
+{
+	color: #ED1B24;
+	text-decoration: none;
+}
+.dxsmLevel3_Vodafone
+{
+    font-size: 0.75em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel3Flow_Vodafone,
+.dxsmLevel3Flow_Vodafone a
+{
+	color: #999999;
+	text-decoration: underline;
+}
+.dxsmLevel3Flow_Vodafone
+{
+	font-size: 0.75em;
+}
+/* - Level 4 - */
+.dxsmLevel4_Vodafone,
+.dxsmLevel4_Vodafone a
+{
+	color: #ED1B24;
+	text-decoration: none;
+}
+.dxsmLevel4_Vodafone
+{
+    font-size: 0.66em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel4Flow_Vodafone,
+.dxsmLevel4Flow_Vodafone a
+{
+	color: #A8A8A8;
+	text-decoration: underline;
+}
+.dxsmLevel4Flow_Vodafone
+{
+    font-size: 0.66em;
+	padding: 0px;
+}
+/* - Other Levels - */
+.dxsmLevelOther_Vodafone,
+.dxsmLevelOther_Vodafone a
+{
+	color: #ED1B24;
+	text-decoration: none;
+}
+.dxsmLevelOther_Vodafone
+{
+    font-size: 0.75em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevelOtherFlow_Vodafone,
+.dxsmLevelOtherFlow_Vodafone a
+{
+	color: #A8A8A8;
+	text-decoration: underline;
+}
+/* Disabled */
+.dxsmDisabled_Vodafone
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxTabControl Lite -- */
+.dxtcLite_Vodafone 
+{
+	overflow: hidden;
+    color: #666666;
+	float: left;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-strip
+{
+	list-style: none outside none;
+	float: left;
+	padding: 0;
+	margin: 0;
+	_overflow: hidden;
+}
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer
+{
+	padding-top: 3px;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	display: block;
+	margin: 0;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-lineBreak
+{
+	float: none;
+	display: block;
+	clear: both;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.dxtcLite_Vodafone.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-left-style: none;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-activeTab
+{
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	white-space: nowrap;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tab
+{
+	background: #E0E0E0 url('tcTabBack.gif') repeat-x bottom;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-activeTab a
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tab a 
+{
+	color: #666666;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tabHover,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tabHover a
+{
+	color: #FFFFFF;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-tabHover
+{
+    background: #ED1B24 url('tcTabBack.gif') repeat-x bottom;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	float: left;
+	border-right-width: 0;
+	border-left-width: 0;
+	overflow: hidden;
+	_border-top-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-spacer
+{
+	width: 1px;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-rightIndent
+{
+	width: 5px;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-link
+{
+	padding: 4px 36px;
+	display: block;
+	height: 100%;
+	_float: left;
+}
+
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-link,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-rightIndent
+{
+	text-decoration: none;
+	white-space: nowrap;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-img
+{
+	border-style: none;
+	margin: 0 3px 0 0;
+} 
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-img
+{
+	margin: 0 0 0 3px;
+}
+.dxtcLite_Vodafone > .dxtc-content 
+{
+	background-color: #FFFFFF;
+	float: left;
+	clear: left;
+	border: 1px none #A8A8A8!important;
+	overflow: hidden;
+	padding: 11px;
+}
+.dxtcLite_Vodafone.dxtc-top > .dxtc-content 
+{
+	border-top-style: none!important;
+}
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-top > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-bottom: 4px solid #ED1B24;
+}
+/* Rtl */
+.dxtcLite_Vodafone.dxtc-rtl,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-content,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-strip,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-sbSpacer,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-activeTab
+{
+	float: right;
+}
+.dxtcLite_Vodafone.dxtc-top.dxtc-rtl > .dxtc-content,
+.dxtcLite_Vodafone.dxtc-bottom.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_Vodafone.dxtc-bottom.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	clear: right!important;
+}
+.dxtcLite_Vodafone.dxtc-left.dxtc-rtl > .dxtc-strip,
+.dxtcLite_Vodafone.dxtc-left.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	float: left;
+}
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-content,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	*float: left;
+}
+.dxtcLite_Vodafone.dxtc-rtl > .dxtc-content
+{
+	*clear: left!important;
+}
+/* Scrolling */
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sb          
+{
+	cursor: pointer;
+	font-size: 0;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sb          
+{
+	margin-top: 0;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbHover
+{
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbPressed
+{
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbDisabled
+{
+	cursor: default;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sb img 
+{
+	border: none;
+	border-style: none;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbIndent
+{
+	width: 5px;
+}
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	width: 1px;
+}
+/* Multi-row */
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtc-n
+{
+	_display: inline;
+}
+.dxtcLiteDisabled_Vodafone,
+.dxtcLiteDisabled_Vodafone > .dxtc-stripContainer .dxtcLiteDisabled_Vodafone.dxtc-activeTab,
+.dxtcLiteDisabled_Vodafone > .dxtc-stripContainer .dxtc-link,
+.dxtcLiteDisabled_Vodafone > .dxtc-stripContainer .dxtc-activeTab .dxtc-link,
+.dxtcLiteDisabled_Vodafone > .dxtc-content,
+.dxtcLite_Vodafone > .dxtc-stripContainer .dxtcLiteDisabled_Vodafone .dxtc-link
+{
+	color: #acacac;
+	cursor: default;
+}
+/* bottom  */
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer
+{
+	padding-bottom: 3px;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-strip
+{
+	clear: left;
+	*float: none;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	border-bottom: 1px solid transparent;
+	_border-bottom-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-tab
+{
+	background: #E0E0E0 url('tcTabBack.gif') repeat-x top;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #ED1B24 url('tcTabBack.gif') repeat-x top;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-top: 4px solid #ED1B24;
+}
+.dxtcLite_Vodafone.dxtc-bottom > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right: 1px solid #A8A8A8;
+	border-bottom-color: #A8A8A8;
+	border-left: 1px solid #A8A8A8;
+	border-bottom-width: 1px;
+	border-bottom-style: none!important;
+}
+/* left */
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer
+{
+	padding-left: 3px;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	float: none;
+	*float: left;
+	clear: none;
+	*clear: both;
+	width: auto;
+	height: auto;
+}
+.dxtcLite_Vodafone.dxtc-left.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-left.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-top-style: none;
+	border-bottom-style: none;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-link
+{
+	padding: 3px 15px 4px;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-tab
+{
+    background: #E0E0E0 url('tcTabBack.gif') repeat-y right;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #ED1B24 url('tcTabBack.gif') repeat-y right;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	border: none;
+	border-left: 1px solid transparent;
+	width: auto;
+	_border-left-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-right: 4px solid #ED1B24;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	height: 5px;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-stripContainer .dxtc-spacer
+{
+	height: 1px;
+}
+.dxtcLite_Vodafone.dxtc-left > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right: 1px solid #A8A8A8;
+	border-bottom: 1px solid #A8A8A8;
+	border-left-color: #A8A8A8;
+	border-left-width: 1px;
+	border-left-style: none!important;
+	float: left;
+	clear: none;
+}
+/* right */
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer
+{
+	padding-right: 3px;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	float: none;
+	*float: left;
+	clear: none;
+	*clear: both;
+	width: auto;
+	height: auto;
+}
+.dxtcLite_Vodafone.dxtc-right.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-right.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-top-style: none;
+	border-bottom-style: none;
+	border-right-style: none;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-link
+{
+	padding: 3px 15px 4px;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-tab
+{
+    background: #E0E0E0 url('tcTabBack.gif') repeat-y left;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #ED1B24 url('tcTabBack.gif') repeat-y left;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	border: none;
+	border-right: 1px solid transparent;
+	_border-right-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-left: 4px solid #ED1B24;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	height: 5px;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-stripContainer .dxtc-spacer
+{
+	height: 1px;
+}
+.dxtcLite_Vodafone.dxtc-right > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right-color: #A8A8A8;
+	border-bottom: 1px solid #A8A8A8;
+	border-left: 1px solid #A8A8A8;
+	border-right-width: 1px;
+	border-right-style: none!important;
+	float: left;
+	clear: none;
+}
+
+/* -- ASPxTitleIndex -- */
+.dxtiControl_Vodafone 
+{
+	color: #ED1B24;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxtiControl_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxtiItem_Vodafone
+{
+	white-space: nowrap;
+}
+.dxtiGroupHeader_Vodafone,
+.dxtiGroupHeaderCategorized_Vodafone
+{
+	font-size: 1.5em;
+	text-decoration: none;
+}
+.dxtiGroupHeader_Vodafone,
+.dxtiGroupHeaderCategorized_Vodafone
+{
+	white-space: nowrap;
+	padding: 0px 0px 8px;
+}
+.dxtiGroupHeaderCategorized_Vodafone
+{
+	border-bottom: 1px Solid #C0C0C0;
+}
+/* - GroupHeaderText - */
+.dxtiGroupHeaderText_Vodafone
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxtiGroupHeaderText_Vodafone
+{
+	padding: 0px 8px 3px;
+}
+.dxtiGroupHeaderTextCategorized_Vodafone
+{
+	color: #FFFFFF;
+	background-color: #ED1B24;
+}
+.dxtiGroupHeaderTextCategorized_Vodafone
+{
+	padding: 1px 8px;
+}
+/* - FilterBox - */
+.dxtiFilterBoxInfoText_Vodafone
+{
+	font-size: 0.75em;
+    font-weight: normal;
+	color: #999999;
+	padding-top: 0px;
+	padding-bottom: 4px;
+}
+.dxtiFilterBoxEdit_Vodafone
+{
+	border: 1px Solid silver;
+}
+.dxtiFilterBox_Vodafone,
+.dxtiFilterBox_Vodafone table
+{
+	color: #333333;
+}
+.dxtiFilterBox_Vodafone
+{
+	padding: 15px;
+	background-color: #FAFAFA;
+}
+/* - IndexPanel - */
+.dxtiIndexPanel_Vodafone
+{
+    font-size: 1.33em;
+	padding: 10px 0;
+	text-decoration: none;
+}
+.dxtiIndexPanelItem_Vodafone,
+.dxtiCurrentIndexPanelItem_Vodafone
+{
+	text-decoration: none;
+}
+.dxtiIndexPanelItem_Vodafone,
+.dxtiCurrentIndexPanelItem_Vodafone
+{
+	padding: 0px 6px 3px;
+}
+.dxtiCurrentIndexPanelItem_Vodafone
+{
+	color: #FFFFFF;
+	background-color: #ED1B24;
+}
+/* - BackToTop - */
+.dxtiBackToTop_Vodafone,
+.dxtiBackToTop_Vodafone a
+{
+	color: #999999;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxtiBackToTop_Vodafone
+{
+	border-top: 1px solid silver;
+	padding: 8px 0px;
+	text-align: right!important;
+}
+.dxtiBackToTopRtl_Vodafone
+{
+padding: 8px 0px;
+}
+.dxtiBackToTop_Vodafone img
+{
+	float: right;
+	margin-top: -4px;
+	margin-left: 4px;
+}
+/* Disabled */
+.dxtiDisabled_Vodafone,
+.dxtiDisabled_Vodafone a
+{
+	color: #b8b8b8;
+	cursor: default!important;
+}
+/* -- ASPxUploadControl -- */
+.dxucControl_Vodafone,
+.dxucEditArea_Vodafone,
+input[type="text"].dxucEditArea_Vodafone /*Bootstrap correction*/
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;	
+}
+.dxucControl_Vodafone,
+.dxucEditArea_Vodafone,
+body input.dxucEditArea_Vodafone /*Bootstrap correction*/
+{
+	color: #333333;
+}
+.dxucEditArea_Vodafone,
+input[type="text"].dxucEditArea_Vodafone /*Bootstrap correction*/
+{
+    padding: 1px;
+}
+.dxucControl_Vodafone .dxucInputs_Vodafone
+{
+}
+.dxucTextBox_Vodafone
+{
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 1px 2px;
+}
+.dxucTextBox_Vodafone .dxucEditArea_Vodafone
+{
+	margin: 0px;
+	background-color: white;
+}
+.dxucNullText_Vodafone .dxucEditArea_Vodafone
+{
+    color: #818181;
+}
+.dxucErrorCell_Vodafone
+{
+	color: Red;
+	text-align: left;
+}
+.dxucButton_Vodafone,
+.dxucButton_Vodafone a
+{
+	color: #ED1B24;
+	white-space: nowrap;
+}
+.dxucBrowseButton_Vodafone,
+.dxucBrowseButton_Vodafone a
+{
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.dxucControl_Vodafone .dxucBrowseButton_Vodafone a
+{
+	color: #000000;
+}
+.dxucControl_Vodafone a[unselectable="on"]
+{
+    user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+.dxucBrowseButton_Vodafone
+{
+	border: 1px solid Silver;
+	padding: 3px 8px 4px;
+	background-color: White;
+}
+@-moz-document url-prefix() {
+	.dxucBrowseButton_Vodafone
+    {
+        padding: 4px 8px 3px;
+    }
+}
+.dxucBrowseButton_Vodafone.dxbf
+{
+    padding: 3px 7px 4px;
+}
+.dxucBrowseButton_Vodafone.dxbf a
+{
+    border: 1px dotted black;
+}
+.dxucBrowseButtonHover_Vodafone
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxucBrowseButtonPressed_Vodafone
+{
+	background-color: Silver;
+	color: #FFFFFF;
+}
+.dxuc-IE7 .dxucTextBox_Vodafone .dxucEditArea_Vodafone
+{
+    margin-left: -3px;
+}
+/* ProgressBar */
+.dxucProgressBar_Vodafone
+{
+	background-color: #E0E0E0;
+}
+.dxucProgressBar_Vodafone,
+.dxucProgressBar_Vodafone td.dx
+{
+	color: #333333;
+}
+.dxucProgressBar_Vodafone .dxucPBMainCell_Vodafone,
+.dxucProgressBar_Vodafone td.dx
+{
+	padding: 0;
+}
+.dxucProgressBarIndicator_Vodafone 
+{
+	background-color: #ED1B24;
+}
+/* Silverlight Plugin Link */
+.dxucSilverlightPluginLinkPanel_Vodafone {
+	font-size: 0.75em;
+	color: #7d7d7d;
+	text-align: left;
+}
+.dxucSilverlightPluginLinkPanel_Vodafone td {
+	padding: 0px 3px;
+	vertical-align: middle;
+}
+.dxucSilverlightPluginLinkPanel_Vodafone a {
+	color: #0D45B7;
+}
+/* Disabled */
+.dxucDisabled_Vodafone,
+.dxucDisabled_Vodafone a
+{
+	cursor: default;
+	color: #B8B8B8;
+}
+.dxucTextBoxDisabled_Vodafone
+{
+	border-color: #C3C3C3;
+}
+.dxucButtonDisabled_Vodafone,
+.dxucButtonDisabled_Vodafone a
+{
+	text-decoration: none;
+}
+.dxucBrowseButtonDisabled_Vodafone
+{
+	cursor: default;
+}
+.dxucControl_Vodafone .dxucBrowseButtonDisabled_Vodafone a
+{
+    color: #b8b8b8;
+}
+
+/* -- ASPxSplitter -- */
+.dxsplControl_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxsplControl_Vodafone,
+.dxsplVSeparator_Vodafone,
+.dxsplHSeparator_Vodafone
+{
+	background-color: White;
+}
+.dxsplVSeparator_Vodafone,
+.dxsplHSeparator_Vodafone
+{
+	font-size: 0;
+	padding: 0 1px 1px 0;
+}
+.dxsplControl_Vodafone,
+.dxsplVSeparator_Vodafone,
+.dxsplHSeparator_Vodafone,
+.dxsplPane_Vodafone,
+.dxsplPaneCollapsed_Vodafone,
+.dxsplVSeparator_Vodafone,
+.dxsplHSeparator_Vodafone,
+.dxsplVSeparatorCollapsed_Vodafone,
+.dxsplHSeparatorCollapsed_Vodafone
+{
+}
+.dxsplPane_Vodafone,
+.dxsplPaneCollapsed_Vodafone
+{
+	background-color: white;
+}
+.dxsplPaneCollapsed_Vodafone
+{
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+}
+.dxsplVSeparatorHover_Vodafone
+{
+	cursor: w-resize;
+}
+.dxsplHSeparatorHover_Vodafone
+{
+	cursor: n-resize;
+}
+.dxsplVSeparatorCollapsed_Vodafone
+{
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+.dxsplHSeparatorCollapsed_Vodafone
+{
+	border-left-width: 1px;
+	border-right-width: 1px;
+}
+.dxsplVSeparatorCollapsed_Vodafone,
+.dxsplHSeparatorCollapsed_Vodafone
+{
+	cursor: default!important;
+}
+.dxsplVSeparatorButton_Vodafone
+{
+	cursor: pointer;
+	padding: 5px 3px 5px 2px;
+}
+.dxsplHSeparatorButton_Vodafone
+{
+	cursor: pointer;
+	padding: 2px 5px 3px;
+}
+.dxsplDisabled_Vodafone .dxsplVSeparatorButton_Vodafone,
+.dxsplDisabled_Vodafone .dxsplHSeparatorButton_Vodafone
+{
+	cursor: default;
+}
+.dxsplVSeparatorHover_Vodafone,
+.dxsplHSeparatorHover_Vodafone,
+.dxsplVSeparatorButtonHover_Vodafone,
+.dxsplHSeparatorButtonHover_Vodafone
+{
+	background-color: #ED1B24;
+}
+.dxsplResizingPointer_Vodafone
+{
+	background: url('splResizingPointer.gif') repeat;
+	font-size: 0;
+	line-height: 0px;
+}
+.dxsplControl_Vodafone .dxsplLCC
+{
+	padding: 8px;
+}
+
+/* -- ASPxTreeView -- */
+.dxtvControl_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	float: left;
+}
+.dxtvControl_Vodafone li 
+{
+	overflow-y: hidden;
+}
+.dxtvControl_Vodafone ul 
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+}
+
+.dxtvControl_Vodafone a 
+{
+	color: #333333;
+	text-decoration: none;
+}
+
+.dxtvControl_Vodafone .dxtv-ln
+{
+	vertical-align: top;
+}
+
+.dxtvControl_Vodafone .dxtv-nd
+{
+	margin-top: 1px;
+	float: left;
+	padding: 3px 5px 4px;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	outline: 0 none;
+}
+
+.dxtvControl_Vodafone .dxtv-elbNoLn,
+.dxtvControl_Vodafone .dxtv-elb
+{
+	width: 26px;
+	height: 21px;
+	vertical-align: top;
+	float: left;
+}
+
+.dxtvControl_Vodafone .dxtv-elb
+{
+}
+
+.dxtvControl_Vodafone .dxtv-btn 
+{
+	margin-left: 10px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.dxtvControl_Vodafone .dxtv-subnd 
+{
+	margin-left: 22px;
+}
+
+.dxtvControl_Vodafone .dxtv-ndImg 
+{
+	margin:  0 4px 0 2px;
+	cursor: pointer;
+}
+
+.dxtvControl_Vodafone .dxtv-ndTxt 
+{
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.dxtvControl_Vodafone .dxtv-ndChk
+{
+	margin:  0 6px 0 2px;
+}
+  
+.dxtvControl_Vodafone .dxtv-ndTmpl
+{
+	float: left;
+	white-space: nowrap;
+}
+
+.dxtvControl_Vodafone .dxtv-ndSel
+{
+	background-color: #f0f0f0;
+	cursor: default;
+}
+
+.dxtvControl_Vodafone .dxtv-ndHov
+{
+	background-color: #ED1B24;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+
+.dxtvControl_Vodafone .dxtv-clr,
+.dxtvControl_Vodafone .dxtv-clrIE7
+{
+	clear: both;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	width: 0;
+	display: block;
+} 
+
+.dxtvControl_Vodafone .dxtv-clr
+{
+	line-height: 0;
+}
+
+.dxtvControl_Vodafone.dxtvRtl,
+.dxtvControl_Vodafone.dxtvRtl .dxtv-nd, 
+.dxtvControl_Vodafone.dxtvRtl .dxtv-elbNoLn,
+.dxtvControl_Vodafone.dxtvRtl .dxtv-elb,
+.dxtvControl_Vodafone.dxtvRtl .dxtv-ndTmpl
+{
+	float: right;
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-elb,
+.dxtvControl_Vodafone.dxtvRtl .dxtv-ln 
+{
+	background-position: right top;
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-elb
+{
+	background-image: url('tvElbowRtl.gif');
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-btn 
+{
+	margin: 5px 10px 0 0;
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-subnd 
+{
+	margin: 0 22px 0 0;
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-ndImg 
+{
+    margin: 0 2px 0 4px;
+}
+
+.dxtvControl_Vodafone.dxtvRtl.OperaRtlFix .dxtv-btn
+{
+	margin: 5px 10px 0 0;
+}
+
+.dxtvControl_Vodafone.dxtvRtl .dxtv-ndChk
+{
+	margin: 0 2px 0 6px;
+}
+
+.dxtvControl_Vodafone.dxtvRtl.OperaRtlFix .dxtv-subnd 
+{
+	overflow-x: hidden;
+}
+
+.dxtvDisabled_Vodafone,
+.dxtvControl_Vodafone .dxtvDisabled_Vodafone,
+.dxtvDisabled_Vodafone a,
+.dxtvDisabled_Vodafone .dxtv-ndTxt,
+.dxtvDisabled_Vodafone .dxtv-ndImg,
+.dxtvDisabled_Vodafone .dxtv-btn,
+.dxtvDisabled_Vodafone .dxtv-nd
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* ASPxFileManager */
+.dxfmControl_Vodafone
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	outline: 0px;
+	color: #333333;
+}
+.dxfmDisabled_Vodafone
+{
+	color: #b8b8b8;
+}
+
+/* FileManager - Splitter */
+.dxfmControl_Vodafone .dxsplControl_Vodafone
+{
+	border: 1px solid silver;
+}
+.dxfmControl_Vodafone .dxsplPane_Vodafone
+{
+	border-width: 0px;
+	background-color: White;
+}
+.dxfmControl_Vodafone .dxsplLCC {
+	outline-width: 0px;
+	padding: 4px;
+}
+.dxfmControl_Vodafone.dxfm-dst .dxsplVSeparator_Vodafone
+{
+	width: 3px;
+	background: url('fmSplitterSeparator.gif') repeat-y right;
+	border-width: 0px;
+}
+.dxfmControl_Vodafone.dxfm-dst.dxfm-rtl .dxsplVSeparator_Vodafone
+{
+	background-position-x: left;
+}
+.dxfmControl_Vodafone.dxfm-tch .dxsplVSeparator_Vodafone
+{
+	border-width: 0 1px;
+	border-color: #E0E0E0;
+}
+.dxfmControl_Vodafone .dxsplHSeparator_Vodafone
+{
+	border-width: 0px;
+	background-color: #E0E0E0;
+}
+.dxfmControl_Vodafone .dxfm-filePane .dxsplLCC
+{
+    padding: 0;
+}
+
+/* FileManager - TreeView */
+.dxfmControl_Vodafone .dxtvControl_Vodafone 
+{
+	margin-left: -5px;
+}
+.dxfmControl_Vodafone .dxtvControl_Vodafone .dxtv-nd.dxfm-folderSI
+{
+	border: 1px dotted #888888;
+	padding: 2px 4px 3px;
+}
+
+/* FileManager - File */
+.dxfmControl_Vodafone div.dxfm-file 
+{
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 6px;
+	margin: 4px;
+}
+.dxfmControl_Vodafone.dxfm-rtl div.dxfm-file 
+{
+	float: right;
+}
+.dxfmDisabled_Vodafone .dxfm-file
+{
+	cursor: default;
+}
+.dxfmControl_Vodafone div.dxfm-fileSI
+{
+	border: 1px dotted #888888;
+}
+.dxfmControl_Vodafone div.dxfm-fileSA
+{
+	background-color: #e0e0e0;
+}
+.dxfmControl_Vodafone div.dxfm-fileH,
+.dxfmControl_Vodafone div.dxfm-fileF
+{
+	background-color: #ED1B24;
+	color: #FFFFFF;
+}
+.dxfmControl_Vodafone td.dxgv .dxfm-fileName
+{
+    padding: 2px 0;
+}
+.dxfmControl_Vodafone .dxfm-file .dxfm-highlight
+{
+	background-color: #CFCFCF;
+	background-repeat: repeat;
+	color: #333333;
+	font-weight: bold;
+}
+.dxfmControl_Vodafone .fileContainer
+{
+    margin: 4px;
+}
+
+/* FileManager - GridView */
+.dxfmControl_Vodafone .dxgvControl_Vodafone
+{
+    outline: none;
+}
+.dxfmControl_Vodafone .dxgvTable_Vodafone td.dxgv 
+{
+    border-bottom-width: 0px;
+}
+.dxfmControl_Vodafone .dxgvTable_Vodafone tr.dxfm-fileSA
+{
+    background-color: #ED1B24;
+    color: White;
+}     
+.dxfmControl_Vodafone .dxgvTable_Vodafone tr.dxfm-fileSI
+{
+    background-color: #999999;
+    color: White;
+}
+.dxfmControl_Vodafone .dxfm-fileF.dxgvFocusedRow_Vodafone
+{
+    background-color: #ED1B24;
+    color: White;
+}
+.dxfmControl_Vodafone .dxgvTable_Vodafone tr.dxfm-fileH
+{
+    background-color: #E3E3E3;
+    color: Black;
+}
+.dxfmControl_Vodafone tr.dxgvFocusedRow_Vodafone
+{
+    background: White;
+    color: Black;
+}
+.dxfm-file .dxgv.dxgvCommandColumn_Vodafone
+{
+	text-overflow: clip;
+}
+
+/* FileManager - Toolbar */
+.dxfmControl_Vodafone .dxfm-toolbar
+{
+	background-color: #FAFAFA;
+}
+.dxfmControl_Vodafone .dxfm-toolbar.dxsplPane_Vodafone table.dxfm
+{
+	width: 100%;
+}
+.dxfmControl_Vodafone .dxfm-toolbar.dxsplPane_Vodafone .dxfm-filter
+{
+	text-align: right;
+	vertical-align: top;
+	white-space: nowrap;
+}
+.dxfmControl_Vodafone.dxfm-rtl .dxfm-toolbar.dxsplPane_Vodafone .dxfm-filter 
+{
+	text-align: left;
+}
+.dxfmControl_Vodafone .dxfm-toolbar.dxsplPane_Vodafone .dxfm-filter input,
+.dxfmControl_Vodafone .dxfm-toolbar.dxsplPane_Vodafone .dxfm-path input
+{
+	border: 1px solid silver;
+}
+
+.dxgvHeader_Vodafone.dxfmGridHeader
+{
+	background: White;
+}
+
+/* FileManager - Toolbar - Light */
+.dxfmControl_Vodafone .dxfm-toolbar .dxsplLCC 
+{
+	padding: 5px;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxm-main
+{
+	margin-top: 0px;
+	border-width: 0px;
+	background: transparent none;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-separator 
+{
+	padding: 0px 11px;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxm-horizontal.dxmtb .dxm-separator b
+{
+	background-color: #e0e0e0;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxfm-path 
+{
+	padding-left: 1px;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxfm-path input
+{
+	margin: 3px 8px 0px 4px;
+}
+.dxfmControl_Vodafone.dxfm-rtl .dxfm-toolbar .dxmLite_Vodafone .dxfm-path input 
+{
+	margin: 3px 4px 0px 8px;
+}
+.dxfmControl_Vodafone .dxfm-toolbar .dxmLite_Vodafone .dxm-item .dxm-content 
+{
+	padding-top: 4px;
+}
+
+/* FileManager - UploadPanel */
+.dxfmControl_Vodafone .dxfm-uploadPanel
+{
+	background-color: #FAFAFA;
+	text-align: right;
+}
+.dxfmControl_Vodafone.dxfm-rtl .dxfm-uploadPanel
+{
+	text-align: left;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable
+{
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: 1px;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable .dxucControl_Vodafone 
+{
+	margin-top: 4px;
+	margin-right: 10px;
+}
+.dxfmControl_Vodafone.dxfm-rtl .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable .dxucControl_Vodafone 
+{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell
+{
+    padding: 7px 0 0;
+    vertical-align: top;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell a 
+{
+	color: #ED1B24;
+	text-decoration: underline;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell a.dxfm-uploadDisable
+{
+	color: #777777;
+	text-decoration: none;
+	cursor: default;
+}
+
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone .dxucTextBox_Vodafone {
+	padding: 0px 2px;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone .dxucBrowseButton_Vodafone {
+	padding: 2px 8px 3px;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone .dxucBrowseButton_Vodafone.dxbf {
+    padding: 2px 7px 3px;
+}
+.dxfmControl_Vodafone .dxfm-uploadPanel.dxsplPane_Vodafone .dxucSilverlightPluginLinkPanel_Vodafone {
+	margin-top: -8px;
+}
+
+/* FileManager - Create, Rename input */
+.dxfmControl_Vodafone .dxfm-cInput,
+.dxfmControl_Vodafone .dxfm-rInput
+{
+	border: 1px solid silver;
+}
+
+/* FileManager - Move PopupControl */
+.dxfmControl_Vodafone .dxpc-content 
+{
+	padding: 5px 0px 0px;
+	background-color: White;
+}
+.dxfmControl_Vodafone .dxpc-content .dxfm-mpFoldersC 
+{
+	overflow: auto;
+	padding: 0px 0px 20px 5px;
+}
+.dxfmControl_Vodafone .dxpc-content .dxfm-mpButtonC
+{
+	margin-top: 5px;
+	background-color: #F3F3F3;
+	border-top: 1px solid #E0E0E0;
+	text-align: right;
+	padding: 10px 15px 10px 10px;
+}
+.dxfmControl_Vodafone .dxpc-content .dxfm-mpButtonC a 
+{
+	margin-left: 12px;
+	color: #ED1B24;
+}
+
+/* ASPxImageSlider */
+.dxisControl_Vodafone
+{
+    width: 660px;
+    height: 505px;
+    outline: 0;
+    user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxisControl_Vodafone .dxis-playPauseBtnWrapper
+{
+    top: 0;
+    right: 0;
+    padding: 6px 12px 6px 14px;
+    position: absolute;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+*[dir="rtl"].dxisControl_Vodafone .dxis-playPauseBtnWrapper {
+    right: auto;
+    left: 0;
+}
+.dxisControl_Vodafone > .dxis-passePartout
+{
+    position: relative;
+    background-color: #000000;
+    width: 100%;
+    height:100%;
+}
+.dxisControl_Vodafone .dxis-imageArea
+{
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.dxisControl_Vodafone .dxis-slidePanel,
+.dxisControl_Vodafone .dxis-nbSlidePanel,
+.dxisControl_Vodafone .dxis-nbSlidePanelWrapper
+{
+    position: absolute;
+}
+.dxisControl_Vodafone .dxis-nbSlidePanelWrapper
+{
+    overflow: hidden;
+}
+.dxisControl_Vodafone .dxis-nbTop,
+.dxisControl_Vodafone .dxis-nbBottom,
+.dxisControl_Vodafone .dxis-nbLeft,
+.dxisControl_Vodafone .dxis-nbRight,
+.dxisControl_Vodafone .dxis-nbDotsBottom,
+.dxisControl_Vodafone .dxis-nbDotsTop,
+.dxisControl_Vodafone .dxis-nbDotsLeft,
+.dxisControl_Vodafone .dxis-nbDotsRight
+{
+    position: relative;
+}
+.dxisControl_Vodafone .dxis-nbTop
+{
+    padding-bottom: 5px;
+}
+.dxisControl_Vodafone .dxis-nbBottom
+{
+    padding-top: 5px;
+}
+.dxisControl_Vodafone .dxis-nbLeft
+{
+    padding-right: 5px;
+}
+.dxisControl_Vodafone .dxis-nbRight
+{
+    padding-left: 5px;
+}
+.dxisControl_Vodafone .dxis-nbDotsBottom,
+.dxisControl_Vodafone .dxis-nbDotsTop
+{
+    padding: 20px 0;
+}
+.dxisControl_Vodafone .dxis-nbDotsLeft
+{
+    padding-right: 20px;
+}
+.dxisControl_Vodafone .dxis-nbDotsRight
+{
+    padding-left: 20px;
+}
+.dxisControl_Vodafone .dxis-nbLeft,
+.dxisControl_Vodafone .dxis-nbRight,
+.dxisControl_Vodafone .dxis-nbDotsLeft,
+.dxisControl_Vodafone .dxis-nbDotsRight
+{
+    float: left;
+}
+.dxisControl_Vodafone .dxis-item,
+.dxisControl_Vodafone .dxis-nbItem
+{
+    background-image: url('isLoading.gif');
+    background-repeat: no-repeat;
+    background-position:center center;
+}
+.dxisControl_Vodafone .dxis-nbItem .dxis-nbHoverItem
+{
+    display: none;
+    position: absolute;
+    border: 2px solid #9f9f9f;
+}
+.dxisControl_Vodafone .dxis-nbItem .dxis-nbHoverItem > div
+{
+    border: 2px solid #ffffff;
+}
+.dxisControl_Vodafone .dxis-nbItem.dxis-hover .dxis-nbHoverItem
+{
+    display: block;
+}
+.dxisControl_Vodafone .dxis-item,
+.dxisControl_Vodafone .dxis-nbItem,
+.dxisControl_Vodafone .dxis-nbDotItem
+{
+    position: absolute;
+    overflow: hidden;
+}
+.dxisControl_Vodafone .dxis-nbItem,
+.dxisControl_Vodafone .dxis-nbDotItem
+{
+    cursor: pointer;
+}
+.dxisControl_Vodafone .dxis-nbDotItemSelected,
+.dxisControl_Vodafone .dxis-nbDotItemDisabled
+{
+    cursor: default;
+}
+.dxisControl_Vodafone .dxis-nbItem
+{
+    width: 90px;
+    height: 60px;
+    background-color: black;
+}
+.dxisControl_Vodafone .dxis-itemTextArea
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    cursor: default;
+    padding: 22px;
+    color: white;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dxisControl_Vodafone .dxis-nbSelectedItem
+{
+    z-index: 1;
+    cursor: default;
+    position: absolute;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+.dxisControl_Vodafone .dxis-nbSelectedItem > div
+{
+    border: 2px solid White;
+}
+.dxisControl_Vodafone .dxis-prevBtnVertWrapper,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_Vodafone .dxis-nextBtnVertWrapper,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_Vodafone .dxis-prevBtnHorWrapper,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_Vodafone .dxis-nextBtnHorWrapper,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapper
+{
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.dxisControl_Vodafone .dxis-prevBtnHorWrapperDisabled,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapperDisabled,
+.dxisControl_Vodafone .dxis-nextBtnHorWrapperDisabled,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapperDisabled,
+.dxisControl_Vodafone .dxis-prevBtnVertWrapperDisabled,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapperDisabled,
+.dxisControl_Vodafone .dxis-nextBtnVertWrapperDisabled,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapperDisabled
+{
+    cursor: default;
+}
+.dxisControl_Vodafone .dxis-prevBtnHorWrapper,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapper
+{
+    left: 0px;
+}
+.dxisControl_Vodafone .dxis-nextBtnHorWrapper,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapper
+{
+    right: 0px;
+}
+.dxisControl_Vodafone .dxis-prevBtnVertWrapper,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapper
+{
+    top: 0px;
+}
+.dxisControl_Vodafone .dxis-nextBtnVertWrapper,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapper
+{
+    bottom: 0px;
+}
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-prevBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-nextBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-nextBtnHorOutsideWrapper
+{
+    top: 50%;
+    margin-top: -32px;
+}
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-prevBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-nextBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-passePartout > .dxis-nextBtnVertOutsideWrapper
+{
+    left: 50%;
+    margin-left: -30px;
+}
+.dxisControl_Vodafone .dxis-prevBtnHor
+{
+    margin: 16px 12px 16px 8px;
+}
+.dxisControl_Vodafone .dxis-nextBtnHor
+{
+    margin: 16px 8px 16px 12px;
+}
+.dxisControl_Vodafone .dxis-prevBtnVert
+{
+    margin: 8px 16px 12px 16px;
+}
+.dxisControl_Vodafone .dxis-nextBtnVert
+{
+    margin: 12px 16px 8px 16px;
+}
+.dxisControl_Vodafone > .dxis-nbBottom > .dxis-prevBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-nbBottom > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbBottom > .dxis-nextBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-nbBottom > .dxis-nextBtnHorOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbTop > .dxis-prevBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-nbTop > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbTop > .dxis-nextBtnHorWrapper,
+.dxisControl_Vodafone > .dxis-nbTop > .dxis-nextBtnHorOutsideWrapper
+{
+    height: inherit;
+}
+.dxisControl_Vodafone > .dxis-nbLeft > .dxis-prevBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-nbLeft > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbLeft > .dxis-nextBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-nbLeft > .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbRight > .dxis-prevBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-nbRight > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_Vodafone > .dxis-nbRight > .dxis-nextBtnVertWrapper,
+.dxisControl_Vodafone > .dxis-nbRight > .dxis-nextBtnVertOutsideWrapper
+{
+    width: inherit;
+}
+.dxisControl_Vodafone .dxis-prevPageBtnHor,
+.dxisControl_Vodafone .dxis-prevPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-nextPageBtnHor,
+.dxisControl_Vodafone .dxis-nextPageBtnHorOutside
+{
+    top: 50%;
+    position: relative;
+    margin: -11px 7px 0 7px;
+}
+.dxisControl_Vodafone .dxis-prevPageBtnVert,
+.dxisControl_Vodafone .dxis-prevPageBtnVertOutside,
+.dxisControl_Vodafone .dxis-nextPageBtnVert,
+.dxisControl_Vodafone .dxis-nextPageBtnVertOutside
+{
+    margin: 7px auto 6px;
+}
+.dxisControl_Vodafone .dxis-prevBtnHorWrapperPressed > .dxis-prevBtnHor,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevBtnHor,
+.dxisControl_Vodafone .dxis-nextBtnHorWrapperPressed > .dxis-nextBtnHor,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextBtnHor,
+.dxisControl_Vodafone .dxis-prevBtnHorWrapperPressed > .dxis-prevPageBtnHor,
+.dxisControl_Vodafone .dxis-prevBtnHorWrapperPressed > .dxis-prevPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevPageBtnHor,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-nextBtnHorWrapperPressed > .dxis-nextPageBtnHor,
+.dxisControl_Vodafone .dxis-nextBtnHorWrapperPressed > .dxis-nextPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextPageBtnHor,
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-prevBtnVertWrapperPressed > .dxis-prevBtnVert,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevBtnVert,
+.dxisControl_Vodafone .dxis-nextBtnVertWrapperPressed > .dxis-nextBtnVert,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextBtnVert,
+.dxisControl_Vodafone .dxis-prevBtnVertWrapperPressed > .dxis-prevPageBtnVert,
+.dxisControl_Vodafone .dxis-prevBtnVertWrapperPressed > .dxis-prevPageBtnVertOutside,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevPageBtnVert,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevPageBtnVertOutside,
+.dxisControl_Vodafone .dxis-nextBtnVertWrapperPressed > .dxis-nextPageBtnVert,
+.dxisControl_Vodafone .dxis-nextBtnVertWrapperPressed > .dxis-nextPageBtnVertOutside,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextPageBtnVert,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextPageBtnVertOutside,
+.dxisControl_Vodafone .dxis-prevBtnVertPressed,
+.dxisControl_Vodafone .dxis-nextBtnVertPressed,
+.dxisControl_Vodafone .dxis-nextBtnHorPressed,
+.dxisControl_Vodafone .dxis-prevBtnHorPressed,
+.dxisControl_Vodafone .dxis-prevPageBtnVertPressed,
+.dxisControl_Vodafone .dxis-prevPageBtnVertOutsidePressed,
+.dxisControl_Vodafone .dxis-nextPageBtnVertPressed,
+.dxisControl_Vodafone .dxis-nextPageBtnVertOutsidePressed,
+.dxisControl_Vodafone .dxis-prevPageBtnHorPressed,
+.dxisControl_Vodafone .dxis-prevPageBtnHorOutsidePressed,
+.dxisControl_Vodafone .dxis-nextPageBtnHorPressed,
+.dxisControl_Vodafone .dxis-nextPageBtnHorOutsidePressed,
+.dxisControl_Vodafone .dxis-prevBtnVertDisabled,
+.dxisControl_Vodafone .dxis-nextBtnVertDisabled,
+.dxisControl_Vodafone .dxis-nextBtnHorDisabled,
+.dxisControl_Vodafone .dxis-prevBtnHorDisabled,
+.dxisControl_Vodafone .dxis-prevPageBtnVertDisabled,
+.dxisControl_Vodafone .dxis-prevPageBtnVertOutsideDisabled,
+.dxisControl_Vodafone .dxis-nextPageBtnVertDisabled,
+.dxisControl_Vodafone .dxis-nextPageBtnVertOutsideDisabled,
+.dxisControl_Vodafone .dxis-prevPageBtnHorDisabled,
+.dxisControl_Vodafone .dxis-prevPageBtnHorOutsideDisabled,
+.dxisControl_Vodafone .dxis-nextPageBtnHorDisabled,
+.dxisControl_Vodafone .dxis-nextPageBtnHorOutsideDisabled
+{
+    opacity: 0.25;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=25);
+}
+.dxisControl_Vodafone .dxis-nextBtnHorOutsideWrapper,
+.dxisControl_Vodafone .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_Vodafone .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_Vodafone .dxis-prevBtnVertOutsideWrapper {
+	background-color: transparent;
+}
+.dxisControl_Vodafone .dxis-nextPageBtnHorOutside,
+.dxisControl_Vodafone .dxis-prevPageBtnHorOutside {
+	margin-top: -14px;
+}
+/* ASPxImageGallery */
+.dxigControl_Vodafone
+{
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxigControl_Vodafone td.dxigCtrl
+{
+	padding: 12px 40px;
+}
+.dxigContent_Vodafone
+{
+    border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+    padding: 6px 0;
+}
+.dxigEmptyData_Vodafone
+{
+    color: Gray;
+}
+.dxigEmptyItem_Vodafone
+{
+	text-align: left;
+	vertical-align: top;
+}
+.dxigFlowItem_Vodafone
+{
+    float: left;
+}
+.dxigItem_Vodafone
+{
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-image: url('igLoading.gif');
+}
+.dxigItem_Vodafone a
+{
+    outline: 0;
+}
+.dxigItem_Vodafone a > img
+{
+    display: block;
+}
+.dxigItem_Vodafone .dxig-thumbnailBorder
+{
+    top: 0;
+    display: none;
+    position: absolute;
+    border: 1px solid gray;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+.dxigItem_Vodafone .dxig-thumbnailWrapper,
+.dxigFlowItem_Vodafone
+{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+.dxigControl_Vodafone .dxig-thumbnailTextArea
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: none;
+}
+.dxigControl_Vodafone .dxpcLite_Vodafone .dxpc-mainDiv,
+.dxigControl_Vodafone .dxpcLite_Vodafone .dxpc-contentWrapper
+{
+    border: 0;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.dxigControl_Vodafone .dxpcLite_Vodafone .dxpc-content
+{
+    padding: 0;
+    background-color: transparent;
+}
+.dxigControl_Vodafone .dxig-imageSliderWrapper
+{
+    overflow: hidden;
+    padding: 50px 65px;
+}
+.dxigControl_Vodafone.dxTouchUI .dxig-imageSliderWrapper
+{
+    padding: 0;
+}
+.dxigControl_Vodafone .dxig-imageSliderWrapper .dxisControl_Vodafone .dxis-item > img
+{
+    box-shadow: 0 0 50px rgb(0,0,0);
+    -moz-box-shadow: 0 0 50px rgb(0,0,0);
+    -webkit-box-shadow: 0 0 50px rgb(0,0,0);
+}
+.dxigControl_Vodafone .dxig-bottomPanel
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+.dxigControl_Vodafone .dxig-bottomPanel > .dxig-overflowPanel
+{
+    overflow: hidden;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxisControl_Vodafone
+{
+    position: relative;
+}
+.dxigControl_Vodafone .dxisControl_Vodafone > .dxis-passePartout
+{
+    background-color: transparent;
+}
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbBottom
+{
+    padding: 4px 4px 0 4px;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper,
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper
+{
+    width: 43px;
+    background: url('igNavBtnsBack.png') repeat-y;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper
+{
+    background-position: 0 0;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper
+{
+    background-position: -39px 0;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapperDisabled,
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapperDisabled
+{
+    display: none;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper .dxis-prevPageBtnHor,
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper .dxis-nextPageBtnHor
+{
+    position: absolute;
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper .dxis-prevPageBtnHor
+{
+}
+.dxigControl_Vodafone .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper .dxis-nextPageBtnHor
+{
+    right: 0;
+}
+.dxigControl_Vodafone .dxig-fullscreenViewerTextArea
+{
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+.dxigControl_Vodafone .dxig-prevButtonArea,
+.dxigControl_Vodafone .dxig-nextButtonArea
+{
+    top: 0;
+    position: absolute;
+}
+.dxigControl_Vodafone .dxig-prevButtonArea
+{
+    left: 0;
+}
+.dxigControl_Vodafone .dxig-nextButtonArea
+{
+    right: 0;
+}
+.dxigControl_Vodafone .dxig-prevButton,
+.dxigControl_Vodafone .dxig-nextButton
+{
+    top: 50%;
+    cursor: pointer;
+    position: relative;
+    margin: -32px 11px 0;
+}
+.dxigControl_Vodafone .dxig-prevButtonDisabled,
+.dxigControl_Vodafone .dxig-nextButtonDisabled
+{
+    cursor: auto;
+    opacity: 0.5;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=50);
+}
+.dxigControl_Vodafone .dxig-closeButtonWrapper,
+.dxigControl_Vodafone .dxig-playPauseButtonWrapper
+{
+    padding: 15px;
+    cursor: pointer;
+    position: absolute;
+}
+.dxigControl_Vodafone .dxig-closeButtonWrapper
+{
+    top: 4px;
+    right: 7px;
+}
+.dxigControl_Vodafone .dxig-closeButtonWrapper > .dxig-closeButton
+{
+    z-index: 1;
+}
+.dxigControl_Vodafone .dxig-playPauseButtonWrapper
+{
+    top: 2px;
+    right: 48px;
+}
+*[dir="rtl"].dxigControl_Vodafone .dxig-closeButtonWrapper {
+    left: 7px;
+    right: auto;
+}
+*[dir="rtl"].dxigControl_Vodafone .dxig-playPauseButtonWrapper {
+    left: 48px;
+    right: auto;
+}
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbBottom,
+.dxigControl_Vodafone .dxig-fullscreenViewerTextArea
+{
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.dxigControl_Vodafone .dxig-overflowPanel .dxig-navigationBarMarker
+{
+    left: 50%;
+    bottom: 0;
+    margin-left: -10px;
+    position: absolute;
+    opacity: 0.7;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+}
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbSelectedItem
+{
+    border: 2px solid #fff;
+}
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbHoverItem
+{
+    border: 2px solid #9F9F9F
+}
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbSelectedItem > div,
+.dxigControl_Vodafone .dxisControl_Vodafone .dxis-nbHoverItem > div
+{
+    border: 2px solid #000;
+}
+.dxigEPContainer_Vodafone
+{
+    height: 50px;
+	text-align: center;
+}
+.dxigEPContainer_Vodafone div
+{
+	padding-top: 16px;
+}
+.dxigEPContainer_Vodafone a
+{
+	color: #ED1B24;
+}
+
+/* Removes flicking in iOS Safari*/
+.dxfmControl_Vodafone,
+.dxnbGroupHeader_Vodafone,
+.dxnbGroupHeaderCollapsed_Vodafone,
+.dxnbGroupContent_Vodafone > TABLE > TBODY > TR,
+.dxtcTab_Vodafone,
+.dxtcActiveTab_Vodafone,
+.dxtvControl_Vodafone .dxtv-nd
+{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* Form Layout */
+.dxflFormLayout_Vodafone{
+    display: table;
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    line-height: 0px;
+	color: #333;
+}
+
+.dxflButtonItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 5px; }
+.dxflButtonItemSys .dxflVAMSys.dxflCaptionCell_Vodafone{ padding-bottom: 1px; }
+.dxflTextItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 0px; }
+.dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 2px; }
+.dxflCheckBoxItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 3px; }
+.dxflRadioButtonItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 4px; }
+.dxflCheckBoxListItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 11px; }
+.dxflRadioButtonListItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 12px; }
+.dxflListBoxItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 5px; }
+.dxflTrackBarItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 2px; }
+.dxflProgressBarItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 3px; }
+.dxflMemoItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 4px; }
+.dxflCustomItemSys .dxflVATSys.dxflCaptionCell_Vodafone{ padding-top: 2px; }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {   /*Chrome*/
+    .dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_Vodafone {
+        padding-top: 3px;
+    }
+}
+
+.dxflTextEditItemSys.dxflSafariItemSys .dxflVATSys.dxflCaptionCell_Vodafone {   /*Safari*/
+    padding-top: 2px;
+}
+
+noindex:-o-prefocus, body:first-of-type .dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_Vodafone {   /*Opera*/
+    padding-top: 3px;
+}
+
+html[xmlns*=""] .dxflMemoItemSys .dxflVATSys.dxflCaptionCell_Vodafone {   /*IE 8*/
+    padding-top: 3px;
+}
+
+.dxflMemoItemSys .dxflVATSys.dxflCaptionCell_Vodafone {   /*IE 7*/
+    *padding-top: 3px;
+}
+
+@-moz-document url-prefix() {   /*Firefox*/
+    .dxflMemoItemSys .dxflVATSys.dxflCaptionCell_Vodafone {
+        padding-top: 3px;
+    }
+}
+
+.dxflCLTSys .dxflCaptionCell_Vodafone,
+.dxflCLBSys .dxflCaptionCell_Vodafone{
+    padding: 3px 0;
+}
+
+.dxflCLLSys .dxflCaptionCell_Vodafone,
+*[dir="rtl"].dxflFormLayout_Vodafone.dxflCLRSys .dxflCaptionCell_Vodafone{
+    padding-left: 0px;
+    padding-right: 6px;
+}
+.dxflCLRSys .dxflCaptionCell_Vodafone,
+*[dir="rtl"].dxflFormLayout_Vodafone.dxflCLLSys .dxflCaptionCell_Vodafone{
+    padding-right: 0px;
+    padding-left: 6px;
+}
+.dxflCaptionCell_Vodafone{
+    white-space: nowrap;
+    line-height: 16px;
+    height: 100%;
+    width: 1%;
+}
+.dxflNestedControlCell_Vodafone{
+    height: inherit;
+}
+
+.dxflCheckBoxItemSys.dxflItem_Vodafone .dxichCellSys.dxeBase_Vodafone
+{
+    padding-left: 0px;
+}
+*[dir="rtl"] .dxflCheckBoxItemSys.dxflItem_Vodafone .dxichCellSys.dxeBase_Vodafone
+{
+    padding-right: 0px;
+}
+
+.dxflEmptyItem_Vodafone{
+    height: 21px;
+}
+
+.dxflItem_Vodafone{ padding: 2px 0; width: 100%; }
+.dxflItem_Vodafone > table.dxflItemTable_Vodafone { width: 100%; }
+.dxflGroup_Vodafone{ padding: 6px 5px; width: 100%;}
+.dxflGroup_Vodafone > table.dxflGroupTable_Vodafone { width: 100%; }
+.dxflGroupCell_Vodafone{ padding: 0 8px; }
+
+.dxflGroupBox_Vodafone {
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    border: 1px Solid #C0C0C0;
+    padding: 0 0 12px;
+    margin: 10px 0; 
+}
+.dxflGroupBox_Vodafone.dxflHeadingLineGroupBoxSys {
+    border-width: 1px 0 0;
+}
+.dxflGroupBox_Vodafone.dxflHeadingLineGroupBoxSys.dxflWithCaptionSys {
+    margin-top: 22px!important;
+}
+.dxflHeadingLineGroupBoxSys > .dxflGroup_Vodafone{
+    margin-top: -6px;
+}
+
+.dxflGroupCell_Vodafone> .dxtcControl_Vodafone{ margin: 0px; }
+
+.dxflGroupBox_Vodafone> .dxflGroup_Vodafone{ margin-top: -9px; padding: 0 4px; }
+.dxflGroupBox_Vodafone> .dxflGroup_Vodafone tr:first-child > .dxflGroupCell_Vodafone> .dxflItem_Vodafone{ padding-top: 9px; }
+.dxflGroupBox_Vodafone> .dxflGroup_Vodafone tr:first-child > .dxflGroupCell_Vodafone> .dxtcControl_Vodafone{ margin-top: 10px; }
+.dxflGroupBox_Vodafone> .dxflGroup_Vodafone tr:last-child > .dxflGroupCell_Vodafone> .dxflItem_Vodafone{ padding-bottom: 0px; }
+
+.dxflGroup_Vodafone tr:first-child > .dxflGroupCell_Vodafone> .dxflGroupBox_Vodafone{ margin-top: 13px; }
+.dxflGroup_Vodafone tr:last-child > .dxflGroupCell_Vodafone> .dxflGroupBox_Vodafone{ margin-bottom: 0px; }
+
+.dxtcPageContent_Vodafone> div > .dxflGroup_Vodafone{ padding-top: 0px; padding-bottom: 0px; }
+.dxtcPageContent_Vodafone> div > .dxflGroup_Vodafone tr:first-child > .dxflGroupCell_Vodafone> .dxflItem_Vodafone{ padding-top: 12px; }
+.dxtcPageContent_Vodafone> div > .dxflGroup_Vodafone tr:last-child > .dxflGroupCell_Vodafone> .dxflItem_Vodafone{ padding-bottom: 12px; }
+
+.dxflGroupBoxCaption_Vodafone{
+    background-color: White;
+    display: inline-block;  
+    left: 9px;
+    line-height: 16px;
+    padding: 0px 3px 0px 3px;  
+    position: relative;
+    top: -9px;
+}
+
+*[dir="rtl"].dxflFormLayout_Vodafone .dxflGroupBoxCaption_Vodafone {
+    padding: 0px 3px 0px 7px;
+    left: 0px;
+    right: 9px;
+}
+
+.dxflGroupBox_Vodafone > div.dxflGroup_Vodafone:first-child,
+.dxflGroupBox_Vodafone > table.dxflGroup_Vodafone:first-child {
+    margin-top: 0px;
+    padding-top: 7px;
+}
+
+.dxflHeadingLineGroupBoxSys > .dxflGroupBoxCaption_Vodafone{
+    top: -19px;
+}
+
+.dxflOptional_Vodafone{
+	color: gray;
+	font-style: normal;
+}
+.dxflRequired_Vodafone{
+	color: green;
+	font-style: normal;
+}
+.dxflInternalEditorTable_Vodafone {
+    width: 100%;
+}
+.dxflHelpText_Vodafone {
+    color: #9F9F9F;
+    font-size: 0.91em;
+}
+
+.dxflHelpText_Vodafone.dxflBHelpTextSys {
+    padding: 2px 0 6px;
+    line-height: normal;
+}
+
+/* Ribbon */
+.dxrControl_Vodafone {
+    font: 12px 'Segoe UI',Helvetica,'Droid Sans',Tahoma,Geneva,sans-serif;
+}
+.dxrControl_Vodafone .dxr-tabContent {
+    border: 1px solid #c0c0c0;
+    border-top-width: 0px;
+    height: 95px;
+    background: #ffffff;
+}
+.dxrControl_Vodafone.dxr-grLabelsHidden .dxr-tabContent {
+    height: 81px;
+}
+.dxrControl_Vodafone.dxr-tabsHidden .dxr-tabContent {
+    border-top-width: 1px;
+}
+.dxrControl_Vodafone, 
+.dxrControl_Vodafone a {
+    color: #201f35;
+}
+.dxrControl_Vodafone .dxr-itemDisabled.dxr-item,
+.dxrControl_Vodafone .dxr-groupLabelDisabled.dxr-groupLabel,
+.dxrControl_Vodafone .dxr-grExpBtnDisabled.dxr-grExpBtn,
+.dxrControl_Vodafone .dxr-grExpBtnDisabled.dxr-grExpBtn .dxr-img32,
+.dxrControl_Vodafone .dxr-minBtn.dxr-minBtnDisabled {
+    cursor: default;
+    color: #c0c0c0;
+}
+
+/* Ribbon Popup */
+.dxrControl_Vodafone .dxr-minPopupWindow {
+    padding: 0;
+}
+.dxrControl_Vodafone .dxr-minPopup.dxpc-mainDiv {
+    border: 0;
+}
+.dxrControl_Vodafone .dxr-groupPopup .dxpc-mainDiv {
+    border: 1px solid #c0c0c0;
+}
+
+/* Ribbon Group List */
+.dxrControl_Vodafone .dxr-groupList {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.dxrControl_Vodafone .dxr-groupList .dxr-groupSep {
+    height: 100%;
+    list-style: none;
+}
+
+.dxrControl_Vodafone .dxr-groupList .dxr-groupSep b {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #c0c0c0;
+}
+
+/* Ribbon Groups */
+.dxrControl_Vodafone .dxr-groupList .dxr-group {
+    margin: 3px 3px 0 3px;
+    text-align: center;
+}
+.dxrControl_Vodafone .dxr-groupContent {
+    height: 75px;
+}
+.dxrControl_Vodafone .dxr-groupLabel {
+    text-align: center;
+    color: #333333;
+    line-height: 16px;
+    padding: 0px 5px 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.dxrControl_Vodafone .dxr-grExpBtn,
+.dxrControl_Vodafone .dxr-grExpBtn .dxr-img32 {
+    cursor: pointer;
+}
+.dxrControl_Vodafone .dxr-grExpBtn {
+    height: 89px;
+    text-align: center;
+}
+.dxrControl_Vodafone .dxr-groupPopupWindow {
+    padding: 2px 3px;
+}
+
+/* Ribbon Item Separator */
+.dxrControl_Vodafone .dxr-blRegItems .dxr-itemSep,
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-itemSep {
+    width: 3px;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-itemSep b,
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-itemSep b {
+    background: #c0c0c0;
+    display: block;
+    width: 1px;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-itemSep b {
+    margin: 3px auto;
+    height: 19px;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-itemSep b {
+    margin: 4px auto;
+    height: 67px;
+}
+
+/* Ribbon Item */
+.dxrControl_Vodafone .dxr-item {
+    border: none;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-item,
+.dxrControl_Vodafone.dxr-grLabelsHidden .dxr-grExpBtn {
+    text-align: center;
+    height: 75px;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-item,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item {
+    height: 25px;
+    white-space: nowrap;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-item {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item {
+    margin: 0 3px;
+}
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-lblText {
+    padding-left: 2px;
+    padding-right: 3px;
+}
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-popOut {
+    height: 100%;
+    margin-left: 1px;
+}
+
+/* Ribbon Item Label */
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-item .dxr-label {
+    border-top: 1px solid transparent;
+    width: 100%;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-item .dxr-label .dxr-lblContent,
+.dxrControl_Vodafone .dxr-grExpBtn .dxr-lblContent {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label {
+    border-top: 1px solid #FFFFFF;
+}
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-label {
+    margin: 4px 0;
+}
+
+/* Ribbon Item Label PopOut */
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-item .dxr-label .dxr-popOut,
+.dxrControl_Vodafone .dxr-grExpBtn .dxr-popOut {
+    margin: -1px 3px 1px;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-item .dxr-popOut,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-popOut {
+    padding: 11px 3px;
+    margin: -8px 0 -6px;
+    border-left: 1px solid transparent;
+    font-size: 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    ::i-block-chrome,
+    .dxrControl_Vodafone .dxr-blRegItems .dxr-item .dxr-popOut,
+    .dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-popOut    
+    {
+	    margin: -9px 0 -6px;
+    }
+}
+noindex:-o-prefocus, 
+.dxrControl_Vodafone .dxr-blRegItems .dxr-item .dxr-popOut,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item .dxr-popOut    
+{
+    margin: -7px 0 -8px;
+}
+.dxrControl_Vodafone .dxr-blRegItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label .dxr-popOut,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label .dxr-popOut {
+    border-left: 1px solid #FFFFFF;
+}
+
+/* Ribbon Editors Item */
+.dxrControl_Vodafone .dxr-item.dxr-edtItem {
+    border: 0;
+    padding: 1px 0 0;
+    height: 24px;
+}
+.dxrControl_Vodafone .dxr-item.dxr-edtItem .dxr-label {
+    padding: 1px 3px 0 0;
+}
+
+/* Ribbon Item Types */
+.dxrControl_Vodafone .dxr-buttonItem {
+    cursor: pointer;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-buttonItem,
+.dxrControl_Vodafone .dxr-grExpBtn {
+    min-width: 42px;
+}
+.dxrControl_Vodafone .dxr-buttonItem.dxr-itemChecked {
+    background: #D0D0D0;
+}
+.dxrControl_Vodafone .dxr-buttonItem.dxr-itemPressed {
+    background: #D0D0D0;
+}
+.dxrControl_Vodafone .dxr-buttonItem.dxr-itemHover,
+.dxrControl_Vodafone .dxr-grExpBtn.dxr-grExpBtnHover {
+    background: #ED1B24;
+	color: #FFFFFF;
+}
+.dxrControl_Vodafone .dxr-img32,
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 {
+    width: 32px;
+    height: 32px;
+    margin: 2px auto 1px auto;
+}
+.dxrControl_Vodafone .dxr-img16,
+.dxrControl_Vodafone .dxr-blRegItems .dxr-colorBtn .dxr-colorBtnNoImg16,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-colorBtn .dxr-colorBtnNoImg16 {
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+}
+.dxrControl_Vodafone .dxr-ddImageContainer {
+    display: inline-block;
+}
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-ddImageContainer {
+    width: 100%;
+}
+
+/* Ribbon Color Button */
+.dxrControl_Vodafone .dxr-colorBtn .dxr-colorDiv {
+    height: 4px;
+    width: 16px;
+    display: block;
+    margin: -6px 0 2px 4px;
+    position: relative;
+}
+
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-colorBtn .dxr-colorDiv {
+    width: 32px;
+    margin: -5px auto 1px;
+}
+
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.dxrControl_Vodafone .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 .dxr-colorDiv,
+.dxrControl_Vodafone .dxr-blRegItems .dxr-colorBtn .dxr-colorBtnNoImg16 .dxr-colorDiv,
+.dxrControl_Vodafone .dxr-blHorItems .dxr-colorBtn .dxr-colorBtnNoImg16 .dxr-colorDiv {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.dxrControl_Vodafone .dxpc-content.dxr-itemDDPopup {
+    padding: 0;
+}
+
+.dxrControl_Vodafone .dxeColorTable_Vodafone {
+    border: none;
+}
+
+.dxrControl_Vodafone .dxr-minBtn {
+    cursor: pointer;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 0;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 14px;
+}
+.dxrControl_Vodafone .dxr-minBtn img {
+    vertical-align: middle;
+}
+
+/* Ribbon TabControl */
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tab.dxr-fileTab .dxtc-link {
+    color: #FFFFFF;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tab.dxr-fileTab {
+    background: #bfbfbf;
+    border-color: #bfbfbf;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tabHover.dxr-fileTab {
+    background: #ED1B24;
+    border-color: #ED1B24;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxr-fileTabPressed.dxr-fileTab {
+    background: #bfbfbf;
+    border-color: #bfbfbf;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-leftIndent, 
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-spacer, 
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-rightIndent, 
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-sbWrapper, 
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-sbIndent, 
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-sbSpacer
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-spacer.dxr-fileTabSpacing {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tab .dxtc-link,
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab .dxtc-link {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tab {
+    border-top: 1px solid transparent;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom: 1px solid #c0c0c0;
+    background: #FFFFFF;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab {
+    border: 1px solid #c0c0c0;
+    border-bottom: 1px solid transparent;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab,
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab a {
+    background: #ffffff;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab .dxtc-link {
+    color: #ED1B24;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtcLiteDisabled_Vodafone .dxtc-link {
+    color: #ACACAC;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-activeTab .dxtc-link {
+    padding: 3px 35px;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tab .dxtc-link {
+    padding: 3px 36px;
+}
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-tabHover .dxtc-link {
+    color: #ED1B24;
+}
+
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-leftIndent {
+    width: 0px;
+}
+
+.dxrControl_Vodafone .dxtcLite_Vodafone.dxtc-top .dxtc-rightIndent {
+    text-align: right;
+}
+
+/* DocumentViewer Ribbon */
+.dxrControl_Vodafone .dxr-tmplItem .dxxrdvrCurrentPageLabel {
+    padding: 0 0 2px 0;
+    display: block;
+}
+.dxrControl_Vodafone .dxr-tmplItem .dxxrdvrPageCountLabel {
+    padding: 1px 0 0 0;
+    display: block;
+}
+.dxrControl_Vodafone .dxr-tmplItem .dxxrdvrPageNumberComboBox {
+    width: 100px;
+}
+
+/* ASPxImageZoom */
+.dxizControl_Vodafone {
+    display: none;
+    border: 1px solid #d8d8d8;
+}
+.dxizControl_Vodafone .dxiz-hint {
+    padding: 3px;
+    top: 0;
+    position: absolute;
+}
+.dxizControl_Vodafone .dxiz-hint > span {
+    margin-left: 3px;
+    color: gray;
+	vertical-align: top;
+    font: 12px Tahoma, Geneva, sans-serif;
+}
+.dxizControl_Vodafone .dxiz-EWCloseButton {
+	top: 0;
+	right: 1px;
+	cursor: pointer;
+	position: absolute;
+}
+.dxizControl_Vodafone .dxiz-expandWindow .dxpc-content {
+    height: inherit;
+}
+.dxizControl_Vodafone .dxiz-wrapper {
+    position: relative;
+}
+.dxizControl_Vodafone .dxiz-wrapper > img,
+.dxizControl_Vodafone .dxiz-clipPanel > img,
+.dxizControl_Vodafone .dxiz-expandWindow .dxpc-content > img {
+    display: block;
+}
+.dxizControl_Vodafone .dxiz-clipPanel > img {
+    position: absolute;
+}
+.dxizControl_Vodafone .dxiz-clipPanel {
+    overflow: hidden;
+    position: relative;
+}
+.dxizControl_Vodafone .dxiz-clipPanel.dxiz-inside {
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=0);
+}
+.dxizControl_Vodafone .dxpcLite .dxpc-content {
+    padding: 0;
+}
+
+.dxizControl_Vodafone .dxiz-lens {
+    overflow: hidden;
+    top: 0;
+    position: absolute;
+}
+.dxizControl_Vodafone .dxiz-lens > .dxiz-pc {
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=0);
+	z-index: 1;
+    position: absolute;
+}
+.dxizControl_Vodafone .dxiz-lens .dxiz-llp,
+.dxizControl_Vodafone .dxiz-lens .dxiz-lrp,
+.dxizControl_Vodafone .dxiz-lens .dxiz-ltp,
+.dxizControl_Vodafone .dxiz-lens .dxiz-lbp,
+.dxizControl_Vodafone .dxiz-lens .dxiz-lcp {
+    position: absolute;
+}
+.dxizControl_Vodafone .dxiz-lens .dxiz-lcp {
+	background: white;
+	outline: 1px solid #969292;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=50);
+	background: rgba(255,255,255,0.5);
+    outline: 1px solid rgba(128,128,128,0.5);
+}
+.dxizControl_Vodafone .dxiz-lens.outside .dxiz-lcp {
+    background: transparent;
+	outline: 1px solid black;
+    outline: 1px solid rgba(0,0,0,0.5);
+}
+.dxizControl_Vodafone .dxiz-lens.outside .dxiz-llp,
+.dxizControl_Vodafone .dxiz-lens.outside .dxiz-lrp,
+.dxizControl_Vodafone .dxiz-lens.outside .dxiz-ltp,
+.dxizControl_Vodafone .dxiz-lens.outside .dxiz-lbp {
+    opacity: 0.25;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=25);
+    background-color: #000;
+}
+.dxizControl_Vodafone .dxizLoadingPanel_Vodafone {
+    position: absolute;
+}
+
+.dxisControl_Vodafone.dxis-zoomNavigator .dxis-nbItem {
+	width: 75px;
+    height: 75px;
+}

@@ -1,0 +1,11 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dx:ASPxDataView runat="server" PagerPanelSpacing="8px" SpriteCssFilePath="{0}/sprite.css" CssPostfix="IMB" CssFilePath="{0}/styles.css">
+	<PagerSettings CurrentPageNumberFormat="{0}">
+		<PageSizeItemSettings ShowPopupShadow="False">
+		</PageSizeItemSettings>
+	</PagerSettings>
+	<PagerStyle ItemSpacing="0px" Spacing="0px" />
+</dx:ASPxDataView>
+

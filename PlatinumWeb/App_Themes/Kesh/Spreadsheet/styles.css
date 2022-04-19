@@ -1,0 +1,105 @@
+.dxssControl_Kesh 
+{
+	font: 12px Tahoma, Geneva, sans-serif;
+}
+.dxssControl_Kesh .dxss-gl .dxss-v,
+.dxssControl_Kesh .dxss-gl .dxss-h 
+{
+	border-color: #c0c0c0;
+}
+.dxssControl_Kesh .dxss-rowHeader 
+{	
+	border-right: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+}
+.dxssControl_Kesh .dxss-colHeader 
+{
+	border-bottom: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+}
+.dxssControl_Kesh .dxss-trbe 
+{
+	border-top-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxss-rrbe 
+{
+	border-right-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxss-brbe 
+{
+	border-bottom-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxss-lrbe 
+{
+	border-left-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxrControl_Kesh .dxtcLite_Kesh.dxtc-top .dxtc-leftIndent
+{
+	width: 3px;
+}
+.dxssControl_Kesh .dxtcLite_Kesh.dxtc-bottom .dxtc-leftIndent
+{
+	width: 8px;
+}
+.dxssControl_Kesh .dxrControl_Kesh .dxr-minBtn
+{
+	padding-right: 7px;
+}
+.dxssControl_Kesh .dxss-hrg,
+.dxssControl_Kesh .dxss-vrg
+{
+	background-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxss-md 
+{
+	border-left: 1px solid #c0c0c0 !important;
+	border-right: 1px solid #c0c0c0 !important;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dxssControl_Kesh .dxss-tse 
+{
+	border-color: #5D9AD3;
+}
+.dxssControl_Kesh .dxss-tre
+{
+	background: url('TouchResize.png');
+}
+/* Loading panel */
+.dxssLoadingDiv_Kesh
+{
+    background: white;
+    opacity: 0.85 !important;
+    filter: alpha(opacity=85);
+}
+.dxssLoadingPanel_Kesh
+{
+	border: 1px solid #c0c0c0;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxssLoadingPanel_Kesh td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+	padding: 10px 14px;
+}
+.dxssLoadingPanel_Kesh .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+/* --------------Dialogs----------------- */
+.dxpcLite_Kesh .dxssDlgFooter
+{
+	border-top: 1px #c0c0c0 solid;
+}
+.dxpcLite_Kesh .dxssDlgInsertImageForm .dxssDlgImagePreviewCell
+{
+    color: #878787;
+    border: dashed 1px #cac8c8;
+}

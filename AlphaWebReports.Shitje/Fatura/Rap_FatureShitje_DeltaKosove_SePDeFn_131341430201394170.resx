@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>double totalipatvshkursi = 0;
+double cmimiMeTvsh;
+double cmimPaTvsh;  
+  double totalPaTvsh; 
+System.Collections.Generic.List&lt;object[]&gt; artikujt = new System.Collections.Generic.List&lt;object[]&gt;();
+     double likujdimi = 0;
+ double totalimetvsh = 0;
+ float distancaLartesi = 20F;
+        float koordinataX = 111.05F;
+        float koordinataLlogariX = 191.05F;
+        float koordinataY = 105F;
+
+
+private void xrTable11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+  int i = 0;
+            if (artikujt.Count &gt; 0)
+            {
+                xrTable11.Rows.Clear();
+                foreach (object[] obj in artikujt)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+                    rr.HeightF = 25f;
+                    XRTableCell nr = new XRTableCell();
+                    nr.WidthF = 59.96f;
+                    nr.Name = "nr" + i.ToString();
+                    nr.Text = (i+1).ToString();
+                    rr.Cells.Add(nr);
+
+                    XRTableCell kodi = new XRTableCell();
+                    kodi.WidthF = 59.96f;
+                    kodi.Name = "Kodi" + i.ToString();
+                    kodi.Text = obj[0].ToString();
+                    rr.Cells.Add(kodi);
+
+                    XRTableCell pershkrimi = new XRTableCell();
+                    pershkrimi.WidthF = 396.29f;
+                    pershkrimi.Name = "pershkrimi" + i.ToString();
+                    pershkrimi.Text = obj[1].ToString();
+                    rr.Cells.Add(pershkrimi);
+
+                    XRTableCell sasia = new XRTableCell();
+                    sasia.WidthF = 55.83f;
+                    sasia.Name = "Sasia" + i.ToString();
+                    sasia.Text = obj[2].ToString();
+                    rr.Cells.Add(sasia);
+
+                    XRTableCell Njesia = new XRTableCell();
+                    Njesia.WidthF = 89f;
+                    Njesia.Name = "PERSHKRIMNJESIA" + i.ToString();
+                    Njesia.Text = String.Format("{0:#,#}", obj[3]);
+                    rr.Cells.Add(Njesia);
+
+                    xrTable11.Rows.Insert(i, rr);
+                    i++;
+                }
+            }
+}
+
+
+private void label15_SummaryGetResult(object sender, DevExpress.XtraReports.UI.SummaryGetResultEventArgs e) {
+e.Result = (totalipatvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) - Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
+            e.Handled = true;
+}
+
+private void label15_SummaryReset(object sender, System.EventArgs e) {
+totalipatvshkursi = 0;
+}
+
+private void label15_SummaryRowChanged(object sender, System.EventArgs e) {
+ totalipatvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAPATVSH"));
+}
+
+
+
+private void tableCell14_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ int brutoNetoNivelCmimi = Convert.ToInt32(GetCurrentColumnValue("BRUTONETONIVELCMIMI"));
+            if (brutoNetoNivelCmimi == 1)
+            {
+                cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+                if (GetCurrentColumnValue("tvsh").ToString() != "")
+                    cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI")) * (1 - Math.Round(Convert.ToDouble(GetCurrentColumnValue("tvsh")), 2));
+                else 
+                    cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+                tableCell14.Text = cmimPaTvsh.ToString("################################0.00");
+                  }
+            else
+            {
+                cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+               tableCell14.Text = cmimPaTvsh.ToString("################################0.00");
+                if (GetCurrentColumnValue("tvsh").ToString() != "")
+                    cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI")) * (1 + Math.Round(Convert.ToDouble(GetCurrentColumnValue("tvsh")), 2));
+                else cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+                 }
+            totalPaTvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAPATVSH"));
+}
+private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+object monedhaBaze = GetCurrentColumnValue("MONEDHANDERMARJE");
+            string detyrimi = "Detyrimi LEK";
+            if(monedhaBaze != null &amp;&amp; monedhaBaze != DBNull.Value)
+                detyrimi = "Detyrimi " + monedhaBaze.ToString();
+            xrLabel36.Text = detyrimi;
+     
+}
+
+private void Rap_FatureShitje_DeltaKosove_SePDeFn_131341430201394170_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+    AlphaWebReports.raporteUtil.shfaqLlogariteBankare((int)this.Parameters["parameterIdNderm"].Value, (int)this.Parameters["arameterIdPerdoruesi"].Value, null, null, distancaLartesi, koordinataY, koordinataX, koordinataLlogariX,
+               "Arial", 8F, System.Drawing.FontStyle.Regular, Color.Black, 80F, 20F, 203.55F, 20F, 0, DevExpress.XtraPrinting.BorderSide.Bottom);
+
+}
+
+private void tableCell10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+object[] obj = new object[4];
+            if (GetCurrentColumnValue("KODI") != null)
+                obj[0] = GetCurrentColumnValue("KODI");
+            if (GetCurrentColumnValue("PERSHKRIMI") != null)
+                obj[1] = GetCurrentColumnValue("PERSHKRIMI");
+            else obj[1] = "";
+            if (GetCurrentColumnValue("SASIA") != null)
+                obj[2] = GetCurrentColumnValue("SASIA");
+            else obj[2] = "";
+            if (GetCurrentColumnValue("PERSHKRIMNJESIA") != null)
+                obj[3] = GetCurrentColumnValue("PERSHKRIMNJESIA");
+            else obj[3] = "";
+            artikujt.Add(obj);
+
+}
+</value>
+  </data>
+</root>

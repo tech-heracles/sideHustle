@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>•	Kushtet e Garancisë
+Të gjitha produktet që Univers Reklama ofron janë të garantuara për mungesë apo shfaqje defektesh për një periudhë kohore deri në 1 (një) vit, nga data e dorëzimit dhe faturimit.
+
+Për produktet “Printime”, garancia e produktit përfshin:
+-	Cilësia dhe ruajtja e ngjyrave të printimit
+o	2 (dy) vjet për Outdoor;
+o	3 (tre) vjet për Indoor;
+-	Aplikimi
+o	Ngjitja dhe montimi i produktit – 1 (një) vit.
+Garancia nuk mbulon dëmtime të cilat shkaktohen nga:
+-	Keqpërdorimi apo dëmtime të qëllimshme;
+-	Mosaplikimi në mënyrën dhe kushtet e duhura teknike;
+-	Mungesa e mirëmbajtjes së produktit;</value>
+  </data>
+  <data name="calculatedField1.Expression" xml:space="preserve">
+    <value>Iif([IDMENYREPAGESE]==0,'Me Mirebesim' ,Iif([IDMENYREPAGESE]==1,'Cash',Iif([IDMENYREPAGESE]==2,'Check', Iif([IDMENYREPAGESE]==3,'Karte Krediti',Iif( [IDMENYREPAGESE]==4,'Pagese', Iif([IDMENYREPAGESE]==5,'Pagese Automatike',Iif([IDMENYREPAGESE]==6,'Cash &amp; Bank', Iif([IDMENYREPAGESE]==7,'Me parapagim' ,[IDMENYREPAGESE]))))))))</value>
+  </data>
+  <data name="xrLabel31.Text" xml:space="preserve">
+    <value>Për produktet e prodhimit:
+•	Kushtet e Garancisë
+Të gjitha produktet që Univers Reklama ofron janë të garantuara për mungesë apo shfaqje defektesh për një periudhë kohore deri në 1 (një) vit, nga data e dorëzimit dhe faturimit.
+
+Garancia e produktit përfshin realizimin dhe prodhimin e produktit sipas kërkesave, mirë-funksionimin e tij sipas parametrave teknik, dhe cilësinë e montimit të tij (në rastet kur aplikohet) për një periudhë prej 1 (një) viti.
+Garancia nuk përfshin:
+-	Zëvendësimi apo riparimin e pjesëve të produktit nga një tjetër Sipërmarrës/Furnitor;
+-	Keqpërdorimi apo shpërdorimi i produktit;
+-	Dëmtime nga akte të qëllimshme;
+-	Mungesa e mirëmbajtjes;
+-	Ndërhyrja nga persona të paautorizuar;</value>
+  </data>
+  <data name="xrLabel36.Text" xml:space="preserve">
+    <value>•	Riparimi ose zëvendësimi i Produktit me Defekt
+Kërkesa për defektet apo riparime bëhet direkt tek Univers Reklama. Masa për këto riparime do të kryhen brenda 30 (tridhjetë) ditëve nga marrja e kërkesës, pas verifikimit në vend nga Univers Reklama, si dhe dorëzimit të gjithë dokumentacionit të nevojshëm që vërteton datën e dorëzimit të produktit. 
+Detyrimi i prodhuesit sipas kësaj garancie të limituar kufizohet në zëvendësimin ose riparimin e pjesës së dëmtuar, si i vetmi opsion, në rast se pjesa e dëmtuar rezulton të jetë e tillë nga cilësia e dobët e produktit ose aplikimit, por jo si rrjedhojë e ndonjë prej shkaqeve që nuk mbulohet nga kushtet e garancisë të përcaktuara më sipër.</value>
+  </data>
+  <metadata name="ds_Fatura1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pRC_RAP_FATURATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>using System.Collections.Generic;
+
+        double totalZbritje;
+        double totalPaTvsh;
+        double cmimiMeTvsh;
+        double cmimPaTvsh;
+        double totalimetvsh = 0;
+List&lt;object[]&gt; artikujt = new List&lt;object[]&gt;();
+private void xrLabel19_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ totalZbritje = totalPaTvsh - Convert.ToDouble(GetCurrentColumnValue("TOTALIMETVSHMEZBRITJE")) + Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"));
+            xrLabel19.Text = totalZbritje.ToString("################################0.00");
+}
+
+private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ int brutoNetoNivelCmimi = Convert.ToInt32(GetCurrentColumnValue("BRUTONETONIVELCMIMI"));
+            if (brutoNetoNivelCmimi == 1)
+            {
+                cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+               
+                if (GetCurrentColumnValue("tvsh").ToString() != "")
+                    cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI")) * (1 - Math.Round(Convert.ToDouble(GetCurrentColumnValue("tvsh")), 2));
+                else
+                    cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+                       
+            }
+            else
+            {
+                cmimPaTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+          
+                if (GetCurrentColumnValue("tvsh").ToString() != "")
+                    cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI")) * (1 + Math.Round(Convert.ToDouble(GetCurrentColumnValue("tvsh")), 2));
+                else cmimiMeTvsh = Convert.ToDouble(GetCurrentColumnValue("CMIMI"));
+         
+            }
+            totalPaTvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAPATVSH"));
+        }
+private void xrTableCell1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ if (GetCurrentColumnValue("KODI") != null &amp;&amp; GetCurrentColumnValue("KODI").ToString() != "")
+            {
+                if (GetCurrentColumnValue("AfatGarancie") != null &amp;&amp; GetCurrentColumnValue("AfatGarancie").ToString() != "" &amp;&amp; decimal.Parse(GetCurrentColumnValue("AfatGarancie").ToString()) != 0 &amp;&amp; GetCurrentColumnValue("LlojGarancie") != null &amp;&amp; GetCurrentColumnValue("LlojGarancie").ToString() != "")
+                {
+                    object[] obj = new object[4];
+                    obj[0] = GetCurrentColumnValue("KODI");
+                    obj[1] = GetCurrentColumnValue("PERSHKRIMI");
+                    obj[2] = GetCurrentColumnValue("AfatGarancie");
+                    obj[3] = GetCurrentColumnValue("LlojGarancie");
+                    artikujt.Add(obj);
+                }
+            }
+}
+
+private void xrLabel1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ string autorizime = GetCurrentColumnValue("NrDokKonv").ToString();
+            autorizime = autorizime.IndexOf(',') == -1 ? autorizime : autorizime.Substring(0, autorizime.Length - 1);
+            xrLabel1.Text = autorizime;
+}
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+   if (this.PrintingSystem.PageCount &gt;= 1)
+            {
+                e.Cancel = true;
+                return;
+            }
+}
+
+private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrPictureBox2.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]); 
+}
+
+private void xrTable4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ int i = 0;
+            if (artikujt.Count &gt; 0)
+            {
+                xrTable4.Rows.Clear();
+                foreach (object[] obj in artikujt)
+                {
+                    XRTableRow rr = new XRTableRow();
+                    rr.HeightF = 25f;
+                    XRTableCell kodi = new XRTableCell();
+                    kodi.Name = "kodi" + i.ToString();
+                    kodi.Text = obj[0].ToString();
+                    rr.Cells.Add(kodi);
+                    XRTableCell pershkrimi = new XRTableCell();
+                    pershkrimi.Name = "pershkrimi" + i.ToString();
+                    pershkrimi.Text = obj[1].ToString();
+                    rr.Cells.Add(pershkrimi);
+                    XRTableCell afatGarancie = new XRTableCell();
+                    afatGarancie.Name = "afatGarancie" + i.ToString();
+                    afatGarancie.Text = obj[2].ToString();
+                    rr.Cells.Add(afatGarancie);
+                    XRTableCell llojGarancie = new XRTableCell();
+                    llojGarancie.Name = "llojGarancie" + i.ToString();
+                    llojGarancie.Text = obj[3].ToString();
+                    rr.Cells.Add(llojGarancie);
+                    xrTable4.Rows.Insert(i, rr);
+                    i++;
+                }
+            }
+}</value>
+  </data>
+</root>

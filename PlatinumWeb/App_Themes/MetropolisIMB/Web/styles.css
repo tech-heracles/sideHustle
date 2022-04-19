@@ -1,0 +1,4322 @@
+/* CheckBox */
+.dxICBFocused_MetropolisIMB 
+{
+    outline: 1px dotted #00A74F;
+
+	*border: 1px dotted #00A74F;
+	*margin: 0;
+}
+.dxICheckBox_MetropolisIMB 
+{
+}
+/* -- ASPxCallbackPanel -- */
+/* Disabled */
+.dxcpDisabled_MetropolisIMB
+{
+	color: #acacac;
+	cursor: default;
+}
+
+/* -- ASPxCloudControl -- */
+.dxccControl_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	color: #00A74F;
+	background-color: #FFFFFF;
+}
+.dxccControl_MetropolisIMB a
+{
+	text-decoration: none!important;
+	color: #00A74F;
+}
+.dxccControl_MetropolisIMB a:hover
+{
+	text-decoration: underline!important;
+}
+.dxccControl_MetropolisIMB .dxccValue
+{
+    color: silver;
+}
+/* Disabled */
+.dxccDisabled_MetropolisIMB,
+.dxccDisabled_MetropolisIMB span.dxccValue,
+.dxccDisabled_MetropolisIMB span.dxccBEText
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxDataView -- */
+.dxdvControl_MetropolisIMB 
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxdvControl_MetropolisIMB td.dxdvCtrl_MetropolisIMB
+{
+	padding: 12px 40px;
+}
+.dxdvContent_MetropolisIMB
+{
+	border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+}
+.dxdvItem_MetropolisIMB,
+.dxdvFlowItem_MetropolisIMB
+{
+	padding: 12px 12px 12px 14px;
+	height: 180px;
+	height: expression("154px");
+}
+.dxdvFlowItem_MetropolisIMB
+{
+	float: left;
+	overflow: hidden;
+}
+.dxdvFlowItemsContainer_MetropolisIMB 
+{
+}
+.dxdvEmptyItem_MetropolisIMB
+{
+	text-align: left;
+	vertical-align: top;
+	padding: 12px 12px 12px 14px;
+	height: 180px;
+	height: expression("154px");
+}
+.dxdvPagerPanel_MetropolisIMB
+{
+}
+.dxdvEmptyData_MetropolisIMB
+{
+	color: Gray;
+}
+.dxdvEPContainer_MetropolisIMB
+{
+    height: 50px;
+	text-align: center;
+}
+.dxdvEPContainer_MetropolisIMB div
+{
+	padding-top: 16px;
+}
+.dxdvEPContainer_MetropolisIMB a
+{
+	color: #00A74F;
+}
+/* Disabled */
+.dxdvDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+/* -- ASPxHeadline -- */
+.dxhlControl_MetropolisIMB 
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: black;
+}
+.dxhlControl_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxhlContent_MetropolisIMB
+{
+} 
+.dxhlContent_MetropolisIMB img
+{
+	display: none!important;
+}
+.dxhlDate_MetropolisIMB
+{
+	white-space: nowrap;
+	display: inline;
+	color: silver;
+}
+.dxhlHeader_MetropolisIMB
+{
+	font-size: 2em;
+	color: #00A74F;
+	vertical-align: top;
+}
+.dxhlDateHeader_MetropolisIMB
+{
+	color: white;
+	background-color: Silver;
+	padding: 0 4px;
+	margin: 4px 0;
+}
+.dxhlLeftPanel_MetropolisIMB,
+.dxhlRightPanel_MetropolisIMB
+{
+	padding: 2px 0;
+}
+.dxhlDateLeftPanel_MetropolisIMB,
+.dxhlDateRightPanel_MetropolisIMB
+{
+    padding: 12px 0 0;
+	white-space: nowrap;
+}
+.dxhlTailDiv_MetropolisIMB,
+.dxhlTailDiv_MetropolisIMB a
+{
+	color: #999999;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxhlTailDiv_MetropolisIMB
+{
+	padding: 8px 0;
+}
+.dxhlTailDiv_MetropolisIMB img
+{
+	vertical-align: middle;
+	margin-top: -2px;
+}
+/* Disabled */
+.dxhlDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxLoadingPanel -- */
+.dxlpLoadingPanel_MetropolisIMB,
+.dxlpLoadingPanelWithContent_MetropolisIMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxlpLoadingPanel_MetropolisIMB td.dx,
+.dxlpLoadingPanelWithContent_MetropolisIMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxlpLoadingPanel_MetropolisIMB .dxlp-loadingImage,
+.dxlpLoadingPanelWithContent_MetropolisIMB .dxlp-loadingImage {
+	background-image: url('Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+.dxlpControl_MetropolisIMB.dxlpLoadingDiv_MetropolisIMB
+{
+	background-color: white;
+	opacity: 0.7;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+}
+
+/* -- ASPxMenu Lite -- */
+.dxmLite_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxmLite_MetropolisIMB .dxm-main 
+{
+	background-color: #f0f0f0;
+	padding: 0;
+}
+
+.dxmLite_MetropolisIMB .dxm-vertical 
+{
+	width: 150px;
+}
+
+.dxmLite_MetropolisIMB .dxm-popup 
+{
+	color: #333333;
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 1px;
+}
+
+.dxmBrdCor_MetropolisIMB 
+{
+	background-color: white;
+}
+
+.dxmLite_MetropolisIMB .dxm-item
+{
+	cursor: default;
+    text-align: left;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-item
+{
+	text-align: right;
+}
+.dxmLite_MetropolisIMB .dxm-image-t .dxm-item,
+.dxmLite_MetropolisIMB .dxm-image-b .dxm-item
+{
+	text-align: center;
+}
+
+.dxmLite_MetropolisIMB .dxm-content 
+{
+    display: block;
+	white-space: nowrap;
+}
+
+.dxmLite_MetropolisIMB,
+.dxmLite_MetropolisIMB .dxm-item a.dx 
+{
+	color: #333333;
+}
+.dxmLite_MetropolisIMB .dxm-disabled,
+.dxmLite_MetropolisIMB .dxm-disabled a.dx 
+{
+	color: #b8b8b8;
+}
+.dxmLite_MetropolisIMB .dxm-item a.dx 
+{
+	text-decoration: none;
+}
+
+.dxmLite_MetropolisIMB .dxm-item 
+{
+	border: 0px;
+}
+.dxmLite_MetropolisIMB .dxm-popOut
+{
+    border: solid 1px transparent;
+}
+
+/* Checked, Selected, Hovered */
+.dxmLite_MetropolisIMB .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-dropDownMode.dxm-hovered .dxm-popOut 
+{
+    border-left-color: white;
+}
+.dxmLite_MetropolisIMB .dxm-image-r .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-image-r .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-image-r .dxm-dropDownMode.dxm-hovered .dxm-popOut, 
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-dropDownMode.dxm-checked .dxm-popOut,
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-dropDownMode.dxm-selected .dxm-popOut,
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-dropDownMode.dxm-hovered .dxm-popOut 
+{
+    border-right-color: white;
+}
+.dxmLite_MetropolisIMB .dxm-main .dxm-checked,
+.dxmLite_MetropolisIMB .dxm-main .dxm-selected 
+{
+    background-color: #e0e0e0;
+}
+.dxmLite_MetropolisIMB .dxm-main .dxm-hovered
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxmLite_MetropolisIMB .dxm-main .dxm-hovered a.dx
+{
+	color: #FFFFFF;
+}
+.dxmLite_MetropolisIMB .dxm-popup .dxm-selected 
+{
+	background-color: #e0e0e0;
+}
+.dxmLite_MetropolisIMB .dxm-popup .dxm-hovered
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxmLite_MetropolisIMB .dxm-popup .dxm-hovered a.dx
+{
+	color: #FFFFFF;
+}
+
+/* Content */
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-content 
+{
+	padding: 3px 7px 4px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-content 
+{
+	padding: 3px 11px 4px 10px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-noImage .dxm-content {
+	padding: 4px 11px 5px 10px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-subMenu .dxm-content 
+{
+	padding-right: 3px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 4px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-subMenu .dxm-content 
+{
+	padding-left: 3px;
+	padding-right: 5px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-dropDownMode .dxm-content 
+{
+	padding-left: 4px;
+	padding-right: 5px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-dropDownMode .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 8px;
+}
+
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-content,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-content,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-content 
+{
+	padding: 3px 18px 4px 3px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-vertical .dxm-image-l .dxm-content,
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-vertical .dxm-image-r .dxm-content,
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-content 
+{
+	padding: 3px 2px 4px 18px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-noSubMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-dropDownMode .dxm-content 
+{
+	padding-right: 5px;
+	padding-left: 14px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-content,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-content 
+{
+	padding: 5px 10px 6px;
+}
+
+/* Image */
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-hasText .dxm-image
+{
+	margin-right: 5px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-hasText .dxm-image
+{
+	margin-left: 5px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-hasText .dxm-image 
+{
+	margin-bottom: 4px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-hasText .dxm-image 
+{
+	margin-top: 4px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-image 
+{
+	margin-right: 7px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-image 
+{
+	margin-left: 7px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-popup .dxm-image 
+{
+	margin-right: 12px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-image 
+{
+	margin-left: 12px;
+}
+
+/* Image replacement */
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-vertical .dxm-image-l.dxm-noImages .dxm-content,
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-vertical .dxm-image-r.dxm-noImages .dxm-content  
+{
+	padding-left: 7px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-vertical .dxm-image-l.dxm-noImages .dxm-content,
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-vertical .dxm-image-r.dxm-noImages .dxm-content  
+{
+	padding-right: 7px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-noImage 
+{
+	padding-left: 23px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-noImage 
+{
+	padding-right: 23px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-popup .dxm-noImage 
+{
+	padding-left: 28px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-noImage 
+{
+	padding-right: 28px;
+}
+
+/* PopOut */
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t.dxm-noImages .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-noImage .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b.dxm-noImages .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-noImage .dxm-popOut 
+{
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-popOut 
+{
+	padding-top: 18px;
+	padding-bottom: 19px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-l .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-t .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-b .dxm-popOut 
+{
+	padding-right: 5px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-image-r .dxm-popOut 
+{
+	padding-left: 7px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-dropDownMode .dxm-popOut 
+{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-popOut 
+{
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t.dxm-noImages .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-noImage .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b.dxm-noImages .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-noImage .dxm-popOut 
+{
+	padding-top: 8px;
+	padding-bottom: 9px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-popOut 
+{
+	padding-top: 18px;
+	padding-bottom: 19px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-popOut 
+{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+/* PopOut replacement */
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-popup .dxm-noSubMenu 
+{
+	padding-right: 13px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-noSubMenu 
+{
+	padding-left: 13px;
+}
+
+/* Spacings, Separator */
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-spacing 
+{
+	width: 2px;
+    min-width: 2px;
+	height: 1px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-spacing,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-spacing,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-spacing 
+{
+	height: 1px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-spacing,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-spacing 
+{
+	height: 2px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-separator 
+{
+	padding: 0px 2px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-l .dxm-separator,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-r .dxm-separator,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-separator 
+{
+	padding: 1px 0px;
+}
+.dxmLite_MetropolisIMB.dxm-ie7 .dxm-vertical .dxm-image-l .dxm-separator,
+.dxmLite_MetropolisIMB.dxm-ie7 .dxm-vertical .dxm-image-r .dxm-separator,
+.dxmLite_MetropolisIMB.dxm-ie7 .dxm-popup .dxm-separator 
+{
+	padding-top: 0px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-t .dxm-separator,
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-image-b .dxm-separator 
+{
+	padding: 2px 0px;
+}
+.dxmLite_MetropolisIMB.dxm-ie7 .dxm-vertical .dxm-image-t .dxm-separator,
+.dxmLite_MetropolisIMB.dxm-ie7 .dxm-vertical .dxm-image-b .dxm-separator 
+{
+	padding-top: 1px;
+}
+
+.dxmLite_MetropolisIMB .dxm-separator b
+{
+	background-color: #FFFFFF;
+}
+.dxmLite_MetropolisIMB .dxm-popup .dxm-separator b
+{
+	background-color: #C0C0C0;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal .dxm-separator b 
+{
+	height: 100%;
+	width: 1px;
+}
+.dxmLite_MetropolisIMB .dxm-vertical .dxm-separator b,
+.dxmLite_MetropolisIMB .dxm-popup .dxm-separator b 
+{
+	height: 1px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-popup .dxm-separator
+{
+	padding-left: 29px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-separator
+{
+	padding-right: 29px;
+}
+.dxmLite_MetropolisIMB.dxm-ltr .dxm-popup .dxm-noImages .dxm-separator
+{
+	padding-left: 0;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup .dxm-noImages .dxm-separator
+{
+	padding-left: 0;
+}
+/* Scroll elements */
+.dxmLite_MetropolisIMB .dxm-scrollUpBtn, 
+.dxmLite_MetropolisIMB .dxm-scrollDownBtn
+{
+	background-color: white;
+	cursor: pointer;
+	font-size: 0;
+	padding: 1px;
+	text-align: center;
+}
+.dxmLite_MetropolisIMB .dxm-scrollUpBtn
+{
+	margin-bottom: 1px;
+}
+.dxmLite_MetropolisIMB .dxm-scrollDownBtn
+{
+	margin-top: 1px;
+}
+.dxmLite_MetropolisIMB .dxm-scrollBtnHovered
+{
+	background-color: #00A74F;
+}
+.dxmLite_MetropolisIMB .dxm-scrollBtnPressed
+{
+	background-color: #f0f0f0;
+}
+.dxmLite_MetropolisIMB .dxm-scrollBtnDisabled
+{
+	cursor: default;
+}
+.dxmLite_MetropolisIMB .dxm-scrollArea
+{
+	overflow: hidden;
+	position: relative;
+}
+
+/* -- ASPxMenu Lite Toolbar mode -- */
+.dxmLite_MetropolisIMB .dxm-main.dxmtb {
+	padding: 2px;
+}
+/* has image */
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-subMenu .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-subMenu .dxm-content
+{
+	padding: 4px;
+}
+/* no image */
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-subMenu.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b.dxm-noImages .dxm-item .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-noImage .dxm-content
+{
+	padding: 4px 4px 5px;
+}
+/* dd has image */
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-dropDownMode .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-dropDownMode .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-dropDownMode .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-dropDownMode .dxm-content 
+{
+	padding: 4px 5px 4px 4px;
+}
+/* dd no image */
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-l .dxm-dropDownMode.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-r .dxm-dropDownMode.dxm-noImage .dxm-content, 
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-t .dxm-dropDownMode.dxm-noImage .dxm-content,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-image-b .dxm-dropDownMode.dxm-noImage .dxm-content 
+{
+	padding: 4px;
+}
+
+.dxmLite_MetropolisIMB .dxm-popup.dxmtb .dxm-image 
+{
+	margin-right: 10px;
+	margin-top: -1px;
+}
+.dxmLite_MetropolisIMB.dxm-rtl .dxm-popup.dxmtb .dxm-image 
+{
+	margin-right: 0px;
+}
+
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-popOut,
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-dropDownMode .dxm-popOut 
+{
+	padding: 9px 3px;
+}
+.dxmLite_MetropolisIMB .dxmtb .dxtb-comboBoxMenuItem 
+{
+	padding: 2px 2px 1px;
+}
+.dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxtb-labelMenuItem 
+{
+	padding: 7px 2px 0!important;
+    padding: 6px 2px 0\0!important;
+}
+@-moz-document url-prefix() {
+    .dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxtb-labelMenuItem 
+    {
+	    padding: 6px 2px 0!important;
+    }
+}
+/* -- ASPxNavBar Lite -- */
+.dxnbLite_MetropolisIMB 
+{
+	color: #333333;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	list-style: none none outside;
+	margin: 0;
+	padding: 0px;
+	float: left;
+	width: 200px;
+}
+.dxnbLite_MetropolisIMB a
+{
+	color: black;
+	text-decoration: none;
+}
+.dxnbLite_MetropolisIMB .dxnb-gr 
+{
+	margin-bottom: 13px;
+}
+.dxnbLite_MetropolisIMB .dxnb-header,
+.dxnbLite_MetropolisIMB .dxnb-headerCollapsed 
+{
+	background-color: #f0f0f0;
+	padding: 9px 10px 6px;
+	color: #666666;
+	font-weight: bold;
+	overflow: hidden;
+	cursor: pointer;
+	clear: both;
+    white-space: nowrap;
+}
+.dxnbLite_MetropolisIMB .dxnb-header a,
+.dxnbLite_MetropolisIMB .dxnb-headerCollapsed a
+{
+	color: #666666;
+	text-decoration: underline;
+}
+.dxnbLite_MetropolisIMB .dxnb-content 
+{
+	list-style: none none outside;
+	margin: 0;
+	padding: 5px;
+	overflow: hidden;
+}
+.dxnbLite_MetropolisIMB.dxnb-noHeads .dxnb-content
+{
+	border-top-width: 1px;
+}
+.dxnbLite_MetropolisIMB .dxnb-item,
+.dxnbLite_MetropolisIMB .dxnb-large,
+.dxnbLite_MetropolisIMB .dxnb-bullet 
+{
+	color: black;
+	clear: both;
+	overflow: hidden;
+	cursor: default;
+}
+.dxnbLite_MetropolisIMB .dxnb-item,
+.dxnbLite_MetropolisIMB .dxnb-large,
+.dxnbLite_MetropolisIMB .dxnb-tmpl
+{
+	margin-bottom: 1px;
+}
+.dxnbLite_MetropolisIMB .dxnb-item.dxnb-link,
+.dxnbLite_MetropolisIMB .dxnb-item .dxnb-link
+{
+	padding: 3px 4px 4px;
+    white-space: nowrap;
+}
+.dxnbLite_MetropolisIMB .dxnb-large.dxnb-link,
+.dxnbLite_MetropolisIMB .dxnb-large .dxnb-link
+{
+	padding: 6px 12px 7px;
+    white-space: nowrap;
+}
+.dxnbLite_MetropolisIMB .dxnb-bullet,
+.dxnbLite_MetropolisIMB .dxnb-bulletHover,
+.dxnbLite_MetropolisIMB .dxnb-bulletSelected 
+{
+	padding: 0 5px;
+	overflow: visible;
+	margin-bottom: 6px;
+}
+.dxnbLite_MetropolisIMB .dxnb-itemSelected,
+.dxnbLite_MetropolisIMB .dxnb-largeSelected
+{
+    background-color: #f0f0f0;
+}
+.dxnbLite_MetropolisIMB .dxnb-itemHover,
+.dxnbLite_MetropolisIMB .dxnb-itemHover a,
+.dxnbLite_MetropolisIMB .dxnb-largeHover,
+.dxnbLite_MetropolisIMB .dxnb-largeHover a
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxnbLite_MetropolisIMB .dxnb-header,
+.dxnbLite_MetropolisIMB .dxnb-headerCollapsed, 
+.dxnbLite_MetropolisIMB .dxnb-item,
+.dxnbLite_MetropolisIMB .dxnb-itemHover,
+.dxnbLite_MetropolisIMB .dxnb-itemSelected,
+.dxnbLite_MetropolisIMB .dxnb-bullet,
+.dxnbLite_MetropolisIMB .dxnb-bulletHover,
+.dxnbLite_MetropolisIMB .dxnb-bulletSelected
+{
+	text-align: left;
+}
+.dxnbLite_MetropolisIMB .dxnb-large,
+.dxnbLite_MetropolisIMB .dxnb-largeHover,
+.dxnbLite_MetropolisIMB .dxnb-largeSelected
+{
+	text-align: center;
+}
+.dxnbLite_MetropolisIMB .dxnb-headerHover
+{
+}
+.dxnbLite_MetropolisIMB .dxnb-headerCollapsedHover
+{
+}
+.dxnbLite_MetropolisIMB .dxnb-last
+{
+	margin-bottom: 0;
+}
+.dxnbLite_MetropolisIMB .dxnb-btn,
+.dxnbLite_MetropolisIMB .dxnb-btnLeft,
+.dxnbLite_MetropolisIMB .dxnb-img
+{
+	border-width: 0;
+}
+
+.dxnbLite_MetropolisIMB .dxnb-btn
+{
+	float: right;
+	margin: 0 0 0 4px;
+}
+.dxnbLite_MetropolisIMB .dxnb-btnLeft,
+.dxnbLite_MetropolisIMB .dxnb-rtlHeader .dxnb-btn 
+{
+	float: left;
+	margin: 0 4px 0 0;
+}
+.dxnbLite_MetropolisIMB .dxnb-img
+{
+	margin: 0 4px 0 0;
+}
+.dxnbLite_MetropolisIMB .dxnb-right .dxnb-item .dxnb-img,
+.dxnbLite_MetropolisIMB .dxnb-rtlHeader .dxnb-img
+{
+	margin: 0 0 0 4px;
+}
+.dxnbLite_MetropolisIMB .dxnb-header.dxnb-header-left,
+.dxnbLite_MetropolisIMB .dxnb-headerCollapsed.dxnb-header-left,
+.dxnbLite_MetropolisIMB .dxnb-rtlHeader
+{
+	text-align: right;
+}
+.dxnbLite_MetropolisIMB .dxnb-top .dxnb-large .dxnb-img
+{
+	margin-bottom: 3px;
+}
+.dxnbLite_MetropolisIMB .dxnb-bottom .dxnb-large .dxnb-img
+{
+	margin-top: 3px;
+}
+.dxnbLite_MetropolisIMB .dxnb-large .dxnb-img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.dxnbLiteDisabled_MetropolisIMB,
+.dxnbLite_MetropolisIMB .dxnbLiteDisabled_MetropolisIMB,
+.dxnbLiteDisabled_MetropolisIMB a,
+.dxnbLiteDisabled_MetropolisIMB .dxnb-item,
+.dxnbLiteDisabled_MetropolisIMB .dxnb-large,
+.dxnbLiteDisabled_MetropolisIMB .dxnb-bullet,
+.dxnbLiteDisabled_MetropolisIMB .dxnb-header,
+.dxnbLiteDisabled_MetropolisIMB .dxnb-headerCollapsed 
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxNewsControl -- */
+.dxncControl_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	background-color: White;
+}
+.dxncControl_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxncControl_MetropolisIMB td.dxncCtrl_MetropolisIMB
+{
+	padding: 18px;
+}
+.dxncContent_MetropolisIMB
+{
+}
+.dxncPagerPanel_MetropolisIMB
+{
+	padding: 0px 3px;
+}
+.dxncItem_MetropolisIMB
+{
+	vertical-align: top;
+	border-bottom: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+	padding: 12px 8px;
+}
+.dxncEmptyItem_MetropolisIMB
+{
+	vertical-align: top;
+	padding: 12px 12px 12px 14px;
+}
+.dxncBackToTop_MetropolisIMB
+{
+	padding: 12px 0;
+	margin-top: -40px!important;
+}
+.dxncBackToTop_MetropolisIMB,
+.dxncBackToTop_MetropolisIMB a
+{
+	color: #999999;
+	text-align: right;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxncBackToTop_MetropolisIMB img
+{
+	float: right;
+	margin-left: 4px;
+	margin-top: -4px;
+	vertical-align: middle;
+}
+.dxncEPContainer_MetropolisIMB
+{
+    height: 50px;
+	text-align: center;
+}
+.dxncEPContainer_MetropolisIMB div
+{
+	padding-top: 16px;
+}
+.dxncEPContainer_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxncItem_MetropolisIMB > table:not(:last-child) .dxhlContent_MetropolisIMB:last-child
+{
+	margin-bottom: 40px!important;
+} 
+.dxncControl_MetropolisIMB .dxhlTailDiv_MetropolisIMB a
+{
+    color: #999999;
+}
+.dxncEmptyData_MetropolisIMB
+{
+	color: Gray;
+}
+/* Disabled */
+.dxncDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxPager Lite -- */
+.dxpLite_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	float: left;
+	padding: 2px 8px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.dxpLite_MetropolisIMB .dxp-summary,
+.dxpLite_MetropolisIMB .dxp-sep,
+.dxpLite_MetropolisIMB .dxp-button,
+.dxpLite_MetropolisIMB .dxp-pageSizeItem,
+.dxpLite_MetropolisIMB .dxp-num,
+.dxpLite_MetropolisIMB .dxp-current,
+.dxpLite_MetropolisIMB .dxp-ellip
+{
+	margin-left: 4px;
+	font-weight: normal;
+}
+.dxpLite_MetropolisIMB .dxp-lead
+{
+	margin-left: 0!important;
+}
+
+.dxpLite_MetropolisIMB a
+{
+	color: #333333;
+	text-decoration: underline;
+}
+
+.dxpLite_MetropolisIMB .dxp-button
+{
+	white-space: nowrap;
+	text-align: center;
+	cursor: pointer;
+	padding: 6px 14px;
+	text-decoration: none;
+}
+.dxpLite_MetropolisIMB .dxp-button img
+{
+	border: none;
+	text-decoration: none;
+}
+.dxpLite_MetropolisIMB .dxp-button span
+{
+	text-decoration: none;
+}
+.dxpLite_MetropolisIMB .dxp-button.dxp-bi 
+{
+	padding: 0 3px;
+}
+.dxpLite_MetropolisIMB .dxp-button.dxp-bti 
+{
+	padding: 0 14px;
+}
+.dxpLite_MetropolisIMB .dxp-disabledButton
+{
+	text-decoration: none;
+	color: #acacac;
+	cursor: default;
+}
+.dxpLite_MetropolisIMB .dxp-pageSizeItem
+{
+    padding: 1px 4px 0 16px;
+    white-space: nowrap;
+}
+@-moz-document url-prefix() {
+    .dxpLite_MetropolisIMB .dxp-pageSizeItem
+    {
+        padding: 2px 4px 0 16px;
+    }
+}
+.dxpLite_MetropolisIMB .dxp-pageSizeItem .dx
+{
+    display: block;
+    float: left;
+    margin-top: 3px;
+    white-space: nowrap;
+}
+.dxpLite_MetropolisIMB .dxp-comboBox
+{
+    display: block;
+    float: left;
+    background-color: White;
+    border: 1px solid #c0c0c0;
+    padding: 0px;
+    margin: -2px 0px;
+}
+.dxpLite_MetropolisIMB .dxp-comboBox input
+{
+    margin: 4px 1px 4px 3px;
+}
+.dxpLite_MetropolisIMB .dxp-hoverComboBox
+{
+}
+.dxpLite_MetropolisIMB .dxp-pressedComboBox
+{
+}
+.dxpLite_MetropolisIMB .dxp-dropDownButton
+{
+    display: block;
+    float: left;
+    cursor: pointer;
+    font-size: 0;
+    padding: 10px 5px 9px;
+	background-color: White;
+}
+.dxpLite_MetropolisIMB .dxp-hoverDropDownButton
+{
+	background-color: #00A74F;
+}
+.dxpLite_MetropolisIMB .dxp-pressedDropDownButton
+{
+	background-color: Silver;
+}
+.dxpLite_MetropolisIMB .dxp-dropDownButton img
+{
+    border: none;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.dxpLite_MetropolisIMB .dxp-num
+{
+	color: #333333;
+	text-decoration: none;
+	padding: 3px 14px;
+    margin-top: 3px;
+	cursor: pointer;
+}
+
+.dxpLite_MetropolisIMB .dxp-current
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+	text-decoration: none;
+	cursor: text;
+}
+
+.dxpLite_MetropolisIMB .dxp-summary,
+.dxpLite_MetropolisIMB .dxp-ellip
+{
+	white-space: nowrap;
+	padding: 6px 16px;
+}
+
+.dxpLite_MetropolisIMB .dxp-sep
+{
+	background-color: #cccccc;
+	width: 1px;
+	height: 15px;
+	margin-top: 5px;
+}
+
+.dxpLiteDisabled_MetropolisIMB,
+.dxpLiteDisabled_MetropolisIMB a,
+.dxpLiteDisabled_MetropolisIMB .dxp-summary,
+.dxpLiteDisabled_MetropolisIMB .dxp-sep, 
+.dxpLiteDisabled_MetropolisIMB .dxp-button,
+.dxpLiteDisabled_MetropolisIMB .dxp-num,
+.dxpLiteDisabled_MetropolisIMB .dxp-current,
+.dxpLiteDisabled_MetropolisIMB .dxp-ellip
+{
+	color: #acacac;
+	border-color: #808080;
+	cursor: default;
+}
+
+.dxpLite_MetropolisIMB .dxp-disabledComboBox
+{
+    border: 1px solid #9F9F9F;
+}
+
+.dxpLite_MetropolisIMB .dxp-disabledComboBox input
+{
+    color: #acacac;
+}
+
+.dxpLite_MetropolisIMB .dxp-disabledDropDownButton
+{
+    border-color: #C3C3C3;
+    cursor: default;
+}
+
+/* -- ASPxPopupControl Lite -- */
+.dxpcLite_MetropolisIMB,
+.dxdpLite_MetropolisIMB  
+{
+	width: 250px;
+	left: 0;
+	top: 0;
+	display: none;
+	position: absolute;
+	visibility: hidden;
+	border-spacing: 0;
+
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: black;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-shadow,
+.dxpcLite_MetropolisIMB.dxpc-shadow,
+.dxdpLite_MetropolisIMB .dxpc-shadow,
+.dxdpLite_MetropolisIMB.dxpc-shadow
+{
+	-moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-mainDiv,
+.dxpcLite_MetropolisIMB.dxpc-mainDiv,
+.dxdpLite_MetropolisIMB .dxpc-mainDiv,
+.dxdpLite_MetropolisIMB.dxpc-mainDiv  
+{
+	top: 0;
+	left: 0;
+	background-color: white;
+	border: 1px solid silver;
+}
+
+.dxpcLite_MetropolisIMB a.dxpc-link,
+.dxdpLite_MetropolisIMB a.dxpc-link
+{
+	color: #00A74F;
+}
+.dxpcLite_MetropolisIMB a.dxpc-link *,
+.dxdpLite_MetropolisIMB a.dxpc-link *
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-closeBtn,
+.dxpcLite_MetropolisIMB .dxpc-pinBtn,
+.dxpcLite_MetropolisIMB .dxpc-refreshBtn,
+.dxpcLite_MetropolisIMB .dxpc-collapseBtn,
+.dxpcLite_MetropolisIMB .dxpc-maximizeBtn,
+.dxdpLite_MetropolisIMB .dxpc-closeBtn,
+.dxdpLite_MetropolisIMB .dxpc-pinBtn,
+.dxdpLite_MetropolisIMB .dxpc-refreshBtn,
+.dxdpLite_MetropolisIMB .dxpc-collapseBtn,
+.dxdpLite_MetropolisIMB .dxpc-maximizeBtn
+{
+	padding: 6px;
+	float: right;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-closeBtn,
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-pinBtn,
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-refreshBtn,
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-collapseBtn,
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-maximizeBtn,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-closeBtn,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-pinBtn,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-refreshBtn,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-collapseBtn,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-maximizeBtn
+{
+	float: left;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-closeBtnHover,
+.dxpcLite_MetropolisIMB .dxpc-pinBtnHover,
+.dxpcLite_MetropolisIMB .dxpc-refreshBtnHover,
+.dxpcLite_MetropolisIMB .dxpc-collapseBtnHover,
+.dxpcLite_MetropolisIMB .dxpc-maximizeBtnHover,
+.dxdpLite_MetropolisIMB .dxpc-closeBtnHover,
+.dxdpLite_MetropolisIMB .dxpc-pinBtnHover,
+.dxdpLite_MetropolisIMB .dxpc-refreshBtnHover,
+.dxdpLite_MetropolisIMB .dxpc-collapseBtnHover,
+.dxdpLite_MetropolisIMB .dxpc-maximizeBtnHover
+{
+}
+
+.dxpcLite_MetropolisIMB .dxpc-header,
+.dxdpLite_MetropolisIMB .dxpc-header 
+{
+	color: #00A74F;
+	font-size: 1.66em;
+	padding: 7px 2px 7px 12px;
+	white-space: nowrap;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-header,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-header  
+{
+	padding: 7px 12px 7px 2px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-headerText,
+.dxdpLite_MetropolisIMB .dxpc-headerText
+{
+	white-space: nowrap;
+	margin-top: -2px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-headerImg,
+.dxdpLite_MetropolisIMB .dxpc-headerImg
+{
+	margin: 0 16px 0 0;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-headerImg,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-headerImg
+{
+	margin: 0 0 0 16px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-expandableDiv,
+.dxdpLite_MetropolisIMB .dxpc-expandableDiv 
+{
+	float: left;
+	overflow: hidden;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-expandableDiv,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-expandableDiv 
+{
+	float: right;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-content,
+.dxdpLite_MetropolisIMB .dxpc-content
+{
+	white-space: normal;
+	padding: 9px 12px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-footer,
+.dxdpLite_MetropolisIMB .dxpc-footer
+{
+	color: #c0c0c0;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-footerContent,
+.dxdpLite_MetropolisIMB .dxpc-footerContent
+{
+	padding: 6px 20px 8px 12px;
+	min-height: 8px;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-footerContent,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-footerContent
+{
+	padding: 6px 12px 8px 20px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-footerText,
+.dxdpLite_MetropolisIMB .dxpc-footerText
+{
+	white-space: nowrap;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-footerImg,
+.dxdpLite_MetropolisIMB .dxpc-footerImg
+{
+	margin: 0 8px 0 0;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-footerImg,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-footerImg
+{
+	margin: 0 0 0 8px;
+}
+
+.dxpcLite_MetropolisIMB .dxpc-sizeGrip,
+.dxdpLite_MetropolisIMB .dxpc-sizeGrip
+{
+	float: right;
+}
+
+.dxpcLite_MetropolisIMB.dxRtl .dxpc-sizeGrip,
+.dxdpLite_MetropolisIMB.dxRtl .dxpc-sizeGrip
+{
+	float: left;
+}
+
+.dxpcModalBackLite_MetropolisIMB,
+.dxdpModalBackLite_MetropolisIMB
+{
+	background-color: #777777;
+	opacity: 0.7;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+	position: fixed;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+}
+.dxpcLiteDisabled_MetropolisIMB,
+.dxdpLiteDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxRoundPanel -- */
+.dxrpControl_MetropolisIMB,
+.dxrpControlGB_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxrpControl_MetropolisIMB .dxrpCI
+{
+	display:block;
+}
+/* Header */
+.dxrpControl_MetropolisIMB td.dxrpHeader_MetropolisIMB
+{
+	color: #00A74F;
+	font-size: 1.66em;
+}
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB span.dx-vam,
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB span.dx-vat,
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB span.dx-vab,
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB a.dx-vam,
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB a.dx-vat,
+*+html .dxrpControl_MetropolisIMB .dxrpHeader_MetropolisIMB a.dx-vab 
+{
+	padding-bottom:12px;
+}
+.dxrpControlGB_MetropolisIMB span.dxrpHeader_MetropolisIMB
+{
+	font-weight: bold;
+	color: Silver;
+}
+.dxrpControl_MetropolisIMB  > tbody > tr > .dxrpHeader_MetropolisIMB > a,
+.dxrpControl_MetropolisIMB  > tbody > tr > .dxrpHeader_MetropolisIMB > a > span.dxrpHT,
+.dxrpControlGB_MetropolisIMB span.dxrpHeader_MetropolisIMB a
+{
+    color: #1E3695;
+}
+.dxrpControl_MetropolisIMB td.dxrpHeader_MetropolisIMB
+{
+	line-height: 100%;
+	white-space: nowrap;
+}
+/* Header image */
+.dxrpControl_MetropolisIMB .dxrpHI
+{
+	margin-right: 4px;
+}
+.dxrpControl_MetropolisIMB .dxrpHIR
+{
+	margin-left: 4px;
+}
+/* Content */
+.dxrpControl_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControlGB_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent
+{
+	vertical-align: top;
+}
+.dxrpControlGB_MetropolisIMB 
+{
+	border: 1px solid Silver;
+}
+.dxrpControl_MetropolisIMB
+{
+	border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+}
+.dxrpControlGB_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControlGB_MetropolisIMB span.dxrpHeader_MetropolisIMB
+{
+    background: white none;
+}
+/* Paddings */
+.dxrpControl_MetropolisIMB td.dxrpHeader_MetropolisIMB 
+{
+	padding: 7px 15px 8px 10px;
+}
+.dxrpControlGB_MetropolisIMB span.dxrpHeader_MetropolisIMB 
+{
+	padding: 0px 3px 0px 3px;
+}
+.dxrpControl_MetropolisIMB.dxrp-noCollapsing > tbody > tr.dxrpCR > .dxrpcontent,
+.dxrpControl_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent > .dxrpAW > .dxrpCW, .dxrpControl_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent >  .dxrpCW
+{
+	padding: 9px 10px 10px 10px;
+}
+.dxrpControlGB_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent
+{
+	padding: 6px 10px 10px 10px;
+}
+/* GroupboxCaptionOffset */
+.dxrpControlGB_MetropolisIMB > tbody > tr.dxrpCR > .dxrpcontent > div:first-child
+{
+	top: -13px;
+	left: -6px;
+	margin-bottom: -7px;
+}
+.dxrpControlGB_MetropolisIMB {
+	margin-top: 6px;
+}
+/* Disabled */
+.dxrpDisabled_MetropolisIMB,
+.dxrpDisabled_MetropolisIMB td.dxrp
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+.dxrpDisabled_MetropolisIMB.dxrpCollapsed > tbody > tr > td.dxrpHeader_MetropolisIMB
+{
+    border-radius: 0px;
+    border: 0px none #00A74F;
+}
+
+/* -- ASPxSiteMapControl -- */
+.dxsmControl_MetropolisIMB 
+{
+	color: #333333;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxsmControl_MetropolisIMB a:hover
+{
+	text-decoration: none!important;
+}
+.dxsmControl_MetropolisIMB a:visited
+{
+	color: #996085!important;
+}
+/* - Category Level - */
+.dxsmCategoryLevel_MetropolisIMB,
+.dxsmCategoryLevel_MetropolisIMB a
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #999999;
+}
+.dxsmCategoryLevel_MetropolisIMB
+{
+    font-size: 1.5em;
+	white-space: nowrap;
+	padding: 0px 0px 5px;
+}
+.dxsmCategoryLevel_MetropolisIMB
+{
+	border-bottom: 1px solid #B8B8B8;
+}
+ /*flow layout*/
+.dxsmLevelCategoryFlow_MetropolisIMB,
+.dxsmLevelCategoryFlow_MetropolisIMB a
+{
+	color: #1E3695;
+    font-weight: bold;
+	text-decoration: underline;
+}
+.dxsmLevelCategoryFlow_MetropolisIMB
+{
+	font-size: 1.5em;
+}
+/* - Level 0 - */
+.dxsmLevel0_MetropolisIMB,
+.dxsmLevel0_MetropolisIMB a,
+.dxsmLevel0Categorized_MetropolisIMB a,
+.dxsmLevel0Categorized_MetropolisIMB
+{
+	color: #999999;
+	text-decoration: none;
+}
+.dxsmLevel0_MetropolisIMB,
+.dxsmLevel0Categorized_MetropolisIMB
+{
+    font-size: 1.5em;
+	white-space: nowrap;
+	padding: 0px 0px 2px;
+}
+.dxsmLevel0_MetropolisIMB
+{
+	padding: 0px 0px 5px;
+}
+ /*flow layout*/
+.dxsmLevel0Flow_MetropolisIMB,
+.dxsmLevel0Flow_MetropolisIMB a,
+.dxsmLevel0CategorizedFlow_MetropolisIMB a,
+.dxsmLevel0CategorizedFlow_MetropolisIMB
+{
+	color: #00A74F;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.dxsmLevel0Flow_MetropolisIMB
+{
+	padding: 0px;
+}
+.dxsmLevel0Flow_MetropolisIMB
+{
+	text-decoration: none;
+}
+
+/* - Level 1 - */
+.dxsmLevel1_MetropolisIMB,
+.dxsmLevel1_MetropolisIMB a,
+.dxsmLevel1Categorized_MetropolisIMB a,
+.dxsmLevel1Categorized_MetropolisIMB
+{
+	color: #00A74F;
+	text-decoration: none;
+}
+.dxsmLevel1_MetropolisIMB,
+.dxsmLevel1Categorized_MetropolisIMB
+{
+	white-space: nowrap;
+	padding: 0px;
+}
+.dxsmLevel1_MetropolisIMB ul,
+.dxsmLevel1Categorized_MetropolisIMB ul
+{
+	list-style-type: none!important;
+}
+
+/*flow layout*/
+.dxsmLevel1Flow_MetropolisIMB,
+.dxsmLevel1Flow_MetropolisIMB a,
+.dxsmLevel1CategorizedFlow_MetropolisIMB,
+.dxsmLevel1CategorizedFlow_MetropolisIMB a
+{
+	color: #00A74F;
+	text-decoration: underline;
+}
+.dxsmLevel1Flow_MetropolisIMB
+{
+	text-decoration: none;
+	padding: 0px;
+}
+
+/* - Level 2 - */
+.dxsmLevel2_MetropolisIMB,
+.dxsmLevel2_MetropolisIMB a,
+.dxsmLevel2Categorized_MetropolisIMB a,
+.dxsmLevel2Categorized_MetropolisIMB
+{
+	color: #00A74F;
+	text-decoration: none;
+}
+.dxsmLevel2_MetropolisIMB,
+.dxsmLevel2Categorized_MetropolisIMB
+{
+    font-size: 0.91em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel2Flow_MetropolisIMB,
+.dxsmLevel2Flow_MetropolisIMB a
+{
+	color: #5078DC;
+	text-decoration: underline;
+}
+.dxsmLevel2Flow_MetropolisIMB
+{
+    font-size: 0.91em;
+	padding: 0px;
+}
+/* - Level 3 - */
+.dxsmLevel3_MetropolisIMB,
+.dxsmLevel3_MetropolisIMB a
+{
+	color: #00A74F;
+	text-decoration: none;
+}
+.dxsmLevel3_MetropolisIMB
+{
+    font-size: 0.75em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel3Flow_MetropolisIMB,
+.dxsmLevel3Flow_MetropolisIMB a
+{
+	color: #999999;
+	text-decoration: underline;
+}
+.dxsmLevel3Flow_MetropolisIMB
+{
+	font-size: 0.75em;
+}
+/* - Level 4 - */
+.dxsmLevel4_MetropolisIMB,
+.dxsmLevel4_MetropolisIMB a
+{
+	color: #00A74F;
+	text-decoration: none;
+}
+.dxsmLevel4_MetropolisIMB
+{
+    font-size: 0.66em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevel4Flow_MetropolisIMB,
+.dxsmLevel4Flow_MetropolisIMB a
+{
+	color: #A8A8A8;
+	text-decoration: underline;
+}
+.dxsmLevel4Flow_MetropolisIMB
+{
+    font-size: 0.66em;
+	padding: 0px;
+}
+/* - Other Levels - */
+.dxsmLevelOther_MetropolisIMB,
+.dxsmLevelOther_MetropolisIMB a
+{
+	color: #00A74F;
+	text-decoration: none;
+}
+.dxsmLevelOther_MetropolisIMB
+{
+    font-size: 0.75em;
+	white-space: nowrap;
+	padding: 0px;
+}
+/*flow layout*/
+.dxsmLevelOtherFlow_MetropolisIMB,
+.dxsmLevelOtherFlow_MetropolisIMB a
+{
+	color: #A8A8A8;
+	text-decoration: underline;
+}
+/* Disabled */
+.dxsmDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* -- ASPxTabControl Lite -- */
+.dxtcLite_MetropolisIMB 
+{
+	overflow: hidden;
+    color: #666666;
+	float: left;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-strip
+{
+	list-style: none outside none;
+	float: left;
+	padding: 0;
+	margin: 0;
+	_overflow: hidden;
+}
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer
+{
+	padding-top: 3px;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	display: block;
+	margin: 0;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-lineBreak
+{
+	float: none;
+	display: block;
+	clear: both;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.dxtcLite_MetropolisIMB.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-left-style: none;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-activeTab
+{
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	white-space: nowrap;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tab
+{
+	background: #E0E0E0 url('tcTabBack.gif') repeat-x bottom;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-activeTab a
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tab a 
+{
+	color: #666666;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tabHover,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tabHover a
+{
+	color: #FFFFFF;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-tabHover
+{
+    background: #00A74F url('tcTabBack.gif') repeat-x bottom;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	float: left;
+	border-right-width: 0;
+	border-left-width: 0;
+	overflow: hidden;
+	_border-top-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-spacer
+{
+	width: 1px;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-rightIndent
+{
+	width: 5px;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-link
+{
+	padding: 4px 36px;
+	display: block;
+	height: 100%;
+	_float: left;
+}
+
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-link,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-rightIndent
+{
+	text-decoration: none;
+	white-space: nowrap;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-img
+{
+	border-style: none;
+	margin: 0 3px 0 0;
+} 
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-img
+{
+	margin: 0 0 0 3px;
+}
+.dxtcLite_MetropolisIMB > .dxtc-content 
+{
+	background-color: #FFFFFF;
+	float: left;
+	clear: left;
+	border: 1px none #A8A8A8!important;
+	overflow: hidden;
+	padding: 11px;
+}
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-content 
+{
+	border-top-style: none!important;
+}
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-top > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-bottom: 4px solid #00A74F;
+}
+/* Rtl */
+.dxtcLite_MetropolisIMB.dxtc-rtl,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-content,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-strip,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-sbSpacer,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-activeTab
+{
+	float: right;
+}
+.dxtcLite_MetropolisIMB.dxtc-top.dxtc-rtl > .dxtc-content,
+.dxtcLite_MetropolisIMB.dxtc-bottom.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_MetropolisIMB.dxtc-bottom.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	clear: right!important;
+}
+.dxtcLite_MetropolisIMB.dxtc-left.dxtc-rtl > .dxtc-strip,
+.dxtcLite_MetropolisIMB.dxtc-left.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	float: left;
+}
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-content,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer,
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-stripContainer .dxtc-strip
+{
+	*float: left;
+}
+.dxtcLite_MetropolisIMB.dxtc-rtl > .dxtc-content
+{
+	*clear: left!important;
+}
+/* Scrolling */
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sb          
+{
+	cursor: pointer;
+	font-size: 0;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sb          
+{
+	margin-top: 0;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbHover
+{
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbPressed
+{
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbDisabled
+{
+	cursor: default;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sb img 
+{
+	border: none;
+	border-style: none;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbIndent
+{
+	width: 5px;
+}
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	width: 1px;
+}
+/* Multi-row */
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtc-n
+{
+	_display: inline;
+}
+.dxtcLiteDisabled_MetropolisIMB,
+.dxtcLiteDisabled_MetropolisIMB > .dxtc-stripContainer .dxtcLiteDisabled_MetropolisIMB.dxtc-activeTab,
+.dxtcLiteDisabled_MetropolisIMB > .dxtc-stripContainer .dxtc-link,
+.dxtcLiteDisabled_MetropolisIMB > .dxtc-stripContainer .dxtc-activeTab .dxtc-link,
+.dxtcLiteDisabled_MetropolisIMB > .dxtc-content,
+.dxtcLite_MetropolisIMB > .dxtc-stripContainer .dxtcLiteDisabled_MetropolisIMB .dxtc-link
+{
+	color: #acacac;
+	cursor: default;
+}
+/* bottom  */
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer
+{
+	padding-bottom: 3px;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-strip
+{
+	clear: left;
+	*float: none;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbSpacer
+{
+	border-bottom: 1px solid transparent;
+	_border-bottom-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-tab
+{
+	background: #E0E0E0 url('tcTabBack.gif') repeat-x top;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #00A74F url('tcTabBack.gif') repeat-x top;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-top: 4px solid #00A74F;
+}
+.dxtcLite_MetropolisIMB.dxtc-bottom > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right: 1px solid #A8A8A8;
+	border-bottom-color: #A8A8A8;
+	border-left: 1px solid #A8A8A8;
+	border-bottom-width: 1px;
+	border-bottom-style: none!important;
+}
+/* left */
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer
+{
+	padding-left: 3px;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	float: none;
+	*float: left;
+	clear: none;
+	*clear: both;
+	width: auto;
+	height: auto;
+}
+.dxtcLite_MetropolisIMB.dxtc-left.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-left.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-top-style: none;
+	border-bottom-style: none;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-link
+{
+	padding: 3px 15px 4px;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-tab
+{
+    background: #E0E0E0 url('tcTabBack.gif') repeat-y right;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #00A74F url('tcTabBack.gif') repeat-y right;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	border: none;
+	border-left: 1px solid transparent;
+	width: auto;
+	_border-left-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-right: 4px solid #00A74F;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-rightIndent
+{
+	height: 5px;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-stripContainer .dxtc-spacer
+{
+	height: 1px;
+}
+.dxtcLite_MetropolisIMB.dxtc-left > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right: 1px solid #A8A8A8;
+	border-bottom: 1px solid #A8A8A8;
+	border-left-color: #A8A8A8;
+	border-left-width: 1px;
+	border-left-style: none!important;
+	float: left;
+	clear: none;
+}
+/* right */
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer
+{
+	padding-right: 3px;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	float: none;
+	*float: left;
+	clear: none;
+	*clear: both;
+	width: auto;
+	height: auto;
+}
+.dxtcLite_MetropolisIMB.dxtc-right.dxtc-noSpacing > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-right.dxtc-noSpacing > .dxtc-stripContainer .dxtc-activeTab
+{
+	border-top-style: none;
+	border-bottom-style: none;
+	border-right-style: none;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-link
+{
+	padding: 3px 15px 4px;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-tab
+{
+    background: #E0E0E0 url('tcTabBack.gif') repeat-y left;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-tabHover
+{
+	background: #00A74F url('tcTabBack.gif') repeat-y left;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-activeTab
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	border: none;
+	border-right: 1px solid transparent;
+	_border-right-color: #000001;
+	_zoom: 1;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color=#000001);
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-activeTab,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-tab,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-spacer,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-sbWrapper,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-sbIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-sbSpacer
+{
+    border-left: 4px solid #00A74F;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-leftIndent,
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-rightIndent
+{
+	height: 5px;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-stripContainer .dxtc-spacer
+{
+	height: 1px;
+}
+.dxtcLite_MetropolisIMB.dxtc-right > .dxtc-content
+{
+	border-top: 1px solid #A8A8A8;
+	border-right-color: #A8A8A8;
+	border-bottom: 1px solid #A8A8A8;
+	border-left: 1px solid #A8A8A8;
+	border-right-width: 1px;
+	border-right-style: none!important;
+	float: left;
+	clear: none;
+}
+
+/* -- ASPxTitleIndex -- */
+.dxtiControl_MetropolisIMB 
+{
+	color: #00A74F;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxtiControl_MetropolisIMB a
+{
+	color: #00A74F;
+}
+.dxtiItem_MetropolisIMB
+{
+	white-space: nowrap;
+}
+.dxtiGroupHeader_MetropolisIMB,
+.dxtiGroupHeaderCategorized_MetropolisIMB
+{
+	font-size: 1.5em;
+	text-decoration: none;
+}
+.dxtiGroupHeader_MetropolisIMB,
+.dxtiGroupHeaderCategorized_MetropolisIMB
+{
+	white-space: nowrap;
+	padding: 0px 0px 8px;
+}
+.dxtiGroupHeaderCategorized_MetropolisIMB
+{
+	border-bottom: 1px Solid #C0C0C0;
+}
+/* - GroupHeaderText - */
+.dxtiGroupHeaderText_MetropolisIMB
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxtiGroupHeaderText_MetropolisIMB
+{
+	padding: 0px 8px 3px;
+}
+.dxtiGroupHeaderTextCategorized_MetropolisIMB
+{
+	color: #FFFFFF;
+	background-color: #00A74F;
+}
+.dxtiGroupHeaderTextCategorized_MetropolisIMB
+{
+	padding: 1px 8px;
+}
+/* - FilterBox - */
+.dxtiFilterBoxInfoText_MetropolisIMB
+{
+	font-size: 0.75em;
+    font-weight: normal;
+	color: #999999;
+	padding-top: 0px;
+	padding-bottom: 4px;
+}
+.dxtiFilterBoxEdit_MetropolisIMB
+{
+	border: 1px Solid silver;
+}
+.dxtiFilterBox_MetropolisIMB,
+.dxtiFilterBox_MetropolisIMB table
+{
+	color: #333333;
+}
+.dxtiFilterBox_MetropolisIMB
+{
+	padding: 15px;
+	background-color: #FAFAFA;
+}
+/* - IndexPanel - */
+.dxtiIndexPanel_MetropolisIMB
+{
+    font-size: 1.33em;
+	padding: 10px 0;
+	text-decoration: none;
+}
+.dxtiIndexPanelItem_MetropolisIMB,
+.dxtiCurrentIndexPanelItem_MetropolisIMB
+{
+	text-decoration: none;
+}
+.dxtiIndexPanelItem_MetropolisIMB,
+.dxtiCurrentIndexPanelItem_MetropolisIMB
+{
+	padding: 0px 6px 3px;
+}
+.dxtiCurrentIndexPanelItem_MetropolisIMB
+{
+	color: #FFFFFF;
+	background-color: #00A74F;
+}
+/* - BackToTop - */
+.dxtiBackToTop_MetropolisIMB,
+.dxtiBackToTop_MetropolisIMB a
+{
+	color: #999999;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.dxtiBackToTop_MetropolisIMB
+{
+	border-top: 1px solid silver;
+	padding: 8px 0px;
+	text-align: right!important;
+}
+.dxtiBackToTopRtl_MetropolisIMB
+{
+padding: 8px 0px;
+}
+.dxtiBackToTop_MetropolisIMB img
+{
+	float: right;
+	margin-top: -4px;
+	margin-left: 4px;
+}
+/* Disabled */
+.dxtiDisabled_MetropolisIMB,
+.dxtiDisabled_MetropolisIMB a
+{
+	color: #b8b8b8;
+	cursor: default!important;
+}
+/* -- ASPxUploadControl -- */
+.dxucControl_MetropolisIMB,
+.dxucEditArea_MetropolisIMB,
+input[type="text"].dxucEditArea_MetropolisIMB /*Bootstrap correction*/
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;	
+}
+.dxucControl_MetropolisIMB,
+.dxucEditArea_MetropolisIMB,
+body input.dxucEditArea_MetropolisIMB /*Bootstrap correction*/
+{
+	color: #333333;
+}
+.dxucEditArea_MetropolisIMB,
+input[type="text"].dxucEditArea_MetropolisIMB /*Bootstrap correction*/
+{
+    padding: 1px;
+}
+.dxucControl_MetropolisIMB .dxucInputs_MetropolisIMB
+{
+}
+.dxucTextBox_MetropolisIMB
+{
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 1px 2px;
+}
+.dxucTextBox_MetropolisIMB .dxucEditArea_MetropolisIMB
+{
+	margin: 0px;
+	background-color: white;
+}
+.dxucNullText_MetropolisIMB .dxucEditArea_MetropolisIMB
+{
+    color: #818181;
+}
+.dxucErrorCell_MetropolisIMB
+{
+	color: Red;
+	text-align: left;
+}
+.dxucButton_MetropolisIMB,
+.dxucButton_MetropolisIMB a
+{
+	color: #00A74F;
+	white-space: nowrap;
+}
+.dxucBrowseButton_MetropolisIMB,
+.dxucBrowseButton_MetropolisIMB a
+{
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.dxucControl_MetropolisIMB .dxucBrowseButton_MetropolisIMB a
+{
+	color: #000000;
+}
+.dxucControl_MetropolisIMB a[unselectable="on"]
+{
+    user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+.dxucBrowseButton_MetropolisIMB
+{
+	border: 1px solid Silver;
+	padding: 3px 8px 4px;
+	background-color: White;
+}
+@-moz-document url-prefix() {
+	.dxucBrowseButton_MetropolisIMB
+    {
+        padding: 4px 8px 3px;
+    }
+}
+.dxucBrowseButton_MetropolisIMB.dxbf
+{
+    padding: 3px 7px 4px;
+}
+.dxucBrowseButton_MetropolisIMB.dxbf a
+{
+    border: 1px dotted black;
+}
+.dxucBrowseButtonHover_MetropolisIMB
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxucBrowseButtonPressed_MetropolisIMB
+{
+	background-color: Silver;
+	color: #FFFFFF;
+}
+.dxuc-IE7 .dxucTextBox_MetropolisIMB .dxucEditArea_MetropolisIMB
+{
+    margin-left: -3px;
+}
+/* ProgressBar */
+.dxucProgressBar_MetropolisIMB
+{
+	background-color: #E0E0E0;
+}
+.dxucProgressBar_MetropolisIMB,
+.dxucProgressBar_MetropolisIMB td.dx
+{
+	color: #333333;
+}
+.dxucProgressBar_MetropolisIMB .dxucPBMainCell_MetropolisIMB,
+.dxucProgressBar_MetropolisIMB td.dx
+{
+	padding: 0;
+}
+.dxucProgressBarIndicator_MetropolisIMB 
+{
+	background-color: #00A74F;
+}
+/* Silverlight Plugin Link */
+.dxucSilverlightPluginLinkPanel_MetropolisIMB {
+	font-size: 0.75em;
+	color: #7d7d7d;
+	text-align: left;
+}
+.dxucSilverlightPluginLinkPanel_MetropolisIMB td {
+	padding: 0px 3px;
+	vertical-align: middle;
+}
+.dxucSilverlightPluginLinkPanel_MetropolisIMB a {
+	color: #0D45B7;
+}
+/* Disabled */
+.dxucDisabled_MetropolisIMB,
+.dxucDisabled_MetropolisIMB a
+{
+	cursor: default;
+	color: #B8B8B8;
+}
+.dxucTextBoxDisabled_MetropolisIMB
+{
+	border-color: #C3C3C3;
+}
+.dxucButtonDisabled_MetropolisIMB,
+.dxucButtonDisabled_MetropolisIMB a
+{
+	text-decoration: none;
+}
+.dxucBrowseButtonDisabled_MetropolisIMB
+{
+	cursor: default;
+}
+.dxucControl_MetropolisIMB .dxucBrowseButtonDisabled_MetropolisIMB a
+{
+    color: #b8b8b8;
+}
+
+/* -- ASPxSplitter -- */
+.dxsplControl_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxsplControl_MetropolisIMB,
+.dxsplVSeparator_MetropolisIMB,
+.dxsplHSeparator_MetropolisIMB
+{
+	background-color: White;
+}
+.dxsplVSeparator_MetropolisIMB,
+.dxsplHSeparator_MetropolisIMB
+{
+	font-size: 0;
+	padding: 0 1px 1px 0;
+}
+.dxsplControl_MetropolisIMB,
+.dxsplVSeparator_MetropolisIMB,
+.dxsplHSeparator_MetropolisIMB,
+.dxsplPane_MetropolisIMB,
+.dxsplPaneCollapsed_MetropolisIMB,
+.dxsplVSeparator_MetropolisIMB,
+.dxsplHSeparator_MetropolisIMB,
+.dxsplVSeparatorCollapsed_MetropolisIMB,
+.dxsplHSeparatorCollapsed_MetropolisIMB
+{
+}
+.dxsplPane_MetropolisIMB,
+.dxsplPaneCollapsed_MetropolisIMB
+{
+	background-color: white;
+}
+.dxsplPaneCollapsed_MetropolisIMB
+{
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+}
+.dxsplVSeparatorHover_MetropolisIMB
+{
+	cursor: w-resize;
+}
+.dxsplHSeparatorHover_MetropolisIMB
+{
+	cursor: n-resize;
+}
+.dxsplVSeparatorCollapsed_MetropolisIMB
+{
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+.dxsplHSeparatorCollapsed_MetropolisIMB
+{
+	border-left-width: 1px;
+	border-right-width: 1px;
+}
+.dxsplVSeparatorCollapsed_MetropolisIMB,
+.dxsplHSeparatorCollapsed_MetropolisIMB
+{
+	cursor: default!important;
+}
+.dxsplVSeparatorButton_MetropolisIMB
+{
+	cursor: pointer;
+	padding: 5px 3px 5px 2px;
+}
+.dxsplHSeparatorButton_MetropolisIMB
+{
+	cursor: pointer;
+	padding: 2px 5px 3px;
+}
+.dxsplDisabled_MetropolisIMB .dxsplVSeparatorButton_MetropolisIMB,
+.dxsplDisabled_MetropolisIMB .dxsplHSeparatorButton_MetropolisIMB
+{
+	cursor: default;
+}
+.dxsplVSeparatorHover_MetropolisIMB,
+.dxsplHSeparatorHover_MetropolisIMB,
+.dxsplVSeparatorButtonHover_MetropolisIMB,
+.dxsplHSeparatorButtonHover_MetropolisIMB
+{
+	background-color: #f7f7f7;
+}
+.dxsplResizingPointer_MetropolisIMB
+{
+	background: url('splResizingPointer.gif') repeat;
+	font-size: 0;
+	line-height: 0px;
+}
+.dxsplControl_MetropolisIMB .dxsplLCC
+{
+	padding: 8px;
+}
+
+/* -- ASPxTreeView -- */
+.dxtvControl_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	float: left;
+}
+.dxtvControl_MetropolisIMB li 
+{
+	overflow-y: hidden;
+}
+.dxtvControl_MetropolisIMB ul 
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+}
+
+.dxtvControl_MetropolisIMB a 
+{
+	color: #333333;
+	text-decoration: none;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ln
+{
+	vertical-align: top;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-nd
+{
+	margin-top: 1px;
+	float: left;
+	padding: 3px 5px 4px;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	outline: 0 none;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-elbNoLn,
+.dxtvControl_MetropolisIMB .dxtv-elb
+{
+	width: 26px;
+	height: 21px;
+	vertical-align: top;
+	float: left;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-elb
+{
+}
+
+.dxtvControl_MetropolisIMB .dxtv-btn 
+{
+	margin-left: 10px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-subnd 
+{
+	margin-left: 22px;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ndImg 
+{
+	margin:  0 4px 0 2px;
+	cursor: pointer;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ndTxt 
+{
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ndChk
+{
+	margin:  0 6px 0 2px;
+}
+  
+.dxtvControl_MetropolisIMB .dxtv-ndTmpl
+{
+	float: left;
+	white-space: nowrap;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ndSel
+{
+	background-color: #f0f0f0;
+	cursor: default;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-ndHov
+{
+	background-color: #00A74F;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+
+.dxtvControl_MetropolisIMB .dxtv-clr,
+.dxtvControl_MetropolisIMB .dxtv-clrIE7
+{
+	clear: both;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	width: 0;
+	display: block;
+} 
+
+.dxtvControl_MetropolisIMB .dxtv-clr
+{
+	line-height: 0;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl,
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-nd, 
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-elbNoLn,
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-elb,
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-ndTmpl
+{
+	float: right;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-elb,
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-ln 
+{
+	background-position: right top;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-elb
+{
+	background-image: url('tvElbowRtl.gif');
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-btn 
+{
+	margin: 5px 10px 0 0;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-subnd 
+{
+	margin: 0 22px 0 0;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-ndImg 
+{
+    margin: 0 2px 0 4px;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl.OperaRtlFix .dxtv-btn
+{
+	margin: 5px 10px 0 0;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl .dxtv-ndChk
+{
+	margin: 0 2px 0 6px;
+}
+
+.dxtvControl_MetropolisIMB.dxtvRtl.OperaRtlFix .dxtv-subnd 
+{
+	overflow-x: hidden;
+}
+
+.dxtvDisabled_MetropolisIMB,
+.dxtvControl_MetropolisIMB .dxtvDisabled_MetropolisIMB,
+.dxtvDisabled_MetropolisIMB a,
+.dxtvDisabled_MetropolisIMB .dxtv-ndTxt,
+.dxtvDisabled_MetropolisIMB .dxtv-ndImg,
+.dxtvDisabled_MetropolisIMB .dxtv-btn,
+.dxtvDisabled_MetropolisIMB .dxtv-nd
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+/* ASPxFileManager */
+.dxfmControl_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	outline: 0px;
+	color: #333333;
+}
+.dxfmDisabled_MetropolisIMB
+{
+	color: #b8b8b8;
+}
+
+/* FileManager - Splitter */
+.dxfmControl_MetropolisIMB .dxsplControl_MetropolisIMB
+{
+	border: 1px solid silver;
+}
+.dxfmControl_MetropolisIMB .dxsplPane_MetropolisIMB
+{
+	border-width: 0px;
+	background-color: White;
+}
+.dxfmControl_MetropolisIMB .dxsplLCC {
+	outline-width: 0px;
+	padding: 4px;
+}
+.dxfmControl_MetropolisIMB.dxfm-dst .dxsplVSeparator_MetropolisIMB
+{
+	width: 3px;
+	background: url('fmSplitterSeparator.gif') repeat-y right;
+	border-width: 0px;
+}
+.dxfmControl_MetropolisIMB.dxfm-dst.dxfm-rtl .dxsplVSeparator_MetropolisIMB
+{
+	background-position-x: left;
+}
+.dxfmControl_MetropolisIMB.dxfm-tch .dxsplVSeparator_MetropolisIMB
+{
+	border-width: 0 1px;
+	border-color: #E0E0E0;
+}
+.dxfmControl_MetropolisIMB .dxsplHSeparator_MetropolisIMB
+{
+	border-width: 0px;
+	background-color: #E0E0E0;
+}
+.dxfmControl_MetropolisIMB .dxfm-filePane .dxsplLCC
+{
+    padding: 0;
+}
+
+/* FileManager - TreeView */
+.dxfmControl_MetropolisIMB .dxtvControl_MetropolisIMB 
+{
+	margin-left: -5px;
+}
+.dxfmControl_MetropolisIMB .dxtvControl_MetropolisIMB .dxtv-nd.dxfm-folderSI
+{
+	border: 1px dotted #888888;
+	padding: 2px 4px 3px;
+}
+
+/* FileManager - File */
+.dxfmControl_MetropolisIMB div.dxfm-file 
+{
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 6px;
+	margin: 4px;
+}
+.dxfmControl_MetropolisIMB.dxfm-rtl div.dxfm-file 
+{
+	float: right;
+}
+.dxfmDisabled_MetropolisIMB .dxfm-file
+{
+	cursor: default;
+}
+.dxfmControl_MetropolisIMB div.dxfm-fileSI
+{
+	border: 1px dotted #888888;
+}
+.dxfmControl_MetropolisIMB div.dxfm-fileSA
+{
+	background-color: #e0e0e0;
+}
+.dxfmControl_MetropolisIMB div.dxfm-fileH,
+.dxfmControl_MetropolisIMB div.dxfm-fileF
+{
+	background-color: #00A74F;
+	color: #FFFFFF;
+}
+.dxfmControl_MetropolisIMB td.dxgv .dxfm-fileName
+{
+    padding: 2px 0;
+}
+.dxfmControl_MetropolisIMB .dxfm-file .dxfm-highlight
+{
+	background-color: #CFCFCF;
+	background-repeat: repeat;
+	color: #333333;
+	font-weight: bold;
+}
+.dxfmControl_MetropolisIMB .fileContainer
+{
+    margin: 4px;
+}
+
+/* FileManager - GridView */
+.dxfmControl_MetropolisIMB .dxgvControl_MetropolisIMB
+{
+    outline: none;
+}
+.dxfmControl_MetropolisIMB .dxgvTable_MetropolisIMB td.dxgv 
+{
+    border-bottom-width: 0px;
+}
+.dxfmControl_MetropolisIMB .dxgvTable_MetropolisIMB tr.dxfm-fileSA
+{
+    background-color: #00A74F;
+    color: White;
+}     
+.dxfmControl_MetropolisIMB .dxgvTable_MetropolisIMB tr.dxfm-fileSI
+{
+    background-color: #999999;
+    color: White;
+}
+.dxfmControl_MetropolisIMB .dxfm-fileF.dxgvFocusedRow_MetropolisIMB
+{
+    background-color: #00A74F;
+    color: White;
+}
+.dxfmControl_MetropolisIMB .dxgvTable_MetropolisIMB tr.dxfm-fileH
+{
+    background-color: #E3E3E3;
+    color: Black;
+}
+.dxfmControl_MetropolisIMB tr.dxgvFocusedRow_MetropolisIMB
+{
+    background: White;
+    color: Black;
+}
+.dxfm-file .dxgv.dxgvCommandColumn_MetropolisIMB
+{
+	text-overflow: clip;
+}
+
+/* FileManager - Toolbar */
+.dxfmControl_MetropolisIMB .dxfm-toolbar
+{
+	background-color: #FAFAFA;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar.dxsplPane_MetropolisIMB table.dxfm
+{
+	width: 100%;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar.dxsplPane_MetropolisIMB .dxfm-filter
+{
+	text-align: right;
+	vertical-align: top;
+	white-space: nowrap;
+}
+.dxfmControl_MetropolisIMB.dxfm-rtl .dxfm-toolbar.dxsplPane_MetropolisIMB .dxfm-filter 
+{
+	text-align: left;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar.dxsplPane_MetropolisIMB .dxfm-filter input,
+.dxfmControl_MetropolisIMB .dxfm-toolbar.dxsplPane_MetropolisIMB .dxfm-path input
+{
+	border: 1px solid silver;
+}
+
+.dxgvHeader_MetropolisIMB.dxfmGridHeader
+{
+	background: White;
+}
+
+/* FileManager - Toolbar - Light */
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxsplLCC 
+{
+	padding: 5px;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxm-main
+{
+	margin-top: 0px;
+	border-width: 0px;
+	background: transparent none;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-separator 
+{
+	padding: 0px 11px;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxm-horizontal.dxmtb .dxm-separator b
+{
+	background-color: #e0e0e0;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxfm-path 
+{
+	padding-left: 1px;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxfm-path input
+{
+	margin: 3px 8px 0px 4px;
+}
+.dxfmControl_MetropolisIMB.dxfm-rtl .dxfm-toolbar .dxmLite_MetropolisIMB .dxfm-path input 
+{
+	margin: 3px 4px 0px 8px;
+}
+.dxfmControl_MetropolisIMB .dxfm-toolbar .dxmLite_MetropolisIMB .dxm-item .dxm-content 
+{
+	padding-top: 4px;
+}
+
+/* FileManager - UploadPanel */
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel
+{
+	background-color: #FAFAFA;
+	text-align: right;
+}
+.dxfmControl_MetropolisIMB.dxfm-rtl .dxfm-uploadPanel
+{
+	text-align: left;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable
+{
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: 1px;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable .dxucControl_MetropolisIMB 
+{
+	margin-top: 4px;
+	margin-right: 10px;
+}
+.dxfmControl_MetropolisIMB.dxfm-rtl .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable .dxucControl_MetropolisIMB 
+{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell
+{
+    padding: 7px 0 0;
+    vertical-align: top;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell a 
+{
+	color: #00A74F;
+	text-decoration: underline;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB table.dxfm-uploadPanelTable td.dxfm-uploadPanelTableBCell a.dxfm-uploadDisable
+{
+	color: #777777;
+	text-decoration: none;
+	cursor: default;
+}
+
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB .dxucTextBox_MetropolisIMB {
+	padding: 0px 2px;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB .dxucBrowseButton_MetropolisIMB {
+	padding: 2px 8px 3px;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB .dxucBrowseButton_MetropolisIMB.dxbf {
+    padding: 2px 7px 3px;
+}
+.dxfmControl_MetropolisIMB .dxfm-uploadPanel.dxsplPane_MetropolisIMB .dxucSilverlightPluginLinkPanel_MetropolisIMB {
+	margin-top: -8px;
+}
+
+/* FileManager - Create, Rename input */
+.dxfmControl_MetropolisIMB .dxfm-cInput,
+.dxfmControl_MetropolisIMB .dxfm-rInput
+{
+	border: 1px solid silver;
+}
+
+/* FileManager - Move PopupControl */
+.dxfmControl_MetropolisIMB .dxpc-content 
+{
+	padding: 5px 0px 0px;
+	background-color: White;
+}
+.dxfmControl_MetropolisIMB .dxpc-content .dxfm-mpFoldersC 
+{
+	overflow: auto;
+	padding: 0px 0px 20px 5px;
+}
+.dxfmControl_MetropolisIMB .dxpc-content .dxfm-mpButtonC
+{
+	margin-top: 5px;
+	background-color: #F3F3F3;
+	border-top: 1px solid #E0E0E0;
+	text-align: right;
+	padding: 10px 15px 10px 10px;
+}
+.dxfmControl_MetropolisIMB .dxpc-content .dxfm-mpButtonC a 
+{
+	margin-left: 12px;
+	color: #00A74F;
+}
+
+/* ASPxImageSlider */
+.dxisControl_MetropolisIMB
+{
+    width: 660px;
+    height: 505px;
+    outline: 0;
+    user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxisControl_MetropolisIMB .dxis-playPauseBtnWrapper
+{
+    top: 0;
+    right: 0;
+    padding: 6px 12px 6px 14px;
+    position: absolute;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+*[dir="rtl"].dxisControl_MetropolisIMB .dxis-playPauseBtnWrapper {
+    right: auto;
+    left: 0;
+}
+.dxisControl_MetropolisIMB > .dxis-passePartout
+{
+    position: relative;
+    background-color: #000000;
+    width: 100%;
+    height:100%;
+}
+.dxisControl_MetropolisIMB .dxis-imageArea
+{
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.dxisControl_MetropolisIMB .dxis-slidePanel,
+.dxisControl_MetropolisIMB .dxis-nbSlidePanel,
+.dxisControl_MetropolisIMB .dxis-nbSlidePanelWrapper
+{
+    position: absolute;
+}
+.dxisControl_MetropolisIMB .dxis-nbSlidePanelWrapper
+{
+    overflow: hidden;
+}
+.dxisControl_MetropolisIMB .dxis-nbTop,
+.dxisControl_MetropolisIMB .dxis-nbBottom,
+.dxisControl_MetropolisIMB .dxis-nbLeft,
+.dxisControl_MetropolisIMB .dxis-nbRight,
+.dxisControl_MetropolisIMB .dxis-nbDotsBottom,
+.dxisControl_MetropolisIMB .dxis-nbDotsTop,
+.dxisControl_MetropolisIMB .dxis-nbDotsLeft,
+.dxisControl_MetropolisIMB .dxis-nbDotsRight
+{
+    position: relative;
+}
+.dxisControl_MetropolisIMB .dxis-nbTop
+{
+    padding-bottom: 5px;
+}
+.dxisControl_MetropolisIMB .dxis-nbBottom
+{
+    padding-top: 5px;
+}
+.dxisControl_MetropolisIMB .dxis-nbLeft
+{
+    padding-right: 5px;
+}
+.dxisControl_MetropolisIMB .dxis-nbRight
+{
+    padding-left: 5px;
+}
+.dxisControl_MetropolisIMB .dxis-nbDotsBottom,
+.dxisControl_MetropolisIMB .dxis-nbDotsTop
+{
+    padding: 20px 0;
+}
+.dxisControl_MetropolisIMB .dxis-nbDotsLeft
+{
+    padding-right: 20px;
+}
+.dxisControl_MetropolisIMB .dxis-nbDotsRight
+{
+    padding-left: 20px;
+}
+.dxisControl_MetropolisIMB .dxis-nbLeft,
+.dxisControl_MetropolisIMB .dxis-nbRight,
+.dxisControl_MetropolisIMB .dxis-nbDotsLeft,
+.dxisControl_MetropolisIMB .dxis-nbDotsRight
+{
+    float: left;
+}
+.dxisControl_MetropolisIMB .dxis-item,
+.dxisControl_MetropolisIMB .dxis-nbItem
+{
+    background-image: url('isLoading.gif');
+    background-repeat: no-repeat;
+    background-position:center center;
+}
+.dxisControl_MetropolisIMB .dxis-nbItem .dxis-nbHoverItem
+{
+    display: none;
+    position: absolute;
+    border: 2px solid #9f9f9f;
+}
+.dxisControl_MetropolisIMB .dxis-nbItem .dxis-nbHoverItem > div
+{
+    border: 2px solid #ffffff;
+}
+.dxisControl_MetropolisIMB .dxis-nbItem.dxis-hover .dxis-nbHoverItem
+{
+    display: block;
+}
+.dxisControl_MetropolisIMB .dxis-item,
+.dxisControl_MetropolisIMB .dxis-nbItem,
+.dxisControl_MetropolisIMB .dxis-nbDotItem
+{
+    position: absolute;
+    overflow: hidden;
+}
+.dxisControl_MetropolisIMB .dxis-nbItem,
+.dxisControl_MetropolisIMB .dxis-nbDotItem
+{
+    cursor: pointer;
+}
+.dxisControl_MetropolisIMB .dxis-nbDotItemSelected,
+.dxisControl_MetropolisIMB .dxis-nbDotItemDisabled
+{
+    cursor: default;
+}
+.dxisControl_MetropolisIMB .dxis-nbItem
+{
+    width: 90px;
+    height: 60px;
+    background-color: black;
+}
+.dxisControl_MetropolisIMB .dxis-itemTextArea
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    cursor: default;
+    padding: 22px;
+    color: white;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dxisControl_MetropolisIMB .dxis-nbSelectedItem
+{
+    z-index: 1;
+    cursor: default;
+    position: absolute;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+.dxisControl_MetropolisIMB .dxis-nbSelectedItem > div
+{
+    border: 2px solid White;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapper
+{
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapperDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapperDisabled
+{
+    cursor: default;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapper
+{
+    left: 0px;
+}
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapper
+{
+    right: 0px;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapper
+{
+    top: 0px;
+}
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapper
+{
+    bottom: 0px;
+}
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-prevBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-nextBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-nextBtnHorOutsideWrapper
+{
+    top: 50%;
+    margin-top: -32px;
+}
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-prevBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-nextBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-passePartout > .dxis-nextBtnVertOutsideWrapper
+{
+    left: 50%;
+    margin-left: -30px;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnHor
+{
+    margin: 16px 12px 16px 8px;
+}
+.dxisControl_MetropolisIMB .dxis-nextBtnHor
+{
+    margin: 16px 8px 16px 12px;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnVert
+{
+    margin: 8px 16px 12px 16px;
+}
+.dxisControl_MetropolisIMB .dxis-nextBtnVert
+{
+    margin: 12px 16px 8px 16px;
+}
+.dxisControl_MetropolisIMB > .dxis-nbBottom > .dxis-prevBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbBottom > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbBottom > .dxis-nextBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbBottom > .dxis-nextBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbTop > .dxis-prevBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbTop > .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbTop > .dxis-nextBtnHorWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbTop > .dxis-nextBtnHorOutsideWrapper
+{
+    height: inherit;
+}
+.dxisControl_MetropolisIMB > .dxis-nbLeft > .dxis-prevBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbLeft > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbLeft > .dxis-nextBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbLeft > .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbRight > .dxis-prevBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbRight > .dxis-prevBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbRight > .dxis-nextBtnVertWrapper,
+.dxisControl_MetropolisIMB > .dxis-nbRight > .dxis-nextBtnVertOutsideWrapper
+{
+    width: inherit;
+}
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorOutside
+{
+    top: 50%;
+    position: relative;
+    margin: -11px 7px 0 7px;
+}
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVertOutside,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVertOutside
+{
+    margin: 7px auto 6px;
+}
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapperPressed > .dxis-prevBtnHor,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevBtnHor,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapperPressed > .dxis-nextBtnHor,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextBtnHor,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapperPressed > .dxis-prevPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorWrapperPressed > .dxis-prevPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapperPressed > .dxis-prevPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapperPressed > .dxis-nextPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorWrapperPressed > .dxis-nextPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextPageBtnHor,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapperPressed > .dxis-nextPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapperPressed > .dxis-prevBtnVert,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevBtnVert,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapperPressed > .dxis-nextBtnVert,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextBtnVert,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapperPressed > .dxis-prevPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertWrapperPressed > .dxis-prevPageBtnVertOutside,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapperPressed > .dxis-prevPageBtnVertOutside,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapperPressed > .dxis-nextPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertWrapperPressed > .dxis-nextPageBtnVertOutside,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextPageBtnVert,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapperPressed > .dxis-nextPageBtnVertOutside,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertPressed,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertPressed,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorPressed,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorPressed,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVertPressed,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVertOutsidePressed,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVertPressed,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVertOutsidePressed,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorPressed,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorOutsidePressed,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorPressed,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorOutsidePressed,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertDisabled,
+.dxisControl_MetropolisIMB .dxis-nextBtnHorDisabled,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorDisabled,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVertDisabled,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnVertOutsideDisabled,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVertDisabled,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnVertOutsideDisabled,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorDisabled,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorOutsideDisabled,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorDisabled,
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorOutsideDisabled
+{
+    opacity: 0.25;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=25);
+}
+.dxisControl_MetropolisIMB .dxis-nextBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnHorOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-nextBtnVertOutsideWrapper,
+.dxisControl_MetropolisIMB .dxis-prevBtnVertOutsideWrapper {
+	background-color: transparent;
+}
+.dxisControl_MetropolisIMB .dxis-nextPageBtnHorOutside,
+.dxisControl_MetropolisIMB .dxis-prevPageBtnHorOutside {
+	margin-top: -14px;
+}
+/* ASPxImageGallery */
+.dxigControl_MetropolisIMB
+{
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxigControl_MetropolisIMB td.dxigCtrl
+{
+	padding: 12px 40px;
+}
+.dxigContent_MetropolisIMB
+{
+    border-top: 1px solid Silver;
+	border-bottom: 1px solid Silver;
+    padding: 6px 0;
+}
+.dxigEmptyData_MetropolisIMB
+{
+    color: Gray;
+}
+.dxigEmptyItem_MetropolisIMB
+{
+	text-align: left;
+	vertical-align: top;
+}
+.dxigFlowItem_MetropolisIMB
+{
+    float: left;
+}
+.dxigItem_MetropolisIMB
+{
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-image: url('igLoading.gif');
+}
+.dxigItem_MetropolisIMB a
+{
+    outline: 0;
+}
+.dxigItem_MetropolisIMB a > img
+{
+    display: block;
+}
+.dxigItem_MetropolisIMB .dxig-thumbnailBorder
+{
+    top: 0;
+    display: none;
+    position: absolute;
+    border: 1px solid gray;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+.dxigItem_MetropolisIMB .dxig-thumbnailWrapper,
+.dxigFlowItem_MetropolisIMB
+{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+.dxigControl_MetropolisIMB .dxig-thumbnailTextArea
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: none;
+}
+.dxigControl_MetropolisIMB .dxpcLite_MetropolisIMB .dxpc-mainDiv,
+.dxigControl_MetropolisIMB .dxpcLite_MetropolisIMB .dxpc-contentWrapper
+{
+    border: 0;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.dxigControl_MetropolisIMB .dxpcLite_MetropolisIMB .dxpc-content
+{
+    padding: 0;
+    background-color: transparent;
+}
+.dxigControl_MetropolisIMB .dxig-imageSliderWrapper
+{
+    overflow: hidden;
+    padding: 50px 65px;
+}
+.dxigControl_MetropolisIMB.dxTouchUI .dxig-imageSliderWrapper
+{
+    padding: 0;
+}
+.dxigControl_MetropolisIMB .dxig-imageSliderWrapper .dxisControl_MetropolisIMB .dxis-item > img
+{
+    box-shadow: 0 0 50px rgb(0,0,0);
+    -moz-box-shadow: 0 0 50px rgb(0,0,0);
+    -webkit-box-shadow: 0 0 50px rgb(0,0,0);
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel
+{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel > .dxig-overflowPanel
+{
+    overflow: hidden;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxisControl_MetropolisIMB
+{
+    position: relative;
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB > .dxis-passePartout
+{
+    background-color: transparent;
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbBottom
+{
+    padding: 4px 4px 0 4px;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper,
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper
+{
+    width: 43px;
+    background: url('igNavBtnsBack.png') repeat-y;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper
+{
+    background-position: 0 0;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper
+{
+    background-position: -39px 0;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapperDisabled,
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapperDisabled
+{
+    display: none;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper .dxis-prevPageBtnHor,
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper .dxis-nextPageBtnHor
+{
+    position: absolute;
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-prevBtnHorWrapper .dxis-prevPageBtnHor
+{
+}
+.dxigControl_MetropolisIMB .dxig-bottomPanel .dxis-nbBottom > .dxis-nextBtnHorWrapper .dxis-nextPageBtnHor
+{
+    right: 0;
+}
+.dxigControl_MetropolisIMB .dxig-fullscreenViewerTextArea
+{
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+.dxigControl_MetropolisIMB .dxig-prevButtonArea,
+.dxigControl_MetropolisIMB .dxig-nextButtonArea
+{
+    top: 0;
+    position: absolute;
+}
+.dxigControl_MetropolisIMB .dxig-prevButtonArea
+{
+    left: 0;
+}
+.dxigControl_MetropolisIMB .dxig-nextButtonArea
+{
+    right: 0;
+}
+.dxigControl_MetropolisIMB .dxig-prevButton,
+.dxigControl_MetropolisIMB .dxig-nextButton
+{
+    top: 50%;
+    cursor: pointer;
+    position: relative;
+    margin: -32px 11px 0;
+}
+.dxigControl_MetropolisIMB .dxig-prevButtonDisabled,
+.dxigControl_MetropolisIMB .dxig-nextButtonDisabled
+{
+    cursor: auto;
+    opacity: 0.5;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=50);
+}
+.dxigControl_MetropolisIMB .dxig-closeButtonWrapper,
+.dxigControl_MetropolisIMB .dxig-playPauseButtonWrapper
+{
+    padding: 15px;
+    cursor: pointer;
+    position: absolute;
+}
+.dxigControl_MetropolisIMB .dxig-closeButtonWrapper
+{
+    top: 4px;
+    right: 7px;
+}
+.dxigControl_MetropolisIMB .dxig-closeButtonWrapper > .dxig-closeButton
+{
+    z-index: 1;
+}
+.dxigControl_MetropolisIMB .dxig-playPauseButtonWrapper
+{
+    top: 2px;
+    right: 48px;
+}
+*[dir="rtl"].dxigControl_MetropolisIMB .dxig-closeButtonWrapper {
+    left: 7px;
+    right: auto;
+}
+*[dir="rtl"].dxigControl_MetropolisIMB .dxig-playPauseButtonWrapper {
+    left: 48px;
+    right: auto;
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbBottom,
+.dxigControl_MetropolisIMB .dxig-fullscreenViewerTextArea
+{
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.dxigControl_MetropolisIMB .dxig-overflowPanel .dxig-navigationBarMarker
+{
+    left: 50%;
+    bottom: 0;
+    margin-left: -10px;
+    position: absolute;
+    opacity: 0.7;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=70);
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbSelectedItem
+{
+    border: 2px solid #fff;
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbHoverItem
+{
+    border: 2px solid #9F9F9F
+}
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbSelectedItem > div,
+.dxigControl_MetropolisIMB .dxisControl_MetropolisIMB .dxis-nbHoverItem > div
+{
+    border: 2px solid #000;
+}
+.dxigEPContainer_MetropolisIMB
+{
+    height: 50px;
+	text-align: center;
+}
+.dxigEPContainer_MetropolisIMB div
+{
+	padding-top: 16px;
+}
+.dxigEPContainer_MetropolisIMB a
+{
+	color: #00A74F;
+}
+
+/* Removes flicking in iOS Safari*/
+.dxfmControl_MetropolisIMB,
+.dxnbGroupHeader_MetropolisIMB,
+.dxnbGroupHeaderCollapsed_MetropolisIMB,
+.dxnbGroupContent_MetropolisIMB > TABLE > TBODY > TR,
+.dxtcTab_MetropolisIMB,
+.dxtcActiveTab_MetropolisIMB,
+.dxtvControl_MetropolisIMB .dxtv-nd
+{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* Form Layout */
+.dxflFormLayout_MetropolisIMB{
+    display: table;
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333;
+}
+
+.dxflButtonItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 5px; }
+.dxflButtonItemSys .dxflVAMSys.dxflCaptionCell_MetropolisIMB{ padding-bottom: 1px; }
+.dxflTextItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 0px; }
+.dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 2px; }
+.dxflCheckBoxItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 3px; }
+.dxflRadioButtonItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 4px; }
+.dxflCheckBoxListItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 11px; }
+.dxflRadioButtonListItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 12px; }
+.dxflListBoxItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 5px; }
+.dxflTrackBarItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 2px; }
+.dxflProgressBarItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 3px; }
+.dxflMemoItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 4px; }
+.dxflCustomItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB{ padding-top: 2px; }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {   /*Chrome*/
+    .dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {
+        padding-top: 3px;
+    }
+}
+
+.dxflTextEditItemSys.dxflSafariItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {   /*Safari*/
+    padding-top: 2px;
+}
+
+noindex:-o-prefocus, body:first-of-type .dxflTextEditItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {   /*Opera*/
+    padding-top: 3px;
+}
+
+html[xmlns*=""] .dxflMemoItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {   /*IE 8*/
+    padding-top: 3px;
+}
+
+.dxflMemoItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {   /*IE 7*/
+    *padding-top: 3px;
+}
+
+@-moz-document url-prefix() {   /*Firefox*/
+    .dxflMemoItemSys .dxflVATSys.dxflCaptionCell_MetropolisIMB {
+        padding-top: 3px;
+    }
+}
+
+.dxflCLTSys .dxflCaptionCell_MetropolisIMB,
+.dxflCLBSys .dxflCaptionCell_MetropolisIMB{
+    padding: 3px 0;
+}
+
+.dxflCLLSys .dxflCaptionCell_MetropolisIMB,
+*[dir="rtl"].dxflFormLayout_MetropolisIMB.dxflCLRSys .dxflCaptionCell_MetropolisIMB{
+    padding-left: 0px;
+    padding-right: 6px;
+}
+.dxflCLRSys .dxflCaptionCell_MetropolisIMB,
+*[dir="rtl"].dxflFormLayout_MetropolisIMB.dxflCLLSys .dxflCaptionCell_MetropolisIMB{
+    padding-right: 0px;
+    padding-left: 6px;
+}
+.dxflCaptionCell_MetropolisIMB{
+    white-space: nowrap;
+    line-height: 16px;
+    height: 100%;
+    width: 1%;
+}
+.dxflNestedControlCell_MetropolisIMB{
+    height: 0;
+}
+
+.dxflCheckBoxItemSys.dxflItem_MetropolisIMB .dxichCellSys.dxeBase_MetropolisIMB
+{
+    padding-left: 0px;
+}
+*[dir="rtl"] .dxflCheckBoxItemSys.dxflItem_MetropolisIMB .dxichCellSys.dxeBase_MetropolisIMB
+{
+    padding-right: 0px;
+}
+
+.dxflEmptyItem_MetropolisIMB{
+    height: 21px;
+}
+
+.dxflItem_MetropolisIMB{ padding: 2px 0; width: 100%; }
+.dxflItem_MetropolisIMB > table.dxflItemTable_MetropolisIMB { width: 100%; }
+.dxflGroup_MetropolisIMB{ padding: 6px 5px; width: 100%;}
+.dxflGroup_MetropolisIMB > table.dxflGroupTable_MetropolisIMB { width: 100%; }
+.dxflGroupCell_MetropolisIMB{ padding: 0 8px; }
+
+.dxflGroupBox_MetropolisIMB {
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    border: 1px Solid #C0C0C0;
+    padding: 0 0 12px;
+    margin: 10px 0; 
+}
+.dxflGroupBox_MetropolisIMB.dxflHeadingLineGroupBoxSys {
+    border-width: 1px 0 0;
+}
+.dxflGroupBox_MetropolisIMB.dxflHeadingLineGroupBoxSys.dxflWithCaptionSys {
+    margin-top: 22px!important;
+}
+.dxflHeadingLineGroupBoxSys > .dxflGroup_MetropolisIMB{
+    margin-top: -6px;
+}
+
+.dxflGroupCell_MetropolisIMB> .dxtcControl_MetropolisIMB{ margin: 0px; }
+
+.dxflGroupBox_MetropolisIMB> .dxflGroup_MetropolisIMB{ margin-top: -9px; padding: 0 4px; }
+.dxflGroupBox_MetropolisIMB> .dxflGroup_MetropolisIMB tr:first-child > .dxflGroupCell_MetropolisIMB> .dxflItem_MetropolisIMB{ padding-top: 9px; }
+.dxflGroupBox_MetropolisIMB> .dxflGroup_MetropolisIMB tr:first-child > .dxflGroupCell_MetropolisIMB> .dxtcControl_MetropolisIMB{ margin-top: 10px; }
+.dxflGroupBox_MetropolisIMB> .dxflGroup_MetropolisIMB tr:last-child > .dxflGroupCell_MetropolisIMB> .dxflItem_MetropolisIMB{ padding-bottom: 0px; }
+
+.dxflGroup_MetropolisIMB tr:first-child > .dxflGroupCell_MetropolisIMB> .dxflGroupBox_MetropolisIMB{ margin-top: 13px; }
+.dxflGroup_MetropolisIMB tr:last-child > .dxflGroupCell_MetropolisIMB> .dxflGroupBox_MetropolisIMB{ margin-bottom: 0px; }
+
+.dxtcPageContent_MetropolisIMB> div > .dxflGroup_MetropolisIMB{ padding-top: 0px; padding-bottom: 0px; }
+.dxtcPageContent_MetropolisIMB> div > .dxflGroup_MetropolisIMB tr:first-child > .dxflGroupCell_MetropolisIMB> .dxflItem_MetropolisIMB{ padding-top: 12px; }
+.dxtcPageContent_MetropolisIMB> div > .dxflGroup_MetropolisIMB tr:last-child > .dxflGroupCell_MetropolisIMB> .dxflItem_MetropolisIMB{ padding-bottom: 12px; }
+
+.dxflGroupBoxCaption_MetropolisIMB{
+    background-color: White;
+    display: inline-block;  
+    left: 9px;
+    line-height: 16px;
+    padding: 0px 3px 0px 3px;  
+    position: relative;
+    top: -9px;
+}
+
+*[dir="rtl"].dxflFormLayout_MetropolisIMB .dxflGroupBoxCaption_MetropolisIMB {
+    padding: 0px 3px 0px 7px;
+    left: 0px;
+    right: 9px;
+}
+
+.dxflGroupBox_MetropolisIMB > div.dxflGroup_MetropolisIMB:first-child,
+.dxflGroupBox_MetropolisIMB > table.dxflGroup_MetropolisIMB:first-child {
+    margin-top: 0px;
+    padding-top: 7px;
+}
+
+.dxflHeadingLineGroupBoxSys > .dxflGroupBoxCaption_MetropolisIMB{
+    top: -19px;
+}
+
+.dxflOptional_MetropolisIMB{
+	color: gray;
+	font-style: normal;
+}
+.dxflRequired_MetropolisIMB{
+	color: green;
+	font-style: normal;
+}
+.dxflInternalEditorTable_MetropolisIMB {
+    width: 100%;
+}
+.dxflHelpText_MetropolisIMB {
+    color: #9F9F9F;
+    font-size: 0.91em;
+}
+.dxflHelpText_MetropolisIMB.dxflHHelpTextSys {
+    padding: 0 6px;
+}
+.dxflHelpText_MetropolisIMB.dxflTHelpTextSys {
+    padding: 6px 0 2px;
+}
+.dxflHelpText_MetropolisIMB.dxflBHelpTextSys {
+    padding: 2px 0 6px;
+}
+
+/* Ribbon */
+.dxrControl_MetropolisIMB {
+    font: 12px 'Segoe UI',Helvetica,'Droid Sans',Tahoma,Geneva,sans-serif;
+}
+.dxrControl_MetropolisIMB .dxr-tabContent {
+    border: 1px solid #c0c0c0;
+    border-top-width: 0px;
+    height: 95px;
+    background: #ffffff;
+}
+.dxrControl_MetropolisIMB.dxr-grLabelsHidden .dxr-tabContent {
+    height: 81px;
+}
+.dxrControl_MetropolisIMB.dxr-tabsHidden .dxr-tabContent {
+    border-top-width: 1px;
+}
+.dxrControl_MetropolisIMB, 
+.dxrControl_MetropolisIMB a {
+    color: #201f35;
+}
+.dxrControl_MetropolisIMB .dxr-itemDisabled.dxr-item,
+.dxrControl_MetropolisIMB .dxr-groupLabelDisabled.dxr-groupLabel,
+.dxrControl_MetropolisIMB .dxr-grExpBtnDisabled.dxr-grExpBtn,
+.dxrControl_MetropolisIMB .dxr-grExpBtnDisabled.dxr-grExpBtn .dxr-img32,
+.dxrControl_MetropolisIMB .dxr-minBtn.dxr-minBtnDisabled {
+    cursor: default;
+    color: #c0c0c0;
+}
+
+/* Ribbon Popup */
+.dxrControl_MetropolisIMB .dxr-minPopupWindow {
+    padding: 0;
+}
+.dxrControl_MetropolisIMB .dxr-minPopup.dxpc-mainDiv {
+    border: 0;
+}
+.dxrControl_MetropolisIMB .dxr-groupPopup .dxpc-mainDiv {
+    border: 1px solid #c0c0c0;
+}
+
+/* Ribbon Group List */
+.dxrControl_MetropolisIMB .dxr-groupList {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.dxrControl_MetropolisIMB .dxr-groupList .dxr-groupSep {
+    height: 100%;
+    list-style: none;
+}
+
+.dxrControl_MetropolisIMB .dxr-groupList .dxr-groupSep b {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #c0c0c0;
+}
+
+/* Ribbon Groups */
+.dxrControl_MetropolisIMB .dxr-groupList .dxr-group {
+    margin: 3px 3px 0 3px;
+    text-align: center;
+}
+.dxrControl_MetropolisIMB .dxr-groupContent {
+    height: 75px;
+}
+.dxrControl_MetropolisIMB .dxr-groupLabel {
+    text-align: center;
+    color: #333333;
+    line-height: 16px;
+    padding: 0px 5px 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.dxrControl_MetropolisIMB .dxr-grExpBtn,
+.dxrControl_MetropolisIMB .dxr-grExpBtn .dxr-img32 {
+    cursor: pointer;
+}
+.dxrControl_MetropolisIMB .dxr-grExpBtn {
+    height: 89px;
+    text-align: center;
+}
+.dxrControl_MetropolisIMB .dxr-groupPopupWindow {
+    padding: 2px 3px;
+}
+
+/* Ribbon Item Separator */
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-itemSep,
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-itemSep {
+    width: 3px;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-itemSep b,
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-itemSep b {
+    background: #c0c0c0;
+    display: block;
+    width: 1px;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-itemSep b {
+    margin: 3px auto;
+    height: 19px;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-itemSep b {
+    margin: 4px auto;
+    height: 67px;
+}
+
+/* Ribbon Item */
+.dxrControl_MetropolisIMB .dxr-item {
+    border: none;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-item,
+.dxrControl_MetropolisIMB.dxr-grLabelsHidden .dxr-grExpBtn {
+    text-align: center;
+    height: 75px;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item {
+    height: 25px;
+    white-space: nowrap;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item {
+    margin: 0 3px;
+}
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-lblText {
+    padding-left: 2px;
+    padding-right: 3px;
+}
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-popOut {
+    height: 100%;
+    margin-left: 1px;
+}
+
+/* Ribbon Item Label */
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-item .dxr-label {
+    border-top: 1px solid transparent;
+    width: 100%;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-item .dxr-label .dxr-lblContent,
+.dxrControl_MetropolisIMB .dxr-grExpBtn .dxr-lblContent {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label {
+    border-top: 1px solid #FFFFFF;
+}
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-label {
+    margin: 4px 0;
+}
+
+/* Ribbon Item Label PopOut */
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-item .dxr-label .dxr-popOut,
+.dxrControl_MetropolisIMB .dxr-grExpBtn .dxr-popOut {
+    margin: -1px 3px 1px;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item .dxr-popOut,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-popOut {
+    padding: 11px 3px;
+    margin: -8px 0 -6px;
+    border-left: 1px solid transparent;
+    font-size: 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    ::i-block-chrome,
+    .dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item .dxr-popOut,
+    .dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-popOut    
+    {
+	    margin: -9px 0 -6px;
+    }
+}
+noindex:-o-prefocus, 
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item .dxr-popOut,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item .dxr-popOut    
+{
+    margin: -7px 0 -8px;
+}
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label .dxr-popOut,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-item.dxr-itemHover.dxr-ddMode .dxr-label .dxr-popOut {
+    border-left: 1px solid #FFFFFF;
+}
+
+/* Ribbon Editors Item */
+.dxrControl_MetropolisIMB .dxr-item.dxr-edtItem {
+    border: 0;
+    padding: 1px 0 0;
+    height: 24px;
+}
+.dxrControl_MetropolisIMB .dxr-item.dxr-edtItem .dxr-label {
+    padding: 1px 3px 0 0;
+}
+
+/* Ribbon Item Types */
+.dxrControl_MetropolisIMB .dxr-buttonItem {
+    cursor: pointer;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-buttonItem,
+.dxrControl_MetropolisIMB .dxr-grExpBtn {
+    min-width: 42px;
+}
+.dxrControl_MetropolisIMB .dxr-buttonItem.dxr-itemChecked {
+    background: #D0D0D0;
+}
+.dxrControl_MetropolisIMB .dxr-buttonItem.dxr-itemPressed {
+    background: #D0D0D0;
+}
+.dxrControl_MetropolisIMB .dxr-buttonItem.dxr-itemHover,
+.dxrControl_MetropolisIMB .dxr-grExpBtn.dxr-grExpBtnHover {
+    background: #00A74F;
+	color: #FFFFFF;
+}
+.dxrControl_MetropolisIMB .dxr-img32,
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 {
+    width: 32px;
+    height: 32px;
+    margin: 2px auto 1px auto;
+}
+.dxrControl_MetropolisIMB .dxr-img16,
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-colorBtn .dxr-colorBtnNoImg16,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-colorBtn .dxr-colorBtnNoImg16 {
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+}
+.dxrControl_MetropolisIMB .dxr-ddImageContainer {
+    display: inline-block;
+}
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-ddImageContainer {
+    width: 100%;
+}
+
+/* Ribbon Color Button */
+.dxrControl_MetropolisIMB .dxr-colorBtn .dxr-colorDiv {
+    height: 4px;
+    width: 16px;
+    display: block;
+    margin: -6px 0 2px 4px;
+    position: relative;
+}
+
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-colorBtn .dxr-colorDiv {
+    width: 32px;
+    margin: -5px auto 1px;
+}
+
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.dxrControl_MetropolisIMB .dxr-blLrgItems .dxr-colorBtn .dxr-colorBtnNoImg32 .dxr-colorDiv,
+.dxrControl_MetropolisIMB .dxr-blRegItems .dxr-colorBtn .dxr-colorBtnNoImg16 .dxr-colorDiv,
+.dxrControl_MetropolisIMB .dxr-blHorItems .dxr-colorBtn .dxr-colorBtnNoImg16 .dxr-colorDiv {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.dxrControl_MetropolisIMB .dxpc-content.dxr-itemDDPopup {
+    padding: 0;
+}
+
+.dxrControl_MetropolisIMB .dxeColorTable_MetropolisIMB {
+    border: none;
+}
+
+.dxrControl_MetropolisIMB .dxr-minBtn {
+    cursor: pointer;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 0;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 14px;
+}
+.dxrControl_MetropolisIMB .dxr-minBtn img {
+    vertical-align: middle;
+}
+
+/* Ribbon TabControl */
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tab.dxr-fileTab .dxtc-link {
+    color: #FFFFFF;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tab.dxr-fileTab {
+    background: #bfbfbf;
+    border-color: #bfbfbf;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tabHover.dxr-fileTab {
+    background: #00A74F;
+    border-color: #00A74F;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxr-fileTabPressed.dxr-fileTab {
+    background: #bfbfbf;
+    border-color: #bfbfbf;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-leftIndent, 
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-spacer, 
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-rightIndent, 
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-sbWrapper, 
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-sbIndent, 
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-sbSpacer
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-spacer.dxr-fileTabSpacing {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tab .dxtc-link,
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab .dxtc-link {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tab {
+    border-top: 1px solid transparent;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom: 1px solid #c0c0c0;
+    background: #FFFFFF;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab {
+    border: 1px solid #c0c0c0;
+    border-bottom: 1px solid transparent;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab,
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab a {
+    background: #ffffff;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab .dxtc-link {
+    color: #00A74F;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtcLiteDisabled_MetropolisIMB .dxtc-link {
+    color: #ACACAC;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-activeTab .dxtc-link {
+    padding: 3px 35px;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tab .dxtc-link {
+    padding: 3px 36px;
+}
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-tabHover .dxtc-link {
+    color: #00A74F;
+}
+
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-leftIndent {
+    width: 0px;
+}
+
+.dxrControl_MetropolisIMB .dxtcLite_MetropolisIMB.dxtc-top .dxtc-rightIndent {
+    text-align: right;
+}
+
+/* DocumentViewer Ribbon */
+.dxrControl_MetropolisIMB .dxr-tmplItem .dxxrdvrCurrentPageLabel {
+    padding: 0 0 2px 0;
+    display: block;
+}
+.dxrControl_MetropolisIMB .dxr-tmplItem .dxxrdvrPageCountLabel {
+    padding: 1px 0 0 0;
+    display: block;
+}
+.dxrControl_MetropolisIMB .dxr-tmplItem .dxxrdvrPageNumberComboBox {
+    width: 100px;
+}
+
+/* ASPxImageZoom */
+.dxizControl_MetropolisIMB {
+    display: none;
+    border: 1px solid #d8d8d8;
+}
+.dxizControl_MetropolisIMB .dxiz-hint {
+    padding: 3px;
+    top: 0;
+    position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-hint > span {
+    margin-left: 3px;
+    color: gray;
+	vertical-align: top;
+    font: 12px Tahoma, Geneva, sans-serif;
+}
+.dxizControl_MetropolisIMB .dxiz-EWCloseButton {
+	top: 0;
+	right: 1px;
+	cursor: pointer;
+	position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-expandWindow .dxpc-content {
+    height: inherit;
+}
+.dxizControl_MetropolisIMB .dxiz-wrapper {
+    position: relative;
+}
+.dxizControl_MetropolisIMB .dxiz-wrapper > img,
+.dxizControl_MetropolisIMB .dxiz-clipPanel > img,
+.dxizControl_MetropolisIMB .dxiz-expandWindow .dxpc-content > img {
+    display: block;
+}
+.dxizControl_MetropolisIMB .dxiz-clipPanel > img {
+    position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-clipPanel {
+    overflow: hidden;
+    position: relative;
+}
+.dxizControl_MetropolisIMB .dxiz-clipPanel.dxiz-inside {
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=0);
+}
+.dxizControl_MetropolisIMB .dxpcLite .dxpc-content {
+    padding: 0;
+}
+
+.dxizControl_MetropolisIMB .dxiz-lens {
+    overflow: hidden;
+    top: 0;
+    position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-lens > .dxiz-pc {
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=0);
+	z-index: 1;
+    position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-llp,
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-lrp,
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-ltp,
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-lbp,
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-lcp {
+    position: absolute;
+}
+.dxizControl_MetropolisIMB .dxiz-lens .dxiz-lcp {
+	background: white;
+	outline: 1px solid #969292;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=50);
+	background: rgba(255,255,255,0.5);
+    outline: 1px solid rgba(128,128,128,0.5);
+}
+.dxizControl_MetropolisIMB .dxiz-lens.outside .dxiz-lcp {
+    background: transparent;
+	outline: 1px solid black;
+    outline: 1px solid rgba(0,0,0,0.5);
+}
+.dxizControl_MetropolisIMB .dxiz-lens.outside .dxiz-llp,
+.dxizControl_MetropolisIMB .dxiz-lens.outside .dxiz-lrp,
+.dxizControl_MetropolisIMB .dxiz-lens.outside .dxiz-ltp,
+.dxizControl_MetropolisIMB .dxiz-lens.outside .dxiz-lbp {
+    opacity: 0.25;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Style=0, Opacity=25);
+    background-color: #000;
+}
+.dxizControl_MetropolisIMB .dxizLoadingPanel_MetropolisIMB {
+    position: absolute;
+}
+
+.dxisControl_MetropolisIMB.dxis-zoomNavigator .dxis-nbItem {
+	width: 75px;
+    height: 75px;
+}

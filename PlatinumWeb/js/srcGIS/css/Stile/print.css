@@ -1,0 +1,29 @@
+/* 
+    Document   : print
+    Created on : Dec 16, 2013, 1:07:04 PM
+    Author     : TEUTA
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    background: white;
+        size: A4 landscape;
+    }
+
+#menu {
+    display: none;
+    }
+
+#map-panel{
+        left: 0;
+        top: 0;
+    width: 500px;
+        height: 500px;
+        display: block;
+        visiblity: visible;
+    }
+/** {
+    overflow: visible !important;
+        position: relative;
+    }*/

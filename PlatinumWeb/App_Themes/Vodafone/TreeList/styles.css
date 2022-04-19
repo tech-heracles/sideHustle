@@ -1,0 +1,262 @@
+.dxtlControl_Vodafone
+{
+	cursor: default;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+	border: 1px none #c0c0c0;
+}
+.dxtlControl_Vodafone caption
+{
+	background: #ACACAC none;
+	border-bottom: 0 solid #c0c0c0;
+	border: 1px solid #c0c0c0;
+	color: White;
+	font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+}
+
+/* Indent cells */
+.dxtlIndent_Vodafone,
+.dxtlIndentWithButton_Vodafone
+{
+	vertical-align: top;
+	background: white none no-repeat top center;
+}
+.dxtlIndent_Vodafone
+{
+	padding: 0 11px;
+}
+.dxtlIndentWithButton_Vodafone
+{
+	padding: 5px 7px 6px;
+}
+.dxtlSelectionCell_Vodafone
+{
+	border: 1px solid #cfcfcf;
+	padding: 3px 5px 5px 6px;
+}
+
+/* Tree-lines cells */
+.dxtlLineRoot_Vodafone
+{
+
+}
+
+.dxtlLineFirst_Vodafone
+{
+
+}
+.dxtlLineMiddle_Vodafone
+{
+
+}
+.dxtlLineLast_Vodafone
+{
+
+}
+
+.dxtlLineFirstRtl_Vodafone
+{
+}
+.dxtlLineMiddleRtl_Vodafone
+{
+
+}
+.dxtlLineLastRtl_Vodafone
+{
+}
+
+/* Headers */
+.dxtlHeader_Vodafone
+{
+    background-color: white;
+	border: 1px solid #c0c0c0;
+	padding: 4px 6px 5px;
+	font-weight: normal;
+}
+.dxtlHeader_Vodafone table.dxtl
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+.dxtlHeader_Vodafone td.dxtl
+{
+	padding: 0;
+}
+.dxtlHeader_Vodafone,
+.dxtlHeader_Vodafone td.dxtl
+{
+	white-space: nowrap;
+	text-align: left;
+	overflow: hidden;
+}
+/* Nodes */
+.dxtlNode_Vodafone
+{
+	background: white none;
+}
+.dxtlAltNode_Vodafone
+{
+	background-color: WhiteSmoke;
+}
+.dxtlSelectedNode_Vodafone
+{
+	background: #e0e0e0 none;
+}
+.dxtlFocusedNode_Vodafone
+{
+	background: #ED1B24 none;
+	color: white;
+}
+.dxtlInlineEditNode_Vodafone
+{
+	background: white none;
+}
+.dxtlEditFormDisplayNode_Vodafone
+{
+	background: white none;
+}
+
+.dxtlNode_Vodafone td.dxtl, 
+.dxtlAltNode_Vodafone  td.dxtl, 
+.dxtlSelectedNode_Vodafone td.dxtl, 
+.dxtlFocusedNode_Vodafone td.dxtl,
+.dxtlEditFormDisplayNode_Vodafone td.dxtl,
+.dxtlCommandCell_Vodafone
+{
+	padding: 3px 6px 4px;
+	border: 1px solid #cfcfcf;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.dxtlInlineEditNode_Vodafone td.dxtl
+{
+	border: 1px solid #cfcfcf;
+	padding: 1px;
+}
+
+/* Preview */
+.dxtlPreview_Vodafone
+{
+	color: #7f7f7f;
+	padding: 14px;
+	border: 1px solid #cfcfcf;
+	overflow: hidden;
+}
+
+/* Footers */
+.dxtlGroupFooter_Vodafone
+{
+}
+.dxtlFooter_Vodafone
+{
+}
+.dxtlGroupFooter_Vodafone td.dxtl,
+.dxtlFooter_Vodafone td.dxtl
+{
+	padding: 5px 6px 6px;
+	white-space: nowrap;
+	border: 1px solid #cfcfcf;
+	overflow: hidden;
+}
+
+/* Pagers */
+.dxtlPagerTopPanel_Vodafone
+{
+	border-bottom: 1px none #c0c0c0;
+	padding: 4px 0;
+}
+.dxtlPagerBottomPanel_Vodafone
+{
+	border-top: 1px none #c0c0c0;
+	padding: 7px 0;
+}
+
+/* Editing */
+.dxtlEditForm_Vodafone
+{
+	border: 1px solid #D3D3D3;
+	padding: 8px 10px 10px;
+}
+.dxtlEditFormCaption_Vodafone,
+.dxtlEditFormEditCell_Vodafone
+{
+	padding: 4px;
+}
+.dxtlEditFormCaption_Vodafone
+{
+	padding-left: 10px;
+	white-space: nowrap;
+}
+.dxtlError_Vodafone
+{
+	background: #FFC8C8 none;
+	color: #FF0000;
+	padding: 6px 10px;
+	border: 1px solid #cfcfcf;
+}
+.dxtlPopupEditForm_Vodafone
+{
+	padding: 10px;
+	min-width: 300px;
+}
+
+/* Links */
+.dxtlControl_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxtlControl_Vodafone a:hover
+{
+}
+.dxtlFocusedNode_Vodafone a
+{
+	color: White;
+}
+.dxtlSelectedNode_Vodafone a
+{
+	color: #ED1B24;
+}
+.dxtlCommandCell_Vodafone a
+{
+	margin-right: 3px;
+}
+/* Customization window */
+.dxtlControl_Vodafone .dxpcLite_Vodafone .dxpc-content
+{
+	min-width: 220px;
+}
+
+/* Loading panel */
+.dxtlLoadingPanel_Vodafone
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxtlLoadingPanel_Vodafone td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxtlLoadingPanel_Vodafone .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+/* Disabled */
+.dxtlDisabled_Vodafone,
+.dxtlDisabled_Vodafone .dxtl
+{
+	color: #b8b8b8;
+	cursor: default;
+}
+
+

@@ -1,0 +1,482 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="design.Master.cs" Inherits="PlatinumWeb.design" %>
+
+<%@ Register assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dxnb" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title> Alpha Web</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <style type="text/css"> 
+        .style1
+        {
+            width: 354px;
+            height: 56px;
+            font-size: 40pt;
+            margin-top: 3px;
+            margin-left: 70px;
+            padding-left:100px;
+            position: relative;
+            left: -8px;
+            top: 71px;
+        }
+         
+        .style6
+        {
+            height: 285px;
+            width: 30%;
+            padding-left: 0px;
+        }
+        .style9
+        {
+            margin-left: 0px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        .style10
+        {
+            height: 439px;
+            margin-top: 1px;
+            width: 1025px;
+            margin-bottom: 0px;
+            position: absolute;
+            left: 235px;
+            top: 19px;
+                margin-right: 0px;
+            text-align: justify;
+            right: 25px;
+            z-index: 1;
+        }
+ 
+        .style12
+        {
+            background-repeat: no-repeat;
+            background-position: left top;
+        }
+ 
+        .style14
+        {
+            width: 523px;
+            height: 27px;
+            position: absolute;
+            top: 160px;
+            left: 746px;
+            z-index: 1;
+            margin-left: 0px;
+        }
+        .style15
+        {
+            width: 1270px;
+            height: 50px;
+        }
+        .style16
+        {
+            position: relative;
+            left: 0px;
+            top: 21px;
+            height: 559px;
+            width: 101%;
+        }
+ 
+        .style17
+        {
+            width: 188px;
+        }
+ 
+        .style19
+        {
+            width: 150%;
+            height: 138px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+ 
+        .style20
+        {
+            position: relative;
+            left: 245px;
+            top: 62px;
+            color: #999999;
+            height: 22px;
+            width: 232px;
+        }
+ 
+        .style21
+        {
+            width: 1269px;
+        }
+ 
+        .style24
+        {
+            position: absolute;
+            top: 97px;
+            z-index: 1;
+            height: 52px;
+            right: 7px;
+            width: 62px;
+            left: 1158px;
+        }
+        .style25
+        {
+            position: absolute;
+            top: 129px;
+            z-index: 1;
+            width: 74px;
+                height: 22px;
+            left: 1183px;
+            font-size: medium;
+        }
+ 
+        .style26
+        {
+            font-size: medium;
+            font-weight: bold;
+            position: absolute;
+            top: 114px;
+            left: 849px;
+            color: #FFFFFF;
+            width: 298px;
+            height: 21px;
+            text-align: right;
+            margin-bottom: 8px;
+        }
+        .style27
+        {
+            text-align: right;
+        }
+ 
+        .style28
+        {
+            color: #666666;
+        }
+ 
+    </style> 
+<script language="javascript" type="text/javascript">
+    function Back()
+    {
+        history.go(-1);
+        return false;
+    }
+
+    function Forward() {
+        history.go(+1);
+        return false;
+    }
+
+  </script>
+
+</head>
+<body>
+    <form id="form1" runat="server" class="style21">
+        
+<%--<div id="wrapper">--%>
+	<div id="header" class="style19" dir="ltr">
+			<h1 class="style1">
+                <span lang="en-us">Alpha Web</span></h1>
+            <h2 class="style20">
+                <span lang="en-us">Program Kontabiliteti</span></h2>
+            <p class="style26">
+                <asp:Label ID="LabelUser" runat="server" style="z-index: 1" CssClass="style28"></asp:Label>
+            </p>
+	        <p style="color: #808080" >
+	            &nbsp;</p>
+	</div>
+	&nbsp;
+	<!-- end #header -->
+	<div class="style27">
+	        <asp:ImageButton ID="btnLogOut" runat="server" 
+                ImageUrl="~/css/images/logOut.png" CssClass="style24" 
+                ImageAlign="AbsMiddle" onclick="btnLogOut_Click" />
+            <asp:Label ID="LogOut" runat="server" Text="Log Out" Font-Bold="True" 
+                ForeColor=Red CssClass="style25"></asp:Label>
+		<dx:ASPxMenu ID="ASPxMenu1" runat="server" 
+                    AutoSeparators="RootOnly" CssFilePath="~/App_Themes/BlackGlass/{0}/styles.css" 
+                    CssPostfix="BlackGlass" ImageFolder="~/App_Themes/BlackGlass/{0}/" 
+                    ItemSpacing="0px" SeparatorColor="#16171B" SeparatorHeight="100%" 
+                    SeparatorWidth="1px" ShowPopOutImages="True" CssClass="style14" 
+            Height="21px" Width="523px">
+                <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />
+                <Items>
+                    <dx:MenuItem Name="Skedare" Text="Skedare">
+                        <Items>
+                            <dx:MenuItem Text="Ndermarje" NavigateUrl="Ndermarrjet.aspx">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Zgjidh ndermarje">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Backup/Restore">
+                                <Items>
+                                    <dx:MenuItem Text="Backup">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Restore">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Backup automatik">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Struktura administrative">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Njesi administrative">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Njesi likuidimi">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Konfigurim fushash">
+                            </dx:MenuItem>
+                            
+                            <dx:MenuItem Text="Monedhat" NavigateUrl="Monedhat.aspx">  
+                            </dx:MenuItem>
+                            
+                            <dx:MenuItem Text="Grupe &amp; Njesi artikulli">
+                                <Items>
+                                    <dx:MenuItem Text="Grupe/Nengrupe">
+                                        <Items>
+                                            <dx:MenuItem Text="Artikuj Qarkullues">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Artikuj te Qendrueshem me Seriale">
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Njesi Matje">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Kodifikim Artikulli">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Detajime Artikulli">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            
+                            <dx:MenuItem Text="Monedhat" NavigateUrl="Monedhat.aspx">  
+                            </dx:MenuItem>
+                            
+                            <dx:MenuItem Text="Qytete&amp;Kategori">
+                                <Items>
+                                    <dx:MenuItem Text="Qytete" NavigateUrl="Qytetet.aspx">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Kategori Klient/Furnitor">
+                                        <Items>
+                                            <dx:MenuItem Text="Kliente">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Furnitore">
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Afate Maturimi">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Kategori Zbritje Klienti">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Postimi">
+                                <Items>
+                                    <dx:MenuItem Text="Postim i Pakthyeshem">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Postim i Kthyeshem">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Kthim Postimi">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Konfiguro import">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Import new">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Import/Export">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Mbyllje viti">
+                            </dx:MenuItem>
+                        </Items>
+                        <Image Url="~/images/spacer.gif" />
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Konfigurime" Name="Konfigurime">
+                        <Items>
+                            <dx:MenuItem Text="Artikuj">
+                                <Items>
+                                    <dx:MenuItem Selected="True" Text="Qarkullues">
+                                        <Items>
+                                            <dx:MenuItem Text="I ri">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Ekzistues">
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Afatgjate seriale">
+                                        <Items>
+                                            <dx:MenuItem Text="I ri">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Ekzistues">
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Instrumenta Financiare">
+                                <Items>
+                                    <dx:MenuItem Text="I ri">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Ekzistues">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Cmime shitje">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Zbritje analitike">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Kliente/Furnitore">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Emetues">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Llogari kontabel">
+                                <Items>
+                                    <dx:MenuItem Text="E re">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Ekzistuese"  NavigateUrl="Llogaria.aspx">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Llogari koresponduese">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Skema QK">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Qendra kostoje">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Paga">
+                                <Items>
+                                    <dx:MenuItem Text="Paga baze">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Liste pagesa">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Punonjes">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Raporte financiare">
+                                <Items>
+                                    <dx:MenuItem Text="Format bilanci">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Format P.A.SH">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Text="Format cash flow">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Modelim fature">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Grupim dokumentash">
+                            </dx:MenuItem>
+                        </Items>
+                    </dx:MenuItem>
+                    <dx:MenuItem Name="Regjistrime" Text="Regjistrime">
+                    </dx:MenuItem>
+                    <dx:MenuItem Name="Raporte" Text="Raporte">
+                    </dx:MenuItem>
+                    <dx:MenuItem Name="Instrumenta" Text="Instrumenta">
+                    </dx:MenuItem>
+                    <dx:MenuItem Name="Ndihme" Text="Ndihme">
+                    </dx:MenuItem>
+                </Items>
+                <SubMenuStyle GutterWidth="0px" />
+                <SubMenuItemStyle Wrap="False">
+                </SubMenuItemStyle>
+                <Border BorderColor="#16171B" BorderStyle="Solid" BorderWidth="1px" />
+              
+          </dx:ASPxMenu>
+	</div>
+	<!-- end #menu -->
+	<div id="page" class="style16">
+	
+	<div id="content" class="style10">
+		<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			<div class="post">
+			<div class="post-bgtop">
+			<div class="post-bgbtm">
+				<h1 class="title" style="width: 770px; text-align: center;"><span lang="en-us">FORMA AKTIVE</span></h1>
+			</div>
+			</div>
+			</div>
+			
+		</asp:ContentPlaceHolder>
+			 
+                <p class="meta" 
+            style="width: 1007px; height: 380px; text-align: center;">&nbsp;</p>
+			 
+     </div>
+		<!-- end #content -->
+		<div id="sidebar" class="style6">
+		    <ul>
+				<li>
+					<h2 class="style17"><span lang="en-us"><span class="style12">Modulet Alpha</span></h2> </li>
+			</ul>
+			<dxnb:ASPxNavBar ID="ASPxNavBar1" runat="server" CssClass="style9" 
+                CssFilePath="~/App_Themes/BlackGlass/{0}/styles.css" CssPostfix="BlackGlass" 
+                GroupSpacing="0px" Height="185px" ImageFolder="~/App_Themes/BlackGlass/{0}/" 
+                Width="218px" onitemclick="ASPxNavBar1_ItemClick">
+                <Groups>
+                    <dxnb:NavBarGroup Name="cngbn" Text="Administrimi">
+                        <Items>
+                            <dxnb:NavBarItem Text="Grupet e perdoruesve" NavigateUrl="PerdoruesGrupe.aspx">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Perdoruesit" NavigateUrl="Perdoruesit.aspx">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Autorizimet">
+                            </dxnb:NavBarItem>
+                        </Items>
+                    </dxnb:NavBarGroup>
+                    <dxnb:NavBarGroup Text="Shitje/Blerje">
+                        <Items>
+                            <dxnb:NavBarItem Text="Shitje">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Blerje">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Raporti i shitjeve">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Raproti i blerjeve">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Libri i shitjeve">
+                            </dxnb:NavBarItem>
+                        </Items>
+                    </dxnb:NavBarGroup>
+                    <dxnb:NavBarGroup Text="Kliente/Furnitore">
+                        <Items>
+                            <dxnb:NavBarItem Text="Kliente">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Furnitore">
+                            </dxnb:NavBarItem>
+                        </Items>
+                    </dxnb:NavBarGroup>
+                    <dxnb:NavBarGroup Text="Arka/Banka">
+                        <Items>
+                            <dxnb:NavBarItem Text="Veprime arka">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Ditari i Arkes">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Banka">
+                            </dxnb:NavBarItem>
+                            <dxnb:NavBarItem Text="Ditari i bankes">
+                            </dxnb:NavBarItem>
+                        </Items>
+                    </dxnb:NavBarGroup>
+                </Groups>
+                <GroupContentStyle ItemSpacing="1px">
+                </GroupContentStyle>
+              
+            </dxnb:ASPxNavBar> 
+		</div>
+
+	
+	</div>
+	<!-- </div> wrapper --> 
+	<!-- end #page -->
+	<div id="footer" class="style15">
+		<p>Copyright (c) 200<span lang="en-us">9 WWW.IMB.AL</span></p>
+	</div>
+	<!-- end #footer -->
+
+     
+    </form>
+</body>
+</html>

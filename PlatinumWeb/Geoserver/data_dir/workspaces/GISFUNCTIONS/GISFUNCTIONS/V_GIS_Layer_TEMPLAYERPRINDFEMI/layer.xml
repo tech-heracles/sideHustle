@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_TEMPLAYERPRINDFEMI</name>
+  <id>LayerInfoImpl--dbecf10:1591b74e9c1:-7f2a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591b74e9c1:-7ff4</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591b74e9c1:-7f2b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

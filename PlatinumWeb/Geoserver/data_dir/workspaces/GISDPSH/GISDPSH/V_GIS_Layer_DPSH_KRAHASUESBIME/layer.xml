@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_KRAHASUESBIME</name>
+  <id>LayerInfoImpl-5cbec5c7:15b85829fc5:687e</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5cbec5c7:15b85829fc5:687b</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5cbec5c7:15b85829fc5:687d</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

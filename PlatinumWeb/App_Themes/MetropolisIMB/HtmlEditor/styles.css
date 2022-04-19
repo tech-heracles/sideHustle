@@ -1,0 +1,257 @@
+/* ----------------- Main ----------------- */
+/* Loading panel */
+.dxheLoadingDiv_MetropolisIMB
+{
+    background: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+.dxheLoadingPanel_MetropolisIMB
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxheLoadingPanel_MetropolisIMB td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxheLoadingPanel_MetropolisIMB .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
+.dxheControl_MetropolisIMB
+{
+    font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+
+/* Area */
+.dxheContentArea_MetropolisIMB
+{
+    padding: 6px 4px;
+}
+.dxheErrorFrame_MetropolisIMB
+{
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #D00707;
+	background-color: #FBC7C7;
+	margin-bottom: 6px;
+}
+.dxheErrorFrame_MetropolisIMB .dxhe 
+{
+    padding: 5px;
+}
+.dxheErrorFrame_MetropolisIMB .dxhe td 
+{
+    padding: 0;
+}
+.dxheErrorFrame_MetropolisIMB .dxheErrorFrameCloseButton_MetropolisIMB 
+{
+    cursor: pointer;
+}
+.dxheContentArea_MetropolisIMB td.dxheViewArea_MetropolisIMB /*B209529*/
+{
+    line-height: 0;
+}
+.dxheControl_MetropolisIMB .dxheHtmlViewArea_MetropolisIMB,
+.dxheDesignViewArea_MetropolisIMB,
+.dxhePreviewArea_MetropolisIMB 
+{
+    margin: 0px;
+    background: none #FFFFFF;
+    border: 0;
+    font-size: smaller;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.dxheContentArea_MetropolisIMB .dxeMemo_MetropolisIMB td,
+body.dxheDesignViewArea_MetropolisIMB,
+body.dxhePreviewArea_MetropolisIMB
+{
+    padding: 0 4px 0 4px;
+}
+.dxheControl_MetropolisIMB .dxheContentArea_MetropolisIMB .dxeMemo_MetropolisIMB td
+{
+    padding-right: 0;
+}
+.dxheContentArea_MetropolisIMB .dxeMemoEditArea_MetropolisIMB
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+.dxheControl_MetropolisIMB.dxhe-rtl .dxheContentArea_MetropolisIMB .dxeMemo_MetropolisIMB td
+{
+	padding: 0 4px 0 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    .dxheControl_MetropolisIMB.dxhe-rtl .dxheContentArea_MetropolisIMB .dxeMemo_MetropolisIMB td
+    {
+	    padding: 0 0 0 4px;
+    }
+}
+.dxheControl_MetropolisIMB .dxeMemo_MetropolisIMB textarea 
+{
+	resize: none;
+}
+/* Element appearance in DesignView */
+body.dxheDesignViewArea_MetropolisIMB table.dxEmptyBorderTable,
+body.dxheDesignViewArea_MetropolisIMB table.dxEmptyBorderTable td  {
+    border:1px dotted gray;
+}
+@media print 
+{
+	body.dxheDesignViewArea_MetropolisIMB table.dxEmptyBorderTable,
+	body.dxheDesignViewArea_MetropolisIMB table.dxEmptyBorderTable td  
+	{
+		border:0px;
+	}
+}
+body.dxheDesignViewArea_MetropolisIMB
+{
+    word-wrap: inherit;
+}
+body.dxheDesignViewArea_MetropolisIMB pre
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Status Bar */
+.dxheStatusBar_MetropolisIMB 
+{
+}
+.dxheControl_MetropolisIMB .dxheStatusBar_MetropolisIMB .dxheStatusBarTab_MetropolisIMB .dxtc-link 
+{
+    padding: 4px 12px 5px 11px;
+}
+.dxheStatusBarActiveTab_MetropolisIMB 
+{
+}
+.dxHtmlEditor_heSizeGrip_MetropolisIMB
+{
+    cursor: se-resize;
+}
+.dxHtmlEditor_heSizeGripRtl_MetropolisIMB
+{
+    cursor: ne-resize;
+}
+.dxheSizeGripContainer_MetropolisIMB
+{
+    width: 100%;
+    text-align: right;
+    font-size: 0;
+    margin-top: -16px;
+}
+.dxheControl_MetropolisIMB.dxhe-rtl .dxheSizeGripContainer_MetropolisIMB 
+{
+	text-align: left;
+}
+/* ----------------- Dialog Forms ----------------- */
+.dxpcLite_MetropolisIMB .dxheDlgFooter,
+.dxpcLite_MetropolisIMB .dxheCustomDialog_MetropolisIMB .dxhecd-Buttons
+{
+    background-color: white;
+    border-top: Solid 1px #E0E0E0;
+	padding: 10px 11px;
+	text-align: right;
+}
+.dxpcLite_MetropolisIMB.dxRtl .dxheDlgFooter,
+.dxpcLite_MetropolisIMB.dxRtl .dxheCustomDialog_MetropolisIMB .dxhecd-Buttons
+{
+    text-align: left;
+}
+.dxpcLite_MetropolisIMB .dxheDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxpcLite_MetropolisIMB.dxRtl .dxheDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+/* Insert Image Form */
+.dxpcLite_MetropolisIMB .dxheDlgInsertImageForm .dxheDlgImagePreviewCell,
+.dxpcLite_MetropolisIMB .dxheDlgSelectImageForm .dxheDlgImagePreviewCell
+{
+    color: #878787;
+    border: dashed 1px #cac8c8;
+}
+.dxpcLite_MetropolisIMB .dxheDlgPasteFromWordForm .dxheDlgPasteContainerCell td
+{
+	border: Solid 1px #9F9F9F;
+}
+/*----------------- Toolbars -----------------*/
+.dxtbSpacing_MetropolisIMB
+{
+	height: 1px;
+}
+.dxtbControl_MetropolisIMB 
+{
+    color: #333333;
+    width: 100%;
+    border-bottom: Solid 1px #c0c0c0;
+}
+.dxtbControl_MetropolisIMB td.dxmMenu_MetropolisIMB
+{
+	border-width: 0px;
+}
+.dxtbControl_MetropolisIMB .dxmLite_MetropolisIMB .dxm-main 
+{
+	background-color: #FFFFFF;
+}
+.dxtbControl_MetropolisIMB .dxmLite_MetropolisIMB .dxmtb.dxm-horizontal .dxm-separator b
+{
+	background-color: #c0c0c0;
+}
+.dxtbComboBoxMenuItem_MetropolisIMB
+{
+    padding-top: 2px;
+}
+.dxheControl_MetropolisIMB .dxrControl_MetropolisIMB .dxr-minBtn
+{
+    padding-right: 8px;
+}
+.dxheControl_MetropolisIMB .dxtbControl_MetropolisIMB.dxtbr_MetropolisIMB,
+.dxheControl_MetropolisIMB .dxrControl_MetropolisIMB .dxpc-mainDiv.dxr-minPopup
+{
+    border: 0;
+}
+
+/* Toolbars Lightweight Mode */
+.dxtbControl_MetropolisIMB .dxmLite_MetropolisIMB .dxm-main 
+{
+    border-width: 0px;
+}
+.dxmLite_MetropolisIMB .dxhetipControl_MetropolisIMB img
+{
+	vertical-align: top;
+}
+.dxtbControl_MetropolisIMB .dxm-horizontal.dxmtb .dxm-dropDownMode .dxtcbColorDiv_MetropolisIMB
+{
+    margin-top: -1px;
+    margin-bottom: -2px;
+}
+
+/* ToolbarColorButton */
+.dxtcbControl_MetropolisIMB { }
+.dxtcbColorDiv_MetropolisIMB
+{
+	width: 16px;
+	height: 3px;
+	font-size: 0;
+	background-color: Transparent;
+}
+
+/*----------------- RoundPanel -----------------*/
+.dxheRP.dxrpControl_MetropolisIMB .dxrpcontent_MetropolisIMB
+{
+    padding: 9px 10px 10px 10px !important;
+}

@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_GrafikuShitjeveSipasMuajve1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="pRC_RAP_SHITJESIPASMUAJVE_GRAFIKTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>string TipGrafiku ;
+private void Rap_GrafikuShitjeveSipasMuajve_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+System.Resources.ResourceManager  rm = new System.Resources.ResourceManager("Resources.Strings",System.Reflection.Assembly.Load("App_GlobalResources"));
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+    var parameters = AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]);
+      var filterTipGrafiku = parameters.Find(param =&gt; param.Emri == "filterTipGrafiku");
+  TipGrafiku = AlphaWebReports.raporteUtil.ktheVlereFiltriTipGrafiku(filterTipGrafiku.Vlera, parametraRaporti.Ci);
+
+}
+
+
+
+private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ 
+}
+
+
+
+private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+GroupHeaderBand p = (GroupHeaderBand ) sender;
+ XtraReport report = (XtraReport)p.Report;
+
+ System.Data.DataSet ds = ((System.Data.DataSet)report.DataSource);
+            if (ds.Tables[0].Rows.Count != 0 &amp;&amp; ds != null)
+            {
+                marzhiShitjeveChart.DataSource = ds;
+               marzhiShitjeveChart.DataAdapter = report.DataAdapter;
+                bool labelVisible = false;
+string LlojArtikulli = (string)report.Parameters["LlojArtikulli"].Value;
+                if (LlojArtikulli.ToString() == "0")
+                    labelVisible = true;
+                else labelVisible = false;
+                marzhiShitjeveChart.Series.Clear();
+int gjuha = (int)report.Parameters["paramGjuha"].Value;
+                switch (gjuha)
+                {
+                    case 0:
+                    konfiguroSeries(sender,"Vlera me TVSH", ds.Tables[0], ScaleType.Qualitative, "DATA", ScaleType.Numerical, "VLERAMEZBRITJE", labelVisible);
+                        break;
+                    case 1:
+                        konfiguroSeries(sender,"AMOUNT", ds.Tables[0], ScaleType.Qualitative, "DATA_eng", ScaleType.Numerical, "VLERAMEZBRITJE", labelVisible);
+                        break;
+                }
+            }
+
+}
+
+
+
+
+
+
+ public void konfiguroSeries(object sender,string emri, System.Data.DataTable datasource, ScaleType argScale, string argMember, ScaleType valScale, string valMember, bool labelVisible)
+        {
+
+ GroupHeaderBand p = (GroupHeaderBand ) sender;
+ XtraReport report = (XtraReport)p.Report;
+
+            DevExpress.XtraCharts.ViewType type = ((ViewType)Enum.Parse(typeof(ViewType), TipGrafiku.ToString()));
+            Series series = new Series(emri, type);
+            series.DataSource = datasource;
+            series.ArgumentScaleType = argScale;
+            series.ArgumentDataMember = argMember;
+            series.ValueScaleType = valScale;
+            series.ValueDataMembers.AddRange(new string[] { valMember });            
+            series.LabelsVisibility = labelVisible ? DevExpress.Utils.DefaultBoolean.True : DevExpress.Utils.DefaultBoolean.False;
+            series.Label.Border.Visible = false;            
+            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 2;
+            //series.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
+            //series.Label.Visible = labelVisible;
+            //series.PointOptions.ValueNumericOptions.Precision = 2;
+
+            marzhiShitjeveChart.Series.Add(series);
+            MerrTipGrafiku(sender,series);
+        }
+
+
+ private void MerrTipGrafiku(object sender,Series series)
+        {
+ GroupHeaderBand p = (GroupHeaderBand ) sender;
+ XtraReport report = (XtraReport)p.Report;
+
+      DevExpress.XtraCharts.ViewType type = ((ViewType)Enum.Parse(typeof(ViewType), TipGrafiku.ToString()));
+            switch (type)
+            {
+                case DevExpress.XtraCharts.ViewType.Line:
+                    LineSeriesView vija = new LineSeriesView();
+                    vija.LineMarkerOptions.Size = 5;
+                    series.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAllAroundPoint;
+                    series.View = vija;
+                    break;
+                case DevExpress.XtraCharts.ViewType.Line3D:
+                    Line3DSeriesView vija3d = new Line3DSeriesView();
+                    series.View = vija3d;
+                    break;
+                case DevExpress.XtraCharts.ViewType.Area3D:
+                    Area3DSeriesView siperfaqe3d = new Area3DSeriesView();
+                    series.View = siperfaqe3d;
+                    break;
+                case DevExpress.XtraCharts.ViewType.Area:
+                    AreaSeriesView siperfaqe = new AreaSeriesView();
+                    series.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAllAroundPoint;
+                    series.View = siperfaqe;
+                    break;
+                case DevExpress.XtraCharts.ViewType.Bar:
+                    break;
+                case DevExpress.XtraCharts.ViewType.Bar3D:
+                    break;
+            }
+        }
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+}
+</value>
+  </data>
+</root>

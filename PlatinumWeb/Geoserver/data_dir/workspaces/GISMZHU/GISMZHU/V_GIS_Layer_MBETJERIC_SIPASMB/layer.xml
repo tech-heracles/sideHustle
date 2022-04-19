@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJERIC_SIPASMB</name>
+  <id>LayerInfoImpl--31ac6b01:15926dd26f1:-1894</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--31ac6b01:15926dd26f1:-1899</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--31ac6b01:15926dd26f1:-1895</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_RASTEEVIDENTUAR</name>
+  <id>LayerInfoImpl-61670c58:15b7b1dcccc:-7171</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-61670c58:15b7b1dcccc:-7183</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-61670c58:15b7b1dcccc:-7172</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

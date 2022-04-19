@@ -1,0 +1,402 @@
+.dxGridView_gvCellError_Kesh,
+.dxGridView_gvCMClearFilter_Kesh,
+.dxGridView_gvCMClearGrouping_Kesh,
+.dxGridView_gvCMCollapseDetailRow_Kesh,
+.dxGridView_gvCMCollapseDetailRowDisabled_Kesh,
+.dxGridView_gvCMCollapseRow_Kesh,
+.dxGridView_gvCMCollapseRowDisabled_Kesh,
+.dxGridView_gvCMDeleteRow_Kesh,
+.dxGridView_gvCMEditRow_Kesh,
+.dxGridView_gvCMExpandDetailRow_Kesh,
+.dxGridView_gvCMExpandDetailRowDisabled_Kesh,
+.dxGridView_gvCMExpandRow_Kesh,
+.dxGridView_gvCMExpandRowDisabled_Kesh,
+.dxGridView_gvCMFullCollapse_Kesh,
+.dxGridView_gvCMFullExpand_Kesh,
+.dxGridView_gvCMGroupByColumn_Kesh,
+.dxGridView_gvCMNewRow_Kesh,
+.dxGridView_gvCMRefresh_Kesh,
+.dxGridView_gvCMShowCustomizationWindow_Kesh,
+.dxGridView_gvCMShowFilterEditor_Kesh,
+.dxGridView_gvCMShowGroupPanel_Kesh,
+.dxGridView_gvCMSortAscending_Kesh,
+.dxGridView_gvCMSortDescending_Kesh,
+.dxGridView_gvCMSummaryAverage_Kesh,
+.dxGridView_gvCMSummaryCount_Kesh,
+.dxGridView_gvCMSummaryMax_Kesh,
+.dxGridView_gvCMSummaryMin_Kesh,
+.dxGridView_gvCMSummarySum_Kesh,
+.dxGridView_gvCMUngroupColumn_Kesh,
+.dxGridView_gvCollapsedButton_Kesh,
+.dxGridView_gvCollapsedButtonRtl_Kesh,
+.dxGridView_gvDetailCollapsedButton_Kesh,
+.dxGridView_gvDetailCollapsedButtonRtl_Kesh,
+.dxGridView_gvDetailExpandedButton_Kesh,
+.dxGridView_gvDetailExpandedButtonRtl_Kesh,
+.dxGridView_gvDragAndDropArrowDown_Kesh,
+.dxGridView_gvDragAndDropArrowUp_Kesh,
+.dxGridView_gvDragAndDropHideColumn_Kesh,
+.dxGridView_gvExpandedButton_Kesh,
+.dxGridView_gvExpandedButtonRtl_Kesh,
+.dxGridView_gvFilterRowButton_Kesh,
+.dxGridView_gvHeaderFilter_Kesh,
+.dxGridView_gvHeaderFilterActive_Kesh,
+.dxGridView_gvHeaderSortDown_Kesh,
+.dxGridView_gvHeaderSortUp_Kesh,
+.dxGridView_gvParentGroupRows_Kesh,
+.dxGridView_WindowResizer_Kesh,
+.dxGridView_WindowResizerRtl_Kesh,
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvCollapsedButton_Kesh,
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvCollapsedButtonRtl_Kesh,
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvExpandedButton_Kesh,
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvExpandedButtonRtl_Kesh,
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailCollapsedButton_Kesh,
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailCollapsedButtonRtl_Kesh,
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailExpandedButton_Kesh,
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailExpandedButtonRtl_Kesh
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxGridView_gvCellError_Kesh
+{
+    background-position: -49px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvCMClearFilter_Kesh
+{
+    background-position: 0px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMClearGrouping_Kesh
+{
+    background-position: -19px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRow_Kesh
+{
+    background-position: -19px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseDetailRowDisabled_Kesh
+{
+    background-position: -76px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRow_Kesh
+{
+    background-position: 0px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMCollapseRowDisabled_Kesh
+{
+    background-position: 0px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMDeleteRow_Kesh
+{
+    background-position: -19px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMEditRow_Kesh
+{
+    background-position: -76px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRow_Kesh
+{
+    background-position: -38px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandDetailRowDisabled_Kesh
+{
+    background-position: -61px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRow_Kesh
+{
+    background-position: -38px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMExpandRowDisabled_Kesh
+{
+    background-position: -19px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullCollapse_Kesh
+{
+    background-position: -76px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMFullExpand_Kesh
+{
+    background-position: -19px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMGroupByColumn_Kesh
+{
+    background-position: -38px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMNewRow_Kesh
+{
+    background-position: -57px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMRefresh_Kesh
+{
+    background-position: -57px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowCustomizationWindow_Kesh
+{
+    background-position: -57px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowFilterEditor_Kesh
+{
+    background-position: -38px -23px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMShowGroupPanel_Kesh
+{
+    background-position: -57px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortAscending_Kesh
+{
+    background-position: -38px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSortDescending_Kesh
+{
+    background-position: 0px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryAverage_Kesh
+{
+    background-position: -42px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryCount_Kesh
+{
+    background-position: 0px -99px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMax_Kesh
+{
+    background-position: -76px -61px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummaryMin_Kesh
+{
+    background-position: -57px -80px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMSummarySum_Kesh
+{
+    background-position: -23px 0px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCMUngroupColumn_Kesh
+{
+    background-position: -76px -42px;
+    width: 18px;
+    height: 18px;
+}
+.dxGridView_gvCollapsedButton_Kesh
+{
+    background-position: 0px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvCollapsedButtonRtl_Kesh
+{
+    background-position: -28px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButton_Kesh
+{
+    background-position: -28px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailCollapsedButtonRtl_Kesh
+{
+    background-position: -42px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButton_Kesh
+{
+    background-position: 0px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDetailExpandedButtonRtl_Kesh
+{
+    background-position: -70px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvDragAndDropArrowDown_Kesh
+{
+    background-position: -68px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropArrowUp_Kesh
+{
+    background-position: -56px -163px;
+    width: 11px;
+    height: 9px;
+}
+.dxGridView_gvDragAndDropHideColumn_Kesh
+{
+    background-position: 0px 0px;
+    width: 22px;
+    height: 22px;
+}
+.dxGridView_gvExpandedButton_Kesh
+{
+    background-position: -14px -163px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvExpandedButtonRtl_Kesh
+{
+    background-position: -14px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvFilterRowButton_Kesh
+{
+    background-position: -64px -118px;
+    width: 14px;
+    height: 14px;
+}
+.dxGridView_gvHeaderFilter_Kesh
+{
+    background-position: -80px 0px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderFilterActive_Kesh
+{
+    background-position: -34px -118px;
+    width: 14px;
+    height: 16px;
+}
+.dxGridView_gvHeaderSortDown_Kesh
+{
+    background-position: -87px -17px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvHeaderSortUp_Kesh
+{
+    background-position: -84px -149px;
+    width: 7px;
+    height: 5px;
+}
+.dxGridView_gvParentGroupRows_Kesh
+{
+    background-position: 0px -135px;
+    width: 18px;
+    height: 13px;
+}
+.dxGridView_WindowResizer_Kesh
+{
+    background-position: 0px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxGridView_WindowResizerRtl_Kesh
+{
+    background-position: -17px -118px;
+    width: 16px;
+    height: 16px;
+}
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvCollapsedButton_Kesh
+{
+    background-position: -56px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvCollapsedButtonRtl_Kesh
+{
+    background-position: -47px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvExpandedButton_Kesh
+{
+    background-position: -75px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedGroupRow_Kesh .dxGridView_gvExpandedButtonRtl_Kesh
+{
+    background-position: -19px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailCollapsedButton_Kesh
+{
+    background-position: -61px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailCollapsedButtonRtl_Kesh
+{
+    background-position: -79px -118px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailExpandedButton_Kesh
+{
+    background-position: -33px -135px;
+    width: 13px;
+    height: 13px;
+}
+.dxgvFocusedRow_Kesh .dxGridView_gvDetailExpandedButtonRtl_Kesh
+{
+    background-position: -42px -149px;
+    width: 13px;
+    height: 13px;
+}
+.dxGridView_gvHeaderFilterActive_Kesh
+{
+	background-color: #5D9AD3;
+}
+

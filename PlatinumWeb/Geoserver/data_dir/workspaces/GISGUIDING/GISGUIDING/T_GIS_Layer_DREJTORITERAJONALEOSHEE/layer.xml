@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_DREJTORITERAJONALEOSHEE</name>
+  <id>LayerInfoImpl--dbecf10:1591d9f8b2f:38c2</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--dbecf10:1591d9f8b2f:38bb</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--dbecf10:1591d9f8b2f:38c1</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

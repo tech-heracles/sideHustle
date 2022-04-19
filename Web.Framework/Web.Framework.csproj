@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7A826EC-65AE-45C2-8100-BFED109F3FF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web.Framework</RootNamespace>
+    <AssemblyName>Web.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Web.4.0.0\lib\net45\Autofac.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxGauges.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsLogin.cs" />
+    <Compile Include="clsMenuInfo.cs" />
+    <Compile Include="clsToolbarConfig.cs" />
+    <Compile Include="colOpsineAnketa.cs" />
+    <Compile Include="comboList.cs" />
+    <Compile Include="CustomStoragesCleanerSettings.cs" />
+    <Compile Include="Dashboard\CustomDataSourceWizardConnectionStringsProvider.cs" />
+    <Compile Include="Dashboard\DashboardCustomDBSchemaProvider.cs" />
+    <Compile Include="Dashboard\DataBaseEditaleDashboardStorage.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HttpApplicationUtil.cs" />
+    <Compile Include="Infrastructure\RequestLifetimeScopeManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="structVlera.cs" />
+    <Compile Include="Templates\MyBaseTitlePanelTemplate.cs" />
+    <Compile Include="Templates\MyBatchEditTitleTemplate.cs" />
+    <Compile Include="Templates\MyButtonTemplate.cs" />
+    <Compile Include="Templates\MyCalendarTemplate.cs" />
+    <Compile Include="Templates\MyCheckTemplate.cs" />
+    <Compile Include="Templates\MyCheckTemplateGrid.cs" />
+    <Compile Include="Templates\MyCheckTemplateTreeList.cs" />
+    <Compile Include="Templates\MyComboTemplate.cs" />
+    <Compile Include="Templates\MyComboTemplateArtPerb.cs" />
+    <Compile Include="Templates\MyComboTemplateFormatNr.cs" />
+    <Compile Include="Templates\MyComboTemplateKateogria.cs" />
+    <Compile Include="Templates\MyComboTemplateMonedha.cs" />
+    <Compile Include="Templates\MyComboTreeList.cs" />
+    <Compile Include="Templates\MyDateGTemplate.cs" />
+    <Compile Include="Templates\MyDateTemplate.cs" />
+    <Compile Include="Templates\MyDoubleBaseTemplate.cs" />
+    <Compile Include="Templates\MyDoubleSpinTemplate.cs" />
+    <Compile Include="Templates\MyDoubleTemplate.cs" />
+    <Compile Include="Templates\MyGaugeTemplate.cs" />
+    <Compile Include="Templates\MyIntBaseTemplate.cs" />
+    <Compile Include="Templates\MyIntSpinTemplate.cs" />
+    <Compile Include="Templates\MyIntTemplate.cs" />
+    <Compile Include="Templates\MyLabelGTemplate.cs" />
+    <Compile Include="Templates\MyLabelTemplate.cs" />
+    <Compile Include="Templates\MyLinkKomenteTemplate.cs" />
+    <Compile Include="Templates\MyLinkTemplate.cs" />
+    <Compile Include="Templates\MyListboxTemplate.cs" />
+    <Compile Include="Templates\MyMemoTemplate.cs" />
+    <Compile Include="Templates\MyPivotHeaderFilterTemplate.cs" />
+    <Compile Include="Templates\MyReadOnlyMemoTemplate.cs" />
+    <Compile Include="Templates\MyReadOnlyTextTemplate.cs" />
+    <Compile Include="Templates\MySiteMapFirstLevelTemplate.cs" />
+    <Compile Include="Templates\MySiteMapLevelTemplate.cs" />
+    <Compile Include="Templates\MySpinTemplate.cs" />
+    <Compile Include="Templates\MySummaryGroupTemplate.cs" />
+    <Compile Include="Templates\MySummaryTotalTemplate.cs" />
+    <Compile Include="Templates\MyTemplateAutorizime.cs" />
+    <Compile Include="Templates\MyTemplateKushtePagese.cs" />
+    <Compile Include="Templates\MyTemplateLabelText.cs" />
+    <Compile Include="Templates\MyTemplateLlogari.cs" />
+    <Compile Include="Templates\MyTemplateLupa.cs" />
+    <Compile Include="Templates\MyTemplatePrindiGrupKF.cs" />
+    <Compile Include="Templates\MyTemplatePrindiKodifikimArtikulli.cs" />
+    <Compile Include="Templates\MyTextTemplate.cs" />
+    <Compile Include="Templates\MyTimeEditTemplate.cs" />
+    <Compile Include="Templates\MyTitlePanelMePeriudheDheComboTop.cs" />
+    <Compile Include="Templates\MyTitlePanelRegjistrimDokumentash.cs" />
+    <Compile Include="Templates\MyTitlePanelTemplateMePeriudhe.cs" />
+    <Compile Include="Templates\MyTitlePanelTemplateMeRefresh.cs" />
+    <Compile Include="Templates\TopRowsControl.cs" />
+    <Compile Include="WebUtils\ASPxControlExtensions\AspxCheckBoxListExtensions.cs" />
+    <Compile Include="WebUtils\ASPxControlExtensions\AspxComboBoxExtensions.cs" />
+    <Compile Include="WebUtils\ASPxControlExtensions\ASPxGridViewExtensions.cs" />
+    <Compile Include="WebUtils\ASPxControlExtensions\ASPxHiddenFieldExtensions.cs" />
+    <Compile Include="WebUtils\ASPxControlExtensions\ControlExtensions.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\AspxWebControlUtils.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\ConfigureAspxCheckBoxList.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\ConfigureAspxComboBox.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\GridUtil.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\KonfigurimComboGride.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\TreeListUtil.cs" />
+    <Compile Include="WebUtils\Filters\LlojePeriudhe.cs" />
+    <Compile Include="WebUtils\Filters\TitlePeriudha.cs" />
+    <Compile Include="WebUtils\Filters\TopRows.cs" />
+    <Compile Include="WebUtils\Pages\MyPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUtils\Pages\MyReportPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUtils\Pages\PageAuthorization.cs" />
+    <Compile Include="WebUtils\Pages\PageExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWeb.Services\AlphaWeb.Services.csproj">
+      <Project>{7f6cc276-a4a1-4f3e-b7c5-2a16ee0ec495}</Project>
+      <Name>AlphaWeb.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
+      <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
+      <Name>AlphaWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CacheLayer\CacheLayer.csproj">
+      <Project>{771f7c02-cc33-4955-b406-9e03dd7bc268}</Project>
+      <Name>CacheLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestApi\RestApi.csproj">
+      <Project>{79d29b88-af25-4488-bd04-564e3c5a8832}</Project>
+      <Name>RestApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

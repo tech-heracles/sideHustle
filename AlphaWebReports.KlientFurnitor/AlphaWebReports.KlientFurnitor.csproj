@@ -1,0 +1,1867 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52196EEF-151C-4635-9F4A-72ED561C4B94}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaWebReports.KlientFurnitor</RootNamespace>
+    <AssemblyName>AlphaWebReports.KlientFurnitor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Service, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSource\AnalitikFaturimPagesa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalitikFaturimPagesa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_InfoKlient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_InfoKlient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaAnalitikeKlient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaAnalitikeKlient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaFurnitor_Format2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaFurnitor_Format2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaKlienteveMeMarreveshje.cs">
+      <DependentUpon>Ds_KartelaKlienteveMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaKlienteveMeMarreveshje.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaKlienteveMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_KartelaKlientitSunPetrolum.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_KartelaKlientitSunPetrolum.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Kartolina_ditelindjes_klientit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Kartolina_ditelindjes_klientit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_MaturimFurnitori.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_MaturimFurnitori.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Permbledhes_Klienteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Permbledhes_Klienteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_kartela_furnitor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_kartela_furnitor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_kartela_klient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_kartela_klient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_kartela_klient_detajuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_kartela_klient_detajuar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_ShlyerjeKlientPeriudha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudha.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_ShlyerjeKlientPeriudhaUnivers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudhaUnivers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_SituacioniKlientitSipasMakinave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_SituacioniKlientitSipasMakinave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\ds_prc_situacioni_furnitor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_prc_situacioni_furnitor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_AnalitikSipasKartave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_AnalitikSipasKartave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_ArtikujTeShiturMeMarreveshje.cs">
+      <DependentUpon>Ds_Rap_ArtikujTeShiturMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_ArtikujTeShiturMeMarreveshje.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_ArtikujTeShiturMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Bonuset_Vjetore_Klienteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Bonuset_Vjetore_Klienteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_BuxhetiHarxhuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_BuxhetiHarxhuar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_DetyrimetKlienteveSipasAgjenteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_DetyrimiKlienteveSipasMuajve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_DetyrimiKlienteveSipasMuajve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_GjendjaBuxhetit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_GjendjaBuxhetit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_GjendjaPermbledhurKartaKlient.cs">
+      <DependentUpon>Ds_Rap_GjendjaPermbledhurKartaKlient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_GjendjaPermbledhurKartaKlient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_GjendjaPermbledhurKartaKlient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KartelaKlient_UniversReklama.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KartelaKlient_UniversReklama.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Kartela_E_Furnitorit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Kartela_E_Furnitorit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KlientetMeKontrate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KlientetMeKontrate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_LimiteteBonusece.cs">
+      <DependentUpon>Ds_Rap_LimiteteBonusece.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_LimiteteBonusece.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_LimiteteBonusece.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_MaturimiFaturaveTeFurnitoreve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeFurnitoreve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_MaturimiFaturaveTeKlienteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeKlienteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionIKlienteve_MeGrupime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeGrupime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionIKlienteve_MeMaturime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeMaturime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionineMonedheneKlientit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionineMonedheneKlientit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.cs">
+      <DependentUpon>Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionKlientiEkspozim.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionKlientiEkspozim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionKlientiSipasMuajve.cs">
+      <DependentUpon>Ds_Rap_SituacionKlientiSipasMuajve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionKlientiSipasMuajve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionKlientiSipasMuajve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_StatusiMarreveshjeve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_StatusiMarreveshjeve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_Vjetersia_Detyrimeve_Klienteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_ShitjeGjendjeKlienteshSipasAgjenteve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_SituacioniKlienteveMeMarreveshje.cs">
+      <DependentUpon>Ds_SituacioniKlienteveMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_SituacioniKlienteveMeMarreveshje.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_SituacioniKlienteveMeMarreveshje.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_SituacionineMonedheneFurnitorit.cs">
+      <DependentUpon>Ds_SituacionineMonedheneFurnitorit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_SituacionineMonedheneFurnitorit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_SituacionineMonedheneFurnitorit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_SituacionKlient_EkspozimVjetersi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_SituacionKlient_EkspozimVjetersi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\MaturimiAnalitikKF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaturimiAnalitikKF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\MaturimiPermbledhesKF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaturimiPermbledhesKF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\PermbledhesFaturimPagesa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PermbledhesFaturimPagesa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.cs">
+      <DependentUpon>PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ds_Rap_KlientetMeAfateMaturimi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_KlientetMeAfateMaturimi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\rap_prc_situacioni_klient.cs">
+      <DependentUpon>rap_prc_situacioni_klient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\rap_prc_situacioni_klient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rap_prc_situacioni_klient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\rap_prc_situacioni_klient_Autorizime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rap_prc_situacioni_klient_Autorizime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fatura\Ds_Rap_FormatPrintimiVeprimeKF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Rap_FormatPrintimiVeprimeKF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fatura\Rap_FormatPrintimiVeprimeKF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fatura\Rap_FormatPrintimiVeprimeKF.Designer.cs">
+      <DependentUpon>Rap_FormatPrintimiVeprimeKF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raporte\Rap_MaturimiFaturaveTeFurnitoreve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimiFaturaveTeFurnitoreve.Designer.cs">
+      <DependentUpon>Rap_MaturimiFaturaveTeFurnitoreve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131468465012365335.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KlientetMeAfateMaturimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KlientetMeAfateMaturimi.Designer.cs">
+      <DependentUpon>Rap_KlientetMeAfateMaturimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RapMaturimiFaturaveTeKlienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RapMaturimiFaturaveTeKlienteve.Designer.cs">
+      <DependentUpon>RapMaturimiFaturaveTeKlienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.Designer.cs">
+      <DependentUpon>Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RapVeprimetEKlientitPerDatatMeTeFundit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RapVeprimetEKlientitPerDatatMeTeFundit.Designer.cs">
+      <DependentUpon>RapVeprimetEKlientitPerDatatMeTeFundit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa.Designer.cs">
+      <DependentUpon>Rap_AnalitikFaturimPagesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesaFormat2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesaFormat2.Designer.cs">
+      <DependentUpon>Rap_AnalitikFaturimPagesaFormat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_AnalitikFaturimPagesa_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikSipasKartave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_AnalitikSipasKartave.Designer.cs">
+      <DependentUpon>Rap_AnalitikSipasKartave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ArtikujTeShiturMeMarreveshje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ArtikujTeShiturMeMarreveshje.Designer.cs">
+      <DependentUpon>Rap_ArtikujTeShiturMeMarreveshje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_2Mujore_Klienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_2Mujore_Klienteve.Designer.cs">
+      <DependentUpon>Rap_Bonuset_2Mujore_Klienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_2Mujore_Klienteve_Sipas_Autorizimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_2Mujore_Klienteve_Sipas_Autorizimeve.Designer.cs">
+      <DependentUpon>Rap_Bonuset_2Mujore_Klienteve_Sipas_Autorizimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Klienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Klienteve.Designer.cs">
+      <DependentUpon>Rap_Bonuset_Vjetore_Klienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.Designer.cs">
+      <DependentUpon>Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_BuxhetiHarxhuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_BuxhetiHarxhuar.Designer.cs">
+      <DependentUpon>Rap_BuxhetiHarxhuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_DetyrimetKlienteveSipasAgjenteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_DetyrimetKlienteveSipasAgjenteve.Designer.cs">
+      <DependentUpon>Rap_DetyrimetKlienteveSipasAgjenteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_DetyrimiKlienteveSipasMuajve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_DetyrimiKlienteveSipasMuajve.Designer.cs">
+      <DependentUpon>Rap_DetyrimiKlienteveSipasMuajve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_GjendjaBuxhetit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_GjendjaBuxhetit.Designer.cs">
+      <DependentUpon>Rap_GjendjaBuxhetit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_GjendjaEPermbledhurEKartaveKlient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_GjendjaEPermbledhurEKartaveKlient.Designer.cs">
+      <DependentUpon>Rap_GjendjaEPermbledhurEKartaveKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_InfoKlient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_InfoKlient.Designer.cs">
+      <DependentUpon>Rap_InfoKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaAnalitikeKlient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaAnalitikeKlient.Designer.cs">
+      <DependentUpon>Rap_KartelaAnalitikeKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor.Designer.cs">
+      <DependentUpon>Rap_KartelaFurnitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_KartelaFurnitor_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor_Format2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaFurnitor_Format2.Designer.cs">
+      <DependentUpon>Rap_KartelaFurnitor_Format2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlientEDetajuar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlientEDetajuar.Designer.cs">
+      <DependentUpon>Rap_KartelaKlientEDetajuar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlienteveMeMarreveshje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlienteveMeMarreveshje.Designer.cs">
+      <DependentUpon>Rap_KartelaKlienteveMeMarreveshje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlientMeTotalPeriudhe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlientMeTotalPeriudhe.Designer.cs">
+      <DependentUpon>Rap_KartelaKlientMeTotalPeriudhe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_Century21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_Century21.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_Century21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_MeAutorizim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_MeAutorizim.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_MeAutorizim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_MonedheBaze1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_MonedheBaze1.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_MonedheBaze1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131520114831729620.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131569421935052357.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131692964498814101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SunPetroleum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_SunPetroleum.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_SunPetroleum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_UniversReklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.Designer.cs">
+      <DependentUpon>Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartela_E_Furnitorit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartela_E_Furnitorit.Designer.cs">
+      <DependentUpon>Rap_Kartela_E_Furnitorit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartela_E_Furnitorit_arkaLlogari.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartela_E_Furnitorit_arkaLlogari.Designer.cs">
+      <DependentUpon>Rap_Kartela_E_Furnitorit_arkaLlogari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartolina_ditelindjes_klientit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Kartolina_ditelindjes_klientit.Designer.cs">
+      <DependentUpon>Rap_Kartolina_ditelindjes_klientit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_KlientetMeKontrate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_KlientetMeKontrate.Designer.cs">
+      <DependentUpon>Rap_KlientetMeKontrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve.Designer.cs">
+      <DependentUpon>RAP_KomisionetSipasAgjenteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.Designer.cs">
+      <DependentUpon>RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_LimiteteBonuseve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_LimiteteBonuseve.Designer.cs">
+      <DependentUpon>Rap_LimiteteBonuseve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF.Designer.cs">
+      <DependentUpon>Rap_MaturimAnalitikKF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_MaturimAnalitikKF_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.Designer.cs">
+      <DependentUpon>Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimFurnitori.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimFurnitori.Designer.cs">
+      <DependentUpon>Rap_MaturimFurnitori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimPermbledhesKF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_MaturimPermbledhesKF.Designer.cs">
+      <DependentUpon>Rap_MaturimPermbledhesKF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledheseSipasKlientevedhePajisjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledheseSipasKlientevedhePajisjeve.Designer.cs">
+      <DependentUpon>Rap_PermbledheseSipasKlientevedhePajisjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa.Designer.cs">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesaSinani.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesaSinani.Designer.cs">
+      <DependentUpon>Rap_PermbledhesFaturimPagesaSinani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.Designer.cs">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa_AlphaBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.Designer.cs">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Permbledhes_Klienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Permbledhes_Klienteve.Designer.cs">
+      <DependentUpon>Rap_Permbledhes_Klienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShitjeGjendjeKlienteshSipasAgjenteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShitjeGjendjeKlienteshSipasAgjenteve.Designer.cs">
+      <DependentUpon>Rap_ShitjeGjendjeKlienteshSipasAgjenteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudha.Designer.cs">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudhaMonKlient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudhaMonKlient.Designer.cs">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudhaMonKlient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudhaUnivers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_ShlyerjeKlientiPeriudhaUnivers.Designer.cs">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudhaUnivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreve.Designer.cs">
+      <DependentUpon>Rap_SituacionIFurnitoreve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreveLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreveLandscape.Designer.cs">
+      <DependentUpon>Rap_SituacionIFurnitoreveLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreveMeGrupime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitoreveMeGrupime.Designer.cs">
+      <DependentUpon>Rap_SituacionIFurnitoreveMeGrupime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitorevePageseFundit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIFurnitorevePageseFundit.Designer.cs">
+      <DependentUpon>Rap_SituacionIFurnitorevePageseFundit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveAutoElite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveAutoElite.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveAutoElite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveMeAdrese.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveMeAdrese.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveMeAdrese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveMeLimitParalajmeruesDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveMeLimitParalajmeruesDC.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveMeLimitParalajmeruesDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasAfateveMaturimit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasAfateveMaturimit.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveSipasAfateveMaturimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasMuajve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasMuajve.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteveSipasMuajve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeGrupime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeGrupime.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve_MeGrupime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeMarreveshje.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeMarreveshje.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve_MeMarreveshje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeMaturime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionIKlienteve_MeMaturime.Designer.cs">
+      <DependentUpon>Rap_SituacionIKlienteve_MeMaturime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionineMonedheneFurnitorit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionineMonedheneFurnitorit.Designer.cs">
+      <DependentUpon>Rap_SituacionineMonedheneFurnitorit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionineMonedheneKlientit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionineMonedheneKlientit.Designer.cs">
+      <DependentUpon>Rap_SituacionineMonedheneKlientit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreve.Designer.cs">
+      <DependentUpon>Rap_SituacioniPermbledhesIFurnitoreve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreveNivelRaportues.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreveNivelRaportues.Designer.cs">
+      <DependentUpon>Rap_SituacioniPermbledhesIFurnitoreveNivelRaportues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesKlienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacioniPermbledhesKlienteve.Designer.cs">
+      <DependentUpon>Rap_SituacioniPermbledhesKlienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionKlient_EkspozimVjetersi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionKlient_EkspozimVjetersi.Designer.cs">
+      <DependentUpon>Rap_SituacionKlient_EkspozimVjetersi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionPermbledhesIKlienteveNivelRaportues.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_SituacionPermbledhesIKlienteveNivelRaportues.Designer.cs">
+      <DependentUpon>Rap_SituacionPermbledhesIKlienteveNivelRaportues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_StatusiMarreveshjeve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_StatusiMarreveshjeve.Designer.cs">
+      <DependentUpon>Rap_StatusiMarreveshjeve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve.Designer.cs">
+      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.Designer.cs">
+      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
+      <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
+      <Name>AlphaWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
+      <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
+      <Name>AlphaWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaWebReports.Common\AlphaWebReports.Common.csproj">
+      <Project>{982bdef8-564a-4be5-aca9-6915741ea904}</Project>
+      <Name>AlphaWebReports.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbCore\DbCore.csproj">
+      <Project>{acefd10f-7c9c-4e41-bef4-bfc8e7f0a1a6}</Project>
+      <Name>DbCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataSource\AnalitikFaturimPagesa.xsc">
+      <DependentUpon>AnalitikFaturimPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\AnalitikFaturimPagesa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AnalitikFaturimPagesa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\AnalitikFaturimPagesa.xss">
+      <DependentUpon>AnalitikFaturimPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_InfoKlient.xsc">
+      <DependentUpon>Ds_InfoKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_InfoKlient.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_InfoKlient.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_InfoKlient.xss">
+      <DependentUpon>Ds_InfoKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaAnalitikeKlient.xsc">
+      <DependentUpon>Ds_KartelaAnalitikeKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaAnalitikeKlient.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaAnalitikeKlient.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_KartelaAnalitikeKlient.xss">
+      <DependentUpon>Ds_KartelaAnalitikeKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaFurnitor_Format2.xsc">
+      <DependentUpon>Ds_KartelaFurnitor_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaFurnitor_Format2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaFurnitor_Format2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_KartelaFurnitor_Format2.xss">
+      <DependentUpon>Ds_KartelaFurnitor_Format2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlienteveMeMarreveshje.xsc">
+      <DependentUpon>Ds_KartelaKlienteveMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlienteveMeMarreveshje.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaKlienteveMeMarreveshje.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlienteveMeMarreveshje.xss">
+      <DependentUpon>Ds_KartelaKlienteveMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlientitSunPetrolum.xsc">
+      <DependentUpon>Ds_KartelaKlientitSunPetrolum.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlientitSunPetrolum.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_KartelaKlientitSunPetrolum.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_KartelaKlientitSunPetrolum.xss">
+      <DependentUpon>Ds_KartelaKlientitSunPetrolum.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Kartolina_ditelindjes_klientit.xsc">
+      <DependentUpon>Ds_Kartolina_ditelindjes_klientit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Kartolina_ditelindjes_klientit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Kartolina_ditelindjes_klientit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Kartolina_ditelindjes_klientit.xss">
+      <DependentUpon>Ds_Kartolina_ditelindjes_klientit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_MaturimFurnitori.xsc">
+      <DependentUpon>ds_MaturimFurnitori.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_MaturimFurnitori.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_MaturimFurnitori.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_MaturimFurnitori.xss">
+      <DependentUpon>ds_MaturimFurnitori.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Permbledhes_Klienteve.xsc">
+      <DependentUpon>Ds_Permbledhes_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Permbledhes_Klienteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Permbledhes_Klienteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Permbledhes_Klienteve.xss">
+      <DependentUpon>Ds_Permbledhes_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_furnitor.xsc">
+      <DependentUpon>ds_prc_kartela_furnitor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_furnitor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_kartela_furnitor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_furnitor.xss">
+      <DependentUpon>ds_prc_kartela_furnitor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient.xsc">
+      <DependentUpon>ds_prc_kartela_klient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_kartela_klient.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient.xss">
+      <DependentUpon>ds_prc_kartela_klient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient_detajuar.xsc">
+      <DependentUpon>ds_prc_kartela_klient_detajuar.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient_detajuar.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_kartela_klient_detajuar.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_kartela_klient_detajuar.xss">
+      <DependentUpon>ds_prc_kartela_klient_detajuar.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xsc">
+      <DependentUpon>Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xss">
+      <DependentUpon>Ds_PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xsc">
+      <DependentUpon>ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xss">
+      <DependentUpon>ds_PRC_RAP_SHLYERJET_E_KLIENTEVE_MON_KLIENT.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xsc">
+      <DependentUpon>Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xss">
+      <DependentUpon>Ds_PRC_RAP_SituacionIFurnitoreveMeGrupime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudha.xsc">
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudha.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudha.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_ShlyerjeKlientPeriudha.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudha.xss">
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudha.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudhaUnivers.xsc">
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudhaUnivers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudhaUnivers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_ShlyerjeKlientPeriudhaUnivers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_ShlyerjeKlientPeriudhaUnivers.xss">
+      <DependentUpon>ds_prc_ShlyerjeKlientPeriudhaUnivers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_SituacioniKlientitSipasMakinave.xsc">
+      <DependentUpon>ds_prc_SituacioniKlientitSipasMakinave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_SituacioniKlientitSipasMakinave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_SituacioniKlientitSipasMakinave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_SituacioniKlientitSipasMakinave.xss">
+      <DependentUpon>ds_prc_SituacioniKlientitSipasMakinave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_situacioni_furnitor.xsc">
+      <DependentUpon>ds_prc_situacioni_furnitor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\ds_prc_situacioni_furnitor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_prc_situacioni_furnitor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\ds_prc_situacioni_furnitor.xss">
+      <DependentUpon>ds_prc_situacioni_furnitor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikSipasKartave.xsc">
+      <DependentUpon>Ds_Rap_AnalitikSipasKartave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikSipasKartave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_AnalitikSipasKartave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_AnalitikSipasKartave.xss">
+      <DependentUpon>Ds_Rap_AnalitikSipasKartave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_ArtikujTeShiturMeMarreveshje.xsc">
+      <DependentUpon>Ds_Rap_ArtikujTeShiturMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_ArtikujTeShiturMeMarreveshje.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_ArtikujTeShiturMeMarreveshje.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_ArtikujTeShiturMeMarreveshje.xss">
+      <DependentUpon>Ds_Rap_ArtikujTeShiturMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve.xsc">
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Bonuset_2Mujore_Klienteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve.xss">
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xsc">
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xss">
+      <DependentUpon>Ds_Rap_Bonuset_2Mujore_Klienteve_Autorizime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_Vjetore_Klienteve.xsc">
+      <DependentUpon>Ds_Rap_Bonuset_Vjetore_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_Vjetore_Klienteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Bonuset_Vjetore_Klienteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Bonuset_Vjetore_Klienteve.xss">
+      <DependentUpon>Ds_Rap_Bonuset_Vjetore_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BuxhetiHarxhuar.xsc">
+      <DependentUpon>Ds_Rap_BuxhetiHarxhuar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_BuxhetiHarxhuar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_BuxhetiHarxhuar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_BuxhetiHarxhuar.xss">
+      <DependentUpon>Ds_Rap_BuxhetiHarxhuar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xsc">
+      <DependentUpon>Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_DetyrimetKlienteveSipasAgjenteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xss">
+      <DependentUpon>Ds_Rap_DetyrimetKlienteveSipasAgjenteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimiKlienteveSipasMuajve.xsc">
+      <DependentUpon>Ds_Rap_DetyrimiKlienteveSipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimiKlienteveSipasMuajve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_DetyrimiKlienteveSipasMuajve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_DetyrimiKlienteveSipasMuajve.xss">
+      <DependentUpon>Ds_Rap_DetyrimiKlienteveSipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaBuxhetit.xsc">
+      <DependentUpon>Ds_Rap_GjendjaBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaBuxhetit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_GjendjaBuxhetit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaBuxhetit.xss">
+      <DependentUpon>Ds_Rap_GjendjaBuxhetit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaPermbledhurKartaKlient.xsc">
+      <DependentUpon>Ds_Rap_GjendjaPermbledhurKartaKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaPermbledhurKartaKlient.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_GjendjaPermbledhurKartaKlient.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_GjendjaPermbledhurKartaKlient.xss">
+      <DependentUpon>Ds_Rap_GjendjaPermbledhurKartaKlient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaKlient_UniversReklama.xsc">
+      <DependentUpon>Ds_Rap_KartelaKlient_UniversReklama.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaKlient_UniversReklama.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KartelaKlient_UniversReklama.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_KartelaKlient_UniversReklama.xss">
+      <DependentUpon>Ds_Rap_KartelaKlient_UniversReklama.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Kartela_E_Furnitorit.xsc">
+      <DependentUpon>Ds_Rap_Kartela_E_Furnitorit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Kartela_E_Furnitorit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Kartela_E_Furnitorit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Kartela_E_Furnitorit.xss">
+      <DependentUpon>Ds_Rap_Kartela_E_Furnitorit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeKontrate.xsc">
+      <DependentUpon>Ds_Rap_KlientetMeKontrate.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeKontrate.xsd">
+    </None>
+    <None Include="DataSource\Ds_Rap_LimiteteBonusece.xsc">
+      <DependentUpon>Ds_Rap_LimiteteBonusece.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_LimiteteBonusece.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_LimiteteBonusece.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_LimiteteBonusece.xss">
+      <DependentUpon>Ds_Rap_LimiteteBonusece.xsd</DependentUpon>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KlientetMeKontrate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeKontrate.xss">
+      <DependentUpon>Ds_Rap_KlientetMeKontrate.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeFurnitoreve.xsc">
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeFurnitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeFurnitoreve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_MaturimiFaturaveTeFurnitoreve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeFurnitoreve.xss">
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeFurnitoreve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeKlienteve.xsc">
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeKlienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeKlienteve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_MaturimiFaturaveTeKlienteve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_MaturimiFaturaveTeKlienteve.xss">
+      <DependentUpon>Ds_Rap_MaturimiFaturaveTeKlienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xsc">
+      <DependentUpon>Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xss">
+      <DependentUpon>Ds_Rap_PermbledheseSipasKlienteve_Pajisjeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xsc">
+      <DependentUpon>Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xss">
+      <DependentUpon>Ds_Rap_SituacionIKlienteveSipasAfateveMaturimit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeGrupime.xsc">
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeGrupime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeGrupime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionIKlienteve_MeGrupime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeGrupime.xss">
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeGrupime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeMaturime.xsc">
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeMaturime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeMaturime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionIKlienteve_MeMaturime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionIKlienteve_MeMaturime.xss">
+      <DependentUpon>Ds_Rap_SituacionIKlienteve_MeMaturime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionineMonedheneKlientit.xsc">
+      <DependentUpon>Ds_Rap_SituacionineMonedheneKlientit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionineMonedheneKlientit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionineMonedheneKlientit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionineMonedheneKlientit.xss">
+      <DependentUpon>Ds_Rap_SituacionineMonedheneKlientit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsc">
+      <DependentUpon>Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xss">
+      <DependentUpon>Ds_Rap_SituacioniPermbledhesFurnitorNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiEkspozim.xsc">
+      <DependentUpon>Ds_Rap_SituacionKlientiEkspozim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiEkspozim.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionKlientiEkspozim.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiEkspozim.xss">
+      <DependentUpon>Ds_Rap_SituacionKlientiEkspozim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiSipasMuajve.xsc">
+      <DependentUpon>Ds_Rap_SituacionKlientiSipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiSipasMuajve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionKlientiSipasMuajve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionKlientiSipasMuajve.xss">
+      <DependentUpon>Ds_Rap_SituacionKlientiSipasMuajve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xsc">
+      <DependentUpon>Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xss">
+      <DependentUpon>Ds_Rap_SituacionPermbledhesIKlienteveNivelRaportues.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_StatusiMarreveshjeve.xsc">
+      <DependentUpon>Ds_Rap_StatusiMarreveshjeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_StatusiMarreveshjeve.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_StatusiMarreveshjeve.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_StatusiMarreveshjeve.xss">
+      <DependentUpon>Ds_Rap_StatusiMarreveshjeve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xsc">
+      <DependentUpon>Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_Vjetersia_Detyrimeve_Klienteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xss">
+      <DependentUpon>Ds_Rap_Vjetersia_Detyrimeve_Klienteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xsc">
+      <DependentUpon>Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_ShitjeGjendjeKlienteshSipasAgjenteve.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xss">
+      <DependentUpon>Ds_ShitjeGjendjeKlienteshSipasAgjenteve.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacioniKlienteveMeMarreveshje.xsc">
+      <DependentUpon>Ds_SituacioniKlienteveMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacioniKlienteveMeMarreveshje.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_SituacioniKlienteveMeMarreveshje.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_SituacioniKlienteveMeMarreveshje.xss">
+      <DependentUpon>Ds_SituacioniKlienteveMeMarreveshje.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacionineMonedheneFurnitorit.xsc">
+      <DependentUpon>Ds_SituacionineMonedheneFurnitorit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacionineMonedheneFurnitorit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_SituacionineMonedheneFurnitorit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_SituacionineMonedheneFurnitorit.xss">
+      <DependentUpon>Ds_SituacionineMonedheneFurnitorit.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacionKlient_EkspozimVjetersi.xsc">
+      <DependentUpon>Ds_SituacionKlient_EkspozimVjetersi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_SituacionKlient_EkspozimVjetersi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_SituacionKlient_EkspozimVjetersi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\Ds_SituacionKlient_EkspozimVjetersi.xss">
+      <DependentUpon>Ds_SituacionKlient_EkspozimVjetersi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\MaturimiAnalitikKF.xsc">
+      <DependentUpon>MaturimiAnalitikKF.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\MaturimiAnalitikKF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MaturimiAnalitikKF.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\MaturimiAnalitikKF.xss">
+      <DependentUpon>MaturimiAnalitikKF.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\MaturimiPermbledhesKF.xsc">
+      <DependentUpon>MaturimiPermbledhesKF.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\MaturimiPermbledhesKF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MaturimiPermbledhesKF.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\MaturimiPermbledhesKF.xss">
+      <DependentUpon>MaturimiPermbledhesKF.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PermbledhesFaturimPagesa.xsc">
+      <DependentUpon>PermbledhesFaturimPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PermbledhesFaturimPagesa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PermbledhesFaturimPagesa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\PermbledhesFaturimPagesa.xss">
+      <DependentUpon>PermbledhesFaturimPagesa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsc">
+      <DependentUpon>PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xss">
+      <DependentUpon>PRC_RAP_VEPRIMET_E_KLIENTIT_DATAT_ME_TE_FUNDIT.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeAfateMaturimi.xsc">
+      <DependentUpon>Ds_Rap_KlientetMeAfateMaturimi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeAfateMaturimi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_KlientetMeAfateMaturimi.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSource\Ds_Rap_KlientetMeAfateMaturimi.xss">
+      <DependentUpon>Ds_Rap_KlientetMeAfateMaturimi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient.xsc">
+      <DependentUpon>rap_prc_situacioni_klient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rap_prc_situacioni_klient.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient.xss">
+      <DependentUpon>rap_prc_situacioni_klient.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient_Autorizime.xsc">
+      <DependentUpon>rap_prc_situacioni_klient_Autorizime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient_Autorizime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rap_prc_situacioni_klient_Autorizime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\rap_prc_situacioni_klient_Autorizime.xss">
+      <DependentUpon>rap_prc_situacioni_klient_Autorizime.xsd</DependentUpon>
+    </None>
+    <None Include="Fatura\Ds_Rap_FormatPrintimiVeprimeKF.xsc">
+      <DependentUpon>Ds_Rap_FormatPrintimiVeprimeKF.xsd</DependentUpon>
+    </None>
+    <None Include="Fatura\Ds_Rap_FormatPrintimiVeprimeKF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Rap_FormatPrintimiVeprimeKF1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Fatura\Ds_Rap_FormatPrintimiVeprimeKF.xss">
+      <DependentUpon>Ds_Rap_FormatPrintimiVeprimeKF.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fatura\Rap_FormatPrintimiVeprimeKF.resx">
+      <DependentUpon>Rap_FormatPrintimiVeprimeKF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimiFaturaveTeFurnitoreve.resx">
+      <DependentUpon>Rap_MaturimiFaturaveTeFurnitoreve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.resx">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131468465012365335.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KlientetMeAfateMaturimi.resx">
+      <DependentUpon>Rap_KlientetMeAfateMaturimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RapMaturimiFaturaveTeKlienteve.resx">
+      <DependentUpon>RapMaturimiFaturaveTeKlienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.resx">
+      <DependentUpon>Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RapVeprimetEKlientitPerDatatMeTeFundit.resx">
+      <DependentUpon>RapVeprimetEKlientitPerDatatMeTeFundit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_AnalitikFaturimPagesa.resx">
+      <DependentUpon>Rap_AnalitikFaturimPagesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_AnalitikFaturimPagesaFormat2.resx">
+      <DependentUpon>Rap_AnalitikFaturimPagesaFormat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.resx">
+      <DependentUpon>Rap_AnalitikFaturimPagesa_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_AnalitikSipasKartave.resx">
+      <DependentUpon>Rap_AnalitikSipasKartave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ArtikujTeShiturMeMarreveshje.resx">
+      <DependentUpon>Rap_ArtikujTeShiturMeMarreveshje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Bonuset_2Mujore_Klienteve.resx">
+      <DependentUpon>Rap_Bonuset_2Mujore_Klienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Bonuset_2Mujore_Klienteve_Sipas_Autorizimeve.resx">
+      <DependentUpon>Rap_Bonuset_2Mujore_Klienteve_Sipas_Autorizimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Bonuset_Vjetore_Klienteve.resx">
+      <DependentUpon>Rap_Bonuset_Vjetore_Klienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.resx">
+      <DependentUpon>Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_BuxhetiHarxhuar.resx">
+      <DependentUpon>Rap_BuxhetiHarxhuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_DetyrimetKlienteveSipasAgjenteve.resx">
+      <DependentUpon>Rap_DetyrimetKlienteveSipasAgjenteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_DetyrimiKlienteveSipasMuajve.resx">
+      <DependentUpon>Rap_DetyrimiKlienteveSipasMuajve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_GjendjaBuxhetit.resx">
+      <DependentUpon>Rap_GjendjaBuxhetit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_GjendjaEPermbledhurEKartaveKlient.resx">
+      <DependentUpon>Rap_GjendjaEPermbledhurEKartaveKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_InfoKlient.resx">
+      <DependentUpon>Rap_InfoKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaAnalitikeKlient.resx">
+      <DependentUpon>Rap_KartelaAnalitikeKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor.resx">
+      <DependentUpon>Rap_KartelaFurnitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor_AlphaBank.resx">
+      <DependentUpon>Rap_KartelaFurnitor_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor_Format2.resx">
+      <DependentUpon>Rap_KartelaFurnitor_Format2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient.resx">
+      <DependentUpon>Rap_KartelaKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlientEDetajuar.resx">
+      <DependentUpon>Rap_KartelaKlientEDetajuar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlienteveMeMarreveshje.resx">
+      <DependentUpon>Rap_KartelaKlienteveMeMarreveshje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlientMeTotalPeriudhe.resx">
+      <DependentUpon>Rap_KartelaKlientMeTotalPeriudhe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_Century21.resx">
+      <DependentUpon>Rap_KartelaKlient_Century21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_MeAutorizim.resx">
+      <DependentUpon>Rap_KartelaKlient_MeAutorizim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_MonedheBaze1.resx">
+      <DependentUpon>Rap_KartelaKlient_MonedheBaze1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.resx">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131520114831729620.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.resx">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131569421935052357.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.resx">
+      <DependentUpon>Rap_KartelaKlient_SePDeFn_131692964498814101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SunPetroleum.resx">
+      <DependentUpon>Rap_KartelaKlient_SunPetroleum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_UniversReklama.resx">
+      <DependentUpon>Rap_KartelaKlient_UniversReklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.resx">
+      <DependentUpon>Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Kartela_E_Furnitorit.resx">
+      <DependentUpon>Rap_Kartela_E_Furnitorit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Kartela_E_Furnitorit_arkaLlogari.resx">
+      <DependentUpon>Rap_Kartela_E_Furnitorit_arkaLlogari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Kartolina_ditelindjes_klientit.resx">
+      <DependentUpon>Rap_Kartolina_ditelindjes_klientit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_KlientetMeKontrate.resx">
+      <DependentUpon>Rap_KlientetMeKontrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_KomisionetSipasAgjenteve.resx">
+      <DependentUpon>RAP_KomisionetSipasAgjenteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.resx">
+      <DependentUpon>RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_LimiteteBonuseve.resx">
+      <DependentUpon>Rap_LimiteteBonuseve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF.resx">
+      <DependentUpon>Rap_MaturimAnalitikKF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.resx">
+      <DependentUpon>Rap_MaturimAnalitikKF_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.resx">
+      <DependentUpon>Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimFurnitori.resx">
+      <DependentUpon>Rap_MaturimFurnitori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_MaturimPermbledhesKF.resx">
+      <DependentUpon>Rap_MaturimPermbledhesKF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledheseSipasKlientevedhePajisjeve.resx">
+      <DependentUpon>Rap_PermbledheseSipasKlientevedhePajisjeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesa.resx">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesaSinani.resx">
+      <DependentUpon>Rap_PermbledhesFaturimPagesaSinani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.resx">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa_AlphaBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.resx">
+      <DependentUpon>Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Permbledhes_Klienteve.resx">
+      <DependentUpon>Rap_Permbledhes_Klienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ShitjeGjendjeKlienteshSipasAgjenteve.resx">
+      <DependentUpon>Rap_ShitjeGjendjeKlienteshSipasAgjenteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ShlyerjeKlientiPeriudha.resx">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ShlyerjeKlientiPeriudhaMonKlient.resx">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudhaMonKlient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_ShlyerjeKlientiPeriudhaUnivers.resx">
+      <DependentUpon>Rap_ShlyerjeKlientiPeriudhaUnivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIFurnitoreve.resx">
+      <DependentUpon>Rap_SituacionIFurnitoreve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIFurnitoreveLandscape.resx">
+      <DependentUpon>Rap_SituacionIFurnitoreveLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIFurnitoreveMeGrupime.resx">
+      <DependentUpon>Rap_SituacionIFurnitoreveMeGrupime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIFurnitorevePageseFundit.resx">
+      <DependentUpon>Rap_SituacionIFurnitorevePageseFundit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve.resx">
+      <DependentUpon>Rap_SituacionIKlienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveAutoElite.resx">
+      <DependentUpon>Rap_SituacionIKlienteveAutoElite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveLandscape.resx">
+      <DependentUpon>Rap_SituacionIKlienteveLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.resx">
+      <DependentUpon>Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveMeAdrese.resx">
+      <DependentUpon>Rap_SituacionIKlienteveMeAdrese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveMeLimitParalajmeruesDC.resx">
+      <DependentUpon>Rap_SituacionIKlienteveMeLimitParalajmeruesDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasAfateveMaturimit.resx">
+      <DependentUpon>Rap_SituacionIKlienteveSipasAfateveMaturimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf.resx">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.resx">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.resx">
+      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasMuajve.resx">
+      <DependentUpon>Rap_SituacionIKlienteveSipasMuajve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_Ekspozim.resx">
+      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.resx">
+      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_MeGrupime.resx">
+      <DependentUpon>Rap_SituacionIKlienteve_MeGrupime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_MeMarreveshje.resx">
+      <DependentUpon>Rap_SituacionIKlienteve_MeMarreveshje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_MeMaturime.resx">
+      <DependentUpon>Rap_SituacionIKlienteve_MeMaturime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionineMonedheneFurnitorit.resx">
+      <DependentUpon>Rap_SituacionineMonedheneFurnitorit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionineMonedheneKlientit.resx">
+      <DependentUpon>Rap_SituacionineMonedheneKlientit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreve.resx">
+      <DependentUpon>Rap_SituacioniPermbledhesIFurnitoreve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacioniPermbledhesIFurnitoreveNivelRaportues.resx">
+      <DependentUpon>Rap_SituacioniPermbledhesIFurnitoreveNivelRaportues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacioniPermbledhesKlienteve.resx">
+      <DependentUpon>Rap_SituacioniPermbledhesKlienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionKlient_EkspozimVjetersi.resx">
+      <DependentUpon>Rap_SituacionKlient_EkspozimVjetersi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_SituacionPermbledhesIKlienteveNivelRaportues.resx">
+      <DependentUpon>Rap_SituacionPermbledhesIKlienteveNivelRaportues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_StatusiMarreveshjeve.resx">
+      <DependentUpon>Rap_StatusiMarreveshjeve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve.resx">
+      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.resx">
+      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

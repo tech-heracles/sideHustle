@@ -1,0 +1,702 @@
+﻿.dxeLoadingDiv_btn
+{
+	background: White;
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	cursor: wait;
+}
+.dxeLoadingPanel_btn
+{
+	font: 9pt Tahoma;
+	color: #303030;
+}
+.dxeLoadingPanel_btn td.dx
+{
+	white-space: nowrap;
+	text-align: center;
+	padding: 12px 12px 12px 12px;
+}
+
+.dxeReadOnly_btn
+{
+}
+.dxeBase_btn
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+}
+/* -- ErrorFrame -- */
+.dxeErrorCell_btn, .dxeErrorCell_btn td
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	color: Red;
+}
+.dxeErrorCell_btn
+{
+	padding-left: 4px;
+	padding-right: 5px;
+}
+.dxeErrorFrameWithoutError_btn
+{
+	border: 1px solid Red;
+}
+.dxeErrorFrameWithoutError_btn .dxeControlsCell_btn
+{
+	padding: 2px;
+}
+
+.dxeEditArea_btn
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	border: 1px solid #A0A0A0;
+}
+/* -- Buttons -- */
+.dxeButtonEditButton_btn, .dxeCalendarButton_btn, .dxeSpinIncButton_btn, .dxeSpinDecButton_btn, .dxeSpinLargeIncButton_btn, .dxeSpinLargeDecButton_btn
+{
+	vertical-align: top;
+	border: solid 1px #7f7f7f;
+	cursor: pointer;
+}
+.dxeButtonEditButton_btn, .dxeCalendarButton_btn, .dxeButtonEditButton_btn td.dx, .dxeCalendarButton_btn td.dx, .dxeSpinIncButton_btn, .dxeSpinDecButton_btn, .dxeSpinLargeIncButton_btn, .dxeSpinLargeDecButton_btn, .dxeSpinIncButton_btn td.dx, .dxeSpinDecButton_btn td.dx, .dxeSpinLargeIncButton_btn td.dx, .dxeSpinLargeDecButton_btn td.dx
+{
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+}
+.dxeButtonEditButton_btn, .dxeSpinIncButton_btn, .dxeSpinDecButton_btn, .dxeSpinLargeIncButton_btn, .dxeSpinLargeDecButton_btn
+{
+	padding: 0px 2px 0px 3px;
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtDropDownBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #e6e6e6;
+}
+.dxeSpinIncButton_btn
+{
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtSpinIncBtnBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #F0F0F0;
+}
+.dxeSpinDecButton_btn
+{
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtSpinDecBtnBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #E6E6E6;
+}
+
+.dxeButtonEditButton_btn table.dxbebt, .dxeSpinIncButton_btn table.dxbebt, .dxeSpinDecButton_btn table.dxbebt, .dxeSpinLargeIncButton_btn table.dxbebt, .dxeSpinLargeDecButton_btn table.dxbebt
+{
+	width: 10px;
+}
+.dxeCalendarButton_btn
+{
+	font-size: 9pt;
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtCalendarButtonBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #e5e5e5;
+	padding: 4px 11px;
+	padding-top: 3px;
+	width: 32px;
+}
+.dxeCalendarButton_btn td.dx
+{
+	font-size: 9pt;
+	text-align: center;
+	white-space: nowrap;
+}
+.dxeCalendarButton_btn table.dxbebt
+{
+	width: 100%;
+}
+
+/* -- Pressed -- */
+.dxeCalendarButtonPressed_btn, .dxeButtonEditButtonPressed_btn, .dxeSpinIncButtonPressed_btn, .dxeSpinDecButtonPressed_btn, .dxeSpinLargeIncButtonPressed_btn, .dxeSpinLargeDecButtonPressed_btn
+{
+	background-image: none;
+	background-color: #D5D5D5;
+	border: Solid 1px #7F7F7F;
+}
+/* -- Hover -- */
+.dxeCalendarButtonHover_btn, .dxeButtonEditButtonHover_btn, .dxeSpinIncButtonHover_btn, .dxeSpinDecButtonHover_btn, .dxeSpinLargeIncButtonHover_btn, .dxeSpinLargeDecButtonHover_btn
+{
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtDropDownButtonHoverBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #F2F2F2;
+	border: Solid 1px #606060;
+}
+.dxeCalendarButtonHover_btn
+{
+	background-image: url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtCalendarButtonHBack.gif")%>' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+.dxeButtonEdit_btn
+{
+	background-color: white;
+	border: solid 1px #9F9F9F;
+	width: 170px;
+}
+.dxeButtonEdit_btn .dxeEditArea_btn
+{
+	background-color: white;
+}
+.dxeButtonEdit_btn .dxeEditArea_btn, .dxeButtonEdit_btn td.dxic
+{
+	width: 100%;
+}
+.dxeButtonEdit_btn td.dxic
+{
+	padding: 0px 2px 0px 1px;
+}
+.dxeButtonEdit_btn .dxeIIC img
+{
+	padding-left: 3px;
+}
+.dxeTextBox_btn, .dxeMemo_btn
+{
+	background-color: white;
+	border: solid 1px #9f9f9f;
+}
+.dxeTextBox_btn td.dxic
+{
+	padding: 1px 2px;
+	width: 100%;
+}
+.dxeTextBox_btn .dxeEditArea_btn
+{
+	background-color: white;
+}
+.dxeRadioButtonList_btn
+{
+	border: Solid 1px #9F9F9F;
+}
+.dxeRadioButtonList_btn, .dxeRadioButtonList_btn table
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+}
+.dxeRadioButtonList_btn td.dx
+{
+	padding: 7px 5px 6px 11px;
+}
+.dxeRadioButtonList_btn label
+{
+	margin-right: 6px;
+}
+
+/* -- Memo -- */
+.dxeMemo_btn
+{
+}
+.dxeMemoEditArea_btn
+{
+	background-color: white;
+	font-family: Tahoma;
+	font-size: 9pt;
+}
+.dxeMemo_btn td
+{
+	padding: 0 0 0 4px;
+	width: 100%;
+}
+
+/* -- Hyperlink -- */
+.dxeHyperlink_btn
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #0d45b7;
+}
+a.dxeHyperlink_btn:hover
+{
+	color: #5494ea;
+}
+a.dxeHyperlink_btn:visited
+{
+	color: #ab59a6;
+}
+
+/* -- ListBox -- */
+.dxeListBox_btn
+{
+	background-color: white;
+	border: solid 1px #A0A0A0;
+	font-family: Tahoma;
+	font-size: 9pt;
+	width: 70px;
+	height: 109px;
+}
+.dxeListBox_btn div.dxlbd
+{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	height: 107px;
+}
+.dxeListBoxItemRow_btn
+{
+	cursor: default;
+}
+.dxeListBoxItem_btn
+{
+	border-left: solid 1px white;
+	border-right: solid 1px white;
+	font-family: Tahoma;
+	font-size: 9pt;
+	padding: 3px 2px 4px 3px;
+	white-space: nowrap;
+	text-align: left;
+	color: Black;
+	font-weight: normal;
+}
+
+.dxeListBox_btn td.dxeI, .dxeListBox_btn td.dxeIM, .dxeListBox_btn .dxeHIC, .dxeListBox_btn td.dxeFTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn td.dxeC, .dxeListBox_btn td.dxeCM, .dxeListBox_btn td.dxeHCC, .dxeListBox_btn td.dxeMI, .dxeListBox_btn td.dxeMIM
+{
+	border-right-width: 0px !important;
+}
+.dxeListBox_btn td.dxeCM, .dxeListBox_btn td.dxeHCC
+{
+	width: 25px;
+}
+.dxeListBox_btn td.dxeIM
+{
+	width: 0;
+}
+.dxeListBox_btn td.dxeT
+{
+	width: 100%;
+	padding-left: 0px !important;
+}
+.dxeListBox_btn td.dxeT, .dxeListBox_btn td.dxeMI
+{
+	border-left-width: 0px !important;
+}
+.dxeListBox_btn td.dxeFTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn td.dxeLTM, .dxeListBox_btn .dxeHFC, .dxeListBox_btn .dxeHC, .dxeListBox_btn .dxeHLC
+{
+	overflow: hidden;
+}
+
+.dxeListBox_btn td.dxeFTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn .dxeHFC, .dxeListBox_btn .dxeHC
+{
+	padding-right: 6px !important;
+}
+.dxeListBox_btn td.dxeLTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn .dxeHC, .dxeListBox_btn .dxeHLC
+{
+	padding-left: 6px !important;
+}
+/*Grid lines*/
+.dxeListBox_btn td.dxeLTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn td.dxeMIM
+{
+	border-left: 1px solid #cfcfcf !important;
+}
+.dxeListBox_btn td.dxeIM, .dxeListBox_btn td.dxeFTM, .dxeListBox_btn td.dxeTM, .dxeListBox_btn td.dxeLTM, .dxeListBox_btn td.dxeCM, .dxeListBox_btn td.dxeMIM
+{
+	border-bottom: solid 1px #cfcfcf;
+}
+.dxeListBoxItemSelected_btn /* inherits dxeListBoxItem */
+{
+	color: White;
+	background-color: #A0A0A0;
+}
+.dxeListBoxItemHover_btn /* inherits dxeListBoxItem */
+{
+	background-color: #cfcfcf;
+	color: black;
+}
+
+/*Header*/
+.dxeListBox_btn .dxeHD
+{
+	background-color: #dcdcdc;
+	border-bottom: solid 1px #A0A0A0;
+}
+.dxeListBox_btn .dxeHC, .dxeListBox_btn .dxeHLC, .dxeListBox_btn td.dxeHMIC
+{
+	border-left: solid 1px #A0A0A0;
+}
+.dxeListBox_btn .dxeHIC, .dxeListBox_btn .dxeHFC, .dxeListBox_btn .dxeHCC
+{
+	border-left: 1px solid #dcdcdc;
+}
+.dxeListBox_btn .dxeHFC, .dxeListBox_btn .dxeHC, .dxeListBox_btn .dxeHMIC
+{
+	border-right-width: 0;
+}
+.dxeListBox_btn .dxeHLC
+{
+	border-right: solid 1px #dcdcdc;
+}
+
+/* -- Calendar -- */
+.dxeCalendar_btn
+{
+	border: solid 1px #9f9f9f;
+	background-color: White;
+	color: Black;
+	font-weight: normal;
+	cursor: default;
+}
+.dxeCalendar_btn td.dxonthGrid_btn
+{
+	padding: 8px 20px;
+}
+.dxeCalendar_btn td.dxonthGridWithWeekNumbers_btn
+{
+	padding: 5px 20px 8px 8px;
+}
+.dxeCalendarDayHeader_btn
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	padding: 2px 4px 5px;
+	border-bottom: solid 1px #cfcfcf;
+}
+.dxeCalendarWeekNumber_btn
+{
+	font-family: Tahoma;
+	font-size: 7pt;
+	text-align: right;
+	padding: 6px 8px 6px 4px;
+	color: #bfbfbf;
+}
+.dxeCalendarDay_btn
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	padding: 4px 6px;
+	text-align: center;
+}
+.dxeCalendarWeekend_btn /* inherits dxeCalendarDay */
+{
+	color: #c00000;
+}
+.dxeCalendarOtherMonth_btn /* inherits dxeCalendarDay */
+{
+	color: #888;
+}
+.dxeCalendarOutOfRange_btn /* inherits dxeCalendarDay */
+{
+	color: #d0d0d0;
+}
+.dxeCalendarSelected_btn /* inherits dxeCalendarDay */
+{
+	color: White;
+	background-color: #8d8d8d;
+}
+.dxeCalendarToday_btn /* inherits dxeCalendarDay */
+{
+	padding: 3px 3px 2px;
+	border: solid 1px #c00000;
+}
+.dxeCalendarHeader_btn
+{
+	background-color: #dcdcdc;
+	border: solid 1px #c9c9c9;
+	border-width: 1px 0;
+	padding: 4px 7px;
+}
+.dxeCalendarHeader_btn td.dx
+{
+	font-family: Tahoma;
+	font-size: 9pt;
+	text-align: center;
+	cursor: pointer;
+}
+.dxeCalendarFooter_btn
+{
+	background-color: #ededed;
+	padding: 8px 0px;
+	border-top: solid 1px #d6d6d6;
+}
+.dxeCalendarFastNav_btn
+{
+	color: Black;
+	background: White;
+	border: solid 1px #9f9f9f;
+	border-bottom: 0px;
+	padding: 12px 8px;
+}
+.dxeCalendarFastNavMonthArea_btn
+{
+	padding: 0px 9px;
+}
+.dxeCalendarFastNavYearArea_btn
+{
+}
+.dxeCalendarFastNavFooter_btn
+{
+	color: Black;
+	background-color: #ededed;
+	padding: 8px 0px;
+	border: solid 1px #9f9f9f;
+	border-top: solid 1px #d6d6d6;
+}
+.dxeCalendarFastNavMonth_btn, .dxeCalendarFastNavYear_btn
+{
+	font: normal 9pt Tahoma;
+	color: Black;
+	padding: 3px 5px;
+	text-align: center;
+	cursor: pointer;
+}
+.dxeCalendarFastNavMonth_btn
+{
+	padding: 6px;
+}
+.dxeCalendarFastNavMonthSelected_btn, .dxeCalendarFastNavYearSelected_btn
+{
+	color: White;
+	background: #8d8d8d;
+}
+.dxeCalendarFastNavMonthHover_btn, .dxeCalendarFastNavYearHover_btn
+{
+	color: Black;
+	background: #e5e5e5;
+	padding: 2px 4px;
+	border: solid 1px #d6d6d6;
+}
+.dxeCalendarFastNavMonthHover_btn
+{
+	padding: 5px;
+}
+/* Disabled */
+.dxeDisabled_btn, .dxeDisabled_btn td.dx
+{
+	color: #acacac;
+	cursor: default;
+}
+a.dxeDisabled_btn:hover
+{
+	color: #acacac;
+}
+.dxeButtonDisabled_btn, .dxeButtonDisabled_btn td.dx
+{
+	border-color: #c3c3c3;
+	color: #808080;
+	cursor: default;
+}
+/* -- Button -- */
+
+.dxbButton_btn
+{
+	color: #000000;
+	font-weight: normal;
+	font-size: 9pt;
+	font-family: Tahoma;
+	vertical-align: middle;
+	border: solid 1px #7F7F7F;
+	background: #E0DFDF url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtButtonBack.gif")%>' ) top;
+	background-repeat: repeat-x;
+	padding: 1px 1px 1px 1px;
+	cursor: pointer;
+}
+.dxbButtonHover_btn
+{
+	color: #000000;
+	background: #F2F2F2 url( '<%=WebResource("DevExpress.Web.ASPxEditors.Images.edtButtonHoverBack.gif")%>' ) top;
+	background-repeat: repeat-x;
+	border: solid 1px #606060;
+}
+.dxbButtonChecked_btn
+{
+	color: #FFFFFF;
+	background-image: none;
+	background-color: #8D8D8D;
+}
+.dxbButtonPressed_btn
+{
+	color: #000000;
+	background-image: none;
+	background-color: #D5D5D5;
+}
+.dxbButton_btn div.dxb
+{
+	padding: 0px 2px 0px 3px;
+	border: 0px;
+}
+.dxbButton_btn div.dxbf
+{
+	padding: 0px 2px 0px 3px;
+	border: dotted 1px black;
+}
+.dxbButton_btn div.dxb table
+{
+	color: #000000;
+	font-size: 9pt;
+	font-family: Tahoma;
+}
+.dxbButton_btn div.dxb td.dxb
+{
+	background-color: transparent !important;
+	background-image: url( '' ) !important;
+	border-width: 0px !important;
+	padding: 0px !important;
+}
+/* Disabled */
+.dxbDisabled_btn
+{
+	border-color: #c3c3c3;
+	color: #808080;
+	cursor: default;
+}
+.dxbDisabled_btn td.dxb
+{
+	color: #808080;
+}
+/* -- FilterControl -- */
+.dxfcTable_btn
+{
+	border-collapse: separate !important;
+}
+.dxfcTable_btn td.dxfc
+{
+	padding: 0px 0px 0px 3px;
+	vertical-align: middle;
+	font: 9pt Tahoma;
+	color: Black;
+}
+a.dxfcPropertyName_btn
+{
+	white-space: nowrap !important;
+	color: Blue !important;
+}
+a.dxfcGroupType_btn
+{
+	white-space: nowrap !important;
+	padding: 0px 3px 0px 3px !important;
+	color: Red !important;
+}
+a.dxfcOperation_btn
+{
+	white-space: nowrap !important;
+	color: Green !important;
+}
+a.dxfcValue_btn
+{
+	white-space: nowrap !important;
+	color: Gray !important;
+}
+.dxfcImageButton_btn
+{
+	cursor: pointer;
+}
+
+.dxfcLoadingDiv_btn
+{
+	background: white;
+	opacity: 0.01;
+	filter: alpha(opacity=1);
+}
+.dxfcLoadingPanel_btn
+{
+	font: 9pt Tahoma;
+	color: #303030;
+	border: solid 1px #9F9F9F;
+	background: white;
+}
+.dxfcLoadingPanel_btn td.dx
+{
+	white-space: nowrap;
+	text-align: center;
+	padding: 12px 12px 12px 12px;
+}
+
+.dxeMaskHint_btn
+{
+	background: #ffffe1;
+	border: solid 1px black;
+	padding: 2px 5px 3px;
+	color: Black;
+	font: 9pt Tahoma;
+}
+
+/* -- ProgressBar -- */
+.dxeProgressBar_btn
+{
+	border: Solid 1px #696969;
+	background-color: #FFFFFF;
+}
+.dxeProgressBar_btn, .dxeProgressBar_btn td.dx
+{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 9pt;
+	color: Black;
+}
+.dxeProgressBar_btn .dxePBMainCell_btn, .dxeProgressBar_btn td.dx
+{
+	padding: 0;
+}
+.dxeProgressBarIndicator_btn
+{
+	background-color: #E0DFDF;
+}
+
+/* -- DropDownWindow -- */
+.dxeDropDownWindow_btn
+{
+	background-color: white;
+	border: solid 1px #9F9F9F;
+}
+
+/*----------------- ColorTable -----------------*/
+.dxeColorIndicator_btn
+{
+	border: solid 1px #9F9F9F;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.dxeColorTable_btn
+{
+	background-color: #ffffff;
+	border: solid 1px #9F9F9F;
+}
+.dxeColorTable_btn td.dx
+{
+	padding: 4px 4px;
+}
+.dxeColorTableCell_btn
+{
+	padding-left: 3px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	padding-right: 3px;
+	cursor: pointer;
+}
+.dxeColorTableCellDiv_btn
+{
+	border: solid 1px #808080;
+	width: 12px;
+	height: 12px;
+	font-size: 0px;
+}
+.dxeColorTableCellSelected_btn
+{
+	padding: 2px;
+	background-color: #CBCBCB;
+		border: solid 1px #888888;
+}
+.dxeColorTableCellHover_btn
+{
+	padding: 2px;
+	background-color: #F2F2F2;
+		border: solid 1px #888888;
+}
+
+.dxeFocused_btn
+{
+	border: solid 1px #3d3d3d;
+}
+.dxeNullText_btn .dxeEditArea_btn, .dxeNullText_btn .dxeMemoEditArea_btn
+{
+	color: #818181;
+}

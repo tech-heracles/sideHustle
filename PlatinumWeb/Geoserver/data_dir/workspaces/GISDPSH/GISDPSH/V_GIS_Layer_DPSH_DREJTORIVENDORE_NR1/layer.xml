@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_DPSH_DREJTORIVENDORE_NR1</name>
+  <id>LayerInfoImpl--3aeaaee:15b24e6899c:-485d</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--3aeaaee:15b24e6899c:-47c2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3aeaaee:15b24e6899c:-485e</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

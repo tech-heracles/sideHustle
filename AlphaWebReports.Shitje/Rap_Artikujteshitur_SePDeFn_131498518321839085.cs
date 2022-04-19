@@ -1,0 +1,49 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+using System.Globalization;
+using System.Resources;
+
+namespace AlphaWebReports.RaportetDs.RAP_SHITJE
+{
+    public partial class Rap_Artikujteshitur_SePDeFn_131498518321839085 : DevExpress.XtraReports.UI.XtraReport
+    {
+        public Rap_Artikujteshitur_SePDeFn_131498518321839085()
+        {
+            InitializeComponent();
+        }
+        public Rap_Artikujteshitur_SePDeFn_131498518321839085(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):this(param.Ci, param.IdNdermarrje, param.IdPerdoruesi, param.GuidString, param.IdRaporti, param.IdGjuha, param.Vjen,param.IdViti, param.IdSubRaporti, report) { }
+        public Rap_Artikujteshitur_SePDeFn_131498518321839085(CultureInfo ci, int idNdermarrje, int idPerdoruesi, String guidString, int idRaporti, int idGjuha, String vjen, int idViti, int idSubRaporti, DevExpress.XtraReports.UI.XtraReport raport)
+        {
+            InitializeComponent();
+            EmrateLabelave(ci);
+        }
+        /// <summary>
+        /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
+        /// </summary>
+        /// <param name="ci"> kthen CultureInfo nga sesioni ne baze te gjuhes se perdoruesit</param>
+        private void EmrateLabelave(CultureInfo ci)
+        {
+            var rm = new ResourceManager("Resources.Strings",
+                      System.Reflection.Assembly.Load("App_GlobalResources"));
+            titulliLabel.Text = rm.GetString("RaportArtikujTeShiturTitulli", ci);
+            FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
+            labelKodi.Text = rm.GetString("labelKodi", ci);
+            labelKodbari.Text = "Kodbari";
+            labelRaportiPershkrimi.Text = rm.GetString("labelRaportiPershkrimi", ci);
+            labelNjesia.Text = rm.GetString("labelNjesia", ci);
+            labelSasia.Text = rm.GetString("labelSasia", ci);
+            labelCmimi.Text = rm.GetString("labelCmimi", ci);
+            labelZbritjeAnalitike.Text = rm.GetString("labelZbritjeAnalitike", ci);
+            labelVleftapaTVSH.Text = rm.GetString("labelVleftapaTVSH", ci);
+            labelZbritjaTotale.Text = rm.GetString("labelZbritjaTotale", ci);
+            labelTVSH.Text = rm.GetString("labelTVSH", ci);
+            labelVleftaMe_Tvsh.Text = rm.GetString("labelVleftaMe_Tvsh", ci);
+            labelRaportiTotali.Text = rm.GetString("labelRaportiTotali", ci);
+            labelLogoIMB.Text = rm.GetString("labelLogoIMB", ci);
+        }
+
+    }
+}

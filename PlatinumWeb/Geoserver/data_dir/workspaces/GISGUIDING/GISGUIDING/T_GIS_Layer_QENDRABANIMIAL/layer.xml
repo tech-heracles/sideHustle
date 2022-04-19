@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_QENDRABANIMIAL</name>
+  <id>LayerInfoImpl-29834cb9:161895f3d9e:6a7c</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-29834cb9:161895f3d9e:6a85</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-29834cb9:161895f3d9e:6a7b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

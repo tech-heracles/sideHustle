@@ -1,0 +1,243 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegjistrimInventarizimi.aspx.cs" Inherits="PlatinumWeb.RegjistrimInventarizimi" %>
+
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxp" %>
+
+<%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxtc" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxw" %>
+
+
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+     <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
+ <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
+    
+    <title>Alpha Web</title>
+   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/RegjistrimInventarizimi.aspx-IMB.5.4.js&v76""
+        type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+          
+        <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel"
+            Font-Size="9pt" Modal="True" ImagePosition="Top">
+            <LoadingDivStyle Opacity="30">
+            </LoadingDivStyle>
+        </dx:ASPxLoadingPanel>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="3600">
+           </asp:ScriptManager>
+        <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
+            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive(); }" />--%>
+        </dx:ASPxGlobalEvents>
+        <div style="width: 100%">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:HiddenField ID="hfKonffillestar" runat="server" />
+                    <asp:HiddenField ID="hfTeDrejtaKonfGride" runat="server" />
+                     <asp:HiddenField ID="hfTeDrejtaGjitheDokDalje" runat="server" />
+                     <asp:HiddenField ID="hfTeDrejtaGjitheDokHyrje" runat="server" />              
+                    <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
+                    </dx:ASPxHiddenField>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  ClientInstanceName="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound"
+                                    ItemImagePosition="Top" Width="100%" AutoPostBack="true" ShowPopOutImages="True"
+                                    OnItemClick="ASPxMenu1_ItemClick" SeparatorWidth="1px">
+                                    <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
+                                    <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
+                                    <ClientSideEvents ItemClick="function(s, e) {
+	                        menu_click(s,e);
+                            }" Init="function(s) {s.SetClientVisible(true);}" />
+                                    <ItemImage Height="32px" Width="32px">
+                                    </ItemImage>
+                                    <SubMenuItemImage Height="16px" Width="16px">
+                                    </SubMenuItemImage>
+                                    <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
+                                        <Paddings PaddingBottom="1px" PaddingTop="9px" />
+                                    </ItemStyle>
+                                    <SubMenuItemStyle Width="32px">
+                                    </SubMenuItemStyle>
+                                </dx:ASPxMenu>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="dvMenu" style="display: none">
+                                    <asp:UpdatePanel ID="pnlMesazhi" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <dx:ASPxMenu ID="MenuInfo" runat="server" ClientInstanceName="MenuInfo" Width="100%"
+                                                BorderBetweenItemAndSubMenu="HideRootOnly" ClientIDMode="AutoID" ShowPopOutImages="True"
+                                                AppearAfter="300">
+                                                <ClientSideEvents Init="function(s,e){$('#dvMenu').show();myMesazh.InicializoTimer();}" />
+                                                <ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+                                                <ItemStyle HorizontalAlign="Left" />
+                                                <SubMenuStyle GutterWidth="17px" />
+                                            </dx:ASPxMenu>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popFshi" runat="server" AllowDragging="True" ClientInstanceName="popFshi"
+                        CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Kujdes"
+                        Modal="true" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
+                        ShowHeader="true" Width="300px" Enabled="True" >
+                        <ContentCollection>
+                            <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
+                                <dxp:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel1" runat="server" Width="200px">
+                                    <PanelCollection>
+                                        <dxp:PanelContent>
+                                            <dx:ASPxLabel ID="lblMsgbox" runat="server" ClientInstanceName="lblMsgbox" Text="Jeni i sigurt?">
+                                            </dx:ASPxLabel>
+                                            <br />
+                                            <br />
+                                            <div style="text-align: right;">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <dx:ASPxButton ID="ButtonOk" runat="server" Text="Ok" CausesValidation="False" OnClick="ButtonOk_Click2">
+                                                                <ClientSideEvents Click="function(s, e) {
+	popFshi.Hide();
+    Utils.shfaqLoadingGif();;
+}" />
+                                                            </dx:ASPxButton>
+                                                        </td>
+                                                        <td>
+                                                            <dx:ASPxButton ID="ButtonCancel" runat="server" Text="Anullo">
+                                                                <ClientSideEvents Click="function(s, e) {
+		popFshi.Hide();
+}" />
+                                                            </dx:ASPxButton>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </dxp:PanelContent>
+                                    </PanelCollection>
+                                </dxp:ASPxPanel >
+                            </dx:PopupControlContentControl>
+                        </ContentCollection>
+                    </dx:ASPxPopupControl >
+          
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+        <table class="renditKontrolle">
+            <tbody>
+                <tr>
+                    <td class="renditKontrolleCaption">
+                        <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKonfigurimi" ID="konfigurimi_Label"
+                            runat="server" ClientIDMode="AutoID" Text="Modeli:">
+                        </dx:ASPxLabel>
+                    </td>
+                    <td class="renditKontrolleCellMeWidth33">
+                        <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
+                            ShowShadow="False" ValueType="System.String" SettingsLoadingPanel-ImagePosition="Top"
+                            Width="100%" AnimationType="None">
+                            <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}" />
+                            <LoadingPanelImage>
+                            </LoadingPanelImage>
+                            <DropDownButton>
+                                <Image>
+                                    <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
+                                </Image>
+                            </DropDownButton>
+                            <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
+                                <ErrorFrameStyle ImageSpacing="4px">
+                                    <ErrorTextPaddings PaddingLeft="4px" />
+                                </ErrorFrameStyle>
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
+                    </td>
+                    <td class="renditKontrolleLabelMeWidth33">
+                        <dx:ASPxLabel ID="lblKonfigurimi" runat="server" Text="" class="klasePerLblKonfigurimi" ClientInstanceName="lblKonfigurimi">
+                        </dx:ASPxLabel>
+                    </td>
+                    <td class="renditKontrolleCellMeWidth33"></td>
+                </tr>
+            </tbody>
+        </table>
+        <asp:UpdatePanel ID="pnlKryesor" runat="server">
+            <ContentTemplate>
+                <asp:HiddenField ID="hfLloji" runat="server" />
+                <dx:ASPxLabel ID="pergjigja" runat="server" Text="" EncodeHtml="False" ForeColor="Green"
+                    ClientVisible="false">
+                </dx:ASPxLabel>
+                <br />
+                <dx:ASPxGridView ID="grid_RegInv" ClientInstanceName="grid_RegInv" runat="server" ToolTip="Dokumenta Inventarizim"
+                    Width="100%" OnDataBound="grid_RegInv_DataBound" OnAfterPerformCallback="grid_RegInv_AfterPerformCallback"
+                    OnCustomCallback="grid_RegInv_CustomCallback" OnCustomJSProperties="grid_RegInv_CustomJSProperties"
+                    OnProcessColumnAutoFilter="grid_RegInv_ProcessColumnAutoFilter" OnHeaderFilterFillItems="grid_RegInv_HeaderFilterFillItems">
+                
+                    <Styles>
+                        <Header ImageSpacing="5px" SortingImageSpacing="5px">
+                        </Header>
+                    </Styles>
+                    <SettingsPager PageSize="15">
+                    </SettingsPager>
+                    <ClientSideEvents RowDblClick="function(s, e) {
+                OnGridDoubleClick(e,e.visibleIndex); }"
+                        FocusedRowChanged="function(s,e){mbushfusha(e);}"
+                        BeginCallback="function(s, e) {
+	BeginCallback(s,e);
+}" />
+                    <StylesEditors>
+                        <ProgressBar Height="25px">
+                        </ProgressBar>
+                    </StylesEditors>
+                </dx:ASPxGridView>
+                <dx:ASPxGridViewExporter ID="gridExport" runat="server" GridViewID="grid_RegInv"
+                    ExportedRowType="Selected" />
+                <iframe id="Container" runat="server" frameborder="0" height="0" name="Container"
+                    width="0"></iframe>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <dx:ASPxButton ID="btnPdfExportHidden" ClientVisible="False" ClientInstanceName="btnPdfExportHidden"
+            runat="server" ToolTip="Export to Pdf" Text="Export to Pdf" Font-Size="8pt" UseSubmitBehavior="False">
+            <ClientSideEvents Click="function(s, e) { clickExport(e) }" />
+        </dx:ASPxButton>
+        <dx:ASPxButton ID="btnXlsxExportHidden" ClientVisible="False" ClientInstanceName="btnXlsxExportHidden"
+            runat="server" ToolTip="Export to Xlsx" Text="Export to Xlsx" Font-Size="8" UseSubmitBehavior="false">
+            <ClientSideEvents Click="function(s, e) { clickExport(e) }" />
+        </dx:ASPxButton>
+        <div>
+            <asp:UpdatePanel ID="UpdatePanel9" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"
+                        CloseAction="CloseButton" HeaderText="Eksport" Modal="True" PopupHorizontalAlign="WindowCenter"
+                        PopupVerticalAlign="WindowCenter" AllowResize="True" AppearAfter="10" ClientIDMode="AutoID"
+                        AutoUpdatePosition="True" Font-Bold="False">
+                        <ClientSideEvents CloseUp="function(s, e) {  }" />
+                        <ContentStyle>
+                            <Paddings Padding="1px" PaddingBottom="1px" PaddingLeft="1px" PaddingRight="1px"
+                                PaddingTop="1px" />
+                        </ContentStyle>
+                        <ContentCollection>
+                            <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
+                            </dx:PopupControlContentControl>
+                        </ContentCollection>
+                    </dx:ASPxPopupControl >
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Discs>
+  <Disc ID="theme1" Title="Theme Default" Path="images\backgrounds\02.jpg"  />
+  <Disc ID="theme2" Title="Theme nr 2" Path="images\backgrounds\backgroundImg03.jpg"  />
+  <Disc ID="theme3" Title="Theme nr 3" Path="images\backgrounds\backgroundImg04.jpg"  />
+
+</Discs>

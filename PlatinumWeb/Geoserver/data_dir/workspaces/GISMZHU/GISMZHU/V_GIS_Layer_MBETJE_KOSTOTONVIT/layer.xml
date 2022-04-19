@@ -1,0 +1,15 @@
+<layer>
+  <name>V_GIS_Layer_MBETJE_KOSTOTONVIT</name>
+  <id>LayerInfoImpl-70183d70:1596a5a1cfa:1a92</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-70183d70:159702f8fcb:-4930</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-70183d70:1596a5a1cfa:1a91</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

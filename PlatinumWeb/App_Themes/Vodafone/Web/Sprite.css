@@ -1,0 +1,1198 @@
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igCloseButton_Vodafone,
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igPauseButton_Vodafone,
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igPlayButton_Vodafone,
+.dxm-hovered .dxWeb_fmCopyButton_Vodafone,
+.dxm-hovered .dxWeb_fmCreateButton_Vodafone,
+.dxm-hovered .dxWeb_fmDeleteButton_Vodafone,
+.dxm-hovered .dxWeb_fmDwnlButton_Vodafone,
+.dxm-hovered .dxWeb_fmMoveButton_Vodafone,
+.dxm-hovered .dxWeb_fmRefreshButton_Vodafone,
+.dxm-hovered .dxWeb_fmRenameButton_Vodafone,
+.dxm-hovered .dxWeb_mHorizontalPopOut_Vodafone,
+.dxm-hovered .dxWeb_mVerticalPopOut_Vodafone,
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_Vodafone,
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_Vodafone,
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_Vodafone,
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_Vodafone,
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_Vodafone,
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_Vodafone,
+.dxp-hoverDropDownButton .dxWeb_pPopOut_Vodafone,
+.dxp-pressedDropDownButton .dxWeb_pPopOut_Vodafone,
+.dxr-itemHover .dxWeb_rPopOut_Vodafone,
+.dxrpCollapsed .dxWeb_rpCollapseButton_Vodafone,
+.dxWeb_edtCheckBoxChecked_Vodafone,
+.dxWeb_edtCheckBoxCheckedDisabled_Vodafone,
+.dxWeb_edtCheckBoxGrayed_Vodafone,
+.dxWeb_edtCheckBoxGrayedDisabled_Vodafone,
+.dxWeb_edtCheckBoxUnchecked_Vodafone,
+.dxWeb_edtCheckBoxUncheckedDisabled_Vodafone,
+.dxWeb_fmCopyButton_Vodafone,
+.dxWeb_fmCopyButtonDisabled_Vodafone,
+.dxWeb_fmCreateButton_Vodafone,
+.dxWeb_fmCreateButtonDisabled_Vodafone,
+.dxWeb_fmDeleteButton_Vodafone,
+.dxWeb_fmDeleteButtonDisabled_Vodafone,
+.dxWeb_fmDwnlButton_Vodafone,
+.dxWeb_fmDwnlButtonDisabled_Vodafone,
+.dxWeb_fmFolder_Vodafone,
+.dxWeb_fmFolderLocked_Vodafone,
+.dxWeb_fmMoveButton_Vodafone,
+.dxWeb_fmMoveButtonDisabled_Vodafone,
+.dxWeb_fmRefreshButton_Vodafone,
+.dxWeb_fmRefreshButtonDisabled_Vodafone,
+.dxWeb_fmRenameButton_Vodafone,
+.dxWeb_fmRenameButtonDisabled_Vodafone,
+.dxWeb_fmThumbnailCheck_Vodafone,
+.dxWeb_igCloseButton_Vodafone,
+.dxWeb_igNavigationBarMarker_Vodafone,
+.dxWeb_igNextButton_Vodafone,
+.dxWeb_igNextButtonDisabled_Vodafone,
+.dxWeb_igNextButtonHover_Vodafone,
+.dxWeb_igNextButtonPressed_Vodafone,
+.dxWeb_igPauseButton_Vodafone,
+.dxWeb_igPlayButton_Vodafone,
+.dxWeb_igPrevButton_Vodafone,
+.dxWeb_igPrevButtonDisabled_Vodafone,
+.dxWeb_igPrevButtonHover_Vodafone,
+.dxWeb_igPrevButtonPressed_Vodafone,
+.dxWeb_isDot_Vodafone,
+.dxWeb_isDotDisabled_Vodafone,
+.dxWeb_isDotPressed_Vodafone,
+.dxWeb_isDotSelected_Vodafone,
+.dxWeb_isNextBtnHor_Vodafone,
+.dxWeb_isNextBtnHorDisabled_Vodafone,
+.dxWeb_isNextBtnVert_Vodafone,
+.dxWeb_isNextBtnVertDisabled_Vodafone,
+.dxWeb_isNextPageBtnHor_Vodafone,
+.dxWeb_isNextPageBtnHorDisabled_Vodafone,
+.dxWeb_isNextPageBtnHorOutside_Vodafone,
+.dxWeb_isNextPageBtnHorOutsideDisabled_Vodafone,
+.dxWeb_isNextPageBtnVert_Vodafone,
+.dxWeb_isNextPageBtnVertDisabled_Vodafone,
+.dxWeb_isNextPageBtnVertOutside_Vodafone,
+.dxWeb_isNextPageBtnVertOutsideDisabled_Vodafone,
+.dxWeb_isPauseBtn_Vodafone,
+.dxWeb_isPlayBtn_Vodafone,
+.dxWeb_isPrevBtnHor_Vodafone,
+.dxWeb_isPrevBtnHorDisabled_Vodafone,
+.dxWeb_isPrevBtnVert_Vodafone,
+.dxWeb_isPrevBtnVertDisabled_Vodafone,
+.dxWeb_isPrevPageBtnHor_Vodafone,
+.dxWeb_isPrevPageBtnHorDisabled_Vodafone,
+.dxWeb_isPrevPageBtnHorOutside_Vodafone,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Vodafone,
+.dxWeb_isPrevPageBtnVert_Vodafone,
+.dxWeb_isPrevPageBtnVertDisabled_Vodafone,
+.dxWeb_isPrevPageBtnVertOutside_Vodafone,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Vodafone,
+.dxWeb_izEWCloseButton_Vodafone,
+.dxWeb_izHint_Vodafone,
+.dxWeb_mHorizontalPopOut_Vodafone,
+.dxWeb_mScrollDown_Vodafone,
+.dxWeb_mScrollUp_Vodafone,
+.dxWeb_mSubMenuItem_Vodafone,
+.dxWeb_mSubMenuItemChecked_Vodafone,
+.dxWeb_mVerticalPopOut_Vodafone,
+.dxWeb_mVerticalPopOutRtl_Vodafone,
+.dxWeb_nbCollapse_Vodafone,
+.dxWeb_nbExpand_Vodafone,
+.dxWeb_pAll_Vodafone,
+.dxWeb_pAllDisabled_Vodafone,
+.dxWeb_pcCloseButton_Vodafone,
+.dxWeb_pcCollapseButton_Vodafone,
+.dxWeb_pcMaximizeButton_Vodafone,
+.dxWeb_pcPinButton_Vodafone,
+.dxWeb_pcRefreshButton_Vodafone,
+.dxWeb_pcSizeGrip_Vodafone,
+.dxWeb_pcSizeGripRtl_Vodafone,
+.dxWeb_pFirst_Vodafone,
+.dxWeb_pFirstDisabled_Vodafone,
+.dxWeb_pLast_Vodafone,
+.dxWeb_pLastDisabled_Vodafone,
+.dxWeb_pNext_Vodafone,
+.dxWeb_pNextDisabled_Vodafone,
+.dxWeb_pPopOut_Vodafone,
+.dxWeb_pPopOutDisabled_Vodafone,
+.dxWeb_pPrev_Vodafone,
+.dxWeb_pPrevDisabled_Vodafone,
+.dxWeb_rMinBtn_Vodafone,
+.dxWeb_rMinBtn_Vodafone.dxWeb_rMinBtnHover_Vodafone,
+.dxWeb_rMinBtn_Vodafone.dxWeb_rMinBtnPressed_Vodafone,
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtn_Vodafone,
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtnHover_Vodafone,
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtnPressed_Vodafone,
+.dxWeb_rpCollapseButton_Vodafone,
+.dxWeb_rPopOut_Vodafone,
+.dxWeb_splHCollapseBackwardButton_Vodafone,
+.dxWeb_splHCollapseBackwardButtonHover_Vodafone,
+.dxWeb_splHCollapseForwardButton_Vodafone,
+.dxWeb_splHCollapseForwardButtonHover_Vodafone,
+.dxWeb_splHSeparator_Vodafone,
+.dxWeb_splHSeparatorHover_Vodafone,
+.dxWeb_splVCollapseBackwardButton_Vodafone,
+.dxWeb_splVCollapseBackwardButtonHover_Vodafone,
+.dxWeb_splVCollapseForwardButton_Vodafone,
+.dxWeb_splVCollapseForwardButtonHover_Vodafone,
+.dxWeb_splVSeparator_Vodafone,
+.dxWeb_splVSeparatorHover_Vodafone,
+.dxWeb_tcScrollLeft_Vodafone,
+.dxWeb_tcScrollLeftDisabled_Vodafone,
+.dxWeb_tcScrollLeftHover_Vodafone,
+.dxWeb_tcScrollLeftPressed_Vodafone,
+.dxWeb_tcScrollRight_Vodafone,
+.dxWeb_tcScrollRightDisabled_Vodafone,
+.dxWeb_tcScrollRightHover_Vodafone,
+.dxWeb_tcScrollRightPressed_Vodafone,
+.dxWeb_tvColBtn_Vodafone,
+.dxWeb_tvColBtnRtl_Vodafone,
+.dxWeb_tvExpBtn_Vodafone,
+.dxWeb_tvExpBtnRtl_Vodafone,
+.dxWeb_ucClearButton_Vodafone,
+.dxWeb_ucClearButtonDisabled_Vodafone
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igCloseButton_Vodafone
+{
+    background-position: -50px -327px;
+    width: 23px;
+    height: 23px;
+}
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igPauseButton_Vodafone
+{
+    background-position: -100px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxigControl_Vodafone.dxTouchUI .dxWeb_igPlayButton_Vodafone
+{
+    background-position: -78px -198px;
+    width: 21px;
+    height: 25px;
+}
+.dxm-hovered .dxWeb_fmCopyButton_Vodafone
+{
+    background-position: -119px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmCreateButton_Vodafone
+{
+    background-position: 0px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDeleteButton_Vodafone
+{
+    background-position: -102px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmDwnlButton_Vodafone
+{
+    background-position: -119px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmMoveButton_Vodafone
+{
+    background-position: -68px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRefreshButton_Vodafone
+{
+    background-position: -102px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_fmRenameButton_Vodafone
+{
+    background-position: -17px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxm-hovered .dxWeb_mHorizontalPopOut_Vodafone
+{
+    background-position: -89px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOut_Vodafone
+{
+    background-position: -134px -198px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-hovered .dxWeb_mVerticalPopOutRtl_Vodafone
+{
+    background-position: -136px -407px;
+    width: 4px;
+    height: 8px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollDown_Vodafone
+{
+    background-position: -28px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxm-scrollBtnHovered .dxWeb_mScrollUp_Vodafone
+{
+    background-position: -56px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxpc-collapseBtnChecked .dxWeb_pcCollapseButton_Vodafone
+{
+    background-position: -16px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-maximizeBtnChecked .dxWeb_pcMaximizeButton_Vodafone
+{
+    background-position: 0px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxpc-pinBtnChecked .dxWeb_pcPinButton_Vodafone
+{
+    background-position: -104px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxp-hoverDropDownButton .dxWeb_pPopOut_Vodafone
+{
+    background-position: -128px -222px;
+    width: 7px;
+    height: 4px;
+}
+.dxp-pressedDropDownButton .dxWeb_pPopOut_Vodafone
+{
+    background-position: -117px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxr-itemHover .dxWeb_rPopOut_Vodafone
+{
+    background-position: -130px -144px;
+    width: 5px;
+    height: 3px;
+}
+.dxrpCollapsed .dxWeb_rpCollapseButton_Vodafone
+{
+    background-position: 0px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_edtCheckBoxChecked_Vodafone
+{
+    background-position: -119px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxCheckedDisabled_Vodafone
+{
+    background-position: -34px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayed_Vodafone
+{
+    background-position: 0px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxGrayedDisabled_Vodafone
+{
+    background-position: -68px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUnchecked_Vodafone
+{
+    background-position: -124px -372px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxUncheckedDisabled_Vodafone
+{
+    background-position: -51px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButton_Vodafone
+{
+    background-position: -51px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCopyButtonDisabled_Vodafone
+{
+    background-position: -68px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButton_Vodafone
+{
+    background-position: -17px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmCreateButtonDisabled_Vodafone
+{
+    background-position: -102px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButton_Vodafone
+{
+    background-position: -85px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDeleteButtonDisabled_Vodafone
+{
+    background-position: -34px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButton_Vodafone
+{
+    background-position: -34px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmDwnlButtonDisabled_Vodafone
+{
+    background-position: -17px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolder_Vodafone
+{
+    background-position: -85px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmFolderLocked_Vodafone
+{
+    background-position: 0px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButton_Vodafone
+{
+    background-position: -51px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmMoveButtonDisabled_Vodafone
+{
+    background-position: -85px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButton_Vodafone
+{
+    background-position: -102px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRefreshButtonDisabled_Vodafone
+{
+    background-position: -17px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButton_Vodafone
+{
+    background-position: 0px -424px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmRenameButtonDisabled_Vodafone
+{
+    background-position: -51px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_fmThumbnailCheck_Vodafone
+{
+    background-position: -130px -132px;
+    width: 10px;
+    height: 11px;
+}
+.dxWeb_igCloseButton_Vodafone
+{
+    background-position: -84px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_igNavigationBarMarker_Vodafone
+{
+    background-position: -119px -352px;
+    width: 20px;
+    height: 16px;
+}
+.dxWeb_igNextButton_Vodafone
+{
+    background-position: -46px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonDisabled_Vodafone
+{
+    background-position: 0px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonHover_Vodafone
+{
+    background-position: -92px 0px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igNextButtonPressed_Vodafone
+{
+    background-position: -46px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPauseButton_Vodafone
+{
+    background-position: -111px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPlayButton_Vodafone
+{
+    background-position: -98px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_igPrevButton_Vodafone
+{
+    background-position: 0px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonDisabled_Vodafone
+{
+    background-position: -92px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonHover_Vodafone
+{
+    background-position: 0px -132px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_igPrevButtonPressed_Vodafone
+{
+    background-position: -46px -66px;
+    width: 45px;
+    height: 65px;
+}
+.dxWeb_isDot_Vodafone
+{
+    background-position: -70px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotDisabled_Vodafone
+{
+    background-position: -124px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotPressed_Vodafone
+{
+    background-position: -110px -473px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isDotSelected_Vodafone
+{
+    background-position: -14px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_isNextBtnHor_Vodafone
+{
+    background-position: -111px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnHorDisabled_Vodafone
+{
+    background-position: -92px -132px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isNextBtnVert_Vodafone
+{
+    background-position: -30px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextBtnVertDisabled_Vodafone
+{
+    background-position: -89px -327px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isNextPageBtnHor_Vodafone
+{
+    background-position: -125px -302px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorDisabled_Vodafone
+{
+    background-position: -74px -327px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isNextPageBtnHorOutside_Vodafone
+{
+    background-position: -13px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnHorOutsideDisabled_Vodafone
+{
+    background-position: 0px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isNextPageBtnVert_Vodafone
+{
+    background-position: -66px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertDisabled_Vodafone
+{
+    background-position: 0px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isNextPageBtnVertOutside_Vodafone
+{
+    background-position: 0px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isNextPageBtnVertOutsideDisabled_Vodafone
+{
+    background-position: -98px -488px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPauseBtn_Vodafone
+{
+    background-position: -72px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPlayBtn_Vodafone
+{
+    background-position: -85px -372px;
+    width: 12px;
+    height: 17px;
+}
+.dxWeb_isPrevBtnHor_Vodafone
+{
+    background-position: -103px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnHorDisabled_Vodafone
+{
+    background-position: -122px -166px;
+    width: 18px;
+    height: 31px;
+}
+.dxWeb_isPrevBtnVert_Vodafone
+{
+    background-position: 0px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevBtnVertDisabled_Vodafone
+{
+    background-position: -60px -352px;
+    width: 29px;
+    height: 19px;
+}
+.dxWeb_isPrevPageBtnHor_Vodafone
+{
+    background-position: -125px -252px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorDisabled_Vodafone
+{
+    background-position: -125px -277px;
+    width: 14px;
+    height: 21px;
+}
+.dxWeb_isPrevPageBtnHorOutside_Vodafone
+{
+    background-position: -26px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Vodafone
+{
+    background-position: -39px -198px;
+    width: 12px;
+    height: 28px;
+}
+.dxWeb_isPrevPageBtnVert_Vodafone
+{
+    background-position: -44px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertDisabled_Vodafone
+{
+    background-position: -22px -458px;
+    width: 21px;
+    height: 14px;
+}
+.dxWeb_isPrevPageBtnVertOutside_Vodafone
+{
+    background-position: -90px -352px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Vodafone
+{
+    background-position: -29px -502px;
+    width: 28px;
+    height: 12px;
+}
+.dxWeb_izEWCloseButton_Vodafone
+{
+    background-position: -52px -198px;
+    width: 25px;
+    height: 25px;
+}
+.dxWeb_izHint_Vodafone
+{
+    background-position: -36px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_mHorizontalPopOut_Vodafone
+{
+    background-position: -122px -223px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_mScrollDown_Vodafone
+{
+    background-position: 0px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mScrollUp_Vodafone
+{
+    background-position: -42px -488px;
+    width: 13px;
+    height: 13px;
+}
+.dxWeb_mSubMenuItem_Vodafone
+{
+    background-position: -95px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mSubMenuItemChecked_Vodafone
+{
+    background-position: -80px -473px;
+    width: 14px;
+    height: 14px;
+}
+.dxWeb_mVerticalPopOut_Vodafone
+{
+    background-position: -136px -218px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_mVerticalPopOutRtl_Vodafone
+{
+    background-position: -136px -390px;
+    width: 4px;
+    height: 8px;
+}
+.dxWeb_nbCollapse_Vodafone
+{
+    background-position: -25px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_nbExpand_Vodafone
+{
+    background-position: -100px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAll_Vodafone
+{
+    background-position: -50px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pAllDisabled_Vodafone
+{
+    background-position: -75px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pcCloseButton_Vodafone
+{
+    background-position: -88px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcCollapseButton_Vodafone
+{
+    background-position: -64px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcMaximizeButton_Vodafone
+{
+    background-position: -48px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcPinButton_Vodafone
+{
+    background-position: -32px -473px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcRefreshButton_Vodafone
+{
+    background-position: -120px -458px;
+    width: 15px;
+    height: 14px;
+}
+.dxWeb_pcSizeGrip_Vodafone
+{
+    background-position: -68px -407px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pcSizeGripRtl_Vodafone
+{
+    background-position: -85px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_pFirst_Vodafone
+{
+    background-position: -25px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pFirstDisabled_Vodafone
+{
+    background-position: -75px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLast_Vodafone
+{
+    background-position: 0px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pLastDisabled_Vodafone
+{
+    background-position: -25px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNext_Vodafone
+{
+    background-position: -100px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pNextDisabled_Vodafone
+{
+    background-position: -100px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPopOut_Vodafone
+{
+    background-position: -109px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPopOutDisabled_Vodafone
+{
+    background-position: -101px -347px;
+    width: 7px;
+    height: 4px;
+}
+.dxWeb_pPrev_Vodafone
+{
+    background-position: 0px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_pPrevDisabled_Vodafone
+{
+    background-position: -75px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rMinBtn_Vodafone
+{
+    background-position: -93px -189px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_Vodafone.dxWeb_rMinBtnHover_Vodafone
+{
+    background-position: -130px -157px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtn_Vodafone.dxWeb_rMinBtnPressed_Vodafone
+{
+    background-position: -130px -148px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtn_Vodafone
+{
+    background-position: -92px -180px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtnHover_Vodafone
+{
+    background-position: -92px -171px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rMinBtnChecked_Vodafone.dxWeb_rMinBtnPressed_Vodafone
+{
+    background-position: -127px -488px;
+    width: 9px;
+    height: 8px;
+}
+.dxWeb_rpCollapseButton_Vodafone
+{
+    background-position: 0px -327px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_rPopOut_Vodafone
+{
+    background-position: -95px -348px;
+    width: 5px;
+    height: 3px;
+}
+.dxWeb_splHCollapseBackwardButton_Vodafone
+{
+    background-position: -125px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseBackwardButtonHover_Vodafone
+{
+    background-position: -133px -345px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButton_Vodafone
+{
+    background-position: -90px -365px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHCollapseForwardButtonHover_Vodafone
+{
+    background-position: -92px -164px;
+    width: 7px;
+    height: 6px;
+}
+.dxWeb_splHSeparator_Vodafone
+{
+    background-position: -58px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splHSeparatorHover_Vodafone
+{
+    background-position: -82px -502px;
+    width: 23px;
+    height: 11px;
+}
+.dxWeb_splVCollapseBackwardButton_Vodafone
+{
+    background-position: -106px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseBackwardButtonHover_Vodafone
+{
+    background-position: -113px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButton_Vodafone
+{
+    background-position: -120px -502px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVCollapseForwardButtonHover_Vodafone
+{
+    background-position: -134px -210px;
+    width: 6px;
+    height: 7px;
+}
+.dxWeb_splVSeparator_Vodafone
+{
+    background-position: -125px -227px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_splVSeparatorHover_Vodafone
+{
+    background-position: -122px -198px;
+    width: 11px;
+    height: 23px;
+}
+.dxWeb_tcScrollLeft_Vodafone
+{
+    background-position: -50px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftDisabled_Vodafone
+{
+    background-position: 0px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftHover_Vodafone
+{
+    background-position: -100px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollLeftPressed_Vodafone
+{
+    background-position: -75px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRight_Vodafone
+{
+    background-position: -25px -277px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightDisabled_Vodafone
+{
+    background-position: -50px -302px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightHover_Vodafone
+{
+    background-position: -50px -252px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tcScrollRightPressed_Vodafone
+{
+    background-position: -25px -227px;
+    width: 24px;
+    height: 24px;
+}
+.dxWeb_tvColBtn_Vodafone
+{
+    background-position: -119px -327px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvColBtnRtl_Vodafone
+{
+    background-position: -54px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtn_Vodafone
+{
+    background-position: -18px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_tvExpBtnRtl_Vodafone
+{
+    background-position: 0px -372px;
+    width: 17px;
+    height: 17px;
+}
+.dxWeb_ucClearButton_Vodafone
+{
+    background-position: -34px -390px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_ucClearButtonDisabled_Vodafone
+{
+    background-position: -119px -441px;
+    width: 16px;
+    height: 16px;
+}
+.dxWeb_edtCheckBoxChecked_Vodafone,
+.dxWeb_edtCheckBoxCheckedDisabled_Vodafone,
+.dxWeb_edtCheckBoxGrayed_Vodafone,
+.dxWeb_edtCheckBoxGrayedDisabled_Vodafone,
+.dxWeb_edtCheckBoxUnchecked_Vodafone,
+.dxWeb_edtCheckBoxUncheckedDisabled_Vodafone
+{
+    background-color: #ED1B24;
+}
+
+.dxWeb_rpHeaderTopLeftCorner_Vodafone,
+.dxWeb_rpHeaderTopRightCorner_Vodafone,
+.dxWeb_rpBottomLeftCorner_Vodafone,
+.dxWeb_rpBottomRightCorner_Vodafone,
+.dxWeb_rpTopLeftCorner_Vodafone,
+.dxWeb_rpTopRightCorner_Vodafone,
+.dxWeb_rpGroupBoxBottomLeftCorner_Vodafone,
+.dxWeb_rpGroupBoxBottomRightCorner_Vodafone,
+.dxWeb_rpGroupBoxTopLeftCorner_Vodafone,
+.dxWeb_rpGroupBoxTopRightCorner_Vodafone,
+.dxWeb_mHorizontalPopOut_Vodafone,
+.dxWeb_mHorizontalPopOutHover_Vodafone,
+.dxWeb_mVerticalPopOut_Vodafone,
+.dxWeb_mVerticalPopOutHover_Vodafone,
+.dxWeb_mVerticalPopOutRtl_Vodafone,
+.dxWeb_mVerticalPopOutHoverRtl_Vodafone,
+.dxWeb_mSubMenuItem_Vodafone,
+.dxWeb_mSubMenuItemChecked_Vodafone,
+.dxWeb_mScrollUp_Vodafone,
+.dxWeb_mScrollUpHover_Vodafone,
+.dxWeb_mScrollDown_Vodafone,
+.dxWeb_mScrollDownHover_Vodafone,
+.dxWeb_tcScrollLeft_Vodafone,
+.dxWeb_tcScrollRight_Vodafone,
+.dxWeb_tcScrollLeftHover_Vodafone,
+.dxWeb_tcScrollRightHover_Vodafone,
+.dxWeb_tcScrollLeftPressed_Vodafone,
+.dxWeb_tcScrollRightPressed_Vodafone,
+.dxWeb_tcScrollLeftDisabled_Vodafone,
+.dxWeb_tcScrollRightDisabled_Vodafone,
+.dxWeb_nbCollapse_Vodafone,
+.dxWeb_nbExpand_Vodafone,
+.dxWeb_splVSeparator_Vodafone,
+.dxWeb_splVSeparatorHover_Vodafone,
+.dxWeb_splHSeparator_Vodafone,
+.dxWeb_splHSeparatorHover_Vodafone,
+.dxWeb_splVCollapseBackwardButton_Vodafone,
+.dxWeb_splVCollapseBackwardButtonHover_Vodafone,
+.dxWeb_splHCollapseBackwardButton_Vodafone,
+.dxWeb_splHCollapseBackwardButtonHover_Vodafone,
+.dxWeb_splVCollapseForwardButton_Vodafone,
+.dxWeb_splVCollapseForwardButtonHover_Vodafone,
+.dxWeb_splHCollapseForwardButton_Vodafone,
+.dxWeb_splHCollapseForwardButtonHover_Vodafone,
+.dxWeb_pcCloseButton_Vodafone,
+.dxWeb_pcPinButton_Vodafone,
+.dxWeb_pcRefreshButton_Vodafone,
+.dxWeb_pcCollapseButton_Vodafone,
+.dxWeb_pcMaximizeButton_Vodafone,
+.dxWeb_pcSizeGrip_Vodafone,
+.dxWeb_pcSizeGripRtl_Vodafone,
+.dxWeb_pPopOut_Vodafone,
+.dxWeb_pPopOutDisabled_Vodafone,
+.dxWeb_pAll_Vodafone,
+.dxWeb_pAllDisabled_Vodafone,
+.dxWeb_pPrev_Vodafone,
+.dxWeb_pPrevDisabled_Vodafone,
+.dxWeb_pNext_Vodafone,
+.dxWeb_pNextDisabled_Vodafone,
+.dxWeb_pLast_Vodafone,
+.dxWeb_pLastDisabled_Vodafone,
+.dxWeb_pFirst_Vodafone,
+.dxWeb_pFirstDisabled_Vodafone,
+.dxWeb_tvColBtn_Vodafone,
+.dxWeb_tvColBtnRtl_Vodafone,
+.dxWeb_tvExpBtn_Vodafone,
+.dxWeb_tvExpBtnRtl_Vodafone,
+.dxWeb_fmFolder_Vodafone,
+.dxWeb_fmFolderLocked_Vodafone,
+.dxWeb_fmCreateButton_Vodafone,
+.dxWeb_fmMoveButton_Vodafone,
+.dxWeb_fmRenameButton_Vodafone,
+.dxWeb_fmDeleteButton_Vodafone,
+.dxWeb_fmRefreshButton_Vodafone,
+.dxWeb_fmDwnlButton_Vodafone,
+.dxWeb_fmCreateButtonDisabled_Vodafone,
+.dxWeb_fmMoveButtonDisabled_Vodafone,
+.dxWeb_fmRenameButtonDisabled_Vodafone,
+.dxWeb_fmDeleteButtonDisabled_Vodafone,
+.dxWeb_fmRefreshButtonDisabled_Vodafone,
+.dxWeb_fmDwnlButtonDisabled_Vodafone,
+.dxWeb_fmThumbnailCheck_Vodafone,
+.dxWeb_ucClearButton_Vodafone,
+.dxWeb_isPrevBtnHor_Vodafone,
+.dxWeb_isNextBtnHor_Vodafone,
+.dxWeb_isPrevBtnVert_Vodafone,
+.dxWeb_isNextBtnVert_Vodafone,
+.dxWeb_isPrevPageBtnHor_Vodafone,
+.dxWeb_isPrevPageBtnHorOutside_Vodafone,
+.dxWeb_isNextPageBtnHor_Vodafone,
+.dxWeb_isNextPageBtnHorOutside_Vodafone,
+.dxWeb_isPrevPageBtnVert_Vodafone,
+.dxWeb_isPrevPageBtnVertOutside_Vodafone,
+.dxWeb_isNextPageBtnVert_Vodafone,
+.dxWeb_isNextPageBtnVertOutside_Vodafone,
+.dxWeb_isPrevBtnHorDisabled_Vodafone,
+.dxWeb_isNextBtnHorDisabled_Vodafone,
+.dxWeb_isPrevBtnVertDisabled_Vodafone,
+.dxWeb_isNextBtnVertDisabled_Vodafone,
+.dxWeb_isPrevPageBtnHorDisabled_Vodafone,
+.dxWeb_isPrevPageBtnHorOutsideDisabled_Vodafone,
+.dxWeb_isNextPageBtnHorDisabled_Vodafone,
+.dxWeb_isNextPageBtnHorOutsideDisabled_Vodafone,
+.dxWeb_isPrevPageBtnVertDisabled_Vodafone,
+.dxWeb_isPrevPageBtnVertOutsideDisabled_Vodafone,
+.dxWeb_isNextPageBtnVertDisabled_Vodafone,
+.dxWeb_isNextPageBtnVertOutsideDisabled_Vodafone,
+.dxWeb_isDot_Vodafone,
+.dxWeb_isDotDisabled_Vodafone,
+.dxWeb_isDotSelected_Vodafone,
+.dxWeb_isPlayBtn_Vodafone,
+.dxWeb_isPauseBtn_Vodafone,
+.dxWeb_igCloseButton_Vodafone,
+.dxWeb_igNextButton_Vodafone,
+.dxWeb_igPrevButton_Vodafone,
+.dxWeb_igPlayButton_Vodafone,
+.dxWeb_igPauseButton_Vodafone,
+.dxWeb_igNavigationBarMarker_Vodafone
+{
+    display: block;
+}
+.dxWeb_mScrollUp_Vodafone, .dxWeb_mScrollDown_Vodafone
+{
+	margin: auto;
+}
+

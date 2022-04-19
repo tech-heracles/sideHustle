@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="pRC_RAP_Analize_Cmime_ShitjeTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="ds_Analize_Cmime_Shitje1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="ds_SituacionShpenzimesh1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <metadata name="pRC_RAP_PERMBLEDHES_SITUACION_SHPENZIMESHTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 173</value>
+  </metadata>
+  <metadata name="dS_RAP_PermbledheseRealizimevedheParashikimeve1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="dS_RAP_PermbledheseRealizimevedheParashikimeve2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 212</value>
+  </metadata>
+  <metadata name="pRC_RAP_PermbledheseRealizimevedheParashikimeveTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 251</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+private void filtraTable_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+AlphaWebReports.raporteUtil.shtoFiltra(filtraTable, null, AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]));
+
+}
+   private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            
+}
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+            if ((Convert.ToInt32(GetCurrentColumnValue("NIVEL")) == 1))
+                xrTableCell19.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+
+            else xrTableCell19.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular);
+
+        }
+
+        bool uPrintu = false;
+        bool uPrintuses2 = false;
+        bool uPrintuses3 = false;
+ bool uPrintuses4 = false;
+
+        private void xrTableCell28_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (Convert.ToInt32(GetCurrentColumnValue("SESION")) == 1)
+            {
+                xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Left;
+                if (!uPrintu)
+                {
+                    xrTableCell28.Text = "Prodhimi i Energjise";
+                    uPrintu = true;
+                }
+                else xrTableCell28.Text = "";
+
+            }
+            if ((Convert.ToInt32(GetCurrentColumnValue("SESION")) == 2))
+            {
+                xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Left;
+                if (!uPrintuses2)
+                {
+                    xrTableCell28.Text = "Tregtimi i Energjise";
+                    uPrintuses2 = true;
+                    xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Top| DevExpress.XtraPrinting.BorderSide.Left;
+                }
+                else xrTableCell28.Text = "";
+
+
+            }
+
+            if ((Convert.ToInt32(GetCurrentColumnValue("SESION")) == 3))
+            {
+                xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Left;
+                if (!uPrintuses3)
+                {
+                    xrTableCell28.Text = "Tarifat dhe cmimet";
+                    uPrintuses3 = true;
+                    xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Top| DevExpress.XtraPrinting.BorderSide.Left;
+                }
+                else xrTableCell28.Text = "";
+
+
+            }
+
+
+    if ((Convert.ToInt32(GetCurrentColumnValue("SESION")) == 4))
+            {
+                xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Left;
+                if (!uPrintuses4)
+                {
+                    xrTableCell28.Text = "Treguesit e Punes";
+                    uPrintuses4 = true;
+                    xrTableCell28.Borders = DevExpress.XtraPrinting.BorderSide.Top| DevExpress.XtraPrinting.BorderSide.Left;
+                }
+                else xrTableCell28.Text = "";
+            }
+
+           }
+   
+
+private void xrTableCell21_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20) ||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell21.Text = "";}
+double vlerames;
+
+private void xrTableCell22_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+double vleraaktuale;
+
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20) ||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell22.Text = "";
+
+if((Convert.ToInt32(GetCurrentColumnValue("RRESHT"))==38))
+vlerames= Convert.ToInt32(xrTableCell22.Value);
+
+
+if((Convert.ToInt32(GetCurrentColumnValue("RRESHT"))==39))
+{
+vleraaktuale= Convert.ToInt32(xrTableCell22.Value);
+ double sasia = Convert.ToDouble(vleraaktuale) / Convert.ToDouble(vlerames);
+                if(double.IsNaN(sasia) || double.IsInfinity(sasia))   
+              xrTableCell22.Text = "0";
+else 
+	xrTableCell22.Text=sasia.ToString();
+
+
+             int nr = 0;
+            if (xrTableCell22.Text != "" || xrTableCell22.Text != "NaN")
+            int.TryParse(xrTableCell22.Text, out nr);
+
+}}
+
+
+private void xrTableCell23_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell23.Text = "";}
+
+
+
+private void xrTableCell24_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell24.Text = "";}
+
+
+
+private void xrTableCell17_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell17.Text = "";}
+
+
+
+private void xrTableCell25_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell25.Text = "";}
+
+
+private void xrTableCell26_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell26.Text = "";}
+
+
+
+private void xrTableCell27_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+if ((Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 1)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 14)
+||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 17)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 20)||(Convert.ToInt32(GetCurrentColumnValue("RRESHT")) == 37))
+  xrTableCell27.Text = "";
+}
+
+
+
+
+private void BottomMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+            
+}
+        private string date;
+private void Rap_PermbledheseRealizimevedheParashikimeve_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
+var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+ var parameters = AlphaWebReports.raporteUtil.DeserializoParametrat(this.Extensions["filtrat"]);  
+var filterDtDok = parameters.Find(param =&gt; param.Emri == "filterDtDok");
+           date  = filterDtDok.Vlera;
+
+            int paramviti = Convert.ToInt32(parametraRaporti.KodiViti);
+            int paramviti1 = 1 + paramviti;
+            int paramviti2 = 2 + paramviti;
+            int paramviti3 = 3 + paramviti;
+            int paramviti4 = 4 + paramviti;
+            int paramviti5 = 5 + paramviti;
+            xrTableCell11.Text = "Programi i Vitit (I Ndryshuar) " + paramviti;
+            xrTableCell12.Text = "Fakti " + date;
+            xrTableCell13.Text = "I Pritshmi " + paramviti;
+            xrTableCell9.Text = "Parashikimi i vitit " + paramviti1;
+            xrTableCell14.Text = "Parashikimi i vitit " + paramviti2;
+            xrTableCell15.Text = "Parashikimi i vitit " + paramviti3;
+            xrTableCell16.Text = "Parashikimi i vitit " + paramviti4;
+            xrTableCell18.Text = "Parashikimi i vitit " + paramviti5;
+
+}
+</value>
+  </data>
+</root>

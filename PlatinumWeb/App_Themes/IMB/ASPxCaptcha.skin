@@ -1,0 +1,8 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dx:ASPxCaptcha runat="server" SpriteCssFilePath="{0}/sprite.css" CssPostfix="IMB" CssFilePath="{0}/styles.css">
+    <RefreshButtonStyle Font-Italic="False" Font-Size="0pt" ForeColor="White" />
+    <ChallengeImage BorderWidth="0" ForegroundColor="White" BackgroundColor="#00A74F" BorderColor="" />
+</dx:ASPxCaptcha>
+

@@ -1,0 +1,560 @@
+.dxgvControl_Kesh,
+.dxgvDisabled_Kesh
+{
+	border: 1px Solid #c0c0c0;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	background-color: White;
+	color: #333333;
+	cursor: default;
+}
+.dxgvDisabled_Kesh
+{
+	color: #b8b8b8;
+}
+.dxgvControl_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxgvDisabled_Kesh a
+{
+	color: #b8b8b8;
+}
+
+.dxgvEmptyDataRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvDataRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvGroupRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvSelectedRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvFocusedRow_Kesh.dxgvBELVR > td.dxgv
+{
+    border-bottom-width: 0;
+}
+
+.dxgvRBB .dxgvEmptyDataRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvDataRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvGroupRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvSelectedRow_Kesh.dxgvBELVR > td.dxgv,
+.dxgvRBB .dxgvFocusedRow_Kesh.dxgvBELVR > td.dxgv
+{
+    border-bottom-width: 1px !important;
+}
+
+.dxgvLoadingPanel_Kesh
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxgvLoadingPanel_Kesh td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxgvLoadingPanel_Kesh .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+.dxgvLoadingPanelStatusBar_Kesh .dxlp-loadingImage 
+{
+	background-image: url('gvLoadingOnStatusBar.gif');
+	height: 16px;
+	width: 16px;
+}
+.dxgvLoadingPanelStatusBar_Kesh
+{
+	background-color: Transparent;
+}
+.dxgvLoadingPanelStatusBar_Kesh td
+{
+	white-space: nowrap;
+	text-align: center;
+	padding: 0px 2px;
+}
+
+.dxgvTable_Kesh
+{
+	background-color: White;
+	border-width: 0;
+	border-collapse: separate!important;
+	overflow: hidden;
+}
+.dxgvTable_Kesh .dxgvHEC
+{
+	background-color: White;
+	border-width: 0;
+	overflow: hidden;
+}
+.dxgvControl_Kesh .dxgvFSDC .dxgvFooter_Kesh td.dxgv
+{
+    border-bottom: 0;
+}
+.dxgvInlineEditRow_Kesh,
+.dxgvDataRow_Kesh
+{
+}
+.dxgvInlineEditRow_Kesh td.dxgv
+{
+	border-bottom: 1px Solid #D3D3D3;
+	border-right: 1px Solid #D3D3D3;
+}
+.dxgvDataRowAlt_Kesh
+{
+	background-color: WhiteSmoke;
+}
+.dxgvFilterRow_Kesh
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvEditForm_Kesh
+{
+}
+.dxgvEditForm_Kesh td.dxgv
+{
+	border-bottom: 1px Solid #D3D3D3;
+	padding: 8px 10px 10px;
+}
+.dxgvEditForm_Kesh td.dxgvIndentCell
+{
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+.dxgvSelectedRow_Kesh
+{
+	background-color: #e0e0e0;
+	color: #333333;
+}
+.dxgvFocusedRow_Kesh
+{
+	background-color: #5D9AD3;
+	color: White;
+}
+.dxgvFocusedRow_Kesh a,
+.dxgvFocusedRow_Kesh .dxgvCommandColumn_Kesh a
+{
+	color: White;
+}
+.dxgvSelectedRow_Kesh .dxgvCommandColumn_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxgvPreviewRow_Kesh
+{
+	color: #999999;
+}
+.dxgvDetailCell_Kesh,
+.dxgvPreviewRow_Kesh td.dxgv,
+.dxgvEmptyDataRow_Kesh td.dxgv
+{
+	padding: 20px 2px 20px 4px;
+	border-bottom: 1px Solid #D3D3D3;
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+}
+.dxgvPreviewRow_Kesh td.dxgv
+{
+	padding: 10px 10px 10px 15px;
+}
+.dxgvDetailCell_Kesh
+{
+	padding: 16px 18px;
+}
+.dxgvDetailRow_Kesh td.dxgvIndentCell
+{
+	padding-right: 0px;
+	border-bottom: 1px Solid #D3D3D3;
+}
+.dxgvEmptyDataRow_Kesh
+{
+	color: Gray;
+}
+.dxgvEmptyDataRow_Kesh td.dxgv
+{
+	border-bottom: 1px Solid #CFCFCF;
+	text-align: center;
+}
+
+.dxgvEditFormDisplayRow_Kesh td.dxgv,
+.dxgvDataRow_Kesh td.dxgv,
+.dxgvDataRowAlt_Kesh td.dxgv,
+.dxgvSelectedRow_Kesh td.dxgv,
+.dxgvFocusedRow_Kesh td.dxgv
+{
+	overflow: hidden;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right: 1px Solid #c0c0c0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 3px 6px 4px;
+}
+.dxgvEditFormDisplayRow_Kesh
+{
+}
+.dxgvEditFormDisplayRow_Kesh td.dxgv
+{
+}
+.dxgvEditFormDisplayRow_Kesh td.dxgvIndentCell
+{
+	background: #EDEDED none;
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+
+.dxgvEditingErrorRow_Kesh
+{
+	background-color: #FFC8C8;
+	color: #FF0000;
+}
+.dxgvEditingErrorRow_Kesh td.dxgv
+{
+	white-space: pre-wrap;
+	border-bottom: 1px Solid #D3D3D3;
+	border-right-width: 0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 6px 10px;
+}
+
+.dxgvFilterRow_Kesh td.dxgv
+{
+	border-bottom: 1px Solid #c0c0c0;
+	border-right: 1px Solid #c0c0c0;
+	border-top-width: 0;
+	border-left-width: 0;
+	padding: 2px;
+	overflow: hidden;
+}
+.dxgvGroupRow_Kesh
+{
+}
+.dxgvFocusedGroupRow_Kesh
+{
+	background-color: #5D9AD3;
+	color: White;
+}
+.dxgvGroupRow_Kesh td.dxgv,
+.dxgvFocusedGroupRow_Kesh td.dxgv
+{
+	border: 0 none;
+	vertical-align: middle;
+	white-space: nowrap;
+	border-bottom: 1px Solid #D3D3D3;
+	padding: 3px 6px 4px;
+}
+.dxgvFocusedRow_Kesh td.dxgvIndentCell,
+.dxgvFocusedGroupRow_Kesh td.dxgvIndentCell,
+.dxgvSelectedRow_Kesh td.dxgvIndentCell
+{
+	background-color: white!important;
+	border-right: 1px solid #CFCFCF;
+	border-left: 1px solid #CFCFCF;
+	border-top-width: 0px;
+}
+.dxgvHeaderPanel_Kesh
+{
+	background-color: #F9F9F9;
+	padding: 8px 6px;
+	border-bottom: 1px Solid #9F9F9F;
+}
+
+.dxgvMSDraggable_Kesh .dxgvHeader_Kesh,
+.dxgvMSDraggable_Kesh.dxgvGroupPanel_Kesh
+{
+    -ms-touch-action: pinch-zoom;
+}
+.dxgvHeader_Kesh
+{
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 4px 6px 5px;
+	border: 1px Solid #c0c0c0;
+    background-color: white;
+	overflow: hidden;
+	font-weight: normal;
+	text-align: left;
+}
+.dxgvHeader_Kesh,
+.dxgvHeader_Kesh table
+{
+}
+.dxgvHeader_Kesh td
+{
+	white-space: nowrap;
+}
+.dxgvHeader_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxgvHeader_Kesh a.dxgvCommandColumnItem_Kesh
+{
+	margin: 0 3px 0 0;
+	color: #5D9AD3;
+}
+.dxgvPopupEditForm_Kesh
+{
+	padding: 4px;
+	margin: 0;
+}
+.dxgvCustomization_Kesh
+{
+	margin: 0;
+	padding: 10px;
+	min-width: 220px;
+}
+.dxgvGroupPanel_Kesh
+{
+	white-space: nowrap;
+	border-bottom: 1px Solid #c0c0c0;
+	padding: 7px 4px 8px 6px;
+}
+.dxgvFooter_Kesh
+{
+	white-space: nowrap;
+}
+.dxgvFooter_Kesh td.dxgv
+{
+	padding: 5px 6px 6px;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right-width: 0;
+}
+.dxgvGroupFooter_Kesh
+{
+}
+.dxgvGroupFooter_Kesh td.dxgv
+{
+	white-space: nowrap;
+}
+.dxgvGroupFooter_Kesh td.dxgv
+{
+	padding: 5px 4px 6px 6px;
+	border-bottom: 1px Solid #c0c0c0;
+	border-right-width: 0;
+}
+.dxgvDataRow_Kesh td.dxgvIndentCell,
+.dxgvGroupRow_Kesh td.dxgvIndentCell,
+.dxgvGroupFooter_Kesh td.dxgvIndentCell
+{
+	background-color: white;
+	border-right: 1px Solid #CFCFCF;
+	border-left: 1px Solid #CFCFCF;
+	border-top-width: 0px;
+}
+
+.dxgvTitlePanel_Kesh, 
+.dxgvTable_Kesh caption
+{
+	font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+	color: #999999;
+	border-bottom: 1px Solid #c0c0c0;
+}
+.dxgvStatusBar_Kesh
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvStatusBar_Kesh tr.dxgv
+{
+	height: 20px;
+}
+.dxgvStatusBar_Kesh tr.dxgv > td
+{
+	padding: 4px;
+}
+.dxgvCommandColumn_Kesh
+{
+	padding: 8px 4px;
+}
+.dxgvCommandColumn_Kesh a
+{
+	margin: 0 3px 0 0;
+	color: #5D9AD3;
+}
+.dxgvCommandColumn_Kesh a:hover
+{
+}
+
+.dxgvCommandColumnItem_Kesh
+{
+}
+.dxgvEditFormTable_Kesh
+{
+	padding: 2px 6px 6px 4px;
+	font-size: 0.91em;
+	min-width: 300px;
+}
+.dxgvEditFormTable_Kesh a
+{
+	color: #5D9AD3;
+}
+.dxgvEditFormTable_Kesh a:hover
+{
+}
+
+.dxgvEditFormCaption_Kesh
+{
+	padding: 4px 4px 4px 10px;
+	white-space: nowrap;
+}
+
+.dxgvInlineEditCell_Kesh
+{
+	padding: 1px;
+}
+
+.dxgvEditFormCell_Kesh
+{
+	padding: 4px;
+	border-width: 0;
+}
+
+.dxgvPagerTopPanel_Kesh,
+.dxgvPagerBottomPanel_Kesh
+{
+	padding: 4px 0;
+}
+.dxgvPagerTopPanel_Kesh
+{
+	border-bottom: 1px Solid #c0c0c0;
+}
+
+.dxgvDetailButton_Kesh
+{
+}
+
+.dxgvFilterBar_Kesh
+{
+	border-top: 1px Solid #c0c0c0;
+}
+.dxgvFilterBar_Kesh a
+{
+	color: #5D9AD3;
+	text-decoration: underline;
+}
+.dxgvFilterBarCheckBoxCell_Kesh
+{
+	padding: 0 7px;
+}
+.dxgvFilterBarImageCell_Kesh
+{
+	padding: 0 1px 0 3px;
+	cursor: pointer;
+}
+.dxgvFilterBarExpressionCell_Kesh
+{
+	padding: 5px 5px 8px 0;
+	white-space: nowrap;
+}
+.dxgvFilterBarClearButtonCell_Kesh
+{
+	padding: 5px 6px 8px;
+}
+.dxgvFilterBuilderMainArea_Kesh
+{
+	background: white none;
+	padding: 6px 2px;
+} 
+.dxgvFilterBuilderButtonArea_Kesh
+{
+	border-top: 1px solid #c0c0c0;
+	padding: 6px;
+	white-space: nowrap;
+}
+
+.dxgvDataRowHover_Kesh
+{
+	background-color: #f0f0f0;
+	color: #333333;
+}
+.dxgvDataRowHover_Kesh a
+{
+	color: #5D9AD3!important;
+}
+
+.dxgvControl_Kesh .dxpLite_Kesh,
+.dxgvDisabled_Kesh .dxpLite_Kesh
+{
+	padding-top: 4px;
+}
+
+.dxgvControl_Kesh .dxgvHFSAC
+{
+    padding: 9px 0 0 4px;
+}
+.dxgvControl_Kesh .dxgvHFSC
+{
+    padding: 9px 0 6px;
+}
+.dxgvControl_Kesh .dxgvHFSC div
+{
+    height: 1px;
+    background: #c0c0c0;
+}
+.dxgvControl_Kesh div[id$='DXEPLPC']
+{
+    height: 53px;
+}
+
+/* Removes flicking in iOS Safari*/
+.dxgvTable_Kesh
+{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.dxgvControl_Kesh td.dxgvBatchEditCell_Kesh
+{
+    padding: 0;
+}
+.dxgvControl_Kesh td.dxgvBatchEditModifiedCell_Kesh
+{
+    background: #d7f9c7;
+}
+.dxgvControl_Kesh .dxgvErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxgvControl_Kesh .dxgvErrorCell img
+{
+    margin: -3px 0;
+}
+.dxgvStatusBar_Kesh .dxgvCommandColumn_Kesh a
+{
+    margin-right: 10px;
+}
+.dxgvControl_Kesh td.dxgvBatchEditCell_Kesh .dxichCellSys
+{
+    padding-left: 0;
+}
+
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-content {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-image,
+.dxgvContextMenu_Kesh.dxm-popup .dxm-image {
+	margin-top: -2px;
+    margin-bottom: -2px;
+	margin-left: -1px;
+    border: 1px solid transparent;
+}
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-image.dxgvcm-chk,
+.dxgvContextMenu_Kesh.dxm-popup .dxm-image.dxgvcm-chk {
+	background-color: #e0e0e0;
+	border-color: #c2c2c2;
+}
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-image {
+	margin-right: 9px;
+}
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-image.dxWeb_mSubMenuItem_Kesh,
+.dxmLite_Kesh.dxm-ltr .dxgvContextMenu_Kesh.dxm-popup .dxm-image.dxWeb_mSubMenuItemChecked_Kesh {
+	margin-left: 1px;
+	margin-right: 11px;
+}

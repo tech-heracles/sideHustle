@@ -1,0 +1,151 @@
+{
+  "version": "19.1.4",
+  "date": "7/4/2019",
+  "themeId": "17",
+  "hue": null,
+  "items": [
+    {
+      "key": "@base-link-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@base-icon-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@base-accent",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@badge-bg",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@accordion-color",
+      "value": "#28484f"
+    },
+    {
+      "key": "@button-success-bg",
+      "value": "#00a74f"
+    },
+    {
+      "key": "@button-success-hover-bg",
+      "value": "#009144"
+    },
+    {
+      "key": "@fileuploader-falename-status-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@loadindicator-bg",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@toast-success-bg",
+      "value": "#00a74f"
+    },
+    {
+      "key": "@switch-off-color",
+      "value": "rgba(0, 128, 219, 0.7)"
+    },
+    {
+      "key": "@datagrid-nodata-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@datagrid-spin-icon-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@treelist-columnchooser-item-color",
+      "value": "#28484f"
+    },
+    {
+      "key": "@treelist-nodata-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@treelist-spin-icon-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@PIVOTGRID_AREA_COLOR",
+      "value": "#28484f"
+    },
+    {
+      "key": "@PIVOTGRID_GRANDTOTALCOLOR",
+      "value": "rgba(222, 222, 222, 0.5)"
+    },
+    {
+      "key": "@pivotgrid-spin-icon-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@SCHEDULER_PANEL_TEXT_COLOR",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@calendar-header-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@calendar-cell-other-color",
+      "value": "#cccccc"
+    },
+    {
+      "key": "@form-group-border-color",
+      "value": "#dedede"
+    },
+    {
+      "key": "@desktop-layout-copyright-color",
+      "value": "#0072c6"
+    },
+    {
+      "key": "@datagrid-focused-border-color",
+      "value": "rgba(0, 114, 198, 1)"
+    },
+    {
+      "key": "@datagrid-row-selected-border-color",
+      "value": "rgba(0, 114, 198, 1)"
+    },
+    {
+      "key": "@base-bg",
+      "value": "rgba(253, 253, 253, 1)"
+    },
+    {
+      "key": "@button-normal-color",
+      "value": "rgba(0, 114, 198, 1)"
+    },
+    {
+      "key": "@button-normal-bg",
+      "value": "rgba(253, 253, 253, 1)"
+    },
+    {
+      "key": "@base-label-color",
+      "value": "rgba(21, 52, 74, 1)"
+    },
+    {
+      "key": "@texteditor-placeholder-color",
+      "value": "rgba(39, 97, 138, 0.6)"
+    },
+    {
+      "key": "@button-normal-border-color",
+      "value": "rgba(0, 114, 198, 1)"
+    },
+    {
+      "key": "@datagrid-columnchooser-item-color",
+      "value": "rgba(21, 52, 74, 1)"
+    },
+    {
+      "key": "@datagrid-group-row-color",
+      "value": "rgba(21, 52, 74, 1)"
+    },
+    {
+      "key": "@datagrid-summary-color",
+      "value": "rgba(21, 52, 74, 1)"
+    }
+  ],
+  "baseTheme": "generic.greenmist",
+  "outputColorScheme": "alphaweb",
+  "makeSwatch": false
+}

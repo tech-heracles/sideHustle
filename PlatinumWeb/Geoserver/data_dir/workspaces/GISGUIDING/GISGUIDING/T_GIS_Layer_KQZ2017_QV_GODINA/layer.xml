@@ -1,0 +1,15 @@
+<layer>
+  <name>T_GIS_Layer_KQZ2017_QV_GODINA</name>
+  <id>LayerInfoImpl-2806a89c:15c1b887073:-4e1a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-2806a89c:15c1b887073:-4e20</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-2806a89c:15c1b887073:-4e1b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

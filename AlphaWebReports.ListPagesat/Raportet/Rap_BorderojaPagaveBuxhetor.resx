@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ds_Rap_BorderojaPagaveBuxhetor1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 407</value>
+  </metadata>
+  <metadata name="prc_BorderojaPagaveBuxhetorTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 446</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>int count =0;
+ private void xrTableCell1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+            count++;
+            xrTableCell1.Text = count.ToString();
+}
+
+
+
+private void xrTableCell34_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+	double pagegrupi=  Convert.ToInt32(GetCurrentColumnValue("pagagrupi"));
+	if(pagegrupi==0)
+		xrTableCell34.Text = "0";
+      else{
+		xrTableCell34.Text = String.Format("{0:#,#}", pagegrupi);
+		xrTableCell34.XlsxFormatString = "#,##0";            
+	}
+}
+private void xrTableCell90_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabazeklase =  Convert.ToInt32(GetCurrentColumnValue("pagabazeklase"));
+	if(pagabazeklase == 0)
+		xrTableCell90.Text = "0";
+      else{
+		xrTableCell90.Text = String.Format("{0:#,#}", pagabazeklase );
+		xrTableCell90.XlsxFormatString = "#,##0"; 
+	}
+}
+
+
+
+private void xrTableCell91_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabrutoraportmj =  Convert.ToInt32(GetCurrentColumnValue("pagabrutoraportmj"));
+	if(pagabrutoraportmj == 0)
+		xrTableCell91.Text = "0";
+      else{
+		xrTableCell91.Text = String.Format("{0:#,#}", pagabrutoraportmj );
+		xrTableCell91.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell92_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesevjetersie =  Convert.ToInt32(GetCurrentColumnValue("shtesevjetersie "));
+	if(shtesevjetersie == 0)
+		xrTableCell92.Text = "0";
+      else{
+		xrTableCell92.Text = String.Format("{0:#,#}", shtesevjetersie);
+		xrTableCell92.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell93_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesekuashkencor =  Convert.ToInt32(GetCurrentColumnValue("shtesekuashkencor"));
+	if(shtesekuashkencor == 0)
+		xrTableCell93.Text = "0";
+      else{
+		xrTableCell93.Text = String.Format("{0:#,#}", shtesekuashkencor);
+		xrTableCell93.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell94_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseparauniver =  Convert.ToInt32(GetCurrentColumnValue("shteseparauniver"));
+	if(shteseparauniver == 0)
+		xrTableCell94.Text = "0";
+      else{
+		xrTableCell94.Text = String.Format("{0:#,#}", shteseparauniver);
+		xrTableCell94.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell95_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesenatyrevecante =  Convert.ToInt32(GetCurrentColumnValue("shtesenatyrevecante"));
+	if(shtesenatyrevecante == 0)
+		xrTableCell95.Text = "0";
+      else{
+		xrTableCell95.Text = String.Format("{0:#,#}", shtesenatyrevecante);
+		xrTableCell95.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell96_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesekushtedemshme =  Convert.ToInt32(GetCurrentColumnValue("shtesekushtedemshme"));
+	if(shtesekushtedemshme == 0)
+		xrTableCell96.Text = "0";
+      else{
+		xrTableCell96.Text = String.Format("{0:#,#}", shtesekushtedemshme);
+		xrTableCell96.XlsxFormatString = "#,##0"; 
+	}
+}
+
+private void xrTableCell97_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesepergrade =  Convert.ToInt32(GetCurrentColumnValue("shtesepergrade"));
+	if(shtesepergrade == 0)
+		xrTableCell97.Text = "0";
+      else{
+		xrTableCell97.Text = String.Format("{0:#,#}", shtesepergrade);
+		xrTableCell97.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell98_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesembinorme =  Convert.ToInt32(GetCurrentColumnValue("shtesembinorme"));
+	if(shtesembinorme == 0)
+		xrTableCell98.Text = "0";
+      else{
+		xrTableCell98.Text = String.Format("{0:#,#}", shtesembinorme);
+		xrTableCell98.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell99_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseturne =  Convert.ToInt32(GetCurrentColumnValue("shteseturne"));
+	if(shteseturne == 0)
+		xrTableCell99.Text = "0";
+      else{
+		xrTableCell99.Text = String.Format("{0:#,#}", shteseturne);
+		xrTableCell99.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell100_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseojo =  Convert.ToInt32(GetCurrentColumnValue("shteseojo"));
+	if(shteseojo == 0)
+		xrTableCell100.Text = "0";
+      else{
+		xrTableCell100.Text = String.Format("{0:#,#}", shteseojo);
+		xrTableCell100.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell101_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesesherbim =  Convert.ToInt32(GetCurrentColumnValue("shtesesherbim"));
+	if(shtesesherbim == 0)
+		xrTableCell101.Text = "0";
+      else{
+		xrTableCell101.Text = String.Format("{0:#,#}", shtesesherbim);
+		xrTableCell101.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell102_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shperblim =  Convert.ToInt32(GetCurrentColumnValue("shperblim"));
+	if(shperblim == 0)
+		xrTableCell102.Text = "0";
+      else{
+		xrTableCell102.Text = String.Format("{0:#,#}", shperblim);
+		xrTableCell102.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell103_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesediference =  Convert.ToInt32(GetCurrentColumnValue("shtesediference"));
+	if(shtesediference == 0)
+		xrTableCell103.Text = "0";
+      else{
+		xrTableCell103.Text = String.Format("{0:#,#}", shtesediference);
+		xrTableCell103.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell104_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabrutomujore =  Convert.ToInt32(GetCurrentColumnValue("pagabrutomujore"));
+	if(pagabrutomujore== 0)
+		xrTableCell104.Text = "0";
+      else{
+		xrTableCell104.Text = String.Format("{0:#,#}", pagabrutomujore);
+		xrTableCell104.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell105_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigdetshoq =  Convert.ToInt32(GetCurrentColumnValue("sigdetshoq"));
+	if(sigdetshoq == 0)
+		xrTableCell105.Text = "0";
+      else{
+		xrTableCell105.Text = String.Format("{0:#,#}", sigdetshoq);
+		xrTableCell105.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell106_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigshendetsor =  Convert.ToInt32(GetCurrentColumnValue("sigshendetsor"));
+	if(sigshendetsor == 0)
+		xrTableCell106.Text = "0";
+      else{
+		xrTableCell106.Text = String.Format("{0:#,#}", sigshendetsor);
+		xrTableCell106.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell107_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigsuplem =  Convert.ToInt32(GetCurrentColumnValue("sigsuplem"));
+	if(sigsuplem == 0)
+		xrTableCell107.Text = "0";
+      else{
+		xrTableCell107.Text = String.Format("{0:#,#}", sigsuplem);
+		xrTableCell107.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell108_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double tatimmbipagbruto =  Convert.ToInt32(GetCurrentColumnValue("tatimmbipagbruto"));
+	if(tatimmbipagbruto == 0)
+		xrTableCell108.Text = "0";
+      else{
+		xrTableCell108.Text = String.Format("{0:#,#}", tatimmbipagbruto);
+		xrTableCell108.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell109_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndaleselegjislacion =  Convert.ToInt32(GetCurrentColumnValue("ndaleselegjislacion"));
+	if(ndaleselegjislacion == 0)
+		xrTableCell109.Text = "0";
+      else{
+		xrTableCell109.Text = String.Format("{0:#,#}", ndaleselegjislacion);
+		xrTableCell109.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell110_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndalesecdemtim =  Convert.ToInt32(GetCurrentColumnValue("ndalesecdemtim"));
+	if(ndalesecdemtim == 0)
+		xrTableCell110.Text = "0";
+      else{
+		xrTableCell110.Text = String.Format("{0:#,#}", ndalesecdemtim);
+		xrTableCell110.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell111_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndalesediference =  Convert.ToInt32(GetCurrentColumnValue("ndalesediference"));
+	if(ndalesediference == 0)
+		xrTableCell111.Text = "0";
+      else{
+		xrTableCell111.Text = String.Format("{0:#,#}", ndalesediference);
+		xrTableCell111.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell112_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shumandalesa =  Convert.ToInt32(GetCurrentColumnValue("ShumaNdalesa"));
+	if(shumandalesa == 0)
+		xrTableCell112.Text = "0";
+      else{
+		xrTableCell112.Text = String.Format("{0:#,#}", shumandalesa);
+		xrTableCell112.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell113_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double paganeto =  Convert.ToInt32(GetCurrentColumnValue("PagaNeto"));
+	if(paganeto == 0)
+		xrTableCell113.Text = "0";
+      else{
+		xrTableCell113.Text = String.Format("{0:#,#}", paganeto);
+		xrTableCell113.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabazeklase =  Convert.ToInt32(GetCurrentColumnValue("pagabazeklase"));
+	if(pagabazeklase == 0)
+		xrTableCell35.Text = "0";
+      else{
+		xrTableCell35.Text = String.Format("{0:#,#}", pagabazeklase );
+		xrTableCell35.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabrutoraportmj =  Convert.ToInt32(GetCurrentColumnValue("pagabrutoraportmj"));
+	if(pagabrutoraportmj == 0)
+		xrTableCell36.Text = "0";
+      else{
+		xrTableCell36.Text = String.Format("{0:#,#}", pagabrutoraportmj );
+		xrTableCell36.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesevjetersie =  Convert.ToInt32(GetCurrentColumnValue("shtesevjetersie"));
+	if(shtesevjetersie == 0)
+		xrTableCell37.Text = "0";
+      else{
+		xrTableCell37.Text = String.Format("{0:#,#}", shtesevjetersie);
+		xrTableCell37.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell42_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesekuashkencor =  Convert.ToInt32(GetCurrentColumnValue("shtesekuashkencor"));
+	if(shtesekuashkencor == 0)
+		xrTableCell42.Text = "0";
+      else{
+		xrTableCell42.Text = String.Format("{0:#,#}", shtesekuashkencor);
+		xrTableCell42.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseparauniver =  Convert.ToInt32(GetCurrentColumnValue("shteseparauniver"));
+	if(shteseparauniver == 0)
+		xrTableCell47.Text = "0";
+      else{
+		xrTableCell47.Text = String.Format("{0:#,#}", shteseparauniver);
+		xrTableCell47.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell48_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesenatyrevecante =  Convert.ToInt32(GetCurrentColumnValue("shtesenatyrevecante"));
+	if(shtesenatyrevecante == 0)
+		xrTableCell48.Text = "0";
+      else{
+		xrTableCell48.Text = String.Format("{0:#,#}", shtesenatyrevecante);
+		xrTableCell48.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesekushtedemshme =  Convert.ToInt32(GetCurrentColumnValue("shtesekushtedemshme"));
+	if(shtesekushtedemshme == 0)
+		xrTableCell56.Text = "0";
+      else{
+		xrTableCell56.Text = String.Format("{0:#,#}", shtesekushtedemshme);
+		xrTableCell56.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell58_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesepergrade =  Convert.ToInt32(GetCurrentColumnValue("shtesepergrade"));
+	if(shtesepergrade == 0)
+		xrTableCell58.Text = "0";
+      else{
+		xrTableCell58.Text = String.Format("{0:#,#}", shtesepergrade);
+		xrTableCell58.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell60_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesembinorme =  Convert.ToInt32(GetCurrentColumnValue("shtesembinorme"));
+	if(shtesembinorme == 0)
+		xrTableCell60.Text = "0";
+      else{
+		xrTableCell60.Text = String.Format("{0:#,#}", shtesembinorme);
+		xrTableCell60.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell72_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseturne =  Convert.ToInt32(GetCurrentColumnValue("shteseturne"));
+	if(shteseturne == 0)
+		xrTableCell72.Text = "0";
+      else{
+		xrTableCell72.Text = String.Format("{0:#,#}", shteseturne);
+		xrTableCell72.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell74_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shteseojo =  Convert.ToInt32(GetCurrentColumnValue("shteseojo"));
+	if(shteseojo == 0)
+		xrTableCell74.Text = "0";
+      else{
+		xrTableCell74.Text = String.Format("{0:#,#}", shteseojo);
+		xrTableCell74.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell54_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesesherbim =  Convert.ToInt32(GetCurrentColumnValue("shtesesherbim"));
+	if(shtesesherbim == 0)
+		xrTableCell54.Text = "0";
+      else{
+		xrTableCell54.Text = String.Format("{0:#,#}", shtesesherbim);
+		xrTableCell54.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell76_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shperblim =  Convert.ToInt32(GetCurrentColumnValue("shperblim"));
+	if(shperblim == 0)
+		xrTableCell102.Text = "0";
+      else{
+		xrTableCell76.Text = String.Format("{0:#,#}", shperblim);
+		xrTableCell76.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell77_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shtesediference =  Convert.ToInt32(GetCurrentColumnValue("shtesediference"));
+	if(shtesediference == 0)
+		xrTableCell77.Text = "0";
+      else{
+		xrTableCell77.Text = String.Format("{0:#,#}", shtesediference);
+		xrTableCell77.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell78_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double pagabrutomujore =  Convert.ToInt32(GetCurrentColumnValue("pagabrutomujore"));
+	if(pagabrutomujore== 0)
+		xrTableCell78.Text = "0";
+      else{
+		xrTableCell78.Text = String.Format("{0:#,#}", pagabrutomujore);
+		xrTableCell78.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell79_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigdetshoq =  Convert.ToInt32(GetCurrentColumnValue("sigdetshoq"));
+	if(sigdetshoq == 0)
+		xrTableCell79.Text = "0";
+      else{
+		xrTableCell79.Text = String.Format("{0:#,#}", sigdetshoq);
+		xrTableCell79.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell81_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigshendetsor =  Convert.ToInt32(GetCurrentColumnValue("sigshendetsor"));
+	if(sigshendetsor == 0)
+		xrTableCell81.Text = "0";
+      else{
+		xrTableCell81.Text = String.Format("{0:#,#}", sigshendetsor);
+		xrTableCell81.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell80_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double sigsuplem =  Convert.ToInt32(GetCurrentColumnValue("sigsuplem"));
+	if(sigsuplem == 0)
+		xrTableCell80.Text = "0";
+      else{
+		xrTableCell80.Text = String.Format("{0:#,#}", sigsuplem);
+		xrTableCell80.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell41_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double tatimmbipagbruto =  Convert.ToInt32(GetCurrentColumnValue("tatimmbipagbruto"));
+	if(tatimmbipagbruto == 0)
+		xrTableCell108.Text = "0";
+      else{
+		xrTableCell41.Text = String.Format("{0:#,#}", tatimmbipagbruto);
+		xrTableCell41.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell82_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndaleselegjislacion =  Convert.ToInt32(GetCurrentColumnValue("ndaleselegjislacion"));
+	if(ndaleselegjislacion == 0)
+		xrTableCell82.Text = "0";
+      else{
+		xrTableCell82.Text = String.Format("{0:#,#}", ndaleselegjislacion);
+		xrTableCell82.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell83_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndalesecdemtim =  Convert.ToInt32(GetCurrentColumnValue("ndalesecdemtim"));
+	if(ndalesecdemtim == 0)
+		xrTableCell83.Text = "0";
+      else{
+		xrTableCell83.Text = String.Format("{0:#,#}", ndalesecdemtim);
+		xrTableCell83.XlsxFormatString = "#,##0"; 
+	}
+}
+
+private void xrTableCell84_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double ndalesediference =  Convert.ToInt32(GetCurrentColumnValue("ndalesediference"));
+	if(ndalesediference == 0)
+		xrTableCell84.Text = "0";
+      else{
+		xrTableCell84.Text = String.Format("{0:#,#}", ndalesediference);
+		xrTableCell84.XlsxFormatString = "#,##0"; 
+	}
+}
+
+private void xrTableCell85_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double shumandalesa =  Convert.ToInt32(GetCurrentColumnValue("ShumaNdalesa"));
+	if(shumandalesa == 0)
+		xrTableCell85.Text = "0";
+      else{
+		xrTableCell85.Text = String.Format("{0:#,#}", shumandalesa);
+		xrTableCell85.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+private void xrTableCell86_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+	double paganeto =  Convert.ToInt32(GetCurrentColumnValue("PagaNeto"));
+	if(paganeto == 0)
+		xrTableCell86.Text = "0";
+      else{
+		xrTableCell86.Text = String.Format("{0:#,#}", paganeto);
+		xrTableCell86.XlsxFormatString = "#,##0"; 
+	}
+
+}
+
+
+private void Rap_BorderojaPagaveBuxhetor_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+ var parametraRaporti = AlphaWebReports.raporteUtil.DeserializoParametraPerKonstruktorRaporti(this.Extensions["parametraRaporti"]);
+xrLabel12.Text = parametraRaporti.NdermarrjeKodiFiskal;
+}
+</value>
+  </data>
+</root>

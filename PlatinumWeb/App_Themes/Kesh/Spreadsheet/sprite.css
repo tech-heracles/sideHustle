@@ -1,0 +1,48 @@
+.dxSpreadsheet_Copy_Kesh,
+.dxSpreadsheet_Cut_Kesh,
+.dxSpreadsheet_Delete_Hyperlink_Kesh,
+.dxSpreadsheet_Hyperlink_Kesh,
+.dxSpreadsheet_OpenHyperlink_Kesh,
+.dxSpreadsheet_Paste_Kesh
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxSpreadsheet_Copy_Kesh
+{
+    background-position: -17px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Cut_Kesh
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Delete_Hyperlink_Kesh
+{
+    background-position: -17px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Hyperlink_Kesh
+{
+    background-position: -17px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_OpenHyperlink_Kesh
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxSpreadsheet_Paste_Kesh
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+

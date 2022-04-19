@@ -1,0 +1,516 @@
+.dxpgControl_Kesh, .dxpgCustForm_Kesh
+{
+	color: #333333;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	border: solid 1px #c0c0c0;
+	background-color: white;
+}
+.dxpgContainerCell_Kesh
+{
+	vertical-align: top;
+}
+.dxpgMainTable_Kesh
+{
+	border: 0px;
+	border-collapse: separate;
+	width: 100%;
+	text-align: left;
+}
+div.dxpgMainTable_Kesh
+{
+	-ms-touch-action: pinch-zoom;
+}
+.dxpgMainTable_Kesh caption 
+{
+	background: #ACACAC;
+	color: white;
+	border-bottom: Solid 1px #9F9F9F;
+    font-size: 1.25em;
+	font-weight: normal;
+	padding: 3px 3px 5px;
+	text-align: center;
+}
+.dxpgHeader_Kesh
+{
+	border-width: 0px;
+	cursor: pointer;
+	white-space: nowrap;
+    	text-align: left;
+}
+.dxpgHeaderTable_Kesh
+{
+	border: solid 1px #c0c0c0;
+	width: 100%;
+	border-collapse: separate !important;
+}
+.dxpgMSDraggable_Kesh .dxpgHeaderTable_Kesh,
+.dxpgCustFieldsDiv_Kesh .dxpgHeaderTable_Kesh
+{
+	-ms-touch-action: pinch-zoom;
+}
+
+.dxpgHeaderGroupButton_Kesh
+{
+	padding-left: 4px;
+	vertical-align: middle;
+}
+.dxpgHeaderText_Kesh
+{
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+.dxpgHeaderSort_Kesh
+{
+	padding-left: 0px;
+	padding-right: 4px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+}
+.dxpgHeaderFilter_Kesh
+{
+	padding-left: 0px;
+	padding-right: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;	
+}
+.dxpgArea_Kesh
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: none;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-right-style: none;
+}
+.dxpgColumnArea_Kesh
+{
+	border-bottom-style: solid;
+}
+.dxpgRowArea_Kesh
+{
+}
+.dxpgDataArea_Kesh
+{
+}
+.dxpgFilterArea_Kesh
+{
+	border-bottom-style: solid;
+}
+.dxpgEmptyArea_Kesh
+{
+	cursor: default;
+	padding-top: 6px;
+	padding-left: 6px;
+	padding-bottom: 7px;
+	padding-right: 6px;
+}
+.dxpgColumnFieldValue_Kesh
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+	padding: 4px 6px;
+	font-weight: normal;
+	text-align: left;	
+}
+.dxpgColumnTotalFieldValue_Kesh
+{
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+}
+.dxpgColumnGrandTotalFieldValue_Kesh
+{
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-top-style: none;
+}
+.dxpgRowFieldValue_Kesh
+{
+	border: solid 1px #c0c0c0;
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+	padding: 3px 6px 4px 6px;
+	font-weight: normal;
+	text-align: left;
+}
+.dxpgRowTotalFieldValue_Kesh
+{
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+}
+.dxpgRowTreeFieldValue_Kesh
+{	
+	padding: 0;
+	font-size: 0;
+}
+.dxpgRowGrandTotalFieldValue_Kesh
+{
+	border-left-style: none;
+	border-bottom-style: none;
+	border-right-style: solid;
+	border-top-style: solid;
+	padding-top: 5px;
+	padding-bottom: 6px;	
+}
+.dxpgCollapsedButton_Kesh
+{
+	vertical-align: -1px;
+	border: 0px;
+	margin-right: 5px;
+}
+.dxpgSortByColumnImage_Kesh
+{
+	vertical-align: -1px;
+	border: 0px;
+	margin-left: 5px;
+}
+.dxpgCell_Kesh
+{
+	text-align: right;
+	background-color: White;	
+	border-color: #cecece;
+	border-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-bottom-style: none;
+	border-right-style: none;
+	padding: 4px;
+	padding-top:3px;
+	white-space: nowrap;
+}
+.dxpgKPICell_Kesh
+{
+	text-align: center;
+	vertical-align: middle;
+}
+.dxpgTotalCell_Kesh
+{
+}
+.dxpgGrandTotalCell_Kesh
+{
+}
+.dxpgFilterItem_Kesh
+{
+    white-space: nowrap;
+}
+.dxpgFilterButton_Kesh
+{
+	padding: 2px 6px;
+}
+.dxpgTopPager_Kesh
+{
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: solid 1px #c0c0c0;
+	padding: 4px 0;
+}
+.dxpgBottomPager_Kesh
+{
+	border-top: solid 1px #c0c0c0;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	padding: 7px 0;
+}
+.dxpgTopPager_Kesh,
+.dxpgBottomPager_Kesh
+{
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+.dxpgCustomizationFieldsHeader_Kesh
+{
+	color: White;
+	font-size: 0.91em;
+	background-image: none!important;
+}
+.dxpgCustomizationFieldsContent_Kesh
+{
+	padding: 0px !important;
+	min-width: 300px;
+}
+.dxpgMenuItem_Kesh 
+{
+}
+.dxpgDataHeadersImage_Kesh
+{
+	margin-right: 5px;
+	vertical-align: -2px;
+}
+.dxpgPrefilterPanelContainer_Kesh
+{
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-style: none;
+}
+.dxpgPrefilterPanel_Kesh
+{
+	border: none;
+}
+.dxpgPrefilterPanelLink_Kesh
+{
+	color: #5D9AD3;
+	text-decoration: underline;
+}
+.dxpgPrefilterPanelCheckBoxCell_Kesh
+{
+	padding: 0 7px;
+}
+.dxpgPrefilterPanelImageCell_Kesh
+{
+	padding: 0 3px;
+	padding-right: 1px;
+	cursor: pointer;
+}
+.dxpgPrefilterPanelExpressionCell_Kesh
+{
+	padding: 5px 5px 8px 0;	
+	white-space: nowrap;
+}
+.dxpgPrefilterPanelClearButtonCell_Kesh
+{
+	padding: 5px 6px 8px;
+}
+.dxpgFilterBuilderMainArea_Kesh
+{
+	background: white;
+	padding: 6px 2px;
+} 
+.dxpgFilterBuilderButtonArea_Kesh
+{
+	border-top: solid 1px #c0c0c0;
+	padding: 6px;
+	white-space: nowrap;
+}
+.dxpgGroupSeparator_Kesh 
+{
+	vertical-align: middle;
+}
+.dxpgCustFieldsFilterAreaHeaders_Kesh,
+.dxpgCustFieldsRowAreaHeaders_Kesh,
+.dxpgCustFieldsColumnAreaHeaders_Kesh,
+.dxpgCustFieldsDataAreaHeaders_Kesh,
+.BottomPanelOnly1by4 .dxpgFLFRDiv_Kesh,
+.BottomPanelOnly1by4 .dxpgFLCDDiv_Kesh
+{
+width:100%;
+height:50%;
+}
+.StackedDefault .dxpgCustFieldsFieldList_Kesh
+{
+height:34%;
+}
+.StackedDefault .dxpgFLFRDiv_Kesh
+{
+width:50%;
+height:66%;
+float:left;
+}
+.StackedDefault .dxpgFLCDDiv_Kesh
+{
+width:50%;
+height:66%;
+float:right;
+}
+.StackedDefault .dxpgCustFieldsFilterAreaHeaders_Kesh .dxpgFLTextDiv_Kesh,
+.StackedDefault .dxpgCustFieldsColumnAreaHeaders_Kesh .dxpgFLTextDiv_Kesh
+{
+height:47px;
+}
+.TopPanelOnly .dxpgCustFieldsFieldList_Kesh
+{
+width:100%;
+height:100%;
+}
+.TopPanelOnly .dxpgFLDefereDiv_Kesh .dxeBase_Kesh,
+.TopPanelOnly .dxpgFLDefereDiv_Kesh .dxpgFLDefereDB_Kesh,
+.TopPanelOnly .dxpgFLFRDiv_Kesh,
+.TopPanelOnly .dxpgFLCDDiv_Kesh,
+.BottomPanelOnly1by4 .dxpgCustFieldsFieldList_Kesh,
+.BottomPanelOnly2by2 .dxpgCustFieldsFieldList_Kesh,
+.TopPanelOnly .dxpgFLTextDiv_Kesh div
+{
+display:none;
+}
+.TopPanelOnly .dxpgFLTextDiv_Kesh
+{
+ height:19px;   
+}
+.TopPanelOnly .dxpgFLDefereDiv_Kesh
+{
+ height:16px;   
+}
+.BottomPanelOnly2by2 .dxpgFLFRDiv_Kesh,
+.StackedSideBySide .dxpgCustFieldsFieldList_Kesh
+{
+width:50%;
+height:100%;
+float:left;
+}
+.BottomPanelOnly2by2 .dxpgFLCDDiv_Kesh
+{
+width:50%;
+height:100%;
+float:right;
+}
+.StackedSideBySide .dxpgFLFRDiv_Kesh,
+.StackedSideBySide .dxpgFLCDDiv_Kesh
+{
+width:50%;
+height:50%;
+float:right;
+}
+.dxpgCustFields_Kesh
+{
+    	display:block;
+position:relative;
+}
+.dxpgFLListDiv_Kesh > div
+{
+    border:1px solid #c0c0c0;
+    position:relative;
+    display:block;
+    height:100%;
+    padding:1px;
+    background:#FFFFFF;
+    overflow:hidden;
+}
+.dxpgFLListDiv_Kesh > div > div
+{
+    position:relative;
+    display:block;
+    background:#FFFFFF;
+    height:100%;
+    padding:0px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.DragOver .dxpgFLListDiv_Kesh > div
+{
+    background:#FFD324;
+}
+.dxpgFLListDiv_Kesh 
+{
+    padding:0px 3px 0px 3px;
+}
+.dxpgFLButtonDiv_Kesh .dxbButton_Kesh div.dxb
+{
+	border: dotted 1px transparent;	
+	padding:1px 7px 0px;
+}
+.dxpgFLButtonDiv_Kesh .dxbButton_Kesh div.dxbf
+{
+	border: dotted 1px black;	
+}
+.dxpgFLTextDiv_Kesh
+{
+ height:28px;
+}
+.dxpgFLTextDiv_Kesh div
+{
+   display:block;
+   float:left;
+   margin:-17px 0px 3px 0px;
+   left:6px;
+   top:100%;
+   position:relative;
+}
+div.dxpgFLTextImgDiv_Kesh
+{
+    display:block;
+    height:16px;
+    width:16px;
+    margin:-18px 0px 3px 0px;
+    left:3px;
+}
+.dxpgFLButtonDiv_Kesh
+{
+    float:right;
+    height:28px;
+    position:relative;
+    z-index:1;
+}
+.dxpgFLDefereDiv_Kesh
+{
+    height:50px;
+}
+.dxpgCustFieldsDiv_Kesh
+{
+ clear:both;   
+ padding:0px 9px;
+}
+.dxpgFLButton_Kesh 
+{
+ margin:12px 12px 0px 0px;
+ width:40px;
+ height:23px;
+}
+.dxpgFLDefereDiv_Kesh .dxeBase_Kesh
+{
+ float:left;
+ display:block;
+ border-collapse:separate;
+ padding:17px 0px 0px 0px; 
+ margin-left:8px;  
+}
+.dxpgFLDefereDB_Kesh
+{
+float:right;
+display:block;
+margin: 16px 12px 0 0;
+}
+.dxpgFLDefereDiv_Kesh .dxbButton_Kesh div.dxb
+{
+    padding:1px 13px 1px 13px;
+    border: dotted 1px transparent;	
+}
+.dxpgFLDefereDiv_Kesh .dxbButton_Kesh div.dxbf
+{
+    border: dotted 1px black;	
+}
+.dxpgFLListDiv_Kesh table 
+{
+ width:100%;
+ table-layout:fixed;  
+ overflow:visible;
+}
+.dxpgFLListDiv_Kesh table table td
+{
+     overflow:hidden; 
+}
+/*Loading Panel*/
+.dxpgLoadingPanel_Kesh
+{
+	border: 1px solid #C3C3C3;
+	background-color: white;
+	font: 12px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+	color: #333333;
+}
+.dxpgLoadingPanel_Kesh td.dx
+{
+	font-size: 1.17em;
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxpgLoadingPanel_Kesh .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 32px;
+	width: 32px;
+}
+
