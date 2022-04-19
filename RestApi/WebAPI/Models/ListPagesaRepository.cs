@@ -444,6 +444,7 @@ namespace RestApi.WebAPI.Models
         public static decimal llogaritPageBazeNgaNeto(decimal vlera, DateTime data, int idsigurimi, int idmonedha, int idndermarje)
         {
             //gjejme kursin e monedhes
+            decimal normaFaktike = 1;
             decimal kursimon = 1;
             var kursi = new clsKurset(idmonedha, data);
             if (kursi.VleraKursi != 0)
@@ -478,19 +479,28 @@ namespace RestApi.WebAPI.Models
                 {
                     if (tatimet[k].Min / kursimon <= vleratkufi[i] / kursimon && tatimet[k].Max / kursimon >= vleratkufi[i] / kursimon)
                     {
-                        if (tatimet[k].Menyra == 1) //totale
-                        {
-                            vleratatime += ((vleratkufi[i] / kursimon) * tatimet[k].Norma / 100);
-                        }
-                        else //progresive
-                        {
-                            vleratatime = (vleratkufi[i] / kursimon - (tatimet[k].Min - 1) / kursimon) * tatimet[k].Norma / 100;
-                            for (var j = k - 1; j >= 0; j--)
-                            {
-                                vleratatime += ((tatimet[j].Max + 1 - tatimet[j].Min) / kursimon) * tatimet[j].Norma / 100;
-                            }
-                        }
+                        decimal P = vleratkufi[i] / kursimon;
+                        string pString = "P";
+                        string formula = tatimet[k].Norma;
+                        formula = formula.Replace(pString, P.ToString());
+                        //vleratatime = (vleratkufi[i] / kursimon);
+                        DataTable dt = new DataTable();
+                        decimal vleraTatime = (decimal)dt.Compute(formula, "");
+                        normaFaktike = vleratatime / P;
                         break;
+                        //if (tatimet[k].Menyra == 1) //totale
+                        //{
+                        //    vleratatime += ((vleratkufi[i] / kursimon) * tatimet[k].Norma / 100);
+                        //}
+                        //else //progresive
+                        //{
+                        //    vleratatime = (vleratkufi[i] / kursimon - (tatimet[k].Min - 1) / kursimon) * tatimet[k].Norma / 100;
+                        //    for (var j = k - 1; j >= 0; j--)
+                        //    {
+                        //        vleratatime += ((tatimet[j].Max + 1 - tatimet[j].Min) / kursimon) * tatimet[j].Norma / 100;
+                        //    }
+                        //}
+                        //break;
                     }
                 }
 
@@ -525,19 +535,19 @@ namespace RestApi.WebAPI.Models
 
                 if (tatimet[k].Menyra == 1) //shuma do pjestohet me (1-tatimin e nivleit)
                 {
-                    pjesetimi -= tatimet[k].Norma / 100;
+                    pjesetimi -= normaFaktike / 100;
                 }
                 else
                 {
                     // duke qene se formuala eshte (pb-(tmin-1))* norme dhe pb e kemi te panjojtur gjejme pjesen per tmin dhe ia zbresim pagesneto. pjesa e pb shkon tek pjestimi
-                    var vleramin = ((tatimet[k].Min - 1) / kursimon) * tatimet[k].Norma / 100;
+                    var vleramin = ((tatimet[k].Min - 1) / kursimon) * normaFaktike / 100;
                     paganetoak -= vleramin;
-                    pjesetimi -= tatimet[k].Norma / 100;
+                    pjesetimi -= normaFaktike / 100;
 
                     ///pjesa e nivele te meposhtme nuk ka variabla qe nuk dihen prandaj i shtohen direkt pages neto
                     for (var j = k - 1; j >= 0; j--)
                     {
-                        paganetoak += ((tatimet[j].Max - tatimet[j].Min + 1) / kursimon) * tatimet[j].Norma / 100;
+                        paganetoak += ((tatimet[j].Max - tatimet[j].Min + 1) / kursimon) * normaFaktike / 100;
                     }
                 }
                 var pagabruto = paganetoak / pjesetimi;
@@ -881,29 +891,60 @@ namespace RestApi.WebAPI.Models
         {
             if (tatimMbiPagen == null || pagaPerTatim == null) return;
             int count = tatimet.Count;
+            decimal kursimon = (decimal)kursinderm.VleraKursi;
             decimal paga = Convert.ToDecimal(pagaPerTatim.Formula);
             decimal tatimi = 0;
-            if (tatimet[0].Menyra == 1)
+
+            for (int i = count - 1; i >= 0; i--)
             {
-                tatimi = paga * tatimet[0].Norma / 100;
-            } else
-            {
-                for (int i = count - 1; i >= 0; i--)
+                var pagaQePoTatohet = paga;
+                if (tatimet[i].Min / kursimon <= pagaQePoTatohet / kursimon && tatimet[i].Max / kursimon >= pagaQePoTatohet / kursimon)
                 {
-                    if (paga < tatimet[i].Min * (decimal)kursinderm.VleraKursi)
-                        continue;
-                    if(i == 0)
-                    {
-                        tatimi += paga * tatimet[i].Norma / 100;
-                        break;
-                    }
-
-                    var pagaQePoTatohet = paga - tatimet[i - 1].Max * (decimal)kursinderm.VleraKursi;
-                    paga -= pagaQePoTatohet;
-                    tatimi += pagaQePoTatohet * tatimet[i].Norma / 100;
-
+                    decimal P = pagaQePoTatohet / kursimon;
+                    string pString = "P";
+                    string formula = tatimet[i].Norma;
+                    formula = formula.Replace(pString, P.ToString());
+                    //vleratatime = (vleratkufi[i] / kursimon);
+                    DataTable dt = new DataTable();
+                    decimal vleraTatime = (decimal)dt.Compute(formula, "");
+                    tatimi = vleraTatime;
+                    break;
                 }
+                //if (paga < tatimet[i].Min * (decimal)kursinderm.VleraKursi)
+                //    continue;
+                ////decimal P = vleratkufi[i] / kursimon;
+                ////string pString = "P";
+                ////string formula = tatimet[k].Norma;
+                ////formula = formula.Replace(pString, P.ToString());
+                //////vleratatime = (vleratkufi[i] / kursimon);
+                ////DataTable dt = new DataTable();
+                ////decimal vleraTatime = (decimal)dt.Compute(formula, "");
+                ////normaFaktike = vleratatime / P;
+                ////break;
+
+                //var pagaQePoTatohet = paga - tatimet[i - 1].Max * (decimal)kursinderm.VleraKursi;
+                //paga -= pagaQePoTatohet;
+                //tatimi += pagaQePoTatohet * tatimet[i].Norma / 100;
+
             }
+
+            //if (tatimet[0].Menyra == 1)
+            //{
+
+            //    //decimal P = vleratkufi[i] / kursimon;
+            //    //string pString = "P";
+            //    //string formula = tatimet[k].Norma;
+            //    //formula = formula.Replace(pString, P.ToString());
+            //    ////vleratatime = (vleratkufi[i] / kursimon);
+            //    //DataTable dt = new DataTable();
+            //    //decimal vleraTatime = (decimal)dt.Compute(formula, "");
+            //    //normaFaktike = vleratatime / P;
+            //    //break;
+            //    tatimi = paga * tatimet[0].Norma / 100;
+            //} else
+            //{
+               
+            //}
 
             tatimMbiPagen.Formula = tatimi.ToString();
         }

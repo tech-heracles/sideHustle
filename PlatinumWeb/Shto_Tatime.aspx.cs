@@ -513,7 +513,7 @@ namespace PlatinumWeb
         {
             DbCore.DbShare.clsKonfigurimAmbjenti konfig = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konfig.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            DbCore.DbListPagesat.clsTatime tatim = new DbCore.DbListPagesat.clsTatime(0, dteDateAkt.Date, Convert.ToDecimal(txtMin.Text), Convert.ToDecimal(txtMax.Text), Convert.ToDecimal(txtNorma.Text), Convert.ToInt32(cmbMenyra.Value), Convert.ToInt32(DbCore.DbListPagesat.Model.NgaPerdoruesi), idperdoruesi, idNdermarrje, konfig.IdKonfigAmbjente, idstatusdok);
+            DbCore.DbListPagesat.clsTatime tatim = new DbCore.DbListPagesat.clsTatime(0, dteDateAkt.Date, Convert.ToDecimal(txtMin.Text), Convert.ToDecimal(txtMax.Text), txtNorma.Text, Convert.ToInt32(cmbMenyra.Value), Convert.ToInt32(DbCore.DbListPagesat.Model.NgaPerdoruesi), idperdoruesi, idNdermarrje, konfig.IdKonfigAmbjente, idstatusdok);
             return tatim;
         }
 

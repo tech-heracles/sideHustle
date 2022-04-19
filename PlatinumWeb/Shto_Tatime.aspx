@@ -366,14 +366,13 @@
                                     </dx:ASPxLabel>
                                     <%--</div>--%>
                                     <%--<div id="dvtxtNorma">--%>
-                                    <dx:ASPxTextBox ID="txtNorma" runat="server" ClientInstanceName="txtNorma" DisplayFormatString="0.00"
-                                        Enabled="true" Width="100%" MaxLength="5">
+                                    <dx:ASPxTextBox ID="txtNorma" runat="server" ClientInstanceName="txtNorma"
+                                        Enabled="true" Width="100%">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                                             ValidationGroup="entries" SetFocusOnError="true">
                                             <ErrorFrameStyle ImageSpacing="4px">
                                                 <ErrorTextPaddings PaddingLeft="4px" />
                                             </ErrorFrameStyle>
-                                            <RegularExpression ErrorText="Norma duhet te jete numer" ValidationExpression="[0-9,.\-]*"></RegularExpression>
                                             <RequiredField IsRequired="true" />
                                         </ValidationSettings>
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
