@@ -22,6 +22,7 @@ using DbCore.IMBUtils.Messages;
 using Newtonsoft.Json;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using System.Web.Configuration;
+using DbCore.IMBUtils.Kontrolle.Controls;
 
 namespace DbCore.DbRegjistrim
 {

@@ -832,6 +832,7 @@
     <Compile Include="IMBUtils\Fiskalizimi\API\clsFunksioneFiskalizimi.cs" />
     <Compile Include="IMBUtils\Fiskalizimi\API\DokumenteShteseEinvoice.cs" />
     <Compile Include="IMBUtils\Fiskalizimi\Controls\clsKontrollePerFiskalizimin.cs" />
+    <Compile Include="IMBUtils\Kontrolle\Controls\clsKontrolle.cs" />
     <Compile Include="IMBUtils\Messages\MessagesResource.cs" />
     <Compile Include="Integrime\BrmAdapter.cs" />
     <Compile Include="Integrime\clsSocket.cs" />

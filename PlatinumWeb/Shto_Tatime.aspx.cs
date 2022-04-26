@@ -12,6 +12,7 @@ using PlatinumWeb.ApplicationUtils;
 using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
 using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Kontrolle.Controls;
 
 namespace PlatinumWeb
 {
@@ -523,6 +524,15 @@ namespace PlatinumWeb
         /// <returns> true ose false</returns>
         private bool isValidTatim()
         {
+            decimal number;
+            if (!clsKontrolle.ktheVersioninEServeritPerPagat())
+            {
+                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju duhet te keni azhornimet per te kryer kete veprim!", pnlMesazhi);
+                hfStatusi.Value = "false";
+                return false;
+            }
+
+
             //if (hfModel.Value == "1")
             //{
             //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, kompdefault, pnlMesazhi);
