@@ -6599,6 +6599,11 @@ namespace RestApi.WebAPI.Models
         {
             return clsFunksioneFiskalizimi.ndryshoStatusinEinvoice(eics, statusi, idNdermarrje);
         }
+        public static string[] merrEinvoiceEIC(string eic, clsNdermarrje nderm)
+        {
+            var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, eic, DateTime.UtcNow);
+            return clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+        }
         public static Object ktheAplikohetTVSHNeTakseApoJo(string kodTakse, int idNderm, int key)
         {
             return new { aplikohet = clsTaksa.ktheAplikohetTVSHNeTakseApoJo(kodTakse, idNderm), key = key };

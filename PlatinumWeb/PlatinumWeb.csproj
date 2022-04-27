@@ -931,6 +931,7 @@
     <Content Include="B_Shto_RegjistrimBuxheti.aspx" />
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice.ascx" />
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice_Edit.ascx" />
+    <Content Include="FaturaBlerjeEinvoice.aspx" />
     <Content Include="GjendjeArkeDitore.aspx" />
     <Content Include="images\FaqjaPare\GIFWEB_BLUE_1.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -8985,6 +8986,13 @@
     </Compile>
     <Compile Include="ElementePerIntegrim.aspx.designer.cs">
       <DependentUpon>ElementePerIntegrim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FaturaBlerjeEinvoice.aspx.cs">
+      <DependentUpon>FaturaBlerjeEinvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FaturaBlerjeEinvoice.aspx.designer.cs">
+      <DependentUpon>FaturaBlerjeEinvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="FilterPopup.ascx.cs">
       <DependentUpon>FilterPopup.ascx</DependentUpon>

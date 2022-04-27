@@ -15,6 +15,7 @@ using DbCore;
 using System.Collections.Generic;
 using DbCore.DbInventari;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.DbAdmin;
 
 namespace RestApi.WebAPI.Controllers
 {
@@ -4344,7 +4345,7 @@ namespace RestApi.WebAPI.Controllers
 
                 string eic = param["EIC"].Value<string>();
                 string statusi = param["statusi"].Value<string>();
-                int idNdermarrje = param["idNdermarrje"].Value<int>(); ;
+                int idNdermarrje = param["idNdermarrje"].Value<int>(); 
 
                 bool pergjigje = RregjistrimeRepository.NdryshoMesazhEinvoice(eic, statusi, idNdermarrje);
                 if (!pergjigje)
@@ -4360,7 +4361,24 @@ namespace RestApi.WebAPI.Controllers
             }
 
         }
-        [HttpPost, HttpGet]
+        //pjesa qe shtova uneee
+        public HttpResponseMessage merrEinvoiceEIC(JObject param)
+        {
+            try
+            {
+
+                string eic = param["EIC"].Value<string>();
+                int idNdermarrje = param["idNdermarrje"].Value<int>();
+                clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
+                string[] pergjigje = RregjistrimeRepository.merrEinvoiceEIC(eic, nderm);
+                return Request.KthePergjigje(pergjigje);
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigjeGabim(param, ex);
+            }
+
+            [HttpPost, HttpGet]
         public HttpResponseMessage merrQendraKosto(JObject param)
         {
             try

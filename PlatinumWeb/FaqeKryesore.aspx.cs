@@ -764,7 +764,11 @@ namespace PlatinumWeb
             ASPxMenu1.Items[3].Items[2].Text = rm.GetString("MenuItemFaturatBlerjeve", ci);
             ASPxMenu1.Items[3].Items[2].Items[0].Text = rm.GetString("MenuItemLista", ci);
             ASPxMenu1.Items[3].Items[2].Items[1].Text = rm.GetString("MenuItemERe", ci);
-            
+
+            ASPxMenu1.Items[3].Items[2].Items[2].Text = "Fatura Blerje Einvoice";
+            ASPxMenu1.Items[3].Items[2].Items[2].Visible = true;
+
+
             ASPxMenu1.Items[3].Items[3].Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
             ASPxMenu1.Items[3].Items[3].Items[0].Text = rm.GetString("MenuItem_PlanifikimEkzekutimBuxheti", ci);
             ASPxMenu1.Items[3].Items[3].Items[0].Items[0].Text = rm.GetString("MenuItemLista", ci);

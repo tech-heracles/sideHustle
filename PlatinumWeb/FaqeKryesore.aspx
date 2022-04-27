@@ -652,6 +652,9 @@
                                                                 <dx:MenuItem Text=" E Re" Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim"
                                                                     Visible="false">
                                                                 </dx:MenuItem>
+                                                                <dx:MenuItem Text=" Fatura Blerje Einvoice" Name="FaturaBlerjeEinvoice.aspx"
+                                                                    Visible="true">
+                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
 

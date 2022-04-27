@@ -2397,72 +2397,83 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
             }
         }
-        public static string merrVleratEFaturaveEinvoice(string xml, string elementi, bool Einvoice)
+        //func eic
+
+        public static string merrEinvoice(clsNdermarrje nderm, string eic, DateTime dtRegjistrimi)
         {
-            string soapResult = string.Empty;
+            nderm = new clsNdermarrje(nderm.NdermarrjeKodi);
+            var uuid = Guid.NewGuid().ToString();
+            DateTimeOffset sourceDate = new DateTimeOffset(dtRegjistrimi);
 
-            string linkFiskalizimi = WebConfigurationManager.AppSettings["urlFiskalizimi"];
-            string urlEinvoice = WebConfigurationManager.AppSettings["urlEinvoice"];
-            
-            try
-            {
-                WebRequest webRequest;
-                if (Einvoice)
-                {
-                    webRequest = CreateSOAPWebRequest(urlEinvoice);
-                }
-                else
-                {
-                    webRequest = CreateSOAPWebRequest(linkFiskalizimi);
-                }
-                using (Stream stream = webRequest.GetRequestStream())
-                {
-                    using (StreamWriter stmw = new StreamWriter(stream))
-                    {
-                        stmw.Write(xml);
-                    }
-                }
-                using (WebResponse webResponse = webRequest.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                    {
+            DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(sourceDate,
+                          TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 
-                        //reading stream    
-                        var ServiceResult = rd.ReadToEnd();
-                        XmlDocument xmldoc = new XmlDocument();
-                        xmldoc.LoadXml(ServiceResult);
-                        XmlNodeList nodeList;
-                        if (xmldoc.GetElementsByTagName("ns2:Einvoices").Count != 0)
-                            nodeList = xmldoc.GetElementsByTagName("ns2:Einvoices");
-                        else
-                            nodeList = xmldoc.GetElementsByTagName("Einvoices");
-                        string responseString = "";
-                        foreach (XmlNode node in nodeList)
-                        {
-                            responseString = "<Einvoices>" + node.InnerXml + "</Einvoices>";
-                            responseString = responseString.Replace("ns2:", "");
-                        }
-                        return responseString;
-                    }
-                }
-            }
-            catch (WebException ex)
+            var dateDergimi = $"\"{timezoneIShqiperise.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz")}\"";
+            uuid = $"\"{uuid}\"";
+            const String XML_SCHEMA_NS = "https://Einvoice.tatime.gov.al/ EinvoiceService/schema";
+            const String XML_SIG_METHOD = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
+            const String XML_REQUEST_ID = "Request";
+            const String XML_DIG_METHOD = "http://www.w3.org/2001/04/xmlenc#sha256";
+            String REQUEST_TO_SIGN =
+            "<GetEinvoicesRequest " +
+            " xmlns=\"https://Einvoice.tatime.gov.al/EinvoiceService/schema\" " +
+            " xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\" " +
+            " Id=\"Request\" " +
+            " Version=\"1\">\r\n" +
+            " <Header SendDateTime=" + $"{dateDergimi}" + " UUID=" + $"{uuid}" + "/>\r\n" +
+            "<EIC>" + $"{eic}" + "</EIC>\r\n" +
+            "</GetEinvoicesRequest>";
+            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&", "&amp;");
+            string passpath = nderm.Pathname + $"/password.txt";
+            String KEYSTORE_PASS = "";
+            byte[] encrypted;
+            String KEYSTORE_LOCATION = System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"certifikata.p12";
+            if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt"))
+                KEYSTORE_PASS = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt");
+            else throw new Exception("Ju lutem ngarkoni filen e passwordit!");
+
+            using (X509Certificate2 keyStore = new X509Certificate2(KEYSTORE_LOCATION, KEYSTORE_PASS))
             {
-                using (var stream = ex.Response.GetResponseStream())
-                using (var reader = new StreamReader(stream))
+                try
                 {
-                    var ServiceResult = reader.ReadToEnd();
-                    XmlDocument xmldoc = new XmlDocument();
-                    xmldoc.LoadXml(ServiceResult);
-                    XmlNodeList nodeList = xmldoc.GetElementsByTagName("faultstring");
-                    string responseString = "";
-                    foreach (XmlNode node in nodeList)
-                    {
-                        responseString = node.InnerText;
-                    }
-                    if (responseString != "Buyer TIN doesn't exist in RTP." && responseString != "Buyers TIN is not in the correct format." && responseString != "Buyer is not active in the RTP.")
-                        responseString = "Ndodhi Nje Gabim!";
-                    return responseString;
+                    // Load a private from a key store
+                    RSA privateKey = keyStore.GetRSAPrivateKey();
+                    // Convert string XML to object
+                    XmlDocument request = new XmlDocument();
+                    request.LoadXml(REQUEST_TO_SIGN);
+                    // Create key info element
+                    KeyInfo keyInfo = new KeyInfo();
+                    KeyInfoX509Data keyInfoData = new KeyInfoX509Data();
+                    keyInfoData.AddCertificate(keyStore);
+                    keyInfo.AddClause(keyInfoData);
+                    // Create signature reference
+                    Reference reference = new Reference("");
+                    reference.AddTransform(new XmlDsigEnvelopedSignatureTransform(false));
+                    reference.AddTransform(new XmlDsigExcC14NTransform(false));
+                    reference.DigestMethod = XML_DIG_METHOD;
+                    reference.Uri = "#" + XML_REQUEST_ID;
+                    // Create signature
+                    SignedXml xml = new SignedXml(request);
+                    xml.SigningKey = privateKey;
+                    xml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl;
+                    xml.SignedInfo.SignatureMethod = XML_SIG_METHOD;
+                    xml.KeyInfo = keyInfo;
+                    xml.AddReference(reference);
+                    xml.ComputeSignature();
+                    // Add signature element to the request
+                    XmlElement signature = xml.GetXml();
+                    request.DocumentElement.AppendChild(signature);
+                    // Convert signed request to string and print
+                    StringWriter sw = new StringWriter();
+                    XmlTextWriter xw = new XmlTextWriter(sw);
+                    request.WriteTo(xw);
+                    var signedDoc = sw.ToString();
+                    signedDoc = "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"><SOAP-ENV:Header/><SOAP-ENV:Body>" + signedDoc + "</SOAP-ENV:Body></SOAP-ENV:Envelope>";
+                    return signedDoc;
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
                 }
             }
         }
