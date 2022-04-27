@@ -892,7 +892,7 @@ namespace RestApi.WebAPI.Models
             if (tatimMbiPagen == null || pagaPerTatim == null) return;
             int count = tatimet.Count;
             decimal kursimon = (decimal)kursinderm.VleraKursi;
-            decimal paga = Convert.ToDecimal(pagaPerTatim.Formula);
+            decimal paga = Math.Round(Convert.ToDecimal(pagaPerTatim.Formula),2);
             decimal tatimi = 0;
 
             for (int i = count - 1; i >= 0; i--)
