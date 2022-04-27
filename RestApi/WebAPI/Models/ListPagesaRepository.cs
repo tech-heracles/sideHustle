@@ -485,10 +485,10 @@ namespace RestApi.WebAPI.Models
                         formula = formula.Replace(pString, P.ToString());
                         //vleratatime = (vleratkufi[i] / kursimon);
                         DataTable dt = new DataTable();
-                        decimal vleraTatime = (decimal)dt.Compute(formula, "");
+                        decimal vleraTatime = Convert.ToDecimal(dt.Compute(formula, ""));
                         normaFaktike = vleratatime / P;
                         break;
-                        //if (tatimet[k].Menyra == 1) //totale
+                        //if (tatimet[k].Menyra  c == 1) //totale
                         //{
                         //    vleratatime += ((vleratkufi[i] / kursimon) * tatimet[k].Norma / 100);
                         //}
@@ -904,9 +904,10 @@ namespace RestApi.WebAPI.Models
                     string pString = "P";
                     string formula = tatimet[i].Norma;
                     formula = formula.Replace(pString, P.ToString());
+                    formula = formula + " + 0";
                     //vleratatime = (vleratkufi[i] / kursimon);
                     DataTable dt = new DataTable();
-                    decimal vleraTatime = (decimal)dt.Compute(formula, "");
+                    decimal vleraTatime = Convert.ToDecimal(dt.Compute(formula, ""));
                     tatimi = vleraTatime;
                     break;
                 }
