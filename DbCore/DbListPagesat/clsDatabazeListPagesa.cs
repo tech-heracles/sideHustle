@@ -1783,7 +1783,7 @@ namespace DbCore.DbListPagesat
         /// <param name="idnderm">id e ndermarjes</param>
         /// <param name="idstatusdok">id e statusdok</param>
         /// <returns>nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo.</returns>
-        internal clsMesazh ruajTatim(out int idTatime, DateTime data, decimal min, decimal max, decimal norma, int menyra, int modeli, int idkonfig, int idPerdoruesi, int idnderm, int idstatusdok)
+        internal clsMesazh ruajTatim(out int idTatime, DateTime data, decimal min, decimal max, string norma, int menyra, int modeli, int idkonfig, int idPerdoruesi, int idnderm, int idstatusdok)
         {
             idTatime = -1;
 
@@ -1841,7 +1841,7 @@ namespace DbCore.DbListPagesat
         /// <param name="idstatusdok">id e statusdok</param>
         /// <returns> nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo.</returns>
         /// </summary>
-        internal clsMesazh modifikoTatim(int idTatime, DateTime data, decimal min, decimal max, decimal norma, int menyra, int modeli, int idkonfig, int idPerdoruesi, int idnderm, int idstatusdok)
+        internal clsMesazh modifikoTatim(int idTatime, DateTime data, decimal min, decimal max, string norma, int menyra, int modeli, int idkonfig, int idPerdoruesi, int idnderm, int idstatusdok)
         {
 
             dbManager.Open();

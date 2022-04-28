@@ -21,7 +21,7 @@ namespace DbCore.DbListPagesat
         private int idTatime;
         private decimal min;
         private decimal max;
-        private decimal norma;
+        private string norma;
         private int menyra;
         private int model;
         private DateTime data;
@@ -57,7 +57,7 @@ namespace DbCore.DbListPagesat
         /// <param name="idNdermarje">id e ndermarjes</param>
         /// <param name="idKonfig"> id e konfigurimit</param>
         /// <param name="idStatusDok">id e statusit te dokumentit</param>
-        public clsTatime(int idTatime, DateTime data, decimal min, decimal max, decimal norma, int menyra, int model, int idPerdoruesi, int idNdermarje, int idKonfig, int idStatusDok)
+        public clsTatime(int idTatime, DateTime data, decimal min, decimal max, string norma, int menyra, int model, int idPerdoruesi, int idNdermarje, int idKonfig, int idStatusDok)
         {
             this.idTatime = idTatime;
             this.min = min;
@@ -151,7 +151,7 @@ namespace DbCore.DbListPagesat
         /// <summary>
         /// norma e perqindjes
         /// </summary>
-        public decimal Norma
+        public string Norma
         {
             get
             {
@@ -392,7 +392,7 @@ namespace DbCore.DbListPagesat
                     decimal.TryParse(dbDataRow["MIN"].ToString(), out min);
                     DateTime.TryParse(dbDataRow["DATE"].ToString(), out data);
                     decimal.TryParse(dbDataRow["MAX"].ToString(), out max);
-                    decimal.TryParse(dbDataRow["NORMA"].ToString(), out norma);
+                    norma = dbDataRow["NORMA"].ToString();
                     int.TryParse(dbDataRow["MENYRA"].ToString(), out menyra);
                     int.TryParse(dbDataRow["IDPERDORUESI"].ToString(), out idPerdoruesi);
                     int.TryParse(dbDataRow["MODEL"].ToString(), out model);
@@ -428,7 +428,7 @@ namespace DbCore.DbListPagesat
                     decimal.TryParse(dbDataRow["Min"].ToString(), out min);
                     DateTime.TryParse(dbDataRow["Data"].ToString(), out data);
                     decimal.TryParse(dbDataRow["Max"].ToString(), out max);
-                    decimal.TryParse(dbDataRow["Norma"].ToString(), out norma);
+                    norma = dbDataRow["Norma"].ToString();
                     int.TryParse(dbDataRow["Menyra"].ToString(), out menyra);
                     int.TryParse(dbDataRow["IdPerdoruesi"].ToString(), out idPerdoruesi);
                     int.TryParse(dbDataRow["Model"].ToString(), out model);
