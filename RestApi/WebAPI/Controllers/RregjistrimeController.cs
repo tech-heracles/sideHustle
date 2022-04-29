@@ -4377,8 +4377,8 @@ namespace RestApi.WebAPI.Controllers
             {
                 return Request.KthePergjigjeGabim(param, ex);
             }
-
-            [HttpPost, HttpGet]
+        }
+        [HttpPost, HttpGet]
         public HttpResponseMessage merrQendraKosto(JObject param)
         {
             try

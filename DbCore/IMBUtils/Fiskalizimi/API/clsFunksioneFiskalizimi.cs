@@ -2677,6 +2677,75 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 return $"{pathDir}{data}_request.zip";
             }
         }
+        public static string merrVleratEFaturaveEinvoice(string xml, string elementi, bool Einvoice)
+        {
+            string soapResult = string.Empty;
+
+            string linkFiskalizimi = WebConfigurationManager.AppSettings["urlFiskalizimi"];
+            string urlEinvoice = WebConfigurationManager.AppSettings["urlEinvoice"];
+
+            try
+            {
+                WebRequest webRequest;
+                if (Einvoice)
+                {
+                    webRequest = CreateSOAPWebRequest(urlEinvoice);
+                }
+                else
+                {
+                    webRequest = CreateSOAPWebRequest(linkFiskalizimi);
+                }
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(xml);
+                    }
+                }
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+
+                        //reading stream    
+                        var ServiceResult = rd.ReadToEnd();
+                        XmlDocument xmldoc = new XmlDocument();
+                        xmldoc.LoadXml(ServiceResult);
+                        XmlNodeList nodeList;
+                        if (xmldoc.GetElementsByTagName("ns2:Einvoices").Count != 0)
+                            nodeList = xmldoc.GetElementsByTagName("ns2:Einvoices");
+                        else
+                            nodeList = xmldoc.GetElementsByTagName("Einvoices");
+                        string responseString = "";
+                        foreach (XmlNode node in nodeList)
+                        {
+                            responseString = "<Einvoices>" + node.InnerXml + "</Einvoices>";
+                            responseString = responseString.Replace("ns2:", "");
+                        }
+                        return responseString;
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                using (var stream = ex.Response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
+                {
+                    var ServiceResult = reader.ReadToEnd();
+                    XmlDocument xmldoc = new XmlDocument();
+                    xmldoc.LoadXml(ServiceResult);
+                    XmlNodeList nodeList = xmldoc.GetElementsByTagName("faultstring");
+                    string responseString = "";
+                    foreach (XmlNode node in nodeList)
+                    {
+                        responseString = node.InnerText;
+                    }
+                    if (responseString != "Buyer TIN doesn't exist in RTP." && responseString != "Buyers TIN is not in the correct format." && responseString != "Buyer is not active in the RTP.")
+                        responseString = "Ndodhi Nje Gabim!";
+                    return responseString;
+                }
+            }
+        }
         public static void downloadFileToClientZip(string filePathToOpen, HttpResponse Response, int idPerdoruesi)
         {
             FileInfo myfile = new FileInfo(filePathToOpen);
