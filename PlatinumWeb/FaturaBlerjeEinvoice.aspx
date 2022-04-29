@@ -62,13 +62,13 @@
     <script>
      
         function PdfLinkFormatter(value, row, id) {
-            var span = "<span style='background-color:yellow; cursor:pointer;' class='span' >Shiko PDF</span>";
+            var span = "<span style='background-color:yellow; cursor:pointer;' class='span' >Shfaq PDF</span>";
             return span;
         }
         
         function onClickCell(event, field, value, row, $element) {
            
-            if (value === 'Shiko Pdf') {
+            if (value === 'Shfaq PDF') {
                 console.log($element[0]);
                 var eic = $element[0].nextSibling.innerHTML;
                 getEinvoice(eic);
@@ -89,7 +89,7 @@
             console.log(typeof(data))
            for (var i = 0; i < data.length; i++) {
                data[i].Numri = i + 1;
-               data[i].PDF = "Shiko Pdf";
+               data[i].PDF = "Shfaq PDF";
                data[i].x = data[i]["EIC"];
                data[i].DueDateTime = data[i].DueDateTime.split("T")[0];
            }     
