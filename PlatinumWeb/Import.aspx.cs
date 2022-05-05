@@ -133,14 +133,19 @@ namespace PlatinumWeb
         /// <param name="statusDokumenti">Statusi me te cilin po ruhet dokumenti (I rregullt apo draft)</param>
         private void RuajKonfigurim()
         {
+            
             if (Page.IsValid == false)
                 return;
-
             var idSuperKategori = clsKategoriNivelDok.mbushIDSuperKategoriNivDok(int.Parse(cmbKategoria.Value.ToString()));
             try
             {
                 var konfigImporti = KrijoKonfigurim(idSuperKategori);
-
+                if (konfigImporti.EmerTabKoka.StartsWith("T_") || konfigImporti.EmerTabKokaHistorik.StartsWith("T_") || konfigImporti.EmerTabTrupi.StartsWith("T_") || konfigImporti.EmerTabTrupiHistorik.StartsWith("T_") || konfigImporti.EmerTabRec.StartsWith("T_") || konfigImporti.EmerTabRecHistorik.StartsWith("T_"))
+                {
+                    clsMenuInfo.ShtoMesazhGabimi(_menuInfo, "Tabelat nuk duhet te fillojne me T_ !", _pnlMesazhi);
+                    status1.Value = "false";
+                    return;
+                }
                 var tedrejtaInfo = new clsTeDrejtaRoli();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(IdPerdoruesi, IdNdermarrja, IdViti, Komponente);
 
