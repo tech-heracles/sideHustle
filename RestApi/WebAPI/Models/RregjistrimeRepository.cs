@@ -6602,7 +6602,7 @@ namespace RestApi.WebAPI.Models
         public static string[] merrEinvoiceEIC(string eic, clsNdermarrje nderm)
         {
             var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, eic, DateTime.UtcNow);
-            return clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+            return clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
         }
         public static Object ktheAplikohetTVSHNeTakseApoJo(string kodTakse, int idNderm, int key)
         {
