@@ -62,7 +62,7 @@
     <script>
      
         function PdfLinkFormatter(value, row, id) {
-            var span = "<span style='background-color:yellow; cursor:pointer;' class='span' >Shfaq PDF</span>";
+            var span = "<span style='cursor:pointer;' class='span' >Shfaq PDF</span>";
             return span;
         }
         
