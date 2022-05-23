@@ -1513,7 +1513,7 @@ namespace DbCore.DbAdmin
                     int.TryParse(dbDataRowNdermarrja["NIVELSTRUKTURE"].ToString(), out nivelstrukture);
                     kodbiznesi= dbDataRowNdermarrja["KODBIZNESI"].ToString();
                     pathname = dbDataRowNdermarrja["CERTIFIKATA"].ToString();
-                    if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowNdermarrja.Table.Columns.Contains("METVSH"))
                         bool.TryParse(dbDataRowNdermarrja["METVSH"].ToString(), out meTvsh);
                     //  kodilicenca= dbDataRowNdermarrja["NDERMARJEKODIFISK"].ToString();
                     return true;

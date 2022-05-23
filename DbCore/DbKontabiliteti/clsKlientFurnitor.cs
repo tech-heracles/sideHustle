@@ -2353,7 +2353,7 @@ namespace DbCore.DbKontabiliteti
                     KodIntegrimi = dbDataRowKlientFurnitor["KodIntegrimi"].ToString();
                     KodiISKSH = dbDataRowKlientFurnitor["KodiISKSH"].ToString();
                     MeDogane = !IsDBNull(dbDataRowKlientFurnitor["MeDogane"]) && ToBoolean(dbDataRowKlientFurnitor["MeDogane"]);
-                    if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowKlientFurnitor.Table.Columns.Contains("TIPIID"))
                         TipiId = dbDataRowKlientFurnitor["TIPIID"].ToString();
                     switch (IdMetoda)
                     {

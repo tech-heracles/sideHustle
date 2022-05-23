@@ -617,7 +617,7 @@ namespace DbCore.DbRegjistrim
                     int.TryParse(dbDataRowNjesiAdministrative["IDSKEMAQENDRAKOSTO"].ToString(), out idSkemaQendraKosto);
                     qendra = dbDataRowNjesiAdministrative["QENDRA"].ToString();
                     int.TryParse(dbDataRowNjesiAdministrative["LLOJQENDRE"].ToString(), out llojQendre);
-                    if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowNjesiAdministrative.Table.Columns.Contains("KODNJESIEBIZNES"))
                         kodNjesieBiznesi = dbDataRowNjesiAdministrative["KODNJESIEBIZNES"].ToString();
 
                     return true;
@@ -652,7 +652,7 @@ namespace DbCore.DbRegjistrim
                     int.TryParse(dbDataRowNjesiAdministrative["IDSKEMAQENDRAKOSTO"].ToString(), out idSkemaQendraKosto);
                     qendra = dbDataRowNjesiAdministrative["QENDRA"].ToString();
                     int.TryParse(dbDataRowNjesiAdministrative["LLOJQENDRE"].ToString(), out llojQendre);
-                    if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowNjesiAdministrative.Table.Columns.Contains("KODNJESIEBIZNES"))
                         kodNjesieBiznesi = dbDataRowNjesiAdministrative["KODNJESIEBIZNES"].ToString();
 
                     return true;

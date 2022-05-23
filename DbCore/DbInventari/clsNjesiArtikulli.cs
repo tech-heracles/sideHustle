@@ -357,7 +357,7 @@ namespace DbCore.DbInventari
                     int.TryParse(dbDataRowNjesiArtikulli["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowNjesiArtikulli["DTKRIJIMI"].ToString(), out dtKrijimi);
                     DateTime.TryParse(dbDataRowNjesiArtikulli["DTMODIFIKIMI"].ToString(), out dtModifikimi);
-                    if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowNjesiArtikulli.Table.Columns.Contains("KODIEINVOICE"))
                         kodEinvoice = dbDataRowNjesiArtikulli["KODIEINVOICE"].ToString();
 
                     return true;
