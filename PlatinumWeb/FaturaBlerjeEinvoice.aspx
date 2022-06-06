@@ -1,5 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaturaBlerjeEinvoice.aspx.cs" Inherits="PlatinumWeb.FaturaBlerjeEinvoice" %>
+<%@ Register Src="~/ucPopUpEinvoice.ascx" TagPrefix="ucPopUpEinvoice" TagName="ucPopUpEinvoice" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
 
+
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxnb" %>
+
+
+
+<%@ Register Src="TimeoutControl.ascx" TagName="TimeoutControl" TagPrefix="uc1" %>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -42,88 +55,168 @@
             .hidden{
                 display: none;
             }
+            .pdf-preview{
+                position:fixed;
+                right:20px;
+                opacity: 0.8;
+                border-radius: 6px;
+                border: 0px solid teal;
+                z-index: 9999999;
+                overflow-y: hidden;
+                height: 165px;
+            }
+
+           
     </style>        
 </head>
 <body>
     <form runat="server">
-        <asp:HiddenField ID="hfState" runat="server" />
         <asp:HiddenField ID="hfStateNdermarrje" runat="server" />
-
-
+        <ucPopUpEinvoice:ucPopUpEinvoice runat="server" ID="ucPopUpEinvoice"/>
+          <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
+        </dx:ASPxHiddenField>
     </form>
 
 
     <div> 
        
-      
      <table id="table" ></table>
+       <%--  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Active
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Partially Paid</a>
+                        <a class="dropdown-item" href="#">Inactive</a>
+                    </div>
+                </div>--%>
+
      </div>
  
     <script>
-     
-        function PdfLinkFormatter(value, row, id) {
-            var span = "<span style='cursor:pointer;' class='span' >Shfaq PDF</span>";
+         
+      function PdfLinkFormatter(value, row, id) {
+         
+          var span = "<span  class='span'  onmouseover='iFrameCell(this)' onmouseleave='leave(this)'  position: static; left: 2500px; border: 3px solid #73AD21;cursor:pointer;' id='ShikoPDF' >Shiko PDF</span>";
             return span;
+        }
+
+        function StatusLinkFormatter() {
+         
+            var dropdown = `<div class='dropdown'  id='Statusi' > 
+                <select onchange='onSelectCell(this)' id="selectStatus">
+                    <option>Zgjidh Statusin</option>
+                    <option>Approved</option>
+                    <option>Refused</option>
+                 
+                </select>
+               
+                    </div `;
+            return dropdown ;
+        }
+
+        function leave(event) {
+            const element = event.parentElement.parentElement.lastChild;
+            clearTimeout(element.dataset.timerRef);
+
+            element.dataset.timerRef = setTimeout(function () {
+                event.parentElement.parentElement.removeChild(event.parentElement.parentElement.lastChild);
+            }, 5000);
         }
         
         function onClickCell(event, field, value, row, $element) {
            
-            if (value === 'Shfaq PDF') {
-                console.log($element[0]);
+            if (value === 'Shiko Pdf') {
                 var eic = $element[0].nextSibling.innerHTML;
-                getEinvoice(eic);
+                getEinvoice(eic, false, $element);
             }
 
         }
-        var func = function () {
 
-            var columns = [{ field: 'Numri', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
-                { field: 'DocNumber', title: 'DocNumber', sortable: true, filterControl: 'input' }, { field: 'DueDateTime', title: 'DueDateTime', sortable: true, filterControl: 'select' },
-                { field: 'Status', title: 'Status', sortable: true, filterControl: 'input' }, { field: 'Amount', title: 'Amount', sortable: true, filterControl: 'input'},
-                { field: 'PDF', title: 'PDF', class: 'shikoPdf', sortable: false, formatter: PdfLinkFormatter }, { field: "x", title: "x", class: "hidden", sortable: false }];
-            var test = hfState.value;
+        function onSelectCell(element) {
+            var selected = $(element).find(":selected").text();
+            if (selected == "Zgjidh Statusin")
+                return;
+            switch (selected) {
+                case "Approved":
+                    selected = "Aprovuar";
+                    break;
+                case "Refused":
+                    selected = "Refuzuar";
+                    break;
+                default:
+                    break;
+            }
+            var eic = $(element).closest("tr").find("td")[8].innerHTML;
+            var vleraMsg = myMesazh.ShtoPyetjeStatusi("Jeni i sigurt qe doni te ndryshoni statusin?", eic, selected)
+                 
+        }
+      
+
+        //funksioni iFrame  
+        function iFrameCell(element) {           
+            var eic = $(element).closest("tr").find("td")[8].innerHTML;
+            getEinvoice(eic, true, element);
+
+        }
+
+      
+         function func () {
+
+             var columns = [{ field: 'Numri', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
+             { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'DueDateTime', title: 'Afati', sortable: true, filterControl: 'select' },
+                 { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' }, { field: 'Ndrysho Status', title: 'Ndrysho Status', sortable: true, formatter: StatusLinkFormatter },
+             { field: 'Amount', title: 'Sasia', sortable: true, filterControl: 'input' }, { field: 'PDF', title: 'PDF', class: 'shikoPdf', sortable: false, formatter: PdfLinkFormatter },
+             { field: "x", title: "x", class: "hidden", sortable: false }];
+
+            var test = hfState.Get("json")
             test = test.replaceAll("@", "");
 
             var data = JSON.parse(test).Einvoice;
-            console.log(data)
-            console.log(typeof(data))
-           for (var i = 0; i < data.length; i++) {
-               data[i].Numri = i + 1;
-               data[i].PDF = "Shfaq PDF";
-               data[i].x = data[i]["EIC"];
-               data[i].DueDateTime = data[i].DueDateTime.split("T")[0];
-           }     
-       
+
+
+            for (var i = 0; i < data.length; i++) {
+                data[i].Numri = i + 1;
+                data[i].PDF = "Shiko Pdf";
+                data[i].x = data[i]["EIC"];
+                data[i].DueDateTime = data[i].DueDateTime.substring(0,10);
+            }
+
             var $table = $('#table')
-                $("#table").bootstrapTable({
-                    pagination: true,
-                    paginationParts: [`pageList`],
-                    striped: true,
-                    sortable:true,
-                    search: true,
-                    columns: columns,
-                    data: data,
-                    filterControl:true
-                    
-                });
+            $("#table").bootstrapTable({
+                pagination: true,
+                paginationParts: [`pageList`],
+                striped: true,
+                sortable: true,
+                search: true,
+                columns: columns,
+                data: data,
+                filterControl: true
 
-            $table.on('click-cell.bs.table.span', onClickCell);
+            });
 
-           
 
-       
-        
+             $table.on('click-cell.bs.table.span', onClickCell);
+             
+         
+            
         }
+        
         func();
-   
+      
+        
+
+        
         //marrja e kerkeses 
-        function getEinvoice(e) {
+        function getEinvoice(e, hover, el) {
+            if (hover && el.parentElement.parentElement.children.length == 10)
+                return;
             $.ajax({
                 pritPergjigje: true,
                 method: "POST",
                 url: Utils.getServerApiUrl("Rregjistrime", "merrEinvoiceEIC"),
                 //bera ndryshiminn e eic
-                data: { EIC: e, idNdermarrje: hfStateNdermarrje.value }
+                data: { EIC: e, idNdermarrje: hfStateNdermarrje.value}
             }).done(function (result) {
                 var base64str = result[0];
 
@@ -139,13 +232,45 @@
                 // krijimi i nje objekti blob  me nje  content-type "application/pdf"               
                 var blob = new Blob([view], { type: "application/pdf" });
                 var url = URL.createObjectURL(blob);
-                window.open(url,'_blank');
+
+
+                if (hover) {
+                    var iframe = document.createElement("iframe");
+                    iframe.classList = "pdf-preview"
+                    iframe.src = url;
+                    el.parentElement.parentElement.appendChild(iframe);
+                    elPosition = el.parentElement.getBoundingClientRect();
+                    $(".pdf-preview").css("right", elPosition.width + "px");
+                    $(".pdf-preview").css("top", elPosition.top + "px");
+
+                }
+                else
+                    window.open(url,'_blank');
             }).fail(function (result) {
                 myMesazh.ShtoMesazhGabimi("Ndryshimi i statusit deshtoi!");
             });
 
         }
+        //Ndryshimi i statusit
+        function changeEinvoiceStatus(e,status) {
+           
+            $.ajax({
+                pritPergjigje: true,
+                method: "POST",
+                url: Utils.getServerApiUrl("Rregjistrime", "DergoNdryshimStatusiEinvoice"),
+
+                data: { EIC: e, statusi: status, idNdermarrje: hfState.Get("idNdermarrje") }
+            }).done(function (result) {
+                if (!result) myMesazh.ShtoMesazhGabimi("Ndryshimi i statusit deshtoi!");
+                else myMesazh.ShtoMesazhSuksesi("Statusi u ndryshua me sukses!");
+
+            
+            });
+      }
+                
+
        
+        
     </script>
 </body>
 

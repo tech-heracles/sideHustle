@@ -136,6 +136,66 @@
                 mesazhList.SetVisible(false);
             return myNoty;
         },
+        ShtoMesazhStatusiEinvoice: function (msgJson,eic,selected) {
+            var myMesazhContext = this;
+            var defaults = { idGjuha: typeof pageState != 'undefined' && typeof pageState.idGjuha != 'undefined' ? pageState.idGjuha : 0, UseCancelButton: true }; //duhet hequr kur te behet me konstruktor
+            msgJson = $.extend({}, defaults, msgJson);
+            if (typeof LoadingPanel !== "undefined")
+                Utils.hiqLoadingGif();
+            if (msgJson.type == "confirm") {
+                this.blloko();
+            }
+            this.shtoNeSessionStorage(msgJson);
+
+            if (msgJson.type == "prompt") {
+                msgJson.template = '<div class="noty_message"><div class="input-group"><span id="notyTextMessage" class="noty_text input-group-addon"></span><input class="' + myMesazh.myNotyTextButtonClass + ' form-control" aria-describedby="notyTextMessage" type="text"/></div></div>';
+                msgJson.type = "confirm";
+                msgJson.fromPrompt = true;
+            }
+            if (msgJson.type == "confirm") {
+                this.pyetjeEHapur = true;
+                msgJson.buttons = [
+                    {
+                        addClass: 'btn btn-primary', text: (msgJson.idGjuha == 1 ? "Ok" : 'Po'), onClick: function ($noty) {
+                            myMesazhContext.pyetjeEHapur = false;
+                            // this = button element
+                            myMesazhContext.zhblloko();
+                            $noty.close();
+                            changeEinvoiceStatus(eic, selected);
+
+                            $noty.close();
+
+                            //noty({ text: 'You clicked "Ok" button', type: 'success' });
+                        }
+                    }];
+                if (msgJson.UseCancelButton) {
+                    msgJson.buttons.push(
+                        {
+                            addClass: 'btn btn-danger', text: (msgJson.idGjuha == 1 ? "Cancel" : 'Jo'), onClick: function ($noty) {
+                                myMesazhContext.pyetjeEHapur = false;
+                                if (msgJson.cancelClick) {
+                                    msgJson.cancelClick();
+                                    myMesazhContext.zhblloko();
+                                    $noty.close();
+                                    return;
+                                }
+                                if (msgJson.fromPrompt) {
+                                    myMesazhContext.zhblloko();
+                                    $noty.close();
+                                    return;
+                                }
+                                myMesazhContext.zhblloko();
+                                $noty.close();
+
+                            }
+                        });
+                }
+            }
+            var myNoty = this._noty(msgJson);
+            if (myNoty && typeof mesazhList !== "undefined" && mesazhList.GetVisible())
+                mesazhList.SetVisible(false);
+            return myNoty;
+        },
         ShtoMesazhGabimi: function (mesazh) {
             var currentTime = new Date();
             var msgToInsert = appendStringOfTime(currentTime, mesazh);
@@ -186,6 +246,20 @@
                     hlClose.SetVisible(true);
                 }
                 btnPo.Focus();
+            }
+        },
+        ShtoPyetjeStatusi: function (mesazh,eic,selected) {
+            if (this.kaPyetjeTeHapur()) return;
+            var currentTime = new Date();
+            if (!this.ShtoMesazhStatusiEinvoice({ type: "confirm", text: mesazh }, eic, selected)) {
+                var msgToInsert = appendStringOfTime(currentTime, mesazh);
+                mesazhList.InsertItem(0, msgToInsert, getIntOfDate(currentTime), "images/info_pyetje.ico");
+                mesazhList.SetSelectedIndex(0);
+                this.shtoNeSessionStorage(msgToInsert);
+                btnPo.SetVisible(true);
+                btnJo.SetVisible(true);
+                btnPo.Focus();
+             
             }
         },
         ShtoMesazhNgaGrida: function(grida){
@@ -245,6 +319,9 @@
             //hlClose.SetVisible(false);
             //e.processOnServer = false;
             myMesazh.JoClick();
+        },
+        JoStatusi: function(){
+            btnJo.DoClick();
         },
         JoClick: function (s, e) {
             JoClick(s, e);

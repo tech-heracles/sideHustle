@@ -15,15 +15,6 @@ namespace PlatinumWeb
     {
 
         /// <summary>
-        /// hfState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfState;
-
-        /// <summary>
         /// hfStateNdermarrje control.
         /// </summary>
         /// <remarks>
@@ -31,5 +22,23 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfStateNdermarrje;
+
+        /// <summary>
+        /// ucPopUpEinvoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PlatinumWeb.ucPopUpEinvoice ucPopUpEinvoice;
+
+        /// <summary>
+        /// hfState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxHiddenField hfState;
     }
 }
