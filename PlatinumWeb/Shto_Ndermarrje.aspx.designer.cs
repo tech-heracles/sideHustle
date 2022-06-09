@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlatinumWeb {
-    
-    
-    public partial class Shto_Ndermarrje {
-        
+namespace PlatinumWeb
+{
+
+
+    public partial class Shto_Ndermarrje
+    {
+
         /// <summary>
         /// Head1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// ASPxGlobalEvents1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGlobalEvents ASPxGlobalEvents1;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// ASPxMenu1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMenu ASPxMenu1;
-        
+
         /// <summary>
         /// pnlMesazhi control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel pnlMesazhi;
-        
+
         /// <summary>
         /// MenuInfo control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMenu MenuInfo;
-        
+
         /// <summary>
         /// LoadingPanel control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLoadingPanel LoadingPanel;
-        
+
         /// <summary>
         /// popFshi control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl popFshi;
-        
+
         /// <summary>
         /// PopupControlContentControl4 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PopupControlContentControl PopupControlContentControl4;
-        
+
         /// <summary>
         /// ASPxPanel1 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel ASPxPanel1;
-        
+
         /// <summary>
         /// PanelContent1 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PanelContent PanelContent1;
-        
+
         /// <summary>
         /// lblMsgbox control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblMsgbox;
-        
+
         /// <summary>
         /// ButtonOk control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ButtonOk;
-        
+
         /// <summary>
         /// ButtonCancel control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ButtonCancel;
-        
+
         /// <summary>
         /// btnShfaqh control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnShfaqh;
-        
+
         /// <summary>
         /// popLlojLicence control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl popLlojLicence;
-        
+
         /// <summary>
         /// PopupControlContentControl14 control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PopupControlContentControl PopupControlContentControl14;
-        
+
         /// <summary>
         /// ASPxPanel11 control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel ASPxPanel11;
-        
+
         /// <summary>
         /// PanelContent11 control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PanelContent PanelContent11;
-        
+
         /// <summary>
         /// lblLlojLicence control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblLlojLicence;
-        
+
         /// <summary>
         /// cmbLlojLicence control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbLlojLicence;
-        
+
         /// <summary>
         /// lblLicenca1 control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblLicenca1;
-        
+
         /// <summary>
         /// cmbLicenca control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbLicenca;
-        
+
         /// <summary>
         /// ButtonOk2 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ButtonOk2;
-        
+
         /// <summary>
         /// ButtonOk3 control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ButtonOk3;
-        
+
         /// <summary>
         /// btnVazhdoRuajtje control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnVazhdoRuajtje;
-        
+
         /// <summary>
         /// ASPxPageControl1 control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPageControl ASPxPageControl1;
-        
+
         /// <summary>
         /// ContentControl3 control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl3;
-        
+
         /// <summary>
         /// konfigurimi_Label control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel konfigurimi_Label;
-        
+
         /// <summary>
         /// cmbKonfigurimi control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbKonfigurimi;
-        
+
         /// <summary>
         /// lblKonfigurimi control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblKonfigurimi;
-        
+
         /// <summary>
         /// ASPxGridView_Ndermarrjet control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView_Ndermarrjet;
-        
+
         /// <summary>
         /// ContentControl1 control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl1;
-        
+
         /// <summary>
         /// lblKodi control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblKodi;
-        
+
         /// <summary>
         /// kodi_TextBox control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox kodi_TextBox;
-        
+
         /// <summary>
         /// lblKodLicenca control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblKodLicenca;
-        
+
         /// <summary>
         /// txtKodLicenca control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtKodLicenca;
-        
+
         /// <summary>
         /// lblPershkrimi control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblPershkrimi;
-        
+
         /// <summary>
         /// pershkrimi_TextBox control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMemo pershkrimi_TextBox;
-        
+
         /// <summary>
         /// lblNipti control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblNipti;
-        
+
         /// <summary>
         /// nipt_TextBox control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox nipt_TextBox;
-        
+
         /// <summary>
         /// lblLimitiShitjes control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblLimitiShitjes;
-        
+
         /// <summary>
         /// txtLimitiShitjes control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtLimitiShitjes;
-        
+
         /// <summary>
         /// lblLicenca control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblLicenca;
-        
+
         /// <summary>
         /// licenca_TextBox control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox licenca_TextBox;
-        
+
         /// <summary>
         /// lblKodiFiskal control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblKodiFiskal;
-        
+
         /// <summary>
         /// kodi_fiskal_TextBox control.
         /// </summary>
@@ -452,7 +454,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox kodi_fiskal_TextBox;
-        
+
         /// <summary>
         /// lblMonedha control.
         /// </summary>
@@ -461,7 +463,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblMonedha;
-        
+
         /// <summary>
         /// monedha_ASPxComboBox control.
         /// </summary>
@@ -470,7 +472,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox monedha_ASPxComboBox;
-        
+
         /// <summary>
         /// lblViti control.
         /// </summary>
@@ -479,7 +481,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblViti;
-        
+
         /// <summary>
         /// txtViti control.
         /// </summary>
@@ -488,7 +490,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox txtViti;
-        
+
         /// <summary>
         /// lblNrTvsh control.
         /// </summary>
@@ -497,7 +499,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblNrTvsh;
-        
+
         /// <summary>
         /// txtNrTvsh control.
         /// </summary>
@@ -506,7 +508,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtNrTvsh;
-        
+
         /// <summary>
         /// lblkodbiznesi control.
         /// </summary>
@@ -515,7 +517,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblkodbiznesi;
-        
+
         /// <summary>
         /// txtkodbiznesi control.
         /// </summary>
@@ -524,7 +526,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtkodbiznesi;
-        
+
         /// <summary>
         /// lblCertifikata control.
         /// </summary>
@@ -533,7 +535,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblCertifikata;
-        
+
         /// <summary>
         /// uploadpnl control.
         /// </summary>
@@ -542,7 +544,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel uploadpnl;
-        
+
         /// <summary>
         /// ucEmerSkedari control.
         /// </summary>
@@ -551,7 +553,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxUploadControl ucEmerSkedari;
-        
+
         /// <summary>
         /// upload control.
         /// </summary>
@@ -560,7 +562,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton upload;
-        
+
         /// <summary>
         /// pastro control.
         /// </summary>
@@ -569,7 +571,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton pastro;
-        
+
         /// <summary>
         /// lblGrupi control.
         /// </summary>
@@ -578,7 +580,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblGrupi;
-        
+
         /// <summary>
         /// txtGrupi control.
         /// </summary>
@@ -587,7 +589,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox txtGrupi;
-        
+
         /// <summary>
         /// lblLogu control.
         /// </summary>
@@ -596,7 +598,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblLogu;
-        
+
         /// <summary>
         /// cbLogu control.
         /// </summary>
@@ -606,9 +608,6 @@ namespace PlatinumWeb {
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox cbLogu;
 
-
-        protected global::DevExpress.Web.ASPxCheckBox cbMeTvsh;
-        
         /// <summary>
         /// lblfiskalizimi control.
         /// </summary>
@@ -617,7 +616,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblfiskalizimi;
-        
+
         /// <summary>
         /// cbfiskalizimi control.
         /// </summary>
@@ -626,7 +625,25 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox cbfiskalizimi;
-        
+
+        /// <summary>
+        /// lblMeTvsh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblMeTvsh;
+
+        /// <summary>
+        /// cbMeTvsh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCheckBox cbMeTvsh;
+
         /// <summary>
         /// lblRaportuesi control.
         /// </summary>
@@ -635,7 +652,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblRaportuesi;
-        
+
         /// <summary>
         /// cmbRaportuesi control.
         /// </summary>
@@ -644,7 +661,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbRaportuesi;
-        
+
         /// <summary>
         /// ContentControl2 control.
         /// </summary>
@@ -653,7 +670,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl2;
-        
+
         /// <summary>
         /// lblEmail control.
         /// </summary>
@@ -662,7 +679,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblEmail;
-        
+
         /// <summary>
         /// email_TextBox control.
         /// </summary>
@@ -671,7 +688,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox email_TextBox;
-        
+
         /// <summary>
         /// lblVendi control.
         /// </summary>
@@ -680,7 +697,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblVendi;
-        
+
         /// <summary>
         /// vendi_TextBox control.
         /// </summary>
@@ -689,7 +706,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox vendi_TextBox;
-        
+
         /// <summary>
         /// lblQyteti control.
         /// </summary>
@@ -698,7 +715,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblQyteti;
-        
+
         /// <summary>
         /// qyteti_ASPxComboBox control.
         /// </summary>
@@ -707,7 +724,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox qyteti_ASPxComboBox;
-        
+
         /// <summary>
         /// lblTel control.
         /// </summary>
@@ -716,7 +733,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblTel;
-        
+
         /// <summary>
         /// tel_TextBox control.
         /// </summary>
@@ -725,7 +742,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox tel_TextBox;
-        
+
         /// <summary>
         /// lblFax control.
         /// </summary>
@@ -734,7 +751,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblFax;
-        
+
         /// <summary>
         /// fax_TextBox control.
         /// </summary>
@@ -743,7 +760,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox fax_TextBox;
-        
+
         /// <summary>
         /// ContentControl4 control.
         /// </summary>
@@ -752,7 +769,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl4;
-        
+
         /// <summary>
         /// lblNdermarjaTransferuese control.
         /// </summary>
@@ -761,7 +778,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblNdermarjaTransferuese;
-        
+
         /// <summary>
         /// cmbLlojNdermarje control.
         /// </summary>
@@ -770,7 +787,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbLlojNdermarje;
-        
+
         /// <summary>
         /// ASPxCallbackPanel1 control.
         /// </summary>
@@ -779,7 +796,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel1;
-        
+
         /// <summary>
         /// cmbNdermarjet control.
         /// </summary>
@@ -788,7 +805,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbNdermarjet;
-        
+
         /// <summary>
         /// lblPrind control.
         /// </summary>
@@ -797,7 +814,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblPrind;
-        
+
         /// <summary>
         /// cbPrind control.
         /// </summary>
@@ -806,7 +823,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox cbPrind;
-        
+
         /// <summary>
         /// lblOwnShop control.
         /// </summary>
@@ -815,7 +832,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblOwnShop;
-        
+
         /// <summary>
         /// cbOwnShop control.
         /// </summary>
@@ -824,7 +841,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox cbOwnShop;
-        
+
         /// <summary>
         /// lblMeme control.
         /// </summary>
@@ -833,7 +850,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblMeme;
-        
+
         /// <summary>
         /// cmbMeme control.
         /// </summary>
@@ -842,7 +859,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbMeme;
-        
+
         /// <summary>
         /// llog_check control.
         /// </summary>
@@ -851,7 +868,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox llog_check;
-        
+
         /// <summary>
         /// grup_llog_check control.
         /// </summary>
@@ -860,7 +877,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox grup_llog_check;
-        
+
         /// <summary>
         /// kpf_check control.
         /// </summary>
@@ -869,7 +886,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox kpf_check;
-        
+
         /// <summary>
         /// monedha_check control.
         /// </summary>
@@ -878,7 +895,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox monedha_check;
-        
+
         /// <summary>
         /// njesi_check control.
         /// </summary>
@@ -887,7 +904,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox njesi_check;
-        
+
         /// <summary>
         /// rap_fin_check control.
         /// </summary>
@@ -896,7 +913,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox rap_fin_check;
-        
+
         /// <summary>
         /// skema_check control.
         /// </summary>
@@ -905,7 +922,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox skema_check;
-        
+
         /// <summary>
         /// nivelTVSH_check control.
         /// </summary>
@@ -914,7 +931,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox nivelTVSH_check;
-        
+
         /// <summary>
         /// qytete_check control.
         /// </summary>
@@ -923,7 +940,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox qytete_check;
-        
+
         /// <summary>
         /// ASPxLabel21 control.
         /// </summary>
@@ -932,7 +949,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
-        
+
         /// <summary>
         /// maturimi_check control.
         /// </summary>
@@ -941,7 +958,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox maturimi_check;
-        
+
         /// <summary>
         /// men_pageses_check control.
         /// </summary>
@@ -950,7 +967,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox men_pageses_check;
-        
+
         /// <summary>
         /// men_trans_check control.
         /// </summary>
@@ -959,7 +976,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox men_trans_check;
-        
+
         /// <summary>
         /// kushte_drg_check control.
         /// </summary>
@@ -968,7 +985,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox kushte_drg_check;
-        
+
         /// <summary>
         /// nivel_cmimi_check control.
         /// </summary>
@@ -977,7 +994,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox nivel_cmimi_check;
-        
+
         /// <summary>
         /// nivel_zbritje_check control.
         /// </summary>
@@ -986,7 +1003,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox nivel_zbritje_check;
-        
+
         /// <summary>
         /// kategori_zbritje_check control.
         /// </summary>
@@ -995,7 +1012,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox kategori_zbritje_check;
-        
+
         /// <summary>
         /// ContentControl5 control.
         /// </summary>
@@ -1004,7 +1021,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl5;
-        
+
         /// <summary>
         /// lblZgjidhImaxh control.
         /// </summary>
@@ -1013,7 +1030,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblZgjidhImaxh;
-        
+
         /// <summary>
         /// ngarkoImazh control.
         /// </summary>
@@ -1022,7 +1039,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxUploadControl ngarkoImazh;
-        
+
         /// <summary>
         /// lblTipLejuar control.
         /// </summary>
@@ -1031,7 +1048,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblTipLejuar;
-        
+
         /// <summary>
         /// lblMaksimumiLejuar control.
         /// </summary>
@@ -1040,7 +1057,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblMaksimumiLejuar;
-        
+
         /// <summary>
         /// btnNgarko control.
         /// </summary>
@@ -1049,7 +1066,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnNgarko;
-        
+
         /// <summary>
         /// pnlImazh control.
         /// </summary>
@@ -1058,7 +1075,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel pnlImazh;
-        
+
         /// <summary>
         /// ASPxBinaryImage1 control.
         /// </summary>
@@ -1067,7 +1084,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxBinaryImage ASPxBinaryImage1;
-        
+
         /// <summary>
         /// pnl control.
         /// </summary>
@@ -1076,7 +1093,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel pnl;
-        
+
         /// <summary>
         /// HiddenField1 control.
         /// </summary>
@@ -1085,7 +1102,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
-        
+
         /// <summary>
         /// hfKonffillestar control.
         /// </summary>
@@ -1094,7 +1111,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfKonffillestar;
-        
+
         /// <summary>
         /// hfLidhur control.
         /// </summary>
@@ -1103,7 +1120,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfLidhur;
-        
+
         /// <summary>
         /// hfShtimModifikim control.
         /// </summary>
@@ -1112,7 +1129,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfShtimModifikim;
-        
+
         /// <summary>
         /// hfId control.
         /// </summary>
@@ -1121,7 +1138,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfId;
-        
+
         /// <summary>
         /// hfKontrollet control.
         /// </summary>
@@ -1130,7 +1147,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfKontrollet;
-        
+
         /// <summary>
         /// hfStatusi control.
         /// </summary>
@@ -1139,7 +1156,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfStatusi;
-        
+
         /// <summary>
         /// hfSuperUser control.
         /// </summary>
@@ -1148,7 +1165,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfSuperUser;
-        
+
         /// <summary>
         /// hfTeDrejtaKonfGride control.
         /// </summary>
@@ -1157,7 +1174,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfTeDrejtaKonfGride;
-        
+
         /// <summary>
         /// hfState control.
         /// </summary>
@@ -1166,7 +1183,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfState;
-        
+
         /// <summary>
         /// hfTeDrejta control.
         /// </summary>
@@ -1175,7 +1192,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfTeDrejta;
-        
+
         /// <summary>
         /// hfMsgShtoNdermarrje control.
         /// </summary>
@@ -1184,7 +1201,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfMsgShtoNdermarrje;
-        
+
         /// <summary>
         /// updateraporti control.
         /// </summary>
@@ -1193,7 +1210,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updateraporti;
-        
+
         /// <summary>
         /// popupUniversal control.
         /// </summary>
@@ -1202,7 +1219,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl popupUniversal;
-        
+
         /// <summary>
         /// PopupControlContentControl2 control.
         /// </summary>

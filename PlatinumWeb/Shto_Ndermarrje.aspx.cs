@@ -1338,11 +1338,10 @@ namespace PlatinumWeb
 
                 DbCore.mySessionObjects.ruajpathneSession(Session, UploadDirectory);
             }
-                 
-            
-            
+                
 
-            
+
+
         }
         protected void upload_Clilck(object sender, EventArgs e)
         {
@@ -1358,6 +1357,7 @@ namespace PlatinumWeb
                 string extension = Path.GetExtension(files[0]);
 
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Vazhdoi me ngarkimin e " + (extension == ".p12" ? "password-it!" : "certifikates p12!"), pnlMesazhi);
+                
             }
             if(fileCount==2 )
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "File jane ngarkuan me sukses !", pnlMesazhi);

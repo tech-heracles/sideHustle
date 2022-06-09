@@ -289,7 +289,10 @@ function endCallback() {
         myMenu.PercaktoMenuSipasTabit(1, hfTeDrejta, $('#hfShtimModifikim'));
     }
 }
-
+function mbyllModal() {
+    $(".dialog-pajisje").css("display", "none");
+    $(".bg-pajisje").css("display", "none");
+}
 /* 
 Function: OnGridSelectionChanged
 
@@ -501,6 +504,11 @@ function Ngarkuesi_NeFiletNgarkimPlotesuar(args) {
 function UpdateButoniNgarkim() {
     btnNgarko.SetEnabled(ngarkuesi.GetText(0) != "");
 
+}
+function shfaqPopupPerPajisjetElektronike() {
+    var opsionMbyllje = hfState.Get("MenuItemMbyll");
+    var popUpOptions = { prependSelector: "body", dialogClass: "dialog-pajisje", contentClass: "tabele-pajisje", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
+    Utils.ndertoPopupPerPajisjetElektronike(popUpOptions, "test");
 }
 function getPreviewImageElement() {
     return document.getElementById("previewImage");

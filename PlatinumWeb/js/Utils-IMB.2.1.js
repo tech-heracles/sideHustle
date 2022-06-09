@@ -1168,10 +1168,23 @@ Utils.ndertoPopupCertifikata = function (options,dateSkadence) {
     options = jQuery.extend({}, defaults, options);
     var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
     if (!myPopup.length) { //nuk e nderton prape nese ekziston
-        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button><h4 class='modal-title'>" + options.titulli + "</h4></div><div class='modal-body'><div class='" + options.contentClass + "'>Certifikata juaj skadon ne " + dateSkadence+"</div></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") + "</div></div></div></div>");
+        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button><h4 class='modal-title'>" + options.titulli + "</h4></div><div class='modal-body'><div class='" + options.contentClass + "'><p>Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadence + "</b></p><p>Ju lutem ngarkoni certifikaten e re.</p><p>(Pas dates <b>" + dateSkadence + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)</p></div></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") + "</div></div></div></div>");
         $(options.prependSelector).prepend(myPopup);
 
     }
+    return myPopup;
+};
+Utils.ndertoPopupPerPajisjetElektronike = function (options) {
+    var defaults = { text: { mbyll: "Mbyll" }};
+    options = jQuery.extend({}, defaults, options);
+    var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
+    if (!myPopup.length) { //nuk e nderton prape nese ekziston
+        myPopup = $("<div class='bg-pajisje' ></div><div class='modal " + options.dialogClass + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><h4 class='modal-title'>" + options.titulli + "</h4></div><div class='modal-body'><div class='" + options.contentClass + "'><p>Certifikata Elektronike e Fiskalizimit per kompanine tuaj  ne date</p><p>Ju lutem ngarkoni certifikaten e re.</p><p>(Pas dates nuk do mund te leshoni fatura me certifikaten e vjeter.)</p></div></div><div class='modal-footer'><button type='button' class='btn btn-primary' onclick='mbyllModal()'>Mbyll</button></div></div></div></div>");
+        $(options.prependSelector).prepend(myPopup);
+
+    }
+    $(".dialog-pajisje").css("display", "inline-block");
+    $(".bg-pajisje").css("display", "block");
     return myPopup;
 };
 Utils.JopopupClick = function (hfUrl) {

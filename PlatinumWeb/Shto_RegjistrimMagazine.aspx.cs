@@ -84,6 +84,8 @@ namespace PlatinumWeb
                 hfState.Set("guidString", guidString);
                 hfState.Set("vleraDefaultKlonimi", false);
                 AspxWebControlUtils.perkthePopUp(popMesazhQK, rm.GetString("labelAdministrimiKujdes", ci), lblMsgbox4, rm.GetString("msgDeshironiTeBeniShperndarjenNeQendratEKostos", ci), ButtonCancelQK, rm.GetString("btnJO", ci), ButtonOkQK, rm.GetString("btnPO", ci));
+                if (clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje)) hfState.Set("certificateExpire", true);
+                else hfState.Set("certificateExpire", false);
             }
             else
             {
@@ -1649,7 +1651,7 @@ namespace PlatinumWeb
                     pergjigja.Text = "ruaj";
                     if (mesazh.Status)
                     {
-                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim() && !clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
+                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                         {
                             clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarrje);
 

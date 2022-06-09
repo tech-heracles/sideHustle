@@ -67,6 +67,32 @@
             text-align: left;
             padding-top: 1px;
         }
+        .dialog-pajisje{
+            display: inline-block;
+            position: absolute;
+            background-color: white;
+            width: 50%;
+            border: 3px solid white;
+            padding: 10px;
+            z-index: 999;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 10%;
+            border-radius: 5px;
+            opacity: 1;
+        }
+        .bg-pajisje{
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            position: absolute;
+            background-color:black;
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
@@ -601,7 +627,7 @@
                                     
                                      <dx:ASPxButton ID="upload" runat="server" AutoPostBack="False" Text="Ngarko"
                                       ClientInstanceName="upload" Width="100px" ClientEnabled="True" OnClick="upload_Clilck">
-                                       <ClientSideEvents Click="function(s, e) { ucEmerSkedari.Upload() ; }" />
+                                       <ClientSideEvents Click="function(s, e) { shfaqPopupPerPajisjetElektronike(); ucEmerSkedari.Upload() ; }" />
                                      </dx:ASPxButton>
                                      <dx:ASPxButton ID="pastro" runat="server" AutoPostBack="True" Text="Pastro Folder" ClientVisible="false"
                                       ClientInstanceName="pastro" Width="100px" ClientEnabled="True" OnClick="pastro_Clilck">

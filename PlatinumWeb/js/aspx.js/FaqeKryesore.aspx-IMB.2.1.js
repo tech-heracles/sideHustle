@@ -204,12 +204,16 @@ $(document).ready(function (e) {
    
     $(window).on('unload', function (event) {
     });
-    if (hfState.Get("SkadimCertifikate") != "") {
+    var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
+    if (dateSkadimiCertifikate != "") {
         var opsionMbyllje = hfState.Get("MenuItemMbyll");
         var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
-        console.log(hfState.Get("SkadimCertifikate"));
-        var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, hfState.Get("SkadimCertifikate"));
+        var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, dateSkadimiCertifikate);
         myPopup.modal("show");
+        $("#certificate-notice").css("display", "block");
+        document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
+        $(".footer1").parent().css("margin-top", "-20px");
+        $(".footer1").parent().css("position", "absolute");
     }
    
     $(document).on('keydown', function (e) {//po

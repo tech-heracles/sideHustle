@@ -120,7 +120,9 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
-
+        <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
+            <p></p>
+        </div>
         <div id="backDiv" runat="server">
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" Height="100%" runat="server" Orientation="Vertical" SeparatorVisible="false"
                 ClientInstanceName="splitter" BackColor="Transparent" ClientIDMode="AutoID">
