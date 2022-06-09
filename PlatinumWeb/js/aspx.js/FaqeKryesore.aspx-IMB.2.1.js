@@ -9,7 +9,6 @@ function Forward() {
     history.go(+1);
     return false;
 }
-
 function grupKlick(s, e, emrimenuse) {
     switch (emrimenuse) {
         case "settings":
@@ -205,7 +204,14 @@ $(document).ready(function (e) {
    
     $(window).on('unload', function (event) {
     });
-
+    if (hfState.Get("SkadimCertifikate") != "") {
+        var opsionMbyllje = hfState.Get("MenuItemMbyll");
+        var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
+        console.log(hfState.Get("SkadimCertifikate"));
+        var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, hfState.Get("SkadimCertifikate"));
+        myPopup.modal("show");
+    }
+   
     $(document).on('keydown', function (e) {//po
         switch (e.which) {
             case 13:
@@ -224,6 +230,7 @@ $(document).ready(function (e) {
     });
 
     $(window).on('load', function () {
+        
         Utils.PushToGoogleAnalytics(hfState.Get("googleAnalytics"), hfState.Get("googleAnalyticsTrackingId"));
         pageKryesoreState.periudha = $.parseJSON(hfState.Get("periudha"));
         stringKonfigMenuMajtas = hfState.Get("konfigMenuMajtas");

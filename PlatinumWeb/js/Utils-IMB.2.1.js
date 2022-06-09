@@ -1163,6 +1163,17 @@ Utils.ndertoPopupAbonimi = function (options) {
     }
     return myPopup;
 };
+Utils.ndertoPopupCertifikata = function (options,dateSkadence) {
+    var defaults = { text: { mbyll: "Mbyll" }};
+    options = jQuery.extend({}, defaults, options);
+    var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
+    if (!myPopup.length) { //nuk e nderton prape nese ekziston
+        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button><h4 class='modal-title'>" + options.titulli + "</h4></div><div class='modal-body'><div class='" + options.contentClass + "'>Certifikata juaj skadon ne " + dateSkadence+"</div></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") + "</div></div></div></div>");
+        $(options.prependSelector).prepend(myPopup);
+
+    }
+    return myPopup;
+};
 Utils.JopopupClick = function (hfUrl) {
     if (hfUrl != undefined && hfUrl.val() != '')
         hfUrl.val('');

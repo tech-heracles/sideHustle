@@ -10,6 +10,7 @@ using DbCore;
 using System.Web.Configuration;
 using CacheLayer;
 using PlatinumWeb.ApplicationUtils.Pages;
+using DbCore.IMBUtils.Fiskalizimi.API;
 
 namespace PlatinumWeb
 {
@@ -53,7 +54,7 @@ namespace PlatinumWeb
                 var user = DbCore.mySessionObjects.kthePerdorues(Session);
                 var idPerdoruesi = user.IdPerdorues;
                 var ndermarrja = DbCore.mySessionObjects.ktheKodNdermarrje(Session);
-
+                
                 var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 string stringKonfigMenuMajtas = DbCore.DbShare.clsKonfigMenu.ktheListKonfigMenu(idPerdoruesi, idNdermarrje);
                 hfState.Add("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
@@ -152,6 +153,10 @@ namespace PlatinumWeb
                 {
                     enableMenuTeDrejta(idPerdoruesi, rm, ci);
                 }
+                string exCertificateDate =  clsFunksioneFiskalizimi.kontrolloNeseCertifikataKaSkaduar(idNdermarrje);
+                if (exCertificateDate != "")
+                    hfState.Set("SkadimCertifikate", exCertificateDate);
+                else hfState.Set("SkadimCertifikate", "");
                 EmrateLabelave(ci, obj.Item3);
                 var idTheme = !String.IsNullOrEmpty(Request.QueryString["idTheme"]) ? Convert.ToInt32(Request.QueryString["idTheme"]) : DbCore.DbAdmin.clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
                 hfState.Set("idTheme", idTheme);

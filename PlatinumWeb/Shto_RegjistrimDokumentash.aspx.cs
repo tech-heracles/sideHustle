@@ -248,7 +248,6 @@ namespace PlatinumWeb
                 bool[] menute = clsFunksione.merrMenu(idPerdoruesi, idSkema, pageStateLloji == "modifikim" ? false : true, lblStatusAprovimi.Text, idDok, cmbModeli.Text, 1);
                 hfState.Set("menuteSipasSkemes", JsonConvert.SerializeObject(menute));
                 hfState.Set("kategoriSerialesh", JsonConvert.SerializeObject(new colSerialeUnikeKategori(idNdermarrje)));
-
             }
             else
             {
@@ -2323,6 +2322,7 @@ namespace PlatinumWeb
                 gabimNeRuajtje(statusDokumenti, true);
                 return;
             }
+            
             string kodSoftueris = WebConfigurationManager.AppSettings["kodSoftueri"];
             if ((cbEinvoice.Checked && shtimModifikim == "modifikim" && txtNIVF.Text != "") || (cbFiskalizo.Checked && shtimModifikim == "modifikim" && txtIIC.Text != ""))
                 txtIIC.Text = txtIIC.Text;
@@ -2564,7 +2564,7 @@ namespace PlatinumWeb
                         if (mesazh.Status)
                         {
                             var viti = new clsViti(periudha.IdViti).KodiViti;
-                            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim() && !clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
                             {
                                 if (nderm.Fiskalizimi && cbFiskalizo.Checked && statusDokumenti == 1 && veprimi == "shitje" && (shtimModifikim == "shtim" || shtimModifikim == "klonim" || shtimModifikim == "konvertim" || hfState.Get("idstatusdok").ToString() == "0" || shtimModifikim == "kthim") && cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString() == "FSH")
                                 {
@@ -2725,7 +2725,7 @@ namespace PlatinumWeb
                         mesazh = kokeShitje.ruaj(idGjuha, serverUrl, false, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text, false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "", false, false, zevendesimtollonakastrati, cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli", false, ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, kthimVod, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text),txtIIC.Text,txtNIVF.Text);
                         if (mesazh.Status)
                         {
-                            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim() && !clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
                             {
                                 if (nderm.Fiskalizimi && cbFiskalizo.Checked && statusDokumenti == 1 && veprimi == "blerje" && (shtimModifikim == "shtim" || shtimModifikim == "klonim" || shtimModifikim == "konvertim" || hfState.Get("idstatusdok").ToString() == "0" || shtimModifikim == "kthim") && cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString() == "FB")
                                 {
@@ -2945,7 +2945,7 @@ namespace PlatinumWeb
                     if (mesazh.Status)
                     {
                         var viti = new clsViti(periudha.IdViti).KodiViti;
-                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim() && !clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
                         {
                             if (nderm.Fiskalizimi && cbFiskalizo.Checked && statusDokumenti == 1 && veprimi == "shitje" && (shtimModifikim == "shtim" || shtimModifikim == "klonim" || shtimModifikim == "konvertim" || hfState.Get("idstatusdok").ToString() == "0" || shtimModifikim == "kthim" || shtimModifikim == "modifikim") && cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString() == "FSH")
                             {

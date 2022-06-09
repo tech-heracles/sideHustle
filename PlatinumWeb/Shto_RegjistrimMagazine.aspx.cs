@@ -1649,7 +1649,7 @@ namespace PlatinumWeb
                     pergjigja.Text = "ruaj";
                     if (mesazh.Status)
                     {
-                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim() && !clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
                         {
                             clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarrje);
 

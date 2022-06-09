@@ -805,37 +805,179 @@ namespace PlatinumWeb
         }
         protected void fiskalizo(string guidString, string komponente, CultureInfo ci, ResourceManager rm, bool eshteMeme, int idGjuha, DataTable err)
         {
-            DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            pergjigja.Text = "";
-
-            List<object> rreshtat = grid_RegDok.GetSelectedFieldValues("IdShitjeKoka");
-            List<object> rreshtatKodKlienti = grid_RegDok.GetSelectedFieldValues("KodKlientFurnitor");
-            List<object> rreshtatOperatori = grid_RegDok.GetSelectedFieldValues("IdOperator");
-            List<object> rreshtatNenKategori = grid_RegDok.GetSelectedFieldValues("IdNivel");
-            List<object> rreshtatNrDok = grid_RegDok.GetSelectedFieldValues("NrDok");
-            clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
-            DataTable error = new DataTable();
-            error.Columns.Add("Kodi");
-            error.Columns.Add("Gabimi");
-            error.Columns.Add("Rreshti");
-            clsNivelRegjistrimi nivelRegjistrimi = new clsNivelRegjistrimi("FSH", idNdermarrje);
-            //return;
-            string filePath = "";
-            string zipName = "";
-            if (nderm.Fiskalizimi)
+            if(!clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
             {
+                DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
+                pergjigja.Text = "";
 
-                if (rreshtat.Count > 1)
+                List<object> rreshtat = grid_RegDok.GetSelectedFieldValues("IdShitjeKoka");
+                List<object> rreshtatKodKlienti = grid_RegDok.GetSelectedFieldValues("KodKlientFurnitor");
+                List<object> rreshtatOperatori = grid_RegDok.GetSelectedFieldValues("IdOperator");
+                List<object> rreshtatNenKategori = grid_RegDok.GetSelectedFieldValues("IdNivel");
+                List<object> rreshtatNrDok = grid_RegDok.GetSelectedFieldValues("NrDok");
+                clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
+                DataTable error = new DataTable();
+                error.Columns.Add("Kodi");
+                error.Columns.Add("Gabimi");
+                error.Columns.Add("Rreshti");
+                clsNivelRegjistrimi nivelRegjistrimi = new clsNivelRegjistrimi("FSH", idNdermarrje);
+                //return;
+                string filePath = "";
+                string zipName = "";
+                if (nderm.Fiskalizimi)
                 {
 
-                    for (var i = 0; i < rreshtat.Count; i++)
+                    if (rreshtat.Count > 1)
                     {
-                        int idShitjeKoke = Int32.Parse(rreshtat[i].ToString());
-                        clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
 
-                        if (kokaShitje.NIVF != "")
+                        for (var i = 0; i < rreshtat.Count; i++)
                         {
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk mund te ridergoni fatura te fiskalizuara!", pnlMesazhi);
+                            int idShitjeKoke = Int32.Parse(rreshtat[i].ToString());
+                            clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
+
+                            if (kokaShitje.NIVF != "")
+                            {
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk mund te ridergoni fatura te fiskalizuara!", pnlMesazhi);
+                                return;
+                            }
+                            if (rreshtatOperatori[0] == System.DBNull.Value)
+                            {
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju Lutem Zgjidhni Operatorin Te Faturat!", pnlMesazhi);
+                                return;
+                            }
+                            if (rreshtatNenKategori[i].ToString() != nivelRegjistrimi.IdNivel.ToString())
+                            {
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju Lutem Zgjidhni Fatura Shitjeje!", pnlMesazhi);
+                                return;
+                            }
+                            clsKlientFurnitor kF = new clsKlientFurnitor();
+                            kF.mbushKlientFurnitorSipasKodit(rreshtatKodKlienti[i].ToString(), nderm.IdNdermarrje);
+                            if (kokaShitje.IdDegeAdministrative == null)
+                            {
+                                error.Rows.Add("Dega administrative", "Plotesoni degen administrative!");
+                            }
+                            else
+                            {
+                                var degeAdministrativeKontroll = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokaShitje.IdDegeAdministrative);
+                                if (degeAdministrativeKontroll["KODNJESIEBIZNES"].ToString() == "")
+                                    error.Rows.Add("Dega administrative", "Plotesoni Kodin e njesise se biznesit te dega administrative!");
+
+                            }
+                            if (kF.TipiId != "" || kF.AutoNgarkese == true)
+                            {
+                                if (kF.EmriQytetitKF == "")
+                                    error.Rows.Add("Emer Qyteti Klienti", "Vendosni Emrin E Qytetit Te Klientit Per Fiskalizimin!");
+                                if (kF.NiptiKF == "")
+                                    error.Rows.Add("Nipt Klienti", "Vendosni Nipt-in E Klientit Per Fiskalizimin!");
+                            }
+                            if (rreshtatOperatori[i].ToString() == "")
+                                error.Rows.Add("Operatori", "Vendosni Operatorin Per Fiskalizimin!");
+                            if (nderm.NdermarrjeQytetiPershkrimi == "")
+                                error.Rows.Add("Emer Qyteti Ndermarrje", "Vendosni Emrin E Qytetit Te Ndermarrjes Per Fiskalizimin!");
+                            if (nderm.NdermarrjeNipt == "")
+                                error.Rows.Add("Nipt Ndermarrje", "Vendosni Nipt-in e Ndermarrjes Per Fiskalizimin!");
+                            if (nderm.NdermarrjeVendi == "")
+                                error.Rows.Add("Shtet Ndermarrje", "Vendosni Shtetin e Ndermarrjes Per Fiskalizimin!");
+                            if (kokaShitje.NrDok.StartsWith("0"))
+                                error.Rows.Add("Numer Dokumenti", "Numri I Dokumentit Nuk Duhet Te Filloj Me 0 Per Fiskalizimin!");
+                            DbCore.clsMesazh mesazherror = new DbCore.clsMesazh();
+                            clsKokaErrorImporti kokaErr = new clsKokaErrorImporti();
+
+                        }
+                        if (error.Rows.Count > 0)
+                        {
+                            var kokaErrs = new clsKokaErrorImporti(0, "Nga Fiskalizimi ", 1, nderm.IdNdermarrje, nderm.IdPerdoruesi);
+                            kokaErrs.ColTrupi.mbushErrorImportiNgaProgrami(error);
+                            var mesazherrors = kokaErrs.ruajErrorImporti();
+                            DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, error);
+                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem plotesoni fushat e kerkuara ne listen e gabimeve!", pnlMesazhi);
+                            grid_RegDok.JSProperties["cpHapFaqe"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=gabimeImporti&printo=0&db=jo";
+                            return;
+                        }
+                        for (var i = 0; i < rreshtat.Count; i++)
+                        {
+
+                            int idShitjeKoke = Int32.Parse(rreshtat[i].ToString());
+                            clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
+                            var degeAdministrative = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokaShitje.IdDegeAdministrative);
+                            var trupiShitje = kokaShitje.merrTrupShitje();
+                            var dateMaturimi = kokaShitje.DtMaturimi.ToString().Split(' ')[0].Replace('/', '-');
+                            string[] dateMaturimiList = dateMaturimi.Split(new[] { '-' }, 3);
+                            var dateMaturimiFormatuar = $"{dateMaturimiList[2]}-{dateMaturimiList[1]}-{dateMaturimiList[0]}";
+                            var arka = new clsBanka(kokaShitje.IdArka);
+                            var dataTani = kokaShitje.DtKrijimi;
+                            DateTime dataKrijimi = DateTime.UtcNow;
+                            var operatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[i]), nderm.IdNdermarrje);
+                            var kodOperatori = clsOperator.MerrKodOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[i]), nderm.IdNdermarrje);
+                            string kodSoftueri = WebConfigurationManager.AppSettings["kodSoftueri"];
+                            string menyrePagese = "";
+                            switch (kokaShitje.IdMenyrePagese)
+                            {
+                                case 0:
+                                    menyrePagese = "Me_mirebesim";
+                                    break;
+                                case 4:
+                                    menyrePagese = "Pagese";
+                                    break;
+                                case 5:
+                                    menyrePagese = "Pagese Automatike";
+                                    break;
+                                case 6:
+                                    menyrePagese = "Cash_1_Bank";
+                                    break;
+                                case 8:
+                                    menyrePagese = "Arke";
+                                    break;
+                                case 9:
+                                    menyrePagese = "Karte krediti";
+                                    break;
+                                case 10:
+                                    menyrePagese = "Pezull";
+                                    break;
+                                case 11:
+                                    menyrePagese = "Banke";
+                                    break;
+                            }
+                            var iic = clsFunksione.GjeneroIIC(nderm, rreshtat[i].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri);
+                            if (iic == "Ju lutem ngarkoni filen e passwordit!")
+                            {
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni filen e passwordit!", pnlMesazhi);
+                                return;
+                            }
+                            else if (iic == "Ju lutem ngarkoni certifikaten e sigurise!")
+                            {
+
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni certifikaten e sigurise!", pnlMesazhi);
+                                return;
+                            }
+                            DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokaShitje.DtKrijimiPajisje);
+                            var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
+                            var dtKrijimiOffset = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
+                            var iicSignature = clsFunksioneFiskalizimi.ktheIICSignature(nderm, rreshtat[i].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, dataKrijimi);
+                            var viti = new clsViti(Periudha.IdViti).KodiViti;
+                            var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, iic, iicSignature, kokaShitje.AdresaFaturimit.ToString(), kokaShitje.Pershkrimi.ToString(), kokaShitje.Totali.ToString(), dateMaturimiFormatuar, kokaShitje.Totali.ToString(),
+                                                kokaShitje.Tvsh.ToString(), kokaShitje.PerqindjeZbritje.ToString(), rreshtatKodKlienti[i].ToString(), "", kokaShitje.Totali.ToString(), "", "", kokaShitje.Pershkrimi, "", trupiShitje, arka.KodiTCR, menyrePagese, nderm, rreshtatKodKlienti[i].ToString(), kokaShitje.Zbritje.ToString(), kokaShitje.Totali.ToString(),
+                                                "", Convert.ToDateTime(kokaShitje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString() + " " + operatori.ItemArray[1].ToString(), true, kokaShitje.Kursi.ToString(), false, degeAdministrative["KODNJESIEBIZNES"].ToString(), kokaShitje.TipiIVetefaturimit, kodOperatori.ItemArray[0].ToString(), true, true, kokaShitje.Dogana, kokaShitje.DtMbarimi.ToString(), kokaShitje.DtFillimi.ToString(), kokaShitje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje, IdPerdoruesi, viti);
+                            if (i == 0)
+                            {
+                                zipName = DateTime.Now.ToString("yyyyMMddHHmmss");
+                                filePath = clsFunksioneFiskalizimi.ruajZipFatura(mesazhInvoice[0], iic, zipName, false, Response);
+
+                            }
+                            else if (i > 0)
+                            {
+
+                                filePath = clsFunksioneFiskalizimi.ruajZipFatura(mesazhInvoice[0], iic, zipName, true, Response);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string urlFiskalizimi = WebConfigurationManager.AppSettings["urlFiskalizimi"];
+
+                        if (urlFiskalizimi == null)
+                        {
+                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fiskalizimi nuk pergjigjet!", pnlMesazhi);
                             return;
                         }
                         if (rreshtatOperatori[0] == System.DBNull.Value)
@@ -843,71 +985,22 @@ namespace PlatinumWeb
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju Lutem Zgjidhni Operatorin Te Faturat!", pnlMesazhi);
                             return;
                         }
-                        if (rreshtatNenKategori[i].ToString() != nivelRegjistrimi.IdNivel.ToString())
+
+                        int idShitjeKoke = Int32.Parse(rreshtat[0].ToString());
+                        clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
+                        if (kokaShitje.NIVF != "")
                         {
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju Lutem Zgjidhni Fatura Shitjeje!", pnlMesazhi);
+                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura eshte e fiskalizuar!", pnlMesazhi);
                             return;
                         }
-                        clsKlientFurnitor kF = new clsKlientFurnitor();
-                        kF.mbushKlientFurnitorSipasKodit(rreshtatKodKlienti[i].ToString(), nderm.IdNdermarrje);
-                        if (kokaShitje.IdDegeAdministrative == null)
-                        {
-                            error.Rows.Add("Dega administrative", "Plotesoni degen administrative!");
-                        }
-                        else
-                        {
-                            var degeAdministrativeKontroll = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokaShitje.IdDegeAdministrative);
-                            if (degeAdministrativeKontroll["KODNJESIEBIZNES"].ToString() == "")
-                                error.Rows.Add("Dega administrative", "Plotesoni Kodin e njesise se biznesit te dega administrative!");
-
-                        }
-                        if (kF.TipiId != "" || kF.AutoNgarkese == true)
-                        {
-                            if (kF.EmriQytetitKF == "")
-                                error.Rows.Add("Emer Qyteti Klienti", "Vendosni Emrin E Qytetit Te Klientit Per Fiskalizimin!");
-                            if (kF.NiptiKF == "")
-                                error.Rows.Add("Nipt Klienti", "Vendosni Nipt-in E Klientit Per Fiskalizimin!");
-                        }
-                        if (rreshtatOperatori[i].ToString() == "")
-                            error.Rows.Add("Operatori", "Vendosni Operatorin Per Fiskalizimin!");
-                        if (nderm.NdermarrjeQytetiPershkrimi == "")
-                            error.Rows.Add("Emer Qyteti Ndermarrje", "Vendosni Emrin E Qytetit Te Ndermarrjes Per Fiskalizimin!");
-                        if (nderm.NdermarrjeNipt == "")
-                            error.Rows.Add("Nipt Ndermarrje", "Vendosni Nipt-in e Ndermarrjes Per Fiskalizimin!");
-                        if (nderm.NdermarrjeVendi == "")
-                            error.Rows.Add("Shtet Ndermarrje", "Vendosni Shtetin e Ndermarrjes Per Fiskalizimin!");
-                        if (kokaShitje.NrDok.StartsWith("0"))
-                            error.Rows.Add("Numer Dokumenti", "Numri I Dokumentit Nuk Duhet Te Filloj Me 0 Per Fiskalizimin!");
-                        DbCore.clsMesazh mesazherror = new DbCore.clsMesazh();
-                        clsKokaErrorImporti kokaErr = new clsKokaErrorImporti();
-
-                    }
-                    if (error.Rows.Count > 0)
-                    {
-                        var kokaErrs = new clsKokaErrorImporti(0, "Nga Fiskalizimi ", 1, nderm.IdNdermarrje, nderm.IdPerdoruesi);
-                        kokaErrs.ColTrupi.mbushErrorImportiNgaProgrami(error);
-                        var mesazherrors = kokaErrs.ruajErrorImporti();
-                        DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, error);
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem plotesoni fushat e kerkuara ne listen e gabimeve!", pnlMesazhi);
-                        grid_RegDok.JSProperties["cpHapFaqe"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=gabimeImporti&printo=0&db=jo";
-                        return;
-                    }
-                    for (var i = 0; i < rreshtat.Count; i++)
-                    {
-
-                        int idShitjeKoke = Int32.Parse(rreshtat[i].ToString());
-                        clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
                         var degeAdministrative = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokaShitje.IdDegeAdministrative);
                         var trupiShitje = kokaShitje.merrTrupShitje();
                         var dateMaturimi = kokaShitje.DtMaturimi.ToString().Split(' ')[0].Replace('/', '-');
                         string[] dateMaturimiList = dateMaturimi.Split(new[] { '-' }, 3);
                         var dateMaturimiFormatuar = $"{dateMaturimiList[2]}-{dateMaturimiList[1]}-{dateMaturimiList[0]}";
+                        var operatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[0]), nderm.IdNdermarrje);
                         var arka = new clsBanka(kokaShitje.IdArka);
                         var dataTani = kokaShitje.DtKrijimi;
-                        DateTime dataKrijimi = DateTime.UtcNow;
-                        var operatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[i]), nderm.IdNdermarrje);
-                        var kodOperatori = clsOperator.MerrKodOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[i]), nderm.IdNdermarrje);
-                        string kodSoftueri = WebConfigurationManager.AppSettings["kodSoftueri"];
                         string menyrePagese = "";
                         switch (kokaShitje.IdMenyrePagese)
                         {
@@ -936,175 +1029,86 @@ namespace PlatinumWeb
                                 menyrePagese = "Banke";
                                 break;
                         }
-                        var iic = clsFunksione.GjeneroIIC(nderm, rreshtat[i].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri);
-                        if (iic == "Ju lutem ngarkoni filen e passwordit!")
+                        DateTime dataKrijimit = DateTime.UtcNow;
+                        string kodSoftueri = WebConfigurationManager.AppSettings["kodSoftueri"];
+                        var kodOperatori = clsOperator.MerrKodOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[0]), nderm.IdNdermarrje);
+                        string iic = "";
+                        if (kokaShitje.IIC == "")
                         {
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni filen e passwordit!", pnlMesazhi);
-                            return;
+                            iic = clsFunksione.GjeneroIIC(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri);
+                            if (iic == "Ju lutem ngarkoni filen e passwordit!")
+                            {
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni filen e passwordit!", pnlMesazhi);
+                                return;
+                            }
+                            else if (iic == "Ju lutem ngarkoni certifikaten e sigurise!")
+                            {
+
+                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni certifikaten e sigurise!", pnlMesazhi);
+                                return;
+                            }
                         }
-                        else if(iic == "Ju lutem ngarkoni certifikaten e sigurise!")
-                        {
-                            
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni certifikaten e sigurise!", pnlMesazhi);
-                            return;
-                        }
+                        else
+                            iic = kokaShitje.IIC;
                         DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokaShitje.DtKrijimiPajisje);
                         var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
                         var dtKrijimiOffset = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
-                        var iicSignature = clsFunksioneFiskalizimi.ktheIICSignature(nderm, rreshtat[i].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, dataKrijimi);
+                        var iicSignature = clsFunksioneFiskalizimi.ktheIICSignature(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, dataKrijimit);
                         var viti = new clsViti(Periudha.IdViti).KodiViti;
                         var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, iic, iicSignature, kokaShitje.AdresaFaturimit.ToString(), kokaShitje.Pershkrimi.ToString(), kokaShitje.Totali.ToString(), dateMaturimiFormatuar, kokaShitje.Totali.ToString(),
-                                            kokaShitje.Tvsh.ToString(), kokaShitje.PerqindjeZbritje.ToString(), rreshtatKodKlienti[i].ToString(), "", kokaShitje.Totali.ToString(), "", "", kokaShitje.Pershkrimi, "", trupiShitje, arka.KodiTCR, menyrePagese, nderm, rreshtatKodKlienti[i].ToString(), kokaShitje.Zbritje.ToString(), kokaShitje.Totali.ToString(),
-                                            "", Convert.ToDateTime(kokaShitje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString() + " " + operatori.ItemArray[1].ToString(), true, kokaShitje.Kursi.ToString(), false, degeAdministrative["KODNJESIEBIZNES"].ToString(), kokaShitje.TipiIVetefaturimit,kodOperatori.ItemArray[0].ToString(),true, true,kokaShitje.Dogana,kokaShitje.DtMbarimi.ToString(),kokaShitje.DtFillimi.ToString(),kokaShitje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,IdPerdoruesi,viti);
-                        if (i == 0)
+                            kokaShitje.Tvsh.ToString(), kokaShitje.PerqindjeZbritje.ToString(), rreshtatKodKlienti[0].ToString(), "", (kokaShitje.Totali - kokaShitje.Tvsh).ToString(), "", "", kokaShitje.Pershkrimi, "", trupiShitje, arka.KodiTCR, menyrePagese, nderm, rreshtatKodKlienti[0].ToString(), kokaShitje.Zbritje.ToString(), kokaShitje.Totali.ToString(),
+                            kokaShitje.NivfKthim, Convert.ToDateTime(kokaShitje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString() + " " + operatori.ItemArray[1].ToString(), false, kokaShitje.Kursi.ToString(), false, degeAdministrative["KODNJESIEBIZNES"].ToString(), kokaShitje.TipiIVetefaturimit, kodOperatori.ItemArray[0].ToString(), true, true, kokaShitje.Dogana, kokaShitje.DtMbarimi.ToString(), kokaShitje.DtFillimi.ToString(), kokaShitje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje, IdPerdoruesi, viti);
+                        if (error.Rows.Count > 0)
                         {
-                            zipName = DateTime.Now.ToString("yyyyMMddHHmmss");
-                            filePath = clsFunksioneFiskalizimi.ruajZipFatura(mesazhInvoice[0], iic, zipName, false, Response);
-
+                            var kokaErrs = new clsKokaErrorImporti(0, "Nga Fiskalizimi ", 1, nderm.IdNdermarrje, nderm.IdPerdoruesi);
+                            kokaErrs.ColTrupi.mbushErrorImportiNgaProgrami(error);
+                            var mesazherrors = kokaErrs.ruajErrorImporti();
+                            DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, error);
+                            Container1.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=gabimeImporti&printo=0&db=jo";
+                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem plotesoni fushat e kerkuara ne listen e gabimeve!", pnlMesazhi);
+                            return;
                         }
-                        else if (i > 0)
+                        var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
+                        if (nivfFature[1] != null)
                         {
-
-                            filePath = clsFunksioneFiskalizimi.ruajZipFatura(mesazhInvoice[0], iic, zipName, true, Response);
+                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
+                            clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
+                            //var objekti = ktheObjektPerNotify(kokaShitje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
+                            return;
                         }
+                        else
+                        {
+                            kokaShitje.NIVF = nivfFature[0];
+                            kokaShitje.IIC = iic;
+                            string serverUrl = clsFunksione.ktheServerUrl(Request);
+                            clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(kokaShitje.IdKonfigAmbjente);
+                            kokaShitje.Riruaj(false, idNdermarrje, idPerdoruesi, konfig, idGjuha, eshteMeme, eshteOwn, rm, ci, hfArkiva, serverUrl);
+                            clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
+                            //var objekti = ktheObjektPerNotify(kokaShitje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
+                            //clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
+                        }
+
                     }
                 }
                 else
                 {
-                    string urlFiskalizimi = WebConfigurationManager.AppSettings["urlFiskalizimi"];
+                    clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ndermarrja nuk ka aplikuar fiskalizimin!", pnlMesazhi);
+                    return;
+                }
 
-                    if (urlFiskalizimi == null)
-                    {
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fiskalizimi nuk pergjigjet!", pnlMesazhi);
-                        return;
-                    }
-                    if (rreshtatOperatori[0] == System.DBNull.Value)
-                    {
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju Lutem Zgjidhni Operatorin Te Faturat!", pnlMesazhi);
-                        return;
-                    }
 
-                    int idShitjeKoke = Int32.Parse(rreshtat[0].ToString());
-                    clsKokaShitje kokaShitje = new clsKokaShitje(idShitjeKoke);
-                    if(kokaShitje.NIVF != "")
-                    {
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura eshte e fiskalizuar!", pnlMesazhi);
-                        return;
-                    }
-                    var degeAdministrative = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokaShitje.IdDegeAdministrative);
-                    var trupiShitje = kokaShitje.merrTrupShitje();
-                    var dateMaturimi = kokaShitje.DtMaturimi.ToString().Split(' ')[0].Replace('/', '-');
-                    string[] dateMaturimiList = dateMaturimi.Split(new[] { '-' }, 3);
-                    var dateMaturimiFormatuar = $"{dateMaturimiList[2]}-{dateMaturimiList[1]}-{dateMaturimiList[0]}";
-                    var operatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[0]), nderm.IdNdermarrje);
-                    var arka = new clsBanka(kokaShitje.IdArka);
-                    var dataTani = kokaShitje.DtKrijimi;
-                    string menyrePagese = "";
-                    switch (kokaShitje.IdMenyrePagese)
-                    {
-                        case 0:
-                            menyrePagese = "Me_mirebesim";
-                            break;
-                        case 4:
-                            menyrePagese = "Pagese";
-                            break;
-                        case 5:
-                            menyrePagese = "Pagese Automatike";
-                            break;
-                        case 6:
-                            menyrePagese = "Cash_1_Bank";
-                            break;
-                        case 8:
-                            menyrePagese = "Arke";
-                            break;
-                        case 9:
-                            menyrePagese = "Karte krediti";
-                            break;
-                        case 10:
-                            menyrePagese = "Pezull";
-                            break;
-                        case 11:
-                            menyrePagese = "Banke";
-                            break;
-                    }
-                    DateTime dataKrijimit = DateTime.UtcNow;
-                    string kodSoftueri = WebConfigurationManager.AppSettings["kodSoftueri"];
-                    var kodOperatori = clsOperator.MerrKodOperatoriSipasId(Convert.ToInt32(rreshtatOperatori[0]), nderm.IdNdermarrje);
-                    string iic = "";
-                    if (kokaShitje.IIC == "")
-                    {
-                        iic = clsFunksione.GjeneroIIC(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri);
-                        if (iic == "Ju lutem ngarkoni filen e passwordit!")
-                        {
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni filen e passwordit!", pnlMesazhi);
-                            return;
-                        }
-                        else if (iic == "Ju lutem ngarkoni certifikaten e sigurise!")
-                        {
+                bool teDrejtaGjitheDok = hfTeDrejtaGjitheDok.Value.ToString().ToLower() == "true";
+                grid_RegDok.Selection.UnselectAll();
+                mbushGridNgaDB(komponente, Periudha.PeriudhaDok, idNdermarrjeVit, veprimi, idNdermarrje, idPerdoruesi, teDrejtaGjitheDok, Periudha.DataDokNga, Periudha.DataDokDeri);
 
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem ngarkoni certifikaten e sigurise!", pnlMesazhi);
-                            return;
-                        }
-                    }
-                    else
-                        iic = kokaShitje.IIC;
-                    DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokaShitje.DtKrijimiPajisje);
-                    var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
-                    var dtKrijimiOffset = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
-                    var iicSignature = clsFunksioneFiskalizimi.ktheIICSignature(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, dataKrijimit);
-                    var viti = new clsViti(Periudha.IdViti).KodiViti;
-                    var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, rreshtatNrDok[0].ToString(), kokaShitje.Totali.ToString(), "ur271so291", kodSoftueri, iic, iicSignature, kokaShitje.AdresaFaturimit.ToString(), kokaShitje.Pershkrimi.ToString(), kokaShitje.Totali.ToString(), dateMaturimiFormatuar, kokaShitje.Totali.ToString(),
-                        kokaShitje.Tvsh.ToString(), kokaShitje.PerqindjeZbritje.ToString(), rreshtatKodKlienti[0].ToString(), "", (kokaShitje.Totali - kokaShitje.Tvsh).ToString(), "", "", kokaShitje.Pershkrimi, "", trupiShitje, arka.KodiTCR, menyrePagese, nderm, rreshtatKodKlienti[0].ToString(), kokaShitje.Zbritje.ToString(), kokaShitje.Totali.ToString(),
-                        kokaShitje.NivfKthim, Convert.ToDateTime(kokaShitje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString() + " " + operatori.ItemArray[1].ToString(), false, kokaShitje.Kursi.ToString(), false, degeAdministrative["KODNJESIEBIZNES"].ToString(),kokaShitje.TipiIVetefaturimit , kodOperatori.ItemArray[0].ToString(), true, true,kokaShitje.Dogana, kokaShitje.DtMbarimi.ToString(), kokaShitje.DtFillimi.ToString(),kokaShitje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,IdPerdoruesi,viti);
-                    if (error.Rows.Count > 0)
-                    {
-                        var kokaErrs = new clsKokaErrorImporti(0, "Nga Fiskalizimi ", 1, nderm.IdNdermarrje, nderm.IdPerdoruesi);
-                        kokaErrs.ColTrupi.mbushErrorImportiNgaProgrami(error);
-                        var mesazherrors = kokaErrs.ruajErrorImporti();
-                        DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, error);
-                        Container1.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=gabimeImporti&printo=0&db=jo";
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ju lutem plotesoni fushat e kerkuara ne listen e gabimeve!", pnlMesazhi);
-                        return;
-                    }
-                    var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
-                    if (nivfFature[1] != null)
-                    {
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
-                        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
-                        //var objekti = ktheObjektPerNotify(kokaShitje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
-                        return;
-                    }
-                    else
-                    {
-                        kokaShitje.NIVF = nivfFature[0];
-                        kokaShitje.IIC = iic;
-                        string serverUrl = clsFunksione.ktheServerUrl(Request);
-                        clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(kokaShitje.IdKonfigAmbjente);
-                        kokaShitje.Riruaj(false, idNdermarrje, idPerdoruesi, konfig, idGjuha, eshteMeme, eshteOwn, rm, ci, hfArkiva, serverUrl);
-                        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
-                        //var objekti = ktheObjektPerNotify(kokaShitje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
-                        //clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
-                    }
+                konfiguroGride(komponente, veprimi, idNdermarrje, idPerdoruesi, idGjuha, rm, ci);
+                if (rreshtat.Count > 1)
+                {
+                    clsFunksioneFiskalizimi.downloadFileToClientZip(filePath, Response, idPerdoruesi);
 
                 }
             }
-            else
-            {
-                clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ndermarrja nuk ka aplikuar fiskalizimin!", pnlMesazhi);
-                return;
-            }
-
-
-            bool teDrejtaGjitheDok = hfTeDrejtaGjitheDok.Value.ToString().ToLower() == "true";
-            grid_RegDok.Selection.UnselectAll();
-            mbushGridNgaDB(komponente, Periudha.PeriudhaDok, idNdermarrjeVit, veprimi, idNdermarrje, idPerdoruesi, teDrejtaGjitheDok, Periudha.DataDokNga, Periudha.DataDokDeri);
-
-            konfiguroGride(komponente, veprimi, idNdermarrje, idPerdoruesi, idGjuha, rm, ci);
-            if (rreshtat.Count > 1)
-            {
-                clsFunksioneFiskalizimi.downloadFileToClientZip(filePath, Response, idPerdoruesi);
-
-            }
+            
 
         }
         protected void Riruaj(string guidString, string komponente, CultureInfo ci, ResourceManager rm, bool eshteMeme, int idGjuha, DataTable err)

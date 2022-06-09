@@ -98,6 +98,56 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
             return iicString;
         }
+        public static string kontrolloNeseCertifikataKaSkaduar(int idNderm)
+        {
+            try
+            {
+                clsNdermarrje nderm = new clsNdermarrje(idNderm);
+                if (!nderm.Fiskalizimi) return "";
+                if (nderm.Pathname.ToString() == "") return "";
+
+                string passpath = nderm.Pathname + $"/password.txt";
+                String KEYSTORE_PASS = "";
+                String KEYSTORE_LOCATION = System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"certifikata.p12";
+                if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt"))
+                    KEYSTORE_PASS = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt");
+                else throw new Exception("Ju lutem ngarkoni filen e passwordit!");
+                DateTime now = DateTime.Now.AddDays(16);
+                string certDate = new X509Certificate2(KEYSTORE_LOCATION, KEYSTORE_PASS).GetExpirationDateString();
+                if (DateTime.Parse(certDate) < now)
+                {
+                    certDate = certDate.Split(' ')[0];
+                    return certDate;
+                }
+                return "";
+            }
+            catch(Exception ex)
+            {
+                return "";
+            }
+        }
+        public static bool ktheNeseCertifikataEFiskalizimitKaSkaduar(int idNderm)
+        {
+            try
+            {
+                clsNdermarrje nderm = new clsNdermarrje(idNderm);
+                if (!nderm.Fiskalizimi) return false;
+                if (nderm.Pathname.ToString() == "") return false;
+                string passpath = nderm.Pathname + $"/password.txt";
+                String KEYSTORE_PASS = "";
+                String KEYSTORE_LOCATION = System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"certifikata.p12";
+                if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt"))
+                    KEYSTORE_PASS = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt");
+                else throw new Exception("Ju lutem ngarkoni filen e passwordit!");
+                if(DateTime.Now > DateTime.Parse(new X509Certificate2(KEYSTORE_LOCATION, KEYSTORE_PASS).GetExpirationDateString())) return true;
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public static string[] gjeneroFatureShoqeruese(clsNdermarrje nderm, string wtnic, string wtnicSignature, string shoqerimIKerkuar, string mallraTeDjegshme, string adresaFillimit, string vendiFillimit, string targa, colTrupiMagazina trupi, string totali, string kodi, int transportuesi, string tipiMagazina, string qyteti, string dtTransporti, bool eshteGrup, string kodBiznesi,string tipi,string transaksioni, clsNjesiAdministrative njesiAdministrativeDestinacion, clsNjesiAdministrative njesiAdministrative,string kodOperatori, bool lista)
         {
             var uuid = Guid.NewGuid().ToString();
