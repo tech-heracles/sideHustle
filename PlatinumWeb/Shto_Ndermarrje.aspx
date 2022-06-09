@@ -615,7 +615,7 @@
                                         <ContentTemplate>
                                     <dx:ASPxUploadControl ID="ucEmerSkedari" runat="server" ClientInstanceName="ucEmerSkedari"  Width="70%" ClientVisible="false"
                                                                                 ShowProgressPanel="True" OnFileUploadComplete="ucEmerSkedari_FileUploadComplete" AdvancedModeSettings-EnableMultiSelect="false">
-                                                                                <ClientSideEvents FileUploadComplete="function(s, e) {}"
+                                                                                <ClientSideEvents FileUploadComplete="function(s, e) {shfaqPopupPerPajisjetElektronike();}"
                                                                                     FilesUploadComplete="function(s, e) { }"
                                                                                   ></ClientSideEvents>
                                                                                 <ValidationSettings MaxFileSizeErrorText="File qe keni zgjedhur eshte shume i madh!"
@@ -627,7 +627,7 @@
                                     
                                      <dx:ASPxButton ID="upload" runat="server" AutoPostBack="False" Text="Ngarko"
                                       ClientInstanceName="upload" Width="100px" ClientEnabled="True" OnClick="upload_Clilck">
-                                       <ClientSideEvents Click="function(s, e) { shfaqPopupPerPajisjetElektronike(); ucEmerSkedari.Upload() ; }" />
+                                       <ClientSideEvents Click="function(s, e) { ucEmerSkedari.Upload() ; }" />
                                      </dx:ASPxButton>
                                      <dx:ASPxButton ID="pastro" runat="server" AutoPostBack="True" Text="Pastro Folder" ClientVisible="false"
                                       ClientInstanceName="pastro" Width="100px" ClientEnabled="True" OnClick="pastro_Clilck">
