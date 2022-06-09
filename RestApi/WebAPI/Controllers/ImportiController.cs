@@ -97,8 +97,8 @@ namespace RestApi.WebAPI.Controllers
         {
             try
             {
-                string emerTabeleTrupi = param["tabelaKoka"].ToString();
-                string emerTabeleKoka = param["tabelaTrupi"].ToString();
+                string emerTabeleTrupi = param["tabelaTrupi"].ToString();
+                string emerTabeleKoka = param["tabelaKoka"].ToString(); 
                 string emerTabeleKokaHistorik = param["tabelaKokaHistorik"].ToString();
                 string emerTabeleTrupiHistorik = param["tabelaTrupiHistorik"].ToString();
                 return Request.KthePergjigje(ImportiRepository.PastroTabelatTemporare(emerTabeleKoka, emerTabeleTrupi, emerTabeleKokaHistorik, emerTabeleTrupiHistorik));
