@@ -947,7 +947,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 PriceBefVATPaTvsh = $"\"{PriceBefVATPaTvsh}\"";
                 tipiIPerjashtimit = $"\"{tipiIPerjashtimit}\"";
                 VATAmt2 = $"\"{VATAmt2}\"";
-                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " VATAmt=" + $"{VATAmt2}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
+                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
                 taksa20 = 0;
                 done = 0;
             }
@@ -971,7 +971,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     vleraPaTvshEArtikujve += Decimal.Parse(PriceBefVATPaTvsh);
                 PriceBefVATPaTvsh = $"\"{PriceBefVATPaTvsh}\"";
                 tipiIPerjashtimit = $"\"{tipiIPerjashtimit}\"";
-                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " VATAmt=" + $"{VATAmt2}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
+                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
                 taksa20 = 0;
                 done = 0;
             }
