@@ -9137,11 +9137,6 @@ function RuajClick(status, s, e) {//po
     $('#hfKonverto').val(JSON.stringify(resultkonvertime));
 
     if (isValidKoka()) {
-        if (hfState.Get("certificateExpire") && cbFiskalizo.GetChecked()) {
-            myMesazh.ShtoMesazhGabimi("Certifikata juaj ka skaduar");
-            e.processOnServer = false;
-            click = false;
-        }
         kontrolloPerqindjeAgjentiPaAgjent(btnAgjenti, txtPerqindjeAgjent);
         kontrolloPerqindjeAgjentiPaAgjent(btnAgjenti2, txtPerqindjeAgjent2);
         kontrolloPerqindjeAgjentiPaAgjent(btnAgjenti3, txtPerqindjeAgjent3);

@@ -205,7 +205,7 @@ $(document).ready(function (e) {
     $(window).on('unload', function (event) {
     });
     var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
-    if (dateSkadimiCertifikate != "") {
+    if (dateSkadimiCertifikate != "" && dateSkadimiCertifikate != undefined) {
         var opsionMbyllje = hfState.Get("MenuItemMbyll");
         var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
         var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, dateSkadimiCertifikate);

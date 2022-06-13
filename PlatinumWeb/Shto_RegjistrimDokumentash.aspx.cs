@@ -248,8 +248,6 @@ namespace PlatinumWeb
                 bool[] menute = clsFunksione.merrMenu(idPerdoruesi, idSkema, pageStateLloji == "modifikim" ? false : true, lblStatusAprovimi.Text, idDok, cmbModeli.Text, 1);
                 hfState.Set("menuteSipasSkemes", JsonConvert.SerializeObject(menute));
                 hfState.Set("kategoriSerialesh", JsonConvert.SerializeObject(new colSerialeUnikeKategori(idNdermarrje)));
-                if (clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje)) hfState.Set("certificateExpire", true);
-                else hfState.Set("certificateExpire", false);
 
             }
             else
@@ -2485,23 +2483,6 @@ namespace PlatinumWeb
             int[] ids = new int[0];
             var previousPageID = DbCore.IMBUtils.Types.Converter.MerrVlereOseDefault<string>(Request.QueryString["pageCacheId"]);
             colTaksa taksat = new colTaksa(kokeShitje.IdNdermarrje, kokeShitje.IdPerdoruesi); 
-            if(kokeShitje.TipiIVetefaturimit == "ABROAD")
-            {
-                for (int i = 0; i < kokeShitje.OColTrupiShitje.Count; i++)
-                {
-                    foreach (var taks in taksat.ToList().Where(x => x.IdTaksa == kokeShitje.OColTrupiShitje[i].Tvsh))
-                    {
-                        if (taks.TipiIPerjashtimit != "TAX_FREE")
-                        {
-                            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Kujdes: Keni zgjedhur llojin e vet-faturimit 'Abroad', duhet te zgjidhni nivelin 'Tax_Free'", pnlMesazhi);
-                            gabimNeRuajtje(statusDokumenti, true);
-                            return;
-                        }
-                    }
-                }
-            }
-            
-            
             if (!string.IsNullOrEmpty(previousPageID))
             {
                 var pageCache = GlobalCacheManager.GetPageCacheByPageID(previousPageID);
