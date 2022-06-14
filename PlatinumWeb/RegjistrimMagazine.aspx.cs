@@ -331,8 +331,6 @@ namespace PlatinumWeb
         {
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             int idNdermarrje = (int)hfState["idNdermarrje"];
-            if (!clsFunksioneFiskalizimi.ktheNeseCertifikataEFiskalizimitKaSkaduar(idNdermarrje))
-            {
 
 
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -537,7 +535,7 @@ namespace PlatinumWeb
 
                     clsFunksioneFiskalizimi.downloadFileToClientZip(filePath, Response, idPerdoruesi);
                 }
-            }
+            
 
 
         }

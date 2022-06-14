@@ -4606,11 +4606,7 @@ function RuajClick(s, e) {
     }
     click = true;
     if (isValidKoka()) {
-        if (hfState.Get("certificateExpire") && cbFiskalizo.GetChecked()) {
-            myMesazh.ShtoMesazhGabimi("Certifikata juaj ka skaduar");
-            e.processOnServer = false;
-            click = false;
-        }
+
         merrTeDhena(e);
         grida.setLastSel2(0);
         if (trupiBosh == true) {
