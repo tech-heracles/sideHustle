@@ -854,6 +854,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     perjashtimi = $"\"{perjashtimi}\"";
                     taguPerjashtimi = " EX=" + $"{perjashtimi}" + "";
                 }
+                if(norma.IdTaksa == 0)
+                {
+                    string perjashtimi = $"\"TAX_FREE\"";
+                    taguPerjashtimi = " EX=" + $"{perjashtimi}" + "";
+                }
                 if (dogane)
                     artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" EX=\"EXPORT_OF_GOODS\" U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
                 else
@@ -1230,7 +1235,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 qytetiNdermarrjeTag = " Town=" + $"{ndermarrjeQyteti}" + "";
             }
             if ((tipiAutongarkes == "\"ABROAD\"" || tipiAutongarkes == "\"\"") && isShitje)
-                clientInfo = "<Seller Address=" + $"{ndermarrjeVendi}" + " IDNum=" + $"{ndermarjeNIPT}" + qytetiNdermarrjeTag + " IDType =\"NUIS\" Name= " + $"{ndermarrjeEmri}" + "/>";
+                clientInfo = "<Seller Address=" + $"{ndermarrjeVendi}" + " IDNum=" + $"{ndermarjeNIPT}" + qytetiNdermarrjeTag + " IDType =\"NUIS\" Country=\"ALB\" Name= " + $"{ndermarrjeEmri}" + "/>";
             else
                 clientInfo = "<Buyer Address=" + $"{ndermarrjeVendi}" + " IDNum=" + $"{ndermarjeNIPT}" + qytetiNdermarrjeTag + " IDType =\"NUIS\" Country=\"ALB\" Name= " + $"{ndermarrjeEmri}" + "/>";
             var vleraPaTvshEArtikujve2 = String.Format("{0:0.00}", Math.Truncate(vleraPaTvshEArtikujve * 100) / 100);
