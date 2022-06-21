@@ -831,12 +831,17 @@ namespace RestApi.WebAPI.Models
             }
             if (emerTabeleKokaFshirje != "")
                 emerTabeleKoka = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleKoka}') BEGIN DELETE FROM " + emerTabeleKoka + " END ";
+            else emerTabeleKoka = "";
             if (emerTabeletrupiFshirje != "")
                 emerTabeleTrupi = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleTrupi}') BEGIN DELETE FROM " + emerTabeleTrupi + " END ";
+            else emerTabeleTrupi = "";
             if (emerTabeleKokaHistroikFshirje != "")
                 emerTabeleKokaHistorik = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleKokaHistorik}') BEGIN DELETE FROM " + emerTabeleKokaHistorik + " END ";
+            else emerTabeleKokaHistorik = "";
             if (emerTabeleTrupiHistorikFshirje != "")
                 emerTabeleTrupiHistorik = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleTrupiHistorik}') BEGIN DELETE FROM " + emerTabeleTrupiHistorik + " END ";
+            else emerTabeleTrupiHistorik = "";
+
             admin.fshiTabelaTemporareImporti(emerTabeleKoka, emerTabeleTrupi, emerTabeleKokaHistorik, emerTabeleTrupiHistorik);
             return true;
         }
