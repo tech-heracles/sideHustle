@@ -179,7 +179,8 @@
                 data[i].Numri = i + 1;
                 data[i].PDF = "Shiko Pdf";
                 data[i].x = data[i]["EIC"];
-                data[i].DueDateTime = data[i].DueDateTime.substring(0,10);
+                if (data[i].hasOwnProperty("DueDateTime"))
+                    data[i].DueDateTime = data[i].DueDateTime.substring(0,10);
             }
 
             var $table = $('#table')

@@ -696,8 +696,8 @@ namespace PlatinumWeb
 
                 if (col == null)
                 {
-                    ImbLogger.Error(
-                        $"percaktoVisibleColumnsGridSipasKodKonfigurimi({idGjuha}, {idNdermarrje}, {emergride}, {paramKodKonfigurimi}, {paramIdKomponente}, {idGjuha}, {mefilterDefault}) - col == null, Grida == {emergride.ToString()}, Kolona == {o.KodiTrupi}");
+                    //ImbLogger.Error(
+                    //    $"percaktoVisibleColumnsGridSipasKodKonfigurimi({idGjuha}, {idNdermarrje}, {emergride}, {paramKodKonfigurimi}, {paramIdKomponente}, {idGjuha}, {mefilterDefault}) - col == null, Grida == {emergride.ToString()}, Kolona == {o.KodiTrupi}");
                     continue;
                 }
 

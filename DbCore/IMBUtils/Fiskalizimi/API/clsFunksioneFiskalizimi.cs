@@ -1100,7 +1100,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             if (ndermarje.NdermarrjeQytetiPershkrimi != "")
             {
                 clsQyteti qytetiNdermarrjes = new clsQyteti(ndermarje.NdermarrjeQytetiPershkrimi, ndermarje.IdNdermarrje);
-                ndermarrjeQyteti = qytetiNdermarrjes.KodiQyteti;
+                ndermarrjeQyteti = qytetiNdermarrjes.EmriQyteti;
             }
             string ndermarrjeEmri = ndermarje.NdermarrjePershkrimi;
             string ndermarjeNIPT = ndermarje.NdermarrjeNipt;
@@ -1110,7 +1110,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             if (klienti.EmriQytetitKF != "")
             {
                 clsQyteti qytetiKlientit = new clsQyteti(klienti.EmriQytetitKF, ndermarje.IdNdermarrje);
-                klientiQyteti = qytetiKlientit.KodiQyteti;
+                klientiQyteti = qytetiKlientit.EmriQyteti;
             }
             string klientiAutongarkes = klienti.AutoNgarkese.ToString();
             string einvoicechecked = einvoice.ToString();
