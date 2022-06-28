@@ -116,7 +116,7 @@ namespace PlatinumWeb
                                 clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Arka Nuk Ka Kodin TCR!", pnlMesazhi);
                             else
                             {
-                                var gjnerimArkeDitore = clsFunksioneFiskalizimi.gjeneroArkenDitore(new clsNdermarrje(idNdermarrje), txtVlera.Text, dteData.Text, kodi, arka.KodiTCR);
+                                var gjnerimArkeDitore = clsFunksioneFiskalizimi.gjeneroVeprimeMeArken(new clsNdermarrje(idNdermarrje), txtVlera.Text, dteData.Text, kodi, arka.KodiTCR, "INITIAL");
                                 var kerkesa = clsFunksioneFiskalizimi.InvokeService(gjnerimArkeDitore, "", false);
                             }
                         }

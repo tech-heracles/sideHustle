@@ -1128,7 +1128,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             //dtRegjistrimiFatureOrigjinale = $"{dtRegjistrimi.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz")}";
             string vitiTani = DateTime.Now.ToString("yyyy");
             var metodPagimi = "";
-            if (menyrePagese == "Pagese Automatike")
+            if (menyrePagese == "Pagese Automatike" || menyrePagese == "Arke")
             {
                 txtNumer = $"{txtNumer}/{viti}/{tcr}";
                 menyrePag = $"\"CASH\"";
@@ -1938,7 +1938,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 string kodiIMetodesSePaguar = "";
                 if (bank.ShfaqNeEinvoice)
                 {
-                    if (menyrePagese == "Pagese Automatike" || menyrePagese == "Karte krediti")
+                    if (menyrePagese == "Pagese Automatike" || menyrePagese == "Karte krediti" || menyrePagese == "Arke")
                         kodiIMetodesSePaguar = "10";
                     else
                         kodiIMetodesSePaguar = "30";
@@ -2175,10 +2175,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
             }
         }
-        public static string gjeneroArkenDitore(clsNdermarrje nderm, string vlera, string data, string arka, string kodiTCR)
+        public static string gjeneroVeprimeMeArken(clsNdermarrje nderm, string vlera, string data, string arka, string kodiTCR, string operation)
         {
             var uuid = Guid.NewGuid().ToString();
             uuid = $"\"{uuid}\"";
+            operation = $"\"{operation}\"";
             string dataDergimit = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
             dataDergimit = $"\"{dataDergimit}\"";
             vlera = String.Format("{0:0.00}", Convert.ToDouble(vlera));
@@ -2198,7 +2199,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             " Id=\"Request\" " +
             " Version=\"3\">\r\n" +
             " <Header SendDateTime=" + $"{dataDergimit}" + " UUID=" + $"{uuid}" + "/>\r\n" +
-            " <CashDeposit CashAmt=" + $"{vlera}" + " ChangeDateTime=" + $"{dataDergimit}" + " IssuerNUIS=" + $"{nipt}" + " Operation= \"INITIAL\" TCRCode=" + $"{kodiTCR}" + "/>\r\n" +
+            " <CashDeposit CashAmt=" + $"{vlera}" + " ChangeDateTime=" + $"{dataDergimit}" + " IssuerNUIS=" + $"{nipt}" + " Operation=" + $"{operation}" + " TCRCode=" + $"{kodiTCR}" + "/>\r\n" +
             "</RegisterCashDepositRequest>";
             REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&", "&amp;");
             string passpath = nderm.Pathname + $"/password.txt";
