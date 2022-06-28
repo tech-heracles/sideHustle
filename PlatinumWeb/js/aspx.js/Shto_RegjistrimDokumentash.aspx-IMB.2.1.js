@@ -5031,6 +5031,12 @@ function SucceededCallbackKonfig(result) {  //po
     cmbModeli.HideDropDown();
     var magazinaDefault = null;
     for (var i = 0; i < colKontrollet.length; i++) {
+
+        if (colKontrollet[i].KodKontrolli == "lblFiskalizo") {
+            lblFiskalizo.SetText("Fature: ");
+        }
+        
+        
         //kur perdoruesi ka te drejta te percaktuara qe te beje fatura vetem duke konvertuar urdhrat e shitjes, duhet te lejohet qe te modifikohen data dhe pershkrimi i dokumentit
         if (konvSipasUrdherShitje && colKontrollet[i].IdTipiKontrollit != 0 && colKontrollet[i].IdTipiKontrollit !== 5 && colKontrollet[i].KodKontrolli !== 'data_DateEdit' && colKontrollet[i].KodKontrolli !== 'txtPershkrimi') {
             var k = Utils.ktheKontroll(colKontrollet[i].KodKontrolli);

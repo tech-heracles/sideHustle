@@ -60,9 +60,9 @@ namespace DbCore.IMBUtils.Kontrolle.Controls
         }
         public static bool ktheVersioninEServeritPerPagat()
         {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM T_SERVERSETTINGS";
-            string connectionString = dbManager.ConnectionString;
+            var connString = MyConnectionsManager.GetSelectedConNameServer();
+            string queryString = "SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'T_TATIME' AND COLUMN_NAME = 'NORMA'";
+            string connectionString = connString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -74,8 +74,8 @@ namespace DbCore.IMBUtils.Kontrolle.Controls
                     while (reader.Read())
                     {
 
-                        string data = reader["VersioniAlphaWeb"].ToString();
-                        if (data == "9.5.0.6") return true;
+                        string data = reader["DATA_TYPE"].ToString();
+                        if (data == "varchar") return true;
                         else return false;
                     }
                 }
