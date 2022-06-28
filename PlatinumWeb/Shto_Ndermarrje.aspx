@@ -615,7 +615,7 @@
                                         <ContentTemplate>
                                     <dx:ASPxUploadControl ID="ucEmerSkedari" runat="server" ClientInstanceName="ucEmerSkedari"  Width="70%" ClientVisible="false"
                                                                                 ShowProgressPanel="True" OnFileUploadComplete="ucEmerSkedari_FileUploadComplete" AdvancedModeSettings-EnableMultiSelect="false">
-                                                                                <ClientSideEvents FileUploadComplete="function(s, e) {shfaqPopupPerPajisjetElektronike();}"
+                                                                                <ClientSideEvents FileUploadComplete="function(s, e) {<%--shfaqPopupPerPajisjetElektronike(); nese do duhet qe kur te ngarkohet certifikata te shfaqet mesazhi per pajisjet elektronike--%>}"
                                                                                     FilesUploadComplete="function(s, e) { }"
                                                                                   ></ClientSideEvents>
                                                                                 <ValidationSettings MaxFileSizeErrorText="File qe keni zgjedhur eshte shume i madh!"
