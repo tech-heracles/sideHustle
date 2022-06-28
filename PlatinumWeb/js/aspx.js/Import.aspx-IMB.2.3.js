@@ -1463,5 +1463,5 @@ function fshiTabelaTemporare() {
     }).done(SucceededCallbackPastroTabelatTemporare);
 }
 function SucceededCallbackPastroTabelatTemporare() {
-    console.log("Done")
+    myMesazh.ShtoMesazhSuksesi("Tabelat u pastruan me sukses!");
 }

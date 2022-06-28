@@ -814,15 +814,34 @@ namespace RestApi.WebAPI.Models
         }
         public static bool PastroTabelatTemporare(string emerTabeleKoka, string emerTabeleTrupi, string emerTabeleKokaHistorik, string emerTabeleTrupiHistorik)
         {
+            string emerTabeleKokaFshirje = "";
+            string emerTabeletrupiFshirje = "";
+            string emerTabeleKokaHistroikFshirje = "";
+            string emerTabeleTrupiHistorikFshirje = "";
             clsDatabaseAdmin admin = new clsDatabaseAdmin();
-            if(emerTabeleKoka != "")
+            Queue<string> queue = admin.merrTabelatEImportit();
+            while(queue.Count != 0)
+            {
+                string first = queue.Peek();
+                if (emerTabeleKoka == first) emerTabeleKokaFshirje = emerTabeleKoka;
+                if(emerTabeleKokaHistorik == first) emerTabeleKokaHistroikFshirje = emerTabeleKokaHistorik;
+                if (emerTabeleTrupi == first) emerTabeletrupiFshirje = emerTabeleTrupi;
+                if (emerTabeleTrupiHistorik == first) emerTabeleTrupiHistorikFshirje = emerTabeleTrupiHistorik;
+                queue.Dequeue();
+            }
+            if (emerTabeleKokaFshirje != "")
                 emerTabeleKoka = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleKoka}') BEGIN DELETE FROM " + emerTabeleKoka + " END ";
-            if (emerTabeleTrupi != "")
+            else emerTabeleKoka = "";
+            if (emerTabeletrupiFshirje != "")
                 emerTabeleTrupi = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleTrupi}') BEGIN DELETE FROM " + emerTabeleTrupi + " END ";
-            if (emerTabeleKokaHistorik != "")
+            else emerTabeleTrupi = "";
+            if (emerTabeleKokaHistroikFshirje != "")
                 emerTabeleKokaHistorik = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleKokaHistorik}') BEGIN DELETE FROM " + emerTabeleKokaHistorik + " END ";
-            if (emerTabeleTrupiHistorik != "")
+            else emerTabeleKokaHistorik = "";
+            if (emerTabeleTrupiHistorikFshirje != "")
                 emerTabeleTrupiHistorik = $" IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{emerTabeleTrupiHistorik}') BEGIN DELETE FROM " + emerTabeleTrupiHistorik + " END ";
+            else emerTabeleTrupiHistorik = "";
+
             admin.fshiTabelaTemporareImporti(emerTabeleKoka, emerTabeleTrupi, emerTabeleKokaHistorik, emerTabeleTrupiHistorik);
             return true;
         }

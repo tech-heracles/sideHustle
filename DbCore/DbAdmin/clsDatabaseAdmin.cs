@@ -14489,7 +14489,44 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(3, "@KOMPONENTE", komponente, ParameterDirection.Input);
             return dbManager.GetIEnumerbale("prc_T_KONFIGIMPORTI_ktheNdermarrjesSipasTeDrejtave", clsKonfigImporti.Create);
         }
-
+        public Queue<string> merrTabelatEImportit()
+        {
+            var dbManager = MyScopeDbManager;
+            string queryString = "SELECT EMERTABELEKOKA,EMERTABELETRUPI,EMERTABELEREC,EMERTABELEKOKA_HISTORIK,EMERTABELETRUPI_HISTORIK,EMERTABELEREC_HISTORIK FROM T_KONFIGIMPORTI";
+            string connectionString = dbManager.ConnectionString;
+            Queue<string> queue = new Queue<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        if(reader["EMERTABELEKOKA"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELEKOKA"].ToString());
+                        if (reader["EMERTABELETRUPI"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELETRUPI"].ToString());
+                        if (reader["EMERTABELEREC"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELEREC"].ToString());
+                        if (reader["EMERTABELEKOKA_HISTORIK"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELEKOKA_HISTORIK"].ToString());
+                        if (reader["EMERTABELETRUPI_HISTORIK"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELETRUPI_HISTORIK"].ToString());
+                        if (reader["EMERTABELEREC_HISTORIK"].ToString() != "")
+                            queue.Enqueue(reader["EMERTABELEREC_HISTORIK"].ToString());
+                        //return queue;
+                    }
+                }
+                finally
+                {
+                    // Always call Close when done reading.
+                    reader.Close();
+                }
+            }
+            return queue;
+        }
         internal DataRow merrKonfigurimImportiSipasID(int id)
         {
             dbManager.Open();
