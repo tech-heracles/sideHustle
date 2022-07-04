@@ -60,10 +60,9 @@ namespace DbCore.IMBUtils.Kontrolle.Controls
         }
         public static bool ktheVersioninEServeritPerPagat()
         {
-            var connString = MyConnectionsManager.GetSelectedConNameServer();
+            var dbManager = MyScopeDbManager;
             string queryString = "SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'T_TATIME' AND COLUMN_NAME = 'NORMA'";
-            string connectionString = connString;
-
+            string connectionString = dbManager.ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);

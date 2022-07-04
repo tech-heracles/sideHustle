@@ -532,7 +532,7 @@ namespace PlatinumWeb
                 if (!konvertuar)
                     throw new DbCore.MyException("Norma nuk eshte numer!");
             }
-
+            
             return new DbCore.DbRegjistrim.clsTaksa(MessagesResource.Messages,idTaksa, txtKodi.Text, txtPershkrimi.Text, perqindja, IdNdermarrja, cmbLlogDebi.Text, cmbLlogKredi.Text, idLlojTakse, cmbNjesia.Text, idPerdoruesi, konfig.IdKonfigAmbjente, 1, cbAktiv.Checked, cmbLlogDog.Text, cbPerjashtuar.Checked, cbAplikoTvshNeFleteDoganore.Checked, cbTakseNdermarje.Checked, hfAutorizime.Value.ToString(), cbFurnizimeZero.Checked, cbShitjePaTvshTaksa.Checked, shtim, lidhurNderfaqe,cmbTipiPerjashtimit.Text);
         }
 
@@ -586,7 +586,11 @@ namespace PlatinumWeb
             bool eshteShtim;
             var tedrejtaInfo = new clsTeDrejtaRoli();
             tedrejtaInfo.merrTeDrejtaPerKeteKomponente(IdPerdoruesi, IdNdermarrja, IdViti, komponente);
-
+            if(taksa.TipiIPerjashtimit != "" && taksa.NormaPerqindje != 0)
+            {
+                clsMenuInfo.ShtoMesazhGabimi(ASPxMenu1, "Taksa duhet te jete 0 nese ka tip përjashtimi", pnlMesazhi);
+                return;
+            }
             if (hfShtimModifikim.Value == "shtim" || hfShtimModifikim.Value == "klonim")
             {
                 if (!tedrejtaInfo.DShtim)

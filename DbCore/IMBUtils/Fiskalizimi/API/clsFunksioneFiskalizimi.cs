@@ -864,6 +864,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 else
                     if(taguPerjashtimi == "")
                         artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" "+ taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + " VR=" + $"{VR3}" + "/>";
+                    else if(norma.IdTaksa == 0 || norma.TipiIPerjashtimit == "TAX_FREE")
+                        artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + "/>";
                     else
                         artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
                 //}
