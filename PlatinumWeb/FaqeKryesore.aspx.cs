@@ -920,22 +920,25 @@ namespace PlatinumWeb
             ASPxMenu1.Items[4].Items[2].Text = rm.GetString("MenuItemRaportBanka", ci);
             ASPxMenu1.Items[4].Items[3].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
             ASPxMenu1.Items[4].Items[4].Text = rm.GetString("MenuItemRaportBlerjet", ci);
-            ASPxMenu1.Items[4].Items[5].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
-            ASPxMenu1.Items[4].Items[6].Text = rm.GetString("MenuItemBuxheti", ci);
-            ASPxMenu1.Items[4].Items[7].Text = rm.GetString("MenuItemRaportInventari", ci);
-            ASPxMenu1.Items[4].Items[8].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
-            ASPxMenu1.Items[4].Items[9].Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
-            ASPxMenu1.Items[4].Items[10].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
-            ASPxMenu1.Items[4].Items[11].Text = rm.GetString("MenuItemRaportProdhimi", ci);
-            ASPxMenu1.Items[4].Items[12].Text = rm.GetString("MenuItemRaportCRM", ci);
-            ASPxMenu1.Items[4].Items[13].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
-            ASPxMenu1.Items[4].Items[14].Text = rm.GetString("MenuItemRaportShitjet", ci);
-            ASPxMenu1.Items[4].Items[15].Text = rm.GetString("MenuItemRaportTollonash", ci);
-            ASPxMenu1.Items[4].Items[16].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-            ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-            ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-            ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-            ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+            ASPxMenu1.Items[4].Items[5].Text = rm.GetString("MenuItemRaportFaturatEBlrejes", ci);
+            ASPxMenu1.Items[4].Items[5].Visible = true; 
+                
+            ASPxMenu1.Items[4].Items[6].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
+            ASPxMenu1.Items[4].Items[7].Text = rm.GetString("MenuItemBuxheti", ci);
+            ASPxMenu1.Items[4].Items[8].Text = rm.GetString("MenuItemRaportInventari", ci);
+            ASPxMenu1.Items[4].Items[9].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
+            ASPxMenu1.Items[4].Items[10].Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
+            ASPxMenu1.Items[4].Items[11].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
+            ASPxMenu1.Items[4].Items[12].Text = rm.GetString("MenuItemRaportProdhimi", ci);
+            ASPxMenu1.Items[4].Items[13].Text = rm.GetString("MenuItemRaportCRM", ci);
+            ASPxMenu1.Items[4].Items[14].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
+            ASPxMenu1.Items[4].Items[15].Text = rm.GetString("MenuItemRaportShitjet", ci);
+            ASPxMenu1.Items[4].Items[16].Text = rm.GetString("MenuItemRaportTollonash", ci);
+            ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
+            ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+            ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+            ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+            ASPxMenu1.Items[4].Items[21].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 
 
             ASPxMenu1.Items[5].Text = rm.GetString("MenuItemHelp", ci);
@@ -1006,6 +1009,8 @@ namespace PlatinumWeb
             ASPxNavBar1.Groups[3].Items[9].Text = rm.GetString("MenuItemRegjistrimeDiscountDevice", ci);
             ASPxNavBar1.Groups[3].Items[10].Text = rm.GetString("MenuItemBazaar", ci);
             ASPxNavBar1.Groups[3].Items[11].Text = rm.GetString("MenuItemRegjistrimeBazaar", ci);
+            ASPxNavBar1.Groups[3].Items[12].Text = "Fatura Blerje Einvoice";
+            ASPxNavBar1.Groups[3].Items[12].Visible = true;
 
 
             ASPxNavBar1.Groups[4].Text = rm.GetString("MenuItemRaportArkadheBanka", ci);
@@ -1073,25 +1078,26 @@ namespace PlatinumWeb
             ASPxNavBar1.Groups[12].Text = rm.GetString("MenuItemRaportet", ci);
             ASPxNavBar1.Groups[12].Items[0].Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
             ASPxNavBar1.Groups[12].Items[1].Text = rm.GetString("MenuItemRaportBlerjet", ci);
-            ASPxNavBar1.Groups[12].Items[2].Text = rm.GetString("MenuItemRaportShitjet", ci);
-            ASPxNavBar1.Groups[12].Items[3].Text = rm.GetString("MenuItemRaportInventari", ci);
-            ASPxNavBar1.Groups[12].Items[4].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
-            ASPxNavBar1.Groups[12].Items[5].Text = rm.GetString("MenuItemRaportArka", ci);
-            ASPxNavBar1.Groups[12].Items[6].Text = rm.GetString("MenuItemRaportBanka", ci);
-            ASPxNavBar1.Groups[12].Items[7].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
-            ASPxNavBar1.Groups[12].Items[8].Text = rm.GetString("MenuItemRaportProdhimi", ci);
-            ASPxNavBar1.Groups[12].Items[9].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
-            ASPxNavBar1.Groups[12].Items[10].Text = rm.GetString("MenuItemAmortizimi", ci);
-            ASPxNavBar1.Groups[12].Items[11].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
-            ASPxNavBar1.Groups[12].Items[12].Text = rm.GetString("MenuItemRaportTollonash", ci);
-            ASPxNavBar1.Groups[12].Items[13].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-            ASPxNavBar1.Groups[12].Items[14].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-            ASPxNavBar1.Groups[12].Items[15].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-            ASPxNavBar1.Groups[12].Items[16].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-            ASPxNavBar1.Groups[12].Items[17].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
-            ASPxNavBar1.Groups[12].Items[18].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
-            ASPxNavBar1.Groups[12].Items[19].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
-            ASPxNavBar1.Groups[12].Items[20].Text = rm.GetString("MenuItemRaportBuxheti", ci);
+            ASPxNavBar1.Groups[12].Items[2].Visible = true;
+            ASPxNavBar1.Groups[12].Items[3].Text = rm.GetString("MenuItemRaportShitjet", ci);
+            ASPxNavBar1.Groups[12].Items[4].Text = rm.GetString("MenuItemRaportInventari", ci);
+            ASPxNavBar1.Groups[12].Items[5].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
+            ASPxNavBar1.Groups[12].Items[6].Text = rm.GetString("MenuItemRaportArka", ci);
+            ASPxNavBar1.Groups[12].Items[7].Text = rm.GetString("MenuItemRaportBanka", ci);
+            ASPxNavBar1.Groups[12].Items[8].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
+            ASPxNavBar1.Groups[12].Items[9].Text = rm.GetString("MenuItemRaportProdhimi", ci);
+            ASPxNavBar1.Groups[12].Items[10].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
+            ASPxNavBar1.Groups[12].Items[11].Text = rm.GetString("MenuItemAmortizimi", ci);
+            ASPxNavBar1.Groups[12].Items[12].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
+            ASPxNavBar1.Groups[12].Items[13].Text = rm.GetString("MenuItemRaportTollonash", ci);
+            ASPxNavBar1.Groups[12].Items[14].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
+            ASPxNavBar1.Groups[12].Items[15].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+            ASPxNavBar1.Groups[12].Items[16].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+            ASPxNavBar1.Groups[12].Items[17].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+            ASPxNavBar1.Groups[12].Items[18].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+            ASPxNavBar1.Groups[12].Items[19].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
+            ASPxNavBar1.Groups[12].Items[20].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
+            ASPxNavBar1.Groups[12].Items[21].Text = rm.GetString("MenuItemRaportBuxheti", ci);
 
 
 

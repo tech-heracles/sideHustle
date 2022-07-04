@@ -2647,6 +2647,7 @@ namespace PlatinumWeb
                                             {
                                                 
                                                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura elektronike u krijua me sukses!", pnlMesazhi);
+
                                             }
 
 
