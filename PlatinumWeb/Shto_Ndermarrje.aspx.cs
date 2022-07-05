@@ -1529,4 +1529,24 @@ namespace PlatinumWeb
             hfState.Set("kodNdermERe", kodNdermarrje);
         }
     }
+    // kerkesa per fiskalizim
+    //???????
+    //var faturat = clsFunksioneFiskalizimi.merrVleratEFaturaveEinvoice(xml, "Einvoices", true);
+
+
+    //XmlDocument doc = new XmlDocument();
+    //doc.LoadXml(faturat);
+            
+    //        var json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.None, true);
+    //hfState.Set("idNdermarrje",idNdermarrje);
+
+           
+           
+
+    //        hfStateNdermarrje.Value = idNdermarrje.ToString();
+
+    //        //pershtatja e re per hfstate - idNdermarrje
+
+    //        hfState.Set("json", json);
+    //        hfState.Set("idNdermarrje", idNdermarrje);
 }

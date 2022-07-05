@@ -38,6 +38,7 @@ namespace PlatinumWeb
             
             var json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.None, true);
             hfState.Set("idNdermarrje",idNdermarrje);
+
            
            
 

@@ -7918,6 +7918,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemRaportBussinesIntelligence" xml:space="preserve">
     <value>BI</value>
   </data>
+	<data name="MenuItemRaportFaturatEBlrejes" xml:space="preserve">
+    <value>Fatura Blerjes Einvoice</value>
+  </data>
   <data name="MenuItemRaportBuxheti" xml:space="preserve">
     <value>Buxheti</value>
   </data>

@@ -24,49 +24,69 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css"/>
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
-    <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet"/>
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"/>
     
     
     
 
     <style>
-        table {
+        #table{
             border-collapse: collapse;
-            width: 100%;
+            width: 100%
         }
-
-        td, th {
-            border: 1px solid #000000;
-            text-align: left;
+        .filter-control input {  
+            width: 95% !important;   
+            margin-left: 2.5%;  
+           margin-bottom: 10px;
+        }
+        
+        #table td {
+           border-top: 1px solid #ddd;
             padding: 8px;
         }
+       
+        #table th {
+            text-align: left;  
+            padding-top: 12px;
+            padding-bottom: 12px;
+            color: black;
+            
+        }
 
-            td:nth-child(even), th:nth-child(even) {
-                background-color: #D6EEEE;
-            }
-            .hidden{
-                display: none;
-            }
-            .pdf-preview{
-                position:fixed;
-                right:20px;
-                opacity: 0.8;
-                border-radius: 6px;
-                border: 0px solid teal;
-                z-index: 9999999;
-                overflow-y: hidden;
-                height: 165px;
-            }
-
-           
+        td:nth-child(even), th:nth-child(even) {
+            background-color: none;
+            
+        }
+        .hidden{
+            display: none;
+        }
+        .pdf-preview{
+            position:fixed;
+            right:20px;
+            opacity: 0.8;
+            border-radius: 6px;
+            border: 0px solid teal;
+            z-index: 9999999;
+            overflow-y: hidden;
+            height: 165px;
+        }
+        .margin-nr div{
+            margin-bottom: 50%;
+        }
+        .margin-status div{
+            margin-bottom: 30%;
+        }
+        .ShfaqPdf div{
+            margin-bottom: 85%
+        }
     </style>        
 </head>
 <body>
@@ -97,7 +117,7 @@
          
       function PdfLinkFormatter(value, row, id) {
          
-          var span = "<span  class='span'  onmouseover='iFrameCell(this)' onmouseleave='leave(this)'  position: static; left: 2500px; border: 3px solid #73AD21;cursor:pointer;' id='ShikoPDF' >Shiko PDF</span>";
+          var span = "<span  class='span'  onmouseover='iFrameCell(this)' onmouseleave='leave(this)'  position: static; left: 3500px; border: 3px solid #73AD21;cursor:pointer;' id='ShfaqPDF' >Shfaq PDF</span>";
             return span;
         }
 
@@ -126,7 +146,7 @@
         
         function onClickCell(event, field, value, row, $element) {
            
-            if (value === 'Shiko Pdf') {
+            if (value === 'Shfaq Pdf') {
                 var eic = $element[0].nextSibling.innerHTML;
                 getEinvoice(eic, false, $element);
             }
@@ -163,24 +183,24 @@
       
          function func () {
 
-             var columns = [{ field: 'Numri', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
-             { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'DueDateTime', title: 'Afati', sortable: true, filterControl: 'select' },
-                 { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' }, { field: 'Ndrysho Status', title: 'Ndrysho Status', sortable: true, formatter: StatusLinkFormatter },
-             { field: 'Amount', title: 'Sasia', sortable: true, filterControl: 'input' }, { field: 'PDF', title: 'PDF', class: 'shikoPdf', sortable: false, formatter: PdfLinkFormatter },
-             { field: "x", title: "x", class: "hidden", sortable: false }];
+             var columns = [{ field: 'Numri', class: 'margin-nr', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
+                 { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
+                 { field: 'DueDateTime', title: 'Afati i pageses', sortable: true, filterControl: 'input' }, { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' },
+                 { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },{ field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
+                 { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter },{ field: "x", title: "x", class: "hidden", sortable: false }];
 
             var test = hfState.Get("json")
             test = test.replaceAll("@", "");
 
             var data = JSON.parse(test).Einvoice;
-
-
-            for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) { 
                 data[i].Numri = i + 1;
-                data[i].PDF = "Shiko Pdf";
+                data[i].PDF = "Shfaq Pdf";
                 data[i].x = data[i]["EIC"];
                 if (data[i].hasOwnProperty("DueDateTime"))
-                    data[i].DueDateTime = data[i].DueDateTime.substring(0,10);
+                    data[i].DueDateTime = data[i].DueDateTime.substring(0, 10);
+                if (data[i].hasOwnProperty("RecDateTime"))
+                    data[i].RecDateTime = data[i].RecDateTime.substring(0,10);
             }
 
             var $table = $('#table')

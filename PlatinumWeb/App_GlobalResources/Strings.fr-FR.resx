@@ -10677,6 +10677,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemRaportBussinesIntelligence" xml:space="preserve">
     <value>L'intelligence d'entreprise</value>
   </data>
+	<data name="MenuItemRaportFaturatEBlrejes" xml:space="preserve">
+    <value>Facture d'achat</value>
+  </data>
   <data name="MenuItemRaportBuxheti" xml:space="preserve">
     <value>Budget</value>
   </data>

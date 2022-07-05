@@ -1036,6 +1036,9 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=13" Text="Blerjet" Visible="false">
                                                         </dx:MenuItem>
+                                                        <dx:MenuItem Text=" Fatura Blerje Einvoice" Name="FaturaBlerjeEinvoice.aspx"
+                                                           Visible="true">
+                                                                </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=17" Text="Burimet Njerëzore" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=57" Text="Buxheti" Visible="false">
@@ -1215,6 +1218,9 @@
                                                         <dx:NavBarItem Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=bazaar&shtim_modifikim=shtim"
                                                             Text="Regjistrimet e shitjeve bazaar" Visible="false">
                                                         </dx:NavBarItem>
+                                                        <dx:NavBarItem Name="FaturaBlerjeEinvoice.aspx?"
+                                                            Text="Fatura Blerje Einvoice" Visible="true">
+                                                        </dx:NavBarItem>
 
                                                     </Items>
                                                 </dxnb:NavBarGroup>
@@ -1363,6 +1369,8 @@
                                                         <dxnb:NavBarItem Text="Kontabiliteti" Name="Raportet.aspx?idmod=7" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=13" Text="Blerjet" Visible="false">
+                                                        </dxnb:NavBarItem>
+                                                        <dxnb:NavBarItem Name="FaturaBlerjeEinvoice.aspx?" Text="FaturaBlerjeEinvoice" Visible="true">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=12" Text="Shitjet" Visible="false">
                                                         </dxnb:NavBarItem>

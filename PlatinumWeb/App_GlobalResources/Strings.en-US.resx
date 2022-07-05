@@ -795,6 +795,9 @@ During the warranty period, Vodafone or any other company authorized by Vodafone
   <data name="MenuItemRaportBussinesIntelligence" xml:space="preserve">
     <value>Business Intelligence</value>
   </data>
+    <data name="MenuItemRaportFaturatEBlrejes" xml:space="preserve">
+    <value>Purchase Einvoice</value>
+  </data>
   <data name="MenuItemRaportBuxheti" xml:space="preserve">
     <value>Budget</value>
   </data>
