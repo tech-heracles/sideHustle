@@ -206,3 +206,15 @@ e-eventi
 function OnGridSelectionChanged(e) {
     indexSel = myMenu.JSlevizNeGride.OnGridSelectionChanged(e, indexSel);
 }
+function hapRaport() {
+    var myParams = [];
+    myParams.push("idraporti=" + 173);
+    myParams.push("idmod=" + 2)
+    myParams.push("windowWidth=" + $(window).width());
+    myParams.push("Filtro=" + false);
+    var ngaCRM = Utils.getUrlVar("vjenNga");
+    if (ngaCRM != "undefined")
+        myParams.push("vjenNga=" + ngaCRM);
+
+    window.open((173 == 292 ? "CRMHarte.aspx?" : "Raporti.aspx?") + myParams.join('&'), "_blank");
+}

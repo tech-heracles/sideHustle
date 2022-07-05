@@ -183,6 +183,7 @@ function Init() {
         prm.add_endRequest(EndRequestHandler);
         myMesazh.shtoHandler();
         merrKonfigurimeWebhook(hfState.Get("idNdermarrje"))
+
     }
 }
 
@@ -1793,6 +1794,8 @@ function SucceededCallbackKonfig(fullResult) {
     }
     if (Utils.getUrlVar('idfatura') !== typeof (undefined)) //do te lihet keshtu per momentin sepse nuk mund te ruajme faturen ne trup ne ndryshimin e llojit te dokumentit
         konfigurimi_ComboBox.SetEnabled(false);
+    $("#DergoArke").css("display", "flex");
+    $("#DergoArke").css("flex-wrap", "wrap");
 }
 
 function DateChanged(kontrolloNrAutomatik, dateChangedByUser) {

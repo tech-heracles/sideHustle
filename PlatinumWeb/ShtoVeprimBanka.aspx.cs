@@ -34,6 +34,8 @@ using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Messages;
 using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
 using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Fiskalizimi.API;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace PlatinumWeb
 {
@@ -58,6 +60,7 @@ namespace PlatinumWeb
         private CultureInfo ci => mySessionObjects.ktheCultureInfo(Session);
         int idKatDokShitje, idKategori;
         private string guidString, veprimi, komponente;
+        private bool clsKontrolleFiskalizimi;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -933,6 +936,7 @@ namespace PlatinumWeb
         /// <param name="gridFaturat"></param>
         protected void RuajVeprimBanke(int statusi, bool printo, ASPxGridView gridFaturat, StatusAprovimi statusAprovimi)
         {
+           
             string hfShtimModifikimValue = hfShtimModifikim.Value;
             string shfaqmesazhapolupe = "jo";
             string shfaqmesazhapolupeVdk = "jo";
@@ -988,7 +992,16 @@ namespace PlatinumWeb
             clsMesazh mesazh;
             clsTeDrejtaRoli tedrejtaInfo = new clsTeDrejtaRoli();
             tedrejtaInfo.merrTeDrejtaPerKeteKomponente(IdPerdoruesi, IdNdermarrja, IdViti, clsFunksione.GetKomponente(Page.Request));
-
+            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV6() && (koka.LlojiVeprimit == "Arketim" || koka.LlojiVeprimit == "Pagese") && Dergo.Checked)
+            {
+                DateTime ditaSot = data_DateEdit.Date;
+                var gjendjeArkeDitore = clsGjendjeArkeDitore.merrGjendjeDitoreSipasIdArkeDheDitesSot(koka.IdBanka, ditaSot);
+                if (!gjendjeArkeDitore)
+                {
+                    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Regjistroni me pare balancen ditore te arkes!", pnlMesazhi);
+                    return;
+                }
+            }
             switch (hfShtimModifikimValue)
             {
                 case "shtim":
@@ -1036,6 +1049,25 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
                 status1.Value = "false";
                 return;
+            }
+            if(mesazh.Status && Dergo.Checked && (hfShtimModifikimValue== "shtim" || hfShtimModifikimValue == "klonim"))
+            {
+                string veprimi = "";
+                clsBanka arkaBanka = new clsBanka(koka.IdBanka);
+                if (koka.LlojiVeprimit == "Arketim")
+                    veprimi = "DEPOSIT";
+                else if (koka.LlojiVeprimit == "Pagese")
+                    veprimi = "WITHDRAW";
+                if (veprimi != "")
+                {
+                    string xml = clsFunksioneFiskalizimi.gjeneroVeprimeMeArken(new clsNdermarrje(IdNdermarrja), koka.Vlera.ToString(), koka.DateDokumenti.ToString(), arkaBanka.KodiBanka, arkaBanka.KodiTCR, veprimi);
+                    string[] result = clsFunksioneFiskalizimi.InvokeService(xml, "", false);
+                    if (result[0] == null && veprimi == "DEPOSIT")
+                        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Arka u depozitua me sukses ne self-care", pnlMesazhi);
+                    if (result[0] == null && veprimi == "WITHDRAW")
+                        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Arka u terhoqe me sukses ne self-care", pnlMesazhi);
+                }
+
             }
             hfqkmesazhi.Value = shfaqmesazhapolupe;
             hfqkmesazhiVDK.Value = shfaqmesazhapolupeVdk;

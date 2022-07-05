@@ -18,6 +18,16 @@
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.min.js;~/js/myMesazh-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myNrAuto-IMB.2.1.js;~/JsGlobal.js;~/toword.js;~/js/mySessionStorage.js;~/js/aspx.js/ShtoVeprimBanka.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
+   <style>
+    .dergoArke{
+        display: none;
+        width: 22.5%;
+        margin-left: .5%;
+    }
+    .dergoArke p{
+        padding-right: 25%;
+    }
+   </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -269,16 +279,27 @@
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                     <div id="accordition">
+                                        
                                         <div>
                                             <h3 id="kokeKonfigurimi"><span id="kokeKonfigurimidiv" class="ui-not-accordion-header-text">Koke Dokumenti:</span></h3>
                                             <div>
                                                 <table id="tblKonfigurimi" runat="server"></table>
                                                 <table id="tblFillim" class="renditKontrolle">
                                                     <tbody></tbody>
+
                                                 </table>
+                                                <div id="DergoArke" class="dergoArke">
+                                                    <p id="lblDergoArke">
+                                                        Dergo: 
+                                                    </p>
+                                                <input type="checkbox" ID="Dergo" runat="server"/>
+                                                </div>
+                                                
                                             </div>
                                         </div>
+                                          
                                         <div>
+                                           
                                             <h3 id="trupKonfigurimi"><span id="trupKonfigurimidiv" class="ui-not-accordion-header-text">Trup Dokumenti</span></h3>
                                             <div>
                                                 <div id="divgride1" style="margin-left: 0px; display: none">
@@ -297,6 +318,7 @@
                                                 <br />
                                                 <br />
                                                 <br />
+                                               
                                                 <div id="dvgrid_faturat">
                                                     <dx:ASPxNavBar ID="ASPxNavBar1" runat="server" Width="100%" ClientSideEvents-HeaderClick="nvFaturaClick" ClientInstanceName="nvFatura">
                                                         <Groups>
@@ -337,7 +359,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div id="dvFillim" class="atributeDiveFshehur">
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="veprimi_ComboBox" ID="veprimi_Label" runat="server" ClientInstanceName="veprimi_Label" Text="Zgjidh llojin e veprimit">
                                         </dx:ASPxLabel>
@@ -706,6 +727,8 @@
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False"></DisabledStyle>
                                         </dx:ASPxComboBox>
+                                        
+                                          
                                     </div>
                                     <br />
                                     <br />

@@ -3573,7 +3573,7 @@ namespace PlatinumWeb
                 {
                     throw new Exception("Arka e zgjedhur nuk ka kodin TCR!");
                 }
-                if (cmbMenyrePagese.Text == "Pagese Automatike")
+                if (cmbMenyrePagese.Text == "Pagese Automatike" || cmbMenyrePagese.Text == "Arke")
                 {
                     if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV6())
                     {

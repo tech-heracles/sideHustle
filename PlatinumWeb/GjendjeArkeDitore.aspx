@@ -17,6 +17,12 @@
     <link href="css/selectize.css" type="text/css" rel="stylesheet" />
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/selectize.min.js;~/js/multiSelect.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/GjendjeArkeDitore.aspx-IMB.6.5.js&v76""
         type="text/javascript"></script>
+    <style>
+        .hyperLink{
+            cursor: pointer;
+            margin-left:9px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -237,7 +243,9 @@
                                         <RegularExpression ValidationExpression="[0-9,.-]*" ErrorText="Lejohen vetem numra!" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-
+                                <dx:ASPxHyperLink Wrap="False" ID="ASPxHyperLink" runat="server" Text="Shih gjendjen ne fund te dites se djeshme" ClientInstanceName="ASPxHyperLink" CssClass="hyperLink">
+                                    <ClientSideEvents Click="function(s, e) { hapRaport() }" />
+                                </dx:ASPxHyperLink>
                             </dxw:ContentControl>
                         </ContentCollection>
                     </dxtc:TabPage>
