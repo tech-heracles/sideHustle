@@ -462,7 +462,13 @@ namespace PlatinumWeb
         protected void ProgressBar1_RunTask(object sender, EO.Web.ProgressTaskEventArgs e)
         {
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
+            DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(DateTime.Now,
+                         TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
+            if (timezoneIShqiperise.Hour < 18)
+            {
+                return;
 
+            }
 
             if (DbCore.MbylljePeriudhe.PeriodClosing.IsPeriodClosed(dtePeriudhaNga.Date, DbCore.IMBUtils.DataBase.MyConnectionsManager.GetSelectedConNameServer(), idNdermarrje, DbCore.DbRegjistrim.KategoriDokumenti.RivleresimInventari, 0))
             {

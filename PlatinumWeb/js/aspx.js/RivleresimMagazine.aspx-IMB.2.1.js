@@ -120,10 +120,16 @@ function onTaskDone() {
     }
     else {
         var extraData = ProgressBar1.getExtraData();
-        var mesazhInformues = hfState.Get("msgRivleresimMagazineUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' % ';
-        if (extraData)
-            mesazhInformues = mesazhInformues + extraData;
-        myMesazh.ShtoMesazhInformues(mesazhInformues);
+        var today = new Date();
+        if (today.getHours() < 18)
+            myMesazh.ShtoMesazhInformues("Ju lutem provoni pas ores 18: 00");
+        else {
+            var mesazhInformues = hfState.Get("msgRivleresimMagazineUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' % ';
+            if (extraData)
+                mesazhInformues = mesazhInformues + extraData;
+            myMesazh.ShtoMesazhInformues(mesazhInformues);
+        }
+        
         Utils.hiqLoadingGif("#ASPxSplitter1");
         gvRivleresim.PerformCallback();
         gvRivleresim2.PerformCallback();
