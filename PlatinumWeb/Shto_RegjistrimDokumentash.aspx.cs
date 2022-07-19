@@ -2938,7 +2938,10 @@ namespace PlatinumWeb
                     string kodSoftueri = WebConfigurationManager.AppSettings["kodSoftueri"];
                     DbData dbData = new DbData();
                     if (txtIIC.Text == "" && nderm.Fiskalizimi)
+                    {
                         txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeShitje.DtDok.ToString().Split(' ')[0] + ' ' + kokeShitje.DtKrijimiPajisje.ToString().Split(' ')[1]));
+                        kokeShitje.IIC = txtIIC.Text;
+                    }
                     //kokeShitje.IIC = txtIIC.Text;
                     mesazh = kokeShitje.modifikoSh(idGjuha, serverUrl, lidhur, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina,
                         kokaMema, dergoemail, eshteOwn, dergoemailVfOne, serialemag, konfamortizimi, isShitje, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, 
