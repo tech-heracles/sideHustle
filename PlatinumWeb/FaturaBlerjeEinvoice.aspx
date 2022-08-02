@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaturaBlerjeEinvoice.aspx.cs" Inherits="PlatinumWeb.FaturaBlerjeEinvoice" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaturaBlerjeEinvoice.aspx.cs" Inherits="PlatinumWeb.FaturaBlerjeEinvoice" %>
 <%@ Register Src="~/ucPopUpEinvoice.ascx" TagPrefix="ucPopUpEinvoice" TagName="ucPopUpEinvoice" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -58,6 +58,9 @@
             padding-top: 12px;
             padding-bottom: 12px;
             color: black;
+            position: static;
+            text-align: center;
+            
             
         }
 
@@ -100,7 +103,7 @@
 
     <div> 
        
-     <table id="table" ></table>
+     <table id="table" width: 70% ></table>
        <%--  <div class="dropdown">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Active
