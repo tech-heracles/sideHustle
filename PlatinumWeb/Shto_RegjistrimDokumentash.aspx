@@ -305,6 +305,7 @@
                 <asp:HiddenField ID="hfLKVK" runat="server" />
                 <asp:HiddenField ID="hfTotalPikesh" runat="server" />
                 <asp:HiddenField ID="hfObjektRuajtur" runat="server" />
+                <asp:HiddenField ID="blob" runat="server" />
             </ContentTemplate>
         </asp:UpdatePanel>
         <%--<dx:ASPxHiddenField ID="hfPeriudhaKontabel" ClientInstanceName="hfPeriudhaKontabel" runat="server"></dx:ASPxHiddenField>--%>
@@ -358,6 +359,7 @@
         <asp:HiddenField ID="hfHapurMbyllur" runat="server" />
         <asp:HiddenField ID="hfLupa" runat="server" />
         <asp:HiddenField ID="hfTeDrejtaModSkema" runat="server" />
+
         <%-- per te ruajtur konfigurimin  lupes per lupat qe ndodhen ne gride--%>
         <asp:HiddenField ID="hfGridaKodi" runat="server" />
         <asp:HiddenField ID="hfGridaDetajimi" runat="server" />

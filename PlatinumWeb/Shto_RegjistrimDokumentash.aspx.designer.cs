@@ -879,6 +879,15 @@ namespace PlatinumWeb
         protected global::System.Web.UI.WebControls.HiddenField hfObjektRuajtur;
 
         /// <summary>
+        /// blob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField blob;
+
+        /// <summary>
         /// gridDataObject control.
         /// </summary>
         /// <remarks>

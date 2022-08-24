@@ -8328,6 +8328,10 @@ function pastroFushatKokes() {//po
     cmbTipiIVetefaturimit.SetValue(null);
     UcDocumentEinvoice.SetEnabled(false);
     upload.SetEnabled(false);
+
+    // ky si funksion therritet sa here del me sukses fatura,
+    //mund te behet qe pasi te ruhet fatura te shikohet me hfState.get("blob"); dhe nese seshte null te merret base64
+    //dhe te konvertohet etj etj sic behet te faturat e blerjes
 }
 function DokumentEincoiceUpload(s, e) {
     if (s.GetChecked() == false) {
@@ -8567,7 +8571,24 @@ function EndRequestHandler(sender, args) {//po
     }).done(SuccedcallbackSkemaMenu);
 
    // if (pageState.lloji == "shtim" && ($('#hfRuajteobjkti').val() != ""))
+    if ($("#blob").val() != "") {
+        var base64str = JSON.parse($("#blob").val()).b64;
 
+        // dekodimi me base64 string
+        var binary = atob(base64str.replace(/\s/g, ''));
+        var len = binary.length;
+        var buffer = new ArrayBuffer(len);
+        var view = new Uint8Array(buffer);
+        for (var i = 0; i < len; i++) {
+            view[i] = binary.charCodeAt(i);
+        }
+
+        // krijimi i nje objekti blob  me nje  content-type "application/pdf"               
+        var blob = new Blob([view], { type: "application/pdf" });
+        var url = URL.createObjectURL(blob);
+        window.open(url, '_blank');
+
+    }
     webhook();
 }
 function webhook() {

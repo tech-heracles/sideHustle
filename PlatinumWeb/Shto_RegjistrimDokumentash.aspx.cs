@@ -2647,7 +2647,20 @@ namespace PlatinumWeb
                                             {
                                                 
                                                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura elektronike u krijua me sukses!", pnlMesazhi);
+                                                //var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
+                                                //var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
+                                                //string b64string = base64[0];
+                                                //blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
+                                                
+                                                if (cbPrinto.Checked)
+                                                {
+                                                    var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
+                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
+                                                    string b64string = base64[0];
+                                                    blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
+                                                }
 
+                                                //ketu e dim qe fatura ka shkuar me sukses te einvoice dhe kemi marr pergjigje suksesi, kshu qe mund te behet ktu kodi ku do hapet pdf
                                             }
 
 
@@ -3029,8 +3042,22 @@ namespace PlatinumWeb
                                                 
                                             }
                                             else
+                                            {
                                                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura elektronike u krijua me sukses!", pnlMesazhi);
-                                            
+                                                if (cbPrinto.Checked)
+                                                {
+                                                    var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
+                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
+                                                    string b64string = base64[0];
+                                                    blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
+                                                }
+                                                //var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
+                                                //var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+                                                //string b64string = base64[0];
+                                                //blob.Value = JsonConvert.SerializeObject(new { b64 = b64string});
+                                                //ketu e dim qe fatura ka shkuar me sukses te einvoice dhe kemi marr pergjigje suksesi, kshu qe mund te behet ktu kodi ku do hapet pdf
+                                            }
+
                                         }
                                         var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, nivfFature[0], nderm.IdNdermarrje, EIC[0], txtIIC.Text);
@@ -3075,7 +3102,22 @@ namespace PlatinumWeb
                                             }
                                         }
                                         else
+                                        {
                                             clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura elektronike u krijua me sukses!", pnlMesazhi);
+                                            //ketu e dim qe fatura ka shkuar me sukses te einvoice dhe kemi marr pergjigje suksesi, kshu qe mund te behet ktu kodi ku do hapet pdf
+                                            // mund te marrim pdf dhe ta ruajm ne nje nga keto fushat ate base64, ne js pastaj mund ta konvertojm ne blob
+                                            // dhe ifi i printimit, nese eshte checkboxi te behet ky funx dmth e till, do behjet ne te gjitha ato m sipper,thnx, asgje naten diten, ika
+                                            if (cbPrinto.Checked)
+                                            {
+                                                var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
+                                                var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
+                                                string b64string = base64[0];
+                                                blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
+                                            }
+                                            
+
+
+                                        }
                                         var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, kokeShitje.NIVF, nderm.IdNdermarrje, EIC[0], txtIIC.Text);
                                         if (cbEinvoice.Checked)
