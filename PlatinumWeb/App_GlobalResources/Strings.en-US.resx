@@ -4031,6 +4031,9 @@ Date/ Time: #Data# #enter# #enter# </value>
   <data name="MenuItemRaportShitjet" xml:space="preserve">
     <value>Sales</value>
   </data>
+  <data name="MenuItemRaportShitjet" xml:space="preserve">
+    <value>Einvoice sales</value>
+  </data>
   <data name="labelShitje" xml:space="preserve">
     <value>Sales</value>
   </data>

@@ -6603,6 +6603,7 @@ namespace RestApi.WebAPI.Models
         {
             var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, eic, DateTime.UtcNow);
             return clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
+            
         }
         public static Object ktheAplikohetTVSHNeTakseApoJo(string kodTakse, int idNderm, int key)
         {

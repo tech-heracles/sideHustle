@@ -867,15 +867,19 @@ namespace PlatinumWeb
             ASPxMenu1.Items[3].Items[15].Text = rm.GetString("MenuItemFaturatShitjeve", ci);
             ASPxMenu1.Items[3].Items[15].Items[0].Text = rm.GetString("MenuItemLista", ci);
             ASPxMenu1.Items[3].Items[15].Items[1].Text = rm.GetString("MenuItemERe", ci);
-            ASPxMenu1.Items[3].Items[15].Items[2].Text = rm.GetString("menuItemFaturaShitjeGjeneroFaturePermbledhese", ci);
-            ASPxMenu1.Items[3].Items[15].Items[3].Text = rm.GetString("menuItemFaturaShitjeRuajteAutomatikeDokumentave", ci);
-            ASPxMenu1.Items[3].Items[15].Items[4].Text = rm.GetString("MenuItemDiscountDevice", ci);
-            ASPxMenu1.Items[3].Items[15].Items[4].Items[0].Text = rm.GetString("MenuItemLista", ci);
-            ASPxMenu1.Items[3].Items[15].Items[4].Items[1].Text = rm.GetString("MenuItemERe", ci);
-            ASPxMenu1.Items[3].Items[15].Items[5].Text = rm.GetString("MenuItemBazaar", ci);
+            ASPxMenu1.Items[3].Items[15].Items[2].Text = rm.GetString("MenuItemRaportShitjetEinvoice", ci);
+            
+            ASPxMenu1.Items[3].Items[15].Items[2].Visible = true;
+
+            ASPxMenu1.Items[3].Items[15].Items[3].Text = rm.GetString("menuItemFaturaShitjeGjeneroFaturePermbledhese", ci);
+            ASPxMenu1.Items[3].Items[15].Items[4].Text = rm.GetString("menuItemFaturaShitjeRuajteAutomatikeDokumentave", ci);
+            ASPxMenu1.Items[3].Items[15].Items[5].Text = rm.GetString("MenuItemDiscountDevice", ci);
             ASPxMenu1.Items[3].Items[15].Items[5].Items[0].Text = rm.GetString("MenuItemLista", ci);
             ASPxMenu1.Items[3].Items[15].Items[5].Items[1].Text = rm.GetString("MenuItemERe", ci);
-            ASPxMenu1.Items[3].Items[15].Items[6].Text = rm.GetString("PromocioniPlus", ci);
+            ASPxMenu1.Items[3].Items[15].Items[6].Text = rm.GetString("MenuItemBazaar", ci);
+            ASPxMenu1.Items[3].Items[15].Items[6].Items[0].Text = rm.GetString("MenuItemLista", ci);
+            ASPxMenu1.Items[3].Items[15].Items[6].Items[1].Text = rm.GetString("MenuItemERe", ci);
+            ASPxMenu1.Items[3].Items[15].Items[7].Text = rm.GetString("PromocioniPlus", ci);
 
 
 
@@ -933,12 +937,14 @@ namespace PlatinumWeb
             ASPxMenu1.Items[4].Items[13].Text = rm.GetString("MenuItemRaportCRM", ci);
             ASPxMenu1.Items[4].Items[14].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
             ASPxMenu1.Items[4].Items[15].Text = rm.GetString("MenuItemRaportShitjet", ci);
-            ASPxMenu1.Items[4].Items[16].Text = rm.GetString("MenuItemRaportTollonash", ci);
-            ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-            ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-            ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-            ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-            ASPxMenu1.Items[4].Items[21].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+            ASPxMenu1.Items[4].Items[16].Text = rm.GetString("MenuItemRaportShitjetEinvoice", ci);
+            ASPxMenu1.Items[4].Items[16].Visible = true;
+            ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportTollonash", ci);
+            ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
+            ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+            ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+            ASPxMenu1.Items[4].Items[21].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+            ASPxMenu1.Items[4].Items[22].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 
 
             ASPxMenu1.Items[5].Text = rm.GetString("MenuItemHelp", ci);

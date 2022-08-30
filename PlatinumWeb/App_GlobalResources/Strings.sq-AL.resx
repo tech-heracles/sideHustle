@@ -7954,6 +7954,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemRaportShitjet" xml:space="preserve">
     <value>Shitje</value>
   </data>
+  <data name="MenuItemRaportShitjetEinvoice" xml:space="preserve">
+    <value>Fatura shitje Einvoice</value>
+  </data>
   <data name="MenuItemRaportTollonash" xml:space="preserve">
     <value>Tollona</value>
   </data>

@@ -1,4 +1,4 @@
-﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaturaBlerjeEinvoice.aspx.cs" Inherits="PlatinumWeb.FaturaBlerjeEinvoice" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaturaShitjeEinvoice.aspx.cs" Inherits="PlatinumWeb.FaturaShitjeEinvoice" %>
 <%@ Register Src="~/ucPopUpEinvoice.ascx" TagPrefix="ucPopUpEinvoice" TagName="ucPopUpEinvoice" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -187,29 +187,28 @@
          function func () {
 
              var columns = [{ field: 'Numri', class: 'margin-nr', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
-                 { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', id: "RecDateTime", title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
+                 { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
                  { field: 'DueDateTime', title: 'Afati i pageses', sortable: true, filterControl: 'input' }, { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' },
                  { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },{ field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
                  { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter },{ field: "x", title: "x", class: "hidden", sortable: false }];
 
             var test = hfState.Get("json")
             test = test.replaceAll("@", "");
+             //kto testet do mi heqesh se sben
 
              var data = JSON.parse(test).Einvoice;
              var data2 = [];
-             var j = data.length -1 ;
+             var j = data.length - 1;
              for (var i = 0; i < data.length; i++) {
-                data2[i] = data[j];
-                data2[i].Numri = i + 1;
-                data2[i].PDF = "Shfaq Pdf";
-                data2[i].x = data2[i]["EIC"];
-                if (data2[i].hasOwnProperty("DueDateTime"))
-                    data2[i].DueDateTime = data2[i].DueDateTime.substring(0, 10);
-                if (data2[i].hasOwnProperty("RecDateTime"))
-                    data2[i].RecDateTime = data2[i].RecDateTime.substring(0, 10);
-                 j--;
-                 // ye po pse duhet kjo ktu n kte rast
-                
+                 data2[j] = data[i];
+                 data2[j].Numri = i + 1;
+                 data2[j].PDF = "Shfaq Pdf";
+                 data2[j].x = data2[j]["EIC"];
+                 if (data2[j].hasOwnProperty("DueDateTime"))
+                     data2[j].DueDateTime = data2[j].DueDateTime.substring(0, 10);
+                 if (data2[j].hasOwnProperty("RecDateTime"))
+                     data2[j].RecDateTime = data2[j].RecDateTime.substring(0, 10);
+                j--;
             }
 
             var $table = $('#table')
