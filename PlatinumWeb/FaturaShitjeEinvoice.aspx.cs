@@ -18,7 +18,7 @@ using System.IO;
 
 namespace PlatinumWeb
 {
-    public partial class FaturaBlerjeEinvoice : System.Web.UI.Page
+    public partial class FaturaShitjeEinvoice : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,7 @@ namespace PlatinumWeb
             clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarrje);
 
             //kemi kaluar te dhenat nga ndermarrja
-            var xml = clsFunksioneFiskalizimi.merrFaturatEinvoice(ndermarrje,"blerje", DateTime.UtcNow);
+            var xml = clsFunksioneFiskalizimi.merrFaturatEinvoice(ndermarrje, "shitje", DateTime.UtcNow);
 
             // kerkesa per fiskalizim
             
@@ -45,6 +45,7 @@ namespace PlatinumWeb
             hfStateNdermarrje.Value = idNdermarrje.ToString();
 
             //pershtatja e re per hfstate - idNdermarrje
+
             hfState.Set("json", json);
             hfState.Set("idNdermarrje", idNdermarrje);
 

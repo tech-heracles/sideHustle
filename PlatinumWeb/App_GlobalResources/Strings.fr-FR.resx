@@ -10731,6 +10731,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemRaportShitjet" xml:space="preserve">
     <value>Ventes</value>
   </data>
+  <data name="MenuItemRaportShitjet" xml:space="preserve">
+    <value>Facture de vente</value>
+  </data>
   <data name="MenuItemRaportTollonash" xml:space="preserve">
     <value>Tickets</value>
   </data>
