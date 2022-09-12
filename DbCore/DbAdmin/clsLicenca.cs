@@ -378,8 +378,8 @@ namespace DbCore.DbAdmin
             if (!licence.nrDiteTeMbetura.HasValue)
                 return new clsMesazh(true, "");
             int nrDiteTeMbetura = licence.nrDiteTeMbetura.Value;
-            int nrDiteTolerance = licence.DiteTolerance;
-            if (nrDiteTeMbetura + nrDiteTolerance < 0)
+            int nrDiteTolerance = 0;
+            if (nrDiteTeMbetura + nrDiteTolerance <= 0)
                 return new clsMesazh(false, "Ka mbaruar afati bashke me tolerance!!!");
             if (limitDiteTeMbetura != -1)   //kontrollon nqs DataMbarimit dhe limitDiteTeMbetura nuk jane null ne Db
             {
