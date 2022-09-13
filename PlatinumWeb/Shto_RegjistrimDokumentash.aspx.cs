@@ -2655,7 +2655,7 @@ namespace PlatinumWeb
                                                 if (cbPrinto.Checked)
                                                 {
                                                     var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
-                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
                                                     string b64string = base64[0];
                                                     blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
                                                 }
@@ -3047,7 +3047,7 @@ namespace PlatinumWeb
                                                 if (cbPrinto.Checked)
                                                 {
                                                     var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
-                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+                                                    var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
                                                     string b64string = base64[0];
                                                     blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
                                                 }
@@ -3110,7 +3110,7 @@ namespace PlatinumWeb
                                             if (cbPrinto.Checked)
                                             {
                                                 var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
-                                                var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
+                                                var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
                                                 string b64string = base64[0];
                                                 blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
                                             }
