@@ -201,7 +201,8 @@ var pageState = {  menuJson: {}, guid: '', webhook: {}};
 
 $(document).ready(function (e) {
     rifresko = false;
-   
+    $(".footer1").parent().css("margin-top", "-20px");
+    $(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
     });
     var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");

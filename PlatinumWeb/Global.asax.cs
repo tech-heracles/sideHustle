@@ -224,6 +224,49 @@ namespace PlatinumWeb
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            switch (Request.Url.AbsolutePath.ToString())
+            {
+                case "/arber":
+                    Response.Redirect("https://support.alpha.al/1ff42q");
+                    break;
+                case "/kerolina":
+                    Response.Redirect("https://support.alpha.al/8y27sx");
+                    break;
+                case "/southcarolina":
+                    Response.Redirect("https://support.alpha.al/8y27sx");
+                    break;
+                case "/era":
+                    Response.Redirect("https://support.alpha.al/c4txt3");
+                    break;
+                case "/enkela":
+                    Response.Redirect("https://support.alpha.al/esyp9d");
+                    break;
+                case "/armegi":
+                    Response.Redirect("https://support.alpha.al/8qwalv");
+                    break;
+                case "/ditmir":
+                    Response.Redirect("https://support.alpha.al/2j1nqb");
+                    break;
+                case "/exhelina":
+                    Response.Redirect("https://support.alpha.al/49d5ie");
+                    break;
+                case "/elena":
+                    Response.Redirect("https://support.alpha.al/7uqoy0");
+                    break;
+                case "/frenkli":
+                    Response.Redirect("https://support.alpha.al/6tn9nw");
+                    break;
+                case "/viron":
+                    Response.Redirect("https://support.alpha.al/ehz1u");
+                    break;
+                case "/marianxhela":
+                    Response.Redirect("https://support.alpha.al/24hbjm");
+                    break;
+                case "/suela":
+                    Response.Redirect("https://alphawiki.notion.site/Suela-Lleshaj-e6b9a8a9ce094046bb03332b85dfbf46");
+                    break;
+
+            }
             //nese kerkesa eshte per te hapur login page ose login_ndermarrje nuk ka nevoj per kontroll scope
             if (HttpApplicationHelper.EshteUrlPaScopeID(Request.Url.AbsolutePath, Request.Url.Query) || HttpApplicationHelper.EshteUrlLogini(Request.Url.AbsolutePath) || Request.Url.AbsolutePath.ContainsAnyIgnoreCase(ScopeManager.LoginNdermarrjePath))
                 return;
