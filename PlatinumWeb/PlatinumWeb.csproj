@@ -934,6 +934,7 @@
     <Content Include="FaturaShitjeEinvoice.aspx" />
     <Content Include="FaturaBlerjeEinvoice.aspx" />
     <Content Include="GjendjeArkeDitore.aspx" />
+    <Content Include="images\FaqjaPare\AlphaWEB-png.png" />
     <Content Include="images\FaqjaPare\GIFWEB_BLUE_1.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3930,7 +3931,6 @@
     <Content Include="images\CRM\Shtoblerje.png" />
     <Content Include="images\CRM\Shtoshitje.png" />
     <Content Include="images\CustomToolbar\BtnSaveTatimore.png" />
-    <Content Include="images\FaqjaPare\AlphaWEB.png" />
     <Content Include="images\FaqjaPare\anonym.png" />
     <Content Include="images\FaqjaPare\IMB Logo.png" />
     <Content Include="images\FaqjaPare\Kosto.png" />

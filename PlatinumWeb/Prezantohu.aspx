@@ -11,6 +11,10 @@
     <meta name="identifikuesLogin" content="LoginPage" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <%--  <script src="js/jquery-1.10.2.min.js"></script>        --%>
     <%--<script src="public/modernizr.min.js"></script>--%>
     <%--<script src="public/placeholder.js"></script>--%>
@@ -23,8 +27,13 @@
             font-weight: 400;
             src: local('Open Sans'), local('OpenSans'), url('css/fonts/OpenSans-Regular.ttf') format('truetype');
         }
-
-
+        .loginForm{
+            margin-top:-1000px;
+            transition: 0.8s ease-in-out;
+        }
+        body{
+            overflow-x:hidden;
+        }
         html > /**/ body body * {
             font-family: 'Open Sans', serif;
             font-size: 16px;
@@ -94,8 +103,10 @@
         }
 
         .submain {
-            display: inline-block;
-            margin-bottom: 60px;
+            display: flex !important;
+            height: 100% !important;
+            width: 100% !important;
+            justify-content: center !important;
         }
 
         .klient .main .submain {
@@ -285,21 +296,26 @@
         
 
         .mainContent {
-            padding-top: 60px;
-            padding-bottom: 60px;
             display: table-cell;
             vertical-align: middle;
             padding: 0;
             position: relative;
-            height: auto;
-            width: 900px;
+            height: 478px;
+            max-height:478px;
+            width: auto !important;
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            top: 0;
-            left: 0;
+            /* bottom: 50%; */
+            /* transform: translate(-50%, -50%); */
+            height: 100%;
+            left: 0px;
+            margin: 10% auto;
+}
         }
-
+        .hero-list{
+            display:none;
+        }
         .info {
             max-width: 300px;
             display: table-cell;
@@ -307,11 +323,16 @@
         }
 
         .loginForm {
-            max-width: 332px;
-            display: inline-flex;
+            border-radius:20px !important;
             text-align: right;
             border-radius: 8px;
+            height: 100%;
             background: #0187dd;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(244,244,244,1) 0%, rgba(103,165,245,0.3925945378151261) 0%, rgba(103,165,245,0.3925945378151261) 0%, rgb(0 108 247) 0%, rgb(45 122 225) 0%);
+            margin: auto;
+            display: flex;
+            width: 100%;
+            height: 100%;
         }
 
         .oshe .loginForm, .vodafone .loginForm {
@@ -343,7 +364,7 @@
         }
 
         .logo {
-            background-image: url(images/FaqjaPare/AlphaWEB.png);
+            background-image: url(images/FaqjaPare/alpha-logo.png);
             background-repeat: no-repeat;
             float: none;
             width: 45px;
@@ -696,12 +717,12 @@
             color: white;
             height: auto;
             font-size: 14px;
-            margin-top: 30px;
+           margin: 0px auto 20px auto !important;
         }
 
-            .keniHarruar:hover {
-                color: #f9f9f9;
-            }
+        .keniHarruar:hover {
+            color: white !important;
+        }
 
         .vodafone .keniHarruar {
             color: #e60000;
@@ -984,7 +1005,6 @@
         .kesh .main .input .keniHarruarLabel:hover {
             color: #6e6e6e;
         }
-
         .kesh {
             background-image: url(images/FaqjaPare/backgroundKESH.jpg);
             background-position: center;
@@ -1051,12 +1071,29 @@
                 font-size: 11px;
             }
         }
-        @media only screen and (max-width:900px) {
+        @media only screen and (max-width:1020px) {
+             .fixed-action-btn{
+                width:100%;
+                right: 0px;
+            }
+            .fixed-action-btn a{
+                width: max-content;
+                margin:auto;
+            }
+            #Login1_loginButton{
+                width:100% !important;
+            }
+            .main{
+                margin-right:0px !important;
+                width:100%;
+                }
+
             .BlogUrl {
                 height:8500px;
                 width:100%;
             }
             .tblbuttondiv {
+                display: none;
                 z-index:999;
                 text-align:center;
                 position:absolute;
@@ -1066,6 +1103,7 @@
                 left: calc(50% - 125px);
                 background-color:#1e73be;
             }
+
             .toggleblog { 
                 text-align:center;
                 border-color:white;
@@ -1084,7 +1122,6 @@
                 height: 100%;
                 position: relative;
                 right:0;
-                display:none;
                 text-align:center;
             }
 
@@ -1108,11 +1145,12 @@
             .mainContent {
                 display:inline-block;
             }
+
         }
-        @media only screen and (min-width:900px) {
+        @media only screen and (min-width:1020px) {
             .blog-container {
                 position: absolute;
-                width: 70%;
+                width: 100%;
                 height: 100%;
             }
             .toggleblog {
@@ -1122,10 +1160,9 @@
                 width:100%;
                 height:100%;
             }
-
             .main {
             float:right;
-            width: 30%;
+            width: 200px;
             margin:0;
             text-align: center;
             }
@@ -1198,6 +1235,22 @@
             .info {
                 padding-top: 0;
                 margin-top: 20px;
+            }
+        }
+                @media all and (min-width:1800px)
+                {
+                    .loginForm{
+                        margin-top:-20%;
+                    }
+                }
+        @media all and (min-width:1200px) and (max-width:1689px){
+            #showlogin{
+                left:-460px;
+
+            }
+            .main{
+                margin: auto;
+                float: none !important;
             }
         }
 		        .privacy .privacy-nav {
@@ -1352,10 +1405,101 @@
     display: flex;
     justify-content: center;
 }
+.footer{
+    display:none;
+}
+footer{
+    display:none;
+}
+#comboBox{
+    margin-bottom: 20px !important;
+}
+#Login1_cmbServerat_I{
+    margin-bottom:0px;
+}
+#Login1_UserName_I{
+        margin-bottom:0px;
+}
+#Login1_Password_I{
+    margin-bottom:0px;
+}
+.inputUsername{
+    margin-bottom: 20px !important;
+}
+.inputPassword{
+    margin-bottom:20px !important;
+}
+.header{
+    background-color: transparent;
+}
+.submain{
+    display:none;
+    z-index:99999;
+}
+label#Login1_PasswordRecoveryLink{
+    cursor: pointer;
+    margin-left: 90px;
+    margin-top: 0px;
+}
+label#Login1_PasswordRecoveryLink:hover{
+    color: #1251b8
+}
+.gjuhet{
+    margin-top:20px;
+}
+.info-imb{
+    margin-top: 20px;
+    text-align: center;
+}
+.info-imb a{
+    display:block;
+    color:white;
+    margin-top:5px;
+    text-decoration:none;
+    font-family: "Segoe UI", Helvetica, "Droid Sans", Tahoma, Geneva, sans-serif
+}
+.info-imb a:hover{
+    color: #1251b8;
+}
+a#Login1_lblGjuhaEN:hover{
+    color: #1251b8;
+}
+.copyright{
+    margin-top: 15px;
+    text-align:center;
+    color:white;
+    user-select: none;
+    font-family: "Segoe UI", Helvetica, "Droid Sans", Tahoma, Geneva, sans-serif
+}
+/*.hyrje{
+    border-radius: 7%;
+}*/
+#maintest{
+    transition: 0.2s all linear;
+        position: absolute;
+    /* top: 50%; */
+    /* bottom: 50%; */
+    /* transform: translate(-50%, -50%); */
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    /* bottom: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff24;
+    z-index: 9999999999999;
+    opacity: 1;
+    position: fixed;
+    /* display: flex; */
+    /* margin: auto; */
+    backdrop-filter: blur(5px);
+}
     </style>
 
     <script>
-
+        
         function getClientDate() {
             var date = new Date();
             var dt = date.getDate();
@@ -1504,12 +1648,21 @@
             var x = document.getElementById("bc");
             if (x.style.display != "none") {
                 x.style.display = "none";
+                document.querySelector(".header").style.backgroundColor = "#0081db";
+                document.querySelector(".header").style.width = "100%";
+                document.querySelector("#maintest").style.width = "100%";
+                document.querySelector("#maintest").style.removeProperty("margin-right");
+                document.querySelector("#maintest").style.marginRight = "0px !IMPORTANT";
+                document.querySelector(".logo").style.backgroundSize = "cover";
+                document.querySelector(".mainContent").style.marginLeft = "-60%";
+
                 document.getElementById("toggleblog").style.display = "none";
                 document.getElementById("maintest").style.display = "block";
                 document.getElementById("tblbd").style.display = "none";
                 window.history.pushState("shl", "showlogin", "#showLogin");
                 window.addEventListener("popstate", detecthistorychange);
             }
+            flag = true;
         }
 
 
@@ -1524,30 +1677,55 @@
             //if (s.GetText().length > 0)
             //    s.SetVisible(true);
         }
+        function frameLoaded() {
+            document.querySelector(".fixed-action-btn").style.display = "block";
+            document.getElementById("submain").style.display = "block";
+
+        }
+        function showLogin() {
+            document.querySelector("#maintest").style.zIndex = "99999"
+            document.querySelector("#maintest").style.opacity = "1"
+
+        }
+        function hideLogin() {
+            document.querySelector("#maintest").style.opacity = "0"
+            document.querySelector("#maintest").style.zIndex = "-1"
+            
+        }
             //function imagesInit(s, e) {
         //    if (document.getElementById('authForm').className == 'klient')
         //        s.SetImageUrl("/images/FaqjaPare/keshLogo.png");
         //    s.SetVisible(true);
         //}
-
     </script>
+    <meta charset="UTF-8">
 
 </head>
 <body onload="load()">
+    <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px;" >
+        <a onclick="showLogin()" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
+    
+        <i class="large material-icons" style="padding-left: 10px;">account_circle</i>
+        </a>
+    </div>
     <form id="authForm" runat="server" style="width: 100%">
         <dx:ASPxHiddenField ID="clientDate" ClientInstanceName="clientDate" runat="server">
         </dx:ASPxHiddenField>
         <asp:HiddenField ID="step1Complete" Value="false" runat="server"></asp:HiddenField>
         <div  id="bc" class="blog-container">
             <div class="loadingspinner" id="loadingspinner"><img src="images/FaqjaPare/GIFWEB_BLUE_1.svg" onerror="this.style.display='none'"/></div>    
-            <iframe src="https://alphablog.al/" class="BlogUrl" id="blogUrl" frameBorder="0" style="opacity:0;">
+            <iframe src="https://alphablog.al/" class="BlogUrl" id="blogUrl" onload="frameLoaded()"frameBorder="0" style="opacity:0;">
                 </iframe>
                 </div>
         <div class="tblbuttondiv" id="tblbd">    
             <button id="toggleblog" class="toggleblog" type="button" onclick="tbl()">Hyr ne Alpha</button></div>
-        <div class="main" id="maintest">
+        <div class="main" id="maintest" style="z-index:-1;opacity:0;">
             <header class="header">
                 <div class="logo"></div>
+                <a onclick="showLogin()" id="showlogin"class="waves-effect waves-light btn-large pulse" style="
+    margin-top: 2px;
+    margin-left: 190px; background-color: #2860b2; opacity:0; z-index:-999; transition: .5s ease-in-out;
+">Logohu</a>
             </header>
             <header class="headerKesh" style="display: none">
                 <div class="logoKesh"></div>
@@ -1578,7 +1756,7 @@
                 <div class="logoKesh2"></div>
                 <p class="programText">PROGRAMI I ADMINISTRIMIT FINANCIAR</p>
             </header>
-            <section class="submain">
+            <section class="submain" id="submain">
 
                 <header>
                     <dx:ASPxLabel ID="LabelInfo" ClientInstanceName="LabelInfo" CssClass="labelInfo" runat="server" Style="color: #FF0000; font-size: medium; font-weight: bold; font-family: Calibri">
@@ -1599,14 +1777,14 @@
                             UserNameLabelText="Perdoruesi:" UserNameRequiredErrorMessage="Duhet te jepet perdoruesi."
                             DestinationPageUrl="FaqeKryesore.aspx" EnableTheming="True" TextLayout="TextOnLeft"
                             PasswordRecoveryText="Harruar Fjalekalimin?" PasswordRecoveryUrl="LoginFail.aspx?harroPw=1&user='<%# Eval(Login1.UserName) %>'"
-                            InstructionText="   Nuk eshte aktivizuar" LoginButtonImageUrl="~/images/FaqjaPare/loginbutton.png">
+                            InstructionText="Nuk eshte aktivizuar" LoginButtonImageUrl="~/images/FaqjaPare/loginbutton.png">
                             <LayoutTemplate>
                                 <section runat="server" id="login_div">
 
                                     <div id="comboBox" class="input" style="height: auto; max-height: 40px; padding-top: 0px; top: 0px; left: 0px; ">
 									<dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#5D9AD3"
                                             IncrementalFilteringMode="Contains" DropDownStyle="DropDownList"
-                                            ItemStyle-SelectedStyle-BackColor="#5D9AD3" Border-BorderColor="#999999"
+                                            ItemStyle-SelectedStyle-BackColor="#5D9AD3" Border-BorderColor="#999999" 
                                             Paddings-Padding="0" Width="100%" Height="40px" Font-Size="16px" Theme="Metropolis"
                                             ClientInstanceName="cmbServerat" runat="server" EnableSynchronization="True" >
                                             <ClientSideEvents Init="cmbServerInit" SelectedIndexChanged="cmbServerSelectedChanged" />
@@ -1630,7 +1808,15 @@
                                     <div class="input LoginError ">
                                         <dx:ASPxLabel ID="FailureText" ForeColor="Red" runat="server"></dx:ASPxLabel>
                                     </div>
-                                    <div class="input">
+                                    <div class="input" style="height: auto; display: none;">
+                                        <dx:ASPxLabel ID="PasswordRecoveryLabel" CssClass="keniHarruarLabel" runat="server" Text="Keni harruar fjalekalimin?" AssociatedControlID="UserName">
+                                        </dx:ASPxLabel>
+                                    </div>
+                                    <div class="input" style="height: auto">
+                                        <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
+                                        </dx:ASPxLabel>
+                                    </div>
+                                    <div class="input" style="display: flex; justify-content: center;">
                                         <%-- style="padding-top:10px;max-width:246px;padding-left:1px;"--%>
                                         <dx:ASPxButton runat="server" Height="40px" Width="100%" ClientVisible="false" ClientInstanceName="loginButton" CssClass="hyrje"
                                             CommandName="Login"
@@ -1647,20 +1833,35 @@
                                         </dx:ASPxButton>
 
                                     </div>
+                                    <section>  
+                                        <%--<a class="material-icons waves-effect waves-light btn-small pulse" id="hidelogin" style="
+                                    margin-left: 80%;
+                                    background-color: rgb(40, 96, 178);
+                                    padding-top: 5px;
+                                    left: auto;
+                                    margin-top: -12%;
+                                
+                                " onclick="hideLogin()">arrow_upward</a>--%>
+                                        </section>
+                                    <dx:ASPxHiddenField runat="server" ID="loginHiddenField" ClientInstanceName="loginHiddenField"></dx:ASPxHiddenField>
+                                    <%-- <dx:ASPxLabel runat="server" CssClass="input" ID="lblHyrje" Text="Hyrje në Sistem" Font-Names="Arial" Font-Size="Large"></dx:ASPxLabel>
+
+                                    --%>
+                                </section>
                                     <div id="OrganisationSwitch" style="text-align: center; display: none; font: medium; font-weight: normal; color: white; height: auto; font-size: 14px; margin-top: 30px;" runat="server">
                                         <dx:ASPxHyperLink ID="NdryshoOrganizate" CssClass="mylink" ClientVisible="false" Font-Underline="false" runat="server" Text="Nderroni organizate" Font-Size="11pt" Cursor="pointer" name="NdryshoOrganizate"
                                             NavigateUrl="https://app.alphaweb.al/?clearOrg=true" onClick="clickSwitchOrganisation()">
                                         </dx:ASPxHyperLink>
                                     </div>
-                                    <div class="input" style="height: auto; display: none;">
+                                 <%--   <div class="input" style="height: auto; display: none;">
                                         <dx:ASPxLabel ID="PasswordRecoveryLabel" CssClass="keniHarruarLabel" runat="server" Text="Keni harruar fjalekalimin?" AssociatedControlID="UserName">
                                         </dx:ASPxLabel>
                                     </div>
                                     <div class="input" style="height: auto">
                                         <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
                                         </dx:ASPxLabel>
-                                    </div>
-                                    <section class="gjuhet">
+                                    </div>--%>
+                                    <%--<section class="gjuhet">
                                         <div id="Div3" class="gjuha" runat="server">
                                             <dx:ASPxHyperLink ID="lblGjuhaEN" CssClass="mylink" Font-Underline="false" runat="server" Text="EN" Font-Size="11pt">
                                             </dx:ASPxHyperLink>
@@ -1676,12 +1877,19 @@
                                                 Font-Size="11pt">
                                             </dx:ASPxHyperLink>
                                         </div>
+                                    </section>--%>
+                                    <section>
+    
+                                        <div class="info-imb">
+                                            <a href="mailto:support@imb.al" onclick="function(){sendMail()}">Kontakto</a>
+                                            <a href="" onclick="function(){demo(event)}">Demo</a>
+                                            <a href="https://terms-of-service.imb.al/" target="_blank">Kushtet e sh&euml;rbimit</a>
+                                        </div>
+                                        <div class="copyright">
+                                            <p>&#169; 2022 IMB</p>
+                                        </div>
                                     </section>
-                                    <dx:ASPxHiddenField runat="server" ID="loginHiddenField" ClientInstanceName="loginHiddenField"></dx:ASPxHiddenField>
-                                    <%-- <dx:ASPxLabel runat="server" CssClass="input" ID="lblHyrje" Text="Hyrje në Sistem" Font-Names="Arial" Font-Size="Large"></dx:ASPxLabel>
-
-                                    --%>
-                                </section>
+                                    
                                 
 
                                 <section runat="server" id="otp_div"  visible="false">
@@ -1900,9 +2108,17 @@
         iframeEle.addEventListener('load', function () {
             loadingEle.style.display = 'none';
             iframeEle.style.opacity = 1;
+            var html = document.getElementById("Login1_FailureText").innerHTML;
+            var toastHTML = '<span>' + html + '</span>';
+            if (html !== "")
+                M.toast({ html: toastHTML, classes: 'rounded red darken-2' });
         });
 
+        $(".main").on("click", (e) => {
+            if (e.target.className == "submain" || e.target.className =="header")
+                hideLogin();
 
+        })
 
         //document.getElementsByTagName("body")[0].onscroll = function () {
         //    console.log(window.scrollY);
