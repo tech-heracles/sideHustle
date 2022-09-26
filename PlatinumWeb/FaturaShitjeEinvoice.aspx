@@ -73,13 +73,13 @@
         }
         .pdf-preview{
             position:fixed;
-            right:20px;
             opacity: 0.8;
             border-radius: 6px;
             border: 0px solid teal;
             z-index: 9999999;
             overflow-y: hidden;
-            height: 165px;
+            height: 50%;
+            width: 50%;
         }
         .margin-nr div{
             margin-bottom: 50%;
@@ -139,12 +139,12 @@
         }
 
         function leave(event) {
-            const element = event.parentElement.parentElement.lastChild;
-            clearTimeout(element.dataset.timerRef);
-
+            const element = document.querySelector(".pdf-preview");
             element.dataset.timerRef = setTimeout(function () {
-                event.parentElement.parentElement.removeChild(event.parentElement.parentElement.lastChild);
-            }, 5000);
+                $(".pdf-preview").each(function (val) {
+                    this.parentNode.removeChild(this)
+                });
+            }, 300);
         }
         
         function onClickCell(event, field, value, row, $element) {
@@ -189,7 +189,7 @@
              var columns = [{ field: 'Numri', class: 'margin-nr', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
                  { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
                  { field: 'DueDateTime', title: 'Afati i pageses', sortable: true, filterControl: 'input' }, { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' },
-                 { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },{ field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
+                 { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },
                  { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter },{ field: "x", title: "x", class: "hidden", sortable: false }];
 
             var test = hfState.Get("json")
@@ -238,8 +238,6 @@
         
         //marrja e kerkeses 
         function getEinvoice(e, hover, el) {
-            if (hover && el.parentElement.parentElement.children.length == 10)
-                return;
             $.ajax({
                 pritPergjigje: true,
                 method: "POST",
@@ -264,13 +262,12 @@
 
 
                 if (hover) {
-                    var iframe = document.createElement("iframe");
-                    iframe.classList = "pdf-preview"
-                    iframe.src = url;
-                    el.parentElement.parentElement.appendChild(iframe);
-                    elPosition = el.parentElement.getBoundingClientRect();
-                    $(".pdf-preview").css("right", elPosition.width + "px");
-                    $(".pdf-preview").css("top", elPosition.top + "px");
+                    setTimeout(function () {
+                        var iframe = document.createElement("iframe");
+                        iframe.classList = "pdf-preview"
+                        iframe.src = url + "#zoom=200";
+                        document.getElementById("table").insertBefore(iframe, document.getElementById("table").firstChild);
+                    }, 300)
 
                 }
                 else

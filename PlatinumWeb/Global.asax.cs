@@ -232,7 +232,13 @@ namespace PlatinumWeb
                 case "/kerolina":
                     Response.Redirect("https://support.alpha.al/8y27sx");
                     break;
+                case "/karolina":
+                    Response.Redirect("https://support.alpha.al/8y27sx");
+                    break;
                 case "/southcarolina":
+                    Response.Redirect("https://support.alpha.al/8y27sx");
+                    break;
+                case "/northcarolina":
                     Response.Redirect("https://support.alpha.al/8y27sx");
                     break;
                 case "/era":
@@ -248,6 +254,9 @@ namespace PlatinumWeb
                     Response.Redirect("https://support.alpha.al/2j1nqb");
                     break;
                 case "/exhelina":
+                    Response.Redirect("https://support.alpha.al/49d5ie");
+                    break;
+                case "/enxhelina":
                     Response.Redirect("https://support.alpha.al/49d5ie");
                     break;
                 case "/elena":

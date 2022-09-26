@@ -1072,6 +1072,9 @@
             }
         }
         @media only screen and (max-width:1020px) {
+            .fixed-action-btn{
+                height: max-content
+            }
              .fixed-action-btn{
                 width:100%;
                 right: 0px;
@@ -1089,7 +1092,7 @@
                 }
 
             .BlogUrl {
-                height:8500px;
+                height:100%;
                 width:100%;
             }
             .tblbuttondiv {
@@ -1148,6 +1151,9 @@
 
         }
         @media only screen and (min-width:1020px) {
+                        .fixed-action-btn{
+                height: max-content;
+            }
             .blog-container {
                 position: absolute;
                 width: 100%;
@@ -1166,6 +1172,7 @@
             margin:0;
             text-align: center;
             }
+
         }
 
         @media all and (max-width:450px) {
@@ -1206,7 +1213,11 @@
             }
         }
 
-        
+        @media all and (min-width:1020px) and (max-width:1550px) {
+            .fixed-action-btn{
+                margin-right: 30%;
+            }
+        }
 
         @media all and (max-width:690px) {
 
@@ -1480,6 +1491,26 @@ a#Login1_lblGjuhaEN:hover{
     /* top: 50%; */
     /* bottom: 50%; */
     /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    /* bottom: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999999999999;
+    opacity: 1;
+    position: fixed;
+    /* display: flex; */
+    /* margin: auto; */
+/*    backdrop-filter: blur(5px);*/
+}
+.blur{
+        transition: 0.2s all linear;
+        position: absolute;
+    /* top: 50%; */
+    /* bottom: 50%; */
+    /* transform: translate(-50%, -50%); */
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
@@ -1489,12 +1520,17 @@ a#Login1_lblGjuhaEN:hover{
     left: 50%;
     transform: translate(-50%, -50%);
     background: #ffffff24;
-    z-index: 9999999999999;
     opacity: 1;
     position: fixed;
     /* display: flex; */
     /* margin: auto; */
     backdrop-filter: blur(5px);
+}
+section#submain header {
+    position: absolute;
+}
+#toast-container{
+    z-index: 9999999999999999999 !important;
 }
     </style>
 
@@ -1521,6 +1557,8 @@ a#Login1_lblGjuhaEN:hover{
         function merrUsername(s, e) {
             var username = txtUserName.GetText();
             if (username == null || username == "") {
+                var toastHTML = '<span>Ju lutem vendosni perdoruesin !</span>';
+                M.toast({ html: toastHTML,classes: 'rounded red darken-2' });
                 txtUserName.SetIsValid(false);
                 return;
             }
@@ -1703,7 +1741,7 @@ a#Login1_lblGjuhaEN:hover{
 </head>
 <body onload="load()">
     <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px;" >
-        <a onclick="showLogin()" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
+        <a onclick="showLogin()" id="pulse-btn" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
     
         <i class="large material-icons" style="padding-left: 10px;">account_circle</i>
         </a>
@@ -1720,6 +1758,9 @@ a#Login1_lblGjuhaEN:hover{
         <div class="tblbuttondiv" id="tblbd">    
             <button id="toggleblog" class="toggleblog" type="button" onclick="tbl()">Hyr ne Alpha</button></div>
         <div class="main" id="maintest" style="z-index:-1;opacity:0;">
+            <div class="blur">
+
+            </div>
             <header class="header">
                 <div class="logo"></div>
                 <a onclick="showLogin()" id="showlogin"class="waves-effect waves-light btn-large pulse" style="
@@ -1883,7 +1924,7 @@ a#Login1_lblGjuhaEN:hover{
                                         <div class="info-imb">
                                             <a href="mailto:support@imb.al" onclick="function(){sendMail()}">Kontakto</a>
                                             <a href="" onclick="function(){demo(event)}">Demo</a>
-                                            <a href="https://terms-of-service.imb.al/" target="_blank">Kushtet e sh&euml;rbimit</a>
+                                            <a href="https://imb.al/alpha-kushtet-e-sherbimit" target="_blank">Kushtet e sh&euml;rbimit</a>
                                         </div>
                                         <div class="copyright">
                                             <p>&#169; 2022 IMB</p>
@@ -2089,7 +2130,7 @@ a#Login1_lblGjuhaEN:hover{
         };
 
         function sendMail() {
-            window.open("mailto:support@imb.al");
+            window.open("https://direct.lc.chat/13799409/");
         }
 
 
@@ -2106,6 +2147,9 @@ a#Login1_lblGjuhaEN:hover{
         const loadingEle = document.getElementById('loadingspinner');
 
         iframeEle.addEventListener('load', function () {
+            window.setTimeout(function () {
+                document.getElementById("pulse-btn").classList.remove("pulse");
+            }, 5000)
             loadingEle.style.display = 'none';
             iframeEle.style.opacity = 1;
             var html = document.getElementById("Login1_FailureText").innerHTML;
@@ -2114,9 +2158,8 @@ a#Login1_lblGjuhaEN:hover{
                 M.toast({ html: toastHTML, classes: 'rounded red darken-2' });
         });
 
-        $(".main").on("click", (e) => {
-            if (e.target.className == "submain" || e.target.className =="header")
-                hideLogin();
+        $(".blur").on("click", (e) => {
+            hideLogin();
 
         })
 
