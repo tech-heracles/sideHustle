@@ -123,7 +123,7 @@
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 20px;text-align: center;">
+        <div class="einvoice-notice" id="04" style="height: 20px;text-align: center; display:none">
             <a style="color:black ; text-decoration:none;" href="https://www.notion.so/alphawiki/Njoftim-far-hapash-duhet-t-ndiqni-p-r-t-p-rdorur-URL-n-e-re-t-integrimit-8c3e24f11eeb4a25a4ebc2ef66e61b4d" target="_blank"><p>Njoftim: Linku i integrimit per programin Alpha eshte updatuar. Nese programi yt Alpha eshte i integruar me nje program tjeter, duhet te ndjekesh keto hapa deri te premten date 23 shtator 2022.</p></a>
         </div>
         <div id="backDiv" runat="server">
