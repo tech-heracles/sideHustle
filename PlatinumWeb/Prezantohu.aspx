@@ -27,6 +27,10 @@
             font-weight: 400;
             src: local('Open Sans'), local('OpenSans'), url('css/fonts/OpenSans-Regular.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'hk groteks';
+            src: url('css/fonts/HKGrotesk-Light.otf');
+        }
         .loginForm{
             margin-top:-1000px;
             transition: 0.8s ease-in-out;
@@ -72,6 +76,7 @@
             background-color: transparent;
             box-shadow: 0 0px 0px;
             border-collapse: separate !important;
+            height: max-content;
         }
 
         .input {
@@ -1448,9 +1453,10 @@ footer{
     z-index:99999;
 }
 label#Login1_PasswordRecoveryLink{
+    font-family: 'hk groteks' ;
     cursor: pointer;
     margin-left: 90px;
-    margin-top: 0px;
+    margin-top: 20px !important;
 }
 label#Login1_PasswordRecoveryLink:hover{
     color: #1251b8
@@ -1849,14 +1855,14 @@ section#submain header {
                                     <div class="input LoginError ">
                                         <dx:ASPxLabel ID="FailureText" ForeColor="Red" runat="server"></dx:ASPxLabel>
                                     </div>
-                                    <div class="input" style="height: auto; display: none;">
+                                    <%--<div class="input" style="height: auto; display: none;">
                                         <dx:ASPxLabel ID="PasswordRecoveryLabel" CssClass="keniHarruarLabel" runat="server" Text="Keni harruar fjalekalimin?" AssociatedControlID="UserName">
                                         </dx:ASPxLabel>
                                     </div>
                                     <div class="input" style="height: auto">
                                         <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
                                         </dx:ASPxLabel>
-                                    </div>
+                                    </div>--%>
                                     <div class="input" style="display: flex; justify-content: center;">
                                         <%-- style="padding-top:10px;max-width:246px;padding-left:1px;"--%>
                                         <dx:ASPxButton runat="server" Height="40px" Width="100%" ClientVisible="false" ClientInstanceName="loginButton" CssClass="hyrje"
@@ -1894,15 +1900,15 @@ section#submain header {
                                             NavigateUrl="https://app.alphaweb.al/?clearOrg=true" onClick="clickSwitchOrganisation()">
                                         </dx:ASPxHyperLink>
                                     </div>
-                                 <%--   <div class="input" style="height: auto; display: none;">
+                                    <div class="input" style="height: auto; display: none;">
                                         <dx:ASPxLabel ID="PasswordRecoveryLabel" CssClass="keniHarruarLabel" runat="server" Text="Keni harruar fjalekalimin?" AssociatedControlID="UserName">
                                         </dx:ASPxLabel>
                                     </div>
                                     <div class="input" style="height: auto">
                                         <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
                                         </dx:ASPxLabel>
-                                    </div>--%>
-                                    <%--<section class="gjuhet">
+                                    </div>
+                                    <section class="gjuhet">
                                         <div id="Div3" class="gjuha" runat="server">
                                             <dx:ASPxHyperLink ID="lblGjuhaEN" CssClass="mylink" Font-Underline="false" runat="server" Text="EN" Font-Size="11pt">
                                             </dx:ASPxHyperLink>
@@ -1918,7 +1924,7 @@ section#submain header {
                                                 Font-Size="11pt">
                                             </dx:ASPxHyperLink>
                                         </div>
-                                    </section>--%>
+                                    </section>
                                     <section>
     
                                         <div class="info-imb">

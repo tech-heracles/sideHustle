@@ -244,9 +244,9 @@ namespace PlatinumWeb
             ASPxHyperLink lblGjuhaAL = Login1.FindControl("lblGjuhaAL") as ASPxHyperLink;
             ASPxHyperLink lblGjuhaEN = Login1.FindControl("lblGjuhaEN") as ASPxHyperLink;
             ASPxHyperLink lblGjuhaFR = Login1.FindControl("lblGjuhaFR") as ASPxHyperLink;
-            //lblGjuhaAL.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
-            //lblGjuhaEN.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
-            //lblGjuhaFR.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
+            lblGjuhaAL.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
+            lblGjuhaEN.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
+            lblGjuhaFR.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
             //lblGjuhaALKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
             //lblGjuhaENKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
             //lblGjuhaFRKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
