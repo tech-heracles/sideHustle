@@ -11,6 +11,7 @@ using System.Web.Configuration;
 using CacheLayer;
 using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Fiskalizimi.API;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace PlatinumWeb
 {
@@ -197,6 +198,8 @@ namespace PlatinumWeb
                     FormsAuthentication.RedirectToLoginPage();
                 }
             }
+            string connectionStringName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+            bool jsonWebRequest =  clsFunksione.sendExpireLicenceRequest(WebConfigurationManager.AppSettings["expireLink"], connectionStringName);
         }
         public static string buildQueryStringNgaAmbienti(System.Collections.Specialized.NameValueCollection queryStringCol)
         {

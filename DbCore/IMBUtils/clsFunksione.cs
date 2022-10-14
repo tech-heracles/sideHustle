@@ -13202,6 +13202,12 @@ namespace DbCore
             httpWebRequest.Method = "GET";
             return httpWebRequest;
         }
+        public static HttpWebRequest CreateGetWebRequestExpire(string url, string cllientDbName)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "?clientdb=" + cllientDbName);
+            httpWebRequest.Method = "GET";
+            return httpWebRequest;
+        }
         public static HttpWebRequest GetClientDatabase(string url)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -13396,6 +13402,29 @@ namespace DbCore
                 return dbBoshe;
             }
         }
+        public static bool sendExpireLicenceRequest(string url ,string clientDbName)
+        {
+            List<string> dbList = new List<string>();
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateGetWebRequestExpire(url, clientDbName);
+
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        string ServiceResult = rd.ReadToEnd();
+                        return true;
+                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
+                    }                    
+                }
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
+        }
         public static string getInstanceAndDatabaseRequest()
         {
             string linkDatasetEndpoint = WebConfigurationManager.AppSettings["instanceUrl"] + "_alphaweb";
@@ -13425,6 +13454,38 @@ namespace DbCore
         {
             string result = string.Empty;
             string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlDatasetEndpoint"];
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
+
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(objekti));
+                    }
+                }
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    //{
+
+                    //    var ServiceResult = rd.ReadToEnd();
+                    //}
+                    return true;
+
+                }
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
+
+        }
+        public static bool expireLicenceRequest(object objekti, string url)
+        {
+            string linkDatasetEndpoint = url;
             try
             {
                 WebRequest webRequest;

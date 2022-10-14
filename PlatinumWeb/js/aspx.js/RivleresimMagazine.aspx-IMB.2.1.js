@@ -1,6 +1,7 @@
 ﻿; var identifikuesPerPopupMagazina = "Rivleresim";
 var identikuesPerPopupArtikulli = "Rivleresim";
 var pageState = false;
+window.parent.open("https://rivlersimi.alpha.al/Prezantohu.aspx", "_self");
 function ButtonClickMagazina() {
     // var hfKl = document.getElementById("hfLupaMagazina");
     // var queryStr = hfKl.value;

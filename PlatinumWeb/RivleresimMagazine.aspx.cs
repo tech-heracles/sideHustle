@@ -21,53 +21,53 @@ namespace PlatinumWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
-            if (!DbCore.mySessionObjects.isLogedIn(Session))
-            {
-                DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
-            }
-            int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
+            ////Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            ////if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
+            //if (!DbCore.mySessionObjects.isLogedIn(Session))
+            //{
+            //    DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
+            //}
+            //int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
-            if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
-            {
-                Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
-            }
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"] != null)
-            DbCore.DbAdmin.clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
-            if (periudha == null)
-            {
-                //  DbCore.clsFunksione funksione = new DbCore.clsFunksione();
-                //periudha = ((DbCore.DbAdmin.clsPeriudhaKontabel)CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"]);
-                periudha = new DbCore.DbAdmin.clsPeriudhaKontabel();
-            }
-            int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, idNdermarrje);
-            CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            if (!IsPostBack)
-            {
-                mbushHiddenFieldMePerkthime(ci, rm);
-                //Session.Add("colArtikull2", DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(-5, -5));
-                DbCore.mySessionObjects.ruajColArtikull2NeSesion(Session, DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimePerRivleresim(-5, -5));
-                //Session.Add("colArtikull", DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(-5, -5));
-                DbCore.mySessionObjects.ruajColArtikullNeSesion(Session, DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimePerRivleresim(-5, -5));
-                konfiguroVleraFillestare(idNdermarrje, periudha);
-                string lastArt = DbCore.DbAdmin.clsLogRivleresimInventari.lastArtRivleresim(idPerdoruesi, idNdermarrje);
-                if (!String.IsNullOrEmpty(lastArt))
-                    clsMenuInfo.ShtoMesazhInformues(MenuInfo,"Artikulli i fundit ne rivleresim: " + lastArt, pnlMesazhi);
-            }
-            perktheKontrollet(ci, rm);
-            DataTable dt1 = DbCore.mySessionObjects.merrColArtikullNgaSesioni(Session);
-            DataTable dt2 = DbCore.mySessionObjects.merrColArtikull2NgaSesioni(Session);
-            gvRivleresim2.DataSource = dt2;
-            gvRivleresim2.DataBind();
-            dt2.Dispose();
-            gvRivleresim.DataSource = dt1;
-            gvRivleresim.DataBind();
-            dt1.Dispose();
+            ////if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
+            //if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
+            //{
+            //    Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+            //}
+            ////if (CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"] != null)
+            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
+            //if (periudha == null)
+            //{
+            //    //  DbCore.clsFunksione funksione = new DbCore.clsFunksione();
+            //    //periudha = ((DbCore.DbAdmin.clsPeriudhaKontabel)CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"]);
+            //    periudha = new DbCore.DbAdmin.clsPeriudhaKontabel();
+            //}
+            //int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
+            //int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
+            //percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, idNdermarrje);
+            //CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
+            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
+            //if (!IsPostBack)
+            //{
+            //    mbushHiddenFieldMePerkthime(ci, rm);
+            //    //Session.Add("colArtikull2", DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(-5, -5));
+            //    DbCore.mySessionObjects.ruajColArtikull2NeSesion(Session, DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimePerRivleresim(-5, -5));
+            //    //Session.Add("colArtikull", DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(-5, -5));
+            //    DbCore.mySessionObjects.ruajColArtikullNeSesion(Session, DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimePerRivleresim(-5, -5));
+            //    konfiguroVleraFillestare(idNdermarrje, periudha);
+            //    string lastArt = DbCore.DbAdmin.clsLogRivleresimInventari.lastArtRivleresim(idPerdoruesi, idNdermarrje);
+            //    if (!String.IsNullOrEmpty(lastArt))
+            //        clsMenuInfo.ShtoMesazhInformues(MenuInfo,"Artikulli i fundit ne rivleresim: " + lastArt, pnlMesazhi);
+            //}
+            //perktheKontrollet(ci, rm);
+            //DataTable dt1 = DbCore.mySessionObjects.merrColArtikullNgaSesioni(Session);
+            //DataTable dt2 = DbCore.mySessionObjects.merrColArtikull2NgaSesioni(Session);
+            //gvRivleresim2.DataSource = dt2;
+            //gvRivleresim2.DataBind();
+            //dt2.Dispose();
+            //gvRivleresim.DataSource = dt1;
+            //gvRivleresim.DataBind();
+            //dt1.Dispose();
             // clsMenuInfo.ShtoMenuItemInfo(this, MenuInfo);
             //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
         } 
