@@ -61,7 +61,14 @@ using AlphaWeb.Core.SharedKernel;
 using AlphaWeb.Core.Interfaces.Localization;
 using System.Security.Cryptography.X509Certificates;
 using System.Net;
-
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.SQLAdmin.v1beta4;
+using Google.Apis.Services;
+using Google.Apis.Iam.v1;
+using Google.Apis.Iam.v1.Data;
+using System.Threading.Tasks;
+using Data = Google.Apis.SQLAdmin.v1beta4.Data;
 
 namespace DbCore
 {
@@ -2778,6 +2785,45 @@ namespace DbCore
                         ImbLogger.Error(ex);
                     }
                 }
+            }
+        }
+        public static void LogoutRestore(HttpSessionState Session, bool logOut, bool signOutFormsAuth, bool dontRedirect, string loginUrl, string queryString)
+        {
+
+            Session.Abandon();
+            HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+
+            ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
+            GlobalCacheManager.DestroySessionCache(Session.SessionID);
+            if (signOutFormsAuth)
+                FormsAuthentication.SignOut();
+            if (!dontRedirect)
+            {
+                string login = loginUrl;
+                if (!queryString.Equals(""))
+                    login = $"{loginUrl}?arsye=" + queryString;
+
+                try
+                {
+                    HttpContext.Current.Response.Redirect(login, true);
+                }
+                catch (ArgumentNullException ex)
+                {
+                    ImbLogger.Error(ex);
+                }
+                catch (ArgumentException ex)
+                {
+                    ImbLogger.Error(ex);
+                }
+                catch (HttpException ex)
+                {
+                    ImbLogger.Error(ex);
+                }
+                catch (ApplicationException ex)
+                {
+                    ImbLogger.Error(ex);
+                }
+                
             }
         }
 
@@ -13139,11 +13185,241 @@ namespace DbCore
 
         public static HttpWebRequest CreateJSONWebRequest(string url)
         {
-            string Token = WebConfigurationManager.AppSettings["webhookAuthToken"];
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
             return httpWebRequest;
+        }
+        public static HttpWebRequest getInstanceNameAndDatabase(string url,string cllientDbName)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "?name=" + cllientDbName);
+            httpWebRequest.Method = "GET";
+            return httpWebRequest;
+        }
+        public static HttpWebRequest CreateGetWebRequest(string url, string cllientDbName)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "?name=" + cllientDbName);
+            httpWebRequest.Method = "GET";
+            return httpWebRequest;
+        }
+        public static HttpWebRequest GetClientDatabase(string url)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.Method = "GET";
+            return httpWebRequest;
+        }
+        public static object getClientDatabaseBackup(string prefix)
+        {
+            try
+            {
+                string linkConnectionString = WebConfigurationManager.AppSettings["connectionStringUrl"];
+                string connectionStringame = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                Int32 unixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+                string project = "alphaweb";
+                string instance = "";
+                string instanceIp = "";
+                //Copy selected db to another bucket
+                Process p = new Process();
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.Arguments = String.Format("{0} {1}", prefix,  unixTimestamp + connectionStringame + ".gz");
+                p.StartInfo.FileName = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/exe.bat");
+                p.Start();
+                string output = p.StandardOutput.ReadToEnd();
+                p.WaitForExit();
+                //End of copy
+                //Authentication with google service account
+                var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
+                string serviceAccountJson = File.ReadAllText(serviceAccount);
+                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
+                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                string[] credentials = new string[1];
+                credentials[0] = "https://www.googleapis.com/auth/cloud-platform";
+                if (credential.IsCreateScopedRequired)
+                {
+                    credential = credential.CreateScoped(credentials);
+                }
+                SQLAdminService sqlAdminService = new SQLAdminService(new BaseClientService.Initializer
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "Google-SQLAdminSample/0.1",
+                });
+
+
+                var service = new IamService(new IamService.Initializer
+                {
+                    HttpClientInitializer = credential
+                });
+                //End of Authentication
+
+                //Get all instances
+                InstancesResource.ListRequest instancesList = sqlAdminService.Instances.List(project);
+                Data.InstancesListResponse responseInstanceList;
+                do
+                {
+                    responseInstanceList = instancesList.Execute();
+                    if (responseInstanceList.Items == null)
+                    {
+                        continue;
+                    }
+                    foreach (Data.DatabaseInstance databaseInstance in responseInstanceList.Items)
+                    {
+                        bool status = false;
+                        string instanceName = databaseInstance.Name;
+                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instance == "trajnime1")
+                            continue;
+                        string instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
+                        DatabasesResource.ListRequest databases = sqlAdminService.Databases.List(project, instanceName);
+                        Data.DatabasesListResponse databasesResponse = databases.Execute();
+                        foreach (Data.Database db in databasesResponse.Items)
+                        {
+                            if (db.Name == connectionStringame)
+                                status = true;
+                        }
+                        if (databasesResponse.Items.Count < 30 && !status)
+                        {
+                            instance = instanceName;
+                            instanceIp = instanceIpConfig;
+                            break;
+                        }
+                    }
+                    instancesList.PageToken = responseInstanceList.NextPageToken;
+                } while (responseInstanceList.NextPageToken != null);
+
+                //Backup instance
+                IList<string> databasesListToExport = new List<string>();
+                databasesListToExport.Add(connectionStringame);
+                Data.InstancesExportRequest requestExport = new Data.InstancesExportRequest();
+                requestExport.ExportContext = new Data.ExportContext();
+                requestExport.ExportContext.Kind = "sql#exportContext";
+                requestExport.ExportContext.Databases = databasesListToExport;
+                requestExport.ExportContext.FileType = "BAK";
+                string instanceNameToExport = prefix.Split('/')[0];
+                requestExport.ExportContext.Uri = "gs://backup-cloudsqldatabase/" + instanceNameToExport + "/" + connectionStringame + ".gz";
+                InstancesResource.ExportRequest responseExport = sqlAdminService.Instances.Export(requestExport, project, instanceNameToExport);
+                Data.Operation responseOperation = responseExport.Execute();
+                OperationsResource.GetRequest operationStatusExport = sqlAdminService.Operations.Get(project, responseOperation.Name);
+                bool operationStatusEx = false;
+                while (!operationStatusEx)
+                {
+                    Data.Operation operationResult = operationStatusExport.Execute();
+                    if (operationResult.Status == "RUNNING")
+                        operationStatusEx = true;
+                }
+
+
+                Data.InstancesImportRequest requestBody = new Data.InstancesImportRequest();
+                requestBody.ImportContext = new Data.ImportContext();
+                requestBody.ImportContext.Uri = "gs://backup-cloudsqldatabase/databaseToImport/" + unixTimestamp + connectionStringame + ".gz";
+                requestBody.ImportContext.FileType = "BAK";
+                requestBody.ImportContext.Database = connectionStringame;
+                InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, instance);
+
+                Data.Operation response = request.Execute();
+                OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
+                bool operationStatus = false;
+                while (!operationStatus)
+                {
+                    Data.Operation operationResult = operation.Execute();
+                    if (operationResult.Status == "RUNNING")
+                    {
+                        object connectionStringObject = new
+                        {
+                            name = connectionStringame,
+                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog=praktike1-test;user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
+                            LOCATION = instance
+                        };
+                        operationStatus = true;
+                        WebRequest webRequest;
+                        webRequest = CreateJSONWebRequest(linkConnectionString);
+                        using (Stream stream = webRequest.GetRequestStream())
+                        {
+                            using (StreamWriter stmw = new StreamWriter(stream))
+                            {
+                                stmw.Write(JsonConvert.SerializeObject(connectionStringObject));
+                            }
+                        }
+                        using (WebResponse webResponse = webRequest.GetResponse())
+                        {
+                            return new
+                            {
+                                status = "SUCCESS"
+                            };
+
+                        }
+                    }
+                }
+                return new
+                {
+                    status = "SUCCESS"
+                };
+
+
+            }
+            catch (WebException ex)
+            {
+                return new
+                {
+                    status = "FAILED"
+                };
+            }
+        }
+        public static List<string> getClientDatabaseBackups(string prefix)
+        {
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["backupUrl"];
+            List<string> dbList = new List<string>();
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateGetWebRequest(linkDatasetEndpoint, prefix);
+
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        string ServiceResult = rd.ReadToEnd();
+                        object dbObject = JsonConvert.DeserializeObject(ServiceResult);
+                        IList dbListCollection = (IList)dbObject;
+                        foreach(var dbUrl in dbListCollection)
+                        {
+                            dbList.Add(dbUrl.ToString());
+                        }
+                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
+                    }                    
+                    return dbList;
+
+                }
+            }
+            catch (WebException ex)
+            {
+                var dbBoshe = new List<string>();
+                return dbBoshe;
+            }
+        }
+        public static string getInstanceAndDatabaseRequest()
+        {
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["instanceUrl"] + "_alphaweb";
+            string dbName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+            string ServiceResult = "";
+            try
+            {
+                WebRequest webRequest;
+                webRequest = getInstanceNameAndDatabase(linkDatasetEndpoint, "praktike1");
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        ServiceResult = rd.ReadToEnd();
+                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
+                    }                    
+                    return ServiceResult;
+
+                }
+            }
+            catch (WebException ex)
+            {
+                return ServiceResult;
+            }
         }
         public static bool dergoWebhookDatasetEndpoint(object objekti)
         {
@@ -13178,7 +13454,6 @@ namespace DbCore
             }
 
         }
-
         //MOS SHTONI funksione qe prekin databazen ketu
     }
 }

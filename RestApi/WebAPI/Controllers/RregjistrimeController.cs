@@ -5050,5 +5050,30 @@ namespace RestApi.WebAPI.Controllers
                 return Request.KthePergjigjeGabim(param, e);
             }
         }
+        [HttpGet, HttpPost]
+        public HttpResponseMessage restoreDatabase(JObject param)
+        {
+            try
+            {
+                string prefix = param["uri"].Value<string>();
+                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix));
+            }
+            catch (Exception e)
+            {
+                return Request.KthePergjigjeGabim(param, e);
+            }
+        }
+        [HttpGet, HttpPost]
+        public void destroySession(JObject param)
+        {
+            try
+            {
+                RregjistrimeRepository.logout(Session);
+            }
+            catch (Exception e)
+            {
+                //RregjistrimeRepository.logout(Session);
+            }
+        }
     }
 }

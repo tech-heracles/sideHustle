@@ -563,6 +563,16 @@ namespace PlatinumWeb
             ASPxMenu1.Items[0].Items[1].Text = rm.GetString("MenuItemBackupRestore", ci);
             ASPxMenu1.Items[0].Items[1].Items[0].Text = rm.GetString("MenuItemBackup", ci);
             ASPxMenu1.Items[0].Items[1].Items[1].Text = rm.GetString("MenuItemRestore", ci);
+            clsPerdorues perdorues = new clsPerdorues(mySessionObjects.ktheIdPerdoruesi(Session));
+            foreach (var role in perdorues.OColRolPerdoruesi)
+            {
+                clsRoli rol = new clsRoli(role.IdRoli);
+                if (rol.KodRoli == "RSU" || rol.KodRoli == "RA" || rol.KodRoli == "RAS")
+                {
+                    ASPxMenu1.Items[0].Items[1].Items[2].Visible = true;
+                    break;
+                }
+            }
             ASPxMenu1.Items[0].Items[2].Text = "Dergo Mesazh";
             ASPxMenu1.Items[0].Items[3].Text = rm.GetString("MenuItemMotivet", ci);
             ASPxMenu1.Items[0].Items[4].Text = rm.GetString("MenuItemFjalekalimi", ci);

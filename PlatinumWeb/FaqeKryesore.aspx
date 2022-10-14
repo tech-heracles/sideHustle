@@ -109,13 +109,14 @@
 			overflow-y: scroll;
 		  }
 		}
+
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121798081-2"></script>
 </head>
 
 <body class="">
-
+   
     <form id="form1" class="main" runat="server">  
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
@@ -168,6 +169,8 @@
                                                                 <dx:MenuItem Text="Backup" Name="Backup.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Restore" Name="Restore.aspx" Visible="false">
+                                                                </dx:MenuItem>
+                                                                <dx:MenuItem Text="Restore Database" Name="RestoreDatabase.aspx" Visible="true">
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>

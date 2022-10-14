@@ -287,6 +287,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="DataSources\DsBilanciVertetues.xsc">
       <DependentUpon>DsBilanciVertetues.xsd</DependentUpon>
     </None>

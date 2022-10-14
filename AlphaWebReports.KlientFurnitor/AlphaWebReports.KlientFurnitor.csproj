@@ -946,6 +946,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="DataSource\AnalitikFaturimPagesa.xsc">
       <DependentUpon>AnalitikFaturimPagesa.xsd</DependentUpon>
     </None>

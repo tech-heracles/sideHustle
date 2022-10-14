@@ -7278,5 +7278,14 @@ namespace RestApi.WebAPI.Models
             return new { eshtePrindQk = eshtePrindQk, Kodi = Kodi };
   
         }
+        public static object restoreDatabase(string prefix)
+        {
+            object result = clsFunksione.getClientDatabaseBackup(prefix);
+            return result;
+        }
+        public static void logout(HttpSessionState sessionState)
+        {
+            clsFunksione.LogoutRestore(sessionState, true, true, false, Paths.defaultLoginPath, "RestoreDatabase");
+        }
     }
 }

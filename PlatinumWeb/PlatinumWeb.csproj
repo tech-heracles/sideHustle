@@ -378,8 +378,8 @@
     <Reference Include="NetTopologySuite.IO.ShapeFile.Extended, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
@@ -3327,6 +3327,7 @@
     </None>
     <None Include="Properties\PublishProfiles\AutoPublishPreProdShops.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="RestoreDatabase.aspx" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
@@ -9388,6 +9389,13 @@
     </Compile>
     <Compile Include="RegjistrimInventarizimi.aspx.designer.cs">
       <DependentUpon>RegjistrimInventarizimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestoreDatabase.aspx.cs">
+      <DependentUpon>RestoreDatabase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestoreDatabase.aspx.designer.cs">
+      <DependentUpon>RestoreDatabase.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shto_AlphawebEnhancments.aspx.cs">
       <DependentUpon>Shto_AlphawebEnhancments.aspx</DependentUpon>

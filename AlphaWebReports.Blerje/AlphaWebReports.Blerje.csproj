@@ -818,6 +818,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="DsRapBlerjetSipasSasiveKrahasuese.xsc">
       <DependentUpon>DsRapBlerjetSipasSasiveKrahasuese.xsd</DependentUpon>
     </None>

@@ -3704,6 +3704,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="DS_AnalizaArtikuveNeProdhim.xsc">
       <DependentUpon>DS_AnalizaArtikuveNeProdhim.xsd</DependentUpon>
     </None>
