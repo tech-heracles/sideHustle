@@ -13332,7 +13332,7 @@ namespace DbCore
                         object connectionStringObject = new
                         {
                             name = connectionStringame,
-                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog=praktike1-test;user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
+                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog=${connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
                             LOCATION = instance
                         };
                         operationStatus = true;
@@ -13433,7 +13433,7 @@ namespace DbCore
             try
             {
                 WebRequest webRequest;
-                webRequest = getInstanceNameAndDatabase(linkDatasetEndpoint, "praktike1");
+                webRequest = getInstanceNameAndDatabase(linkDatasetEndpoint, dbName);
                 using (WebResponse webResponse = webRequest.GetResponse())
                 {
                     using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
