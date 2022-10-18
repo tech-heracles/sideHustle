@@ -123,9 +123,10 @@
 </div>
     <form id="form1" runat="server">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper" style="background-color: #0072c6 !important">
               <ul class="left hide-on-med-and-down">
                 <li><a onclick="NdryshoDatbazen()">Kthe databazen ne gjendjen e zgjedhur</a></li>
+                <li><a onclick="ShkarkoDatabazen()">Shkarko Databazen</a></li>
               </ul>
             </div>
         </nav>
@@ -162,23 +163,31 @@
                 }).done(function (response) {
                     if (response.status = "SUCCESS") {
                         console.log("success");
-                        window.location.reload();
+                        window.parent.location.reload();
                     } else {
                         console.log("FAILED");
+                        window.parent.location.reload();
                     }
                 }).fail(function (response) {
                     console.log("FAILED");
+                    window.parent.location.reload();
                 });
             } else {
                 document.querySelector(".loader").style.display = "none";
                 document.querySelector(".loader-overlay").style.display = "none";
                 console.log("FAILED");
+                window.parent.location.reload();
             }
         }).fail(function (response) {
             document.querySelector(".loader").style.display = "none";
             document.querySelector(".loader-overlay").style.display = "none";
             console.log("FAILED");
+            window.parent.location.reload();
         });
+    }
+
+    function ShkarkoDatabazen() {
+        window.parent.window.open($("select option:selected").val(), "_blank");
     }
 
 </script>

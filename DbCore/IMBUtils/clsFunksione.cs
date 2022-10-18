@@ -69,6 +69,7 @@ using Google.Apis.Iam.v1;
 using Google.Apis.Iam.v1.Data;
 using System.Threading.Tasks;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
+using Google.Cloud.Storage.V1;
 
 namespace DbCore
 {
@@ -13225,14 +13226,20 @@ namespace DbCore
                 string instance = "";
                 string instanceIp = "";
                 //Copy selected db to another bucket
-                Process p = new Process();
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.Arguments = String.Format("{0} {1}", prefix,  unixTimestamp + connectionStringame + ".gz");
-                p.StartInfo.FileName = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/exe.bat");
-                p.Start();
-                string output = p.StandardOutput.ReadToEnd();
-                p.WaitForExit();
+                //Process p = new Process();
+                //p.StartInfo.UseShellExecute = false;
+                //p.StartInfo.RedirectStandardOutput = true;
+                //p.StartInfo.Arguments = String.Format("{0} {1}", prefix,  unixTimestamp + connectionStringame + ".gz");
+                //p.StartInfo.FileName = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/exe.bat");
+                //p.Start();
+                //string output = p.StandardOutput.ReadToEnd();
+                //p.WaitForExit();
+                var storage = StorageClient.Create();
+                var copyOptions = new CopyObjectOptions
+                {
+                    SourceGeneration = long.Parse(prefix.Split('#')[1])
+                };
+                storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz");
                 //End of copy
                 //Authentication with google service account
                 var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
@@ -13319,7 +13326,7 @@ namespace DbCore
                 requestBody.ImportContext.Uri = "gs://backup-cloudsqldatabase/databaseToImport/" + unixTimestamp + connectionStringame + ".gz";
                 requestBody.ImportContext.FileType = "BAK";
                 requestBody.ImportContext.Database = connectionStringame;
-                InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, instance);
+                InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, "instance31");
 
                 Data.Operation response = request.Execute();
                 OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
@@ -13332,7 +13339,7 @@ namespace DbCore
                         object connectionStringObject = new
                         {
                             name = connectionStringame,
-                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog=${connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
+                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog={connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
                             LOCATION = instance
                         };
                         operationStatus = true;
