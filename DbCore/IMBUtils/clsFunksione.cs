@@ -13234,13 +13234,8 @@ namespace DbCore
                 //p.Start();
                 //string output = p.StandardOutput.ReadToEnd();
                 //p.WaitForExit();
-                var storage = StorageClient.Create();
-                var copyOptions = new CopyObjectOptions
-                {
-                    SourceGeneration = long.Parse(prefix.Split('#')[1])
-                };
-                storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz");
-                //End of copy
+
+
                 //Authentication with google service account
                 var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
                 string serviceAccountJson = File.ReadAllText(serviceAccount);
@@ -13264,6 +13259,16 @@ namespace DbCore
                     HttpClientInitializer = credential
                 });
                 //End of Authentication
+
+
+                var storage = StorageClient.Create(credential);
+                var copyOptions = new CopyObjectOptions
+                {
+                    SourceGeneration = long.Parse(prefix.Split('#')[1])
+                };
+                storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz");
+                //End of copy
+                
 
                 //Get all instances
                 InstancesResource.ListRequest instancesList = sqlAdminService.Instances.List(project);
@@ -13330,6 +13335,7 @@ namespace DbCore
 
                 Data.Operation response = request.Execute();
                 OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
+                
                 bool operationStatus = false;
                 while (!operationStatus)
                 {
