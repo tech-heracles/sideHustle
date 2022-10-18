@@ -13331,7 +13331,7 @@ namespace DbCore
                 requestBody.ImportContext.Uri = "gs://backup-cloudsqldatabase/databaseToImport/" + unixTimestamp + connectionStringame + ".gz";
                 requestBody.ImportContext.FileType = "BAK";
                 requestBody.ImportContext.Database = connectionStringame;
-                InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, "instance31");
+                InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, instance);
 
                 Data.Operation response = request.Execute();
                 OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
