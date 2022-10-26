@@ -34,6 +34,7 @@
         .loginForm{
             margin-top:-1000px;
             transition: 0.8s ease-in-out;
+            height: max-content;
         }
         body{
             overflow-x:hidden;
@@ -1078,7 +1079,10 @@
         }
         @media only screen and (max-width:1020px) {
             .fixed-action-btn{
-                height: max-content
+                height: max-content;
+                width: max-content !important;
+                left: 0;
+                margin: 0px auto;
             }
              .fixed-action-btn{
                 width:100%;
