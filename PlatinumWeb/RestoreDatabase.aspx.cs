@@ -24,6 +24,7 @@ namespace PlatinumWeb
                 urlAndGeneration[1] = db.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[1];
                 listItem.Value = urlAndGeneration[0];
                 listItem.Attributes.Add("name", prefix + "#" + urlAndGeneration[1]);
+                listItem.Attributes.Add("id", urlAndGeneration[1]);
                 DateTimeOffset dateBackup = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(urlAndGeneration[1]) / 1000);
                 listItem.Text = dbName + " " + dateBackup.ToString();
                 select.Items.Add(listItem);

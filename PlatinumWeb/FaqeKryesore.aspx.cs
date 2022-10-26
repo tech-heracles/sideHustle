@@ -572,7 +572,10 @@ namespace PlatinumWeb
                 clsRoli rol = new clsRoli(role.IdRoli);
                 if (rol.KodRoli == "RSU" || rol.KodRoli == "RA" || rol.KodRoli == "RAS")
                 {
+                    ASPxMenu1.Items[0].Items[1].Visible = true;
                     ASPxMenu1.Items[0].Items[1].Items[2].Visible = true;
+                    ASPxMenu1.Items[0].Items[1].Items[0].Visible = false;
+                    ASPxMenu1.Items[0].Items[1].Items[1].Visible = false;
                     break;
                 }
             }

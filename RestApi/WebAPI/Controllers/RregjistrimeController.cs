@@ -5056,7 +5056,8 @@ namespace RestApi.WebAPI.Controllers
             try
             {
                 string prefix = param["uri"].Value<string>();
-                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix));
+                string[] generations = param["generations"].ToObject<string[]>();
+                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix,generations));
             }
             catch (Exception e)
             {

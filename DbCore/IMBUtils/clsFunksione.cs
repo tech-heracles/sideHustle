@@ -13215,7 +13215,7 @@ namespace DbCore
             httpWebRequest.Method = "GET";
             return httpWebRequest;
         }
-        public static object getClientDatabaseBackup(string prefix)
+        public static object getClientDatabaseBackup(string prefix, string[] generations)
         {
             try
             {
@@ -13225,16 +13225,6 @@ namespace DbCore
                 string project = "alphaweb";
                 string instance = "";
                 string instanceIp = "";
-                //Copy selected db to another bucket
-                //Process p = new Process();
-                //p.StartInfo.UseShellExecute = false;
-                //p.StartInfo.RedirectStandardOutput = true;
-                //p.StartInfo.Arguments = String.Format("{0} {1}", prefix,  unixTimestamp + connectionStringame + ".gz");
-                //p.StartInfo.FileName = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/exe.bat");
-                //p.Start();
-                //string output = p.StandardOutput.ReadToEnd();
-                //p.WaitForExit();
-
 
                 //Authentication with google service account
                 var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
@@ -13260,7 +13250,7 @@ namespace DbCore
                 });
                 //End of Authentication
 
-
+                //Copy db
                 var storage = StorageClient.Create(credential);
                 var copyOptions = new CopyObjectOptions
                 {
@@ -13268,7 +13258,7 @@ namespace DbCore
                 };
                 storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz");
                 //End of copy
-                
+
 
                 //Get all instances
                 InstancesResource.ListRequest instancesList = sqlAdminService.Instances.List(project);
@@ -13324,7 +13314,25 @@ namespace DbCore
                     if (operationResult.Status == "RUNNING")
                         operationStatusEx = true;
                 }
-
+                //End of backup
+                //Migrate all backups
+                //Migrate without generation
+                WebRequest webRequestMigration;
+                webRequestMigration = CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/copyAllGenerationsOfBucketAlphaweb");
+                using (Stream stream = webRequestMigration.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(new
+                        {
+                            fileName = prefix.Split('#')[0],
+                            fileDestination = instance + "/" + connectionStringame + ".gz",
+                            generations = generations
+                        }));
+                    }
+                }
+                Task<WebResponse> webResponseMigration = webRequestMigration.GetResponseAsync();
+                //End of migration
 
                 Data.InstancesImportRequest requestBody = new Data.InstancesImportRequest();
                 requestBody.ImportContext = new Data.ImportContext();
@@ -13332,7 +13340,6 @@ namespace DbCore
                 requestBody.ImportContext.FileType = "BAK";
                 requestBody.ImportContext.Database = connectionStringame;
                 InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, instance);
-
                 Data.Operation response = request.Execute();
                 OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
                 

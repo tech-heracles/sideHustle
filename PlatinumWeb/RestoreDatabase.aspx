@@ -144,10 +144,14 @@
     function NdryshoDatbazen() {
         document.querySelector(".loader").style.display = "block";
         document.querySelector(".loader-overlay").style.display = "block";
+        var generations = [];
+        document.querySelectorAll("option").forEach(value => {
+            generations.push(value.id);
+        })
         $.ajax({
             type: "POST",
             url: Utils.getServerApiUrl("Rregjistrime", "restoreDatabase"),
-            data: JSON.stringify({ uri: $("select option:selected").attr("name")}),
+            data: JSON.stringify({ uri: $("select option:selected").attr("name"), generations: generations }),
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(function (response) {
