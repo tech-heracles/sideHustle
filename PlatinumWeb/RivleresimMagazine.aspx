@@ -24,11 +24,11 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
+    <%--<form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
+            <ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true">
         </dx:ASPxHiddenField>
@@ -73,13 +73,13 @@
                     <%--<dx:ASPxProgressBar ID="prbRivleresim" runat="server" Height="25px" ClientInstanceName="prbRivleresim"
                     Width="100%"    
                     EnableClientSideAPI="True">
-                </dx:ASPxProgressBar>--%>
+                </dx:ASPxProgressBar>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" runat="server" Width="100%" Height="730px" ClientInstanceName="splitter"
                 PaneMinSize="700px">
                 <Panes>
-                    <%-- Header pane--%>
+                    <%-- Header pane
                     <dx:SplitterPane PaneStyle-BackColor="Transparent" Separators-Size="10px" ScrollBars="Auto">
                         <Separators Size="10px">
                         </Separators>
@@ -399,6 +399,6 @@
                 </ContentCollection>
             </dx:ASPxPopupControl>
         </div>
-    </form>
+    </form>--%>
 </body>
 </html>

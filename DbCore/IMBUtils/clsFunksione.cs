@@ -13317,21 +13317,21 @@ namespace DbCore
                 //End of backup
                 //Migrate all backups
                 //Migrate without generation
-                WebRequest webRequestMigration;
-                webRequestMigration = CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/copyAllGenerationsOfBucketAlphaweb");
-                using (Stream stream = webRequestMigration.GetRequestStream())
-                {
-                    using (StreamWriter stmw = new StreamWriter(stream))
-                    {
-                        stmw.Write(JsonConvert.SerializeObject(new
-                        {
-                            fileName = prefix.Split('#')[0],
-                            fileDestination = instance + "/" + connectionStringame + ".gz",
-                            generations = generations
-                        }));
-                    }
-                }
-                Task<WebResponse> webResponseMigration = webRequestMigration.GetResponseAsync();
+                //WebRequest webRequestMigration;
+                //webRequestMigration = CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/copyAllGenerationsOfBucketAlphaweb");
+                //using (Stream stream = webRequestMigration.GetRequestStream())
+                //{
+                //    using (StreamWriter stmw = new StreamWriter(stream))
+                //    {
+                //        stmw.Write(JsonConvert.SerializeObject(new
+                //        {
+                //            fileName = prefix.Split('#')[0],
+                //            fileDestination = instance + "/" + connectionStringame + ".gz",
+                //            generations = generations
+                //        }));
+                //    }
+                //}
+                //Task<WebResponse> webResponseMigration = webRequestMigration.GetResponseAsync();
                 //End of migration
 
                 Data.InstancesImportRequest requestBody = new Data.InstancesImportRequest();
@@ -13460,7 +13460,7 @@ namespace DbCore
                     {
                         ServiceResult = rd.ReadToEnd();
                         //json.GetType().GetProperty("allUrl").GetValue(json,null)
-                    }                    
+                    }
                     return ServiceResult;
 
                 }
