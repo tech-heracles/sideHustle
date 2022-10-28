@@ -48,10 +48,14 @@ namespace PlatinumWeb
 
                 ListItem listItem = new ListItem();
                 string[] urlAndGeneration = new string[2];
+                int pFrom = db.IndexOf("backup-cloudsqldatabase/") + "backup-cloudsqldatabase/".Length;
+                int pTo = db.LastIndexOf("%2F");
+
+                String result = db.Substring(pFrom, pTo - pFrom).Split('%')[0];
                 urlAndGeneration[0] = db.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[0];
                 urlAndGeneration[1] = db.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[1];
                 listItem.Value = urlAndGeneration[0];
-                listItem.Attributes.Add("name", prefix + "#" + urlAndGeneration[1]);
+                listItem.Attributes.Add("name", result +"/"+ dbName + "#" + urlAndGeneration[1]);
                 listItem.Attributes.Add("id", urlAndGeneration[1]);
                 DateTimeOffset dateBackup = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(urlAndGeneration[1]) / 1000).LocalDateTime;
                 listItem.Text = dbName + " " + dateBackup.ToString();
