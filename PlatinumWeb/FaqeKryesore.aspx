@@ -144,8 +144,8 @@
         </div>
         <img src="images/FaqjaPare/x.png" onclick="hideNotice()" class="x-image"/>
         <div class="einvoice-notice" id="04" style="height: 60px;text-align: center;">
-            <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Shiriti-Alpha-Risite-e-Reja-8b3486af55fb4817ae9f10319e42baac" target="_blank">Lexo më shumë..</a><br />
-               <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Shiriti-Alpha-Risite-e-Reja-8b3486af55fb4817ae9f10319e42baac" target="_blank">Lexo më shumë..</a>
+            <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë..</a><br />
+               <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë..</a>
             </p>
         </div>
         <div id="backDiv" runat="server">
