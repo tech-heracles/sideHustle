@@ -13256,7 +13256,7 @@ namespace DbCore
                 {
                     SourceGeneration = long.Parse(prefix.Split('#')[1])
                 };
-                storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz");
+                storage.CopyObject("backup-cloudsqldatabase", prefix.Split('#')[0], "backup-cloudsqldatabase", "databaseToImport/" + unixTimestamp + connectionStringame + ".gz", copyOptions);
                 //End of copy
 
 

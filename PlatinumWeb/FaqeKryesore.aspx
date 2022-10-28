@@ -109,7 +109,25 @@
 			overflow-y: scroll;
 		  }
 		}
-
+        .einvoice-notice p{
+            font-size: 17px;
+        }
+        .einvoice-notice img{
+            height: 31px;
+            margin-right: 5px;
+        }
+        .x-image{
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        @media only screen and (max-width: 892px) {
+          .einvoice-notice p{
+              font-size: 10px;
+          }
+        }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121798081-2"></script>
@@ -124,8 +142,11 @@
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 20px;text-align: center; display:none">
-            <a style="color:black ; text-decoration:none;" href="https://www.notion.so/alphawiki/Njoftim-far-hapash-duhet-t-ndiqni-p-r-t-p-rdorur-URL-n-e-re-t-integrimit-8c3e24f11eeb4a25a4ebc2ef66e61b4d" target="_blank"><p>Njoftim: Linku i integrimit per programin Alpha eshte updatuar. Nese programi yt Alpha eshte i integruar me nje program tjeter, duhet te ndjekesh keto hapa deri te premten date 23 shtator 2022.</p></a>
+        <img src="images/FaqjaPare/x.png" onclick="hideNotice()" class="x-image"/>
+        <div class="einvoice-notice" id="04" style="height: 60px;text-align: center;">
+            <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Shiriti-Alpha-Risite-e-Reja-8b3486af55fb4817ae9f10319e42baac" target="_blank">Lexo më shumë..</a><br />
+               <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Shiriti-Alpha-Risite-e-Reja-8b3486af55fb4817ae9f10319e42baac" target="_blank">Lexo më shumë..</a>
+            </p>
         </div>
         <div id="backDiv" runat="server">
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" Height="100%" runat="server" Orientation="Vertical" SeparatorVisible="false"

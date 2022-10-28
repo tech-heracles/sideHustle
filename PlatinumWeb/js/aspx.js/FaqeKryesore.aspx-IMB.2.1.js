@@ -198,11 +198,15 @@ var rifresko, fayeClient, currentChannel, channels = [
 
 var selectedTabSelector, pageKryesoreState = {};
 var pageState = {  menuJson: {}, guid: '', webhook: {}};
-
+function hideNotice() {
+    $(".footer1").parent().css("margin-top", "0px");
+    document.querySelector(".einvoice-notice").style.display = "none";
+    document.querySelector(".x-image").style.display = "none";
+}
 $(document).ready(function (e) {
     rifresko = false;
-    //$(".footer1").parent().css("margin-top", "-20px");
-    //$(".footer1").parent().css("position", "absolute");
+    $(".footer1").parent().css("margin-top", "-60px");
+    $(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
     });
     var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");

@@ -30,7 +30,7 @@ namespace PlatinumWeb
 
             // kerkesa per fiskalizim
             
-            var faturat = clsFunksioneFiskalizimi.merrVleratEFaturaveEinvoice(xml, "Einvoices", true) ;
+            var faturat = clsFunksioneFiskalizimi.merrVleratEFaturaveEinvoice(xml, "Einvoices", true);
             
             
             XmlDocument doc = new XmlDocument();

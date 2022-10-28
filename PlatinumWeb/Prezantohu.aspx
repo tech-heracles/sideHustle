@@ -34,7 +34,7 @@
         .loginForm{
             margin-top:-1000px;
             transition: 0.8s ease-in-out;
-            height: max-content;
+            height: max-content !important;
         }
         body{
             overflow-x:hidden;

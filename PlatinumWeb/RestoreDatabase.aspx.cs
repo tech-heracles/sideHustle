@@ -15,7 +15,35 @@ namespace PlatinumWeb
             var prefix = clsFunksione.getInstanceAndDatabaseRequest();
             var dbName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             List<string> lista = clsFunksione.getClientDatabaseBackups(dbName + ".gz");
-            foreach (string db in lista)
+            LinkedList<string> listaRenditur = new LinkedList<string>();
+            foreach(string db in lista)
+            {
+                if (db != "")
+                {
+                    long gen = long.Parse(db.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[1]);
+                    if (listaRenditur.Count == 0)
+                        listaRenditur.AddFirst(db);
+                    else
+                    {
+                        LinkedListNode<string> tmp = listaRenditur.First;
+                        while(tmp != null)
+                        {
+                            if (long.Parse(tmp.Value.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[1]) < gen)
+                            {
+                                tmp.List.AddBefore(tmp, db);
+                                break;
+                            }
+                            else if(tmp.Next == null && long.Parse(tmp.Value.Split(new string[] { "?generationAsUnix=" }, StringSplitOptions.None)[1]) > gen)
+                            {
+                                tmp.List.AddAfter(tmp, db);
+                                break;
+                            }
+                            tmp = tmp.Next;
+                        }
+                    }
+                }
+            }
+            foreach (string db in listaRenditur)
             {
 
                 ListItem listItem = new ListItem();
