@@ -104,9 +104,38 @@
     right: 0;
     background-color: rgba(255,255,255,0.7);
 }
+.modal{
+    width: 30%;
+    height: 30%;
+}
+.modal-content{
+    border-radius: 0px;
+}
+.modal-cont{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display:none;
+}
+.modal-footer a{
+    text-decoration: none;
+}
     </style>
 </head>
 <body>
+  <!-- Modal Structure -->
+    <div class="modal-cont" id="modal-cont">
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Rikthim Databaze</h4>
+      <p>Ju jeni duke rikthyer databazën me gjithë të dhënat e organizates tuaj ne gjendjën e datës së zgjedhur. Mbasi të shtypni po, fillimisht do të bëhet një backup i gjendjës së tanishme të databazës. Nese në të ardhmen deshironi, do të keni mundësi të ktheheni në gjendjën e tanishme. Jeni të sigurt që doni të vazhdoni?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="NdryshoDatbazen()">Po</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="hiqPopup()">Jo</a>
+        </div>
+  </div>
+        </div>
      <div class="loader-overlay"></div>
 <div class="loader">
     <div class="lds-grid">
@@ -125,7 +154,7 @@
         <nav>
             <div class="nav-wrapper" style="background-color: #0072c6 !important">
               <ul class="left hide-on-med-and-down">
-                <li><a onclick="NdryshoDatbazen()">Kthe databazen ne gjendjen e zgjedhur</a></li>
+                <li><a onclick="tregoPopup()">Kthe databazen ne gjendjen e zgjedhur</a></li>
                 <li><a onclick="ShkarkoDatabazen()">Shkarko Databazen</a></li>
               </ul>
             </div>
@@ -142,6 +171,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     function NdryshoDatbazen() {
+        hiqPopup();
         document.querySelector(".loader").style.display = "block";
         document.querySelector(".loader-overlay").style.display = "block";
         var generations = [];
@@ -192,6 +222,16 @@
 
     function ShkarkoDatabazen() {
         window.parent.window.open($("select option:selected").val(), "_blank");
+    }
+    function tregoPopup() {
+        document.getElementById("modal1").style.display = "block";
+        document.getElementById("modal-cont").style.display = "block";
+        document.getElementById("modal1").style.zIndex = "99999";
+    }
+    function hiqPopup() {
+        document.getElementById("modal1").style.display = "none";
+        document.getElementById("modal1").style.zIndex = "-99999";
+        document.getElementById("modal-cont").style.display = "none";
     }
 
 </script>

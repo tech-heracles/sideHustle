@@ -27,6 +27,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
  
 
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
     <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" />
@@ -113,7 +114,7 @@
             font-size: 17px;
         }
         .einvoice-notice img{
-            height: 31px;
+            height: 28px;
             margin-right: 5px;
         }
         .x-image{
@@ -121,7 +122,6 @@
             height: 30px;
             width: 30px;
             cursor: pointer;
-            margin-top: 10px;
         }
         @media only screen and (max-width: 892px) {
           .einvoice-notice p{
@@ -142,11 +142,16 @@
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
             <p></p>
         </div>
-        <img src="images/FaqjaPare/x.png" onclick="hideNotice()" class="x-image"/>
-        <div class="einvoice-notice" id="04" style="height: 60px;text-align: center;">
-            <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë..</a><br />
-               <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë..</a>
+        <div class="einvoice-notice" id="04" style="height: 60px;">
+            <div style="height: 62px; width:20%; position:absolute;">
+                <i class="material-icons x-image" onclick="hideNotice()">close</i>
+            </div>
+                              
+            <div style="text-align: center;">
+            <p><img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni back-up dhe restore te programit tuaj Alpha ne cdo moment qe deshironi. <a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë.</a><br />
+               <img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni "rivleresimin" me kuota falas dhe pagese sipas perdorimit.<a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë.</a>
             </p>
+                </div>
         </div>
         <div id="backDiv" runat="server">
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" Height="100%" runat="server" Orientation="Vertical" SeparatorVisible="false"

@@ -13219,12 +13219,13 @@ namespace DbCore
         {
             try
             {
-                string linkConnectionString = WebConfigurationManager.AppSettings["connectionStringUrl"];
+                string linkConnectionString = WebConfigurationManager.AppSettings["connectionStringUrl"] + "-test-1";
                 string connectionStringame = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
                 Int32 unixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
                 string project = "alphaweb";
                 string instance = "";
                 string instanceIp = "";
+                var instanca = getInstanceAndDatabaseRequest();
 
                 //Authentication with google service account
                 var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
@@ -13274,9 +13275,13 @@ namespace DbCore
                     {
                         bool status = false;
                         string instanceName = databaseInstance.Name;
-                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instance == "trajnime1")
+                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime")
                             continue;
-                        string instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
+                        string instanceIpConfig = "";
+                        if (databaseInstance.IpAddresses.FirstOrDefault().Type == "PRIMARY")
+                            instanceIpConfig = databaseInstance.IpAddresses[1].IpAddress;
+                        else
+                            instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
                         DatabasesResource.ListRequest databases = sqlAdminService.Databases.List(project, instanceName);
                         Data.DatabasesListResponse databasesResponse = databases.Execute();
                         foreach (Data.Database db in databasesResponse.Items)
@@ -13342,7 +13347,7 @@ namespace DbCore
                 InstancesResource.ImportRequest request = sqlAdminService.Instances.Import(requestBody, project, instance);
                 Data.Operation response = request.Execute();
                 OperationsResource.GetRequest operation = sqlAdminService.Operations.Get(project, response.Name);
-                
+
                 bool operationStatus = false;
                 while (!operationStatus)
                 {
@@ -13353,10 +13358,20 @@ namespace DbCore
                         {
                             name = connectionStringame,
                             connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog={connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
-                            LOCATION = instance
+                            LOCATION = instance,
+                            originalDatabase = connectionStringame,
+                            originalInstance = instanca.Split('/')[0]
                         };
                         operationStatus = true;
                         WebRequest webRequest;
+                        connectionStringObject = new
+                        {
+                            name = connectionStringame,
+                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog={connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
+                            LOCATION = instance,
+                            originalDatabase = connectionStringame,
+                            originalInstance = "instance-update3"
+                        };
                         webRequest = CreateJSONWebRequest(linkConnectionString);
                         using (Stream stream = webRequest.GetRequestStream())
                         {

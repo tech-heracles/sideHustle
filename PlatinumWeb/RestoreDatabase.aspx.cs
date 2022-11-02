@@ -12,7 +12,6 @@ namespace PlatinumWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var prefix = clsFunksione.getInstanceAndDatabaseRequest();
             var dbName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             List<string> lista = clsFunksione.getClientDatabaseBackups(dbName + ".gz");
             LinkedList<string> listaRenditur = new LinkedList<string>();
