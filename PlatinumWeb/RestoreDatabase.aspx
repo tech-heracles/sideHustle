@@ -156,6 +156,7 @@
               <ul class="left hide-on-med-and-down">
                 <li><a onclick="tregoPopup()">Kthe databazen ne gjendjen e zgjedhur</a></li>
                 <li><a onclick="ShkarkoDatabazen()">Shkarko Databazen</a></li>
+                <li><a onclick="krijoBackup()">Krijo Backup</a></li>
               </ul>
             </div>
         </nav>
@@ -170,6 +171,20 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    function krijoBackup() {
+        document.querySelector(".loader").style.display = "block";
+        document.querySelector(".loader-overlay").style.display = "block";
+        $.ajax({
+            type: "GET",
+            url: Utils.getServerApiUrl("Rregjistrime", "krijoBackup")
+        }).done(function (response) {
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".loader-overlay").style.display = "none";
+            alert("Backup-i u krijua me sukses!");
+        }).fail(function (response) {
+            alert("Backup-i nuk u krijua!");
+        });
+    }
     function NdryshoDatbazen() {
         hiqPopup();
         document.querySelector(".loader").style.display = "block";

@@ -5065,6 +5065,18 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpGet, HttpPost]
+        public HttpResponseMessage krijoBackup(JObject param)
+        {
+            try
+            {
+                return Request.KthePergjigje(RregjistrimeRepository.krijoBackup());
+            }
+            catch (Exception e)
+            {
+                return Request.KthePergjigjeGabim(param, e);
+            }
+        }
+        [HttpGet, HttpPost]
         public void destroySession(JObject param)
         {
             try

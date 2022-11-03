@@ -7284,6 +7284,10 @@ namespace RestApi.WebAPI.Models
             object result = clsFunksione.getClientDatabaseBackup(prefix, generations);
             return result;
         }
+        public static bool krijoBackup()
+        {
+            return clsFunksione.krijoBackup();
+        }
         public static void logout(HttpSessionState sessionState)
         {
             clsFunksione.LogoutRestore(sessionState, true, true, false, Paths.defaultLoginPath, "RestoreDatabase");

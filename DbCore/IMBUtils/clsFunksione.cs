@@ -13307,7 +13307,7 @@ namespace DbCore
                 requestExport.ExportContext.Kind = "sql#exportContext";
                 requestExport.ExportContext.Databases = databasesListToExport;
                 requestExport.ExportContext.FileType = "BAK";
-                string instanceNameToExport = prefix.Split('/')[0];
+                string instanceNameToExport = instanca.Split('/')[0];
                 requestExport.ExportContext.Uri = "gs://backup-cloudsqldatabase/" + instanceNameToExport + "/" + connectionStringame + ".gz";
                 InstancesResource.ExportRequest responseExport = sqlAdminService.Instances.Export(requestExport, project, instanceNameToExport);
                 Data.Operation responseOperation = responseExport.Execute();
@@ -13404,6 +13404,63 @@ namespace DbCore
                     status = "FAILED"
                 };
             }
+        }
+        public static bool krijoBackup()
+        {
+            try
+            {
+                string project = "alphaweb";
+                //Authentication with google service account
+                var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
+                string serviceAccountJson = File.ReadAllText(serviceAccount);
+                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
+                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                string[] credentials = new string[1];
+                credentials[0] = "https://www.googleapis.com/auth/cloud-platform";
+                if (credential.IsCreateScopedRequired)
+                {
+                    credential = credential.CreateScoped(credentials);
+                }
+                SQLAdminService sqlAdminService = new SQLAdminService(new BaseClientService.Initializer
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "Google-SQLAdminSample/0.1",
+                });
+
+
+                var service = new IamService(new IamService.Initializer
+                {
+                    HttpClientInitializer = credential
+                });
+                //End of Authentication
+                string connectionStringame = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                IList<string> databasesListToExport = new List<string>();
+                var instanca = getInstanceAndDatabaseRequest();
+                databasesListToExport.Add(connectionStringame);
+                Data.InstancesExportRequest requestExport = new Data.InstancesExportRequest();
+                requestExport.ExportContext = new Data.ExportContext();
+                requestExport.ExportContext.Kind = "sql#exportContext";
+                requestExport.ExportContext.Databases = databasesListToExport;
+                requestExport.ExportContext.FileType = "BAK";
+                string instanceNameToExport = instanca.Split('/')[0];
+                requestExport.ExportContext.Uri = "gs://backup-cloudsqldatabase/" + instanceNameToExport + "/" + connectionStringame + ".gz";
+                InstancesResource.ExportRequest responseExport = sqlAdminService.Instances.Export(requestExport, project, instanceNameToExport);
+                Data.Operation responseOperation = responseExport.Execute();
+                OperationsResource.GetRequest operationStatusExport = sqlAdminService.Operations.Get(project, responseOperation.Name);
+                bool operationStatusEx = false;
+                while (!operationStatusEx)
+                {
+                    Data.Operation operationResult = operationStatusExport.Execute();
+                    if (operationResult.Status == "RUNNING")
+                        operationStatusEx = true;
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
         public static List<string> getClientDatabaseBackups(string prefix)
         {
