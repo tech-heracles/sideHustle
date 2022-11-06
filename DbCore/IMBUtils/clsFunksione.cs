@@ -13295,12 +13295,14 @@ namespace DbCore
                             instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
                         DatabasesResource.ListRequest databases = sqlAdminService.Databases.List(project, instanceName);
                         Data.DatabasesListResponse databasesResponse = databases.Execute();
+                        if (databasesResponse.Items.Count >= 30)
+                            continue;
                         foreach (Data.Database db in databasesResponse.Items)
                         {
                             if (db.Name == connectionStringame)
-                                status = true;
+                                continue;
                         }
-                        if (databasesResponse.Items.Count < 30 && !status)
+                        if (databasesResponse.Items.Count < 30)
                         {
                             instance = instanceName;
                             instanceIp = instanceIpConfig;
@@ -13326,7 +13328,7 @@ namespace DbCore
                 bool operationStatusEx = false;
                 while (!operationStatusEx)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(3000);
                     Data.Operation operationResult = operationStatusExport.Execute();
                     if (operationResult.Status == "DONE")
                         operationStatusEx = true;
@@ -13363,10 +13365,10 @@ namespace DbCore
                 bool operationStatus = false;
                 while (!operationStatus)
                 {
+                    Thread.Sleep(3000);
                     Data.Operation operationResult = operation.Execute();
                     if (operationResult.Status == "DONE")
                     {
-                        Thread.Sleep(500);
                         object connectionStringObject = new
                         {
                             name = connectionStringame,
@@ -13377,14 +13379,6 @@ namespace DbCore
                         };
                         operationStatus = true;
                         WebRequest webRequest;
-                        connectionStringObject = new
-                        {
-                            name = connectionStringame,
-                            connectionString = $"Data Source={instanceIp};Persist Security Info=True;Initial Catalog={connectionStringame};user Id=sqlserver;password=Alpha.2019;Min pool size=0;Max pool size=1000000", // change praktike1 to instance
-                            LOCATION = instance,
-                            originalDatabase = connectionStringame,
-                            originalInstance = "instance-update3"
-                        };
                         webRequest = CreateJSONWebRequest(linkConnectionString);
                         using (Stream stream = webRequest.GetRequestStream())
                         {
