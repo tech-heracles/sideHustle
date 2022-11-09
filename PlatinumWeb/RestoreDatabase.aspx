@@ -7,6 +7,8 @@
     <title>Restore Database</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.min.js;~/js/jquery.ui.datepicker-sq.js;~/js/selectize.min.js;~/js/multiSelect.js;~/js/myMesazh-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/memoryObject.js;~/js/async.min.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/arkiva.js;~/js/myNrAuto-IMB.2.1.js;~/JsGlobal.js;~/js/myCookies-IMB.2.1.js;~/fine-uploader/jquery.fine-uploader.js;~/js/multiOpenAccordion-IMB.2.1.js;~/js/toolbar.js;"
         type="text/javascript"></script>
     <style>
@@ -104,9 +106,39 @@
     right: 0;
     background-color: rgba(255,255,255,0.7);
 }
+.modal{
+    width: 30%;
+    height: 30%;
+}
+.modal-content{
+    border-radius: 0px;
+}
+.modal-cont{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display:none;
+}
+.modal-footer a{
+    text-decoration: none;
+}
+
     </style>
 </head>
 <body>
+  <!-- Modal Structure -->
+    <div class="modal-cont" id="modal-cont">
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Rikthim Databaze</h4>
+      <p>Ju jeni duke rikthyer databazën me gjithë të dhënat e organizates tuaj ne gjendjën e datës së zgjedhur. Mbasi të shtypni po, fillimisht do të bëhet një backup i gjendjës së tanishme të databazës. Nese në të ardhmen deshironi, do të keni mundësi të ktheheni në gjendjën e tanishme. Jeni të sigurt që doni të vazhdoni?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="NdryshoDatbazen()">Po</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="hiqPopup()">Jo</a>
+        </div>
+  </div>
+        </div>
      <div class="loader-overlay"></div>
 <div class="loader">
     <div class="lds-grid">
@@ -125,8 +157,9 @@
         <nav>
             <div class="nav-wrapper" style="background-color: #0072c6 !important">
               <ul class="left hide-on-med-and-down">
-                <li><a onclick="NdryshoDatbazen()">Kthe databazen ne gjendjen e zgjedhur</a></li>
+                <li><a onclick="tregoPopup()">Kthe databazen ne gjendjen e zgjedhur</a></li>
                 <li><a onclick="ShkarkoDatabazen()">Shkarko Databazen</a></li>
+                <li><a onclick="krijoBackup()">Krijo Backup</a></li>
               </ul>
             </div>
         </nav>
@@ -137,11 +170,30 @@
         </div>
     </form>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    function krijoBackup() {
+        document.querySelector(".loader").style.display = "block";
+        document.querySelector(".loader-overlay").style.display = "block";
+        $.ajax({
+            type: "GET",
+            url: Utils.getServerApiUrl("Rregjistrime", "krijoBackup")
+        }).done(function (response) {
+            if (response) {
+                document.querySelector(".loader").style.display = "none";
+                document.querySelector(".loader-overlay").style.display = "none";
+                myMesazh.ShtoMesazhSuksesi("Backup-i u krijuar me sukses!");
+            }
+            else {
+                document.querySelector(".loader").style.display = "none";
+                document.querySelector(".loader-overlay").style.display = "none";
+                myMesazh.ShtoMesazhGabimi("Backup-i nuk u krijua, ju lutem provoni peresri me vone!");
+            }
+        }).fail(function (response) {
+            alert("Backup-i nuk u krijua!");
+        });
+    }
     function NdryshoDatbazen() {
+        hiqPopup();
         document.querySelector(".loader").style.display = "block";
         document.querySelector(".loader-overlay").style.display = "block";
         var generations = [];
@@ -192,6 +244,16 @@
 
     function ShkarkoDatabazen() {
         window.parent.window.open($("select option:selected").val(), "_blank");
+    }
+    function tregoPopup() {
+        document.getElementById("modal1").style.display = "block";
+        document.getElementById("modal-cont").style.display = "block";
+        document.getElementById("modal1").style.zIndex = "99999";
+    }
+    function hiqPopup() {
+        document.getElementById("modal1").style.display = "none";
+        document.getElementById("modal1").style.zIndex = "-99999";
+        document.getElementById("modal-cont").style.display = "none";
     }
 
 </script>

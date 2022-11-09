@@ -7280,8 +7280,13 @@ namespace RestApi.WebAPI.Models
         }
         public static object restoreDatabase(string prefix, string[] generations)
         {
+            
             object result = clsFunksione.getClientDatabaseBackup(prefix, generations);
             return result;
+        }
+        public static bool krijoBackup()
+        {
+            return clsFunksione.krijoBackup();
         }
         public static void logout(HttpSessionState sessionState)
         {

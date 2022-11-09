@@ -142,14 +142,16 @@
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 60px;">
-            <div style="height: 100%; width:100%; position:absolute;">
+        <div class="einvoice-notice" id="04" style="height: 60px; display: none;">
+            <div style="height: 62px; width:20%; position:absolute;">
                 <i class="material-icons x-image" onclick="hideNotice()">close</i>
             </div>
                               
             <div style="text-align: center;">
             <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë..</a><br />
                <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë..</a>
+            <p><img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni back-up dhe restore te programit tuaj Alpha ne cdo moment qe deshironi. <a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë.</a><br />
+               <img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni "rivleresimin" me kuota falas dhe pagese sipas perdorimit.<a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë.</a>
             </p>
                 </div>
         </div>
