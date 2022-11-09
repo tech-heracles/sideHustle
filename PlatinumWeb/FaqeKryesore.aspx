@@ -142,7 +142,7 @@
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 60px;">
+        <div class="einvoice-notice" id="04" style="height: 60px; display: none;">
             <div style="height: 62px; width:20%; position:absolute;">
                 <i class="material-icons x-image" onclick="hideNotice()">close</i>
             </div>
