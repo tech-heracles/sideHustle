@@ -13286,7 +13286,7 @@ namespace DbCore
                     {
                         bool status = false;
                         string instanceName = databaseInstance.Name;
-                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime")
+                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime" || instanceName == instanca.Split('/')[0])
                             continue;
                         string instanceIpConfig = "";
                         if (databaseInstance.IpAddresses.FirstOrDefault().Type == "PRIMARY")
