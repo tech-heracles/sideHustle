@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prezantohu.aspx.cs" Inherits="PlatinumWeb.login" %>
+<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="Prezantohu.aspx.cs" Inherits="PlatinumWeb.login" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>

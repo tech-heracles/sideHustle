@@ -32,6 +32,8 @@ using System.Net.Http;
 using System.Text;
 using System.IO;
 using System.Web.Script.Serialization;
+using JWT;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace PlatinumWeb
 {
@@ -40,102 +42,119 @@ namespace PlatinumWeb
         public ITestService TestService { get; set; }
         private const string PARAMETER_NAME = "enc=";
         private DataTable dtServera;
-        protected void Page_Load(object sender, EventArgs e)
+        FirebaseConfiguration fb = new FirebaseConfiguration();
+        protected async void Page_Load(object sender, EventArgs e)
         {
 #if DEBUG
             var test = TestService.GetTestData();
 #endif
-            if (!IsPostBack)
-            {
-                ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
-                LabelInfo.Text = "";
-                //lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
-                //ruaj connstring default ne hapje te pare
-                //MyConnectionsManager.SetSelectedConNameServer(Session.SessionID, MyConnectionsManager.ConnStringNameDefault);
-                var idGjuha = MerrIdGjuha();
-                mySessionObjects.ruajGjuhe(Session, idGjuha);
-                var autoLogin = WebConfigurationManager.AppSettings["AutoLoginAsVizitor"];
-                if (autoLogin != null && Convert.ToBoolean(autoLogin))
+            
+                if (!IsPostBack)
                 {
-                    if (autoLoginForDefaultUser(rm, ci, idGjuha))
-                        return;
-                }
-                var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
-                clsLogin.mbushServerCombo(Session.SessionID, combo);
 
-                Login1.Focus();
-                HtmlForm form = (HtmlForm)FindControl("form1");
-                ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton");
-                string urlHelpi = clsFunksione.ktheUrlHelpi("").Item1;
-
-
-                if (form != null && LoginButton != null)
-                {
-                    form.DefaultButton = LoginButton.UniqueID;
-                }
-
-                ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
-
-                emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
-                if (Request.QueryString["enc"] != null)
-                {
-                    loginETopUpVod(Request.QueryString["enc"], rm, ci);
-                }
-                //ruhet ne web config nese do shfaqet linku per resetim passowrdi ose jo, pasi ne politikat e fjalekalimit nuk mund te vendoset per sa kohe nuk kemi asnje te dhene per ndermarrjen ose licencen ne momentin qe hapet faqja e login
-                bool shfaqLinkResetPass = Convert.ToBoolean(WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
-                if (shfaqLinkResetPass)
-                {
-                    PasswordRecoveryLink.Visible = shfaqLinkResetPass;
-                    if (Request.QueryString["user"] != null) //tregon qe eshte klikuar linku i resetimit te passwordit
+                    ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
+                    LabelInfo.Text = "";
+                    //lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
+                    //ruaj connstring default ne hapje te pare
+                    //MyConnectionsManager.SetSelectedConNameServer(Session.SessionID, MyConnectionsManager.ConnStringNameDefault);
+                    var idGjuha = MerrIdGjuha();
+                    mySessionObjects.ruajGjuhe(Session, idGjuha);
+                    var autoLogin = WebConfigurationManager.AppSettings["AutoLoginAsVizitor"];
+                    if (autoLogin != null && Convert.ToBoolean(autoLogin))
                     {
-                        ASPxTextBox txtUsername = Login1.FindControl("UserName") as ASPxTextBox;
-                        //string username1 = this.Login1.UserName;
-                        string username = Request.QueryString["user"].ToString();
-                        if (!username.Equals(""))
+                        if (autoLoginForDefaultUser(rm, ci, idGjuha))
+                            return;
+                    }
+                    var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
+                    clsLogin.mbushServerCombo(Session.SessionID, combo);
+
+                    Login1.Focus();
+                    HtmlForm form = (HtmlForm)FindControl("form1");
+                    ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton");
+                    string urlHelpi = clsFunksione.ktheUrlHelpi("").Item1;
+
+
+                    if (form != null && LoginButton != null)
+                    {
+                        form.DefaultButton = LoginButton.UniqueID;
+                    }
+
+                    ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
+
+                    emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+                    if (Request.QueryString["enc"] != null)
+                    {
+                        loginETopUpVod(Request.QueryString["enc"], rm, ci);
+                    }
+                    //ruhet ne web config nese do shfaqet linku per resetim passowrdi ose jo, pasi ne politikat e fjalekalimit nuk mund te vendoset per sa kohe nuk kemi asnje te dhene per ndermarrjen ose licencen ne momentin qe hapet faqja e login
+                    bool shfaqLinkResetPass = Convert.ToBoolean(WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
+                    if (shfaqLinkResetPass)
+                    {
+                        PasswordRecoveryLink.Visible = shfaqLinkResetPass;
+                        if (Request.QueryString["user"] != null) //tregon qe eshte klikuar linku i resetimit te passwordit
                         {
-                            clsMesazh resetPassMesazh = clsFunksione.dergoVerificationLink(username, false, idGjuha);
-                            if (resetPassMesazh.KodMesazhi == 1) //kodmesazhi 1 ne rastin kur licenca e perdoruesit nuk lejon resetimin e passwordit per perdoruesit e saj te percaktuar te konfigurimet e fjalekalimit.
+                            ASPxTextBox txtUsername = Login1.FindControl("UserName") as ASPxTextBox;
+                            //string username1 = this.Login1.UserName;
+                            string username = Request.QueryString["user"].ToString();
+                            if (!username.Equals(""))
                             {
-                                PasswordRecoveryLink.Enabled = false;
-                                PasswordRecoveryLink.Visible = false;
+                                clsMesazh resetPassMesazh = clsFunksione.dergoVerificationLink(username, false, idGjuha);
+                                if (resetPassMesazh.KodMesazhi == 1) //kodmesazhi 1 ne rastin kur licenca e perdoruesit nuk lejon resetimin e passwordit per perdoruesit e saj te percaktuar te konfigurimet e fjalekalimit.
+                                {
+                                    PasswordRecoveryLink.Enabled = false;
+                                    PasswordRecoveryLink.Visible = false;
+                                }
+                                LabelInfo.Text = resetPassMesazh.PershkrimMesazhi;
+                                return;
                             }
-                            LabelInfo.Text = resetPassMesazh.PershkrimMesazhi;
+                            LabelInfo.Text = MessagesResource.Messages["msgLoginPlotesoPerodruesin"];
                             return;
                         }
-                        LabelInfo.Text = MessagesResource.Messages["msgLoginPlotesoPerodruesin"];
-                        return;
                     }
-                }
-                else
-                {
-                    if (Request.QueryString["user"] != null || Request.QueryString["harroPw"] != null)
+                    else
                     {
-                        string sulm = MessagesResource.Messages["msgLoginResetimFjalekalimiIPaautorizuar"];
-                        clsTrackUser.shtoUserLoginFail(sulm, Login1.UserName, Session.SessionID, Request.UserHostAddress); //Rasti kur po sulmohet per resetim pass dhe linku I resetimin te pass eshte I fshehur
-                        LabelInfo.Text = sulm;
-                        return;
+                        if (Request.QueryString["user"] != null || Request.QueryString["harroPw"] != null)
+                        {
+                            string sulm = MessagesResource.Messages["msgLoginResetimFjalekalimiIPaautorizuar"];
+                            clsTrackUser.shtoUserLoginFail(sulm, Login1.UserName, Session.SessionID, Request.UserHostAddress); //Rasti kur po sulmohet per resetim pass dhe linku I resetimin te pass eshte I fshehur
+                            LabelInfo.Text = sulm;
+                            return;
+                        }
                     }
-                }
-                string arsye = Request.QueryString["arsye"];
-                if (string.IsNullOrEmpty(arsye))
-                    return;
-                if (arsye.Contains("error"))
-                {
-                    ImbLogger.Error("arsye.Contains(\"error\") - Nuk duhet te ndodhe kjo");
-                    var mesazhErrori = arsye.Split('_')[1];
-                    if (!mesazhErrori.Equals(""))
+                    string arsye = Request.QueryString["arsye"];
+                    if (string.IsNullOrEmpty(arsye))
                     {
-                        LabelInfo.Text = mesazhErrori;
-                        clsFunksione.logout(Session, true, true, true);
-                        clsLogin.mbushServerCombo(Session.SessionID, combo);
-                        return;
                     }
-                }
-                VendosInfoSipasArsyes(arsye, idGjuha);
-                clsLogin.mbushServerCombo(Session.SessionID, combo);
-            }
-        }
+                    else
+                    {
+                        if (arsye.Contains("error"))
+                        {
+                            ImbLogger.Error("arsye.Contains(\"error\") - Nuk duhet te ndodhe kjo");
+                            var mesazhErrori = arsye.Split('_')[1];
+                            if (!mesazhErrori.Equals(""))
+                            {
+                                LabelInfo.Text = mesazhErrori;
+                                clsFunksione.logout(Session, true, true, true);
+                                clsLogin.mbushServerCombo(Session.SessionID, combo);
+                                return;
+                            }
+                        }
+                    }
 
+                    VendosInfoSipasArsyes(arsye, idGjuha);
+                    clsLogin.mbushServerCombo(Session.SessionID, combo);
+                }
+
+           
+            loginWithFirebase();
+
+        }
+        //protected void Page_LoadComplete(object sender, EventArgs e)
+        //{
+        //    //FirebaseConfiguration fc = new FirebaseConfiguration();
+        //    //fc.getUserPassword();
+        //    //loginWithFirebase();
+        //}  
         private void VendosInfoSipasArsyes(string arsye, int idGjuha)
         {
             switch (arsye)
@@ -476,6 +495,171 @@ namespace PlatinumWeb
                 }
             }
         }
+        internal async void loginWithFirebase()
+        {
+            if (Request.Url.ToString().Contains("authToken="))
+            {
+                var dictionary = await fb.getUserPassword(Request.Url.ToString().Split(new string[] { "authToken=" }, StringSplitOptions.None)[1]);
+                var handler = new JwtSecurityTokenHandler();
+                var jwtSecurityToken = handler.ReadJwtToken(dictionary["hashPassword"].ToString());
+                ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
+                password.Text = dictionary["passwordHash"].ToString();
+                Login1.UserName = "konfig";
+                ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
+                ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
+
+                emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+                var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
+                string connName;
+                combo.Value = combo.Items.FindByText("praktike1").Value;
+                if (combo?.Value == null)
+                {
+                    clsLogin.setServer(Session.SessionID, 0);
+                }
+                else
+                {
+                    clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32(combo.Value));
+                    if (!mesazh.Status)
+                    {
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                        return;
+                    }
+                }
+                var user = new clsPerdorues("konfig");
+
+                //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
+                var idGjuha = MerrIdGjuha();
+                mySessionObjects.ruajGjuhe(Session, idGjuha);
+
+                DbCore.DbAdmin.clsKonfigurimeFjalekalimi konf = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(user.IdPerdorues);
+                konf.mbushKonfigurimSipasPerdoruesit(user.IdPerdorues);
+
+                // if first time login is not done
+
+                if (konf.Twofacorauth)
+                {
+                    if (!Convert.ToBoolean(step1Complete.Value))
+                    {
+                        ASPxTextBox pass = (ASPxTextBox)Login1.FindControl("Password");
+                        var Otp_qr = (Literal)Login1.FindControl("Otp_qr");
+                        var otp_div = (Control)Login1.FindControl("otp_div");
+                        var login_div = (Control)Login1.FindControl("login_div");
+
+
+                        // check if user/pass is valid
+                        if (clsFunksione.validoPerdoruesUsernmaePass(HttpContext.Current, Login1.UserName, "Toke456"))
+                        {
+                            step1Complete.Value = true.ToString();
+
+
+
+                            var userToken = user.Otp_Token;
+
+                            var imageSource = "<div></div>";
+
+
+                            if (string.IsNullOrWhiteSpace(userToken))
+                            {
+                                userToken = Guid.NewGuid().ToString();
+                                clsPerdorues.modifikoOtp(user.IdPerdorues, userToken);
+
+                                var auth = new OtpAuthenticator(userToken, "konfig");
+                                imageSource = $"<img src='https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl={auth.GetOtpUrl()}'/>";
+                            }
+
+                            Otp_qr.Text = $"{imageSource}";
+
+                            otp_div.Visible = true;
+                            login_div.Visible = false;
+
+                        }
+                    }
+
+                    else
+                    {
+                        // verify OTP
+                        var userToken = clsFunksione.merrTokeninOtpTeUserit("konfig");
+
+                        var auth = new OtpAuthenticator(userToken, "konfig");
+
+                        var inputCode = ((ASPxTextBox)Login1.FindControl("Kodi")).Text;
+
+                        if (!(inputCode.Replace(" ", "").Trim() == auth.GetPin()))
+                        {
+                            ((Label)Login1.FindControl("otpError")).Text = "OTP Eshte Gabim";
+                            return;
+                        }
+
+                        if (loginAutentification("konfig", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                        {
+                            var mesazh = clsFunksione.avancoPerpara(Response, Session, user.IdPerdorues, rm, ci, (bool)Application["validInstall"]);
+                            if (mesazh.Status) return;
+                            Login1.FailureText = mesazh.PershkrimMesazhi;
+                        }
+                    }
+                }
+                else if (loginAutentification("konfig", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                {
+                    var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
+                    var org = MyConnectionsManager.GetSelectedConNameServer();
+                    if (hflocal.Value == "" || hflocal.Value != org)
+                    {
+
+
+                        try
+                        {
+
+                            String strRedirect = String.Format("https://imb-licence.ew.r.appspot.com/rest/getTerms?organisation={0}", org);
+                            var myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create(strRedirect);
+                            myHttpWebRequest.Method = "GET";
+                            myHttpWebRequest.ContentType = "text/xml; encoding='utf-8'";
+                            hfTerms.Value = org;
+                            //Get Response
+                            var myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+                            using (Stream dataStream = myHttpWebResponse.GetResponseStream())
+                            {
+                                // Open the stream using a StreamReader for easy access.
+                                StreamReader reader = new StreamReader(dataStream);
+                                // Read the content.
+                                string responseFromServer = reader.ReadToEnd();
+                                if (responseFromServer == "false")
+                                {
+                                    popupUniversal1.ClientSideEvents.Init = @"function() {     popupUniversal1.Show(); 
+                 }
+                     ";
+                                }
+                                else
+                                {
+
+                                    mySessionObjects.ruajTerms(Session, true);
+                                    var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                                    if (mesazh.Status) return;
+                                    Login1.FailureText = mesazh.PershkrimMesazhi;
+
+                                }
+
+
+                            }
+
+                            // Close the response.
+                            myHttpWebResponse.Close(); return;
+                        }
+                        catch (WebException ex)
+                        {
+                            string message = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                        }
+                    }
+                    else
+                    {
+                        mySessionObjects.ruajTerms(Session, true);
+                        var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                        if (mesazh.Status) return;
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                    }
+                }
+            }
+           
+        }
 
         //protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         //{
@@ -520,8 +704,6 @@ namespace PlatinumWeb
             clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, username, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
             if (mesazh)
             {
-
-
                 return true;
 
             }
@@ -529,6 +711,7 @@ namespace PlatinumWeb
             Login1.FailureText = mesazh.PershkrimMesazhi;
             return false;
         }
+
         protected void ButtonOk_Click(object sender, EventArgs e)
         {
             try

@@ -337,22 +337,27 @@ namespace PlatinumWeb
         protected void Application_Error(object sender, EventArgs e)
         {
             //GlobalCacheManager.MyAppCache.Clear();
-            var ex = Server.GetLastError();
-            if (ex.GetType() == typeof(System.Web.HttpException))
+            if(Server.GetLastError() != null)
             {
-                // The Complete Error Handling Example generates
-                // some errors using URLs with "NoCatch" in them;
-                // ignore these here to simulate what would happen
-                // if a global.asax handler were not implemented.
-                if (ex.Message.Contains("NoCatch") || ex.Message.Contains("maxUrlLength"))
+                var ex = Server.GetLastError();
+                if (ex.GetType() == typeof(System.Web.HttpException))
+                {
+                    // The Complete Error Handling Example generates
+                    // some errors using URLs with "NoCatch" in them;
+                    // ignore these here to simulate what would happen
+                    // if a global.asax handler were not implemented.
+                    if (ex.Message.Contains("NoCatch") || ex.Message.Contains("maxUrlLength"))
+                        return;
+                }
+                if (ex is ThreadAbortException)
                     return;
+                HttpApplicationHelper.WriteErrorOnResponse(Response, ex);
+                if (ex.Message != "Mungon konteksti i kerkeses!")
+                    ImbLogger.Error(ex, "Application_Error");
+                Server.ClearError();
+
             }
-            if (ex is ThreadAbortException)
-                return;
-            HttpApplicationHelper.WriteErrorOnResponse(Response, ex);
-            if (ex.Message != "Mungon konteksti i kerkeses!")
-                ImbLogger.Error(ex, "Application_Error");
-            Server.ClearError();
+           
         }
 
         protected void Session_End(object sender, EventArgs e)
