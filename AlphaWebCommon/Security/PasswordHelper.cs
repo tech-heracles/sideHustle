@@ -10,6 +10,10 @@ namespace DbCore.IMBUtils.Security
         {
             return (perdoruesPassword.Equals(HashLogin(username, password)) || perdoruesPassword.Equals(HashLogin(char.ToUpper(username[0]) + username.Substring(1), password)) || perdoruesPassword.Equals(HashLogin(char.ToLower(username[0]) + username.Substring(1), password)));
         }
+        public static bool ValidoPasswordWithFirebase(string username, string password, string perdoruesPassword)
+        {
+            return (perdoruesPassword.Equals(password) || perdoruesPassword.Equals(password) || perdoruesPassword.Equals(password));
+        }
 
 
         /// <summary>
