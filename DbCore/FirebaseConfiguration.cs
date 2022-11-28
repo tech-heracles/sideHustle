@@ -27,6 +27,7 @@ namespace DbCore
         //};
 
         public FirebaseConfiguration(){
+            
             if(FirebaseApp.DefaultInstance == null)
             {
                 var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
@@ -36,13 +37,13 @@ namespace DbCore
                 var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
                 appOptions.Credential = credential;
-                FirebaseApp.Create(appOptions);
+                FirebaseApp fap = FirebaseApp.Create(appOptions);
+                
             }
-            
+
         }
         public async Task<Dictionary<string,object>> getUserPassword(string idToken)
         {
-            
             var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
             string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
@@ -55,11 +56,29 @@ namespace DbCore
             foreach(var snap in snapshot) {
                 documentDictionary = snap.ToDictionary();
             }
+            FirebaseAuth fa = FirebaseAuth.GetAuth(FirebaseApp.DefaultInstance);
+            
+            Task<string> jwt = fa.CreateCustomTokenAsync(uid);
             return documentDictionary;
             //QueryBuilder qb = QueryBuilder.New("");
             //client = new FirebaseClient(config);
             //var response = client.Get(@"userDetails");
             //string todo = response.Body.ToString();
+        }
+        public async Task<Dictionary<string,object>> getUserDetailsWithUID(string uid)
+        {
+            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
+            string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+            Query usersRef = firestoreDb.Collection("userDetails").WhereEqualTo("uid", uid);
+            QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
+            foreach (var snap in snapshot)
+            {
+                documentDictionary = snap.ToDictionary();
+            }
+            return documentDictionary;
         }
     }
 }

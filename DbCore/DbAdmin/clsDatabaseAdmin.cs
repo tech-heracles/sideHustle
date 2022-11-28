@@ -2611,6 +2611,21 @@ namespace DbCore.DbAdmin
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_sel");
             //colPerdoruesit perdoruesit = new colPerdoruesit();
             //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
+            
+            return ds.Tables[0];
+
+        }
+        internal DataTable ktheUserNgaLoginMeUsernameOseEmail(string perdoruesUsername, string email)
+        {
+            var dbManager = MyScopeDbManager;
+            string queryString = "";
+            dbManager.Open();
+            if (perdoruesUsername == "")
+                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 AND PERDORUESAKTIV = 1";
+            else
+                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESUSERNAME = '{perdoruesUsername}' OR PERDORUESEMAIL = '{email}' and IDSTATUSDOK = '1' AND PERDORUESAKTIV = '1'";
+            CommandType commandType = CommandType.Text;
+            DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
             return ds.Tables[0];
 
         }
@@ -2623,6 +2638,15 @@ namespace DbCore.DbAdmin
         /// <param name="username"></param>
         /// <returns></returns>
         internal DataRow kthePerdoruesSipasUsername(string username)
+        {
+            DataTable dt = ktheUserNgaLogin(username);
+            if (dt == null)
+                return null;
+            if (dt.Rows.Count == 0 || dt.Rows.Count > 1)
+                return null;
+            return dt.Rows[0];
+        }
+        internal DataRow kthePerdoruesSipasUsernameOseEmail(string username,string email)
         {
             DataTable dt = ktheUserNgaLogin(username);
             if (dt == null)

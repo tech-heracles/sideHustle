@@ -124,12 +124,11 @@ namespace PlatinumWeb
                     }
                     string arsye = Request.QueryString["arsye"];
                     if (Request.Url.ToString().Contains("authToken="))
-                        await loginWithFirebase();
+                        await loginWithFirebaseToken();
                     else
                     {
                         if (string.IsNullOrEmpty(arsye))
-                        {
-                        }
+                            return;
                         else
                         {
                             if (arsye.Contains("error"))
@@ -258,6 +257,10 @@ namespace PlatinumWeb
             if (mesazh)
                 mesazh = clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"]);
             return mesazh.Status;
+        }
+        protected async void logInWithGmail(object sender, EventArgs e)
+        {
+            await loginWithFirebaseUid(txtUID.Text);
         }
 
         private void emertoKontrolletSipasGjuhes(ResourceManager rm, CultureInfo ci, ASPxLabel PasswordRecoveryLink, ASPxButton LoginButton)
@@ -501,112 +504,111 @@ namespace PlatinumWeb
                 }
             }
         }
-        internal async Task loginWithFirebase()
+        internal async Task loginWithFirebaseToken()
         {
             try
             {
-                if (Request.Url.ToString().Contains("authToken="))
+                var dictionary = await fb.getUserPassword(Request.Url.ToString().Split(new string[] { "authToken=" }, StringSplitOptions.None)[1]);
+                string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString() : "");
+                string organization = (dictionary.ContainsKey("clientDatabase") == true ? dictionary["clientDatabase"].ToString() : "");
+                string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
+                string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
+                organization = "praktike1-test"; // chnage to organization
+                ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
+                password.Text = dictionary["passwordHash"].ToString();
+                Login1.UserName = username;
+                ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
+                ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
+
+                emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+                var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
+                string connName;
+                combo.Value = combo.Items.FindByText(organization).Value;
+                if (combo?.Value == null)
                 {
-                    var dictionary = await fb.getUserPassword(Request.Url.ToString().Split(new string[] { "authToken=" }, StringSplitOptions.None)[1]);
-                    string passwordHashed = dictionary["passwordHash"].ToString();
-                    string organization = dictionary["clientDatabase"].ToString();
-                    string username = dictionary["email"].ToString();
-                    organization = "praktike1-test";
-                    ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
-                    password.Text = dictionary["passwordHash"].ToString();
-                    Login1.UserName = username;
-                    ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
-                    ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
-
-                    emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
-                    var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
-                    string connName;
-                    combo.Value = combo.Items.FindByText(organization).Value;
-                    if (combo?.Value == null)
+                    clsLogin.setServer(Session.SessionID, 0);
+                }
+                else
+                {
+                    clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32(combo.Value));
+                    if (!mesazh.Status)
                     {
-                        clsLogin.setServer(Session.SessionID, 0);
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                        return;
                     }
-                    else
+                }
+                var user = new clsPerdorues(username,email,true);
+
+                //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
+                var idGjuha = MerrIdGjuha();
+                mySessionObjects.ruajGjuhe(Session, idGjuha);
+
+                DbCore.DbAdmin.clsKonfigurimeFjalekalimi konf = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(user.IdPerdorues);
+                konf.mbushKonfigurimSipasPerdoruesit(user.IdPerdorues);
+
+                // if first time login is not done
+
+
+                if (loginAutentificationWithFirebase(username,email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                {
+                    var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
+                    var org = MyConnectionsManager.GetSelectedConNameServer();
+                    if (hflocal.Value == "" || hflocal.Value != org)
                     {
-                        clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32(combo.Value));
-                        if (!mesazh.Status)
-                        {
-                            Login1.FailureText = mesazh.PershkrimMesazhi;
-                            return;
-                        }
-                    }
-                    var user = new clsPerdorues("konfig");
-
-                    //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
-                    var idGjuha = MerrIdGjuha();
-                    mySessionObjects.ruajGjuhe(Session, idGjuha);
-
-                    DbCore.DbAdmin.clsKonfigurimeFjalekalimi konf = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(user.IdPerdorues);
-                    konf.mbushKonfigurimSipasPerdoruesit(user.IdPerdorues);
-
-                    // if first time login is not done
 
 
-                    if (loginAutentificationWithFirebase(username, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
-                    {
-                        var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
-                        var org = MyConnectionsManager.GetSelectedConNameServer();
-                        if (hflocal.Value == "" || hflocal.Value != org)
+                        try
                         {
 
-
-                            try
+                            String strRedirect = String.Format("https://imb-licence.ew.r.appspot.com/rest/getTerms?organisation={0}", org);
+                            var myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create(strRedirect);
+                            myHttpWebRequest.Method = "GET";
+                            myHttpWebRequest.ContentType = "text/xml; encoding='utf-8'";
+                            hfTerms.Value = org;
+                            //Get Response
+                            var myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+                            using (Stream dataStream = myHttpWebResponse.GetResponseStream())
                             {
-
-                                String strRedirect = String.Format("https://imb-licence.ew.r.appspot.com/rest/getTerms?organisation={0}", org);
-                                var myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create(strRedirect);
-                                myHttpWebRequest.Method = "GET";
-                                myHttpWebRequest.ContentType = "text/xml; encoding='utf-8'";
-                                hfTerms.Value = org;
-                                //Get Response
-                                var myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-                                using (Stream dataStream = myHttpWebResponse.GetResponseStream())
+                                // Open the stream using a StreamReader for easy access.
+                                StreamReader reader = new StreamReader(dataStream);
+                                // Read the content.
+                                string responseFromServer = reader.ReadToEnd();
+                                if (responseFromServer == "false")
                                 {
-                                    // Open the stream using a StreamReader for easy access.
-                                    StreamReader reader = new StreamReader(dataStream);
-                                    // Read the content.
-                                    string responseFromServer = reader.ReadToEnd();
-                                    if (responseFromServer == "false")
-                                    {
-                                        popupUniversal1.ClientSideEvents.Init = @"function() {     popupUniversal1.Show(); 
-                 }
-                     ";
-                                    }
-                                    else
-                                    {
+                                    popupUniversal1.ClientSideEvents.Init = @"function() {     popupUniversal1.Show(); 
+                }
+                    ";
+                                }
+                                else
+                                {
 
-                                        mySessionObjects.ruajTerms(Session, true);
-                                        var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                                        if (mesazh.Status) return;
-                                        Login1.FailureText = mesazh.PershkrimMesazhi;
-
-                                    }
-
+                                    mySessionObjects.ruajTerms(Session, true);
+                                    var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                                    if (mesazh.Status) return;
+                                    Login1.FailureText = mesazh.PershkrimMesazhi;
 
                                 }
 
-                                // Close the response.
-                                myHttpWebResponse.Close(); return;
+
                             }
-                            catch (WebException ex)
-                            {
-                                string message = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
-                            }
+
+                            // Close the response.
+                            myHttpWebResponse.Close(); return;
                         }
-                        else
+                        catch (WebException ex)
                         {
-                            mySessionObjects.ruajTerms(Session, true);
-                            var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                            if (mesazh.Status) return;
-                            Login1.FailureText = mesazh.PershkrimMesazhi;
+                            string message = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
                         }
                     }
+                    else
+                    {
+                        mySessionObjects.ruajTerms(Session, true);
+                        var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                        if (mesazh.Status) return;
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                    }
                 }
+                
             }
             catch(Exception ex)
             {
@@ -614,6 +616,120 @@ namespace PlatinumWeb
             }
             
            
+        }
+        internal async Task loginWithFirebaseUid(string uid)
+        {
+            try
+            {
+                uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
+                var dictionary = await fb.getUserDetailsWithUID(uid);
+                string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString(): "");
+                string organization = (dictionary.ContainsKey("clientDatabase") == true ?  dictionary["clientDatabase"].ToString() : "");
+                string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
+                string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
+                organization = "praktike1-test";//change to organization
+                ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
+                password.Text = dictionary["passwordHash"].ToString();
+                Login1.UserName = username;
+                ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
+                ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
+
+                emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+                var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
+                string connName;
+                combo.Value = combo.Items.FindByText(organization).Value;
+                if (combo?.Value == null)
+                {
+                    clsLogin.setServer(Session.SessionID, 0);
+                }
+                else
+                {
+                    clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32(combo.Value));
+                    if (!mesazh.Status)
+                    {
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                        return;
+                    }
+                }
+                var user = new clsPerdorues("konfig");
+
+                //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
+                var idGjuha = MerrIdGjuha();
+                mySessionObjects.ruajGjuhe(Session, idGjuha);
+
+                DbCore.DbAdmin.clsKonfigurimeFjalekalimi konf = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(user.IdPerdorues);
+                konf.mbushKonfigurimSipasPerdoruesit(user.IdPerdorues);
+
+                // if first time login is not done
+
+
+                if (loginAutentificationWithFirebase(username,email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                {
+                    var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
+                    var org = MyConnectionsManager.GetSelectedConNameServer();
+                    if (hflocal.Value == "" || hflocal.Value != org)
+                    {
+
+
+                        try
+                        {
+
+                            String strRedirect = String.Format("https://imb-licence.ew.r.appspot.com/rest/getTerms?organisation={0}", org);
+                            var myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create(strRedirect);
+                            myHttpWebRequest.Method = "GET";
+                            myHttpWebRequest.ContentType = "text/xml; encoding='utf-8'";
+                            hfTerms.Value = org;
+                            //Get Response
+                            var myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+                            using (Stream dataStream = myHttpWebResponse.GetResponseStream())
+                            {
+                                // Open the stream using a StreamReader for easy access.
+                                StreamReader reader = new StreamReader(dataStream);
+                                // Read the content.
+                                string responseFromServer = reader.ReadToEnd();
+                                if (responseFromServer == "false")
+                                {
+                                    popupUniversal1.ClientSideEvents.Init = @"function() {     popupUniversal1.Show(); 
+                }
+                    ";
+                                }
+                                else
+                                {
+
+                                    mySessionObjects.ruajTerms(Session, true);
+                                    var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                                    if (mesazh.Status) return;
+                                    Login1.FailureText = mesazh.PershkrimMesazhi;
+
+                                }
+
+
+                            }
+
+                            // Close the response.
+                            myHttpWebResponse.Close(); return;
+                        }
+                        catch (WebException ex)
+                        {
+                            string message = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                        }
+                    }
+                    else
+                    {
+                        mySessionObjects.ruajTerms(Session, true);
+                        var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                        if (mesazh.Status) return;
+                        Login1.FailureText = mesazh.PershkrimMesazhi;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ImbLogger.LogErrorWebApi(ex.Message);
+            }
+
+
         }
 
         //protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
@@ -666,10 +782,10 @@ namespace PlatinumWeb
             Login1.FailureText = mesazh.PershkrimMesazhi;
             return false;
         }
-        internal bool loginAutentificationWithFirebase(string username, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
+        internal bool loginAutentificationWithFirebase(string username,string email, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
         {
             ASPxTextBox pass = (ASPxTextBox)Login1.FindControl("Password");
-            clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLoginWithFirebase(HttpContext.Current, username, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
+            clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLoginWithFirebase(HttpContext.Current, username,email, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
             if (mesazh)
             {
                 return true;

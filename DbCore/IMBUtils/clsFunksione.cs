@@ -2247,7 +2247,7 @@ namespace DbCore
             }
             return mesazh;
         }
-        public static clsMesazh validoPerdoruesinNeLoginWithFirebase(HttpContext httpContext, string username, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
+        public static clsMesazh validoPerdoruesinNeLoginWithFirebase(HttpContext httpContext, string username,string email, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
         {
             //string failureText;
             string arsyeLoginFail = "";
@@ -2257,7 +2257,7 @@ namespace DbCore
             int maxLoginAttempts = mySessionObjects.merrMaxLoginAttempts(httpContext.Session);
             var loginAttempts = (Dictionary<string, Dictionary<int, int>>)httpContext.Application["loginAttempts"];
             var useraAktiv = (Dictionary<string, string>)httpContext.Application["userAktiv"];
-            var user = new clsPerdorues(username);
+            var user = new clsPerdorues(username,email,true);
             if (user.IdPerdorues != 0)
             {
                 clsMesazh msgSkadimLicence = clsLicenca.KontrolloSkadiminLicences(user.IdPerdorues, rm, ci);
