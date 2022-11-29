@@ -57,8 +57,16 @@ namespace PlatinumWeb
             popNdermarrjePaPeriudha.HeaderText = rm.GetString("labelAdministrimiKujdes", ci);
             lblNukEkzistojnePeriudhat.Text = rm.GetString("msgLoginNdermarrjeKujdesNukEkzistojnePeriudhat", ci);
             lblUserEmriKESH.Text = lblUserEmri.Text = DbCore.mySessionObjects.kthePerdorues(Session).PerdoruesUsername;
-            ASPxHyperLink2.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout";
-            ASPxHyperLink3.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout";
+            if (Request.Url.ToString().Contains("google="))
+            {
+                ASPxHyperLink2.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout&google=true";
+                ASPxHyperLink3.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout&google=true";
+            }
+            else
+            {
+                ASPxHyperLink2.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout";
+                ASPxHyperLink3.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout";
+            }
             ASPxHyperLink2.Text = rm.GetString("labelLogOut", ci);
 
             using (var dbAdmin = new clsDatabaseAdmin())

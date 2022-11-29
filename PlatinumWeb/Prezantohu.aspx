@@ -2100,7 +2100,7 @@ section#submain header {
                 </article>
                 <article class="cpyright">
                 </article>
-                        <asp:Button ID="logInWithGmailButton" runat="server" Text="" OnClick="logInWithGmail"  />
+                        <asp:Button ID="logInWithGmailButton" runat="server" Text="" OnClick="logInWithGmail" />
                         <dx:ASPxTextBox ID="txtUID" runat="server"></dx:ASPxTextBox>
                         
             </footer>

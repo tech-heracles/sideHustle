@@ -49,107 +49,108 @@ namespace PlatinumWeb
 #if DEBUG
             var test = TestService.GetTestData();
 #endif
-            
-                if (!IsPostBack)
+
+            //return the control to the calling method
+            if (!IsPostBack)
+            {
+                
+                ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
+                LabelInfo.Text = "";
+                //lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
+                //ruaj connstring default ne hapje te pare
+                //MyConnectionsManager.SetSelectedConNameServer(Session.SessionID, MyConnectionsManager.ConnStringNameDefault);
+                var idGjuha = MerrIdGjuha();
+                mySessionObjects.ruajGjuhe(Session, idGjuha);
+                var autoLogin = WebConfigurationManager.AppSettings["AutoLoginAsVizitor"];
+                if (autoLogin != null && Convert.ToBoolean(autoLogin))
                 {
+                    if (autoLoginForDefaultUser(rm, ci, idGjuha))
+                        return;
+                }
+                var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
+                clsLogin.mbushServerCombo(Session.SessionID, combo);
 
-                    ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
-                    LabelInfo.Text = "";
-                    //lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
-                    //ruaj connstring default ne hapje te pare
-                    //MyConnectionsManager.SetSelectedConNameServer(Session.SessionID, MyConnectionsManager.ConnStringNameDefault);
-                    var idGjuha = MerrIdGjuha();
-                    mySessionObjects.ruajGjuhe(Session, idGjuha);
-                    var autoLogin = WebConfigurationManager.AppSettings["AutoLoginAsVizitor"];
-                    if (autoLogin != null && Convert.ToBoolean(autoLogin))
+                Login1.Focus();
+                HtmlForm form = (HtmlForm)FindControl("form1");
+                ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton");
+                string urlHelpi = clsFunksione.ktheUrlHelpi("").Item1;
+
+
+                if (form != null && LoginButton != null)
+                {
+                    form.DefaultButton = LoginButton.UniqueID;
+                }
+
+                ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
+
+                emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+                if (Request.QueryString["enc"] != null)
+                {
+                    loginETopUpVod(Request.QueryString["enc"], rm, ci);
+                }
+                //ruhet ne web config nese do shfaqet linku per resetim passowrdi ose jo, pasi ne politikat e fjalekalimit nuk mund te vendoset per sa kohe nuk kemi asnje te dhene per ndermarrjen ose licencen ne momentin qe hapet faqja e login
+                bool shfaqLinkResetPass = Convert.ToBoolean(WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
+                if (shfaqLinkResetPass)
+                {
+                    PasswordRecoveryLink.Visible = shfaqLinkResetPass;
+                    if (Request.QueryString["user"] != null) //tregon qe eshte klikuar linku i resetimit te passwordit
                     {
-                        if (autoLoginForDefaultUser(rm, ci, idGjuha))
-                            return;
-                    }
-                    var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
-                    clsLogin.mbushServerCombo(Session.SessionID, combo);
-
-                    Login1.Focus();
-                    HtmlForm form = (HtmlForm)FindControl("form1");
-                    ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton");
-                    string urlHelpi = clsFunksione.ktheUrlHelpi("").Item1;
-
-
-                    if (form != null && LoginButton != null)
-                    {
-                        form.DefaultButton = LoginButton.UniqueID;
-                    }
-
-                    ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
-
-                    emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
-                    if (Request.QueryString["enc"] != null)
-                    {
-                        loginETopUpVod(Request.QueryString["enc"], rm, ci);
-                    }
-                    //ruhet ne web config nese do shfaqet linku per resetim passowrdi ose jo, pasi ne politikat e fjalekalimit nuk mund te vendoset per sa kohe nuk kemi asnje te dhene per ndermarrjen ose licencen ne momentin qe hapet faqja e login
-                    bool shfaqLinkResetPass = Convert.ToBoolean(WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
-                    if (shfaqLinkResetPass)
-                    {
-                        PasswordRecoveryLink.Visible = shfaqLinkResetPass;
-                        if (Request.QueryString["user"] != null) //tregon qe eshte klikuar linku i resetimit te passwordit
+                        ASPxTextBox txtUsername = Login1.FindControl("UserName") as ASPxTextBox;
+                        //string username1 = this.Login1.UserName;
+                        string username = Request.QueryString["user"].ToString();
+                        if (!username.Equals(""))
                         {
-                            ASPxTextBox txtUsername = Login1.FindControl("UserName") as ASPxTextBox;
-                            //string username1 = this.Login1.UserName;
-                            string username = Request.QueryString["user"].ToString();
-                            if (!username.Equals(""))
+                            clsMesazh resetPassMesazh = clsFunksione.dergoVerificationLink(username, false, idGjuha);
+                            if (resetPassMesazh.KodMesazhi == 1) //kodmesazhi 1 ne rastin kur licenca e perdoruesit nuk lejon resetimin e passwordit per perdoruesit e saj te percaktuar te konfigurimet e fjalekalimit.
                             {
-                                clsMesazh resetPassMesazh = clsFunksione.dergoVerificationLink(username, false, idGjuha);
-                                if (resetPassMesazh.KodMesazhi == 1) //kodmesazhi 1 ne rastin kur licenca e perdoruesit nuk lejon resetimin e passwordit per perdoruesit e saj te percaktuar te konfigurimet e fjalekalimit.
-                                {
-                                    PasswordRecoveryLink.Enabled = false;
-                                    PasswordRecoveryLink.Visible = false;
-                                }
-                                LabelInfo.Text = resetPassMesazh.PershkrimMesazhi;
+                                PasswordRecoveryLink.Enabled = false;
+                                PasswordRecoveryLink.Visible = false;
+                            }
+                            LabelInfo.Text = resetPassMesazh.PershkrimMesazhi;
+                            return;
+                        }
+                        LabelInfo.Text = MessagesResource.Messages["msgLoginPlotesoPerodruesin"];
+                        return;
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString["user"] != null || Request.QueryString["harroPw"] != null)
+                    {
+                        string sulm = MessagesResource.Messages["msgLoginResetimFjalekalimiIPaautorizuar"];
+                        clsTrackUser.shtoUserLoginFail(sulm, Login1.UserName, Session.SessionID, Request.UserHostAddress); //Rasti kur po sulmohet per resetim pass dhe linku I resetimin te pass eshte I fshehur
+                        LabelInfo.Text = sulm;
+                        return;
+                    }
+                }
+                string arsye = Request.QueryString["arsye"];
+                if (Request.Url.ToString().Contains("authToken="))
+                    await loginWithFirebaseToken();
+                else
+                {
+                    if (string.IsNullOrEmpty(arsye) == true || Request.QueryString["google"] == "true" )
+                        return;
+                    else
+                    {
+                        if (arsye.Contains("error"))
+                        {
+                            ImbLogger.Error("arsye.Contains(\"error\") - Nuk duhet te ndodhe kjo");
+                            var mesazhErrori = arsye.Split('_')[1];
+                            if (!mesazhErrori.Equals(""))
+                            {
+                                LabelInfo.Text = mesazhErrori;
+                                clsFunksione.logout(Session, true, true, true);
+                                clsLogin.mbushServerCombo(Session.SessionID, combo);
                                 return;
                             }
-                            LabelInfo.Text = MessagesResource.Messages["msgLoginPlotesoPerodruesin"];
-                            return;
                         }
-                    }
-                    else
-                    {
-                        if (Request.QueryString["user"] != null || Request.QueryString["harroPw"] != null)
-                        {
-                            string sulm = MessagesResource.Messages["msgLoginResetimFjalekalimiIPaautorizuar"];
-                            clsTrackUser.shtoUserLoginFail(sulm, Login1.UserName, Session.SessionID, Request.UserHostAddress); //Rasti kur po sulmohet per resetim pass dhe linku I resetimin te pass eshte I fshehur
-                            LabelInfo.Text = sulm;
-                            return;
-                        }
-                    }
-                    string arsye = Request.QueryString["arsye"];
-                    if (Request.Url.ToString().Contains("authToken="))
-                        await loginWithFirebaseToken();
-                    else
-                    {
-                        if (string.IsNullOrEmpty(arsye))
-                            return;
-                        else
-                        {
-                            if (arsye.Contains("error"))
-                            {
-                                ImbLogger.Error("arsye.Contains(\"error\") - Nuk duhet te ndodhe kjo");
-                                var mesazhErrori = arsye.Split('_')[1];
-                                if (!mesazhErrori.Equals(""))
-                                {
-                                    LabelInfo.Text = mesazhErrori;
-                                    clsFunksione.logout(Session, true, true, true);
-                                    clsLogin.mbushServerCombo(Session.SessionID, combo);
-                                    return;
-                                }
-                            }
-                        }
-
                     }
 
-                    VendosInfoSipasArsyes(arsye, idGjuha);
-                    clsLogin.mbushServerCombo(Session.SessionID, combo);
                 }
+
+                VendosInfoSipasArsyes(arsye, idGjuha);
+                clsLogin.mbushServerCombo(Session.SessionID, combo);
+            }
 
            
 
@@ -164,6 +165,7 @@ namespace PlatinumWeb
         {
             switch (arsye)
             {
+               
                 case "FaqePaautorizuar":
                     LabelInfo.Text = MessagesResource.Messages["msgLoginNukKeniTeDrejtaPerTuLoguarNeFaqe"];
                     break;
@@ -261,6 +263,7 @@ namespace PlatinumWeb
         protected async void logInWithGmail(object sender, EventArgs e)
         {
             await loginWithFirebaseUid(txtUID.Text);
+            return;
         }
 
         private void emertoKontrolletSipasGjuhes(ResourceManager rm, CultureInfo ci, ASPxLabel PasswordRecoveryLink, ASPxButton LoginButton)
