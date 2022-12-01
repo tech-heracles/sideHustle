@@ -516,7 +516,7 @@ namespace PlatinumWeb
                 string organization = (dictionary.ContainsKey("clientDatabase") == true ? dictionary["clientDatabase"].ToString() : "");
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
-                organization = "praktike1-test"; // chnage to organization
+                //organization = "praktike1-test"; // chnage to organization
                 ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
                 password.Text = dictionary["passwordHash"].ToString();
                 Login1.UserName = username;
@@ -624,13 +624,13 @@ namespace PlatinumWeb
         {
             try
             {
-                uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
+                //uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
                 var dictionary = await fb.getUserDetailsWithUID(uid);
                 string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString(): "");
                 string organization = (dictionary.ContainsKey("clientDatabase") == true ?  dictionary["clientDatabase"].ToString() : "");
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
-                organization = "praktike1-test";//change to organization
+                //organization = "praktike1-test";//change to organization
                 ASPxTextBox password = (ASPxTextBox)Login1.FindControl("Password");
                 password.Text = dictionary["passwordHash"].ToString();
                 Login1.UserName = username;
