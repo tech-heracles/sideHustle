@@ -654,7 +654,7 @@ namespace PlatinumWeb
                         return;
                     }
                 }
-                var user = new clsPerdorues("konfig");
+                var user = new clsPerdorues(username,email,true);
 
                 //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
                 var idGjuha = MerrIdGjuha();
