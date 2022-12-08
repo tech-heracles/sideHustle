@@ -52,7 +52,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 string result = connectionString.Substring(start, end - start);
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "";
             }
@@ -63,29 +63,38 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
             var dbManager = MyScopeDbManager;
             string queryString = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = \'T_KOKASHITJE\' AND COLUMN_NAME = \'eInvoice\'";
             string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (connectionString.ToString().Contains("alpha-conn-strings") || connectionString.ToString().Contains("10.48.244.153"))
             {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
+                return true;
+            }
+            else
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(queryString, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    try
                     {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                        reader["TABLE_NAME"], reader["COLUMN_NAME"]));
-                        if (reader["TABLE_NAME"].ToString() == "T_KOKASHITJE" && reader["COLUMN_NAME"].ToString() == "eInvoice")
-                            return true;
-                        else
-                            return false;
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(String.Format("{0}, {1}",
+                            reader["TABLE_NAME"], reader["COLUMN_NAME"]));
+                            if (reader["TABLE_NAME"].ToString() == "T_KOKASHITJE" && reader["COLUMN_NAME"].ToString() == "eInvoice")
+                                return true;
+                            else
+                                return false;
+                        }
+                    }
+                    finally
+                    {
+                        // Always call Close when done reading.
+                        reader.Close();
+                        connection.Close();
                     }
                 }
-                finally
-                {
-                    // Always call Close when done reading.
-                    reader.Close();
-                }
             }
+
             return false;
         }
         public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV3()
@@ -114,6 +123,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 {
                     // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
+
                 }
             }
             return false;
@@ -142,8 +153,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 }
                 finally
                 {
-                    // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
                 }
             }
             return false;
@@ -172,8 +183,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 }
                 finally
                 {
-                    // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
                 }
             }
             return false;
@@ -200,8 +211,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 }
                 finally
                 {
-                    // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
                 }
             }
             return false;
@@ -228,8 +239,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 }
                 finally
                 {
-                    // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
                 }
             }
             return false;
@@ -256,8 +267,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 }
                 finally
                 {
-                    // Always call Close when done reading.
                     reader.Close();
+                    connection.Close();
                 }
             }
             return "";
