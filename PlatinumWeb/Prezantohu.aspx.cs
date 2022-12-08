@@ -35,6 +35,7 @@ using System.Web.Script.Serialization;
 using JWT;
 using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace PlatinumWeb
 {
@@ -258,6 +259,8 @@ namespace PlatinumWeb
             mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, userDefault.ToString(), passwordDefault.ToString(), false, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss", ci), false, rm, ci, "", "", "", "", false);
             if (mesazh)
                 mesazh = clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"]);
+            if (mesazh.Status)
+                clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             return mesazh.Status;
         }
         protected async void logInWithGmail(object sender, EventArgs e)
@@ -587,6 +590,8 @@ namespace PlatinumWeb
 
                                     mySessionObjects.ruajTerms(Session, true);
                                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                                    if(mesazh.Status)
+                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                                     if (mesazh.Status) return;
                                     Login1.FailureText = mesazh.PershkrimMesazhi;
 
@@ -607,6 +612,8 @@ namespace PlatinumWeb
                     {
                         mySessionObjects.ruajTerms(Session, true);
                         var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                        if (mesazh.Status)
+                            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                         if (mesazh.Status) return;
                         Login1.FailureText = mesazh.PershkrimMesazhi;
                     }
@@ -701,6 +708,8 @@ namespace PlatinumWeb
 
                                     mySessionObjects.ruajTerms(Session, true);
                                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                                    if (mesazh.Status)
+                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                                     if (mesazh.Status) return;
                                     Login1.FailureText = mesazh.PershkrimMesazhi;
 
@@ -833,6 +842,8 @@ namespace PlatinumWeb
                     var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                     mySessionObjects.ruajTerms(Session, true);
                     var mesazh = clsFunksione.avancoPerpara(Response, Session, IdPerdoruesi, rm, ci, (bool)Application["validInstall"]);
+                    if (mesazh.Status)
+                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                     if (mesazh.Status) return;
 
                 }

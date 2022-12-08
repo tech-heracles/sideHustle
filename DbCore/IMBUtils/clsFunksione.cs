@@ -2865,6 +2865,7 @@ namespace DbCore
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
 
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
+            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -2872,7 +2873,7 @@ namespace DbCore
             {
                 string login = loginUrl;
                 if (!queryString.Equals(""))
-                    login = $"{loginUrl}?arsye=" + queryString;
+                    login = $"{loginUrl}?arsye=" + queryString + "google=true";
                 Page page = HttpContext.Current.Handler as Page;
                 if (page != null && page.IsCallback)
                     _redirectOnCallback(login);
@@ -13685,6 +13686,47 @@ namespace DbCore
                     return true;
 
                 }
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
+
+        }
+        public static bool dergoLogAlphaweb(string ndermarrja,string tipVeprimi, string ambjenti,string organizata)
+        {
+            object obj = new
+            {
+                Organizata = organizata,
+                Ndermarrja = ndermarrja,
+                TipVeprimi = tipVeprimi,
+                Ambjenti = ambjenti
+            };
+            string result = string.Empty;
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlLogAlphaweb"];
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
+
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(obj));
+                    }
+                }
+                webRequest.BeginGetRequestStream(null,null);
+                //using (WebResponse webResponse = webRequest.GetResponse())
+                //{
+                //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                //{
+
+                //    var ServiceResult = rd.ReadToEnd();
+                //}
+                return true;
+
+                //}
             }
             catch (WebException ex)
             {
