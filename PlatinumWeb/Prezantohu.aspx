@@ -1246,7 +1246,9 @@
         }
 
         @media all and (max-width:690px) {
-
+            .left{
+                margin-left: -15%;
+            }
             .left, .right, .info {
                 float: none;
                 display: inline-block;
