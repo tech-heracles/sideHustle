@@ -13716,7 +13716,7 @@ namespace DbCore
                         stmw.Write(JsonConvert.SerializeObject(obj));
                     }
                 }
-                webRequest.BeginGetRequestStream(null,null);
+                webRequest.BeginGetResponse(null,null);
                 //using (WebResponse webResponse = webRequest.GetResponse())
                 //{
                 //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
