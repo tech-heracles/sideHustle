@@ -45,6 +45,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             if (Page.IsPostBack == false)
@@ -346,7 +347,10 @@ namespace PlatinumWeb
                 mesazh = koka.ruaj();
                 pergjigja.Text = mesazh.PershkrimMesazhi;
                 if (mesazh.Status == true)
+                {
                     Response.Redirect("KushtePagese.aspx?ruaj=ok&indexrow=" + grid_KushtePagese.VisibleRowCount);
+                    return;
+                }
                 else
                 {
                     pergjigja.ForeColor = Color.Red;

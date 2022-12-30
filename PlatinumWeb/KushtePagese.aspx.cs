@@ -31,6 +31,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+                return;
             }
             //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -129,6 +130,7 @@ namespace PlatinumWeb
                 //}
             }
             Response.Redirect(komponente);
+            return;
         }
 
         /// <summary>
@@ -147,12 +149,14 @@ namespace PlatinumWeb
                     id = null;
 
                 Response.Redirect("~/Modifiko_KushtPagese.aspx?id=" + id + "&indexrow=" + grid_KushtePagese.FocusedRowIndex);
+                return;
             }
 
             else
                 if (e.Item.Name == "Shto")
                 {
                     Response.Redirect("Shto_KushtPagese.aspx");
+                    return;
                 }
         }
 

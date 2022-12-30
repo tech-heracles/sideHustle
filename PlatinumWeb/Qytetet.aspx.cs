@@ -29,6 +29,7 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -36,6 +37,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+                return;
             } 
             
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);

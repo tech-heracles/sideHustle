@@ -37,11 +37,13 @@ namespace PlatinumWeb
             if (!mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect($"{Paths.defaultLoginPath}arsye=FaqePaautorizuar");
+                return;
             }
 
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
 
             if (!IsPostBack)

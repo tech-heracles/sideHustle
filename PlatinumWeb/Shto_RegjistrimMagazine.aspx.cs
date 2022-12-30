@@ -62,7 +62,10 @@ namespace PlatinumWeb
 
                 idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                 if (mySessionObjects.ktheKodNdermarrje(Session) == null)
+                {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
+                }
                 idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
                 eshteOwn = mySessionObjects.merrEshteOwnSesioni(Session);
@@ -696,15 +699,29 @@ namespace PlatinumWeb
                 mesazh = clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today, clsArtikulli.ktheKontrollCmimiPerDetajim(t.IdArtikulli), log, cultinf, rm, (int)hfState["idNdermarrje"], (int)hfState["idPerdoruesi"]);
                 if (!mesazh.Status)
                     if (pergjigja.Text == "fshi")
+                    {
                         Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimjo");
-                    else Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajjo");
+                        return;
+                    }
+                    else
+                    {
+                        
+                        Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajjo");
+                        return;
+                    }
             }
 
             mySessionObjects.ruajTrupatNeSession(Session, new colTrupiMagazina());
             if (mesazh.Status)
                 if (pergjigja.Text == "fshi")
+                {
                     Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimpo");
-                else Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajpo");
+                    return;
+                }
+                else {
+                    Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajpo");
+                    return;
+                } 
             
         }
 
@@ -1332,8 +1349,11 @@ namespace PlatinumWeb
         {
             var idKoka = int.Parse(Request.QueryString["id"]);
             var mesazh = clsKokaMagazina.RefuzoDokument(idKoka);
-            if(mesazh)
+            if (mesazh)
+            {
                 Response.Redirect($"RegjistrimMagazine.aspx?lloj={Request.QueryString["lloj"]}&refuzoDraft=po");
+                return;
+            }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
         }

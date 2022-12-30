@@ -49,6 +49,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+                return;
             }
             int idviti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
 
@@ -231,6 +232,7 @@ namespace PlatinumWeb
             if (mesazh.Status == true)
             {
                 Response.Redirect("FaqeKryesore.aspx");
+                return;
             }
             else
             {
@@ -301,6 +303,7 @@ namespace PlatinumWeb
                             if (themeAmbjente.IdBgImage != idBgVjeter)
                             {
                                 Response.Redirect("FaqeKryesore.aspx");
+                                return;
                             }
                         }
                         else
@@ -311,10 +314,12 @@ namespace PlatinumWeb
                         if (themeAmbjente.IdThemeFrames != idThemeFramesVjeter)
                         {
                             Response.Redirect("FaqeKryesore.aspx");
+                            return;
                         }
                         else
                         {
                             Response.Redirect("UserThemes.aspx");
+                            return;
                         }
                     }
                 }

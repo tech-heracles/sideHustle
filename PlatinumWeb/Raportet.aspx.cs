@@ -17,11 +17,13 @@ namespace PlatinumWeb
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
                 {
                     Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                    return;
                 }
 
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                    return;
                 }
 
                 var idModuli = int.Parse(Request.QueryString["idmod"]);

@@ -125,6 +125,7 @@ namespace PlatinumWeb
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 idViti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
@@ -268,7 +269,7 @@ namespace PlatinumWeb
             if (pergjigja.Text == "fshi")
             {
                 Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=po");
-
+                return;
             }
             else if (pergjigja.Text == "ruaj")
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgRuajtjeMeSukses", cultinf), pnlMesazhi);
@@ -299,8 +300,16 @@ namespace PlatinumWeb
                 if (!mesazh.Status)
                 {
                     if (pergjigja.Text == "fshi")
+                    {
                         Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimjo");
-                    else Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimruajjo");
+                        return;
+                    }
+                    else
+                    {
+                        Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimruajjo");
+                        return;
+                    }
+                    
                 }
             }
 
@@ -308,8 +317,16 @@ namespace PlatinumWeb
             if (mesazh.Status)
             {
                 if (pergjigja.Text == "fshi")
+                {
                     Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimpo");
-                else Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimruajpo");
+                    return;
+                }
+                else
+                {
+                    Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=rivleresimruajpo");
+                    return;
+                }
+                
             }
         }
 
@@ -741,6 +758,7 @@ namespace PlatinumWeb
                 {
                     Response.Redirect("RegjistrimNdryshimCmimSasi.aspx?fshi=po");
                     this.status1.Value = "true";
+                    return;
                 }
             }
             else

@@ -42,6 +42,7 @@ namespace PlatinumWeb
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
                 idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);

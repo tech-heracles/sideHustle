@@ -37,11 +37,13 @@ namespace PlatinumWeb
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
                 {
                     Response.Redirect("login.aspx?arsye=FaqePaautorizuar");
+                    return;
                 }
                 idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
                 idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);

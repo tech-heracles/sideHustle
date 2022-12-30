@@ -26,6 +26,7 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             
             if (Page.IsPostBack == false)
@@ -81,7 +82,10 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = transporti.ruaj();
                 pergjigja.Text = mesazh.PershkrimMesazhi;
                 if (mesazh.Status == true)
+                {
                     Response.Redirect("MenyraTransporti.aspx?ruaj=ok&indexrow=" + grid_MenyraTransporti.VisibleRowCount);
+                    return;
+                }
                 else pergjigja.ForeColor = Color.Red;
             }
         }

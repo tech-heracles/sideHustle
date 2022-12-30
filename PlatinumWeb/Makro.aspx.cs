@@ -30,6 +30,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+                return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idNderViti = Convert.ToInt32((string)DbCore.mySessionObjects.ktheNdermarrjeVit(Session).ToString());
@@ -152,7 +153,10 @@ DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.cls
             }
             dbInventari.Dispose();
             if (lblPergjigja.Text == "")
+            {
                 Response.Redirect("Makro.aspx");
+                return;
+            }
         }
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
@@ -177,10 +181,12 @@ DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.cls
                 }
 
                 Response.Redirect("~/Modifiko_Makro.aspx?id=" + id + "&kod=" + nr + "&indexrow=" + indeksi);
+                return;
             }
             else if (e.Item.Name == "Shto")
             {
                 Response.Redirect("Shto_Makro.aspx");
+                return;
             }
         }
 

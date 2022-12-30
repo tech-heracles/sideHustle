@@ -24,12 +24,14 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
+                return;
             }
             //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -181,6 +183,7 @@ namespace PlatinumWeb
                 //}
             }
             Response.Redirect("MenyraTransporti.aspx");
+            return;
         }
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
@@ -193,6 +196,7 @@ namespace PlatinumWeb
             else if (e.Item.Name == "Shto")
             {
                 Response.Redirect("Shto_MenyreTransporti.aspx");
+                return;
             }
         }
 

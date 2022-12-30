@@ -56,6 +56,7 @@ namespace PlatinumWeb
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
             }
             if (!IsPostBack)
             {
@@ -2549,6 +2550,7 @@ namespace PlatinumWeb
                 var kofigurAmbjenti = new clsKonfigurimAmbjenti();
                 kofigurAmbjenti.Ruaj(IdGjuha, IdPerdoruesi, IdNdermarrja, int.Parse(Kategoria_ComboBox.SelectedItem.Value.ToString()), hfMagazina.Value != "" ? int.Parse(hfMagazina.Value) : 0, Convert.ToInt32(cmbNivelRegj.Value), cmbFormatNumri.Text, hfShtimModifikim.Value, pershkrimKonfig_TextBox.Text, pershkrimKonfigEng_TextBox.Text, pershkrimKonfigFr_TextBox.Text, kodKonfig_TextBox.Text, cmbAutorizimiHf.Value, Lloji_cmb.Value.ToString(), hfPrioriteti.Value, atributet, kushtet, radhaTextBox.Text, hfSkemaKontabelRegjistrime.Value != "" ? int.Parse(hfSkemaKontabelRegjistrime.Value) : 0, ref _idKomponente, JsonConvert.DeserializeObject<colGridaTrupi>(hfVleratFillestareTrupi.Value), idKonfigAmbjent);
                 Response.Redirect("KonfigDokumentash.aspx?idsuperkat=" + Request.QueryString["idsuperkat"] + "&ruaj=ok&indexrow=" + Request.QueryString["indexrow"]);
+                return;
             }
             catch (MyException ex)
             {

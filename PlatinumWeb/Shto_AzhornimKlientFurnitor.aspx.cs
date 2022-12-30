@@ -30,7 +30,10 @@ namespace PlatinumWeb
                 clsFunksione.logout(Session, true, "FaqePaautorizuar");
 
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
+            {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
+            }
 
             var periudha = mySessionObjects.merrPeriudheKontabel(Session);
             btnPeriudha.Text = periudha.NrPeriudha.ToString();
@@ -470,7 +473,10 @@ namespace PlatinumWeb
                 var mesazhi = koka.Fshi();
                 dbAdmin.Dispose();
                 if (mesazhi.Status)
+                {
                     Response.Redirect("AzhornimKlientFurnitor.aspx?vep=azhornim&fshi=po");
+                    return;
+                }
                 else
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
             }
@@ -508,7 +514,10 @@ namespace PlatinumWeb
                 dbAdmin.Dispose();
 
                 if (mesazhi.Status)
+                {
                     Response.Redirect("AzhornimKlientFurnitor.aspx?vep=mbyllje&fshi=po");
+                    return;
+                }
                 else
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
             }

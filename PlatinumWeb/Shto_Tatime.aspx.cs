@@ -46,6 +46,7 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
@@ -53,6 +54,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idperdoruesi);
+                return;
             }
             idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             idnderviti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);

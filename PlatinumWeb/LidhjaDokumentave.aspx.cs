@@ -45,7 +45,10 @@ namespace PlatinumWeb
                 clsFunksione.logout(Session, true, "FaqePaautorizuar");
 
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
+            {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
+            }
 
             PercaktoTemplateMenu();
             VendosHfMePerkthime();
@@ -534,6 +537,7 @@ namespace PlatinumWeb
             {
                 hfStatusRuajtje.Value = "true";
                 Response.Redirect("ListaLidhjaDokumentave.aspx?fshi=po");
+                return;
             }
             else
             {

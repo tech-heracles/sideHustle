@@ -206,6 +206,7 @@ namespace PlatinumWeb
                 ImbLogger.LogTrace($"MeScope -> SessionId:{Session.SessionID} - IdPerdoruesi:{idPerdoruesi} - IdNdermarrje:{idNdermarrje} - idNdermVit:{idNdermVit} - CurrentScopeId:{currentKey} - GenerateNewScopeId:{generateNewScope} - Generated_New_Scope:{scopeId} - Url:{Request.Url.PathAndQuery}");
 
                 Response.Redirect($"{Request.Url.AbsolutePath}?{nameValuesCurrent}");
+                return;
             }
         }
 
@@ -304,6 +305,7 @@ namespace PlatinumWeb
 
                 nameValuesCurrent.Set(ScopeManager.ScopeIdKey, currentKey);
                 Response.Redirect($"{Request.Url.AbsolutePath}?{nameValuesCurrent}");
+                return;
             }
             else
             {

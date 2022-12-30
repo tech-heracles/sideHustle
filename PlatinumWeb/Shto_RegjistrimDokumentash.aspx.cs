@@ -78,6 +78,7 @@ namespace PlatinumWeb
                 {
                     ImbLogger.LogWarningShitje("Kujdes kodi ndermarrjes = " + Convert.ToString(mySessionObjects.ktheKodNdermarrje(Session)));
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
 
                 idGjuha = mySessionObjects.ktheGjuhe(Session);
@@ -1335,12 +1336,14 @@ namespace PlatinumWeb
                 if (!mesazh.Status)
                 {
                     Response.Redirect("RegjistrimDokumentash.aspx?shitje_blerje=" + Request.QueryString["shitje_blerje"] + "&fshi=rivleresimjo");
+                    return;
                 }
             }
             mySessionObjects.ruajTrupatNeSession(Session, new colTrupiMagazina());
             if (mesazh.Status)
             {
                 Response.Redirect("RegjistrimDokumentash.aspx?shitje_blerje=" + Request.QueryString["shitje_blerje"] + "&fshi=rivleresimpo");
+                return;
             }
             ImbLogger.LogTraceShitje("Mbaroi metoda btnPo_Click");
         }
@@ -4377,7 +4380,10 @@ namespace PlatinumWeb
                         if (!msgRefuzuar.Status)
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, msgRefuzuar.PershkrimMesazhi, pnlMesazhi);
                         else
+                        {
                             Response.Redirect(string.Format("RegjistrimDokumentash.aspx?shitje_blerje={0}&refuzoDraft=po", veprimi));
+                            return;
+                        }
                     }
                     break;
 
@@ -4498,6 +4504,7 @@ namespace PlatinumWeb
                     string veprimi = (string)hfState["veprimi"];
                     Response.Redirect(string.Format("RegjistrimDokumentash.aspx?shitje_blerje={0}&fshi=po", veprimi));
                     status1.Value = "true";
+                    return;
                 }
             }
             else

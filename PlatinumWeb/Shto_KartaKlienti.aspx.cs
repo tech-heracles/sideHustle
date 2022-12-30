@@ -40,11 +40,13 @@ namespace PlatinumWeb
             if (!mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(Paths.defaultLoginPath);
+                return;
             }
 
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
             }
 
             ShtoMenuControlsDheMsgFrame();

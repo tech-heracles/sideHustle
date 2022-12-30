@@ -2773,6 +2773,7 @@ namespace DbCore
                     try
                     {
                         HttpContext.Current.Response.Redirect(login, true);
+                        
                     }
                     catch (ArgumentNullException ex)
                     {

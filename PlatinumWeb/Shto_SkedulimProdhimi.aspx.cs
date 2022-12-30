@@ -107,6 +107,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             konfigGrid();
 
@@ -473,6 +474,7 @@ namespace PlatinumWeb
             {
                 Response.Redirect("SkedulimProdhimi.aspx?fshi=po");
                 this.status1.Value = "true";
+                return;
             }
             else
             {

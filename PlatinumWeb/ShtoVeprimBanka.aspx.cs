@@ -1085,7 +1085,10 @@ namespace PlatinumWeb
                 }
             }
             if (hfShtimModifikimValue == "anullim")
+            {
                 Response.Redirect("VeprimeBanka.aspx?lloji=" + Request.QueryString["lloji"] + "&ruaj=po");
+                return;
+            }
             if (printo || cbPrinto.Checked)
                 Container55.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=mandatArketimPagese&idDokumenti=" + koka.IdKoka + "&printo=true&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
 
@@ -1530,7 +1533,8 @@ namespace PlatinumWeb
                 };
                 hfObjektRuajtur.Value = JsonConvert.SerializeObject(kokaDheTrupi);
                 Response.Redirect("VeprimeBanka.aspx?lloji=" + Request.QueryString["lloji"] + "&fshi=po" + "&hfObjektRuajtur="+hfObjektRuajtur.Value);
-                
+                return;
+
             }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
@@ -1542,6 +1546,7 @@ namespace PlatinumWeb
         protected void anullo_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("VeprimeBanka.aspx?lloji=" + Request.QueryString["lloji"]);
+            return;
         }
 
         protected void banka_CustomValidator_ServerValidate(object source, ServerValidateEventArgs args)

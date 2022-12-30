@@ -39,6 +39,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             var idViti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
@@ -478,6 +479,7 @@ namespace PlatinumWeb
             if (mesazhi.Status)
             {
                 Response.Redirect("RegjistrimAmortizimi.aspx?fshi=po&mesazh=" + mesazhi.PershkrimMesazhi);
+                return;
             }
             else
             {

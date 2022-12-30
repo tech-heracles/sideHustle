@@ -105,6 +105,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             int idNdermarrje, idViti;
 
@@ -410,7 +411,7 @@ namespace PlatinumWeb
 
                 Response.Redirect("Planifikimi.aspx?fshi=po");
                 status1.Value = "true";
-
+                return;
             }
             else
             {

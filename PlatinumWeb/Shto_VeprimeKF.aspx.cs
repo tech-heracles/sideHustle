@@ -39,6 +39,7 @@ namespace PlatinumWeb
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
             }
 
             if (mySessionObjects.merrPeriudheKontabel(Session) != null)
@@ -478,7 +479,10 @@ namespace PlatinumWeb
             var mesazhi = veprimeKfKoka.Fshi();
             dbAdmin.Dispose();
             if (mesazhi.Status)
+            {
                 Response.Redirect("VeprimeKF.aspx?fshi=po");
+                return;
+            }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
         }
@@ -511,6 +515,7 @@ namespace PlatinumWeb
         protected void anullo_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("VeprimeKF.aspx");
+            return;
         }
 
         #endregion

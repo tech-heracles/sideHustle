@@ -38,12 +38,14 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
 
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
 
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);

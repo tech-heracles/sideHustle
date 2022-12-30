@@ -86,6 +86,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             if (DbCore.mySessionObjects.merrPeriudheKontabel(Session) != null)
             {
@@ -160,6 +161,7 @@ namespace PlatinumWeb
             if (pergjigja.Text == "fshi")
             {
                 Response.Redirect("RegjistrimRiparimi.aspx?fshi=po");
+                return;
             }
             else if (pergjigja.Text == "ruaj")
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Ruajtja përfundoi me sukses!", pnlMesazhi);
@@ -191,7 +193,7 @@ namespace PlatinumWeb
                 if (!mesazh.Status)
                 {
                     Response.Redirect("RegjistrimRiparimi.aspx?fshi=rivleresimjo");
-
+                    return;
                 }
             }
 
@@ -199,6 +201,7 @@ namespace PlatinumWeb
             if (mesazh.Status)
             {
                 Response.Redirect("RegjistrimRiparimi.aspx?fshi=rivleresimpo");
+                return;
             }
         }
 
@@ -530,7 +533,7 @@ namespace PlatinumWeb
 
                 Response.Redirect("RegjistrimRiparimi.aspx?fshi=po");
                 this.status1.Value = "true";
-
+                return;
             }
             else
             {

@@ -38,12 +38,17 @@ namespace PlatinumWeb
                
                 if (Request.QueryString["arsyeja"] == null || Request.QueryString["arsyeja"] != "ngaEmailKerkeseAprovim")
                     DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
-                else Response.Redirect("login.aspx?arsyeja=ngaEmailKerkeseAprovim&perdorues=" + Request.QueryString["perdorues"]);
+                else
+                {
+                    Response.Redirect("login.aspx?arsyeja=ngaEmailKerkeseAprovim&perdorues=" + Request.QueryString["perdorues"]);
+                    return;
+                } 
             }
             idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             idviti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
@@ -64,7 +69,11 @@ namespace PlatinumWeb
                     hfShtimModifikim.Value = "modifikim";
                     hfNgaEmailKerkeseAprovimi.Value = "true";
                     int id = (Request.QueryString["perdorues"] != null) ? clsPerdorues.ktheIdPerdoruesSipasUsernamePateDrejta(Request.QueryString["perdorues"].ToString(), idNdermarrje) : -1;
-                    if (id == -1) Response.Redirect("login.aspx?arsye=PerdoruesiNukEkziston");
+                    if (id == -1)
+                    {
+                        Response.Redirect("login.aspx?arsye=PerdoruesiNukEkziston");
+                        return;
+                    }
                     hfId.Value = id.ToString();
                 }
                 guidString = Convert.ToBase64String(Guid.NewGuid().ToByteArray());

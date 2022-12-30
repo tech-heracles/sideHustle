@@ -61,12 +61,14 @@ namespace PlatinumWeb.E_PaySlip
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
                 {
                     Response.Redirect(DbCore.IMBUtils.Paths.loginPathEpaySlip);
+                    return;
                 }
                 int idPerdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdorues);
+                    return;
                 }
                 if (Request.QueryString["idmod"] != null)
                 {

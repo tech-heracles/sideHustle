@@ -44,7 +44,10 @@ namespace PlatinumWeb
                     clsFunksione.logout(Session, true, "FaqePaautorizuar");
 
                 if (mySessionObjects.ktheKodNdermarrje(Session) == null)
+                {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                    return;
+                }
 
                 if (mySessionObjects.merrPeriudheKontabel(Session) != null)
                 {
@@ -401,7 +404,10 @@ namespace PlatinumWeb
             dbAdmin.Dispose();
 
             if (mesazhi.Status)
+            {
                 Response.Redirect("FleteDoganore.aspx?lloji=" + Request.QueryString["lloji"] + "&fshi=po");
+                return;
+            }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
         }

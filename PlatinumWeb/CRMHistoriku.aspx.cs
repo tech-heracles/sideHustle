@@ -40,9 +40,15 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!DbCore.mySessionObjects.isLogedIn(Session))
+            {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
+            }
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
+            {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + IdPerdoruesi);
+                return;
+            }
 
             if (!Page.IsPostBack)
             {

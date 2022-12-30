@@ -46,6 +46,7 @@ namespace PlatinumWeb
                 if (mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
@@ -221,6 +222,7 @@ namespace PlatinumWeb
             if (pergjigja.Text == "fshi")
             {
                 Response.Redirect("RegjistrimInventarizimi.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=po");
+                return;
 
             }
             else if (pergjigja.Text == "ruaj")
@@ -580,6 +582,7 @@ namespace PlatinumWeb
 
                 Response.Redirect("RegjistrimInventarizimi.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=po");
                 this.status1.Value = "true";
+                return;
 
             }
             else

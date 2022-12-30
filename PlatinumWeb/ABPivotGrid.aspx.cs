@@ -42,7 +42,10 @@ namespace PlatinumWeb
             raporti = Request.QueryString["raporti"];
             gridWidth =Convert.ToInt32(Request.QueryString["width"]);
             if (string.IsNullOrWhiteSpace(raporti))
+            {
                 Response.Redirect("/");
+                return;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -56,6 +59,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
 
 

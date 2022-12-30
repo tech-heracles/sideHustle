@@ -46,10 +46,16 @@ namespace PlatinumWeb
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
             if (!DbCore.mySessionObjects.isLogedIn(Session))
+            {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
+            }
             idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
+            {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idperdoruesi);
+                return;
+            }
             idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             idviti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
             idgjuha = DbCore.mySessionObjects.ktheGjuhe(Session);

@@ -3557,7 +3557,7 @@ namespace DbCore
 
             if (MySessionCache["ParametratShfaqSubraport" + key + guidString] != null)
                 return (colParameter)MySessionCache["ParametratShfaqSubraport" + key + guidString];
-            else return null;
+            else return new colParameter();
 
         }
 

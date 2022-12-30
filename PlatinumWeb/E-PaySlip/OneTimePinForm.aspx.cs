@@ -73,6 +73,7 @@ namespace PlatinumWeb.E_PaySlip
                     //              var ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
                     var gjuha = ci.Name == "sq-AL" ? "AL" : "EN";
                     Response.Redirect($"{DbCore.IMBUtils.Paths.loginPathEpaySlip}?arsye=skaduarPin&gjuha={gjuha}");
+                    return;
                 }
                 Label1.Text = getTimeLeft();
             }
@@ -102,6 +103,7 @@ namespace PlatinumWeb.E_PaySlip
                 HttpRuntime.Cache.Remove(key);
                 mySessionObjects.RuajNeSession<bool>(Session, true, "EPaySlipPinAuthentification");
                 Response.Redirect("ListaRaporte.aspx?vjenNga=Pini");
+                return;
             }
             else
             {

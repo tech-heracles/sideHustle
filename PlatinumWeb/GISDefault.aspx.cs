@@ -106,10 +106,12 @@ namespace PlatinumWeb
             if (mySessionObjects.ktheIdPerdoruesi(Session) == 0)
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             else if (mySessionObjects.merrIdNdermarrjeSesioni(Session) == 0 || mySessionObjects.ktheIdVitNdermarrje(Session) == 0)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + mySessionObjects.ktheIdPerdoruesi(Session));
+                return;
             }
             else
             {
@@ -122,6 +124,7 @@ namespace PlatinumWeb
                 if (displayLayers.Count == 0)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + mySessionObjects.ktheIdPerdoruesi(Session));
+                    return;
                 }
             }
         }

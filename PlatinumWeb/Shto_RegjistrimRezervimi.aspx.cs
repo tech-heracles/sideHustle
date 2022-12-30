@@ -113,6 +113,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             konfigGrid();
 
@@ -620,6 +621,7 @@ namespace PlatinumWeb
             {
                 Response.Redirect("RegjistrimRezervimi.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=po");
                 this.status1.Value = "true";
+                return;
             }
             else
             {
@@ -659,6 +661,7 @@ namespace PlatinumWeb
         protected void anullo_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegjistrimRezervimi.aspx?lloj=" + Request.QueryString["lloj"]);
+            return;
         }
 
         /// <summary>

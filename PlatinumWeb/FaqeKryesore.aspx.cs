@@ -143,6 +143,7 @@ namespace PlatinumWeb
                         else
                         {
                             Response.Redirect("NdryshimFjalekalimi.aspx");
+                            return;
                         }
                     }
                     else
@@ -219,11 +220,13 @@ namespace PlatinumWeb
         protected void ButtonOk_RemoteSupport_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/TeamViewer/TeamViewerSetup.exe");
+            return;
         }
 
         protected void btnDownloadProgramKase_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Kase/ImbKase.exe");
+            return;
         }
 
         public void TeDrejta()
@@ -530,6 +533,7 @@ namespace PlatinumWeb
                         if (komponente != "")
                         {
                             Response.Redirect(DbCore.clsFunksione.shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false);
+                            return;
                         }
                         DbCore.mySessionObjects.ruajObjectNeSesion(Session, "");
                     }

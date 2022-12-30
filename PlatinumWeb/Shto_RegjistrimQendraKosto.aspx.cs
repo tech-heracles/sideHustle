@@ -41,6 +41,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idViti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
@@ -393,7 +394,10 @@ namespace PlatinumWeb
                 return;
             }
             if (mesazhi.Status)
+            {
                 Response.Redirect("RegjistrimQendraKosto.aspx?fshi=po&mesazh=" + mesazhi.PershkrimMesazhi);
+                return;
+            }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
 

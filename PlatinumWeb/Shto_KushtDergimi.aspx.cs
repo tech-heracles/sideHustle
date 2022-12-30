@@ -24,6 +24,7 @@ namespace PlatinumWeb
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
+                return;
             }
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -81,7 +82,10 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = kusht.ruaj();
                 pergjigja.Text = mesazh.PershkrimMesazhi;
                 if (mesazh.Status == true)
+                {
                     Response.Redirect("KushteDergimi.aspx?ruaj=ok&indexrow=" + grid_KushteDergimi.VisibleRowCount);
+                    return;
+                }
                 else pergjigja.ForeColor = Color.Red;
             }
         }

@@ -62,6 +62,7 @@ namespace PlatinumWeb
                 {
                     ImbLogger.Error(err);
                     Response.Redirect("Login_Ndermarrje.aspx");
+                    return;
                 }
                 var nderm = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
                 DbCore.mySessionObjects.ruajRuajLogNeSesion(Session, nderm.LogNdermarrje);

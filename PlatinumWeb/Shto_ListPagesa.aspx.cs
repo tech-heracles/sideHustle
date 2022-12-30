@@ -61,10 +61,12 @@ namespace PlatinumWeb
                 if (mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 if (mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }
                 idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 idViti = mySessionObjects.ktheIdVitNdermarrje(Session);

@@ -46,7 +46,10 @@ namespace PlatinumWeb
                 clsFunksione.logout(Session, true, "FaqePaautorizuar");
             var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
             if (mySessionObjects.ktheKodNdermarrje(Session) == null)
+            {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                return;
+            }
             var idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
             var idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
             var rm = new ResourceManager("Resources.Strings", Assembly.Load("App_GlobalResources"));
@@ -735,7 +738,10 @@ namespace PlatinumWeb
                 return;
             }
             if (mesazhi.Status)
+            {
                 Response.Redirect("FleteKontabel.aspx?fshi=po&mesazh=" + MessagesResource.Messages["msgFshirjaPerfundoiMeSukses"]);
+                return;
+            }
             else
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhi.PershkrimMesazhi, pnlMesazhi);
         }

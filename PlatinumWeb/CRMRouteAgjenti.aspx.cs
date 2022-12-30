@@ -500,21 +500,24 @@ namespace PlatinumWeb
 
         protected void btnAgjenti_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
         {
-
-            if (Request.Params["__CALLBACKID"].Contains("btnAgjenti"))
-      {
-                colAgjenteShitje colAgjentet = new colAgjenteShitje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                if (IsCallback)
+            if(Request.Params["__CALLBACKID"] != null)
+            {
+                if (Request.Params["__CALLBACKID"].Contains("btnAgjenti"))
                 {
-                    if (string.IsNullOrWhiteSpace(e.Filter)) return;
-                    var dt = DbCore.DbAdmin.colAgjenteShitje.merrAgjenteShitjeSipasAutorizimeDt(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    btnAgjenti.DataSource = dt.Select($" KodiAgjentShitje like '%{e.Filter}%' or EmriAgjentShitje like '{e.Filter}'").GetDataTable(dt);
-                    btnAgjenti.TextField = "KodiAgjentShitje";
-                    btnAgjenti.ValueField = "IdAgjentShitje";
-                    btnAgjenti.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                    btnAgjenti.DataBind();
+                    colAgjenteShitje colAgjentet = new colAgjenteShitje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+                    if (IsCallback)
+                    {
+                        if (string.IsNullOrWhiteSpace(e.Filter)) return;
+                        var dt = DbCore.DbAdmin.colAgjenteShitje.merrAgjenteShitjeSipasAutorizimeDt(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+                        btnAgjenti.DataSource = dt.Select($" KodiAgjentShitje like '%{e.Filter}%' or EmriAgjentShitje like '{e.Filter}'").GetDataTable(dt);
+                        btnAgjenti.TextField = "KodiAgjentShitje";
+                        btnAgjenti.ValueField = "IdAgjentShitje";
+                        btnAgjenti.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                        btnAgjenti.DataBind();
+                    }
                 }
             }
+           
         }
 
 
