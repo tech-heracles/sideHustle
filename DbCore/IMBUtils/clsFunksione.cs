@@ -2247,6 +2247,114 @@ namespace DbCore
             }
             return mesazh;
         }
+        public static clsMesazh validoPerdoruesinNeLoginWithFirebase(HttpContext httpContext, string username,string email, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
+        {
+            //string failureText;
+            string arsyeLoginFail = "";
+            //clsMesazh validUser;
+            clsMesazh mesazh;
+            int loginCount = mySessionObjects.merrLoginCount(httpContext.Session);
+            int maxLoginAttempts = mySessionObjects.merrMaxLoginAttempts(httpContext.Session);
+            var loginAttempts = (Dictionary<string, Dictionary<int, int>>)httpContext.Application["loginAttempts"];
+            var useraAktiv = (Dictionary<string, string>)httpContext.Application["userAktiv"];
+            var user = new clsPerdorues(username,email,true);
+            if (user.IdPerdorues != 0)
+            {
+                clsMesazh msgSkadimLicence = clsLicenca.KontrolloSkadiminLicences(user.IdPerdorues, rm, ci);
+                if (!msgSkadimLicence.Status)
+                {
+                    if (msgSkadimLicence.PershkrimMesazhi == "Problem ne validimin e licences!")
+                        logout(httpContext.Session, true, "problemLicenca");
+                    else logout(httpContext.Session, true, "perfundoiLicenca");
+                    return msgSkadimLicence;
+                }
+                var konfig = new clsKonfigurimeFjalekalimi(user.IdPerdorues);
+                //if (user.KontrollPassword)
+                //{
+                clsMesazh lejoLogin = kontrolloNrMaxTentativaLogin(httpContext.Session, loginAttempts, username, konfig, user.IdPerdorues, loginCount, maxLoginAttempts, rm, ci);
+                if (!lejoLogin) return new clsMesazh(false, lejoLogin.PershkrimMesazhi);
+
+                // }
+
+                bool isValidDate = kontrolloDatenKlientServer(data);
+                if (!isValidDate)
+                {
+                    arsyeLoginFail = "Data e klientit dhe e serverit kane diference te pakten 1 dite.";
+                    clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
+                    if (!mesazhshtoLoginFail.Status)
+                        return mesazhshtoLoginFail;
+                    return new clsMesazh(false, rm.GetString("msgLoginProblemMeDatenEKompjutert", ci));
+                }
+                if (user.PerdoruesIKycur)
+                {
+                    clsTrackUser.shtoUserLoginFail("Perdoruesi eshte i kycur", username, httpContext.Session.SessionID, httpContext.Request.UserHostAddress);
+                    return new clsMesazh(false, rm.GetString("msgLoginPerdoruesiEshteIKycurNukKeniTeDrejtePerTuLoguar", ci));
+                }
+                if (!user.PerdoruesAktiv)
+                {
+                    clsTrackUser.shtoUserLoginFail("Përdoruesi nuk është aktiv!", username, httpContext.Session.SessionID, httpContext.Request.UserHostAddress);
+                    return new clsMesazh(false, rm.GetString("msgLoginPerdoruesiNukEshteAktiv", ci));
+                }
+                mesazh = new clsMesazh(false);
+                if (!webServise)
+                {
+                    if ((!authenticationFromRestart && PasswordHelper.ValidoPasswordWithFirebase(username, password, user.PerdoruesPassword))
+                        ||
+                        (authenticationFromRestart && user.PerdoruesPassword.Equals(password))
+                       )
+                    {
+                        mesazh = new clsMesazh(true);
+                    }
+                    else
+                    {
+                        bool autentifikim = false;
+                        var domainName = clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.DOMAINNAME);
+                        try
+                        {
+                            autentifikim = new LdapAuthentication("LDAP://" + domainName).IsAuthenticated(domainName, username, password);
+                        }
+                        catch (Exception ex)
+                        {
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            autentifikim = false;
+                        }
+                        if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
+                        {
+                            mesazh = new clsMesazh(true);
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                        }
+                        else
+                        {
+                            arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// { domainName} - username:{username}");
+                            clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
+                            if (!mesazhshtoLoginFail.Status)
+                                return mesazhshtoLoginFail;
+                            return new clsMesazh(false, rm.GetString("msgLoginUsernameOsePassIPasakte", ci));
+                        }
+                    }
+                }
+                else
+                {
+                    mesazh = new clsMesazh(true);
+                }
+
+                if (mesazh.Status)
+                {
+                    // kjo ndodh pasi useri eshte logged in
+
+                    return RuajTrackUser(httpContext, username, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, loginCount, maxLoginAttempts, loginAttempts, user, konfig);
+                }
+            }
+            else
+            {
+                clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, null, loginAttempts, username, loginCount, "Autentifikimi nuk eshte i sakte.", user.IdPerdorues, maxLoginAttempts, rm, ci);
+                if (!mesazhshtoLoginFail.Status)
+                    return mesazhshtoLoginFail;
+                return new clsMesazh(false, rm.GetString("msgLoginUsernameOsePassIPasakte", ci));
+            }
+            return mesazh;
+        }
 
 
         /// <summary>
@@ -2752,11 +2860,12 @@ namespace DbCore
         }
         public static void Logout(HttpSessionState Session, bool logOut, bool signOutFormsAuth, bool dontRedirect, string loginUrl, string queryString)
         {
-
+            string emerPerdoruesi = DbCore.mySessionObjects.merrEmerPerdoruesiNgaSesioni(Session);
+            string emerNdermarrje = DbCore.mySessionObjects.merrNdermarjeselectSesioni(Session);
             Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
+            clsFunksione.dergoLogAlphaweb(emerNdermarrje, "Logout", "Logout nga perdoruesi: " + emerPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -2764,7 +2873,7 @@ namespace DbCore
             {
                 string login = loginUrl;
                 if (!queryString.Equals(""))
-                    login = $"{loginUrl}?arsye=" + queryString;
+                    login = $"{loginUrl}?arsye=" + queryString + "google=true";
                 Page page = HttpContext.Current.Handler as Page;
                 if (page != null && page.IsCallback)
                     _redirectOnCallback(login);
@@ -2849,6 +2958,7 @@ namespace DbCore
         {
             if (!eValiduar)
             {
+                
                 response.Redirect("AktivizoAlphaWeb.aspx");
                 return new clsMesazh(true);
             }
@@ -2868,7 +2978,7 @@ namespace DbCore
                 int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
                 if (dt.Rows.Count == 0 || dt.Rows.Count > 1)//Nese kam me shume se nje ndermarrje shkoj tek faqja e ndermarrjeve
                 {
-                    response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx", "idTheme", idTheme.ToString()), endResponse);
+                    response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), endResponse);
                     return new clsMesazh(true);
                 }
                 DataRow rreshti = dt.Rows[0];
@@ -13581,6 +13691,46 @@ namespace DbCore
             catch (WebException ex)
             {
                 return false;
+            }
+
+        }
+        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja,string tipVeprimi, string ambjenti,string organizata)
+        {
+            object obj = new
+            {
+                Organizata = organizata,
+                Ndermarrja = ndermarrja,
+                TipVeprimi = tipVeprimi,
+                Ambjenti = ambjenti
+            };
+            string result = string.Empty;
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlLogAlphaweb"];
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
+
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(obj));
+                    }
+                }
+                return webRequest.BeginGetResponse(null,null);
+                //using (WebResponse webResponse = webRequest.GetResponse())
+                //{
+                //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                //{
+
+                //    var ServiceResult = rd.ReadToEnd();
+                //}
+
+                //}
+            }
+            catch (WebException ex)
+            {
+                return null;
             }
 
         }

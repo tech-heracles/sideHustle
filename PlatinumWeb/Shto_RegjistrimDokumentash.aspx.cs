@@ -2591,10 +2591,13 @@ namespace PlatinumWeb
                                     DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokeshitjeje.DtKrijimiPajisje);
                                     var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
                                     var dtKrijimiOffset = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
+                                    bool isEinvoice = cbEinvoice.Checked;
+                                    if (new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId != "NUIS") 
+                                        isEinvoice = false;
                                     var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, kokeShitje.NrDok, kokeshitjeje.Totali.ToString(), "ur271so291", kodSoftueri, kokeShitje.IIC, iicSignature,
                                         txtAdresaFaturimit.Text, txtPershkrimi.Text, kokeshitjeje.Totali.ToString(), dateMaturimiFormatuar, kokeshitjeje.Totali.ToString(), txtTVSH1.Text, txtPerqindje.Text, btnKlienti.Text.Split(' ')[0], txtNipt.Text, txtTotaliMeZbritjePaTVSH1.Text,
                                         txtQytetiK.Text, txtQytetiK.Text, "", "", kokeShitje.merrTrupShitje(), arka.KodiTCR, cmbMenyrePagese.Text, nderm, kf.KodKlientFurnitor, kokeShitje.Zbritje.ToString(), txtTotaliMeZbritjePaTVSH1.Text, txtNivfKthim.Text,
-                                        Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), cbEinvoice.Checked,
+                                        Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), isEinvoice,
                                         degeAdministrative["KODNJESIEBIZNES"].ToString(), cmbTipiIVetefaturimit.Text, operatori.ItemArray[0].ToString(), isShitje, false, kokeshitjeje.Dogana, kokeshitjeje.DtMbarimi.ToString(), kokeshitjeje.DtFillimi.ToString(), kokeshitjeje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,idPerdoruesi,viti);
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
@@ -2623,7 +2626,7 @@ namespace PlatinumWeb
                                     {
                                        
                                         string[] EIC = new string[1];
-                                        if (cbEinvoice.Checked)
+                                        if (cbEinvoice.Checked && new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId == "NUIS")
                                         {
 
                                             EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, nivfFature[0], operatori,viti);
@@ -2769,9 +2772,12 @@ namespace PlatinumWeb
                                         txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + kokeshitjeje.DtKrijimi.ToString().Split(' ')[1]));
                                     var iicSignature = clsFunksioneFiskalizimi.ktheIICSignature(nderm, txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, kokeshitjeje.DtKrijimi);
                                     var viti = new clsViti(periudha.IdViti).KodiViti;
+                                    bool isEinvoice = cbEinvoice.Checked;
+                                    if (new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId != "NUIS")
+                                        isEinvoice = false;
                                     var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, kokeShitje.NrDok, txtTotal1.Text, "ur271so291", kodSoftueri, kokeShitje.IIC, iicSignature,
                                         txtAdresaFaturimit.Text, txtPershkrimi.Text, txtTotal1.Text, dateMaturimiFormatuar, txtTotal1.Text, txtTVSH1.Text, txtPerqindje.Text, btnKlienti.Text.Split(' ')[0], txtNipt.Text, txtTotaliMeZbritjePaTVSH1.Text,
-                                        txtQytetiK.Text, txtQytetiK.Text, "", "", kokeShitje.merrTrupShitje(), arka.KodiTCR, cmbMenyrePagese.Text, nderm, kf.KodKlientFurnitor, kokeShitje.Zbritje.ToString(), txtTotaliMeZbritjePaTVSH1.Text, txtNivfKthim.Text, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), cbEinvoice.Checked, degeAdministrative["KODNJESIEBIZNES"].ToString(), cmbTipiIVetefaturimit.Text, operatori.ItemArray[0].ToString(),isShitje,false,kokeshitjeje.Dogana, kokeshitjeje.DtMbarimi.ToString(),kokeshitjeje.DtFillimi.ToString(),kokeshitjeje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,idPerdoruesi,viti);
+                                        txtQytetiK.Text, txtQytetiK.Text, "", "", kokeShitje.merrTrupShitje(), arka.KodiTCR, cmbMenyrePagese.Text, nderm, kf.KodKlientFurnitor, kokeShitje.Zbritje.ToString(), txtTotaliMeZbritjePaTVSH1.Text, txtNivfKthim.Text, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), isEinvoice, degeAdministrative["KODNJESIEBIZNES"].ToString(), cmbTipiIVetefaturimit.Text, operatori.ItemArray[0].ToString(),isShitje,false,kokeshitjeje.Dogana, kokeshitjeje.DtMbarimi.ToString(),kokeshitjeje.DtFillimi.ToString(),kokeshitjeje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,idPerdoruesi,viti);
 
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
@@ -2993,9 +2999,12 @@ namespace PlatinumWeb
                                     DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokeshitjeje.DtKrijimiPajisje);
                                     if (txtIIC.Text == "")
                                         txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + kokeshitjeje.DtKrijimi.ToString().Split(' ')[1]));
+                                    bool isEinvoice = cbEinvoice.Checked;
+                                    if (new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId != "NUIS")
+                                        isEinvoice = false;
                                     var mesazhInvoice = clsFunksioneFiskalizimi.GjeneroMesazhInvoice(nderm, kokeShitje.NrDok, txtTotal1.Text, "ur271so291", kodSoftueri, kokeshitjeje.IIC, iicSignature,
                                            txtAdresaFaturimit.Text, txtPershkrimi.Text, txtTotal1.Text, dateMaturimiFormatuar, txtTotal1.Text, txtTVSH1.Text, txtPerqindje.Text, btnKlienti.Text.Split(' ')[0], txtNipt.Text, txtTotaliMeZbritjePaTVSH1.Text,
-                                           txtQytetiK.Text, txtQytetiK.Text, "", "", kokeShitje.merrTrupShitje(), arka.KodiTCR, cmbMenyrePagese.Text, nderm, kf.KodKlientFurnitor, kokeShitje.Zbritje.ToString(), txtTotaliMeZbritjePaTVSH1.Text, txtNivfKthim.Text, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), cbEinvoice.Checked, degeAdministrative["KODNJESIEBIZNES"].ToString(), cmbTipiIVetefaturimit.Text, operatori.ItemArray[0].ToString(),isShitje,true,kokeshitjeje.Dogana, kokeshitjeje.DtMbarimi.ToString(), kokeshitjeje.DtFillimi.ToString(),kokeshitjeje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,idPerdoruesi,viti);
+                                           txtQytetiK.Text, txtQytetiK.Text, "", "", kokeShitje.merrTrupShitje(), arka.KodiTCR, cmbMenyrePagese.Text, nderm, kf.KodKlientFurnitor, kokeShitje.Zbritje.ToString(), txtTotaliMeZbritjePaTVSH1.Text, txtNivfKthim.Text, Convert.ToDateTime(kokeshitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), cmbOperatori.Text, false, kokeShitje.Kursi.ToString(), isEinvoice, degeAdministrative["KODNJESIEBIZNES"].ToString(), cmbTipiIVetefaturimit.Text, operatori.ItemArray[0].ToString(),isShitje,true,kokeshitjeje.Dogana, kokeshitjeje.DtMbarimi.ToString(), kokeshitjeje.DtFillimi.ToString(),kokeshitjeje.DtDok.ToString(), dtKrijimiOffset, idNdermarrje,idPerdoruesi,viti);
 
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
@@ -3023,7 +3032,7 @@ namespace PlatinumWeb
                                     else
                                     {
                                         string[] EIC = new string[1];
-                                        if (cbEinvoice.Checked && txtEIC.Text == "")
+                                        if (cbEinvoice.Checked && txtEIC.Text == "" && new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId == "NUIS")
                                         {
                                             EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, nivfFature[0], operatori, viti);
                                             if (EIC[1] != null)
@@ -3081,7 +3090,7 @@ namespace PlatinumWeb
                                     }
 
                                 }
-                                else if(cbEinvoice.Checked && txtNIVF.Text != "" && txtEIC.Text == "")
+                                else if(cbEinvoice.Checked && txtNIVF.Text != "" && txtEIC.Text == "" && new clsKlientFurnitor(kokeshitjeje.IdKlientFurnitor).TipiId == "NUIS")
                                 {
                                     string[] EIC = new string[1];
                                     if (cbEinvoice.Checked)
@@ -4546,6 +4555,7 @@ namespace PlatinumWeb
             else
                 periudha = new clsPeriudhaKontabel(data_DateEdit.Date, idNdermarrje);
             var fazat = mySessionObjects.merrObjectNgaSesioni(Session, "fazat");
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim shitje/blerje nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, "Regjistrim shitje ose blerje", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             switch (hfRuajDraft.Value)
             {
                 case "Ruaj":
@@ -5099,9 +5109,9 @@ namespace PlatinumWeb
             DateTimeOffset dtKrijimiPajisjeOffset = new DateTimeOffset(kokeShitje.DtKrijimiPajisje);
             string[] fatureUbl = new string[2];
             if (kokeShitje.DtDok.ToString().Split(' ')[0] == DateTime.Now.ToString("dd/MM/yyyy") && Request.QueryString["shtim_modifikim"] != "modifikim")
-                fatureUbl = clsFunksioneFiskalizimi.gjeneroFatureUBL(nderm, kokeShitje.NrDok, viti, kokeShitje.DtDok.ToString(), kokeShitje.DtMaturimi.ToString(), txtIIC.Text, iicSignature, nivfFature, Convert.ToDateTime(kokeShitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString(), degeAdministrative["KODNJESIEBIZNES"].ToString(), kodSoftueri, kodMonedha, nderm.NdermarrjeNipt, nderm.NdermarrjePershkrimi, nderm.NdermarrjeVendi, qytetiNdermarrje.KodiQyteti, "AL", nderm.NdermarrjeNipt, kokeShitje.Totali, Decimal.Parse(kokeShitje.Totali.ToString()), (kokeShitje.Totali - kokeShitje.Tvsh).ToString(), 20.00, "", "", 1, kf.EmertimiKF, kf.NiptiKF, adresKlienti, qytetKlienti.KodiQyteti, kodShtetiKlienti, "CASH", txtVlefte.Text, kokeShitje.Totali, 100.00, kodTVSH, arsyeKodTvsh, zbritjeTotale, kokeShitje.PerqindjeZbritje, trupShitje, 0.00, 0.00, kodTipiEinvoice, kodProcesi, kursi, kokeShitje.DtFillimi.ToString(), kokeShitje.DtMbarimi.ToString(), kokeShitje.DtDok.ToString(),IdPerdoruesi,IdNdermarrja,Request.QueryString["scopeId"].ToString(),kf,kokeShitje.Pershkrimi);
+                fatureUbl = clsFunksioneFiskalizimi.gjeneroFatureUBL(nderm, kokeShitje.NrDok, viti, kokeShitje.DtDok.ToString(), kokeShitje.DtMaturimi.ToString(), txtIIC.Text, iicSignature, nivfFature, Convert.ToDateTime(kokeShitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString(), degeAdministrative["KODNJESIEBIZNES"].ToString(), kodSoftueri, kodMonedha, nderm.NdermarrjeNipt, nderm.NdermarrjePershkrimi, nderm.NdermarrjeVendi, qytetiNdermarrje.KodiQyteti, "AL", nderm.NdermarrjeNipt, kokeShitje.Totali, Decimal.Parse(kokeShitje.Totali.ToString()), (kokeShitje.Totali - kokeShitje.Tvsh).ToString(), 20.00, "", "", 1, kf.EmertimiKF, kf.NiptiKF, adresKlienti, qytetKlienti.KodiQyteti, kodShtetiKlienti, "CASH", txtVlefte.Text, kokeShitje.Totali, 100.00, kodTVSH, arsyeKodTvsh, zbritjeTotale, kokeShitje.PerqindjeZbritje, trupShitje, 0.00, 0.00, kodTipiEinvoice, kodProcesi, kursi, kokeShitje.DtFillimi.ToString(), kokeShitje.DtMbarimi.ToString(), kokeShitje.DtDok.ToString(),IdPerdoruesi,IdNdermarrja,Request.QueryString["scopeId"].ToString(),kf,kokeShitje.Pershkrimi,kokeShitje.Shenime2);
             else
-                fatureUbl = clsFunksioneFiskalizimi.gjeneroFatureUBL(nderm, kokeShitje.NrDok, viti, kokeShitje.DtDok.ToString(), kokeShitje.DtMaturimi.ToString(), txtIIC.Text, iicSignature, nivfFature, Convert.ToDateTime(kokeShitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString(), degeAdministrative["KODNJESIEBIZNES"].ToString(), kodSoftueri, kodMonedha, nderm.NdermarrjeNipt, nderm.NdermarrjePershkrimi, nderm.NdermarrjeVendi, qytetiNdermarrje.KodiQyteti, "AL", nderm.NdermarrjeNipt, kokeShitje.Totali, Decimal.Parse(kokeShitje.Totali.ToString()), (kokeShitje.Totali - kokeShitje.Tvsh).ToString(), 20.00, "", "", 1, kf.EmertimiKF, kf.NiptiKF, adresKlienti, qytetKlienti.KodiQyteti, kodShtetiKlienti, "CASH", txtVlefte.Text, kokeShitje.Totali, 100.00, kodTVSH, arsyeKodTvsh, zbritjeTotale, kokeShitje.PerqindjeZbritje, trupShitje, 0.00, 0.00, kodTipiEinvoice, kodProcesi, kursi, kokeShitje.DtFillimi.ToString(), kokeShitje.DtMbarimi.ToString(), kokeShitje.DtDok.ToString(),IdPerdoruesi,IdNdermarrja,Request.QueryString["scopeId"].ToString(),kf, kokeShitje.Pershkrimi);
+                fatureUbl = clsFunksioneFiskalizimi.gjeneroFatureUBL(nderm, kokeShitje.NrDok, viti, kokeShitje.DtDok.ToString(), kokeShitje.DtMaturimi.ToString(), txtIIC.Text, iicSignature, nivfFature, Convert.ToDateTime(kokeShitjeje.DtDok.ToString().Split(' ')[0] + ' ' + dtKrijimiPajisjeOffset.UtcDateTime.ToString().Split(' ')[1]), operatori.ItemArray[0].ToString(), degeAdministrative["KODNJESIEBIZNES"].ToString(), kodSoftueri, kodMonedha, nderm.NdermarrjeNipt, nderm.NdermarrjePershkrimi, nderm.NdermarrjeVendi, qytetiNdermarrje.KodiQyteti, "AL", nderm.NdermarrjeNipt, kokeShitje.Totali, Decimal.Parse(kokeShitje.Totali.ToString()), (kokeShitje.Totali - kokeShitje.Tvsh).ToString(), 20.00, "", "", 1, kf.EmertimiKF, kf.NiptiKF, adresKlienti, qytetKlienti.KodiQyteti, kodShtetiKlienti, "CASH", txtVlefte.Text, kokeShitje.Totali, 100.00, kodTVSH, arsyeKodTvsh, zbritjeTotale, kokeShitje.PerqindjeZbritje, trupShitje, 0.00, 0.00, kodTipiEinvoice, kodProcesi, kursi, kokeShitje.DtFillimi.ToString(), kokeShitje.DtMbarimi.ToString(), kokeShitje.DtDok.ToString(),IdPerdoruesi,IdNdermarrja,Request.QueryString["scopeId"].ToString(),kf, kokeShitje.Pershkrimi,kokeShitje.Shenime2);
             var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
             var dtKrijimiOffset = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
             var mesazhEInvoice = clsFunksioneFiskalizimi.gjeneroMesazhEInvoice(nderm, fatureUbl[0], dtKrijimiOffset);

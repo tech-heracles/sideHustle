@@ -146,6 +146,13 @@ namespace DbCore.DbAdmin
                 mbushPerdorues(data.kthePerdoruesSipasUsername(userName));
             }
         }
+        public clsPerdorues(string userName,string email,bool google)
+        {
+            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
+            {
+                mbushPerdorues(data.ktheUserNgaLoginMeUsernameOseEmail(userName,email).Rows[0]);
+            }
+        }
         public clsPerdorues(string userName,string connStringName)
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin(connStringName))

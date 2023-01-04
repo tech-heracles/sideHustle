@@ -1481,7 +1481,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             }
             return "Ndodhi nje gabim!";
         }
-        public static string[] gjeneroFatureUBL(clsNdermarrje nderm, string nrDok, string vitiTani, string dateDergimi, string dateMaturimi, string iic, string iicSignature, string nivf, DateTime dateDergimiTimeZone, string kodOperatori, string kodBiznesi, string kodSoftueri, string kodMonedha, string niptNdermarrje, string emerNdermarrje, string adresNdermarrje, string qytetiNdermarrje, string shtetNdermarrje, string kodIdnetifikimi, double totali, decimal vleftaMeTvsh, string vleftaPaTvsh, double tvsh, string pershkrimArtikulli, string emerArtikulli, int sasia, string emerKlienti, string niptKlienti, string adresKlienti, string qytetiKlienti, string shtetiKlienti, string menyrePagese, string vleraTvsh, double cmimiIPaguar, double cmimArtikulli, string kodTvsh, string kodTvshReason, double zbritje, double zbritjePerqindje, colTrupiShitje trupShitje, double shumaEParapaguar, double roundingShumaEParapaguar, string llojDokumenti, string procesi, double kursi,string dateFillimi,string dateMbarimi,string dateFature,int idPerdoruesi,int idNderm, string QueryString,clsKlientFurnitor klientFurnitor,string pershkrimFature)
+        public static string[] gjeneroFatureUBL(clsNdermarrje nderm, string nrDok, string vitiTani, string dateDergimi, string dateMaturimi, string iic, string iicSignature, string nivf, DateTime dateDergimiTimeZone, string kodOperatori, string kodBiznesi, string kodSoftueri, string kodMonedha, string niptNdermarrje, string emerNdermarrje, string adresNdermarrje, string qytetiNdermarrje, string shtetNdermarrje, string kodIdnetifikimi, double totali, decimal vleftaMeTvsh, string vleftaPaTvsh, double tvsh, string pershkrimArtikulli, string emerArtikulli, int sasia, string emerKlienti, string niptKlienti, string adresKlienti, string qytetiKlienti, string shtetiKlienti, string menyrePagese, string vleraTvsh, double cmimiIPaguar, double cmimArtikulli, string kodTvsh, string kodTvshReason, double zbritje, double zbritjePerqindje, colTrupiShitje trupShitje, double shumaEParapaguar, double roundingShumaEParapaguar, string llojDokumenti, string procesi, double kursi,string dateFillimi,string dateMbarimi,string dateFature,int idPerdoruesi,int idNderm, string QueryString,clsKlientFurnitor klientFurnitor,string pershkrimFature,string shenimFature)
         {
             string DateServeriOffset = clsKontrollePerFiskalizimin.ktheDatenEServeritOffset();
             DateTimeOffset dt = DateTimeOffset.Parse(DateServeriOffset);
@@ -1998,6 +1998,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 tagNoteKursi = $"<Note>CurrencyExchangeRate=" + kursi + "#AAI#</Note>";
             }
             if (pershkrimFature != "") pershkrimFature = $"<Note>Pershkrimi i fatures: " + pershkrimFature + "#AAI#</Note>";
+            if (shenimFature != "") shenimFature = $"<Note>Shenimi i fatures: " + shenimFature + "#AAI#</Note>";
             if (klientFurnitor.ShitjePaTvsh)
             {
                 bleresiTaxScheme = "";

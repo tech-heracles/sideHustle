@@ -2671,11 +2671,11 @@ Function: isValidKoka
 Kontrollon nese jane plotesuar fushat e detyrueshme te kokes se dokumentit dhe validon daten.
 */
 function isValidKoka() {
-    if (!Utils.nrWsRrugesManager.kanePerfunduarWs()) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("msgPoTransferohetTeDhenatShtypniPerseriRuaj"));
-        return false;
-    }
-    else if (txtNrDok.GetText() === "") {
+    //if (!Utils.nrWsRrugesManager.kanePerfunduarWs()) {
+    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgPoTransferohetTeDhenatShtypniPerseriRuaj"));
+    //    return false;
+    //}
+    if (txtNrDok.GetText() === "") {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgShenoniNumrinEDokumentit"));
         return false;
     }

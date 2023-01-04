@@ -36,7 +36,7 @@ using DevExpress.XtraPrinting.Caching;
 using System.Text;
 using LiquidEngine.Tools;
 using Newtonsoft.Json;
-
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace PlatinumWeb
 {
@@ -8185,6 +8185,7 @@ namespace PlatinumWeb
 
         private void AfishoRaport()
         {
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             afisho(base.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, mySessionObjects.merrPeriudheKontabel(base.Session), IdPerdoruesi, clsRaporti.KaSubRaporte(base.IdRaporti), hfState.Get("guidString").ToString());
         }
 

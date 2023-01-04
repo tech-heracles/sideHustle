@@ -232,7 +232,7 @@
                 </div>
                 <div class="dalje">
                 <dx:ASPxHyperLink CssClass="dalje" ID="ASPxHyperLink2" runat="server" EnableViewState="false" ViewStateMode="Disabled"
-                    NavigateUrl="<% DbCore.IMBUtils.Paths.defaultLoginPath%>?arsye=logout" ImageUrl="images/dalje.png" ForeColor="Black" Font-Underline="false" Text="Dalje" Font-Size="11"
+                    NavigateUrl="<% DbCore.IMBUtils.Paths.defaultLoginPath%>" ImageUrl="images/dalje.png" ForeColor="Black" Font-Underline="false" Text="Dalje" Font-Size="11"
                     Font-Names="Calibri">
                 </dx:ASPxHyperLink>
                 </div>
@@ -253,7 +253,7 @@
 							Font-Size="11" ForeColor="white" Font-Names="Calibri" style="padding-left:6px; padding-bottom:5px; padding-top:5px;">
 						</dx:ASPxLabel>
 						<dx:ASPxHyperLink CssClass="dalje" ID="ASPxHyperLink3" runat="server" EnableViewState="false" ViewStateMode="Disabled"
-							NavigateUrl="<% DbCore.IMBUtils.Paths.defaultLoginPath%>?arsye=logout" ImageUrl="images/logoutShigjeta.png" ForeColor="Black" Font-Underline="false" style="padding-right:5px; padding-bottom:5px;">
+							NavigateUrl="<% DbCore.IMBUtils.Paths.defaultLoginPath%>" ImageUrl="images/logoutShigjeta.png" ForeColor="Black" Font-Underline="false" style="padding-right:5px; padding-bottom:5px;">
 						</dx:ASPxHyperLink> 
 					</div>
 				</div>

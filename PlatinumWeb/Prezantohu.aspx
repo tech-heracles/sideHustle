@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prezantohu.aspx.cs" Inherits="PlatinumWeb.login" %>
+<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="Prezantohu.aspx.cs" Inherits="PlatinumWeb.login" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -19,7 +19,24 @@
     <%--<script src="public/modernizr.min.js"></script>--%>
     <%--<script src="public/placeholder.js"></script>--%>
     <%--<link href="public/login.css" rel="stylesheet" />--%>
-
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
+            authDomain: "imb-payment.firebaseapp.com",
+            databaseURL: "https://imb-payment.firebaseio.com",
+            projectId: "imb-payment",
+            storageBucket: "imb-payment.appspot.com",
+            messagingSenderId: "269963445243",
+            appId: "1:269963445243:web:6b8347c72e861cd438415e"
+        };
+        const app = initializeApp(firebaseConfig);
+        window.signInWithPopup = signInWithPopup;
+        window.signInWithEmail = signInWithEmailAndPassword;
+        window.getAuth = getAuth;
+        window.GoogleAuthProvider = GoogleAuthProvider;
+    </script>
     <style>
         @font-face {
             font-family: 'Open Sans';
@@ -1229,7 +1246,9 @@
         }
 
         @media all and (max-width:690px) {
-
+            .left{
+                margin-left: -15%;
+            }
             .left, .right, .info {
                 float: none;
                 display: inline-block;
@@ -1542,10 +1561,20 @@ section#submain header {
 #toast-container{
     z-index: 9999999999999999999 !important;
 }
+.custom-css-a{
+    width:100%;
+    height:100%;
+    background-color:#1251b8 !important;
+    
+}
+.custom-css-a:hover{
+    background-color: white !important;
+    color: black !important;
+}
     </style>
-
+    
     <script>
-        
+
         function getClientDate() {
             var date = new Date();
             var dt = date.getDate();
@@ -1882,8 +1911,20 @@ section#submain header {
                                                 Init="function(s,e){makeVisibleLogin(s,e);}" />
 
                                         </dx:ASPxButton>
+                                        
+                                        
 
                                     </div>
+                                    <div class="col s12 m6 offset-m3 center-align" style="margin-top:10%;" onclick="signInWithGooglePopup()">
+                                        <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
+                                            <div class="left" style="margin-top:0px; height:20px; position:absolute;">
+                                                <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
+                                                    src="images/FaqjaPare/google.png" />
+                                            </div>
+                                            Sign in with Google
+                                        </a>
+                                    </div>
+                                    <%--<h1 class="hyrje google" onclick="signInWithGooglePopup()"><img src="images/gogle.png"/>Log in with Google</h1>--%>
                                     <section>  
                                         <%--<a class="material-icons waves-effect waves-light btn-small pulse" id="hidelogin" style="
                                     margin-left: 80%;
@@ -2061,6 +2102,9 @@ section#submain header {
                 </article>
                 <article class="cpyright">
                 </article>
+                        <asp:Button ID="logInWithGmailButton" runat="server" Text="" OnClick="logInWithGmail" />
+                        <dx:ASPxTextBox ID="txtUID" runat="server"></dx:ASPxTextBox>
+                        
             </footer>
         </div>
     </form>
@@ -2143,7 +2187,17 @@ section#submain header {
             window.open("https://direct.lc.chat/13799409/");
         }
 
-
+        async function signInWithGooglePopup() {
+            signInWithPopup(getAuth(), new GoogleAuthProvider())
+                .then(function (result) {
+                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
+                    txtUID.SetText(result.user.uid);
+                    logInWithGoogle.click();
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            
+        }
         function demo(event) {
             var x = document.getElementById('Login1_UserName_I');
             x.value = "Vizitor";

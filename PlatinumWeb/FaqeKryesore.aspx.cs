@@ -984,7 +984,7 @@ namespace PlatinumWeb
             var daljeItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("dalje");
             daljeItem.Visible = true;
             daljeItem.Text = rm.GetString("labelLogOut", ci);
-            daljeItem.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout";
+            daljeItem.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout&google=true";
             //ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").ClientVisible = true;
             var fjalekalimItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("NdryshimFjalekalimi.aspx");
             fjalekalimItem.Text = rm.GetString("labelEmailFjalekalimi", ci);

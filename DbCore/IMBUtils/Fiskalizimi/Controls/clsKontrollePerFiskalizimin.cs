@@ -94,7 +94,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                     }
                 }
             }
-
             return false;
         }
         public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV3()

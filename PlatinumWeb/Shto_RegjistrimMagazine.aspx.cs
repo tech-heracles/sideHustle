@@ -1456,12 +1456,13 @@ namespace PlatinumWeb
         /// <param name="idPerdoruesi"></param>
         private void ruajRegjistrimMagazine(int statusDokumenti, bool printo, bool kontrollosasi, bool kontrollokonvertim, int idPerdoruesi, DbData dbData, bool dergoEmail = false, bool dergoEmailDokArkives = false)
         {
-            if(txtNIVFSH.Text != "")
+            if (txtNIVFSH.Text != "")
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Dokumenti eshte i fiskalizuar dhe nuk mund te modifikohet!", pnlMesazhi);
                 return;
             }
             var idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim Hyrje/Dalje nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, "Regjistrim dalje ose hyrje ne magazine", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             colKokaMagazina regjistrime = new colKokaMagazina();
             int meKontabilizim;
             if (Page.IsValid == false)
