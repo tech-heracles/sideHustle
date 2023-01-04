@@ -97,6 +97,7 @@ namespace PlatinumWeb
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
+                    return;
                 }         
                 grid_faturat = (ASPxGridView)ASPxNavBar1.Groups[0].FindControl("grid_faturat");
                 DbCore.DbAdmin.clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
@@ -324,6 +325,7 @@ namespace PlatinumWeb
             if (DbCore.mySessionObjects.merrFshiNgaSesioni(Session) != null && DbCore.mySessionObjects.merrFshiNgaSesioni(Session) == "fshi")
             {
                 Response.Redirect("EkzekutimProdhimi.aspx?fshi=po");
+                return;
             }
         }
 
@@ -359,6 +361,7 @@ namespace PlatinumWeb
                 if (!mesazh.Status)
                 {
                     Response.Redirect("EkzekutimProdhimi.aspx?fshi=rivleresimjo");
+                    return;
                 }
             }
             //CacheLayer.GlobalCacheManager.MySessionCache["trupat"] = new DbCore.DbRegjistrim.colTrupiMagazina();
@@ -366,6 +369,7 @@ namespace PlatinumWeb
             if (mesazh.Status)
             {
                 Response.Redirect("EkzekutimProdhimi.aspx?fshi=rivleresimpo");
+                return;
             }
         }
         
@@ -883,7 +887,10 @@ namespace PlatinumWeb
                     DbCore.mySessionObjects.ruajFshiNeSesion(Session, "fshi");
                 }
                 else
+                {
                     Response.Redirect("EkzekutimProdhimi.aspx?fshi=po");
+                    return;
+                }
                 status1.Value = "true";
             }
             else
