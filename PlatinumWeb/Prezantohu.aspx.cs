@@ -592,8 +592,12 @@ namespace PlatinumWeb
 
                                     mySessionObjects.ruajTerms(Session, true);
                                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                                    if(mesazh.Status)
+                                    if (mesazh.Status)
+                                    {
+                                        mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
                                         clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+
+                                    }
                                     if (mesazh.Status) return;
                                     Login1.FailureText = mesazh.PershkrimMesazhi;
 
@@ -711,7 +715,11 @@ namespace PlatinumWeb
                                     mySessionObjects.ruajTerms(Session, true);
                                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                                     if (mesazh.Status)
+                                    {
+                                        mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
                                         clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+
+                                    }
                                     if (mesazh.Status) return;
                                     Login1.FailureText = mesazh.PershkrimMesazhi;
 

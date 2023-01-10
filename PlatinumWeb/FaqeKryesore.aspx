@@ -128,6 +128,75 @@
               font-size: 10px;
           }
         }
+        .popup-container{
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            backdrop-filter: contrast(0.5);
+        }
+        .popup{
+            width: 40%;
+            height: max-content;
+            background: #f9fbfd;
+            position: absolute;
+            /* text-align: center; */
+            /* top: 25%; */
+            /* left: 25%; */
+            padding-bottom: 30px;
+            padding: 2% 5%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            top: 10%;
+            border-radius: 10px;
+        }
+        .email-footer{
+            float: right;
+            margin-top: 10%;
+            width: 30%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #email_confirm{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9d9999;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: border .3s, -webkit-box-shadow .3s;
+    transition: border .3s, -webkit-box-shadow .3s;
+    transition: box-shadow .3s, border .3s;
+    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+    width: 30%;
+}
+.email-footer p{
+    transition: .3s;
+    padding: 5px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #0072c6;
+    /* width: 0%; */
+    cursor: pointer;
+    color: #fbfbfb;
+    margin: 2px 10px;
+    width: 30%;
+    box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
+    -webkit-box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
+    -moz-box-shadow: 2px 1px 5px 1px rgba(0,0,0,0.29);
+}
+.email-footer p:hover{
+        background-color: #048ae7;
+}
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121798081-2"></script>
@@ -136,6 +205,21 @@
 <body class="">
    
     <form id="form1" class="main" runat="server">  
+        <div class="popup-container"  id="popup-container" style="display:none">
+            <div class="popup">
+                <h1>Konfirmo adresen e emailit.</h1>
+                <br>
+                <p>Pershendetje, </p>
+                <br>
+                <p>Si perdorues Administrator i programit Alpha per Organizaten<b><span id="organizata_p"></span></b>, ju lutem te konfirmoni adresen tuaj te emailit ne cilen deshironi te merrni njoftime si dhe te menaxhoni gjithe abonimin tuaj ne programet Alpha.</p>
+                <br>
+                <p>Emaili juaj</p><input type="text" id="email_confirm">
+                <div class="email-footer">
+                    <p onclick="MbyllEmailPopup()">Mbyll</p>
+                    <p onclick="konfirmoEmail()">Konfirmo</p>
+                </div>
+            </div>
+        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>

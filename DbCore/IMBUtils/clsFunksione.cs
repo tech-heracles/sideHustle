@@ -70,6 +70,7 @@ using Google.Apis.Iam.v1.Data;
 using System.Threading.Tasks;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
 using Google.Cloud.Storage.V1;
+using System.Net.Mail;
 
 namespace DbCore
 {
@@ -1073,6 +1074,40 @@ namespace DbCore
             {
                 return dbAdmin.KtheMesazhPerPerdoruesin();
             }
+        }
+        public static async  Task<bool> CheckIfEmailIsVerified(string email)
+        {
+            FirebaseConfiguration fb = new FirebaseConfiguration();
+            return await fb.checkIfUserIsVerified(email);
+        }
+        public static bool KonfirmoEmail(string email)
+        {
+            string apiKey = PasswordHelper.GjenroApiKey(email);
+            string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+            HttpWebRequest webReq =  clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+            webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
+            using (Stream stream = webReq.GetRequestStream())
+            {
+                using (StreamWriter stmw = new StreamWriter(stream))
+                {
+                    stmw.Write(JsonConvert.SerializeObject(new {
+                        email = email,
+                        subject = "Email Verification",
+                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/verifyEmail?email=" +  email + "&timestamp=" + timeStamp + "&apikey=" + apiKey + "<br><br>Faleminderit!"
+                    }));
+                }
+            }
+            using (WebResponse webResponse = webReq.GetResponse())
+            {
+                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                {
+
+                    var ServiceResult = rd.ReadToEnd();
+                    if (ServiceResult == "Email Sent!") return true;
+                    else return false;
+                }
+            }
+            return false;
         }
 
         public static void dergoKerkesePerAprovimPerdoruesi(string perPerdoruesin, string ngaPerdoruesi, int idNdermarje, int idPerdoruesi, int idNdermarjeVit, string status)

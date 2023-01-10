@@ -5,6 +5,7 @@ using DbCore.DbAdmin;
 using System.Collections.Generic;
 using System.Linq;
 using DbCore.IMBUtils.Messages;
+using System.Threading.Tasks;
 
 namespace RestApi.WebAPI.Models
 {
@@ -108,6 +109,14 @@ namespace RestApi.WebAPI.Models
         public static string ktheMesazhPerPerdoruesin()
         {
             return clsFunksione.KtheMesazhPerPerdoruesin();
+        }
+        public static bool KonfirmoEmail(string email)
+        {
+            return clsFunksione.KonfirmoEmail(email);
+        }
+        public static async Task<bool> CheckIfEmailIsVerified(string email)
+        {
+            return await clsFunksione.CheckIfEmailIsVerified(email);
         }
 
     }

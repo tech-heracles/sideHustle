@@ -7,6 +7,7 @@ using RestApi.WebAPI.ApiUtils;
 using RestApi.WebAPI.Models;
 using System.Web.SessionState;
 using DbCore.DbAdmin;
+using System.Threading.Tasks;
 
 namespace RestApi.WebAPI.Controllers
 {
@@ -61,6 +62,33 @@ namespace RestApi.WebAPI.Controllers
                 int idDokRegjistrimi = 0;
                 if (!int.TryParse(vlera, out idDokRegjistrimi)) idDokRegjistrimi = 0;
                 return Request.KthePergjigje(AutorizimeRepository.KtheInfoLart(Session, urlKomponente, idDokRegjistrimi, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session),  idGjuha));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigjeGabim(param, ex);
+            }
+        }
+        [HttpPost, HttpGet]
+        public HttpResponseMessage KonfirmoEmail(JObject param)
+        {
+            try
+            {
+                string email = param.Value<string>("email");
+                return Request.KthePergjigje(AutorizimeRepository.KonfirmoEmail(email));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigjeGabim(param, ex);
+            }
+        }
+        [HttpPost, HttpGet]
+        public async Task<HttpResponseMessage> CheckIfEmailIsVerified(JObject param)
+        {
+            try
+            {
+                string email = param.Value<string>("email");
+                bool status = await AutorizimeRepository.CheckIfEmailIsVerified(email);
+                return Request.KthePergjigje(status);
             }
             catch (Exception ex)
             {

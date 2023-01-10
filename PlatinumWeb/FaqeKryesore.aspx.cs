@@ -12,6 +12,7 @@ using CacheLayer;
 using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Fiskalizimi.API;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Security;
 
 namespace PlatinumWeb
 {
@@ -58,10 +59,19 @@ namespace PlatinumWeb
                 
                 var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 string stringKonfigMenuMajtas = DbCore.DbShare.clsKonfigMenu.ktheListKonfigMenu(idPerdoruesi, idNdermarrje);
-                hfState.Add("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
+                hfState.Set("adminUser", false);
+                clsPerdorues perdorues = new clsPerdorues(mySessionObjects.ktheIdPerdoruesi(Session));
+                foreach (var role in perdorues.OColRolPerdoruesi)
+                {
+                    clsRoli rol = new clsRoli(role.IdRoli);
+                    if (rol.KodRoli == "RA" || rol.KodRoli == "RAS") hfState.Set("adminUser", true);
+                }
+                hfState.Set("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
                 hfState.Set("idPerdoruesi", idPerdoruesi);
                 hfState.Set("ShfaqPerdoruesMenu", user.ShfaqPerdoruesMenu);
                 hfState.Set("EmerMbiemerPerdorues", user.EmriPerdorues + ' ' + user.MbiemriPerdorues);
+                hfState.Set("organizata", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                hfState.Set("emailPerdoruesi", user.PerdoruesEmail);
                 hfState.Set("Username",user.PerdoruesUsername);
                 hfState.Set("Kadnderrmarje",ndermarrja);
                 var licenca = new clsLicenca();
@@ -551,7 +561,10 @@ namespace PlatinumWeb
             var ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             enableMenuTeDrejta(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), rm, ci);
         }
-
+        protected void VerifikoEmail_Click(object sender, EventArgs e)
+        {
+            PasswordHelper.GjenroApiKey("");
+        }
         
 
         /// <summary>

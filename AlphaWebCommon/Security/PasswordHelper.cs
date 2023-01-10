@@ -68,6 +68,13 @@ namespace DbCore.IMBUtils.Security
 
             return GjeneroPassword(gjatesiPw, 1, 1, 1);
         }
+        public static string GjenroApiKey(string email)
+        {
+            string salt = "##A!phaWEB.2023_##";
+            byte[] emailBase64 = Encoding.ASCII.GetBytes(HashData(email + salt));
+            return Convert.ToBase64String(emailBase64);
+
+        }
 
 
     }

@@ -1998,7 +1998,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 tagNoteKursi = $"<Note>CurrencyExchangeRate=" + kursi + "#AAI#</Note>";
             }
             if (pershkrimFature != "") pershkrimFature = $"<Note>Pershkrimi i fatures: " + pershkrimFature + "#AAI#</Note>";
-            if (shenimFature != "") shenimFature = $"<Note>Shenimi i fatures: " + shenimFature + "#AAI#</Note>";
+            //if (shenimFature != "") shenimFature = $"<Note>Shenimi i fatures: " + shenimFature + "#AAI#</Note>";
             if (klientFurnitor.ShitjePaTvsh)
             {
                 bleresiTaxScheme = "";

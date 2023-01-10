@@ -42,6 +42,25 @@ namespace DbCore
             }
 
         }
+        public async Task<bool> checkIfUserIsVerified(string email)
+        {
+            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
+            string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+            Query usersRef = firestoreDb.Collection("userDetails").WhereEqualTo("email", email);
+            QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
+            foreach (var snap in snapshot)
+            {
+                documentDictionary = snap.ToDictionary();
+            }
+            if (documentDictionary.ContainsKey("verified"))
+                return documentDictionary["verified"].ToString() == "True" ? true : false;
+            else return false;
+
+
+        }
         public async Task<Dictionary<string,object>> getUserPassword(string idToken)
         {
             var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");

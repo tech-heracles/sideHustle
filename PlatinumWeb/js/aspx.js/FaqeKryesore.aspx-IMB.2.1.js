@@ -34,7 +34,9 @@ function grupKlick(s, e, emrimenuse) {
 }
 
 
-
+function MbyllEmailPopup() {
+    document.getElementById("popup-container").style.display = "none";
+}
 function kontrolloTeDrejta(s, e, emrimenuse) {
     if (e.item.GetItemCount && e.item.GetItemCount() >0) //deri tani perdorej emri bosh, qe ketej e tutje kush bij nuk klikohet
         return;
@@ -203,8 +205,21 @@ function hideNotice() {
     document.querySelector(".einvoice-notice").style.display = "none";
     document.querySelector(".x-image").style.display = "none";
 }
+function SucceededCallbackVerifyEmail(result) {
+    if (!result)
+        $("#popup-container").css("display", "block");
+}
 $(document).ready(function (e) {
     rifresko = false;
+    document.getElementById("organizata_p").innerHTML = " " + hfState.Get("organizata");
+    if (hfState.Get("adminUser")) {
+        $.ajax({
+            async: true,
+            url: Utils.getServerApiUrl("Autorizime", "CheckIfEmailIsVerified"),
+            data: JSON.stringify({ email: hfState.Get("emailPerdoruesi") })
+        }).done(SucceededCallbackVerifyEmail);
+    }
+    
     //$(".footer1").parent().css("margin-top", "-60px");
     //$(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
@@ -301,7 +316,19 @@ function callWebServiceKtheInfoLart(emerKomponente, id) {
         })
     }).done(SucceededCallbackInfoLart);
 }
-
+function konfirmoEmail() {
+    $.ajax({
+        url: Utils.getServerApiUrl("Autorizime", "KonfirmoEmail"),
+        data: JSON.stringify({
+            email: $("#email_confirm").val()
+        })
+    });
+    SucceededCallbackEmailConfirm();
+}
+function SucceededCallbackEmailConfirm() {
+    alert("Ju lutem konfirmoni email-in!");
+    $("#popup-container").css("display", "none");
+}
 function callWebServiceVendosPeriudhen(idPeriudha) {
 
     var innerPageScopeId = Utils.getVarFromUrl(document.getElementsByName("frameKryesor")[0].contentWindow.location.href, "scopeID");
