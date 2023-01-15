@@ -518,7 +518,7 @@ namespace PlatinumWeb
             {
                 var dictionary = await fb.getUserPassword(Request.Url.ToString().Split(new string[] { "authToken=" }, StringSplitOptions.None)[1]);
                 string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString() : "");
-                string organization = (dictionary.ContainsKey("clientDatabase") == true ? dictionary["clientDatabase"].ToString() : "");
+                string organization = (dictionary.ContainsKey("alphaOrganization") == true ? dictionary["clientDatabase"].ToString() : "");
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
                 //organization = "praktike1-test"; // chnage to organization
@@ -640,7 +640,7 @@ namespace PlatinumWeb
                 //uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
                 var dictionary = await fb.getUserDetailsWithUID(uid);
                 string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString(): "");
-                string organization = (dictionary.ContainsKey("clientDatabase") == true ?  dictionary["clientDatabase"].ToString() : "");
+                string organization = (dictionary.ContainsKey("alphaOrganization") == true ?  dictionary["alphaOrganization"].ToString() : "");
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
                 //organization = "praktike1-test";//change to organization

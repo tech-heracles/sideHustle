@@ -15093,6 +15093,9 @@ e Rregjistrimit</value>
   <data name="MenuItemWebhooks" xml:space="preserve">
     <value>Webhooks</value>
   </data>
+  <data name="MenuItemInvite" xml:space="preserve">
+    <value>Fto Perdorues</value>
+  </data>
   <data name="msgPorteNumber" xml:space="preserve">
     <value>Porta nuk ka nje vlere te sakte!</value>
   </data>

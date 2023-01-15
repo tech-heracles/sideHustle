@@ -1775,6 +1775,7 @@ namespace DbCore
         public static string merrEmerPerdoruesiNgaSesioni(HttpSessionState session)
         {
             var myCache = GlobalCacheManager.GetSessionCacheByKey(session.SessionID);
+            return null;
             if (myCache["perdoruesi"] == null)
                 return null;
             else

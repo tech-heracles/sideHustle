@@ -205,7 +205,7 @@
 <body class="">
    
     <form id="form1" class="main" runat="server">  
-        <div class="popup-container"  id="popup-container" style="display:none">
+       <%-- <div class="popup-container"  id="popup-container" style="display:none">
             <div class="popup">
                 <h1>Konfirmo adresen e emailit.</h1>
                 <br>
@@ -219,7 +219,7 @@
                     <p onclick="konfirmoEmail()">Konfirmo</p>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
@@ -286,6 +286,7 @@
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
+                                                        
                                                         <dx:MenuItem Text="Dergo mesazh" Name="MessageToAll.html" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Motivet" Name="UserThemes.aspx" Visible="false">
@@ -338,6 +339,8 @@
                                                         </dx:MenuItem>
                                                         
                                                         <dx:MenuItem Text="Webhooks" Name="Webhooks.aspx" Visible="true">
+                                                        </dx:MenuItem>
+                                                        <dx:MenuItem Text="Fto perdorues" Name="FtoPerdorues.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>

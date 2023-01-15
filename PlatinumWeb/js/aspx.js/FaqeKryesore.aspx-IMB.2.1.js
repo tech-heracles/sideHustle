@@ -211,14 +211,14 @@ function SucceededCallbackVerifyEmail(result) {
 }
 $(document).ready(function (e) {
     rifresko = false;
-    document.getElementById("organizata_p").innerHTML = " " + hfState.Get("organizata");
-    if (hfState.Get("adminUser")) {
-        $.ajax({
-            async: true,
-            url: Utils.getServerApiUrl("Autorizime", "CheckIfEmailIsVerified"),
-            data: JSON.stringify({ email: hfState.Get("emailPerdoruesi") })
-        }).done(SucceededCallbackVerifyEmail);
-    }
+    //document.getElementById("organizata_p").innerHTML = " " + hfState.Get("organizata");
+    //if (hfState.Get("adminUser")) {
+    //    $.ajax({
+    //        async: true,
+    //        url: Utils.getServerApiUrl("Autorizime", "CheckIfEmailIsVerified"),
+    //        data: JSON.stringify({ email: hfState.Get("emailPerdoruesi") })
+    //    }).done(SucceededCallbackVerifyEmail);
+    //}
     
     //$(".footer1").parent().css("margin-top", "-60px");
     //$(".footer1").parent().css("position", "absolute");

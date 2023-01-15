@@ -107,6 +107,12 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.103.14\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CacheManager.Core, Version=1.1.2.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
       <HintPath>..\packages\CacheManager.Core.1.1.2\lib\net45\CacheManager.Core.dll</HintPath>
     </Reference>
@@ -969,6 +975,8 @@
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice_Edit.ascx" />
     <Content Include="FaturaShitjeEinvoice.aspx" />
     <Content Include="FaturaBlerjeEinvoice.aspx" />
+    <Content Include="FtoPerdorues.aspx" />
+    <Content Include="FtoPerdorues.html" />
     <Content Include="GjendjeArkeDitore.aspx" />
     <Content Include="images\FaqjaPare\AlphaWEB-png.png" />
     <Content Include="images\FaqjaPare\GIFWEB_BLUE_1.svg">
@@ -9059,6 +9067,13 @@
     </Compile>
     <Compile Include="FormatePrintimi.aspx.designer.cs">
       <DependentUpon>FormatePrintimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FtoPerdorues.aspx.cs">
+      <DependentUpon>FtoPerdorues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FtoPerdorues.aspx.designer.cs">
+      <DependentUpon>FtoPerdorues.aspx</DependentUpon>
     </Compile>
     <Compile Include="GISLupaElemente.aspx.cs">
       <DependentUpon>GISLupaElemente.aspx</DependentUpon>

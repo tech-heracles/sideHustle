@@ -1097,6 +1097,37 @@ namespace DbCore
                     }));
                 }
             }
+
+            using (WebResponse webResponse = webReq.GetResponse())
+            {
+                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                {
+
+                    var ServiceResult = rd.ReadToEnd();
+                    if (ServiceResult == "Email Sent!") return true;
+                    else return false;
+                }
+            }
+            return false;
+        }
+        public static bool gjeneroLinkPerKonfirmimEmaili(string email, string apikey)
+        {
+            apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
+            HttpWebRequest webReq =  clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+            webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
+            using (Stream stream = webReq.GetRequestStream())
+            {
+                using (StreamWriter stmw = new StreamWriter(stream))
+                {
+                    stmw.Write(JsonConvert.SerializeObject(new
+                    {
+                        email = email,
+                        subject = "Email Verification",
+                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/test?apiKey=" + apikey
+                    }));
+                }
+            }
+
             using (WebResponse webResponse = webReq.GetResponse())
             {
                 using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
@@ -2895,12 +2926,12 @@ namespace DbCore
         }
         public static void Logout(HttpSessionState Session, bool logOut, bool signOutFormsAuth, bool dontRedirect, string loginUrl, string queryString)
         {
-            string emerPerdoruesi = DbCore.mySessionObjects.merrEmerPerdoruesiNgaSesioni(Session);
-            string emerNdermarrje = DbCore.mySessionObjects.merrNdermarjeselectSesioni(Session);
+            //string emerPerdoruesi = DbCore.mySessionObjects.merrEmerPerdoruesiNgaSesioni(Session);
+            //string emerNdermarrje = DbCore.mySessionObjects.merrNdermarjeselectSesioni(Session);
             Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
-            clsFunksione.dergoLogAlphaweb(emerNdermarrje, "Logout", "Logout nga perdoruesi: " + emerPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -13800,6 +13831,41 @@ namespace DbCore
                 return false;
             }
 
+        }
+        public static byte[] encrypt(byte[] data,RSAParameters RSAKey, bool Do0AEPadding)
+        {
+            try
+            {
+                byte[] encryptedData;
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.ImportParameters(RSAKey);
+                    encryptedData = RSA.Encrypt(data, Do0AEPadding);
+                }
+                return encryptedData;
+            }
+            catch(CryptographicException ex)
+            {
+                return null;
+            }
+        }
+        static public byte[] Decryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
+        {
+            try
+            {
+                byte[] decryptedData;
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.ImportParameters(RSAKey);
+                    decryptedData = RSA.Decrypt(Data, DoOAEPPadding);
+                }
+                return decryptedData;
+            }
+            catch (CryptographicException e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
         }
         //MOS SHTONI funksione qe prekin databazen ketu
     }

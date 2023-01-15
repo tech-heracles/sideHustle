@@ -14756,6 +14756,9 @@ write-off</value>
   <data name="MenuItemWebhooks" xml:space="preserve">
     <value>Webhooks</value>
   </data>
+  <data name="MenuItemInvite" xml:space="preserve">
+    <value>Invite users</value>
+  </data>
   <data name="msgPorteNumber" xml:space="preserve">
     <value>Invalid port number!</value>
   </data>

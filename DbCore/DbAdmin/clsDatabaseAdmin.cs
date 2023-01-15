@@ -2623,7 +2623,7 @@ namespace DbCore.DbAdmin
             if (perdoruesUsername == "")
                 queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 AND PERDORUESAKTIV = 1";
             else
-                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESUSERNAME = '{perdoruesUsername}' OR PERDORUESEMAIL = '{email}' and IDSTATUSDOK = '1' AND PERDORUESAKTIV = '1'";
+                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESUSERNAME = '{perdoruesUsername}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 AND PERDORUESAKTIV = 1";
             CommandType commandType = CommandType.Text;
             DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
             return ds.Tables[0];

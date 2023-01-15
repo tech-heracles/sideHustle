@@ -10503,6 +10503,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemWebhooks" xml:space="preserve">
     <value>Webhooks</value>
   </data>
+  <data name="MenuItemInvite" xml:space="preserve">
+    <value>inviter des utilisateurs</value>
+  </data>
   <data name="MenuItemKonfigurimKasash" xml:space="preserve">
     <value>Configuration de la caisse fiscale</value>
   </data>
