@@ -65,7 +65,7 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                 string base64 = Convert.ToBase64String(encryptedtext);
 
                 email_inline.Text = "";
-                clsFunksione.gjeneroLinkPerKonfirmimEmaili("henrik.balla@imb.al", base64);
+                clsFunksione.gjeneroLinkPerKonfirmimEmaili(email_inline.Text, base64);
             }
             catch(Exception ex)
             {
