@@ -593,6 +593,7 @@ namespace PlatinumWeb
                     ASPxMenu1.Items[0].Items[1].Items[2].Visible = true;
                     ASPxMenu1.Items[0].Items[1].Items[0].Visible = false;
                     ASPxMenu1.Items[0].Items[1].Items[1].Visible = false;
+                    ASPxMenu1.Items[0].Items[16].Visible = true;
                     break;
                 }
             }
@@ -620,7 +621,6 @@ namespace PlatinumWeb
             ASPxMenu1.Items[0].Items[13].Items[2].Text = rm.GetString("MenuItemAutorizimet", ci);
             ASPxMenu1.Items[0].Items[15].Text = rm.GetString("MenuItemWebhooks", ci);
             ASPxMenu1.Items[0].Items[16].Text = rm.GetString("MenuItemInvite", ci);
-            ASPxMenu1.Items[0].Items[16].Visible = true;
 
             ASPxMenu1.Items[1].Text = rm.GetString("MenuItemKonfigurime", ci);
             ASPxMenu1.Items[1].Items[0].Text = rm.GetString("MenuItemAmortizimi", ci);

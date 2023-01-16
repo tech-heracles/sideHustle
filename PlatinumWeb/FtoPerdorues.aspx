@@ -54,7 +54,7 @@
     <form id="form1" runat="server">
         <div id="modal1" class="modal">
             <div class="modal-content">
-              <h4>Add users</h4>
+              <h4>Shto perdorues</h4>
                 <br />
               <div class="input-field">
                 <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate" OnClientClick="checkEmail"/>
@@ -68,12 +68,11 @@
         </div>
         <div class="row">
             <div class="col s12 m6 row-container">
-              <div class="card blue-grey darken-1">
-                <a class="waves-effect waves-light btn modal-trigger btn btn-primary" href="#modal1">Modal</a>
+              <div class="card grey lighten-5">
+                <a class="waves-effect blue darken-1 btn modal-trigger btn btn-primary" href="#modal1">Shto perdorues</a>
                 <div class="card-content white-text">
-                  <span class="card-title">Card Title</span>
-                  <p class="card-p">I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
+                  <span class="card-title" style="color:black">Shto perdorues</span>
+                  <p class="card-p" style="color:black;">Si perdorues Administrator i programit Alpha ju mund te shtoni perdorues te autentifiikuar me gmail. Per te shtuar perdorues vendosni email-in e perdoruesit qe doni te shtoni.</p>
                 </div>
               </div>
             </div>

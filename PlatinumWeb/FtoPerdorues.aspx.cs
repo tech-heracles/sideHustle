@@ -31,42 +31,55 @@ namespace PlatinumWeb
         }
         protected void button_click(object sender, EventArgs e)
         {
-            string publicKey = @"-----BEGIN PUBLIC KEY-----
-                MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8QcGe1gJSuzEHA38Z74O
-                hsfe1prG9J6grAC1ulxErU6P+XXlGMQZL+cnNe/GuaLgedyaYVV0YuXE2sSzPCxD
-                lV4ceP0AsFottNaitCbXTUG6jTcOMdNNICTG34yqtgXS8zPkj05aJyNAFynY5NvV
-                z+k69GFN49uCoXU69FApoMLJfuKGP77ZdsevZJGmjUcIavWuk7lzuqtjAPTDnCjf
-                Hdiu0OgHPJEJchumaM2aQmkAHg2utPjB/GhgjL90Hq9DHM7+Wy0vcf5wyoI8UyGS
-                vE7x29Pv1AdUvqxFopoI+fo6ok68qnlbu2ODJ72uhhQa03rZStlgeGE6V0UwEKWB
-                iwIDAQAB
-                -----END PUBLIC KEY-----";
-            if (email_inline.Text == "") return;
-            RSA = ImportPublicKey(publicKey);
-            string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-            string password = generateRandomPassword();
-            string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            object json = new
+            try
             {
-                timestamp = timeStamp,
-                email = "toshikimeriku@gmail.com",
-                password = password,
-                organization =organizata
-            };
-            plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
-            encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
+                string publicKey = @"-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoDen7UdHQuEqz5dlUhpZ
+sB7bBjSlo/xEbJqT1994jNAi39/d3Twd8BNg87o16Yrrhce5TwY+IEl8kHvdUNXY
+rkLzZDxoBSGWV05kOW+bDd52ClGTCpJfatvtn/S7nTbdSlNBJJZ2xajFg8l9T6ST
+twD49dxh8MMVK/6xzJRUyXTBBUU4d+x9PiPY70O4/q66cUUeUg7OhWKyUElYrnxg
+vhETRginB+/lNxjbCQcJzGTRq36+g9A+MiWip2SQ1zdeV3A6ssWtdvuMPtijIPhX
+423yoZnOC+eRW7zxEbIhcmTOJP8rF2pXruvgFEOhadIZQvgiD4PSdIEkaDrCSwXX
+vlqUdr+gib3UIypfzKmRRO3drrvE6HiaPN2n/2+kOQ3zzKI7PwcXsFJIESOPV9xo
+VThkDMtjqaKf9/VR1BK+wZXcMEo6pwbTmrggIRpHHQIicNfyeIGWSwEZYqgp9dLE
+GXZMEEsJdZbLkmn3lRcRGeWfNF/0hokVd5Bf7SUradNZI2F2YJeM5u/PTKr2wbaJ
+ZMIlG6AHVXCg3EB1Osh5W+OLE2qZBSx70hN41m85te9/X0O0377S6WiGRSpSfBjO
+RCTzQHbk4zG6TcrYp/uR77BfUC91mqAH+OA4YiZZv1YKyP8+O+E0lIcMehn4UWXW
+JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
+-----END PUBLIC KEY-----
+";
+                if (email_inline.Text == "") return;
+                RSA = ImportPublicKey(publicKey);
+                string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+                string password = generateRandomPassword();
+                string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                object json = new
+                {
+                    timestamp = timeStamp,
+                    organization = organizata,
+                    email = email_inline.Text,
+                    password = password,
+                };
+                plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
+                encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
+                string base64 = Convert.ToBase64String(encryptedtext);
 
-            string base64 = Convert.ToBase64String(encryptedtext);
+                email_inline.Text = "";
+                clsFunksione.gjeneroLinkPerKonfirmimEmaili("henrik.balla@imb.al", base64);
+            }
+            catch(Exception ex)
+            {
+                return;
+            }
             
-
-            clsFunksione.gjeneroLinkPerKonfirmimEmaili("henrik.balla@imb.al",base64);
-
+            
         }
         public static string generateRandomPassword()
         {
             const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-";
             StringBuilder stringBuilder = new StringBuilder();
             Random random = new Random();
-            for(var i = 0; i <= 20; i++)
+            for(var i = 0; i <= 10; i++)
             {
                 stringBuilder.Append(valid[random.Next(valid.Length)]);
             }

@@ -1114,6 +1114,7 @@ namespace DbCore
         {
             apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
             HttpWebRequest webReq =  clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlEmailAsign"];
             webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
             using (Stream stream = webReq.GetRequestStream())
             {
@@ -1123,7 +1124,7 @@ namespace DbCore
                     {
                         email = email,
                         subject = "Email Verification",
-                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/test?apiKey=" + apikey
+                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + linkDatasetEndpoint+"rest/setAlphaOrganization?apiKey=" + apikey
                     }));
                 }
             }
