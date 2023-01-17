@@ -36,6 +36,7 @@ using JWT;
 using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using CacheLayer;
 
 namespace PlatinumWeb
 {
@@ -125,6 +126,8 @@ namespace PlatinumWeb
                     }
                 }
                 string arsye = Request.QueryString["arsye"];
+                if(string.IsNullOrEmpty(arsye) == false)
+                    if(arsye=="logout") if (arsye == "logout") GlobalCacheManager.DestroySessionCache(Session.SessionID);
                 if (Request.Url.ToString().Contains("authToken="))
                     await loginWithFirebaseToken();
                 else

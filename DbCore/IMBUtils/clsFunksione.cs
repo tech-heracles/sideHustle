@@ -2940,7 +2940,7 @@ namespace DbCore
             {
                 string login = loginUrl;
                 if (!queryString.Equals(""))
-                    login = $"{loginUrl}?arsye=" + queryString + "google=true";
+                    login = $"{loginUrl}?arsye=" + queryString + "&google=true";
                 Page page = HttpContext.Current.Handler as Page;
                 if (page != null && page.IsCallback)
                     _redirectOnCallback(login);
