@@ -33,6 +33,8 @@ namespace PlatinumWeb
         {
             try
             {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction()", true);
+
                 string publicKey = @"-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoDen7UdHQuEqz5dlUhpZ
 sB7bBjSlo/xEbJqT1994jNAi39/d3Twd8BNg87o16Yrrhce5TwY+IEl8kHvdUNXY

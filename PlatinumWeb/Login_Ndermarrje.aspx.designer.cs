@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlatinumWeb {
-    
-    
-    public partial class Login_Ndermarrje {
-        
+namespace PlatinumWeb
+{
+
+
+    public partial class Login_Ndermarrje
+    {
+
         /// <summary>
         /// form2 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
-        
+
         /// <summary>
         /// popNdermarrjePaPeriudha control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl popNdermarrjePaPeriudha;
-        
+
         /// <summary>
         /// PopupControlContentControl4 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PopupControlContentControl PopupControlContentControl4;
-        
+
         /// <summary>
         /// ASPxPanel1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel ASPxPanel1;
-        
+
         /// <summary>
         /// PanelContent1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.PanelContent PanelContent1;
-        
+
         /// <summary>
         /// lblNukEkzistojnePeriudhat control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblNukEkzistojnePeriudhat;
-        
+
         /// <summary>
         /// ButtonOk control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ButtonOk;
-        
+
         /// <summary>
         /// lblUserEmri control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblUserEmri;
-        
+
         /// <summary>
         /// ASPxHyperLink2 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHyperLink ASPxHyperLink2;
-        
+
         /// <summary>
         /// ASPxHyperLink1 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHyperLink ASPxHyperLink1;
-        
+
         /// <summary>
         /// ASPxLabel1 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
-        
+
         /// <summary>
         /// lblUserEmriKESH control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblUserEmriKESH;
-        
+
         /// <summary>
         /// ASPxHyperLink3 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHyperLink ASPxHyperLink3;
-        
+
         /// <summary>
         /// grid_ListLoginNdermarrje control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView grid_ListLoginNdermarrje;
-        
+
         /// <summary>
         /// ok_ASPxButton control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace PlatinumWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ok_ASPxButton;
-        
+
         /// <summary>
         /// hfState control.
         /// </summary>

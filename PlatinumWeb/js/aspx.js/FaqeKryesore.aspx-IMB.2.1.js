@@ -232,8 +232,8 @@ $(document).ready(function (e) {
         myPopup.modal("show");
         $("#certificate-notice").css("display", "block");
         document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
-        //$(".footer1").parent().css("margin-top", "-20px");
-        //$(".footer1").parent().css("position", "absolute");
+        $(".footer1").parent().css("margin-top", "-20px");
+        $(".footer1").parent().css("position", "absolute");
     }
    
     $(document).on('keydown', function (e) {//po

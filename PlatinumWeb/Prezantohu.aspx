@@ -1775,6 +1775,11 @@ section#submain header {
         //        s.SetImageUrl("/images/FaqjaPare/keshLogo.png");
         //    s.SetVisible(true);
         //}
+        $(document).ready(function () {
+            const url = new URL(window.location.href);
+            if (url.search.includes("confirmEmail=true")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua</p>", classes: 'blue darken-2' });
+            if (url.search.includes("linkedEmail=true")) M.toast({ html: "<p style='color:white;'>Email-i eshte i lidhur me nje organizate!</p>", classes: 'blue darken-2' });
+        });
     </script>
     <meta charset="UTF-8">
 

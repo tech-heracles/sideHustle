@@ -47,6 +47,10 @@
         function checkEmail() {
             if ($("#email_inline").val() == "") alert("Email-i nuk duhet te jete bosh!")
         }
+        function MyFunction() {
+            $(".modal").css("display", "none");
+            alert("Ju lutem kontrolloni email-in!");
+        }
     </script>
     <title></title>
 </head>
