@@ -38,7 +38,7 @@ function MbyllEmailPopup() {
     document.getElementById("popup-container").style.display = "none";
 }
 function kontrolloTeDrejta(s, e, emrimenuse) {
-    if (e.item.GetItemCount && e.item.GetItemCount() >0) //deri tani perdorej emri bosh, qe ketej e tutje kush bij nuk klikohet
+    if (e.item.GetItemCount && e.item.GetItemCount() > 0) //deri tani perdorej emri bosh, qe ketej e tutje kush bij nuk klikohet
         return;
     if (e.item.menu && e.item.parent == e.item.menu.GetRootItem())
         return;
@@ -81,19 +81,19 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
 
     if (emrimenuse.indexOf("LupaPersonalizoPerdorues.aspx") !== -1) {
         emrimenuse = "LupaPersonalizoPerdorues.aspx";
-        emrimenuse=   Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
+        emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
         myButtonClickLupa.LupaUniversal_Click("Perdorues", emrimenuse, 870, 550);
         return;
     }
     if (emrimenuse.indexOf("GISDefault") !== -1) {
-        emrimenuse='GISDefault.aspx';
-        emrimenuse=  Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
+        emrimenuse = 'GISDefault.aspx';
+        emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
         window.open(emrimenuse, '_blank');
         return;
     }
 
     if (emrimenuse.indexOf("CRM") > -1) {
-        emrimenuse=  Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
+        emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
         window.open(emrimenuse, '_blank');
         return;
     }
@@ -110,10 +110,10 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
             emrimenuse = emrimenuse + "&width=" + window.document.body.clientWidth;
         }
         emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
-     
+
 
         if (e.htmlEvent.ctrlKey) {
-            window.open(Utils.setUrlVar("newScopeId", "True",Utils.setUrlVar('ambienti', emrimenuse, window.location.origin + window.location.pathname)), '_blank');
+            window.open(Utils.setUrlVar("newScopeId", "True", Utils.setUrlVar('ambienti', emrimenuse, window.location.origin + window.location.pathname)), '_blank');
             return;
         }
         var paneKryesor = splitter.GetPaneByName('paneKryesor');
@@ -191,17 +191,18 @@ function createCookie(name, value, days) {
 }
 
 var rifresko, fayeClient, currentChannel, channels = [
-        { tabSelector: '#tabs-njoftime', text: 'Njoftime', channel: '/global/njoftime', publish: '/global/njoftime', canPublish: false, indeks: 0 },
-        { tabSelector: '#tabs-ndihme', text: 'Ndihme', channel: '/global/ndihme', publish: '/global/ndihme', canPublish: true, indeks: 1 },
-        { tabSelector: '#tabs-nderm-6', text: '6', channel: '/global/metaNderm/6', publish: '/global/metaNderm/6', canPublish: true, indeks: 2 },
-        { tabSelector: '#tabs-nderm-rsu', text: 'RSU', channel: '/global/metaRol/6/rsu', publish: '/global/metaRol/6/rsu', canPublish: true, indeks: 3 },
-        { tabSelector: '#tabs-nderm-ra', text: 'RA', channel: '/global/metaRol/6/ra', publish: '/global/metaRol/6/ra', canPublish: true, indeks: 4 }
+    { tabSelector: '#tabs-njoftime', text: 'Njoftime', channel: '/global/njoftime', publish: '/global/njoftime', canPublish: false, indeks: 0 },
+    { tabSelector: '#tabs-ndihme', text: 'Ndihme', channel: '/global/ndihme', publish: '/global/ndihme', canPublish: true, indeks: 1 },
+    { tabSelector: '#tabs-nderm-6', text: '6', channel: '/global/metaNderm/6', publish: '/global/metaNderm/6', canPublish: true, indeks: 2 },
+    { tabSelector: '#tabs-nderm-rsu', text: 'RSU', channel: '/global/metaRol/6/rsu', publish: '/global/metaRol/6/rsu', canPublish: true, indeks: 3 },
+    { tabSelector: '#tabs-nderm-ra', text: 'RA', channel: '/global/metaRol/6/ra', publish: '/global/metaRol/6/ra', canPublish: true, indeks: 4 }
 ];
 
 var selectedTabSelector, pageKryesoreState = {};
-var pageState = {  menuJson: {}, guid: '', webhook: {}};
+var pageState = { menuJson: {}, guid: '', webhook: {} };
 function hideNotice() {
     $(".footer1").parent().css("margin-top", "0px");
+    document.querySelector("#certificate-notice").style.display = "none";
     document.querySelector(".einvoice-notice").style.display = "none";
     document.querySelector(".x-image").style.display = "none";
 }
@@ -219,9 +220,9 @@ $(document).ready(function (e) {
     //        data: JSON.stringify({ email: hfState.Get("emailPerdoruesi") })
     //    }).done(SucceededCallbackVerifyEmail);
     //}
-    
-    //$(".footer1").parent().css("margin-top", "-60px");
-    //$(".footer1").parent().css("position", "absolute");
+
+    $(".footer1").parent().css("margin-top", "-30px");
+    $(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
     });
     var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
@@ -232,10 +233,11 @@ $(document).ready(function (e) {
         myPopup.modal("show");
         $("#certificate-notice").css("display", "block");
         document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
-        $(".footer1").parent().css("margin-top", "-20px");
+
+        $(".footer1").parent().css("margin-top", "-50px");
         $(".footer1").parent().css("position", "absolute");
     }
-   
+
     $(document).on('keydown', function (e) {//po
         switch (e.which) {
             case 13:
@@ -254,7 +256,7 @@ $(document).ready(function (e) {
     });
 
     $(window).on('load', function () {
-        
+
         Utils.PushToGoogleAnalytics(hfState.Get("googleAnalytics"), hfState.Get("googleAnalyticsTrackingId"));
         pageKryesoreState.periudha = $.parseJSON(hfState.Get("periudha"));
         stringKonfigMenuMajtas = hfState.Get("konfigMenuMajtas");
@@ -273,8 +275,8 @@ $(document).ready(function (e) {
         Utils.AppendLiveHelperChat(hfState.Get("chatAktiv"), hfState.Get("chatLink"), hfState.Get("chatPortHttp"), hfState.Get("chatPortHttps"));
         merrKonfigurimeWebhook(hfState.Get("idNdermarrje"));
 
-    }); 
-    
+    });
+
 });
 
 
@@ -305,7 +307,7 @@ function pageRefresh(s, e) {//
 }
 
 function callWebServiceKtheInfoLart(emerKomponente, id) {
-    var  idNdermarrje= hfState.Get("idNdermarrje");
+    var idNdermarrje = hfState.Get("idNdermarrje");
     var idPerdoruesi = hfState.Get("idPerdoruesi");
     var idGjuha = hfState.Get("idGjuha");
     $.ajax({
@@ -355,13 +357,12 @@ function SucceededCallbackInfoLart(result) {
     if (result && result.d)
         result = result.d;
     var boolShfaqPerdoruesMenu = hfState.Get("ShfaqPerdoruesMenu");
-    if (boolShfaqPerdoruesMenu)
-    {
+    if (boolShfaqPerdoruesMenu) {
         var emerMbiemerPerdorues = hfState.Get("EmerMbiemerPerdorues");
         lblFaqja.SetText(emerMbiemerPerdorues + ' : ' + result.emerKomponente);
     }
     else
-    lblFaqja.SetText(result.emerKomponente);
+        lblFaqja.SetText(result.emerKomponente);
     //lblUserEmri.SetText(result.EmerPerdoruesi + '   |   ');
 }
 
@@ -385,7 +386,7 @@ function merrImazhPerdoruesi() {
         pritPergjigje: true,
         url: Utils.getServerApiUrl("Celje", "ktheImazhPerdoruesi"),
         data: JSON.stringify({ idPerdoruesi: idPerdoruesi })
-        }).done(vendosImazhPerdoruesi);
+    }).done(vendosImazhPerdoruesi);
 }
 
 function vendosImazhPerdoruesi(result) {
@@ -470,10 +471,10 @@ function merrKonfigurimeWebhook(idnderrmarje) {
 
 function SucceededCallbackWebhook(result) {
 
-    
+
     pageState.webhook = result;
 
-    if (GetWebhook == undefined && sessionStorage.getItem("GetWebhook")==null) {
+    if (GetWebhook == undefined && sessionStorage.getItem("GetWebhook") == null) {
         for (var i = 0; i < pageState.webhook.length; i++) {
 
 
@@ -488,20 +489,20 @@ function SucceededCallbackWebhook(result) {
                     contentType: "application/json; charset=utf-8",
                     dataType: "json"
                 }).done(function (response) {
-                        if (response != null) {
-                            console.log("success");
-                            console.log(response);
-                           
-                        } else {
-                            console.log("Something went wrong");
-                        }
+                    if (response != null) {
+                        console.log("success");
+                        console.log(response);
+
+                    } else {
+                        console.log("Something went wrong");
+                    }
 
                 }).fail(function (response) {
                     console.log(response.responseText);
                 });
             }
         }
-    } 
+    }
     GetWebhook = true;
     sessionStorage.setItem("GetWebhook", GetWebhook);
 }

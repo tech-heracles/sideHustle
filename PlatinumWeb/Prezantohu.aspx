@@ -1598,7 +1598,7 @@ section#submain header {
             var username = txtUserName.GetText();
             if (username == null || username == "") {
                 var toastHTML = '<span>Ju lutem vendosni perdoruesin !</span>';
-                M.toast({ html: toastHTML,classes: 'rounded red darken-2' });
+                M.toast({ html: toastHTML, classes: 'rounded red darken-2' });
                 txtUserName.SetIsValid(false);
                 return;
             }
@@ -1675,7 +1675,7 @@ section#submain header {
                 console.log('not exists url');
                 if (IsNotNullOrEmpty(getUrlVar('arsye')) || IsNotNullOrEmpty(getUrlVar('ReturnUrl'))) {
                     document.getElementById("Login1_OrganisationSwitch").style.display = "block";
-                //    document.getElementById("comboBox").style.display = "none";
+                    //    document.getElementById("comboBox").style.display = "none";
                 }
                 if (lastSelectedItem != null) {
                     try {
@@ -1714,12 +1714,11 @@ section#submain header {
             localStorage.setItem("server_key", JSON.stringify({ value: item.value, text: item.text }));
         }
 
-		function TermsOk()
-        {
-            
+        function TermsOk() {
+
             var terms = window.parent.document.getElementById("hfTerms").value;
-           localStorage.setItem("TermsAccept",terms);
-           
+            localStorage.setItem("TermsAccept", terms);
+
         }
 
         function tbl() {
@@ -1768,17 +1767,17 @@ section#submain header {
         function hideLogin() {
             document.querySelector("#maintest").style.opacity = "0"
             document.querySelector("#maintest").style.zIndex = "-1"
-            
+
         }
-            //function imagesInit(s, e) {
+        //function imagesInit(s, e) {
         //    if (document.getElementById('authForm').className == 'klient')
         //        s.SetImageUrl("/images/FaqjaPare/keshLogo.png");
         //    s.SetVisible(true);
         //}
         $(document).ready(function () {
             const url = new URL(window.location.href);
-            if (url.search.includes("confirmEmail=true")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua</p>", classes: 'blue darken-2' });
-            if (url.search.includes("linkedEmail=true")) M.toast({ html: "<p style='color:white;'>Email-i eshte i lidhur me nje organizate!</p>", classes: 'blue darken-2' });
+            if (url.search.includes("confirmEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
+            if (url.search.includes("linkedEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
         });
     </script>
     <meta charset="UTF-8">
@@ -2116,11 +2115,11 @@ section#submain header {
     </form>
     <script>
         window.onload = function (e) {
-			var termsAndServices = document.getElementById('TOS');
-			if(termsAndServices.src != "https://terms-of-service.imb.al/"){
-				termsAndServices.src = "https://terms-of-service.imb.al/"; 
-			}			
-		};
+            var termsAndServices = document.getElementById('TOS');
+            if (termsAndServices.src != "https://terms-of-service.imb.al/") {
+                termsAndServices.src = "https://terms-of-service.imb.al/";
+            }
+        };
 
         // var inputPass = txtPassword.GetInputElement();
         //inputPass.addEventListener("keyup", function (event) {
@@ -2202,7 +2201,7 @@ section#submain header {
                 }).catch(function (err) {
                     console.log(err);
                 })
-            
+
         }
         function demo(event) {
             var x = document.getElementById('Login1_UserName_I');

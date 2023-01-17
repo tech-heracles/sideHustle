@@ -223,21 +223,18 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
-        <div class="certificate-notice" id="certificate-notice" style="height: 20px; display:none; text-align: center;">
+        <div class="certificate-notice" id="certificate-notice" style="height: 20px; margin-left: -2px; display:none; text-align: center;">
+            
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 60px; display: none;">
-            <div style="height: 62px; width:20%; position:absolute;">
+        <div class="einvoice-notice" id="04" style="height: 30px;">
+            <div style="height: 30px; width:20%; position:absolute;">
                 <i class="material-icons x-image" onclick="hideNotice()">close</i>
             </div>
                               
             <div style="text-align: center;">
-            <p><img src="images/FaqjaPare/bell.png"/>Bëj backup & restore të programit tënd Alpha. <a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë..</a><br />
-               <img src="images/FaqjaPare/bell.png"/>Bëj rivlerësimin në rivlersimi.alpha.al me quota falas dhe paguaj sipas perdorimit.<a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë..</a>
-            <p><img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni back-up dhe restore te programit tuaj Alpha ne cdo moment qe deshironi. <a href="https://www.notion.so/alphawiki/Backup-dhe-Restore-i-Alpha-04404a76f769475b884860625127972f" target="_blank">Lexo më shumë.</a><br />
-               <img src="images/FaqjaPare/bell.png"/>Funksion i ri: tani mund te beni "rivleresimin" me kuota falas dhe pagese sipas perdorimit.<a href="https://www.notion.so/alphawiki/Rivler-simi-i-magazin-s-ccd8291318d044389b0764668bc47003" target="_blank">Lexo më shumë.</a>
-            </p>
-                </div>
+            <p>Njoftim funksion i ri opsional: ne alpha.al mund te aktivizosh logimin me Gmail. Ndiq keto hapa: <a href="https://alphawiki.notion.site/Aktivizo-Sign-in-me-Gmail-n-alpha-al-28e7a1b0dc714bdc8fa076bc90530f74" target="_blank"> Ndiq hapat.</a><br />
+            </p>                </div>
         </div>
         <div id="backDiv" runat="server">
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" Height="100%" runat="server" Orientation="Vertical" SeparatorVisible="false"
@@ -1870,14 +1867,14 @@
 
         //Popup Window
         window.showPopup = function (template, title) {
-            new Popup().init("#popup", template, { width: "40%", height: "30%", title: title});
+            new Popup().init("#popup", template, { width: "40%", height: "30%", title: title });
         };
-  
+
         // The hub
         pageState.signalR = { hubStart: null, imbChatConn: null };
         pageState.signalR.isActiv = (hfState.Get("activateSignalR") == 'true') ? true : false;
 
-        window.startHub = function () {            
+        window.startHub = function () {
             if (pageState.signalR.isActiv && pageState.signalR.hubStart == null)
                 pageState.signalR.hubStart = $.connection.hub.start();
             return pageState.signalR.hubStart;
