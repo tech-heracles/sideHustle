@@ -15,6 +15,8 @@ using Org.BouncyCastle.Security;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using System.Data;
+using DevExpress.Web;
 
 namespace PlatinumWeb
 {
@@ -27,6 +29,12 @@ namespace PlatinumWeb
         byte[] encryptedtext;
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable rolesList = clsFunksione.getAllRolesExxeptSuperUser();
+            cmbRolet.DataSource = rolesList;
+            cmbRolet.TextField = "perdoruesi";
+            cmbRolet.ValueField = "IDROLI";
+            cmbRolet.DataBind();
+
 
         }
         protected void button_click(object sender, EventArgs e)
@@ -61,11 +69,12 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                     organization = organizata,
                     email = email_inline.Text,
                     password = password,
+                    roli = cmbRolet.Value
                 };
                 plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
                 encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
                 string base64 = Convert.ToBase64String(encryptedtext);
-                clsFunksione.gjeneroLinkPerKonfirmimEmaili(email_inline.Text, base64);
+                clsFunksione.gjeneroLinkPerKonfirmimEmaili("henrik.balla@imb.al", base64);
                 email_inline.Text = "";
             }
             catch(Exception ex)

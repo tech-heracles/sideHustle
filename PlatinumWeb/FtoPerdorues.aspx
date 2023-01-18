@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FtoPerdorues.aspx.cs" Inherits="PlatinumWeb.FtoPerdorues" %>
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
@@ -28,6 +29,9 @@
             width: 100% !important;
             margin-top: 5%;
         }
+        #modal1{
+            height:55%;
+        }
         .card-p{
             width: 70%;
         }
@@ -38,6 +42,20 @@
             border-radius:4px;
             cursor:pointer;
             padding:10px;
+        }
+        #cmbRolet{
+            width:100%;
+            border:none;
+            border-bottom: 1px solid black !important;
+        }
+        #cmbRolet:focus-visible{
+            border:none !important;
+        }
+        #cmbRolet_B-1{
+            display:none;
+        }
+        .modal-footer{
+            margin-top:6%;
         }
     </style>
     <script> 
@@ -64,6 +82,12 @@
                 <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate" OnClientClick="checkEmail"/>
                 <label for="email_inline">Email</label>
               </div>
+            <div class="input-field">
+                <p>Roli</p>
+                <dx:ASPxComboBox ID="cmbRolet" runat="server" ClientInstanceName="cmbRolet">
+                </dx:ASPxComboBox>
+                
+            </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Mbyll</a>

@@ -1075,7 +1075,7 @@ namespace DbCore
                 return dbAdmin.KtheMesazhPerPerdoruesin();
             }
         }
-        public static async  Task<bool> CheckIfEmailIsVerified(string email)
+        public static async Task<bool> CheckIfEmailIsVerified(string email)
         {
             FirebaseConfiguration fb = new FirebaseConfiguration();
             return await fb.checkIfUserIsVerified(email);
@@ -1084,7 +1084,7 @@ namespace DbCore
         {
             string apiKey = PasswordHelper.GjenroApiKey(email);
             string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-            HttpWebRequest webReq =  clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+            HttpWebRequest webReq = clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
             webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
             using (Stream stream = webReq.GetRequestStream())
             {
@@ -1093,7 +1093,7 @@ namespace DbCore
                     stmw.Write(JsonConvert.SerializeObject(new {
                         email = email,
                         subject = "Email Verification",
-                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/verifyEmail?email=" +  email + "&timestamp=" + timeStamp + "&apikey=" + apiKey + "<br><br>Faleminderit!"
+                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/verifyEmail?email=" + email + "&timestamp=" + timeStamp + "&apikey=" + apiKey + "<br><br>Faleminderit!"
                     }));
                 }
             }
@@ -1113,7 +1113,7 @@ namespace DbCore
         public static bool gjeneroLinkPerKonfirmimEmaili(string email, string apikey)
         {
             apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
-            HttpWebRequest webReq =  clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+            HttpWebRequest webReq = clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
             string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlEmailAsign"];
             webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
             using (Stream stream = webReq.GetRequestStream())
@@ -1124,7 +1124,7 @@ namespace DbCore
                     {
                         email = email,
                         subject = "Email Verification",
-                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + linkDatasetEndpoint+"rest/setAlphaOrganization?apiKey=" + apikey
+                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + linkDatasetEndpoint + "rest/setAlphaOrganization?apiKey=" + apikey
                     }));
                 }
             }
@@ -2314,7 +2314,7 @@ namespace DbCore
             }
             return mesazh;
         }
-        public static clsMesazh validoPerdoruesinNeLoginWithFirebase(HttpContext httpContext, string username,string email, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
+        public static clsMesazh validoPerdoruesinNeLoginWithFirebase(HttpContext httpContext, string username, string email, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
         {
             //string failureText;
             string arsyeLoginFail = "";
@@ -2324,7 +2324,7 @@ namespace DbCore
             int maxLoginAttempts = mySessionObjects.merrMaxLoginAttempts(httpContext.Session);
             var loginAttempts = (Dictionary<string, Dictionary<int, int>>)httpContext.Application["loginAttempts"];
             var useraAktiv = (Dictionary<string, string>)httpContext.Application["userAktiv"];
-            var user = new clsPerdorues(username,email,true);
+            var user = new clsPerdorues(username, email, true);
             if (user.IdPerdorues != 0)
             {
                 clsMesazh msgSkadimLicence = clsLicenca.KontrolloSkadiminLicences(user.IdPerdorues, rm, ci);
@@ -2949,7 +2949,7 @@ namespace DbCore
                     try
                     {
                         HttpContext.Current.Response.Redirect(login, true);
-                        
+
                     }
                     catch (ArgumentNullException ex)
                     {
@@ -3025,7 +3025,7 @@ namespace DbCore
         {
             if (!eValiduar)
             {
-                
+
                 response.Redirect("AktivizoAlphaWeb.aspx");
                 return new clsMesazh(true);
             }
@@ -13761,7 +13761,7 @@ namespace DbCore
             }
 
         }
-        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja,string tipVeprimi, string ambjenti,string organizata)
+        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata)
         {
             object obj = new
             {
@@ -13784,7 +13784,7 @@ namespace DbCore
                         stmw.Write(JsonConvert.SerializeObject(obj));
                     }
                 }
-                return webRequest.BeginGetResponse(null,null);
+                return webRequest.BeginGetResponse(null, null);
                 //using (WebResponse webResponse = webRequest.GetResponse())
                 //{
                 //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
@@ -13833,7 +13833,7 @@ namespace DbCore
             }
 
         }
-        public static byte[] encrypt(byte[] data,RSAParameters RSAKey, bool Do0AEPadding)
+        public static byte[] encrypt(byte[] data, RSAParameters RSAKey, bool Do0AEPadding)
         {
             try
             {
@@ -13845,7 +13845,7 @@ namespace DbCore
                 }
                 return encryptedData;
             }
-            catch(CryptographicException ex)
+            catch (CryptographicException ex)
             {
                 return null;
             }
@@ -13867,6 +13867,9 @@ namespace DbCore
                 Console.WriteLine(e.ToString());
                 return null;
             }
+        }
+        static public DataTable getAllRolesExxeptSuperUser(){
+            return clsRoli.ktheRolePervecSuperUser();
         }
         //MOS SHTONI funksione qe prekin databazen ketu
     }
