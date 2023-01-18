@@ -12,6 +12,7 @@ using CacheLayer;
 using DbCore.DbAdmin;
 using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Types;
+using DbCore.IMBUtils;
 
 namespace PlatinumWeb
 {
@@ -23,20 +24,34 @@ namespace PlatinumWeb
             int idPerdoruesi = IdPerdoruesi;
             if (!IsPostBack)
             {
-                var licenca = new clsLicenca();
-                licenca.mbushLicencen(IdPerdoruesi);
-                hfState.Set("idGjuha", IdGjuha);
-                hfState.Set("chatAktiv", licenca.ChatAktiv);
-                hfState.Set("chatLink", licenca.ChatLink);
-                hfState.Set("chatPortHttp", licenca.ChatPortHttp);
-                hfState.Set("chatPortHttps", licenca.ChatPortHttps);
-                konfiguroVleraFillestare(idPerdoruesi);
-                if (grid_ListLoginNdermarrje.VisibleRowCount == 1) //rasti kur kemi nje ndermarrje
-                    merrNdermarrjenPerPune(0, idPerdoruesi);
-                AplikoFilterVitiSipasKonfigurimit();
+                if(idPerdoruesi != 0)
+                {
+                    var licenca = new clsLicenca();
+                    licenca.mbushLicencen(IdPerdoruesi);
+                    hfState.Set("idGjuha", IdGjuha);
+                    hfState.Set("chatAktiv", licenca.ChatAktiv);
+                    hfState.Set("chatLink", licenca.ChatLink);
+                    hfState.Set("chatPortHttp", licenca.ChatPortHttp);
+                    hfState.Set("chatPortHttps", licenca.ChatPortHttps);
+                    konfiguroVleraFillestare(idPerdoruesi);
+                    if (grid_ListLoginNdermarrje.VisibleRowCount == 1) //rasti kur kemi nje ndermarrje
+                        merrNdermarrjenPerPune(0, idPerdoruesi);
+                    AplikoFilterVitiSipasKonfigurimit();
+                }
+                else
+                {
+                    Response.Redirect(Paths.defaultLoginPath + "?logout=true");
+                }
             }
             else
                 konfiguroVleraFillestare(idPerdoruesi);
+            if (Request.Url.ToString().Contains("confirmEmail"))
+            {
+                GlobalCacheManager.DestroySessionCache(Session.SessionID);
+                Response.Redirect(Paths.defaultLoginPath + "?logout=true&confirmEmail=true");
+
+
+            }
 
         }
 

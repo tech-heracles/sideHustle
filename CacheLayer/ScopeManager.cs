@@ -14,7 +14,8 @@ namespace CacheLayer
         public static void RedirectToLoginNdermarrje(this HttpContext context)
         {
             if (context == null) throw new ArgumentNullException("context eshte null");
-            context.Response.Redirect(LoginNdermarrjePath);
+            if(context.Request.Url.ToString().Contains("confirmEmail")) context.Response.Redirect(LoginNdermarrjePath+ "?confirmEmail=true");
+            else context.Response.Redirect(LoginNdermarrjePath);
         }
         public static string GjeneroScopeId()
         {

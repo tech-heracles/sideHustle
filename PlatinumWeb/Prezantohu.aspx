@@ -1571,6 +1571,9 @@ section#submain header {
     background-color: white !important;
     color: black !important;
 }
+.toast-container-login{
+    cursor:pointer;
+}
 
     </style>
     
@@ -1779,11 +1782,19 @@ section#submain header {
             if (url.search.includes("confirmEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
             if (url.search.includes("linkedEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
         });
+        function shfaqHapaPerLogim() {
+            $("#panelDiv").css("display", "none");
+            window.open('https://alphawiki.notion.site/Aktivizo-Sign-in-me-Gmail-n-Alpha-28e7a1b0dc714bdc8fa076bc90530f74', '_blank');
+        }
     </script>
     <meta charset="UTF-8">
 
 </head>
 <body onload="load()">
+    <asp:Panel runat="server" ID="panelDiv" Visible="false"><div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
+    /* background-color: red; */
+"><div class="toast" style="cursor:pointer; top: 0px;opacity: 1;background-color: red;">Email-i juaj nuk eshte i lidhur me ndonje ndermarrje. Ndiqni keto hapa per te mesuar si te aktivizoni login me gmail
+</div></div></asp:Panel>
     <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px;" >
         <a onclick="showLogin()" id="pulse-btn" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
     

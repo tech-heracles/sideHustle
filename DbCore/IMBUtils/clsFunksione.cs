@@ -1110,7 +1110,7 @@ namespace DbCore
             }
             return false;
         }
-        public static bool gjeneroLinkPerKonfirmimEmaili(string email, string apikey)
+        public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili (string email, string apikey)
         {
             apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
             HttpWebRequest webReq = clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
@@ -1128,18 +1128,7 @@ namespace DbCore
                     }));
                 }
             }
-
-            using (WebResponse webResponse = webReq.GetResponse())
-            {
-                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                {
-
-                    var ServiceResult = rd.ReadToEnd();
-                    if (ServiceResult == "Email Sent!") return true;
-                    else return false;
-                }
-            }
-            return false;
+            return webReq.BeginGetResponse(null, null);
         }
 
         public static void dergoKerkesePerAprovimPerdoruesi(string perPerdoruesin, string ngaPerdoruesi, int idNdermarje, int idPerdoruesi, int idNdermarjeVit, string status)

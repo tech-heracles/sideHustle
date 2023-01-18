@@ -641,9 +641,15 @@ namespace PlatinumWeb
             try
             {
                 //uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
+                
                 var dictionary = await fb.getUserDetailsWithUID(uid);
                 string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString(): "");
                 string organization = (dictionary.ContainsKey("alphaOrganization") == true ?  dictionary["alphaOrganization"].ToString() : "");
+                if (organization == "")
+                {
+                    panelDiv.Visible = true;
+                    return;
+                }
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
                 //organization = "praktike1-test";//change to organization
