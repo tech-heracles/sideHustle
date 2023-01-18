@@ -74,7 +74,7 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                 plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
                 encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
                 string base64 = Convert.ToBase64String(encryptedtext);
-                clsFunksione.gjeneroLinkPerKonfirmimEmaili("henrik.balla@imb.al", base64);
+                clsFunksione.gjeneroLinkPerKonfirmimEmaili(email_inline.Text, base64);
                 email_inline.Text = "";
             }
             catch(Exception ex)
