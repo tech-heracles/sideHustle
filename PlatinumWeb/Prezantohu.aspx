@@ -2233,9 +2233,11 @@ section#submain header {
             loadingEle.style.display = 'none';
             iframeEle.style.opacity = 1;
             var html = document.getElementById("Login1_FailureText").innerHTML;
+            var html2 = document.getElementById("LabelInfo").innerHTML;
             var toastHTML = '<span>' + html + '</span>';
             if (html !== "")
                 M.toast({ html: toastHTML, classes: 'rounded red darken-2' });
+            else if (html2 !== "") M.toast({ html: '<span>' + html2 + '</span>', classes: 'rounded red darken-2' });
         });
 
         $(".blur").on("click", (e) => {

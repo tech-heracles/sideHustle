@@ -8185,7 +8185,8 @@ namespace PlatinumWeb
 
         private void AfishoRaport()
         {
-            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+            string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti", RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             afisho(base.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, mySessionObjects.merrPeriudheKontabel(base.Session), IdPerdoruesi, clsRaporti.KaSubRaporte(base.IdRaporti), hfState.Get("guidString").ToString());
         }
 

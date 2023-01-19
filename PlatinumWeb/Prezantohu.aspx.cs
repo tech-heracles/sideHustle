@@ -132,7 +132,7 @@ namespace PlatinumWeb
                     await loginWithFirebaseToken();
                 else
                 {
-                    if (string.IsNullOrEmpty(arsye) == true || Request.QueryString["google"] == "true" )
+                    if (string.IsNullOrEmpty(arsye))
                         return;
                     else
                     {
@@ -263,7 +263,7 @@ namespace PlatinumWeb
             if (mesazh)
                 mesazh = clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"]);
             if (mesazh.Status)
-                clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
             return mesazh.Status;
         }
         protected async void logInWithGmail(object sender, EventArgs e)
@@ -488,7 +488,7 @@ namespace PlatinumWeb
 
                                 mySessionObjects.ruajTerms(Session, true);
                                 var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                                if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                                if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                                 if (mesazh.Status) return;
                                 Login1.FailureText = mesazh.PershkrimMesazhi;
 
@@ -509,7 +509,7 @@ namespace PlatinumWeb
                 {
                     mySessionObjects.ruajTerms(Session, true);
                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                    if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                    if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                     if (mesazh.Status) return;
                     Login1.FailureText = mesazh.PershkrimMesazhi;
                 }
@@ -598,7 +598,7 @@ namespace PlatinumWeb
                                     if (mesazh.Status)
                                     {
                                         mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
-                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 
                                     }
                                     if (mesazh.Status) return;
@@ -622,7 +622,7 @@ namespace PlatinumWeb
                         mySessionObjects.ruajTerms(Session, true);
                         var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                         if (mesazh.Status)
-                            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                         if (mesazh.Status) return;
                         Login1.FailureText = mesazh.PershkrimMesazhi;
                     }
@@ -687,7 +687,6 @@ namespace PlatinumWeb
 
                 // if first time login is not done
 
-
                 if (loginAutentificationWithFirebase(username,email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
                 {
                     var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
@@ -726,7 +725,7 @@ namespace PlatinumWeb
                                     if (mesazh.Status)
                                     {
                                         mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
-                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 
                                     }
                                     if (mesazh.Status) return;
@@ -753,6 +752,7 @@ namespace PlatinumWeb
                         Login1.FailureText = mesazh.PershkrimMesazhi;
                     }
                 }
+                LabelInfo.Text = Login1.FailureText;
 
             }
             catch (Exception ex)
@@ -862,7 +862,7 @@ namespace PlatinumWeb
                     mySessionObjects.ruajTerms(Session, true);
                     var mesazh = clsFunksione.avancoPerpara(Response, Session, IdPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                     if (mesazh.Status)
-                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google" + Login1.UserName, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                     if (mesazh.Status) return;
 
                 }

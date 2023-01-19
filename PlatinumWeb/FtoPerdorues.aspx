@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FtoPerdorues.aspx.cs" Inherits="PlatinumWeb.FtoPerdorues" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FtoPerdorues.aspx.cs" Inherits="PlatinumWeb.FtoPerdorues" Async="true" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <!DOCTYPE html>
@@ -57,6 +57,101 @@
         .modal-footer{
             margin-top:6%;
         }
+        .lds-grid {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-grid div {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgb(255, 255, 255);
+        animation: lds-grid 3s linear infinite;
+        }
+        .lds-grid div:nth-child(1) {
+        top: 8px;
+        left: 8px;
+        animation-delay: 0s;
+        }
+        .lds-grid div:nth-child(2) {
+        top: 8px;
+        left: 32px;
+        animation-delay: -0.4s;
+        }
+        .lds-grid div:nth-child(3) {
+        top: 8px;
+        left: 56px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(4) {
+        top: 32px;
+        left: 8px;
+        animation-delay: -0.4s;
+        }
+        .lds-grid div:nth-child(5) {
+        top: 32px;
+        left: 32px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(6) {
+        top: 32px;
+        left: 56px;
+        animation-delay: -1.2s;
+        }
+        .lds-grid div:nth-child(7) {
+        top: 56px;
+        left: 8px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(8) {
+        top: 56px;
+        left: 32px;
+        animation-delay: -1.2s;
+        }
+        .lds-grid div:nth-child(9) {
+        top: 56px;
+        left: 56px;
+        animation-delay: -1.6s;
+        }
+        @keyframes lds-grid {
+        0%,100% {
+            background-color: #4584ec;
+        }
+        25% {background-color: #38a555;}
+        50% {
+            background-color: #e44d40;
+        }
+        75% {background-color: #f3ba15;}
+    }
+        .loader {
+        display: none;
+        position: fixed;
+        z-index: 99999999999;
+        height: 2em;
+        width: 2em;
+        overflow: show;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .loader-overlay {
+        
+        display: none;
+        position: fixed;
+        z-index: 99999999999;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255,255,255,0.7);
+    }
     </style>
     <script> 
         $(document).ready(function () {
@@ -65,21 +160,43 @@
         function checkEmail() {
             if ($("#email_inline").val() == "") alert("Email-i nuk duhet te jete bosh!")
         }
-        function MyFunction() {
+        function showLoadingGif() {
+            document.querySelector(".loader").style.display = "block";
+            document.querySelector(".loader-overlay").style.display = "block";
+        }
+        function hideLoadingGif() {
             $(".modal").css("display", "none");
-            alert("Ju lutem kontrolloni email-in!");
+            var toastHTML = '<span>Ju lutem kontrolloni email-in!</span>';
+            M.toast({ html: toastHTML, classes: 'rounded blue darken-3' });
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".loader-overlay").style.display = "none";
         }
     </script>
     <title></title>
 </head>
 <body>
+        <div class="loader-overlay"></div>
+        <div class="loader">
+            <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
     <form id="form1" runat="server">
         <div id="modal1" class="modal">
             <div class="modal-content">
               <h4>Shto perdorues</h4>
                 <br />
               <div class="input-field">
-                <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate" OnClientClick="checkEmail"/>
+                <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate"/>
                 <label for="email_inline">Email</label>
               </div>
             <div class="input-field">
@@ -91,7 +208,7 @@
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Mbyll</a>
-                <asp:Button runat="server" type="button" id="button" class="confirm-button" Text="Konfirmo" OnClick="button_click"/>
+                <asp:Button runat="server" type="button" id="button" class="confirm-button" Text="Konfirmo" OnClick="button_click" OnClientClick="showLoadingGif()"/>
             </div>
         </div>
         <div class="row">

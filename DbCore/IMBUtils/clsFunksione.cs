@@ -1112,23 +1112,32 @@ namespace DbCore
         }
         public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili (string email, string apikey)
         {
-            apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
-            HttpWebRequest webReq = clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
-            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlEmailAsign"];
-            webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
-            using (Stream stream = webReq.GetRequestStream())
+            try
             {
-                using (StreamWriter stmw = new StreamWriter(stream))
+                apikey = apikey.Contains('+') == true ? apikey.Replace("+", "%2B") : apikey;
+                HttpWebRequest webReq = clsFunksione.CreateJSONWebRequest("https://europe-west1-alphaweb.cloudfunctions.net/sendVerificationEmail");
+                string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlEmailAsign"];
+                webReq.Headers.Add("authkey", "ZW1haWxzZW5kZXI6YTVhNGMwZTEwYjEyNzkxMzFiMWZlYjQ3ZWM3YWY1MGM5YzgyNWUzOTIyZTQ3NzU2MjQ4YWFjMTk1NDE5ZTk3Yg==");
+                using (Stream stream = webReq.GetRequestStream())
                 {
-                    stmw.Write(JsonConvert.SerializeObject(new
+                    using (StreamWriter stmw = new StreamWriter(stream))
                     {
-                        email = email,
-                        subject = "Email Verification",
-                        message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + linkDatasetEndpoint + "rest/setAlphaOrganization?apiKey=" + apikey
-                    }));
+                        stmw.Write(JsonConvert.SerializeObject(new
+                        {
+                            email = email,
+                            subject = "Email Verification",
+                            message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + linkDatasetEndpoint + "rest/setAlphaOrganization?apiKey=" + apikey
+                        }));
+                    }
                 }
+                return webReq.BeginGetResponse(null, null);
             }
-            return webReq.BeginGetResponse(null, null);
+            catch(Exception ex)
+            {
+                return null;
+
+            }
+
         }
 
         public static void dergoKerkesePerAprovimPerdoruesi(string perPerdoruesin, string ngaPerdoruesi, int idNdermarje, int idPerdoruesi, int idNdermarjeVit, string status)
@@ -2921,7 +2930,8 @@ namespace DbCore
             Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
-            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+            
+            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),"");
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -13750,14 +13760,15 @@ namespace DbCore
             }
 
         }
-        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata)
+        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata,string user)
         {
             object obj = new
             {
                 Organizata = organizata,
                 Ndermarrja = ndermarrja,
                 TipVeprimi = tipVeprimi,
-                Ambjenti = ambjenti
+                Ambjenti = ambjenti,
+                Perdoruesi = user
             };
             string result = string.Empty;
             string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlLogAlphaweb"];

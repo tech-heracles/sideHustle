@@ -37,12 +37,17 @@ namespace PlatinumWeb
 
 
         }
-        protected void button_click(object sender, EventArgs e)
+        protected async void button_click(object sender, EventArgs e)
+        {
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif()", true);
+            sendEmail();
+
+        }
+        public void sendEmail()
         {
             try
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction()", true);
-
                 string publicKey = @"-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoDen7UdHQuEqz5dlUhpZ
 sB7bBjSlo/xEbJqT1994jNAi39/d3Twd8BNg87o16Yrrhce5TwY+IEl8kHvdUNXY
@@ -56,7 +61,7 @@ GXZMEEsJdZbLkmn3lRcRGeWfNF/0hokVd5Bf7SUradNZI2F2YJeM5u/PTKr2wbaJ
 ZMIlG6AHVXCg3EB1Osh5W+OLE2qZBSx70hN41m85te9/X0O0377S6WiGRSpSfBjO
 RCTzQHbk4zG6TcrYp/uR77BfUC91mqAH+OA4YiZZv1YKyP8+O+E0lIcMehn4UWXW
 JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
------END PUBLIC KEY-----
+-----END PUBLIC KEY----- 
 ";
                 if (email_inline.Text == "") return;
                 RSA = ImportPublicKey(publicKey);
@@ -77,12 +82,10 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                 clsFunksione.gjeneroLinkPerKonfirmimEmaili(email_inline.Text, base64);
                 email_inline.Text = "";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return;
             }
-            
-            
         }
         public static string generateRandomPassword()
         {

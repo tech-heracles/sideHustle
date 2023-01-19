@@ -4557,7 +4557,8 @@ namespace PlatinumWeb
             else
                 periudha = new clsPeriudhaKontabel(data_DateEdit.Date, idNdermarrje);
             var fazat = mySessionObjects.merrObjectNgaSesioni(Session, "fazat");
-            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim shitje/blerje nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, "Regjistrim shitje ose blerje", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+            string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim shitje/blerje", "Regjistrim shitje ose blerje", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             switch (hfRuajDraft.Value)
             {
                 case "Ruaj":

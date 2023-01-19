@@ -1462,7 +1462,8 @@ namespace PlatinumWeb
                 return;
             }
             var idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim Hyrje/Dalje nga useri: " + new clsPerdorues(IdPerdoruesi).PerdoruesUsername, "Regjistrim dalje ose hyrje ne magazine", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+            string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
+            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim Hyrje/Dalje", "Regjistrim dalje ose hyrje ne magazine", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             colKokaMagazina regjistrime = new colKokaMagazina();
             int meKontabilizim;
             if (Page.IsValid == false)
