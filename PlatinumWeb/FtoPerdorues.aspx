@@ -157,19 +157,24 @@
         $(document).ready(function () {
             $('.modal').modal();
         });
-        function checkEmail() {
-            if ($("#email_inline").val() == "") alert("Email-i nuk duhet te jete bosh!")
+        function checkRoles() {
+            M.toast({ html: "<span>Plotesoni rolin per te vazhduar!</span>", classes: 'rounded red darken-3' });
+            hideLoadingGif(true, true);
         }
         function showLoadingGif() {
+            $("cmbRolet").val();
             document.querySelector(".loader").style.display = "block";
             document.querySelector(".loader-overlay").style.display = "block";
         }
-        function hideLoadingGif() {
-            $(".modal").css("display", "none");
-            var toastHTML = '<span>Ju lutem kontrolloni email-in!</span>';
-            M.toast({ html: toastHTML, classes: 'rounded blue darken-3' });
+        function hideLoadingGif(status, emptyRole) {
             document.querySelector(".loader").style.display = "none";
             document.querySelector(".loader-overlay").style.display = "none";
+            if (emptyRole) return;
+            status ? M.toast({ html: "<span>Ju lutem kontrolloni email-in!</span>", classes: 'rounded blue darken-3' }) : M.toast({ html: "<span>Email-i nuk duhet te jete bosh!</span>", classes: 'rounded red darken-3' });
+            status ? $(".modal").css("display", "none") : console.log("Plotesoni email-in!");
+        }
+        function reloadWindow() {
+            window.location.reload();
         }
     </script>
     <title></title>
@@ -226,5 +231,5 @@
     </form>
 </body>
     <script>
-    </script>
+</script>
 </html>

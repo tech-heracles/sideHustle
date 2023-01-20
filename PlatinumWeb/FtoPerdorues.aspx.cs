@@ -31,16 +31,25 @@ namespace PlatinumWeb
         {
             DataTable rolesList = clsFunksione.getAllRolesExxeptSuperUser();
             cmbRolet.DataSource = rolesList;
-            cmbRolet.TextField = "perdoruesi";
-            cmbRolet.ValueField = "IDROLI";
+            cmbRolet.TextField = "PERDORUESI";
+            cmbRolet.ValueField = "IDPERDORUES";
             cmbRolet.DataBind();
-
 
         }
         protected async void button_click(object sender, EventArgs e)
         {
+            if (email_inline.Text == "")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(false,false)", true);
+                return;
+            }
+            if (cmbRolet.Value == null)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkRoles()", true);
+                return;
+            }
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif()", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(true,false)", true);
             sendEmail();
 
         }
@@ -63,7 +72,6 @@ RCTzQHbk4zG6TcrYp/uR77BfUC91mqAH+OA4YiZZv1YKyP8+O+E0lIcMehn4UWXW
 JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
 -----END PUBLIC KEY----- 
 ";
-                if (email_inline.Text == "") return;
                 RSA = ImportPublicKey(publicKey);
                 string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
                 string password = generateRandomPassword();
@@ -92,7 +100,7 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
             const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-";
             StringBuilder stringBuilder = new StringBuilder();
             Random random = new Random();
-            for(var i = 0; i <= 10; i++)
+            for (var i = 0; i <= 10; i++)
             {
                 stringBuilder.Append(valid[random.Next(valid.Length)]);
             }

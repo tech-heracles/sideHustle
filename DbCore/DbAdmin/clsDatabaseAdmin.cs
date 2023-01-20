@@ -1720,7 +1720,7 @@ namespace DbCore.DbAdmin
         internal DataTable ktheRolePervecSuperUser()
         {
             this.dbManager.Open();
-            string queryString = "SELECT RP.IDROLI,PERDORUESUSERNAME + \' (\'+PERSHKROLI +\')\' as PERDORUESI FROM T_PERDORUESI P inner join T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDSTATUSDOK =1 and PERDORUESAKTIV = 1 and KODIROLI != \'RSU\' and R.IDSTATUSDOK =1 order by PERDORUESUSERNAME asc";
+            string queryString = "SELECT PERDORUESUSERNAME as PERDORUESI,P.IDPERDORUES FROM T_PERDORUESI P inner join T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDSTATUSDOK =1 and PERDORUESAKTIV = 1 and KODIROLI != \'RSU\' and R.IDSTATUSDOK =1 group by PERDORUESUSERNAME,P.IDPERDORUES order by PERDORUESUSERNAME asc";
             string connectionString = dbManager.ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
