@@ -21,7 +21,7 @@
     <%--<link href="public/login.css" rel="stylesheet" />--%>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
             authDomain: "imb-payment.firebaseapp.com",
@@ -35,7 +35,9 @@
         window.signInWithPopup = signInWithPopup;
         window.signInWithEmail = signInWithEmailAndPassword;
         window.getAuth = getAuth;
-        window.GoogleAuthProvider = GoogleAuthProvider;
+        window.signInWithRedirect = signInWithRedirect;
+        window.GoogleAuthProvider = await new GoogleAuthProvider();
+        window.auth = await getAuth();
     </script>
     <style>
         @font-face {
@@ -1565,7 +1567,6 @@ section#submain header {
     width:100%;
     height:100%;
     background-color:#1251b8 !important;
-    
 }
 .custom-css-a:hover{
     background-color: white !important;
@@ -1637,10 +1638,8 @@ section#submain header {
             elem.placeholder = loginHiddenField.Get("userlbl");
             if (s.GetText() == "") {
                 s.SetFocus();
-                console.info("setting focus on username");
             }
             else {
-                console.info("setting focus on hyr");
                 loginButton.SetFocus();
             }
         }
@@ -1664,7 +1663,6 @@ section#submain header {
             input.placeholder = loginHiddenField.Get("srvlbl");
             var lastSelectedItem = localStorage.getItem("server_key");
             if (IsNotNullOrEmpty(getUrlVar('organizata')) && IsNotNullOrEmpty(getUrlVar('gjuha'))) {
-                console.log('ka organizate dhe gjuhe te url');
                 document.getElementById("Login1_OrganisationSwitch").style.display = "block";
                 //document.getElementById("comboBox").style.display = "none";
                 if (cmbServerat.FindItemByText(getUrlVar('organizata')) === null)
@@ -1675,7 +1673,6 @@ section#submain header {
                 }
             }
             else {
-                console.log('not exists url');
                 if (IsNotNullOrEmpty(getUrlVar('arsye')) || IsNotNullOrEmpty(getUrlVar('ReturnUrl'))) {
                     document.getElementById("Login1_OrganisationSwitch").style.display = "block";
                     //    document.getElementById("comboBox").style.display = "none";
@@ -1685,13 +1682,10 @@ section#submain header {
                         lastSelectedItem = JSON.parse(lastSelectedItem);
                     }
                     catch (e) {
-                        console.log("failed parsimi i vleres se marr nga localstorage");
                         lastSelectedItem = { text: 'Kryesor', value: 0 };
                         localStorage.setItem("server_key", lastSelectedItem);
                     }
                     var item = lastSelectedItem.value != undefined && cmbServerat.FindItemByValue(lastSelectedItem.value);
-                    console.log(item);
-                    console.log(lastSelectedItem.value + " lastitemvalue");
                     if (!lastSelectedItem.value) {
                         if (cmbServerat.FindItemByText('Kryesor'))
                             cmbServerat.SetSelectedItem(cmbServerat.FindItemByText('Kryesor')); //kryesori eshte default nga sp T_LICENCA_merrLicencatMeDbMeFilter
@@ -1777,7 +1771,9 @@ section#submain header {
         //        s.SetImageUrl("/images/FaqjaPare/keshLogo.png");
         //    s.SetVisible(true);
         //}
+
         $(document).ready(function () {
+
             const url = new URL(window.location.href);
             if (url.search.includes("confirmEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
             if (url.search.includes("linkedEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
@@ -1790,6 +1786,7 @@ section#submain header {
     <meta charset="UTF-8">
 
 </head>
+
 <body onload="load()">
     <asp:Panel runat="server" ID="panelDiv" Visible="false"><div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
     /* background-color: red; */
@@ -1931,7 +1928,8 @@ section#submain header {
                                         
 
                                     </div>
-                                    <div class="col s12 m6 offset-m3 center-align" style="margin-top:10%;" onclick="signInWithGooglePopup()">
+                                    
+                                    <div class="col s12 m6 offset-m3 center-align google-div" style="margin-top:10%;">
                                         <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
                                             <div class="left" style="margin-top:0px; height:20px; position:absolute;">
                                                 <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
@@ -1940,7 +1938,8 @@ section#submain header {
                                             Sign in with Google
                                         </a>
                                     </div>
-                                    <%--<h1 class="hyrje google" onclick="signInWithGooglePopup()"><img src="images/gogle.png"/>Log in with Google</h1>--%>
+                                    
+                                    <%--<h1 class="hyrje google"><img src="images/gogle.png"/>Log in with Google</h1>--%>
                                     <section>  
                                         <%--<a class="material-icons waves-effect waves-light btn-small pulse" id="hidelogin" style="
                                     margin-left: 80%;
@@ -2152,7 +2151,6 @@ section#submain header {
 
         }
         function clickSwitchOrganisation() {
-            console.log("ok!!");
             localStorage.removeItem("organisation");
         }
 
@@ -2204,13 +2202,31 @@ section#submain header {
         }
 
         async function signInWithGooglePopup() {
-            signInWithPopup(getAuth(), new GoogleAuthProvider())
+
+            await signInWithPopup(auth, GoogleAuthProvider)
                 .then(function (result) {
                     var logInWithGoogle = document.getElementById("logInWithGmailButton");
                     txtUID.SetText(result.user.uid);
                     logInWithGoogle.click();
+                    return "";
                 }).catch(function (err) {
-                    console.log(err);
+                    // M.toast({ html: "<span>"+err+"</span>", classes: 'rounded red darken-2' });
+                    // if(!second) signInWithGooglePopup(true);
+
+
+                })
+
+        }
+        async function signInWithRedirectGoogle() {
+            signInWithRedirect(getAuth(), new GoogleAuthProvider())
+                .then(function (result) {
+                    return getRedirectResult(auth);
+                }).then(function (result) {
+                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
+                    txtUID.SetText(result.user.uid);
+                    logInWithGoogle.click();
+                }).catch(function (err) {
+                    M.toast({ html: "<span>" + err + "</span>", classes: 'rounded red darken-2' });
                 })
 
         }
@@ -2244,11 +2260,26 @@ section#submain header {
             hideLogin();
 
         })
+        function isSafariBrowser() {
+            var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+            var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+            if (is_safari) {
+                if (is_chrome)  // Chrome seems to have both Chrome and Safari userAgents
+                    return false;
+                else
+                    return true;
+            }
+            return false;
+        }
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i) && isSafariBrowser()) {
 
-        //document.getElementsByTagName("body")[0].onscroll = function () {
-        //    console.log(window.scrollY);
-        //}
-        //document.getElementById('passlbl').value = "moo"
+            $(".google-div").on("click touchstart mouseenter focus", signInWithGooglePopup);
+
+        }
+        else {
+            $(".google-div").on("click", signInWithGooglePopup);
+        }
     </script>
+       
 </body>
 </html>
