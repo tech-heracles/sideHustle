@@ -13455,30 +13455,24 @@ namespace DbCore
                 do
                 {
                     responseInstanceList = instancesList.Execute();
-                    if (responseInstanceList.Items == null)
-                    {
-                        continue;
-                    }
+                    if (responseInstanceList.Items == null) continue;
                     foreach (Data.DatabaseInstance databaseInstance in responseInstanceList.Items)
                     {
+                        bool sameDatabase = false;
                         bool status = false;
                         string instanceName = databaseInstance.Name;
-                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime" || instanceName == instanca.Split('/')[0])
-                            continue;
+                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime" || instanceName == instanca.Split('/')[0]) continue;
                         string instanceIpConfig = "";
-                        if (databaseInstance.IpAddresses.FirstOrDefault().Type == "PRIMARY")
-                            instanceIpConfig = databaseInstance.IpAddresses[1].IpAddress;
-                        else
-                            instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
+                        if (databaseInstance.IpAddresses.FirstOrDefault().Type == "PRIMARY") instanceIpConfig = databaseInstance.IpAddresses[1].IpAddress;
+                        else instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
                         DatabasesResource.ListRequest databases = sqlAdminService.Databases.List(project, instanceName);
                         Data.DatabasesListResponse databasesResponse = databases.Execute();
-                        if (databasesResponse.Items.Count >= 30)
-                            continue;
+                        if (databasesResponse.Items.Count >= 30) continue;
                         foreach (Data.Database db in databasesResponse.Items)
                         {
-                            if (db.Name == connectionStringame)
-                                continue;
+                            if (db.Name == connectionStringame) sameDatabase = true;
                         }
+                        if (sameDatabase) continue;
                         if (databasesResponse.Items.Count < 30)
                         {
                             instance = instanceName;
@@ -13507,8 +13501,7 @@ namespace DbCore
                 {
                     Thread.Sleep(3000);
                     Data.Operation operationResult = operationStatusExport.Execute();
-                    if (operationResult.Status == "DONE")
-                        operationStatusEx = true;
+                    if (operationResult.Status == "DONE") operationStatusEx = true;
                 }
                 //End of backup
                 //Migrate all backups

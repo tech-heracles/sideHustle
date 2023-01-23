@@ -55,7 +55,7 @@ namespace PlatinumWeb
             //return the control to the calling method
             if (!IsPostBack)
             {
-                
+
                 ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
                 LabelInfo.Text = "";
                 //lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
@@ -126,8 +126,8 @@ namespace PlatinumWeb
                     }
                 }
                 string arsye = Request.QueryString["arsye"];
-                if(string.IsNullOrEmpty(arsye) == false)
-                    if(arsye=="logout") if (arsye == "logout") GlobalCacheManager.DestroySessionCache(Session.SessionID);
+                if (string.IsNullOrEmpty(arsye) == false)
+                    if (arsye == "logout") if (arsye == "logout") GlobalCacheManager.DestroySessionCache(Session.SessionID);
                 if (Request.Url.ToString().Contains("authToken="))
                     await loginWithFirebaseToken();
                 else
@@ -156,7 +156,7 @@ namespace PlatinumWeb
                 clsLogin.mbushServerCombo(Session.SessionID, combo);
             }
 
-           
+
 
         }
         //protected void Page_LoadComplete(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace PlatinumWeb
         {
             switch (arsye)
             {
-               
+
                 case "FaqePaautorizuar":
                     LabelInfo.Text = MessagesResource.Messages["msgLoginNukKeniTeDrejtaPerTuLoguarNeFaqe"];
                     break;
@@ -263,7 +263,7 @@ namespace PlatinumWeb
             if (mesazh)
                 mesazh = clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"]);
             if (mesazh.Status)
-                clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
             return mesazh.Status;
         }
         protected async void logInWithGmail(object sender, EventArgs e)
@@ -352,7 +352,7 @@ namespace PlatinumWeb
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
-           
+
 
             ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
             ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
@@ -375,11 +375,11 @@ namespace PlatinumWeb
                 }
             }
             var user = new clsPerdorues(Login1.UserName);
-           
+
             //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
             var idGjuha = MerrIdGjuha();
             mySessionObjects.ruajGjuhe(Session, idGjuha);
-            
+
             DbCore.DbAdmin.clsKonfigurimeFjalekalimi konf = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(user.IdPerdorues);
             konf.mbushKonfigurimSipasPerdoruesit(user.IdPerdorues);
 
@@ -400,7 +400,7 @@ namespace PlatinumWeb
                     {
                         step1Complete.Value = true.ToString();
 
-                       
+
 
                         var userToken = user.Otp_Token;
 
@@ -488,7 +488,7 @@ namespace PlatinumWeb
 
                                 mySessionObjects.ruajTerms(Session, true);
                                 var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                                if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                                if (mesazh.Status) clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                                 if (mesazh.Status) return;
                                 Login1.FailureText = mesazh.PershkrimMesazhi;
 
@@ -509,7 +509,7 @@ namespace PlatinumWeb
                 {
                     mySessionObjects.ruajTerms(Session, true);
                     var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-                    if (mesazh.Status) clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                    if (mesazh.Status) clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                     if (mesazh.Status) return;
                     Login1.FailureText = mesazh.PershkrimMesazhi;
                 }
@@ -548,7 +548,7 @@ namespace PlatinumWeb
                         return;
                     }
                 }
-                var user = new clsPerdorues(username,email,true);
+                var user = new clsPerdorues(username, email, true);
 
                 //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
                 var idGjuha = MerrIdGjuha();
@@ -560,7 +560,7 @@ namespace PlatinumWeb
                 // if first time login is not done
 
 
-                if (loginAutentificationWithFirebase(username,email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                if (loginAutentificationWithFirebase(username, email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
                 {
                     var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                     var org = MyConnectionsManager.GetSelectedConNameServer();
@@ -598,7 +598,7 @@ namespace PlatinumWeb
                                     if (mesazh.Status)
                                     {
                                         mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
-                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                                        clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 
                                     }
                                     if (mesazh.Status) return;
@@ -622,29 +622,29 @@ namespace PlatinumWeb
                         mySessionObjects.ruajTerms(Session, true);
                         var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                         if (mesazh.Status)
-                            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                            clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                         if (mesazh.Status) return;
                         Login1.FailureText = mesazh.PershkrimMesazhi;
                     }
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ImbLogger.LogErrorWebApi(ex.Message);
             }
-            
-           
+
+
         }
         internal async Task loginWithFirebaseUid(string uid)
         {
             try
             {
                 //uid = "12GTeNTQBbdBvZMiVo5TX0SPmf13"; // change to uid
-                
+
                 var dictionary = await fb.getUserDetailsWithUID(uid);
-                string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString(): "");
-                string organization = (dictionary.ContainsKey("alphaOrganization") == true ?  dictionary["alphaOrganization"].ToString() : "");
+                string passwordHashed = (dictionary.ContainsKey("passwordHash") == true ? dictionary["passwordHash"].ToString() : "");
+                string organization = (dictionary.ContainsKey("alphaOrganization") == true ? dictionary["alphaOrganization"].ToString() : "");
                 if (organization == "")
                 {
                     panelDiv.Visible = true;
@@ -676,7 +676,7 @@ namespace PlatinumWeb
                         return;
                     }
                 }
-                var user = new clsPerdorues(username,email,true);
+                var user = new clsPerdorues(username, email, true);
 
                 //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
                 var idGjuha = MerrIdGjuha();
@@ -687,7 +687,7 @@ namespace PlatinumWeb
 
                 // if first time login is not done
 
-                if (loginAutentificationWithFirebase(username,email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
+                if (loginAutentificationWithFirebase(username, email, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), false, rm, ci))
                 {
                     var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                     var org = MyConnectionsManager.GetSelectedConNameServer();
@@ -725,7 +725,7 @@ namespace PlatinumWeb
                                     if (mesazh.Status)
                                     {
                                         mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
-                                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                                        clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 
                                     }
                                     if (mesazh.Status) return;
@@ -813,10 +813,10 @@ namespace PlatinumWeb
             Login1.FailureText = mesazh.PershkrimMesazhi;
             return false;
         }
-        internal bool loginAutentificationWithFirebase(string username,string email, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
+        internal bool loginAutentificationWithFirebase(string username, string email, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
         {
             ASPxTextBox pass = (ASPxTextBox)Login1.FindControl("Password");
-            clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLoginWithFirebase(HttpContext.Current, username,email, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
+            clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLoginWithFirebase(HttpContext.Current, username, email, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
             if (mesazh)
             {
                 return true;
@@ -862,7 +862,7 @@ namespace PlatinumWeb
                     mySessionObjects.ruajTerms(Session, true);
                     var mesazh = clsFunksione.avancoPerpara(Response, Session, IdPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                     if (mesazh.Status)
-                        clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi, "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
+                        clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
                     if (mesazh.Status) return;
 
                 }

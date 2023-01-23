@@ -91,7 +91,7 @@ namespace PlatinumWeb
                 MyConnectionsManager.InitializeConnectionStringsPool(colServerConnectionStrings.GetAllConnectionStringsAsDictionary());
                 InitializeObjects();
                 RouteTable.Routes.MapOwinPath("/External", app => new Startup().Configuration(app));
-                
+
                 //inicializon cache
                 CacheConfiguration.ConfigureCache(sessionSection.Timeout);
                 Configs.SessionCacheExpirationTime = TimeSpan.FromMinutes(clsServerConfiguration.LexoKonfigurimSipasKey<double>(ServerKonfigKey.SESSION_CACHE_TIMEOUT, MyConnectionsManager.ConnStringNameDefault));
@@ -167,8 +167,7 @@ namespace PlatinumWeb
                 ImbLogger.LogTrace($"Skadim Sesioni -> SessionId:{Session.SessionID} - Url:{Request.Url.PathAndQuery}");
                 return;
             }
-
-            if (HttpApplicationHelper.KaNevojeTeJeteILoguar(Request.Url.AbsolutePath))
+            if (HttpApplicationHelper.KaNevojeTeJeteILoguar(Request.Url.AbsolutePath) && !Request.Url.ToString().Contains("google=true"))
             {
                 idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                 idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -185,7 +184,9 @@ namespace PlatinumWeb
                 }
                 if (!GlobalCacheManager.EshteScopeIdAktiv())
                     Context.RedirectToLoginNdermarrje();
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 ImbLogger.LogTrace($"LOG NGA METODA EshteScopeIdAktiv()  Exception -> {ex},  Exception Data - > {ex.Data.Values}");
             }
             var nameValuesCurrent = HttpUtility.ParseQueryString(Request.QueryString.ToString());
@@ -339,7 +340,7 @@ namespace PlatinumWeb
         protected void Application_Error(object sender, EventArgs e)
         {
             //GlobalCacheManager.MyAppCache.Clear();
-            if(Server.GetLastError() != null)
+            if (Server.GetLastError() != null)
             {
                 var ex = Server.GetLastError();
                 if (ex.GetType() == typeof(System.Web.HttpException))
@@ -359,7 +360,7 @@ namespace PlatinumWeb
                 Server.ClearError();
 
             }
-           
+
         }
 
         protected void Session_End(object sender, EventArgs e)
