@@ -143,11 +143,11 @@ namespace DbCore
 
         public static object merrDsComboGrideNeSession(HttpSessionState session, string emerCombo)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
 
             if (MyPageCache[emerCombo] != null)
@@ -184,10 +184,10 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrColNderNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MyPageCache["colnder"] != null)
             {
@@ -209,11 +209,11 @@ namespace DbCore
 
         public static DbCore.DbRegjistrim.colTrupiMagazina merrTrupatNgaSesioni(string guidString, HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             try
             {
                 return (DbCore.DbRegjistrim.colTrupiMagazina)MyPageCache[guidString];
@@ -582,11 +582,11 @@ namespace DbCore
         /// <returns></returns>
         public static clsRaporti merrOClsRaportiNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["oClsRaporti"] != null)
                 return (clsRaporti)MySessionCache["oClsRaporti"];
@@ -615,11 +615,11 @@ namespace DbCore
         /// <returns>True nese ruajtja perfundoi me sukses, False perndryshe</returns>
         public static colAtributeTrupi merrAtributetNgaSessioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Atributet"] != null)
                 return (colAtributeTrupi)MySessionCache["Atributet"];
@@ -651,11 +651,11 @@ namespace DbCore
         /// <returns></returns>
         public static colKusht merrKushteNgaSessioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["kushte"] != null)
                 return (colKusht)MySessionCache["kushte"];
@@ -686,11 +686,11 @@ namespace DbCore
         /// <returns></returns>
         public static colGridaTrupi merrGridaTrupiNgaSessioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["GridaTrupi"] != null)
                 return (colGridaTrupi)MySessionCache["GridaTrupi"];
@@ -723,11 +723,11 @@ namespace DbCore
         /// <returns></returns>
         public static T merrMyReportNgaSessioni<T>(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["MyReport"] != null)
                 return (T)MySessionCache["MyReport"];
@@ -736,11 +736,11 @@ namespace DbCore
         }
         public static T merrMyReportNgaSessioni<T>(HttpSessionState session, String key)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["MyReport" + key] != null)
                 return (T)MySessionCache["MyReport" + key];
@@ -786,11 +786,11 @@ namespace DbCore
         /// <returns></returns>
         public static string merrFilterNgaSessioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Filtri"] == null)
                 return null;
@@ -869,11 +869,11 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrColArtikullNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colArtikull"] != null)
                 return (DataTable)MySessionCache["colArtikull"];
@@ -903,11 +903,11 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrColArtikull2NgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colArtikull2"] != null)
                 return (DataTable)MySessionCache["colArtikull2"];
@@ -1047,11 +1047,11 @@ namespace DbCore
 
         public static object merrObjectNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Object"] != null)
                 return MySessionCache["Object"];
@@ -1061,11 +1061,11 @@ namespace DbCore
         public static object merrObjectNgaSesioni(HttpSessionState session, string name)
         {
 
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (name == "")
                 name = "Object";
@@ -1087,10 +1087,10 @@ namespace DbCore
 
         public static object[] merrParametratERaportitNgaSesioni(HttpSessionState session, String guidString)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["FiltraRap" + guidString] != null)
                 return (object[])MySessionCache["FiltraRap" + guidString];
@@ -1120,10 +1120,10 @@ namespace DbCore
         }
         public static SqlParameter[] merrParametraRaporti(HttpSessionState session, String guidString)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["FiltraDefaultRap" + guidString] != null)
                 return (SqlParameter[])MySessionCache["FiltraDefaultRap" + guidString];
@@ -1132,11 +1132,11 @@ namespace DbCore
         }
         public static object merrdtfillNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["dtfillimi"] != null)
                 return MySessionCache["dtfillimi"];
@@ -1145,11 +1145,11 @@ namespace DbCore
         }
         public static object merrdtmbarNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["dtmbarimi"] != null)
                 return MySessionCache["dtmbarimi"];
@@ -1158,11 +1158,11 @@ namespace DbCore
         }
         public static object merrdtfillexeNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["dtfillimiexe"] != null)
                 return MySessionCache["dtfillimiexe"];
@@ -1171,11 +1171,11 @@ namespace DbCore
         }
         public static object merrdtmbarexeNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["dtmbarimiexe"] != null)
                 return MySessionCache["dtmbarimiexe"];
@@ -1184,11 +1184,11 @@ namespace DbCore
         }
         public static object merrradNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["radDtDok"] != null)
                 return MySessionCache["radDtDok"];
@@ -1197,11 +1197,11 @@ namespace DbCore
         }
         public static object merrrad2NgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["radDtDok1"] != null)
                 return MySessionCache["radDtDok1"];
@@ -1210,11 +1210,11 @@ namespace DbCore
         }
         public static object merrObjectModNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["ObjectMod"] != null)
                 return MySessionCache["ObjectMod"];
@@ -1228,11 +1228,11 @@ namespace DbCore
         /// <returns></returns>
         public static clsNdermarrje merrNdermarjeReNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["ndermarjere"] != null)
                 return (clsNdermarrje)MySessionCache["ndermarjere"];
@@ -1262,11 +1262,11 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrKPF2NgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["KPF2"] != null)
                 return (DataTable)MySessionCache["KPF2"];
@@ -1296,11 +1296,11 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrKPF3NgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["KPF3"] != null)
                 return (DataTable)MySessionCache["KPF3"];
@@ -1330,11 +1330,11 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrArtProdhNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["artprodh"] != null)
                 return (DataTable)MySessionCache["artprodh"];
@@ -1366,11 +1366,11 @@ namespace DbCore
         public static colKlienteFurnitore merrColKFNgaSesioni(HttpSessionState session)
         {
 
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colkf"] != null)
                 return (colKlienteFurnitore)MySessionCache["colkf"];
@@ -1403,11 +1403,11 @@ namespace DbCore
         /// <returns></returns>
         public static colKlienteFurnitore merrColKFZgjedhurNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colkfZgjedhur"] != null)
                 return (colKlienteFurnitore)MySessionCache["colkfZgjedhur"];
@@ -1510,10 +1510,10 @@ namespace DbCore
         /// <returns></returns>
         public static bool isLogedIn(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             var isLoggedIn = IMBUtils.Types.Converter.MerrVlereOseDefault<string>(MySessionCache.Get<string>("LoggedIn", false));
             return "Yes".Equals(isLoggedIn);
         }
@@ -1540,10 +1540,10 @@ namespace DbCore
         /// <returns></returns>
         public static bool merrMyCallbackNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["MyCallback"] == null)
                 return false;
@@ -1552,10 +1552,10 @@ namespace DbCore
         }
         public static bool merrMyCallbackNgaSesioni(HttpSessionState session, String key)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["MyCallback" + key] == null)
                 return false;
@@ -1595,10 +1595,10 @@ namespace DbCore
         /// <returns></returns>
         public static bool merrSubRaportCallbackNgaSesioni(HttpSessionState session, String key)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["SubRaportCallback" + key] == null) return false;
             else return Convert.ToBoolean(MySessionCache["SubRaportCallback" + key]);
@@ -1630,10 +1630,10 @@ namespace DbCore
         /// <returns></returns>
         public static string ktheKodNdermarrje(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["KodiNdermarrjes"] == null)
                 return null;
@@ -1663,10 +1663,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrFshiNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Fshi"] == null) return null;
             else return MySessionCache["Fshi"].ToString();
@@ -1694,10 +1694,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrMesazhNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             if (MySessionCache["mesazh"] == null)
                 return null;
             else
@@ -1707,10 +1707,10 @@ namespace DbCore
         [Obsolete("Duhet te ktheje clsMesazh", false)]
         public static object hiqMesazhNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["mesazh"] == null)
                 return null;
@@ -1741,10 +1741,10 @@ namespace DbCore
         }
         public static object hiqMesazhNgaSesioni(HttpSessionState session, string guidString)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache[$"mesazh{guidString}"] == null)
                 return null;
@@ -1806,8 +1806,8 @@ namespace DbCore
         /// <returns></returns>
         public static clsPeriudhaKontabel merrPeriudheKontabel(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["oPeriudhaAktuale"] == null)
                 return null;
             else
@@ -1816,8 +1816,8 @@ namespace DbCore
         public static clsPeriudhaKontabel merrPeriudheKontabel(string guidString, HttpSessionState session)
         {
             string key = guidString + "oPeriudhaAktuale";
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache[key] == null)
                 return null;
             else
@@ -1862,10 +1862,10 @@ namespace DbCore
         [Obsolete("nuk perdoret me", true)]
         public static string merrBackgroundPath(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["BackgroundPath"] == null)
                 return null;
@@ -1898,11 +1898,11 @@ namespace DbCore
         /// <returns>nje integer qe permban id e ndermarje vitit</returns>
         public static int ktheNdermarrjeVit(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             int idNdermViti = -1;
             if (MySessionCache["IdNdermViti"] == null ? true : !int.TryParse(GetSessionCacheByKey(session.SessionID)["IdNdermViti"].ToString(), out idNdermViti))
                 ImbLogger.Error("mySessionObjects metoda ktheNdermarrjeVit" + Environment.NewLine + "ERROR: Gabim gjate konvertimit te id - se ndermarrjeviti nga session");
@@ -1946,8 +1946,8 @@ namespace DbCore
         /// <returns></returns>
         public static int ktheNdermRaportuese(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             int idNdermRaportuese = 0;
             if (MySessionCache["idNdermRaportuese"] == null || !int.TryParse(MySessionCache["idNdermRaportuese"].ToString(), out idNdermRaportuese))
                 ImbLogger.Error("mySessionObjects metoda ktheNdermRaportuese" + Environment.NewLine + "ERROR: Gabim gjate leximit te idNdermRaportuese nga session");
@@ -2006,9 +2006,9 @@ namespace DbCore
         /// <returns>kthen formatin e sasise</returns>
         public static int merrFormatSasiaSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             int formatsasia = 0;
             if (MySessionCache["formatsasia"] == null || !int.TryParse(MySessionCache["formatsasia"].ToString(), out formatsasia))
                 ImbLogger.Error("mySessionObjects metoda merrFormatSasiaSesioni" + Environment.NewLine + "ERROR: Gabim gjate leximit te id-se se format sasia nga session");
@@ -2017,9 +2017,9 @@ namespace DbCore
 
         public static object[] merrFormatNRSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             object[] format = (object[])MySessionCache["formatnr"];
             return format;
         }
@@ -2031,9 +2031,9 @@ namespace DbCore
         /// <returns>kthen formatin e vleftes</returns>
         public static int merrFormatVleftaSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             int formatvlefta = 0;
             if (MySessionCache["formatVlefta"] == null || !int.TryParse(MySessionCache["formatVlefta"].ToString(), out formatvlefta))
                 ImbLogger.Error("mySessionObjects metoda merrFormatVleftaSesioni" + Environment.NewLine + "ERROR: Gabim gjate leximit te id-se se format sasia nga session");
@@ -2047,9 +2047,9 @@ namespace DbCore
         /// <returns></returns>
         public static int merrIdNdermarrjeSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             int idNdermarrje = 0;
                 if (MySessionCache["IdNdermarrjes"] == null || !int.TryParse(MySessionCache["IdNdermarrjes"].ToString(), out idNdermarrje))
                     ImbLogger.LogTrace("mySessionObjects metoda merrIdNdermarrjeSesioni" + Environment.NewLine + "ERROR: Gabim gjate leximit te id-se se ndermarrjes korente nga session");
@@ -2058,9 +2058,9 @@ namespace DbCore
 
         public static bool merrEshteMemeSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             bool eshteMeme = false;
                 if (MySessionCache["NdermarjeMeme"] == null || !bool.TryParse(MySessionCache["NdermarjeMeme"].ToString(), out eshteMeme))
                     ImbLogger.Error("mySessionObjects metoda merrEshteMemeSesioni" + Environment.NewLine + "ERROR: Gabim gjate leximit te ndermarjes meme nga session");
@@ -2069,9 +2069,9 @@ namespace DbCore
 
         public static bool merrEshteOwnSesioni(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             bool eshteOwn = false;
             if (MySessionCache["NdermarjeOwn"] == null || !bool.TryParse(MySessionCache["NdermarjeOwn"].ToString(), out eshteOwn))
                 ImbLogger.Error("mySessionObjects metoda merrEshteOwnSesioni" + Environment.NewLine + "ERROR: Gabim gjate leximit te ndermarjes Own nga session");
@@ -2080,9 +2080,9 @@ namespace DbCore
 
         public static bool merrRuajLog(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             //bool ruajLog;
             //if (!bool.TryParse(MySessionCache["RuajLog"].ToString(), out ruajLog))
             //    throw new Exception("ERROR: Gabim gjate leximit te ndermarjes Own nga session");
@@ -2092,9 +2092,9 @@ namespace DbCore
 
         public static bool merrMosMerrNgaDb(HttpSessionState sesion)
         {
-            if (sesion.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(sesion, true, "MbarimSessioni");
+            //if (sesion.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(sesion, true, "MbarimSessioni");
             bool mosRuajngaDb = false;
             if (MySessionCache["MosMerrNgaDb"] == null || !bool.TryParse(MySessionCache["MosMerrNgaDb"].ToString(), out mosRuajngaDb))
                 throw new MyException("ERROR: Gabim gjate leximit te mos ruaj nga db nga session");
@@ -2195,8 +2195,8 @@ namespace DbCore
         /// <returns></returns>
         public static CultureInfo ktheCultureInfo(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             return MessagesResource.KtheCultureInfo(ktheGjuhe(session));
         }
 
@@ -2208,11 +2208,11 @@ namespace DbCore
         public static int ktheIdPerdoruesi(HttpSessionState session)
         {
             var idPerdoruesi = ktheIdPerdoruesi(session.SessionID);
-            if (session.IsNewSession && idPerdoruesiRequired() && idPerdoruesi == 0)
-            {
-                clsFunksione.logout(session, true, true, false, "MbarimSessioni");
-                return 0;
-            }
+            //if (session.IsNewSession && idPerdoruesiRequired() && idPerdoruesi == 0)
+            //{
+            //    clsFunksione.logout(session, true, true, false, "MbarimSessioni");
+            //    return 0;
+            //}
             //HttpContext.Current.Application[MySessionCache.SessionID] nese nuk eshte null do te thote qe ky perdorues eshte loguar dhe diku tjeter me kete username 
             //dhe ka te konfiguruar te politikat e fjalekalimit BllokoLogin true ose te konfiguruar te licencat BllokoMultipleLogin true, qe do te thote qe te lejoje bllokimin heren e dyte, dhe te beje logout te vendi i pare qe eshte loguar. Ne kete menyre lejon qe perdoruesi te mos jete i loguar me shume se nje here
             if (session != null && HttpContext.Current.Application[session.SessionID] != null)
@@ -2264,11 +2264,11 @@ namespace DbCore
         /// <returns></returns>
         public static int merrRreshtiNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["rreshti"] != null) ? Convert.ToInt32(MySessionCache["rreshti"]) : 0;
         }
 
@@ -2312,10 +2312,10 @@ namespace DbCore
         /// <returns></returns>
         public static int ktheVitiNdermarrjes(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["VitiNdermarrjes"] != null) ? Convert.ToInt32(MySessionCache["VitiNdermarrjes"]) : 0;
         }
 
@@ -2363,11 +2363,11 @@ namespace DbCore
         /// <returns></returns>
         public static int merrPeriudheNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["Periudha"] != null) ? Convert.ToInt32(MySessionCache["Periudha"]) : 0;
         }
 
@@ -2407,11 +2407,11 @@ namespace DbCore
         /// <returns></returns>
         public static bool merrKaDokAprovimi(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["DokAprovim"] != null) ? Convert.ToBoolean(MySessionCache["DokAprovim"]) : false;
         }
 
@@ -2438,10 +2438,10 @@ namespace DbCore
         public static clsPerdorues kthePerdorues(HttpSessionState session)
         {
             clsPerdorues oPerdorues = new clsPerdorues();
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             try
             {
                 oPerdorues = MySessionCache.Get<clsPerdorues>("oClsPerdoruesi", false);
@@ -2499,9 +2499,9 @@ namespace DbCore
         /// <returns></returns>
         public static int ktheIdVitNdermarrje(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    //throw new mySessionNewException("Sessioni ka skaduar, Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             var myCache = GetSessionCacheByKey(session.SessionID);
             int idViti;
             if (myCache["oPeriudhaAktuale"] != null)
@@ -2520,10 +2520,10 @@ namespace DbCore
         /// <returns></returns>
         public static Byte[] merrImazhNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Imazhi"] != null)
                 return (Byte[])MySessionCache["Imazhi"];
@@ -2532,10 +2532,10 @@ namespace DbCore
         }
         public static string merrPathNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Pathi"] != null)
                 return (string)MySessionCache["Pathi"];
@@ -2566,10 +2566,10 @@ namespace DbCore
         }
         public static string merrNdermarjeselectSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Hfid"] != null)
                 return (string)MySessionCache["Hfid"];
@@ -2583,10 +2583,10 @@ namespace DbCore
         /// <returns></returns>
         public static String merrThumbnailFileNameNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["ThumbnailFileName"] != null)
                 return MySessionCache["ThumbnailFileName"].ToString();
@@ -2618,10 +2618,10 @@ namespace DbCore
         /// <returns></returns>
         public static colPunesim merrPunesimNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["Punesim"] != null)
                 return (colPunesim)MySessionCache["Punesim"];
@@ -2652,10 +2652,10 @@ namespace DbCore
         /// <returns></returns>
         public static colPagaShtesa merrPageShteseNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["PagaShtesa"] != null)
                 return (colPagaShtesa)MySessionCache["PagaShtesa"];
@@ -2687,10 +2687,10 @@ namespace DbCore
         /// <returns></returns>
         public static int merrIdShtimiNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["idShtimi"] != null) ? Convert.ToInt32(MySessionCache["idShtimi"]) : 0;
         }
 
@@ -2735,10 +2735,10 @@ namespace DbCore
         /// <returns></returns>
         public static colNdermarrjet merrNdermarrjetSelNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["NdermarjetSel"] != null)
                 return (colNdermarrjet)MySessionCache["NdermarjetSel"];
@@ -2768,10 +2768,10 @@ namespace DbCore
         /// <returns></returns>
         public static colKomponenteListPagesePunonjesi merrKompListPagesPunonjesiNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["KomponenteListPagesePunonjes"] != null)
                 return (colKomponenteListPagesePunonjesi)MySessionCache["KomponenteListPagesePunonjes"];
@@ -2800,10 +2800,10 @@ namespace DbCore
         /// <returns></returns>
         public static int merrIdModNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["idmod"] != null) ? Convert.ToInt32(MySessionCache["idmod"]) : 0;
         }
 
@@ -2837,10 +2837,10 @@ namespace DbCore
         }
         public static colFushatShtese merrFushaShteseNgaSesioniGrida(HttpSessionState session, string sessionKey)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MyPageCache[$"FushaGrida_{sessionKey}"] != null) ? (colFushatShtese)MyPageCache[$"FushaGrida_{sessionKey}"] : new colFushatShtese();
             //return (MySessionCache[$"FushaGrida_{sessionKey}"] != null) ? (colFushatShtese)MySessionCache[$"FushaGrida_{sessionKey}"] : new colFushatShtese();
         }
@@ -2893,10 +2893,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrURLARTNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["URLLupaART"] != null) ? MySessionCache["URLLupaART"].ToString() : "";
         }
 
@@ -2924,10 +2924,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrURLLupaShpejteNgaSesioni(HttpSessionState session, string lupa)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["URLLupa" + lupa] != null) ? MySessionCache["URLLupa" + lupa].ToString() : "";
         }
 
@@ -2956,10 +2956,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrURLllogNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["URLLupaLLOG"] != null) ? MySessionCache["URLLupaLLOG"].ToString() : "";
         }
 
@@ -2989,10 +2989,10 @@ namespace DbCore
         /// <returns></returns>
         public static string merrURLNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             return (MySessionCache["URLLupa"] != null) ? MySessionCache["URLLupa"].ToString() : "";
         }
 
@@ -3020,10 +3020,10 @@ namespace DbCore
         /// <returns>koleksion me info e artikullit te dukshme</returns>
         public static colInfoTrupi merrInfoVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colInfoVis"] != null)
             {
@@ -3057,10 +3057,10 @@ namespace DbCore
         /// <returns>koleksion me info e artikullit te pa dukshme</returns>
         public static colInfoTrupi merrInfoInVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colInfoInVis"] != null)
             {
@@ -3094,10 +3094,10 @@ namespace DbCore
         /// <returns>koleksion me kontrolle format importi te dukshme</returns>
         public static colTrupiFormatImporti merrFormatImportiVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colFormatImportiVis"] != null)
             {
@@ -3108,10 +3108,10 @@ namespace DbCore
         }
         public static colTrupiAnketa merrAnketaVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colFormatImportiVis"] != null)
             {
@@ -3123,10 +3123,10 @@ namespace DbCore
         }
         public static colAQTSeriale merrSerialeArtikulliNgaSesioni(HttpSessionState session, int idartikulli)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
             if (MySessionCache["colSeriale" + idartikulli] != null)
             {
                 return (colAQTSeriale)MySessionCache["colSeriale" + idartikulli];
@@ -3137,10 +3137,10 @@ namespace DbCore
 
         public static colAQTSeriale merrSerialeArtikulliZgjedhurNgaSesioni(HttpSessionState session, int idartikulli)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colSerialeZgjedhur" + idartikulli] != null)
             {
@@ -3184,10 +3184,10 @@ namespace DbCore
         /// <returns>koleksion me FormatImporti te pa dukshme</returns>
         public static colTrupiFormatImporti merrFormatImportiInVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colFormatImportiInVis"] != null)
             {
@@ -3199,10 +3199,10 @@ namespace DbCore
         }
         public static colTrupiAnketa merrAnketaInVisibleNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["colFormatImportiInVis"] != null)
             {
@@ -3249,10 +3249,10 @@ namespace DbCore
         /// <returns>koleksion me llogariteqk te pa dukshme</returns>
         public static colLlogariShperndarjeQK merrLlogariteQKNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MyPageCache["LlogariteQK"] != null)
             {
@@ -3269,10 +3269,10 @@ namespace DbCore
         /// <returns>koleksion me kpf te pa dukshme</returns>
         public static colKPFte merrKPFQKNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MyPageCache["KPFQK"] != null)
             {
@@ -3324,10 +3324,10 @@ namespace DbCore
         /// <returns>datatable me rreshtat e grides</returns>
         public static DataTable merrRreshtaImportiNgaGrida(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["gvImport"] != null)
             {
@@ -3361,10 +3361,10 @@ namespace DbCore
         /// <returns>datatable me rreshtat e grides</returns>
         public static DataTable merrTabeleGabimeshImporti(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["TabeleGabimesh"] != null)
             {
@@ -3415,10 +3415,10 @@ namespace DbCore
         /// <returns></returns>
         public static DataTable merrColFaturatNgaSessioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MyPageCache["colfaturat"] != null)
                 return (DataTable)MyPageCache["colfaturat"];
@@ -3446,10 +3446,10 @@ namespace DbCore
         /// <returns></returns>
         public static T merrReportNgaSessioni<T>(HttpSessionState session, String key)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["SubReport" + key] != null)
                 return (T)MySessionCache["SubReport" + key];
@@ -3466,10 +3466,10 @@ namespace DbCore
         public static T merrReport2NgaSessioni<T>(HttpSessionState session, String key)
         {
             
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["SubReport2" + key] != null)
                 return (T)MySessionCache["SubReport2" + key] ;
@@ -3515,10 +3515,10 @@ namespace DbCore
         /// <returns></returns>
         public static Dictionary<int, String> merrParametratSubRaportitNgaSesioni(HttpSessionState session, int key, String guidString)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["ParametratSubRaportit" + key + guidString] != null)
                 return (Dictionary<int, String>)MySessionCache["ParametratSubRaportit" + key + guidString];
@@ -3551,10 +3551,10 @@ namespace DbCore
         /// <returns></returns>
         public static colParameter merrParametratShfaqSubRaportitNgaSesioni(HttpSessionState session, int key, String guidString)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MySessionCache["ParametratShfaqSubraport" + key + guidString] != null)
                 return (colParameter)MySessionCache["ParametratShfaqSubraport" + key + guidString];
@@ -3586,10 +3586,10 @@ namespace DbCore
         /// <returns></returns>
         public static colNdermarrjet merrNdermarrjetPerPerdoruesDheLicenceNgaSesioni(HttpSessionState session)
         {
-            if (session.IsNewSession)
-            {
-                clsFunksione.logout(session, true, "MbarimSessioni");
-            }
+            //if (session.IsNewSession)
+            //{
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
 
             if (MyPageCache["NdermarjetPerLicenceDhePerdorues"] != null)
                 return (colNdermarrjet)MyPageCache["NdermarjetPerLicenceDhePerdorues"];
@@ -3791,8 +3791,8 @@ namespace DbCore
         /// <returns>ndermarrjen e punes</returns>
         public static clsNdermarrje merrNdermarrjePuneNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["NdermarrjePune"] == null)
                 return null;
             else
@@ -3821,8 +3821,8 @@ namespace DbCore
         /// <returns>logon e ndermarrjs e punes</returns>
         public static string merrMimeTypeLogoNdermarrjeNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["MimeTypeLogoNdermarrje"] == null)
                 return null;
             else
@@ -3851,8 +3851,8 @@ namespace DbCore
         /// <returns>Kthen gjithe koleksionin e te drejtave te perdoruesit te loguar per modulin GIS</returns>
         public static colTeDrejtaRoli merrGISTeDrejtaSipasPerdoruesNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "GISTeDrejtaSipasPerdorues");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "GISTeDrejtaSipasPerdorues");
             if (MySessionCache["GISTeDrejtaSipasPerdorues"] == null)
                 return null;
             else
@@ -3881,8 +3881,8 @@ namespace DbCore
         /// <returns>workspace</returns>
         public static clsWorkspaceGIS merrWorkspaceNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["GISWorkspace"] == null)
                 return null;
             else
@@ -3911,8 +3911,8 @@ namespace DbCore
         /// <returns>layersType</returns>
         public static colLayersTypeGIS merrLayersTypeNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["GISLayersType"] == null)
                 return null;
             else
@@ -3939,8 +3939,8 @@ namespace DbCore
         /// <returns>layersType</returns>
         public static colDisplayLayersGIS merrDisplayLayersNgaSession(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
             if (MySessionCache["GISDisplayLayers"] == null)
                 return null;
             else
@@ -3952,8 +3952,8 @@ namespace DbCore
 
         public static void ruajTeDrejtatNeSesion(HttpSessionState session, DataTable dt)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
 
             if (MySessionCache["teDrejtat"] == null)
                 MySessionCache.Add("teDrejtat", dt);
@@ -3962,8 +3962,8 @@ namespace DbCore
 
         public static DataTable merrTeDrejtatNeSesion(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
 
             if (MySessionCache["teDrejtat"] == null)
                 return new DataTable();
@@ -3989,8 +3989,8 @@ namespace DbCore
 
         public static string merrMenuPersonalizuar(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
 
             if (MySessionCache["menuPersonalizuar"] == null)
                 return "";
@@ -4010,8 +4010,8 @@ namespace DbCore
 
         public static DataTable merrMenuSipasTeDrejtave(HttpSessionState session)
         {
-            if (session.IsNewSession)
-                clsFunksione.logout(session, true, "MbarimSessioni");
+            //if (session.IsNewSession)
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
 
             if (MySessionCache["menuSipasTeDrejtave"] == null)
                 return null;
