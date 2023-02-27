@@ -1239,6 +1239,8 @@
             .info, .loginForm {
                 vertical-align: middle;
             }
+            
+
         }
 
         @media all and (min-width:1020px) and (max-width:1550px) {
@@ -1248,6 +1250,9 @@
         }
 
         @media all and (max-width:690px) {
+            .google-div{
+                margin-bottom:10%;
+            }
             .left{
                 margin-left: -15%;
             }
