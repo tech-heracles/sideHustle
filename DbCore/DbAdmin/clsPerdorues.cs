@@ -781,7 +781,6 @@ namespace DbCore.DbAdmin
                 return mesazh;
             }
         }
-
         /// <summary>
         /// modifikon password-in e perdoruesit
         /// </summary>
@@ -1204,6 +1203,13 @@ namespace DbCore.DbAdmin
             using (clsDatabaseAdmin db = new clsDatabaseAdmin())
             {
                 return db.merrQueryStringHashuar(queryStringHashuarKerkeseResetPass);
+            }
+        }
+        public static bool krijoPerdoruesMeGmail(string email, string username, string name, string password, int roli)
+        {
+            using (clsDatabaseAdmin db = new clsDatabaseAdmin())
+            {
+                return db.krijoPerdoruesMeGmail(email, username, name, password, roli);
             }
         }
 

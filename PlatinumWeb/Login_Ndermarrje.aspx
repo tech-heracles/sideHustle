@@ -17,6 +17,20 @@
     <title>Alpha Web</title>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
+            authDomain: "imb-payment.firebaseapp.com",
+            databaseURL: "https://imb-payment.firebaseio.com",
+            projectId: "imb-payment",
+            storageBucket: "imb-payment.appspot.com",
+            messagingSenderId: "269963445243",
+            appId: "1:269963445243:web:6b8347c72e861cd438415e"
+        };
+        window.auth = await getAuth();
+    </script>
     <style type="text/css">
 
         body *{
@@ -254,7 +268,7 @@
 						</dx:ASPxLabel>
 						<dx:ASPxHyperLink CssClass="dalje" ID="ASPxHyperLink3" runat="server" EnableViewState="false" ViewStateMode="Disabled"
 							NavigateUrl="<% DbCore.IMBUtils.Paths.defaultLoginPath%>" ImageUrl="images/logoutShigjeta.png" ForeColor="Black" Font-Underline="false" style="padding-right:5px; padding-bottom:5px;">
-						</dx:ASPxHyperLink> 
+						</dx:ASPxHyperLink>
 					</div>
 				</div>
             </header>
@@ -324,7 +338,7 @@
     </form>
 
     <script>
-		
+        sessionStorage.setItem("GoogleLogInAttemps", 0);
 		function load() {
             
 			if (document.getElementsByTagName('body')[0].className == 'kesh'){

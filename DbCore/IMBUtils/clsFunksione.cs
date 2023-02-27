@@ -71,6 +71,7 @@ using System.Threading.Tasks;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
 using Google.Cloud.Storage.V1;
 using System.Net.Mail;
+using Google.Cloud.Firestore;
 
 namespace DbCore
 {
@@ -13391,6 +13392,13 @@ namespace DbCore
             httpWebRequest.Method = "GET";
             return httpWebRequest;
         }
+        public static HttpWebRequest CreateGetWebRequestLicence(string url, string cllientDbName)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.Method = "GET";
+            httpWebRequest.Headers.Add("client", cllientDbName);
+            return httpWebRequest;
+        }
         public static HttpWebRequest CreateGetWebRequestExpire(string url, string cllientDbName)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "?clientdb=" + cllientDbName);
@@ -13863,6 +13871,33 @@ namespace DbCore
         }
         static public DataTable getAllRolesExxeptSuperUser(){
             return clsRoli.ktheRolePervecSuperUser();
+        }
+        public static string generateRandomPassword()
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+=-";
+            StringBuilder stringBuilder = new StringBuilder();
+            Random random = new Random();
+            for (var i = 0; i <= 10; i++)
+            {
+                stringBuilder.Append(valid[random.Next(valid.Length)]);
+            }
+            return stringBuilder.ToString();
+        }
+        public async static void createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
+        {
+            FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+            bool exists = await firebaseConfiguration.checkIfUserExists(uid);
+            string username = email.Split('@')[0];
+            string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
+            string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+            if (!exists) await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization), uid);
+            else
+            {
+                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid);
+                if (status)
+                    if (clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi));
+                
+            }
         }
         //MOS SHTONI funksione qe prekin databazen ketu
     }

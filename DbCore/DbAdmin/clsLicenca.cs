@@ -7,6 +7,7 @@ using System.Resources;
 using System.Globalization;
 using System.Security.Cryptography;
 using DbCore.IMBUtils.Security;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace DbCore.DbAdmin
 {
@@ -386,6 +387,8 @@ namespace DbCore.DbAdmin
                 if (nrDiteTeMbetura <= limitDiteTeMbetura)
                     return new clsMesazh(true, DbCore.DbAdmin.clsLicenca.merrMesazhPerfundimLicence(nrDiteTeMbetura, nrDiteTolerance, rm, ci));
             }
+            //var webReq = clsFunksione.CreateGetWebRequestLicence("https://imb-licence.appspot.com/rest/getLicenceEndDate",clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+
             return new clsMesazh(true, String.Empty);
         }
 

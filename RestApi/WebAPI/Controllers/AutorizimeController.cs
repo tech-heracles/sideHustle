@@ -8,6 +8,9 @@ using RestApi.WebAPI.Models;
 using System.Web.SessionState;
 using DbCore.DbAdmin;
 using System.Threading.Tasks;
+using CacheLayer;
+using DbCore;
+using System.ComponentModel;
 
 namespace RestApi.WebAPI.Controllers
 {
@@ -113,13 +116,29 @@ namespace RestApi.WebAPI.Controllers
                 return Request.KthePergjigjeGabim(param, ex);
             }
         }
-        
         [HttpPost, HttpGet]
-        public HttpResponseMessage KtheLicence(JObject param)
-            {
+        public HttpResponseMessage createLoginWithGmail(JObject param)
+        {
             try
             {   
-                
+                string uid = param.Value<string>("uid");
+                int idNdermarrje = param.Value<int>("idNdermarrje");
+                int idPerdoruesi = param.Value<int>("idPerdoruesi");
+                string email = param.Value<string>("email");
+                AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email,Session);
+                return Request.KthePergjigje(true);
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje(false);
+
+            }
+        }
+        [HttpPost, HttpGet]
+        public HttpResponseMessage KtheLicence(JObject param)
+        {
+            try
+            {
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 clsLicenca licenca = new clsLicenca();

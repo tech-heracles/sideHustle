@@ -1372,6 +1372,34 @@ namespace DbCore.DbAdmin
             return ds.Tables[0].Rows[0];
 
         }
+        internal bool krijoPerdoruesMeGmail(string email,string username,string name,string password,int roli)
+        {
+            string connectionString = dbManager.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','14466','1')" +
+                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,(SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc) FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}"+
+                    $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc), 1, null, null)", connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        
+                    }
+                }
+                finally
+                {
+                    // Always call Close when done reading.
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+            return true;
+
+
+        }
 
         /// <summary>
         /// kyc perdoruesin te tabela T_PERDORUESI

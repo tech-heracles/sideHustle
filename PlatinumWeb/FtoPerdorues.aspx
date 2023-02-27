@@ -15,14 +15,17 @@
             float: right;
             margin: 1% 1%;
         }
-        .row{
+        .rows{
             position: absolute;
             left: 0;
             background-color: white;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            width: 40%;
+            width: 100%;
+        }
+        .row{
+            width:40%;
         }
         .row-container{
             background-color: white;
@@ -33,7 +36,7 @@
             height:55%;
         }
         .card-p{
-            width: 70%;
+            width: 100%;
         }
         .confirm-button{
             color:white;
@@ -139,7 +142,9 @@
         bottom: 0;
         right: 0;
     }
-
+        hr{
+            width:42%;
+        }
     .loader-overlay {
         
         display: none;
@@ -151,6 +156,32 @@
         bottom: 0;
         right: 0;
         background-color: rgba(255,255,255,0.7);
+    }
+    .custom-css-a{
+        width:100%;
+        height:100%;
+        background-color:#1251b8 !important;
+    }
+    .custom-css-a:hover{
+        background-color: white !important;
+        color: black !important;
+    }
+    .card-content{
+        padding-bottom:5% !important;
+    }
+    .google-div{
+        width:40% !important;
+    }
+    @media all and (max-width:1400px) {
+       .google-div{
+            width:100% !important;
+        } 
+    }
+    @media all and (max-width:800px) {
+       .google-div img{
+           display:none;
+       }
+
     }
     </style>
     <script> 
@@ -216,20 +247,47 @@
                 <asp:Button runat="server" type="button" id="button" class="confirm-button" Text="Konfirmo" OnClick="button_click" OnClientClick="showLoadingGif()"/>
             </div>
         </div>
-        <div class="row">
+        <div class="rows">
+            <div class="row">
             <div class="col s12 m6 row-container">
-              <div class="card grey lighten-5">
-                <a class="waves-effect blue darken-1 btn modal-trigger btn btn-primary" href="#modal1">Shto perdorues</a>
-                <div class="card-content white-text">
-                  <span class="card-title" style="color:black">Shto perdorues</span>
-                  <p class="card-p" style="color:black;">Si perdorues Administrator i programit Alpha ju mund te shtoni perdorues te autentifiikuar me gmail. Per te shtuar perdorues vendosni email-in e perdoruesit qe doni te shtoni.</p>
+                  <div class="card grey lighten-5">
+                    <div class="card-content white-text">
+                      <span class="card-title" style="color:black;"><b>Hyr ne Alpha me Gmail</b></span>
+                      <p class="card-p" style="color:black;">Logohu ne programin Alpha me <b>Gmail-in tend</b> ne menyre te sigurt vetem me 1 klik.</p>
+                    </div>
+                    <div class="col s12 m6 offset-m3 center-align google-div" style="margin-top:-2%; margin-left:0%;" onclick="loginWithGoogle()" >
+                        <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
+                            <div class="left" style="margin-top:0px; height:20px; position:absolute;">
+                                <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
+                                    src="images/FaqjaPare/google.png" />
+                            </div>
+                            Sign in with Google
+                        </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
+                
+            </div>
+            <hr/>
+            <div class="row row-2">
+                <div class="col s12 m6 row-container">
+                  <div class="card grey lighten-5">
+                    <div class="card-content white-text">
+                      <span class="card-title" style="color:black"><b>Fto perdorues ne Alpha me Gmail</b></span>
+                      <p class="card-p" style="color:black;">Si perdorues “admin” i programit Alpha, mund te ftosh perdoruesit e tjeter te logohen ne program ne <u>menyre te sigurt me adresen e tyre te Gmail-it</u>.Per te shtuar perdoruesit, mjafton te vendosesh emailin e tyre me poshte.</p>
+                    </div>
+                    <a class="waves-effect blue darken-1 btn modal-trigger btn btn-primary" style="float:left; margin-top:-2%;" href="#modal1">Shto perdorues</a>
+                  </div>
+                </div>
             </div>
         </div>
-
+            
+        
     </form>
 </body>
     <script>
-</script>
+        function loginWithGoogle() {
+            window.parent.signInWithGooglePopup()
+        }
+    </script>
 </html>

@@ -48,6 +48,26 @@
     <script src="/signalr/hubs"></script>
 
     <link href="FaqeKryesore.css" rel="stylesheet" />
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
+            authDomain: "imb-payment.firebaseapp.com",
+            databaseURL: "https://imb-payment.firebaseio.com",
+            projectId: "imb-payment",
+            storageBucket: "imb-payment.appspot.com",
+            messagingSenderId: "269963445243",
+            appId: "1:269963445243:web:6b8347c72e861cd438415e"
+        };
+        const app = initializeApp(firebaseConfig);
+        window.signInWithPopup = signInWithPopup;
+        window.signInWithEmail = signInWithEmailAndPassword;
+        window.getAuth = getAuth;
+        window.signInWithRedirect = signInWithRedirect;
+        window.GoogleAuthProvider = await new GoogleAuthProvider();
+        window.auth = await getAuth();
+    </script>
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -197,6 +217,14 @@
 .email-footer p:hover{
         background-color: #048ae7;
 }
+.einvoice-notice p{
+    width: max-content;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 100%;
+    cursor: pointer;}
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121798081-2"></script>
@@ -233,7 +261,7 @@
             </div>
                               
             <div style="text-align: center;">
-            <p>Njoftim funksion i ri opsional: ne alpha.al mund te aktivizosh logimin me Gmail. Ndiq keto hapa: <a href="https://alphawiki.notion.site/Aktivizo-Sign-in-me-Gmail-n-alpha-al-28e7a1b0dc714bdc8fa076bc90530f74" target="_blank"> Ndiq hapat.</a><br />
+            <p onclick="signInWithGooglePopup()">Logohu ne programin Alpha me Gmail-in tend ne menyre te sigurt vetem me 1 klik.
             </p>                </div>
         </div>
         <div id="backDiv" runat="server">
@@ -1864,7 +1892,7 @@
 
     
     <script type="text/javascript">      
-
+        sessionStorage.setItem("GoogleLogInAttemps", 0);
         //Popup Window
         window.showPopup = function (template, title) {
             new Popup().init("#popup", template, { width: "40%", height: "30%", title: title });

@@ -1788,7 +1788,8 @@ section#submain header {
 </head>
 
 <body onload="load()">
-    <asp:Panel runat="server" ID="panelDiv" Visible="false"><div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
+    <asp:Panel runat="server" ID="panelDiv" Visible="false">
+        <div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
     /* background-color: red; */
 "><div class="toast" style="cursor:pointer; top: 0px;opacity: 1;background-color: red;">Email-i juaj nuk eshte i lidhur me ndonje ndermarrje. Ndiqni keto hapa per te mesuar si te aktivizoni login me gmail
 </div></div></asp:Panel>
@@ -1799,6 +1800,8 @@ section#submain header {
         </a>
     </div>
     <form id="authForm" runat="server" style="width: 100%">
+        <dx:ASPxHiddenField ID="hasAlpha" ClientInstanceName="hasAlpha" runat="server">
+        </dx:ASPxHiddenField>
         <dx:ASPxHiddenField ID="clientDate" ClientInstanceName="clientDate" runat="server">
         </dx:ASPxHiddenField>
         <asp:HiddenField ID="step1Complete" Value="false" runat="server"></asp:HiddenField>
@@ -1909,6 +1912,15 @@ section#submain header {
                                         <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
                                         </dx:ASPxLabel>
                                     </div>--%>
+                                    <div class="col s12 m6 offset-m3 center-align google-div" style="margin-top:10%;">
+                                        <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
+                                            <div class="left" style="margin-top:0px; height:20px; position:absolute;">
+                                                <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
+                                                    src="images/FaqjaPare/google.png" />
+                                            </div>
+                                            Sign in with Google
+                                        </a>
+                                    </div>
                                     <div class="input" style="display: flex; justify-content: center;">
                                         <%-- style="padding-top:10px;max-width:246px;padding-left:1px;"--%>
                                         <dx:ASPxButton runat="server" Height="40px" Width="100%" ClientVisible="false" ClientInstanceName="loginButton" CssClass="hyrje"
@@ -1929,15 +1941,7 @@ section#submain header {
 
                                     </div>
                                     
-                                    <div class="col s12 m6 offset-m3 center-align google-div" style="margin-top:10%;">
-                                        <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
-                                            <div class="left" style="margin-top:0px; height:20px; position:absolute;">
-                                                <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
-                                                    src="images/FaqjaPare/google.png" />
-                                            </div>
-                                            Sign in with Google
-                                        </a>
-                                    </div>
+                                    
                                     
                                     <%--<h1 class="hyrje google"><img src="images/gogle.png"/>Log in with Google</h1>--%>
                                     <section>  
@@ -2278,6 +2282,24 @@ section#submain header {
         }
         else {
             $(".google-div").on("click", signInWithGooglePopup);
+        }
+        window.onload = async function (e) {
+            var sessionStorageValue = sessionStorage.getItem("GoogleLogInAttemps") == null ? 0 : parseInt(sessionStorage.getItem("GoogleLogInAttemps"));
+            await getAuth();
+            var url = new URL(window.location.href);
+            var arsye = url.searchParams.get("arsye");
+            //if (arsye == "logout" || arsye == "MbarimSessioni") auth.signOut()
+            if (auth.currentUser != null && sessionStorageValue < 3) {
+                sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1)
+                var logInWithGoogle = document.getElementById("logInWithGmailButton");
+                txtUID.SetText(auth.currentUser.uid);
+                logInWithGoogle.click();
+            }
+            else if (sessionStorageValue>=3){
+                auth.signOut();
+            }
+            
+            
         }
     </script>
        

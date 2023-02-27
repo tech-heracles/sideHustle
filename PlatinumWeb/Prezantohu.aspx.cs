@@ -130,6 +130,8 @@ namespace PlatinumWeb
                     if (arsye == "logout") if (arsye == "logout") GlobalCacheManager.DestroySessionCache(Session.SessionID);
                 if (Request.Url.ToString().Contains("authToken="))
                     await loginWithFirebaseToken();
+                else if(Request.Url.ToString().Contains("uid="))
+                    await loginWithFirebaseUid(Request.Url.ToString().Split(new string[] { "uid=","endUid" }, StringSplitOptions.None)[1]);
                 else
                 {
                     if (string.IsNullOrEmpty(arsye))
@@ -726,9 +728,9 @@ namespace PlatinumWeb
                                     {
                                         mySessionObjects.ruajEmerPerdoruesiNeSesion(Session, user.EmriPerdorues + " " + user.MbiemriPerdorues);
                                         clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri me google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
-
                                     }
                                     if (mesazh.Status) return;
+                                    
                                     Login1.FailureText = mesazh.PershkrimMesazhi;
 
                                 }
@@ -742,6 +744,7 @@ namespace PlatinumWeb
                         catch (WebException ex)
                         {
                             string message = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                            
                         }
                     }
                     else
@@ -749,14 +752,17 @@ namespace PlatinumWeb
                         mySessionObjects.ruajTerms(Session, true);
                         var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
                         if (mesazh.Status) return;
+                        
                         Login1.FailureText = mesazh.PershkrimMesazhi;
                     }
                 }
+                
                 LabelInfo.Text = Login1.FailureText;
 
             }
             catch (Exception ex)
             {
+                
                 ImbLogger.LogErrorWebApi(ex.Message);
             }
 
