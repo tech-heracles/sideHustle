@@ -2288,16 +2288,19 @@ section#submain header {
             await getAuth();
             var url = new URL(window.location.href);
             var arsye = url.searchParams.get("arsye");
-            //if (arsye == "logout" || arsye == "MbarimSessioni") auth.signOut()
-            if (auth.currentUser != null && sessionStorageValue < 3) {
-                sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1)
-                var logInWithGoogle = document.getElementById("logInWithGmailButton");
-                txtUID.SetText(auth.currentUser.uid);
-                logInWithGoogle.click();
+            if (arsye == "logout" || arsye == "MbarimSessioni") auth.signOut();
+            else {
+                if (auth.currentUser != null && sessionStorageValue < 3) {
+                    sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1)
+                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
+                    txtUID.SetText(auth.currentUser.uid);
+                    logInWithGoogle.click();
+                }
+                else if (sessionStorageValue >= 3) {
+                    auth.signOut();
+                }
             }
-            else if (sessionStorageValue>=3){
-                auth.signOut();
-            }
+            
             
             
         }
