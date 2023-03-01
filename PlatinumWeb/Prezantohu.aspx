@@ -40,6 +40,98 @@
         window.auth = await getAuth();
     </script>
     <style>
+        .lds-grid {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    animation: lds-grid 3s linear infinite;
+  }
+  .lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+  }
+  .lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+  }
+  @keyframes lds-grid {
+    0%,100% {
+        background-color: #4584ec;
+    }
+    25% {background-color: #38a555;}
+    50% {
+        background-color: #e44d40;
+    }
+    75% {background-color: #f3ba15;}
+}
+  .loader {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    }
+
+    .loader-overlay {
+        position: fixed;
+        z-index: 999;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255,255,255,0.7);
+    }
         @font-face {
             font-family: 'Open Sans';
             font-style: normal;
@@ -1793,12 +1885,26 @@ section#submain header {
 </head>
 
 <body onload="load()">
+    <div class="loader-overlay" id="loader-overlay"></div>
+<div class="loader" id="loader">
+    <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    </div>
     <asp:Panel runat="server" ID="panelDiv" Visible="false">
         <div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
     /* background-color: red; */
 "><div class="toast" style="cursor:pointer; top: 0px;opacity: 1;background-color: red;">Email-i juaj nuk eshte i lidhur me ndonje ndermarrje. Ndiqni keto hapa per te mesuar si te aktivizoni login me gmail
 </div></div></asp:Panel>
-    <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px;" >
+    <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px; z-index:9999;" >
         <a onclick="showLogin()" id="pulse-btn" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
     
         <i class="large material-icons" style="padding-left: 10px;">account_circle</i>
@@ -1811,7 +1917,7 @@ section#submain header {
         </dx:ASPxHiddenField>
         <asp:HiddenField ID="step1Complete" Value="false" runat="server"></asp:HiddenField>
         <div  id="bc" class="blog-container">
-            <div class="loadingspinner" id="loadingspinner"><img src="images/FaqjaPare/GIFWEB_BLUE_1.svg" onerror="this.style.display='none'"/></div>    
+<%--            <div class="loadingspinner" id="loadingspinner"><img src="images/FaqjaPare/GIFWEB_BLUE_1.svg" onerror="this.style.display='none'"/></div>    --%>
             <iframe src="https://alphablog.al/" class="BlogUrl" id="blogUrl" onload="frameLoaded()"frameBorder="0" style="opacity:0;">
                 </iframe>
                 </div>
@@ -2249,13 +2355,12 @@ section#submain header {
         }
 
         const iframeEle = document.getElementById('blogUrl');
-        const loadingEle = document.getElementById('loadingspinner');
-
         iframeEle.addEventListener('load', function () {
             window.setTimeout(function () {
                 document.getElementById("pulse-btn").classList.remove("pulse");
             }, 5000)
-            loadingEle.style.display = 'none';
+            document.getElementById('loader-overlay').style.display = 'none';
+            document.getElementById('loader').style.display = 'none';
             iframeEle.style.opacity = 1;
             var html = document.getElementById("Login1_FailureText").innerHTML;
             var html2 = document.getElementById("LabelInfo").innerHTML;
@@ -2293,15 +2398,19 @@ section#submain header {
             await getAuth();
             var url = new URL(window.location.href);
             var arsye = url.searchParams.get("arsye");
-            if (arsye == "logoutsds") auth.signOut();
+            if (arsye == "logout") auth.signOut();
             else {
                 if (auth.currentUser != null && sessionStorageValue < 1) {
                     sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1);
                     var logInWithGoogle = document.getElementById("logInWithGmailButton");
                     txtUID.SetText(auth.currentUser.uid);
                     logInWithGoogle.click();
+                    document.getElementById('loader-overlay').style.display = 'block';
+                    document.getElementById('loader-overlay').style.zIndex = 10000;
+                    document.getElementById('loader').style.display = 'block';
+                    document.getElementById('loader').style.zIndex = 10000;
                 }
-                else if (sessionStorageValue >= 3) {
+                else if (sessionStorageValue >= 1) {
                     auth.signOut();
                 }
             }
