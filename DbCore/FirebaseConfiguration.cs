@@ -21,8 +21,8 @@ namespace DbCore
         //    AuthSecret = "eowUa51dSv2JVPLNaanbyIt3Kq0g7mJemw7eEUjh",
         //    BasePath = "https://imb-payment.firebaseio.com/"
         //};
-        private static FirestoreDb firestoreDb;
         private static string userDetailsCollection = "userDetails";
+        private static string organizationCollection = "organization";
         public FirebaseConfiguration(){
             
             if(FirebaseApp.DefaultInstance == null)
@@ -35,7 +35,6 @@ namespace DbCore
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
                 appOptions.Credential = credential;
                 FirebaseApp fap = FirebaseApp.Create(appOptions);
-                firestoreDb = FirestoreDb.Create("imb-payment");
             }
 
         }
@@ -45,6 +44,7 @@ namespace DbCore
             string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("email", email);
             QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
             foreach (var snap in snapshot)
@@ -65,6 +65,7 @@ namespace DbCore
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirebaseToken firebaseToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
             string uid = firebaseToken.Uid;
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("uid" ,uid);
             QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
             foreach(var snap in snapshot) {
@@ -84,6 +85,7 @@ namespace DbCore
             var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("uid", uid);
             QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
             foreach (var snap in snapshot)
@@ -93,10 +95,19 @@ namespace DbCore
             }
             return documentDictionary;
         }
+        public async Task<string> createNewOrganization(object organizationDetails)
+        {
+            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            DocumentReference writeResult = await firestoreDb.Collection(organizationCollection).AddAsync(organizationDetails);
+            return writeResult.Id;
+        }
         public Task<WriteResult> createNewUser(object userDetails,string uid)
         {
             var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");           
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
@@ -111,6 +122,7 @@ namespace DbCore
                 {
                     try
                     {
+                        FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                         WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
                         return true;
                     }
@@ -126,6 +138,7 @@ namespace DbCore
             {
                 try
                 {
+                    FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
                     return true;
                 }
@@ -146,7 +159,7 @@ namespace DbCore
             else return true;
         }
 
-        public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization)
+        public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)
         {
             return new
             {
@@ -154,9 +167,63 @@ namespace DbCore
                 uid = uid,
                 passwordHash = pass,
                 alphaOrganization = alphaOrganization,
-                email = email
+                email = email,
+                organization = orgid
             };
             
+        }
+        public object createOrganizationDetailsObject(string alphaOrganization)
+        {
+            return new
+            {
+                organization= alphaOrganization,
+                clientId= "",
+                currency= "LEK",
+                docNo= false,
+                firstDocNo= 1,
+                currentDocNo= 1,
+                integration= false,
+                bccEmailAddress= "",
+                createdAt= DateTime.Now.ToString(),
+                updatedAt= "",
+                updatedBy= "",
+                fiscalization= false,
+                einvoice= false,
+                IsIssuerInVAT= false,
+                SellerName= "",
+                SellerAddress= "",
+                SellerTown= "",
+                SellerCountry= "ALB",
+                IssuerNUIS= "",
+                BusinUnitCode= "",
+                OperatorCode= "",
+                TCRCode= "",
+                AccountID= "",
+                AccountName= "",
+                secret= "",
+                AccountID2= "",
+                AccountName2= "",
+                fromEmailAddress= "",
+                subject= "",
+                defMessage= "",
+                templateId= "154b01ec-1f8b-410b-a945-adedc1f5dd0e",
+                templateViewer= "akv88ef0v.hbs",
+                testFiscalization= false,
+                connectionStringName= "",
+                organizationServer= "",
+                authorization= "",
+                username= "",
+                nodeUrl= "https=//node.alpha.al",
+                formatPerImportClient= "",
+                formatPerImportShitje= "",
+                formatPerImportDalje= "",
+                formatPerImportFurnitor= "",
+                formatPerImportBlerje= "",
+                cashRegisterCode= "",
+                alphaOrganization = alphaOrganization
+            };
+
+
         }
         public Dictionary<string, object> createUserDetailsObjectForUpdate(string alphaOrganization,string hashPassword,string username)
 

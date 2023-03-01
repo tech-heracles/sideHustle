@@ -13890,13 +13890,18 @@ namespace DbCore
             string username = email.Split('@')[0];
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            if (!exists) await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization), uid);
+            string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization));
+            if (!exists) {
+                await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
+                clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+            }
             else
             {
                 bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid);
                 if (status)
-                    if (clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi));
-                
+                    clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+
+
             }
         }
         //MOS SHTONI funksione qe prekin databazen ketu
