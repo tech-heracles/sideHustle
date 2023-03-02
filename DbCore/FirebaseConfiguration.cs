@@ -34,7 +34,7 @@ namespace DbCore
                 var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
                 appOptions.Credential = credential;
-                FirebaseApp fap = FirebaseApp.Create(appOptions);
+                FirebaseApp.Create(appOptions);
             }
 
         }
@@ -152,7 +152,7 @@ namespace DbCore
         }
         public async Task<bool> checkIfUserExists(string uid)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
+            string imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.Count == 0) return false;
@@ -189,20 +189,20 @@ namespace DbCore
                 updatedBy= "",
                 fiscalization= false,
                 einvoice= false,
-                IsIssuerInVAT= false,
-                SellerName= "",
-                SellerAddress= "",
-                SellerTown= "",
-                SellerCountry= "ALB",
-                IssuerNUIS= "",
-                BusinUnitCode= "",
-                OperatorCode= "",
-                TCRCode= "",
-                AccountID= "",
-                AccountName= "",
+                isIssuerInVAT= false,
+                sellerName= "",
+                sellerAddress= "",
+                sellerTown= "",
+                sellerCountry= "ALB",
+                issuerNUIS= "",
+                businUnitCode= "",
+                operatorCode= "",
+                tcrCode= "",
+                accountID= "",
+                accountName= "",
                 secret= "",
-                AccountID2= "",
-                AccountName2= "",
+                accountID2= "",
+                accountName2= "",
                 fromEmailAddress= "",
                 subject= "",
                 defMessage= "",
@@ -213,7 +213,7 @@ namespace DbCore
                 organizationServer= "",
                 authorization= "",
                 username= "",
-                nodeUrl= "https=//node.alpha.al",
+                nodeUrl= "https://node.alpha.al",
                 formatPerImportClient= "",
                 formatPerImportShitje= "",
                 formatPerImportDalje= "",
