@@ -192,8 +192,12 @@ namespace PlatinumWeb
         }
         protected void ButtonOk_Click2(object sender, EventArgs e)
         {
-            List<object> rreshtat;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
+            if (new clsNdermarrje(idNdermarrje).Fiskalizimi) {
+                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk mundeni te fshini arken diore!", pnlMesazhi);
+                return;
+            }
+            List<object> rreshtat;
             if (ASPxPageControl1.ActiveTabIndex == 0)
             {
                 rreshtat = gvGjendjeDitore.GetSelectedFieldValues("IdGjendjeDitore");

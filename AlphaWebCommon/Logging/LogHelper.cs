@@ -71,7 +71,10 @@ namespace AlphaWebCommon.Logging
         public static void DeleteOldLogFiles(string folderPath, int maximumAgeInDays)
         {
             DateTime minimumDate = DateTime.Now.AddDays(-maximumAgeInDays);
+            bool exists = System.IO.Directory.Exists(folderPath);
 
+            if (!exists)
+                System.IO.Directory.CreateDirectory(folderPath);
             foreach (var eligibleFileToDelete in Directory.EnumerateFiles(folderPath))
                 DeleteFileIfOlderThan(eligibleFileToDelete, minimumDate);
 

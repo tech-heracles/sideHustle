@@ -95,18 +95,18 @@ namespace PlatinumWeb
                     popUpAzhornim.Text = mesazhiPerodruesit;
                 }
                 var rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-                var msgSkadimLicence = DbCore.DbAdmin.clsLicenca.KontrolloSkadiminLicences(idPerdoruesi, rm, ci);
-                if (!msgSkadimLicence.Status)
-                {
-                    if (msgSkadimLicence.PershkrimMesazhi == "Problem ne validimin e licences!")
-                        DbCore.clsFunksione.logout(Session, true, "problemLicenca");
-                    else DbCore.clsFunksione.logout(Session, true, "perfundoiLicenca");
-                }
-                if (!msgSkadimLicence.PershkrimMesazhi.Equals(string.Empty))
-                {
-                    popUpDiteTeMbeturaLicenca.ShowOnPageLoad = true;
-                    lblDiteTeMbeturaTeLicenca.Text = msgSkadimLicence.PershkrimMesazhi;
-                }
+                //var msgSkadimLicence = DbCore.DbAdmin.clsLicenca.KontrolloSkadiminLicences(idPerdoruesi, rm, ci);
+                //if (!msgSkadimLicence.Status)
+                //{
+                //    if (msgSkadimLicence.PershkrimMesazhi == "Problem ne validimin e licences!")
+                //        DbCore.clsFunksione.logout(Session, true, "problemLicenca");
+                //    else DbCore.clsFunksione.logout(Session, true, "perfundoiLicenca");
+                //}
+                //if (!msgSkadimLicence.PershkrimMesazhi.Equals(string.Empty))
+                //{
+                //    popUpDiteTeMbeturaLicenca.ShowOnPageLoad = true;
+                //    lblDiteTeMbeturaTeLicenca.Text = msgSkadimLicence.PershkrimMesazhi;
+                //}
                 var obj = DbCore.clsFunksione.ktheUrlHelpi(string.Empty);
 
                 var urlHelp = obj.Item1;
