@@ -1148,8 +1148,8 @@ namespace DbCore.DbKontabiliteti
                     mesazh = colArkiva.RuajArkiven(IdKlientFurnitor, 12, IdPerdoruesi, IdNdermarja, HfArkiva);
 
                 if (!mesazh.Status)
-                    return mesazh;
-                PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://europe-west1-alphaweb.cloudfunctions.net/testPubSub");
+                    return mesazh; 
+                PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
                 ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
 
@@ -1338,7 +1338,7 @@ namespace DbCore.DbKontabiliteti
                     }
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-                    PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://europe-west1-alphaweb.cloudfunctions.net/testPubSub");
+                    PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
                     ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                     scope.Complete();
 

@@ -3769,7 +3769,7 @@ namespace DbCore.DbInventari
 
 
                 //dbInv.commitTransaksion();
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://europe-west1-alphaweb.cloudfunctions.net/testPubSub");
+                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
                 ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
@@ -3795,7 +3795,7 @@ namespace DbCore.DbInventari
                     if (!modifikim.Status)
                         return modifikim;
                 }
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://europe-west1-alphaweb.cloudfunctions.net/testPubSub");
+                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
                 ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
                 return modifikim;

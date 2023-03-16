@@ -29,11 +29,11 @@ namespace DbCore
         private Google.Cloud.PubSub.V1.Subscription createPushSubscription(string filter)
         {
             SubscriberServiceApiClient subscriber = SubscriberServiceApiClient.Create();
+            SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
             TopicName topicName = TopicName.FromProjectTopic(projectId, topicId);
             SubscriptionName subscriptionName = SubscriptionName.FromProjectSubscription(projectId, subscriptionId);
 
             PushConfig pushConfig = new PushConfig { PushEndpoint = pushEndpoint };
-
             Google.Cloud.PubSub.V1.Subscription subscription = null;
             try
             {
@@ -43,9 +43,9 @@ namespace DbCore
                     TopicAsTopicName = topicName,
                     Filter = filter,
                     PushConfig = pushConfig
-                };
-                subscription = subscriber.CreateSubscription(subscriptionRequest);
+                };       
 
+                subscription = subscriber.CreateSubscription(subscriptionRequest);
             }
             catch (RpcException e) when (e.Status.StatusCode == StatusCode.AlreadyExists)
             {
@@ -83,7 +83,7 @@ namespace DbCore
         }
         public void PublishPubSub(string filter, int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
         {
-            createPushSubscription(filter);
+            //createPushSubscription(filter);
             publishCallWithRetry(maxAttempts, initialBackoff, maxBackoffSeconds, totalTimeoutSeconds, message);
         }
     }
