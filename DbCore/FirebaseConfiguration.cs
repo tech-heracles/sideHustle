@@ -27,17 +27,18 @@ namespace DbCore
             
             if(FirebaseApp.DefaultInstance == null)
             {
+                AppOptions appOptions = new AppOptions();
+                appOptions.ProjectId = "imb-payment";
 #if DEBUG
                 var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
                 string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
-                AppOptions appOptions = new AppOptions();
-                appOptions.ProjectId = "imb-payment";
                 var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
 
 #else
                 GoogleCredential credential = GoogleCredential.GetApplicationDefault();
 #endif
+
                 appOptions.Credential = credential;
                 FirebaseApp.Create(appOptions);
             }
