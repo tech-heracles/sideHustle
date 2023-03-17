@@ -56,30 +56,37 @@ namespace DbCore
         }
         private async Task publishCallWithRetry(int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
         {
-
-            var publisher = await new PublisherClientBuilder
+            try
             {
-                TopicName = TopicName.FromProjectTopic(projectId, topicId),
-                ApiSettings = new PublisherServiceApiSettings
+                var publisher = await new PublisherClientBuilder
                 {
-                    PublishSettings = CallSettings.FromRetry(RetrySettings.FromExponentialBackoff(
-                               maxAttempts: maxAttempts,
-                               initialBackoff: TimeSpan.FromSeconds(initialBackoff),
-                               maxBackoff: TimeSpan.FromSeconds(maxBackoffSeconds),
-                               backoffMultiplier: 2.00,
-                               retryFilter: RetrySettings.FilterForStatusCodes(StatusCode.Unavailable)))
-                       .WithTimeout(TimeSpan.FromSeconds(totalTimeoutSeconds))
-                }
-            }.BuildAsync();
-            var pubsubMessage = new PubsubMessage
-            {
-                Data = ByteString.CopyFromUtf8(JsonConvert.SerializeObject(message)),
-                Attributes =
+                    TopicName = TopicName.FromProjectTopic(projectId, topicId),
+                    ApiSettings = new PublisherServiceApiSettings
+                    {
+                        PublishSettings = CallSettings.FromRetry(RetrySettings.FromExponentialBackoff(
+                              maxAttempts: maxAttempts,
+                              initialBackoff: TimeSpan.FromSeconds(initialBackoff),
+                              maxBackoff: TimeSpan.FromSeconds(maxBackoffSeconds),
+                              backoffMultiplier: 2.00,
+                              retryFilter: RetrySettings.FilterForStatusCodes(StatusCode.Unavailable)))
+                      .WithTimeout(TimeSpan.FromSeconds(totalTimeoutSeconds))
+                    }
+                }.BuildAsync();
+                var pubsubMessage = new PubsubMessage
+                {
+                    Data = ByteString.CopyFromUtf8(JsonConvert.SerializeObject(message)),
+                    Attributes =
             {
                 { "organization", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar() },
             }
-            };
-            publisher.PublishAsync(pubsubMessage);
+                };
+
+                await publisher.PublishAsync(pubsubMessage);
+            }
+            catch (Exception ex){
+                Console.Write("e");
+            }
+           
         }
         public void PublishPubSub(string filter, int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
         {
