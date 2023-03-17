@@ -1148,8 +1148,9 @@ namespace DbCore.DbKontabiliteti
                     mesazh = colArkiva.RuajArkiven(IdKlientFurnitor, 12, IdPerdoruesi, IdNdermarja, HfArkiva);
 
                 if (!mesazh.Status)
-                    return mesazh;
-
+                    return mesazh; 
+                PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
+                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
 
                 if (kaNdryshimNumri)
@@ -1158,7 +1159,23 @@ namespace DbCore.DbKontabiliteti
                 return mesazh;
             }
         }
-
+        private object krijoObjektPerPubSub()
+        {
+            return new
+            {
+                clientAddress = this.OColAdresat.Count == 0 ? "" : this.OColAdresat[0].Adresa,
+                clientCode = this.KodKlientFurnitor,
+                clientEmail = this.EmailKF,
+                clientIdType = this.TipiId,
+                clientName = this.EmertimiKF,
+                clientNipt = this.NiptiKF,
+                clientPhone = this.TelKF,
+                clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
+                clientCountry = this.ShtetiKF,
+                currency = new clsMonedha(this.idMonedha).KodiMonedha,
+                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()
+            };
+        }
         /// <summary>
         /// Modifikon objektin klient/furnitor ne tabelen perkatese ne databaze.Therret funksionin
         /// </summary>
@@ -1321,8 +1338,10 @@ namespace DbCore.DbKontabiliteti
                     }
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-
+                    PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
+                    ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                     scope.Complete();
+
 
                     return mesazh;
                 }

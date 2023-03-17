@@ -27,12 +27,17 @@ namespace DbCore
             
             if(FirebaseApp.DefaultInstance == null)
             {
+#if DEBUG
                 var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
                 string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
                 AppOptions appOptions = new AppOptions();
                 appOptions.ProjectId = "imb-payment";
                 var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+
+#else
+                GoogleCredential credential = GoogleCredential.GetApplicationDefault();
+#endif
                 appOptions.Credential = credential;
                 FirebaseApp.Create(appOptions);
             }
@@ -40,9 +45,7 @@ namespace DbCore
         }
         public async Task<bool> checkIfUserIsVerified(string email)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
+
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("email", email);
@@ -59,9 +62,6 @@ namespace DbCore
         }
         public async Task<Dictionary<string,object>> getUserPassword(string idToken)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirebaseToken firebaseToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
             string uid = firebaseToken.Uid;
@@ -75,15 +75,9 @@ namespace DbCore
             
             Task<string> jwt = fa.CreateCustomTokenAsync(uid);
             return documentDictionary;
-            //QueryBuilder qb = QueryBuilder.New("");
-            //client = new FirebaseClient(config);
-            //var response = client.Get(@userDetailsCollection);
-            //string todo = response.Body.ToString();
         }
         public async Task<Dictionary<string,object>> getUserDetailsWithUID(string uid)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("uid", uid);
@@ -97,24 +91,18 @@ namespace DbCore
         }
         public async Task<string> createNewOrganization(object organizationDetails)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             DocumentReference writeResult = await firestoreDb.Collection(organizationCollection).AddAsync(organizationDetails);
             return writeResult.Id;
         }
         public Task<WriteResult> createNewUser(object userDetails,string uid)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");           
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
         public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid)
         {
-            var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.ContainsKey("alphaOrganization") == true)
             {
@@ -152,8 +140,6 @@ namespace DbCore
         }
         public async Task<bool> checkIfUserExists(string uid)
         {
-            string imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", imbPayment);
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.Count == 0) return false;
             else return true;

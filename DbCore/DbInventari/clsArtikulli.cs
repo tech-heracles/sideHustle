@@ -16,6 +16,7 @@ using DbCore.IMBUtils;
 using DbCore.DbShare;
 using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DevExpress.CodeParser;
 
 namespace DbCore.DbInventari
 {
@@ -2026,7 +2027,7 @@ namespace DbCore.DbInventari
 
             return sasiteArtikullit;
         }
-        private static object[] merrSasiPerArtPerDateSkadenceOseSeriDetajime(int lloji, int idDetajim1, int idMag, DateTime data, clsArtikulli artikulli, clsDetajimArtikulli det, string shtimModifikim, bool dokShitje, int idDok, List<Dictionary<string, string>> detSasiteList, int idKategoriDetajimi, clsDatabaseRegjistrim dbRegj,string detajime)
+        private static object[] merrSasiPerArtPerDateSkadenceOseSeriDetajime(int lloji, int idDetajim1, int idMag, DateTime data, clsArtikulli artikulli, clsDetajimArtikulli det, string shtimModifikim, bool dokShitje, int idDok, List<Dictionary<string, string>> detSasiteList, int idKategoriDetajimi, clsDatabaseRegjistrim dbRegj, string detajime)
         {
             //double sasitot = 0;
             DateTime dtSeria = new DateTime();
@@ -2034,10 +2035,10 @@ namespace DbCore.DbInventari
 
 
             var sasi = clsTrupiMagazina.merrSasiSipasDetajimeve(artikulli, idMag, data, det.IdDetajimArtikulli, lloji, detajime); //sipas magazines
-                                                                                                                                //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
+                                                                                                                                  //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
 
             object[] sasiteArtikullit = new object[sasi.Rows.Count];
-            for(var i = 0;i < sasi.Rows.Count;i++)
+            for (var i = 0; i < sasi.Rows.Count; i++)
             {
                 sasiteArtikullit[i] = new
                 {
@@ -2046,7 +2047,7 @@ namespace DbCore.DbInventari
                     DtKrijimi = sasi.Rows[i].ItemArray[1].ToString()
                 };
             }
-            
+
 
             return sasiteArtikullit;
         }
@@ -2058,7 +2059,7 @@ namespace DbCore.DbInventari
 
 
             var sasi = clsTrupiMagazina.merrSasiSipasDetajimeve2(artikulli, idMag, data, det.IdDetajimArtikulli, lloji, detajime); //sipas magazines
-                                                                                                                                 //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
+                                                                                                                                   //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
 
             object[] sasiteArtikullit = new object[sasi.Rows.Count];
             for (var i = 0; i < sasi.Rows.Count; i++)
@@ -2198,7 +2199,7 @@ namespace DbCore.DbInventari
 
 
                                         }
-                                        
+
 
                                     }
                                     sasi = 0;
@@ -2415,7 +2416,7 @@ namespace DbCore.DbInventari
                 }
                 return detajimDheSasi;
             }
-            
+
         }
 
         /// <summary>
@@ -3768,10 +3769,9 @@ namespace DbCore.DbInventari
 
 
                 //dbInv.commitTransaksion();
-
+                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
-
-
             }
             catch (Exception ce)
             {
@@ -3795,6 +3795,8 @@ namespace DbCore.DbInventari
                     if (!modifikim.Status)
                         return modifikim;
                 }
+                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
                 return modifikim;
             }
@@ -3804,6 +3806,47 @@ namespace DbCore.DbInventari
         {
             clsMesazh modifikim = modifikoArtikull(this.idArtikulli, this.kodArtikulli, this.pershkrimArtikulli, this.pershkrimiAngArtikulli, this.kodiDoganorArtikulli, this.vendodhjeArtikulli, this.kodifikimi1Artikulli, this.kodifikimi2Artikulli, this.origjineArtikulli, this.njesi1Artikulli, this.njesi2Artikulli, this.koeficientArtikulli, this.idFurnitoriKryesor, this.peshaBrutoArtikulli, this.peshaNetoArtikulli, this.detajimArtikulli, this.klasa, this.idSkemaKontabilitetiArtikulli, this.idLlogariInventari, this.idLlogariBlerje, this.idLlogariShitje, this.idLlogariTeTrete, this.idLlogariShpenzime, this.idLlogariAmortizimi, this.IdLlogariPakesim, this.idLlogRez, this.idLlogPakRez, this.minimumArtikulli, this.maximumArtikulli, this.metodeKostojeArtikulli, this.llogaritjaKMSHArtikulli, this.zevendesimAutomatikArtikulli, this.idPerdoruesi, this.aktiv, this.colArtikujPerberes, template.IdKoka, template.Kodi, template.Pershkrimi, this.OColFurnitoreArtikujsh, this.OColArtikujtZevendesues, this.OColVleraFushaShtese, this.OColBuxhetet, this.OColDetajime, this.IdStatusDok, this.LlojiArt, cmime, this.SasiNjesi, this.Scrap, this.ProdhimMePorosi, this.IdKategoriDetajimi, this.IdKategoriDetajimi2, this.OColDetajime2, this.KontrollGjendjeDetajim2, this.IdObjektivaKosto, this.IdllojGarancie, this.Garancia, this.IdMagazina, this.IRezervueshem, this.PerTransferim, this.loan, this.Dhurate, this.AplikimDhurate, this.Pike, this.Vlere, this.kodVFOne, this.meSerial, this.iShitshem, this.mbetjeShitshme, this.colNorma, dbInv, this.oColKodbare, idArtRaportuesi, this.perPeshore, this.pershkrimFurnitori, this.SiperfaqjaM2, this.NrKontrate, this.NrPasurie, this.ZonaKadastrale, this.Shasia, this.Marka, this.Modeli, this.VitProdhimi, this.TeDhenaTeknika, this.MeBarkodLogjik, this.SkemaBarkodit, this.kodifikimi3Artikulli, aparatBazaar, kodOferte, this.artikullIVjeter, this.idFormatSeriali, this.ColArtikujVfone, this.merezerverivleresimi, this.colNormaRezerva, this.nrKaraktereTAC, this.llogaritKomision, this.idLlogariKomision, this.stokuMaxVfOne, this.kodiiBarit, this.iRimbursueshem);
             return modifikim;
+        }
+        private object krijoObjektPerPubSub()
+        {
+            List<int> idNjesish = new List<int>();
+            idNjesish.AddIfNotExists(this.njesi1Artikulli);
+            idNjesish.AddIfNotExists(this.njesi2Artikulli);
+            List<object> njesite = new List<object>();
+            colNjesiteArtikulli njesiArtikulli = new colNjesiteArtikulli(idNjesish);
+
+
+            List<object> cmimeArt = new List<object>();
+            colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
+            decimal cmimiBaze = 0;
+            decimal cmimiBazeMeTvsh = 0;
+            cmimeArtikujsh.mbushCmimArtikulliShitjeDheBlerjeSipasArtikullitMeKostoMeAutorizime(this.idArtikulli, IdNdermarje, IdPerdoruesi);
+            clsTaksa taksa = new clsTaksa(this.IdTvsh);
+            for (int i = 0; i < cmimeArtikujsh.Count; i++)
+            {
+                bool nivelCmimi = new clsNivelCmimi(cmimeArtikujsh[i].IdNivelCmimi).NivelCmimiBaze;
+                cmimiBaze = nivelCmimi == true ? cmimeArtikujsh[i].Cmimi : cmimiBaze;
+                cmimiBazeMeTvsh = nivelCmimi == true ? cmimeArtikujsh[i].CmimiTvsh : cmimiBazeMeTvsh;
+                cmimeArt.Add(new { price1 = cmimeArtikujsh[i].Cmimi, price1WithVat = cmimeArtikujsh[i].CmimiTvsh, startDate = cmimeArtikujsh[i].DateFillimi, endDate = cmimeArtikujsh[i].DateMbarimi });
+            }
+            for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
+            object objectForPubSub = new
+            {
+                code = this.kodArtikulli,
+                barcode = this.KodiIBarit,
+                name = this.pershkrimArtikulli,
+                units = njesite,
+                active = this.aktiv,
+                price = cmimiBaze,
+                priceWithVat = cmimiBazeMeTvsh,
+                vatPercentage = taksa.NormaPerqindje,
+                noVat = this.IdTvsh == 0 ? true : false,
+                exemptReason = taksa.TipiIPerjashtimit,
+                prices= cmimeArt,
+                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()
+            };
+            return objectForPubSub;
+
         }
         /// <summary>
         /// Modifikon objektin artikull ne tabelen perkatese ne databaze.Therret funksionin
