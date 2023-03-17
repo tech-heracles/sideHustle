@@ -3818,11 +3818,18 @@ namespace DbCore.DbInventari
 
             List<object> cmimeArt = new List<object>();
             colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
+            decimal cmimiBaze = 0;
+            decimal cmimiBazeMeTvsh = 0;
             cmimeArtikujsh.mbushCmimArtikulliShitjeDheBlerjeSipasArtikullitMeKostoMeAutorizime(this.idArtikulli, IdNdermarje, IdPerdoruesi);
-            for (int i = 0; i < cmimeArtikujsh.Count; i++) cmimeArt.Add(new { price1 = cmimeArtikujsh[i].Cmimi, price1WithVat = cmimeArtikujsh[i].CmimiTvsh, price2 = cmimeArtikujsh[i].Cmimi, price2WithVat = cmimeArtikujsh[i].Cmimi2Tvsh, startDate = cmimeArtikujsh[i].DateFillimi, endDate = cmimeArtikujsh[i].DateMbarimi });
-            for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
-
             clsTaksa taksa = new clsTaksa(this.IdTvsh);
+            for (int i = 0; i < cmimeArtikujsh.Count; i++)
+            {
+                bool nivelCmimi = new clsNivelCmimi(cmimeArtikujsh[i].IdNivelCmimi).NivelCmimiBaze;
+                cmimiBaze = nivelCmimi == true ? cmimeArtikujsh[i].Cmimi : cmimiBaze;
+                cmimiBazeMeTvsh = nivelCmimi == true ? cmimeArtikujsh[i].CmimiTvsh : cmimiBazeMeTvsh;
+                cmimeArt.Add(new { price1 = cmimeArtikujsh[i].Cmimi, price1WithVat = cmimeArtikujsh[i].CmimiTvsh, startDate = cmimeArtikujsh[i].DateFillimi, endDate = cmimeArtikujsh[i].DateMbarimi });
+            }
+            for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
             object objectForPubSub = new
             {
                 code = this.kodArtikulli,
@@ -3830,10 +3837,12 @@ namespace DbCore.DbInventari
                 name = this.pershkrimArtikulli,
                 units = njesite,
                 active = this.aktiv,
-                price = cmimeArt,
+                price = cmimiBaze,
+                priceWithVat = cmimiBazeMeTvsh,
                 vatPercentage = taksa.NormaPerqindje,
-                noVat = this.IdTvsh == null ? true : false,
+                noVat = this.IdTvsh == 0 ? true : false,
                 exemptReason = taksa.TipiIPerjashtimit,
+                prices= cmimeArt,
                 organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()
             };
             return objectForPubSub;
