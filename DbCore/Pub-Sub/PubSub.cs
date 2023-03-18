@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
 using Google.Api.Gax.Grpc;
 using Google.Cloud.PubSub.V1;
 using Google.Protobuf;
@@ -84,7 +85,7 @@ namespace DbCore
                 await publisher.PublishAsync(pubsubMessage);
             }
             catch (Exception ex){
-                Console.Write("e");
+                ImbLogger.Error(ex);
             }
            
         }

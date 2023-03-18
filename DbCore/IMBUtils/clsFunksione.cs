@@ -13890,8 +13890,8 @@ namespace DbCore
             string username = email.Split('@')[0];
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization));
             if (!exists) {
+                string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization));
                 await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
                 clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
             }

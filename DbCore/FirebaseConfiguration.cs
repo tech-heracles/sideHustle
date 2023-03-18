@@ -29,15 +29,11 @@ namespace DbCore
             {
                 AppOptions appOptions = new AppOptions();
                 appOptions.ProjectId = "imb-payment";
-#if DEBUG
                 var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
                 string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
                 var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
 
-#else
-                GoogleCredential credential = GoogleCredential.GetApplicationDefault();
-#endif
 
                 appOptions.Credential = credential;
                 FirebaseApp.Create(appOptions);
@@ -104,15 +100,17 @@ namespace DbCore
         }
         public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid)
         {
+            string loggedInOrg = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.ContainsKey("alphaOrganization") == true)
             {
-                if (!(uDetails["alphaOrganization"].ToString() == clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()))
+                if (!(uDetails["alphaOrganization"].ToString() == loggedInOrg))
                 {
                     try
                     {
                         FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                         WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
+                        WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg));
                         return true;
                     }
                     catch (Exception ex)
@@ -129,6 +127,7 @@ namespace DbCore
                 {
                     FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
+                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(userDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg));
                     return true;
                 }
                 catch (Exception ex)
@@ -220,6 +219,16 @@ namespace DbCore
                 { "alphaOrganization", alphaOrganization },
                 { "passwordHash", hashPassword },
                 { "username",  username},
+            };
+            return update;
+
+        }
+        public Dictionary<string, object> createOrganizationObjectForUpdate(string alphaOrganization)
+
+        {
+            Dictionary<string, object> update = new Dictionary<string, object>
+            {
+                { "alphaOrganization", alphaOrganization }
             };
             return update;
 
