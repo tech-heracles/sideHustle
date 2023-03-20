@@ -98,25 +98,25 @@ namespace DbCore
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
-        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid)
+        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid, string ndermarrja)
         {
             string loggedInOrg = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.ContainsKey("alphaOrganization") == true)
             {
-                if (!(uDetails["alphaOrganization"].ToString() == loggedInOrg))
+                if (uDetails["alphaOrganization"].ToString() == loggedInOrg)
                 {
                     try
                     {
                         FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-                        WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                        WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg));
+                        WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizatioObjectForUpdateOnlyNdermarrje(ndermarrja));
                         return true;
                     }
                     catch (Exception ex)
                     {
                         return false;
                     }
+                    return false;
 
                 }
                 else return false;
@@ -127,7 +127,7 @@ namespace DbCore
                 {
                     FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(userDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg));
+                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(userDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
                     return true;
                 }
                 catch (Exception ex)
@@ -158,7 +158,7 @@ namespace DbCore
             };
             
         }
-        public object createOrganizationDetailsObject(string alphaOrganization)
+        public object createOrganizationDetailsObject(string alphaOrganization, string ndermarrja)
         {
             return new
             {
@@ -206,7 +206,8 @@ namespace DbCore
                 formatPerImportFurnitor= "",
                 formatPerImportBlerje= "",
                 cashRegisterCode= "",
-                alphaOrganization = alphaOrganization
+                alphaOrganization = alphaOrganization,
+                ndermarrja = ndermarrja
             };
 
 
@@ -223,12 +224,23 @@ namespace DbCore
             return update;
 
         }
-        public Dictionary<string, object> createOrganizationObjectForUpdate(string alphaOrganization)
+        public Dictionary<string, object> createOrganizationObjectForUpdate(string alphaOrganization,string ndermarrja)
 
         {
             Dictionary<string, object> update = new Dictionary<string, object>
             {
-                { "alphaOrganization", alphaOrganization }
+                { "alphaOrganization", alphaOrganization },
+                {"ndermarrja", ndermarrja}
+            };
+            return update;
+
+        }
+        public Dictionary<string, object> createOrganizatioObjectForUpdateOnlyNdermarrje(string ndermarrja)
+
+        {
+            Dictionary<string, object> update = new Dictionary<string, object>
+            {
+                {"ndermarrja", ndermarrja}
             };
             return update;
 

@@ -13883,21 +13883,22 @@ namespace DbCore
             }
             return stringBuilder.ToString();
         }
-        public async static void createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
+        public async static Task createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
         {
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
             bool exists = await firebaseConfiguration.checkIfUserExists(uid);
             string username = email.Split('@')[0];
+            string kodNdermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi;
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             if (!exists) {
-                string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization));
+                string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja));
                 await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
                 clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
             }
             else
             {
-                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid);
+                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
                 if (status)
                     clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
 

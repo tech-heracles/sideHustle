@@ -89,9 +89,9 @@ namespace RestApi.WebAPI.Models
         {
             return clsFunksione.logoAmbient(urlKomponente, id.ToString(), idNdermarrje, idPerdoruesi, logu, ci);
         }
-        internal static void createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session)
+        internal async static void createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session)
         {
-            clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session);
+            await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session);
         }
         public static bool ruajNeSessionURLART(HttpSessionState Session, string url)
         {

@@ -1173,7 +1173,8 @@ namespace DbCore.DbKontabiliteti
                 clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
                 clientCountry = this.ShtetiKF,
                 currency = new clsMonedha(this.idMonedha).KodiMonedha,
-                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()
+                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
+                ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
             };
         }
         /// <summary>

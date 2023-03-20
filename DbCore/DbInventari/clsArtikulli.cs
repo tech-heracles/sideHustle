@@ -3843,7 +3843,8 @@ namespace DbCore.DbInventari
                 noVat = this.IdTvsh == 0 ? true : false,
                 exemptReason = taksa.TipiIPerjashtimit,
                 prices= cmimeArt,
-                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()
+                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
+                ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi
             };
             return objectForPubSub;
 
