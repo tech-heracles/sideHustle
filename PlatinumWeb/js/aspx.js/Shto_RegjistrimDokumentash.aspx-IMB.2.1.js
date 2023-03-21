@@ -8346,7 +8346,7 @@ function pastroFushatKokes() {//po
         txtNumer.SetText(getUrlParameter("nrDok"));
         txtEIC.SetText(getUrlParameter("eic"));
         data_DateEdit.SetDate(new Date(getUrlParameter("dtFature")));
-        txtPershkrimi.SetText("Fature " + getUrlParameter("nrDok") + " Date " + getUrlParameter("dtFature"))
+        txtPershkrimi.SetText("Fature " + getUrlParameter("nrDok") + " Date " + getUrlParameter("dtFature") + " Totali " + getUrlParameter("totali"))
         if (getUrlParameter("afatPagese") != "-")
             dateMaturimi_DateEdit.SetDate(new Date(getUrlParameter("afatPagese")));
     }

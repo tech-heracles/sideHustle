@@ -196,7 +196,7 @@
             var nrDok = $(element).closest("tr").find("td")[2].innerHTML;
             var dtFature = $(element).closest("tr").find("td")[3].innerHTML;
             var afatPagese = $(element).closest("tr").find("td")[4].innerHTML;
-            var totali = $(element).closest("tr").find("td")[5].innerHTML;
+            var totali = $(element).closest("tr").find("td")[6].innerHTML;
             location.href = (`/Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim&gjenerim=true&eic=${eic}&nrDok=${nrDok}&dtFature=${dtFature}&afatPagese=${afatPagese}&totali=${totali}`);
         }
       
