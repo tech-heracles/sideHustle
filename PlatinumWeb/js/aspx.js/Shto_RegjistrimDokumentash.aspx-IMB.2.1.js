@@ -8179,7 +8179,21 @@ function vendosTotaleMonedheFature() {//po
 function vendosNrAutomatik(colAtrTrupi, colKontrollet) {
     myNrAuto.vendosNrAutomatik(colAtrTrupi, colKontrollet, data_DateEdit.GetDate());
 }
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
 //function vendosNrAutomatikNrSerial(colAtrTrupi, colKontrollet) {
 //    myNrAuto.vendosNrAutomatikNrSerial(colAtrTrupi, colKontrollet, data_DateEdit.GetDate());
 //}
@@ -8328,11 +8342,19 @@ function pastroFushatKokes() {//po
     cmbTipiIVetefaturimit.SetValue(null);
     UcDocumentEinvoice.SetEnabled(false);
     upload.SetEnabled(false);
-
+    if (getUrlParameter("gjenerim") == "true") {
+        txtNumer.SetText(getUrlParameter("nrDok"));
+        txtEIC.SetText(getUrlParameter("eic"));
+        data_DateEdit.SetDate(new Date(getUrlParameter("dtFature")));
+        txtPershkrimi.SetText("Fature " + getUrlParameter("nrDok") + " Date " + getUrlParameter("dtFature"))
+        if (getUrlParameter("afatPagese") != "-")
+            dateMaturimi_DateEdit.SetDate(new Date(getUrlParameter("afatPagese")));
+    }
     // ky si funksion therritet sa here del me sukses fatura,
     //mund te behet qe pasi te ruhet fatura te shikohet me hfState.get("blob"); dhe nese seshte null te merret base64
     //dhe te konvertohet etj etj sic behet te faturat e blerjes
 }
+
 function DokumentEincoiceUpload(s, e) {
     if (s.GetChecked() == false) {
         UcDocumentEinvoice.SetEnabled(false);
@@ -8405,16 +8427,19 @@ function vendosDateDefault(shtimMod) {
     }
 }
 
-function vendosDateDefaultNgaPeriudha(shtimMod, dataDefault, dataSot){
-    data_DateEdit.SetDate(dataDefault);
+function vendosDateDefaultNgaPeriudha(shtimMod, dataDefault, dataSot) {
+    if (getUrlParameter("gjenerim") != "true") {
+        data_DateEdit.SetDate(dataDefault);
+        if (dateMaturimi_DateEdit.GetVisible())
+            dateMaturimi_DateEdit.SetDate(dataSot);
+        else
+            dateMaturimi_DateEdit.SetDate(data_DateEdit.GetDate());
+    }
     cmbMuajRaportimi.SetValue(dataDefault.getMonth() + 1);
     cmbVitRaportimi.SetText(dataDefault.getFullYear());
     dteAfatiKohor.SetDate(dataDefault);
     dateRegjistrimi_DateEdit.SetDate(dataSot);
-    if (dateMaturimi_DateEdit.GetVisible())
-        dateMaturimi_DateEdit.SetDate(dataSot);
-    else
-        dateMaturimi_DateEdit.SetDate(data_DateEdit.GetDate());
+    
 
     if (shtimMod == "klonim" && pageState.kushte["VF_VM"])
         return;

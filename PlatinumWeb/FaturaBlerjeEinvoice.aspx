@@ -124,6 +124,7 @@
             return span;
         }
 
+        
         function StatusLinkFormatter() {
          
             var dropdown = `<div class='dropdown'  id='Statusi' > 
@@ -136,6 +137,14 @@
                
                     </div `;
             return dropdown ;
+        }
+        function gjeneroButton() {
+         
+            var button = `<div class='gjenero'  id='gjenero' > 
+                        <button onClick="gjeneroFatureBlerje(this)">Gjenero</button>
+               
+                    </div `;
+            return button ;
         }
 
         function leave(event) {
@@ -170,7 +179,7 @@
                 default:
                     break;
             }
-            var eic = $(element).closest("tr").find("td")[9].innerHTML;
+            var eic = $(element).closest("tr").find("td")[10].innerHTML;
             var vleraMsg = myMesazh.ShtoPyetjeStatusi("Jeni i sigurt qe doni te ndryshoni statusin?", eic, selected)
                  
         }
@@ -178,11 +187,18 @@
 
         //funksioni iFrame  
         function iFrameCell(element) {           
-            var eic = $(element).closest("tr").find("td")[9].innerHTML;
+            var eic = $(element).closest("tr").find("td")[10].innerHTML;
             getEinvoice(eic, true, element);
 
         }
-
+        function gjeneroFatureBlerje(element) {
+            var eic = $(element).closest("tr").find("td")[1].innerHTML;
+            var nrDok = $(element).closest("tr").find("td")[2].innerHTML;
+            var dtFature = $(element).closest("tr").find("td")[3].innerHTML;
+            var afatPagese = $(element).closest("tr").find("td")[4].innerHTML;
+            var totali = $(element).closest("tr").find("td")[5].innerHTML;
+            location.href = (`/Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim&gjenerim=true&eic=${eic}&nrDok=${nrDok}&dtFature=${dtFature}&afatPagese=${afatPagese}&totali=${totali}`);
+        }
       
          function func () {
 
@@ -190,7 +206,7 @@
                  { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', id: "RecDateTime", title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
                  { field: 'DueDateTime', title: 'Afati i pageses', sortable: true, filterControl: 'input' }, { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' },
                  { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },{ field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
-                 { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter },{ field: "x", title: "x", class: "hidden", sortable: false }];
+                 { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter }, { field: "Gjenero Fature Blerje", title: "Gjenero Fature Blerje", sortable: false, formatter: gjeneroButton },{ field: "x", title: "x", class: "hidden", sortable: false }];
 
             var test = hfState.Get("json")
             test = test.replaceAll("@", "");
