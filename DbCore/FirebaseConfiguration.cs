@@ -127,7 +127,7 @@ namespace DbCore
                 {
                     FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(userDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
+                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
                     return true;
                 }
                 catch (Exception ex)
