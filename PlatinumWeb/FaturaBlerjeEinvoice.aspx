@@ -81,15 +81,129 @@
             height: 50%;
             width:50%;
         }
-        .margin-nr div{
+/*        .margin-nr div{
             margin-bottom: 50%;
-        }
+        }*/
         .margin-status div{
             margin-bottom: 30%;
         }
-        .ShfaqPdf div{
-            margin-bottom: 85%
+
+        .gjenero{
+            text-align:center;
         }
+        .gjenero button{
+            color: black;
+            border-radius: 5%;
+            border: none;
+            /* font-size: 20px; */
+            background-color: #0081db;
+            padding: 5px 20px;
+            color: white;
+            transition: .2s ease-in-out;
+            outline: none;
+        }
+        .gjenero button:hover{
+            border: none;
+            background-color:#0096ff;
+        }
+        .gjenero button:hover{
+            border: none;
+            background-color:#0096ff;
+        }
+        .lds-grid {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    animation: lds-grid 3s linear infinite;
+  }
+  .lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+  }
+  .lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+  }
+  @keyframes lds-grid {
+    0%,100% {
+        background-color: #4584ec;
+    }
+    25% {background-color: #38a555;}
+    50% {
+        background-color: #e44d40;
+    }
+    75% {background-color: #f3ba15;}
+}
+  .loader {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.loader-overlay {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.7);
+}
     </style>        
 </head>
 <body>
@@ -102,7 +216,20 @@
 
 
     <div> 
-       
+        <div class="loader-overlay"></div>
+<div class="loader">
+    <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
      <table id="table" width: 70% ></table>
        <%--  <div class="dropdown">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -192,6 +319,8 @@
 
         }
         function gjeneroFatureBlerje(element) {
+            document.querySelector(".loader-overlay").style.display = "block";
+            document.querySelector(".loader").style.display = "block";
             var eic = $(element).closest("tr").find("td")[1].innerHTML;
             var nrDok = $(element).closest("tr").find("td")[2].innerHTML;
             var dtFature = $(element).closest("tr").find("td")[3].innerHTML;
@@ -202,11 +331,11 @@
       
          function func () {
 
-             var columns = [{ field: 'Numri', class: 'margin-nr', title: 'Numri', sortable: true }, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
+             var columns = [{ field: 'Numri', class: 'margin-nr', title: 'Numri', sortable: true, filterControl: 'input'}, { field: 'EIC', title: 'EIC', sortable: true, filterControl: 'input' },
                  { field: 'DocNumber', title: 'Numri i dokumentit', sortable: true, filterControl: 'input' }, { field: 'RecDateTime', id: "RecDateTime", title: 'Dt. Fature ', sortable: true, filterControl: 'input' },
                  { field: 'DueDateTime', title: 'Afati i pageses', sortable: true, filterControl: 'input' }, { field: 'Status', title: 'Statusi', sortable: true, filterControl: 'input' },
-                 { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' },{ field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
-                 { field: 'PDF', title: 'PDF', class: 'ShfaqPdf', sortable: false, formatter: PdfLinkFormatter }, { field: "Gjenero Fature Blerje", title: "Gjenero Fature Blerje", sortable: false, formatter: gjeneroButton },{ field: "x", title: "x", class: "hidden", sortable: false }];
+                 { field: 'Amount', title: 'Totali i fatures', sortable: true, filterControl: 'input' }, { field: 'Ndrysho Status', title: 'Ndrysho Status', class: 'margin-status', sortable: true, formatter: StatusLinkFormatter },
+                 { field: 'PDF', title: 'PDF', class: 'ShfaqPdf margin-nr', sortable: false, formatter: PdfLinkFormatter, filterControl: 'input' }, { field: "Gjenero Fature Blerje", class: "margin-nr", title: "Gjenero Fature Blerje", sortable: false, formatter: gjeneroButton, filterControl: 'input' }, { field: "x", title: "x", class: "hidden", sortable: false }];
 
             var test = hfState.Get("json")
             test = test.replaceAll("@", "");
