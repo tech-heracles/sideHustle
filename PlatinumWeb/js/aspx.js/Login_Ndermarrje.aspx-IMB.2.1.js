@@ -81,7 +81,8 @@ function updateSessionStorage() {
     sessionStorage.setItem("filterNdermarrje", sessionStorage.getItem("filterNdermarrje") == null ? JSON.stringify([]) : sessionStorage.getItem("filterNdermarrje"))
     checkIfSessionStorageExistsAndupdateSessionStorage(hfState.Get("organization"), $("#grid_ListLoginNdermarrje_DXFREditorcol1_I").val(), $("#grid_ListLoginNdermarrje_DXFREditorcol3_I").val());
 }
-function checkIfSessionStorageExistsAndupdateSessionStorage(organization,ndermarrje,viti) {
+function checkIfSessionStorageExistsAndupdateSessionStorage(organization, ndermarrje, viti) {
+    console.log(hfState.Get("organization"))
     if (sessionStorage.getItem("filterNdermarrje") != null) {
         var obj = JSON.parse(sessionStorage.getItem("filterNdermarrje"));
         if (obj.length == 0) {
@@ -90,14 +91,7 @@ function checkIfSessionStorageExistsAndupdateSessionStorage(organization,ndermar
             return;
         }
         for (var i = 0; i < obj.length; i++) {
-            if (obj[i].organization == organization && obj[i].ndermarrje == ndermarrje && obj[i].viti == viti)
-                return true;
-            else if (obj[i].organization == organization && obj[i].ndermarrje == ndermarrje && obj[i].viti == viti) {
-                obj[i].viti = viti;
-                obj[i].organization = organization;
-                sessionStorage.setItem("filterNdermarrje", JSON.stringify(obj));
-            }
-            else if (obj[i].organization == organization && obj[i].ndermarrje != ndermarrje) {
+            if (obj[i].organization == organization) {
                 obj[i].ndermarrje = ndermarrje;
                 obj[i].organization = organization;
                 obj[i].viti = viti;

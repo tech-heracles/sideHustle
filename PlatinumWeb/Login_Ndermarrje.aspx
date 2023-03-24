@@ -168,7 +168,9 @@
 			background-color: #1478B4;
 			text-align: center;
 		}
-    
+        #ASPxTextBoxViti, #ASPxTextBoxNdermarrja{
+            display:none;
+        }
     @media all and (max-width:700px) {
         .content {
             padding-top:20px;

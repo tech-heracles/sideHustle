@@ -23,24 +23,27 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             int idPerdoruesi = IdPerdoruesi;
+            var licenca = new clsLicenca();
+            licenca.mbushLicencen(IdPerdoruesi);
             if (!IsPostBack)
             {
                 
                 if(idPerdoruesi != 0)
                 {
-                    var licenca = new clsLicenca();
-                    licenca.mbushLicencen(IdPerdoruesi);
+                    
                     hfState.Set("idGjuha", IdGjuha);
                     hfState.Set("chatAktiv", licenca.ChatAktiv);
                     hfState.Set("chatLink", licenca.ChatLink);
                     hfState.Set("chatPortHttp", licenca.ChatPortHttp);
                     hfState.Set("chatPortHttps", licenca.ChatPortHttps);
-                    hfState.Set("kontabilist", licenca.IdLlojLicenca == 1 ? true : false);
-                    hfState.Set("organization", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                     konfiguroVleraFillestare(idPerdoruesi);
                     if (grid_ListLoginNdermarrje.VisibleRowCount == 1) //rasti kur kemi nje ndermarrje
                         merrNdermarrjenPerPune(0, idPerdoruesi);
                     AplikoFilterVitiSipasKonfigurimit();
+                    hfState.Set("kontabilist", licenca.IdLlojLicenca == 7 || licenca.IdLlojLicenca == 4 ? true : false);
+                    if (licenca.IdLlojLicenca != 7 && licenca.IdLlojLicenca != 4)
+                        grid_ListLoginNdermarrje.FilterExpression = $"[VITI]={DateTime.Now.Year}";
+
                 }
                 else
                 {
@@ -49,6 +52,9 @@ namespace PlatinumWeb
             }
             else
                 konfiguroVleraFillestare(idPerdoruesi);
+            hfState.Set("organization", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
+
+            
             if (Request.Url.ToString().Contains("confirmEmail"))
             {
                 GlobalCacheManager.DestroySessionCache(Session.SessionID);
@@ -66,10 +72,12 @@ namespace PlatinumWeb
         }
         protected void aplikoFilterKontabilist(object sender, EventArgs e)
         {
+
             //Inicializon call back per te aplikuar filterat
             grid_ListLoginNdermarrje.FilterExpression = ASPxTextBoxViti.Text == "" ? "" : $"[VITI]={ASPxTextBoxViti.Text}";
-            grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $" AND Contains(Kodi, '{ASPxTextBoxNdermarrja.Text}')";
+            grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $" AND Contains([NDERMARJEKODI], '{ASPxTextBoxNdermarrja.Text}')";
             konfiguroVleraFillestare(IdPerdoruesi);
+
         }
         private void konfiguroVleraFillestare(int idPerdoruesi)
         {
