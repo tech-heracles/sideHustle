@@ -62,6 +62,7 @@ namespace PlatinumWeb
                 EmrateTabeve(rm, cultinf);
                 hfState.Set("idGjuha", idgjuha);
                 hfState.Set("idNdermarrje", idNdermarrje);
+
                 konfiguroVleraFillestare(idPerdoruesi, idNdermarrje, rm, cultinf, idgjuha);
                 mbushGridNdermarjeshNgaDB(idPerdoruesi, idNdermarrje);
                 mbushHiddenFieldMePerkthime(cultinf, rm);

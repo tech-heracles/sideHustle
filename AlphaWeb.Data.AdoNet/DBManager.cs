@@ -623,22 +623,32 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             Command.Connection = Connection;
             Command.CommandTimeout = CommandTimeOut;
             PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
+            try {
+               
 
-            var reader = Command.ExecuteReader();
-            int countRows = 0;
-            while (reader.Read())
-            {
-                objektiPerTuMbushur.Mbush(reader);
-                countRows++;
+                var reader = Command.ExecuteReader();
+                int countRows = 0;
+                while (reader.Read())
+                {
+                    objektiPerTuMbushur.Mbush(reader);
+                    countRows++;
+                }
+                if (countRows > 1)
+                {
+                    // TO DO GETSON  throw new Exception($"SP '{idbCommand.CommandText}' e thirrur nga metoda  '{FillObject.Method.Name}' ktheu me teper se nje rresht!");
+                }
+                reader.Close();
+                Command.Parameters.Clear();
+                if (Transaction == null || System.Transactions.Transaction.Current != null)
+                    Connection.Dispose();
             }
-            if (countRows > 1)
+            catch
             {
-                // TO DO GETSON  throw new Exception($"SP '{idbCommand.CommandText}' e thirrur nga metoda  '{FillObject.Method.Name}' ktheu me teper se nje rresht!");
-            }
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
+                Command.Parameters.Clear();
                 Connection.Dispose();
+                Console.WriteLine("Error encountered!");
+            }
+            
 
         }
         public Dictionary<string, object> GetDictionary(string spName)

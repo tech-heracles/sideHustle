@@ -66,6 +66,9 @@
         window.getAuth = getAuth;
         window.signInWithRedirect = signInWithRedirect;
         window.GoogleAuthProvider = await new GoogleAuthProvider();
+        window.GoogleAuthProvider.setCustomParameters({
+            prompt: 'select_account'
+        });
         window.auth = await getAuth();
     </script>
     <style>
@@ -81,7 +84,9 @@
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: searchfield-cancel-button;
         }
-
+        .email-footer p{
+            width:40% !important;
+        }
         /*#backDiv {
             position: absolute;
             top: 0;
@@ -152,7 +157,7 @@
             width: 100%;
             position: absolute;
             height: 100%;
-            backdrop-filter: contrast(0.5);
+            background: #808080ad;
         }
         .popup{
             width: 40%;
@@ -174,7 +179,7 @@
         .email-footer{
             float: right;
             margin-top: 10%;
-            width: 30%;
+            width: 40%;
             display: flex;
             flex-wrap: wrap;
         }
@@ -201,15 +206,13 @@
 }
 .email-footer p{
     transition: .3s;
-    padding: 5px;
+    padding: 5%;
     text-align: center;
     border-radius: 3px;
     background-color: #0072c6;
-    /* width: 0%; */
     cursor: pointer;
     color: #fbfbfb;
-    margin: 2px 10px;
-    width: 30%;
+    margin: 5%;
     box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
     -webkit-box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
     -moz-box-shadow: 2px 1px 5px 1px rgba(0,0,0,0.29);
@@ -225,15 +228,35 @@
     margin: auto;
     height: 100%;
     cursor: pointer;}
+@media all and (max-width:600px) {
+        .email-footer{
+            float: left;
+        }
+    }    
+@media all and (max-width:1500px) {
+        .email-footer{
+            width: 60%;
+        }
+    }    
+@media all and (max-width:1000px) {
+        .email-footer{
+            width: 70%;
+        }
+    }  
+@media all and (max-width:865px) {
+        .email-footer{
+            width: 90%;
+            font-size: 10px;
+        }
+    }  
+
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121798081-2"></script>
 </head>
 
 <body class="">
    
     <form id="form1" class="main" runat="server">  
-       <%-- <div class="popup-container"  id="popup-container" style="display:none">
+        <div class="popup-container"  id="popup-container" style="display:none">
             <div class="popup">
                 <h1>Konfirmo adresen e emailit.</h1>
                 <br>
@@ -241,13 +264,12 @@
                 <br>
                 <p>Si perdorues Administrator i programit Alpha per Organizaten<b><span id="organizata_p"></span></b>, ju lutem te konfirmoni adresen tuaj te emailit ne cilen deshironi te merrni njoftime si dhe te menaxhoni gjithe abonimin tuaj ne programet Alpha.</p>
                 <br>
-                <p>Emaili juaj</p><input type="text" id="email_confirm">
                 <div class="email-footer">
                     <p onclick="MbyllEmailPopup()">Mbyll</p>
                     <p onclick="konfirmoEmail()">Konfirmo</p>
                 </div>
             </div>
-        </div>--%>
+        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>

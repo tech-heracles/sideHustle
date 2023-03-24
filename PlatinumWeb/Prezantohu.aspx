@@ -37,6 +37,9 @@
         window.getAuth = getAuth;
         window.signInWithRedirect = signInWithRedirect;
         window.GoogleAuthProvider = await new GoogleAuthProvider();
+        window.GoogleAuthProvider.setCustomParameters({
+            prompt: 'select_account'
+        });
         window.auth = await getAuth();
     </script>
     <style>

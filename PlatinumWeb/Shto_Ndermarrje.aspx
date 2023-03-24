@@ -175,9 +175,10 @@
                                                             <dx:ASPxButton ID="ButtonOk" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
                                                                 OnClick="ButtonOk_Click2" Text="Ok">
                                                                 <ClientSideEvents Click="function(s, e) {   
-	popFshi.Hide();
-    Utils.shfaqLoadingGif();;
-}" />
+	            
+                                                                    popFshi.Hide();
+                                                                    Utils.shfaqLoadingGif();
+                                                            }" />
                                                             </dx:ASPxButton>
                                                         </td>
                                                         <td>

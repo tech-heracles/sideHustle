@@ -317,13 +317,9 @@ function callWebServiceKtheInfoLart(emerKomponente, id) {
     }).done(SucceededCallbackInfoLart);
 }
 function konfirmoEmail() {
-    $.ajax({
-        url: Utils.getServerApiUrl("Autorizime", "KonfirmoEmail"),
-        data: JSON.stringify({
-            email: $("#email_confirm").val()
-        })
-    });
-    SucceededCallbackEmailConfirm();
+    $("#popup-container").css("display", "none");
+    signInWithGooglePopup();
+
 }
 function SucceededCallbackEmailConfirm() {
     alert("Ju lutem konfirmoni email-in!");
@@ -504,3 +500,11 @@ function SucceededCallbackWebhook(result) {
     GetWebhook = true;
     sessionStorage.setItem("GetWebhook", GetWebhook);
 }
+$(document).ready(async function () {
+    window.auth.onAuthStateChanged(function (user) {
+        if (window.auth.currentUser == null) {
+            $("#popup-container").css("display", "block");
+        }
+    })
+
+});

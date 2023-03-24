@@ -13,6 +13,7 @@ using DbCore.DbAdmin;
 using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Types;
 using DbCore.IMBUtils;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace PlatinumWeb
 {
@@ -24,6 +25,7 @@ namespace PlatinumWeb
             int idPerdoruesi = IdPerdoruesi;
             if (!IsPostBack)
             {
+                
                 if(idPerdoruesi != 0)
                 {
                     var licenca = new clsLicenca();
@@ -33,6 +35,8 @@ namespace PlatinumWeb
                     hfState.Set("chatLink", licenca.ChatLink);
                     hfState.Set("chatPortHttp", licenca.ChatPortHttp);
                     hfState.Set("chatPortHttps", licenca.ChatPortHttps);
+                    hfState.Set("kontabilist", licenca.IdLlojLicenca == 1 ? true : false);
+                    hfState.Set("organization", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                     konfiguroVleraFillestare(idPerdoruesi);
                     if (grid_ListLoginNdermarrje.VisibleRowCount == 1) //rasti kur kemi nje ndermarrje
                         merrNdermarrjenPerPune(0, idPerdoruesi);
@@ -60,7 +64,13 @@ namespace PlatinumWeb
             if (clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.LOGIN_DEFAULT_VIT_AKTUAL) == "PO")
                 grid_ListLoginNdermarrje.FilterExpression = $"[VITI]={DateTime.Now.Year}";
         }
-
+        protected void aplikoFilterKontabilist(object sender, EventArgs e)
+        {
+            //Inicializon call back per te aplikuar filterat
+            grid_ListLoginNdermarrje.FilterExpression = ASPxTextBoxViti.Text == "" ? "" : $"[VITI]={ASPxTextBoxViti.Text}";
+            grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $" AND Contains(Kodi, '{ASPxTextBoxNdermarrja.Text}')";
+            konfiguroVleraFillestare(IdPerdoruesi);
+        }
         private void konfiguroVleraFillestare(int idPerdoruesi)
         {
             if (idPerdoruesi == 0)

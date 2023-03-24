@@ -17,20 +17,6 @@
     <title>Alpha Web</title>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
-            authDomain: "imb-payment.firebaseapp.com",
-            databaseURL: "https://imb-payment.firebaseio.com",
-            projectId: "imb-payment",
-            storageBucket: "imb-payment.appspot.com",
-            messagingSenderId: "269963445243",
-            appId: "1:269963445243:web:6b8347c72e861cd438415e"
-        };
-        window.auth = await getAuth();
-    </script>
     <style type="text/css">
 
         body *{
@@ -223,7 +209,7 @@
                                             <td style="align-content: center">
                                                 <dx:ASPxButton ID="ButtonOk" Width="70px" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
                                                     Text="Ok" AutoPostBack="False">
-                                                    <ClientSideEvents Click="function(s, e) {popNdermarrjePaPeriudha.Hide();}" />
+                                                    <ClientSideEvents Click="function(s, e) {updateSessionStorage(); popNdermarrjePaPeriudha.Hide();}" />
                                                 </dx:ASPxButton>
                                             </td>
                                         </tr>
@@ -317,6 +303,7 @@
                 <dx:ASPxButton ID="ok_ASPxButton" CssClass="center" runat="server" Text="OK" ClientInstanceName="btnOk"
                     OnClick="ok_ASPxButton_Click"  Width="100px" Theme="Default">
                     <ClientSideEvents Click="function(s, e) {
+                        updateSessionStorage();
 	            SetSplitterPaneContentUrl('Footer','FooterPanelInfo.aspx');
             }" />
                 </dx:ASPxButton>
@@ -334,6 +321,9 @@
         
             <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState">
             </dx:ASPxHiddenField>
+        <asp:Button ID="filterButton" runat="server" Text="" OnClick="aplikoFilterKontabilist" />
+        <dx:ASPxTextBox ID="ASPxTextBoxViti" runat="server"></dx:ASPxTextBox>
+        <dx:ASPxTextBox ID="ASPxTextBoxNdermarrja" runat="server"></dx:ASPxTextBox>
 
     </form>
 
@@ -347,6 +337,10 @@
 				document.querySelector('.footer').style.display = 'block';
 			}
         };
+        if (hfState.Get("kontabilist")) {
+            setSessionValue();
+        }
+
     </script>
 </body>
 </html>
