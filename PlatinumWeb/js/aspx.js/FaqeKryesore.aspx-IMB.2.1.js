@@ -500,11 +500,3 @@ function SucceededCallbackWebhook(result) {
     GetWebhook = true;
     sessionStorage.setItem("GetWebhook", GetWebhook);
 }
-$(document).ready(async function () {
-    window.auth.onAuthStateChanged(function (user) {
-        if (window.auth.currentUser == null) {
-            $("#popup-container").css("display", "block");
-        }
-    })
-
-});

@@ -1958,7 +1958,14 @@
                 }
             }
         };
+        $(document).ready(async function () {
+            window.auth.onAuthStateChanged(function (user) {
+                if (window.auth.currentUser == null) {
+                    $("#popup-container").css("display", "block");
+                }
+            })
 
+        });
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
