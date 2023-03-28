@@ -72,11 +72,21 @@ namespace PlatinumWeb
         }
         protected void aplikoFilterKontabilist(object sender, EventArgs e)
         {
+            try
+            {
+                //Inicializon call back per te aplikuar filterat
+                grid_ListLoginNdermarrje.FilterExpression = ASPxTextBoxViti.Text == "" ? "" : $"[VITI]={ASPxTextBoxViti.Text}";
+                if (grid_ListLoginNdermarrje.FilterExpression == "")
+                    grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $"Contains([NDERMARJEKODI], '{ASPxTextBoxNdermarrja.Text}')";
+                else
+                    grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $" AND Contains([NDERMARJEKODI], '{ASPxTextBoxNdermarrja.Text}')";
+                konfiguroVleraFillestare(IdPerdoruesi);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Filterat nuk u aplikuan! Err: " + ex.Message);
+            }
 
-            //Inicializon call back per te aplikuar filterat
-            grid_ListLoginNdermarrje.FilterExpression = ASPxTextBoxViti.Text == "" ? "" : $"[VITI]={ASPxTextBoxViti.Text}";
-            grid_ListLoginNdermarrje.FilterExpression += ASPxTextBoxNdermarrja.Text == "" ? "" : $" AND Contains([NDERMARJEKODI], '{ASPxTextBoxNdermarrja.Text}')";
-            konfiguroVleraFillestare(IdPerdoruesi);
 
         }
         private void konfiguroVleraFillestare(int idPerdoruesi)

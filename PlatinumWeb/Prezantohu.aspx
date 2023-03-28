@@ -2193,7 +2193,7 @@ section#submain header {
                                                         
       
                                                            <iframe id="TOS" clientidmode="Static" scrolling="yes" frameborder="0" runat="server"
-                            width="600" height="500" style="background-color: #EDF3F4"></iframe>
+                            width="600" height="500" style="background-color: #EDF3F4" src="https://terms-of-service.imb.al/"></iframe>
                                                   
                                                    <dx:ASPxButton ID="ButtonOk"  runat="server" Text="Prano" CausesValidation="False" CssClass="button"   
                                             Border-BorderStyle="None"

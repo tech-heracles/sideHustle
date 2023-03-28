@@ -46,7 +46,8 @@
     <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myAbonim-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v76"> 
     </script>
     <script src="/signalr/hubs"></script>
-
+    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -64,6 +65,7 @@
         window.signInWithPopup = signInWithPopup;
         window.signInWithEmail = signInWithEmailAndPassword;
         window.getAuth = getAuth;
+        window.app = app;
         window.signInWithRedirect = signInWithRedirect;
         window.GoogleAuthProvider = await new GoogleAuthProvider();
         window.GoogleAuthProvider.setCustomParameters({
@@ -86,6 +88,18 @@
         }
         .email-footer p{
             width:40% !important;
+        }
+        #notification-box{
+            margin-left:2%;
+            position:absolute;
+        }
+        .material-icons{
+            color:white;
+
+        }
+        .notification-badge {
+            height:50% !important;
+            border-radius: 20% !important;
         }
         /*#backDiv {
             position: absolute;
@@ -254,7 +268,8 @@
 </head>
 
 <body class="">
-   
+                                           <div id="notification-box"></div>
+
     <form id="form1" class="main" runat="server">  
         <div class="popup-container"  id="popup-container" style="display:none">
             <div class="popup">
@@ -277,7 +292,7 @@
             
             <p></p>
         </div>
-        <div class="einvoice-notice" id="04" style="height: 30px;">
+        <div class="einvoice-notice" id="04" style="height: 30px;display:none;">
             <div style="height: 30px; width:20%; position:absolute;">
                 <i class="material-icons x-image" onclick="hideNotice()">close</i>
             </div>
@@ -1914,6 +1929,7 @@
 
     
     <script type="text/javascript">      
+       
         async function signInWithGooglePopup() {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
@@ -1960,9 +1976,18 @@
         };
         $(document).ready(async function () {
             window.auth.onAuthStateChanged(function (user) {
+
                 if (window.auth.currentUser == null) {
                     $("#popup-container").css("display", "block");
                 }
+
+                const client = new ChatClient({
+                    user: window.auth.currentUser.uid,
+                    room: "capybara",
+                    token: window.auth.currentUser.accessToken
+                })
+
+                client.addNotificationBox("notification-box");
             })
 
         });
@@ -1978,6 +2003,8 @@
         };
 
         window.startHub();
+        
+
     </script>
 
 </body>
