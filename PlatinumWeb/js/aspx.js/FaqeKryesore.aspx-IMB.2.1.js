@@ -219,22 +219,22 @@ $(document).ready(function (e) {
     //    }).done(SucceededCallbackVerifyEmail);
     //}
 
-    $(".footer1").parent().css("margin-top", "-30px");
-    $(".footer1").parent().css("position", "absolute");
+    //$(".footer1").parent().css("margin-top", "-30px");
+    //$(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
     });
-    var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
-    if (dateSkadimiCertifikate != "" && dateSkadimiCertifikate != undefined) {
-        var opsionMbyllje = hfState.Get("MenuItemMbyll");
-        var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
-        var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, dateSkadimiCertifikate);
-        myPopup.modal("show");
-        $("#certificate-notice").css("display", "block");
-        document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
+    //var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
+    //if (dateSkadimiCertifikate != "" && dateSkadimiCertifikate != undefined) {
+    //    var opsionMbyllje = hfState.Get("MenuItemMbyll");
+    //    var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
+    //    var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, dateSkadimiCertifikate);
+    //    myPopup.modal("show");
+    //    $("#certificate-notice").css("display", "block");
+    //    document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
 
-        $(".footer1").parent().css("margin-top", "-50px");
-        $(".footer1").parent().css("position", "absolute");
-    }
+    //    $(".footer1").parent().css("margin-top", "-50px");
+    //    $(".footer1").parent().css("position", "absolute");
+    //}
 
     $(document).on('keydown', function (e) {//po
         switch (e.which) {
