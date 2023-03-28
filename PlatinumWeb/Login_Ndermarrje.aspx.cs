@@ -14,6 +14,7 @@ using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Types;
 using DbCore.IMBUtils;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore;
 
 namespace PlatinumWeb
 {
@@ -62,6 +63,7 @@ namespace PlatinumWeb
 
 
             }
+            mySessionObjects.ruajIsLoggedIn(Session, "Yes");
 
         }
 
