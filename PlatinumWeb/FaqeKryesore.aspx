@@ -46,6 +46,9 @@
     <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myAbonim-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v76"> 
     </script>
     <script src="/signalr/hubs"></script>
+<%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
+
     <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
     <link href="FaqeKryesore.css" rel="stylesheet" />
@@ -80,14 +83,13 @@
         }
 
         body {
+            margin:0px !important;
+            padding:0px !important;
             height: 100%; /* force the BODY element to match the height of the HTML element */
         }
         /* Kjo duhet se prishet nga boostrapi */
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: searchfield-cancel-button;
-        }
-        .email-footer p{
-            width:40% !important;
         }
         #notification-box{
             margin-left:2%;
@@ -174,26 +176,29 @@
             background: #808080ad;
         }
         .popup{
-            width: 40%;
+            	font-family: Arial, Helvetica, Verdana;
+
+            width: 456px;
             height: max-content;
             background: #f9fbfd;
             position: absolute;
-            /* text-align: center; */
-            /* top: 25%; */
-            /* left: 25%; */
             padding-bottom: 30px;
-            padding: 2% 5%;
+            padding: 10px 30px;
             left: 0;
             right: 0;
             margin-left: auto;
             margin-right: auto;
             top: 10%;
-            border-radius: 10px;
+            border: 1px solid #F2F4F7;
+            box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+            border-radius: 12px;
+        }
+        .popup h3{
+            font-weight:bold;
+            font-size:18px;
+            margin-top: 5px;
         }
         .email-footer{
-            float: right;
-            margin-top: 10%;
-            width: 40%;
             display: flex;
             flex-wrap: wrap;
         }
@@ -220,19 +225,12 @@
 }
 .email-footer p{
     transition: .3s;
-    padding: 5%;
+    padding: 10px;
     text-align: center;
-    border-radius: 3px;
-    background-color: #0072c6;
     cursor: pointer;
-    color: #fbfbfb;
-    margin: 5%;
-    box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
+    /*box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
     -webkit-box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
-    -moz-box-shadow: 2px 1px 5px 1px rgba(0,0,0,0.29);
-}
-.email-footer p:hover{
-        background-color: #048ae7;
+    -moz-box-shadow: 2px 1px 5px 1px rgba(0,0,0,0.29);*/
 }
 .einvoice-notice p{
     width: max-content;
@@ -241,7 +239,20 @@
     left: 0;
     margin: auto;
     height: 100%;
-    cursor: pointer;}
+    cursor: pointer;
+    font-weight: bold;
+}
+.email-footer{
+    font-weight:bold;
+    margin-left:-3%;
+}
+.email-footer p{
+    opacity:.9;
+    transition: .3s ease-in-out;
+}
+.email-footer p:hover{
+    opacity:1;
+}
 @media all and (max-width:600px) {
         .email-footer{
             float: left;
@@ -263,6 +274,15 @@
             font-size: 10px;
         }
     }  
+.popup img{
+    width: 65px;
+    height: 51px;
+    margin-left:-5%;
+}
+.gmail-image{
+    width: 90px !important;
+    margin: 0 0 10px !important;
+}
 
     </style>
 </head>
@@ -273,15 +293,14 @@
     <form id="form1" class="main" runat="server">  
         <div class="popup-container"  id="popup-container" style="display:none">
             <div class="popup">
-                <h1>Konfirmo adresen e emailit.</h1>
-                <br>
-                <p>Pershendetje, </p>
-                <br>
-                <p>Si perdorues Administrator i programit Alpha per Organizaten<b><span id="organizata_p"></span></b>, ju lutem te konfirmoni adresen tuaj te emailit ne cilen deshironi te merrni njoftime si dhe te menaxhoni gjithe abonimin tuaj ne programet Alpha.</p>
-                <br>
+                <img src="images/FaqjaPare/sparkle.png"/>
+                <h3>Konfirmo adresen tende Gmail!</h3>
+                <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
+                    Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail 
+                </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
                 <div class="email-footer">
-                    <p onclick="MbyllEmailPopup()">Mbyll</p>
-                    <p onclick="konfirmoEmail()">Konfirmo</p>
+                    <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
+                    <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
                 </div>
             </div>
         </div>
