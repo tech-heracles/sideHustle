@@ -24,7 +24,7 @@
         import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
-            authDomain: "imb-payment.firebaseapp.com",
+            authDomain: "alpha-secure-login.alpha.al",
             databaseURL: "https://imb-payment.firebaseio.com",
             projectId: "imb-payment",
             storageBucket: "imb-payment.appspot.com",
@@ -1676,6 +1676,7 @@ section#submain header {
     cursor:pointer;
 }
 
+
     </style>
     
     <script>
@@ -2111,7 +2112,7 @@ section#submain header {
                                             <a href="https://imb.al/alpha-kushtet-e-sherbimit" target="_blank">Kushtet e sh&euml;rbimit</a>
                                         </div>
                                         <div class="copyright">
-                                            <p>&#169; 2022 IMB</p>
+                                            <p id="copyright">&#169</p>
                                         </div>
                                     </section>
                                     
@@ -2397,6 +2398,7 @@ section#submain header {
             $(".google-div").on("click", signInWithGooglePopup);
         }
         window.onload = async function (e) {
+            document.getElementById("copyright").innerHTML +=  + new Date().getFullYear()+" IMB"
             var sessionStorageValue = sessionStorage.getItem("GoogleLogInAttemps") == null ? 0 : parseInt(sessionStorage.getItem("GoogleLogInAttemps"));
             await getAuth();
             var url = new URL(window.location.href);

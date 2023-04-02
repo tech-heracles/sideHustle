@@ -57,7 +57,7 @@
         import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
-            authDomain: "imb-payment.firebaseapp.com",
+            authDomain: "alpha-secure-login.alpha.al",
             databaseURL: "https://imb-payment.firebaseio.com",
             projectId: "imb-payment",
             storageBucket: "imb-payment.appspot.com",
@@ -171,12 +171,15 @@
         }
         .popup-container{
             width: 100%;
+            z-index:999;
             position: absolute;
             height: 100%;
             background: #808080ad;
         }
         .popup{
-            	font-family: Arial, Helvetica, Verdana;
+            
+            z-index:9999;
+            font-family: Arial, Helvetica, Verdana;
 
             width: 456px;
             height: max-content;
@@ -283,7 +286,15 @@
     width: 90px !important;
     margin: 0 0 10px !important;
 }
-
+#top{
+    height:100%;
+}
+.logoHome{
+        height: 100%;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: 80%;
+}
     </style>
 </head>
 
@@ -296,7 +307,7 @@
                 <img src="images/FaqjaPare/sparkle.png"/>
                 <h3>Konfirmo adresen tende Gmail!</h3>
                 <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
-                    Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail 
+                    Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail!
                 </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
                 <div class="email-footer">
                     <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
@@ -2000,13 +2011,13 @@
                     $("#popup-container").css("display", "block");
                 }
 
-                const client = new ChatClient({
-                    user: window.auth.currentUser.uid,
-                    room: "capybara",
-                    token: window.auth.currentUser.accessToken
-                })
+                //const client = new ChatClient({
+                //    user: window.auth.currentUser.uid,
+                //    room: "capybara",
+                //    token: window.auth.currentUser.accessToken
+                //})
 
-                client.addNotificationBox("notification-box");
+                //client.addNotificationBox("notification-box");
             })
 
         });
