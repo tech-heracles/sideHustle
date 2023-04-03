@@ -266,6 +266,7 @@
             width: 60%;
         }
     }    
+
 @media all and (max-width:1000px) {
         .email-footer{
             width: 70%;
@@ -277,7 +278,10 @@
             font-size: 10px;
         }
     }  
+
+
 .popup img{
+
     width: 65px;
     height: 51px;
     margin-left:-5%;
@@ -294,7 +298,28 @@
         background-position-x: center;
         background-position-y: center;
         background-size: 80%;
+        width:12% !important;
 }
+.logoHome a{
+    height:100% !important;
+    width:100% !important;
+}
+@media all and (max-width:1200px) {
+        .logoHome{
+            width: 20% !important;
+        }
+    }  
+@media all and (max-width:1000px) {
+        .logoHome{
+            width: 40% !important;
+        }
+    }  
+@media all and (max-width:900px) {
+        .logoHome{
+            width: 60% !important;
+        }
+    }  
+
     </style>
 </head>
 
@@ -337,7 +362,7 @@
                 <Panes>
                     <%-- Header pane--%>
 
-                    <dx:SplitterPane Size="40px" Name="Top" MinSize="40px" MaxSize="40px" ShowCollapseBackwardButton="True"
+                    <dx:SplitterPane Size="55px" Name="Top" MinSize="55px" MaxSize="55px" ShowCollapseBackwardButton="True"
                         PaneStyle-BackColor="Transparent" Separators-Size="2px">
                         <PaneStyle BackColor="Transparent"></PaneStyle>
                         <ContentCollection>
@@ -359,7 +384,7 @@
 
 
                                     <div id="menu" class="menu">
-                                        <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="40px" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
+                                        <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
                                             <%--                                            <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />
                                             <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />--%>
                                             <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />
@@ -2036,6 +2061,23 @@
         
 
     </script>
-
+    <style>.dxm-item{
+                /*background: transparent !important;*/
+                padding: 8px;
+           }
+            .dxm-item{
+                padding-right:15px !important;
+            }
+            .dxm-separator{
+                display:none !important;
+            }
+            .dxm-content{
+                padding-left: 10px !important;
+                padding-right: 15px !important;
+            }
+            .dxm-ltr , dxm-main{
+                height:100%;
+            }
+    </style>
 </body>
 </html>
