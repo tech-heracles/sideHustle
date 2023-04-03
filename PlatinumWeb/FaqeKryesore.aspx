@@ -2078,6 +2078,9 @@
             .dxm-ltr , dxm-main{
                 height:100%;
             }
+            .dxm-noImages .dxm-item{
+                padding:3px !important;
+            }
     </style>
 </body>
 </html>
