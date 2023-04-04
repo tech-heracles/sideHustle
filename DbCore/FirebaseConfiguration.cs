@@ -86,10 +86,12 @@ namespace DbCore
             }
             return documentDictionary;
         }
-        public async Task<string> createNewOrganization(object organizationDetails)
+        public async Task<string> createNewOrganization(object organizationDetails,string uid)
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             DocumentReference writeResult = await firestoreDb.Collection(organizationCollection).AddAsync(organizationDetails);
+            WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(writeResult.Id).UpdateAsync(updateOrganizationMetaData(writeResult.Id, uid));
+            
             return writeResult.Id;
         }
         public Task<WriteResult> createNewUser(object userDetails,string uid)
@@ -241,6 +243,22 @@ namespace DbCore
             Dictionary<string, object> update = new Dictionary<string, object>
             {
                 {"ndermarrja", ndermarrja}
+            };
+            return update;
+
+        }
+        public Dictionary<string, object> updateOrganizationMetaData(string id,string uid)
+
+        {
+            Dictionary<string, object> update = new Dictionary<string, object>
+            {
+                {"metadata", new { 
+                    id=id,
+                    createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    createdBy = uid,
+                    updatedAt = "",
+                    updatedBy = ""
+                } }
             };
             return update;
 
