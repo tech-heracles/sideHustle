@@ -13888,6 +13888,10 @@ namespace DbCore
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
             bool exists = await firebaseConfiguration.checkIfUserExists(uid);
             string username = email.Split('@')[0];
+            clsPerdorues user = new clsPerdorues();
+            bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true);
+            if (ekziston)
+                return;
             string kodNdermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi;
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();

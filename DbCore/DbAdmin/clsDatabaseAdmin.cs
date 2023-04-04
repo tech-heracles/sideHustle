@@ -2658,6 +2658,21 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
+        internal DataTable ktheUserNgaLoginGmail(string perdoruesUsername)
+        {
+
+
+            var dbManager = MyScopeDbManager;
+            string queryString = "";
+            dbManager.Open();
+            queryString = $"SELECT * FROM T_PERDORUESI where PERDORUESUSERNAME = '{perdoruesUsername}' and PERDORUESAKTIV = 1 and IDSTATUSDOK = 1";
+            CommandType commandType = CommandType.Text;
+            DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
+            return ds.Tables[0];
+
+        }
+
+
         internal DataTable ktheUserNgaLoginMeUsernameOseEmail(string perdoruesUsername, string email)
         {
             var dbManager = MyScopeDbManager;
@@ -2688,6 +2703,15 @@ namespace DbCore.DbAdmin
             if (dt.Rows.Count == 0 || dt.Rows.Count > 1)
                 return null;
             return dt.Rows[0];
+        }
+        internal bool kthePerdoruesSipasUsername(string username, bool email)
+        {
+            DataTable dt = ktheUserNgaLoginGmail(username);
+            if (dt == null)
+                return false;
+            if (dt.Rows.Count >= 1)
+                return true;
+            return false;
         }
         internal DataRow kthePerdoruesSipasUsernameOseEmail(string username,string email)
         {
