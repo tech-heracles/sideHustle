@@ -13893,7 +13893,7 @@ namespace DbCore
             string shenim = new clsPerdorues(idPerdoruesi).Shenime;
             var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
             if(uDetailsFromNotes.Count > 0)
-                if(uDetailsFromNotes["email"].ToString() != shenim)
+                if(uDetailsFromNotes["email"].ToString() != email)
                     return;
             if (ekziston)
                 return;

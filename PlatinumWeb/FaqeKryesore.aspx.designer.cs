@@ -16,7 +16,7 @@ namespace PlatinumWeb
 
         /// <summary>
         /// Head1 control.
-        /// </summary>
+        /// </summary>  
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
@@ -85,15 +85,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.SplitterContentControl SplitterContentControl1;
-
-        /// <summary>
-        /// ASPxHyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink ASPxHyperLink1;
 
         /// <summary>
         /// ASPxLabel1 control.

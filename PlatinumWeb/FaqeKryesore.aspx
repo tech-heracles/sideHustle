@@ -294,17 +294,18 @@
     height:100%;
 }
 .logoHome{
+        cursor:pointer;
         height: 100%;
-        background-position-x: center;
+        /*background-position-x: center;
         background-position-y: center;
-        background-size: 80%;
-        width:12% !important;
+        background-size: contain;
+        width:3% !important;*/
 }
 .logoHome a{
     height:100% !important;
     width:100% !important;
 }
-@media all and (max-width:1200px) {
+/*@media all and (max-width:1200px) {
         .logoHome{
             width: 20% !important;
         }
@@ -318,8 +319,10 @@
         .logoHome{
             width: 60% !important;
         }
-    }  
-
+    }  */
+.logoHome img{
+    height: 55px;
+}
     </style>
 </head>
 
@@ -370,15 +373,18 @@
                         <ContentCollection>
                             <dx:SplitterContentControl EnableViewState="false" CssClass="topSpliter" Height="32px" ID="SplitterContentControl1" runat="server">
 
-                                <div id="top" style="vertical-align: top;">
-                                    <div id="btnHome" class="logoHome">
+                                <div id="top" style="vertical-align: top; height:55px !important;">
+                                    <div id="btnHome" class="logoHome" onclick="dashboard()">
+                                        <img src="images/home2.png" "/>
                                         <%-- ImageUrl="images/home.png"--%>
-                                        <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Height="32px"
+<%--                                        <img src="images/home2.png" />--%>
+                                       <%-- <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Height="32px"
                                             NavigateUrl="javascript:splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true');">
                                             <ClientSideEvents Click="Click_ASPxHyperLink1" />
-                                        </dx:ASPxHyperLink>
+                                        </dx:ASPxHyperLink>--%>
                                     </div>
-                                    <div id="faqja" class="faqja">
+                                    <div id="faqja" class="faqja" style="padding-left:0px !important">
+                                        <span class="dxeBase_MetropolisBlue style15" id="alpha" style="color:White;font-size:Large; padding-right:10px !important;">Alpha</span>
                                         <dx:ASPxLabel runat="server" ClientInstanceName="lblFaqja" CssClass="style15"
                                             Font-Size="Large" ForeColor="#ffffff" ClientIDMode="AutoID" ID="ASPxLabel1">
                                         </dx:ASPxLabel>
@@ -2073,7 +2079,7 @@
         };
 
         window.startHub();
-        
+        function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
 
     </script>
     <style>.dxm-item{
