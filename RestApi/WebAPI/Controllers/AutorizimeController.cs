@@ -135,6 +135,20 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
+        public HttpResponseMessage ktheUserTeKonfirmuar(JObject param)
+        {
+            try
+            {   
+                string shenime = param.Value<string>("shenime");
+                return Request.KthePergjigje(AutorizimeRepository.merrShenimePerdoruesi(shenime));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje(false);
+
+            }
+        }
+        [HttpPost, HttpGet]
         public HttpResponseMessage KtheLicence(JObject param)
         {
             try

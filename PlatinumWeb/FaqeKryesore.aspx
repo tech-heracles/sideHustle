@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaqeKryesore.aspx.cs" Inherits="PlatinumWeb.FaqeKryesore" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FaqeKryesore.aspx.cs" AsyncTimeout="600000" Inherits="PlatinumWeb.FaqeKryesore"  Async="true"%>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -327,19 +327,21 @@
                                            <div id="notification-box"></div>
 
     <form id="form1" class="main" runat="server">  
-        <div class="popup-container"  id="popup-container" style="display:none">
-            <div class="popup">
-                <img src="images/FaqjaPare/sparkle.png"/>
-                <h3>Konfirmo adresen tende Gmail!</h3>
-                <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
-                    Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail!
-                </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
-                <div class="email-footer">
-                    <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
-                    <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
+        <div runat="server" id="googlePopup"> 
+            <div class="popup-container"  id="popup-container" style="display:block">
+                <div class="popup">
+                    <img src="images/FaqjaPare/sparkle.png"/>
+                    <h3>Konfirmo adresen tende Gmail!</h3>
+                    <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
+                        Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail!
+                    </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
+                    <div class="email-footer">
+                        <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
+                        <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
+                    </div>
                 </div>
             </div>
-        </div>
+            </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
@@ -2030,20 +2032,33 @@
             }
         };
         $(document).ready(async function () {
-            window.auth.onAuthStateChanged(function (user) {
+            //window.auth.onAuthStateChanged(function (user) {
 
-                if (window.auth.currentUser == null) {
-                    $("#popup-container").css("display", "block");
-                }
+            //    if (window.auth.currentUser == null) {
+            //        $.ajax({
+            //            url: Utils.getServerApiUrl("Autorizime", "ktheUserTeKonfirmuar"),
+            //            data: JSON.stringify({
+            //                shenime: hfState.Get("shenime")
+            //            }),
+            //            async: true
+            //        }).done(function (res) {
+            //            if (res) {
+            //                $("#popup-container").css("display", "none");
+            //            }
+            //            else {
+            //                $("#popup-container").css("display", "block");
+            //            }
+            //        });
+            //    }
 
-                //const client = new ChatClient({
-                //    user: window.auth.currentUser.uid,
-                //    room: "capybara",
-                //    token: window.auth.currentUser.accessToken
-                //})
+            //    //const client = new ChatClient({
+            //    //    user: window.auth.currentUser.uid,
+            //    //    room: "capybara",
+            //    //    token: window.auth.currentUser.accessToken
+            //    //})
 
-                //client.addNotificationBox("notification-box");
-            })
+            //    //client.addNotificationBox("notification-box");
+            //})
 
         });
         // SignalR

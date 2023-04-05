@@ -13,6 +13,8 @@ using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Fiskalizimi.API;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Security;
+using System.Web.UI;
+using System.Threading.Tasks;
 
 namespace PlatinumWeb
 {
@@ -73,6 +75,7 @@ namespace PlatinumWeb
                 hfState.Set("organizata", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
                 hfState.Set("emailPerdoruesi", user.PerdoruesEmail);
                 hfState.Set("Username",user.PerdoruesUsername);
+                hfState.Set("shenime",user.Shenime);
                 hfState.Set("Kadnderrmarje",ndermarrja);
                 var licenca = new clsLicenca();
                 licenca.mbushLicencen(IdPerdoruesi);
@@ -80,13 +83,15 @@ namespace PlatinumWeb
                 hfState.Set("chatLink", licenca.ChatLink);
                 hfState.Set("chatPortHttp", licenca.ChatPortHttp);
                 hfState.Set("chatPortHttps", licenca.ChatPortHttps);
+                PageAsyncTask t = new PageAsyncTask(showPopUp);
+                Page.RegisterAsyncTask(t);
+                Page.ExecuteRegisteredAsyncTasks();
                 hfState.Set("googleAnalytics", licenca.GoogleAnalytics);
                 hfState.Set("googleAnalyticsTrackingId", licenca.GoogleAnalyticsTrackingId);
                 if (user.ShfaqPerdoruesMenu)
                 {
                     ASPxLabel1.Text = user.EmriPerdorues + ' ' + user.MbiemriPerdorues;
                 }
-
                 hfState.Set("idNdermarrje", idNdermarrje);
                 var mesazhiPerodruesit = DbCore.clsFunksione.KtheMesazhPerPerdoruesin();
                 if (!String.IsNullOrEmpty(mesazhiPerodruesit))
@@ -211,6 +216,7 @@ namespace PlatinumWeb
             }
             string connectionStringName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             bool jsonWebRequest =  clsFunksione.sendExpireLicenceRequest(WebConfigurationManager.AppSettings["expireLink"], connectionStringName);
+
         }
         public static string buildQueryStringNgaAmbienti(System.Collections.Specialized.NameValueCollection queryStringCol)
         {
@@ -232,7 +238,11 @@ namespace PlatinumWeb
             Response.Redirect("~/TeamViewer/TeamViewerSetup.exe");
             return;
         }
-
+        private async Task showPopUp()
+        {
+            bool val = await clsFunksione.merrShenimePerdoruesi(new clsPerdorues(IdPerdoruesi).Shenime);
+            googlePopup.Visible = val;
+        }
         protected void btnDownloadProgramKase_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Kase/ImbKase.exe");

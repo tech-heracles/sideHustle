@@ -86,6 +86,27 @@ namespace DbCore
             }
             return documentDictionary;
         }
+        public async Task<Dictionary<string,object>> getUserDetailsWithEmail(string email)
+        {
+            try
+            {
+                Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+                FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+                Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("email", email);
+                QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
+                foreach (var snap in snapshot)
+                {
+                    if (snap.Id == snap.ToDictionary()["uid"].ToString())
+                        documentDictionary = snap.ToDictionary();
+                }
+                return documentDictionary;
+            }
+            catch(Exception e)
+            {
+                return new Dictionary<string, object>();
+            }
+
+        }
         public async Task<string> createNewOrganization(object organizationDetails,string uid)
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
@@ -111,6 +132,7 @@ namespace DbCore
                     try
                     {
                         FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+                        WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
                         WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizatioObjectForUpdateOnlyNdermarrje(ndermarrja));
                         return true;
                     }
@@ -145,6 +167,20 @@ namespace DbCore
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
             if (uDetails.Count == 0) return false;
             else return true;
+        }
+        public async Task<bool> checkIfUserExistsWithAlpha(string shenime)
+        {
+            Dictionary<string, object> uDetails = await getUserDetailsWithEmail(shenime);
+            if (uDetails.Count == 0) return true;
+            if (uDetails.ContainsKey("alphaOrganization")) return false;
+            else return true;
+        }
+        public async Task<Dictionary<string, object>> returnUserDetailsFromNotes(string shenime)
+        {
+            Dictionary<string, object> uDetails = await getUserDetailsWithEmail(shenime);
+            if (uDetails.Count == 0) return new Dictionary<string, object>();
+            if (uDetails.ContainsKey("alphaOrganization")) return uDetails;
+            else return new Dictionary<string, object>();
         }
 
         public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)

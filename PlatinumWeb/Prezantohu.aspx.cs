@@ -551,7 +551,6 @@ namespace PlatinumWeb
                     }
                 }
                 var user = new clsPerdorues(username, email, true);
-
                 //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
                 var idGjuha = MerrIdGjuha();
                 mySessionObjects.ruajGjuhe(Session, idGjuha);

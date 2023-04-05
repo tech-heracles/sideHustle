@@ -92,6 +92,10 @@ namespace RestApi.WebAPI.Models
         internal async static void createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session)
         {
             await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session);
+        } 
+        internal async static Task<bool> merrShenimePerdoruesi(string shenime)
+        {
+            return await clsFunksione.merrShenimePerdoruesi(shenime);
         }
         public static bool ruajNeSessionURLART(HttpSessionState Session, string url)
         {

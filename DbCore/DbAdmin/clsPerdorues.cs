@@ -146,11 +146,11 @@ namespace DbCore.DbAdmin
                 mbushPerdorues(data.kthePerdoruesSipasUsername(userName));
             }
         }
-        public bool ktheNeseUseriEkzistonGmail(string userName,bool email)
+        public bool ktheNeseUseriEkzistonGmail(string userName,bool email,string emailString)
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin())
             {
-                return data.kthePerdoruesSipasUsername(userName,email);
+                return data.kthePerdoruesSipasUsername(userName,email, emailString);
             }
         }
         public clsPerdorues(string userName,string email,bool google)

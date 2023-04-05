@@ -15,6 +15,11 @@
   
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myBuxhet-IMB.2.1.js;~/js/myFushaShtese-IMB.2.1.js;~/js/aspx.js/Shto_Perdorues.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
+    <style>
+        #ASPxPageControl1_txtShenime{
+            visibility: hidden !important;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server" style="width: 100%">
@@ -1078,11 +1083,11 @@
 
                                      <%--<div id="txtRegSup">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtShenime" ID="lblShenime"
-                                        runat="server" Text="Shenime:" ClientInstanceName="lblShenime">
+                                        runat="server" Text="Shenime:" ClientInstanceName="lblShenime" ClientEnabled="false">
                                     </dx:ASPxLabel>
 
                                      <dx:ASPxMemo ID="txtShenime" runat="server" Width="100%" ClientInstanceName="txtShenime"
-                                        Rows="3">
+                                        Rows="3" ClientEnabled="false">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
                                             ValidateOnLeave="false">
                                             <ErrorFrameStyle ImageSpacing="4px">

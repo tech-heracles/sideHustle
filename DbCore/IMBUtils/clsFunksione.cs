@@ -13889,7 +13889,12 @@ namespace DbCore
             bool exists = await firebaseConfiguration.checkIfUserExists(uid);
             string username = email.Split('@')[0];
             clsPerdorues user = new clsPerdorues();
-            bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true);
+            bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true, email);
+            string shenim = new clsPerdorues(idPerdoruesi).Shenime;
+            var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
+            if(uDetailsFromNotes.Count > 0)
+                if(uDetailsFromNotes["email"].ToString() != shenim)
+                    return;
             if (ekziston)
                 return;
             string kodNdermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi;
@@ -13908,6 +13913,19 @@ namespace DbCore
 
 
             }
+        }
+        public async static Task<bool> merrShenimePerdoruesi(string shenime)
+        {
+            try
+            {
+                FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                return await firebaseConfiguration.checkIfUserExistsWithAlpha(shenime);
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+
         }
         //MOS SHTONI funksione qe prekin databazen ketu
     }

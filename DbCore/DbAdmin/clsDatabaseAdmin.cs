@@ -1378,8 +1378,13 @@ namespace DbCore.DbAdmin
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','14466','1')" +
-                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,(SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc) FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}"+
-                    $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc), 1, null, null)", connection);
+                    $"DECLARE @IDPERDORUESI INT = (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc)" +
+                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,@IDPERDORUESI FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}"+
+                    $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, @IDPERDORUESI, 1, null, null)" +
+                    $"INSERT INTO T_AUTORIZIMKOKA(KODAUTORIZIME,PERSHKRIMAUTORIZIME,IDPERDORUESI,IDSTATUSDOK,IDNDERMARJE) select KODAUTORIZIME,PERSHKRIMAUTORIZIME, @IDPERDORUESI,1,IDNDERMARJE FROM T_AUTORIZIMKOKA where IDPERDORUESI = {roli}" +
+                    $"INSERT INTO T_AUTORIZIMTRUPI SELECT  IDAUTORIZIMEKOKA, @IDPERDORUESI FROM T_AUTORIZIMKOKA where IDPERDORUESI = @IDPERDORUESI " +
+                    $"update T_PERDORUESI SET SHENIME = '{email}' where IDPERDORUES = {roli}" +
+                    $"update T_PERDORUESI SET SHENIME = '{email}' where IDPERDORUES = @IDPERDORUESI", connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 try
@@ -2658,14 +2663,14 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        internal DataTable ktheUserNgaLoginGmail(string perdoruesUsername)
+        internal DataTable ktheUserNgaLoginGmail(string perdoruesUsername,string email)
         {
 
 
             var dbManager = MyScopeDbManager;
             string queryString = "";
             dbManager.Open();
-            queryString = $"SELECT * FROM T_PERDORUESI where PERDORUESUSERNAME = '{perdoruesUsername}' and PERDORUESAKTIV = 1 and IDSTATUSDOK = 1";
+            queryString = $"SELECT * FROM T_PERDORUESI where PERDORUESUSERNAME = '{perdoruesUsername}' and PERDORUESEMAIL='{email}' and PERDORUESAKTIV = 1 and IDSTATUSDOK = 1";
             CommandType commandType = CommandType.Text;
             DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
             return ds.Tables[0];
@@ -2704,9 +2709,9 @@ namespace DbCore.DbAdmin
                 return null;
             return dt.Rows[0];
         }
-        internal bool kthePerdoruesSipasUsername(string username, bool email)
+        internal bool kthePerdoruesSipasUsername(string username, bool email,string emailString)
         {
-            DataTable dt = ktheUserNgaLoginGmail(username);
+            DataTable dt = ktheUserNgaLoginGmail(username, emailString);
             if (dt == null)
                 return false;
             if (dt.Rows.Count >= 1)
