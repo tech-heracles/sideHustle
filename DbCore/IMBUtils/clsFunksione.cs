@@ -13885,13 +13885,7 @@ namespace DbCore
         }
         public async static Task createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
         {
-            bool admin = false;
             clsPerdorues perdoruesi = new clsPerdorues();
-            foreach (var role in perdoruesi.OColRolPerdoruesi)
-            {
-                clsRoli rol = new clsRoli(role.IdRoli);
-                if (rol.KodRoli == "RA" || rol.KodRoli == "RAS") admin = true;
-            }
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
             bool exists = await firebaseConfiguration.checkIfUserExists(uid);
             string username = email.Split('@')[0];
@@ -13914,7 +13908,7 @@ namespace DbCore
             }
             else
             {
-                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja,admin);
+                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
                 if (status)
                     clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
 

@@ -118,17 +118,27 @@ namespace DbCore
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
-        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid, string ndermarrja, bool admin)
+        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid, string ndermarrja)
         {
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            bool admin = false;
             string loggedInOrg = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
+            QuerySnapshot userResult = await firestoreDb.Collection(userDetailsCollection).WhereEqualTo("organization", uDetails["organization"].ToString()).GetSnapshotAsync();
+            if (userResult.Count > 1)
+            {
+                if (uDetails.ContainsKey("admin"))
+                    if (uDetails["admin"].ToString() == "true")
+                        admin = true;
+                
+            }
+            else if (userResult.Count == 1) admin = true;
             if (uDetails.ContainsKey("alphaOrganization") == true)
             {
                 if (uDetails["alphaOrganization"].ToString() == loggedInOrg)
                 {
                     try
                     {
-                        FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                         WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
                         if(admin)
                             await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizatioObjectForUpdateOnlyNdermarrje(ndermarrja));
@@ -147,7 +157,6 @@ namespace DbCore
             {
                 try
                 {
-                    FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
                     if(admin)
                         await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
