@@ -240,7 +240,9 @@ namespace PlatinumWeb
         }
         private async Task showPopUp()
         {
-            bool val = await clsFunksione.merrShenimePerdoruesi(new clsPerdorues(IdPerdoruesi).Shenime);
+            clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
+            string perdoruesEmail = perdorues.Shenime != "" ? perdorues.Shenime : perdorues.PerdoruesEmail; 
+            bool val = await clsFunksione.merrShenimePerdoruesi(perdoruesEmail);
             googlePopup.Visible = val;
         }
         protected void btnDownloadProgramKase_Click(object sender, EventArgs e)
