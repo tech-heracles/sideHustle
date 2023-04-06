@@ -15,6 +15,8 @@ using DbCore.IMBUtils.Types;
 using DbCore.IMBUtils;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore;
+using DbCore.IMBUtils.Extensions;
+using DocumentFormat.OpenXml.Bibliography;
 
 namespace PlatinumWeb
 {
@@ -44,7 +46,15 @@ namespace PlatinumWeb
                     hfState.Set("kontabilist", licenca.IdLlojLicenca == 7 || licenca.IdLlojLicenca == 4 ? true : false);
                     if (licenca.IdLlojLicenca != 7 && licenca.IdLlojLicenca != 4)
                         grid_ListLoginNdermarrje.FilterExpression = $"[VITI]={DateTime.Now.Year}";
-
+                    //if(grid_ListLoginNdermarrje)
+                    var query = HttpUtility.ParseQueryString(Request.Url.Query).ToDictionary();
+                    string redirect = "true";
+                    if (query.ContainsKey("redirect")) redirect = (string)query["redirect"];
+                    if (grid_ListLoginNdermarrje.VisibleRowCount == 1 && redirect != "false")
+                    {
+                        grid_ListLoginNdermarrje.FilterExpression = "";
+                        merrNdermarrjenPerPune(0, IdPerdoruesi);
+                    }
                 }
                 else
                 {

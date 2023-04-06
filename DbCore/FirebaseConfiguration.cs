@@ -6,10 +6,7 @@ using Google.Apis.Auth.OAuth2;
 using Newtonsoft.Json;
 using Google.Cloud.Firestore;
 using FirebaseAdmin.Auth;
-using DbCore.IMBUtils.Security;
-using Microsoft.Graph;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
-using Google.Protobuf.WellKnownTypes;
 
 namespace DbCore
 {
@@ -111,7 +108,7 @@ namespace DbCore
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             DocumentReference writeResult = await firestoreDb.Collection(organizationCollection).AddAsync(organizationDetails);
-            WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(writeResult.Id).UpdateAsync(updateOrganizationMetaData(writeResult.Id, uid));
+            Google.Cloud.Firestore.WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(writeResult.Id).UpdateAsync(updateOrganizationMetaData(writeResult.Id, uid));
             
             return writeResult.Id;
         }
@@ -121,7 +118,7 @@ namespace DbCore
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
-        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid, string ndermarrja)
+        public async Task<bool> updateUserDetails(Dictionary<string, object> userDetails, string uid, string ndermarrja, bool admin)
         {
             string loggedInOrg = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             Dictionary<string, object> uDetails = await getUserDetailsWithUID(uid);
@@ -133,7 +130,8 @@ namespace DbCore
                     {
                         FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                         WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                        WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizatioObjectForUpdateOnlyNdermarrje(ndermarrja));
+                        if(admin)
+                            await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizatioObjectForUpdateOnlyNdermarrje(ndermarrja));
                         return true;
                     }
                     catch (Exception ex)
@@ -151,7 +149,8 @@ namespace DbCore
                 {
                     FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                    WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
+                    if(admin)
+                        await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
                     return true;
                 }
                 catch (Exception ex)
@@ -182,7 +181,12 @@ namespace DbCore
             if (uDetails.ContainsKey("alphaOrganization")) return uDetails;
             else return new Dictionary<string, object>();
         }
+        public async void updateLogInTime(string uid)
+        {
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(createUserDetailsObjectForUpdateLogInTime());
 
+        }
         public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)
         {
             return new
@@ -258,6 +262,16 @@ namespace DbCore
                 { "alphaOrganization", alphaOrganization },
                 { "passwordHash", hashPassword },
                 { "username",  username},
+            };
+            return update;
+
+        }
+        private Dictionary<string, object> createUserDetailsObjectForUpdateLogInTime()
+
+        {
+            Dictionary<string, object> update = new Dictionary<string, object>
+            {
+                { "alphaLastLogedInDate", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") }
             };
             return update;
 

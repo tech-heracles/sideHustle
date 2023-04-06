@@ -2238,6 +2238,7 @@ section#submain header {
                 </article>
                         <asp:Button ID="logInWithGmailButton" runat="server" Text="" OnClick="logInWithGmail" />
                         <dx:ASPxTextBox ID="txtUID" runat="server"></dx:ASPxTextBox>
+                        <dx:ASPxTextBox ID="txtFirstLogin" runat="server"></dx:ASPxTextBox>
                         
             </footer>
         </div>
@@ -2398,6 +2399,7 @@ section#submain header {
             $(".google-div").on("click", signInWithGooglePopup);
         }
         window.onload = async function (e) {
+
             document.getElementById("copyright").innerHTML +=  + new Date().getFullYear()+" IMB"
             var sessionStorageValue = sessionStorage.getItem("GoogleLogInAttemps") == null ? 0 : parseInt(sessionStorage.getItem("GoogleLogInAttemps"));
             await getAuth();
@@ -2409,6 +2411,7 @@ section#submain header {
                     sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1);
                     var logInWithGoogle = document.getElementById("logInWithGmailButton");
                     txtUID.SetText(auth.currentUser.uid);
+                    txtFirstLogin.SetText("true");
                     logInWithGoogle.click();
                     document.getElementById('loader-overlay').style.display = 'block';
                     document.getElementById('loader-overlay').style.zIndex = 10000;

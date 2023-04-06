@@ -651,6 +651,17 @@ namespace PlatinumWeb
                     panelDiv.Visible = true;
                     return;
                 }
+                string dtFunditLogin = (dictionary.ContainsKey("alphaLastLogedInDate") == true ? dictionary["alphaLastLogedInDate"].ToString() : "1990-01-01 00:00:00");
+                DateTime now = DateTime.Now;
+                if(txtFirstLogin.Text == "true")
+                {
+                    if (new DateTime(DateTime.Parse(dtFunditLogin).Ticks) < new DateTime(now.Year, now.Month, now.Day, 0, 0, 0))
+                    {
+                        fb.updateLogInTime(uid);
+                        return;
+                    }
+                }
+
                 string email = (dictionary.ContainsKey("email") == true ? dictionary["email"].ToString() : "");
                 string username = (dictionary.ContainsKey("username") == true ? dictionary["username"].ToString() : "");
                 //organization = "praktike1-test";//change to organization
