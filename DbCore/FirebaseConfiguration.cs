@@ -128,7 +128,7 @@ namespace DbCore
             if (userResult.Count > 1)
             {
                 if (uDetails.ContainsKey("admin"))
-                    if (uDetails["admin"].ToString() == "true")
+                    if (uDetails["admin"].ToString() == "True")
                         admin = true;
                 
             }

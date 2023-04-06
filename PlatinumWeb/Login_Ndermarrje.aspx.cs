@@ -27,7 +27,8 @@ namespace PlatinumWeb
         {
             int idPerdoruesi = IdPerdoruesi;
             var licenca = new clsLicenca();
-            licenca.mbushLicencen(IdPerdoruesi);
+            if (IdPerdoruesi != 0)
+                licenca.mbushLicencen(IdPerdoruesi);
             if (!IsPostBack)
             {
                 
