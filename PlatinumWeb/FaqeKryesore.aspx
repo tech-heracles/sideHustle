@@ -2038,24 +2038,11 @@
             }
         };
         $(document).ready(async function () {
-            //window.auth.onAuthStateChanged(function (user) {
+            window.auth.onAuthStateChanged(function (user) {
 
-            //    if (window.auth.currentUser == null) {
-            //        $.ajax({
-            //            url: Utils.getServerApiUrl("Autorizime", "ktheUserTeKonfirmuar"),
-            //            data: JSON.stringify({
-            //                shenime: hfState.Get("shenime")
-            //            }),
-            //            async: true
-            //        }).done(function (res) {
-            //            if (res) {
-            //                $("#popup-container").css("display", "none");
-            //            }
-            //            else {
-            //                $("#popup-container").css("display", "block");
-            //            }
-            //        });
-            //    }
+                if (window.auth.currentUser != null) {
+                    $("#popup-container").css("display", "none");
+                }
 
             //    //const client = new ChatClient({
             //    //    user: window.auth.currentUser.uid,
@@ -2064,7 +2051,7 @@
             //    //})
 
             //    //client.addNotificationBox("notification-box");
-            //})
+            })
 
         });
         // SignalR

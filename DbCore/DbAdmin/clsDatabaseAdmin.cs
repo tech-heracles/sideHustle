@@ -1377,7 +1377,7 @@ namespace DbCore.DbAdmin
             string connectionString = dbManager.ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','14466','1')" +
+                SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','{roli}','1')" +
                     $"DECLARE @IDPERDORUESI INT = (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc)" +
                     $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,@IDPERDORUESI FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}"+
                     $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, @IDPERDORUESI, 1, null, null)" +
