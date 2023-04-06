@@ -45,17 +45,20 @@ namespace PlatinumWeb
                         merrNdermarrjenPerPune(0, idPerdoruesi);
                     AplikoFilterVitiSipasKonfigurimit();
                     hfState.Set("kontabilist", licenca.IdLlojLicenca == 7 || licenca.IdLlojLicenca == 4 ? true : false);
+                    var query = HttpUtility.ParseQueryString(Request.Url.Query).ToDictionary();
+                    string redirect = "true";
                     if (licenca.IdLlojLicenca != 7 && licenca.IdLlojLicenca != 4)
                         grid_ListLoginNdermarrje.FilterExpression = $"[VITI]={DateTime.Now.Year}";
                     //if(grid_ListLoginNdermarrje)
-                    var query = HttpUtility.ParseQueryString(Request.Url.Query).ToDictionary();
-                    string redirect = "true";
                     if (query.ContainsKey("redirect")) redirect = (string)query["redirect"];
                     if (grid_ListLoginNdermarrje.VisibleRowCount == 1 && redirect != "false")
                     {
-                        grid_ListLoginNdermarrje.FilterExpression = "";
-                        merrNdermarrjenPerPune(0, IdPerdoruesi);
+                        int idRreshtit = grid_ListLoginNdermarrje.FocusedRowIndex;
+
+                        merrNdermarrjenPerPune(idRreshtit, IdPerdoruesi);
                     }
+                    if(redirect=="false" && licenca.IdLlojLicenca != 7 && licenca.IdLlojLicenca != 4)
+                        grid_ListLoginNdermarrje.FilterExpression = "";
                 }
                 else
                 {

@@ -1992,7 +1992,6 @@
 
     
     <script type="text/javascript">      
-       
         async function signInWithGooglePopup() {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");

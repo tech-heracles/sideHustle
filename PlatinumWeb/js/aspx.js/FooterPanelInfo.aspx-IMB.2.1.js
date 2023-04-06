@@ -27,15 +27,7 @@ function ShfaqPeriudhen() {
     parentWindow.document.getElementById('Container').src = 'LupaPeriudhaKontabel.aspx';
     parentWindow.popupUniversal.Show();
 }
-function NdryshoNdermarrje() {
-    var parentWindow = window.parent;
-    //var paneContent = parentWindow.splitter.GetPaneByName('paneKryesor');
-    //contentUrl = "Login_Ndermarrje.aspx";
-    window.parent.location.href ="Login_Ndermarrje.aspx?redirect=false";
- 
-    //paneContent.SetContentUrl(contentUrl);
-    //paneContent.RefreshContentUrl();
-}
+
 $(document).ready(function () {//po
     //Utils.SetPeriudha(btnPeriudha.GetText());
     window.parent.document.getElementById("hfPeriudha").value = btnPeriudha.GetText();    

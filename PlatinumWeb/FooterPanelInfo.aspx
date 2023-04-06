@@ -139,6 +139,15 @@
         </div>
     </form>
     <script>
+        function NdryshoNdermarrje() {
+            var parentWindow = window.parent;
+            //var paneContent = parentWindow.splitter.GetPaneByName('paneKryesor');
+            //contentUrl = "Login_Ndermarrje.aspx";
+            window.parent.location.href = "Login_Ndermarrje.aspx?redirect=false";
+
+            //paneContent.SetContentUrl(contentUrl);
+            //paneContent.RefreshContentUrl();
+        }
         function load() {
 
             if (document.getElementsByTagName('body')[0].className == 'kesh') {
