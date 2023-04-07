@@ -157,7 +157,14 @@ namespace DbCore.DbAdmin
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin())
             {
-                mbushPerdorues(data.ktheUserNgaLoginMeUsernameOseEmail(userName,email).Rows[0]);
+                DataTable clsPerdorues = data.ktheUserNgaLoginMeUsernameOseEmail(userName, email);
+                if (clsPerdorues.Rows.Count == 0)
+                {
+                    DataRow dataTable = null;
+                    mbushPerdorues(dataTable);
+                    return;
+                }
+                mbushPerdorues(clsPerdorues.Rows[0]);
             }
         }
         public clsPerdorues(string userName,string connStringName)

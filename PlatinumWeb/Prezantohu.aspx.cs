@@ -377,14 +377,16 @@ namespace PlatinumWeb
                 }
             }
             var user = new clsPerdorues(Login1.UserName);
-            string verifiedEmail = user.Shenime != "" ? user.Shenime : user.PerdoruesEmail;
+            string verifiedEmail = user.Shenime;
             Dictionary<string, object> firebaseUser =  await fb.getUserDetailsWithEmail(verifiedEmail);
             if (firebaseUser.Count != 0)
             {
                 if(firebaseUser.ContainsKey("alphaOrganization"))
                     if (firebaseUser["alphaOrganization"].ToString()== combo.Text)
                     {
-                        await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                        clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
+                        if(perdoruesGoogle.IdPerdorues != 0)
+                            await loginWithFirebaseUid(firebaseUser["uid"].ToString());
                     }
             }
             //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring

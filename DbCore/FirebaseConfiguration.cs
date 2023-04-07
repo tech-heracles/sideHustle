@@ -205,7 +205,8 @@ namespace DbCore
                 passwordHash = pass,
                 alphaOrganization = alphaOrganization,
                 email = email,
-                organization = orgid
+                organization = orgid,
+                admin = true
             };
             
         }
