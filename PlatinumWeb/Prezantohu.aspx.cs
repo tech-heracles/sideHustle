@@ -377,18 +377,23 @@ namespace PlatinumWeb
                 }
             }
             var user = new clsPerdorues(Login1.UserName);
-            string verifiedEmail = user.Shenime;
-            Dictionary<string, object> firebaseUser =  await fb.getUserDetailsWithEmail(verifiedEmail);
-            if (firebaseUser.Count != 0)
+            bool validim = loginAutentification(Login1.UserName, clientDate.Get("clientDate").ToString(), false, rm, ci);
+            if (validim)
             {
-                if(firebaseUser.ContainsKey("alphaOrganization"))
-                    if (firebaseUser["alphaOrganization"].ToString()== combo.Text)
-                    {
-                        clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
-                        if(perdoruesGoogle.IdPerdorues != 0)
-                            await loginWithFirebaseUid(firebaseUser["uid"].ToString());
-                    }
+                string verifiedEmail = user.Shenime;
+                Dictionary<string, object> firebaseUser = await fb.getUserDetailsWithEmail(verifiedEmail);
+                if (firebaseUser.Count != 0)
+                {
+                    if (firebaseUser.ContainsKey("alphaOrganization"))
+                        if (firebaseUser["alphaOrganization"].ToString() == combo.Text)
+                        {
+                            clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
+                            if (perdoruesGoogle.IdPerdorues != 0)
+                                await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                        }
+                }
             }
+            
             //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
             var idGjuha = MerrIdGjuha();
             mySessionObjects.ruajGjuhe(Session, idGjuha);
