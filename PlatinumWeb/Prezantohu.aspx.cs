@@ -352,7 +352,7 @@ namespace PlatinumWeb
             }
         }
 
-        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        protected async void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
 
 
@@ -377,7 +377,16 @@ namespace PlatinumWeb
                 }
             }
             var user = new clsPerdorues(Login1.UserName);
-
+            string verifiedEmail = user.Shenime != "" ? user.Shenime : user.PerdoruesEmail;
+            Dictionary<string, object> firebaseUser =  await fb.getUserDetailsWithEmail(verifiedEmail);
+            if (firebaseUser.Count != 0)
+            {
+                if(firebaseUser.ContainsKey("alphaOrganization"))
+                    if (firebaseUser["alphaOrganization"].ToString()== combo.Text)
+                    {
+                        await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                    }
+            }
             //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
             var idGjuha = MerrIdGjuha();
             mySessionObjects.ruajGjuhe(Session, idGjuha);
