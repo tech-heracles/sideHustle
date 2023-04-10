@@ -135,6 +135,23 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
+        public async Task<HttpResponseMessage> userControls(JObject param)
+        {
+            try
+            {   
+                string uid = param.Value<string>("uid");
+                int idNdermarrje = param.Value<int>("idNdermarrje");
+                int idPerdoruesi = param.Value<int>("idPerdoruesi");
+                string email = param.Value<string>("email");
+                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje("");
+
+            }
+        }
+        [HttpPost, HttpGet]
         public HttpResponseMessage ktheUserTeKonfirmuar(JObject param)
         {
             try

@@ -1998,17 +1998,29 @@
             await signInWithPopup(auth, GoogleAuthProvider)
                 .then(function (result) {
                     $.ajax({
-                        url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                        url: Utils.getServerApiUrl("Autorizime", "userControls"),
                         data: JSON.stringify({
                             uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
                         })
                     }).done(function (res) {
-                        window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
-                        window.setTimeout(function () {
-                            document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
-                            window.location.reload();
-                        }, 2000);
+                        if (res != "") {
+                            myMesazh.ShtoMesazhGabimi(res);
+                            return;
+                        };
+                        $.ajax({
+                            url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                            data: JSON.stringify({
+                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
+                            })
+                        }).done(function () {
+                            window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
+                            window.setTimeout(function () {
+                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
+                                window.location.reload();
+                            }, 2000);
+                        });
                     });
+                    
                 });
         }
         sessionStorage.setItem("GoogleLogInAttemps", 0);

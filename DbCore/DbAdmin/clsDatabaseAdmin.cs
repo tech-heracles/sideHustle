@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Resources;
 using System.Text;
+using System.Text.RegularExpressions;
 using AlphaWeb.Core.Interfaces.Data;
 using DbCore.DbImporte;
 using DbCore.DbListPagesat;
@@ -1375,6 +1376,8 @@ namespace DbCore.DbAdmin
         internal bool krijoPerdoruesMeGmail(string email,string username,string name,string password,int roli)
         {
             string connectionString = dbManager.ConnectionString;
+            name = Regex.Replace(name, @"[^0-9a-zA-Z\._]", "");
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','{roli}','1')" +

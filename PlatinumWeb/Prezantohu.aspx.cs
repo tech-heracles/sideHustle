@@ -37,6 +37,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using CacheLayer;
+using System.Text.RegularExpressions;
 
 namespace PlatinumWeb
 {
@@ -45,6 +46,7 @@ namespace PlatinumWeb
         public ITestService TestService { get; set; }
         private const string PARAMETER_NAME = "enc=";
         private DataTable dtServera;
+        private const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         FirebaseConfiguration fb = new FirebaseConfiguration();
         protected async void Page_Load(object sender, EventArgs e)
         {
@@ -377,22 +379,32 @@ namespace PlatinumWeb
                 }
             }
             var user = new clsPerdorues(Login1.UserName);
-            bool validim = loginAutentification(Login1.UserName, clientDate.Get("clientDate").ToString(), false, rm, ci);
-            if (validim)
+
+
+            if(user.Shenime != "")
             {
-                string verifiedEmail = user.Shenime;
-                Dictionary<string, object> firebaseUser = await fb.getUserDetailsWithEmail(verifiedEmail);
-                if (firebaseUser.Count != 0)
-                {
-                    if (firebaseUser.ContainsKey("alphaOrganization"))
-                        if (firebaseUser["alphaOrganization"].ToString() == combo.Text)
+                if (Regex.IsMatch(user.Shenime, emailPattern)){
+                    bool validim = loginAutentification(Login1.UserName, clientDate.Get("clientDate").ToString(), false, rm, ci);
+                    if (validim)
+                    {
+
+                        string verifiedEmail = user.Shenime;
+                        Dictionary<string, object> firebaseUser = await fb.getUserDetailsWithEmail(verifiedEmail);
+                        if (firebaseUser.Count != 0)
                         {
-                            clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
-                            if (perdoruesGoogle.IdPerdorues != 0)
-                                await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                            if (firebaseUser.ContainsKey("alphaOrganization"))
+                                if (firebaseUser["alphaOrganization"].ToString() == combo.Text)
+                                {
+                                    clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
+                                    if (perdoruesGoogle.IdPerdorues != 0)
+                                        await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                                }
                         }
+                    }
                 }
+                
             }
+            
             
             //marrim gjuhen nga quersytring ose db nese nuk ka gje ne querystring
             var idGjuha = MerrIdGjuha();

@@ -93,6 +93,10 @@ namespace RestApi.WebAPI.Models
         {
             await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session);
         } 
+        internal async static Task<string> userControls(int idPerdoruesi, string email)
+        {
+            return await clsFunksione.userControls(idPerdoruesi, email);
+        } 
         internal async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
             return await clsFunksione.merrShenimePerdoruesi(shenime);
