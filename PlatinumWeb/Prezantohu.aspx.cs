@@ -383,25 +383,24 @@ namespace PlatinumWeb
 
             if(user.Shenime != "")
             {
-                if (Regex.IsMatch(user.Shenime, emailPattern)){
-                    bool validim = loginAutentification(Login1.UserName, clientDate.Get("clientDate").ToString(), false, rm, ci);
-                    if (validim)
-                    {
+                bool validim = loginAutentification(Login1.UserName, clientDate.Get("clientDate").ToString(), false, rm, ci);
+                if (validim)
+                {
 
-                        string verifiedEmail = user.Shenime;
-                        Dictionary<string, object> firebaseUser = await fb.getUserDetailsWithEmail(verifiedEmail);
-                        if (firebaseUser.Count != 0)
-                        {
-                            if (firebaseUser.ContainsKey("alphaOrganization"))
-                                if (firebaseUser["alphaOrganization"].ToString() == combo.Text)
-                                {
-                                    clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
-                                    if (perdoruesGoogle.IdPerdorues != 0)
-                                        await loginWithFirebaseUid(firebaseUser["uid"].ToString());
-                                }
-                        }
+                    string verifiedEmail = user.Shenime;
+                    Dictionary<string, object> firebaseUser = await fb.getUserDetailsWithEmail(verifiedEmail);
+                    if (firebaseUser.Count != 0)
+                    {
+                        if (firebaseUser.ContainsKey("alphaOrganization"))
+                            if (firebaseUser["alphaOrganization"].ToString() == combo.Text)
+                            {
+                                clsPerdorues perdoruesGoogle = new clsPerdorues(firebaseUser["username"].ToString(), firebaseUser["email"].ToString(), true);
+                                if (perdoruesGoogle.IdPerdorues != 0 && (perdoruesGoogle.IdPerdoruesi == user.IdPerdorues))
+                                    await loginWithFirebaseUid(firebaseUser["uid"].ToString());
+                            }
                     }
                 }
+                
                 
             }
             
