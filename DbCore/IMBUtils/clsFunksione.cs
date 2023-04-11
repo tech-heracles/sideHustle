@@ -13870,7 +13870,7 @@ namespace DbCore
             }
         }
         static public DataTable getAllRolesExxeptSuperUser(){
-            return clsRoli.ktheRolePervecSuperUser();
+            return clsRoli.ktheRolePervecSuperUser();   
         }
         public static string generateRandomPassword()
         {

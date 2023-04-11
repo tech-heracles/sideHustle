@@ -423,7 +423,7 @@ namespace DbCore.DbAdmin
             }
             catch(Exception ex)
             {
-                return new clsMesazh(true, "Problem ne validimin e licences!");
+                return new clsMesazh(false, "Problem ne validimin e licences!");
             }
             return new clsMesazh(true, String.Empty);
         }

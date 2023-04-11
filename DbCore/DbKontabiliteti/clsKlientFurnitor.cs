@@ -1150,7 +1150,7 @@ namespace DbCore.DbKontabiliteti
                 if (!mesazh.Status)
                     return mesazh; 
                 PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
-                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
+                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
 
                 if (kaNdryshimNumri)
@@ -1159,23 +1159,45 @@ namespace DbCore.DbKontabiliteti
                 return mesazh;
             }
         }
-        private object krijoObjektPerPubSub()
+        public object krijoObjektPerPubSub()
         {
-            return new
+            if(this.OColAdresat == null)
             {
-                clientAddress = this.OColAdresat.Count == 0 ? "" : this.OColAdresat[0].Adresa,
-                clientCode = this.KodKlientFurnitor,
-                clientEmail = this.EmailKF,
-                clientIdType = this.TipiId,
-                clientName = this.EmertimiKF,
-                clientNipt = this.NiptiKF,
-                clientPhone = this.TelKF,
-                clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
-                clientCountry = this.ShtetiKF,
-                currency = new clsMonedha(this.idMonedha).KodiMonedha,
-                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
-            };
+                return new
+                {
+                    clientAddress = "",
+                    clientCode = this.KodKlientFurnitor,
+                    clientEmail = this.EmailKF,
+                    clientIdType = this.TipiId,
+                    clientName = this.EmertimiKF,
+                    clientNipt = this.NiptiKF,
+                    clientPhone = this.TelKF,
+                    clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
+                    clientCountry = this.ShtetiKF,
+                    currency = new clsMonedha(this.idMonedha).KodiMonedha,
+                    organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
+                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
+                };
+            }
+            else
+            {
+                return new
+                {
+                    clientAddress = this.OColAdresat.Count == 0 ? "" : this.OColAdresat[0].Adresa,
+                    clientCode = this.KodKlientFurnitor,
+                    clientEmail = this.EmailKF,
+                    clientIdType = this.TipiId,
+                    clientName = this.EmertimiKF,
+                    clientNipt = this.NiptiKF,
+                    clientPhone = this.TelKF,
+                    clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
+                    clientCountry = this.ShtetiKF,
+                    currency = new clsMonedha(this.idMonedha).KodiMonedha,
+                    organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
+                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
+                };
+            }
+            
         }
         /// <summary>
         /// Modifikon objektin klient/furnitor ne tabelen perkatese ne databaze.Therret funksionin
@@ -1340,7 +1362,7 @@ namespace DbCore.DbKontabiliteti
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
                     PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
-                    ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
+                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                     scope.Complete();
 
 

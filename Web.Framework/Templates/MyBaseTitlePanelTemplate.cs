@@ -166,6 +166,7 @@ namespace PlatinumWeb.Templates
             var btnSelectAll = new ASPxButton();
             var btnUnselect = new ASPxButton();
             var pnlRuaj = new UpdatePanel();
+            var sinkronizo = new ASPxButton();
 
             if (!vetemSelectButtons)
             {
@@ -239,7 +240,19 @@ namespace PlatinumWeb.Templates
                 btnExportXcls.ClientSideEvents.Click = $"function(s,e){{if ({Grid.ClientInstanceName}.GetSelectedRowCount() == 0){{myMesazh.ShtoMesazhGabimi(hfState.Get('msgZgjdhniNjeNgaElementetEListes'));e.processOnServer=false;}}}}";
                 btnExportPdf.ClientSideEvents.Click = $"function(s,e){{if ({Grid.ClientInstanceName}.GetSelectedRowCount() == 0){{myMesazh.ShtoMesazhGabimi(hfState.Get('msgZgjdhniNjeNgaElementetEListes'));e.processOnServer=false;}}}}";
             }
-
+            if(gridaKoka.EmriGridaKoka == "ASPxGridView_Artikull" || gridaKoka.EmriGridaKoka == "ASPxGridView_KF")
+                {
+                    sinkronizo.ToolTip = "Sinkronizo";
+                    sinkronizo.AutoPostBack = false;
+                    sinkronizo.Image.Url = $"images/theme/{CurrentPage.Theme}/grida/butoni_refresh.png";
+                    sinkronizo.Image.UrlHottracked = $"images/theme/{CurrentPage.Theme}/grida/butoni_refresh.png";
+                    sinkronizo.Visible = true;
+                    sinkronizo.Image.Height = 16;
+                    sinkronizo.Font.Size = 8;
+                    sinkronizo.ClientSideEvents.Click = "function(s, e) {document.getElementById('pubSubButton').click()}";
+                    baseControls.Add(sinkronizo);
+                }
+            
 
             ScriptManager.RegisterPostBackControl(btnExportPdf);
             ScriptManager.RegisterPostBackControl(btnExportXcls);
