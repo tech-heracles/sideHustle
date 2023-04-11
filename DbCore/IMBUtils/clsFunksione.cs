@@ -13891,11 +13891,11 @@ namespace DbCore
             string shenim = user.Shenime;
             bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true, email);
             if (ekziston)
-                return "Ky perdorues ekziston ne kete organizate!";
+                return $"Perdoruesi {username} ekziston ne kete organizate!";
             var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
             if (uDetailsFromNotes.Count > 0)
                 if (uDetailsFromNotes["email"].ToString() != email)
-                    return "Ky perdorues eshte lidhur me perpara me emailin: " + uDetailsFromNotes["email"].ToString() + " dhe mund te lidhet vetem me emailin fillestar. Nese doni te ndryshoni emailin shkruani ne help desk per support!";
+                    return $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "";
             return "";
         }
         public async static Task createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
