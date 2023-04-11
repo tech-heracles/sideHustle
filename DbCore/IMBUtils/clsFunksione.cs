@@ -3045,7 +3045,7 @@ namespace DbCore
                 int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
                 if (dt.Rows.Count == 0 || dt.Rows.Count > 1)//Nese kam me shume se nje ndermarrje shkoj tek faqja e ndermarrjeve
                 {
-                    response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), endResponse);
+                    response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), false);
                     return new clsMesazh(true);
                 }
                 DataRow rreshti = dt.Rows[0];
