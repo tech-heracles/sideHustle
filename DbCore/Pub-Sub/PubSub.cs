@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
@@ -24,6 +25,12 @@ namespace DbCore
             this.topicId = topicId;
             this.subscriptionId = subscriptionId;
             this.pushEndpoint = pushEndpoint;
+        }
+        public PubSub(string projectId, string topicId, string subscriptionId)
+        {
+            this.projectId = projectId;
+            this.topicId = topicId;
+            this.subscriptionId = subscriptionId;
         }
         public PubSub() { }
         //Creates a pub/sub subcription or returns it if it alredy exists
@@ -89,7 +96,12 @@ namespace DbCore
             }
            
         }
-        public void PublishPubSub(string filter, int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
+        public void PublishPubSub(int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
+        {
+            //createPushSubscription(filter);
+            publishCallWithRetry(maxAttempts, initialBackoff, maxBackoffSeconds, totalTimeoutSeconds, message);
+        }
+        public void PublishPubSubInBulk(int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, List<object> message)
         {
             //createPushSubscription(filter);
             publishCallWithRetry(maxAttempts, initialBackoff, maxBackoffSeconds, totalTimeoutSeconds, message);

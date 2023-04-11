@@ -29,6 +29,11 @@
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
+            <asp:updatepanel runat="server">
+                 <ContentTemplate>
+                    <dx:ASPxButton runat="server" ID="pubSubButton" OnClick="SendItemsToPubSub" AutoPostBack="false"></dx:ASPxButton>
+                 </ContentTemplate>
+             </asp:updatepanel>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
                 <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
             </dx:ASPxGlobalEvents>

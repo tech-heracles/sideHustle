@@ -47,6 +47,7 @@ namespace PlatinumWeb
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             string postStringTvsh = "";
+            pubSubButton.ClientVisible = false;
             if (!Page.IsPostBack)
             {
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
@@ -281,6 +282,7 @@ namespace PlatinumWeb
 
         private void merrColKushtet(int idKonfigurim)
         {
+            
             Dictionary<string, clsAlternativaKushti> kushtet = colAlternativatKushti.MerrAlternativaKushtiSipasIdKonfigurimi(idKonfigurim);
             
             hfKushtet.Set("FPJM", kushtet.ContainsKey("FPJM") ? kushtet["FPJM"].Alternativa : "");
@@ -317,6 +319,32 @@ namespace PlatinumWeb
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
         {
             percaktoTemplateMenu((int)hfState["idGjuha"], (int)hfState["idViti"], (int)hfState["idPerdoruesi"], (int)hfState["idNdermarrje"], ASPxMenu1);
+        }
+        
+        protected void SendItemsToPubSub(object sender, EventArgs e)
+        {
+            
+            string[] columnNames = new string[1];
+            columnNames[0] = "IdArtikulli";
+            List<object> items = ASPxGridView_Artikull.GetSelectedFieldValues(columnNames);
+            if (items.Count > 0)
+            {
+                List<int> artikujt = new List<int>();
+                List<object> objForPubSub = new List<object>();
+                PubSub PubSub = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items");
+                foreach (object item in items)
+                {
+                    artikujt.Add(int.Parse(item.ToString()));
+                }
+                colArtikujt itemList = new colArtikujt(artikujt);
+                foreach (clsArtikulli art in itemList)
+                {
+                    PubSub.PublishPubSub(3, 1, 2, 1, art.krijoObjektPerPubSub());
+                    //objForPubSub.Add(art.krijoObjektPerPubSub());
+                }
+                clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
+            }
+            else clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ju lutem zgjidhni te pakten 1 rresht!", pnlMesazhi);
         }
 
         /// <summary>

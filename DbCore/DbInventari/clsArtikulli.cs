@@ -3770,7 +3770,7 @@ namespace DbCore.DbInventari
 
                 //dbInv.commitTransaksion();
                 PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
+                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
             catch (Exception ce)
@@ -3796,7 +3796,7 @@ namespace DbCore.DbInventari
                         return modifikim;
                 }
                 PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub("attributes.organization=\"name\"", 3, 1, 2, 1, krijoObjektPerPubSub());
+                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
                 return modifikim;
             }
@@ -3807,7 +3807,16 @@ namespace DbCore.DbInventari
             clsMesazh modifikim = modifikoArtikull(this.idArtikulli, this.kodArtikulli, this.pershkrimArtikulli, this.pershkrimiAngArtikulli, this.kodiDoganorArtikulli, this.vendodhjeArtikulli, this.kodifikimi1Artikulli, this.kodifikimi2Artikulli, this.origjineArtikulli, this.njesi1Artikulli, this.njesi2Artikulli, this.koeficientArtikulli, this.idFurnitoriKryesor, this.peshaBrutoArtikulli, this.peshaNetoArtikulli, this.detajimArtikulli, this.klasa, this.idSkemaKontabilitetiArtikulli, this.idLlogariInventari, this.idLlogariBlerje, this.idLlogariShitje, this.idLlogariTeTrete, this.idLlogariShpenzime, this.idLlogariAmortizimi, this.IdLlogariPakesim, this.idLlogRez, this.idLlogPakRez, this.minimumArtikulli, this.maximumArtikulli, this.metodeKostojeArtikulli, this.llogaritjaKMSHArtikulli, this.zevendesimAutomatikArtikulli, this.idPerdoruesi, this.aktiv, this.colArtikujPerberes, template.IdKoka, template.Kodi, template.Pershkrimi, this.OColFurnitoreArtikujsh, this.OColArtikujtZevendesues, this.OColVleraFushaShtese, this.OColBuxhetet, this.OColDetajime, this.IdStatusDok, this.LlojiArt, cmime, this.SasiNjesi, this.Scrap, this.ProdhimMePorosi, this.IdKategoriDetajimi, this.IdKategoriDetajimi2, this.OColDetajime2, this.KontrollGjendjeDetajim2, this.IdObjektivaKosto, this.IdllojGarancie, this.Garancia, this.IdMagazina, this.IRezervueshem, this.PerTransferim, this.loan, this.Dhurate, this.AplikimDhurate, this.Pike, this.Vlere, this.kodVFOne, this.meSerial, this.iShitshem, this.mbetjeShitshme, this.colNorma, dbInv, this.oColKodbare, idArtRaportuesi, this.perPeshore, this.pershkrimFurnitori, this.SiperfaqjaM2, this.NrKontrate, this.NrPasurie, this.ZonaKadastrale, this.Shasia, this.Marka, this.Modeli, this.VitProdhimi, this.TeDhenaTeknika, this.MeBarkodLogjik, this.SkemaBarkodit, this.kodifikimi3Artikulli, aparatBazaar, kodOferte, this.artikullIVjeter, this.idFormatSeriali, this.ColArtikujVfone, this.merezerverivleresimi, this.colNormaRezerva, this.nrKaraktereTAC, this.llogaritKomision, this.idLlogariKomision, this.stokuMaxVfOne, this.kodiiBarit, this.iRimbursueshem);
             return modifikim;
         }
-        private object krijoObjektPerPubSub()
+        public void sendItemsToPubSubInBulk(List<object> itemList, PubSub ps)
+        {
+            ps.PublishPubSub(3, 1, 2, 1, itemList);
+        }
+        public void sendItemToPubSub()
+        {
+            PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+            ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+        }
+        public object krijoObjektPerPubSub()
         {
             List<int> idNjesish = new List<int>();
             idNjesish.AddIfNotExists(this.njesi1Artikulli);
