@@ -3045,8 +3045,16 @@ namespace DbCore
                 int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
                 if (dt.Rows.Count == 0 || dt.Rows.Count > 1)//Nese kam me shume se nje ndermarrje shkoj tek faqja e ndermarrjeve
                 {
-                    response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), endResponse);
-                    return new clsMesazh(true);
+                    try
+                    {
+
+                        response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), false);
+                        return new clsMesazh(true);
+                    }
+                    catch(ThreadAbortException ex)
+                    {
+
+                    }
                 }
                 DataRow rreshti = dt.Rows[0];
                 int idNdermarrjes = Convert.ToInt32(rreshti[0]);
