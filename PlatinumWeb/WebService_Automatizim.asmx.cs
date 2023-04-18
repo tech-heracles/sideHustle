@@ -22,6 +22,7 @@ using DbCore.IMBUtils.DataBase;
 using AlphaWeb.Core.SharedKernel;
 using DbCore.IMBUtils.Messages;
 using AlphaWeb.Infrastructure.Data.AdoNet;
+using Newtonsoft.Json;
 
 namespace PlatinumWeb
 {
@@ -686,6 +687,7 @@ namespace PlatinumWeb
             if (String.IsNullOrEmpty(KODGRUP1))
                 return new { Status = false, KodMobile = KODIMOBILE, KodiWeb = "", Mesazh = "Kodi i grupit te pare eshte bosh!" };
 
+
             int idNdermarrje = DbCore.DbAdmin.clsNdermarrje.ktheIdNdermarrje(KODNDERMARRJE);
             int idPerdorues = DbCore.DbAdmin.clsPerdorues.ktheIdPerdoruesSipasUsername(USERNAME, idNdermarrje);
             DbCore.DbKontabiliteti.clsKlientFurnitor kf = new DbCore.DbKontabiliteti.clsKlientFurnitor();
@@ -986,6 +988,23 @@ namespace PlatinumWeb
             catch (Exception ex)
             {
                 logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
+                return new clsMesazh(false, ex.ToString());
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public clsMesazh addInvoice(string obj)
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(obj);
+                var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                return new clsMesazh(true, "Server list refreshed successfully.");
+            }
+            catch (Exception ex)
+            {
+                //logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
                 return new clsMesazh(false, ex.ToString());
             }
         }
