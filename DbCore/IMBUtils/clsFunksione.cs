@@ -2948,7 +2948,7 @@ namespace DbCore
                 {
                     try
                     {
-                        HttpContext.Current.Response.Redirect(login, true);
+                        HttpContext.Current.Response.Redirect(login, false);
 
                     }
                     catch (ArgumentNullException ex)
@@ -2988,7 +2988,7 @@ namespace DbCore
 
                 try
                 {
-                    HttpContext.Current.Response.Redirect(login, true);
+                    HttpContext.Current.Response.Redirect(login, false);
                 }
                 catch (ArgumentNullException ex)
                 {
@@ -3026,12 +3026,12 @@ namespace DbCore
             if (!eValiduar)
             {
 
-                response.Redirect("AktivizoAlphaWeb.aspx");
+                response.Redirect("AktivizoAlphaWeb.aspx",false);
                 return new clsMesazh(true);
             }
             if (ndryshoPassword)
             {
-                response.Redirect("NdryshimFjalekalimi.aspx");
+                response.Redirect("NdryshimFjalekalimi.aspx",false);
                 return new clsMesazh(true);
             }
             if (passwordISkaduar)
