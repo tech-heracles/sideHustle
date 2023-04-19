@@ -23,6 +23,13 @@ using AlphaWeb.Core.SharedKernel;
 using DbCore.IMBUtils.Messages;
 using AlphaWeb.Infrastructure.Data.AdoNet;
 using Newtonsoft.Json;
+using DbCore.DbKontabiliteti;
+using DevExpress.Web;
+using DbCore.DbArkaBanka;
+using DbCore.DbInventari;
+using Newtonsoft.Json.Linq;
+using DevExpress.XtraEditors.Filtering.Templates;
+using AlphaWebReports;
 
 namespace PlatinumWeb
 {
@@ -998,8 +1005,118 @@ namespace PlatinumWeb
         {
             try
             {
-                var json = JsonConvert.SerializeObject(obj);
-                var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+
+
+                clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32("92044"));
+                //json request
+                var json = JsonConvert.DeserializeObject(obj);
+                var dictionary = (JObject)JsonConvert.DeserializeObject(obj);
+                object trupiobj = dictionary["trupi"].Value<object>();
+
+                //
+
+                //Dklarim klasash
+                clsNdermarrje ndermarrje = new clsNdermarrje("EG01");
+                clsKonfigurimAmbjenti konfigurimAmbjenti = new clsKonfigurimAmbjenti();
+                clsKonfigurimAmbjenti konfigurimAmbjentiMag = new clsKonfigurimAmbjenti();
+                clsKokaShitje koka = new clsKokaShitje();
+                clsKlientFurnitor kf = new clsKlientFurnitor("EG01", ndermarrje.IdNdermarrje);
+                clsMonedha monedha= new clsMonedha();
+                clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
+                clsViti viti = new clsViti(ndermarrje.IdNdermarrje, "2023");
+                clsDegeAdministrative dega = new clsDegeAdministrative("DA01", ndermarrje.IdNdermarrje);
+                clsPerdorues perdorues = new clsPerdorues("konfig");
+                colTrupiShitje colTrupiShitje = new colTrupiShitje();
+                clsNjesiAdministrative magazina = new clsNjesiAdministrative("MQ",ndermarrje.IdNdermarrje);
+                DbCore.DbArkaBanka.clsVeprimBankaKoka veprimebanka = new DbCore.DbArkaBanka.clsVeprimBankaKoka();
+                clsKusht kushtamor = new clsKusht(konfigurimAmbjenti.IdKonfigAmbjente, "ZDAM");
+                DbCore.DbAsete.colSerialetMagazine serialemag = new DbCore.DbAsete.colSerialetMagazine();
+                clsKonfigurimAmbjenti konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera, perdorues.IdGjuha);
+
+
+                clsBanka banka = new clsBanka();
+                //
+
+                //Var to change
+                DateTime dtDok = DateTime.Now;
+                DateTime dtFillimi = DateTime.Now;
+                DateTime dtMbarimi = DateTime.Now;
+                string nrdok = new Random().Next(1, 9999).ToString();
+                double kursi = 1.00;
+                int idMenyrePAgese = 0;
+                string kodMenyrePAgese = "";
+                double zbritje = 0.00;
+                double perqindjeZbritje = 0.00;
+                double totali = 120.00;
+                double tvsh = 20.00;
+                bool zbritjeNeVlere = false;
+                double perqindjeZbritjeTotale = 0.00;
+                string adresa = "";
+                string pershkrimi = "Fature Automatike";
+                string iic = "";
+                string nivf = "";
+                string nivfKthim = "";
+                string eic = "";
+                string einStatus = "";
+                string trupi = trupiobj.ToString();
+                bool gjeneroDokMag = true;
+                string shfaqmesazhapolupe = "";
+                string mesazhInfo = "";
+                string shfaqmesazhapolupemagazina = "";
+                string shfaqmesazhapolupebanka = "";
+                string shfaqmesazhapolupeVDK = "";
+                string mesazhmevonshem = "";
+                string shtimModifikim = "shtim";
+                bool printofature = false;
+                bool printogarancifature = false;
+                bool pageseFature = false;
+                bool kontrolloIMEIFifo = false;
+                bool tollona = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTT") == "Po";
+                string llojZevendesimi = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "ZT");
+                bool tollonakastrati = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTTK") == "Po";
+                bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTTKE") == "Po";
+                bool krijoartri = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "BKAR") == "Po";
+                bool zevendesimtollonakastrati = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "ZTK") == "Po";
+                bool kontrolloSasiKonvertimiDheKthimi = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "NK") == "Po";
+                DbData dbData = new DbData();
+                if (clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "AFI") == "Po")
+                    kontrolloIMEIFifo = true;
+                bool zevendesimtollona = !(llojZevendesimi == "Jo");
+                object[] trupiJson = new object[1];
+                //trupiJson[0] = dictionary["trupi"].ToString();
+                colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, "shitje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", true, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
+                //for (int i = 0; i < 2; i++)
+                //{
+                //    trupiJson
+                //}
+                //
+                clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok,ndermarrje.IdNdermarrje);
+
+                //Mbushje
+                konfigurimAmbjenti.mbushKonfigAmbjSipasKod("FSHmag", ndermarrje.IdNdermarrje);
+                konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod("FDS", ndermarrje.IdNdermarrje);
+                monedha.mbushMonedhen("LEK", ndermarrje.IdNdermarrje);
+                ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
+                banka.mbushBankeSipasKodit("ArkaLek",ndermarrje.IdNdermarrje);
+                //DataRow op = clsOperator.MerrKodOperatoriSipasEmritDheMbiemrit("", "", ndermarrje.IdNdermarrje);
+
+                //
+
+
+
+                //Creating invoice
+                koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, "", dtDok, monedha.IdMonedha, monedha.KodiMonedha,
+                    kursi, 0, "", dtDok, 0, "", 0, "", idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, 1, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
+                    0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0,colTrupiShitje,true,konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha,konfigurimAmbjentiMag, magazina.IdNjesiAdministrative,magazina.Kodi,false,0,0,0,dtDok,totali, StatusAprovimi.Undefined, perdorues.IdPerdorues,0.00,out shfaqmesazhapolupe,new Dictionary<string,object>(),new DbCore.DbQendraKosto.colTrupiQendraKosto()
+                    ,0,out mesazhInfo, false,new clsKokaShitje(),0,0,false,false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF,kf.EmailKF,false,false,"", dtFillimi, dtMbarimi,0,0.00,"",0,0.00,"",0,0.00,"","",0,"",false,new clsKokaShitje(),false,banka.IdBanka,true,false,false,false,dtDok,false,false,false,periudhaKontabel.IdPeriudha,ndermarrjeViti.IdViti,"","",zbritjeNeVlere,perqindjeZbritjeTotale,0,0,new colFazaKontrate(),0,new colKlienteFurnitore(),DateTime.Now,new DbData(),"","",false,false,perdorues.IdGjuha,konfigurimAmbjenti,0,kf.NiptiKF,new clsQyteti(kf.QytetiKF).KodiQyteti,false,0,
+                    new colSerialeUnikeMagazina(),"",false,0,false,0,"",StatusMarreveshje.Undefined,"","shtim",dtDok,false,nrdok,iic,nivf,0,nivfKthim,eic,einStatus,0,0,"");
+                
+                var msg = koka.ruaj(perdorues.IdGjuha, "", true, new Dictionary<string,object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), true, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
+                            out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
+                            konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe,konfigurimAmbjenti.KodKonfigAmbjente,
+                            false, string.Empty,0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "",
+                            false, false, zevendesimtollonakastrati, false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo,shtimModifikim == "bli",
+                            !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 return new clsMesazh(true, "Server list refreshed successfully.");
             }
             catch (Exception ex)
@@ -1007,6 +1124,48 @@ namespace PlatinumWeb
                 //logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
                 return new clsMesazh(false, ex.ToString());
             }
+        }
+        private colTrupiShitje krijoTrupShtije(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone,DateTime dtdok)
+        {
+            Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
+            colTrupiShitje trupat = new colTrupiShitje();
+            int idMagTemp = -1;
+            bool isMagENjejte = false;
+            bool isShitje = true;
+            bool konvertim = shtimModifikim == "konvertim";
+            bool konvertimblerje = shtimModifikim == "konvertimblerje";
+            bool klonim = shtimModifikim == "klonim";
+            bool kthim = false;
+            bool merrSipasGrupit = clsAlternativaKushti.getAlternativa(idKonfAmbj, "AASG") == "Po";
+            bool merrDhurata = clsAlternativaKushti.getAlternativa(idKonfAmbj, "AADH") == "Po";
+            var merrMagazinenNgaTrupi = clsAlternativaKushti.getAlternativa(idKonfAmbj, "NKDMMT") == "Po";
+            int dokumentiLength = dokumenti.Length;
+            bool kthimVod = shtimModifikim == "kthimVod";
+            bool ruajBarkod = clsAlternativaKushti.getAlternativa(idKonfAmbj, "RBART") == "Po";
+            bool lejoMagNdryshme = clsAlternativaKushti.getAlternativa(idKonfAmbj, "LMNGB") == "Po";
+            bool lejoSasiPozitiveKthim = clsAlternativaKushti.getAlternativa(idKonfAmbj, "LSPK") == "Po";
+            var nrRendorSerial = -1;
+            for (int i = 0; i < dokumentiLength; i++)
+            {
+                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, i, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial);
+                if (string.IsNullOrEmpty(trupi.Kodi))
+                    continue;
+
+                if (merrMagazinenNgaTrupi || !string.IsNullOrEmpty(btnMagazina))
+                {
+                    if (idMagTemp == -1)
+                    {
+                        idMagTemp = trupi.IdMagazina;
+                        isMagENjejte = true;
+                    }
+                    else if (isMagENjejte && trupi.IdMagazina != idMagTemp)
+                        isMagENjejte = false;
+                }
+
+                trupat.Add(trupi);
+            }
+            nrRendorSerial = -1;
+            return trupat;
         }
     }
 }
