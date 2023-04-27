@@ -280,6 +280,104 @@ namespace DbCore.DbRegjistrim
                     break;
             }
         }
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod,bool meKomision,bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial,bool fatureAutomatike)
+        {
+            //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);    
+            string kodi = rreshtDokuKlient["C"].ToString();
+            if (kodi == string.Empty || kodi == null || kodi == "null")
+                return;
+            string lloji = "Artikull";
+            clsArtikulli artikulli= new clsArtikulli(kodi,idNdermarrje);
+            //int idtrupitransferim;
+            int.TryParse(artikulli.IdArtikulli.ToString(), out this.idKodi);
+            int.TryParse(0.ToString(), out this.idShitjeTrupi);
+            int.TryParse(0.ToString(), out this.idTrupiKonvertimi);
+            int.TryParse(0.ToString(), out this.idTrupiKonvertimBlerje);
+            int.TryParse(0.ToString(), out this.idTrupiRezervimi);
+            int.TryParse(0.ToString(), out this.idTrupiTransferimi);
+            int.TryParse(0.ToString(), out this.idTrupiKthim);
+            string pershkr = rreshtDokuKlient["N"].ToString();
+            string detajimi = "";
+            string detajimi2 = "";
+            string njesia = rreshtDokuKlient["U"].ToString();
+            double.TryParse(rreshtDokuKlient["Q"].ToString(), out this.sasia);
+            double.TryParse(0.ToString(), out this.sasimbetur);
+            double.TryParse(0.ToString(), out this.sasiRez);
+            double.TryParse(1.ToString(), out this.gjeresi);
+            double.TryParse(1.ToString(), out this.gjatesi);
+            double.TryParse(1.ToString(), out this.sasiPermasa);
+            double.TryParse(rreshtDokuKlient["UPB"].ToString(), out this.cmimi);
+            double.TryParse(rreshtDokuKlient["R"].ToString(), out this.zbritje);
+            this.zbritjeNeVlere = 1;
+            double.TryParse(rreshtDokuKlient["R"].ToString(), out this.zbritjeVlere);
+            double.TryParse(rreshtDokuKlient["PB"].ToString(), out this.vleftaPaTvsh);
+            string tvsh = string.Format("{0}", double.Parse(rreshtDokuKlient["VR"].ToString()));
+            double.TryParse(rreshtDokuKlient["PA"].ToString(), out this.vleftaMeTvsh);
+            string magazina = "MQ";
+            string shenime = "";
+            //string seriale = Convert.ToString(rreshtDokuKlient["txtSerial"]);
+            clsLlogari ll = new clsLlogari(artikulli.IdLlogariShpenzime);
+            string nrLlogarieShpenz = ll != null ? "" : ll.EmerLlogari1;   
+            string nrLlogShpenz = nrLlogarieShpenz;
+            DateTime.TryParse(DateTime.Now.ToString(), out this.dtFillimi);
+            DateTime.TryParse(DateTime.Now.ToString(), out this.dtMbarimi);
+            string shenime2 = "";
+            string barkodi = ruajbarkod ? rreshtDokuKlient["BC"].ToString() : String.Empty;
+            clsKategoriShpenzimi kat = new clsKategoriShpenzimi("", idNdermarrje);
+            idKategoriShpenzimi = kat.Id;
+             double.TryParse("0.00",out this.vleraKomisionit);
+            this.meKomision = meKomision;
+
+            clsArtikulli art = new clsArtikulli();
+            clsLlogari llog = new clsLlogari();
+           
+            int idTvsh = clsTaksa.ktheIdTakse(tvsh, idNdermarrje);
+            int idBarkod = clsKodbari.MerrIdBarkodiSipasPershkrimDheArtikulli(barkodi, this.IdKodi);
+            int idNjesi = 0;
+            if (njesia != string.Empty && njesia != null && njesia != "null")
+                idNjesi = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje);
+            
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            if (idLlojVeprimi == 1)
+                nrRendorSerial++;
+            if (art.LlojiArt)
+            {
+                int serialCounter = 0;
+                if (hfSeriale.ContainsKey(this.idKodi + "_" + hfIdGride[rreshti.ToString()]))
+                {
+                    var dokumenti = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(hfSeriale[this.idKodi + "_" + hfIdGride[rreshti.ToString()]].ToString());
+                    for (int i = 0; i < dokumenti.Length; i++)
+                    {
+                        DbCore.DbAsete.clsAQTSeriale serial = new DbCore.DbAsete.clsAQTSeriale(dokumenti[i]);
+                        //col.Add(serial);
+                        serialCounter++;
+                        if (serial.IdAQTArt != this.idKodi)
+                            throw new Exception("Serialet e artikullit " + this.Kodi + " jane marre gabim!");
+                        DbCore.DbAsete.clsSerialetMagazine serialmag = new DbCore.DbAsete.clsSerialetMagazine(0, 0, nrRendorSerial, this.idKodi, serial.IdAQTSerial, konfmag.IdNivel, konfmag.IdKonfigAmbjente, this.idMagazina, art.MeSerial ? 1 : (float)(this.sasia * (double)(this.idNjesia == art.Njesi1Artikulli ? 1 : art.KoeficientArtikulli)), float.Parse((this.vleftaPaTvsh * (1 - perqindjeZbritje) / (this.sasia * (double)(this.idNjesia == art.Njesi1Artikulli ? 1 : art.KoeficientArtikulli))).ToString()) * Convert.ToSingle(kursi), float.Parse((this.vleftaPaTvsh * (1 - perqindjeZbritje) / (this.sasia * (double)(this.idNjesia == art.Njesi1Artikulli ? 1 : art.KoeficientArtikulli))).ToString()) * (art.MeSerial ? 1 : (float)((this.sasia * (double)(this.idNjesia == art.Njesi1Artikulli ? 1 : art.KoeficientArtikulli)))) * Convert.ToSingle(kursi), statusDokumenti, idNdermarrje, idPerdoruesi, idPerdoruesi, 0);
+                        colserialemag.Add(serialmag);
+                    }
+                }
+                if (kontrollosasi && ((this.sasia != serialCounter && art.MeSerial && serialCounter != 0)))
+                    throw new DbCore.MyException(MessagesResource.Messages["msgSasiaArtikullit"] + this.kodi + MessagesResource.Messages["msgEshteENdryshmeNgaSeriaESerialeve"]);
+                if (art.MeSerial && this.sasia != Math.Truncate(this.sasia))
+                    throw new DbCore.MyException("Nuk lejohet sasi me presje dhjetore per artikullin " + this.kodi + " sepse eshte me serial!");
+
+
+            }
+            switch ((llojRreshtiShitje)idLlojVeprimi)
+            {
+                case llojRreshtiShitje.Artikull:
+                    if (art.IdArtikulli == 0)
+                        art = new clsArtikulli(kodi, idNdermarrje);
+                    this.element = art;
+                    break;
+                case llojRreshtiShitje.Llogari:
+                    if (llog.IdLlogari == 0)
+                        llog = new clsLlogari(kodi, idNdermarrje);
+                    this.element = llog;
+                    break;
+            }
+        }
 
         internal clsTrupiShitje ShallowCopy()
         {
