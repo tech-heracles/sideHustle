@@ -32,7 +32,7 @@ namespace PlatinumWeb
         {
             if (!IsPostBack)
             {
-
+                googlePopup.Visible = false;
                 var cookie = Request.Cookies["adresa"];
                 if (cookie == null)
                 {
@@ -83,8 +83,8 @@ namespace PlatinumWeb
                 hfState.Set("chatLink", licenca.ChatLink);
                 hfState.Set("chatPortHttp", licenca.ChatPortHttp);
                 hfState.Set("chatPortHttps", licenca.ChatPortHttps);
-                PageAsyncTask t = new PageAsyncTask(showPopUp);
-                Page.RegisterAsyncTask(t);
+                //PageAsyncTask t = new PageAsyncTask(showPopUp);
+                //Page.RegisterAsyncTask(t);
                 Page.ExecuteRegisteredAsyncTasks();
                 hfState.Set("googleAnalytics", licenca.GoogleAnalytics);
                 hfState.Set("googleAnalyticsTrackingId", licenca.GoogleAnalyticsTrackingId);
@@ -240,10 +240,10 @@ namespace PlatinumWeb
         }
         private async Task showPopUp()
         {
-            clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
-            string perdoruesEmail = perdorues.Shenime != "" ? perdorues.Shenime : perdorues.PerdoruesEmail; 
-            bool val = await clsFunksione.merrShenimePerdoruesi(perdoruesEmail);
-            googlePopup.Visible = val;
+            //clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
+            //string perdoruesEmail = perdorues.Shenime != "" ? perdorues.Shenime : perdorues.PerdoruesEmail; 
+            //bool val = await clsFunksione.merrShenimePerdoruesi(perdoruesEmail);
+            //googlePopup.Visible = val;
         }
         protected void btnDownloadProgramKase_Click(object sender, EventArgs e)
         {
