@@ -329,6 +329,7 @@ namespace PlatinumWeb
             List<object> items = ASPxGridView_Artikull.GetSelectedFieldValues(columnNames);
             if (items.Count > 0)
             {
+                //clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Artikujt po sinkronizohen!", pnlMesazhi);
                 List<int> artikujt = new List<int>();
                 List<object> objForPubSub = new List<object>();
                 PubSub PubSub = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items");

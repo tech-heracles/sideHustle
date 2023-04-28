@@ -31,7 +31,9 @@
             </asp:ScriptManager>
             <asp:updatepanel runat="server">
                  <ContentTemplate>
-                    <dx:ASPxButton runat="server" ID="pubSubButton" OnClick="SendItemsToPubSub" AutoPostBack="false"></dx:ASPxButton>
+                    <dx:ASPxButton runat="server" ID="pubSubButton" OnClick="SendItemsToPubSub" AutoPostBack="false" ClientVisible="false">
+                        <ClientSideEvents Click="function(){Utils.shfaqLoadingGif();}"/>
+                    </dx:ASPxButton>
                  </ContentTemplate>
              </asp:updatepanel>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">

@@ -6789,14 +6789,14 @@ namespace PlatinumWeb
             {
                 ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbKontabilizuar")).SelectedIndex = 1;
             }
-            int viti = new clsNdermarrjeViti(IdNdermarrjeVit).NdermarrjeViti;
-            DateTime fillimViti = new DateTime(viti, 1, 1);
-            DateTime mbarimViti = new DateTime(viti, 12, 31);
-            ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtNgaDok")).MinDate = fillimViti;
-            ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtNgaDok")).MaxDate = mbarimViti;
-            ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDok")).MinDate = fillimViti;
-            ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDok")).MaxDate = mbarimViti;
-            ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items.Remove(((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items[3]);
+            //int viti = new clsNdermarrjeViti(IdNdermarrjeVit).NdermarrjeViti;
+            //DateTime fillimViti = new DateTime(viti, 1, 1);
+            //DateTime mbarimViti = new DateTime(viti, 12, 31);
+            //((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtNgaDok")).MinDate = fillimViti;
+            //((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtNgaDok")).MaxDate = mbarimViti;
+            //((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDok")).MinDate = fillimViti;
+            //((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDok")).MaxDate = mbarimViti;
+            //((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items.Remove(((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items[3]);
         }
 
         /// <summary>

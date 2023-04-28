@@ -242,10 +242,10 @@ namespace PlatinumWeb.Templates
             }
             if(gridaKoka.EmriGridaKoka == "ASPxGridView_Artikull" || gridaKoka.EmriGridaKoka == "ASPxGridView_KF")
                 {
-                    sinkronizo.ToolTip = "Sinkronizo";
+                    sinkronizo.ToolTip = gridaKoka.EmriGridaKoka == "ASPxGridView_Artikull" ? "Sinkronizo artikuj me Fatura.alpha" : "Sinkronizo klient me Fatura.alpha";
                     sinkronizo.AutoPostBack = false;
-                    sinkronizo.Image.Url = $"images/theme/{CurrentPage.Theme}/grida/butoni_refresh.png";
-                    sinkronizo.Image.UrlHottracked = $"images/theme/{CurrentPage.Theme}/grida/butoni_refresh.png";
+                    sinkronizo.Image.Url = $"images/FaqjaPare/imbLogo.png";
+                    sinkronizo.Image.UrlHottracked = $"images/FaqjaPare/imbLogo.png";
                     sinkronizo.Visible = true;
                     sinkronizo.Image.Height = 16;
                     sinkronizo.Font.Size = 8;
