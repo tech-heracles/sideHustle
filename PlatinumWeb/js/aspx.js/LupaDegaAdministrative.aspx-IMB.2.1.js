@@ -85,7 +85,7 @@ function OnGridSelectionComplete(values) {
     if (window.parent.identikuesPerPopupDegaAdministrative == 'KonfigurimDokumentash') {
         //for (i = 1; i < values.length; i++)
         //    degaAdmin = degaAdmin + "," + values[i][1];
-        window.parent.editorPkShF.SetText(degaAdmin);
+        window.parent.editorPkShF.SetText(degaAdmin + " (" + values[0][2]+")");
         window.parent.editorPkShF.SetFocus(true);
     }
 

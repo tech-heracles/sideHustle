@@ -2049,12 +2049,12 @@
             }
         };
         $(document).ready(async function () {
-            $.ajax({
-                url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
-                async: true
-            }).done(function (res) {
+            //$.ajax({
+            //    url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
+            //    async: true
+            //}).done(function (res) {
 
-            });
+            //});
             window.auth.onAuthStateChanged(function (user) {
 
                 if (window.auth.currentUser != null) {
