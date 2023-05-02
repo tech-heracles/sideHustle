@@ -1012,25 +1012,27 @@ namespace PlatinumWeb
                 //json request
                 var json = JsonConvert.DeserializeObject(obj);
                 var dictionary = (JObject)JsonConvert.DeserializeObject(obj);
-                object trupiobj = dictionary["Items"].Value<object>();
+                object trupiobj = dictionary["items"].Value<object>();
+                Dictionary<string, string> alphaMetadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(dictionary["alphaMetadata"].Value<object>().ToString());//serializusi.DeserializeObject(gridDataObject) as object[];
+
                 DateTime dtDok = DateTime.Parse(dictionary["docDate"].ToString());
                 //
                 //Vendosja e databazes
-                clsMesazh mesazh = clsLogin.setServerFromOrgName(Session.SessionID, dictionary["organization"].ToString());
+                clsMesazh mesazh = clsLogin.setServerFromOrgName(Session.SessionID, alphaMetadata["organization"].ToString());
                 if(!mesazh.Status) return new clsMesazh(false, mesazh.PershkrimMesazhi);
                 //Dklarim klasash
-                clsNdermarrje ndermarrje = new clsNdermarrje(dictionary["ndermarrja"].ToString());
+                clsNdermarrje ndermarrje = new clsNdermarrje(alphaMetadata["ndermarrja"].ToString());
                 clsKonfigurimAmbjenti konfigurimAmbjenti = new clsKonfigurimAmbjenti();
                 clsKonfigurimAmbjenti konfigurimAmbjentiMag = new clsKonfigurimAmbjenti();
                 clsKokaShitje koka = new clsKokaShitje();
-                clsKlientFurnitor kf = new clsKlientFurnitor(dictionary["BuyerCode"].ToString(), ndermarrje.IdNdermarrje);
+                clsKlientFurnitor kf = new clsKlientFurnitor(dictionary["clientCode"].ToString(), ndermarrje.IdNdermarrje);
                 clsMonedha monedha= new clsMonedha();
                 clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
                 clsViti viti = new clsViti(ndermarrje.IdNdermarrje, dtDok.Year.ToString());
-                clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["BusinUnitCode"].ToString(), ndermarrje.IdNdermarrje);
-                clsPerdorues perdorues = new clsPerdorues(dictionary["email"].ToString().Split('@')[0], dictionary["email"].ToString(), true);
+                clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["businUnitCode"].ToString(), ndermarrje.IdNdermarrje);
+                clsPerdorues perdorues = new clsPerdorues(dictionary["userEmail"].ToString().Split('@')[0], dictionary["userEmail"].ToString(), true);
                 colTrupiShitje colTrupiShitje = new colTrupiShitje();
-                clsNjesiAdministrative magazina = new clsNjesiAdministrative("MQ",ndermarrje.IdNdermarrje);
+                clsNjesiAdministrative magazina = new clsNjesiAdministrative("warehouse",ndermarrje.IdNdermarrje);
                 DbCore.DbArkaBanka.clsVeprimBankaKoka veprimebanka = new DbCore.DbArkaBanka.clsVeprimBankaKoka();
                 clsKusht kushtamor = new clsKusht(konfigurimAmbjenti.IdKonfigAmbjente, "ZDAM");
                 DbCore.DbAsete.colSerialetMagazine serialemag = new DbCore.DbAsete.colSerialetMagazine();
@@ -1051,7 +1053,7 @@ namespace PlatinumWeb
                 double perqindjeZbritjeTotale = 0.00;
                 string adresa = "";
                 string einStatus = "";
-                bool gjeneroDokMag = true;
+                bool gjeneroDokMag = false;
                 string shfaqmesazhapolupe = "";
                 string mesazhInfo = "";
                 string shfaqmesazhapolupemagazina = "";
@@ -1067,22 +1069,23 @@ namespace PlatinumWeb
                 int tipiEinvoice = 0;
                 int operatori = 0;
                 string trupi = trupiobj.ToString();
-                string iic = dictionary["iic"].ToString();
+                string iic = dictionary["nslf"].ToString();
                 string nivf = dictionary["nivf"].ToString();
-                string nivfKthim = dictionary["nivfKthim"].ToString();
+                string nivfKthim = "";
                 string eic = dictionary["eic"].ToString();
-                string tipVetFaturimi = dictionary["TypeOfSelfIss"].ToString();
-                string nrdok = dictionary["InvOrdNum"].ToString();
+                string tipVetFaturimi = dictionary["typeOfSelfIss"].ToString();
+                string nrdok = dictionary["docNo"].ToString();
                 string pershkrimi = dictionary["invoiceDescription"].ToString();
                 //
                 //Parsing values
-                DateTime.TryParse(dictionary["StartDate"].ToString(),out dtFillimi);
-                DateTime.TryParse(dictionary["EndDate"].ToString(),out dtMbarimi);
-                double.TryParse(dictionary["TotVATAmt"].ToString(), out tvsh);
-                double.TryParse(dictionary["totalDisscount"].ToString(), out zbritje);
+                DateTime.TryParse(dictionary["startDate"].ToString(),out dtFillimi);
+                DateTime.TryParse(dictionary["endDate"].ToString(),out dtMbarimi);
+                double.TryParse(dictionary["totalVatValue"].ToString(), out tvsh);
+                double.TryParse(dictionary["totalDiscount"].ToString(), out zbritje);
                 double.TryParse(dictionary["totalDisscountPercentage"].ToString(), out zbritje);
-                double.TryParse(dictionary["TotPrice"].ToString(), out totali);
-                double.TryParse(dictionary["ExRate"].ToString(), out kursi);
+                double.TryParse(dictionary["totalValue"].ToString(), out totali);
+                double.TryParse(dictionary["exchangeRate"].ToString(), out kursi);
+                bool.TryParse(dictionary["generateWarehouseDoc"].ToString(), out gjeneroDokMag);
                 //
                 //Alternativat
                 bool tollona = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTT") == "Po";
@@ -1096,28 +1099,27 @@ namespace PlatinumWeb
                 if (clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "AFI") == "Po")
                     kontrolloIMEIFifo = true;
                 bool zevendesimtollona = !(llojZevendesimi == "Jo");
-                colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, "shitje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", true, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
+                colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, "shitje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
                 clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok,ndermarrje.IdNdermarrje);
                 //
 
                 //Mbushje
-                konfigurimAmbjenti.mbushKonfigAmbjSipasKod(dictionary["formatShitje"].ToString(), ndermarrje.IdNdermarrje);
+                konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
                 konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod("FDS", ndermarrje.IdNdermarrje);
-                monedha.mbushMonedhen(dictionary["monedha"].ToString(), ndermarrje.IdNdermarrje);
+                monedha.mbushMonedhen(dictionary["currency"].ToString(), ndermarrje.IdNdermarrje);
                 ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
-                banka.mbushBankeSipasKodit("ArkaLek",ndermarrje.IdNdermarrje);
+                banka.mbushBankeSipasKodit(dictionary["cashRegisterCode"].ToString(), ndermarrje.IdNdermarrje);
                 DataTable op = clsOperator.MerrOperatoretAktive(ndermarrje.IdNdermarrje);
-                DataTable processet = koka.ktheIdProcesi(dictionary["ProfileID"].ToString());
-                DataTable eInvTypes = koka.ktheIdTipiEinvoice(dictionary["InvoiceTypeCode"].ToString());
+                DataTable processet = koka.ktheIdProcesi(dictionary["profileID"].ToString());
+                DataTable eInvTypes = koka.ktheIdTipiEinvoice(dictionary["invoiceTypeCode"].ToString());
                 if(processet.Rows.Count > 0) int.TryParse(processet.Rows[0].ItemArray[0].ToString(),out procesi);
                 if (eInvTypes.Rows.Count > 0)  int.TryParse(eInvTypes.Rows[0].ItemArray[0].ToString(), out tipiEinvoice);
                 for(int i = 0; i < op.Rows.Count; i++)
                 {
-                    if (op.Rows[i].ItemArray[1].ToString() == dictionary["OperatorCode"].ToString())
+                    if (op.Rows[i].ItemArray[1].ToString() == dictionary["operatorCode"].ToString())
                         int.TryParse(op.Rows[i].ItemArray[0].ToString(),out operatori);
 
                 }
-
 
 
                 //Creating invoice

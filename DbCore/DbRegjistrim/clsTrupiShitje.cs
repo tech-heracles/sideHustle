@@ -282,8 +282,9 @@ namespace DbCore.DbRegjistrim
         }
         public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod,bool meKomision,bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial,bool fatureAutomatike)
         {
-            //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);    
-            string kodi = rreshtDokuKlient["C"].ToString();
+            //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
+            Dictionary<string, string> itemMetadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(rreshtDokuKlient["metadata"].ToString());
+            string kodi = rreshtDokuKlient["code"].ToString();
             if (kodi == string.Empty || kodi == null || kodi == "null")
                 return;
             string lloji = "Artikull";
@@ -296,24 +297,24 @@ namespace DbCore.DbRegjistrim
             int.TryParse(0.ToString(), out this.idTrupiRezervimi);
             int.TryParse(0.ToString(), out this.idTrupiTransferimi);
             int.TryParse(0.ToString(), out this.idTrupiKthim);
-            string pershkr = rreshtDokuKlient["N"].ToString();
+            string pershkr = itemMetadata["name"].ToString();
             string detajimi = "";
             string detajimi2 = "";
-            string njesia = rreshtDokuKlient["U"].ToString();
-            double.TryParse(rreshtDokuKlient["Q"].ToString(), out this.sasia);
+            string njesia = itemMetadata["unit"].ToString();
+            double.TryParse(itemMetadata["quantity"].ToString(), out this.sasia);
             double.TryParse(0.ToString(), out this.sasimbetur);
             double.TryParse(0.ToString(), out this.sasiRez);
             double.TryParse(1.ToString(), out this.gjeresi);
             double.TryParse(1.ToString(), out this.gjatesi);
             double.TryParse(1.ToString(), out this.sasiPermasa);
-            double.TryParse(rreshtDokuKlient["UPB"].ToString(), out this.cmimi);
-            double.TryParse(rreshtDokuKlient["R"].ToString(), out this.zbritje);
+            double.TryParse(itemMetadata["UPB"].ToString(), out this.cmimi);
+            double.TryParse(rreshtDokuKlient["discount"].ToString(), out this.zbritje);
             this.zbritjeNeVlere = 1;
-            double.TryParse(rreshtDokuKlient["R"].ToString(), out this.zbritjeVlere);
-            double.TryParse(rreshtDokuKlient["PB"].ToString(), out this.vleftaPaTvsh);
-            string tvsh = string.Format("{0}", double.Parse(rreshtDokuKlient["VR"].ToString()));
-            double.TryParse(rreshtDokuKlient["PA"].ToString(), out this.vleftaMeTvsh);
-            string magazina = "MQ";
+            double.TryParse(rreshtDokuKlient["discountValue"].ToString(), out this.zbritjeVlere);
+            double.TryParse(itemMetadata["valueNoVatNoDiscount"].ToString(), out this.vleftaPaTvsh);
+            string tvsh = string.Format("{0}", double.Parse(itemMetadata["vatPercentage"].ToString()));
+            double.TryParse(itemMetadata["valueWithVat"].ToString(), out this.vleftaMeTvsh);
+            string magazina = itemMetadata["warehouse"].ToString();
             string shenime = "";
             //string seriale = Convert.ToString(rreshtDokuKlient["txtSerial"]);
             clsLlogari ll = new clsLlogari(artikulli.IdLlogariShpenzime);
@@ -322,7 +323,7 @@ namespace DbCore.DbRegjistrim
             DateTime.TryParse(DateTime.Now.ToString(), out this.dtFillimi);
             DateTime.TryParse(DateTime.Now.ToString(), out this.dtMbarimi);
             string shenime2 = "";
-            string barkodi = ruajbarkod ? rreshtDokuKlient["BC"].ToString() : String.Empty;
+            string barkodi = ruajbarkod ? rreshtDokuKlient["barcode"].ToString() : String.Empty;
             clsKategoriShpenzimi kat = new clsKategoriShpenzimi("", idNdermarrje);
             idKategoriShpenzimi = kat.Id;
              double.TryParse("0.00",out this.vleraKomisionit);
