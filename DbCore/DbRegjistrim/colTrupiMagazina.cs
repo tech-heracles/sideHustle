@@ -36,6 +36,15 @@ namespace DbCore.DbRegjistrim
                 colArt.Add(new DbInventari.clsArtikulli(trupMag.IdArtikulli));
             return colArt;
         }
+        public DbInventari.colArtikujt ktheColArtikujPaLoop(int idNdermarrje,int idPerdorues) 
+        {
+            DbInventari.colArtikujt colArt = new DbInventari.colArtikujt();
+            var dataTable = colArtikujt.merrSipasArtikujAktivNdermarrjesAndAutorizimeDT(idNdermarrje,idPerdorues).Rows.OfType<DataRow>();
+            foreach (var art in this)
+                foreach (var s in dataTable.Where(x => int.Parse(x.ItemArray[0].ToString()) == art.IdArtikulli))
+                    colArt.Add(new DbInventari.clsArtikulli(int.Parse(s.ItemArray[0].ToString())));
+            return colArt;
+        }
 
         public DbInventari.colArtikujt ktheColArtikujSet()
         {
@@ -58,6 +67,27 @@ namespace DbCore.DbRegjistrim
             }
             return colDetArt;
         }
+        public DbInventari.colDetajimeArtikulli ktheColDetArtPaLoop(int idNder,int idPer)
+        {
+            DbInventari.colDetajimeArtikulli colDetArt = new DbInventari.colDetajimeArtikulli();
+            colDetArt.mbushDetajimeSipasNdermarrjesAndAutorizim(idNder, idPer);
+            foreach (var val in this)
+            {
+                if (val.IdDetajimi == 0)
+                {
+                    colDetArt.Add(new DbInventari.clsDetajimArtikulli(0));
+                    continue;
+                }
+                else
+                {
+                    foreach (var s in colDetArt.Where(x => x.IdDetajimArtikulli == val.IdDetajimi))
+                        colDetArt.Add(new DbInventari.clsDetajimArtikulli(s.IdDetajimArtikulli));
+                }
+
+            }
+
+            return colDetArt;
+        }
 
         public DbInventari.colDetajimeArtikulli ktheColDetArt2()
         {
@@ -69,6 +99,27 @@ namespace DbCore.DbRegjistrim
             }
             return colDetArt;
         }
+        public DbInventari.colDetajimeArtikulli ktheColDetArtPaLoop2(int idNder, int idPer)
+        {
+            DbInventari.colDetajimeArtikulli colDetArt = new DbInventari.colDetajimeArtikulli();
+            colDetArt.mbushDetajimeSipasNdermarrjesAndAutorizim(idNder, idPer);
+            foreach (var val in this)
+            {
+                if (val.IdDetajimi2 == 0)
+                {
+                    colDetArt.Add(new DbInventari.clsDetajimArtikulli(0));
+                    continue;
+                }
+                else
+                {
+                    foreach (var s in colDetArt.Where(x => x.IdDetajimArtikulli == val.IdDetajimi2))
+                        colDetArt.Add(new DbInventari.clsDetajimArtikulli(s.IdDetajimArtikulli));
+                }
+
+            }
+              
+            return colDetArt;
+        }
 
         public colNjesiAdministrative ktheColMag(int idPerdorues)
         {
@@ -78,6 +129,16 @@ namespace DbCore.DbRegjistrim
                 clsNjesiAdministrative mag = new clsNjesiAdministrative(trupMag.IdMag);
                 colMag.Add(mag);
             }
+            return colMag;
+        }
+        public colNjesiAdministrative ktheColMagPaLoop(int idNder,int idPerdorues)
+        {
+            colNjesiAdministrative colMag = new colNjesiAdministrative();
+            colMag.mbushGjitheNjesiAdministrative(idNder, idPerdorues);
+            var listColMag = colMag.ToList();
+            foreach (var val in this)
+                foreach (var s in listColMag.Where(x => x.IdNjesiAdministrative== val.IdMag))
+                    colMag.Add(new clsNjesiAdministrative(s.IdNjesiAdministrative));
             return colMag;
         }
 
@@ -105,6 +166,14 @@ namespace DbCore.DbRegjistrim
                 DbInventari.clsNjesiArtikulli njesiArt = new DbInventari.clsNjesiArtikulli(trupMag.IdNjesia);
                 colNjesi.Add(njesiArt);
             }
+            return colNjesi;
+        }
+        public DbInventari.colNjesiteArtikulli ktheColNjesiArtPaLoop(int idNder)
+        {
+            DbInventari.colNjesiteArtikulli colNjesi = new DbInventari.colNjesiteArtikulli(idNder);
+            foreach (var val in this)
+                foreach (var s in colNjesi.Where(x => x.IdNjesia== val.IdNjesia))
+                    colNjesi.Add(new clsNjesiArtikulli(s.IdNjesia));
             return colNjesi;
         }
         
