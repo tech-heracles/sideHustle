@@ -3700,6 +3700,9 @@ namespace PlatinumWeb
             bool shitjevodafone = btnMagazina.Text.Length == 3 && KonfigAmbjente.KodKonfigAmbjente.EndsWith(btnMagazina.Text);
             colTrupiShitje trupi = ruajTrupShitje(idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, tollon, gridDataObject.Value, gridObjectKomision.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm, tollonakastrati, zevendesimtollonakastrati, blerengadealer, shitjevodafone);
             //krijoSeriale(colserialemag, trupi, statusDokumenti, idNdermarrje, idPerdoruesi, idPerdoruesi, konfmag, kontrolloSasi, ci, rm, perqindjeZbritje);
+            for(int i=0;i<trupi.Count;i++)
+                if (trupi[i].IdLlojVeprimi != 1)
+                    throw new Exception("Nuk mund te beni fatura te fiskalizuara me llogari!");
             int idmagazina = 0;
             if (btnMagazina.Text != string.Empty)
                 idmagazina = int.Parse(btnMagazina.Value.ToString());
