@@ -1855,8 +1855,8 @@ namespace DbCore.DbRegjistrim
                     double.TryParse(dbDataRowTrupShitje["VLEFTAMETVSH"].ToString(), out vleftaMeTvsh);
                     int.TryParse(dbDataRowTrupShitje["IDMAGAZINA"].ToString(), out idMagazina);
                     shenime = dbDataRowTrupShitje["SHENIME"].ToString();
-                    dtFillimi = DateTime.Parse(dbDataRowTrupShitje["DTFILLIMI"].ToString());
-                    dtMbarimi = DateTime.Parse(dbDataRowTrupShitje["DTMBARIMI"].ToString());
+                    DateTime.TryParse(dbDataRowTrupShitje["DTFILLIMI"].ToString(),out dtFillimi);
+                    DateTime.TryParse(dbDataRowTrupShitje["DTMBARIMI"].ToString(),out dtMbarimi);
                     double.TryParse(dbDataRowTrupShitje["sasiambetur"].ToString(), out sasimbetur);
                     int.TryParse(dbDataRowTrupShitje["IDTRUPIKONVERTIMI"].ToString(), out idTrupiKonvertimi);
                     int.TryParse(dbDataRowTrupShitje["IDTRUPIKONVERTIMBLERJE"].ToString(), out idTrupiKonvertimBlerje);
