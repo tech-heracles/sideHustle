@@ -799,7 +799,11 @@ namespace PlatinumWeb
             }
             catch (Exception ex)
             {
-                
+                ASPxHiddenField loginHiddenField = Login1.FindControl("loginHiddenField") as ASPxHiddenField;
+
+                loginHiddenField.Set("userlbl", MessagesResource.Messages["lblLoginPerdoruesi"]);
+                loginHiddenField.Set("passlbl", MessagesResource.Messages["lblLoginPassword"]);
+                loginHiddenField.Set("srvlbl", MessagesResource.Messages["cmbzgjidhServerin"]);
                 ImbLogger.LogErrorWebApi(ex.Message);
             }
 
