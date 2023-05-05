@@ -188,7 +188,7 @@ namespace DbCore.DbRegjistrim
         public DbInventari.colNjesiteArtikulli ktheColNjesiArtPaLoop(int idNder)
         {
             DbInventari.colNjesiteArtikulli colNjesi = new DbInventari.colNjesiteArtikulli(idNder);
-            DbInventari.colNjesiteArtikulli colNjesiReturn = new DbInventari.colNjesiteArtikulli(idNder);
+            DbInventari.colNjesiteArtikulli colNjesiReturn = new DbInventari.colNjesiteArtikulli();
             foreach (var val in this)
                 foreach (var s in colNjesi.Where(x => x.IdNjesia== val.IdNjesia))
                     colNjesiReturn.Add(s);
