@@ -9816,7 +9816,6 @@ namespace DbCore.DbRegjistrim
                     iic = dbDataRowKokeShitje["IIC"].ToString();
                     nivf = dbDataRowKokeShitje["NIVF"].ToString();
                     int.TryParse(dbDataRowKokeShitje["IDOPERATOR"].ToString(), out idOperator);
-                    int.TryParse(dbDataRowKokeShitje["Procesi"].ToString(), out procesi);
                     if (dbDataRowKokeShitje.Table.Columns.Contains("NIVFKTHIM"))
                     {
                         nivfKthim = dbDataRowKokeShitje["NIVFKTHIM"].ToString();

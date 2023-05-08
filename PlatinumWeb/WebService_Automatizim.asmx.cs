@@ -1030,7 +1030,7 @@ namespace PlatinumWeb
                 clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
                 clsViti viti = new clsViti(ndermarrje.IdNdermarrje, dtDok.Year.ToString());
                 clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["businUnitCode"].ToString(), ndermarrje.IdNdermarrje);
-                clsPerdorues perdorues = new clsPerdorues(dictionary["userEmail"].ToString().Split('@')[0], dictionary["userEmail"].ToString(), true);
+                clsPerdorues perdorues = new clsPerdorues(alphaMetadata["userEmail"].ToString().Split('@')[0], alphaMetadata["userEmail"].ToString(), true);
                 colTrupiShitje colTrupiShitje = new colTrupiShitje();
                 clsNjesiAdministrative magazina = new clsNjesiAdministrative("warehouse",ndermarrje.IdNdermarrje);
                 DbCore.DbArkaBanka.clsVeprimBankaKoka veprimebanka = new DbCore.DbArkaBanka.clsVeprimBankaKoka();
@@ -1082,10 +1082,10 @@ namespace PlatinumWeb
                 DateTime.TryParse(dictionary["endDate"].ToString(),out dtMbarimi);
                 double.TryParse(dictionary["totalVatValue"].ToString(), out tvsh);
                 double.TryParse(dictionary["totalDiscount"].ToString(), out zbritje);
-                double.TryParse(dictionary["totalDisscountPercentage"].ToString(), out zbritje);
+                //double.TryParse(dictionary["totalDisscountPercentage"].ToString(), out zbritje);
                 double.TryParse(dictionary["totalValue"].ToString(), out totali);
                 double.TryParse(dictionary["exchangeRate"].ToString(), out kursi);
-                bool.TryParse(dictionary["generateWarehouseDoc"].ToString(), out gjeneroDokMag);
+                bool.TryParse(alphaMetadata["generateWarehouseDoc"].ToString(), out gjeneroDokMag);
                 //
                 //Alternativat
                 bool tollona = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTT") == "Po";
@@ -1129,19 +1129,24 @@ namespace PlatinumWeb
                     ,0,out mesazhInfo, false,new clsKokaShitje(),0,0,false,false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF,kf.EmailKF,false,false,"", dtFillimi, dtMbarimi,0,0.00,"",0,0.00,"",0,0.00,"","",0,"",false,new clsKokaShitje(),false,banka.IdBanka,true,false,false,false,dtDok,false,false,false,periudhaKontabel.IdPeriudha,ndermarrjeViti.IdViti,"","",zbritjeNeVlere,perqindjeZbritjeTotale,0,0,new colFazaKontrate(),0,new colKlienteFurnitore(),DateTime.Now,new DbData(),"","",false,false,perdorues.IdGjuha,konfigurimAmbjenti,0,kf.NiptiKF,new clsQyteti(kf.QytetiKF).KodiQyteti,false,0,
                     new colSerialeUnikeMagazina(),"",false,0,false,0,"",StatusMarreveshje.Undefined,"","shtim",dtDok,false,nrdok,iic,nivf,operatori,nivfKthim,eic,einStatus,procesi, tipiEinvoice, tipVetFaturimi);
                 
-                var msg = koka.ruaj(perdorues.IdGjuha, "", true, new Dictionary<string,object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), true, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
+                var msg = koka.ruaj(perdorues.IdGjuha, "", true, new Dictionary<string,object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
                             konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe,konfigurimAmbjenti.KodKonfigAmbjente,
                             false, string.Empty,0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "",
                             false, false, zevendesimtollonakastrati, false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo,shtimModifikim == "bli",
                             !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 if(!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
-                return new clsMesazh(true, msg.PershkrimMesazhi);
+                return new clsMesazh(true, msg.PershkrimMesazhi + $" Numer dokumenti: {nrdok}.");
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 //logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
-                return new clsMesazh(false, ex.ToString());
+                return new clsMesazh(false, "Sent object was not complete, please send the object correctly. Error message: " + ex.Message.ToString());
+            } 
+            catch(Exception ex)
+            {
+                return new clsMesazh(false, ex.Message.ToString());
+
             }
         }
         private colTrupiShitje krijoTrupShtije(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone,DateTime dtdok)

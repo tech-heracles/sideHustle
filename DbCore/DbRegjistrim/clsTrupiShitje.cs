@@ -283,7 +283,7 @@ namespace DbCore.DbRegjistrim
         public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod,bool meKomision,bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial,bool fatureAutomatike)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
-            Dictionary<string, string> itemMetadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(rreshtDokuKlient["metadata"].ToString());
+            Dictionary<string, string> itemMetadata = rreshtDokuKlient;
             string kodi = rreshtDokuKlient["code"].ToString();
             if (kodi == string.Empty || kodi == null || kodi == "null")
                 return;
@@ -297,24 +297,24 @@ namespace DbCore.DbRegjistrim
             int.TryParse(0.ToString(), out this.idTrupiRezervimi);
             int.TryParse(0.ToString(), out this.idTrupiTransferimi);
             int.TryParse(0.ToString(), out this.idTrupiKthim);
-            string pershkr = itemMetadata["name"].ToString();
+            string pershkr = rreshtDokuKlient["name"].ToString();
             string detajimi = "";
             string detajimi2 = "";
-            string njesia = itemMetadata["unit"].ToString();
-            double.TryParse(itemMetadata["quantity"].ToString(), out this.sasia);
+            string njesia = rreshtDokuKlient["unit"].ToString();
+            double.TryParse(rreshtDokuKlient["quantity"].ToString(), out this.sasia);
             double.TryParse(0.ToString(), out this.sasimbetur);
             double.TryParse(0.ToString(), out this.sasiRez);
             double.TryParse(1.ToString(), out this.gjeresi);
             double.TryParse(1.ToString(), out this.gjatesi);
             double.TryParse(1.ToString(), out this.sasiPermasa);
-            double.TryParse(itemMetadata["UPB"].ToString(), out this.cmimi);
+            double.TryParse(rreshtDokuKlient["price"].ToString(), out this.cmimi);
             double.TryParse(rreshtDokuKlient["discount"].ToString(), out this.zbritje);
             this.zbritjeNeVlere = 1;
             double.TryParse(rreshtDokuKlient["discountValue"].ToString(), out this.zbritjeVlere);
-            double.TryParse(itemMetadata["valueNoVatNoDiscount"].ToString(), out this.vleftaPaTvsh);
-            string tvsh = string.Format("{0}", double.Parse(itemMetadata["vatPercentage"].ToString()));
-            double.TryParse(itemMetadata["valueWithVat"].ToString(), out this.vleftaMeTvsh);
-            string magazina = itemMetadata["warehouse"].ToString();
+            double.TryParse(rreshtDokuKlient["valueNoVatNoDiscount"].ToString(), out this.vleftaPaTvsh);
+            string tvsh = string.Format("{0}", double.Parse(rreshtDokuKlient["vatPercentage"].ToString()));
+            double.TryParse(rreshtDokuKlient["valueWithVat"].ToString(), out this.vleftaMeTvsh);
+            string magazina = rreshtDokuKlient["warehouse"].ToString();
             string shenime = "";
             //string seriale = Convert.ToString(rreshtDokuKlient["txtSerial"]);
             clsLlogari ll = new clsLlogari(artikulli.IdLlogariShpenzime);
