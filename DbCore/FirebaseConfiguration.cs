@@ -216,7 +216,7 @@ namespace DbCore
             {
                 organization= alphaOrganization,
                 clientId= "",
-                currency= "LEK",
+                currency= "ALL",
                 docNo= false,
                 firstDocNo= 1,
                 currentDocNo= 1,
