@@ -259,7 +259,7 @@ namespace DbCore
                 formatPerImportBlerje= "",
                 cashRegisterCode= "",
                 alphaOrganization = alphaOrganization,
-                ndermarrja = ndermarrja
+                enterprise = ndermarrja
             };
 
 

@@ -297,9 +297,13 @@ namespace DbCore.DbRegjistrim
             int.TryParse(0.ToString(), out this.idTrupiRezervimi);
             int.TryParse(0.ToString(), out this.idTrupiTransferimi);
             int.TryParse(0.ToString(), out this.idTrupiKthim);
-            string pershkr = rreshtDokuKlient["name"].ToString();
+            string pershkr = rreshtDokuKlient["name"].ToString();         
             string detajimi = "";
             string detajimi2 = "";
+            if (artikulli.IdKategoriDetajimi == 3)
+                detajimi = rreshtDokuKlient["expirationDate"].ToString();
+            else if (artikulli.IdKategoriDetajimi2 == 3)
+                detajimi2 = rreshtDokuKlient["expirationDate"].ToString();
             string njesia = rreshtDokuKlient["unit"].ToString();
             double.TryParse(rreshtDokuKlient["quantity"].ToString(), out this.sasia);
             double.TryParse(0.ToString(), out this.sasimbetur);

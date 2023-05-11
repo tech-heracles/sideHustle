@@ -1014,7 +1014,7 @@ namespace PlatinumWeb
                 var dictionary = (JObject)JsonConvert.DeserializeObject(obj);
                 object trupiobj = dictionary["items"].Value<object>();
                 Dictionary<string, string> alphaMetadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(dictionary["alphaMetadata"].Value<object>().ToString());//serializusi.DeserializeObject(gridDataObject) as object[];
-
+                string ndermarrja = alphaMetadata.ContainsKey("enterprise") == true ? alphaMetadata["enterprise"].ToString() : alphaMetadata["ndermarrja"].ToString();
                 DateTime dtDok = DateTime.Parse(dictionary["docDate"].ToString());
                 //
                 //Vendosja e databazes
@@ -1032,7 +1032,6 @@ namespace PlatinumWeb
                 clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["businUnitCode"].ToString(), ndermarrje.IdNdermarrje);
                 clsPerdorues perdorues = new clsPerdorues(alphaMetadata["userEmail"].ToString().Split('@')[0], alphaMetadata["userEmail"].ToString(), true);
                 colTrupiShitje colTrupiShitje = new colTrupiShitje();
-                clsNjesiAdministrative magazina = new clsNjesiAdministrative("warehouse",ndermarrje.IdNdermarrje);
                 DbCore.DbArkaBanka.clsVeprimBankaKoka veprimebanka = new DbCore.DbArkaBanka.clsVeprimBankaKoka();
                 clsKusht kushtamor = new clsKusht(konfigurimAmbjenti.IdKonfigAmbjente, "ZDAM");
                 DbCore.DbAsete.colSerialetMagazine serialemag = new DbCore.DbAsete.colSerialetMagazine();
@@ -1069,6 +1068,8 @@ namespace PlatinumWeb
                 int tipiEinvoice = 0;
                 int operatori = 0;
                 string trupi = trupiobj.ToString();
+                Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(trupi);//serializusi.DeserializeObject(gridDataObject) as object[];
+                clsNjesiAdministrative magazina = new clsNjesiAdministrative(dokumenti[0]["warehouse"].ToString(), ndermarrje.IdNdermarrje);
                 string iic = dictionary["nslf"].ToString();
                 string nivf = dictionary["nivf"].ToString();
                 string nivfKthim = "";
