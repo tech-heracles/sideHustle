@@ -1021,7 +1021,7 @@ namespace PlatinumWeb
                 clsMesazh mesazh = clsLogin.setServerFromOrgName(Session.SessionID, alphaMetadata["organization"].ToString());
                 if(!mesazh.Status) return new clsMesazh(false, mesazh.PershkrimMesazhi);
                 //Dklarim klasash
-                clsNdermarrje ndermarrje = new clsNdermarrje(alphaMetadata["ndermarrja"].ToString());
+                clsNdermarrje ndermarrje = new clsNdermarrje(ndermarrja);
                 clsKonfigurimAmbjenti konfigurimAmbjenti = new clsKonfigurimAmbjenti();
                 clsKonfigurimAmbjenti konfigurimAmbjentiMag = new clsKonfigurimAmbjenti();
                 clsKokaShitje koka = new clsKokaShitje();
@@ -1128,7 +1128,7 @@ namespace PlatinumWeb
                     kursi, 0, "", dtDok, 0, "", 0, "", idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, 1, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
                     0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0,colTrupiShitje,true,konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha,konfigurimAmbjentiMag, magazina.IdNjesiAdministrative,magazina.Kodi,false,0,0,0,dtDok,totali, StatusAprovimi.Undefined, perdorues.IdPerdorues,0.00,out shfaqmesazhapolupe,new Dictionary<string,object>(),new DbCore.DbQendraKosto.colTrupiQendraKosto()
                     ,0,out mesazhInfo, false,new clsKokaShitje(),0,0,false,false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF,kf.EmailKF,false,false,"", dtFillimi, dtMbarimi,0,0.00,"",0,0.00,"",0,0.00,"","",0,"",false,new clsKokaShitje(),false,banka.IdBanka,true,false,false,false,dtDok,false,false,false,periudhaKontabel.IdPeriudha,ndermarrjeViti.IdViti,"","",zbritjeNeVlere,perqindjeZbritjeTotale,0,0,new colFazaKontrate(),0,new colKlienteFurnitore(),DateTime.Now,new DbData(),"","",false,false,perdorues.IdGjuha,konfigurimAmbjenti,0,kf.NiptiKF,new clsQyteti(kf.QytetiKF).KodiQyteti,false,0,
-                    new colSerialeUnikeMagazina(),"",false,0,false,0,"",StatusMarreveshje.Undefined,"","shtim",dtDok,false,nrdok,iic,nivf,operatori,nivfKthim,eic,einStatus,procesi, tipiEinvoice, tipVetFaturimi);
+                    new colSerialeUnikeMagazina(),"",false,0,false,0,"",StatusMarreveshje.Aktive,"","shtim",dtDok,false,nrdok,iic,nivf,operatori,nivfKthim,eic,einStatus,procesi, tipiEinvoice, tipVetFaturimi);
                 
                 var msg = koka.ruaj(perdorues.IdGjuha, "", true, new Dictionary<string,object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
