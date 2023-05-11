@@ -4386,12 +4386,12 @@ namespace DbCore.DbRegjistrim
                     NIVFSH = rreshti["NIVFSH"].ToString();
                     WTNIC = rreshti["WTNIC"].ToString();
                     int.TryParse(rreshti["IDOPERATOR"].ToString(), out idOperator);
-                    if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (rreshti.Table.Columns.Contains("Transportuesi"))
                     {
                         int.TryParse(rreshti["Transportuesi"].ToString(), out transportuesi);
                         bool.TryParse(rreshti["MALLRATEDJEGSHME"].ToString(), out mallraTeDjegshme);
                         bool.TryParse(rreshti["SHOQERIMIKERKUAR"].ToString(), out shoqerimIKerkuar);
-                        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3())
+                        if (rreshti.Table.Columns.Contains("TIPI"))
                         {
                             Tipi = rreshti["TIPI"].ToString();
                             Transaksioni = rreshti["TRANSAKSIONI"].ToString();

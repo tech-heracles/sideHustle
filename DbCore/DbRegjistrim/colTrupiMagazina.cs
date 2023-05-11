@@ -36,6 +36,16 @@ namespace DbCore.DbRegjistrim
                 colArt.Add(new DbInventari.clsArtikulli(trupMag.IdArtikulli));
             return colArt;
         }
+        public DbInventari.colArtikujt ktheColArtikujPaLoop(int idNdermarrje,int idPerdorues) 
+        {
+            DbInventari.colArtikujt colArt = new DbInventari.colArtikujt();
+            DbInventari.colArtikujt colArtReturn = new DbInventari.colArtikujt();
+            var dataTable = colArtikujt.merrSipasArtikujAktivNdermarrjesAndAutorizimeDT(idNdermarrje,idPerdorues).Rows.OfType<DataRow>();
+            foreach (var art in this)
+                foreach (var artikull in dataTable.Where(x => int.Parse(x.ItemArray[0].ToString()) == art.IdArtikulli))
+                    colArtReturn.Add(new DbInventari.clsArtikulli(artikull));
+            return colArtReturn;
+        }
 
         public DbInventari.colArtikujt ktheColArtikujSet()
         {
@@ -46,6 +56,17 @@ namespace DbCore.DbRegjistrim
                 colArt.Add(art);
             }
             return colArt;
+        }
+        public DbInventari.colArtikujt ktheColArtikujSetPaLoop(int idNdermarrje, int idPerdorues)
+        {
+
+            DbInventari.colArtikujt colArt = new DbInventari.colArtikujt();
+            DbInventari.colArtikujt colArtReturn = new DbInventari.colArtikujt();
+            var dataTable = colArtikujt.merrSipasArtikujAktivNdermarrjesAndAutorizimeDT(idNdermarrje, idPerdorues).Rows.OfType<DataRow>();
+            foreach (var art in this)
+                foreach (var artikull in dataTable.Where(x => int.Parse(x.ItemArray[0].ToString()) == art.IdArtikullSet))
+                    colArtReturn.Add(new DbInventari.clsArtikulli(artikull));
+            return colArtReturn;
         }
 
         public DbInventari.colDetajimeArtikulli ktheColDetArt()
@@ -58,6 +79,29 @@ namespace DbCore.DbRegjistrim
             }
             return colDetArt;
         }
+        public DbInventari.colDetajimeArtikulli ktheColDetArtPaLoop(int idNder,int idPer)
+        {
+            DbInventari.colDetajimeArtikulli colDetArt = new DbInventari.colDetajimeArtikulli();
+            DbInventari.colDetajimeArtikulli colDetArtReturn = new DbInventari.colDetajimeArtikulli();
+            colDetArt.mbushDetajimeSipasNdermarrjesAndAutorizim(idNder, idPer);
+            clsDetajimArtikulli detajimDefualt = new DbInventari.clsDetajimArtikulli(0);
+            foreach (var val in this)
+            {
+                if (val.IdDetajimi == 0)
+                {
+                    colDetArtReturn.Add(detajimDefualt);
+                    continue;
+                }
+                else
+                {
+                    foreach (var detajimArtikulli in colDetArt.Where(x => x.IdDetajimArtikulli == val.IdDetajimi))
+                        colDetArtReturn.Add(detajimArtikulli);
+                }
+
+            }
+
+            return colDetArtReturn;
+        }
 
         public DbInventari.colDetajimeArtikulli ktheColDetArt2()
         {
@@ -69,6 +113,29 @@ namespace DbCore.DbRegjistrim
             }
             return colDetArt;
         }
+        public DbInventari.colDetajimeArtikulli ktheColDetArtPaLoop2(int idNder, int idPer)
+        {
+            DbInventari.colDetajimeArtikulli colDetArt = new DbInventari.colDetajimeArtikulli();
+            DbInventari.colDetajimeArtikulli colDetArtReturn = new DbInventari.colDetajimeArtikulli();
+            colDetArt.mbushDetajimeSipasNdermarrjesAndAutorizim(idNder, idPer);
+            clsDetajimArtikulli detajimDefualt = new DbInventari.clsDetajimArtikulli(0);
+            foreach (var val in this)
+            {
+                if (val.IdDetajimi2 == 0)
+                {
+                    colDetArtReturn.Add(detajimDefualt);
+                    continue;
+                }
+                else
+                {
+                    foreach (var det in colDetArt.Where(x => x.IdDetajimArtikulli == val.IdDetajimi2))
+                        colDetArtReturn.Add(det);
+                }
+
+            }
+              
+            return colDetArtReturn;
+        }
 
         public colNjesiAdministrative ktheColMag(int idPerdorues)
         {
@@ -79,6 +146,17 @@ namespace DbCore.DbRegjistrim
                 colMag.Add(mag);
             }
             return colMag;
+        }
+        public colNjesiAdministrative ktheColMagPaLoop(int idNder,int idPerdorues)
+        {
+            colNjesiAdministrative colMag = new colNjesiAdministrative();
+            colNjesiAdministrative colMagReturn = new colNjesiAdministrative();
+            colMag.mbushGjitheNjesiAdministrative(idNder, idPerdorues);
+            var listColMag = colMag.ToList();
+            foreach (var val in this)
+                foreach (var mag in listColMag.Where(x => x.IdNjesiAdministrative== val.IdMag))
+                    colMagReturn.Add(mag);
+            return colMagReturn;
         }
 
         public colNjesiAdministrative ktheColMagDest(int idkokamagazina, int idkonfig, int idPerdoruesi)
@@ -106,6 +184,15 @@ namespace DbCore.DbRegjistrim
                 colNjesi.Add(njesiArt);
             }
             return colNjesi;
+        }
+        public DbInventari.colNjesiteArtikulli ktheColNjesiArtPaLoop(int idNder)
+        {
+            DbInventari.colNjesiteArtikulli colNjesi = new DbInventari.colNjesiteArtikulli(idNder);
+            DbInventari.colNjesiteArtikulli colNjesiReturn = new DbInventari.colNjesiteArtikulli();
+            foreach (var val in this)
+                foreach (var s in colNjesi.Where(x => x.IdNjesia== val.IdNjesia))
+                    colNjesiReturn.Add(s);
+            return colNjesiReturn;
         }
         
         /// <summary>

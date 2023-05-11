@@ -1061,6 +1061,7 @@ namespace PlatinumWeb
 
         private void mbushHiddenFieldet(colTrupiMagazina col, int lloji, int idkokamagazina, int idkonfig, int idPerdoruesi)
         {
+            int idNdermarrje = IdNdermarrja;
             bool afgj=false;
             if (cmbLloji.Text == "UH" || cmbLloji.Text == "UD")
                afgj = true;
@@ -1069,21 +1070,22 @@ namespace PlatinumWeb
             if (hfShtimModifikim.Value != "rezervim" && hfShtimModifikim.Value != "konvertim")
             {
                 HfColTrupMag.Value = JsonConvert.SerializeObject(col);
-
                 var colart = col.ktheColArtikuj();
+                //var colart = col.ktheColArtikujPaLoop(idNdermarrje, IdPerdoruesi);
                 HfColArt.Value = JsonConvert.SerializeObject(colart);
                 var colartset = col.ktheColArtikujSet();
+                //var colartset = col.ktheColArtikujSetPaLoop(idNdermarrje, idPerdoruesi);
                 HfColArtSet.Value = JsonConvert.SerializeObject(colartset);
-                var colKodbari = DbCore.DbInventari.colKodbare.merrKodbarArtikulliNeTrupDokMagazine(idkokamagazina);
+                 var colKodbari = DbCore.DbInventari.colKodbare.merrKodbarArtikulliNeTrupDokMagazine(idkokamagazina);
                 HfColKodbare.Value = JsonConvert.SerializeObject(colKodbari);
-                HfColDetArt.Value = JsonConvert.SerializeObject(col.ktheColDetArt());
-                HfColDetArt2.Value = JsonConvert.SerializeObject(col.ktheColDetArt2());
-                HfColNjesAdminis.Value = JsonConvert.SerializeObject(col.ktheColMag(idPerdoruesi));
-                HfColNjesiArt.Value = JsonConvert.SerializeObject(col.ktheColNjesiArt());
-
+                HfColDetArt.Value = JsonConvert.SerializeObject(col.ktheColDetArtPaLoop(idNdermarrje, idPerdoruesi));
+                HfColDetArt2.Value = JsonConvert.SerializeObject(col.ktheColDetArtPaLoop2(idNdermarrje, idPerdoruesi));
+                HfColNjesAdminis.Value = JsonConvert.SerializeObject(col.ktheColMagPaLoop(idNdermarrje, idPerdoruesi));
+                HfColNjesiArt.Value = JsonConvert.SerializeObject(col.ktheColNjesiArtPaLoop(idNdermarrje));
                 if (hfShtimModifikim.Value != "klonim" && hfShtimModifikim.Value != "inventarizim")
                     for (var i = 0; i < col.Count; i++)
                     {
+
                         if (col[i].IdLlojVeprimi == 1 && colart[i].LlojiArt)
                         {
                             colAQTSeriale colzgjedhur = new colAQTSeriale();

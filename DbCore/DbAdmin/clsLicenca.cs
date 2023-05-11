@@ -396,18 +396,6 @@ namespace DbCore.DbAdmin
             try
             {
                 string dtSkadence = "";
-                var webRequest = clsFunksione.CreateGetWebRequestLicence("https://imb-licence.appspot.com/rest/getLicenceEndDate", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar());
-                using (WebResponse webResponse = webRequest.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                    {
-                        string ServiceResult = rd.ReadToEnd();
-                        var dbObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(ServiceResult);
-                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
-                        dbObject.TryGetValue("endDate", out dtSkadence);
-                    }
-
-                }
                 bool superUser = false;
                 clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
                 foreach (var role in perdorues.OColRolPerdoruesi)
@@ -419,11 +407,24 @@ namespace DbCore.DbAdmin
                         break;
                     }
                 }
+                if(superUser) return new clsMesazh(true, String.Empty);
+                var webRequest = clsFunksione.CreateGetWebRequestLicence("https://imb-licence.appspot.com/rest/getLicenceEndDate", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()); 
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        string ServiceResult = rd.ReadToEnd();
+                        var dbObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(ServiceResult);
+                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
+                        dbObject.TryGetValue("endDate", out dtSkadence);
+                    }
+
+                }
                 if (DateTime.Parse(dtSkadence) < DateTime.Now && !superUser) return new clsMesazh(false, "Ka mbaruar afati bashke me tolerance!!!");
             }
             catch(Exception ex)
             {
-                return new clsMesazh(true, "Problem ne validimin e licences!");
+                return new clsMesazh(false, "Problem ne validimin e licences!");
             }
             return new clsMesazh(true, String.Empty);
         }

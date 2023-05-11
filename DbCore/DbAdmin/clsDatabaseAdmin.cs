@@ -2678,6 +2678,19 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
+        internal DataTable ktheUserNgaEmail(string email)
+        {
+
+
+            var dbManager = MyScopeDbManager;
+            string queryString = "";
+            dbManager.Open();
+            queryString = $"SELECT * FROM T_PERDORUESI where PERDORUESEMAIL='{email}' and PERDORUESAKTIV = 1 and IDSTATUSDOK = 1";
+            CommandType commandType = CommandType.Text;
+            DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
+            return ds.Tables[0];
+
+        }
 
 
         internal DataTable ktheUserNgaLoginMeUsernameOseEmail(string perdoruesUsername, string email)

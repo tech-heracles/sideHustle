@@ -13369,6 +13369,7 @@ namespace DbCore
             List<string> infoDokRuajtur = GlobalCacheManager.MyAppCache.Get<List<String>>("infoDokRuajtur" + sessionId);
             if (infoDokRuajtur == null)
                 return;
+            if (infoDokRuajtur.Count == 0) return;
             infoDokRuajtur.RemoveAt(infoDokRuajtur.Count - 1);
             GlobalCacheManager.MyAppCache.Set("infoDokRuajtur" + sessionId, infoDokRuajtur, TimeSpan.FromDays(1));
         }

@@ -300,7 +300,6 @@ namespace PlatinumWeb
             //    menu.merrMenuItemSipasKomponentes(idgjuha, emerkomponente, idPerdorues, idNdermarrje, idViti, shtim);
             //else menu.merrMenuItemPerKubin(idgjuha, emerkomponente, idPerdorues, idNdermarrje, idViti, shtim);
             DbCore.DbShare.colMenuItem menu = merrMenuSipasKomponentes(idgjuha, kubi, emerkomponente, idPerdorues, idNdermarrje, aSPxMenu1, idViti, shtim);
-
             for (int i = 0, menuItemCount = menu.Count; i < menuItemCount; i++)
             {
                 DbCore.DbShare.clsMenuItem m = menu[i];

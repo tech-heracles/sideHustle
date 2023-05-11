@@ -325,6 +325,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             " <WTN BusinUnitCode= " + $"{ndermarjeKodBiznesi}" + " DestinAddr= " + $"{adresaDestinacion}" + " StartAddr= " + $"{adresaFillimit}" + " DestinCity= " + $"{qytetiDestinacion}" + " DestinDateTime=" + $"{dtTransporti}" + " DestinPoint= " + $"{tipiIdMagazinaDestinacion}" + " IsEscortRequired= " + $"{shoqerimIKerkuar}" + " IsGoodsFlammable= " + $"{mallraTeDjegshme}" + " ValueOfGoods=" + $"{totali2}" + " IssueDateTime= " + $"{dataDergimit}" + " OperatorCode=" + $"{kodOperatori}" + " SoftCode=" + $"{kodSoftueri}" + " StartCity=" + $"{qytetiINisjes}" + " StartDateTime=" + $"{dtTransporti}" + " StartPoint=" + $"{tipiIdMagazinaFillim}" + " Transaction=" + $"{transaksioni}" + " Type=" + $"{tipi}" + " VehOwnership=" + $"{vehOwnership}" + " VehPlates=" + $"{targa}" + " WTNIC= " + $"{wtnic}" + " WTNICSignature= " + $"{wtnicSignature}" + " WTNNum=" + $"{WTNNum}" + " WTNOrdNum=" + $"{kodiNum}" + "> <Issuer Address= " + $"{ndermarrjeVendi}" + " NUIS= " + $"{ndermarjeNIPT}" + " Name= " + $"{ndermarrjeEmri}" + " Town= " + $"{ndermarrjeQyteti}" + "/>" + carrierDetails + trupiItems + " </WTN>\r\n" +
             "</RegisterWTNRequest>";
             REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&", "&amp;");
+            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("\"\"", "\"");
             string passpath = nderm.Pathname + $"/password.txt";
             String KEYSTORE_PASS = "";
             byte[] encrypted;
@@ -1337,6 +1338,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
             }
             REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&","&amp;");
+            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("\"\"", "\"");
             string[] result = new string[2];
             string passpath = nderm.Pathname + $"/password.txt";
             String KEYSTORE_PASS = "";
@@ -2023,6 +2025,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             string[] result = new string[2];
             String KEYSTORE_PASS = "";
             REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&", "&amp;");
+            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("\"\"", "\"");
             byte[] encrypted;
             String KEYSTORE_LOCATION = System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"certifikata.p12";
             if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt"))

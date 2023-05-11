@@ -216,7 +216,7 @@ namespace DbCore
             {
                 organization= alphaOrganization,
                 clientId= "",
-                currency= "LEK",
+                currency= "ALL",
                 docNo= false,
                 firstDocNo= 1,
                 currentDocNo= 1,
@@ -259,7 +259,7 @@ namespace DbCore
                 formatPerImportBlerje= "",
                 cashRegisterCode= "",
                 alphaOrganization = alphaOrganization,
-                ndermarrja = ndermarrja
+                enterprise = ndermarrja
             };
 
 

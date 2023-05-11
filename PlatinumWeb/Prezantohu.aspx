@@ -116,7 +116,7 @@
     position: fixed;
     z-index: 999;
     height: 2em;
-    width: 2em;
+    width: 6em;
     overflow: show;
     margin: auto;
     top: 0;

@@ -1798,5 +1798,31 @@ namespace PlatinumWeb
                 return $"{fieldName} {sortOrder}";
             }
         }
+        protected void SendItemsToPubSub(object sender, EventArgs e)
+        {
+
+            string[] columnNames = new string[1];
+            columnNames[0] = "IdKlientFurnitor";
+            List<object> clients = ASPxGridView_KF.GetSelectedFieldValues(columnNames);
+            if (clients.Count > 0)
+            {
+                List<int> clientsList = new List<int>();
+                List<object> objForPubSub = new List<object>();
+                PubSub PubSub = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients");
+                colKlienteFurnitore cfList = new colKlienteFurnitore();
+                cfList.mbushKlienteFurnitoreNdermarrjes(IdNdermarrja);
+                foreach (object client in clients)
+                {
+                    foreach (clsKlientFurnitor cf in cfList.ToList()
+                                                .Where(x => x.IdKlientFurnitor == int.Parse(client.ToString())))
+                    {
+                        PubSub.PublishPubSub(3, 1, 2, 1, cf.krijoObjektPerPubSub());
+                    }
+                }
+                clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Klientet u derguan me sukses!", pnlMesazhi);
+            }
+            else clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ju lutem zgjidhni te pakten 1 rresht!", pnlMesazhi);
+        }
+
     }
 }

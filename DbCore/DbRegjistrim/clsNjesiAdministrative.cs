@@ -1391,12 +1391,16 @@ namespace DbCore.DbRegjistrim
                     object objEmail = dbDataRowNjesiAdministrative["EMAIL"];
                     email = (objEmail != null && objEmail != DBNull.Value) ? Convert.ToString(objEmail) : "";
                     bool.TryParse(dbDataRowNjesiAdministrative["OWNSHOP"].ToString(), out ownShop);
-                    if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    //if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    //{
+                    if (dbDataRowNjesiAdministrative.Table.Columns.Contains("TIPIMAG"))
                     {
                         tipiMag = dbDataRowNjesiAdministrative["TIPIMAG"].ToString();
                         int.TryParse(dbDataRowNjesiAdministrative["QYTETI"].ToString(), out qyteti);
-
                     }
+
+
+                    //}
                     ImbLogger.LogTraceShitje("Mbaroi metoda mbushNjesiAdministrative nga Db");
                     return true;
                 }

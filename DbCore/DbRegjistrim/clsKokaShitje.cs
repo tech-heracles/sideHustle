@@ -9816,15 +9816,14 @@ namespace DbCore.DbRegjistrim
                     iic = dbDataRowKokeShitje["IIC"].ToString();
                     nivf = dbDataRowKokeShitje["NIVF"].ToString();
                     int.TryParse(dbDataRowKokeShitje["IDOPERATOR"].ToString(), out idOperator);
-                    int.TryParse(dbDataRowKokeShitje["Procesi"].ToString(), out procesi);
-                    if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                    if (dbDataRowKokeShitje.Table.Columns.Contains("NIVFKTHIM"))
                     {
                         nivfKthim = dbDataRowKokeShitje["NIVFKTHIM"].ToString();
                         eic = dbDataRowKokeShitje["EIC"].ToString();
                         einStatus = dbDataRowKokeShitje["EinStatus"].ToString();
                         int.TryParse(dbDataRowKokeShitje["Procesi"].ToString(), out procesi);
                         int.TryParse(dbDataRowKokeShitje["eInvoiceType"].ToString(), out eInvoiceType);
-                        if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3())
+                        if(dbDataRowKokeShitje.Table.Columns.Contains("TipiIVetefaturimit"))
                           tipiIVetefaturimit = dbDataRowKokeShitje["TipiIVetefaturimit"].ToString();
                     }
 

@@ -90,6 +90,35 @@ namespace PlatinumWeb
             MyConnectionsManager.SetSelectedConNameServer(session, conName);
             return new clsMesazh(true, "u vendos me sukses");
         }
+        public static clsMesazh setServerFromOrgName(string session, string orgName)
+        {
+            var dtServera = MyConnectionsManager.GetListServera(session);
+            if (dtServera == null)
+            {
+                dtServera = clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
+                MyConnectionsManager.SetListServera(session, dtServera);
+            }
+            //if (dtServera.Rows.Count == 1)
+            //{
+            //    MyConnectionsManager.SetSelectedConNameServer(session, MyConnectionsManager.ConnStringNameDefault);
+            //    return new clsMesazh(true, "U zgjodh connstring default");
+            //}
+            var lic = dtServera.Select("KODLICENCA = '" +  orgName+"'").FirstOrDefault();
+            if (lic == null)
+            {
+                dtServera = clsLicenca.MerrLicencatMeDB(orgName);//licenca mund te mos jete ne dt fillestar qe mbush combon, por eshte zgjedhur duke filtruar
+                lic = dtServera.Select("KODLICENCA = " + orgName).FirstOrDefault();
+                if (lic == null)
+                    return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
+            } 
+            var conName = lic["DATABASE"] as string;
+            if (conName == null)
+                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
+            if (!MyConnectionsManager.IsConnectionAvailable(conName))
+                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
+            MyConnectionsManager.SetSelectedConNameServer(session, conName);
+            return new clsMesazh(true, "u vendos me sukses");
+        }
 
         /// <summary>
         /// Metode qe perdoret vetem per VODAFONE, per log-in nga eTopUp.
