@@ -51,6 +51,10 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         myAbonim.ndertoAbonim({ idGjuha: parseInt(hfState.Get("idGjuha")) });
         return;
     }
+    if (emrimenuse === "google") {
+        signInWithGooglePopup();
+        return;
+    }
 
     if (emrimenuse === "transferimDaljePopup") {
         TransferimSerialeUnike.ndertoPopupTransferimSerialeUnike({ idGjuha: parseInt(hfState.Get("idGjuha")), idNdermarrje: pageState.idNdermarrje });
