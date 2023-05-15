@@ -196,7 +196,7 @@ namespace DbCore
             await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(createUserDetailsObjectForUpdateLogInTime());
 
         }
-        public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization)
+        public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)
         {
             return new
             {
@@ -205,6 +205,7 @@ namespace DbCore
                 passwordHash = pass,
                 alphaOrganization = alphaOrganization,
                 email = email,
+                organization = orgid,
                 admin = true
             };
             

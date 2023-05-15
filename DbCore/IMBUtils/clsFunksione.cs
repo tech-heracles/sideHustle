@@ -13923,8 +13923,8 @@ namespace DbCore
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
             if (!exists) {
-                //string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja), uid);
-                await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization), uid);
+                string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja), uid);
+                await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
                 clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
             }
             else
