@@ -241,6 +241,15 @@
                 </dx:ASPxComboBox>
                 
             </div>
+                <br />
+                <div class="input-field">
+                    <p>
+                      <label>
+                        <input type="checkbox" runat="server" id="userFatura"/>
+                        <span>Perdorues Fatura.alpha.al</span>
+                      </label>
+                    </p>
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Mbyll</a>

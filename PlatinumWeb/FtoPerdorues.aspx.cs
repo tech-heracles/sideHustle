@@ -77,13 +77,15 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                 string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
                 string password = clsFunksione.generateRandomPassword();
                 string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                bool shadowUser = userFatura.Checked;
                 object json = new
                 {
                     timestamp = timeStamp,
                     organization = organizata,
                     email = email_inline.Text,
                     password = password,
-                    roli = cmbRolet.Value
+                    roli = cmbRolet.Value,
+                    shadowUser = shadowUser
                 };
                 plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
                 encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
