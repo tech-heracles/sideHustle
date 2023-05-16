@@ -495,6 +495,7 @@ namespace PlatinumWeb
                 ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").Visible = true;
                 ikonaImazhPerdoruesMenuLart.Items.FindByName("abonimi").Visible = true;
                 ikonaImazhPerdoruesMenuLart.Items.FindByName("dalje").Visible = true;
+                ikonaImazhPerdoruesMenuLart.Items.FindByName("google").Visible = true;
                 //DevExpress.Web.MenuItem grupitHelpMenuLart = ASPxMenu1.Items.FindByName("settings");
                 //grupitHelpMenuLart.Visible = true;
                 //grupitHelpMenuLart.ClientVisible = true;
@@ -1017,6 +1018,8 @@ namespace PlatinumWeb
             fjalekalimItem.Text = rm.GetString("labelEmailFjalekalimi", ci);
             var abonimItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("abonimi");
             abonimItem.Visible = true;
+            var googleItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("google");
+            googleItem.Visible = true;
 
             //ASPxNavBar1.Groups[0].Text = rm.GetString("MenuItemAdminstrimi", ci);
 

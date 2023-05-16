@@ -1345,6 +1345,8 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Fjalekalimi" Name="NdryshimFjalekalimi.aspx">
                                                         </dx:MenuItem>
+                                                        <dx:MenuItem Text="Login me Google" name="google">
+                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Mesazhe" Name="mesazhe">
                                                         </dx:MenuItem>
                                                         <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
