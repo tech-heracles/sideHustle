@@ -2328,8 +2328,8 @@ namespace DbCore
             {
                 if (user.Shenime == "ShadowUser")
                 {
-                    logout(httpContext.Session, true);
-                    return new clsMesazh();
+                    logout(httpContext.Session, true, "faturaUser");
+                    return new clsMesazh(false, "Perdoruesi qe u loguhat eshte perdorues fatura.alpha!");
                 }
                 clsMesazh msgSkadimLicence = clsLicenca.KontrolloSkadiminLicences(user.IdPerdorues, rm, ci);
                 if (!msgSkadimLicence.Status)

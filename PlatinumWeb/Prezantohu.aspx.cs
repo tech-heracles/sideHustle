@@ -202,6 +202,9 @@ namespace PlatinumWeb
                 case "ndryshoGjuhe":
                     ndryshoGjuhe(rm, ci, idGjuha);
                     break;
+                case "faturaUser":
+                    LabelInfo.Text = "Perdoruesi qe u loguhat eshte perdorues fatura.alpha!";
+                    break;
                 case "PerdoruesiNukEkziston":
                     LabelInfo.Text = "Perdoruesi nuk ekziston!";
                     clsFunksione.logout(Session, true);
