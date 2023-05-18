@@ -1029,7 +1029,8 @@ namespace PlatinumWeb
                 clsMonedha monedha= new clsMonedha();
                 clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
                 clsViti viti = new clsViti(ndermarrje.IdNdermarrje, dtDok.Year.ToString());
-                clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["businUnitCode"].ToString(), ndermarrje.IdNdermarrje);
+                clsDegeAdministrative dega = new clsDegeAdministrative(dictionary["businUnitCode"].ToString() + "sadsa", ndermarrje.IdNdermarrje);
+                dega.IdDegeAdministrative = dega.IdDegeAdministrative == -1 ? 0 : dega.IdDegeAdministrative;
                 clsPerdorues perdorues = new clsPerdorues(alphaMetadata["userEmail"].ToString().Split('@')[0], alphaMetadata["userEmail"].ToString(), true);
                 colTrupiShitje colTrupiShitje = new colTrupiShitje();
                 DbCore.DbArkaBanka.clsVeprimBankaKoka veprimebanka = new DbCore.DbArkaBanka.clsVeprimBankaKoka();
@@ -1121,7 +1122,6 @@ namespace PlatinumWeb
                         int.TryParse(op.Rows[i].ItemArray[0].ToString(),out operatori);
 
                 }
-
 
                 //Creating invoice
                 koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, "", dtDok, monedha.IdMonedha, monedha.KodiMonedha,
