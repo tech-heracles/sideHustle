@@ -1038,6 +1038,7 @@ namespace PlatinumWeb
                 DbCore.DbAsete.colSerialetMagazine serialemag = new DbCore.DbAsete.colSerialetMagazine();
                 clsKonfigurimAmbjenti konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera, perdorues.IdGjuha);
                 clsBanka banka = new clsBanka();
+                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata["userEmail"].ToString().Split('@')[0]} nuk ekziston ne Alpha!");
                 //
                 //Initial variables
                 DateTime dtFillimi = DateTime.Now;
