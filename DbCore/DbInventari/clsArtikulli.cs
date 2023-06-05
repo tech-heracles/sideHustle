@@ -3826,6 +3826,8 @@ namespace DbCore.DbInventari
 
 
             List<object> cmimeArt = new List<object>();
+            List<string> kodBaret = new List<string>();
+            colKodbare kodBaretArtikulli = new colKodbare(this.IdArtikulli);
             colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
             decimal cmimiBaze = 0;
             decimal cmimiBazeMeTvsh = 0;
@@ -3838,6 +3840,8 @@ namespace DbCore.DbInventari
                 cmimiBazeMeTvsh = nivelCmimi == true ? cmimeArtikujsh[i].CmimiTvsh : cmimiBazeMeTvsh;
                 cmimeArt.Add(new { price1 = cmimeArtikujsh[i].Cmimi, price1WithVat = cmimeArtikujsh[i].CmimiTvsh, startDate = cmimeArtikujsh[i].DateFillimi, endDate = cmimeArtikujsh[i].DateMbarimi });
             }
+            for (int i = 0; i < kodBaretArtikulli.Count; i++)
+                kodBaret.Add(kodBaretArtikulli[i].Pershkrimi);
             for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
             object objectForPubSub = new
             {
@@ -3853,7 +3857,8 @@ namespace DbCore.DbInventari
                 exemptReason = taksa.TipiIPerjashtimit,
                 prices= cmimeArt,
                 organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi
+                ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
+                barCodes = kodBaret
             };
             return objectForPubSub;
 
