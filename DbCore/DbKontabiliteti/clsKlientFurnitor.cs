@@ -1161,7 +1161,9 @@ namespace DbCore.DbKontabiliteti
         }
         public object krijoObjektPerPubSub()
         {
-            if(this.OColAdresat == null)
+            this.OColAdresat = new colAdresatKlientFurnitor(this.IdKlientFurnitor);
+
+            if (this.OColAdresat == null)
             {
                 return new
                 {
