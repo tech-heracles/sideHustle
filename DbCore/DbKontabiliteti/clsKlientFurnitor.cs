@@ -1170,15 +1170,16 @@ namespace DbCore.DbKontabiliteti
                     clientAddress = "",
                     clientCode = this.KodKlientFurnitor,
                     clientEmail = this.EmailKF,
-                    clientIdType = this.TipiId,
+                    clientIDType = this.TipiId,
                     clientName = this.EmertimiKF,
                     clientNipt = this.NiptiKF,
                     clientPhone = this.TelKF,
-                    clientTown = new clsQyteti(this.QytetiKF).KodiQyteti,
+                    clientTown = new clsQyteti(this.QytetiKF).EmriQyteti,
                     clientCountry = this.ShtetiKF,
                     currency = new clsMonedha(this.idMonedha).KodiMonedha,
                     organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
+                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi,
+
                 };
             }
             else
