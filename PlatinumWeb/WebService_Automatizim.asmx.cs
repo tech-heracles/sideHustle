@@ -1093,8 +1093,8 @@ namespace PlatinumWeb
                 }
                 else if (eic == "" && !paid)
                 {
-                    kodMenyrePAgese = "Me Mirebesim";
-                    idMenyrePAgese = 0;
+                    kodMenyrePAgese = "Arke";
+                    idMenyrePAgese = 8;
                 }
                 //
                 //Parsing values
