@@ -946,14 +946,14 @@ namespace DbCore.DbAdmin
             }
             return mes;
         }
-        
+
         /// <summary>
         ///  Sherben per ruajtjen e objektit ndermarrje ne databaze. Thirret funksioni
         ///  <see cref="DbCore.DbAdmin.clsNdermarrje.ruajNdermarrje"/> 
         /// </summary>
-        public clsMesazh ruaj(String konfigurimiDefault, int idndermnga)
+        public clsMesazh ruaj(String konfigurimiDefault, int idndermnga, bool buxhetor)
         {
-            clsMesazh u_ruajt = ruajNdermarrje(this, konfigurimiDefault, idndermnga);
+            clsMesazh u_ruajt = ruajNdermarrje(this, konfigurimiDefault, idndermnga, buxhetor);
             return u_ruajt;
         }
 
@@ -991,7 +991,7 @@ namespace DbCore.DbAdmin
             return u_fshi;
         }
 
-        public clsMesazh ruajNdermarrje(clsNdermarrje ndermarrje, String konfigurimiDefault, int idndermnga)
+        public clsMesazh ruajNdermarrje(clsNdermarrje ndermarrje, String konfigurimiDefault, int idndermnga, bool buxhetor)
         {
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
             clsMesazh mesazh;

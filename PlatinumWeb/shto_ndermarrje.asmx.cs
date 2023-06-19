@@ -54,7 +54,7 @@ namespace PlatinumWeb.WebServiceLicencat
             int idnderm = ndermarrja.IdNdermarrje;
             ndermarrjaERe.Lloji = ndermarrja.Lloji;
             ndermarrja.Dispose();
-            mesazh = ndermarrjaERe.ruaj(konfigurimiDefault, idnderm);
+            mesazh = ndermarrjaERe.ruaj(konfigurimiDefault, idnderm,false);
             return ndermarrjaERe;
         }
 
