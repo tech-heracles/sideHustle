@@ -1127,6 +1127,7 @@ namespace PlatinumWeb
                 konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
                 konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod("FDS", ndermarrje.IdNdermarrje);
                 monedha.mbushMonedhen(dictionary["currency"].ToString(), ndermarrje.IdNdermarrje);
+                if(dictionary["currency"].ToString()=="ALL" && (monedha.IdMonedha == 0 || !monedha.AktivMonedha)) monedha.mbushMonedhen("LEK",ndermarrje.IdNdermarrje);
                 ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
                 string arka = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente, "btneArka", 506);
                 
