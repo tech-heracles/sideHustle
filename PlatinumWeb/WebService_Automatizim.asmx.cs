@@ -1039,6 +1039,7 @@ namespace PlatinumWeb
                 clsKonfigurimAmbjenti konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera, perdorues.IdGjuha);
                 clsBanka banka = new clsBanka();
                 if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata["userEmail"].ToString().Split('@')[0]} nuk ekziston ne Alpha!");
+                if(kf.IdKlientFurnitor== 0) return new clsMesazh(false, $"Klienti me kod {dictionary["clientCode"].ToString()} nuk ekziston ne Alpha!");
                 //
                 //Initial variables
                 DateTime dtFillimi = DateTime.Now;
@@ -1131,6 +1132,7 @@ namespace PlatinumWeb
                 ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
                 string arka = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente, "btneArka", 506);
                 
+                if(monedha.IdMonedha==0) return new clsMesazh(false, $"Monedha me kod {dictionary["currency"].ToString()} nuk ekziston ne Alpha!");
                 colBankat bankat = new colBankat();
                 if(arka=="")
                 {
