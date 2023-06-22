@@ -189,7 +189,7 @@
             $('.modal').modal();
         });
         function checkRoles() {
-            M.toast({ html: "<span>Plotesoni rolin per te vazhduar!</span>", classes: 'rounded red darken-3' });
+            M.toast({ html: "<span>Plotesoni profilin per te vazhduar!</span>", classes: 'rounded red darken-3' });
             hideLoadingGif(true, true);
         }
         function showLoadingGif() {
@@ -236,7 +236,7 @@
                 <label for="email_inline">Email</label>
               </div>
             <div class="input-field">
-                <p>Roli</p>
+                <p>Profili</p>
                 <dx:ASPxComboBox ID="cmbRolet" runat="server" ClientInstanceName="cmbRolet">
                 </dx:ASPxComboBox>
                 
