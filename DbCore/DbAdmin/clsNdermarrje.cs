@@ -1321,6 +1321,11 @@ namespace DbCore.DbAdmin
                         return new clsMesazh(false, mesazh.PershkrimMesazhi);
                     }
                 }
+
+                if (buxhetor)
+                {
+                    dbregj.updateLlogarite7Shifrore(ndermarrje.idNdermarrje);
+                }
                 dbAdmin.commitTransaksion();
                 mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
                 return mesazh;
