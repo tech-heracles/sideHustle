@@ -513,6 +513,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\alphaMetadata.cs" />
+    <Compile Include="classes\WTN.cs" />
     <Compile Include="CustomEntites\Detajim.cs" />
     <Compile Include="CustomEntites\ListeDokKontrolloKonvertuar.cs" />
     <Compile Include="CustomEntites\ListePergjigjeRegjistrimListepagese.cs" />

@@ -1,4 +1,5 @@
 ﻿using DbCore;
+using DbCore.classes;
 using DbCore.DbAdmin;
 using DbCore.DbCRM;
 using DbCore.DbRegjistrim;
@@ -32,6 +33,8 @@ using DevExpress.XtraEditors.Filtering.Templates;
 using AlphaWebReports;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Net.PeerToPeer;
+using DbCore.classes;
+using DbCore.DbAsete;
 
 namespace PlatinumWeb
 {
@@ -1188,6 +1191,119 @@ namespace PlatinumWeb
 
             }
         }
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public clsMesazh addWtn(string obj)
+        {
+            try
+            {
+
+
+                //json request
+                var json = JsonConvert.DeserializeObject(obj);
+                WTN wtn = WTN.FromJObject((JObject)JsonConvert.DeserializeObject(obj));
+                object trupiobj = wtn.items;
+                AlphaMetadata alphaMetadata = wtn.alphaMetadata;
+                DateTime dtDok = wtn.docDate;
+                clsNdermarrje ndermarrje = new clsNdermarrje(alphaMetadata.enterprise);
+                clsKonfigurimAmbjenti konfigurimAmbjenti = new clsKonfigurimAmbjenti();
+                konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata.invoiceFormat, ndermarrje.IdNdermarrje);
+                clsNivelRegjistrimi nivelRegjistrimi = new clsNivelRegjistrimi();
+                clsViti viti = new clsViti(ndermarrje.IdNdermarrje, dtDok.Year.ToString());
+                clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
+                clsNjesiAdministrative mag = new clsNjesiAdministrative(wtn.startWarehouse,ndermarrje.IdNdermarrje);
+                clsPerdorues perdorues = new clsPerdorues(alphaMetadata.userEmail.Split('@')[0], alphaMetadata.userEmail, true);
+                clsMesazh mesazhinformues;
+                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata.userEmail.Split('@')[0]} nuk ekziston ne Alpha!");
+                ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
+                clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(wtn.businUnitCode,ndermarrje.IdNdermarrje);
+                nivelRegjistrimi.mbushNivelRegjistrimiSipasID(konfigurimAmbjenti.IdNivel);
+                colTrupiMagazina body = krijoTrupinEMagazines(wtn.items.ToString(),wtn.destinationWarehouse,wtn.startWarehouse,false,-1,)
+                clsKokaMagazina kokaMagazina = new clsKokaMagazina(0,nivelRegjistrimi.IdNivel,konfigurimAmbjenti.IdKonfigAmbjente,0,999,wtn.docDate,wtn.docNo,0,"",0,0,wtn.totalValue,
+                    1,ndermarrje.IdNdermarrje,ndermarrjeViti.IdNderViti,perdorues.IdPerdorues,new DateTime(),2,"",999,0,0,0,degeAdministrative.IdNdermarje,0,
+                    0,false,0,0,0,wtn.description,wtn.warehouseMan,wtn.destinationWarehouse,0,0,perdorues.IdPerdorues,wtn.startDate,0,"",wtn.nivfsh,wtn.nslfsh,0);
+                clsMesazh mesazh = kokaMagazina.krijoMagazine(kokaMagazina.IdKokaMagazina, kokaMagazina.IdNivel, kokaMagazina.IdKonfigAmbjente, kokaMagazina.IdKlientFurnitor, "", kokaMagazina.IdMagazina, mag.Kodi, kokaMagazina.DtDok, kokaMagazina.NrDok, kokaMagazina.IdProjekt, kokaMagazina.NrProjekt, kokaMagazina.IdKategoria, kokaMagazina.Vlefta, kokaMagazina.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti, kokaMagazina.IdPerdoruesi, kokaMagazina.DtRegjistrimi, kokaMagazina.IdLlojDokumentiMagazine, kokaMagazina.Shenime, kokaMagazina.IdDegeAdministrative, degeAdministrative.Kodi, kokaMagazina.IdLlogari, "", kokaMagazina.IdNjesiVartese, "", kokaMagazina.MeKonfirmim, kokaMagazina.IdGrup1, kokaMagazina.IdGrup2, kokaMagazina.IdGrup3, kokaMagazina.Pershkrimi, kokaMagazina.Magazinieri, kokaMagazina.Adresa,//, "", new clsKokaFleteKontabel(), 0, out mesazhinformues, true, kokaMagazina.IdAutomjet, kokaMagazina.Targa, kokaMagazina.IdRaportDesing, kokaMagazina.IdPerdoruesi, kokaMagazina.DtTransporti, kokaMagazina.Shoferi, kokaMagazina.TargaShoferi, kokaMagazina.NIVFSH, kokaMagazina.WTNIC, kokaMagazina.IdOperator, "", false, kokaMagazina.IdKategoriSeriali, new colSerialeUnikeMagazina(),false,kokaMagazina.NrSerial, new clsKokaRezervime(),kokaMagazina.MallraTeDjeghsme,kokaMagazina.ShoqerimIKerkuar,kokaMagazina.Tipi,kokaMagazina.Transaksioni,kokaMagazina.Transportuesi);
+
+                return new clsMesazh(true, msg.PershkrimMesazhi + $" Numer dokumenti: {nrdok}.");
+            }
+            catch (ArgumentNullException ex)
+            {
+                //logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
+                return new clsMesazh(false, "Sent object was not complete, please send the object correctly. Error message: " + ex.Message.ToString());
+            } 
+            catch(Exception ex)
+            {
+                return new clsMesazh(false, ex.Message.ToString());
+
+            }
+        }
+        
+        private colTrupiMagazina krijoTrupinEMagazines(string items,string magdestination,string magStart,bool eshteTransferim, int shenja, bool meAutorizim, int idNdermarrje, int idPerdorues, DateTime dtDok, bool isOwnShop, string kodKonfigurimi, bool isKlonim, bool dalje, int idKonfigurimi, bool serialeNeDetajim, colSerialeUnikeKategori kategorite, bool bashkoArtikujt, bool lejoModifikimDetajimi)
+        {
+            var dokumenti = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(items);
+            var idMagTemp = -1;
+            var isMagENjejte = false;
+            var trupat = new colTrupiMagazina();
+            clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
+            bool ruajBarkod = clsAlternativaKushti.getAlternativa(idKonfigurimi, "RBART") == "Po";
+            var merrMagazinenNgaTrupi = clsAlternativaKushti.getAlternativa(idKonfigurimi, "NKDMMT") == "Po";
+
+            int loan = 0;
+
+            foreach (var i in dokumenti)
+            {
+                var trupMag = new clsTrupiMagazina(idNdermarrje, idPerdorues, eshteTransferim, dtDok, i, isOwnShop, kodKonfigurimi, isKlonim, meAutorizim, ruajBarkod);
+                if (trupMag.IdArtikulli <= 0) continue;
+
+                if (merrMagazinenNgaTrupi
+                    || (!string.IsNullOrEmpty(magStart) && !eshteTransferim)
+                    || (!string.IsNullOrEmpty(magdestination) && eshteTransferim))
+                {
+                    if (idMagTemp == -1)
+                    {
+                        idMagTemp = trupMag.IdMag;
+                        isMagENjejte = true;
+                    }
+                    else if (isMagENjejte && trupMag.IdMag != idMagTemp)
+                        isMagENjejte = false;
+                }
+
+                trupMag.Shenja = shenja;
+
+                if (dalje || !eshteTransferim || !serialeNeDetajim)
+                    trupat.Add(trupMag);
+                else
+                {
+                    var kat = kategorite.MerrKategoriSipasIdFormatit(((clsArtikulli)trupMag.Element).IdFormatSeriali);
+
+                    if (!((clsArtikulli)trupMag.Element).DetajimArtikulli || kat == null || !kat.Kategori.EqualsIgnoreCase(enumKategoriSerialesh.APARATE.ToString()))
+                        trupat.Add(trupMag);
+                    else
+                    {
+                        var trupaFHT = trupMag.ShperndaTrupinSipasSerialeve(idPerdorues, idNdermarrje, lejoModifikimDetajimi, loan);
+                        trupat.AddRange(trupaFHT);
+                    }
+                }
+            }
+
+            if (!dalje && eshteTransferim && bashkoArtikujt)
+                trupat.BashkoTrupin(kategorite);
+
+            if (!eshteTransferim)
+                magStart = string.Empty;
+
+            if (eshteTransferim)
+                magdestination = string.Empty;
+
+            if (!isMagENjejte || trupat.Count <= 0)
+                return trupat;
+
+            var magazinaPerbashket = new clsNjesiAdministrative(trupat[0].IdMag, idPerdorues);
+
+            
+            return trupat;
+        }
+
         private colTrupiShitje krijoTrupShtije(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone,DateTime dtdok)
         {
             Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
