@@ -253,6 +253,23 @@
         type="text/javascript">
     </script>
     <script>
+</script>
+    <script>
+        async function vizualizoRaportin(newReport) {
+            RaporteUtils.Parameter = "Vizualizo ne Delta";
+            if (!window.parent.window.auth.currentUser) window.parent.signInWithGooglePopup();
+            else {
+                toast();
+                const accessToken = await window.parent.window.getIdToken(window.parent.window.auth.currentUser);
+
+                hfState.Set("uid", window.parent.window.auth.currentUser.uid);
+                hfState.Set("accessToken", accessToken);
+                hfState.Set("newReport", newReport);
+                //ASPxCallbackPanel1.PerformCallback(`Vizualizo&uid=${window.parent.window.auth.currentUser.uid}&accessToken=${accessToken};${newReport}`);
+                window.document.getElementById("delta").style.display = "none";
+                document.getElementById('vizualizo').click();
+            }
+        }
     </script>
 </head>
 <body>

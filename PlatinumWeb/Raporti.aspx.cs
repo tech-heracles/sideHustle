@@ -8305,6 +8305,7 @@ namespace PlatinumWeb
             }
             catch(Exception ex)
             {
+                ImbLogger.LogErrorImporti(ex.Message);
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim ne krijimin e raportit!", pnlMesazhi);
             }
 
