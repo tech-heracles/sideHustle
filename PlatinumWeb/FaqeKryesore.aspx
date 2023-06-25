@@ -54,7 +54,7 @@
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+        import { getAuth, signInWithPopup, getIdToken,GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
             authDomain: "alpha-secure-login.alpha.al",
@@ -69,6 +69,7 @@
         window.signInWithEmail = signInWithEmailAndPassword;
         window.getAuth = getAuth;
         window.app = app;
+        window.getIdToken = getIdToken;
         window.signInWithRedirect = signInWithRedirect;
         window.GoogleAuthProvider = await new GoogleAuthProvider();
         window.GoogleAuthProvider.setCustomParameters({
