@@ -46,6 +46,7 @@ using DevExpress.Utils.Behaviors.Common;
 using System.Web.Configuration;
 using System.Net;
 using System.Diagnostics;
+using DocumentFormat.OpenXml.Math;
 
 namespace PlatinumWeb
 {
@@ -8292,11 +8293,7 @@ namespace PlatinumWeb
                         redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
                         //ScriptEngine engine = new ScriptEngine();
                         //engine.CallGlobalFunction($"redirectToDelta", redirectUrl);
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = redirectUrl,
-                            UseShellExecute = true
-                        });
+                        ScriptManager.RegisterStartupScript(this,GetType(), "deltaKey", $"window.open('{redirectUrl}','_blank')", true);
                     }
 
 
