@@ -35,6 +35,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using System.Net.PeerToPeer;
 using DbCore.classes;
 using DbCore.DbAsete;
+using DbCore.DbQendraKosto;
 
 namespace PlatinumWeb
 {
@@ -1204,27 +1205,55 @@ namespace PlatinumWeb
                 WTN wtn = WTN.FromJObject((JObject)JsonConvert.DeserializeObject(obj));
                 object trupiobj = wtn.items;
                 AlphaMetadata alphaMetadata = wtn.alphaMetadata;
+                //Vendosja e databazes
+                clsMesazh mesazhServer = clsLogin.setServerFromOrgName(Session.SessionID, alphaMetadata.organization);
+                if(!mesazhServer.Status) return new clsMesazh(false, mesazhServer.PershkrimMesazhi);
                 DateTime dtDok = wtn.docDate;
+                int operatori = 0;
                 clsNdermarrje ndermarrje = new clsNdermarrje(alphaMetadata.enterprise);
+                DataTable op = clsOperator.MerrOperatoretAktive(ndermarrje.IdNdermarrje);
+                for(int i = 0; i < op.Rows.Count; i++)
+                {
+                    if (op.Rows[i].ItemArray[1].ToString() == wtn.operatorCode)
+                        int.TryParse(op.Rows[i].ItemArray[0].ToString(),out operatori);
+
+                }
                 clsKonfigurimAmbjenti konfigurimAmbjenti = new clsKonfigurimAmbjenti();
+                clsKonfigurimAmbjenti konfigurimAmbjentiHyrje = new clsKonfigurimAmbjenti();
                 konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata.invoiceFormat, ndermarrje.IdNdermarrje);
+                konfigurimAmbjentiHyrje.mbushKonfigAmbjSipasKod("FHT", ndermarrje.IdNdermarrje);
                 clsNivelRegjistrimi nivelRegjistrimi = new clsNivelRegjistrimi();
                 clsViti viti = new clsViti(ndermarrje.IdNdermarrje, dtDok.Year.ToString());
                 clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
                 clsNjesiAdministrative mag = new clsNjesiAdministrative(wtn.startWarehouse,ndermarrje.IdNdermarrje);
+                clsDegeAdministrative dega = new clsDegeAdministrative(wtn.businUnitCode, ndermarrje.IdNdermarrje);
+                dega.IdDegeAdministrative = dega.IdDegeAdministrative == -1 ? 0 : dega.IdDegeAdministrative;
                 clsPerdorues perdorues = new clsPerdorues(alphaMetadata.userEmail.Split('@')[0], alphaMetadata.userEmail, true);
-                clsMesazh mesazhinformues;
+                string mesazhinformues;
                 if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata.userEmail.Split('@')[0]} nuk ekziston ne Alpha!");
                 ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
+                clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(wtn.docDate, ndermarrje.IdNdermarrje);
                 clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(wtn.businUnitCode,ndermarrje.IdNdermarrje);
                 nivelRegjistrimi.mbushNivelRegjistrimiSipasID(konfigurimAmbjenti.IdNivel);
-                colTrupiMagazina body = krijoTrupinEMagazines(wtn.items.ToString(),wtn.destinationWarehouse,wtn.startWarehouse,false,-1,)
-                clsKokaMagazina kokaMagazina = new clsKokaMagazina(0,nivelRegjistrimi.IdNivel,konfigurimAmbjenti.IdKonfigAmbjente,0,999,wtn.docDate,wtn.docNo,0,"",0,0,wtn.totalValue,
-                    1,ndermarrje.IdNdermarrje,ndermarrjeViti.IdNderViti,perdorues.IdPerdorues,new DateTime(),2,"",999,0,0,0,degeAdministrative.IdNdermarje,0,
-                    0,false,0,0,0,wtn.description,wtn.warehouseMan,wtn.destinationWarehouse,0,0,perdorues.IdPerdorues,wtn.startDate,0,"",wtn.nivfsh,wtn.nslfsh,0);
-                clsMesazh mesazh = kokaMagazina.krijoMagazine(kokaMagazina.IdKokaMagazina, kokaMagazina.IdNivel, kokaMagazina.IdKonfigAmbjente, kokaMagazina.IdKlientFurnitor, "", kokaMagazina.IdMagazina, mag.Kodi, kokaMagazina.DtDok, kokaMagazina.NrDok, kokaMagazina.IdProjekt, kokaMagazina.NrProjekt, kokaMagazina.IdKategoria, kokaMagazina.Vlefta, kokaMagazina.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti, kokaMagazina.IdPerdoruesi, kokaMagazina.DtRegjistrimi, kokaMagazina.IdLlojDokumentiMagazine, kokaMagazina.Shenime, kokaMagazina.IdDegeAdministrative, degeAdministrative.Kodi, kokaMagazina.IdLlogari, "", kokaMagazina.IdNjesiVartese, "", kokaMagazina.MeKonfirmim, kokaMagazina.IdGrup1, kokaMagazina.IdGrup2, kokaMagazina.IdGrup3, kokaMagazina.Pershkrimi, kokaMagazina.Magazinieri, kokaMagazina.Adresa,//, "", new clsKokaFleteKontabel(), 0, out mesazhinformues, true, kokaMagazina.IdAutomjet, kokaMagazina.Targa, kokaMagazina.IdRaportDesing, kokaMagazina.IdPerdoruesi, kokaMagazina.DtTransporti, kokaMagazina.Shoferi, kokaMagazina.TargaShoferi, kokaMagazina.NIVFSH, kokaMagazina.WTNIC, kokaMagazina.IdOperator, "", false, kokaMagazina.IdKategoriSeriali, new colSerialeUnikeMagazina(),false,kokaMagazina.NrSerial, new clsKokaRezervime(),kokaMagazina.MallraTeDjeghsme,kokaMagazina.ShoqerimIKerkuar,kokaMagazina.Tipi,kokaMagazina.Transaksioni,kokaMagazina.Transportuesi);
+                string outParameter;
+                DbData dbData = new DbData();
+                colTrupiMagazina body = krijoTrupinEMagazines(wtn, wtn.destinationWarehouse,
+                    wtn.startWarehouse, false, -1, false, ndermarrje.IdNdermarrje, perdorues.IdPerdorues, wtn.docDate,
+                    false, konfigurimAmbjenti.KodKonfigAmbjente, false, true, konfigurimAmbjenti.IdKonfigurimi, false,
+                    new colSerialeUnikeKategori(), false, false);
+                clsKokaMagazina kokaMagazina = new clsKokaMagazina(0,nivelRegjistrimi.IdNivel,konfigurimAmbjenti.IdKonfigAmbjente,0,mag.IdNjesiAdministrative,wtn.docDate,wtn.docNo,0,"",0,0,wtn.totalValue,
+                    1,ndermarrje.IdNdermarrje,ndermarrjeViti.IdNderViti,perdorues.IdPerdorues,DateTime.Now, 2,"",0,0,0,0,degeAdministrative.IdDegeAdministrative,0,
+                    0,false,0,0,0,wtn.description,wtn.warehouseMan,wtn.destinationWarehouse,0,0,perdorues.IdPerdorues,wtn.startDate,0,"",wtn.nivfsh,wtn.nslfsh,operatori);
+                kokaMagazina.OcolTrupiMagazina = body;
+                
+                clsMesazh mesazh = kokaMagazina.krijoMagazine(kokaMagazina.IdKokaMagazina, kokaMagazina.IdNivel, kokaMagazina.IdKonfigAmbjente, kokaMagazina.IdKlientFurnitor, "", kokaMagazina.IdMagazina, mag.Kodi, kokaMagazina.DtDok, kokaMagazina.NrDok, kokaMagazina.IdProjekt, kokaMagazina.NrProjekt, konfigurimAmbjenti.IdKategori, kokaMagazina.Vlefta, kokaMagazina.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti, kokaMagazina.IdPerdoruesi, kokaMagazina.DtRegjistrimi, kokaMagazina.IdLlojDokumentiMagazine, kokaMagazina.Shenime, kokaMagazina.IdDegeAdministrative, degeAdministrative.Kodi, kokaMagazina.IdLlogari, "", kokaMagazina.IdNjesiVartese, "", kokaMagazina.MeKonfirmim, kokaMagazina.IdGrup1, kokaMagazina.IdGrup2, kokaMagazina.IdGrup3, kokaMagazina.Pershkrimi, kokaMagazina.Magazinieri, kokaMagazina.Adresa,body,new clsKokaMagazina() , new clsKokaFleteKontabel(), 0, out mesazhinformues, true, kokaMagazina.IdAutomjet, kokaMagazina.Targa, kokaMagazina.IdRaportDesing, kokaMagazina.IdPerdoruesi, kokaMagazina.DtTransporti, kokaMagazina.Shoferi, kokaMagazina.TargaShoferi, kokaMagazina.NIVFSH, kokaMagazina.WTNIC, kokaMagazina.IdOperator, new Dictionary<string, object>(), false, kokaMagazina.IdKategoriSeriali, new colSerialeUnikeMagazina(),true,kokaMagazina.NrSerial, new clsKokaRezervime(),kokaMagazina.MallraTeDjeghsme,kokaMagazina.ShoqerimIKerkuar,kokaMagazina.Tipi,kokaMagazina.Transaksioni,kokaMagazina.Transportuesi);
+                clsMesazh clsmsg = kokaMagazina.ruaj(true, 0, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, "",
+                    out outParameter, true, new colSerialetMagazine(), new colSerialetMagazine(),
+                    new clsKonfigurimAmbjenti(), konfigurimAmbjentiHyrje, false, false, "", "", "", "",true,
+                    false, new int[0], false, false, false, out outParameter, 0,ref dbData, false,
+                    new colSerialeUnikeKategori(), false, true);
 
-                return new clsMesazh(true, msg.PershkrimMesazhi + $" Numer dokumenti: {nrdok}.");
+                return new clsMesazh(true, clsmsg.PershkrimMesazhi + $" Numer dokumenti: {wtn.docNo}.");
             }
             catch (ArgumentNullException ex)
             {
@@ -1238,9 +1267,9 @@ namespace PlatinumWeb
             }
         }
         
-        private colTrupiMagazina krijoTrupinEMagazines(string items,string magdestination,string magStart,bool eshteTransferim, int shenja, bool meAutorizim, int idNdermarrje, int idPerdorues, DateTime dtDok, bool isOwnShop, string kodKonfigurimi, bool isKlonim, bool dalje, int idKonfigurimi, bool serialeNeDetajim, colSerialeUnikeKategori kategorite, bool bashkoArtikujt, bool lejoModifikimDetajimi)
+        private colTrupiMagazina krijoTrupinEMagazines(WTN wtn,string magdestination,string magStart,bool eshteTransferim, int shenja, bool meAutorizim, int idNdermarrje, int idPerdorues, DateTime dtDok, bool isOwnShop, string kodKonfigurimi, bool isKlonim, bool dalje, int idKonfigurimi, bool serialeNeDetajim, colSerialeUnikeKategori kategorite, bool bashkoArtikujt, bool lejoModifikimDetajimi)
         {
-            var dokumenti = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(items);
+            var dokumenti = JsonConvert.DeserializeObject<Dictionary<string, object>[]>(wtn.items.ToString());
             var idMagTemp = -1;
             var isMagENjejte = false;
             var trupat = new colTrupiMagazina();
@@ -1252,7 +1281,7 @@ namespace PlatinumWeb
 
             foreach (var i in dokumenti)
             {
-                var trupMag = new clsTrupiMagazina(idNdermarrje, idPerdorues, eshteTransferim, dtDok, i, isOwnShop, kodKonfigurimi, isKlonim, meAutorizim, ruajBarkod);
+                var trupMag = new clsTrupiMagazina(wtn.startWarehouse,wtn.destinationWarehouse,idNdermarrje, idPerdorues, eshteTransferim, dtDok, i, isOwnShop, kodKonfigurimi, isKlonim, meAutorizim, ruajBarkod,true);
                 if (trupMag.IdArtikulli <= 0) continue;
 
                 if (merrMagazinenNgaTrupi

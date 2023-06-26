@@ -25,33 +25,34 @@ namespace DbCore.classes
 		public string description;
 		public string warehouseMan;
 		public string destinationAddress;
+		public string operatorCode;
 		public AlphaMetadata alphaMetadata;
 		
 		public static WTN FromJObject(JObject jObject)
 		{
 			WTN wtn = new WTN();
-
 			wtn.docNo = jObject.GetValue("docNo")?.ToString();
 			wtn.businUnitCode = jObject.GetValue("businUnitCode")?.ToString();
 			wtn.carrierCode = jObject.GetValue("carrierCode")?.ToString();
+			wtn.operatorCode = jObject.GetValue("operatorCode")?.ToString();
 			
 			wtn.destinationWarehouse = jObject.GetValue("destinationWarehouse")?.ToString();
-			wtn.startWarehouse = jObject.GetValue("startWarehouse")?.ToString();
+			wtn.startWarehouse = jObject.GetValue("warehouse")?.ToString();
 			wtn.description = jObject.GetValue("description")?.ToString();
 			wtn.isEscortRequired = jObject.GetValue("isEscortRequired")?.ToString();
 			wtn.isGoodsFlammable = jObject.GetValue("isGoodsFlammable")?.ToString();
 			wtn.warehouseMan = jObject.GetValue("warehouseMan")?.ToString();
-			wtn.destinationAddress = jObject.GetValue("destinationAddress")?.ToString();
+			wtn.destinationAddress = jObject.GetValue("destinationWarehouseAddress")?.ToString();
 			wtn.alphaMetadata = AlphaMetadata.FromJObject(jObject.GetValue("alphaMetadata")?.ToObject<dynamic>());
 			DateTime docDate,startDate,endDate;
 			if (DateTime.TryParse(jObject.GetValue("docDate")?.ToString(), out docDate))
 			{
 				wtn.docDate = docDate;
 			}
-			if (DateTime.TryParse(jObject.GetValue("startDate")?.ToString(), out startDate))
+			if (DateTime.TryParse(jObject.GetValue("dateStart")?.ToString(), out startDate))
 			{
 				wtn.endDate = startDate;
-			}if (DateTime.TryParse(jObject.GetValue("endDate")?.ToString(), out endDate))
+			}if (DateTime.TryParse(jObject.GetValue("destinDate")?.ToString(), out endDate))
 			{
 				wtn.startDate = endDate;
 			}
