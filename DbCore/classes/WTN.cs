@@ -19,6 +19,7 @@ namespace DbCore.classes
 		public object items;
 		public string nivfsh;
 		public string nslfsh;
+		public string carrierName;
 		public double totalValue;
 		public double totalVatValue;
 		public string veichlePlates;
@@ -26,6 +27,8 @@ namespace DbCore.classes
 		public string warehouseMan;
 		public string destinationAddress;
 		public string operatorCode;
+		public string type;
+		public string transaction;
 		public AlphaMetadata alphaMetadata;
 		
 		public static WTN FromJObject(JObject jObject)
@@ -37,6 +40,7 @@ namespace DbCore.classes
 			wtn.operatorCode = jObject.GetValue("operatorCode")?.ToString();
 			
 			wtn.destinationWarehouse = jObject.GetValue("destinationWarehouse")?.ToString();
+			wtn.carrierName = jObject.GetValue("carrierName")?.ToString();
 			wtn.startWarehouse = jObject.GetValue("warehouse")?.ToString();
 			wtn.description = jObject.GetValue("description")?.ToString();
 			wtn.isEscortRequired = jObject.GetValue("isEscortRequired")?.ToString();
@@ -64,6 +68,8 @@ namespace DbCore.classes
 			wtn.totalValue = Double.Parse(jObject.GetValue("totalValue")?.ToString());
 			wtn.totalVatValue = Double.Parse(jObject.GetValue("totalVatValue")?.ToString());
 			wtn.veichlePlates = jObject.GetValue("veichlePlates")?.ToString();
+			wtn.type = jObject.GetValue("type")?.ToString();
+			wtn.transaction = jObject.GetValue("transaction")?.ToString();
 
 			return wtn;
 		}
