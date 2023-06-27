@@ -1242,12 +1242,12 @@ namespace PlatinumWeb
                 nivelRegjistrimiTrans.mbushNivelRegjistrimiSipasID(konfigurimAmbjentiHyrje.IdNivel);
                 string outParameter;
                 DbData dbData = new DbData();
-                colTrupiMagazina body = krijoTrupinEMagazines(wtn, wtn.destinationWarehouse,
-                    wtn.startWarehouse, true, -1, false, ndermarrje.IdNdermarrje, perdorues.IdPerdorues, wtn.docDate,
+                colTrupiMagazina body = krijoTrupinEMagazines(wtn, wtn.startWarehouse,wtn.destinationWarehouse,
+                     true, -1, false, ndermarrje.IdNdermarrje, perdorues.IdPerdorues, wtn.docDate,
                     false, konfigurimAmbjenti.KodKonfigAmbjente, false, true, konfigurimAmbjenti.IdKonfigurimi, false,
                     new colSerialeUnikeKategori(), false, false);
-                colTrupiMagazina bodyDestination = krijoTrupinEMagazines(wtn, wtn.destinationWarehouse,
-                    wtn.startWarehouse, true, -1, false, ndermarrje.IdNdermarrje, perdorues.IdPerdorues, wtn.docDate,
+                colTrupiMagazina bodyDestination = krijoTrupinEMagazines(wtn, wtn.startWarehouse,
+                    wtn.destinationWarehouse, true, -1, false, ndermarrje.IdNdermarrje, perdorues.IdPerdorues, wtn.docDate,
                     false, konfigurimAmbjenti.KodKonfigAmbjente, false, true, konfigurimAmbjenti.IdKonfigurimi, false,
                     new colSerialeUnikeKategori(), false, false);
                 clsKokaMagazina kokaMagazina = new clsKokaMagazina(0,nivelRegjistrimi.IdNivel,konfigurimAmbjenti.IdKonfigAmbjente,0,mag.IdNjesiAdministrative,wtn.docDate,wtn.docNo,0,"",0,0,wtn.totalValue,
