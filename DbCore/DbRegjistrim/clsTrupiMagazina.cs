@@ -290,9 +290,227 @@ namespace DbCore.DbRegjistrim
             {
                 throw new Exception("Artikulli me kod:" + art.KodArtikulli + " nuk eshte aktiv!");
             }
-            
+
             if (idKodi != art.IdArtikulli)
                 throw new Exception("Artikulli me kod: " + art.KodArtikulli + " eshte marre gabimisht!");
+            idArtikull = art.IdArtikulli;
+
+            clsArtikulli artper = new clsArtikulli();
+            if (artset != "")
+            {
+                artper.ktheArtikullSipasKoditDheAutorizime(artset, idNdermarrje, idPerdorues);
+                if (artper.IdArtikulli == 0)
+                {
+                    throw new Exception("Artikulli i perbere nuk ekziston ose nuk keni autorizime per artikullin " + artset + "!");
+                }
+                if (!artper.Aktiv)
+                {
+                    throw new Exception("Artikulli me kod:" + artper.KodArtikulli + " nuk eshte aktiv!");
+                }
+                if (artper.Klasa != 4)
+                    throw new Exception("Artikulli me kod: " + artper.KodArtikulli + " nuk i perket klases se perbere!");
+                idArtikullSet = artper.IdArtikulli;
+            }
+            //trupi.IdArtikulli = dbInventari.merrArtikullSipasKodit(art).IdArtikulli;
+            kodArtikull = kodi;
+            if (!klonim)
+            {
+                this.idTrupiRezervimi = idtrupirez;
+                this.idTrupiKonvertimFSH = idtrupikonv;
+                this.idTrupiKonvertimUSH = idtrupikonvush;
+                this.idTrupiKonvertimUD = idtrupikonvud;
+                this.idKthimi = idkthimi;
+                this.idTrupiShitjeGjenerimi = idTrupiShitjeGjenerimi;
+                this.IdTrupiMagazina = idtrupi;
+            }
+            else
+            {
+                this.idTrupiRezervimi = 0;
+                this.idTrupiKonvertimFSH = 0;
+                this.idTrupiKonvertimUSH = 0;
+                this.idTrupiKonvertimUD = 0;
+                this.idKthimi = 0;
+                this.idTrupiShitjeGjenerimi = 0;
+                this.IdTrupiMagazina = 0;
+            }
+
+            if (emertimi != null && emertimi != "null")
+                pershkrimArtikull = emertimi;
+            if (detajimet != null && detajimet != "null" && detajimet != "*" && detajimet != "" && detajimet != "Pa detajime" && detajimet != "Pa detajim")
+            {
+                //clsDetajimArtikulli detArtikulli = new clsDetajimArtikulli();
+                //detArtikulli.mbushDetajimArtikulli(detajimet, idNdermarrje);
+
+                this.idDetajimi = clsDetajimArtikulli.ktheIdDetajimi(detajimet, idNdermarrje);
+                if (idDetajimi > 0)
+                    this.kodDetajimi1 = detajimet;
+                if (ownshop) //nqs eshte ownshop do shohim nqs id = 0 ndersa kodi != "", ne kete rast do krijohet detajimi me kete kod.
+                {
+                    if (this.idDetajimi == 0 && !String.IsNullOrEmpty(detajimet))
+                    {
+                        int llojDetajim = 0;
+                        if (art.IdKategoriDetajimi == 3)
+                            llojDetajim = 3;
+                        else if (art.IdKategoriDetajimi == 2)
+                            llojDetajim = 2;
+                        else if (art.IdKategoriDetajimi == 4)
+                            llojDetajim = 1;
+
+                        clsDetajimArtikulli detajimRi = new clsDetajimArtikulli(detajimet, llojDetajim, "", idPerdorues, art.IdKategoriDetajimi, idNdermarrje, "", 1, 1);
+                        clsMesazh mesazh = detajimRi.ruajShpejte(art, 1);
+                        if (mesazh.Status)
+                        {
+                            this.kodDetajimi1 = detajimet;
+                            this.idDetajimi = detajimRi.IdDetajimArtikulli;
+                        }
+                        else
+                            throw new Exception("Gabim gjate krijimit te detajimit te pare!");
+                    }
+                    else if (this.idDetajimi > 0 && !String.IsNullOrEmpty(detajimet)) //nqs o.IdDetajimArt=-1 ath nuk do krijohet as nuk do lidhet ndonje detajim
+                    {
+                        bool lidhurMeArt = clsDetajimArtikulli.ekzistonDetajimLidhurMeArtikullin(detajimet, idNdermarrje, art.KodArtikulli, 1);
+                        if (!lidhurMeArt)
+                        {
+                            this.kodDetajimi1 = detajimet;
+                            clsMesazh mesazh = clsDetajimPerArt.ruajLidhje(art, this.idDetajimi, 1, idNdermarrje, idPerdorues);
+                            if (!mesazh.Status)
+                                throw new Exception("Gabim gjate lidhjes se detajimit te pare me artikullin!");
+                        }
+                    }
+                }
+            }
+            else
+                idDetajimi = -1;
+            if (detajimet2 != null && detajimet2 != "null" && detajimet2 != "*" && detajimet2 != "" && detajimet2 != "Pa detajime" && detajimet2 != "Pa detajim")
+            {
+                idDetajimi2 = clsDetajimArtikulli.ktheIdDetajimi(detajimet2, idNdermarrje);
+                if (idDetajimi2 > 0)
+                    this.kodDetajimi2 = detajimet2;
+            }
+            else
+                idDetajimi2 = -1;
+            if (njesia != null && njesia != "null" && njesia != "")
+            {
+                //clsNjesiArtikulli njesi = new clsNjesiArtikulli();
+                //njesi.mbushNjesiArtikulliMeKod(njesia, idNdermarrje); //kevi ndryshim nga me pershk me kod                
+                idNjesia = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje); //njesi.IdNjesia;
+                if (art.Njesi1Artikulli == idNjesia)//nese njesia e zgjedhuer eshte njesia 1 e artikullit ath koeficienti vendoset 1
+                    koeficenti = 1;
+                else
+                    koeficenti = double.Parse(art.KoeficientArtikulli.ToString());
+                //nese njesia e zgjedhur nuk eshte njesia e pare e artikullit ath koeficienti vendoset sa koeficienti i percaktuar tek artikulli
+            }
+            if (sasia != null && sasia != "null" && sasia != "")
+                this.sasia = double.Parse(sasia);
+            if (cmimi != null && cmimi != "null" && cmimi != "")
+                this.cmimi = double.Parse(cmimi);
+            if (vlefta != null && vlefta != "null" && vlefta != "")
+                this.vlefta = double.Parse(vlefta);
+            if (!String.IsNullOrEmpty(shenime))
+                this.shenime = shenime;
+            else
+                this.shenime = String.Empty;
+            int idMagHyrje = -1;
+            int idMagDestinacion = -1;
+            if (magazina != null && magazina != "null" && magazina != "")
+            {
+                DbCore.DbRegjistrim.clsNjesiAdministrative njesiadm;
+                njesiadm = new clsNjesiAdministrative(magazina, idNdermarrje, idPerdorues);
+
+                if (njesiadm.IdNjesiAdministrative < 1)
+                    throw new Exception("Magazina nuk ekziston ose nuk keni autorizime per magazinen: " + magazina + "!");
+                if (magazina != "" && !njesiadm.Aktiv)
+                    throw new Exception("Magazina: " + magazina + " nuk eshte aktive!");
+                idMagHyrje = njesiadm.IdNjesiAdministrative;
+            }
+
+            if (magazina2 != null && magazina2 != "null" && magazina2 != "" && kodkonfigurimi != "FHNV" && kodkonfigurimi != "FDNV")
+            {
+                DbCore.DbRegjistrim.clsNjesiAdministrative njesiadm = new DbCore.DbRegjistrim.clsNjesiAdministrative(magazina2, idNdermarrje);
+                if (njesiadm.IdNjesiAdministrative <= 0)
+                    throw new Exception("Magazina destinacion: " + magazina2 + " nuk ekziston!");
+                if (meAutorizim)
+                {
+                    njesiadm = new clsNjesiAdministrative(magazina2, idNdermarrje, idPerdorues);
+                    if (njesiadm.IdNjesiAdministrative < 1)
+                        throw new Exception("Nuk keni autorizime per magazinen " + magazina2 + "!");
+                }
+                if (magazina2 != "" && !njesiadm.Aktiv)
+                    throw new Exception("Magazina: " + magazina2 + " nuk eshte aktive!");
+                idMagDestinacion = njesiadm.IdNjesiAdministrative;
+            }
+
+            if (eshteTransferim == true)
+                idMag = idMagDestinacion;
+            else
+                idMag = idMagHyrje;
+            data = date;
+            this.idBarkodi = clsKodbari.MerrIdBarkodiSipasPershkrimDheArtikulli(barkodi, this.IdArtikulli);
+            element = art;
+        }
+        
+        public clsTrupiMagazina(string startWarehouse,string destinationWarehouse,int idNdermarrje, int idPerdorues, bool eshteTransferim, DateTime date, Dictionary<string, object> rreshtDokuKlient, bool ownshop, string kodkonfigurimi, bool klonim, bool meAutorizim, bool ruajBarkod,bool sinkronizim)
+        {
+            string kategoria = "Artikull";
+            string kodi = rreshtDokuKlient["code"].ToString();
+            if (kodi == "" || kodi == null || kodi == "null")
+            {
+                idArtikull = -1;
+                return;
+            }
+            int idKodi = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdKodi"].ToString(), out idKodi);
+            string artset = "";
+        
+            string emertimi = rreshtDokuKlient["name"].ToString();
+            // string detajimet = rreshtDokuKlient["txtDetajimi"].ToString();
+            string detajimet = "";
+            string detajimet2 ="";
+            // string detajimet2 = rreshtDokuKlient["txtDetajimi2t"].ToString();
+            string njesia = rreshtDokuKlient["unit"].ToString();
+            string sasia = rreshtDokuKlient["quantity"].ToString();
+            string cmimi = rreshtDokuKlient["price"].ToString();
+            string vlefta = rreshtDokuKlient["value"].ToString();
+            string magazina = startWarehouse;
+            string magazina2 = destinationWarehouse;
+            int idtrupirez = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupiRezervimi"].ToString(), out idtrupirez);
+            int idtrupi = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupi"].ToString(), out idtrupi);
+            int idtrupikonv = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimi"].ToString(), out idtrupikonv);
+            int idtrupikonvush = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimiUSH"].ToString(), out idtrupikonvush);
+            int idtrupikonvud = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimiUD"].ToString(), out idtrupikonvud);
+            int idkthimi = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdKthimi"].ToString(), out idkthimi);
+            int idTrupiShitjeGjenerimi = 0;
+            // int.TryParse(rreshtDokuKlient["txtIdTrupiShitjeGjenerimi"].ToString(), out idTrupiShitjeGjenerimi);
+            string shenime = "";
+            string barkodi = ruajBarkod ? rreshtDokuKlient["barcode"].ToString() : String.Empty; 
+
+            if (!(kategoria == "Artikull" || kategoria == "Makro"))
+                throw new Exception("Kategoria nuk mund te jete e ndryshme nga Makro dhe Artikull te rregjistrim dokument magazine");
+            idLlojVeprimi = DbShare.clsKonfLlojRreshtiVlere.ktheIdLlojRreshtiVlere(kategoria, "Shitje");
+            clsArtikulli art = new clsArtikulli();
+            //if (!performante)
+            //    if (!clsArtikulli.ekziston(kodi, idNdermarrje))
+            //    {
+            //        throw new Exception("Artikulli me kod: " + kodi + " nuk ekziston!");
+            //    }
+            art.ktheArtikullSipasKoditDheAutorizime(kodi, idNdermarrje, idPerdorues);
+            if (art.IdArtikulli == 0)
+            {
+                throw new Exception("Artikulli nuk ekziston ose nuk keni autorizime per artikullin " + kodi + "!");
+            }
+            if (!art.Aktiv)
+            {
+                throw new Exception("Artikulli me kod:" + art.KodArtikulli + " nuk eshte aktiv!");
+            }
+            
+            // if (idKodi != art.IdArtikulli)
+            //     throw new Exception("Artikulli me kod: " + art.KodArtikulli + " eshte marre gabimisht!");
             idArtikull = art.IdArtikulli;
 
             clsArtikulli artper = new clsArtikulli();

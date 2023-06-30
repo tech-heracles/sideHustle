@@ -2707,6 +2707,21 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
+        internal DataTable ktheUserNgaLoginMeUsernameOseEmailPerSinkronizim(string perdoruesUsername, string email)
+        {
+            var dbManager = MyScopeDbManager;
+            string queryString = "";
+            dbManager.Open();
+            if (email == "")
+                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESUSERNAME = '{perdoruesUsername}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 AND PERDORUESAKTIV = 1";
+            else
+                queryString = $"SELECT top 1 * FROM T_PERDORUESI as p INNER JOIN T_STILRAPORTI  AS s ON  p.IDSTILRAPORTI = s.IDSTILI WHERE PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 AND PERDORUESAKTIV = 1";
+
+            CommandType commandType = CommandType.Text;
+            DataSet ds = dbManager.ExecuteDataSet(commandType, queryString);
+            return ds.Tables[0];
+
+        }
 
         /// <summary>
         /// kthen te dhenat e perdoruesit ne baze te username. Te dhenat merren nga tabela T_PERDORUESI
