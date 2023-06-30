@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Raporti.aspx.cs" Inherits="PlatinumWeb.Raporti" %>
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Raporti.aspx.cs" Inherits="PlatinumWeb.Raporti" async="true" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -56,6 +56,173 @@
             text-align: center !important;
             overflow: unset !important;
         }
+        #delta{
+            z-index:9999999;
+            background-color:white;
+            border-radius:5px;
+            border: 0.5px solid #d3d3d3;
+        }
+        .dropdown-content{
+            text-decoration: none;
+            list-style: none;
+            margin: 4px;
+            width: max-content;
+            /* border: 1px solid black; */
+            height: max-content;
+            padding: 0;
+        }
+        .dropdown-content li{
+            font-family: sans-serif;
+            padding: 10px;
+            cursor:pointer;
+            transition: .4s ease-in-out;
+        }
+        .dropdown-content li:hover{
+            background-color:#eeeeee;
+        }
+        .lds-grid {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-grid div {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgb(255, 255, 255);
+        animation: lds-grid 3s linear infinite;
+        }
+        .lds-grid div:nth-child(1) {
+        top: 8px;
+        left: 8px;
+        animation-delay: 0s;
+        }
+        .lds-grid div:nth-child(2) {
+        top: 8px;
+        left: 32px;
+        animation-delay: -0.4s;
+        }
+        .lds-grid div:nth-child(3) {
+        top: 8px;
+        left: 56px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(4) {
+        top: 32px;
+        left: 8px;
+        animation-delay: -0.4s;
+        }
+        .lds-grid div:nth-child(5) {
+        top: 32px;
+        left: 32px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(6) {
+        top: 32px;
+        left: 56px;
+        animation-delay: -1.2s;
+        }
+        .lds-grid div:nth-child(7) {
+        top: 56px;
+        left: 8px;
+        animation-delay: -0.8s;
+        }
+        .lds-grid div:nth-child(8) {
+        top: 56px;
+        left: 32px;
+        animation-delay: -1.2s;
+        }
+        .lds-grid div:nth-child(9) {
+        top: 56px;
+        left: 56px;
+        animation-delay: -1.6s;
+        }
+        @keyframes lds-grid {
+        0%,100% {
+            background-color: #4584ec;
+        }
+        25% {background-color: #38a555;}
+        50% {
+            background-color: #e44d40;
+        }
+        75% {background-color: #f3ba15;}
+    }
+        .loader {
+        display: none;
+        position: fixed;
+        z-index: 99999999999;
+        height: 2em;
+        width: 2em;
+        overflow: show;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+        hr{
+            width:42%;
+        }
+    .loader-overlay {
+        
+        display: none;
+        position: fixed;
+        z-index: 99999999999;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255,255,255,0.7);
+    }
+    .custom-css-a{
+        width:100%;
+        height:100%;
+        background-color:#1251b8 !important;
+    }
+    .custom-css-a:hover{
+        background-color: white !important;
+        color: black !important;
+    }
+    .card-content{
+        padding-bottom:5% !important;
+    }
+    .google-div{
+        width:40% !important;
+    }
+    @media all and (max-width:1400px) {
+       .google-div{
+            width:100% !important;
+        } 
+    }
+    @media all and (max-width:800px) {
+       .google-div img{
+           display:none;
+       }
+
+    }
+    .toast {
+        transition:ease-in-out .5s;
+            position: fixed;
+            right: 0;
+            transform: translateY(100%);
+            opacity: 0;
+            z-index:-10;
+            bottom: 0;
+            margin-bottom: 10%;
+        }
+
+        .toast-body {
+            margin: 28px;
+            padding: 20px 15px;
+            font-size: larger;
+            font-family: sans-serif;
+            background-color: #0072c6;
+            color: white;
+            border-radius: 100px;
+        }
     </style>
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <script type="text/html" id="custom-designerSelector-template">
@@ -85,18 +252,77 @@
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/RaporteUtils.js;~/js/aspx.js/Raporti.aspx-IMB.2.1.js&v76"
         type="text/javascript">
     </script>
+    <script>
+</script>
+    <script>
+        async function vizualizoRaportin(newReport) {
+            RaporteUtils.Parameter = "Vizualizo ne Delta";
+            if (!window.parent.window.auth.currentUser) window.parent.signInWithGooglePopup();
+            else {
+                toast();
+                const accessToken = await window.parent.window.getIdToken(window.parent.window.auth.currentUser);
+
+                hfState.Set("uid", window.parent.window.auth.currentUser.uid);
+                hfState.Set("accessToken", accessToken);
+                hfState.Set("newReport", newReport);
+                //ASPxCallbackPanel1.PerformCallback(`Vizualizo&uid=${window.parent.window.auth.currentUser.uid}&accessToken=${accessToken};${newReport}`);
+                window.document.getElementById("delta").style.display = "none";
+                document.getElementById('vizualizo').click();
+            }
+        }
+    </script>
 </head>
 <body>
+    <div class="toast" id="toast">
+        <div class="toast-body">
+        </div>
+    </div>
+      <div class="loader-overlay" id="loader-overlay"></div>
+        <div class="loader">
+            <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    <div runat="server" id="suksesMessage" style="display:none"></div>
+    <div runat="server" id="errorMessage" style="display:none"></div>
+    <div style="position:absolute; right:0; display:none;margin-top:5%; margin-right:2%;z-index:999;" id="delta">
+        <ul class='dropdown-content'>
+            <li onclick="vizualizoRaportin('newReport')"><a>Hap si raport te ri</a></li>
+            <li onclick="vizualizoRaportin()"><a>Perditeso raport</a></li>
+        </ul>
+    </div>
+   
     <form id="form1" runat="server">
-         
+       
+
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
+         <asp:updatepanel runat="server">
+                 <ContentTemplate>
+                <dx:ASPxButton ID="vizualizo"  OnClick="vizualizoNeDelta" runat="server" AutoPostBack="false" ClientVisible="false">
+                    <ClientSideEvents Click="function(){Utils.shfaqLoadingGif();}"/>
+                </dx:ASPxButton>
+
+                 </ContentTemplate>
+             </asp:updatepanel>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
             <ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive(); }" />
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfTeDrejtaRaporti" ClientInstanceName="hfTeDrejtaRaporti" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
+         <asp:HiddenField ID="uid" runat="server" />
+        <asp:HiddenField ID="accessToken" runat="server" />
+        <asp:HiddenField ID="newReport" runat="server" />
+        <%--<asp:Button  OnClick="vizualizoNeDelta()" Text="" runat="server"  ID="vizualizo"/>--%>
         <dx:ASPxHiddenField ID="hfPerdorues" ClientInstanceName="hfPerdorues" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
         <asp:UpdatePanel ID="panelMenu" runat="server" UpdateMode="Conditional">
@@ -18599,6 +18825,10 @@
                                             Text="Ruaj" Width="50px" OnClick="btnruajfiltrin_Click">
                                             <ClientSideEvents Click="function(s, e) { popruajfiltrin.Hide(); }" />
                                         </dx:ASPxButton>
+                                        
+                                                <%--<dx:ASPxButton ID="vizualizo" runat="server" ClientIDMode="AutoID" ClientInstanceName="vizualizo"
+                                                Text="" Width="50px" OnClick="vizualizoNeDelta">
+                                            </dx:ASPxButton>--%>
                                     </td>
                                     <td style="align-content: flex-start">
                                         <dx:ASPxButton ID="btnanullo" runat="server" ClientIDMode="AutoID" ClientInstanceName="btnanullo"
