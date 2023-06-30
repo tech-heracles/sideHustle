@@ -1268,8 +1268,9 @@ namespace PlatinumWeb
                     new clsKonfigurimAmbjenti(), konfigurimAmbjentiHyrje, false, false, "", "", "", "",true,
                     false, new int[0], false, false, false, out outParameter, 0,ref dbData, false,
                     new colSerialeUnikeKategori(), false, true);
-
-                return new clsMesazh(true, clsmsg.PershkrimMesazhi + $" Numer dokumenti: {wtn.docNo}.");
+                if(clsmsg.Status)
+                    return new clsMesazh(true, clsmsg.PershkrimMesazhi + $" Numer dokumenti: {wtn.docNo}.");
+                return new clsMesazh(false, clsmsg.PershkrimMesazhi);
             }
             catch (ArgumentNullException ex)
             {
