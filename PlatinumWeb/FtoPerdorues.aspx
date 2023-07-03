@@ -232,7 +232,7 @@
               <h4>Shto perdorues</h4>
                 <br />
               <div class="input-field">
-                <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate"/>
+                <asp:TextBox runat="server"  ID="email_inline" type="text"/>
                 <label for="email_inline">Email</label>
               </div>
             <div class="input-field">
