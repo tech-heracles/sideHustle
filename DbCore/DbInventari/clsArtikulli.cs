@@ -3835,10 +3835,11 @@ namespace DbCore.DbInventari
             clsTaksa taksa = new clsTaksa(this.IdTvsh);
             for (int i = 0; i < cmimeArtikujsh.Count; i++)
             {
-                bool nivelCmimi = new clsNivelCmimi(cmimeArtikujsh[i].IdNivelCmimi).NivelCmimiBaze;
+                var nvCmimi = new clsNivelCmimi(cmimeArtikujsh[i].IdNivelCmimi);
+                bool nivelCmimi = nvCmimi.NivelCmimiBaze;
                 cmimiBaze = nivelCmimi == true ? cmimeArtikujsh[i].Cmimi : cmimiBaze;
                 cmimiBazeMeTvsh = nivelCmimi == true ? cmimeArtikujsh[i].CmimiTvsh : cmimiBazeMeTvsh;
-                cmimeArt.Add(new { price1 = cmimeArtikujsh[i].Cmimi, price1WithVat = cmimeArtikujsh[i].CmimiTvsh, startDate = cmimeArtikujsh[i].DateFillimi, endDate = cmimeArtikujsh[i].DateMbarimi });
+                cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = cmimeArtikujsh[i].Cmimi, priceWithVat = cmimeArtikujsh[i].CmimiTvsh });
             }
             for (int i = 0; i < kodBaretArtikulli.Count; i++)
                 kodBaret.Add(kodBaretArtikulli[i].Pershkrimi);
@@ -3855,7 +3856,7 @@ namespace DbCore.DbInventari
                 vatPercentage = taksa.NormaPerqindje,
                 noVat = this.IdTvsh == 0 ? true : false,
                 exemptReason = taksa.TipiIPerjashtimit,
-                prices= cmimeArt,
+                priceLevels= cmimeArt,
                 organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
                 ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
                 barCodes = kodBaret
