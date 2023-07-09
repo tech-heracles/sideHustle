@@ -140,8 +140,8 @@ namespace DbCore
                     try
                     {
                         WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                        if(admin && uDetails.ContainsKey("organization"))
-                            await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg, ndermarrja));
+                        //if(admin && uDetails.ContainsKey("organization"))
+                        //    await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg, ndermarrja));
                         return true;
                     }
                     catch (Exception ex)
