@@ -569,6 +569,14 @@ namespace DbCore.DbRegjistrim
 
             return mbushNivelRegjMeKonvertime(dbNivelRegj.ktheNivelRegjistrimiSipasID(idNivel));
         }
+        public bool mbushNivelRegjistrimiSipasID(int idNivel)
+        {
+            using (clsDatabaseRegjistrim dbNivelRegj = new clsDatabaseRegjistrim())
+            {
+                return mbushNivelRegjMeKonvertime(dbNivelRegj.ktheNivelRegjistrimiSipasID(idNivel));
+
+            }
+        }
         public bool mbushNivelRegjistrimiSipasKoditPaKonvertime(string kodi, int idNderm)
         {
             using (clsDatabaseRegjistrim dbNivelRegj = new clsDatabaseRegjistrim())
