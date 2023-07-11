@@ -97,6 +97,7 @@ namespace PlatinumWeb
         STR_Emertim5 = " ";
 
         private string RaportiEmerReal = String.Empty;
+        private string RaportiEmer = String.Empty;
         private Int32 idRaportiModul = -1;
         private static string styleNamePrefix = "Style_";
         private static string styleNameDefault = "Default";
@@ -128,6 +129,7 @@ namespace PlatinumWeb
                     else
                         ReportObject = new clsRaporti(IdGjuha, IdRaporti);
                     RaportiEmerReal = ReportObject.RaportiEmriReal;
+                    RaportiEmer = ReportObject.RaportiEmri;
                     idRaportiModul = ReportObject.IdModul;
                     bool kaSubRaport = clsRaporti.KaSubRaporte(ReportObject.IdRaporti);
                     var dizajnet = new colRaporteDesign(IdNdermarrja, ReportObject.IdRaporti);
@@ -137,6 +139,7 @@ namespace PlatinumWeb
                     hfState.Set("arsyeReload", string.Empty);
                     hfState.Set("guidString", guidString);
                     hfState.Set("RaportiEmerReal", RaportiEmerReal);
+                    hfState.Set("RaportiEmer", RaportiEmer);
                     hfState.Set("idRaportiModul", idRaportiModul);
                     hfState.Set("RaportiDesign", rapdes.Pershkrim);
                     hfState.Set("oldViewer", false);
@@ -4953,6 +4956,7 @@ namespace PlatinumWeb
             XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey]);
             report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(pathStyle.Value, ReportStyle));
             afisho(oRap.IdRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha);
+            RaportiEmerReal = oRap.RaportiEmriReal;
 
         }
 
@@ -8242,7 +8246,9 @@ namespace PlatinumWeb
         {
             try
             {
+                string remportName = hfState.Get("RaportiEmer").ToString();
                 FirebaseConfiguration fb = new FirebaseConfiguration();
+                clsNdermarrje ndermarrje = new clsNdermarrje(IdNdermarrja);
                 string uid = HfState.Get("uid").ToString();
                 string accessToken = HfState.Get("accessToken").ToString();
                 bool newReport = HfState.Contains("newReport");
@@ -8250,7 +8256,9 @@ namespace PlatinumWeb
                 string serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
                 string serviceAccountJson = File.ReadAllText(serviceAccount);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
-
+                string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+        
+                string emerRaporti = $"{remportName}_{ndermarrje.NdermarrjeKodi}_{organization}";
                 if (!hfState.Contains("deltaHeaders")) {
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Hapni raportin para dergimit ne Delta!", pnlMesazhi);
                     return;
@@ -8258,22 +8266,21 @@ namespace PlatinumWeb
                 string[] deltaColumns = (string[])hfState.Get("deltaHeaders");
                 string[][] deltaRows = (string[][])hfState.Get("deltaRows");
                 string orgId = userDetails["organization"].ToString();
-                CreateCsvFile(orgId, deltaColumns, deltaRows, credential,newReport);
+                CreateCsvFile(orgId, deltaColumns, deltaRows, credential,newReport,emerRaporti);
                 if (!newReport) {
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Raporti u perditesua me sukses!", pnlMesazhi);
                     return;
                 }
                 string deltaCreationLink = WebConfigurationManager.AppSettings["createDeltaCF"];
-                //string deltaCreationLink = "https://europe-west1-alphaweb.cloudfunctions.net/function-6";
                 string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];
-
+                
                 object requestObject = new
                 {
-                    projectName = new clsNdermarrje(IdNdermarrja).NdermarrjePershkrimi + RaportiEmerReal,
+                    projectName = ndermarrje.NdermarrjePershkrimi + " " +remportName,
                     tileName = RaportiEmerReal,
                     columns = deltaColumns,
                     uid = uid,
-                    csvName = $"{RaportiEmerReal}_{orgId}",
+                    csvName = emerRaporti,
                     orgId = orgId
                 };
 
@@ -8291,8 +8298,6 @@ namespace PlatinumWeb
                     {
                         string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
                         redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
-                        //ScriptEngine engine = new ScriptEngine();
-                        //engine.CallGlobalFunction($"redirectToDelta", redirectUrl);
                         ScriptManager.RegisterStartupScript(this,GetType(), "deltaKey", $"window.open('{redirectUrl}','_blank')", true);
                     }
 
@@ -8309,21 +8314,16 @@ namespace PlatinumWeb
 
 
         }
-        private void CreateCsvFile(string orgId, string[] columns, string[][] rows,GoogleCredential credential,bool newReport)
+        private void CreateCsvFile(string orgId, string[] columns, string[][] rows,GoogleCredential credential,bool newReport,string emerRaporti)
         {
             try
             {
-                //Example
                 string deltaBucket = WebConfigurationManager.AppSettings["deltaBucket"];
-                //string deltaBucket = "csv-files";
-                //string tmpDeltaBucket = "csv-files-tmp";
                 string tmpDeltaBucket = WebConfigurationManager.AppSettings["deltaBucketTmp"];
-                // Create the CSV file and write the data
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
                     using (StreamWriter writer = new StreamWriter(memoryStream))
                     {
-                        // Write the headers
                         writer.WriteLine(string.Join(",", columns));
 
                         for (int i = 0; i < rows.Length; i++)
@@ -8341,26 +8341,26 @@ namespace PlatinumWeb
                             getObjectOptions.UserProject = "imb-delta";
                             try
                             {
-                                Object report = storage.GetObject(deltaBucket, $"csv-files/{RaportiEmerReal}_{orgId}");
+                                Object report = storage.GetObject(deltaBucket, $"csv-files/{emerRaporti}");
                                 string ending = newReport ? $"#{unixTimestamp}" : "";
-                                storage.UploadObject(deltaBucket, $"csv-files/{RaportiEmerReal}_{orgId}{ending}", "text/csv", memoryStream, options);
+                                storage.UploadObject(deltaBucket, $"csv-files/{emerRaporti}{ending}", "text/csv", memoryStream, options);
                             }
                             catch (Exception ex)
                             {
 
-                                storage.UploadObject(deltaBucket, $"csv-files/{RaportiEmerReal}_{orgId}", "text/csv", memoryStream, options);
+                                storage.UploadObject(deltaBucket, $"csv-files/{emerRaporti}", "text/csv", memoryStream, options);
                                 newReport = true;
                             }
 
                         }
                         else
                         {                            
-                            string reportName = $"{RaportiEmerReal}_{orgId}_{unixTimestamp}";
+                            string reportName = $"{emerRaporti}_{unixTimestamp}";
                             storage.UploadObject(tmpDeltaBucket, $"{reportName}", "text/csv", memoryStream, options);
                             CopyObjectOptions copyObjectOptions = new CopyObjectOptions();
                             copyObjectOptions.UserProject = "imb-delta";
 
-                            storage.CopyObject(tmpDeltaBucket, reportName, deltaBucket, $"csv-files/{RaportiEmerReal}_{orgId}");
+                            storage.CopyObject(tmpDeltaBucket, reportName, deltaBucket, $"csv-files/{emerRaporti}");
                         }
                     }
                 }
