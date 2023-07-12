@@ -75,22 +75,28 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                
                 RSA = ImportPublicKey(publicKey);
                 string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-                string password = clsFunksione.generateRandomPassword();
                 string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
                 bool shadowUser = userFatura.Checked;
-                object json = new
+
+                List<string> emails = new List<string>(email_inline.Text.Split(','));
+                for (int i = 0; i < emails.Count; i++)
                 {
-                    timestamp = timeStamp,
-                    organization = organizata,
-                    email = email_inline.Text,
-                    password = password,
-                    roli = cmbRolet.Value,
-                    shadowUser = shadowUser
-                };
-                plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
-                encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
-                string base64 = Convert.ToBase64String(encryptedtext);
-                clsFunksione.gjeneroLinkPerKonfirmimEmaili(email_inline.Text, base64);
+                    string password = clsFunksione.generateRandomPassword();
+                    object json = new
+                    {
+                        timestamp = timeStamp,
+                        organization = organizata,
+                        email = emails[i],
+                        password = password,
+                        roli = cmbRolet.Value,
+                        shadowUser = shadowUser
+                    };
+                    plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
+                    encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
+                    string base64 = Convert.ToBase64String(encryptedtext);
+                    clsFunksione.gjeneroLinkPerKonfirmimEmaili(emails[i], base64);
+                }
+                
                 email_inline.Text = "";
             }
             catch (Exception ex)

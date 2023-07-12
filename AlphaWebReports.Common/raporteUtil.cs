@@ -93,7 +93,7 @@ namespace AlphaWebReports
         /// <param name="reportV">Report Viewer</param>
         public static void HapRaportDetails<T>(object source, DevExpress.Web.CallbackEventArgsBase e, XtraReport raporti, T reportV)
         {
-            if (e.Parameter == "")
+            if (e.Parameter == "" || e.Parameter.Contains("Vizualizo"))
                 return;
             XtraReport xrReport = new XtraReport();
             switch (e.Parameter.Split(';')[2]){

@@ -997,7 +997,7 @@ namespace PlatinumWeb
             ndermarrje.Lloji = ndermarrja.Lloji;
             ndermarrje.Pathname = ndermarrja.Pathname;
             ndermarrja.Dispose();
-            mesazh = ndermarrje.ruaj(konfigurimiDefault, idnderm);
+            mesazh = ndermarrje.ruaj(konfigurimiDefault, idnderm, cbLlogariBuxhetori.Checked);
             return mesazh;
         }
 

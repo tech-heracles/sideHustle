@@ -687,6 +687,11 @@
                                     <%--<div>--%>
                                     <dx:ASPxCheckBox ID="cbMeTvsh" Width="80%" runat="server" ClientInstanceName="cbMeTvsh" ClientVisible="false">
                                     </dx:ASPxCheckBox>
+                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="cbLlogariBuxhetori" ID="lblLlogariBuxhetori" runat="server"
+                                        ClientInstanceName="lblLlogariBuxhetori" ClientVisible="true" Text="Llogari buxhetori">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxCheckBox ID="cbLlogariBuxhetori" Width="80%" runat="server" ClientInstanceName="cbLlogariBuxhetori" ClientVisible="true">
+                                    </dx:ASPxCheckBox>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbRaportuesi" ID="lblRaportuesi" runat="server"
                                         Text="Ndermarrje Raportimi:" ClientInstanceName="lblRaportuesi">
                                     </dx:ASPxLabel>

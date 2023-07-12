@@ -231,9 +231,13 @@
             <div class="modal-content">
               <h4>Shto perdorues</h4>
                 <br />
+                <p style="color:gray">Per te shtuar me shume se nje perdorues ne te njejten kohe vendosni email-et te ndara nga nje presje.
+                      <br /><span>Shembull: email1@gmail.com,email2@gmail.com</span></p>
               <div class="input-field">
-                <asp:TextBox runat="server"  ID="email_inline" type="email" class="validate"/>
+                
+                  <asp:TextBox runat="server"  ID="email_inline" type="text"/>
                 <label for="email_inline">Email</label>
+                  
               </div>
             <div class="input-field">
                 <p>Profili</p>

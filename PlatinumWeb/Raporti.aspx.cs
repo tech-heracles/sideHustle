@@ -37,6 +37,16 @@ using System.Text;
 using LiquidEngine.Tools;
 using Newtonsoft.Json;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using EO.Web.Internal;
+using Google.Cloud.Storage.V1;
+using System.Threading.Tasks;
+using Google.Apis.Auth.OAuth2;
+using DevExpress.Utils.Extensions;
+using DevExpress.Utils.Behaviors.Common;
+using System.Web.Configuration;
+using System.Net;
+using System.Diagnostics;
+using DocumentFormat.OpenXml.Math;
 
 namespace PlatinumWeb
 {
@@ -87,6 +97,7 @@ namespace PlatinumWeb
         STR_Emertim5 = " ";
 
         private string RaportiEmerReal = String.Empty;
+        private string RaportiEmer = String.Empty;
         private Int32 idRaportiModul = -1;
         private static string styleNamePrefix = "Style_";
         private static string styleNameDefault = "Default";
@@ -118,6 +129,7 @@ namespace PlatinumWeb
                     else
                         ReportObject = new clsRaporti(IdGjuha, IdRaporti);
                     RaportiEmerReal = ReportObject.RaportiEmriReal;
+                    RaportiEmer = ReportObject.RaportiEmri;
                     idRaportiModul = ReportObject.IdModul;
                     bool kaSubRaport = clsRaporti.KaSubRaporte(ReportObject.IdRaporti);
                     var dizajnet = new colRaporteDesign(IdNdermarrja, ReportObject.IdRaporti);
@@ -127,6 +139,7 @@ namespace PlatinumWeb
                     hfState.Set("arsyeReload", string.Empty);
                     hfState.Set("guidString", guidString);
                     hfState.Set("RaportiEmerReal", RaportiEmerReal);
+                    hfState.Set("RaportiEmer", RaportiEmer);
                     hfState.Set("idRaportiModul", idRaportiModul);
                     hfState.Set("RaportiDesign", rapdes.Pershkrim);
                     hfState.Set("oldViewer", false);
@@ -177,6 +190,7 @@ namespace PlatinumWeb
                     }
                     else
                     {
+                        
                         rregulloFiltraDateDokumenti();
                     }
                     vendosVleraDefaultPerDateDokumentiPerRaporteTeVecante();
@@ -1564,7 +1578,7 @@ namespace PlatinumWeb
         {
             if (RaportiEmerReal.EqualsAnyIgnoreCase("deklarimNeFinance", "perAprovim", "kartelaEPages", "kartelaEPagesFormat2"))
             {
-                var muaji = Converter.MerrVlereOseDefault<string>(Request.QueryString["Muaji"]);
+                var muaji = DbCore.IMBUtils.Types.Converter.MerrVlereOseDefault<string>(Request.QueryString["Muaji"]);
                 ConfigureAspxComboBox.mbushComboMuajt(cmbMuaji, idGjuha, muaji, mySessionObjects.merrPeriudheKontabel(Session));
             }
             else
@@ -1776,8 +1790,8 @@ namespace PlatinumWeb
             };
             DbCore.mySessionObjects.RuajNeSession(System.Web.HttpContext.Current.Session, model, $"filtraGride_{1}");
             DevExpress.Web.MenuItem itemButton = ASPxMenuToolBar.Items.FindByName("TemplatedItemFilter");
-            ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            cmbFiltra.SelectedIndex = 0;
+            //ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
+            //cmbFiltra.SelectedIndex = 0;
             return done;
         }
 
@@ -4942,6 +4956,7 @@ namespace PlatinumWeb
             XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey]);
             report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(pathStyle.Value, ReportStyle));
             afisho(oRap.IdRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha);
+            RaportiEmerReal = oRap.RaportiEmriReal;
 
         }
 
@@ -6357,7 +6372,22 @@ namespace PlatinumWeb
                     hfState.Set("reportPageCount", 0);
                     CachedReportSourceWeb cachedReport = new CachedReportSourceWeb(report);
                     reportViewer.OpenReport(cachedReport);
+                    
                 }
+                var table = ((System.Data.DataSet)report.DataSource).Tables[0];
+                string[] columns = new string[table.Columns.Count];
+                string[][] rows = new string[table.Rows.Count][];
+                for (int i = 0; i < columns.Length; i++)
+                    columns[i] = table.Columns[i].ColumnName;
+                for (int i = 0; i < rows.Length; i++)
+                {
+                    string[] rowsValues = new string[table.Columns.Count];
+                    for (int j = 0; j < table.Columns.Count; j++)
+                        rowsValues[j] = (table.Rows[i].ItemArray[j].ToString());
+                    rows[i] = rowsValues;
+                }
+                hfState.Set("deltaHeaders", columns);
+                hfState.Set("deltaRows", rows);
 
             }
         }
@@ -6437,6 +6467,9 @@ namespace PlatinumWeb
         {
             DbCore.DbShare.colMenuItem menu = new DbCore.DbShare.colMenuItem(idgjuha);
             menu.merrMenuItemSipasKomponentes(idgjuha, 649);
+            menu.AddIfNotExists(new clsMenuItem(idgjuha, 0, "Vizualizo ne Delta", "Vizualizo ne Delta", "FaqeRe.png", 0, true, "", ""));
+            menu.Remove(menu.Where(x=>x.Name== "ItemFilter").FirstOrDefault());
+            menu.Remove(menu.Where(x=>x.Name== "ItemFrame").FirstOrDefault());
 
             foreach (DbCore.DbShare.clsMenuItem m in menu)
             {
@@ -8165,11 +8198,30 @@ namespace PlatinumWeb
         {
             return mySessionObjects.merrMyReportNgaSessioni<XtraReport>(Session, hfState.Get("guidString").ToString());
         }
+        public string GetStringBetween(string input, string startString, string endString)
+        {
+            int startIndex = input.IndexOf(startString);
+            if (startIndex == -1)
+                return string.Empty;
 
+            int endIndex = input.IndexOf(endString, startIndex + startString.Length);
+            if (endIndex == -1)
+                return string.Empty;
+
+            int substringStartIndex = startIndex + startString.Length;
+            int substringLength = endIndex - substringStartIndex;
+
+            return input.Substring(substringStartIndex, substringLength);
+        }
         //Report Viewer HTML5
         protected void ASPxCallbackPanel1_Callback(object source, DevExpress.Web.CallbackEventArgsBase e)
         {
             string parameter = Convert.ToString(e.Parameter);
+            //if(parameter.Contains("Vizualizo"))
+            //{
+            //    vizualizoNeDelta(GetStringBetween(parameter,"uid=","&"), GetStringBetween(parameter, "accessToken=", ";"), parameter.Contains("newReport"));
+            //    return;
+            //}
             switch (parameter)
             {
                 case "changeDesign":
@@ -8189,6 +8241,136 @@ namespace PlatinumWeb
                         AlphaWebReports.raporteUtil.HapRaportDetails(source, e, GetReport(), reportViewer);
                     break;
             }
+        }
+        protected async void vizualizoNeDelta(object sender, EventArgs e)
+        {
+            try
+            {
+                string remportName = hfState.Get("RaportiEmer").ToString();
+                FirebaseConfiguration fb = new FirebaseConfiguration();
+                clsNdermarrje ndermarrje = new clsNdermarrje(IdNdermarrja);
+                string uid = HfState.Get("uid").ToString();
+                string accessToken = HfState.Get("accessToken").ToString();
+                bool newReport = HfState.Contains("newReport");
+                Dictionary<string, object> userDetails = await fb.getUserDetailsWithUID(uid);
+                string serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
+                string serviceAccountJson = File.ReadAllText(serviceAccount);
+                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+        
+                string emerRaporti = $"{remportName}_{ndermarrje.NdermarrjeKodi}_{organization}";
+                if (!hfState.Contains("deltaHeaders")) {
+                    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Hapni raportin para dergimit ne Delta!", pnlMesazhi);
+                    return;
+                }
+                string[] deltaColumns = (string[])hfState.Get("deltaHeaders");
+                string[][] deltaRows = (string[][])hfState.Get("deltaRows");
+                string orgId = userDetails["organization"].ToString();
+                CreateCsvFile(orgId, deltaColumns, deltaRows, credential,newReport,emerRaporti);
+                if (!newReport) {
+                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Raporti u perditesua me sukses!", pnlMesazhi);
+                    return;
+                }
+                string deltaCreationLink = WebConfigurationManager.AppSettings["createDeltaCF"];
+                string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];
+                
+                object requestObject = new
+                {
+                    projectName = ndermarrje.NdermarrjePershkrimi + " " +remportName,
+                    tileName = RaportiEmerReal,
+                    columns = deltaColumns,
+                    uid = uid,
+                    csvName = emerRaporti,
+                    orgId = orgId
+                };
+
+                WebRequest webRequest = clsFunksione.CreateJSONWebRequest(deltaCreationLink);
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(requestObject));
+                    }
+                }
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
+                        redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
+                        ScriptManager.RegisterStartupScript(this,GetType(), "deltaKey", $"window.open('{redirectUrl}','_blank')", true);
+                    }
+
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+                ImbLogger.LogErrorImporti(ex.Message);
+                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim ne krijimin e raportit!", pnlMesazhi);
+            }
+
+
+
+        }
+        private void CreateCsvFile(string orgId, string[] columns, string[][] rows,GoogleCredential credential,bool newReport,string emerRaporti)
+        {
+            try
+            {
+                string deltaBucket = WebConfigurationManager.AppSettings["deltaBucket"];
+                string tmpDeltaBucket = WebConfigurationManager.AppSettings["deltaBucketTmp"];
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (StreamWriter writer = new StreamWriter(memoryStream))
+                    {
+                        writer.WriteLine(string.Join(",", columns));
+
+                        for (int i = 0; i < rows.Length; i++)
+                            writer.WriteLine(string.Join(",", rows[i]));
+                        writer.Flush();
+                        UploadObjectOptions options = new UploadObjectOptions();
+
+                        options.UserProject = "imb-delta";
+                        memoryStream.Position = 0;
+                        StorageClient storage = StorageClient.Create(credential);
+                        long unixTimestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+                        if (newReport)
+                        {
+                            GetObjectOptions getObjectOptions = new GetObjectOptions();
+                            getObjectOptions.UserProject = "imb-delta";
+                            try
+                            {
+                                Object report = storage.GetObject(deltaBucket, $"csv-files/{emerRaporti}");
+                                string ending = newReport ? $"#{unixTimestamp}" : "";
+                                storage.UploadObject(deltaBucket, $"csv-files/{emerRaporti}{ending}", "text/csv", memoryStream, options);
+                            }
+                            catch (Exception ex)
+                            {
+
+                                storage.UploadObject(deltaBucket, $"csv-files/{emerRaporti}", "text/csv", memoryStream, options);
+                                newReport = true;
+                            }
+
+                        }
+                        else
+                        {                            
+                            string reportName = $"{emerRaporti}_{unixTimestamp}";
+                            storage.UploadObject(tmpDeltaBucket, $"{reportName}", "text/csv", memoryStream, options);
+                            CopyObjectOptions copyObjectOptions = new CopyObjectOptions();
+                            copyObjectOptions.UserProject = "imb-delta";
+
+                            storage.CopyObject(tmpDeltaBucket, reportName, deltaBucket, $"csv-files/{emerRaporti}");
+                        }
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                ImbLogger.Error(ex);
+            }
+            
         }
 
         private void AfishoRaport()
