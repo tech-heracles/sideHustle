@@ -176,6 +176,8 @@ function OnGetRowValuesMod(values) {
     lblCertifikata.SetVisible(true);
     upload.SetVisible(true);
     pastro.SetVisible(true);
+    cbLlogariBuxhetori.SetVisible(false);
+    lblLlogariBuxhetori.SetVisible(false);
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "merrMeTvshNdermarrje"),
         data: JSON.stringify({ idndermarje: $('#hfId').val() })
