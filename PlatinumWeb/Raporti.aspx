@@ -300,9 +300,10 @@
         </ul>
     </div>
    
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton="HapRaport">
        
-
+        <dx:ASPxButton ID="HapRaport"  OnClick="OpenReport" runat="server" ClientVisible="false">
+        </dx:ASPxButton>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
          <asp:updatepanel runat="server">
