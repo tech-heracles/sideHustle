@@ -190,7 +190,7 @@ namespace PlatinumWeb
                     }
                     else
                     {
-                        
+
                         rregulloFiltraDateDokumenti();
                     }
                     vendosVleraDefaultPerDateDokumentiPerRaporteTeVecante();
@@ -207,16 +207,16 @@ namespace PlatinumWeb
                         hfState.Set("SpEmri", clsSP.GetStoredProcedureName(ReportObject.IdSp));
                         mySessionObjects.RuajEmerRaporti(HttpContext.Current.Session, design.GetReportName(ReportOrientation), guidString);
                     }
-                    if (!DbCore.clsFunksione.ktheFiltroQueryString(Request) )
+                    if (!DbCore.clsFunksione.ktheFiltroQueryString(Request))
 
                         if (!Convert.ToBoolean(Request.QueryString["VjenNgaSubraporti"]))
                             afisho(ReportObject.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, periudhaKontabel, IdPerdoruesi, kaSubRaport, guidString);
-                       else {
+                        else {
                             SetDesigns(out clsRaportDesign rapDes);
                             int idModulSubRaporti = (new clsRaporti(IdGjuha, rapDes.IdRaporti)).IdModul;
                             hfState.Set("idModulSubRaporti", idModulSubRaporti);
-                            afishoSubRaport( ReportObject.IdRaporti, Request.QueryString["guidString"], IdNdermarrjeVit);
-                         }   
+                            afishoSubRaport(ReportObject.IdRaporti, Request.QueryString["guidString"], IdNdermarrjeVit);
+                        }
 
                     else if (kaSubRaport) //nqs raporti ka subraport, atehere parametrat e subraportit duhen krijuar qe ne fillim kur hapet faqja.
                     {
@@ -255,20 +255,20 @@ namespace PlatinumWeb
                     break;
             }
         }
-       private void VendosFiltraPerSubRaportQeVijneNgaUrl( string parametri, string vlera)
-       {
-            switch(parametri)
+        private void VendosFiltraPerSubRaportQeVijneNgaUrl(string parametri, string vlera)
+        {
+            switch (parametri)
             {
                 case "filterNumerLlogarie":
                     (navBarFiltrat.Groups[1].FindControl("txtBtnNrLlog1") as ASPxButtonEdit).Text = vlera;
                     break;
             }
-       }
+        }
 
         private void VendosFiltratQeVijneNgaSuperRaporti(string parametriSubRaporti, string vleraSubRaporti, int IdNdermarrjeVit)
         {
             clsPeriudhaKontabel periudhaKontabel = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
-            DateTime  dtmbarimiNdermarrje = new clsNdermarrjeViti(IdNdermarrjeVit).NdermarrjeVitiFund;
+            DateTime dtmbarimiNdermarrje = new clsNdermarrjeViti(IdNdermarrjeVit).NdermarrjeVitiFund;
             DateTime dtFillimiNdermarrje = new clsNdermarrjeViti(IdNdermarrjeVit).NdermarrjeVitiFillim;
 
             clsNdermarrjeViti ndermviti = new clsNdermarrjeViti();
@@ -279,10 +279,10 @@ namespace PlatinumWeb
             switch (parametriSubRaporti)
             {
                 case "filterNumerDokumenti":
-                    (navBarFiltrat.Groups[1].FindControl("txtNrDok1") as ASPxTextBox).Text = vleraSubRaporti; 
-                    (navBarFiltrat.Groups[1].FindControl("txtNrDok2") as ASPxTextBox).Text = vleraSubRaporti; 
+                    (navBarFiltrat.Groups[1].FindControl("txtNrDok1") as ASPxTextBox).Text = vleraSubRaporti;
+                    (navBarFiltrat.Groups[1].FindControl("txtNrDok2") as ASPxTextBox).Text = vleraSubRaporti;
                     break;
-                   case "filterDtDok":
+                case "filterDtDok":
                     DateTime DtNga = Convert.ToDateTime(vleraSubRaporti.Substring(0, vleraSubRaporti.IndexOf("-")));
                     DateTime DtDeri = Convert.ToDateTime(vleraSubRaporti.Substring(vleraSubRaporti.IndexOf("-") + 1));
                     (navBarFiltrat.Groups[0].FindControl("txtNgaDok") as ASPxDateEdit).Value = DtNga;
@@ -290,11 +290,11 @@ namespace PlatinumWeb
                     if (DtNga == periudhaKontabel.FillimiPeriudha && DtDeri == periudhaKontabel.MbarimiPeriudha)
                         ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 0;
                     else if (DtNga == dtFillimiGjithVitet && DtDeri == dtmbarimiGjithVitet)
-                        ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 3;                 
+                        ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 3;
                     else if (DtNga == dtFillimiNdermarrje && DtDeri == dtmbarimiNdermarrje)
                         ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 2;
                     else
-                    ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 1;
+                        ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 1;
                     break;
                 case "filterDtRegj":
                     DateTime DtNgaRegj = Convert.ToDateTime(vleraSubRaporti.Substring(0, vleraSubRaporti.IndexOf("-")));
@@ -324,18 +324,18 @@ namespace PlatinumWeb
                     (navBarFiltrat.Groups[1].FindControl("btnKatShpenzimi1") as ASPxButtonEdit).Text = vleraSubRaporti;
                     break;
                 case "filterEmertimLlog":
-                    if(vleraSubRaporti == "0")
-                    (navBarFiltrat.Groups[1].FindControl("cmbEmertimLlog") as ASPxComboBox).Text = rm.GetString("cmbboxItemEmertim", ci) + " 1";
+                    if (vleraSubRaporti == "0")
+                        (navBarFiltrat.Groups[1].FindControl("cmbEmertimLlog") as ASPxComboBox).Text = rm.GetString("cmbboxItemEmertim", ci) + " 1";
                     else
-                    (navBarFiltrat.Groups[1].FindControl("cmbEmertimLlog") as ASPxComboBox).Text = rm.GetString("cmbboxItemEmertim", ci) + " 2";
+                        (navBarFiltrat.Groups[1].FindControl("cmbEmertimLlog") as ASPxComboBox).Text = rm.GetString("cmbboxItemEmertim", ci) + " 2";
                     break;
                 case "Azhornim":
                     if (vleraSubRaporti == "Po" || vleraSubRaporti == "Yes")
                         (navBarFiltrat.Groups[1].FindControl("cbAzhornim") as ASPxCheckBox).CheckState = CheckState.Checked;
                     break;
                 case "filterMeMbylljeViti":
-                    if(vleraSubRaporti == "Po" || vleraSubRaporti == "Yes")                 
-                    (navBarFiltrat.Groups[1].FindControl("cbMbylljeViti") as ASPxCheckBox).CheckState = CheckState.Checked;
+                    if (vleraSubRaporti == "Po" || vleraSubRaporti == "Yes")
+                        (navBarFiltrat.Groups[1].FindControl("cbMbylljeViti") as ASPxCheckBox).CheckState = CheckState.Checked;
                     break;
             }
         }
@@ -345,7 +345,7 @@ namespace PlatinumWeb
             return clsFunksione.merrTeDhenaRaportiPerHapjeRaportiTeShpejte(raportiEmerReal, changedDesign, Request.QueryString["idDokumenti"], idDesign, Session);
         }
 
-        protected void afishoSubRaport( int idRaporti, String guidString, int IdNdermarrjeVit)
+        protected void afishoSubRaport(int idRaporti, String guidString, int IdNdermarrjeVit)
         {
             SetDesigns(out clsRaportDesign rapDes);
             List<Dictionary<string, string>> teDhenaRap = MerrTeDhenaRapNgaSesioni(false, rapDes.IdRaportDesign, RaportiEmerReal);
@@ -356,14 +356,14 @@ namespace PlatinumWeb
             int idVit = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
             if (!string.IsNullOrEmpty(orientim))
                 ReportOrientation = orientim;
-        
+
             clsRaporti oRap = null;
             if (Request.QueryString["Sesioni"] == "true")// hapja e subraporteve
             {
                 KontrolloTeDrejtaRaporti(idRaporti, IdPerdoruesi, IdNdermarrja, IdViti);
                 report = krijoSubRaport(idRaporti, rapDes.IdRaportDesign, guidString, IdNdermarrjeVit);
             }
-         
+
             if (idRaporti >= 0)
                 hapRaportFaturashOseSubRaport(report, idRaporti, guidString, teDhenaRap);
         }
@@ -379,7 +379,7 @@ namespace PlatinumWeb
             colParameter sqlParamShfaqRaport = mySessionObjects.merrParametratShfaqSubRaportitNgaSesioni(Session, idSubRaporti, guidString);
             for (int i = 0; i < sqlParamShfaqRaport.Count; i++)
             {
-                if (Request.QueryString[sqlParamShfaqRaport[i].Emri] != null )
+                if (Request.QueryString[sqlParamShfaqRaport[i].Emri] != null)
                 {
                     string parametri = sqlParamShfaqRaport[i].Emri;
                     var vlera = Convert.ToString(Request.QueryString[parametri]);
@@ -391,7 +391,7 @@ namespace PlatinumWeb
             }
             return ReportFunctions.krijoObjektRaporti("", IdGjuha, IdPerdoruesi, IdViti, idRaporti, IdNdermarrja, sqlParamShfaqRaport, idDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey]);
         }
-      
+
         private void hapRaportFaturashOseSubRaport(XtraReport report, int idRaporti, string guidString, List<Dictionary<string, string>> teDhenaRap)
         {
             shtoFaturaOseSubRaportNeRaport(idRaporti, report, guidString, teDhenaRap);
@@ -471,7 +471,7 @@ namespace PlatinumWeb
             }
 
             var dt = ((System.Data.DataSet)(GetReport().DataSource)).Tables[0];
-            if(dt.Columns.Contains("NDERMARJEPERSHK"))
+            if (dt.Columns.Contains("NDERMARJEPERSHK"))
                 dt.Columns.Remove("NDERMARJEPERSHK");
 
             var rapDes = new clsRaportDesign(IdReportDesign);
@@ -1149,21 +1149,21 @@ namespace PlatinumWeb
             {
                 cmbGrupoArtikullSipas.Items.Add(STR_Emertim1, 1);
                 cmbGrupoArtikullSipas.Items.Add(STR_Emertim2, 2);
-              
+
                 cmbGrupoArtikullSipas.SelectedIndex = 1;
             }
-            if (RaportiEmerReal != "gjendjaemagazinessipasgrupimeveteartikujve" &&  RaportiEmerReal != "shitjesipasgrupeartikjvestatistikor" && RaportiEmerReal!= "evidencaShitjeve")
+            if (RaportiEmerReal != "gjendjaemagazinessipasgrupimeveteartikujve" && RaportiEmerReal != "shitjesipasgrupeartikjvestatistikor" && RaportiEmerReal != "evidencaShitjeve")
             {
                 cmbGrupoArtikullSipas.Items.Add(" ", 0);
             }
-            if(RaportiEmerReal != "shitjesipasgrupeartikjvestatistikor" && RaportiEmerReal!= "evidencaShitjeve")
-            { 
-            cmbGrupoArtikullSipas.Items.Add(STR_Emertim1, 1);
-            cmbGrupoArtikullSipas.Items.Add(STR_Emertim2, 2);
-            cmbGrupoArtikullSipas.Items.Add(STR_Emertim3, 3);
-            cmbGrupoArtikullSipas.Items.Add(STR_Emertim4, 4);
+            if (RaportiEmerReal != "shitjesipasgrupeartikjvestatistikor" && RaportiEmerReal != "evidencaShitjeve")
+            {
+                cmbGrupoArtikullSipas.Items.Add(STR_Emertim1, 1);
+                cmbGrupoArtikullSipas.Items.Add(STR_Emertim2, 2);
+                cmbGrupoArtikullSipas.Items.Add(STR_Emertim3, 3);
+                cmbGrupoArtikullSipas.Items.Add(STR_Emertim4, 4);
             }
-            if (RaportiEmerReal == "marzhiShitjeveSipasGrupimeArtikujve"  )
+            if (RaportiEmerReal == "marzhiShitjeveSipasGrupimeArtikujve")
             {
                 cmbGrupoArtikullSipas.SelectedIndex = 1;
             }
@@ -1171,7 +1171,7 @@ namespace PlatinumWeb
             {
                 cmbGrupoArtikullSipas.SelectedIndex = 0;
             }
-           
+
             cmbGrupoArtikullSipas.DataBind();
         }
 
@@ -1722,7 +1722,7 @@ namespace PlatinumWeb
                 if (RaportiEmerReal == "ardhura")
                     cmbPasqyra.Text = idgjuha == 0 ? "PB" : "PAng1";
                 if (RaportiEmerReal == "burimeShpenzimeInvestime")
-                    cmbPasqyra.Text ="BSHI2018";
+                    cmbPasqyra.Text = "BSHI2018";
                 if (RaportiEmerReal == "gjendjeNdryshimeAktiveTeQendrueshem" || RaportiEmerReal == "GjendjaDheNdryshimetEAktiveveAfatgjataVleraNeto")
                     cmbPasqyra.Text = "GJAQ2018";
                 if (rapdes.Pershkrim == "Bilanci per Buxhetore")
@@ -1730,7 +1730,7 @@ namespace PlatinumWeb
                 if (rapdes.Pershkrim == "Pash buxhetor")
                     cmbPasqyra.Text = "PB2018";
                 if (rapdes.Pershkrim == "Cash Flow buxhetor")
-                    cmbPasqyra.Text =  "Cash_Flow_PB2018";
+                    cmbPasqyra.Text = "Cash_Flow_PB2018";
                 if (RaportiEmerReal == "pasqyreEKonsoliduarTeArdhuraShpenzime")
                     cmbPasqyra.Text = idgjuha == 0 ? "PKASH" : "PKASH Ang";
                 if (RaportiEmerReal == "pasqyreKonsoliduarGjendjeFinanciare")
@@ -1810,10 +1810,10 @@ namespace PlatinumWeb
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtNgaDtFillimi")), ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtFillimi")),
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtNgaDtMbarimi")), ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtMbarimi")),
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtNgaRegj")), ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriRegj")));
-            if(RaportiEmerReal== "KontrolliSkadencesArtikujve")
+            if (RaportiEmerReal == "KontrolliSkadencesArtikujve")
                 mbushComboNivelKonfigurimPerKonvertimiFd(idPerdoruesi, idNdermarrje, idGjuha);
-            else 
-            mbushComboNivelKonfigurimPerKonvertimi(idPerdoruesi, idNdermarrje, idGjuha);
+            else
+                mbushComboNivelKonfigurimPerKonvertimi(idPerdoruesi, idNdermarrje, idGjuha);
             mbushComboKonvertoNe(idPerdoruesi, IdRaporti);
             mbushComboStandarte(idNdermarrje);
             mbushComboLikuiduar();
@@ -2042,7 +2042,7 @@ namespace PlatinumWeb
         }
         private void mbushComboNivelKonfigurimPerKonvertimiFd(int idPerdoruesi, int idNdermarrje, int idGjuha)
         {
-            var idub =  DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("FD", idNdermarrje);
+            var idub = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("FD", idNdermarrje);
             cmbKonverto.Items.Add("FD", idub);
             cmbKonverto.SelectedIndex = 0;
             colKonfigurimAmbjenti col = new colKonfigurimAmbjenti();
@@ -2224,7 +2224,7 @@ namespace PlatinumWeb
                             ((ASPxRadioButtonList)uiKontroll).Value = "VitiUshtrimor";
                         }
                     }
-   
+
                     if (kontrolli.KodKontrolli.Equals("txtNgaDokShitje"))
                     {
                         if (periudha != null)
@@ -2284,7 +2284,7 @@ namespace PlatinumWeb
                         else if (RaportiEmerReal == "EksportimiFaturaShitje")
                             ((ASPxDateEdit)uiKontroll).Date = DateTime.Now;
                         else
-                        continue;
+                            continue;
                     }
 
                     if (kontrolli.KodKontrolli.Equals("txtDeriDok"))
@@ -2545,7 +2545,7 @@ namespace PlatinumWeb
         }
 
         protected void exportButton_Click(object sender, EventArgs e)
-        {            
+        {
             string arsye = exportOption.Value;
 
             switch (arsye)
@@ -2984,7 +2984,7 @@ namespace PlatinumWeb
                         return ((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("DpshNrDokumentiTextBox")).Text;
                         break;
                     case "filteridklientFurnitor":
-                      return vlera;
+                        return vlera;
                         break;
                     case "filtermagazineskadence":
                         return ((ASPxButtonEdit)navBarFiltrat.Groups[1].FindControl("txtBtnMagazineSkadence")).Text;
@@ -3011,7 +3011,7 @@ namespace PlatinumWeb
                         if (filteri2 != "")
                         {
                             clsDetajimArtikulli detajim2 = new clsDetajimArtikulli(filteri2, idNdermarrje);
-                            return String.Format("{0}",detajim2.IdDetajimArtikulli);
+                            return String.Format("{0}", detajim2.IdDetajimArtikulli);
                         }
                         else
                         {
@@ -3109,7 +3109,7 @@ namespace PlatinumWeb
                 string kolonaFilter = parametri.KolonaDb;
                 foreach (clsKontroll kontrolli in oColKontrolle)
                 {
-                    if(parametri.KolonaDb == "T_KOKAEKZEKUTIMPRODHIMI.NRDOK")
+                    if (parametri.KolonaDb == "T_KOKAEKZEKUTIMPRODHIMI.NRDOK")
                     {
 
                     }
@@ -3689,17 +3689,17 @@ namespace PlatinumWeb
                                             return vlera;
                                         case "cmbLlojSubjektiKF":
                                             vlera = String.Format("{0} = {1}", kolonaFilter, Convert.ToInt32(combo.Value.ToString()));
-                                            return vlera + " AND "; 
+                                            return vlera + " AND ";
                                         case "cmbPaguar":
                                             vlera = combo.Value.ToString();
                                             return vlera;
                                         case "cmbViti":
                                             vlera = combo.Text;
                                             return vlera;
-                
-                                     default:
+
+                                        default:
                                             vlera = String.Format("{0} = {1}", kolonaFilter, combo.Value);
-                                            if (kodKontrolli.Contains("1") )
+                                            if (kodKontrolli.Contains("1"))
                                             {
                                                 vlere1 = combo.Value.ToString();
                                                 vlera = "";
@@ -4107,14 +4107,14 @@ namespace PlatinumWeb
                                                 continue;
                                             }
                                         }
-                 
+
                                     }
-                                    if (radioKontrolli.ID.StartsWith("radDtDok") || radioKontrolli.ID.StartsWith("radDtKrijimi") || radioKontrolli.ID.StartsWith("radDtRegj") 
-                                        || radioKontrolli.ID.StartsWith("radDtDokAfatKohor") || radioKontrolli.ID.StartsWith("radPeriudheMaturimi") 
-                                        || radioKontrolli.ID.StartsWith("radPeriudheFillimi") || radioKontrolli.ID.StartsWith("radPeriudheMbarimi") 
-                                        || radioKontrolli.ID.StartsWith("radDtPlanifikimi") || radioKontrolli.ID.StartsWith("radDtProdhimi") 
-                                        || radioKontrolli.ID.StartsWith("radDtKrijimiAqtSerial") || radioKontrolli.ID.StartsWith("radDtPorosie") 
-                                        || radioKontrolli.ID.StartsWith("radDtDtFillimi") || radioKontrolli.ID.StartsWith("radDtMbarimi") 
+                                    if (radioKontrolli.ID.StartsWith("radDtDok") || radioKontrolli.ID.StartsWith("radDtKrijimi") || radioKontrolli.ID.StartsWith("radDtRegj")
+                                        || radioKontrolli.ID.StartsWith("radDtDokAfatKohor") || radioKontrolli.ID.StartsWith("radPeriudheMaturimi")
+                                        || radioKontrolli.ID.StartsWith("radPeriudheFillimi") || radioKontrolli.ID.StartsWith("radPeriudheMbarimi")
+                                        || radioKontrolli.ID.StartsWith("radDtPlanifikimi") || radioKontrolli.ID.StartsWith("radDtProdhimi")
+                                        || radioKontrolli.ID.StartsWith("radDtKrijimiAqtSerial") || radioKontrolli.ID.StartsWith("radDtPorosie")
+                                        || radioKontrolli.ID.StartsWith("radDtDtFillimi") || radioKontrolli.ID.StartsWith("radDtMbarimi")
                                         || radioKontrolli.ID.StartsWith("DtDokFillimiVod") || radioKontrolli.ID.StartsWith("DtDokLargimiVod") || radioKontrolli.ID.StartsWith("radDateLidhes") || radioKontrolli.ID.StartsWith("radDtSkadence"))
                                     {
                                         if (radioKontrolli.SelectedItem.Value.ToString() == "Aktuale")
@@ -4884,7 +4884,7 @@ namespace PlatinumWeb
                 return false;
             }
         }
-                
+
 
         private SqlParameter[] krijoParametratPerSql(int idSp, int idNdermarrje, clsPeriudhaKontabel periudhaKontabel, int idNderViti, int idPerdorues, string guidString)
         {
@@ -5475,7 +5475,7 @@ namespace PlatinumWeb
                                 }
 
 
-                                
+
 
                                 if (kodKontrolli.ToLower().StartsWith("cmbniveli"))
                                 {
@@ -5519,9 +5519,9 @@ namespace PlatinumWeb
                                     }
 
                                 }
-                                
 
-                                
+
+
                                 if (kodKontrolli.ToLower().StartsWith("cmbpajisje1") || kodKontrolli.ToLower().StartsWith("cmbqyteti1") || kodKontrolli.ToLower().StartsWith("cmbklasaartikullit1") || kodKontrolli.ToLower().StartsWith("cmbstatuskonvertimidyte1") || kodKontrolli.ToLower().StartsWith("cmbmenyrepagese1"))
                                 {
                                     vlere1 = combo.Text;
@@ -5726,7 +5726,7 @@ namespace PlatinumWeb
                                         return rm.GetString("cmbFilterPo", ci);
                                     return rm.GetString("cmbFilterJo", ci);
                                 }
-                               
+
                                 if (kodKontrolli.ToLower().StartsWith("cmbShfaqnendep"))
                                 {
                                     if (checkBoxi.Checked)
@@ -5820,7 +5820,7 @@ namespace PlatinumWeb
                                     else
 
 
-                                               
+
                                     if (kodKontrolli.ToLower().StartsWith("degeadminbuttonedit"))
                                     {
                                         DbCore.DbRegjistrim.clsDegeAdministrative b = new DbCore.DbRegjistrim.clsDegeAdministrative(arr[v], idNdermarrje);
@@ -5844,7 +5844,7 @@ namespace PlatinumWeb
                                 }
                                 if (pershkrimet.Substring(pershkrimet.Length - 1, 1) == ",")
                                     pershkrimet = pershkrimet.Substring(0, pershkrimet.Length - 1);
-                                if (kodKontrolli.Contains("1") )
+                                if (kodKontrolli.Contains("1"))
                                 {
                                     vlere1 = String.Format("{0}", pershkrimet);
 
@@ -5862,7 +5862,7 @@ namespace PlatinumWeb
 
                                     continue;
                                 }
-                                if (kodKontrolli == "txtBtnMagazina"   || kodKontrolli == "txtBtnKartela" || kodKontrolli == "txtBtnKatSeriali" || kodKontrolli == "txtBtnLlojDok" || kodKontrolli == "btnePerdorues" || kodKontrolli == "txtBtnKrijuesi" || kodKontrolli == "btnAgjentShitje" || kodKontrolli == "btnNivelCmimi" || kodKontrolli == "btneQenderKosto" || kodKontrolli == "btneAuto" || kodKontrolli == "btneKompania" || kodKontrolli == "btnSeriali1" || kodKontrolli == "lblKategoriSeriali" || kodKontrolli == "btnBurimi" || kodKontrolli == "btnAktiviteti" || kodKontrolli == "btnNivelZbritje" || kodKontrolli == "txtBtnMagazinaPaLidhese" || kodKontrolli == "degeAdminPaLidheseButtonEdit" || kodKontrolli == "DpshKlientFurnitorButtonEdit" || kodKontrolli == "DpshNrLlogarieButtonEdit" || kodKontrolli == "DpshKategShpenzimiButtonEdit" || kodKontrolli == "DpshMagazinaButtonEdit" || kodKontrolli == "btnStatusPerdorues" || kodKontrolli == "btnModPerdorues")
+                                if (kodKontrolli == "txtBtnMagazina" || kodKontrolli == "txtBtnKartela" || kodKontrolli == "txtBtnKatSeriali" || kodKontrolli == "txtBtnLlojDok" || kodKontrolli == "btnePerdorues" || kodKontrolli == "txtBtnKrijuesi" || kodKontrolli == "btnAgjentShitje" || kodKontrolli == "btnNivelCmimi" || kodKontrolli == "btneQenderKosto" || kodKontrolli == "btneAuto" || kodKontrolli == "btneKompania" || kodKontrolli == "btnSeriali1" || kodKontrolli == "lblKategoriSeriali" || kodKontrolli == "btnBurimi" || kodKontrolli == "btnAktiviteti" || kodKontrolli == "btnNivelZbritje" || kodKontrolli == "txtBtnMagazinaPaLidhese" || kodKontrolli == "degeAdminPaLidheseButtonEdit" || kodKontrolli == "DpshKlientFurnitorButtonEdit" || kodKontrolli == "DpshNrLlogarieButtonEdit" || kodKontrolli == "DpshKategShpenzimiButtonEdit" || kodKontrolli == "DpshMagazinaButtonEdit" || kodKontrolli == "btnStatusPerdorues" || kodKontrolli == "btnModPerdorues")
                                 {
                                     // vlera = buttonEdit.Value.ToString();
                                     vlera = String.Format("{0}", pershkrimet);
@@ -5884,8 +5884,8 @@ namespace PlatinumWeb
                                 if (radioKontrolli.SelectedItem.Value.ToString() == "")
                                     continue;
 
-                                if (radioKontrolli.ID.StartsWith("radDtDok") || radioKontrolli.ID.StartsWith("radDtRegj") || radioKontrolli.ID.StartsWith("radDtDtFillimi") || 
-                                    radioKontrolli.ID.StartsWith("radDtDokAfatKohor") || radioKontrolli.ID.StartsWith("radPeriudhe") || radioKontrolli.ID.StartsWith("radDtPlanifikimi") 
+                                if (radioKontrolli.ID.StartsWith("radDtDok") || radioKontrolli.ID.StartsWith("radDtRegj") || radioKontrolli.ID.StartsWith("radDtDtFillimi") ||
+                                    radioKontrolli.ID.StartsWith("radDtDokAfatKohor") || radioKontrolli.ID.StartsWith("radPeriudhe") || radioKontrolli.ID.StartsWith("radDtPlanifikimi")
                                     || radioKontrolli.ID.StartsWith("radDtProdhimi") || radioKontrolli.ID.StartsWith("radDtMbarimi") || radioKontrolli.ID.StartsWith("radDtKrijimi")
                                     || radioKontrolli.ID.StartsWith("radDateLidhes") || radioKontrolli.ID.StartsWith("radDtSkadence"))
                                 {
@@ -6370,7 +6370,7 @@ namespace PlatinumWeb
                 //if (designSettings.ruajNeSession || designSettings.rollPaper || designSettings.autoWidth || designSettings.oldViewer)
                 if (((System.Data.DataSet)report.DataSource).Tables[0].Rows.Count < 1000 || designSettings.ruajNeSession || designSettings.rollPaper || designSettings.autoWidth || designSettings.oldViewer)
                 {
-                    if(designSettings.autoWidth)
+                    if (designSettings.autoWidth)
                         report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                     if (designSettings.rollPaper)
                         report.RollPaper = true;
@@ -6396,7 +6396,7 @@ namespace PlatinumWeb
                     hfState.Set("reportPageCount", 0);
                     CachedReportSourceWeb cachedReport = new CachedReportSourceWeb(report);
                     reportViewer.OpenReport(cachedReport);
-                    
+
                 }
                
 
@@ -6479,8 +6479,8 @@ namespace PlatinumWeb
             DbCore.DbShare.colMenuItem menu = new DbCore.DbShare.colMenuItem(idgjuha);
             menu.merrMenuItemSipasKomponentes(idgjuha, 649);
             menu.AddIfNotExists(new clsMenuItem(idgjuha, 0, "Vizualizo ne Delta", "Vizualizo ne Delta", "FaqeRe.png", 0, true, "", ""));
-            menu.Remove(menu.Where(x=>x.Name== "ItemFilter").FirstOrDefault());
-            menu.Remove(menu.Where(x=>x.Name== "ItemFrame").FirstOrDefault());
+            menu.Remove(menu.Where(x => x.Name == "ItemFilter").FirstOrDefault());
+            menu.Remove(menu.Where(x => x.Name == "ItemFrame").FirstOrDefault());
 
             foreach (DbCore.DbShare.clsMenuItem m in menu)
             {
@@ -6497,12 +6497,12 @@ namespace PlatinumWeb
                     if (m.Name == "Gjenero")
                     {
                         aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
-                        if (RaportiEmerReal == "gjendjeArtikujshMinMaxSipasMagazines" || RaportiEmerReal== "KontrolliSkadencesArtikujve")
+                        if (RaportiEmerReal == "gjendjeArtikujshMinMaxSipasMagazines" || RaportiEmerReal == "KontrolliSkadencesArtikujve")
                         {
                             clsTeDrejtaRoli tedrejtaInfo = new clsTeDrejtaRoli();
-                            
-                                tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idperdorues, idNdermarrje, idviti, RaportiEmerReal == "gjendjeArtikujshMinMaxSipasMagazines"?"GjeneroUrdherBlerje": "RegjistrimMagazine.aspx?lloj=dalje");
-                            
+
+                            tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idperdorues, idNdermarrje, idviti, RaportiEmerReal == "gjendjeArtikujshMinMaxSipasMagazines" ? "GjeneroUrdherBlerje" : "RegjistrimMagazine.aspx?lloj=dalje");
+
                             if (tedrejtaInfo.DShtim)
                                 aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = true;
                         }
@@ -6686,10 +6686,10 @@ namespace PlatinumWeb
                 ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDokAprovimit")).Enabled = true;
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDokDateLidhes")).Text = dataDeri;
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDokDateLidhes")).Enabled = true;
-                ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDokKonvertuar")).Text = dataDeri;  
+                ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDokKonvertuar")).Text = dataDeri;
                 ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDokKonvertuar")).Enabled = true;
-                ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtFillimi")).Text = dataDeri; 
-               ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtFillimi")).Enabled = true;
+                ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtFillimi")).Text = dataDeri;
+                ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDtFillimi")).Enabled = true;
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDokShitje")).Text = Request.QueryString["dateDeri"].ToString();
                 ((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("txtDeriDokShitje")).Enabled = true;
             }
@@ -7307,10 +7307,10 @@ namespace PlatinumWeb
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbVeprimPershk2")).Items[1].Text = rm.GetString("cmbboxItemFilterKryeMbaron", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbVeprimPershk2")).Items[2].Text = rm.GetString("cmbboxItemFilterKryePermban", ci);
 
-            if(RaportiEmerReal == "gjendjaLlogarive")
-              ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlogariaSAP")).Text = rm.GetString("labelRaportiShenime", ci) + " 5";
+            if (RaportiEmerReal == "gjendjaLlogarive")
+                ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlogariaSAP")).Text = rm.GetString("labelRaportiShenime", ci) + " 5";
             else
-            ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlogariaSAP")).Text = rm.GetString("labelFilterAvancuarPershkLlogariaSAP", ci);
+                ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlogariaSAP")).Text = rm.GetString("labelFilterAvancuarPershkLlogariaSAP", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbVeprimi1LlogariaSAP")).Items[3].Text = rm.GetString("cmbboxItemFilterKryeNdryshem", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbVeprimi1LlogariaSAP")).Items[4].Text = rm.GetString("cmbboxItemFilterKryeFillon", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbVeprimi1LlogariaSAP")).Items[5].Text = rm.GetString("cmbboxItemFilterKryeMbaron", ci);
@@ -7741,7 +7741,7 @@ namespace PlatinumWeb
             ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlojSubjektiKF")).Text = rm.GetString("filterLlojSubjekti", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbLlojSubjektiKF")).Items[1].Text = rm.GetString("comboItemBlerjeShitjeKlient", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbLlojSubjektiKF")).Items[2].Text = rm.GetString("comboItemBlerjeShitjeFurnitor", ci);
-          
+
 
 
             if (RaportiEmerReal == "ArketimetOrare" || RaportiEmerReal == "pagesaDealer" || RaportiEmerReal == "listeArketimeAnullime" || RaportiEmerReal == "postPaidPayments" || RaportiEmerReal == "billPaymentsPerDay" || RaportiEmerReal == "dailyGuaranteePayment" || RaportiEmerReal == "arketimeDitore" || RaportiEmerReal == "listeArketimeAnullimePostpaid")
@@ -8223,6 +8223,10 @@ namespace PlatinumWeb
             int substringLength = endIndex - substringStartIndex;
 
             return input.Substring(substringStartIndex, substringLength);
+        }
+        protected void OpenReport(object sender, EventArgs e)
+        {
+            AfishoRaport();
         }
         //Report Viewer HTML5
         protected void ASPxCallbackPanel1_Callback(object source, DevExpress.Web.CallbackEventArgsBase e)
