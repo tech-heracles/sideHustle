@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.IO;
 using System.Net;
+using System.Web.Configuration;
 using DevExpress.CodeParser;
 
 namespace DbCore.DbAdmin
@@ -408,7 +409,8 @@ namespace DbCore.DbAdmin
                     }
                 }
                 if(superUser) return new clsMesazh(true, String.Empty);
-                var webRequest = clsFunksione.CreateGetWebRequestLicence("https://imb-licence.appspot.com/rest/getLicenceEndDate", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()); 
+                string orgEndDateURL = WebConfigurationManager.AppSettings["orgEndDateUrl"];
+                var webRequest = clsFunksione.CreateGetWebRequestLicence(orgEndDateURL, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()); 
                 using (WebResponse webResponse = webRequest.GetResponse())
                 {
                     using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
