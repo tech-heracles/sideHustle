@@ -6332,7 +6332,31 @@ namespace PlatinumWeb
                 ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
                 if (((DataSet)report.DataSource).Tables[0].Rows.Count == 0)
                     ImbLogger.Warn($"Raporti me emer {RaportiEmerReal} nuk ka te dhena per periudhen e zgjedhur.");
-
+                if (report.DataSource != null)
+                {
+                     
+                    var table = ((System.Data.DataSet)report.DataSource).Tables[0];
+                    string[] columns = new string[table.Columns.Count];
+                    string[][] rows = new string[table.Rows.Count][];
+                    for (int i = 0; i < columns.Length; i++)
+                        columns[i] = table.Columns[i].ColumnName;
+                    for (int i = 0; i < rows.Length; i++)
+                    {
+                        string[] rowsValues = new string[table.Columns.Count];
+                        for (int j = 0; j < table.Columns.Count; j++)
+                            rowsValues[j] = (table.Rows[i].ItemArray[j].ToString());
+                        rows[i] = rowsValues;
+                    }
+                    hfState.Set("deltaHeaders", columns);
+                    hfState.Set("deltaRows", rows);
+                }
+                else
+                {
+                    string[] columns = new string[0];
+                    string[][] rows = new string[0][];
+                    hfState.Set("deltaHeaders", columns);
+                    hfState.Set("deltaRows", rows);
+                }
                 clsPerdorues perdoruesi = mySessionObjects.kthePerdorues(Session);
                 KonfigFleteRaporti(report, perdoruesi, false);
 
@@ -6374,20 +6398,7 @@ namespace PlatinumWeb
                     reportViewer.OpenReport(cachedReport);
                     
                 }
-                var table = ((System.Data.DataSet)report.DataSource).Tables[0];
-                string[] columns = new string[table.Columns.Count];
-                string[][] rows = new string[table.Rows.Count][];
-                for (int i = 0; i < columns.Length; i++)
-                    columns[i] = table.Columns[i].ColumnName;
-                for (int i = 0; i < rows.Length; i++)
-                {
-                    string[] rowsValues = new string[table.Columns.Count];
-                    for (int j = 0; j < table.Columns.Count; j++)
-                        rowsValues[j] = (table.Rows[i].ItemArray[j].ToString());
-                    rows[i] = rowsValues;
-                }
-                hfState.Set("deltaHeaders", columns);
-                hfState.Set("deltaRows", rows);
+               
 
             }
         }
