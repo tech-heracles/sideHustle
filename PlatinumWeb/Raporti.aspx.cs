@@ -8273,7 +8273,7 @@ namespace PlatinumWeb
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
                 string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
         
-                string emerRaporti = $"{remportName}_{ndermarrje.NdermarrjeKodi}_{organization}";
+                string emerRaporti = $"{RaportiEmerReal}_{ndermarrje.NdermarrjeKodi}_{organization}";
                 if (!hfState.Contains("deltaHeaders")) {
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Hapni raportin para dergimit ne Delta!", pnlMesazhi);
                     return;
@@ -8291,7 +8291,7 @@ namespace PlatinumWeb
                 
                 object requestObject = new
                 {
-                    projectName = ndermarrje.NdermarrjePershkrimi + " " +remportName,
+                    projectName = ndermarrje.NdermarrjePershkrimi + "-" +remportName,
                     tileName = RaportiEmerReal,
                     columns = deltaColumns,
                     uid = uid,
