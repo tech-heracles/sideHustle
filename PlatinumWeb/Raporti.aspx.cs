@@ -8273,7 +8273,7 @@ namespace PlatinumWeb
                 GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
                 string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
         
-                string emerRaporti = $"{RaportiEmerReal}_{ndermarrje.NdermarrjeKodi}_{organization}";
+                string emerRaporti = $"{RaportiEmerReal}-{ndermarrje.NdermarrjeKodi}-{organization}";
                 if (!hfState.Contains("deltaHeaders")) {
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Hapni raportin para dergimit ne Delta!", pnlMesazhi);
                     return;
