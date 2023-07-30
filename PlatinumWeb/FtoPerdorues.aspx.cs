@@ -16,6 +16,7 @@ using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using System.Data;
+using DbCore.DbAdmin;
 using DevExpress.Web;
 
 namespace PlatinumWeb
@@ -76,6 +77,8 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                 RSA = ImportPublicKey(publicKey);
                 string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
                 string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                clsNdermarrje ndermarrje =
+                    new clsNdermarrje(mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 bool shadowUser = userFatura.Checked;
 
                 List<string> emails = new List<string>(email_inline.Text.Split(','));
@@ -89,7 +92,8 @@ JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
                         email = emails[i],
                         password = password,
                         roli = cmbRolet.Value,
-                        shadowUser = shadowUser
+                        shadowUser = shadowUser,
+                        enterprise = ndermarrje.NdermarrjeKodi
                     };
                     plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
                     encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
