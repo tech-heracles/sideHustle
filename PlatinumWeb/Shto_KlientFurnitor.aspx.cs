@@ -1816,6 +1816,7 @@ namespace PlatinumWeb
                     foreach (clsKlientFurnitor cf in cfList.ToList()
                                                 .Where(x => x.IdKlientFurnitor == int.Parse(client.ToString())))
                     {
+                        PubSub.topicId = !cf.LlojiKF ? "alpha_suppliers" : "alpha_clients";
                         PubSub.PublishPubSub(3, 1, 2, 1, cf.krijoObjektPerPubSub());
                     }
                 }

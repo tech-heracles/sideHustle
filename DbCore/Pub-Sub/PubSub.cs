@@ -15,7 +15,7 @@ namespace DbCore
     public class PubSub
     {
         private string projectId;
-        private string topicId;
+        public string topicId;
         private string subscriptionId;
         private string pushEndpoint;
 

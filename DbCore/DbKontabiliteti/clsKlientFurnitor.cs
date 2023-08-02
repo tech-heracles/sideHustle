@@ -1148,8 +1148,8 @@ namespace DbCore.DbKontabiliteti
                     mesazh = colArkiva.RuajArkiven(IdKlientFurnitor, 12, IdPerdoruesi, IdNdermarja, HfArkiva);
 
                 if (!mesazh.Status)
-                    return mesazh; 
-                PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
+                    return mesazh;
+                PubSub ps = new PubSub("alphaweb", this.LlojiKF ? "alpha_clients" : "alpha_suppliers", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
                 ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                 scope.Complete();
 
@@ -1162,12 +1162,13 @@ namespace DbCore.DbKontabiliteti
         public object krijoObjektPerPubSub()
         {
             this.OColAdresat = new colAdresatKlientFurnitor(this.IdKlientFurnitor);
-
-            if (this.OColAdresat == null)
+            string adresa = this.OColAdresat == null ? "" : this.OColAdresat.Count == 0 ? "" : this.OColAdresat[0].Adresa;
+            string nder = new clsNdermarrje(IdNdermarja).NdermarrjeKodi;
+            if (this.LlojiKF)
             {
                 return new
                 {
-                    clientAddress = "",
+                    clientAddress = adresa,
                     clientCode = this.KodKlientFurnitor,
                     clientEmail = this.EmailKF,
                     clientIDType = this.TipiId,
@@ -1178,28 +1179,33 @@ namespace DbCore.DbKontabiliteti
                     clientCountry = this.ShtetiKF,
                     currency = new clsMonedha(this.idMonedha).KodiMonedha,
                     organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi,
-
+                    ndermarrja = nder,
+                    enterprise = nder
                 };
+                
+
             }
             else
             {
                 return new
                 {
-                    clientAddress = this.OColAdresat.Count == 0 ? "" : this.OColAdresat[0].Adresa,
-                    clientCode = this.KodKlientFurnitor,
-                    clientEmail = this.EmailKF,
-                    clientIDType = this.TipiId,
-                    clientName = this.EmertimiKF,
-                    clientNipt = this.NiptiKF,
-                    clientPhone = this.TelKF,
-                    clientTown = new clsQyteti(this.QytetiKF).EmriQyteti,
-                    clientCountry = this.ShtetiKF,
+                    supplierAddress = adresa,
+                    supplierCode = this.KodKlientFurnitor,
+                    supplierEmail = this.EmailKF,
+                    supplierIDType = this.TipiId,
+                    supplierName = this.EmertimiKF,
+                    supplierNipt = this.NiptiKF,
+                    supplierPhone = this.TelKF,
+                    supplierTown = new clsQyteti(this.QytetiKF).EmriQyteti,
+                    supplierCountry = this.ShtetiKF,
                     currency = new clsMonedha(this.idMonedha).KodiMonedha,
                     organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                    ndermarrja = new clsNdermarrje(IdNdermarja).NdermarrjeKodi
+                    ndermarrja = nder,
+                    enterprise = nder,
+
                 };
             }
+            
             
         }
         /// <summary>
@@ -1364,7 +1370,7 @@ namespace DbCore.DbKontabiliteti
                     }
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-                    PubSub ps = new PubSub("alphaweb", "alpha_clients", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
+                    PubSub ps = new PubSub("alphaweb", this.LlojiKF ? "alpha_clients" : "alpha_suppliers" , "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
                     ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                     scope.Complete();
 
