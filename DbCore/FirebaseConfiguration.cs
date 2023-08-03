@@ -21,20 +21,26 @@ namespace DbCore
         private static string userDetailsCollection = "userDetails";
         private static string organizationCollection = "organization";
         public FirebaseConfiguration(){
-            
-            if(FirebaseApp.DefaultInstance == null)
+            try
             {
-                AppOptions appOptions = new AppOptions();
-                appOptions.ProjectId = "imb-payment";
-                var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-                string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
-                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
-                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                if (FirebaseApp.DefaultInstance == null)
+                {
+                    AppOptions appOptions = new AppOptions();
+                    appOptions.ProjectId = "imb-payment";
+                    var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
+                    string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
+                    var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
+                    GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
 
 
-                appOptions.Credential = credential;
-                FirebaseApp.Create(appOptions);
+                    appOptions.Credential = credential;
+                    FirebaseApp.Create(appOptions);
+                }
             }
+            catch {
+                Console.WriteLine("Firebase already created!");
+            }
+            
 
         }
         public async Task<bool> checkIfUserIsVerified(string email)

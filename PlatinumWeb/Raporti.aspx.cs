@@ -47,11 +47,16 @@ using System.Web.Configuration;
 using System.Net;
 using System.Diagnostics;
 using DocumentFormat.OpenXml.Math;
+using System.EnterpriseServices;
+using DevExpress.XtraEditors.ColorPick.Picker;
+using Microsoft.Reporting.WebForms;
+using System.Web.DynamicData;
 
 namespace PlatinumWeb
 {
     public partial class Raporti : MyReportPageBase
     {
+        //DateTime kohaTani = DateTime.Now;
         private string STR_OnConsigment = " ",
         STR_SalesOnCredit = " ",
         STR_Gjithe = " ",
@@ -111,10 +116,13 @@ namespace PlatinumWeb
             {
                 try
                 {
+
                     if (IdRaporti < 0 && Convert.ToInt32(Request.QueryString["idraporti"]) != null)
                         IdRaporti = DbCore.clsFunksione.ktheIdRaporti(Request);
 
                     clsPerdorues perdoruesi = DbCore.mySessionObjects.kthePerdorues(Session);
+
+                    // long lastOpenDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
                     pathStyle.Value = StylePath;
                     if (!DbCore.mySessionObjects.isLogedIn(Session))
@@ -144,6 +152,8 @@ namespace PlatinumWeb
                     hfState.Set("RaportiDesign", rapdes.Pershkrim);
                     hfState.Set("oldViewer", false);
                     hfState.Set("reportPageCount", 0);
+                    HfState.Set("lastOpenDate", DateTime.MinValue);
+                    HfState.Set("reportDatasource", null);
 
                     hfState.Set("_idViti", Convert.ToString(DbCore.mySessionObjects.ktheVitiNdermarrjes(Session)));
                     DbCore.DbAdmin.clsKomponente oKomponente = new DbCore.DbAdmin.clsKomponente("Raporti.aspx");
@@ -242,7 +252,7 @@ namespace PlatinumWeb
                 idRaportiModul = Convert.ToInt32(hfState["idRaportiModul"]);
 
                 if (Convert.ToBoolean(hfState.Get("oldViewer")))
-                    reportViewer2.Report = GetReport();
+                    reportViewer2.Report = (XtraReport)GetReport();
             }
         }
 
@@ -417,6 +427,7 @@ namespace PlatinumWeb
         }
 
 
+
         private void shtoFaturaOseSubRaportNeRaport(int idRaporti, XtraReport report, string guidString, List<Dictionary<string, string>> teDhenaRap)
         {
             var azhornim = false;
@@ -470,7 +481,7 @@ namespace PlatinumWeb
                 return;
             }
 
-            var dt = ((System.Data.DataSet)(GetReport().DataSource)).Tables[0];
+           var dt = ((System.Data.DataSet)(GetReport())).Tables[0];
             if (dt.Columns.Contains("NDERMARJEPERSHK"))
                 dt.Columns.Remove("NDERMARJEPERSHK");
 
@@ -483,7 +494,7 @@ namespace PlatinumWeb
 
         private void exportRaportBirthdayCard()
         {
-            XtraReport raporti = GetReport();
+            XtraReport raporti = (XtraReport)GetReport();
             XtraReport repPDF = new XtraReport();
             MemoryStream stream = new MemoryStream();
             ZipOutputStream zipStream = new ZipOutputStream(stream);
@@ -521,7 +532,7 @@ namespace PlatinumWeb
         private void exportVeprimtariaDitore()
         {
             string pathDir = HttpContext.Current.Server.MapPath(null) + @"\AlphaWebExport\";
-            VeprimtariaDitoreExporter exporter = new VeprimtariaDitoreExporter(((DataSet)GetReport().DataSource).Tables[0], pathDir, mySessionObjects.merrIdNdermarrjeSesioni(Session), rm, ci);
+            VeprimtariaDitoreExporter exporter = new VeprimtariaDitoreExporter(((DataSet)GetReport()).Tables[0], pathDir, mySessionObjects.merrIdNdermarrjeSesioni(Session), rm, ci);
             clsMesazh mesazh = exporter.Eksporto();
             clsMenuInfo.ShtoMesazh(MenuInfo, mesazh, pnlMesazhi);
             DbCore.mySessionObjects.shtoMesazhNeSession(Session, mesazh, guidString);
@@ -534,7 +545,7 @@ namespace PlatinumWeb
                 DirectoryExtension.CreateDirIfNotExists(pathDir);
                 string username = DbCore.mySessionObjects.ktheEmerPerdorues(Session);
                 string filePathToWrite = pathDir + "QK" + "_" + username + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
-                XtraReport raporti = GetReport();
+                XtraReport raporti = (XtraReport)GetReport();
                 DevExpress.XtraReports.UI.Band band = raporti.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.ReportHeaderBand));
                 DevExpress.XtraReports.UI.Band bandFooter = raporti.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.PageFooterBand));
                 if (band != null)
@@ -632,7 +643,7 @@ namespace PlatinumWeb
 
         protected void ReportViewer2_Unload(object sender, EventArgs e)
         {
-            ((ReportViewer)sender).Report = null;
+            ((DevExpress.XtraReports.Web.ReportViewer)sender).Report = null;
         }
 
         private int kthekategoridok()
@@ -2574,7 +2585,7 @@ namespace PlatinumWeb
         }
         private void ExportReport(string exportFormat, bool rawFormat)
         {
-            XtraReport report = GetReport();
+            XtraReport report = (XtraReport)GetReport();
             SetExportOptions(report, RaportiEmerReal, exportFormat, rawFormat);
 
             using (MemoryTributary ms = new MemoryTributary())
@@ -4958,6 +4969,10 @@ namespace PlatinumWeb
             afisho(oRap.IdRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha);
             RaportiEmerReal = oRap.RaportiEmriReal;
 
+            //var table = ((System.Data.DataSet)report.DataSource).Tables[0];
+
+            //HfState.Add("lastOpenDate", DateTime.Now);
+
         }
 
         private void merrDataSourceRaport(XtraReport reportLibriPaMerge, XtraReport report, int idPerdorues)
@@ -6329,12 +6344,35 @@ namespace PlatinumWeb
                     param[4] = sqlParam1;
                     DbCore.mySessionObjects.ruajParametratERaportit(Session, param, guidString);
                 }
-                ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
+                long lastOpenDate = 0;
+                long.TryParse(HfState.Get("lastOpenDate").ToString(),out lastOpenDate);
+
+                long timeDifferenceSeconds = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - lastOpenDate;
+
+                if (timeDifferenceSeconds > 60)
+                {
+                   //if ((DateTimeOffset.UtcNow.ToUnixTimeSeconds() - long.Parse((HfState.Get("lastOpenDate").ToString()))) > 60)
+
+                    ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
+                    HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
+                    SaveReportData(report.DataSource,"datasource");
+                    SaveReportData(report.DataAdapter,"adapter");
+                    SaveReportData(report.DataMember, "spname");
+                }
+                else  
+                {
+                    report.DataSource = GetReportData("datasource");
+                    report.DataAdapter = GetReportData("adapter");
+                    report.DataMember = GetReportData("spname").ToString();
+
+                    //report = (XtraReport)HfState.Get("datasource");
+
+                }
                 if (((DataSet)report.DataSource).Tables[0].Rows.Count == 0)
                     ImbLogger.Warn($"Raporti me emer {RaportiEmerReal} nuk ka te dhena per periudhen e zgjedhur.");
                 if (report.DataSource != null)
                 {
-                     
+
                     var table = ((System.Data.DataSet)report.DataSource).Tables[0];
                     string[] columns = new string[table.Columns.Count];
                     string[][] rows = new string[table.Rows.Count][];
@@ -6374,8 +6412,7 @@ namespace PlatinumWeb
                         report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                     if (designSettings.rollPaper)
                         report.RollPaper = true;
-
-                    report.CreateDocument();
+                     report.CreateDocument();
 
                     if (designSettings.autoWidth)
                         SetAutoWidthToReport(report);
@@ -6398,11 +6435,11 @@ namespace PlatinumWeb
                     reportViewer.OpenReport(cachedReport);
 
                 }
-               
+
 
             }
         }
-
+    
         protected void btnRuaj_Click(object sender, EventArgs e)
         {
         }
@@ -6586,6 +6623,8 @@ namespace PlatinumWeb
                         case 1362:
                             idKontrollKryesore = 1071;
                             break;
+             
+                        
                         case 1363:
                             idKontrollKryesore = 1072;
                             break;
@@ -8205,9 +8244,17 @@ namespace PlatinumWeb
         {
             mySessionObjects.ruajMyReportNeSession(Session, hfState.Get("guidString").ToString(), report);
         }
-        private XtraReport GetReport()
+        private void SaveReportData(object report,string name)
         {
-            return mySessionObjects.merrMyReportNgaSessioni<XtraReport>(Session, hfState.Get("guidString").ToString());
+            mySessionObjects.ruajMyReportNeSessionData(Session, hfState.Get("guidString").ToString(), report,name);
+        }
+        private object GetReport()
+        {
+            return mySessionObjects.merrMyReportNgaSessioni<object>(Session, hfState.Get("guidString").ToString());
+        }
+        private object GetReportData(string name)
+        {
+            return mySessionObjects.merrMyReportNgaSessioniData<object>(Session, hfState.Get("guidString").ToString(),name);
         }
         public string GetStringBetween(string input, string startString, string endString)
         {
@@ -8251,9 +8298,9 @@ namespace PlatinumWeb
                     break;
                 default:
                     if (Convert.ToBoolean(hfState.Get("oldViewer")))
-                        AlphaWebReports.raporteUtil.HapRaportDetails(source, e, GetReport(), reportViewer2);
+                        AlphaWebReports.raporteUtil.HapRaportDetails(source, e, (XtraReport)GetReport(), reportViewer2);
                     else
-                        AlphaWebReports.raporteUtil.HapRaportDetails(source, e, GetReport(), reportViewer);
+                        AlphaWebReports.raporteUtil.HapRaportDetails(source, e, (XtraReport)GetReport(), reportViewer);
                     break;
             }
         }
@@ -8393,6 +8440,7 @@ namespace PlatinumWeb
             string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
             clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti", RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             afisho(base.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, mySessionObjects.merrPeriudheKontabel(base.Session), IdPerdoruesi, clsRaporti.KaSubRaporte(base.IdRaporti), hfState.Get("guidString").ToString());
+                    
         }
 
         private void ChangeReportOrientation()
