@@ -3025,7 +3025,43 @@ namespace DbCore
         }
 
         #endregion
+        public static async Task<IAsyncResult> dergoViewLogAlphaweb(string view)
+        {
+            object obj = new
+            {
+                view = view
+            };
+            string result = string.Empty;
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlViewLogAlphaweb"];
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
 
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(obj));
+                    }
+                }
+                return webRequest.BeginGetResponse(null, null);
+                //using (WebResponse webResponse = webRequest.GetResponse())
+                //{
+                //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                //{
+
+                //    var ServiceResult = rd.ReadToEnd();
+                //}
+
+                //}
+            }
+            catch (WebException ex)
+            {
+                return null;
+            }
+
+        }
         public static clsMesazh avancoPerpara(HttpResponse response, HttpSessionState sesioni, int idPerdoruesi, ResourceManager rm, CultureInfo ci, bool eValiduar, bool ndryshoPassword = false, bool passwordISkaduar = false, bool endResponse = true, string redirectToPage = "")
         {
             if (!eValiduar)
