@@ -927,6 +927,7 @@ namespace PlatinumWeb
                                     cmb3.Items.Add("Artikull", 1);
                                     cmb3.Items.Add("Makro", 2);
                                     cmb3.Items.Add("Llogari", 3);
+                                    cmb3.Items.Add("", 4);
                                 }
                                 if (cmbKategoria.Text == "Rivleresime Amortizimi")
                                 {
