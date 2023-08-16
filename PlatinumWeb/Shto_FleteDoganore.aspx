@@ -452,7 +452,7 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <dx:ASPxTextBox ID="txtNrDok" runat="server" ClientInstanceName="txtNrDok" Width="100%" MaxLength="20">
+                                        <dx:ASPxTextBox ID="txtNrDok" runat="server" ClientInstanceName="txtNrDok" Width="100%">
                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                                                 ValidationGroup="entries">
                                                 <ErrorFrameStyle ImageSpacing="4px">
