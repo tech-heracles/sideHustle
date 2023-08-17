@@ -341,7 +341,13 @@ namespace DbCore.DbRegjistrim
             int idNjesi = 0;
             if (njesia != string.Empty && njesia != null && njesia != "null")
                 idNjesi = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje);
-            
+            if(idNjesi == 0)
+            {
+                colNjesiteArtikulli colNjesi = new colNjesiteArtikulli(idNdermarrje);
+                clsNjesiArtikulli njesiaFound = colNjesi.Find(x => x.KodEinvoice == rreshtDokuKlient["unitFisc"].ToString());
+                idNjesi=  njesiaFound != null ? njesiaFound.IdNjesia : 0;
+            }
+
             kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
