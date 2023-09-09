@@ -15,6 +15,8 @@ using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Security;
 using System.Web.UI;
 using System.Threading.Tasks;
+using DbCore.DbShare;
+using DevExpress.Web;
 
 namespace PlatinumWeb
 {
@@ -126,19 +128,18 @@ namespace PlatinumWeb
                 ikonaImazhPerdorues.Image.Height = 25;
                 bool kycurMobile = clsPerdorues.kthePerdoruesKycurMobile(idPerdoruesi);
                 hfState.Set("kycurMobile", kycurMobile);
-                DevExpress.Web.MenuItem grupitHelpMenuLart = ASPxMenu1.Items.FindByName("help");
-                DevExpress.Web.NavBarGroup grupiHelp = ASPxNavBar1.Groups.FindByName("help");
-
-                grupitHelpMenuLart.Items[0].NavigateUrl = urlHelp;
-                grupiHelp.Items[0].NavigateUrl = urlHelp;
+                //DevExpress.Web.MenuItem grupitHelpMenuLart = ASPxMenu1.Items.FindByName("help");
+                //DevExpress.Web.NavBarGroup grupiHelp = ASPxNavBar1.Groups.FindByName("help");
+                //grupitHelpMenuLart.Items[0].NavigateUrl = urlHelp;
+                //grupiHelp.Items[0].NavigateUrl = urlHelp;
 
                 
 
 
-                grupitHelpMenuLart.Items[4].NavigateUrl = urlVersion;
+                //grupitHelpMenuLart.Items[4].NavigateUrl = urlVersion;
 
-                grupitHelpMenuLart.Items[0].NavigateUrl = urlHelp;
-                grupiHelp.Items[0].NavigateUrl = urlHelp;
+                //grupitHelpMenuLart.Items[0].NavigateUrl = urlHelp;
+                //grupiHelp.Items[0].NavigateUrl = urlHelp;
                 hfUrlHelp.Set("urlHelp", urlHelp);
                 var IdNdermViti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session).ToString();
                 var KodViti = DbCore.mySessionObjects.ktheVitiNdermarrjes(Session).ToString();
@@ -995,12 +996,12 @@ namespace PlatinumWeb
             ASPxMenu1.Items[4].Items[22].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 
 
-            ASPxMenu1.Items[5].Text = rm.GetString("MenuItemHelp", ci);
-            ASPxMenu1.Items[5].Items[0].Text = rm.GetString("MenuItemManualiPerdoruesit", ci);
-            ASPxMenu1.Items[5].Items[1].Text = rm.GetString("MenuItemProgramKase", ci);
-            ASPxMenu1.Items[5].Items[2].Text = rm.GetString("MenuItemProgramKaseNew", ci);
-            ASPxMenu1.Items[5].Items[3].Text = rm.GetString("MenuItemRemoteSupport", ci);
-            ASPxMenu1.Items[5].Items[4].Text = rm.GetString("MenuItemVersioni", ci) + " " + versioni;
+            ASPxMenu1.Items[5].Text = "";
+            //ASPxMenu1.Items[5].Items[0].Text = rm.GetString("MenuItemManualiPerdoruesit", ci);
+            //ASPxMenu1.Items[5].Items[1].Text = rm.GetString("MenuItemProgramKase", ci);
+            //ASPxMenu1.Items[5].Items[2].Text = rm.GetString("MenuItemProgramKaseNew", ci);
+            //ASPxMenu1.Items[5].Items[3].Text = rm.GetString("MenuItemRemoteSupport", ci);
+            //ASPxMenu1.Items[5].Items[4].Text = rm.GetString("MenuItemVersioni", ci) + " " + versioni;
             DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
             ikonaImazhPerdoruesMenuLart.Visible = true;
             var perdoruesEmerItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("LupaPersonalizoPerdorues.aspx");

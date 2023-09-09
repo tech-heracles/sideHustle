@@ -125,7 +125,8 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
-                AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email,Session);
+                string accessToken = param.Value<string>("accessToken");
+                AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email,Session, accessToken);
                 return Request.KthePergjigje(true);
             }
             catch (Exception ex)
@@ -143,7 +144,9 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
-                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email));
+                string alphaOrganization = param.Value<string>("alphaOrganization");
+                string accessToken = param.Value<string>("accessToken");
+                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email, idNdermarrje,alphaOrganization,uid, accessToken));
             }
             catch (Exception ex)
             {

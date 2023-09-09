@@ -89,13 +89,13 @@ namespace RestApi.WebAPI.Models
         {
             return clsFunksione.logoAmbient(urlKomponente, id.ToString(), idNdermarrje, idPerdoruesi, logu, ci);
         }
-        internal async static void createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session)
+        internal async static void createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session,string accessToken)
         {
-            await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session);
+            await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session, accessToken);
         } 
-        internal async static Task<string> userControls(int idPerdoruesi, string email)
+        internal async static Task<object> userControls(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
-            return await clsFunksione.userControls(idPerdoruesi, email);
+            return await clsFunksione.userControls(idPerdoruesi, email,idNdermarje,alphaOrganization,uid,accessToken);
         } 
         internal async static Task<bool> merrShenimePerdoruesi(string shenime)
         {

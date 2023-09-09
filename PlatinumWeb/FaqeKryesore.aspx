@@ -25,7 +25,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
- 
+ <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -50,7 +51,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
 
     <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -93,8 +93,10 @@
             -webkit-appearance: searchfield-cancel-button;
         }
         #notification-box{
-            margin-left:2%;
             position:absolute;
+            top:10px;
+            z-index: 99999;
+            right: 1%;
         }
         .material-icons{
             color:white;
@@ -104,6 +106,7 @@
             height:50% !important;
             border-radius: 20% !important;
         }
+
         /*#backDiv {
             position: absolute;
             top: 0;
@@ -328,8 +331,7 @@
 </head>
 
 <body class="">
-                                           <div id="notification-box"></div>
-
+    <div id="notification-box" onclick="handleStyle()"></div>
     <form id="form1" class="main" runat="server">  
         <div runat="server" id="googlePopup"> 
             <div class="popup-container"  id="popup-container" style="display:block">
@@ -377,6 +379,7 @@
                                 <div id="top" style="vertical-align: top; height:55px !important;">
                                     <div id="btnHome" class="logoHome" onclick="dashboard()">
                                         <img src="images/home2.png" "/>
+
                                         <%-- ImageUrl="images/home.png"--%>
 <%--                                        <img src="images/home2.png" />--%>
                                        <%-- <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Height="32px"
@@ -1326,7 +1329,7 @@
                                                     </Items>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="Help" Name="help">
-                                                    <Items>
+                   <%--                                 <Items>
                                                         <dx:MenuItem Text="Manuali Perdoruesit" Name="manuali" Visible="false" Target="_blank">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="ProgramKase" Text="Program Kase" Visible="false">
@@ -1337,7 +1340,7 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Versioni" Text="Versioni" Visible="false" Target="_blank">
                                                         </dx:MenuItem>
-                                                    </Items>
+                                                    </Items>--%>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
                                                     ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
@@ -1366,6 +1369,7 @@
                                     </div>
 
                                 </div>
+
                             </dx:SplitterContentControl>
                         </ContentCollection>
                     </dx:SplitterPane>
@@ -1994,28 +1998,36 @@
     </form>
 
     
-    <script type="text/javascript">      
-        async function signInWithGooglePopup() {
+    <script type="text/javascript">
+        const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
+        tr_menu.style.position = "absolute";
+        tr_menu.style.paddingRight = "3%";
+        tr_menu.style.backgroundColor = "#0072c6";
+        async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
             await signInWithPopup(auth, GoogleAuthProvider)
-                .then(function (result) {
+                .then(async function (result) {
+                    const accessToken = await window.getIdToken(window.auth.currentUser);
                     $.ajax({
                         url: Utils.getServerApiUrl("Autorizime", "userControls"),
                         data: JSON.stringify({
-                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
+                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
                         })
                     }).done(function (res) {
-                        if (res != "") {
-                            myMesazh.ShtoMesazhGabimi(res);
+                        if (res.message != undefined) {
+                            console.log(res);
+                            myMesazh.ShtoMesazhGabimi(res.message);
+                            if (redirect) window.open("https://delta.alpha.al", "_blank");
                             return;
                         };
                         $.ajax({
                             url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
                             data: JSON.stringify({
-                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
+                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
                             })
-                        }).done(function () {
+                        }).done(function (res_url) {
+                            if (redirect) window.open("https://delta.alpha.al","_blank");
                             window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
                             window.setTimeout(function () {
                                 document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
@@ -2051,6 +2063,7 @@
                 }
             }
         };
+
         $(document).ready(async function () {
             //$.ajax({
             //    url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
@@ -2064,16 +2077,70 @@
                     $("#popup-container").css("display", "none");
                 }
 
-            //    //const client = new ChatClient({
-            //    //    user: window.auth.currentUser.uid,
-            //    //    room: "capybara",
-            //    //    token: window.auth.currentUser.accessToken
-            //    //})
+                const client = new ChatClient({
+                    user: window.auth.currentUser.uid,
+                    room: hfState.Get("organizata"),
+                    token: window.auth.currentUser.accessToken
+                })
 
-            //    //client.addNotificationBox("notification-box");
+                client.addNotificationBox("notification-box");
+                client.socket.on("message", function (message) {
+                    if (message.text.includes("Vizualizo")) {
+                        var p_tags = document.getElementsByTagName("p");
+                        var searchText = "Vizualizo";
+                        var found;
+
+                        for (var i = 0; i < p_tags.length; i++) {
+                            if (p_tags[i].textContent == searchText) {
+                                found = p_tags[i];
+                                console.log(found);
+                                break;
+                            }
+                        }
+                        found.addEventListener("click",function () {
+                            signInWithGooglePopup(true);
+                        })
+                    }
+                })
+                const initial_Value = [];
+                function check1(oldvalue) {
+                    undefined === oldvalue && (oldvalue = client.notifications);
+                    clearcheck = setInterval(repeatcheck, 500, oldvalue);
+                    function repeatcheck(oldvalue) {
+                        if (client.notifications !== oldvalue) {
+                            // do something
+                            clearInterval(clearcheck);
+                            const toggler = document.getElementById("toggler-notification");
+                            toggler.addEventListener("click", function () {
+                                const drop_show = document.getElementById("notification-dropdown");
+                                drop_show.style.maxWidh = "300px !important";
+                                drop_show.style.minWidth = "300px !important";
+                                drop_show.style.transform  = "translate(-20rem, 0.5rem) !important";
+                            })
+                            
+                            var p_tags = document.getElementsByTagName("p");
+                            var searchText = "Vizualizo";
+                            var found;
+
+                            for (var i = 0; i < p_tags.length; i++) {
+                                if (p_tags[i].textContent == searchText) {
+                                    found = p_tags[i];
+                                    break;
+                                }
+                            }
+                            found.addEventListener("click", function () {
+                                signInWithGooglePopup(true);
+                                
+                            })
+                        }
+                    }
+                }
+                check1(initial_Value);
+               
             })
 
         });
+
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
@@ -2089,7 +2156,8 @@
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
 
     </script>
-    <style>.dxm-item{
+    <style>
+        .dxm-item{
                 /*background: transparent !important;*/
                 padding: 8px;
            }
@@ -2108,6 +2176,11 @@
             }
             .dxm-noImages .dxm-item{
                 padding:3px !important;
+            }
+            #notification-dropdown{
+                max-width: 300px  !important;
+                min-width: 300px  !important;
+                transform:  translate(-25rem, 0.5rem) !important;
             }
     </style>
 </body>

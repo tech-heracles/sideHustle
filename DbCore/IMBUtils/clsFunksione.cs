@@ -72,6 +72,11 @@ using Data = Google.Apis.SQLAdmin.v1beta4.Data;
 using Google.Cloud.Storage.V1;
 using System.Net.Mail;
 using Google.Cloud.Firestore;
+using Fasterflect;
+using DevExpress.Utils;
+using DevExpress.XtraCharts.Designer.Native;
+using Azure.Core;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
 
 namespace DbCore
 {
@@ -13889,52 +13894,95 @@ namespace DbCore
             }
             return stringBuilder.ToString();
         }
-        public async static Task<string> userControls(int idPerdoruesi, string email)
+        public async static Task<object> userControls(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
         {
             clsPerdorues user = new clsPerdorues(idPerdoruesi);
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
             string username = email.Split('@')[0];
             string shenim = user.Shenime;
             bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true, email);
+            string org_id = "";
             if (ekziston)
-                return $"Perdoruesi {username} ekziston ne kete organizate!";
+            {
+                Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                org_id = user_details["organization"].ToString();
+                string url = addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                return new
+                {
+                    message = $"Perdoruesi {username} ekziston ne kete organizate!",
+                    url = url
+                };
+                
+            }
             var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
             if (uDetailsFromNotes.Count > 0)
                 if (uDetailsFromNotes["email"].ToString() != email)
-                    return $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "";
-            return "";
+                {
+                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                    org_id = user_details["organization"].ToString();
+                    string url = addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    return new
+                    {
+                        message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",
+                        url = url
+                    };
+                }
+            return new { };
         }
-        public async static Task createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session)
+        public async static Task<string> createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session,string accessToken)
         {
-            clsPerdorues perdoruesi = new clsPerdorues();
-            FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-            bool exists = await firebaseConfiguration.checkIfUserExists(uid);
-            string username = email.Split('@')[0];
-            clsPerdorues user = new clsPerdorues();
-            bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true, email);
-            string shenim = new clsPerdorues(idPerdoruesi).Shenime;
-            var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
-            if(uDetailsFromNotes.Count > 0)
-                if(uDetailsFromNotes["email"].ToString() != email)
-                    return;
-            if (ekziston)
-                return;
-            string kodNdermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi;
-            string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
-            string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            if (!exists) {
-                string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja), uid);
-                await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
-                clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
-            }
-            else
+            try
             {
-                bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
-                if (status)
-                    clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+                clsPerdorues perdoruesi = new clsPerdorues();
+                FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                bool exists = await firebaseConfiguration.checkIfUserExists(uid);
+                string username = email.Split('@')[0];
+                clsPerdorues user = new clsPerdorues();
+                bool ekziston = user.ktheNeseUseriEkzistonGmail(username, true, email);
+                string shenim = new clsPerdorues(idPerdoruesi).Shenime;
+                var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
+                string kodNdermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi;
+                string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
+                string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                string org_id = "";
+                if (uDetailsFromNotes.Count > 0)
+                    if (uDetailsFromNotes["email"].ToString() != email)
+                    {
+                        Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                        org_id = user_details["organization"].ToString();
+                        return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    }
+                if (ekziston)
+                {
+                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                    org_id = user_details["organization"].ToString();
+                    return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                }
 
+                if (!exists)
+                {
+                    string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja), uid);
+                    await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
+                    clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+                    org_id = orgId;
+                }
+                else
+                {
+                    bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
+                    if (status)
+                        clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                    org_id = user_details["organization"].ToString();
+                }
+                return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
 
             }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return "";
+            }
+           
         }
         public async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
@@ -13946,6 +13994,56 @@ namespace DbCore
             catch(Exception e)
             {
                 return false;
+            }
+
+        }
+        private static string addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
+        {
+            try
+            {
+
+                clsNdermarrje main_enterprise = new clsNdermarrje(idNdermarje);
+                colNdermarrjet ndermarrjet = new colNdermarrjet();
+                ndermarrjet.mbushGjitheNdermarrjet(idPerdoruesi, main_enterprise.IdLicenca);
+                List<Dictionary<string, dynamic>> ndermarrje_pershkrim = ndermarrjet.Select(ndermarrje => new Dictionary<string, dynamic>{
+                    { "kodi", ndermarrje.NdermarrjeKodi },
+                    {"pershkrimi",ndermarrje.NdermarrjePershkrimi },
+                    {"idNdermarrje", ndermarrje.IdNdermarrje} })
+                    .ToList();
+                object requestObject = new
+                {
+                    uid = uid,
+                    alphaOrganization = alphaOrganization,
+                    ndermarrjet = ndermarrje_pershkrim,
+                    orgId = org_id,
+                    email = email
+                };
+
+                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];
+                string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];
+                WebRequest webRequest = clsFunksione.CreateJSONWebRequest(delta_url);
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(requestObject));
+                    }
+                }
+                using (WebResponse webResponse = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                    {
+                        string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
+                        redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
+                        return redirectUrl;
+                    }
+
+
+                }
+            }
+            catch(Exception err)
+            {
+                return "";
             }
 
         }
