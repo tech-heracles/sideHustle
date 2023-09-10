@@ -2078,9 +2078,9 @@
                 }
 
                 const client = new ChatClient({
-                    user: window.auth.currentUser.uid,
+                    user: hfState.Get("idPerdoruesi"),
                     room: hfState.Get("organizata"),
-                    token: window.auth.currentUser.accessToken
+                    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
                 })
 
                 client.addNotificationBox("notification-box");
