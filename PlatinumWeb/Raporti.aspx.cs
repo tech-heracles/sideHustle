@@ -8268,9 +8268,7 @@ namespace PlatinumWeb
                 string accessToken = HfState.Get("accessToken").ToString();
                 bool newReport = HfState.Contains("newReport");
                 Dictionary<string, object> userDetails = await fb.getUserDetailsWithUID(uid);
-                string serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
-                string serviceAccountJson = File.ReadAllText(serviceAccount);
-                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
                 string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
         
                 string emerRaporti = $"{RaportiEmerReal}-{ndermarrje.NdermarrjeKodi}-{organization}";

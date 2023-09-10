@@ -13435,10 +13435,7 @@ namespace DbCore
                 var instanca = getInstanceAndDatabaseRequest();
 
                 //Authentication with google service account
-                var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
-                string serviceAccountJson = File.ReadAllText(serviceAccount);
-                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
-                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
                 string[] credentials = new string[1];
                 credentials[0] = "https://www.googleapis.com/auth/cloud-platform";
                 if (credential.IsCreateScopedRequired)
@@ -13607,10 +13604,7 @@ namespace DbCore
             {
                 string project = "alphaweb";
                 //Authentication with google service account
-                var serviceAccount = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/service_account_backup.json");
-                string serviceAccountJson = File.ReadAllText(serviceAccount);
-                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
-                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
                 string[] credentials = new string[1];
                 credentials[0] = "https://www.googleapis.com/auth/cloud-platform";
                 if (credential.IsCreateScopedRequired)
@@ -13906,7 +13900,7 @@ namespace DbCore
             {
                 Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                 org_id = user_details["organization"].ToString();
-                string url = addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
                 return new
                 {
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
@@ -13920,7 +13914,7 @@ namespace DbCore
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    string url = addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
                     return new
                     {
                         message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",
@@ -13950,13 +13944,13 @@ namespace DbCore
                     {
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
-                        return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
                     }
                 if (ekziston)
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
                 }
 
                 if (!exists)
@@ -13974,7 +13968,7 @@ namespace DbCore
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
                 }
-                return addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
 
             }
             catch (Exception err)
@@ -13997,7 +13991,7 @@ namespace DbCore
             }
 
         }
-        public static string addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
+        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
         {
             try
             {
@@ -14018,10 +14012,13 @@ namespace DbCore
                     orgId = org_id,
                     email = email
                 };
-
-                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];
+                GoogleCredential cred = GoogleCredential.GetApplicationDefault();
+                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"] + "IAM";
+                var id_token = await cred.GetOidcTokenAsync(OidcTokenOptions.FromTargetAudience(delta_url));
+                string token = await id_token.GetAccessTokenAsync();
                 string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];
                 WebRequest webRequest = clsFunksione.CreateJSONWebRequest(delta_url);
+                webRequest.Headers.Add("Authorization", $"Bearer {token}");
                 using (Stream stream = webRequest.GetRequestStream())
                 {
                     using (StreamWriter stmw = new StreamWriter(stream))

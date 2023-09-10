@@ -26,10 +26,7 @@ namespace DbCore
             {
                 AppOptions appOptions = new AppOptions();
                 appOptions.ProjectId = "imb-payment";
-                var imbPayment = System.Web.Hosting.HostingEnvironment.MapPath("~/service_account/imb-payment.json");
-                string serviceAccountJson = System.IO.File.ReadAllText(imbPayment);
-                var credentialsServiceAccount = JsonConvert.DeserializeObject<object>(serviceAccountJson);
-                GoogleCredential credential = Task.Run(() => GoogleCredential.FromJson(serviceAccountJson)).Result;
+                GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
 
 
                 appOptions.Credential = credential;
