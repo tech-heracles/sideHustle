@@ -13997,7 +13997,7 @@ namespace DbCore
             }
 
         }
-        private static string addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
+        public static string addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
         {
             try
             {

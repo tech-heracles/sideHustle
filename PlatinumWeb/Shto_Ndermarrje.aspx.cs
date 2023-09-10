@@ -24,6 +24,8 @@ using DbCore.IMBUtils.Messages;
 using DbCore.DbShare;
 using DbCore.IMBUtils.DataBase;
 using DevExpress.Web.ASPxSpreadsheet.Internal.Forms;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.DbAdmin;
 
 namespace PlatinumWeb
 {
@@ -893,6 +895,7 @@ namespace PlatinumWeb
                 ASPxPageControl1.ActiveTabIndex = 0;
                 return;
             }
+            
             clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiSukses", ci), pnlMesazhi);
             DbCore.mySessionObjects.ruajImazhNeSesion(Session, null);
             DbCore.mySessionObjects.ruajpathneSession(Session, null);
@@ -903,7 +906,7 @@ namespace PlatinumWeb
             ASPxPageControl1.ActiveTabIndex = 0;
         }
 
-        protected void vazhdoRuajtjeNdermarrjeje(DbCore.DbAdmin.clsNdermarrje ndermarrje, ResourceManager rm, CultureInfo ci, int idNdermarrjeLoguar)
+        protected async void vazhdoRuajtjeNdermarrjeje(DbCore.DbAdmin.clsNdermarrje ndermarrje, ResourceManager rm, CultureInfo ci, int idNdermarrjeLoguar)
         {
             ndermarrje.IdTakse = 0;
             DbCore.clsMesazh mesazh = (cmbMeme.SelectedIndex != -1) ? shtoNdermarje(cmbMeme.Text, ndermarrje) : shtoNdermarje(cmbNdermarjet.Text, ndermarrje);
@@ -913,6 +916,20 @@ namespace PlatinumWeb
                 hfStatusi.Value = "false";
                 ASPxPageControl1.ActiveTabIndex = 0;
                 return;
+            }
+            clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
+            if (perdorues.PerdoruesEmail != "")
+            {
+                try
+                {
+                    FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                    clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), user_details["uid"].ToString(), perdorues.PerdoruesEmail, user_details["organization"].ToString(), "");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
             clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiSukses", ci), pnlMesazhi);
             DbCore.mySessionObjects.ruajImazhNeSesion(Session, null);
