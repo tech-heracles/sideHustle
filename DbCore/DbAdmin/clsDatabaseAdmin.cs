@@ -7,12 +7,15 @@ using System.Globalization;
 using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using AlphaWeb.Core.Interfaces.Data;
 using DbCore.DbImporte;
 using DbCore.DbListPagesat;
 using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
+using Fasterflect;
 using IDataBaseReader = AlphaWeb.Core.Interfaces.Data.IDataBaseReader;
 
 namespace DbCore.DbAdmin
@@ -1110,6 +1113,58 @@ namespace DbCore.DbAdmin
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TEMP_IMPORTmerrTeDhenaDT");
             return ds.Tables[0];
+
+        }
+        internal List<Dictionary<string,dynamic>> getUserAdminEnterprises(int user_id)
+        {
+            string connectionString = dbManager.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand($"" +
+                    $"DECLARE @IDPERDORUESI INT = {user_id} " +
+                    $"CREATE TABLE #ROLE (IDROLI INT) " +
+                    $"INSERT INTO #ROLE " +
+                    $"SELECT IDROLI FROM T_ROLPERDORUES WHERE IDPERDORUES = @IDPERDORUESI " +
+                    $"SELECT DISTINCT NDER.IDNDERMARJE, NDER.NDERMARJEKODI, NDER.NDERMARJEPERSHK " +
+                    $"FROM T_ROLDREJTAKOKA KOKA" +
+                    $" inner join T_ROLDREJTATRUPI TRUPI  on KOKA.IDDREJTAKOKA = TRUPI.IDDREJTAKOKA inner join T_NDERMARJE NDER ON NDER.IDNDERMARJE = KOKA.IDNDERMARRJE " +
+                    $" where  IDROLI in (SELECT IDROLI FROM #ROLE) and TRUPI.D_SHTIM = 1 and TRUPI.IDKOMPONENTE = 160 and NDER.IDSTATUSDOK = 1 and NDER.AKTIV = 1 and NDER.IDNDERMARJE not in (-3,-2,-1)",
+                    connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        List<Dictionary<string, dynamic>> enterprises = new List<Dictionary<string, dynamic>>();
+                        for(int i = 0; i < dataTable.Rows.Count; i++)
+                        {
+                            DataRow current_row = dataTable.Rows[i];
+                            enterprises.Add(new Dictionary<string, dynamic>()
+                            {
+                                { "IDNDERMARJE" , current_row["IDNDERMARJE"]},
+                                { "NDERMARJEKODI" , current_row["NDERMARJEKODI"]},
+                                { "NDERMARJEPERSHK" , current_row["NDERMARJEPERSHK"]},
+
+                            });
+                        }
+                        reader.Close();
+                        connection.Close();
+                        return enterprises;
+                    }
+                }
+                catch(Exception err)
+                {
+                    
+                    reader.Close();
+                    connection.Close();
+                    return null;
+                }
+            }
+            return null;
+
 
         }
 

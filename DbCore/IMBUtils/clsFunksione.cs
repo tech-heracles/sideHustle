@@ -13995,20 +13995,12 @@ namespace DbCore
         {
             try
             {
-
-                clsNdermarrje main_enterprise = new clsNdermarrje(idNdermarje);
-                colNdermarrjet ndermarrjet = new colNdermarrjet();
-                ndermarrjet.mbushGjitheNdermarrjet(idPerdoruesi, main_enterprise.IdLicenca);
-                List<Dictionary<string, dynamic>> ndermarrje_pershkrim = ndermarrjet.Select(ndermarrje => new Dictionary<string, dynamic>{
-                    { "kodi", ndermarrje.NdermarrjeKodi },
-                    {"pershkrimi",ndermarrje.NdermarrjePershkrimi },
-                    {"idNdermarrje", ndermarrje.IdNdermarrje} })
-                    .ToList();
+                List<Dictionary<string, dynamic>> ndermarrjet = clsPerdorues.getUserAdminEnterprises(idPerdoruesi);
                 object requestObject = new
                 {
                     uid = uid,
                     alphaOrganization = alphaOrganization,
-                    ndermarrjet = ndermarrje_pershkrim,
+                    ndermarrjet = ndermarrjet,
                     orgId = org_id,
                     email = email
                 };
@@ -14031,7 +14023,6 @@ namespace DbCore
                     using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
                     {
                         string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
-                        redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
                         return redirectUrl;
                     }
 

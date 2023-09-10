@@ -8,6 +8,7 @@ using DbCore.IMBUtils.Messages;
 using System.Collections;
 using DbCore.DbRegjistrim;
 using DbCore.IMBUtils.Security;
+using System.Collections.Generic;
 
 namespace DbCore.DbAdmin
 {
@@ -752,6 +753,11 @@ namespace DbCore.DbAdmin
         {
             using (var db = new clsDatabaseAdmin())
                 return db.merrPerdoruesPerImport(emerTabKoka, ndermarrjeKey, ndermarrjeKodi, merrTePaImportuara, riMerrTePaImportuara);
+        }
+        public static List<Dictionary<string, dynamic>> getUserAdminEnterprises(int user_id)
+        {
+            using (clsDatabaseAdmin db = new clsDatabaseAdmin())
+                return db.getUserAdminEnterprises(user_id);
         }
 
         public clsMesazh ruaj(int idndermarje, int idNdermarjeVit, string idDokImporti = "", bool ngaImporti = false, string emerTabKoka = "", string ndermarrjeKey = "", string primarykey = "", string PassIRi = "true", string passwordiGjeneruar = "", bool kushtiSHTR = true)

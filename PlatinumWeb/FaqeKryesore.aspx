@@ -2071,7 +2071,7 @@
             //}).done(function (res) {
 
             //});
-            window.auth.onAuthStateChanged(function (user) {
+            // window.auth.onAuthStateChanged(function (user) {
 
                 if (window.auth.currentUser != null) {
                     $("#popup-container").css("display", "none");
@@ -2085,23 +2085,17 @@
 
                 client.addNotificationBox("notification-box");
                 client.socket.on("message", function (message) {
-                    if (message.text.includes("Vizualizo")) {
-                        var p_tags = document.getElementsByTagName("p");
-                        var searchText = "Vizualizo";
-                        var found;
+                    if (message.text.includes("Shiko raportet e tua live")) {
+                        const elements = $('div:contains("Shiko raportet e tua live")');
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].children[0].addEventListener("click",function () {
+                                signInWithGooglePopup(true);
+                            })
 
-                        for (var i = 0; i < p_tags.length; i++) {
-                            if (p_tags[i].textContent == searchText) {
-                                found = p_tags[i];
-                                console.log(found);
-                                break;
-                            }
                         }
-                        found.addEventListener("click",function () {
-                            signInWithGooglePopup(true);
-                        })
+                        
                     }
-                })
+                });
                 const initial_Value = [];
                 function check1(oldvalue) {
                     undefined === oldvalue && (oldvalue = client.notifications);
@@ -2113,31 +2107,24 @@
                             const toggler = document.getElementById("toggler-notification");
                             toggler.addEventListener("click", function () {
                                 const drop_show = document.getElementById("notification-dropdown");
-                                drop_show.style.maxWidh = "300px !important";
-                                drop_show.style.minWidth = "300px !important";
-                                drop_show.style.transform  = "translate(-20rem, 0.5rem) !important";
+                                drop_show.style.maxWidh = "400px !important";
+                                drop_show.style.minWidth = "400px !important";
+                                drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
                             })
-                            
-                            var p_tags = document.getElementsByTagName("p");
-                            var searchText = "Vizualizo";
-                            var found;
+                            const elements = $('div span:contains("Shiko raportet e tua live")');
+                            for (var i = 0; i < elements.length; i++) {
+                                elements.css("cursor","pointer");
+                                elements[i].children[0].addEventListener("click",function () {
+                                    signInWithGooglePopup(true);
+                                })
 
-                            for (var i = 0; i < p_tags.length; i++) {
-                                if (p_tags[i].textContent == searchText) {
-                                    found = p_tags[i];
-                                    break;
-                                }
                             }
-                            found.addEventListener("click", function () {
-                                signInWithGooglePopup(true);
-                                
-                            })
                         }
                     }
                 }
                 check1(initial_Value);
                
-            })
+            // })
 
         });
 
@@ -2178,9 +2165,9 @@
                 padding:3px !important;
             }
             #notification-dropdown{
-                max-width: 300px  !important;
-                min-width: 300px  !important;
-                transform:  translate(-25rem, 0.5rem) !important;
+                max-width: 400px  !important;
+                min-width: 400px  !important;
+                transform:  translate(-30rem, 0.5rem) !important;
             }
     </style>
 </body>
