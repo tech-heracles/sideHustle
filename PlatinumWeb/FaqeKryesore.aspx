@@ -331,16 +331,16 @@
 </head>
 
 <body class="">
-    <div id="notification-box" onclick="handleStyle()"></div>
+    <div id="notification-box"></div>
     <form id="form1" class="main" runat="server">  
         <div runat="server" id="googlePopup"> 
             <div class="popup-container"  id="popup-container" style="display:none">
                 <div class="popup">
-                    <img src="images/FaqjaPare/sparkle.png"/>
-                    <h3>Shko ne Delta!</h3>
+                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
+                    <h3>Hapni raportin?</h3>
                     <div class="email-footer">
-                        <p onclick="MbyllEmailPopup()" style="color:#475467;">Shko</p>
-                        <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
+                        <p onclick="open_delta();" style="color:#475467;">Po</p>
+                        <p onclick="close_delta()" style="color:#6941c6;">Jo</p>
                     </div>
                 </div>
             </div>
@@ -2000,40 +2000,83 @@
         tr_menu.style.position = "absolute";
         tr_menu.style.paddingRight = "3%";
         tr_menu.style.backgroundColor = "#0072c6";
+        let url = "https:delta.alpha.al";
         async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
-            await signInWithPopup(auth, GoogleAuthProvider)
-                .then(async function (result) {
-                    const accessToken = await window.getIdToken(window.auth.currentUser);
-                    $.ajax({
-                        url: Utils.getServerApiUrl("Autorizime", "userControls"),
-                        data: JSON.stringify({
-                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
-                        })
-                    }).done(function (res) {
-                        if (res.message != undefined) {
-                            console.log(res);
-                            myMesazh.ShtoMesazhGabimi(res.message);
-                            if (redirect) window.open("https://delta.alpha.al", "_blank");
-                            return;
-                        };
+            if (!window.auth.currentUser) {
+                await signInWithPopup(auth, GoogleAuthProvider)
+                    .then(async function (result) {
+                        const accessToken = await window.getIdToken(window.auth.currentUser);
                         $.ajax({
-                            url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                            url: Utils.getServerApiUrl("Autorizime", "userControls"),
                             data: JSON.stringify({
-                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
+                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
                             })
-                        }).done(function (res_url) {
-                            if (redirect) window.open("https://delta.alpha.al","_blank");
-                            window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
-                            window.setTimeout(function () {
-                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
-                                window.location.reload();
-                            }, 2000);
+                        }).done(function (res) {
+                            if (res.message != undefined) {
+                                myMesazh.ShtoMesazhGabimi(res.message);
+                                if (redirect) {
+                                    url = res.url;
+                                    $("#popup-container").css("display", "block");
+                                }
+                                return;
+                            };
+                            $.ajax({
+                                url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                                data: JSON.stringify({
+                                    uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
+                                })
+                            }).done(function (res_url) {
+                                if (redirect) {
+                                    url = res_url;
+                                    $("#popup-container").css("display", "block");
+                                }
+                                window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
+                                window.setTimeout(function () {
+                                    document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
+                                    window.location.reload();
+                                }, 2000);
+                            });
                         });
+
                     });
-                    
+            }
+            else {
+                const result = window.auth.currentUser;
+                const accessToken = await window.getIdToken(window.auth.currentUser);
+                $.ajax({
+                    url: Utils.getServerApiUrl("Autorizime", "userControls"),
+                    data: JSON.stringify({
+                        uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
+                    })
+                }).done(function (res) {
+                    if (res.message != undefined) {
+                        myMesazh.ShtoMesazhGabimi(res.message);
+                        if (redirect) {
+                            $("#popup-container").css("display", "block");
+                            url = res.url;
+                        }
+                        return;
+                    };
+                    $.ajax({
+                        url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                        data: JSON.stringify({
+                            uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken
+                        })
+                    }).done(function (res_url) {
+                        if (redirect) {
+                            $("#popup-container").css("display", "block");
+                            url = res_url;
+                        }                        window.location.href = "/Prezantohu.aspx?uid=" + result.uid + "endUid";
+                        window.setTimeout(function () {
+                            document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.email;
+                            window.location.reload();
+                        }, 2000);
+                    });
                 });
+            }
+           
         }
         sessionStorage.setItem("GoogleLogInAttemps", 0);
         //Popup Window
@@ -2060,7 +2103,13 @@
                 }
             }
         };
-
+        function open_delta() {
+            $("#popup-container").css("display", "none");
+            window.open(url, "_blank");
+        };
+        function close_delta() {
+            $("#popup-container").css("display", "none");
+        }
         $(document).ready(async function () {
             //$.ajax({
             //    url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
@@ -2101,13 +2150,13 @@
                         if (client.notifications !== oldvalue) {
                             // do something
                             clearInterval(clearcheck);
-                            const toggler = document.getElementById("toggler-notification");
-                            toggler.addEventListener("click", function () {
-                                const drop_show = document.getElementById("notification-dropdown");
-                                drop_show.style.maxWidh = "400px !important";
-                                drop_show.style.minWidth = "400px !important";
-                                drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
-                            })
+                            //const toggler = document.getElementById("toggler-notification");
+                            //toggler.addEventListener("click", function () {
+                            //    const drop_show = document.getElementById("notification-dropdown");
+                            //    drop_show.style.maxWidh = "400px !important";
+                            //    drop_show.style.minWidth = "400px !important";
+                            //    drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
+                            //})
                             const elements = $('div span:contains("Shiko raportet e tua live")');
                             for (var i = 0; i < elements.length; i++) {
                                 elements.css("cursor","pointer");

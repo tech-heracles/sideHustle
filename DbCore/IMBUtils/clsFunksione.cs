@@ -14023,6 +14023,7 @@ namespace DbCore
                     using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
                     {
                         string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
+                        redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
                         return redirectUrl;
                     }
 

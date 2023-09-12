@@ -34,7 +34,7 @@ namespace PlatinumWeb
         {
             if (!IsPostBack)
             {
-                googlePopup.Visible = false;
+                googlePopup.Visible = true;
                 var cookie = Request.Cookies["adresa"];
                 if (cookie == null)
                 {
