@@ -182,10 +182,9 @@
         }
         .popup{
             
-            z-index:9999;
+            z-index:9999999999;
             font-family: Arial, Helvetica, Verdana;
-
-            width: 456px;
+            width: 700px;
             height: max-content;
             background: #f9fbfd;
             position: absolute;
@@ -286,9 +285,8 @@
 
 .popup img{
 
-    width: 65px;
-    height: 51px;
-    margin-left:-5%;
+    width: 100%;
+    height: max-content;
 }
 .gmail-image{
     width: 90px !important;
@@ -327,20 +325,130 @@
 .logoHome img{
     height: 55px;
 }
+    .lds-grid {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    animation: lds-grid 3s linear infinite;
+    }
+    .lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+    }
+    .lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+    }
+    .lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+    }
+    .lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+    }
+    .lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+    }
+    .lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+    }
+    @keyframes lds-grid {
+    0%,100% {
+        background-color: #4584ec;
+    }
+    25% {background-color: #38a555;}
+    50% {
+        background-color: #e44d40;
+    }
+    75% {background-color: #f3ba15;}
+}
+    .loader {
+    display: none;
+    position: fixed;
+    z-index: 99999999999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+    hr{
+        width:42%;
+    }
+.loader-overlay {
+    
+    display: none;
+    position: fixed;
+    z-index: 99999999999;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.7);
+}
     </style>
 </head>
 
 <body class="">
+    <div class="loader-overlay"></div>
+    <div class="loader">
+        <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div id="notification-box"></div>
     <form id="form1" class="main" runat="server">  
         <div runat="server" id="googlePopup"> 
             <div class="popup-container"  id="popup-container" style="display:none">
                 <div class="popup">
                     <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
-                    <h3>Hapni raportin?</h3>
+                    <h3 onclick="open_delta()">Shih Raportin?</h3>
                     <div class="email-footer">
-                        <p onclick="open_delta();" style="color:#475467;">Po</p>
-                        <p onclick="close_delta()" style="color:#6941c6;">Jo</p>
+                        <img src="images/delta.png" onclick="open_delta()"/>
                     </div>
                 </div>
             </div>
@@ -1996,6 +2104,15 @@
 
     
     <script type="text/javascript">
+        function showLoadingGif() {
+            $("cmbRolet").val();
+            document.querySelector(".loader").style.display = "block";
+            document.querySelector(".loader-overlay").style.display = "block";
+        }
+        function hideLoadingGif(status, emptyRole) {
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".loader-overlay").style.display = "none";
+        }
         const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
         tr_menu.style.position = "absolute";
         tr_menu.style.paddingRight = "3%";
@@ -2004,6 +2121,7 @@
         async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
+            if(redirect) showLoadingGif();
             if (!window.auth.currentUser) {
                 await signInWithPopup(auth, GoogleAuthProvider)
                     .then(async function (result) {
@@ -2015,10 +2133,13 @@
                             })
                         }).done(function (res) {
                             if (res.message != undefined) {
-                                myMesazh.ShtoMesazhGabimi(res.message);
                                 if (redirect) {
                                     url = res.url;
                                     $("#popup-container").css("display", "block");
+                                    hideLoadingGif();
+                                }
+                                else{
+                                    myMesazh.ShtoMesazhGabimi(res.message);
                                 }
                                 return;
                             };
@@ -2031,12 +2152,16 @@
                                 if (redirect) {
                                     url = res_url;
                                     $("#popup-container").css("display", "block");
+                                    hideLoadingGif();
                                 }
-                                window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
-                                window.setTimeout(function () {
-                                    document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
-                                    window.location.reload();
-                                }, 2000);
+                                else{
+                                    window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
+                                    window.setTimeout(function () {
+                                        document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
+                                        window.location.reload();
+                                    }, 2000);
+                                }
+                                
                             });
                         });
 
@@ -2052,10 +2177,13 @@
                     })
                 }).done(function (res) {
                     if (res.message != undefined) {
-                        myMesazh.ShtoMesazhGabimi(res.message);
                         if (redirect) {
                             $("#popup-container").css("display", "block");
                             url = res.url;
+                            hideLoadingGif();
+                        }
+                        else{
+                            myMesazh.ShtoMesazhGabimi(res.message);
                         }
                         return;
                     };
@@ -2068,11 +2196,16 @@
                         if (redirect) {
                             $("#popup-container").css("display", "block");
                             url = res_url;
-                        }                        window.location.href = "/Prezantohu.aspx?uid=" + result.uid + "endUid";
-                        window.setTimeout(function () {
-                            document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.email;
-                            window.location.reload();
-                        }, 2000);
+                            hideLoadingGif();
+                        }     
+                        else{
+                            window.location.href = "/Prezantohu.aspx?uid=" + result.uid + "endUid";
+                            window.setTimeout(function () {
+                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.email;
+                                window.location.reload();
+                            }, 2000);
+                        }
+
                     });
                 });
             }
@@ -2131,8 +2264,8 @@
 
                 client.addNotificationBox("notification-box");
                 client.socket.on("message", function (message) {
-                    if (message.text.includes("Shiko raportet e tua live")) {
-                        const elements = $('div:contains("Shiko raportet e tua live")');
+                    if (message.text.includes("Shih raportet")) {
+                        const elements = $('.notification-text:contains("Shih raportet")');
                         for (var i = 0; i < elements.length; i++) {
                             elements[i].children[0].addEventListener("click",function () {
                                 signInWithGooglePopup(true);
@@ -2147,7 +2280,7 @@
                     undefined === oldvalue && (oldvalue = client.notifications);
                     clearcheck = setInterval(repeatcheck, 500, oldvalue);
                     function repeatcheck(oldvalue) {
-                        if (client.notifications !== oldvalue) {
+                        if (client.notifications.length>0) {
                             // do something
                             clearInterval(clearcheck);
                             //const toggler = document.getElementById("toggler-notification");
@@ -2157,7 +2290,7 @@
                             //    drop_show.style.minWidth = "400px !important";
                             //    drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
                             //})
-                            const elements = $('div span:contains("Shiko raportet e tua live")');
+                            const elements = $('.notification-text:contains("Shih raportet")');
                             for (var i = 0; i < elements.length; i++) {
                                 elements.css("cursor","pointer");
                                 elements[i].children[0].addEventListener("click",function () {
