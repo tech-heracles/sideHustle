@@ -14005,7 +14005,7 @@ namespace DbCore
                     email = email
                 };
                 GoogleCredential cred = GoogleCredential.GetApplicationDefault();
-                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"] + "IAM";
+                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];
                 var id_token = await cred.GetOidcTokenAsync(OidcTokenOptions.FromTargetAudience(delta_url));
                 string token = await id_token.GetAccessTokenAsync();
                 string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];

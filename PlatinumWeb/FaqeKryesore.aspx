@@ -334,15 +334,12 @@
     <div id="notification-box" onclick="handleStyle()"></div>
     <form id="form1" class="main" runat="server">  
         <div runat="server" id="googlePopup"> 
-            <div class="popup-container"  id="popup-container" style="display:block">
+            <div class="popup-container"  id="popup-container" style="display:none">
                 <div class="popup">
                     <img src="images/FaqjaPare/sparkle.png"/>
-                    <h3>Konfirmo adresen tende Gmail!</h3>
-                    <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
-                        Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail!
-                    </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
+                    <h3>Shko ne Delta!</h3>
                     <div class="email-footer">
-                        <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
+                        <p onclick="MbyllEmailPopup()" style="color:#475467;">Shko</p>
                         <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
                     </div>
                 </div>
@@ -2012,7 +2009,7 @@
                     $.ajax({
                         url: Utils.getServerApiUrl("Autorizime", "userControls"),
                         data: JSON.stringify({
-                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
+                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
                         })
                     }).done(function (res) {
                         if (res.message != undefined) {
