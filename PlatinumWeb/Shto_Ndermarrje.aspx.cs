@@ -924,7 +924,7 @@ namespace PlatinumWeb
                 {
                     FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
-                    clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), user_details["uid"].ToString(), perdorues.PerdoruesEmail, user_details["organization"].ToString(), "");
+                    clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), user_details["uid"].ToString(), perdorues.PerdoruesEmail, user_details["organization"].ToString(), "",true);
                 }
                 catch (Exception ex)
                 {

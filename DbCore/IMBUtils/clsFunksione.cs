@@ -13900,7 +13900,7 @@ namespace DbCore
             {
                 Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                 org_id = user_details["organization"].ToString();
-                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, false);
                 return new
                 {
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
@@ -13914,7 +13914,7 @@ namespace DbCore
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, false);
                     return new
                     {
                         message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",
@@ -13944,13 +13944,13 @@ namespace DbCore
                     {
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
-                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                     }
                 if (ekziston)
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                 }
 
                 if (!exists)
@@ -13968,7 +13968,7 @@ namespace DbCore
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
                 }
-                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken);
+                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
 
             }
             catch (Exception err)
@@ -13991,7 +13991,7 @@ namespace DbCore
             }
 
         }
-        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken)
+        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken, bool create_projects)
         {
             try
             {
@@ -14006,7 +14006,7 @@ namespace DbCore
                     enterpriseId = idNdermarje
                 };
                 GoogleCredential cred = GoogleCredential.GetApplicationDefault();
-                string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];
+                string delta_url = create_projects ? WebConfigurationManager.AppSettings["deltaUrl"] : WebConfigurationManager.AppSettings["deltaUrl_get_project"];
                 var id_token = await cred.GetOidcTokenAsync(OidcTokenOptions.FromTargetAudience(delta_url));
                 string token = await id_token.GetAccessTokenAsync();
                 string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];

@@ -117,7 +117,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage createLoginWithGmail(JObject param)
+        public async Task<HttpResponseMessage> createLoginWithGmail(JObject param)
         {
             try
             {   
@@ -126,8 +126,8 @@ namespace RestApi.WebAPI.Controllers
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
                 string accessToken = param.Value<string>("accessToken");
-                AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email,Session, accessToken);
-                return Request.KthePergjigje(true);
+                string url = await AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email, Session, accessToken);
+                return Request.KthePergjigje(url);
             }
             catch (Exception ex)
             {
