@@ -14002,7 +14002,8 @@ namespace DbCore
                     alphaOrganization = alphaOrganization,
                     ndermarrjet = ndermarrjet,
                     orgId = org_id,
-                    email = email
+                    email = email,
+                    enterpriseId = idNdermarje
                 };
                 GoogleCredential cred = GoogleCredential.GetApplicationDefault();
                 string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];
