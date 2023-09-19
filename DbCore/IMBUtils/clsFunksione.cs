@@ -13916,7 +13916,9 @@ namespace DbCore
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, false);
+                    string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
+                    bool create_projects = alpha_org != alphaOrganization;
+                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                     return new
                     {
                         message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",
@@ -13941,6 +13943,7 @@ namespace DbCore
                 string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
                 string alphaOrganization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
                 string org_id = "";
+
                 if (uDetailsFromNotes.Count > 0)
                     if (uDetailsFromNotes["email"].ToString() != email)
                     {
@@ -13954,7 +13957,7 @@ namespace DbCore
                     org_id = user_details["organization"].ToString();
                     return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                 }
-
+                bool create_projects = true;
                 if (!exists)
                 {
                     string orgId = await firebaseConfiguration.createNewOrganization(firebaseConfiguration.createOrganizationDetailsObject(alphaOrganization, kodNdermarrja), uid);
@@ -13964,11 +13967,17 @@ namespace DbCore
                 }
                 else
                 {
-                    bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
-                    if (status)
-                        clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
-                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
-                    org_id = user_details["organization"].ToString();
+                    Dictionary<string, dynamic> user_details_before_update = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                    string alpha_org = user_details_before_update.ContainsKey("alphaOrganization") ? (string)user_details_before_update["alphaOrganization"] : "";
+                    create_projects = alpha_org != alphaOrganization;
+                    if (!user_details_before_update.ContainsKey("alphaOrganization"))
+                    {
+                        bool status = await firebaseConfiguration.updateUserDetails(firebaseConfiguration.createUserDetailsObjectForUpdate(alphaOrganization, pass, username), uid, kodNdermarrja);
+                        if (status)
+                            clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
+                        Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
+                        org_id = user_details["organization"].ToString();
+                    }
                 }
                 return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
 
