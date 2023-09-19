@@ -13900,7 +13900,9 @@ namespace DbCore
             {
                 Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                 org_id = user_details["organization"].ToString();
-                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, false);
+                string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
+                bool create_projects = alpha_org != alphaOrganization;  
+                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                 return new
                 {
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
