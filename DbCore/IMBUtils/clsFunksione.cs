@@ -13888,6 +13888,31 @@ namespace DbCore
             }
             return stringBuilder.ToString();
         }
+        public async static Task<string> getUserOrganization(string uid)
+        {
+            FirebaseConfiguration firebase = new FirebaseConfiguration();
+            Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
+            //return "Error";
+            return user["alphaOrganization"];
+            
+        }
+        public async static Task<bool> changeOrganization(string uid,string organization,int enterprise_id,int idPerdoruesi)
+        {
+            try
+            {
+                clsNdermarrje ndermarrje = new clsNdermarrje(enterprise_id);
+                FirebaseConfiguration firebase = new FirebaseConfiguration();
+                Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
+                firebase.changeOrganization(uid, organization, ndermarrje.NdermarrjeKodi,idPerdoruesi);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            //return "Error";
+            
+        }
         public async static Task<object> userControls(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
         {
             clsPerdorues user = new clsPerdorues(idPerdoruesi);

@@ -7,6 +7,11 @@ using Newtonsoft.Json;
 using Google.Cloud.Firestore;
 using FirebaseAdmin.Auth;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using OfficeOpenXml.FormulaParsing.Excel.Functions;
+using FireSharp.Extensions;
+using Fasterflect;
+using DbCore.DbAdmin;
+using DbCore.IMBUtils.Security;
 
 namespace DbCore
 {
@@ -79,6 +84,13 @@ namespace DbCore
                     documentDictionary = snap.ToDictionary();
             }
             return documentDictionary;
+        }
+        public async Task<Dictionary<string,dynamic>> getUserDetailsWithUIDDynamic(string uid)
+        {
+            Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            DocumentReference usersRef = firestoreDb.Collection(userDetailsCollection).Document(uid);
+            return (await usersRef.GetSnapshotAsync()).ToDictionary();
         }
         public async Task<Dictionary<string,object>> getUserDetailsWithEmail(string email)
         {
@@ -192,6 +204,28 @@ namespace DbCore
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(createUserDetailsObjectForUpdateLogInTime());
 
+        }
+        public async void changeOrganization(string uid,string alphaOrganization,string enterprise,int idPerdoruesi)
+        {
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+            DocumentReference user_ref =  firestoreDb.Collection(userDetailsCollection).Document(uid);
+            Dictionary<string, object> user_data = (await user_ref.GetSnapshotAsync()).ToDictionary();
+            object org_object = createOrganizationDetailsObject(alphaOrganization, enterprise);
+            string org_id = await createNewOrganization(org_object, uid);
+            string username = (string)user_data["username"];
+            string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
+            clsPerdorues.krijoPerdoruesMeGmail((string)user_data["email"], username, username, pass, idPerdoruesi);
+            //string[] organization = user_data["previousOrganizations"] as string[];
+            //List<string> organizations = user_data.ContainsKey("previousOrganizations") ? new List<string>(.TryGetValue("") : new List<string>();
+            //organizations.Add((string)user_data["organization"]);
+            Dictionary<string, object> update_dictionary = new Dictionary<string, object>
+            {
+                { "alphaOrganization", alphaOrganization },
+                { "organization", org_id},
+                { "passwordHash", pass},
+                {"previousOrganization", (string)user_data["organization"] }
+            };
+            await user_ref.UpdateAsync(update_dictionary);
         }
         public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)
         {

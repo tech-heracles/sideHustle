@@ -97,6 +97,14 @@ namespace RestApi.WebAPI.Models
         {
             return await clsFunksione.userControls(idPerdoruesi, email,idNdermarje,alphaOrganization,uid,accessToken);
         } 
+        internal async static Task<string> getUserOrganization(string uid)
+        {
+            return await clsFunksione.getUserOrganization(uid);
+        } 
+        internal async static Task<bool> changeOrganization(string uid,string organization,int enterprise_id,int idPerdoruesi)
+        {
+            return await clsFunksione.changeOrganization(uid, organization, enterprise_id, idPerdoruesi);
+        } 
         internal async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
             return await clsFunksione.merrShenimePerdoruesi(shenime);

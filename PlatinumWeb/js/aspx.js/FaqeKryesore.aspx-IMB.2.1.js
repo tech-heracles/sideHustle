@@ -55,6 +55,10 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         signInWithGooglePopup();
         return;
     }
+    if (emrimenuse === "ndrysho") {
+        changeOrganization();
+        return;
+    }
 
     if (emrimenuse === "transferimDaljePopup") {
         TransferimSerialeUnike.ndertoPopupTransferimSerialeUnike({ idGjuha: parseInt(hfState.Get("idGjuha")), idNdermarrje: pageState.idNdermarrje });
