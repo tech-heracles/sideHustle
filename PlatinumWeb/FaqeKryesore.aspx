@@ -453,6 +453,18 @@
                 </div>
             </div>
             </div>
+        <div runat="server" id="changeOrganization"> 
+            <div class="popup-container"  id="change-popup-container" style="display:none">
+                <div class="popup">
+                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
+                    <h3 id="organization-information"></h3>
+                    <div class="email-footer">
+                        <p onclick="handleOrganizationChange()">Po</p>
+                        <p>Jo</p>
+                    </div>
+                </div>
+            </div>
+         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
@@ -1456,6 +1468,8 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Login me Google" name="google">
                                                         </dx:MenuItem>
+                                                        <dx:MenuItem Text="Ndrysho Organizaten" name="ndrysho">
+                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Mesazhe" Name="mesazhe">
                                                         </dx:MenuItem>
                                                         <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
@@ -2117,7 +2131,40 @@
         tr_menu.style.position = "absolute";
         tr_menu.style.paddingRight = "3%";
         tr_menu.style.backgroundColor = "#0072c6";
-        let url = "https:delta.alpha.al";
+        let url = "https://delta.alpha.al";
+        async function handleOrganizationChange(){
+            $.ajax({
+                url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
+                data: JSON.stringify({ uid: auth.currentUser.uid, organization: hfState.Get("organizata"), enterprise_id: hfState.Get("idNdermarrje"), idPerdoruesi: hfState.Get("idPerdoruesi") })
+            })
+            .done(function(){
+                $("#change-popup-container").css("display", "none");
+                $("#organization-information").html(``);
+            })
+        }
+        async function changeOrganization(){
+            const {user} = await signInWithPopup(auth, GoogleAuthProvider);
+            const current_organization = hfState.Get("organizata");
+            $.ajax({
+                url: Utils.getServerApiUrl("Autorizime", "getUserOrganization"),
+                data: JSON.stringify({uid: user.uid})
+            })
+            .done(function(organization){
+                if(organization == current_organization){
+                    myMesazh.ShtoMesazhInformues("Organizata qe keni tani eshte e njejte me organizaten qe po perpiqeni te ndryshoni!");
+                    return;
+                }
+                if(organization == "Error" || organization == "") {
+                    myMesazh.ShtoMesazhInformues("Ju nuk jeni te lidhur me ndonje organizate!");
+                    return;
+                }
+                $("#change-popup-container").css("display","block");
+                $("#organization-information").html(`Perdoruesi juaj eshte lidhur me organizaten ${organization}. Doni ta ndryshoni organizaten e lidhur me organizaten ${current_organization}?`)
+            })
+        }
+
+
+
         async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");

@@ -155,6 +155,37 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
+        public async Task<HttpResponseMessage> getUserOrganization(JObject param)
+        {
+            try
+            {   
+                string uid = param.Value<string>("uid");
+                return Request.KthePergjigje(await AutorizimeRepository.getUserOrganization(uid));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje("Error");
+
+            }
+        }
+        [HttpPost]
+        public async Task<HttpResponseMessage> changeOrganization(JObject param)
+        {
+            try
+            {   
+                string uid = param.Value<string>("uid");
+                string organization = param.Value<string>("organization");
+                int enterprise_id = param.Value<int>("enterprise_id");
+                int idPerdoruesi = param.Value<int>("idPerdoruesi");
+                return Request.KthePergjigje(await AutorizimeRepository.changeOrganization(uid,organization, enterprise_id, idPerdoruesi));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje(false);
+
+            }
+        }
+        [HttpPost, HttpGet]
         public HttpResponseMessage ktheUserTeKonfirmuar(JObject param)
         {
             try
