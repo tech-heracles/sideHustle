@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="Shto_Ndermarrje.aspx.cs"
-    ValidateRequest="false" Inherits="PlatinumWeb.Shto_Ndermarrje" %>
+    ValidateRequest="false" Inherits="PlatinumWeb.Shto_Ndermarrje" async="true" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>

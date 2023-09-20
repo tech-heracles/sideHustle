@@ -1042,7 +1042,7 @@ namespace PlatinumWeb
                 DbCore.DbAsete.colSerialetMagazine serialemag = new DbCore.DbAsete.colSerialetMagazine();
                 clsKonfigurimAmbjenti konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera, perdorues.IdGjuha);
                 clsBanka banka = new clsBanka();
-                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata["userEmail"].ToString().Split('@')[0]} nuk ekziston ne Alpha!");
+                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata["userEmail"].ToString()} nuk ka aktivizuar sinkronizimin!");
                 if(kf.IdKlientFurnitor== 0) return new clsMesazh(false, $"Klienti me kod {dictionary["clientCode"].ToString()} nuk ekziston ne Alpha!");
                 //
                 //Initial variables
@@ -1255,7 +1255,7 @@ namespace PlatinumWeb
                 dega.IdDegeAdministrative = dega.IdDegeAdministrative == -1 ? 0 : dega.IdDegeAdministrative;
                 clsPerdorues perdorues = new clsPerdorues(alphaMetadata.userEmail.Split('@')[0], alphaMetadata.userEmail, true);
                 string mesazhinformues;
-                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata.userEmail.Split('@')[0]} nuk ekziston ne Alpha!");
+                if(perdorues.IdPerdorues == 0) return new clsMesazh(false, $"Perdoruesi {alphaMetadata.userEmail} nuk ka aktivizuar sinkronizimin!");
                 ndermarrjeViti.mbushNdermarrjeVitiSipasNdermarjesDheVitit(ndermarrje.IdNdermarrje, viti.IdViti);
                 clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(wtn.docDate, ndermarrje.IdNdermarrje);
                 clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(wtn.businUnitCode,ndermarrje.IdNdermarrje);

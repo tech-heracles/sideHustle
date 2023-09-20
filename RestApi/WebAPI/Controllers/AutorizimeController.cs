@@ -117,7 +117,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage createLoginWithGmail(JObject param)
+        public async Task<HttpResponseMessage> createLoginWithGmail(JObject param)
         {
             try
             {   
@@ -125,8 +125,9 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
-                AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email,Session);
-                return Request.KthePergjigje(true);
+                string accessToken = param.Value<string>("accessToken");
+                string url = await AutorizimeRepository.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email, Session, accessToken);
+                return Request.KthePergjigje(url);
             }
             catch (Exception ex)
             {
@@ -143,7 +144,9 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
-                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email));
+                string alphaOrganization = param.Value<string>("alphaOrganization");
+                string accessToken = param.Value<string>("accessToken");
+                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email, idNdermarrje,alphaOrganization,uid, accessToken));
             }
             catch (Exception ex)
             {

@@ -25,7 +25,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
- 
+ <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -50,7 +51,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
 
     <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -93,8 +93,10 @@
             -webkit-appearance: searchfield-cancel-button;
         }
         #notification-box{
-            margin-left:2%;
             position:absolute;
+            top:10px;
+            z-index: 99999;
+            right: 1%;
         }
         .material-icons{
             color:white;
@@ -104,6 +106,7 @@
             height:50% !important;
             border-radius: 20% !important;
         }
+
         /*#backDiv {
             position: absolute;
             top: 0;
@@ -179,10 +182,9 @@
         }
         .popup{
             
-            z-index:9999;
+            z-index:9999999999;
             font-family: Arial, Helvetica, Verdana;
-
-            width: 456px;
+            width: 700px;
             height: max-content;
             background: #f9fbfd;
             position: absolute;
@@ -283,9 +285,8 @@
 
 .popup img{
 
-    width: 65px;
-    height: 51px;
-    margin-left:-5%;
+    width: 100%;
+    height: max-content;
 }
 .gmail-image{
     width: 90px !important;
@@ -324,24 +325,130 @@
 .logoHome img{
     height: 55px;
 }
+    .lds-grid {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    animation: lds-grid 3s linear infinite;
+    }
+    .lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+    }
+    .lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+    }
+    .lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+    }
+    .lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+    }
+    .lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+    }
+    .lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+    }
+    .lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+    }
+    @keyframes lds-grid {
+    0%,100% {
+        background-color: #4584ec;
+    }
+    25% {background-color: #38a555;}
+    50% {
+        background-color: #e44d40;
+    }
+    75% {background-color: #f3ba15;}
+}
+    .loader {
+    display: none;
+    position: fixed;
+    z-index: 99999999999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+    hr{
+        width:42%;
+    }
+.loader-overlay {
+    
+    display: none;
+    position: fixed;
+    z-index: 99999999999;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.7);
+}
     </style>
 </head>
 
 <body class="">
-                                           <div id="notification-box"></div>
-
+    <div class="loader-overlay"></div>
+    <div class="loader">
+        <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="notification-box"></div>
     <form id="form1" class="main" runat="server">  
         <div runat="server" id="googlePopup"> 
-            <div class="popup-container"  id="popup-container" style="display:block">
+            <div class="popup-container"  id="popup-container" style="display:none">
                 <div class="popup">
-                    <img src="images/FaqjaPare/sparkle.png"/>
-                    <h3>Konfirmo adresen tende Gmail!</h3>
-                    <p>Ende nuk ke konfirmuar adresen tende Gmail.<br />
-                        Per t’u loguar ne menyre te sigurt ne programin Alpha,  konfirmo adresen tende Gmail!
-                    </p><%--<img class="gmail-image" src="images/FaqjaPare/gmail-logo-removebg.png"/>--%>
+                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
+                    <h3 onclick="open_delta()">Shih Raportin?</h3>
                     <div class="email-footer">
-                        <p onclick="MbyllEmailPopup()" style="color:#475467;">Konfirmo me vone</p>
-                        <p onclick="konfirmoEmail()" style="color:#6941c6;">Konfirmo</p>
+                        <img src="images/delta.png" onclick="open_delta()"/>
                     </div>
                 </div>
             </div>
@@ -377,6 +484,7 @@
                                 <div id="top" style="vertical-align: top; height:55px !important;">
                                     <div id="btnHome" class="logoHome" onclick="dashboard()">
                                         <img src="images/home2.png" "/>
+
                                         <%-- ImageUrl="images/home.png"--%>
 <%--                                        <img src="images/home2.png" />--%>
                                        <%-- <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Height="32px"
@@ -1326,7 +1434,7 @@
                                                     </Items>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="Help" Name="help">
-                                                    <Items>
+                   <%--                                 <Items>
                                                         <dx:MenuItem Text="Manuali Perdoruesit" Name="manuali" Visible="false" Target="_blank">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="ProgramKase" Text="Program Kase" Visible="false">
@@ -1337,7 +1445,7 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Versioni" Text="Versioni" Visible="false" Target="_blank">
                                                         </dx:MenuItem>
-                                                    </Items>
+                                                    </Items>--%>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
                                                     ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
@@ -1366,6 +1474,7 @@
                                     </div>
 
                                 </div>
+
                             </dx:SplitterContentControl>
                         </ContentCollection>
                     </dx:SplitterPane>
@@ -1994,37 +2103,113 @@
     </form>
 
     
-    <script type="text/javascript">      
-        async function signInWithGooglePopup() {
+    <script type="text/javascript">
+        function showLoadingGif() {
+            $("cmbRolet").val();
+            document.querySelector(".loader").style.display = "block";
+            document.querySelector(".loader-overlay").style.display = "block";
+        }
+        function hideLoadingGif(status, emptyRole) {
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".loader-overlay").style.display = "none";
+        }
+        const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
+        tr_menu.style.position = "absolute";
+        tr_menu.style.paddingRight = "3%";
+        tr_menu.style.backgroundColor = "#0072c6";
+        let url = "https:delta.alpha.al";
+        async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
-            await signInWithPopup(auth, GoogleAuthProvider)
-                .then(function (result) {
-                    $.ajax({
-                        url: Utils.getServerApiUrl("Autorizime", "userControls"),
-                        data: JSON.stringify({
-                            uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
-                        })
-                    }).done(function (res) {
-                        if (res != "") {
-                            myMesazh.ShtoMesazhGabimi(res);
-                            return;
-                        };
+            if(redirect) showLoadingGif();
+            if (!window.auth.currentUser) {
+                await signInWithPopup(auth, GoogleAuthProvider)
+                    .then(async function (result) {
+                        const accessToken = await window.getIdToken(window.auth.currentUser);
                         $.ajax({
-                            url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                            url: Utils.getServerApiUrl("Autorizime", "userControls"),
                             data: JSON.stringify({
-                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email
+                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
                             })
-                        }).done(function () {
-                            window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
+                        }).done(function (res) {
+                            if (res.message != undefined) {
+                                if (redirect) {
+                                    url = res.url;
+                                    $("#popup-container").css("display", "block");
+                                    hideLoadingGif();
+                                }
+                                else{
+                                    myMesazh.ShtoMesazhGabimi(res.message);
+                                }
+                                return;
+                            };
+                            $.ajax({
+                                url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                                data: JSON.stringify({
+                                    uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
+                                })
+                            }).done(function (res_url) {
+                                if (redirect) {
+                                    url = res_url;
+                                    $("#popup-container").css("display", "block");
+                                    hideLoadingGif();
+                                }
+                                else{
+                                    window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
+                                    window.setTimeout(function () {
+                                        document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
+                                        window.location.reload();
+                                    }, 2000);
+                                }
+                                
+                            });
+                        });
+
+                    });
+            }
+            else {
+                const result = window.auth.currentUser;
+                const accessToken = await window.getIdToken(window.auth.currentUser);
+                $.ajax({
+                    url: Utils.getServerApiUrl("Autorizime", "userControls"),
+                    data: JSON.stringify({
+                        uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
+                    })
+                }).done(function (res) {
+                    if (res.message != undefined) {
+                        if (redirect) {
+                            $("#popup-container").css("display", "block");
+                            url = res.url;
+                            hideLoadingGif();
+                        }
+                        else{
+                            myMesazh.ShtoMesazhGabimi(res.message);
+                        }
+                        return;
+                    };
+                    $.ajax({
+                        url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
+                        data: JSON.stringify({
+                            uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken
+                        })
+                    }).done(function (res_url) {
+                        if (redirect) {
+                            $("#popup-container").css("display", "block");
+                            url = res_url;
+                            hideLoadingGif();
+                        }     
+                        else{
+                            window.location.href = "/Prezantohu.aspx?uid=" + result.uid + "endUid";
                             window.setTimeout(function () {
-                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
+                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.email;
                                 window.location.reload();
                             }, 2000);
-                        });
+                        }
+
                     });
-                    
                 });
+            }
+           
         }
         sessionStorage.setItem("GoogleLogInAttemps", 0);
         //Popup Window
@@ -2051,6 +2236,13 @@
                 }
             }
         };
+        function open_delta() {
+            $("#popup-container").css("display", "none");
+            window.open(url, "_blank");
+        };
+        function close_delta() {
+            $("#popup-container").css("display", "none");
+        }
         $(document).ready(async function () {
             //$.ajax({
             //    url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
@@ -2058,22 +2250,63 @@
             //}).done(function (res) {
 
             //});
-            window.auth.onAuthStateChanged(function (user) {
+            // window.auth.onAuthStateChanged(function (user) {
 
                 if (window.auth.currentUser != null) {
                     $("#popup-container").css("display", "none");
                 }
 
-            //    //const client = new ChatClient({
-            //    //    user: window.auth.currentUser.uid,
-            //    //    room: "capybara",
-            //    //    token: window.auth.currentUser.accessToken
-            //    //})
+                const client = new ChatClient({
+                    user: hfState.Get("idPerdoruesi"),
+                    room: hfState.Get("organizata"),
+                    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
+                })
 
-            //    //client.addNotificationBox("notification-box");
-            })
+                client.addNotificationBox("notification-box");
+                client.socket.on("message", function (message) {
+                    if (message.text.includes("Shih raportet")) {
+                        const elements = $('.notification-text:contains("Shih raportet")');
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].children[0].addEventListener("click",function () {
+                                signInWithGooglePopup(true);
+                            })
+
+                        }
+                        
+                    }
+                });
+                const initial_Value = [];
+                function check1(oldvalue) {
+                    undefined === oldvalue && (oldvalue = client.notifications);
+                    clearcheck = setInterval(repeatcheck, 500, oldvalue);
+                    function repeatcheck(oldvalue) {
+                        if (client.notifications.length>0) {
+                            // do something
+                            clearInterval(clearcheck);
+                            //const toggler = document.getElementById("toggler-notification");
+                            //toggler.addEventListener("click", function () {
+                            //    const drop_show = document.getElementById("notification-dropdown");
+                            //    drop_show.style.maxWidh = "400px !important";
+                            //    drop_show.style.minWidth = "400px !important";
+                            //    drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
+                            //})
+                            const elements = $('.notification-text:contains("Shih raportet")');
+                            for (var i = 0; i < elements.length; i++) {
+                                elements.css("cursor","pointer");
+                                elements[i].children[0].addEventListener("click",function () {
+                                    signInWithGooglePopup(true);
+                                })
+
+                            }
+                        }
+                    }
+                }
+                check1(initial_Value);
+               
+            // })
 
         });
+
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
@@ -2089,7 +2322,8 @@
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
 
     </script>
-    <style>.dxm-item{
+    <style>
+        .dxm-item{
                 /*background: transparent !important;*/
                 padding: 8px;
            }
@@ -2108,6 +2342,11 @@
             }
             .dxm-noImages .dxm-item{
                 padding:3px !important;
+            }
+            #notification-dropdown{
+                max-width: 400px  !important;
+                min-width: 400px  !important;
+                transform:  translate(-30rem, 0.5rem) !important;
             }
     </style>
 </body>
