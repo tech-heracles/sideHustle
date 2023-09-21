@@ -13949,6 +13949,12 @@ namespace DbCore
             //return "Error";
             
         }
+        public async static Task<object> goToDelta(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
+        {
+            FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+            string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, "", accessToken, false);
+            return url;
+        }
         public async static Task<object> userControls(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
         {
             clsPerdorues user = new clsPerdorues(idPerdoruesi);
@@ -13964,6 +13970,9 @@ namespace DbCore
                 string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
                 bool create_projects = alpha_org != alphaOrganization;  
                 string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                bool create_projects = alpha_org != alphaOrganization;
+                string url = "";
+                //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                 return new
                 {
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
@@ -13979,7 +13988,8 @@ namespace DbCore
                     org_id = user_details["organization"].ToString();
                     string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
                     bool create_projects = alpha_org != alphaOrganization;
-                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                    //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                    string url = "";
                     return new
                     {
                         message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",

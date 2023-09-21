@@ -2132,6 +2132,7 @@
         tr_menu.style.paddingRight = "3%";
         tr_menu.style.backgroundColor = "#0072c6";
         let url = "https://delta.alpha.al";
+        let url = "https://delta.alpha.al";
         async function handleOrganizationChange(){
             $.ajax({
                 url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
@@ -2168,7 +2169,22 @@
         async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
-            if(redirect) showLoadingGif();
+            if (redirect) {
+                const {user} = await signInWithPopup(auth, GoogleAuthProvider);
+                showLoadingGif();
+                const accessToken = await window.getIdToken(window.auth.currentUser);
+                $.ajax({
+                    url: Utils.getServerApiUrl("Autorizime", "goToDelta"),
+                    data: JSON.stringify({
+                        uid: user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
+                    })
+                }).done(function (url) {
+                    url = url;
+                    $("#popup-container").css("display", "block");
+                    hideLoadingGif();
+                })
+                return;
+            }
             if (!window.auth.currentUser) {
                 await signInWithPopup(auth, GoogleAuthProvider)
                     .then(async function (result) {

@@ -97,6 +97,10 @@ namespace RestApi.WebAPI.Models
         {
             return await clsFunksione.userControls(idPerdoruesi, email,idNdermarje,alphaOrganization,uid,accessToken);
         } 
+        internal async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
+        {
+            return await clsFunksione.goToDelta(idPerdoruesi, email,idNdermarje,alphaOrganization,uid,accessToken);
+        } 
         internal async static Task<string> getUserOrganization(string uid)
         {
             return await clsFunksione.getUserOrganization(uid);

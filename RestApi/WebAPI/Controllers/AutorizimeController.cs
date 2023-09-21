@@ -155,6 +155,25 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
+        public async Task<HttpResponseMessage> goToDelta(JObject param)
+        {
+            try
+            {   
+                string uid = param.Value<string>("uid");
+                int idNdermarrje = param.Value<int>("idNdermarrje");
+                int idPerdoruesi = param.Value<int>("idPerdoruesi");
+                string email = param.Value<string>("email");
+                string alphaOrganization = param.Value<string>("alphaOrganization");
+                string accessToken = param.Value<string>("accessToken");
+                return Request.KthePergjigje(await AutorizimeRepository.goToDelta(idPerdoruesi, email, idNdermarrje,alphaOrganization,uid, accessToken));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje("");
+
+            }
+        }
+        [HttpPost, HttpGet]
         public async Task<HttpResponseMessage> getUserOrganization(JObject param)
         {
             try
