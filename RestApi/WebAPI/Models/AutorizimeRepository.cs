@@ -14,10 +14,10 @@ namespace RestApi.WebAPI.Models
         public static object[] kaTeDrejteTeHapeAmbjentin(HttpSessionState Session, string emerkomponente, string url, bool newTab, int idNdermarje, int idPerdoruesi, int idGjuha)
         {
             object[] result = new object[3];
-            string[] splitid = { "id=" };     
+            string[] splitid = { "id=" };
             if (idNdermarje == 0)
                 clsFunksione.logout(Session, true, "MbarimSessioni");
-           int idNdermVit = mySessionObjects.ktheIdVitNdermarrje(Session);
+            int idNdermVit = mySessionObjects.ktheIdVitNdermarrje(Session);
             bool tedrejta = clsFunksione.kaTeDrejteTeHapeAmbjentin(idPerdoruesi, idNdermarje, idNdermVit, emerkomponente, !url.Contains("shtim_modifikim"), url.Contains("=modifikim"), (url.Contains("id=")) ? int.Parse(url.Split(splitid, StringSplitOptions.None)[1].Split('&')[0]) : 0, idGjuha, url);
 
             result[0] = tedrejta;
@@ -54,15 +54,15 @@ namespace RestApi.WebAPI.Models
 
             string veprimi = queryParams.ContainsKey("shtim_modifikim")
                 ? queryParams["shtim_modifikim"].ToString()
-                : "" ;
+                : "";
 
-            if (!queryParams.TryGetValue("id", out idDokuObj) || !int.TryParse(idDokuObj?.ToString(),out idDokumenti))  idDokumenti = 0;
+            if (!queryParams.TryGetValue("id", out idDokuObj) || !int.TryParse(idDokuObj?.ToString(), out idDokumenti)) idDokumenti = 0;
 
             if (!queryParams.TryGetValue("idkonfig", out idKonfigStr) || !int.TryParse(idKonfigStr?.ToString(), out idKonfig)) idKonfig = 0;
 
             if (!queryParams.TryGetValue("idniveli", out idNiveliStr) || !int.TryParse(idNiveliStr?.ToString(), out idNiveli)) idNiveli = 0;
 
-            return clsFunksione.KaTeDrejteTeHapeAmbjentin(idPerdoruesi, idNdermarrje, idVitNdermarrje, emerkomponente, !shtim_mod, modifikim,idDokumenti, idGjuha, idKonfig, idNiveli, veprimi);
+            return clsFunksione.KaTeDrejteTeHapeAmbjentin(idPerdoruesi, idNdermarrje, idVitNdermarrje, emerkomponente, !shtim_mod, modifikim, idDokumenti, idGjuha, idKonfig, idNiveli, veprimi);
 
         }
         public static bool fshiGridNgaSessioniLupa(HttpSessionState Session)
@@ -89,14 +89,18 @@ namespace RestApi.WebAPI.Models
         {
             return clsFunksione.logoAmbient(urlKomponente, id.ToString(), idNdermarrje, idPerdoruesi, logu, ci);
         }
-        internal async static Task<string> createLoginWithGmail(string uid,int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session,string accessToken)
+        internal async static Task<string> createLoginWithGmail(string uid, int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session, string accessToken)
         {
-            return await clsFunksione.createLoginWithGmail(uid, idNdermarrje,idPerdoruesi, email,session, accessToken);
-        } 
+            return await clsFunksione.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email, session, accessToken);
+        }
         internal async static Task<object> userControls(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
-            return await clsFunksione.userControls(idPerdoruesi, email,idNdermarje,alphaOrganization,uid,accessToken);
-        } 
+            return await clsFunksione.userControls(idPerdoruesi, email, idNdermarje, alphaOrganization, uid, accessToken);
+        }
+        internal async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
+        {
+            return await clsFunksione.goToDelta(idPerdoruesi, email, idNdermarje, alphaOrganization, uid, accessToken);
+        }
         internal async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
             return await clsFunksione.merrShenimePerdoruesi(shenime);

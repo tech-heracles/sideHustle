@@ -29,7 +29,7 @@ namespace RestApi.WebAPI.Controllers
                 bool newTab = param.Value<bool>("newTab");
                 int idNdermarje = param.Value<int>("idNdermarje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
-                int idGjuha = param.Value<int>("idGjuha");          
+                int idGjuha = param.Value<int>("idGjuha");
                 return Request.KthePergjigje(AutorizimeRepository.kaTeDrejteTeHapeAmbjentin(Session, emerkomponente, url, newTab, idNdermarje, idPerdoruesi, idGjuha));
             }
             catch (Exception ex)
@@ -61,10 +61,10 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int IdPerdoruesi = param.Value<int>("IdPerdoruesi");
                 int idGjuha = param.Value<int>("idGjuha");
-                
+
                 int idDokRegjistrimi = 0;
                 if (!int.TryParse(vlera, out idDokRegjistrimi)) idDokRegjistrimi = 0;
-                return Request.KthePergjigje(AutorizimeRepository.KtheInfoLart(Session, urlKomponente, idDokRegjistrimi, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session),  idGjuha));
+                return Request.KthePergjigje(AutorizimeRepository.KtheInfoLart(Session, urlKomponente, idDokRegjistrimi, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idGjuha));
             }
             catch (Exception ex)
             {
@@ -102,7 +102,7 @@ namespace RestApi.WebAPI.Controllers
         public HttpResponseMessage KtheInfoLartPerdorues(JObject param)
         {
             try
-            {   
+            {
                 string urlKomponente = param.Value<string>("urlKomponente");
                 int id = param.Value<int>("id");
                 int idNdermarrje = param.Value<int>("idNdermarrje");
@@ -110,7 +110,7 @@ namespace RestApi.WebAPI.Controllers
                 bool Logu = param.Value<bool>("Logu");
                 string ci = param.Value<string>("ci");
                 return Request.KthePergjigje(AutorizimeRepository.KtheInfoLart(urlKomponente, id, idNdermarrje, idPerdoruesi, Logu, ci));
-            } 
+            }
             catch (Exception ex)
             {
                 return Request.KthePergjigjeGabim(param, ex);
@@ -120,7 +120,7 @@ namespace RestApi.WebAPI.Controllers
         public async Task<HttpResponseMessage> createLoginWithGmail(JObject param)
         {
             try
-            {   
+            {
                 string uid = param.Value<string>("uid");
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
@@ -139,14 +139,33 @@ namespace RestApi.WebAPI.Controllers
         public async Task<HttpResponseMessage> userControls(JObject param)
         {
             try
-            {   
+            {
                 string uid = param.Value<string>("uid");
                 int idNdermarrje = param.Value<int>("idNdermarrje");
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 string email = param.Value<string>("email");
                 string alphaOrganization = param.Value<string>("alphaOrganization");
                 string accessToken = param.Value<string>("accessToken");
-                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email, idNdermarrje,alphaOrganization,uid, accessToken));
+                return Request.KthePergjigje(await AutorizimeRepository.userControls(idPerdoruesi, email, idNdermarrje, alphaOrganization, uid, accessToken));
+            }
+            catch (Exception ex)
+            {
+                return Request.KthePergjigje("");
+
+            }
+        }
+        [HttpPost, HttpGet]
+        public async Task<HttpResponseMessage> goToDelta(JObject param)
+        {
+            try
+            {
+                string uid = param.Value<string>("uid");
+                int idNdermarrje = param.Value<int>("idNdermarrje");
+                int idPerdoruesi = param.Value<int>("idPerdoruesi");
+                string email = param.Value<string>("email");
+                string alphaOrganization = param.Value<string>("alphaOrganization");
+                string accessToken = param.Value<string>("accessToken");
+                return Request.KthePergjigje(await AutorizimeRepository.goToDelta(idPerdoruesi, email, idNdermarrje, alphaOrganization, uid, accessToken));
             }
             catch (Exception ex)
             {
@@ -158,7 +177,7 @@ namespace RestApi.WebAPI.Controllers
         public HttpResponseMessage ktheUserTeKonfirmuar(JObject param)
         {
             try
-            {   
+            {
                 string shenime = param.Value<string>("shenime");
                 return Request.KthePergjigje(AutorizimeRepository.merrShenimePerdoruesi(shenime));
             }
@@ -177,8 +196,8 @@ namespace RestApi.WebAPI.Controllers
                 int idPerdoruesi = param.Value<int>("idPerdoruesi");
                 clsLicenca licenca = new clsLicenca();
                 licenca.mbushLicencen(idPerdoruesi);
-                return Request.KthePergjigje(new {kodlicenca = licenca.KodLicenca, datelicenca = licenca.DateSkadimi, llojlicenca = licenca.IdLlojLicenca, nrperdorues = licenca.NrPerdoruesish, nrndermarrje = licenca.NrNdermarjesh });
-            } 
+                return Request.KthePergjigje(new { kodlicenca = licenca.KodLicenca, datelicenca = licenca.DateSkadimi, llojlicenca = licenca.IdLlojLicenca, nrperdorues = licenca.NrPerdoruesish, nrndermarrje = licenca.NrNdermarjesh });
+            }
             catch (Exception ex)
             {
                 return Request.KthePergjigjeGabim(param, ex);

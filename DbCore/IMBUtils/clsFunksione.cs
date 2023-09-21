@@ -1096,7 +1096,8 @@ namespace DbCore
             {
                 using (StreamWriter stmw = new StreamWriter(stream))
                 {
-                    stmw.Write(JsonConvert.SerializeObject(new {
+                    stmw.Write(JsonConvert.SerializeObject(new
+                    {
                         email = email,
                         subject = "Email Verification",
                         message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/verifyEmail?email=" + email + "&timestamp=" + timeStamp + "&apikey=" + apiKey + "<br><br>Faleminderit!"
@@ -1116,7 +1117,7 @@ namespace DbCore
             }
             return false;
         }
-        public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili (string email, string apikey)
+        public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili(string email, string apikey)
         {
             try
             {
@@ -1138,7 +1139,7 @@ namespace DbCore
                 }
                 return webReq.BeginGetResponse(null, null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
 
@@ -2090,18 +2091,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                             mesazh = new clsMesazh(true);
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, null, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPunonjes, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2278,18 +2279,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
                             mesazh = new clsMesazh(true);
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2391,18 +2392,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
                             mesazh = new clsMesazh(true);
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2492,7 +2493,7 @@ namespace DbCore
                     if (!msg.Status)
                         return msg;
                 }
-                ImbLogger.Info($"Login! U logua perdoruesi me username: {username } dhe sessionid  {httpContext.Session.SessionID } !");
+                ImbLogger.Info($"Login! U logua perdoruesi me username: {username} dhe sessionid  {httpContext.Session.SessionID} !");
                 httpContext.Response.Cookies.Set(new HttpCookie("loadingUrl", clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.LOADING_URL)));
                 konfiguroNLog();
                 return new clsMesazh(true);
@@ -2941,8 +2942,8 @@ namespace DbCore
             Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
-            
-            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),"");
+
+            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), "");
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -3036,12 +3037,12 @@ namespace DbCore
             if (!eValiduar)
             {
 
-                response.Redirect("AktivizoAlphaWeb.aspx",false);
+                response.Redirect("AktivizoAlphaWeb.aspx", false);
                 return new clsMesazh(true);
             }
             if (ndryshoPassword)
             {
-                response.Redirect("NdryshimFjalekalimi.aspx",false);
+                response.Redirect("NdryshimFjalekalimi.aspx", false);
                 return new clsMesazh(true);
             }
             if (passwordISkaduar)
@@ -13766,7 +13767,7 @@ namespace DbCore
             }
 
         }
-        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata,string user)
+        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata, string user)
         {
             object obj = new
             {
@@ -13874,7 +13875,8 @@ namespace DbCore
                 return null;
             }
         }
-        static public DataTable getAllRolesExxeptSuperUser(){
+        static public DataTable getAllRolesExxeptSuperUser()
+        {
             return clsRoli.ktheRolePervecSuperUser();
         }
         public static string generateRandomPassword()
@@ -13888,7 +13890,13 @@ namespace DbCore
             }
             return stringBuilder.ToString();
         }
-        public async static Task<object> userControls(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
+        public async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
+        {
+            FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+            string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, "", accessToken, false);
+            return url;
+        }
+        public async static Task<object> userControls(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
             clsPerdorues user = new clsPerdorues(idPerdoruesi);
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
@@ -13902,13 +13910,14 @@ namespace DbCore
                 org_id = user_details["organization"].ToString();
                 string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
                 bool create_projects = alpha_org != alphaOrganization;
-                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                string url = "";
+                //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                 return new
                 {
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
                     url = url
                 };
-                
+
             }
             var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
             if (uDetailsFromNotes.Count > 0)
@@ -13918,7 +13927,8 @@ namespace DbCore
                     org_id = user_details["organization"].ToString();
                     string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
                     bool create_projects = alpha_org != alphaOrganization;
-                    string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                    //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                    string url = "";
                     return new
                     {
                         message = $"Perdouresi ekzistues {user.PerdoruesUsername} eshte lidhur me emailin: " + uDetailsFromNotes["email"].ToString() + "",
@@ -13927,7 +13937,7 @@ namespace DbCore
                 }
             return new { };
         }
-        public async static Task<string> createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session,string accessToken)
+        public async static Task<string> createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email, HttpSessionState session, string accessToken)
         {
             try
             {
@@ -13949,13 +13959,13 @@ namespace DbCore
                     {
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
-                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
+                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
                     }
                 if (ekziston)
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
+                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
                 }
                 if (!exists)
                 {
@@ -13976,7 +13986,7 @@ namespace DbCore
                         org_id = user_details["organization"].ToString();
                     }
                 }
-                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
+                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
 
             }
             catch (Exception err)
@@ -13984,7 +13994,7 @@ namespace DbCore
                 Console.WriteLine(err);
                 return "";
             }
-           
+
         }
         public async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
@@ -13993,13 +14003,13 @@ namespace DbCore
                 FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
                 return await firebaseConfiguration.checkIfUserExistsWithAlpha(shenime);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
 
         }
-        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken, bool create_projects)
+        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization, string uid, string email, string org_id, string accessToken, bool create_projects)
         {
             try
             {
@@ -14039,7 +14049,7 @@ namespace DbCore
 
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 return "";
             }
