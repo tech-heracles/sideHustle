@@ -13968,9 +13968,9 @@ namespace DbCore
                 Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                 org_id = user_details["organization"].ToString();
                 string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
-                bool create_projects = alpha_org != alphaOrganization;  
-                string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
-                bool create_projects = alpha_org != alphaOrganization;
+                //bool create_projects = alpha_org != alphaOrganization;  
+                //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                //bool create_projects = alpha_org != alphaOrganization;
                 string url = "";
                 //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                 return new
@@ -14020,13 +14020,13 @@ namespace DbCore
                     {
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
-                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
+                        //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                     }
                 if (ekziston)
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
+                    //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                 }
                 bool create_projects = true;
                 if (!exists)
@@ -14048,10 +14048,11 @@ namespace DbCore
                             clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
+                        synchronize(uid, alphaOrganization, idNdermarje, org_id);
                     }
                 }
-                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
-
+                return "Sukses!";
+                //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
             }
             catch (Exception err)
             {
@@ -14059,6 +14060,17 @@ namespace DbCore
                 return "";
             }
            
+        }
+        private static void synchronize(string uid, string alpha_organization, int enterprise_id,string org_id)
+        {
+            object message = new
+            {
+                uid = uid,
+                alphaOrganization = alpha_organization,
+                enterprise = enterprise_id,
+                organization = org_id
+            };
+            PubSub.initializeSync(message);
         }
         public async static Task<bool> merrShenimePerdoruesi(string shenime)
         {

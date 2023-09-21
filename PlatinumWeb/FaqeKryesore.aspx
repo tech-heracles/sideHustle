@@ -2132,7 +2132,6 @@
         tr_menu.style.paddingRight = "3%";
         tr_menu.style.backgroundColor = "#0072c6";
         let url = "https://delta.alpha.al";
-        let url = "https://delta.alpha.al";
         async function handleOrganizationChange(){
             $.ajax({
                 url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
