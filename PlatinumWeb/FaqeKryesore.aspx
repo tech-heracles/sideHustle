@@ -2137,9 +2137,10 @@
                 url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
                 data: JSON.stringify({ uid: auth.currentUser.uid, organization: hfState.Get("organizata"), enterprise_id: hfState.Get("idNdermarrje"), idPerdoruesi: hfState.Get("idPerdoruesi") })
             })
-            .done(function(){
-                $("#change-popup-container").css("display", "none");
-                $("#organization-information").html(``);
+                .done(function (result) {
+                    result ? myMesazh.ShtoMesazhSuksesi("Organizata u ndryshua me sukses!") : myMesazh.ShtoMesazhGabimi("Ndodhi nje gabim ne ndryshimin e organizates!");
+                    $("#change-popup-container").css("display", "none");
+                    $("#organization-information").html(``);
             })
         }
         async function changeOrganization(){
@@ -2363,7 +2364,7 @@
                         }
                     }
                 }
-                check1(initial_Value);
+                //check1(initial_Value);
                
             // })
 

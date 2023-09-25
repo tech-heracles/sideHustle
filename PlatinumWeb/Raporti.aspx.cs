@@ -6361,10 +6361,10 @@ namespace PlatinumWeb
                 }
                 else  
                 {
+                    HfState.Set("showMessage", true);
                     report.DataSource = GetReportData("datasource");
                     report.DataAdapter = GetReportData("adapter");
                     report.DataMember = GetReportData("spname").ToString();
-
                     //report = (XtraReport)HfState.Get("datasource");
 
                 }
@@ -8438,7 +8438,6 @@ namespace PlatinumWeb
             string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
             clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti", RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             afisho(base.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, mySessionObjects.merrPeriudheKontabel(base.Session), IdPerdoruesi, clsRaporti.KaSubRaporte(base.IdRaporti), hfState.Get("guidString").ToString());
-                    
         }
 
         private void ChangeReportOrientation()

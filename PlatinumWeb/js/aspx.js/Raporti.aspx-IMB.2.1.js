@@ -2467,6 +2467,9 @@ function hapRaportin() {
     eshteHapurRaporti = true;
     RaporteUtils.Parameter = "Shiko";
     ASPxCallbackPanel1.PerformCallback("Shiko");
+    if (hfState.Get("showMessage") == true) {
+        myMesazh.ShtoMesazhInformues("sadasd");
+    }
 }
 function toast() {
     const toast = document.getElementById('toast');

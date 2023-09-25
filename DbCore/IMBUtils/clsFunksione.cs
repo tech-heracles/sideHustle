@@ -14035,6 +14035,7 @@ namespace DbCore
                     await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
                     clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
                     org_id = orgId;
+                    synchronize(uid, alphaOrganization, idNdermarje, org_id);
                 }
                 else
                 {

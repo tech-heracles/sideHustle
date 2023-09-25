@@ -13,6 +13,7 @@ using Fasterflect;
 using DbCore.DbAdmin;
 using DbCore.IMBUtils.Security;
 using System.Linq;
+using DbCore.IMBUtils.Extensions;
 
 namespace DbCore
 {
@@ -221,13 +222,35 @@ namespace DbCore
             DocumentReference user_ref =  firestoreDb.Collection(userDetailsCollection).Document(uid);
             Dictionary<string, object> user_data = (await user_ref.GetSnapshotAsync()).ToDictionary();
             object org_object = createOrganizationDetailsObject(alphaOrganization, enterprise);
-            string org_id = await createNewOrganization(org_object, uid);
             string username = (string)user_data["username"];
 
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             clsPerdorues.krijoPerdoruesMeGmail((string)user_data["email"], username, username, pass, idPerdoruesi);
-            System.Collections.Generic.ICollection<object> organization = user_data["previousOrganizations"] as System.Collections.Generic.ICollection<object>;
-            organization.Add((string)user_data["organization"]);
+            string org_id = "";
+            bool status = false;
+            ICollection<object> organizations= new List<object>();
+            if (user_data.ContainsKey("previousOrganizations"))
+            {
+                organizations = user_data["previousOrganizations"] as System.Collections.Generic.ICollection<object>;
+                object[] org_array = organizations.ToArray();
+                for(int i=0;i<org_array.Length;i++)
+                {
+                    DocumentReference current_org_ref = firestoreDb.Collection(organizationCollection).Document(org_array[i].ToString());
+                    var current_organization = (await current_org_ref.GetSnapshotAsync()).ToDictionary();
+                    if (current_organization.ContainsKey("alphaOrganization"))
+                    {
+                        if ((string)current_organization["alphaOrganization"] == alphaOrganization)
+                        {
+                            org_id = current_org_ref.Id;
+                            status = true;
+                            break;
+                        }
+                    }
+                };
+            }
+            organizations.Add((string)user_data["organization"]);
+            if (!status) org_id = await createNewOrganization(org_object, uid);
+
             //List<string> organizations = user_data.ContainsKey("previousOrganizations") ? new List<string>(.TryGetValue("") : new List<string>();
             //organizations.Add((string)user_data["organization"]);
             Dictionary<string, object> update_dictionary = new Dictionary<string, object>
@@ -235,7 +258,7 @@ namespace DbCore
                 { "alphaOrganization", alphaOrganization },
                 { "organization", org_id},
                 { "passwordHash", pass},
-                {"previousOrganizations", organization.ToArray() }
+                {"previousOrganizations", organizations.ToArray() }
             };
             await user_ref.UpdateAsync(update_dictionary);
         }
