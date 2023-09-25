@@ -12,6 +12,7 @@ using FireSharp.Extensions;
 using Fasterflect;
 using DbCore.DbAdmin;
 using DbCore.IMBUtils.Security;
+using System.Linq;
 
 namespace DbCore
 {
@@ -222,9 +223,11 @@ namespace DbCore
             object org_object = createOrganizationDetailsObject(alphaOrganization, enterprise);
             string org_id = await createNewOrganization(org_object, uid);
             string username = (string)user_data["username"];
+
             string pass = PasswordHelper.HashLogin(username, clsFunksione.generateRandomPassword());
             clsPerdorues.krijoPerdoruesMeGmail((string)user_data["email"], username, username, pass, idPerdoruesi);
-            //string[] organization = user_data["previousOrganizations"] as string[];
+            System.Collections.Generic.ICollection<object> organization = user_data["previousOrganizations"] as System.Collections.Generic.ICollection<object>;
+            organization.Add((string)user_data["organization"]);
             //List<string> organizations = user_data.ContainsKey("previousOrganizations") ? new List<string>(.TryGetValue("") : new List<string>();
             //organizations.Add((string)user_data["organization"]);
             Dictionary<string, object> update_dictionary = new Dictionary<string, object>
@@ -232,7 +235,7 @@ namespace DbCore
                 { "alphaOrganization", alphaOrganization },
                 { "organization", org_id},
                 { "passwordHash", pass},
-                {"previousOrganization", (string)user_data["organization"] }
+                {"previousOrganizations", organization.ToArray() }
             };
             await user_ref.UpdateAsync(update_dictionary);
         }

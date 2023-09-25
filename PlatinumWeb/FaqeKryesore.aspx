@@ -2127,10 +2127,10 @@
             document.querySelector(".loader").style.display = "none";
             document.querySelector(".loader-overlay").style.display = "none";
         }
-        const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
-        tr_menu.style.position = "absolute";
-        tr_menu.style.paddingRight = "3%";
-        tr_menu.style.backgroundColor = "#0072c6";
+        //const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
+        //tr_menu.style.position = "absolute";
+        //tr_menu.style.paddingRight = "3%";
+        //tr_menu.style.backgroundColor = "#0072c6";
         let url = "https://delta.alpha.al";
         async function handleOrganizationChange(){
             $.ajax({
@@ -2318,25 +2318,25 @@
                     $("#popup-container").css("display", "none");
                 }
 
-                const client = new ChatClient({
-                    user: hfState.Get("idPerdoruesi"),
-                    room: hfState.Get("organizata"),
-                    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
-                })
+                //const client = new ChatClient({
+                //    user: hfState.Get("idPerdoruesi"),
+                //    room: hfState.Get("organizata"),
+                //    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
+                //})
 
-                client.addNotificationBox("notification-box");
-                client.socket.on("message", function (message) {
-                    if (message.text.includes("Shih raportet")) {
-                        const elements = $('.notification-text:contains("Shih raportet")');
-                        for (var i = 0; i < elements.length; i++) {
-                            elements[i].children[0].addEventListener("click",function () {
-                                signInWithGooglePopup(true);
-                            })
+                //client.addNotificationBox("notification-box");
+                //client.socket.on("message", function (message) {
+                //    if (message.text.includes("Shih raportet")) {
+                //        const elements = $('.notification-text:contains("Shih raportet")');
+                //        for (var i = 0; i < elements.length; i++) {
+                //            elements[i].children[0].addEventListener("click",function () {
+                //                signInWithGooglePopup(true);
+                //            })
 
-                        }
+                //        }
                         
-                    }
-                });
+                //    }
+                //});
                 const initial_Value = [];
                 function check1(oldvalue) {
                     undefined === oldvalue && (oldvalue = client.notifications);
