@@ -2460,7 +2460,7 @@ function menu_click(s, e) {
 }
 function hapRaportin() {
     if ((Date.now() / 1000) - hfState.Get("lastOpenDate")< 60) {
-        myMesazh.ShtoMesazhInformues("1 minute");
+        myMesazh.ShtoMesazhInformues("Raporti i perditesuar qe prej 1 minute!");
     }
     if (!KontrolloIntervalet())
         return;
