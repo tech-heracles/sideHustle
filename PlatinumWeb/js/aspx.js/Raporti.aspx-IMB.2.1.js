@@ -2072,8 +2072,9 @@ $(document).ready(function () {
         identikuesPerPopupKategoriShpenzimi = "Raporti";
 
     $(document).keydown(function (event) {
-        if ((event.which == 13 || event.keyCode == 13) && $(event.target).closest("#reportContainer").length == 0)
+        if ((event.which == 13 || event.keyCode == 13) && $(event.target).closest("#reportContainer").length == 0) {
             hapRaportin();
+        }
     });
     $(window).on('load', function () {
         Init();
@@ -2458,18 +2459,25 @@ function menu_click(s, e) {
     }
     e.processOnServer = false;
 }
-function hapRaportin() {
+async function hapRaportin() {
     if ((Date.now() / 1000) - hfState.Get("lastOpenDate")< 60) {
-        myMesazh.ShtoMesazhInformues("Raporti i perditesuar qe prej 1 minute!");
+        toastMessage("Raporti i perditesuar qe prej 1 minute!");
+        return;
     }
     if (!KontrolloIntervalet())
         return;
     var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
+    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
     filtraAvancuar.SetExpanded(false);
+    filtra.SetExpanded(false);
     $('#hfRilodo').val(true);
     eshteHapurRaporti = true;
     RaporteUtils.Parameter = "Shiko";
-    ASPxCallbackPanel1.PerformCallback("Shiko");
+    await ASPxCallbackPanel1.PerformCallback("Shiko");
+}
+function showFilters() {
+    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
+    filtra.SetExpanded(true);
 }
 function toast() {
     const toast = document.getElementById('toast');
@@ -2483,6 +2491,19 @@ function toast() {
         toast.style.zIndex = -10;
         //toast.style.display= "none";
     }, 2000);
+}
+function toastMessage(message) {
+    const toast = document.getElementById('toast');
+
+    toast.querySelector('.toast-body').innerHTML = message;
+    toast.style.opacity = 1;
+    toast.style.zIndex = 999999;
+    //toast.style.display = "block";
+    setTimeout(function () {
+        toast.style.opacity = 0;
+        toast.style.zIndex = -10;
+        //toast.style.display= "none";
+    }, 4000);
 }
 function KontrolloIntervalet() {
     var idKontrollet = JSON.parse($('#hfKontrolle').val());
