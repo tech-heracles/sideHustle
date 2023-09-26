@@ -918,19 +918,19 @@ namespace PlatinumWeb
                 return;
             }
             clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
-            if (perdorues.PerdoruesEmail != "")
+            //if (perdorues.PerdoruesEmail != "")
+            //{
+            try
             {
-                try
-                {
-                    FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                    Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
-                    clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), user_details["uid"].ToString(), perdorues.PerdoruesEmail, user_details["organization"].ToString(), "",true);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
+                //FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                //Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), "", perdorues.PerdoruesEmail, "", "",true);
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            //}
             clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiSukses", ci), pnlMesazhi);
             DbCore.mySessionObjects.ruajImazhNeSesion(Session, null);
             DbCore.mySessionObjects.ruajpathneSession(Session, null);
