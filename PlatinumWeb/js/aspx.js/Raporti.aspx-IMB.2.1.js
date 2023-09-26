@@ -2459,6 +2459,9 @@ function menu_click(s, e) {
     e.processOnServer = false;
 }
 function hapRaportin() {
+    if ((Date.now() / 1000) - hfState.Get("lastOpenDate")< 60) {
+        myMesazh.ShtoMesazhInformues("1 minute");
+    }
     if (!KontrolloIntervalet())
         return;
     var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
@@ -2467,9 +2470,6 @@ function hapRaportin() {
     eshteHapurRaporti = true;
     RaporteUtils.Parameter = "Shiko";
     ASPxCallbackPanel1.PerformCallback("Shiko");
-    if (hfState.Get("showMessage") == true) {
-        myMesazh.ShtoMesazhInformues("sadasd");
-    }
 }
 function toast() {
     const toast = document.getElementById('toast');

@@ -6361,7 +6361,6 @@ namespace PlatinumWeb
                 }
                 else  
                 {
-                    HfState.Set("showMessage", true);
                     report.DataSource = GetReportData("datasource");
                     report.DataAdapter = GetReportData("adapter");
                     report.DataMember = GetReportData("spname").ToString();
