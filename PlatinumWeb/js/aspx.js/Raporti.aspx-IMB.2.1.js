@@ -2460,8 +2460,11 @@ function menu_click(s, e) {
     e.processOnServer = false;
 }
 async function hapRaportin() {
-    if ((Date.now() / 1000) - hfState.Get("lastOpenDate")< 60) {
-        toastMessage("Raporti i perditesuar qe prej 1 minute!");
+    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60) {
+        const data = new Date(hfState.Get("lastOpenDate") * 1000);
+        let date_now = data.toISOString().split("T")[0]
+        date_now = `${date_now} ${data.getHours()}:${data.getMinutes()}:${data.getSeconds()}`
+        toastMessage(`Raporti i perditesuar qe prej ${date_now}!`);
         return;
     }
     if (!KontrolloIntervalet())

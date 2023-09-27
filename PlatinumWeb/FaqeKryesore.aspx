@@ -97,6 +97,7 @@
             top:10px;
             z-index: 99999;
             right: 1%;
+            width:max-content;
         }
         .material-icons{
             color:white;
@@ -147,8 +148,14 @@
 			overflow: scroll;
 		  }
 		  #menu{
-			overflow: scroll;
+			overflow: hidden;
+            width:max-content;
+            display: inline;
+            float:right;
 		  }
+          #ASPxSplitter1_ASPxMenu1_DXI6_{
+              float:left;
+          }
 		  
 		  .dxm-gutter{
 			max-height: calc(100vh - 50px);
@@ -422,6 +429,7 @@
     right: 0;
     background-color: rgba(255,255,255,0.7);
 }
+
     </style>
 </head>
 
@@ -2132,15 +2140,15 @@
         //tr_menu.style.paddingRight = "3%";
         //tr_menu.style.backgroundColor = "#0072c6";
         let url = "https://delta.alpha.al";
-        async function handleOrganizationChange(){
+        async function handleOrganizationChange() {
+            $("#change-popup-container").css("display", "none");
+            $("#organization-information").html(``);
             $.ajax({
                 url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
                 data: JSON.stringify({ uid: auth.currentUser.uid, organization: hfState.Get("organizata"), enterprise_id: hfState.Get("idNdermarrje"), idPerdoruesi: hfState.Get("idPerdoruesi") })
             })
                 .done(function (result) {
                     result ? myMesazh.ShtoMesazhSuksesi("Organizata u ndryshua me sukses!") : myMesazh.ShtoMesazhGabimi("Ndodhi nje gabim ne ndryshimin e organizates!");
-                    $("#change-popup-container").css("display", "none");
-                    $("#organization-information").html(``);
             })
         }
         async function changeOrganization(){
@@ -2314,30 +2322,37 @@
 
             //});
             // window.auth.onAuthStateChanged(function (user) {
-
+            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
+            document.getElementById("notification-box").style.left = `${offset - 30}px`;
                 if (window.auth.currentUser != null) {
                     $("#popup-container").css("display", "none");
                 }
 
-                //const client = new ChatClient({
-                //    user: hfState.Get("idPerdoruesi"),
-                //    room: hfState.Get("organizata"),
-                //    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
-                //})
+                const client = new ChatClient({
+                    user: hfState.Get("idPerdoruesi"),
+                    room: hfState.Get("organizata"),
+                    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
+                })
 
-                //client.addNotificationBox("notification-box");
-                //client.socket.on("message", function (message) {
-                //    if (message.text.includes("Shih raportet")) {
-                //        const elements = $('.notification-text:contains("Shih raportet")');
-                //        for (var i = 0; i < elements.length; i++) {
-                //            elements[i].children[0].addEventListener("click",function () {
-                //                signInWithGooglePopup(true);
-                //            })
+            client.addNotificationBox("notification-box");
+            client.socket.on("message", function (message) {
+                if (message.text.includes("Shih raportet")) {
+                    if (!hfState.Get("notification_admin")) {
+                        message = null;
+                        return;
+                    }
+                    const elements = $('.notification-text:contains("Shih raportet")');
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].children[0].addEventListener("click", function () {
+                            signInWithGooglePopup(true);
+                        })
 
-                //        }
-                        
-                //    }
-                //});
+                    }
+
+                }
+                    
+                    
+            });
                 const initial_Value = [];
                 function check1(oldvalue) {
                     undefined === oldvalue && (oldvalue = client.notifications);
@@ -2355,6 +2370,10 @@
                             //})
                             const elements = $('.notification-text:contains("Shih raportet")');
                             for (var i = 0; i < elements.length; i++) {
+                                if (!hfState.Get("notification_admin")) {
+                                    elements[i].parentElement.parentElement.remove();
+                                    return;
+                                }
                                 elements.css("cursor","pointer");
                                 elements[i].children[0].addEventListener("click",function () {
                                     signInWithGooglePopup(true);
@@ -2364,12 +2383,15 @@
                         }
                     }
                 }
-                //check1(initial_Value);
+                check1(initial_Value);
                
             // })
 
         });
-
+        $(window).resize(function () {
+            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
+            document.getElementById("notification-box").style.left = `${offset - 30}px`;
+        });
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
@@ -2383,9 +2405,18 @@
 
         window.startHub();
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
-
+        
     </script>
     <style>
+        @media only screen and (max-width: 900px) {
+            #ASPxSplitter1_ASPxMenu1_DXI0_,#ASPxSplitter1_ASPxMenu1_DXI1_,#ASPxSplitter1_ASPxMenu1_DXI2_,#ASPxSplitter1_ASPxMenu1_DXI3_,#ASPxSplitter1_ASPxMenu1_DXI4_{
+                display:none;
+            }
+            .dxm-separator{
+                display:none !important;
+            }
+        }
+        
         .dxm-item{
                 /*background: transparent !important;*/
                 padding: 8px;
@@ -2395,6 +2426,13 @@
             }
             .dxm-separator{
                 display:none !important;
+            }
+            .dxm-separator b{
+                background-color: #0072c6 !important;
+            }
+            #ASPxSplitter1_ASPxMenu1_DXI6_IS{
+                display:block !important;
+                padding-right: 20px !important;
             }
             .dxm-content{
                 padding-left: 10px !important;

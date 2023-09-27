@@ -69,6 +69,16 @@ namespace PlatinumWeb
                 {
                     clsRoli rol = new clsRoli(role.IdRoli);
                     if (rol.KodRoli == "RA" || rol.KodRoli == "RAS") hfState.Set("adminUser", true);
+                    colTeDrejtaRoli drejta = new colTeDrejtaRoli();
+                    drejta.mbushTeDrejtaPerdoruesi(IdPerdoruesi, idNdermarrje, IdViti);
+                    for(int i = 0; i < drejta.Count; i++)
+                    {
+                        if (drejta[i].DShtim == true && drejta[i].IdKomponente == 160)
+                        {
+                            hfState.Set("notification_admin", true);
+                            break;
+                        }
+                    }
                 }
                 hfState.Set("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
                 hfState.Set("idPerdoruesi", idPerdoruesi);
