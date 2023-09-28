@@ -2323,7 +2323,7 @@
             //});
             // window.auth.onAuthStateChanged(function (user) {
             const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
-            document.getElementById("notification-box").style.left = `${offset - 30}px`;
+            document.getElementById("notification-box").style.left = `${offset - 40}px`;
                 if (window.auth.currentUser != null) {
                     $("#popup-container").css("display", "none");
                 }

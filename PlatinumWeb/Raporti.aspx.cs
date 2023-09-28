@@ -6335,7 +6335,6 @@ namespace PlatinumWeb
                 if (RaportiEmerReal == "teArdhuraShpenzimeQendraKosto")
                 {
                     object[] param = new object[5];
-
                     param[0] = azhornim;
                     param[1] = dtmbarimi;
                     param[2] = idkonfig;
@@ -6344,29 +6343,27 @@ namespace PlatinumWeb
                     param[4] = sqlParam1;
                     DbCore.mySessionObjects.ruajParametratERaportit(Session, param, guidString);
                 }
-                long lastOpenDate = 0;
-                long.TryParse(HfState.Get("lastOpenDate").ToString(),out lastOpenDate);
-
-                long timeDifferenceSeconds = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - lastOpenDate;
-
-                if (timeDifferenceSeconds > 60)
-                {
+                //long lastOpenDate = 0;
+                //long.TryParse(HfState.Get("lastOpenDate").ToString(),out lastOpenDate);
+                //long timeDifferenceSeconds = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - lastOpenDate;
+                //if (timeDifferenceSeconds > 60)
+                //{
                    //if ((DateTimeOffset.UtcNow.ToUnixTimeSeconds() - long.Parse((HfState.Get("lastOpenDate").ToString()))) > 60)
+                ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
+                HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
+                HfState.Set("filter", ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedItem.Value.ToString());
+                //    SaveReportData(report.DataSource,"datasource");
+                //    SaveReportData(report.DataAdapter,"adapter");
+                //    SaveReportData(report.DataMember, "spname");
+                //}
+                //else  
+                //{
+                //    report.DataSource = GetReportData("datasource");
+                //    report.DataAdapter = GetReportData("adapter");
+                //    report.DataMember = GetReportData("spname").ToString();
+                //    //report = (XtraReport)HfState.Get("datasource");
 
-                    ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
-                    HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
-                    SaveReportData(report.DataSource,"datasource");
-                    SaveReportData(report.DataAdapter,"adapter");
-                    SaveReportData(report.DataMember, "spname");
-                }
-                else  
-                {
-                    report.DataSource = GetReportData("datasource");
-                    report.DataAdapter = GetReportData("adapter");
-                    report.DataMember = GetReportData("spname").ToString();
-                    //report = (XtraReport)HfState.Get("datasource");
-
-                }
+                //}
                 if (((DataSet)report.DataSource).Tables[0].Rows.Count == 0)
                     ImbLogger.Warn($"Raporti me emer {RaportiEmerReal} nuk ka te dhena per periudhen e zgjedhur.");
                 if (report.DataSource != null)

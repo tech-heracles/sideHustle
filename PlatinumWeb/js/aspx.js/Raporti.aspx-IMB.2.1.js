@@ -2460,7 +2460,8 @@ function menu_click(s, e) {
     e.processOnServer = false;
 }
 function hapRaportin() {
-    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60) {
+    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
+    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60 && hfState.Get("filter") == radDtDok.GetValue()) {
         const data = new Date(hfState.Get("lastOpenDate") * 1000);
         let date_now = data.toISOString().split("T")[0];
         date_now = date_now + " " + data.getHours().toString() + ":"+data.getMinutes().toString()+":" + data.getSeconds().toString();
@@ -2470,7 +2471,6 @@ function hapRaportin() {
     if (!KontrolloIntervalet())
         return;
     var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
-    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
     filtraAvancuar.SetExpanded(false);
     filtra.SetExpanded(false);
     $('#hfRilodo').val(true);
