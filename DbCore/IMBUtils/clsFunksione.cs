@@ -14091,6 +14091,7 @@ namespace DbCore
             try
             {
                 List<Dictionary<string, dynamic>> ndermarrjet = clsPerdorues.getUserAdminEnterprises(idPerdoruesi);
+                clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarje);
                 object requestObject = new
                 {
                     uid = uid,
@@ -14098,7 +14099,8 @@ namespace DbCore
                     ndermarrjet = ndermarrjet,
                     orgId = org_id,
                     email = email,
-                    enterpriseId = idNdermarje
+                    enterpriseId = idNdermarje,
+                    enterpriseName = ndermarrje.NdermarrjePershkrimi
                 };
                 GoogleCredential cred = GoogleCredential.GetApplicationDefault();
                 string delta_url = create_projects ? WebConfigurationManager.AppSettings["deltaUrl"] : WebConfigurationManager.AppSettings["deltaUrl_get_project"];

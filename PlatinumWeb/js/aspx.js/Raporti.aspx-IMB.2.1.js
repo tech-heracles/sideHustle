@@ -2459,12 +2459,12 @@ function menu_click(s, e) {
     }
     e.processOnServer = false;
 }
-async function hapRaportin() {
+function hapRaportin() {
     if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60) {
         const data = new Date(hfState.Get("lastOpenDate") * 1000);
-        let date_now = data.toISOString().split("T")[0]
-        date_now = `${date_now} ${data.getHours()}:${data.getMinutes()}:${data.getSeconds()}`
-        toastMessage(`Raporti i perditesuar qe prej ${date_now}!`);
+        let date_now = data.toISOString().split("T")[0];
+        date_now = date_now + " " + data.getHours().toString() + ":"+data.getMinutes().toString()+":" + data.getSeconds().toString();
+        toastMessage("Raporti i perditesuar qe prej " + date_now + "!");
         return;
     }
     if (!KontrolloIntervalet())
@@ -2476,7 +2476,7 @@ async function hapRaportin() {
     $('#hfRilodo').val(true);
     eshteHapurRaporti = true;
     RaporteUtils.Parameter = "Shiko";
-    await ASPxCallbackPanel1.PerformCallback("Shiko");
+    ASPxCallbackPanel1.PerformCallback("Shiko");
 }
 function showFilters() {
     var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");

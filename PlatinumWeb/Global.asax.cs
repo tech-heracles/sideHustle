@@ -228,10 +228,17 @@ namespace PlatinumWeb
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            if (Request.Url.AbsolutePath.ToString().Contains(".aspx"))
-            {
-                clsFunksione.dergoViewLogAlphaweb(Request.Url.AbsolutePath.ToString());
+            try{
+                if (Request.Url.AbsolutePath.ToString().Contains(".aspx"))
+                {
+                    clsFunksione.dergoViewLogAlphaweb(Request.Url.AbsolutePath.ToString());
+                }
             }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error sending log!");
+            }
+
             switch (Request.Url.AbsolutePath.ToString())
             {
                 case "/arber":
