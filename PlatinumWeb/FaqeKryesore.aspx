@@ -2338,6 +2338,7 @@
             client.socket.on("message", function (message) {
                 if (message.text.includes("Shih raportet")) {
                     if (!hfState.Get("notification_admin")) {
+                        $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
                         message = null;
                         return;
                     }
@@ -2371,6 +2372,7 @@
                             const elements = $('.notification-text:contains("Shih raportet")');
                             for (var i = 0; i < elements.length; i++) {
                                 if (!hfState.Get("notification_admin")) {
+                                    $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
                                     elements[i].parentElement.parentElement.remove();
                                     return;
                                 }
@@ -2432,7 +2434,7 @@
             }
             #ASPxSplitter1_ASPxMenu1_DXI6_IS{
                 display:block !important;
-                padding-right: 20px !important;
+                padding-right: 30px !important;
             }
             .dxm-content{
                 padding-left: 10px !important;

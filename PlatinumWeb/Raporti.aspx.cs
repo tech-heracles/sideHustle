@@ -252,7 +252,7 @@ namespace PlatinumWeb
                 idRaportiModul = Convert.ToInt32(hfState["idRaportiModul"]);
 
                 if (Convert.ToBoolean(hfState.Get("oldViewer")))
-                    reportViewer2.Report = (XtraReport)GetReport();
+                    reportViewer2.Report = GetReport();
             }
         }
 
@@ -481,7 +481,7 @@ namespace PlatinumWeb
                 return;
             }
 
-           var dt = ((System.Data.DataSet)(GetReport())).Tables[0];
+           var dt = ((System.Data.DataSet)(GetReport().DataSource)).Tables[0];
             if (dt.Columns.Contains("NDERMARJEPERSHK"))
                 dt.Columns.Remove("NDERMARJEPERSHK");
 
@@ -532,7 +532,7 @@ namespace PlatinumWeb
         private void exportVeprimtariaDitore()
         {
             string pathDir = HttpContext.Current.Server.MapPath(null) + @"\AlphaWebExport\";
-            VeprimtariaDitoreExporter exporter = new VeprimtariaDitoreExporter(((DataSet)GetReport()).Tables[0], pathDir, mySessionObjects.merrIdNdermarrjeSesioni(Session), rm, ci);
+            VeprimtariaDitoreExporter exporter = new VeprimtariaDitoreExporter(((DataSet)GetReport().DataSource).Tables[0], pathDir, mySessionObjects.merrIdNdermarrjeSesioni(Session), rm, ci);
             clsMesazh mesazh = exporter.Eksporto();
             clsMenuInfo.ShtoMesazh(MenuInfo, mesazh, pnlMesazhi);
             DbCore.mySessionObjects.shtoMesazhNeSession(Session, mesazh, guidString);
@@ -8244,9 +8244,9 @@ namespace PlatinumWeb
         {
             mySessionObjects.ruajMyReportNeSessionData(Session, hfState.Get("guidString").ToString(), report,name);
         }
-        private object GetReport()
+        private XtraReport GetReport()
         {
-            return mySessionObjects.merrMyReportNgaSessioni<object>(Session, hfState.Get("guidString").ToString());
+            return mySessionObjects.merrMyReportNgaSessioni<XtraReport>(Session, hfState.Get("guidString").ToString());
         }
         private object GetReportData(string name)
         {
