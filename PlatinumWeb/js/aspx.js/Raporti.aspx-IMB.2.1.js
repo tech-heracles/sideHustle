@@ -2461,13 +2461,18 @@ function menu_click(s, e) {
 }
 function hapRaportin() {
     var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
-    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60 && hfState.Get("filter") == radDtDok.GetValue()) {
+    const filters = document.querySelectorAll(".dxeEditArea_MetropolisBlue");
+    let filterValue = "";
+    for (let i = 0; i < filters.length; i++)
+        filterValue += filters[i].value;
+    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60 && hfState.Get("filter") == radDtDok.GetValue() && hfState.Get("advancedFilter") == filterValue) {
         const data = new Date(hfState.Get("lastOpenDate") * 1000);
         let date_now = data.toISOString().split("T")[0];
         date_now = date_now + " " + data.getHours().toString() + ":"+data.getMinutes().toString()+":" + data.getSeconds().toString();
         toastMessage("Raporti i perditesuar qe prej " + date_now + "!");
         return;
     }
+    hfState.Set("advancedFilter", filterValue);
     if (!KontrolloIntervalet())
         return;
     var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
