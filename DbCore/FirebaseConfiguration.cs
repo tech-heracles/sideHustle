@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
-using Newtonsoft.Json;
-using Google.Cloud.Firestore;
-using FirebaseAdmin.Auth;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using OfficeOpenXml.FormulaParsing.Excel.Functions;
-using FireSharp.Extensions;
-using Fasterflect;
-using DbCore.DbAdmin;
-using DbCore.IMBUtils.Security;
 using System.Linq;
-using DbCore.IMBUtils.Extensions;
+using System.Threading.Tasks;
+using DbCore.classes.ProcessedOrder;
+using DbCore.DbAdmin;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Security;
+using FirebaseAdmin;
+using FirebaseAdmin.Auth;
+using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Firestore;
+using Newtonsoft.Json;
 
 namespace DbCore
 {
@@ -27,7 +24,8 @@ namespace DbCore
         //};
         private static string userDetailsCollection = "userDetails";
         private static string organizationCollection = "organization";
-        public FirebaseConfiguration(){
+        public FirebaseConfiguration()
+        {
             //try
             //{
             if (FirebaseApp.DefaultInstance == null)
@@ -47,7 +45,7 @@ namespace DbCore
             //catch {
             //    Console.WriteLine("Firebase already created!");
             //}
-            
+
 
         }
         public async Task<bool> checkIfUserIsVerified(string email)
@@ -67,23 +65,39 @@ namespace DbCore
 
 
         }
-        public async Task<Dictionary<string,object>> getUserPassword(string idToken)
+        public async void addProcessOrder(ProcessOrder processOrder)
+        {
+            try
+            {
+                FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document();
+                processOrder.metadata.id = order_ref.Id;
+                order_ref.SetAsync(processOrder.toObject());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving process order");
+            }
+
+        }
+        public async Task<Dictionary<string, object>> getUserPassword(string idToken)
         {
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirebaseToken firebaseToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
             string uid = firebaseToken.Uid;
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-            Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("uid" ,uid);
+            Query usersRef = firestoreDb.Collection(userDetailsCollection).WhereEqualTo("uid", uid);
             QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
-            foreach(var snap in snapshot) {
+            foreach (var snap in snapshot)
+            {
                 documentDictionary = snap.ToDictionary();
             }
             FirebaseAuth fa = FirebaseAuth.GetAuth(FirebaseApp.DefaultInstance);
-            
+
             Task<string> jwt = fa.CreateCustomTokenAsync(uid);
             return documentDictionary;
         }
-        public async Task<Dictionary<string,object>> getUserDetailsWithUID(string uid)
+        public async Task<Dictionary<string, object>> getUserDetailsWithUID(string uid)
         {
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
@@ -91,19 +105,19 @@ namespace DbCore
             QuerySnapshot snapshot = await usersRef.GetSnapshotAsync();
             foreach (var snap in snapshot)
             {
-                if(snap.Id == uid)
+                if (snap.Id == uid)
                     documentDictionary = snap.ToDictionary();
             }
             return documentDictionary;
         }
-        public async Task<Dictionary<string,dynamic>> getUserDetailsWithUIDDynamic(string uid)
+        public async Task<Dictionary<string, dynamic>> getUserDetailsWithUIDDynamic(string uid)
         {
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             DocumentReference usersRef = firestoreDb.Collection(userDetailsCollection).Document(uid);
             return (await usersRef.GetSnapshotAsync()).ToDictionary();
         }
-        public async Task<Dictionary<string,object>> getUserDetailsWithEmail(string email)
+        public async Task<Dictionary<string, object>> getUserDetailsWithEmail(string email)
         {
             try
             {
@@ -118,23 +132,23 @@ namespace DbCore
                 }
                 return documentDictionary;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return new Dictionary<string, object>();
             }
 
         }
-        public async Task<string> createNewOrganization(object organizationDetails,string uid)
+        public async Task<string> createNewOrganization(object organizationDetails, string uid)
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             DocumentReference writeResult = await firestoreDb.Collection(organizationCollection).AddAsync(organizationDetails);
             Google.Cloud.Firestore.WriteResult docRefOrg = await firestoreDb.Collection(organizationCollection).Document(writeResult.Id).UpdateAsync(updateOrganizationMetaData(writeResult.Id, uid));
-            
+
             return writeResult.Id;
         }
-        public Task<WriteResult> createNewUser(object userDetails,string uid)
+        public Task<WriteResult> createNewUser(object userDetails, string uid)
         {
-            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");           
+            FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             Task<WriteResult> docRef = firestoreDb.Collection(userDetailsCollection).Document(uid).SetAsync(userDetails);
             return docRef;
         }
@@ -150,7 +164,7 @@ namespace DbCore
                 if (uDetails.ContainsKey("admin"))
                     if (uDetails["admin"].ToString() == "True")
                         admin = true;
-                
+
             }
             else if (userResult.Count == 1) admin = true;
             if (uDetails.ContainsKey("alphaOrganization") == true)
@@ -178,8 +192,8 @@ namespace DbCore
                 try
                 {
                     WriteResult docRef = await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(userDetails);
-                    if(admin && uDetails.ContainsKey("organization"))
-                        await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg,ndermarrja));
+                    if (admin && uDetails.ContainsKey("organization"))
+                        await firestoreDb.Collection(organizationCollection).Document(uDetails["organization"].ToString()).UpdateAsync(createOrganizationObjectForUpdate(loggedInOrg, ndermarrja));
                     return true;
                 }
                 catch (Exception ex)
@@ -210,16 +224,18 @@ namespace DbCore
             if (uDetails.ContainsKey("alphaOrganization")) return uDetails;
             else return new Dictionary<string, object>();
         }
+        //public async Task<void> add
+
         public async void updateLogInTime(string uid)
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
             await firestoreDb.Collection(userDetailsCollection).Document(uid).UpdateAsync(createUserDetailsObjectForUpdateLogInTime());
 
         }
-        public async void changeOrganization(string uid,string alphaOrganization,string enterprise,int idPerdoruesi)
+        public async void changeOrganization(string uid, string alphaOrganization, string enterprise, int idPerdoruesi)
         {
             FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-            DocumentReference user_ref =  firestoreDb.Collection(userDetailsCollection).Document(uid);
+            DocumentReference user_ref = firestoreDb.Collection(userDetailsCollection).Document(uid);
             Dictionary<string, object> user_data = (await user_ref.GetSnapshotAsync()).ToDictionary();
             object org_object = createOrganizationDetailsObject(alphaOrganization, enterprise);
             string username = (string)user_data["username"];
@@ -228,12 +244,12 @@ namespace DbCore
             clsPerdorues.krijoPerdoruesMeGmail((string)user_data["email"], username, username, pass, idPerdoruesi);
             string org_id = "";
             bool status = false;
-            ICollection<object> organizations= new List<object>();
+            ICollection<object> organizations = new List<object>();
             if (user_data.ContainsKey("previousOrganizations"))
             {
                 organizations = user_data["previousOrganizations"] as System.Collections.Generic.ICollection<object>;
                 object[] org_array = organizations.ToArray();
-                for(int i=0;i<org_array.Length;i++)
+                for (int i = 0; i < org_array.Length; i++)
                 {
                     DocumentReference current_org_ref = firestoreDb.Collection(organizationCollection).Document(org_array[i].ToString());
                     var current_organization = (await current_org_ref.GetSnapshotAsync()).ToDictionary();
@@ -262,7 +278,7 @@ namespace DbCore
             };
             await user_ref.UpdateAsync(update_dictionary);
         }
-        public object createUserDetailsObject(string uid, string username, string pass,string email,string alphaOrganization,string orgid)
+        public object createUserDetailsObject(string uid, string username, string pass, string email, string alphaOrganization, string orgid)
         {
             return new
             {
@@ -274,63 +290,63 @@ namespace DbCore
                 organization = orgid,
                 admin = true
             };
-            
+
         }
         public object createOrganizationDetailsObject(string alphaOrganization, string ndermarrja)
         {
             return new
             {
-                organization= alphaOrganization,
-                clientId= "",
-                currency= "ALL",
-                docNo= false,
-                firstDocNo= 1,
-                currentDocNo= 1,
-                integration= false,
-                bccEmailAddress= "",
-                createdAt= DateTime.Now.ToString(),
-                updatedAt= "",
-                updatedBy= "",
-                fiscalization= false,
-                einvoice= false,
-                isIssuerInVAT= false,
-                sellerName= "",
-                sellerAddress= "",
-                sellerTown= "",
-                sellerCountry= "ALB",
-                issuerNUIS= "",
-                businUnitCode= "",
-                operatorCode= "",
-                tcrCode= "",
-                accountID= "",
-                accountName= "",
-                secret= "",
-                accountID2= "",
-                accountName2= "",
-                fromEmailAddress= "",
-                subject= "",
-                defMessage= "",
-                templateId= "154b01ec-1f8b-410b-a945-adedc1f5dd0e",
-                templateViewer= "akv88ef0v.hbs",
-                testFiscalization= false,
-                connectionStringName= "",
-                organizationServer= "",
-                authorization= "",
-                username= "",
-                nodeUrl= "https://node.alpha.al",
-                formatPerImportClient= "",
-                formatPerImportShitje= "",
-                formatPerImportDalje= "",
-                formatPerImportFurnitor= "",
-                formatPerImportBlerje= "",
-                cashRegisterCode= "",
+                organization = alphaOrganization,
+                clientId = "",
+                currency = "ALL",
+                docNo = false,
+                firstDocNo = 1,
+                currentDocNo = 1,
+                integration = false,
+                bccEmailAddress = "",
+                createdAt = DateTime.Now.ToString(),
+                updatedAt = "",
+                updatedBy = "",
+                fiscalization = false,
+                einvoice = false,
+                isIssuerInVAT = false,
+                sellerName = "",
+                sellerAddress = "",
+                sellerTown = "",
+                sellerCountry = "ALB",
+                issuerNUIS = "",
+                businUnitCode = "",
+                operatorCode = "",
+                tcrCode = "",
+                accountID = "",
+                accountName = "",
+                secret = "",
+                accountID2 = "",
+                accountName2 = "",
+                fromEmailAddress = "",
+                subject = "",
+                defMessage = "",
+                templateId = "154b01ec-1f8b-410b-a945-adedc1f5dd0e",
+                templateViewer = "akv88ef0v.hbs",
+                testFiscalization = false,
+                connectionStringName = "",
+                organizationServer = "",
+                authorization = "",
+                username = "",
+                nodeUrl = "https://node.alpha.al",
+                formatPerImportClient = "",
+                formatPerImportShitje = "",
+                formatPerImportDalje = "",
+                formatPerImportFurnitor = "",
+                formatPerImportBlerje = "",
+                cashRegisterCode = "",
                 alphaOrganization = alphaOrganization,
                 enterprise = ndermarrja
             };
 
 
         }
-        public Dictionary<string, object> createUserDetailsObjectForUpdate(string alphaOrganization,string hashPassword,string username)
+        public Dictionary<string, object> createUserDetailsObjectForUpdate(string alphaOrganization, string hashPassword, string username)
 
         {
             Dictionary<string, object> update = new Dictionary<string, object>
@@ -352,7 +368,7 @@ namespace DbCore
             return update;
 
         }
-        public Dictionary<string, object> createOrganizationObjectForUpdate(string alphaOrganization,string ndermarrja)
+        public Dictionary<string, object> createOrganizationObjectForUpdate(string alphaOrganization, string ndermarrja)
 
         {
             Dictionary<string, object> update = new Dictionary<string, object>
@@ -373,12 +389,12 @@ namespace DbCore
             return update;
 
         }
-        public Dictionary<string, object> updateOrganizationMetaData(string id,string uid)
+        public Dictionary<string, object> updateOrganizationMetaData(string id, string uid)
 
         {
             Dictionary<string, object> update = new Dictionary<string, object>
             {
-                {"metadata", new { 
+                {"metadata", new {
                     id=id,
                     createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     createdBy = uid,

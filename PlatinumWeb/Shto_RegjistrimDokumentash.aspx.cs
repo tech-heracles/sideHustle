@@ -1,46 +1,47 @@
-﻿using DbCore;
-using DbCore.DbAdmin;
-using DbCore.DbInventari;
-using DbCore.DbKontabiliteti;
-using DbCore.DbRegjistrim;
-using DbCore.DbShare;
-using DevExpress.Web;
-using DevExpress.Web.ASPxGauges;
-using DevExpress.Web.ASPxGauges.Gauges;
-using DevExpress.Web.ASPxGauges.Gauges.State;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Resources;
-using System.Web;
-using System.Web.UI.HtmlControls;
-using DbCore.IMBUtils.DataBase;
-using Newtonsoft.Json;
-using PlatinumWeb.ApplicationUtils.Pages;
-using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Types;
-using DbCore.IMBUtils;
-using DbCore.IMBUtils.Logging;
-using DbCore.IMBUtils.Messages;
-using AlphaWebCommon.WebUtils.ASPxControlExtensions;
-using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
-using CacheLayer;
-using PlatinumWeb.ApplicationUtils;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Security.Cryptography;
-using System.IO;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using DbCore.DbArkaBanka;
-using DbCore.IMBUtils.Fiskalizimi.API;
+using System.Web;
 using System.Web.Configuration;
-using Converter = DbCore.IMBUtils.Types.Converter;
+using System.Web.UI.HtmlControls;
+using AlphaWebCommon.WebUtils.ASPxControlExtensions;
+using CacheLayer;
+using DbCore;
+using DbCore.classes.ProcessedOrder;
+using DbCore.DbAdmin;
+using DbCore.DbArkaBanka;
+using DbCore.DbInventari;
+using DbCore.DbKontabiliteti;
+using DbCore.DbRegjistrim;
+using DbCore.DbShare;
+using DbCore.IMBUtils;
+using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.API;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Types;
+using DevExpress.Web;
+using DevExpress.Web.ASPxGauges;
+using DevExpress.Web.ASPxGauges.Gauges;
+using DevExpress.Web.ASPxGauges.Gauges.State;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PlatinumWeb.ApplicationUtils;
+using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
+using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
+using PlatinumWeb.ApplicationUtils.Pages;
+using Converter = DbCore.IMBUtils.Types.Converter;
 
 namespace PlatinumWeb
 {
@@ -2308,7 +2309,7 @@ namespace PlatinumWeb
         /// <param name="shtimModifikim"></param>
         /// <param name="periudha"></param>
         /// <param name="fazat"></param>
-        private void ruajRegjistrim(int idGjuha, int idNdermarrje, int idPerdoruesi, int idNdermarrjeVit, string veprimi, int statusDokumenti, bool printo, StatusAprovimi statusAprovimi, bool kase, bool modifiko, bool kontrolloSasi, bool kontrollokonvertim, CultureInfo cultinf, ResourceManager rm, string shtimModifikim, clsPeriudhaKontabel periudha, object fazat)
+        private async void ruajRegjistrim(int idGjuha, int idNdermarrje, int idPerdoruesi, int idNdermarrjeVit, string veprimi, int statusDokumenti, bool printo, StatusAprovimi statusAprovimi, bool kase, bool modifiko, bool kontrolloSasi, bool kontrollokonvertim, CultureInfo cultinf, ResourceManager rm, string shtimModifikim, clsPeriudhaKontabel periudha, object fazat)
         {
             ImbLogger.LogTraceShitje($"Filloi metoda ruajRegjistrim per dokumentin  {txtNumer.Text} me parametra idGjuha:{idGjuha}, idNdermarje:{idNdermarrje}, idPerdoruesi:{idPerdoruesi}, idNdermarrjeVit:{idNdermarrjeVit}, veprimi:" + veprimi + $", statusDokumenti:{statusDokumenti}, printo:{printo}, StatusAprovimi:{statusAprovimi}, kase:{kase}, modifiko:{modifiko}, kontrolloSasi:{kontrolloSasi}, kontrollokonvertim:{kontrollokonvertim}, CultureInfo:{cultinf}, ResourceManager:{rm}, shtimModifikim:" + shtimModifikim + $", periudha:{periudha}, periudha:{JsonConvert.SerializeObject(periudha)}, fazat:{fazat}");
 
@@ -2568,6 +2569,29 @@ namespace PlatinumWeb
                             !cmbModeli.Text.Contains("USHmag"), ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, false, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
+                            string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
+                            if (niveli == "UB" || niveli == "USH")
+                            {
+                                try
+                                {
+                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
+                                    clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
+                                    Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                                    string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
+                                    string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
+                                    ProcessEnums processEnums;
+                                    processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
+                                    firebase.addProcessOrder(processOrder);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex.ToString());
+                                }
+
+
+                            }
+
                             var viti = new clsViti(periudha.IdViti).KodiViti;
                             if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                             {
@@ -2616,23 +2640,23 @@ namespace PlatinumWeb
                                     }
                                     else if (nivfFature[1] != null)
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(),nivfFature[0], nivfFature[1],"Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
+                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
                                         clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
                                     }
-                                    
+
                                     else
                                     {
-                                       
+
                                         string[] EIC = new string[1];
                                         if (cbEinvoice.Checked)
                                         {
 
-                                            EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, nivfFature[0], operatori,viti);
+                                            EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, nivfFature[0], operatori, viti);
                                             if (EIC[1] != null)
                                             {
-                                                if(EIC[1] == "Fatura nuk u be Einvoice")
+                                                if (EIC[1] == "Fatura nuk u be Einvoice")
                                                 {
                                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Servisi i E-invoice nuk pergjigjet, ju lutem provoni perseri me vone!", pnlMesazhi);
                                                     var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), "Error serveri e-invoice", EIC[1], "Fature E-invoice", EIC[3], "Problem serveri e-invoice");
@@ -2747,6 +2771,32 @@ namespace PlatinumWeb
                         mesazh = kokeShitje.ruaj(idGjuha, serverUrl, false, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text, false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "", false, false, zevendesimtollonakastrati, cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli", false, ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, kthimVod, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
+                            string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
+                            if (niveli == "UB" || niveli == "USH")
+                            {
+                                try
+                                {
+                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
+                                    clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
+                                    Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                                    string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
+                                    string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
+                                    if (uid != "" && organization != "")
+                                    {
+                                        ProcessEnums processEnums;
+                                        processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
+                                        ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
+                                        firebase.addProcessOrder(processOrder);
+                                    }
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex.ToString());
+                                }
+
+
+                            }
                             if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                             {
                                 if (nderm.Fiskalizimi && cbFiskalizo.Checked && statusDokumenti == 1 && veprimi == "blerje" && (shtimModifikim == "shtim" || shtimModifikim == "klonim" || shtimModifikim == "konvertim" || hfState.Get("idstatusdok").ToString() == "0" || shtimModifikim == "kthim") && cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString() == "FB")
@@ -3090,12 +3140,12 @@ namespace PlatinumWeb
                                     }
 
                                 }
-                                else if(cbEinvoice.Checked && txtNIVF.Text != "" && txtEIC.Text == "")
+                                else if (cbEinvoice.Checked && txtNIVF.Text != "" && txtEIC.Text == "")
                                 {
                                     string[] EIC = new string[1];
                                     if (cbEinvoice.Checked)
                                     {
-                                        EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, kokeShitje.NIVF, operatori,viti);
+                                        EIC = DergoEinvoice(kokeshitjeje, kf, nderm, iicSignature, kokeShitje.NIVF, operatori, viti);
                                         if (EIC[1] != null)
                                         {
                                             if (EIC[1] == "Fatura nuk u be Einvoice")
@@ -3701,7 +3751,7 @@ namespace PlatinumWeb
             colTrupiShitje trupi = ruajTrupShitje(idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, tollon, gridDataObject.Value, gridObjectKomision.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm, tollonakastrati, zevendesimtollonakastrati, blerengadealer, shitjevodafone);
             //krijoSeriale(colserialemag, trupi, statusDokumenti, idNdermarrje, idPerdoruesi, idPerdoruesi, konfmag, kontrolloSasi, ci, rm, perqindjeZbritje);
             if (cbFiskalizo.Checked)
-                for(int i=0;i<trupi.Count;i++)
+                for (int i = 0; i < trupi.Count; i++)
                     if (trupi[i].IdLlojVeprimi != 1)
                         throw new Exception("Nuk mund te beni fatura te fiskalizuara me llogari!");
             int idmagazina = 0;

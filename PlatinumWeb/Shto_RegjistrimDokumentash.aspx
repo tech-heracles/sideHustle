@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Shto_RegjistrimDokumentash.aspx.cs" Inherits="PlatinumWeb.Shto_RegjistrimDokumentash" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Shto_RegjistrimDokumentash.aspx.cs" Inherits="PlatinumWeb.Shto_RegjistrimDokumentash" Async="true" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dxnb" %>
