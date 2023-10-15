@@ -2569,12 +2569,14 @@ namespace PlatinumWeb
                             !cmbModeli.Text.Contains("USHmag"), ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, false, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
-                            string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
-                            if (niveli == "UB" || niveli == "USH")
+                            try
                             {
-                                try
+                                FirebaseConfiguration firebase = new FirebaseConfiguration();
+                                firebase.confirmOrder(kokeShitje.Shenime2);
+                                string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
+                                if (niveli == "UB" || niveli == "USH")
                                 {
-                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
+
                                     clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
                                     Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
                                     string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
@@ -2583,13 +2585,15 @@ namespace PlatinumWeb
                                     processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
                                     ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
                                     firebase.addProcessOrder(processOrder);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine(ex.ToString());
-                                }
 
 
+
+
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
                             }
 
                             var viti = new clsViti(periudha.IdViti).KodiViti;
@@ -2771,31 +2775,26 @@ namespace PlatinumWeb
                         mesazh = kokeShitje.ruaj(idGjuha, serverUrl, false, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text, false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "", false, false, zevendesimtollonakastrati, cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli", false, ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, kthimVod, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
-                            string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
-                            if (niveli == "UB" || niveli == "USH")
+                            try
                             {
-                                try
+                                FirebaseConfiguration firebase = new FirebaseConfiguration();
+                                firebase.confirmOrder(kokeShitje.Shenime2);
+                                string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
+                                if (niveli == "UB" || niveli == "USH")
                                 {
-                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
                                     clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
                                     Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
                                     string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
                                     string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
-                                    if (uid != "" && organization != "")
-                                    {
-                                        ProcessEnums processEnums;
-                                        processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
-                                        ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
-                                        firebase.addProcessOrder(processOrder);
-                                    }
-
+                                    ProcessEnums processEnums;
+                                    processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
+                                    firebase.addProcessOrder(processOrder);
                                 }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine(ex.ToString());
-                                }
-
-
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
                             }
                             if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                             {
@@ -4419,7 +4418,19 @@ namespace PlatinumWeb
                     //clsKusht kushttollona = new clsKusht(clsKoka.IdKonfigAmbjente, "RSHTT");
                     //clsAlternativaKushti alttollona = new clsAlternativaKushti(kushttollona.Vlera);
                     bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTKE") == "Po";
-                    clsKoka.fshi(idPerdoruesi, veprimi == "shitje" ? true : false, tollonakastrati, tollonakastratielektronik);
+                    clsMesazh deleteMessage = clsKoka.fshi(idPerdoruesi, veprimi == "shitje" ? true : false, tollonakastrati, tollonakastratielektronik);
+                    if (deleteMessage.Status && clsKoka.Shenime2 != "")
+                    {
+                        try
+                        {
+                            FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                            firebaseConfiguration.returnOrder(clsKoka.Shenime2);
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine(ex.Message.ToString());
+                        }
+                    }
                     Response.Redirect("RegjistrimDokumentash.aspx?shitje_blerje=" + veprimi);
                     break;
                 case "Pezullo":

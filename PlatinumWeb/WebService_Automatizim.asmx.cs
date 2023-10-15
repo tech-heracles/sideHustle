@@ -1062,6 +1062,7 @@ namespace PlatinumWeb
                 bool zbritjeNeVlere = false;
                 double perqindjeZbritjeTotale = 0.00;
                 string adresa = "";
+                string shenime = "";
                 string einStatus = "";
                 bool gjeneroDokMag = false;
                 string shfaqmesazhapolupe = "";
@@ -1081,6 +1082,7 @@ namespace PlatinumWeb
                 string trupi = trupiobj.ToString();
                 Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(trupi);//serializusi.DeserializeObject(gridDataObject) as object[];
                 clsNjesiAdministrative magazina = new clsNjesiAdministrative(dokumenti[0]["warehouse"].ToString(), ndermarrje.IdNdermarrje);
+                if (dictionary.ContainsKey("note")) shenime = (string)dictionary["note"];
                 string iic = dictionary["nslf"].ToString();
                 string nivf = "";
                 string nrSerial = dictionary["nivf"].ToString();
@@ -1194,7 +1196,7 @@ namespace PlatinumWeb
                     kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, 1, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
                     0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
                     , 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, false, dtDok, false, false, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
-                    new colSerialeUnikeMagazina(), "", false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
+                    new colSerialeUnikeMagazina(),shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
                 if (!mesazhi.Status) return new clsMesazh(false, mesazhi.PershkrimMesazhi);
 
                 if (dictionary.ContainsKey("isOrder")) koka.IdStatusDok = (bool)dictionary["isOrder"] == true ? 3 : koka.IdStatusDok;

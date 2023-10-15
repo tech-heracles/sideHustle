@@ -80,6 +80,42 @@ namespace DbCore
             }
 
         }
+        public async void confirmOrder(string id)
+        {
+            try
+            {
+                FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document(id);
+                Dictionary<string, object> order = new Dictionary<string, object>
+                {
+                    { "status" , ProcessOrderStatus.confirmed.ToString() }
+                };
+                order_ref.UpdateAsync(order);
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error changin order status");
+            }
+        }
+        public async void returnOrder(string id)
+        {
+            try
+            {
+                FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document(id);
+                Dictionary<string, object> order = new Dictionary<string, object>
+                {
+                    { "status" , ProcessOrderStatus.returned.ToString() }
+                };
+                order_ref.UpdateAsync(order);
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error changin order status");
+            }
+        }
         public async Task<Dictionary<string, object>> getUserPassword(string idToken)
         {
             Dictionary<string, object> documentDictionary = new Dictionary<string, object>();
