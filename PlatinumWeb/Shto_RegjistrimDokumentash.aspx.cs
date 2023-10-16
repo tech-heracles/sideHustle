@@ -2571,19 +2571,18 @@ namespace PlatinumWeb
                         {
                             try
                             {
-                                FirebaseConfiguration firebase = new FirebaseConfiguration();
-                                firebase.confirmOrder(kokeShitje.Shenime2);
+                                //if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2);
                                 string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
                                 if (niveli == "UB" || niveli == "USH")
                                 {
-
+                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
                                     clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
                                     Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
                                     string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
                                     string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
                                     ProcessEnums processEnums;
                                     processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
-                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor);
                                     firebase.addProcessOrder(processOrder);
 
 
@@ -2777,18 +2776,17 @@ namespace PlatinumWeb
                         {
                             try
                             {
-                                FirebaseConfiguration firebase = new FirebaseConfiguration();
-                                firebase.confirmOrder(kokeShitje.Shenime2);
                                 string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
                                 if (niveli == "UB" || niveli == "USH")
                                 {
+                                    FirebaseConfiguration firebase = new FirebaseConfiguration();
                                     clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
                                     Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
                                     string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
                                     string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
                                     ProcessEnums processEnums;
                                     processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
-                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.KodKlientFurnitor, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje);
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor);
                                     firebase.addProcessOrder(processOrder);
                                 }
                             }
@@ -3021,6 +3019,18 @@ namespace PlatinumWeb
                         hfShtimModifikim.Value == "bli", !cmbModeli.Text.Contains("USHmag"), ref dbData, out mesazhmevonshem, false, "", "", "", "");
                     if (mesazh.Status)
                     {
+                        try
+                        {
+                            FirebaseConfiguration firebase = new FirebaseConfiguration();
+
+                            if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+
+
                         var viti = new clsViti(periudha.IdViti).KodiViti;
                         if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                         {
@@ -4426,7 +4436,7 @@ namespace PlatinumWeb
                             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
                             firebaseConfiguration.returnOrder(clsKoka.Shenime2);
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message.ToString());
                         }

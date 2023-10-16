@@ -14,8 +14,9 @@ namespace DbCore.classes.ProcessedOrder
         public bool processed { get; set; }
 
         public string type { get; set; }
+        public string supplierCode { get; set; }
         public ProcessOrderStatus status { get; set; }
-        public ProcessOrder(string supplier, List<Item> items, Metadata metadata, bool processed, string type, ProcessOrderStatus status)
+        public ProcessOrder(string supplier, List<Item> items, Metadata metadata, bool processed, string type, ProcessOrderStatus status, string supplierCode)
         {
             this.supplier = supplier;
             this.items = items;
@@ -23,9 +24,10 @@ namespace DbCore.classes.ProcessedOrder
             this.processed = processed;
             this.type = type;
             this.status = status;
+            this.supplierCode = supplierCode;
         }
 
-        public static ProcessOrder fromInvoice(string supplier, colTrupiShitje invoiceBody, string uid, string organization, ProcessEnums type, int enterpriseId)
+        public static ProcessOrder fromInvoice(string supplier, colTrupiShitje invoiceBody, string uid, string organization, ProcessEnums type, int enterpriseId, string supplierCode)
         {
             Metadata metadata = new Metadata(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), uid, "", "", organization, "");
             List<Item> items = new List<Item>();
@@ -34,7 +36,7 @@ namespace DbCore.classes.ProcessedOrder
                 Item item = Item.fromClsTrupiShitje(invoiceBody[i], enterpriseId);
                 items.Add(item);
             }
-            ProcessOrder order = new ProcessOrder(supplier, items, metadata, false, type.ToString(), ProcessOrderStatus.pending);
+            ProcessOrder order = new ProcessOrder(supplier, items, metadata, false, type.ToString(), ProcessOrderStatus.pending, supplierCode);
             return order;
         }
         public object toObject()
@@ -50,7 +52,9 @@ namespace DbCore.classes.ProcessedOrder
                 items = items,
                 metadata = this.metadata.toObject(),
                 processed = this.processed,
-                type = this.type
+                type = this.type,
+                status = this.status.ToString(),
+                supplierCode = this.supplierCode,
             };
         }
     }

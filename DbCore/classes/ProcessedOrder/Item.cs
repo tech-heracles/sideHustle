@@ -106,7 +106,7 @@ namespace DbCore.classes
             processItem.exemptReason = "";
             processItem.price = item.Cmimi;
             processItem.priceLevel = "";
-            processItem.priceWithVat = taksa.IdTaksa == 0 ? item.Cmimi : item.Cmimi * (1 + ((int)taksa.NormaPerqindje / 100));
+            processItem.priceWithVat = taksa.IdTaksa == 0 ? item.Cmimi : item.Cmimi * (1.00 + (float)(taksa.NormaPerqindje / 100));
             processItem.noVat = taksa.IdTaksa == 0 ? true : false;
             processItem.vatPercentage = (int)taksa.NormaPerqindje;
             processItem.quantity = item.Sasia;
