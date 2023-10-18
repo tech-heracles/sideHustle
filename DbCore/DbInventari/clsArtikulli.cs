@@ -1,22 +1,21 @@
-﻿using DbCore.DbAdmin;
-using DbCore.DbKontabiliteti;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.Resources;
-using DbCore.DbAsete;
-using DbCore.DbRegjistrim;
 using System.Linq;
+using System.Resources;
+using DbCore.DbAdmin;
+using DbCore.DbAsete;
+using DbCore.DbKontabiliteti;
+using DbCore.DbRegjistrim;
+using DbCore.DbShare;
+using DbCore.IMBUtils;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Validation;
 using Newtonsoft.Json;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Logging;
-using DbCore.IMBUtils;
-using DbCore.DbShare;
-using DbCore.IMBUtils.Messages;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using DevExpress.CodeParser;
 
 namespace DbCore.DbInventari
 {
@@ -3835,11 +3834,14 @@ namespace DbCore.DbInventari
             clsTaksa taksa = new clsTaksa(this.IdTvsh);
             for (int i = 0; i < cmimeArtikujsh.Count; i++)
             {
-                var nvCmimi = new clsNivelCmimi(cmimeArtikujsh[i].IdNivelCmimi);
+                clsCmimArtikulli currentPrice = cmimeArtikujsh[i];
+                clsNivelCmimi nvCmimi = new clsNivelCmimi(currentPrice.IdNivelCmimi);
                 bool nivelCmimi = nvCmimi.NivelCmimiBaze;
-                cmimiBaze = nivelCmimi == true ? cmimeArtikujsh[i].Cmimi : cmimiBaze;
-                cmimiBazeMeTvsh = nivelCmimi == true ? cmimeArtikujsh[i].CmimiTvsh : cmimiBazeMeTvsh;
-                cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = cmimeArtikujsh[i].Cmimi, priceWithVat = cmimeArtikujsh[i].CmimiTvsh });
+                cmimiBaze = nivelCmimi == true ? currentPrice.Cmimi : cmimiBaze;
+                cmimiBazeMeTvsh = nivelCmimi == true ? currentPrice.CmimiTvsh : cmimiBazeMeTvsh;
+                long startDate = new DateTimeOffset(currentPrice.DateFillimi).ToUnixTimeSeconds() * 1000;
+                long endDate = new DateTimeOffset(currentPrice.DateMbarimi).ToUnixTimeSeconds() * 1000;
+                cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = currentPrice.Cmimi, priceWithVat = currentPrice.CmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
             }
             for (int i = 0; i < kodBaretArtikulli.Count; i++)
                 kodBaret.Add(kodBaretArtikulli[i].Pershkrimi);
@@ -3856,7 +3858,7 @@ namespace DbCore.DbInventari
                 vatPercentage = taksa.NormaPerqindje,
                 noVat = this.IdTvsh == 0 ? true : false,
                 exemptReason = taksa.TipiIPerjashtimit,
-                priceLevels= cmimeArt,
+                priceLevels = cmimeArt,
                 organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
                 ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
                 barCodes = kodBaret

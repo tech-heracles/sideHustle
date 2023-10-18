@@ -8950,7 +8950,7 @@ function menuClick(s, e, doPostback) {//po
         }
         if (isValidKoka()) {
             Utils.shfaqLoadingGif();
-            isSubjektAktiv(e);            
+            //isSubjektAktiv(e);            
             if ((e.item.name == 'Ruaj' || e.item.name == 'Draft') && $('#hfShtimModifikim').val() == 'shtim') {
                 ASPxMenu1.GetItemByName('Ruaj').SetEnabled(false);
                 ASPxMenu1.GetItemByName('Draft').SetEnabled(false);
