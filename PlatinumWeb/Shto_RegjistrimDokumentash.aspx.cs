@@ -2582,7 +2582,7 @@ namespace PlatinumWeb
                                     string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
                                     ProcessEnums processEnums;
                                     processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
-                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor);
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor, kokeShitje.NrDok);
                                     firebase.addProcessOrder(processOrder);
 
 
@@ -2786,7 +2786,7 @@ namespace PlatinumWeb
                                     string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
                                     ProcessEnums processEnums;
                                     processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
-                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor);
+                                    ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor, kokeShitje.NrDok);
                                     firebase.addProcessOrder(processOrder);
                                 }
                             }

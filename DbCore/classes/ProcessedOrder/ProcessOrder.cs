@@ -7,6 +7,7 @@ namespace DbCore.classes.ProcessedOrder
     public class ProcessOrder
     {
         public string supplier { get; set; }
+        public string docNumber { get; set; }
         public List<Item> items { get; set; }
 
         public Metadata metadata { get; set; }
@@ -16,7 +17,7 @@ namespace DbCore.classes.ProcessedOrder
         public string type { get; set; }
         public string supplierCode { get; set; }
         public ProcessOrderStatus status { get; set; }
-        public ProcessOrder(string supplier, List<Item> items, Metadata metadata, bool processed, string type, ProcessOrderStatus status, string supplierCode)
+        public ProcessOrder(string supplier, List<Item> items, Metadata metadata, bool processed, string type, ProcessOrderStatus status, string supplierCode, string docNumber)
         {
             this.supplier = supplier;
             this.items = items;
@@ -25,9 +26,10 @@ namespace DbCore.classes.ProcessedOrder
             this.type = type;
             this.status = status;
             this.supplierCode = supplierCode;
+            this.docNumber = docNumber;
         }
 
-        public static ProcessOrder fromInvoice(string supplier, colTrupiShitje invoiceBody, string uid, string organization, ProcessEnums type, int enterpriseId, string supplierCode)
+        public static ProcessOrder fromInvoice(string supplier, colTrupiShitje invoiceBody, string uid, string organization, ProcessEnums type, int enterpriseId, string supplierCode, string docNumber)
         {
             Metadata metadata = new Metadata(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), uid, "", "", organization, "");
             List<Item> items = new List<Item>();
@@ -36,7 +38,7 @@ namespace DbCore.classes.ProcessedOrder
                 Item item = Item.fromClsTrupiShitje(invoiceBody[i], enterpriseId);
                 items.Add(item);
             }
-            ProcessOrder order = new ProcessOrder(supplier, items, metadata, false, type.ToString(), ProcessOrderStatus.pending, supplierCode);
+            ProcessOrder order = new ProcessOrder(supplier, items, metadata, false, type.ToString(), ProcessOrderStatus.pending, supplierCode, docNumber);
             return order;
         }
         public object toObject()
@@ -49,6 +51,7 @@ namespace DbCore.classes.ProcessedOrder
             return new
             {
                 supplier = this.supplier,
+                docNumber = this.docNumber,
                 items = items,
                 metadata = this.metadata.toObject(),
                 processed = this.processed,
