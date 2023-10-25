@@ -1,9 +1,9 @@
-﻿using DevExpress.XtraReports.UI;
-using IMB.Transactions.FileManager;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.IO;
 using DbCore.IMBUtils.Logging;
+using DevExpress.XtraReports.UI;
+using IMB.Transactions.FileManager;
 
 namespace DbCore.Raporte
 {
@@ -127,7 +127,7 @@ namespace DbCore.Raporte
             {
 
                 var spName = string.IsNullOrEmpty(report.DataMember) ? (report.DataAdapter as SqlDataAdapter).SelectCommand.CommandText : report.DataMember;
-                ReportFunctions.konfigDataSetRaporti(report, spName, true, parametra);
+                ReportFunctions.konfigDataSetRaporti(report, spName, true, false, parametra);
             }
             catch (Exception ex)
             {

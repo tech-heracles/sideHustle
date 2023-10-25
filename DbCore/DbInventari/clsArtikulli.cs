@@ -3844,7 +3844,10 @@ namespace DbCore.DbInventari
                 cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = currentPrice.Cmimi, priceWithVat = currentPrice.CmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
             }
             for (int i = 0; i < kodBaretArtikulli.Count; i++)
+            {
+                this.kodiiBarit = this.kodiiBarit == "" || this.kodiiBarit == null ? kodBaretArtikulli[0].Pershkrimi : this.kodiiBarit;
                 kodBaret.Add(kodBaretArtikulli[i].Pershkrimi);
+            }
             for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
             object objectForPubSub = new
             {

@@ -1,23 +1,23 @@
-﻿using DbCore.DbAdmin;
-using DbCore.DbShare;
-using DbCore.IMBUtils.Messages;
-using DevExpress.XtraReports.UI;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Web;
-using System.Drawing;
+using DbCore.DbAdmin;
 using DbCore.DbKontabiliteti;
-using static System.Convert;
-using Parameter = DevExpress.XtraReports.Parameters.Parameter;
 using DbCore.DbRegjistrim;
+using DbCore.DbShare;
 using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DevExpress.XtraReports.UI;
+using Newtonsoft.Json;
+using static System.Convert;
+using Parameter = DevExpress.XtraReports.Parameters.Parameter;
 
 namespace DbCore.Raporte
 {
@@ -41,7 +41,7 @@ namespace DbCore.Raporte
         /// <param name="vjenNga"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public static XtraReport krijoObjektRaporti(string vjen, int idGjuha, int idPerdoruesi, int idViti, int idRaporti, int idNdermarrje, colParameter sqlParamShfaqReport, int idDesign, string orientimi, String guidString, string scopeId, string vjenNga = "")
+        public static XtraReport krijoObjektRaporti(string vjen, int idGjuha, int idPerdoruesi, int idViti, int idRaporti, int idNdermarrje, colParameter sqlParamShfaqReport, int idDesign, string orientimi, String guidString, string scopeId, string vjenNga = "", bool alphaMobile = false)
         {
             var report = new XtraReport();
             var raporti = new clsRaporti(idGjuha, idRaporti);
@@ -77,8 +77,9 @@ namespace DbCore.Raporte
 
             };
 
-            var folder = $"{ IMBUtils.DataBase.MyConnectionsManager.GetSelectedConNameServer()}/";
+            var folder = $"{IMBUtils.DataBase.MyConnectionsManager.GetSelectedConNameServer()}/";
             var type = MerrReportDesignType(idDesign, idNdermarrje, idRaporti, orientimi, out var reportName);
+            //if (alphaMobile) reportName = "RaportetDs.RAP_SHITJE.Fatura.Rap_Fature_Shitje_Redis";
             if (type != null)
                 report = (XtraReport)Activator.CreateInstance(type, parametraPerKonstruktor, report);
             else if (clsReportDesigner.EkzistonRaporti(reportName))
@@ -1045,7 +1046,7 @@ namespace DbCore.Raporte
             return report;
         }
 
-        public static void konfigDataSetRaporti(XtraReport report, string spname, int idPerdorues, bool azhornim, int idNdermarje, int idnderviti, DateTime dtmbarimi, int idkonfig, int idperiudha, params SqlParameter[] paramarray)
+        public static void konfigDataSetRaporti(XtraReport report, string spname, int idPerdorues, bool azhornim, int idNdermarje, int idnderviti, DateTime dtmbarimi, int idkonfig, int idperiudha, bool alphaMobile = false, params SqlParameter[] paramarray)
         {
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
             int maxRetry = 15;
@@ -1075,7 +1076,7 @@ namespace DbCore.Raporte
                         if (!mesazh.Status)
                             throw new MyException(mesazh.PershkrimMesazhi);
 
-                        mesazh = dbAdmin.GetReportDataAdapter(out adapter, out dataset, spname, paramarray);
+                        mesazh = dbAdmin.GetReportDataAdapter(out adapter, out dataset, spname, alphaMobile, paramarray);
                         if (!mesazh.Status)
                         {
                             if (mesazh.KodMesazhi != ToInt32(IsolationLevel.Snapshot))
@@ -1092,7 +1093,7 @@ namespace DbCore.Raporte
                     }
                     else
                     {
-                        mesazh = dbAdmin.GetReportDataAdapter(out adapter, out dataset, spname, paramarray);
+                        mesazh = dbAdmin.GetReportDataAdapter(out adapter, out dataset, spname, alphaMobile, paramarray);
                         if (!mesazh.Status)
                         {
                             if (mesazh.KodMesazhi != ToInt32(IsolationLevel.Snapshot))
@@ -1101,7 +1102,97 @@ namespace DbCore.Raporte
                         }
                     }
 
-                    dbAdmin.commitTransaksion();
+                    if (alphaMobile)
+                    {
+                        DataTable mainTable = dataset.Tables[0].Copy();
+                        DataTable newDataTable = new DataTable();
+                        foreach (DataColumn column in mainTable.Columns)
+                            newDataTable.Columns.Add(column.ColumnName);
+                        List<DateTime> dateTimes = new List<DateTime>();
+                        for (int i = 0; i < mainTable.Rows.Count; i++)
+                        {
+                            DataRow currentRow = mainTable.Rows[i];
+                            DateTime currentDate = currentRow.Field<DateTime>("dtdok");
+
+                            double totaliMonBaze = 0;
+                            double shitjePerjashtuar = 0;
+                            double shitjePaTvsh = 0;
+                            double vleftaExporte = 0;
+                            double furnizimeZero = 0;
+                            double vlefta20 = 0;
+                            double tvsh20 = 0;
+                            double vlefta10 = 0;
+                            double tvsh10 = 0;
+                            double vlefta6 = 0;
+                            double tvsh6 = 0;
+                            double totaliAgj = 0;
+                            double totaliAuto = 0;
+                            double totaliBorxhi = 0;
+                            double tvshBorxhi = 0;
+                            if (dateTimes.Contains(currentDate)) continue;
+                            for (int j = 0; j < mainTable.Rows.Count; j++)
+                            {
+                                DataRow secondRow = mainTable.Rows[j];
+                                if (secondRow.Field<DateTime>("dtdok") == currentDate)
+                                {
+                                    totaliMonBaze += secondRow.Field<double>("TOTALIMONBAZE");
+                                    shitjePerjashtuar += secondRow.Field<double>("SHITJEPERJASHTUAR");
+                                    shitjePaTvsh += secondRow.Field<double>("SHITJEPaTVSH");
+                                    vleftaExporte += secondRow.Field<double>("VLEFTAEXPORTE");
+                                    furnizimeZero += secondRow.Field<double>("furnizimeZero");
+                                    vlefta20 += secondRow.Field<double>("VLEFTA20");
+                                    tvsh20 += secondRow.Field<double>("TVSH20");
+                                    vlefta10 += secondRow.Field<double>("VLEFTA10");
+                                    tvsh10 += secondRow.Field<double>("TVSH10");
+                                    vlefta6 += secondRow.Field<double>("VLEFTA6");
+                                    tvsh6 += secondRow.Field<double>("TVSH6");
+                                    //totaliAgj += secondRow.Field<double>("totaliagjente");
+                                    totaliAuto += secondRow.Field<double>("tvshautongarkese");
+                                    //totaliBorxhi += secondRow.Field<double>("TOTALIBORXHI");
+                                    //tvshBorxhi += secondRow.Field<double>("TVSHBORXHI");
+                                }
+
+                            }
+                            dateTimes.AddIfNotExists(currentDate);
+
+                            dynamic[] rowsToInsert = new dynamic[]
+                            {
+                                "",
+                                "",
+                                currentDate.ToString("yyyy-MM-dd"),
+                                "",
+                                "",
+                                "",
+                                totaliMonBaze,
+                                shitjePerjashtuar,
+                                shitjePaTvsh,
+                                vleftaExporte,
+                                furnizimeZero,
+                                vlefta20,
+                                tvsh20,
+                                vlefta10,
+                                tvsh10,
+                                vlefta6,
+                                tvsh6,
+                                totaliAgj,
+                                totaliAuto,
+                                totaliBorxhi,
+                                tvshBorxhi,
+                                "",
+                                "",
+                                "",
+
+                            };
+                            newDataTable.Rows.Add(rowsToInsert);
+
+
+
+                        }
+                        //var a = ;
+                        dataset.Tables.Remove(dataset.Tables[0]);
+                        dataset.Tables.Add(newDataTable);
+                        //newDataTable.Rows.Add(new dynamic[""]);
+                    }
                     report.DataSource = dataset;
                     report.DataAdapter = adapter;
                     report.DataMember = spname;
@@ -1128,10 +1219,10 @@ namespace DbCore.Raporte
                 return;
 
             table.Rows.Clear();
-           // table.Rows.Add(table.Rows[0]);
+            // table.Rows.Add(table.Rows[0]);
         }
 
-        public static void konfigDataSetRaporti(XtraReport report, string spname, bool sampleData, params SqlParameter[] paramarray)
+        public static void konfigDataSetRaporti(XtraReport report, string spname, bool sampleData, bool alphaMobile = false, params SqlParameter[] paramarray)
         {
             var dbAdmin = new clsDatabaseAdmin();
             const int maxRetry = 50;
@@ -1144,7 +1235,7 @@ namespace DbCore.Raporte
                 {
                     dbAdmin.beginTransaksion(IsolationLevel.Snapshot);
 
-                    var mesazh = dbAdmin.GetReportDataAdapter(out var adapter, out var dataset, spname, paramarray);
+                    var mesazh = dbAdmin.GetReportDataAdapter(out var adapter, out var dataset, spname, alphaMobile, paramarray);
                     if (!mesazh.Status)
                     {
                         if (mesazh.KodMesazhi != ToInt32(IsolationLevel.Snapshot))
@@ -1199,7 +1290,7 @@ namespace DbCore.Raporte
 
                 var slqParameters = report.CreateParameters(parametraRaporti);
                 var storeProcedureName = clsSP.GetStoredProcedureName(report.IdSp);
-                konfigDataSetRaporti(xtraReport, storeProcedureName, false, slqParameters);
+                konfigDataSetRaporti(xtraReport, storeProcedureName, false, false, slqParameters);
             }
             catch (Exception ex)
             {
@@ -1235,7 +1326,7 @@ namespace DbCore.Raporte
 
                 var slqParameters = report.CreateParameters(parametraRaporti);
                 var storeProcedureName = clsSP.GetStoredProcedureName(report.IdSp);
-                konfigDataSetRaporti(xtraReport, storeProcedureName, false, slqParameters);
+                konfigDataSetRaporti(xtraReport, storeProcedureName, false, false, slqParameters);
             }
             catch (Exception ex)
             {
@@ -1273,7 +1364,7 @@ namespace DbCore.Raporte
 
                 var slqParameters = report.CreateParameters(parametraRaporti);
                 var storeProcedureName = clsSP.GetStoredProcedureName(report.IdSp);
-                konfigDataSetRaporti(xtraReport, storeProcedureName, false, slqParameters);
+                konfigDataSetRaporti(xtraReport, storeProcedureName, false, false, slqParameters);
             }
             catch (Exception ex)
             {
@@ -1288,7 +1379,7 @@ namespace DbCore.Raporte
             var sqlparameters = report.CreateParameters(idNdermarrje, idFatura, idDesign, dateDergimiFature);
             var xtraReport = krijoDesignRaportFature(-1, idDesign, idPerdoruesi, idNdermarrje, idNderViti, null, orientimi, Guid.NewGuid().ToString(), string.Empty, idGjuha, report.IdRaporti);
             var storeProcedureName = clsSP.GetStoredProcedureName(report.IdSp);
-            konfigDataSetRaporti(xtraReport, storeProcedureName, idPerdoruesi, false, idNdermarrje, idNderViti, DateTime.Today, 0, 0, sqlparameters);
+            konfigDataSetRaporti(xtraReport, storeProcedureName, idPerdoruesi, false, idNdermarrje, idNderViti, DateTime.Today, 0, 0, false, sqlparameters);
             return xtraReport;
         }
 
@@ -1460,12 +1551,12 @@ namespace DbCore.Raporte
                         ParameterName = parametraSp[i].Emri,
                         Value = vlera
                     };
-                    if ( (emerRealRaport == "RptKartelaLlogarive" || emerRealRaport == "KartelaLlogariveMeKunderparti") && parametraSp[i].Emri == "filterDtDok2")
+                    if ((emerRealRaport == "RptKartelaLlogarive" || emerRealRaport == "KartelaLlogariveMeKunderparti") && parametraSp[i].Emri == "filterDtDok2")
                         dtmbarimi = ToDateTime(vlera);
 
-                    
+
                 }
-                if(fatureLidhur)
+                if (fatureLidhur)
                 {
                     sqlparam[nrParametrash - 1] = new SqlParameter
                     {
@@ -1478,7 +1569,7 @@ namespace DbCore.Raporte
                 sqlparam = new SqlParameter[0];
 
             mySessionObjects.ruajParametraRaporti(session, sqlparam, guidString);
-            konfigDataSetRaporti(xtraReport, report.EmerSp, idPerdorues, azhornim, idNdermarrje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlparam);
+            konfigDataSetRaporti(xtraReport, report.EmerSp, idPerdorues, azhornim, idNdermarrje, idnderviti, dtmbarimi, idkonfig, idperiudha, false, sqlparam);
             return xtraReport;
         }
 

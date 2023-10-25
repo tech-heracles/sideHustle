@@ -26,7 +26,7 @@
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
  <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
+    <script src="https://notification-hub-erbzqkglja-ew.a.run.app/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -50,7 +50,7 @@
 <%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
 
-    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
+<%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -2329,8 +2329,10 @@
                 }
 
                 const client = new ChatClient({
-                    user: hfState.Get("idPerdoruesi"),
+                    user: hfState.Get("emailPerdoruesi"),
                     room: hfState.Get("organizata"),
+                    email: hfState.Get("emailPerdoruesi"),
+                    admin: hfState.Get("notification_admin"),
                     token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
                 })
 

@@ -1,56 +1,56 @@
-﻿using DbCore.DbAdmin;
-using DbCore.DbAsete;
-using DbCore.DbShare;
-using DevExpress.Web;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraReports.Web;
-using ICSharpCode.SharpZipLib.Zip;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.EnterpriseServices;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Resources;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.DynamicData;
 using System.Web.Script.Serialization;
 using System.Web.UI;
-using DbCore.DbInventari;
-using DbCore;
-using DbCore.Raporte;
-using DbCore.DbListPagesat;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Logging;
-using DbCore.IMBUtils.Types;
-using PlatinumWeb.ApplicationUtils.Pages;
 using CacheLayer;
-using DbCore.IMBUtils.Messages;
-using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
-using System.Threading;
+using DbCore;
+using DbCore.DbAdmin;
+using DbCore.DbAsete;
+using DbCore.DbInventari;
+using DbCore.DbListPagesat;
+using DbCore.DbShare;
 using DbCore.IMBUtils;
-using PlatinumWeb.ApplicationUtils;
-using Web.Framework.WebUtils.Pages;
-using DevExpress.XtraPrinting.Caching;
-using System.Text;
-using LiquidEngine.Tools;
-using Newtonsoft.Json;
+using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
-using EO.Web.Internal;
-using Google.Cloud.Storage.V1;
-using System.Threading.Tasks;
-using Google.Apis.Auth.OAuth2;
-using DevExpress.Utils.Extensions;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Types;
+using DbCore.Raporte;
 using DevExpress.Utils.Behaviors.Common;
-using System.Web.Configuration;
-using System.Net;
-using System.Diagnostics;
-using DocumentFormat.OpenXml.Math;
-using System.EnterpriseServices;
+using DevExpress.Utils.Extensions;
+using DevExpress.Web;
 using DevExpress.XtraEditors.ColorPick.Picker;
+using DevExpress.XtraPrinting.Caching;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraReports.Web;
+using DocumentFormat.OpenXml.Math;
+using EO.Web.Internal;
+using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Storage.V1;
+using ICSharpCode.SharpZipLib.Zip;
+using LiquidEngine.Tools;
 using Microsoft.Reporting.WebForms;
-using System.Web.DynamicData;
+using Newtonsoft.Json;
+using PlatinumWeb.ApplicationUtils;
+using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
+using PlatinumWeb.ApplicationUtils.Pages;
+using Web.Framework.WebUtils.Pages;
 
 namespace PlatinumWeb
 {
@@ -154,6 +154,8 @@ namespace PlatinumWeb
                     hfState.Set("reportPageCount", 0);
                     HfState.Set("lastOpenDate", DateTime.MinValue);
                     HfState.Set("reportDatasource", null);
+                    HfState.Set("alphaMobile", Request.QueryString["alphaMobile"]);
+                    if (Request.QueryString["alphaMobile"] == null) HfState.Set("alphaMobile", false);
 
                     hfState.Set("_idViti", Convert.ToString(DbCore.mySessionObjects.ktheVitiNdermarrjes(Session)));
                     DbCore.DbAdmin.clsKomponente oKomponente = new DbCore.DbAdmin.clsKomponente("Raporti.aspx");
@@ -221,7 +223,8 @@ namespace PlatinumWeb
 
                         if (!Convert.ToBoolean(Request.QueryString["VjenNgaSubraporti"]))
                             afisho(ReportObject.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, periudhaKontabel, IdPerdoruesi, kaSubRaport, guidString);
-                        else {
+                        else
+                        {
                             SetDesigns(out clsRaportDesign rapDes);
                             int idModulSubRaporti = (new clsRaporti(IdGjuha, rapDes.IdRaporti)).IdModul;
                             hfState.Set("idModulSubRaporti", idModulSubRaporti);
@@ -481,7 +484,7 @@ namespace PlatinumWeb
                 return;
             }
 
-           var dt = ((System.Data.DataSet)(GetReport().DataSource)).Tables[0];
+            var dt = ((System.Data.DataSet)(GetReport().DataSource)).Tables[0];
             if (dt.Columns.Contains("NDERMARJEPERSHK"))
                 dt.Columns.Remove("NDERMARJEPERSHK");
 
@@ -568,7 +571,7 @@ namespace PlatinumWeb
                     SqlParameter[] pars = (System.Data.SqlClient.SqlParameter[])params1[4];
                     SqlParameter paramQK = Array.Find(pars, x => x.ParameterName == "filterQK");
                     paramQK.Value = String.Format(" = ('{0}') ", colqendra[q].Kodi);
-                    ReportFunctions.konfigDataSetRaporti(raporti, raporti.DataMember, perdoruesi.IdPerdorues, (bool)params1[0], idNdermarrje, idNderVit, (DateTime)params1[1], (int)params1[2], (int)params1[3], pars);
+                    ReportFunctions.konfigDataSetRaporti(raporti, raporti.DataMember, perdoruesi.IdPerdorues, (bool)params1[0], idNdermarrje, idNderVit, (DateTime)params1[1], (int)params1[2], (int)params1[3], (bool)HfState.Get("alphaMobile"), pars);
                     KonfigFleteRaporti(raporti, perdoruesi, false);
                     o.SheetName = colqendra[q].Kodi + "(" + colqendra[q].Pershkrimi + ")";
                     o.RawDataMode = true;
@@ -4964,7 +4967,7 @@ namespace PlatinumWeb
                 }
             }
             int idPeriudha = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtmbarimi, idNdermarrje);
-            XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey]);
+            XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey], "", bool.Parse(HfState.Get("alphaMobile").ToString()));
             report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(pathStyle.Value, ReportStyle));
             afisho(oRap.IdRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha);
             RaportiEmerReal = oRap.RaportiEmriReal;
@@ -6348,8 +6351,8 @@ namespace PlatinumWeb
                 //long timeDifferenceSeconds = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - lastOpenDate;
                 //if (timeDifferenceSeconds > 60)
                 //{
-                   //if ((DateTimeOffset.UtcNow.ToUnixTimeSeconds() - long.Parse((HfState.Get("lastOpenDate").ToString()))) > 60)
-                ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
+                //if ((DateTimeOffset.UtcNow.ToUnixTimeSeconds() - long.Parse((HfState.Get("lastOpenDate").ToString()))) > 60)
+                ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, bool.Parse(HfState.Get("alphaMobile").ToString()), sqlParam);
                 HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
                 HfState.Set("filter", ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedItem.Value.ToString());
                 //    SaveReportData(report.DataSource,"datasource");
@@ -6408,7 +6411,7 @@ namespace PlatinumWeb
                         report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                     if (designSettings.rollPaper)
                         report.RollPaper = true;
-                     report.CreateDocument();
+                    report.CreateDocument();
 
                     if (designSettings.autoWidth)
                         SetAutoWidthToReport(report);
@@ -6435,7 +6438,7 @@ namespace PlatinumWeb
 
             }
         }
-    
+
         protected void btnRuaj_Click(object sender, EventArgs e)
         {
         }
@@ -6619,8 +6622,8 @@ namespace PlatinumWeb
                         case 1362:
                             idKontrollKryesore = 1071;
                             break;
-             
-                        
+
+
                         case 1363:
                             idKontrollKryesore = 1072;
                             break;
@@ -8240,9 +8243,9 @@ namespace PlatinumWeb
         {
             mySessionObjects.ruajMyReportNeSession(Session, hfState.Get("guidString").ToString(), report);
         }
-        private void SaveReportData(object report,string name)
+        private void SaveReportData(object report, string name)
         {
-            mySessionObjects.ruajMyReportNeSessionData(Session, hfState.Get("guidString").ToString(), report,name);
+            mySessionObjects.ruajMyReportNeSessionData(Session, hfState.Get("guidString").ToString(), report, name);
         }
         private XtraReport GetReport()
         {
@@ -8250,7 +8253,7 @@ namespace PlatinumWeb
         }
         private object GetReportData(string name)
         {
-            return mySessionObjects.merrMyReportNgaSessioniData<object>(Session, hfState.Get("guidString").ToString(),name);
+            return mySessionObjects.merrMyReportNgaSessioniData<object>(Session, hfState.Get("guidString").ToString(), name);
         }
         public string GetStringBetween(string input, string startString, string endString)
         {
@@ -8313,26 +8316,28 @@ namespace PlatinumWeb
                 Dictionary<string, object> userDetails = await fb.getUserDetailsWithUID(uid);
                 GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
                 string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-        
+
                 string emerRaporti = $"{RaportiEmerReal}-{ndermarrje.NdermarrjeKodi}-{organization}";
-                if (!hfState.Contains("deltaHeaders")) {
+                if (!hfState.Contains("deltaHeaders"))
+                {
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Hapni raportin para dergimit ne Delta!", pnlMesazhi);
                     return;
                 }
                 string[] deltaColumns = (string[])hfState.Get("deltaHeaders");
                 string[][] deltaRows = (string[][])hfState.Get("deltaRows");
                 string orgId = userDetails["organization"].ToString();
-                CreateCsvFile(orgId, deltaColumns, deltaRows, credential,newReport,emerRaporti);
-                if (!newReport) {
+                CreateCsvFile(orgId, deltaColumns, deltaRows, credential, newReport, emerRaporti);
+                if (!newReport)
+                {
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Raporti u perditesua me sukses!", pnlMesazhi);
                     return;
                 }
                 string deltaCreationLink = WebConfigurationManager.AppSettings["createDeltaCF"];
                 string deltaRedirect = WebConfigurationManager.AppSettings["deltaRedirect"];
-                
+
                 object requestObject = new
                 {
-                    projectName = ndermarrje.NdermarrjePershkrimi + "-" +remportName,
+                    projectName = ndermarrje.NdermarrjePershkrimi + "-" + remportName,
                     tileName = RaportiEmerReal,
                     columns = deltaColumns,
                     uid = uid,
@@ -8354,14 +8359,14 @@ namespace PlatinumWeb
                     {
                         string redirectUrl = deltaRedirect.Replace(":idToken", accessToken);
                         redirectUrl = redirectUrl.Replace(":id", $"{rd.ReadToEnd()}");
-                        ScriptManager.RegisterStartupScript(this,GetType(), "deltaKey", $"window.open('{redirectUrl}','_blank')", true);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "deltaKey", $"window.open('{redirectUrl}','_blank')", true);
                     }
 
 
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ImbLogger.LogErrorImporti(ex.Message);
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim ne krijimin e raportit!", pnlMesazhi);
@@ -8370,7 +8375,7 @@ namespace PlatinumWeb
 
 
         }
-        private void CreateCsvFile(string orgId, string[] columns, string[][] rows,GoogleCredential credential,bool newReport,string emerRaporti)
+        private void CreateCsvFile(string orgId, string[] columns, string[][] rows, GoogleCredential credential, bool newReport, string emerRaporti)
         {
             try
             {
@@ -8410,7 +8415,7 @@ namespace PlatinumWeb
 
                         }
                         else
-                        {                            
+                        {
                             string reportName = $"{emerRaporti}_{unixTimestamp}";
                             storage.UploadObject(tmpDeltaBucket, $"{reportName}", "text/csv", memoryStream, options);
                             CopyObjectOptions copyObjectOptions = new CopyObjectOptions();
@@ -8422,11 +8427,11 @@ namespace PlatinumWeb
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ImbLogger.Error(ex);
             }
-            
+
         }
 
         private void AfishoRaport()

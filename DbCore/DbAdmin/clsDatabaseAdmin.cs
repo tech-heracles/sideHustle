@@ -7,15 +7,12 @@ using System.Globalization;
 using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using AlphaWeb.Core.Interfaces.Data;
 using DbCore.DbImporte;
 using DbCore.DbListPagesat;
 using DbCore.IMBUtils.DataBase;
-using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
-using Fasterflect;
 using IDataBaseReader = AlphaWeb.Core.Interfaces.Data.IDataBaseReader;
 
 namespace DbCore.DbAdmin
@@ -354,7 +351,7 @@ namespace DbCore.DbAdmin
 
             idperdorues = int.Parse(dbManager.Parameters[0].Value.ToString());
             return new clsMesazh(true);
-            
+
         }
         internal clsMesazh modifikoPerdoruesEmail(int idperdorues, String perdoruesemail)
         {
@@ -373,7 +370,7 @@ namespace DbCore.DbAdmin
 
         }
 
-        public  clsMesazh modifikoPerdoruesOtp(int idperdorues, string otp)
+        public clsMesazh modifikoPerdoruesOtp(int idperdorues, string otp)
         {
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -439,7 +436,7 @@ namespace DbCore.DbAdmin
             return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
 
         }
-        
+
         internal clsMesazh modifikoIdKonfigurimKaseTePerdoruesit(int idkonfigurimi, int idkonfigurimiVjeter)
         {
             dbManager.Open();
@@ -1115,7 +1112,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        internal List<Dictionary<string,dynamic>> getUserAdminEnterprises(int user_id)
+        internal List<Dictionary<string, dynamic>> getUserAdminEnterprises(int user_id)
         {
             string connectionString = dbManager.ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -1139,7 +1136,7 @@ namespace DbCore.DbAdmin
                         DataTable dataTable = new DataTable();
                         dataTable.Load(reader);
                         List<Dictionary<string, dynamic>> enterprises = new List<Dictionary<string, dynamic>>();
-                        for(int i = 0; i < dataTable.Rows.Count; i++)
+                        for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
                             DataRow current_row = dataTable.Rows[i];
                             enterprises.Add(new Dictionary<string, dynamic>()
@@ -1155,9 +1152,9 @@ namespace DbCore.DbAdmin
                         return enterprises;
                     }
                 }
-                catch(Exception err)
+                catch (Exception err)
                 {
-                    
+
                     reader.Close();
                     connection.Close();
                     return null;
@@ -1428,7 +1425,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0].Rows[0];
 
         }
-        internal bool krijoPerdoruesMeGmail(string email,string username,string name,string password,int roli)
+        internal bool krijoPerdoruesMeGmail(string email, string username, string name, string password, int roli)
         {
             string connectionString = dbManager.ConnectionString;
             name = Regex.Replace(name, @"[^0-9a-zA-Z\._]", "");
@@ -1437,7 +1434,7 @@ namespace DbCore.DbAdmin
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','{roli}','1')" +
                     $"DECLARE @IDPERDORUESI INT = (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc)" +
-                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,@IDPERDORUESI FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}"+
+                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,@IDPERDORUESI FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}" +
                     $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, @IDPERDORUESI, 1, null, null)" +
                     $"INSERT INTO T_AUTORIZIMTRUPI SELECT  IDAUTORIZIMKOKA, @IDPERDORUESI FROM T_AUTORIZIMTRUPI where IDPERDORUESI = '{roli}' " +
                     $"update T_PERDORUESI SET SHENIME = '{email}' where IDPERDORUES = {roli}" +
@@ -1448,7 +1445,7 @@ namespace DbCore.DbAdmin
                 {
                     while (reader.Read())
                     {
-                        
+
                     }
                 }
                 finally
@@ -1992,7 +1989,7 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ROLI_ndryshollojlicence");
             return true;
         }
-        
+
         public DataTable merrGjitheRoletSipasIdPerdoruesi(int idperdorues)
         {
             this.dbManager.Open();
@@ -2290,7 +2287,7 @@ namespace DbCore.DbAdmin
             }
 
         }
-        
+
         /// <summary>
         /// Perditeson IdStatusDok dhe DtModifikimi ne T_ROLI dhe shton rreshtin perkates te rolit ne T_ROLI_HISTORIK me IDPERDORUESI parametrin qe i kalohet
         /// </summary>
@@ -2716,11 +2713,11 @@ namespace DbCore.DbAdmin
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_sel");
             //colPerdoruesit perdoruesit = new colPerdoruesit();
             //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
-            
+
             return ds.Tables[0];
 
         }
-        internal DataTable ktheUserNgaLoginGmail(string perdoruesUsername,string email)
+        internal DataTable ktheUserNgaLoginGmail(string perdoruesUsername, string email)
         {
 
 
@@ -2794,7 +2791,7 @@ namespace DbCore.DbAdmin
                 return null;
             return dt.Rows[0];
         }
-        internal bool kthePerdoruesSipasUsername(string username, bool email,string emailString)
+        internal bool kthePerdoruesSipasUsername(string username, bool email, string emailString)
         {
             DataTable dt = ktheUserNgaLoginGmail(username, emailString);
             if (dt == null)
@@ -2803,7 +2800,7 @@ namespace DbCore.DbAdmin
                 return true;
             return false;
         }
-        internal DataRow kthePerdoruesSipasUsernameOseEmail(string username,string email)
+        internal DataRow kthePerdoruesSipasUsernameOseEmail(string username, string email)
         {
             DataTable dt = ktheUserNgaLogin(username);
             if (dt == null)
@@ -4301,7 +4298,7 @@ namespace DbCore.DbAdmin
             return Convert.ToBoolean(pergjigje);
 
         }
-        
+
         /// <summary>
         /// Ruan Koken e tabeles se te drejtave
         /// </summary>
@@ -7151,11 +7148,11 @@ namespace DbCore.DbAdmin
             return mesazh;
         }
 
-        public clsMesazh ruajNdermarrje(out int idndermarrje, String ndermarrjekodi, String ndermarrjepershkrimi, String ndermarrjevendi, String ndermarrjenipt, int ndermarrjemonedha, int ndermarrjeqyteti, String ndermarrjetel, String ndermarrjefax, String ndermarrjeemail, String ndermarrjelicenca, String ndermarrjekodifiskal, int idperdoruesi, int idviti, int llojndermarje, int idlicenca, int idstatusdok, int idtaksa, byte[] ndermarrjeLogo, string nrtvsh, int lloji, bool prind, int idprindi, int idgrupi, string kodFurnitori, string emerFurnitori, string nrLlogariFurnitori, double limitishitjes, bool ownshop, bool logu, int raportuesi, int nivelstrukture,bool fiskalizim,string kodbiznesi,string pathname,bool meTvsh, bool klientFiskalizimi)
+        public clsMesazh ruajNdermarrje(out int idndermarrje, String ndermarrjekodi, String ndermarrjepershkrimi, String ndermarrjevendi, String ndermarrjenipt, int ndermarrjemonedha, int ndermarrjeqyteti, String ndermarrjetel, String ndermarrjefax, String ndermarrjeemail, String ndermarrjelicenca, String ndermarrjekodifiskal, int idperdoruesi, int idviti, int llojndermarje, int idlicenca, int idstatusdok, int idtaksa, byte[] ndermarrjeLogo, string nrtvsh, int lloji, bool prind, int idprindi, int idgrupi, string kodFurnitori, string emerFurnitori, string nrLlogariFurnitori, double limitishitjes, bool ownshop, bool logu, int raportuesi, int nivelstrukture, bool fiskalizim, string kodbiznesi, string pathname, bool meTvsh, bool klientFiskalizimi)
         {
             idndermarrje = -1;
             dbManager.Open();
-            if(klientFiskalizimi)
+            if (klientFiskalizimi)
                 dbManager.CreateParameters(36);
             else
                 dbManager.CreateParameters(35);
@@ -7209,17 +7206,17 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(32, "@FISKALIZIM", fiskalizim, ParameterDirection.Input);
             dbManager.AddParameters(33, "@KODBIZNESI", kodbiznesi, ParameterDirection.Input);
             dbManager.AddParameters(34, "@pathname", pathname, ParameterDirection.Input);
-            if(klientFiskalizimi)
+            if (klientFiskalizimi)
                 dbManager.AddParameters(35, "@METVSH", meTvsh, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NDERMARJE_ins");
             idndermarrje = int.Parse(dbManager.Parameters[0].Value.ToString());
             return new clsMesazh(true, "Ruajtja përfundoi me sukses");
         }
 
-        internal clsMesazh modifikoNder(int idndermarrje, String ndermarrjekodi, String ndermarrjepershkrimi, String ndermarrjevendi, String ndermarrjenipt, int ndermarrjemonedha, int ndermarrjeqyteti, String ndermarrjetel, String ndermarrjefax, String ndermarrjeemail, String ndermarrjelicenca, String ndermarrjekodifiskal, int idperdoruesi, int idviti, int llojndermarje, int idlicenca, int idstatusdok, int idtaksa, byte[] ndermarrjeLogo, string nrtvsh, bool prind, int idprindi, int idgrupi, double limitishitjes, bool ownshop, bool logu, int raportuesi, int nivelstrukture,bool fiskalizim,string kodbiznesi,string pathname, bool meTvsh,bool klientFiskalizimi)
+        internal clsMesazh modifikoNder(int idndermarrje, String ndermarrjekodi, String ndermarrjepershkrimi, String ndermarrjevendi, String ndermarrjenipt, int ndermarrjemonedha, int ndermarrjeqyteti, String ndermarrjetel, String ndermarrjefax, String ndermarrjeemail, String ndermarrjelicenca, String ndermarrjekodifiskal, int idperdoruesi, int idviti, int llojndermarje, int idlicenca, int idstatusdok, int idtaksa, byte[] ndermarrjeLogo, string nrtvsh, bool prind, int idprindi, int idgrupi, double limitishitjes, bool ownshop, bool logu, int raportuesi, int nivelstrukture, bool fiskalizim, string kodbiznesi, string pathname, bool meTvsh, bool klientFiskalizimi)
         {
             dbManager.Open();
-            if(klientFiskalizimi)
+            if (klientFiskalizimi)
                 dbManager.CreateParameters(32);
             else
                 dbManager.CreateParameters(31);
@@ -7266,7 +7263,7 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(28, "@FISKALIZIM", fiskalizim, ParameterDirection.Input);
             dbManager.AddParameters(29, "@KODBIZNESI", kodbiznesi, ParameterDirection.Input);
             dbManager.AddParameters(30, "@pathname", pathname, ParameterDirection.Input);
-            if(klientFiskalizimi)
+            if (klientFiskalizimi)
                 dbManager.AddParameters(31, "@METVSH", meTvsh, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NDERMARJE_upd");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
@@ -9470,7 +9467,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-       
+
         internal DataRow merrNrAutom(int id)
         {
 
@@ -9487,7 +9484,7 @@ namespace DbCore.DbAdmin
 
 
         }
-       
+
         internal DataRow merrNrAutom(string kod, int idndermarje)
         {
 
@@ -9505,7 +9502,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0].Rows[0];
 
         }
-       
+
         internal DataTable merrNrAutomTeNdermarrjes(int idndermarrje)
         {
 
@@ -9618,7 +9615,7 @@ namespace DbCore.DbAdmin
             return mesazh;
 
         }
-        
+
         public bool ekzistonNrAutomatik(String kodi, int idNdermarje)
         {
             dbManager.Open();
@@ -10727,7 +10724,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        
+
         internal DataTable ktheGjitheAutorizimetDT(int idndermarje, int idperdorues)
         {//merr gjithe autorizim kokat ekzistuese
 
@@ -11519,7 +11516,28 @@ namespace DbCore.DbAdmin
         #endregion
 
         #region RAPORTET
+        private string getAlphaMobileQuery(params SqlParameter[] param_array)
+        {
+            string query = $"SELECT NRDOK FROM T_KOKASHITJE";
+            return query;
+        }
+        private SqlCommand getAlphaMobileReport(params SqlParameter[] param_array)
+        {
+            SqlCommand SqlCmd = new SqlCommand
+            {
+                Transaction = (SqlTransaction)dbManager.Transaction,
+                Connection = (SqlConnection)dbManager.Connection,
+                CommandText = getAlphaMobileQuery(),
+                CommandType = CommandType.Text
+            };
 
+            SqlCmd.Parameters.Clear();
+            foreach (SqlParameter param in param_array)
+            {
+                SqlCmd.Parameters.Add(param);
+            }
+            return SqlCmd;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -11529,12 +11547,14 @@ namespace DbCore.DbAdmin
         /// <param name="ekzekuto2here"> perdoret per te ekzekutuar query 2 here ne vend qe te beje union te dy query sepse unioni e ngadaleson me shume sesa kur ekzekutohen vecan</param>
         /// <param name="param_array"></param>
         /// <returns></returns>
-        public clsMesazh GetReportDataAdapter(out SqlDataAdapter dataAdapter, out DataSet ds, string prc_name, params SqlParameter[] param_array)
+        public clsMesazh GetReportDataAdapter(out SqlDataAdapter dataAdapter, out DataSet ds, string prc_name, bool alphaMobile = false, params SqlParameter[] param_array)
         {
             dataAdapter = new SqlDataAdapter();
             ds = new DataSet();
             try
             {
+
+
                 SqlCommand SqlCmd = new SqlCommand
                 {
                     Transaction = (SqlTransaction)dbManager.Transaction,
@@ -11556,6 +11576,19 @@ namespace DbCore.DbAdmin
                 SqlCmd.Parameters.Clear();
                 return new DbCore.clsMesazh(true);
 
+
+                //}
+                //else
+                //{
+                //    SqlCommand SqlCmd = getAlphaMobileReport(param_array);
+
+
+                //    dataAdapter.SelectCommand = SqlCmd;
+                //    dataAdapter.SelectCommand.CommandTimeout = 900;
+                //    dataAdapter.Fill(ds);
+                //    SqlCmd.Parameters.Clear();
+                //    return new DbCore.clsMesazh(true);
+                //}
             }
             catch (SqlException sqlEx)
             {
@@ -11567,6 +11600,7 @@ namespace DbCore.DbAdmin
             {
                 return new DbCore.clsMesazh(false, ex.Message);
             }
+
 
         }
 
@@ -11628,7 +11662,7 @@ namespace DbCore.DbAdmin
             return mesazh;
 
         }
-       
+
         internal clsMesazh fshiListeAmbjenteCeljeRegjistrim(int idCR)
         {
 
@@ -11641,7 +11675,7 @@ namespace DbCore.DbAdmin
             return mesazh;
 
         }
-       
+
         internal void merrListeAmbjenteCeljeRegjistrim(int idCR)
         {
 
@@ -11652,7 +11686,7 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LISTEAMBJENTECELJEREGJSTRIMI_ktheListeAmbjentiCeljeRegjistrim");
 
         }
-        
+
 
         internal DataRow merrListeAmbjentiCeljeRegjistrim(int id)
         {
@@ -11669,7 +11703,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0].Rows[0];
 
         }
-        
+
 
         internal int merrIDListeAmbjentiCeljeRegjistrim(string kod)
         {
@@ -11687,7 +11721,7 @@ namespace DbCore.DbAdmin
             return idCR;
 
         }
-     
+
 
         internal DataTable ktheGjitheListeAmbjenteshCeljeRegjistrim()
         {
@@ -11698,7 +11732,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-       
+
         #endregion
 
         #region ACR NUMRA AUTOMATIKE
@@ -12981,7 +13015,7 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, emerproc);
             return new clsMesazh(true, String.Format("Ezkekutimi i sp rregulluese {0} perfundoi me sukses!", emerproc));
         }
-        public clsMesazh ekzekutoSpRregulluese(string emerproc, int idndermarrje,int idViti)
+        public clsMesazh ekzekutoSpRregulluese(string emerproc, int idndermarrje, int idViti)
         {
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -13325,7 +13359,7 @@ namespace DbCore.DbAdmin
             return mesazh;
 
         }
-       
+
         internal clsMesazh modifikoKonfigurimFtp(int id, string kodi, string hostName, string username, string password, int port, int idNdermarrje, int idPerdorues, bool enableSSL, int metoda, bool eshteSFTP, string folderPath)
         {
             dbManager.Open();
@@ -13477,8 +13511,8 @@ namespace DbCore.DbAdmin
                 return -1;
             int idWebhook;
             int.TryParse(ds.Tables[0].Rows[0]["IDWEBHOOKS"].ToString(), out idWebhook);
-            return  idWebhook;
-            
+            return idWebhook;
+
         }
 
         internal void merrKonfiguriminEPareManualFtp(int idNdermarrje, IDataBaseReader objectToFill)
@@ -13655,7 +13689,7 @@ namespace DbCore.DbAdmin
         /// <param name="skadoPassword"></param>
         /// <param name="resetPassword"></param>
         /// <returns></returns>
-        internal clsMesazh ruajKonfigurimFjalekalimi(out int id, bool ruajHistorikunPass, int nrHereRuajHistorikPass, bool komplexPassword, bool ndryshimPasswordiDetyruar, int gjatesiaMinPassword, int diteSkadimiPassword, bool bllokoPerdorues, int tentativaBllokPerdorues, bool bllokoLogin, int idPERDORUES, int maxSessionPerPerdorues, bool skadoPassword, bool resetPassword, bool gjeneroPassword, int specialChars, int uppercaseChars, int numbersChars,bool twofactorauth)
+        internal clsMesazh ruajKonfigurimFjalekalimi(out int id, bool ruajHistorikunPass, int nrHereRuajHistorikPass, bool komplexPassword, bool ndryshimPasswordiDetyruar, int gjatesiaMinPassword, int diteSkadimiPassword, bool bllokoPerdorues, int tentativaBllokPerdorues, bool bllokoLogin, int idPERDORUES, int maxSessionPerPerdorues, bool skadoPassword, bool resetPassword, bool gjeneroPassword, int specialChars, int uppercaseChars, int numbersChars, bool twofactorauth)
         {
             id = -1;
             dbManager.Open();
@@ -13705,7 +13739,7 @@ namespace DbCore.DbAdmin
         /// <param name="skadoPassword"></param>
         /// <param name="resetPassword"></param>
         /// <returns></returns>
-        internal clsMesazh modifikoKonfigurimFjalekalimi(int id, bool ruajHistorikunPass, int nrHereRuajHistorikPass, bool komplexPassword, bool ndryshimPasswordiDetyruar, int gjatesiaMinPassword, int diteSkadimiPassword, bool bllokoPerdorues, int tentativaBllokPerdorues, bool bllokoLogin, int idPERDORUES, int maxSessionPerPerdorues, bool skadoPassword, bool resetPassword, bool gjeneroPassword, int specialChars, int uppercaseChars, int numbersChars,bool twofactorauth)
+        internal clsMesazh modifikoKonfigurimFjalekalimi(int id, bool ruajHistorikunPass, int nrHereRuajHistorikPass, bool komplexPassword, bool ndryshimPasswordiDetyruar, int gjatesiaMinPassword, int diteSkadimiPassword, bool bllokoPerdorues, int tentativaBllokPerdorues, bool bllokoLogin, int idPERDORUES, int maxSessionPerPerdorues, bool skadoPassword, bool resetPassword, bool gjeneroPassword, int specialChars, int uppercaseChars, int numbersChars, bool twofactorauth)
         {
             dbManager.Open();
             clsMesazh mesazh = new clsMesazh();
@@ -14659,7 +14693,7 @@ namespace DbCore.DbAdmin
         #endregion
 
         #region KONFIG IMPORTI
-        
+
         internal IEnumerable<clsKonfigImporti> merrGjitheKonfigurimImportiNdermarrjesSipasTeDrejtave(int idNdermarrje, int idViti, int idPerdoruesi, string komponente)
         {
             dbManager.Open();
@@ -14685,7 +14719,7 @@ namespace DbCore.DbAdmin
                 {
                     while (reader.Read())
                     {
-                        if(reader["EMERTABELEKOKA"].ToString() != "")
+                        if (reader["EMERTABELEKOKA"].ToString() != "")
                             queue.Enqueue(reader["EMERTABELEKOKA"].ToString());
                         if (reader["EMERTABELETRUPI"].ToString() != "")
                             queue.Enqueue(reader["EMERTABELETRUPI"].ToString());
@@ -14743,7 +14777,7 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KONFIGIMPORTI_eksiston")) > 0;
         }
-        
+
         internal void fshiKonfigurimImportiStatus(int id, int idperdorues)
         {
             dbManager.Open();
@@ -14873,7 +14907,7 @@ namespace DbCore.DbAdmin
         #endregion
 
         #region KONFIG EXPORTI
-        
+
         internal IEnumerable<clsKonfigExporti> MerrGjitheKonfigurimExportiNdermarrjesSipasTeDrejtave(int idNdermarrje, int idViti, int idPerdoruesi, string komponente)
         {
             dbManager.Open();
@@ -16033,7 +16067,7 @@ namespace DbCore.DbAdmin
         /// </summary>
         /// <param name="idArtikulli"></param>
         /// <returns></returns>
-        internal string merrAutorizimeSipasIdLidheseDheLloj(int idLidhese, string kodLloj,int idPerdorues)
+        internal string merrAutorizimeSipasIdLidheseDheLloj(int idLidhese, string kodLloj, int idPerdorues)
         {
 
 

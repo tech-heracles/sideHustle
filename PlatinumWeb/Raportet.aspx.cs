@@ -1,7 +1,11 @@
 ﻿using System;
-using DbCore.DbShare;
+using System.Data;
+using System.Linq;
 using DbCore.DbAdmin;
+using DbCore.DbShare;
+using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Messages;
+using DevExpress.Data.ODataLinq.Helpers;
 using PlatinumWeb.ApplicationUtils.Pages;
 
 namespace PlatinumWeb
@@ -27,8 +31,36 @@ namespace PlatinumWeb
                 }
 
                 var idModuli = int.Parse(Request.QueryString["idmod"]);
-                
+
                 var dt = clsRaporti.KtheListRaportesh(IdNdermarrja, IdPerdoruesi, IdGjuha, IdViti, idModuli);
+                DataTable dtClone = dt.Copy();
+                try
+                {
+                    if (idModuli == 12)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            DataRow currentRow = dtClone.Rows[i];
+                            if ((string)currentRow["RAPEMRIREAL"] == "LibriShitjes2019")
+                            {
+                                currentRow["RAPEMRIREAL"] = "RaportAlphaMobile";
+                                currentRow["RAPEMRI"] = "Raport Alpha Mobile";
+                                DataRow desRow = dt.Rows.Add(currentRow.ItemArray.Clone() as object[]);
+                                //desRow.ItemArray = currentRow.ItemArray.Clone() as object[];
+                                break;
+                            }
+
+                        }
+                    }
+
+
+                }
+                catch (Exception err)
+                {
+
+                }
+
+                //DataRow shitje = dt.Rows.AsQueryable().Where(key => key["RAPEMRIREAL"] == "liber_shitje");
                 hfState.Add("listaRap", Newtonsoft.Json.JsonConvert.SerializeObject(dt));
                 var stringKonfig = clsRaporti.KtheListKonfigRaportesh(IdPerdoruesi, IdNdermarrja, idModuli);
                 hfState.Add("konfigRap", string.IsNullOrEmpty(stringKonfig) ? "" : stringKonfig);
