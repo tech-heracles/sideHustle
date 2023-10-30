@@ -1123,7 +1123,8 @@ namespace PlatinumWeb
                 double.TryParse(dictionary["exchangeRate"].ToString(), out kursi);
                 if (dictionary.ContainsKey("isOrder"))
                 {
-                    kursi = new clsKurset(kf.idMonedha, DateTime.Now).VleraKursi;
+                    if ((bool)dictionary["isOrder"] == true)
+                        kursi = new clsKurset(kf.idMonedha, DateTime.Now).VleraKursi;
                 }
                 bool.TryParse(alphaMetadata["generateWarehouseDoc"].ToString(), out gjeneroDokMag);
                 //
