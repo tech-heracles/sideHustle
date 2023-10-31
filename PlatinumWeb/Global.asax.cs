@@ -49,6 +49,8 @@ using PlatinumWeb.ApplicationUtils;
 using DevExpress.XtraReports.Web.WebDocumentViewer;
 using Web.Framework;
 using DevExpress.XtraReports.Web.WebDocumentViewer.Native.Services;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using AlphaWeb.Infrastructure.Data.AdoNet;
 
 namespace PlatinumWeb
 {
@@ -226,6 +228,7 @@ namespace PlatinumWeb
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+
             switch (Request.Url.AbsolutePath.ToString())
             {
                 case "/arber":

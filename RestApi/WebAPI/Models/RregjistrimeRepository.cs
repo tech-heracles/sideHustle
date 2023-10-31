@@ -3,37 +3,33 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.Script.Serialization;
 using System.Web.SessionState;
+using CacheLayer;
 using DbCore;
 using DbCore.DbAdmin;
+using DbCore.DbArkaBanka;
 using DbCore.DbAsete;
+using DbCore.DbImporte;
 using DbCore.DbInventari;
 using DbCore.DbKontabiliteti;
 using DbCore.DbProdhimi;
+using DbCore.DbQendraKosto;
 using DbCore.DbRegjistrim;
 using DbCore.DbShare;
-using Newtonsoft.Json;
-using DbCore.DbArkaBanka;
-using System.Resources;
-using System.Web.Script.Serialization;
-using DbCore.IMBUtils.Logging;
-using System.Web;
-using System.Reflection;
 using DbCore.IMBUtils;
-using DbCore.IMBUtils.Messages;
-using System.Collections;
 using DbCore.IMBUtils.Cache;
-using System.Diagnostics;
-using DbCore.DbImporte;
 using DbCore.IMBUtils.DataBase;
-using DbCore.DbQendraKosto;
-using DbCore.DbBuxheti;
-using CacheLayer;
 using DbCore.IMBUtils.Extensions;
-using System.Net;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Fiskalizimi.API;
-using System.Web.Configuration;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace RestApi.WebAPI.Models
@@ -187,7 +183,7 @@ namespace RestApi.WebAPI.Models
             return etapa;
         }
 
-        public static bool KontrolloFaturaPaprintuara(int idndermarje, int idperdorues, int iddege,int idnivel)
+        public static bool KontrolloFaturaPaprintuara(int idndermarje, int idperdorues, int iddege, int idnivel)
         {
             colPrintimeNeKase col = new colPrintimeNeKase();
             col.ktheDergimeKaseSipasIdShopIdNdermDheStatus(iddege, false, idperdorues, idndermarje, idnivel);
@@ -287,12 +283,12 @@ namespace RestApi.WebAPI.Models
             err.Columns.Add("Kodi");
             err.Columns.Add("Gabimi");
             err.Columns.Add("Rreshti");
-            int nrreshta = 0; 
+            int nrreshta = 0;
 
             foreach (clsKokaShitje dok in colShitjetTeSelektuaraPerAutoKonvert)
             {
                 nrreshta++;
-                int idshitjekoka = dok.IdShitjeKoka; 
+                int idshitjekoka = dok.IdShitjeKoka;
                 clsKonfigurimAmbjenti konfDok = new clsKonfigurimAmbjenti(dok.IdKonfigAmbjente);
 
                 bool kva = clsAlternativaKushti.getAlternativa(dok.IdKonfigAmbjente, "KVA") == "Po";
@@ -319,7 +315,7 @@ namespace RestApi.WebAPI.Models
                     continue;
                 }
                 int[] id = { idshitjekoka };
-                ListeDokKontrolloKonvertuar obj = KontrolloKonvertuar(id, konfigKVDN.KodKonfigAmbjente, idNdermarrje, idPerdoruesi, idGjuha, pageId ); 
+                ListeDokKontrolloKonvertuar obj = KontrolloKonvertuar(id, konfigKVDN.KodKonfigAmbjente, idNdermarrje, idPerdoruesi, idGjuha, pageId);
                 if (obj.mesazh != "Nuk jane konvertuar")
                 {
                     object[] arr = { konfDok.KodKonfigAmbjente + " " + dok.NrDok + " " + dok.DtDok.ToShortDateString(), obj.mesazh, nrreshta };
@@ -332,7 +328,7 @@ namespace RestApi.WebAPI.Models
                 int idPeriudheKontabel = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(DateTime.Today, idNdermarrje);
                 CultureInfo ci = mySessionObjects.ktheCultureInfo(Session);
                 ResourceManager rm = new ResourceManager("Resources.Strings", Assembly.Load("App_GlobalResources"));
-                
+
                 bool gjeneroDokMag = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "GJDM") == "Po";
 
                 colSerialetMagazine serialeMag = new colSerialetMagazine();
@@ -393,7 +389,7 @@ namespace RestApi.WebAPI.Models
                 int idMagTemp = -1;
                 bool isMagENjejte = true;
                 var i = 1;
-                foreach (var tr in dok.OColTrupiShitje)  
+                foreach (var tr in dok.OColTrupiShitje)
                 {
 
                     if (tr.IdLlojVeprimi == 1 && mosPerfshiArtSherbim)
@@ -403,7 +399,7 @@ namespace RestApi.WebAPI.Models
                     clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, isShitje, konvertim, eshteMeme, merrSipasGrupit, kodGrup1, merrDhurata, eshteOwn, gjeneroDokMag, false, false, veprimi, tollona, tollonaKastrati, konvertimBlerje, zevendesimtollonakastrati, false, blerenNgaDealeri, tr.Kodi, tr.IdLlojVeprimi == 1 ? "Artikull" : "Llogari", tr.IdKodi, tr.IdShitjeTrupi, tr.IdTrupiKonvertimi, tr.IdTrupiKonvertimBlerje, tr.IdTrupiRezervimi, tr.IdTrupiTransferimi, tr.IdTrupiKthim, tr.Pershkrimi, tr.KodDetajim1, tr.KodDetajim2, tr.IdNjesia, tr.Sasia, tr.SasiRez, tr.Gjeresi, tr.Gjatesi, tr.SasiPermasa, tr.Cmimi, tr.Zbritje, tr.LlojZbritje, tr.ZbritjeVlere, tr.VleftaPaTvsh, tr.Tvsh, tr.VleftaMeTvsh, tr.IdMagazina, tr.Shenime, tr.NrLlogShpenzimi, tr.DtFillimi, tr.DtMbarimi, tr.Shenime2, tr.IdBarkodi, tr.IdKategoriShpenzimi, konfigKVDN.KodKonfigAmbjente, i, lejoMagNdryshme, dok.DtDok, lejoSasiPozitiveKthim);
                     i++;
                     totaliPaTvsh += tr.VleftaPaTvsh;
-                    totaliMeTvsh += tr.VleftaMeTvsh; 
+                    totaliMeTvsh += tr.VleftaMeTvsh;
 
                     if (string.IsNullOrEmpty(trupi.Kodi))
                     {
@@ -422,7 +418,7 @@ namespace RestApi.WebAPI.Models
                 {
                     mesazh.Status = false;
                     mesazh.PershkrimMesazhi = MessagesResource.Messages["msgTrupiDokNukDuhetBosh"];
-                } 
+                }
 
                 if (!mesazh.Status)
                 {
@@ -436,14 +432,15 @@ namespace RestApi.WebAPI.Models
                     kodMag = magazinaPerbashket.Kodi;
                 }
 
-                double tvsh = (totaliMeTvsh - totaliPaTvsh) * (1 - dok.PerqindjeZbritje/100);
+                double tvsh = (totaliMeTvsh - totaliPaTvsh) * (1 - dok.PerqindjeZbritje / 100);
 
                 clsKokaShitje shitjaKonvert = new clsKokaShitje();
                 var merrMagazinePerberesi = clsAlternativaKushti.getAlternativa(konfigKVDN.IdKonfigAmbjente, "KGJAPMR") == "Po";
                 try
                 {
-                    mesazh = shitjaKonvert.krijoShitje(ref gjeneroDokMag, konfigKVDN.IdNivel, dok.IdTemplate, idkonfigKVDN, dok.IdKlientFurnitor > 1 ? dok.IdKlientFurnitor : 0, dok.EmerKlienti, dok.IdProjekt, dok.NrProjekt, DateTime.Today, dok.NrDok, dok.NrSerial, dok.DtMaturimi, dok.IdMonedha, dokKodMonedhe, dok.Kursi, dok.IdMenyreTransporti, dok.KodMenyreTransporti, dok.DtTransportimi, dok.IdKushtDergimi, dok.KodKushtDergimi, dok.IdAgjent, dok.KodAgjenti, dok.IdMenyrePagese, dok.KodMenyrePagese == null ? "" : dok.KodMenyrePagese, dok.IdKushtPagese, dok.KodKushtPagese == null ? "" : dok.KodKushtPagese, dok.Zbritje, totaliMeTvsh, tvsh, DateTime.Today, idStatusDokKonvert, idNdermarrje, idNderVit, 0, 0, 0, 0, dok.AdresaFaturimit, dok.AdresaDergimit, dok.Pershkrimi, dok.Dogana, dok.IdDegeAdministrative, dok.KodDegeAdministrative == null ? "" : dok.KodDegeAdministrative, dok.IdPikeShitjeFurnizimi, dok.KodPikeShitje == null ? "" : dok.KodPikeShitje, idPerdoruesi, dok.IdRaportDesing, trupat, isShitje, konfigKVDN.KodKonfigAmbjente, idPeriudheKontabel, konfmag, idMag, kodMag, mekontabilizim, dok.IdGrup1, dok.IdGrup2, dok.IdGrup3, dok.AfatKohor, dok.Cash, dok.StatusAprovimi, idPerdoruesi, dok.PerqindjeAgjenti, out shfaqmesazhapolupe, dok.HfArkiva, new colTrupiQendraKosto(), 0, out mesazhinformues, gjeneroMeme, kokaMeme, 0, 0, eshteMeme, gjeneroBij, StatusTrasferimi.PaTransferuar, dok.EmerKlienti, dok.Kontakti, dok.Kase, dok.Kupon, kodGrup1 == null ? "" : kodGrup1, dok.DtFillimi, dok.DtMbarimi, dok.IdAutomjet, dok.KilometraAuto, dok.Targa, dok.IdAgjenti2, dok.PerqindjeAgjenti2, dok.KodAgjenti2, dok.IdAgjenti3, dok.PerqindjeAgjenti3, dok.KodAgjenti3, dok.Marresi, dok.IdTransportues, dok.EmertimTr == null ? "" : dok.EmertimTr, faturePermbledhese, faturashitjengaurdhershitjamekupontatimor, dok.ShpenzimeJoTeZbritshme, dok.IdArka, kontrollEkzistence, tollona, autoKlient, false, dok.DtFature, false, tollonaKastrati, tollonaKastratiElektronik, dok.MuajRaportimi, dok.IdVitRaportimi, dok.Shoferi, dok.TargaShoferit == null ? "" : dok.TargaShoferit, dok.ZbritjeNeVlere, dok.PerqindjeZbritje, dok.IdKarta, dok.Pike, dok.OColFazat, dok.IdFaza, dok.ColKlienteFurnitoreVartes, DateTime.Now, new DbData(), llojZevendesimi, dok.Koordinata, blerenNgaDealeri, krijoArtRi, idGjuha, konfVfone, -1, dok.NiptK, dok.QytetiK, kontrolloGjendje, dok.IdKategoriSeriali, serialetUnike, dok.Shenime2, dok.KartaPaPagese, 0, false, 0, dok.IdMarreveshje, StatusMarreveshje.Inaktive, dok.KerkuarNga ,"shtim",dok.DateKerkese,merrMagazinePerberesi, dok.NrDok, "", "", 0,"","","",0,0,"");
-                } catch (Exception exp)
+                    mesazh = shitjaKonvert.krijoShitje(ref gjeneroDokMag, konfigKVDN.IdNivel, dok.IdTemplate, idkonfigKVDN, dok.IdKlientFurnitor > 1 ? dok.IdKlientFurnitor : 0, dok.EmerKlienti, dok.IdProjekt, dok.NrProjekt, DateTime.Today, dok.NrDok, dok.NrSerial, dok.DtMaturimi, dok.IdMonedha, dokKodMonedhe, dok.Kursi, dok.IdMenyreTransporti, dok.KodMenyreTransporti, dok.DtTransportimi, dok.IdKushtDergimi, dok.KodKushtDergimi, dok.IdAgjent, dok.KodAgjenti, dok.IdMenyrePagese, dok.KodMenyrePagese == null ? "" : dok.KodMenyrePagese, dok.IdKushtPagese, dok.KodKushtPagese == null ? "" : dok.KodKushtPagese, dok.Zbritje, totaliMeTvsh, tvsh, DateTime.Today, idStatusDokKonvert, idNdermarrje, idNderVit, 0, 0, 0, 0, dok.AdresaFaturimit, dok.AdresaDergimit, dok.Pershkrimi, dok.Dogana, dok.IdDegeAdministrative, dok.KodDegeAdministrative == null ? "" : dok.KodDegeAdministrative, dok.IdPikeShitjeFurnizimi, dok.KodPikeShitje == null ? "" : dok.KodPikeShitje, idPerdoruesi, dok.IdRaportDesing, trupat, isShitje, konfigKVDN.KodKonfigAmbjente, idPeriudheKontabel, konfmag, idMag, kodMag, mekontabilizim, dok.IdGrup1, dok.IdGrup2, dok.IdGrup3, dok.AfatKohor, dok.Cash, dok.StatusAprovimi, idPerdoruesi, dok.PerqindjeAgjenti, out shfaqmesazhapolupe, dok.HfArkiva, new colTrupiQendraKosto(), 0, out mesazhinformues, gjeneroMeme, kokaMeme, 0, 0, eshteMeme, gjeneroBij, StatusTrasferimi.PaTransferuar, dok.EmerKlienti, dok.Kontakti, dok.Kase, dok.Kupon, kodGrup1 == null ? "" : kodGrup1, dok.DtFillimi, dok.DtMbarimi, dok.IdAutomjet, dok.KilometraAuto, dok.Targa, dok.IdAgjenti2, dok.PerqindjeAgjenti2, dok.KodAgjenti2, dok.IdAgjenti3, dok.PerqindjeAgjenti3, dok.KodAgjenti3, dok.Marresi, dok.IdTransportues, dok.EmertimTr == null ? "" : dok.EmertimTr, faturePermbledhese, faturashitjengaurdhershitjamekupontatimor, dok.ShpenzimeJoTeZbritshme, dok.IdArka, kontrollEkzistence, tollona, autoKlient, false, dok.DtFature, false, tollonaKastrati, tollonaKastratiElektronik, dok.MuajRaportimi, dok.IdVitRaportimi, dok.Shoferi, dok.TargaShoferit == null ? "" : dok.TargaShoferit, dok.ZbritjeNeVlere, dok.PerqindjeZbritje, dok.IdKarta, dok.Pike, dok.OColFazat, dok.IdFaza, dok.ColKlienteFurnitoreVartes, DateTime.Now, new DbData(), llojZevendesimi, dok.Koordinata, blerenNgaDealeri, krijoArtRi, idGjuha, konfVfone, -1, dok.NiptK, dok.QytetiK, kontrolloGjendje, dok.IdKategoriSeriali, serialetUnike, dok.Shenime2, dok.KartaPaPagese, 0, false, 0, dok.IdMarreveshje, StatusMarreveshje.Inaktive, dok.KerkuarNga, "shtim", dok.DateKerkese, merrMagazinePerberesi, dok.NrDok, "", "", 0, "", "", "", 0, 0, "");
+                }
+                catch (Exception exp)
                 {
                     ImbLogger.Error(exp);
                     mesazh.PershkrimMesazhi = exp.Message;
@@ -460,8 +457,9 @@ namespace RestApi.WebAPI.Models
                 {
                     DbData dbData = new DbData();
 
-                    mesazh = shitjaKonvert.ruaj(idGjuha, serverUrl, isShitje, null, idPeriudheKontabel, new colKonvertimi(), gjeneroDokMag, out veprimeBanka, kushtZSP.Vlera, StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMeme, 0, 0, dergoemail, eshteOwn, dergoemailVFOne, "", serialeMag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, konfigKVDN.KodKonfigAmbjente, false, string.Empty, 0, tollona, zevendesimtollona, false, false, "", "", "", tollonaKastrati, tollonaKastratiElektronik, false, "", false, false, zevendesimtollonakastrati, ruajRenditje, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, blerenNgaDealeri, !konfigKVDN.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoArtRi, "", "", false, out mesazhmevonshem, false,true,"","");
-                } catch (Exception exp)
+                    mesazh = shitjaKonvert.ruaj(idGjuha, serverUrl, isShitje, null, idPeriudheKontabel, new colKonvertimi(), gjeneroDokMag, out veprimeBanka, kushtZSP.Vlera, StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMeme, 0, 0, dergoemail, eshteOwn, dergoemailVFOne, "", serialeMag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, konfigKVDN.KodKonfigAmbjente, false, string.Empty, 0, tollona, zevendesimtollona, false, false, "", "", "", tollonaKastrati, tollonaKastratiElektronik, false, "", false, false, zevendesimtollonakastrati, ruajRenditje, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, blerenNgaDealeri, !konfigKVDN.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoArtRi, "", "", false, out mesazhmevonshem, false, true, "", "");
+                }
+                catch (Exception exp)
                 {
                     ImbLogger.Error(exp);
                     mesazh.PershkrimMesazhi = exp.Message;
@@ -489,7 +487,9 @@ namespace RestApi.WebAPI.Models
 
             return new
             {
-                kaGabime = kaGabime, nrReshtaKonvertuar = nrReshtaKonvertuar, nrRreshtaMeGabime = nrRreshtaMeGabime
+                kaGabime = kaGabime,
+                nrReshtaKonvertuar = nrReshtaKonvertuar,
+                nrRreshtaMeGabime = nrRreshtaMeGabime
             };
         }
 
@@ -515,7 +515,7 @@ namespace RestApi.WebAPI.Models
             int idniveli = konfigurim.IdNivel;
             int idNivelKonvert;
             int idkonfigKonvert = 0;
-            
+
             if (konfigurim.IdKategori != 51 && konfigurim.IdKategori != 207)
             {
                 colShitjet = new colKokaShitje(String.Join(",", ids));
@@ -903,7 +903,7 @@ namespace RestApi.WebAPI.Models
                 return new colAdresatKlientFurnitor();
             else
                 return new colAdresatKlientFurnitor(idKlientFurnitor);
-            
+
         }
 
         public static string ktheArtikullPerberes(int id)
@@ -949,7 +949,7 @@ namespace RestApi.WebAPI.Models
             return ktheCmimArtikulliRow(idNdermarrje, idPerdoruesi, kodArtikulli, nivelCmimi, date, monedha, kodNjesia, kursi, idRreshti, sasi, llojNiveli, detajim);
         }
 
-        public static object[] ktheCmimArtikulliRowNivelBaze(int idNdermarrje, int idPerdoruesi, string kodArtikulli, string date, string njesia,  int idRreshti, decimal sasi, int llojNiveli)
+        public static object[] ktheCmimArtikulliRowNivelBaze(int idNdermarrje, int idPerdoruesi, string kodArtikulli, string date, string njesia, int idRreshti, decimal sasi, int llojNiveli)
         {
             clsNivelCmimi nivelBaze = new clsNivelCmimi();
             nivelBaze.mbushNivelCmimiBaze(idNdermarrje, 1);
@@ -1066,7 +1066,7 @@ namespace RestApi.WebAPI.Models
         public static clsMesazh ktheGjendjeArtikulli(int idja, string mag, DateTime data, string koddetajim, string koddetajim2, int iddok, int idndermarje, int idKonfigAmbjente, int idreshti, double totalartikulli, double totaldetajim1, double totaldetajim2, bool shitje_blerje, bool ekzekutimProdhim)
         {
             clsArtikulli artikulli = new clsArtikulli(idja);
-           if (artikulli.IdArtikulli == 0 )
+            if (artikulli.IdArtikulli == 0)
                 return new clsMesazh(false, String.Format("Artikulli me id {0} nuk ekziston!", idja.ToString()));
             if (!artikulli.KontrollGjendjeArtikulli)
                 return new clsMesazh(true);
@@ -1087,7 +1087,7 @@ namespace RestApi.WebAPI.Models
                 return ktheGjendjeArtikulliPerArtikull(idja, mag, data, koddetajim, koddetajim2, iddok, idndermarje, idKonfigAmbjente, idreshti, totalartikulli, totaldetajim1, totaldetajim2, shitje_blerje, artikulli, ekzekutimProdhim);
         }
 
-        public static clsMesazh ktheGjendjeArtikulliPerArtikull(int idja, string mag, DateTime data, string koddetajim, string koddetajim2, int iddok, int idndermarje, int idKonfigAmbjente, int idreshti, double totalartikulli, double totaldetajim1, double totaldetajim2, bool shitje_blerje, clsArtikulli artikulli,  bool ekzekutimProdhim)
+        public static clsMesazh ktheGjendjeArtikulliPerArtikull(int idja, string mag, DateTime data, string koddetajim, string koddetajim2, int iddok, int idndermarje, int idKonfigAmbjente, int idreshti, double totalartikulli, double totaldetajim1, double totaldetajim2, bool shitje_blerje, clsArtikulli artikulli, bool ekzekutimProdhim)
         {
             data = data.ToLocalTime();
             //nqs kemi shitje negative ose blerje pozitive dalim sepse keto e shtojne gjendjen
@@ -1124,11 +1124,11 @@ namespace RestApi.WebAPI.Models
             DataTable datapas = colTrupiMagazina.merrDataVeprimiPas(data, idndermarje, magazi.IdNjesiAdministrative, artikulli.IdArtikulli, null);
             ListeVleraTePlotaArtikulli listArt = new ListeVleraTePlotaArtikulli();
             listArt.colGjendjeArtikulli = merrGjendjeArtikulliMag(artikulli.IdArtikulli, !String.IsNullOrEmpty(artikulli.Magazina) ? artikulli.Magazina : mag, idndermarje);
-          
+
             if (ekzekutimProdhim)
             {
                 double sasiaProd = totalartikulli + gjendje;
-                double sasiaRec =  gjendje - totalartikulli;
+                double sasiaRec = gjendje - totalartikulli;
                 double minArtikull = Convert.ToDouble(artikulli.MinimumArtikulli);
                 double maxArtikull = Convert.ToDouble(artikulli.MaximumArtikulli);
                 if (artikulli.Klasa == 5 || artikulli.Klasa == 6)
@@ -1159,7 +1159,7 @@ namespace RestApi.WebAPI.Models
                     if (sasiaRec < minArtikull && minArtikull != 0)//krahasojme gjendjet me min dhe max te artikullit
                         return new clsMesazh(true, String.Format(MessagesResource.Messages["MsgSasiaMinArtikulli"], artikulli.KodArtikulli, minArtikull));
                 }
-                
+
             }
 
             if (koddetajim == "" && !ekzekutimProdhim)//nqs nuk kemi detajim ne rresht
@@ -1289,7 +1289,7 @@ namespace RestApi.WebAPI.Models
             return lista;
         }
 
-        public static object ktheKategoriZbritje(string kf, DateTime date, decimal vlefte, decimal kursi, int idmonedha,  int idNdermarrje)
+        public static object ktheKategoriZbritje(string kf, DateTime date, decimal vlefte, decimal kursi, int idmonedha, int idNdermarrje)
         {
             date = date.ToLocalTime();
             if (kf == null || kf == "")
@@ -1366,7 +1366,7 @@ namespace RestApi.WebAPI.Models
             }
         }
 
-     
+
 
         public static string ktheKursinFunditSipasLlojitDB(int idMonedha, int lloji, int idNdermarrje)
         {
@@ -1390,7 +1390,7 @@ namespace RestApi.WebAPI.Models
                 return new { autocomplete = new AutoCompleteItem[0], meDetajim = false, ekzistonDetajim = false, kategoriDet = 0, infixText = infixText, lloji = lloji };
             clsArtikulli artikulli = new clsArtikulli();
             artikulli.mbushArtikull(art, idNdermarrje);
-            if(artikulli.IdArtikulli == 0)
+            if (artikulli.IdArtikulli == 0)
                 return new { autocomplete = new AutoCompleteItem[0], meDetajim = false, ekzistonDetajim = false, kategoriDet = 0, infixText = infixText, lloji = lloji };
             DataTable tmpTable = null;
             clsDatabaseInventari dbInv = new clsDatabaseInventari();
@@ -1439,7 +1439,7 @@ namespace RestApi.WebAPI.Models
                 autoCompleteItem[i].kategori = tmpTable.Rows[i]["kategoria"].ToString();
             }
             bool ekzistonDetajimi = false;
-            if(artikulli.DetajimArtikulli)
+            if (artikulli.DetajimArtikulli)
                 ekzistonDetajimi = dbInv.ekzistonDetajim(infixText, idNdermarrje);
             return new { autocomplete = autoCompleteItem, meDetajim = artikulli.DetajimArtikulli, ekzistonDetajim = ekzistonDetajimi, kategoriDet = lloji == 1 ? artikulli.IdKategoriDetajimi : artikulli.IdKategoriDetajimi2, infixText = infixText, lloji = lloji };
         }
@@ -1553,7 +1553,7 @@ namespace RestApi.WebAPI.Models
         }
         public static object ktheKlientFurnitorSipasId(int idKlientFurnitor)
         {
-            return new { klientFurnitor = new clsKlientFurnitor(idKlientFurnitor)};
+            return new { klientFurnitor = new clsKlientFurnitor(idKlientFurnitor) };
         }
 
         public static string kthePershkrimDegeSipasID(int id)
@@ -1578,7 +1578,7 @@ namespace RestApi.WebAPI.Models
 
         public static string kthePershkrimMakro(string prefixText, int idNderViti, int idNdermarrje, int idPerdoruesi)
         {
-            
+
             colKokatMakro oCol = new colKokatMakro();
             oCol = new colKokatMakro(idNdermarrje, idPerdoruesi, prefixText);
             if (oCol.Count > 0)
@@ -1597,8 +1597,8 @@ namespace RestApi.WebAPI.Models
                 return null;
             if (idInfoArt == 0)
                 return new { artikulli = artikulli };
-         
-          //  int idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
+
+            //  int idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
             data = data.ToLocalTime();
             ListeVleraInfo lista = artikulli.merrInfoArtSipasIdKokaDheVisibleVlera(idPerdoruesi, data, "-1", idInfoArt, "-1", idViti, 0, mag, "");
             return new { artikulli = artikulli, infoArt = lista };
@@ -1642,16 +1642,16 @@ namespace RestApi.WebAPI.Models
             artikulli.mbushArtikull(kodartikulli, idNdermarrje);
             DateTime dateDok;
             bool date = DateTime.TryParse(dtDok, out dateDok);
-            var result = clsDetajimArtikulli.ktheRowVleraDetajimMeKod(kodi, rreshti, lloji, artikulli, idkokamagazina, idNdermarrje, idPerdorues, magazina, dateDok, kontrolloImeiFifo, listeIMEI, promocione, DokumentTransferimiOwn, date, 
+            var result = clsDetajimArtikulli.ktheRowVleraDetajimMeKod(kodi, rreshti, lloji, artikulli, idkokamagazina, idNdermarrje, idPerdorues, magazina, dateDok, kontrolloImeiFifo, listeIMEI, promocione, DokumentTransferimiOwn, date,
                 merrPerberesit && artikulli.Klasa == 4);
 
-            if(!merrPerberesit || artikulli.Klasa != 4 || ((clsDetajimArtikulli)result[1]).IdDetajimArtikulli > 0)
+            if (!merrPerberesit || artikulli.Klasa != 4 || ((clsDetajimArtikulli)result[1]).IdDetajimArtikulli > 0)
             {
                 return result;
             }
             colArtikulliPerberes artper = new colArtikulliPerberes(artikulli.IdArtikulli, date ? dateDok : DateTime.Now, new clsDatabaseInventari());
             colArtikujt artikujt = new colArtikujt(artper.Select(x => x.IdLidheseArt).ToList());
-            foreach(var art in artikujt)
+            foreach (var art in artikujt)
             {
                 var resultPerberes = clsDetajimArtikulli.ktheRowVleraDetajimMeKod(kodi, rreshti, lloji, art, idkokamagazina, idNdermarrje, idPerdorues, magazina, dateDok, kontrolloImeiFifo, listeIMEI, promocione, DokumentTransferimiOwn, date, false);
                 if (((clsDetajimArtikulli)resultPerberes[1]).IdDetajimArtikulli > 0)
@@ -1659,7 +1659,7 @@ namespace RestApi.WebAPI.Models
             }
 
             return result;
-            
+
 
         }
         public static string kontrollobundle(int[] idte)
@@ -1696,12 +1696,12 @@ namespace RestApi.WebAPI.Models
 
         public static DataTable ktheKonfigurimWebhhok(int idnderrmarje)
         {
-        
-               
+
+
             var dt = clsWebhooks.merrWebhookSipasNderm(idnderrmarje);
 
-           
-           return dt;
+
+            return dt;
         }
         public static ListeVleraArtikulli ktheRowVleraIdArtDetajimTvsh(int idArt, int rreshti, DateTime data, string kodMag, int idPerdoruesi, KonfigurimTVSHGjateRregj llojTvsh, clsTaksa taksaKF, object sasiaNeGride, bool merrMagMeAutorizim, object magazinatKoka)
         {
@@ -1715,7 +1715,7 @@ namespace RestApi.WebAPI.Models
             {
                 artikulli.mbushKodBare();
                 Dictionary<String, Object>[] magazinatTrupi = merrMagazinePerTrupDokumentiSipasLlojit(idNdermarrje, idPerdoruesi, merrMagMeAutorizim, magazinatKoka, artikulli, kodMag, String.Empty);
-                int idMagazina = magazinatTrupi[0].Count == 0? 0 : int.Parse((((Dictionary<String, Object>)magazinatTrupi[0])["idMagArtKoka"]).ToString());
+                int idMagazina = magazinatTrupi[0].Count == 0 ? 0 : int.Parse((((Dictionary<String, Object>)magazinatTrupi[0])["idMagArtKoka"]).ToString());
                 listeArt.magazinatTrupi = magazinatTrupi;
                 listeArt = artikulli.ktheVleraArtDetajime(idPerdoruesi, data, idMagazina, sasiaNeGride);
                 listeArt.listeTvsh = artikulli.ktheTvsh(llojTvsh, idPerdoruesi, taksendermarje, taksaNdermarrje, taksaKF);
@@ -2039,7 +2039,7 @@ namespace RestApi.WebAPI.Models
                 listArt.listeTvsh = artikulli.ktheTvsh(llojTvsh, idPerdoruesi, taksendermarje, taksaNdermarrje, taksaKF);
                 double gjendjaTotale = DbCore.DbRegjistrim.clsTrupiMagazina.merrSasi(artikulli, -1, data, 0);
                 Dictionary<String, Object>[] magazinatTrupi = merrMagazinePerTrupDokumentiSipasLlojit(idNdermarrje, idPerdoruesi, merrMagMeAutorizim, magazinatKoka, artikulli, kodMag, String.Empty);
-                int idmagazina = magazinatTrupi[0].Count == 0 ? 0: int.Parse((((Dictionary<String, Object>)magazinatTrupi[0])["idMagArtKoka"]).ToString());
+                int idmagazina = magazinatTrupi[0].Count == 0 ? 0 : int.Parse((((Dictionary<String, Object>)magazinatTrupi[0])["idMagArtKoka"]).ToString());
                 listArt.magazinatTrupi = magazinatTrupi;
                 Dictionary<String, Object>[] detajimDheSasi = new Dictionary<String, Object>[2];
                 detajimDheSasi = clsArtikulli.ktheArtDetajimet(artikulli, idPerdoruesi, data, idmagazina, gjendjaTotale, sasiteNeGrideObj);
@@ -2083,7 +2083,7 @@ namespace RestApi.WebAPI.Models
                     listArt.kodbari = "";
                 return listArt;
             }
-            
+
             listArt.idRreshti = rreshti;
             return listArt;
         }
@@ -2223,7 +2223,7 @@ namespace RestApi.WebAPI.Models
             }
             return modeletSlim;
         }
-                
+
         public static ListeVleraLlogaria KtheVleraLlogIDTvsh(int idja, int rreshti, KonfigurimTVSHGjateRregj llojTvsh, int idPerdoruesi, clsTaksa taksaKF)
         {
             ListeVleraLlogaria result = new ListeVleraLlogaria() { idRreshti = rreshti };
@@ -2316,7 +2316,7 @@ namespace RestApi.WebAPI.Models
 
         public static clsZbritjeAnalitike ktheZbritjeAnalitikeArtikulliRow(string kodArtikulli, int ZbritjaKlientit, string date, int idPerdoruesi, int idNdermarrje)
         {
-            return clsZbritjeAnalitike.ktheZbritjeAnalitikeArtikulliRow( kodArtikulli,  ZbritjaKlientit,  date,  idPerdoruesi,  idNdermarrje);
+            return clsZbritjeAnalitike.ktheZbritjeAnalitikeArtikulliRow(kodArtikulli, ZbritjaKlientit, date, idPerdoruesi, idNdermarrje);
 
         }
 
@@ -2415,7 +2415,7 @@ namespace RestApi.WebAPI.Models
             return idAutomjeti;
         }
 
-    
+
 
 
 
@@ -2452,14 +2452,14 @@ namespace RestApi.WebAPI.Models
             return new { perqindjeAgjenti = perqindja, llojAgenti = llojAgj };
         }
 
-        public static object[] KontrolloKthim(int id,bool kthim, string pageId)
+        public static object[] KontrolloKthim(int id, bool kthim, string pageId)
 
         {
             object[] result = new object[2];
             result[0] = id;
             int[] ids = new int[1];
             ids[0] = id;
-            
+
             var myPageCache = GlobalCacheManager.GetPageCacheByPageID(pageId);
             myPageCache["idkonvertimi"] = ids;
 
@@ -2496,7 +2496,7 @@ namespace RestApi.WebAPI.Models
             List<Int32> idte = new List<int>();
             int[] ids = new int[1];
             ids[0] = id;
-            
+
             var myPageCache = GlobalCacheManager.GetPageCacheByPageID(pageId);
             myPageCache["idkonvertimi"] = ids;
 
@@ -2595,9 +2595,9 @@ namespace RestApi.WebAPI.Models
             return url;
         }
 
-        public static string ruajHapurMbyllur( bool hapur, int idperdorues, int idperdoruesveprimi)
+        public static string ruajHapurMbyllur(bool hapur, int idperdorues, int idperdoruesveprimi)
         {
-            clsMesazh mesazh = clsPerdorues.ndryshoInfo(idperdorues, idperdoruesveprimi , hapur);
+            clsMesazh mesazh = clsPerdorues.ndryshoInfo(idperdorues, idperdoruesveprimi, hapur);
             return mesazh.PershkrimMesazhi;
         }
 
@@ -2697,7 +2697,8 @@ namespace RestApi.WebAPI.Models
                 //ketu vendoset cmimi
                 clsNivelCmimi nivelBaze = new clsNivelCmimi();
                 nivelBaze.mbushNivelCmimiBaze(idNdermarrje, 1);
-                if (nivelBaze.IdNivelCmimi != 0) {
+                if (nivelBaze.IdNivelCmimi != 0)
+                {
                     clsMonedha monBaze = new clsMonedha();
                     monBaze.mbushMonedhenENdermarrjes(idNdermarrje);
                     clsNjesiArtikulli njesia = njesiDef == 2 ? new clsNjesiArtikulli(artikulli.KodNjesia2, idNdermarrje) : new clsNjesiArtikulli(artikulli.KodNjesia1, idNdermarrje);
@@ -2768,7 +2769,7 @@ namespace RestApi.WebAPI.Models
             if (magazinatDefault.Rows.Count == 0)
                 return magduhur;
             DataRow magDefault = magazinatDefault.Rows[0];
-            
+
             DataRow magTemp;
             object magArt = new object();
             int idMagazina = 0;
@@ -2980,7 +2981,7 @@ namespace RestApi.WebAPI.Models
                 return targa;
             }
         }
-        public static object[] merrArtikujSet(string kodi, int rreshti, DateTime data,decimal sasia, object magazinatKoka, bool merrMagMeAutorizim, int idNdermarrje, int idPerdoruesi, int idArtikulli)
+        public static object[] merrArtikujSet(string kodi, int rreshti, DateTime data, decimal sasia, object magazinatKoka, bool merrMagMeAutorizim, int idNdermarrje, int idPerdoruesi, int idArtikulli)
         {
             data = data.ToLocalTime();
             object[] result = new object[4];
@@ -2994,7 +2995,7 @@ namespace RestApi.WebAPI.Models
             if (artikulli.IdArtikulli > 0)
             {
                 per.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(artikulli.IdArtikulli, data);
-                if(idArtikulli != 0)
+                if (idArtikulli != 0)
                 {
                     var art = per.Find(x => x.IdLidheseArt == idArtikulli);
                     if (art != null && art.Koeficienti != 0)
@@ -3283,7 +3284,7 @@ namespace RestApi.WebAPI.Models
 
             return result;
         }
-        
+
         internal static object merrKursFatureOseAzhornimiPerIdDok(string ids)
         {
             DataTable dt = colDokumentat.merrKursFatureOseAzhornimiPerIdDok(ids);
@@ -4040,7 +4041,7 @@ namespace RestApi.WebAPI.Models
             clsLlogari oLlogari = new clsLlogari(int.Parse(prefixText));
             return oLlogari.NrLlogari;
         }
-        public static object ktheNrLlogarish(int [] idLlogari)
+        public static object ktheNrLlogarish(int[] idLlogari)
         {
             List<int> idLlogarite = new List<int>(idLlogari);
             var llogarite = colLlogarite.merrNrLlogariSipasIdLlogarive(idLlogarite);
@@ -4431,7 +4432,7 @@ namespace RestApi.WebAPI.Models
             col.ktheGjendjeMinMaxArtikulli(idartikulli);
             return col;
         }
-        
+
         public static int[] KtheIdMonedhaSipasIdLlogarise(int idja, int idrreshti)
         {
             int[] result = new int[2];
@@ -4513,7 +4514,7 @@ namespace RestApi.WebAPI.Models
             return new { rreshti = rreshti, artkryesor = artkryesor, prod = prod, teDhenaRecepturash = receptura };
         }
 
-        public static Object MerrPlanifikimeTeGjeneruara( int id, int magazinaprod, int magazinarec, DateTime date, string sasiplanrec, string sasiburimi, HttpSessionState Session)
+        public static Object MerrPlanifikimeTeGjeneruara(int id, int magazinaprod, int magazinarec, DateTime date, string sasiplanrec, string sasiburimi, HttpSessionState Session)
         {
             clsArtikulli art = new clsArtikulli();
             date = date.ToLocalTime();
@@ -4640,7 +4641,7 @@ namespace RestApi.WebAPI.Models
             }
             return temp;
         }
-        
+
         public static bool kaVeprimeFusha(int iddokumenti)
         {
             bool lidhur = false;
@@ -5131,7 +5132,7 @@ namespace RestApi.WebAPI.Models
                 double kosto = 0;
                 if (Convert.ToInt32(recepture["idDok"]) != 0)
                 {
-                    clsTrupiMagazina trMag = clsTrupiMagazina.ktheTrupiMagazinaSipasReceptureProdhimi(Convert.ToInt32(recepture["idDok"]), art.IdArtikulli, njesi.IdNjesiAdministrative);                    
+                    clsTrupiMagazina trMag = clsTrupiMagazina.ktheTrupiMagazinaSipasReceptureProdhimi(Convert.ToInt32(recepture["idDok"]), art.IdArtikulli, njesi.IdNjesiAdministrative);
                     kosto = tr.llogaritCmimMesatar(art, njesi.IdNjesiAdministrative, data, -1, Convert.ToDouble(recepture["sasia"]), mySessionObjects.ktheIdPerdoruesi(Session), false, trMag.IdTrupiMagazina, trMag.IdRenditjes);
                 }
                 else
@@ -5277,7 +5278,7 @@ namespace RestApi.WebAPI.Models
 
             DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(sourceDate,
                           TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
-            return new { iic = kokaShitje.IIC,niptNdermarrje=ndermarrje.NdermarrjeNipt,totali=Decimal.Parse(Math.Round(kokaShitje.TotaliMeZbritjeMeTVSH*kokaShitje.Kursi,2).ToString()),dtKrijimi= timezoneIShqiperise,linkFiskalizim = lnkFiskalizimi };
+            return new { iic = kokaShitje.IIC, niptNdermarrje = ndermarrje.NdermarrjeNipt, totali = Decimal.Parse(Math.Round(kokaShitje.TotaliMeZbritjeMeTVSH * kokaShitje.Kursi, 2).ToString()), dtKrijimi = timezoneIShqiperise, linkFiskalizim = lnkFiskalizimi };
         }
         public static Object janeOferteBlerje(int[] ids, int[] idNivele)
         {
@@ -5901,7 +5902,7 @@ namespace RestApi.WebAPI.Models
             //llog.mbushLlogariSipasKodit(kodi, idNdermarja);
             return llog;
         }
-        public static object[] ktheRowVleraAqtMeKodOseKodBar(string kodi, int rreshti, DateTime data, string magazina, int idndermarje, int idperdoruesi,  bool rezerva)
+        public static object[] ktheRowVleraAqtMeKodOseKodBar(string kodi, int rreshti, DateTime data, string magazina, int idndermarje, int idperdoruesi, bool rezerva)
         {
 
             data = data.ToLocalTime();
@@ -5960,7 +5961,7 @@ namespace RestApi.WebAPI.Models
             {
                 double gjendjatot = 0;
                 if (!rezerva)
-                    gjendjatot = clsSerialetMagazine.ktheSerialetMagazineGjendjeTotaleArtikulliNeMagazine(artikulli.IdArtikulli, idndermarja ,(artikulli.IdMagazina != 0 && artikulli.IdMagazina != null && !plotesuarMagKoka) ? artikulli.IdMagazina : idmagazina, data);
+                    gjendjatot = clsSerialetMagazine.ktheSerialetMagazineGjendjeTotaleArtikulliNeMagazine(artikulli.IdArtikulli, idndermarja, (artikulli.IdMagazina != 0 && artikulli.IdMagazina != null && !plotesuarMagKoka) ? artikulli.IdMagazina : idmagazina, data);
                 else
                     gjendjatot = clsAmortizimiTrupiRezerva.ktheGjendjeRezervaMagazine(artikulli.IdArtikulli, idndermarja, (artikulli.IdMagazina != 0 && artikulli.IdMagazina != null && !plotesuarMagKoka) ? artikulli.IdMagazina : idmagazina, data);
                 result[1] = artikulli;
@@ -6091,7 +6092,7 @@ namespace RestApi.WebAPI.Models
             double cmmagzgjedhur = 0;
             int idKarta = 0;
             double limitSasi = 0;
-          result[1] = col;
+            result[1] = col;
             System.Collections.ArrayList vlerat = new System.Collections.ArrayList();
             if (artikulli.IdArtikulli > 0)
                 foreach (DbCore.DbAdmin.clsInfoTrupi trup in col)
@@ -6309,10 +6310,10 @@ namespace RestApi.WebAPI.Models
         {
             date = date.ToLocalTime();
             DataTable dt = clsKlientFurnitor.ktheDTKlientFurnitorSipasIdAzhornim(IDteKf.Substring(0, IDteKf.Length - 1), mySessionObjects.merrIdNdermarrjeSesioni(Session), date);
-            
+
             return new { result = dt, idRreshti = rreshti };
         }
-        public static object callWsGetAutorizimeSipasLlojitDheIdLidhese(int idLidhese, string kodLloji,int idPerdorues)
+        public static object callWsGetAutorizimeSipasLlojitDheIdLidhese(int idLidhese, string kodLloji, int idPerdorues)
         {
             return new { idLidhese = idLidhese, autorizime = DbCore.DbAdmin.colAutorizimetKoka.merrAutorizimeSipasIdLidheseDheLloj(idLidhese, kodLloji, idPerdorues) };
         }
@@ -6322,7 +6323,7 @@ namespace RestApi.WebAPI.Models
         }
         public static object merrTipinEPerjashtimit(int idTakse)
         {
-            return new { tipiIPerjashtimit = new clsTaksa(idTakse).TipiIPerjashtimit};
+            return new { tipiIPerjashtimit = new clsTaksa(idTakse).TipiIPerjashtimit };
         }
         public static object merrKodNjesieBiznesiDegeAdministrative(int idNdermarrje, string kodi)
         {
@@ -6331,7 +6332,7 @@ namespace RestApi.WebAPI.Models
         public static object merrTipiMagDheQyteti(int idNjesi)
         {
             var njesiAd = new clsNjesiAdministrative(idNjesi);
-            return new {Tipimag = njesiAd.TipiMag , qyteti = njesiAd.Qyteti };
+            return new { Tipimag = njesiAd.TipiMag, qyteti = njesiAd.Qyteti };
         }
         public static object ktheKlientFurnitorVeprimeKFRow(string kodi, int rreshti, DateTime data, HttpSessionState Session)
         {
@@ -6439,7 +6440,7 @@ namespace RestApi.WebAPI.Models
         public static string ktheTeDhenaFaturashSipasId1(string faturat, int idKatDok, int idPerdoruesi, int idNdermarrje, int idDokumenti, int idNiveli, int idkonfigurim)
         {
             DataTable dtFaturat = (DataTable)JsonConvert.DeserializeObject(faturat, (typeof(DataTable)));
-            return JsonConvert.SerializeObject(colDokumentat.mbushKokaShitjePaLikuiduarSipasFaturave(idNdermarrje, idKatDok, idPerdoruesi, dtFaturat, idDokumenti, idNiveli,idkonfigurim));
+            return JsonConvert.SerializeObject(colDokumentat.mbushKokaShitjePaLikuiduarSipasFaturave(idNdermarrje, idKatDok, idPerdoruesi, dtFaturat, idDokumenti, idNiveli, idkonfigurim));
         }
         public static object[] kontrolloAnulluar(object[] id)
         {
@@ -6533,7 +6534,7 @@ namespace RestApi.WebAPI.Models
                     punonjes = false;
                     break;
             }
-            
+
             //Webservisi per kursin 
             var ruajLocalStorage = (colAlterKushti.Find(alt => alt.IdKushti == colKushte.Find(kusht => kusht.Kodi == "RVF").IdKusht)).Alternativa == "Po";
             int idArkaBankaFinale = shtim && idArkaBankaFillestareLocalStorage <= 0 ? idObjekti : idArkaBankaFillestareLocalStorage;
@@ -6603,7 +6604,7 @@ namespace RestApi.WebAPI.Models
         {
             var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, eic, DateTime.UtcNow);
             return clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
-            
+
         }
         public static Object ktheAplikohetTVSHNeTakseApoJo(string kodTakse, int idNderm, int key)
         {
@@ -6759,8 +6760,21 @@ namespace RestApi.WebAPI.Models
                     }
                 clsKoka.IdPerdoruesi = idPerdoruesi;
                 clsMesazh mesazhi = clsKoka.fshi(idPerdoruesi, idKategoria == 1 ? true : false, tollonakastrati, tollonakastratielektronik);
+
                 if (mesazhi.Status)
+                {
                     teFshire.Add(clsKoka);
+                    try
+                    {
+                        FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
+                        if (clsKoka.Shenime2 != "") firebaseConfiguration.returnOrder(clsKoka.Shenime2);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message.ToString());
+                    }
+
+                }
                 else
                     tePaFshire.Add(clsKoka.NrDok);
             }
@@ -6804,24 +6818,24 @@ namespace RestApi.WebAPI.Models
             return new clsMesazh(true, rm.GetString("regjMagMesazhSuksesRivleresimi", cultinf));
         }
 
-        public static Object ktheTeDhenaPerKlientFurnitor(int idobj, string kodlloji, int idkomp, string kodkonfig, int idNdermarrje, int idGjuha,int idperdorues)
+        public static Object ktheTeDhenaPerKlientFurnitor(int idobj, string kodlloji, int idkomp, string kodkonfig, int idNdermarrje, int idGjuha, int idperdorues)
         {
             if (idobj == 0)
                 return null;
 
             clsKlientFurnitor klientFurnitor = new clsKlientFurnitor(idobj);
-            object autorizime = callWsGetAutorizimeSipasLlojitDheIdLidhese(idobj, kodlloji,0);
+            object autorizime = callWsGetAutorizimeSipasLlojitDheIdLidhese(idobj, kodlloji, 0);
             clsBanka banka = new clsBanka();
-            if(klientFurnitor.EmriBanka != 0)
+            if (klientFurnitor.EmriBanka != 0)
                 banka = merrBankaSipasId(klientFurnitor.EmriBanka);
             clsKlientFurnitor kfKryesor = new clsKlientFurnitor();
-            if(klientFurnitor.Idklientfurnitorkryesor != 0)
+            if (klientFurnitor.Idklientfurnitorkryesor != 0)
                 kfKryesor = merrKfSipasId(klientFurnitor.Idklientfurnitorkryesor);
             colMarreveshjetPerKlient marreveshjeKlienti = new colMarreveshjetPerKlient();
             marreveshjeKlienti = ktheMarreveshjeKlienti(idobj);
             string eshteLidhur = clsFunksione.eshteLidhur(idkomp, kodkonfig, idobj.ToString(), idNdermarrje, idGjuha);
 
-            return new {idObjekti = idobj, autorizime = autorizime, banka = banka, kfKryesor = kfKryesor, marreveshjeKlienti = marreveshjeKlienti, lidhur = eshteLidhur, klientFurnitor = klientFurnitor };
+            return new { idObjekti = idobj, autorizime = autorizime, banka = banka, kfKryesor = kfKryesor, marreveshjeKlienti = marreveshjeKlienti, lidhur = eshteLidhur, klientFurnitor = klientFurnitor };
         }
 
         public static List<object> KtheRaportetMeFormatePrintimi(int idGjuha)
@@ -6883,11 +6897,11 @@ namespace RestApi.WebAPI.Models
         }
 
         public static object FshiDokumentMagazine(
-            HttpSessionState Session, 
-            int[] ids, 
-            string komponente, 
-            string guidString, 
-            int periudhaIdViti, 
+            HttpSessionState Session,
+            int[] ids,
+            string komponente,
+            string guidString,
+            int periudhaIdViti,
             string periudhaDok)
         {
             CultureInfo cultinf = mySessionObjects.ktheCultureInfo(Session);
@@ -6900,12 +6914,12 @@ namespace RestApi.WebAPI.Models
                 tePaFshire = new List<string>(),
                 rivleresim = new List<string>(),
                 faf = new List<string>(),
-                closedPeriod = new List<string>();            
+                closedPeriod = new List<string>();
 
             faf = clsFunksione.KtheListeMsgPerFAFlidhur(ids.Cast<Object>().ToList());
             bool fafErr = false;
             if (faf.Count != 0)
-            {                
+            {
                 DataTable err = colKokaMagazina.merrFAFdokLidhur(ids.Cast<Object>().ToList());
                 if (Convert.ToInt16(err.Rows[0]["NrGabimesh"]) >= 3)
                 {
@@ -6913,7 +6927,7 @@ namespace RestApi.WebAPI.Models
                     fafErr = true;
                 }
             }
-            
+
             clsMesazh mesazh = new clsMesazh();
             colTrupiMagazina tr;
             int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -6982,7 +6996,7 @@ namespace RestApi.WebAPI.Models
 
             mySessionObjects.ruajTrupatNeSession(guidString, Session, trupat);
 
-            if (periudhaIdViti != 0  && periudhaDok != "")
+            if (periudhaIdViti != 0 && periudhaDok != "")
             {
                 string komponenteName = SessionKeyUtils.MerrSessionKeyPerDsGride(komponente, periudhaIdViti, periudhaDok);
                 mySessionObjects.RemoveGridRowsInSessionById(komponenteName, guidString, "IdKokaMagazina", teFshire.Select(ks => ks.IdKokaMagazina).ToList());
@@ -6992,17 +7006,17 @@ namespace RestApi.WebAPI.Models
                 teFshire.Select(ks => ks.NrDok).ToList(),
                 teLidhur,
                 new List<string>(),
-                periudheKycur, 
-                gjendjeNegative, 
-                new List<string>(), 
-                tePaFshire, 
+                periudheKycur,
+                gjendjeNegative,
+                new List<string>(),
+                tePaFshire,
                 rivleresim,
                 new List<string>(),
                 new List<string>(),
                 new List<string>(),
                 new Dictionary<string, List<string>>(),
                 closedPeriod,
-                rm, 
+                rm,
                 cultinf, new List<string>());
             return new
             {
@@ -7012,9 +7026,9 @@ namespace RestApi.WebAPI.Models
                 deletedKeys = teFshire.Select(ks => ks.IdKokaMagazina).ToArray(),
                 faf = faf,
                 fafErr = fafErr
-            };            
+            };
         }
-        
+
         public static object MerrNdermarrjetIdRoli(HttpSessionState session, string guidString, int idRoli)
         {
             var ndermarrjet = mySessionObjects.MerrNdermarrjeRolNgaSession(session, guidString, idRoli);
@@ -7025,7 +7039,7 @@ namespace RestApi.WebAPI.Models
             mySessionObjects.RuajNdermarrjeRolNeSession(session, guidString, idRoli, ndermarrjet);
             return ndermarrjet;
         }
-        
+
         public static object RuajNdermarrjeRolNeSession(HttpSessionState session, string guidString, int idRoli, string[] selected)
         {
             var ndermarrjet = mySessionObjects.MerrNdermarrjeRolNgaSession(session, guidString, idRoli);
@@ -7110,7 +7124,7 @@ namespace RestApi.WebAPI.Models
 
         public static object gjejRowSipasIdFaturaNgaDSGrides(HttpSessionState session, object[] idDokumenti, string komponente, int idNdermarrje, int idKatDokShitje, string pageId, string keyFieldName, string fields)
         {
-            DataTable dt = mySessionObjects.merrGridFaturatNgaSessioni(pageId + "_" +komponente + idNdermarrje + idKatDokShitje, session, false);
+            DataTable dt = mySessionObjects.merrGridFaturatNgaSessioni(pageId + "_" + komponente + idNdermarrje + idKatDokShitje, session, false);
             var rows = dt.AsEnumerable().Where(r => idDokumenti.Any(id => id.ToString() == r.Field<string>(keyFieldName))).ToList();
             List<object[]> orderedRows = new List<object[]>(rows.Count);
             var columns = fields.Split(';');
@@ -7118,15 +7132,15 @@ namespace RestApi.WebAPI.Models
             {
                 return orderedRows;
             }
-            foreach(string iddok in idDokumenti)
+            foreach (string iddok in idDokumenti)
             {
                 var found = rows.Find(row => row[keyFieldName].ToString() == iddok);
                 object[] array = new object[columns.Length];
-                for(int i = 0; i < columns.Length; i++)
+                for (int i = 0; i < columns.Length; i++)
                 {
                     array[i] = found[columns[i]];
                 }
-                   
+
                 if (found != null)
                     orderedRows.Add(array);
             }
@@ -7134,11 +7148,11 @@ namespace RestApi.WebAPI.Models
 
             return orderedRows;
         }
-        public static clsMesazh RuajLidhjeDetajim(string kodartikulli,string koddetajim, int idNdermarrje, int lloji, int idperdorues)
+        public static clsMesazh RuajLidhjeDetajim(string kodartikulli, string koddetajim, int idNdermarrje, int lloji, int idperdorues)
         {
             clsArtikulli artikulli = new clsArtikulli(kodartikulli, idNdermarrje);
             clsDetajimArtikulli detajim = new clsDetajimArtikulli(koddetajim, idNdermarrje);
-            clsMesazh mesazh = clsDetajimPerArt.ruajLidhje(artikulli,detajim.IdDetajimArtikulli,lloji,idNdermarrje,idperdorues);
+            clsMesazh mesazh = clsDetajimPerArt.ruajLidhje(artikulli, detajim.IdDetajimArtikulli, lloji, idNdermarrje, idperdorues);
             if (!mesazh)
                 return mesazh;
             return new MesazhSuksesi(string.Format(MessagesResource.Messages["msgLidhDetajimiMeArtikull"], koddetajim, kodartikulli));
@@ -7185,7 +7199,7 @@ namespace RestApi.WebAPI.Models
                 Kokashitje = kokashitje
             };
         }
-        public static object NgarkoMarreveshje(HttpSessionState Session,int idNder, DateTime dtdok)
+        public static object NgarkoMarreveshje(HttpSessionState Session, int idNder, DateTime dtdok)
         {
             try
             {
@@ -7195,7 +7209,7 @@ namespace RestApi.WebAPI.Models
                 var mesazh = new clsMesazh(true);
                 if (reader.Kokashitje.IdShitjeKoka > 0)
                     mesazh = reader.Kokashitje.KtheMesazhStatusMarreveshje(reader.AgreementID, dtdok, true);
-                
+
                 return new
                 {
                     Mesazh = mesazh,
@@ -7237,7 +7251,7 @@ namespace RestApi.WebAPI.Models
                 if (mesazh.Status)
                     mesazh = new MesazhSuksesi(string.Format(MessagesResource.Messages["msgCelDheLidhDetajimiMeArtikull"], kodDetajimi, artikulli.KodArtikulli));
 
-                return new { detajimi = detajim, mesazhi = mesazh };  
+                return new { detajimi = detajim, mesazhi = mesazh };
             }
             catch (MyException ex)
             {
@@ -7276,11 +7290,11 @@ namespace RestApi.WebAPI.Models
 
             bool eshtePrindQk = ((DbCore.DbQendraKosto.colQendraKosto.mbushGjitheQendraKostoPrindJoFundoreSipasNdermarjesAktiv(idNdermarrje, Kodi)));
             return new { eshtePrindQk = eshtePrindQk, Kodi = Kodi };
-  
+
         }
         public static object restoreDatabase(string prefix, string[] generations)
         {
-            
+
             object result = clsFunksione.getClientDatabaseBackup(prefix, generations);
             return result;
         }

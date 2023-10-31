@@ -26,7 +26,7 @@
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
  <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/arbwr/notify@master/ChatClient.js" crossorigin="anonymous"></script>
+    <script src="https://notification-hub-erbzqkglja-ew.a.run.app/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -50,7 +50,7 @@
 <%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
 
-    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
+<%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -97,6 +97,7 @@
             top:10px;
             z-index: 99999;
             right: 1%;
+            width:max-content;
         }
         .material-icons{
             color:white;
@@ -147,8 +148,14 @@
 			overflow: scroll;
 		  }
 		  #menu{
-			overflow: scroll;
+			overflow: hidden;
+            width:max-content;
+            display: inline;
+            float:right;
 		  }
+          #ASPxSplitter1_ASPxMenu1_DXI6_{
+              float:left;
+          }
 		  
 		  .dxm-gutter{
 			max-height: calc(100vh - 50px);
@@ -422,6 +429,7 @@
     right: 0;
     background-color: rgba(255,255,255,0.7);
 }
+
     </style>
 </head>
 
@@ -453,6 +461,18 @@
                 </div>
             </div>
             </div>
+        <div runat="server" id="changeOrganization"> 
+            <div class="popup-container"  id="change-popup-container" style="display:none">
+                <div class="popup">
+                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
+                    <h3 id="organization-information"></h3>
+                    <div class="email-footer">
+                        <p onclick="handleOrganizationChange()">Po</p>
+                        <p>Jo</p>
+                    </div>
+                </div>
+            </div>
+         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
@@ -1456,6 +1476,8 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Login me Google" name="google">
                                                         </dx:MenuItem>
+                                                        <dx:MenuItem Text="Ndrysho Organizaten" name="ndrysho">
+                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Mesazhe" Name="mesazhe">
                                                         </dx:MenuItem>
                                                         <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
@@ -2113,11 +2135,45 @@
             document.querySelector(".loader").style.display = "none";
             document.querySelector(".loader-overlay").style.display = "none";
         }
-        const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
-        tr_menu.style.position = "absolute";
-        tr_menu.style.paddingRight = "3%";
-        tr_menu.style.backgroundColor = "#0072c6";
+        //const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
+        //tr_menu.style.position = "absolute";
+        //tr_menu.style.paddingRight = "3%";
+        //tr_menu.style.backgroundColor = "#0072c6";
         let url = "https://delta.alpha.al";
+        async function handleOrganizationChange() {
+            $("#change-popup-container").css("display", "none");
+            $("#organization-information").html(``);
+            $.ajax({
+                url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
+                data: JSON.stringify({ uid: auth.currentUser.uid, organization: hfState.Get("organizata"), enterprise_id: hfState.Get("idNdermarrje"), idPerdoruesi: hfState.Get("idPerdoruesi") })
+            })
+                .done(function (result) {
+                    result ? myMesazh.ShtoMesazhSuksesi("Organizata u ndryshua me sukses!") : myMesazh.ShtoMesazhGabimi("Ndodhi nje gabim ne ndryshimin e organizates!");
+            })
+        }
+        async function changeOrganization(){
+            const {user} = await signInWithPopup(auth, GoogleAuthProvider);
+            const current_organization = hfState.Get("organizata");
+            $.ajax({
+                url: Utils.getServerApiUrl("Autorizime", "getUserOrganization"),
+                data: JSON.stringify({uid: user.uid})
+            })
+            .done(function(organization){
+                if(organization == current_organization){
+                    myMesazh.ShtoMesazhInformues("Organizata qe keni tani eshte e njejte me organizaten qe po perpiqeni te ndryshoni!");
+                    return;
+                }
+                if(organization == "Error" || organization == "") {
+                    myMesazh.ShtoMesazhInformues("Ju nuk jeni te lidhur me ndonje organizate!");
+                    return;
+                }
+                $("#change-popup-container").css("display","block");
+                $("#organization-information").html(`Perdoruesi juaj eshte lidhur me organizaten ${organization}. Doni ta ndryshoni organizaten e lidhur me organizaten ${current_organization}?`)
+            })
+        }
+
+
+
         async function signInWithGooglePopup(redirect) {
             var idNdermarrje = hfState.Get("idNdermarrje");
             var idPerdoruesi = hfState.Get("idPerdoruesi");
@@ -2266,30 +2322,40 @@
 
             //});
             // window.auth.onAuthStateChanged(function (user) {
-
+            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
+            document.getElementById("notification-box").style.left = `${offset - 40}px`;
                 if (window.auth.currentUser != null) {
                     $("#popup-container").css("display", "none");
                 }
 
                 const client = new ChatClient({
-                    user: hfState.Get("idPerdoruesi"),
+                    user: hfState.Get("emailPerdoruesi"),
                     room: hfState.Get("organizata"),
+                    email: hfState.Get("emailPerdoruesi"),
+                    admin: hfState.Get("notification_admin"),
                     token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
                 })
 
-                client.addNotificationBox("notification-box");
-                client.socket.on("message", function (message) {
-                    if (message.text.includes("Shih raportet")) {
-                        const elements = $('.notification-text:contains("Shih raportet")');
-                        for (var i = 0; i < elements.length; i++) {
-                            elements[i].children[0].addEventListener("click",function () {
-                                signInWithGooglePopup(true);
-                            })
-
-                        }
-                        
+            client.addNotificationBox("notification-box");
+            client.socket.on("message", function (message) {
+                if (message.text.includes("Shih raportet")) {
+                    if (!hfState.Get("notification_admin")) {
+                        $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
+                        message = null;
+                        return;
                     }
-                });
+                    const elements = $('.notification-text:contains("Shih raportet")');
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].children[0].addEventListener("click", function () {
+                            signInWithGooglePopup(true);
+                        })
+
+                    }
+
+                }
+                    
+                    
+            });
                 const initial_Value = [];
                 function check1(oldvalue) {
                     undefined === oldvalue && (oldvalue = client.notifications);
@@ -2307,6 +2373,11 @@
                             //})
                             const elements = $('.notification-text:contains("Shih raportet")');
                             for (var i = 0; i < elements.length; i++) {
+                                if (!hfState.Get("notification_admin")) {
+                                    $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
+                                    elements[i].parentElement.parentElement.remove();
+                                    return;
+                                }
                                 elements.css("cursor","pointer");
                                 elements[i].children[0].addEventListener("click",function () {
                                     signInWithGooglePopup(true);
@@ -2321,7 +2392,10 @@
             // })
 
         });
-
+        $(window).resize(function () {
+            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
+            document.getElementById("notification-box").style.left = `${offset - 30}px`;
+        });
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
@@ -2335,9 +2409,18 @@
 
         window.startHub();
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
-
+        
     </script>
     <style>
+        @media only screen and (max-width: 900px) {
+            #ASPxSplitter1_ASPxMenu1_DXI0_,#ASPxSplitter1_ASPxMenu1_DXI1_,#ASPxSplitter1_ASPxMenu1_DXI2_,#ASPxSplitter1_ASPxMenu1_DXI3_,#ASPxSplitter1_ASPxMenu1_DXI4_{
+                display:none;
+            }
+            .dxm-separator{
+                display:none !important;
+            }
+        }
+        
         .dxm-item{
                 /*background: transparent !important;*/
                 padding: 8px;
@@ -2347,6 +2430,13 @@
             }
             .dxm-separator{
                 display:none !important;
+            }
+            .dxm-separator b{
+                background-color: #0072c6 !important;
+            }
+            #ASPxSplitter1_ASPxMenu1_DXI6_IS{
+                display:block !important;
+                padding-right: 30px !important;
             }
             .dxm-content{
                 padding-left: 10px !important;

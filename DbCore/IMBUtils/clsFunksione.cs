@@ -1,82 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Configuration;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mime;
 using System.Reflection;
 using System.Resources;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Web;
-using System.Web.Configuration;
-using System.Web.Script.Serialization;
-using System.Web.Security;
-using System.Web.SessionState;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using DbCore.DbAdmin;
-using DbCore.DbArkaBanka;
-using DbCore.DbAsete;
-using DbCore.DbGIS;
-using DbCore.DbImporte;
-using DbCore.DbInventari;
-using DbCore.DbKontabiliteti;
-using DbCore.DbListPagesat;
-using DbCore.DbProdhimi;
-using DbCore.DbQendraKosto;
-using DbCore.DbShare;
-using DbCore.IMBUtils;
-using DbCore.Raporte;
-using DbCore.VodSendSMS_Service;
-using Newtonsoft.Json;
-using NLog;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using Page = System.Web.UI.Page;
-using DbCore.DbRegjistrim;
-using PlatinumWeb;
-using System.Web.UI;
-using DbCore;
-using DbCore.IMBUtils.DataBase;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Logging;
-using DbCore.IMBUtils.Security;
-using DbCore.IMBUtils.Validation;
-using CacheLayer;
-using DbCore.IMBUtils.Messages;
-using DbCore.IMBUtils.Types;
-using DbCore.DbBuxheti;
-using System.ComponentModel;
-using AlphaWeb.Core.SharedKernel;
-using AlphaWeb.Core.Interfaces.Localization;
-using System.Security.Cryptography.X509Certificates;
-using System.Net;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.SQLAdmin.v1beta4;
-using Google.Apis.Services;
-using Google.Apis.Iam.v1;
-using Google.Apis.Iam.v1.Data;
 using System.Threading.Tasks;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
-using Google.Cloud.Storage.V1;
-using System.Net.Mail;
-using Google.Cloud.Firestore;
-using Fasterflect;
-using DevExpress.Utils;
-using DevExpress.XtraCharts.Designer.Native;
-using Azure.Core;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
+using Page = System.Web.UI.Page;
 
 namespace DbCore
 {
@@ -3031,7 +2972,43 @@ namespace DbCore
         }
 
         #endregion
+        public static async Task<IAsyncResult> dergoViewLogAlphaweb(string view)
+        {
+            object obj = new
+            {
+                view = view
+            };
+            string result = string.Empty;
+            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlViewLogAlphaweb"];
+            try
+            {
+                WebRequest webRequest;
+                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
 
+                using (Stream stream = webRequest.GetRequestStream())
+                {
+                    using (StreamWriter stmw = new StreamWriter(stream))
+                    {
+                        stmw.Write(JsonConvert.SerializeObject(obj));
+                    }
+                }
+                return webRequest.BeginGetResponse(null, null);
+                //using (WebResponse webResponse = webRequest.GetResponse())
+                //{
+                //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                //{
+
+                //    var ServiceResult = rd.ReadToEnd();
+                //}
+
+                //}
+            }
+            catch (WebException ex)
+            {
+                return null;
+            }
+
+        }
         public static clsMesazh avancoPerpara(HttpResponse response, HttpSessionState sesioni, int idPerdoruesi, ResourceManager rm, CultureInfo ci, bool eValiduar, bool ndryshoPassword = false, bool passwordISkaduar = false, bool endResponse = true, string redirectToPage = "")
         {
             if (!eValiduar)
@@ -13890,6 +13867,31 @@ namespace DbCore
             }
             return stringBuilder.ToString();
         }
+        public async static Task<string> getUserOrganization(string uid)
+        {
+            FirebaseConfiguration firebase = new FirebaseConfiguration();
+            Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
+            //return "Error";
+            return user["alphaOrganization"];
+
+        }
+        public async static Task<bool> changeOrganization(string uid, string organization, int enterprise_id, int idPerdoruesi)
+        {
+            try
+            {
+                clsNdermarrje ndermarrje = new clsNdermarrje(enterprise_id);
+                FirebaseConfiguration firebase = new FirebaseConfiguration();
+                Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
+                firebase.changeOrganization(uid, organization, ndermarrje.NdermarrjeKodi, idPerdoruesi);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            //return "Error";
+
+        }
         public async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
@@ -13909,7 +13911,9 @@ namespace DbCore
                 Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                 org_id = user_details["organization"].ToString();
                 string alpha_org = user_details.ContainsKey("alphaOrganization") ? (string)user_details["alphaOrganization"] : "";
-                bool create_projects = alpha_org != alphaOrganization;
+                //bool create_projects = alpha_org != alphaOrganization;  
+                //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
+                //bool create_projects = alpha_org != alphaOrganization;
                 string url = "";
                 //string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, create_projects);
                 return new
@@ -13959,13 +13963,13 @@ namespace DbCore
                     {
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
-                        return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
+                        //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                     }
                 if (ekziston)
                 {
                     Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                     org_id = user_details["organization"].ToString();
-                    return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
+                    //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
                 }
                 if (!exists)
                 {
@@ -13973,6 +13977,7 @@ namespace DbCore
                     await firebaseConfiguration.createNewUser(firebaseConfiguration.createUserDetailsObject(uid, username, pass, email, alphaOrganization, orgId), uid);
                     clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
                     org_id = orgId;
+                    synchronize(uid, alphaOrganization, idNdermarje, org_id);
                 }
                 else
                 {
@@ -13984,10 +13989,11 @@ namespace DbCore
                             clsPerdorues.krijoPerdoruesMeGmail(email, username, username, pass, idPerdoruesi);
                         Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(uid);
                         org_id = user_details["organization"].ToString();
+                        synchronize(uid, alphaOrganization, idNdermarje, org_id);
                     }
                 }
-                return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken, true);
-
+                return "Sukses!";
+                //return await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, org_id, accessToken,true);
             }
             catch (Exception err)
             {
@@ -13995,6 +14001,17 @@ namespace DbCore
                 return "";
             }
 
+        }
+        private static void synchronize(string uid, string alpha_organization, int enterprise_id, string org_id)
+        {
+            object message = new
+            {
+                uid = uid,
+                alphaOrganization = alpha_organization,
+                enterprise = enterprise_id,
+                organization = org_id
+            };
+            PubSub.initializeSync(message);
         }
         public async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
@@ -14014,6 +14031,7 @@ namespace DbCore
             try
             {
                 List<Dictionary<string, dynamic>> ndermarrjet = clsPerdorues.getUserAdminEnterprises(idPerdoruesi);
+                clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarje);
                 object requestObject = new
                 {
                     uid = uid,
@@ -14021,7 +14039,8 @@ namespace DbCore
                     ndermarrjet = ndermarrjet,
                     orgId = org_id,
                     email = email,
-                    enterpriseId = idNdermarje
+                    enterpriseId = idNdermarje,
+                    enterpriseName = ndermarrje.NdermarrjePershkrimi
                 };
                 GoogleCredential cred = GoogleCredential.GetApplicationDefault();
                 string delta_url = WebConfigurationManager.AppSettings["deltaUrl"];

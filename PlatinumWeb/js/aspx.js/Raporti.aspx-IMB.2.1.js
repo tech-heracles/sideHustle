@@ -2072,8 +2072,9 @@ $(document).ready(function () {
         identikuesPerPopupKategoriShpenzimi = "Raporti";
 
     $(document).keydown(function (event) {
-        if ((event.which == 13 || event.keyCode == 13) && $(event.target).closest("#reportContainer").length == 0)
+        if ((event.which == 13 || event.keyCode == 13) && $(event.target).closest("#reportContainer").length == 0) {
             hapRaportin();
+        }
     });
     $(window).on('load', function () {
         Init();
@@ -2459,14 +2460,32 @@ function menu_click(s, e) {
     e.processOnServer = false;
 }
 function hapRaportin() {
+    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
+    const filters = document.querySelectorAll(".dxeEditArea_MetropolisBlue");
+    let filterValue = "";
+    for (let i = 0; i < filters.length; i++)
+        filterValue += filters[i].value;
+    if ((Date.now() / 1000) - hfState.Get("lastOpenDate") < 60 && hfState.Get("filter") == radDtDok.GetValue() && hfState.Get("advancedFilter") == filterValue) {
+        const data = new Date(hfState.Get("lastOpenDate") * 1000);
+        let date_now = data.toISOString().split("T")[0];
+        date_now = date_now + " " + data.getHours().toString() + ":"+data.getMinutes().toString()+":" + data.getSeconds().toString();
+        toastMessage("Raporti i perditesuar qe prej " + date_now + "!");
+        return;
+    }
+    hfState.Set("advancedFilter", filterValue);
     if (!KontrolloIntervalet())
         return;
     var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
     filtraAvancuar.SetExpanded(false);
+    filtra.SetExpanded(false);
     $('#hfRilodo').val(true);
     eshteHapurRaporti = true;
     RaporteUtils.Parameter = "Shiko";
     ASPxCallbackPanel1.PerformCallback("Shiko");
+}
+function showFilters() {
+    var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
+    filtra.SetExpanded(true);
 }
 function toast() {
     const toast = document.getElementById('toast');
@@ -2480,6 +2499,19 @@ function toast() {
         toast.style.zIndex = -10;
         //toast.style.display= "none";
     }, 2000);
+}
+function toastMessage(message) {
+    const toast = document.getElementById('toast');
+
+    toast.querySelector('.toast-body').innerHTML = message;
+    toast.style.opacity = 1;
+    toast.style.zIndex = 999999;
+    //toast.style.display = "block";
+    setTimeout(function () {
+        toast.style.opacity = 0;
+        toast.style.zIndex = -10;
+        //toast.style.display= "none";
+    }, 4000);
 }
 function KontrolloIntervalet() {
     var idKontrollet = JSON.parse($('#hfKontrolle').val());

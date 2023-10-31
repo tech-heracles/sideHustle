@@ -1,40 +1,40 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using System.Drawing;
-using DevExpress.Web;
-using System.Collections.Generic;
-using DevExpress.XtraReports.UI;
-using DbCore.DbShare;
-using System.Text;
-using DbCore.DbAdmin;
-using System.Data.SqlClient;
-using System.Web.Script.Serialization;
-using System.Reflection;
-using DevExpress.XtraReports.Web;
-using System.IO;
-using System.Globalization;
-using System.Resources;
-using DbCore.DbAsete;
-using ICSharpCode.SharpZipLib.Zip;
 using DbCore;
+using DbCore.DbAdmin;
+using DbCore.DbAsete;
+using DbCore.DbShare;
 using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Types;
-using PlatinumWeb.ApplicationUtils.Pages;
 using DbCore.IMBUtils.Logging;
-using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
+using DbCore.IMBUtils.Types;
 using DbCore.Raporte;
+using DevExpress.Web;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraReports.Web;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using ICSharpCode.SharpZipLib.Zip;
 using PlatinumWeb.ApplicationUtils;
+using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
+using PlatinumWeb.ApplicationUtils.Pages;
 
 namespace PlatinumWeb.E_PaySlip
 {
@@ -81,7 +81,7 @@ namespace PlatinumWeb.E_PaySlip
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (idRaporti < 0)
                 idRaporti = DbCore.clsFunksione.ktheIdRaporti(Request);
 
@@ -97,7 +97,7 @@ namespace PlatinumWeb.E_PaySlip
             {
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
             }
-            
+
             dtdoknga = periudha.FillimiPeriudha.ToShortDateString();
             dtdokderi = periudha.MbarimiPeriudha.ToShortDateString();
 
@@ -247,7 +247,7 @@ namespace PlatinumWeb.E_PaySlip
                                     Container.Attributes["src"] = "";
                                 }
                                 string formatEksporti = ImbReportToolbar1.getExportFormatSelectedItem().Text;
-                              
+
                                 return;
                             case "zoomFactor":
                                 ImbReportToolbar1.SetSelectionZoomFactor(ImbReportToolbar1.scale);
@@ -346,7 +346,7 @@ namespace PlatinumWeb.E_PaySlip
             Container.Attributes["src"] = "";
 
             navBarFiltrat.Groups[1].ClientVisible = false;
-          
+
 
             ImbReportToolbar1.hiqButonExport();
         }
@@ -425,7 +425,7 @@ namespace PlatinumWeb.E_PaySlip
             ((ReportViewer)sender).Report = null;
         }
 
-       
+
 
         private int kthekategoridok()
         {
@@ -968,7 +968,7 @@ namespace PlatinumWeb.E_PaySlip
             {
                 if (idRaporti != 73 && idRaporti != 74)
                     cmbMuaji.Items.Add("", 0);
-                ConfigureAspxComboBox.mbushComboMuajt(cmbMuaji, idGjuha,"", null);
+                ConfigureAspxComboBox.mbushComboMuajt(cmbMuaji, idGjuha, "", null);
             }
         }
 
@@ -1032,7 +1032,7 @@ namespace PlatinumWeb.E_PaySlip
             cmbPasqyra.TextField = "KodiPasqyresFin";
             cmbPasqyra.DataSource = colPas;
             cmbPasqyra.DataBind();
-          
+
         }
 
         private bool mbushComboBoxFiltra(int idPerdoruesi, int idNdermarrje)
@@ -1820,7 +1820,7 @@ namespace PlatinumWeb.E_PaySlip
                         return vlera = tmpValue1 == null ? "" : tmpValue1.ToString();
                     case "filterkodifikimartd":
                         object tmpValue2 = ((ASPxButtonEdit)navBarFiltrat.Groups[1].FindControl("GrupimDyteButtonEdit1")).Value;
-                        return vlera = tmpValue2 == null ? "" : tmpValue2.ToString();                    
+                        return vlera = tmpValue2 == null ? "" : tmpValue2.ToString();
                     case "txtinterval1":
                         int interval1 = 0;
                         int.TryParse(((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval1")).Text, out interval1);
@@ -3087,11 +3087,11 @@ namespace PlatinumWeb.E_PaySlip
             colParameter sqlParamShfaqRaport = krijoParametratShfaqRaporti(oSp, idNdermarrje, periudhaKontabel, idNderViti, ci);
             if (kaSubRaport) //konfigurimeSubRaporti duhet thirrur ketu vetem nqs raporti i hapur ka subraport.
             {
-              
+
                 konfigurimeSubRaporti(idNdermarrje, periudhaKontabel, idNderViti, idPerdorues, ci, guidString, idGjuha);
             }
 
-         
+
             clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasKod("NKM", idNdermarrje);
             DateTime dtmbarimi = DateTime.Today;
@@ -3130,18 +3130,18 @@ namespace PlatinumWeb.E_PaySlip
 
                 }
 
-             
+
             }
-           
+
             XtraReport report = ReportFunctions.krijoObjektRaporti("", 0, idPerdorues, idViti, idRaporti, idNdermarrje, sqlParamShfaqRaport, 0, ImbReportToolbar1.orientimi, guidString, Request.QueryString[CacheLayer.ScopeManager.ScopeIdKey]);
             int idPeriudha = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtmbarimi, idNdermarrje);// new 
             report.StyleSheet.LoadFromFile(Raporti.ndertoPathStyleSheet(pathStyle.Value, ImbReportToolbar1.ReportStyle));
-          
+
             afisho(idRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha, rm, ci, guidString);
-           
+
         }
 
-     
+
         /// <summary>
         /// Ngarkon filtrin e personalizuar te zgjedhur te faqja e raporteve sipas modulit
         /// </summary>
@@ -3342,9 +3342,9 @@ namespace PlatinumWeb.E_PaySlip
                     j--;
                     continue;
                 }
-                parametraSp[i].Vlera = ktheVlerenEParametritShfaqRaport(parametraSp[i], idNdermarrje, periudhaKontabel, idNderviti, ci, oColKontrolle);              
+                parametraSp[i].Vlera = ktheVlerenEParametritShfaqRaport(parametraSp[i], idNdermarrje, periudhaKontabel, idNderviti, ci, oColKontrolle);
             }
-           
+
             return parametraSp;
         }
 
@@ -4121,7 +4121,7 @@ namespace PlatinumWeb.E_PaySlip
 
                 }
 
-                ReportFunctions.konfigDataSetRaporti(report, spemri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
+                ReportFunctions.konfigDataSetRaporti(report, spemri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, false, sqlParam);
                 ImbReportToolbar1.konfigFleteRaporti(report, idPerdorues, EmerRealRaporti);
                 //CacheLayer.GlobalCacheManager.MySessionCache["MyReport"] = report; //KEVI 
 
@@ -4130,7 +4130,7 @@ namespace PlatinumWeb.E_PaySlip
 
                 //   DevExpress.XtraReports.UI.Band band = report.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.ReportHeaderBand));
                 DataSet ds = (DataSet)report.DataSource;
-               
+
                 ReportViewer2.Report = report;
 
                 // }
@@ -4148,10 +4148,10 @@ namespace PlatinumWeb.E_PaySlip
             if (e.Item.Name == "Shiko")
             {
                 afisho(idRaporti, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheNdermarrjeVit(Session), DbCore.mySessionObjects.merrPeriudheKontabel(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), new CultureInfo("sq-AL"), clsRaporti.KaSubRaporte(idRaporti), hfState["guidString"].ToString(), Convert.ToInt32(hfState["idGjuha"]));
-         
+
             }
 
-        
+
         }
 
 
@@ -5065,7 +5065,7 @@ namespace PlatinumWeb.E_PaySlip
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbArtCmim")).Items[1].Text = rm.GetString("cmbItemFilterArtCmim", ci);
 
             ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblLlojDetajim")).Text = rm.GetString("filterLlojiDetajimit", ci);
-      
+
 
             ((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblDetajim")).Text = rm.GetString("lblRaportDetajime", ci);
             ((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbDetajim")).Items[1].Text = rm.GetString("cmbboxItemFilterAvancTeGjithe", ci);

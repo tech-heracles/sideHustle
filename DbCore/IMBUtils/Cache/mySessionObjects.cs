@@ -747,6 +747,19 @@ namespace DbCore
             else return default(T);
 
         }
+        public static T merrMyReportNgaSessioniData<T>(HttpSessionState session, String key,string name)
+        {
+            //if (session.IsNewSession)
+            //{
+            //    //throw new mySessionNewException("Sessioni ka skaduar! Ju lutem logohuni perseri");
+            //    clsFunksione.logout(session, true, "MbarimSessioni");
+            //}
+
+            if (MySessionCache[$"MyReport{name}" + key] != null)
+                return (T)MySessionCache[$"MyReport{name}" + key];
+            else return default(T);
+
+        }
         /// <summary>
         /// ruan raportin ne sesion
         /// </summary>
@@ -779,6 +792,17 @@ namespace DbCore
             return true;
 
         }
+        public static bool ruajMyReportNeSessionData<T>(HttpSessionState session, String key, T obj,string name)
+        {
+
+            if (MySessionCache[$"MyReport{name}" + key] == null)
+                MySessionCache.Add($"MyReport{name}" + key, obj);
+            else
+                MySessionCache[$"MyReport{name}" + key] = obj;
+            return true;
+
+        }
+
         /// <summary>
         /// merr filter nga sesioni
         /// </summary>

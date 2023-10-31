@@ -4,7 +4,6 @@ var pageState = {};
 function hapraportin(idRaporti, emerRaporti) {
     hapRaport(idRaporti, emerRaporti, "false");
 }
-
 function myTimeStamp() {
                 var myDate = new Date();
                 return myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds() +
@@ -18,6 +17,7 @@ function hapKubin(idModuli) {
     myFaqeCelje.kontrolloTeDrejta("Raport_PivotGrid.aspx?idModuli=" + idModuli + "&windowWidth=" + width + "&vjenNga=" + ngaCRM);
 }
 function hapRaport(idRaporti, emerRaporti, filtro) {
+    console.log(emerRaporti);
     if (window.parent && window.parent.SucceededCallbackInfoLart)
         window.parent.SucceededCallbackInfoLart({ emerKomponente: emerRaporti });
     var myParams = [];
@@ -25,6 +25,9 @@ function hapRaport(idRaporti, emerRaporti, filtro) {
     myParams.push("idmod=" + pageState.idModuliRaporteve)
     myParams.push("windowWidth=" + $(window).width());
     myParams.push("Filtro=" + filtro);
+    if (emerRaporti == "Raport Alpha Mobile") {
+        myParams.push("alphaMobile=true");
+    }
     var ngaCRM = Utils.getUrlVar("vjenNga");
     if (ngaCRM != "undefined")
         myParams.push("vjenNga=" + ngaCRM); 

@@ -18,6 +18,10 @@ namespace DbCore
         public string topicId;
         private string subscriptionId;
         private string pushEndpoint;
+        private static string item_topic = "alpha_items_sync_bulk";
+        private static string client_topic = "alpha_clients_sync_bulk";
+        private static string supplier_topic = "alpha_suppliers_sync_bulk";
+        private static string payment_project = "imb-payment";
 
         public PubSub(string projectId, string topicId, string subscriptionId, string pushEndpoint)
         {
@@ -95,6 +99,42 @@ namespace DbCore
                 ImbLogger.Error(ex);
             }
            
+        }
+        private static async Task publishCallSync(string topic,string project, object message)
+        {
+            try
+            {
+                var publisher = await new PublisherClientBuilder
+                {
+                    TopicName = TopicName.FromProjectTopic(project, topic),
+                    ApiSettings = new PublisherServiceApiSettings
+                    {
+                        PublishSettings = CallSettings.FromRetry(RetrySettings.FromExponentialBackoff(
+                              maxAttempts: 3,
+                              initialBackoff: TimeSpan.FromSeconds(1),
+                              maxBackoff: TimeSpan.FromSeconds(2),
+                              backoffMultiplier: 2.00,
+                              retryFilter: RetrySettings.FilterForStatusCodes(StatusCode.Unavailable)))
+                      .WithTimeout(TimeSpan.FromSeconds(1))
+                    }
+                }.BuildAsync();
+                var pubsubMessage = new PubsubMessage
+                {
+                    Data = ByteString.CopyFromUtf8(JsonConvert.SerializeObject(message))
+                };
+
+                await publisher.PublishAsync(pubsubMessage);
+            }
+            catch (Exception ex){
+                ImbLogger.Error(ex);
+            }
+           
+        }
+        static public async void initializeSync(object message)
+        {
+            PubSub.publishCallSync(item_topic, payment_project, message);
+            PubSub.publishCallSync(supplier_topic, payment_project, message);
+            PubSub.publishCallSync(client_topic, payment_project, message);
         }
         public void PublishPubSub(int maxAttempts, int initialBackoff, int maxBackoffSeconds, int totalTimeoutSeconds, object message)
         {

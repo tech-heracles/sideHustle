@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Web.SessionState;
-using DbCore;
-using DbCore.DbAdmin;
 using System.Collections.Generic;
-using System.Linq;
-using DbCore.IMBUtils.Messages;
 using System.Threading.Tasks;
 
 namespace RestApi.WebAPI.Models
@@ -100,6 +95,14 @@ namespace RestApi.WebAPI.Models
         internal async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
             return await clsFunksione.goToDelta(idPerdoruesi, email, idNdermarje, alphaOrganization, uid, accessToken);
+        }
+        internal async static Task<string> getUserOrganization(string uid)
+        {
+            return await clsFunksione.getUserOrganization(uid);
+        }
+        internal async static Task<bool> changeOrganization(string uid, string organization, int enterprise_id, int idPerdoruesi)
+        {
+            return await clsFunksione.changeOrganization(uid, organization, enterprise_id, idPerdoruesi);
         }
         internal async static Task<bool> merrShenimePerdoruesi(string shenime)
         {
