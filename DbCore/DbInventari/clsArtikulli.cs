@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Resources;
+using System.Threading.Tasks;
 using DbCore.DbAdmin;
 using DbCore.DbAsete;
 using DbCore.DbKontabiliteti;
@@ -15,6 +19,8 @@ using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Validation;
+using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Storage.V1;
 using Newtonsoft.Json;
 
 namespace DbCore.DbInventari
@@ -31,6 +37,7 @@ namespace DbCore.DbInventari
         public static string AfatGjateLabel = "Afatgjate";
         public static string AfatShkurterLabel = "Afatshkurter";
         public const string postStringTvsh = "postStringTvsh";
+        public const string paymentBucket = "imb-payment.appspot.com";
         private int idArtikulli;
         private string kodArtikulli;
         private string pershkrimArtikulli;
@@ -1917,15 +1924,14 @@ namespace DbCore.DbInventari
         /// <returns>mbush vetem: gjendjeTot;det1;det2 te struktures ListeArtikulli</returns>
         public static DbCore.ListeVleraArtikulliMeNjesiKodbaresh ktheVleraArtDetajimeNjesiKodbare(DbInventari.clsArtikulli artikulli, int idPerdorues, DateTime data, int idMag)
         {
-            Dictionary<String, Object>[] detajimDheSasi = new Dictionary<String, Object>[2];
+            Dictionary<String, System.Object>[] detajimDheSasi = new Dictionary<String, System.Object>[2];
             double gjendjaTotale = DbCore.DbRegjistrim.clsTrupiMagazina.merrSasi(artikulli, -1, data, 0);
             detajimDheSasi = ktheArtDetajimet(artikulli, idPerdorues, data, idMag, gjendjaTotale);
-            DbCore.ListeVleraArtikulliMeNjesiKodbaresh listeVleraArt = new ListeVleraArtikulliMeNjesiKodbaresh() { detajimiPare = detajimDheSasi[0] == null ? null : (clsDetajimArtikulli)((Dictionary<String, Object>)detajimDheSasi[0])["detajim"], gjendjeTot = detajimDheSasi[0] == null ? default(double) : (double)((Dictionary<String, Object>)detajimDheSasi[0])["sasiTotDet"], detajimiDyte = detajimDheSasi[1] == null ? null : (clsDetajimArtikulli)((Dictionary<String, Object>)detajimDheSasi[1])["detajim"] };
             return new ListeVleraArtikulliMeNjesiKodbaresh()
             {
-                detajimiPare = detajimDheSasi[0] == null ? null : (clsDetajimArtikulli)((Dictionary<String, Object>)detajimDheSasi[0])["detajim"],
-                detajimiDyte = detajimDheSasi[1] == null ? null : (clsDetajimArtikulli)((Dictionary<String, Object>)detajimDheSasi[1])["detajim"],
-                gjendjeTot = detajimDheSasi[0] == null ? gjendjaTotale : (double)((Dictionary<String, Object>)detajimDheSasi[0])["sasiTotDet"]
+                detajimiPare = detajimDheSasi[0] == null ? null : (clsDetajimArtikulli)((Dictionary<String, System.Object>)detajimDheSasi[0])["detajim"],
+                detajimiDyte = detajimDheSasi[1] == null ? null : (clsDetajimArtikulli)((Dictionary<String, System.Object>)detajimDheSasi[1])["detajim"],
+                gjendjeTot = detajimDheSasi[0] == null ? gjendjaTotale : (double)((Dictionary<String, System.Object>)detajimDheSasi[0])["sasiTotDet"]
             };
         }
 
@@ -3830,17 +3836,77 @@ namespace DbCore.DbInventari
             colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
             decimal cmimiBaze = 0;
             decimal cmimiBazeMeTvsh = 0;
+            decimal cmimiBlerjeBaze = 0;
+            decimal cmimiBlerjeBazeTvsh = 0;
             cmimeArtikujsh.mbushCmimArtikulliShitjeDheBlerjeSipasArtikullitMeKostoMeAutorizime(this.idArtikulli, IdNdermarje, IdPerdoruesi);
             clsTaksa taksa = new clsTaksa(this.IdTvsh);
+            string photoURL = "";
+            Guid uuid = Guid.NewGuid();
+            string fileName = $"alpha/{uuid}";
+            try
+            {
+                #region images
+                colArkiva arkiva = new colArkiva(this.IdArtikulli, 13);
+                foreach (clsArkiva keyValue in arkiva)
+                {
+                    if (keyValue.FileType != ".jpg" && keyValue.FileType != ".png") continue;
+                    string filePath = System.Web.Hosting.HostingEnvironment.MapPath(keyValue.Path);
+                    //using (FileStream image = File.Open((string)keyValue.Value, FileMode.Open))
+                    using (FileStream image = File.Open(filePath, FileMode.Open))
+                    {
+                        Image img = Image.FromStream(image);
+                        int size = 1024;
+                        Image newImage = img;
+                        if (img.Width > size && img.Height > size)
+                        {
+                            Bitmap bitMap = new Bitmap(size, size);
+                            using (Graphics graphics = Graphics.FromImage((Image)bitMap))
+                            {
+                                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                                graphics.DrawImage(img, 0, 0, size, size);
+                                newImage = (Image)bitMap;
+                            }
+                        }
+                        UploadObjectOptions options = new UploadObjectOptions();
+                        options.UserProject = "imb-payment";
+
+                        GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
+                        StorageClient storage = StorageClient.Create(credential);
+                        string contentType = keyValue.FileType;
+                        storage.UploadObject(paymentBucket, fileName, contentType, image, options);
+                    }
+
+                }
+                #endregion
+            }
+            catch (Exception e)
+            {
+                ImbLogger.LogErrorShitje(e.Message);
+            }
+
+
+            clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli(this.kodifikimi1Artikulli);
             for (int i = 0; i < cmimeArtikujsh.Count; i++)
             {
                 clsCmimArtikulli currentPrice = cmimeArtikujsh[i];
                 clsNivelCmimi nvCmimi = new clsNivelCmimi(currentPrice.IdNivelCmimi);
+                //if (nvCmimi.Lloji) continue;
                 bool nivelCmimi = nvCmimi.NivelCmimiBaze;
+                if (nvCmimi.LlojiNivelCmimi == 1 && nivelCmimi)
+                {
+                    cmimiBlerjeBaze = currentPrice.Cmimi;
+                    cmimiBlerjeBazeTvsh = currentPrice.CmimiTvsh;
+                    continue;
+                }
+                else if (nvCmimi.LlojiNivelCmimi == 1)
+                {
+                    continue;
+                }
                 cmimiBaze = nivelCmimi == true ? currentPrice.Cmimi : cmimiBaze;
                 cmimiBazeMeTvsh = nivelCmimi == true ? currentPrice.CmimiTvsh : cmimiBazeMeTvsh;
                 long startDate = new DateTimeOffset(currentPrice.DateFillimi).ToUnixTimeSeconds() * 1000;
                 long endDate = new DateTimeOffset(currentPrice.DateMbarimi).ToUnixTimeSeconds() * 1000;
+
                 cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = currentPrice.Cmimi, priceWithVat = currentPrice.CmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
             }
             for (int i = 0; i < kodBaretArtikulli.Count; i++)
@@ -3864,7 +3930,12 @@ namespace DbCore.DbInventari
                 priceLevels = cmimeArt,
                 organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
                 ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
-                barCodes = kodBaret
+                barCodes = kodBaret,
+                category = kodifikimArtikulli.PershkrimKodifikimi,
+                boughtPrice = cmimiBlerjeBaze,
+                boughtPriceWithVat = cmimiBlerjeBazeTvsh,
+                fileName = fileName,
+                description = this.pershkrimiAngArtikulli
             };
             return objectForPubSub;
 
@@ -5811,7 +5882,7 @@ namespace DbCore.DbInventari
 
         }
 
-        public static Object MerrDetajimeArtikulli(string kodArtikulli, int idNdermarrje, int idPerdorues)
+        public static System.Object MerrDetajimeArtikulli(string kodArtikulli, int idNdermarrje, int idPerdorues)
         {
             string detajime = "";
             string detajime2 = "";
