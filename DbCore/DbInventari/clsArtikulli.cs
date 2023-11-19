@@ -3784,7 +3784,96 @@ namespace DbCore.DbInventari
                 return new clsMesazh(false, ce.Message);
             }
         }
+        public object krijoObjektPerPubSubBulk(colNjesiteArtikulli njesiArtikulli, DataTable kodbare, colKodifikimeArtikulli grupim1, colNiveleCmimesh nivele, colTaksa taksat, DataTable cmime, string organization, string enterprise)
+        {
+            try
+            {
+                List<int> idNjesish = new List<int>();
+                idNjesish.AddIfNotExists(this.njesi1Artikulli);
+                idNjesish.AddIfNotExists(this.njesi2Artikulli);
 
+
+                List<object> cmimeArt = new List<object>();
+                List<string> kodBaret = new List<string>();
+                List<DataRow> kodBaretArtikulli = kodbare.Rows.Cast<DataRow>().Where(x => x.Field<string>("Kod artikulli") == this.kodArtikulli).ToList();
+                List<DataRow> cmimeArtikujsh = cmime.Rows.Cast<DataRow>().Where(x => x.Field<string>("Kod artikulli") == this.kodArtikulli).ToList();
+
+                decimal cmimiBaze = 0;
+                decimal cmimiBazeMeTvsh = 0;
+                decimal cmimiBlerjeBaze = 0;
+                decimal cmimiBlerjeBazeTvsh = 0;
+                clsTaksa taksa = new clsTaksa();
+                if (this.IdTvsh != 0) taksa = taksat.Where(x => x.IdTaksa == this.IdTvsh).First();
+                clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli();
+                if (this.kodifikimi1Artikulli != 0) kodifikimArtikulli = grupim1.Where(x => x.IdKodifikimi == this.kodifikimi1Artikulli).First();
+                for (int i = 0; i < cmimeArtikujsh.Count; i++)
+                {
+                    string kodNivelCmimi = (string)cmimeArtikujsh[i].ItemArray[3];
+                    decimal cmimi = (decimal)cmimeArtikujsh[i].ItemArray[9];
+                    decimal cmimiTvsh = (decimal)cmimeArtikujsh[i].ItemArray[10];
+                    DateTime dtFillimi = (DateTime)cmimeArtikujsh[i].ItemArray[5];
+                    DateTime dtMbarimi = (DateTime)cmimeArtikujsh[i].ItemArray[6];
+                    if (nivele.Where(x => x.PershkrimNivelCmimi == kodNivelCmimi).Count() == 0) continue;
+                    clsNivelCmimi nvCmimi = nivele.Where(x => x.PershkrimNivelCmimi == kodNivelCmimi).First();
+                    bool nivelCmimi = nvCmimi.NivelCmimiBaze;
+                    int llojiNivelCmimi = nvCmimi.LlojiNivelCmimi;
+
+                    //if (nvCmimi.Lloji) continue;
+                    //bool nivelCmimi = nvCmimi.NivelCmimiBaze;
+                    if (llojiNivelCmimi == 1 && nivelCmimi)
+                    {
+                        cmimiBlerjeBaze = cmimi;
+                        cmimiBlerjeBazeTvsh = cmimiTvsh;
+                        continue;
+                    }
+                    else if (nvCmimi.LlojiNivelCmimi == 1)
+                    {
+                        continue;
+                    }
+                    cmimiBaze = nivelCmimi == true ? cmimi : cmimiBaze;
+                    cmimiBazeMeTvsh = nivelCmimi == true ? cmimiTvsh : cmimiBazeMeTvsh;
+                    long startDate = new DateTimeOffset(dtFillimi).ToUnixTimeSeconds() * 1000;
+                    long endDate = new DateTimeOffset(dtMbarimi).ToUnixTimeSeconds() * 1000;
+
+                    cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = cmimi, priceWithVat = cmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
+                }
+                for (int i = 0; i < kodBaretArtikulli.Count; i++)
+                {
+                    this.kodiiBarit = this.kodiiBarit == "" || this.kodiiBarit == null ? kodBaretArtikulli[0].ItemArray[2].ToString() : this.kodiiBarit;
+                    kodBaret.Add(kodBaretArtikulli[i].ItemArray[2].ToString());
+                }
+                clsNjesiArtikulli unit = njesiArtikulli.Where(x => x.IdNjesia == this.njesi1Artikulli).FirstOrDefault();
+                //object[] njesite = new object[njesiArtikulli.Count];
+                //for (int i = 0; i < njesiArtikulli.Count; i++) njesite[i] = new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice };
+                object objectForPubSub = new
+                {
+                    code = this.kodArtikulli,
+                    barcode = this.KodiIBarit,
+                    name = this.pershkrimArtikulli,
+                    unit = unit.KodNjesia,
+                    active = this.aktiv,
+                    unitFisc = unit.KodEinvoice,
+                    price = cmimiBaze,
+                    priceWithVat = cmimiBazeMeTvsh,
+                    vatPercentage = taksa.NormaPerqindje,
+                    noVat = this.IdTvsh == 0 ? true : false,
+                    exemptReason = taksa.TipiIPerjashtimit == null ? "" : taksa.TipiIPerjashtimit,
+                    priceLevels = cmimeArt,
+                    barCodes = kodBaret,
+                    category = kodifikimArtikulli.PershkrimKodifikimi,
+                    boughtPrice = cmimiBlerjeBaze,
+                    boughtPriceWithVat = cmimiBlerjeBazeTvsh
+                };
+                return objectForPubSub;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+
+        }
         public clsMesazh modifiko(clsArtikullPerberesTemplateKoka template, colCmimeArtikujsh cmime, bool vjenNgaImportSQL, string idArtikulliImp, string emerTabele, string primaryKey, string ndermarrjeKey)
         {
             using (var scope = new MyTransactionScope())

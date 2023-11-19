@@ -1,29 +1,30 @@
-﻿using DbCore;
-using DbCore.DbInventari;
-using DbCore.DbShare;
-using DbCore.DbRegjistrim;
-using DevExpress.Web;
-using PlatinumWeb.Templates;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Resources;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DbCore;
+using DbCore.DbAdmin;
 using DbCore.DbAsete;
+using DbCore.DbInventari;
+using DbCore.DbRegjistrim;
+using DbCore.DbShare;
+using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Messages;
+using DevExpress.Web;
 using Newtonsoft.Json;
 using PlatinumWeb.ApplicationUtils;
+using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
 using PlatinumWeb.ApplicationUtils.ASPxControlUtils;
 using PlatinumWeb.ApplicationUtils.Pages;
-using DbCore.DbAdmin;
-using DbCore.IMBUtils.DataBase;
-using DbCore.IMBUtils.Messages;
-using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
-using System.Linq;
-using DbCore.IMBUtils.Extensions;
+using PlatinumWeb.Templates;
 
 namespace PlatinumWeb
 {
@@ -91,7 +92,7 @@ namespace PlatinumWeb
                 bool cmime = false;
                 bool cmimeMeTvsh = false;
                 int idKonfigurim = Convert.ToInt32(cmbKonfigurimi.Value.ToString());
-                
+
                 if (Request.QueryString["llojiart"] == "afatshkurter")
                 {
                     string atrGjendja = DbCore.DbShare.clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(idKonfigurim, "cbGjendje", 402);
@@ -111,7 +112,7 @@ namespace PlatinumWeb
 
                 konfiguroBuxhetGride(idNdermarrje);
                 //per momentin nuk duhet
-              //  GridUtil.percaktoVisibleColumnsMeWidth((int)hfState["idGjuha"], idNdermarrje, gvBuxheti, "gvBuxheti", komponente); 
+                //  GridUtil.percaktoVisibleColumnsMeWidth((int)hfState["idGjuha"], idNdermarrje, gvBuxheti, "gvBuxheti", komponente); 
 
                 konfiguroGrideCmimesh(idPerdoruesi, idNdermarrje);
                 //DbCore.clsFunksione.percaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvCmimet", gvCmimet, cmbKonfigurimi.Text, Convert.ToString(402), (int)hfState["idGjuha"], !Page.IsPostBack);
@@ -124,12 +125,12 @@ namespace PlatinumWeb
                     konfiguroGrideArtikujPerberes("gvGjendjeArt");
                     konfiguroGrideArtikujPerberes("gvArtVfone");
                 }
-                
+
                 int id = 0;
                 int.TryParse(hfId.Value, out id);
                 ucFushatShtese.KonfiguroVleraFillestare(idNdermarrje, idPerdoruesi, idGjuha, komponente, "Artikulli", id, int.Parse(cmbKonfigurimi.Value.ToString()));
                 postStringTvsh = (string)hfState.Get(clsArtikulli.postStringTvsh);
-                mbushGridArtikujshNgaDB(idPerdoruesi, idNdermarrje, kosto, gjendja, cmime, cmimeMeTvsh,postStringTvsh );
+                mbushGridArtikujshNgaDB(idPerdoruesi, idNdermarrje, kosto, gjendja, cmime, cmimeMeTvsh, postStringTvsh);
                 if (Request.QueryString["llojiart"] == "afatshkurter")
                 {
                     ASPxGridView_Artikull.FilterExpression = "[LlojiArt]=false";
@@ -155,7 +156,7 @@ namespace PlatinumWeb
                 hfMeme.Value = DbCore.mySessionObjects.merrEshteMemeSesioni(Session).ToString();
                 ASPxGridView_Artikull.Columns["#"].VisibleIndex = 0;
                 GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "ASPxGridView_Artikull", ASPxGridView_Artikull, cmbKonfigurimi.Text, Convert.ToString(402), (int)hfState["idGjuha"], !Page.IsPostBack);
-                GridUtil.percaktoVisibleColumnsMeWidth(idGjuha,idNdermarrje, gvAmortizimi, "gvAmortizimi", komponente);
+                GridUtil.percaktoVisibleColumnsMeWidth(idGjuha, idNdermarrje, gvAmortizimi, "gvAmortizimi", komponente);
                 GridUtil.percaktoVisibleColumnsMeWidth(idGjuha, idNdermarrje, gvNormaAmortizimi, "gvNormaAmortizimi", komponente);
             }
             else
@@ -179,7 +180,7 @@ namespace PlatinumWeb
             clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "ASPxGridView_Artikull", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
 
             ucFushatShtese.percaktoTemplateFushash();
-            
+
             GridUtil.ToolTipButonaveMbiGride(ASPxGridView_Artikull, cultinf, rm);
             ASPxGridView_Artikull.PercaktoTitlePanelMeRefresh(this, MenuInfo, pnlMesazhi, hfState, IdPerdoruesi, IdNdermarrja, IdViti, IdGjuha, int.Parse(cmbKonfigurimi.Value.ToString()), komponente, rm, ci, false);
             lblGjendje.Text = rm.GetString("lblKaGjendje", cultinf);
@@ -234,7 +235,7 @@ namespace PlatinumWeb
 
             lblLloji.Text = rm.GetString("lblLloji", cultinf);
             lblPershkrimiAng.Text = rm.GetString("lblPershkrimiDy", cultinf);
-            
+
         }
         protected void percaktoFormatNumriCmimet(int idNdermarrje)
         {
@@ -282,9 +283,9 @@ namespace PlatinumWeb
 
         private void merrColKushtet(int idKonfigurim)
         {
-            
+
             Dictionary<string, clsAlternativaKushti> kushtet = colAlternativatKushti.MerrAlternativaKushtiSipasIdKonfigurimi(idKonfigurim);
-            
+
             hfKushtet.Set("FPJM", kushtet.ContainsKey("FPJM") ? kushtet["FPJM"].Alternativa : "");
             hfKushtet.Set("CB", kushtet.ContainsKey("CB") ? kushtet["CB"].Alternativa : "Jo");
 
@@ -320,32 +321,88 @@ namespace PlatinumWeb
         {
             percaktoTemplateMenu((int)hfState["idGjuha"], (int)hfState["idViti"], (int)hfState["idPerdoruesi"], (int)hfState["idNdermarrje"], ASPxMenu1);
         }
-        
+
         protected void SendItemsToPubSub(object sender, EventArgs e)
         {
-            
-            string[] columnNames = new string[1];
-            columnNames[0] = "IdArtikulli";
-            List<object> items = ASPxGridView_Artikull.GetSelectedFieldValues(columnNames);
-            if (items.Count > 0)
+            try
             {
-                //clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Artikujt po sinkronizohen!", pnlMesazhi);
-                List<int> artikujt = new List<int>();
-                List<object> objForPubSub = new List<object>();
-                PubSub PubSub = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items");
-                foreach (object item in items)
+                string[] columnNames = new string[1];
+                columnNames[0] = "IdArtikulli";
+                List<object> items = ASPxGridView_Artikull.GetSelectedFieldValues(columnNames);
+                //clsNdermarrje ndermarrje = new clsNdermarrje();
+                colNjesiteArtikulli njesi = new colNjesiteArtikulli(this.IdNdermarrja);
+                colNiveleCmimesh nivele = new colNiveleCmimesh();
+                nivele.mbushGjitheNiveleCmimeshPrindiMeMonedheSipasNdermarjes(this.IdNdermarrja);
+                string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+                if (items.Count > 10)
                 {
-                    artikujt.Add(int.Parse(item.ToString()));
+                    colKodifikimeArtikulli kodifikimArtikulli = new colKodifikimeArtikulli();
+                    kodifikimArtikulli.mbushGjitheKodifikimetArtikulliSipasNdermarrjes(this.IdNdermarrja);
+                    DataTable cmime = colCmimeArtikujsh.ktheCmimArtikulliDtExport(this.IdNdermarrja);
+                    DataTable codebars = colKodbare.ktheKodbarePerEksport(IdNdermarrja);
+
+                    List<int> artikujt = new List<int>();
+                    clsNdermarrje ndermarrje = new clsNdermarrje(this.IdNdermarrja);
+                    List<object> objForPubSub = new List<object>();
+                    PubSub PubSub = new PubSub("alphaweb", "alpha_items_bulk", "AlphaToFatura_Items");
+                    foreach (object item in items)
+                    {
+                        artikujt.Add(int.Parse(item.ToString()));
+                    }
+                    colArtikujt itemList = new colArtikujt(artikujt);
+                    List<object> batch = new List<object>();
+                    colTaksa taksat = new colTaksa(this.IdNdermarrja, this.IdPerdoruesi);
+                    int count = itemList.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        clsArtikulli art = itemList[i];
+                        object item = art.krijoObjektPerPubSubBulk(njesi, codebars, kodifikimArtikulli, nivele, taksat, cmime, organization, ndermarrje.NdermarrjeKodi);
+                        if (item != null) batch.Add(item);
+
+                        //objForPubSub.Add(art.krijoObjektPerPubSub());
+                        if (i % 500 == 0 || i == count - 1)
+                        {
+                            if (i == 0) continue;
+                            object finalJson = new
+                            {
+                                enterprise = ndermarrje.NdermarrjeKodi,
+                                organization = organization,
+                                data = batch
+                            };
+                            PubSub.PublishPubSub(3, 1, 2, 1, finalJson);
+                            batch = new List<object>();
+                        }
+                    }
+
+
+                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
+                    return;
                 }
-                colArtikujt itemList = new colArtikujt(artikujt);
-                foreach (clsArtikulli art in itemList)
+                else if (items.Count > 0)
                 {
-                    PubSub.PublishPubSub(3, 1, 2, 1, art.krijoObjektPerPubSub());
-                    //objForPubSub.Add(art.krijoObjektPerPubSub());
+                    //clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Artikujt po sinkronizohen!", pnlMesazhi);
+                    List<int> artikujt = new List<int>();
+                    List<object> objForPubSub = new List<object>();
+                    PubSub PubSub = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items");
+                    foreach (object item in items)
+                    {
+                        artikujt.Add(int.Parse(item.ToString()));
+                    }
+                    colArtikujt itemList = new colArtikujt(artikujt);
+                    foreach (clsArtikulli art in itemList)
+                    {
+                        PubSub.PublishPubSub(3, 1, 2, 1, art.krijoObjektPerPubSub());
+                        //objForPubSub.Add(art.krijoObjektPerPubSub());
+                    }
+                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
                 }
-                clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
+                else clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ju lutem zgjidhni te pakten 1 rresht!", pnlMesazhi);
             }
-            else clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ju lutem zgjidhni te pakten 1 rresht!", pnlMesazhi);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
         }
 
         /// <summary>
@@ -422,9 +479,9 @@ namespace PlatinumWeb
             foreach (DataRow dr in kodeNivelCmimi.Rows)
             {
                 ASPxGridView_Artikull.Columns[dr.ItemArray[0].ToString()].Visible = cmime;
-                ASPxGridView_Artikull.Columns[dr.ItemArray[0].ToString()+ postStringTvsh].Visible = cmimeMeTvsh;
+                ASPxGridView_Artikull.Columns[dr.ItemArray[0].ToString() + postStringTvsh].Visible = cmimeMeTvsh;
             }
-            
+
             kodeNivelCmimi.Dispose();
         }
 
@@ -435,7 +492,7 @@ namespace PlatinumWeb
 
             KonfigurimComboGride.shtoLlojiArtikullit(ASPxGridView_Artikull, rm, ci);
             KonfigurimComboGride.shto_AplikimDhurate(ASPxGridView_Artikull, rm, ci);
-            KonfigurimComboGride.shto_NjesiArtikulli(ASPxGridView_Artikull, idNdermarrje, Session, komponente, guidString, "Njesi1Artikulli"); 
+            KonfigurimComboGride.shto_NjesiArtikulli(ASPxGridView_Artikull, idNdermarrje, Session, komponente, guidString, "Njesi1Artikulli");
             KonfigurimComboGride.shto_NjesiArtikulli(ASPxGridView_Artikull, idNdermarrje, Session, komponente, guidString, "Njesi2Artikulli");
             KonfigurimComboGride.shto_KlasaArtikulli(ASPxGridView_Artikull, Session, komponente, guidString, "Klasa");
             KonfigurimComboGride.shto_MetodeKostoje(ASPxGridView_Artikull, Session, komponente, guidString, "MetodeKostojeArtikulli");
@@ -616,7 +673,7 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
                 cmbFiltra.Text = "";
-                clsToolbarConfig.mbushComboBoxFiltra((int)hfState["idGjuha"], (int)hfState["idNdermarrje"], "ASPxGridView_Artikull", int.Parse(cmbKonfigurimi.Value.ToString()),  komponente);
+                clsToolbarConfig.mbushComboBoxFiltra((int)hfState["idGjuha"], (int)hfState["idNdermarrje"], "ASPxGridView_Artikull", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu((int)hfState["idGjuha"], (int)hfState["idViti"], (int)hfState["idPerdoruesi"], (int)hfState["idNdermarrje"], ASPxMenu1);
                 if (mesazh.Status == true)
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -752,12 +809,12 @@ namespace PlatinumWeb
                 mesazhInfoGabim = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixNjejes", ci), String.Join(";", artikujTePaFshire), rm.GetString("msgShtoArtikullSuffixNjejesGabimi", ci));
             else
                 if (artikujTePaFshire.Count > 1)
-                    mesazhInfoGabim = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixShumes", ci), String.Join(";", artikujTePaFshire), rm.GetString("msgShtoArtikullSuffixShumesGabimi", ci));
+                mesazhInfoGabim = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixShumes", ci), String.Join(";", artikujTePaFshire), rm.GetString("msgShtoArtikullSuffixShumesGabimi", ci));
             if (artikujTeFshire.Count == 1)
                 mesazhInfoSukses = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixNjejes", ci), String.Join(";", artikujTeFshire), rm.GetString("suffixMesazhNjejesSuksesi", ci));
             else
                 if (artikujTeFshire.Count > 1)
-                    mesazhInfoSukses = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixShumes", ci), String.Join(";", artikujTeFshire), rm.GetString("msgClejeArkaBankaSuffixShumesSuksesi", ci));
+                mesazhInfoSukses = String.Format("{0}{1}{2}", rm.GetString("msgShtoArtikullPrefixShumes", ci), String.Join(";", artikujTeFshire), rm.GetString("msgClejeArkaBankaSuffixShumesSuksesi", ci));
             if (mesazhInfoGabim != "")
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhInfoGabim, pnlMesazhi);
             if (mesazhInfoSukses != "")
@@ -797,9 +854,9 @@ namespace PlatinumWeb
             }
             else
             {
-                
+
                 mbushGridArtikujshNgaDB(idPerdorues, idNdermarrje, cbKosto.Checked, cbGjendje.Checked, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh, false);
-            }           
+            }
             konfiguroGride(idNdermarrje, cmbKonfigurimi.Text, 402, cbKosto.Checked, cbGjendje.Checked, ci, rm, null, idPerdorues, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh);
         }
 
@@ -813,7 +870,7 @@ namespace PlatinumWeb
                     throw new DbCore.MyException(rm.GetString("msgShtoArtikulGabimNdodhen2ArtikujNeGride", ci));
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
-                DataRow newArtDr = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDR(idNdermarrje, idPerdorues, idArtikulli, cbKosto.Checked, cbGjendje.Checked );
+                DataRow newArtDr = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDR(idNdermarrje, idPerdorues, idArtikulli, cbKosto.Checked, cbGjendje.Checked);
                 if (newArtDr != null)
                 {
                     object[] arr = newArtDr.ItemArray;
@@ -881,12 +938,12 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(btneLlogShit);
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(cmbLlogAmortizimi);
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(btnLLogariKomisioni);
-            ConfigureAspxComboBox.percaktoTemplateComboMeLupe( txtFurnitori, btnMagazina, cmbObjektiva, btneKodifikimi1, btneKodifikimi2, btneKodifikimi3, cmbFormatSeriali);
-            ConfigureAspxComboBox.percaktoTemplateCombo(false,false,cmbNivelTvsh);
-          
-            ConfigureAspxComboBox.percaktoTemplateComboMeEnableCallback(cmbLidhMeNdermRap, btneSkema, cmbLlogAmortizimi, btnLlogShpe, btnLlogPakesim,  btneLlogBle, btneLlogInv, btneLlogShit, btneLlogTretet, btneLlogRez, btneLlogPakesimRez, btnLLogariKomisioni);
-        
-            AspxWebControlUtils.vendosDateEditMask( dteDateAkt, dteDateAk2);
+            ConfigureAspxComboBox.percaktoTemplateComboMeLupe(txtFurnitori, btnMagazina, cmbObjektiva, btneKodifikimi1, btneKodifikimi2, btneKodifikimi3, cmbFormatSeriali);
+            ConfigureAspxComboBox.percaktoTemplateCombo(false, false, cmbNivelTvsh);
+
+            ConfigureAspxComboBox.percaktoTemplateComboMeEnableCallback(cmbLidhMeNdermRap, btneSkema, cmbLlogAmortizimi, btnLlogShpe, btnLlogPakesim, btneLlogBle, btneLlogInv, btneLlogShit, btneLlogTretet, btneLlogRez, btneLlogPakesimRez, btnLLogariKomisioni);
+
+            AspxWebControlUtils.vendosDateEditMask(dteDateAkt, dteDateAk2);
             ConfigureAspxComboBox.mbushComboArtikulli(idPerdoruesi, DbCore.mySessionObjects.ktheNdermRaportuese(Session), postStringTvsh, cmbLidhMeNdermRap);
             ConfigureAspxComboBox.mbushComboMetodeKostoje(cmbMetode, true);
             ConfigureAspxComboBox.mbushComboAplikim(cmbAplikim);
@@ -896,7 +953,7 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.mbushComboNjesi(idNdermarrje, cmbNjesia2);
             ConfigureAspxComboBox.mbushComboFormateSeriali(idNdermarrje, cmbFormatSeriali);
             ConfigureAspxComboBox.KonfiguroComboBoxTaksat(idPerdoruesi, idNdermarrje, cmbNivelTvsh, DbCore.DbRegjistrim.LlojTakse.Nivel_Tvsh, false, false, true);
-           // cmbNivelTvsh.DisplayFormatString = "0.00";
+            // cmbNivelTvsh.DisplayFormatString = "0.00";
             ConfigureAspxComboBox.mbushComboLlojArt(cmbLloji);
             ConfigureAspxComboBox.mbushComboGarancite(cmbGarancia);
             ConfigureAspxComboBox.mbushComboKodifikim(idNdermarrje, btneKodifikimi1, 1, (Request.QueryString["llojiart"] == "aqt"), true);
@@ -906,7 +963,7 @@ namespace PlatinumWeb
 
             ConfigureAspxComboBox.KonfiguroComboBoxObjektivaKosto(cmbObjektiva, IdNdermarrja);
 
-            hfSkemaKlasa.Value = ConfigureAspxComboBox.mbushComboSkemaKontabilitetiArtikulli(idNdermarrje, btneSkema, Request.QueryString["llojiart"],"");
+            hfSkemaKlasa.Value = ConfigureAspxComboBox.mbushComboSkemaKontabilitetiArtikulli(idNdermarrje, btneSkema, Request.QueryString["llojiart"], "");
             int idMonedheZgjedhur = DbCore.clsFunksione.ktheMonedhePerFormatNumri((int)hfState["idGjuha"], int.Parse(cmbKonfigurimi.Value.ToString()), idNdermarrje, 402, " ", -1, true);
             DbCore.DbShare.clsFormatiKonfig formatNrPerKonfig = new DbCore.DbShare.clsFormatiKonfig();
             formatNrPerKonfig.mbushFormatNrKonfigSipasIdKonfigAmbjente(int.Parse(cmbKonfigurimi.Value.ToString()));
@@ -981,7 +1038,7 @@ namespace PlatinumWeb
 
         private void konfiguroGrideCmimesh(int idPerdoruesi, int idNdermarrje)
         {//konfigurohet grida
- 
+
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             KonfigurimComboGride.ShtoMonedhe(gvCmimet, idNdermarrje, idPerdoruesi, Session, komponente, guidString);
@@ -992,18 +1049,18 @@ namespace PlatinumWeb
             gvCmimet.SettingsPager.Mode = GridViewPagerMode.ShowPager;
             gvCmimet.SettingsPager.PageSize = 15;
             gvCmimet.SettingsBehavior.AllowSort = false;
-            
+
         }
 
 
-    
-        private void mbushGridArtikujshNgaSession(int idPerdorues, int idNdermarrje,string postStringTvsh)
+
+        private void mbushGridArtikujshNgaSession(int idPerdorues, int idNdermarrje, string postStringTvsh)
         {
             DataTable tmpObject;
             bool sukses = DbCore.mySessionObjects.merrGrideNgaSessioni(komponente, Session, out tmpObject);
             if (!sukses)
                 mbushGridArtikujshNgaDB(idPerdorues, idNdermarrje, cbKosto.Checked, cbGjendje.Checked, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh, false);
-          
+
             else
             {
                 //ASPxGridView_Artikull.Columns.Clear();
@@ -1025,7 +1082,7 @@ namespace PlatinumWeb
             //bool kostoSasi = cbKosto.Checked || cbGjendje.Checked;
             DataTable dt = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(idNdermarrje, idPerdorues, kostoSasi, gjendje, cmime, cmimeMeTvsh, postStringTvsh);
             DbCore.mySessionObjects.ruajGrideNeSession(komponente, Session, dt);
-            if(autoGenerateColumns)
+            if (autoGenerateColumns)
                 ASPxGridView_Artikull.Columns.Clear();
             ASPxGridView_Artikull.DataSource = dt;
             ASPxGridView_Artikull.AutoGenerateColumns = autoGenerateColumns;
@@ -1052,7 +1109,7 @@ namespace PlatinumWeb
             {
                 int idMonedha = int.Parse(dr["IdMonedha"].ToString());
                 DbCore.DbAdmin.clsKurset kursi = new DbCore.DbAdmin.clsKurset(idMonedha, DateTime.Now);
-                DbCore.DbInventari.clsCmimArtikulli cm = new DbCore.DbInventari.clsCmimArtikulli(0, 0, int.Parse(dr["IdNivelCmimi"].ToString()), 0, idMonedha, new DateTime(DateTime.Today.Year, 1, 1), new DateTime(9999, 12, 31), 0, 0, 0, idPerdoruesi, idNdermarrje, 0, 1, 0, 0, bool.Parse(dr["NjesiTeVarura"].ToString()), kursi.VleraKursi, new DateTime(DateTime.Today.Year, 1, 1, 0, 0, 0), new DateTime(9999, 12, 31, 23, 59, 59), 0, 0, 0, 0,0, dr["IdCmimRetail"].ToString()=="" ? 0 :int.Parse(dr["IdCmimRetail"].ToString()));
+                DbCore.DbInventari.clsCmimArtikulli cm = new DbCore.DbInventari.clsCmimArtikulli(0, 0, int.Parse(dr["IdNivelCmimi"].ToString()), 0, idMonedha, new DateTime(DateTime.Today.Year, 1, 1), new DateTime(9999, 12, 31), 0, 0, 0, idPerdoruesi, idNdermarrje, 0, 1, 0, 0, bool.Parse(dr["NjesiTeVarura"].ToString()), kursi.VleraKursi, new DateTime(DateTime.Today.Year, 1, 1, 0, 0, 0), new DateTime(9999, 12, 31, 23, 59, 59), 0, 0, 0, 0, 0, dr["IdCmimRetail"].ToString() == "" ? 0 : int.Parse(dr["IdCmimRetail"].ToString()));
                 if (formatNrPerKonfigCmimi.IdFormatKonfig == 0)
                 {
                     formatisasi[j] = 2;
@@ -1074,12 +1131,12 @@ namespace PlatinumWeb
             gvCmimet.DataBind();
         }
 
-     
+
         private void mbushListeCmimeshMod(int idNdermarrje, int id, int idPerdorues)
         {//mbushet grida me te dhena
             DbCore.DbInventari.colCmimeArtikujsh col = new DbCore.DbInventari.colCmimeArtikujsh();
             col.mbushCmimArtikulliSipasArtikullitMeKostoMeAutorizime(id, idNdermarrje, idPerdorues, (string)hfKushtet.Get("CB") == "Jo");
-           
+
             JavaScriptSerializer serializusi = new JavaScriptSerializer();
             int[] formatisasi = new int[col.Count];
             int[] formaticmim = new int[col.Count];
@@ -1174,7 +1231,7 @@ namespace PlatinumWeb
             col0.DataItemTemplate = new MyButtonTemplate("Update");
         }
 
-       
+
 
         private DbCore.DbInventari.colDetajimePerArt ruajDetajime(int idNdermarrje, int lloji)
         {
@@ -1296,8 +1353,8 @@ namespace PlatinumWeb
             colCmimeArtikujsh cmimet = new colCmimeArtikujsh();
             int idKonfigCmime = DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("CSH", idNdermarrje);
             //colCmimeArtikujsh colCmime = JsonConvert.DeserializeObject<colCmimeArtikujsh>();
-            colCmimeArtikujsh colCmime = JsonConvert.DeserializeObject<colCmimeArtikujsh>(hfArtikuj.Value, 
-                new JsonSerializerSettings{ DateTimeZoneHandling = DateTimeZoneHandling.Local});
+            colCmimeArtikujsh colCmime = JsonConvert.DeserializeObject<colCmimeArtikujsh>(hfArtikuj.Value,
+                new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Local });
             if (colCmime == null)
                 return null;
             foreach (clsCmimArtikulli cm in colCmime)
@@ -1340,7 +1397,7 @@ namespace PlatinumWeb
             {
                 NLog.LogManager.GetCurrentClassLogger().Error(e.Message);
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, e.Message, pnlMesazhi);
-                hfStatusi.Value = "false";               
+                hfStatusi.Value = "false";
                 return;
             }
 
@@ -1390,7 +1447,7 @@ namespace PlatinumWeb
                     return;
                 }
 
-               
+
                 mesazh = artikulli.ruaj(hfNrAutoKF, colCmime, template, false, "", "", "", "");
                 eshteShtim = true;
             }
@@ -1408,12 +1465,12 @@ namespace PlatinumWeb
                 artikulli.IdArtikulli = int.Parse(hfId.Value.ToString());
                 bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(artikulli.IdArtikulli.ToString(), konf.IdNivel.ToString());
                 int formatiSerialitMeparshem = int.Parse(hfFormatSeriali.Value.ToString());
-                
+
                 if (lidhur.ToString() != hfLidhur.Value)
                 {
                     mesazh.Status = false;
                     mesazh.PershkrimMesazhi = rm.GetString("msgShtoArtikullEshteILidhur", ci);
-                } 
+                }
 
                 if (mesazh.Status && colArtikujt.kaGjendjeArtikulli(artikulli.IdArtikulli))
                 {
@@ -1561,7 +1618,7 @@ namespace PlatinumWeb
             this.btnLlogShpe.Text = "";
             this.btneLlogPakesimRez.Text = "";
             this.btneLlogRez.Text = "";
-            this.btnLLogariKomisioni.Text= "";
+            this.btnLLogariKomisioni.Text = "";
             this.txtMinimumi.Text = "0";
             this.txtMaximumi.Text = "0";
             this.cmbMetode.SelectedIndex = -1;
@@ -1588,7 +1645,7 @@ namespace PlatinumWeb
             btnDetajim1Nga.Text = ""; btnDetajim2Nga.Text = "";
             //btnDetajim2Ne.Text = "";
             //btnDetajim2Nga.Text = "";
-          //  mbushComboModeli(idPerdorues, idNdermarrje);
+            //  mbushComboModeli(idPerdorues, idNdermarrje);
             //hfFushatShtese.Value = "";
 
             //percaktoTemplateFushash();
@@ -1922,7 +1979,7 @@ namespace PlatinumWeb
                     else
                     {
                         txtBuxh1.ClientSideEvents.TextChanged = String.Format("function(s,e){{ShtoTotal1(textboxBuxh1{0}, labelGjendja{0},labelDiff1{0});}}", e.VisibleIndex);
-                        txtBuxh2.ClientSideEvents.TextChanged =	String.Format("function(s,e){{ShtoTotal2(textboxBuxh2{0}, labelGjendja{0},labelDiff2{0});}}", e.VisibleIndex);
+                        txtBuxh2.ClientSideEvents.TextChanged = String.Format("function(s,e){{ShtoTotal2(textboxBuxh2{0}, labelGjendja{0},labelDiff2{0});}}", e.VisibleIndex);
                     }
                 }
             }
@@ -1972,10 +2029,10 @@ namespace PlatinumWeb
 
         protected void gvCmimet_DataBound(object sender, EventArgs e)
         {
-           
+
             gvCmimet.KeyFieldName = "IdCmimArtikulli";
             gvCmimet.SettingsBehavior.AllowFocusedRow = true;
-            
+
         }
 
         protected void gvCmimet_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
@@ -2566,7 +2623,7 @@ namespace PlatinumWeb
             }
         }
 
-       
+
 
         protected void cmbGarancia_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {
@@ -2648,10 +2705,10 @@ namespace PlatinumWeb
 
         protected void cmbNivelTvsh_PreRender(object sender, EventArgs e)
         {
-          //  cmbNivelTvsh.Items[0].Text = "";
+            //  cmbNivelTvsh.Items[0].Text = "";
         }
 
-      
+
 
         ASPxComboBox temptxtNormal = null;
         private int nrRreshtatsh = 5;
@@ -2696,8 +2753,8 @@ namespace PlatinumWeb
             else if (gridaEmri.Equals("gvGjendjeArt"))
                 this.HfGridColGjendjeArt.Value = serializusi.Serialize(vlere);
             else if (gridaEmri.Equals("gvArtVfone"))
-           
-            HfGridColV.Value = serializusi.Serialize(vlere);
+
+                HfGridColV.Value = serializusi.Serialize(vlere);
         }
         protected DbCore.DbInventari.colGjendjeArtikulli krijoGjendjeArtSipasMag(bool ruaj)
         {
@@ -2812,7 +2869,7 @@ namespace PlatinumWeb
 
         private bool tvshEdetyrueshme()
         {
-            
+
             DbCore.DbShare.clsAtributeTrupi atribute = new DbCore.DbShare.clsAtributeTrupi();
             if (atribute.mbushAtributSipasKompKonfDheKontrollit(0, Convert.ToInt32(cmbKonfigurimi.Value.ToString()), "cmbNivelTvsh", 402))
                 return atribute.Detyrueshme;
@@ -2828,9 +2885,9 @@ namespace PlatinumWeb
             if (hfShtimModifikim.Value == "modifikim" || hfShtimModifikim.Value == "klonim")
             {
                 id = int.Parse(hfId.Value.ToString());
-                col.merrArtikullNormaAmortizimiTeGjitha(id, (int)hfState["idNdermarrje"],dteDateAk2.Date);
+                col.merrArtikullNormaAmortizimiTeGjitha(id, (int)hfState["idNdermarrje"], dteDateAk2.Date);
             }
-            else col.merrArtikullNormaAmortizimiFillestare((int)hfState["idNdermarrje"],dteDateAk2.Date);
+            else col.merrArtikullNormaAmortizimiFillestare((int)hfState["idNdermarrje"], dteDateAk2.Date);
             gvAmortizimi.DataSource = col;
             gvAmortizimi.DataBind();
         }
@@ -2839,7 +2896,7 @@ namespace PlatinumWeb
         {
             KonfigurimComboGride.ShtoStandart(gvAmortizimi, idndermarje, Session, komponente, guidString, "IdStandartAmortizimi");
 
-          
+
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             GridUtil.konfiguroGrideListeEvogelPaTheme(gvAmortizimi, "IdLidhjeArtikullLlojAmort");
@@ -2864,7 +2921,7 @@ namespace PlatinumWeb
             col10.DataItemTemplate = new MyDoubleTemplate(false, 2, "0");
             GridViewDataColumn col1 = gvAmortizimi.Columns["IdStandartAmortizimi"] as GridViewDataColumn;
             col1.DataItemTemplate = new MyLabelTemplate();
-        }   
+        }
 
         private DbCore.DbAsete.colAseteNormaAmortizimi ruajTrupin()
         {
@@ -2889,7 +2946,7 @@ namespace PlatinumWeb
                 int id = 0;
 
                 int.TryParse(e.Parameters, out id);
-                col.ktheArtikullNormaAmortizimiSipasIdKodifikimit(id, (int)hfState["idNdermarrje"],dteDateAk2.Date);
+                col.ktheArtikullNormaAmortizimiSipasIdKodifikimit(id, (int)hfState["idNdermarrje"], dteDateAk2.Date);
 
                 gvAmortizimi.DataSource = col;
                 gvAmortizimi.DataBind();
@@ -3139,7 +3196,7 @@ namespace PlatinumWeb
             hfState.Set("msgnumRreshtashSelektuar", rm.GetString("msgnumRreshtashSelektuar", cultinf));
             hfState.Set("msgShtoArtikullZgjidhNjeArtikull", rm.GetString("msgShtoArtikullZgjidhNjeArtikull", cultinf));
             hfState.Set("MsgNdaluesPlotesoKodinEBarit", rm.GetString("MsgNdaluesPlotesoKodinEBarit", cultinf));
-            
+
             hfState.Set("headerPopUpTextSkemaKont", MessagesResource.Messages["headerPopUpTextSkemaKont"]);
             hfState.Set("headerPopUpKodBar", MessagesResource.Messages["headerPopUpKodBar"]);
             hfState.Set("msgZevendesimPlusi", MessagesResource.Messages["msgZevendesimPlusi"]);
@@ -3147,6 +3204,6 @@ namespace PlatinumWeb
 
 
 
-      
+
     }
 }
