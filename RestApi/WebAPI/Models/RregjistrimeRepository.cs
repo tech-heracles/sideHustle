@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Script.Serialization;
@@ -6611,7 +6612,7 @@ namespace RestApi.WebAPI.Models
             return new { aplikohet = clsTaksa.ktheAplikohetTVSHNeTakseApoJo(kodTakse, idNderm), key = key };
         }
 
-        public static object FshiDokument(HttpSessionState Session, int[] ids, string komponente, string guidString, string komponShitje_blerje, string komponPerTedrejtat)
+        public async static Task<object> FshiDokument(HttpSessionState Session, int[] ids, string komponente, string guidString, string komponShitje_blerje, string komponPerTedrejtat)
         {
             CultureInfo cultinf = mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", Assembly.Load("App_GlobalResources"));
@@ -6767,7 +6768,10 @@ namespace RestApi.WebAPI.Models
                     try
                     {
                         FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                        if (clsKoka.Shenime2 != "") firebaseConfiguration.returnOrder(clsKoka.Shenime2);
+                        clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
+                        Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                        string orgId = user_details["organization"].ToString();
+                        if (clsKoka.Shenime2 != "") firebaseConfiguration.returnOrder(clsKoka.Shenime2, orgId);
                     }
                     catch (Exception ex)
                     {

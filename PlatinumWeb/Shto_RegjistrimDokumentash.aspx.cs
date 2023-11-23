@@ -3022,8 +3022,10 @@ namespace PlatinumWeb
                         try
                         {
                             FirebaseConfiguration firebase = new FirebaseConfiguration();
-
-                            if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2);
+                            clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
+                            Dictionary<string, object> user_details = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                            string orgId = user_details["organization"].ToString();
+                            if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2, orgId);
                         }
                         catch (Exception ex)
                         {
@@ -4279,7 +4281,7 @@ namespace PlatinumWeb
         /// <summary>
         /// Percakton veprimin qe kryhet kur klikohet nje nga butonat e menuse
         /// </summary>
-        protected void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
+        protected async void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
         {
             ImbLogger.LogTraceShitje("Filloi metoda ASPxMenu1_ItemClick");
             int id;
@@ -4433,8 +4435,11 @@ namespace PlatinumWeb
                     {
                         try
                         {
+                            clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
                             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                            firebaseConfiguration.returnOrder(clsKoka.Shenime2);
+                            Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(perdorues.PerdoruesEmail);
+                            string orgId = user_details["organization"].ToString();
+                            firebaseConfiguration.returnOrder(clsKoka.Shenime2, orgId);
                         }
                         catch (Exception ex)
                         {
