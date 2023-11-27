@@ -3801,7 +3801,6 @@ namespace DbCore.DbInventari
                 decimal cmimiBaze = 0;
                 decimal cmimiBazeMeTvsh = 0;
                 decimal cmimiBlerjeBaze = 0;
-                decimal cmimiBlerjeBazeTvsh = 0;
                 clsTaksa taksa = new clsTaksa();
                 if (this.IdTvsh != 0) taksa = taksat.Where(x => x.IdTaksa == this.IdTvsh).First();
                 clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli();
@@ -3823,7 +3822,6 @@ namespace DbCore.DbInventari
                     if (llojiNivelCmimi == 1 && nivelCmimi)
                     {
                         cmimiBlerjeBaze = cmimi;
-                        cmimiBlerjeBazeTvsh = cmimiTvsh;
                         continue;
                     }
                     else if (nvCmimi.LlojiNivelCmimi == 1)
@@ -3836,6 +3834,7 @@ namespace DbCore.DbInventari
                     long endDate = new DateTimeOffset(dtMbarimi).ToUnixTimeSeconds() * 1000;
 
                     cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = cmimi, priceWithVat = cmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
+
                 }
                 for (int i = 0; i < kodBaretArtikulli.Count; i++)
                 {
@@ -3860,9 +3859,7 @@ namespace DbCore.DbInventari
                     exemptReason = taksa.TipiIPerjashtimit == null ? "" : taksa.TipiIPerjashtimit,
                     priceLevels = cmimeArt,
                     barCodes = kodBaret,
-                    category = kodifikimArtikulli.PershkrimKodifikimi,
-                    boughtPrice = cmimiBlerjeBaze,
-                    boughtPriceWithVat = cmimiBlerjeBazeTvsh
+                    category = kodifikimArtikulli.PershkrimKodifikimi
                 };
                 return objectForPubSub;
             }
@@ -3925,7 +3922,7 @@ namespace DbCore.DbInventari
             colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
             decimal cmimiBaze = 0;
             decimal cmimiBazeMeTvsh = 0;
-            decimal cmimiBlerjeBaze = 0;
+            double cmimiBlerjeBaze = 0;
             decimal cmimiBlerjeBazeTvsh = 0;
             cmimeArtikujsh.mbushCmimArtikulliShitjeDheBlerjeSipasArtikullitMeKostoMeAutorizime(this.idArtikulli, IdNdermarje, IdPerdoruesi);
             clsTaksa taksa = new clsTaksa(this.IdTvsh);
@@ -3978,13 +3975,14 @@ namespace DbCore.DbInventari
             for (int i = 0; i < cmimeArtikujsh.Count; i++)
             {
                 clsCmimArtikulli currentPrice = cmimeArtikujsh[i];
+
                 clsNivelCmimi nvCmimi = new clsNivelCmimi(currentPrice.IdNivelCmimi);
                 //if (nvCmimi.Lloji) continue;
                 bool nivelCmimi = nvCmimi.NivelCmimiBaze;
                 if (nvCmimi.LlojiNivelCmimi == 1 && nivelCmimi)
                 {
-                    cmimiBlerjeBaze = currentPrice.Cmimi;
-                    cmimiBlerjeBazeTvsh = currentPrice.CmimiTvsh;
+                    cmimiBlerjeBaze = currentPrice.Kosto;
+                    //cmimiBlerjeBazeTvsh = currentPrice.CmimiTvsh;
                     continue;
                 }
                 else if (nvCmimi.LlojiNivelCmimi == 1)
@@ -4021,8 +4019,7 @@ namespace DbCore.DbInventari
                 ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
                 barCodes = kodBaret,
                 category = kodifikimArtikulli.PershkrimKodifikimi,
-                boughtPrice = cmimiBlerjeBaze,
-                boughtPriceWithVat = cmimiBlerjeBazeTvsh,
+                cost = cmimiBlerjeBaze,
                 fileName = fileName,
                 description = this.pershkrimiAngArtikulli
             };
