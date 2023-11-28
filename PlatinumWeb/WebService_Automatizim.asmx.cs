@@ -1140,13 +1140,14 @@ namespace PlatinumWeb
                 if (clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "AFI") == "Po")
                     kontrolloIMEIFifo = true;
                 bool zevendesimtollona = !(llojZevendesimi == "Jo");
+                konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
+                konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
                 colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
                 clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok, ndermarrje.IdNdermarrje);
                 //
 
                 //Mbushje
-                konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
-                konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
+
                 string dega_default_code = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente, "cmbDegeAdministrative", 506);
                 int dega_id = 0;
                 int.TryParse(dega_default_code, out dega_id);
