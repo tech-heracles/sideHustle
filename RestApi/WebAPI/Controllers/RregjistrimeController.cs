@@ -1,21 +1,18 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.SessionState;
+using DbCore.DbAdmin;
 using DbCore.DbRegjistrim;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 using Newtonsoft.Json.Linq;
 using RestApi.WebAPI.ApiUtils;
 using RestApi.WebAPI.Models;
-using System.Web.SessionState;
-using System.Net.Http.Formatting;
-using System.IO;
-using System.Globalization;
-using DbCore;
-using System.Collections.Generic;
-using DbCore.DbInventari;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using DbCore.DbAdmin;
 
 namespace RestApi.WebAPI.Controllers
 {
@@ -102,7 +99,7 @@ namespace RestApi.WebAPI.Controllers
             try
             {
                 int idnderrmarje = param["idndermarje"].Value<int>();
-                
+
                 return Request.KthePergjigje(RregjistrimeRepository.ktheKonfigurimWebhhok(idnderrmarje));
             }
             catch (Exception ex)
@@ -399,7 +396,7 @@ namespace RestApi.WebAPI.Controllers
                 double totaldetajim2 = param["totaldetajim2"].Value<double>();
                 bool shitje_blerje = param["shitje_blerje"].Value<bool>();
                 bool ekzekutimProdhim = param["ekzekutimProdhim"].Value<bool>();
-                
+
                 return Request.KthePergjigje(RregjistrimeRepository.ktheGjendjeArtikulli(idja, mag, data, koddetajim, koddetajim2, iddok, idndermarje, idKonfigAmbjente, idreshti, totalartikulli, totaldetajim1, totaldetajim2, shitje_blerje, ekzekutimProdhim));
             }
             catch (Exception ex)
@@ -1229,12 +1226,12 @@ namespace RestApi.WebAPI.Controllers
             {
                 int idNdermarrje = param["idNdermarrje"].Value<int>();
                 int idPerdoruesi = param["idPerdoruesi"].Value<int>();
-                string kodArtikulli = param["kodArtikulli"].Value<string>();                
-                string date = param["date"].Value<string>();               
-                string njesia = param["njesia"].Value<string>();                
+                string kodArtikulli = param["kodArtikulli"].Value<string>();
+                string date = param["date"].Value<string>();
+                string njesia = param["njesia"].Value<string>();
                 int idRreshti = param["idRreshti"].Value<int>();
                 decimal sasi = param["sasi"].Value<decimal>();
-                int shitjeblerje = param["shitjeblerje"].Value<int>();               
+                int shitjeblerje = param["shitjeblerje"].Value<int>();
                 return Request.KthePergjigje(RregjistrimeRepository.ktheCmimArtikulliRowNivelBaze(idNdermarrje, idPerdoruesi, kodArtikulli, date, njesia, idRreshti, sasi, shitjeblerje));
             }
             catch (Exception ex)
@@ -1611,7 +1608,7 @@ namespace RestApi.WebAPI.Controllers
                 int idPerdorues = param["idPerdorues"].Value<int>();
                 bool merrSipasDetajimit = param["merrSipasDetajimit"].Value<bool>();
                 int njesiDef = param["njesiDef"].Value<int>();
-                decimal sasiaNeRresht =  param["sasiaNeRresht"].Value<decimal>();
+                decimal sasiaNeRresht = param["sasiaNeRresht"].Value<decimal>();
                 bool merrCmim = param["merrCmim"].Value<bool>();
                 return Request.KthePergjigje(RregjistrimeRepository.ktheRowVleraArtMeKodOseKodBar(kodi, index, data, magazina, sasiteNeGrideObj, magazinatKoka, merrMagMeAutorizim, iddetajim, meDetajim, magazinaDest, idNdermarrje, idPerdorues, merrSipasDetajimit, njesiDef, sasiaNeRresht, merrCmim));
             }
@@ -2979,7 +2976,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
 
-        
+
         [HttpPost, HttpGet]
         public HttpResponseMessage KtheIdMonedhaSipasIdLlogarise(JObject param)
         {
@@ -4281,7 +4278,7 @@ namespace RestApi.WebAPI.Controllers
             try
             {
                 int idTakse = param["idTakse"].Value<int>();
-                
+
                 return Request.KthePergjigje(RregjistrimeRepository.merrTipinEPerjashtimit(idTakse));
             }
             catch (Exception ex)
@@ -4296,7 +4293,7 @@ namespace RestApi.WebAPI.Controllers
             {
                 string kodi = param["kodi"].Value<string>();
                 int idNdermarrje = param["idNdermarrje"].Value<int>();
-                if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
+                if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
                     return Request.KthePergjigje(RregjistrimeRepository.merrKodNjesieBiznesiDegeAdministrative(idNdermarrje, kodi));
                 else
                 {
@@ -4345,7 +4342,7 @@ namespace RestApi.WebAPI.Controllers
 
                 string eic = param["EIC"].Value<string>();
                 string statusi = param["statusi"].Value<string>();
-                int idNdermarrje = param["idNdermarrje"].Value<int>(); 
+                int idNdermarrje = param["idNdermarrje"].Value<int>();
 
                 bool pergjigje = RregjistrimeRepository.NdryshoMesazhEinvoice(eic, statusi, idNdermarrje);
                 if (!pergjigje)
@@ -4615,7 +4612,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
 
-        public HttpResponseMessage FshiDokument(JObject param)
+        public async Task<HttpResponseMessage> FshiDokument(JObject param)
         {
             try
             {
@@ -4624,7 +4621,7 @@ namespace RestApi.WebAPI.Controllers
                 string guidString = param["guidString"].Value<string>();
                 string komponShitje_blerje = param["komponShitje_blerje"].Value<string>();
                 string komponPerTedrejtat = param["komponPerTedrejtat"].Value<string>();
-                return Request.KthePergjigje(RregjistrimeRepository.FshiDokument(Session, ids, komponente, guidString, komponShitje_blerje, komponPerTedrejtat));
+                return Request.KthePergjigje(await RregjistrimeRepository.FshiDokument(Session, ids, komponente, guidString, komponShitje_blerje, komponPerTedrejtat));
             }
             catch (Exception ex)
             {
@@ -4764,7 +4761,7 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param["idNdermarrje"].Value<int>();
                 int idGjuha = param["idGjuha"].Value<int>();
 
-                return Request.KthePergjigje(RregjistrimeRepository.ktheTeDhenaPerKlientFurnitor(idobj, kodlloji, idkomp, kodkonfig, idNdermarrje, idGjuha,0));
+                return Request.KthePergjigje(RregjistrimeRepository.ktheTeDhenaPerKlientFurnitor(idobj, kodlloji, idkomp, kodkonfig, idNdermarrje, idGjuha, 0));
             }
             catch (Exception e)
             {
@@ -5014,7 +5011,7 @@ namespace RestApi.WebAPI.Controllers
                 string idsKokaDok = String.Join(",", param["idsKokaDok"]);
                 return Request.CreateResponse(RregjistrimeRepository.VeprimeArkaBanka_DergoFatureMeEmail(idsKokaDok, Session));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return Request.KthePergjigjeGabim(param, e);
             }
@@ -5041,7 +5038,7 @@ namespace RestApi.WebAPI.Controllers
         {
             try
             {
-                int idNdermarrje = param["idNdermarrje"].Value<int>(); 
+                int idNdermarrje = param["idNdermarrje"].Value<int>();
                 string Kodi = param["Kodi"].Value<string>();
                 return Request.KthePergjigje(RregjistrimeRepository.merrPrindQenderKosto(idNdermarrje, Kodi));
             }
@@ -5057,7 +5054,7 @@ namespace RestApi.WebAPI.Controllers
             {
                 string prefix = param["uri"].Value<string>();
                 string[] generations = param["generations"].ToObject<string[]>();
-                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix,generations));
+                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix, generations));
             }
             catch (Exception e)
             {

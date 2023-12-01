@@ -231,7 +231,7 @@ namespace DbCore.DbKontabiliteti
                 MbushKlientFurnitor(dbKlientFurnitore.merrKlientFurnitorSipasID(idKf));
             }
         }
-        
+
         public clsKlientFurnitor(int idKf, bool linear)
         {
             using (var dbKlientFurnitore = new clsDatabaseKontabilitet())
@@ -835,7 +835,7 @@ namespace DbCore.DbKontabiliteti
                 IdLlogari = string.IsNullOrEmpty(nrLlog) ? kfEkzistues.IdLlogari : clsLlogari.mbushIDLlogariSipasKodit(nrLlog, idndermarja);
                 if (IdLlogari != kfEkzistues.IdLlogari && kaVeprimeKf)
                     throw new Exception("Llogaria e klientit/furnitorit nuk mund te ndryshohet pasi ka veprime me klient/furnitorin.");
-                _pershkrimTitulliKf = string.IsNullOrEmpty(pershkrimtitulliKf) ? kfEkzistues._pershkrimTitulliKf ?? string.Empty : pershkrimtitulliKf; 
+                _pershkrimTitulliKf = string.IsNullOrEmpty(pershkrimtitulliKf) ? kfEkzistues._pershkrimTitulliKf ?? string.Empty : pershkrimtitulliKf;
 
                 switch (_pershkrimTitulliKf.ToLower())
                 {
@@ -869,7 +869,7 @@ namespace DbCore.DbKontabiliteti
                     throw new Exception("Llogaria dytesore e klientit/furnitorit nuk mund te ndryshohet pasi ka veprime me klient/furnitorin.");
 
                 IdKushtePagese = string.IsNullOrEmpty(kodKushtePagese) ? kfEkzistues.IdKushtePagese : new clsKushtPageseKoka(kodKushtePagese, idndermarja).IdKoka;
-                _pershkrimMetoda = string.IsNullOrEmpty(pershkrimMetoda) ? kfEkzistues._pershkrimMetoda?? string.Empty : pershkrimMetoda;
+                _pershkrimMetoda = string.IsNullOrEmpty(pershkrimMetoda) ? kfEkzistues._pershkrimMetoda ?? string.Empty : pershkrimMetoda;
                 switch (_pershkrimMetoda.ToLower())
                 {
                     case "me mirebesim":
@@ -1030,7 +1030,7 @@ namespace DbCore.DbKontabiliteti
         /// <param name="klientFurnitor">Objekt i tipit clsKlientFurnitor qe do te ruhet ne DB</param>
         /// <returns> Kthen statusin e perfundimit te ekzekutimit te transaksionit (nje objekt clsMesazh qe tregon nese veprimi eshte kryer me sukses apo jo.<seealso cref="DbCore.clsMesazh"/>)</returns>
         /// </summary>
-        public clsMesazh ruajKlientFurnitor(out int idKlientFurnitor, string kodKliFurn, int idLlog, bool llojiKF, int titulliKF, string aktivitetiKF, string emertimiKF, string emerKerkimiKF, string niptKF, int qytetiKF, string shtetiKF, string telKF, string faxKF, string celKF, string emailKF, string webpageKF, string ibanKF, string llogariBankareKF, bool aktivKF, int idLlogZbritje, int idLlogariDytesore, int idKushtePagese, int idMetoda, int maturimiKF, int idKatZbritje, int limitParalajmerues, int limitBllokues, int idKategoriKlienti, string kushteDergimi, string menyraTransportit, bool ofertaAutomatike, decimal vleraLimitPorositur, int prioriteti, decimal cmimUlet, int idNivelCmimi, int idPerfaqesuesShitje, int idQenderKosto, int idFushata, int zbritjeAnalitike, decimal zbritjeTotal, int idndermarja, int vit, int idperdoruesi, int idKonfig, colAdresatKlientFurnitor oColAdresat, colKontaktiKlientFurnitor oColKontaktet, colBuxhetet oColBuxhete, colVleraFushaShtese oColVleratFushatShtese, colLidhjetAutorizim oColLidhjetAutorizim, int idstatusdok, string licenca, string swift, int emriBanka, string adresaBanka, clsDatabaseKontabilitet dbKont, int grupimi1kf, int grupimi2kf, int grupimi3kf, string nrtvsh, int idobjektivakosto, int idkrijuesi, int idndermarjebij, int llojporosie, bool kupon, colArkiva oColArkiva, string koordinata, int idPerfaqesuesShitje2, bool klientspecifik, bool fermer, bool autongarkese, bool shitjepatvsh, decimal perqindjeagjenti, decimal perqindjeagjenti2, bool prospekt, string emailPerPajisje, colMarreveshjetPerKlient marreveshjet, string shenime, int idkfkryesor, DateTime dteDatelindjaKF, int idPerfaqesuesShitje3, decimal perqindjeagjenti3, int idtvsh, string emertimFature, bool llogaritKomision, string kodIntegrimi, string kodiisksh, bool meDogane,string tipiId ,string kodiMobile = null)
+        public clsMesazh ruajKlientFurnitor(out int idKlientFurnitor, string kodKliFurn, int idLlog, bool llojiKF, int titulliKF, string aktivitetiKF, string emertimiKF, string emerKerkimiKF, string niptKF, int qytetiKF, string shtetiKF, string telKF, string faxKF, string celKF, string emailKF, string webpageKF, string ibanKF, string llogariBankareKF, bool aktivKF, int idLlogZbritje, int idLlogariDytesore, int idKushtePagese, int idMetoda, int maturimiKF, int idKatZbritje, int limitParalajmerues, int limitBllokues, int idKategoriKlienti, string kushteDergimi, string menyraTransportit, bool ofertaAutomatike, decimal vleraLimitPorositur, int prioriteti, decimal cmimUlet, int idNivelCmimi, int idPerfaqesuesShitje, int idQenderKosto, int idFushata, int zbritjeAnalitike, decimal zbritjeTotal, int idndermarja, int vit, int idperdoruesi, int idKonfig, colAdresatKlientFurnitor oColAdresat, colKontaktiKlientFurnitor oColKontaktet, colBuxhetet oColBuxhete, colVleraFushaShtese oColVleratFushatShtese, colLidhjetAutorizim oColLidhjetAutorizim, int idstatusdok, string licenca, string swift, int emriBanka, string adresaBanka, clsDatabaseKontabilitet dbKont, int grupimi1kf, int grupimi2kf, int grupimi3kf, string nrtvsh, int idobjektivakosto, int idkrijuesi, int idndermarjebij, int llojporosie, bool kupon, colArkiva oColArkiva, string koordinata, int idPerfaqesuesShitje2, bool klientspecifik, bool fermer, bool autongarkese, bool shitjepatvsh, decimal perqindjeagjenti, decimal perqindjeagjenti2, bool prospekt, string emailPerPajisje, colMarreveshjetPerKlient marreveshjet, string shenime, int idkfkryesor, DateTime dteDatelindjaKF, int idPerfaqesuesShitje3, decimal perqindjeagjenti3, int idtvsh, string emertimFature, bool llogaritKomision, string kodIntegrimi, string kodiisksh, bool meDogane, string tipiId, string kodiMobile = null)
         {
             //ruan klient furnitorin bashke me adresat, kontaktet, buxhetin dhe vlerat e fushave shtese     
             idKlientFurnitor = -1;
@@ -1180,9 +1180,10 @@ namespace DbCore.DbKontabiliteti
                     currency = new clsMonedha(this.idMonedha).KodiMonedha,
                     organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
                     ndermarrja = nder,
-                    enterprise = nder
+                    enterprise = nder,
+                    priceLevel = this.PershkrimNivelCmimi
                 };
-                
+
 
             }
             else
@@ -1205,8 +1206,8 @@ namespace DbCore.DbKontabiliteti
 
                 };
             }
-            
-            
+
+
         }
         /// <summary>
         /// Modifikon objektin klient/furnitor ne tabelen perkatese ne databaze.Therret funksionin
@@ -1226,7 +1227,7 @@ namespace DbCore.DbKontabiliteti
                 {
                     if (Modifikuar(IdKlientFurnitor, dateFunditModKlienti))
                         return new MesazhGabimi(MessagesResource.Messages["msgKlientiEshteModifikuarPerditesojeni"]);
-                    var mesazh = dbKont.modifikoKF(IdKlientFurnitor, KodKlientFurnitor, IdLlogari, LlojiKF, TitulliKF, AktivitetiKF, EmertimiKF, EmerKerkimiKF, NiptiKF, QytetiKF, ShtetiKF, TelKF, FaxKF, CelKF, EmailKF, WebPageKF, IBANKF, LlogariBankareKF, AktivKF, IdLlogZbritje, IdLlogariDytesore, IdKushtePagese, IdMetoda, MaturimiKF, IdKatZbritje, LimitParalajmerues, LimitBllokues, IdKategoriKlienti, KushteDergimi, MenyraTransportit, OfertaAutomatike, VleraLimitPorositur, Prioriteti, CmimUlet, IdNivelCmimi, IdPerfaqesuesShitje, IdQenderKosto, IdFushata, ZbritjeAnalitike, ZbritjeTotal, IdPerdoruesi, IdKonfig, IdStatusDok, Licenca, Swift, EmriBanka, AdresaBanka, Idgrupim1kf, Idgrupim2kf, Idgrupim3kf, NrTVSH, IdObjektivaKosto, IdKrijuesi, IdNdermarjeBij, LlojPorosie, Kupon, Koordinata, IdPerfaqesuesShitje2, KlientSpecifik, Fermer, AutoNgarkese, ShitjePaTvsh, PerqindjeAgjenti, PerqindjeAgjenti2, Prospekt, EmailPerPajisje, Shenime, DteDatelindjaKF, IdPerfaqesuesShitje3, PerqindjeAgjenti3, IdTvsh, EmertimFature, LlogaritKomision, KodIntegrimi, KodiISKSH, MeDogane,TipiId, clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim(), "", Idklientfurnitorkryesor);
+                    var mesazh = dbKont.modifikoKF(IdKlientFurnitor, KodKlientFurnitor, IdLlogari, LlojiKF, TitulliKF, AktivitetiKF, EmertimiKF, EmerKerkimiKF, NiptiKF, QytetiKF, ShtetiKF, TelKF, FaxKF, CelKF, EmailKF, WebPageKF, IBANKF, LlogariBankareKF, AktivKF, IdLlogZbritje, IdLlogariDytesore, IdKushtePagese, IdMetoda, MaturimiKF, IdKatZbritje, LimitParalajmerues, LimitBllokues, IdKategoriKlienti, KushteDergimi, MenyraTransportit, OfertaAutomatike, VleraLimitPorositur, Prioriteti, CmimUlet, IdNivelCmimi, IdPerfaqesuesShitje, IdQenderKosto, IdFushata, ZbritjeAnalitike, ZbritjeTotal, IdPerdoruesi, IdKonfig, IdStatusDok, Licenca, Swift, EmriBanka, AdresaBanka, Idgrupim1kf, Idgrupim2kf, Idgrupim3kf, NrTVSH, IdObjektivaKosto, IdKrijuesi, IdNdermarjeBij, LlojPorosie, Kupon, Koordinata, IdPerfaqesuesShitje2, KlientSpecifik, Fermer, AutoNgarkese, ShitjePaTvsh, PerqindjeAgjenti, PerqindjeAgjenti2, Prospekt, EmailPerPajisje, Shenime, DteDatelindjaKF, IdPerfaqesuesShitje3, PerqindjeAgjenti3, IdTvsh, EmertimFature, LlogaritKomision, KodIntegrimi, KodiISKSH, MeDogane, TipiId, clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim(), "", Idklientfurnitorkryesor);
                     if (!mesazh.Status)
                         return mesazh;
 
@@ -1303,7 +1304,7 @@ namespace DbCore.DbKontabiliteti
                         }
                     }
 
-                    mesazh = clsFunksione.modifikoLidhjeAutorizimSipasLlojitTeBuxhetit(OColLidhjetAutorizim, "KlientFurnitor", IdKlientFurnitor, colLidhjetAutorizim, dbKont, dbAdmin, true,IdPerdoruesi);
+                    mesazh = clsFunksione.modifikoLidhjeAutorizimSipasLlojitTeBuxhetit(OColLidhjetAutorizim, "KlientFurnitor", IdKlientFurnitor, colLidhjetAutorizim, dbKont, dbAdmin, true, IdPerdoruesi);
                     if (!mesazh.Status)
                         return mesazh;
 
@@ -1370,7 +1371,7 @@ namespace DbCore.DbKontabiliteti
                     }
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-                    PubSub ps = new PubSub("alphaweb", this.LlojiKF ? "alpha_clients" : "alpha_suppliers" , "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
+                    PubSub ps = new PubSub("alphaweb", this.LlojiKF ? "alpha_clients" : "alpha_suppliers", "AlphaToFatura_Clients", "https://aso.alpha.al/rest/importClientsFromAlphaToFirebase");
                     ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
                     scope.Complete();
 
@@ -1527,7 +1528,7 @@ namespace DbCore.DbKontabiliteti
             using (var dbKlientFurnitore = new clsDatabaseKontabilitet())
                 MbushKlientFurnitorAzhornimGjendje(dbKlientFurnitore.ktheKlientFurnitorSipasKoditAzhornim(kodKF, idNdermarrja, dtdok));
         }
-        
+
         /// <summary>
         /// todo patricia
         /// </summary>
@@ -1767,7 +1768,8 @@ namespace DbCore.DbKontabiliteti
                             vlerat.Add("Konfigurimi gabim!");
                             break;
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     vlerat.Add("Vlerat gabim!");
                 }
@@ -2338,15 +2340,15 @@ namespace DbCore.DbKontabiliteti
                     if (dbDataRowKlientFurnitor.Table.Columns.Contains("IDGRUPIM1KF"))
                         Idgrupim1kf = !IsDBNull(dbDataRowKlientFurnitor["IDGRUPIM1KF"])
                         ? ToInt32(dbDataRowKlientFurnitor["IDGRUPIM1KF"])
-                        :0;
+                        : 0;
                     if (dbDataRowKlientFurnitor.Table.Columns.Contains("IDGRUPIM2KF"))
                         Idgrupim2kf = !IsDBNull(dbDataRowKlientFurnitor["IDGRUPIM2KF"])
                         ? ToInt32(dbDataRowKlientFurnitor["IDGRUPIM2KF"])
-                        :0;
+                        : 0;
                     if (dbDataRowKlientFurnitor.Table.Columns.Contains("IDGRUPIM3KF"))
                         Idgrupim3kf = !IsDBNull(dbDataRowKlientFurnitor["IDGRUPIM3KF"])
                         ? ToInt32(dbDataRowKlientFurnitor["IDGRUPIM3KF"])
-                        :0;
+                        : 0;
                     IdMetoda = !IsDBNull(dbDataRowKlientFurnitor["IDMETODA"])
                         ? ToInt32(dbDataRowKlientFurnitor["IDMETODA"])
                         : 0;

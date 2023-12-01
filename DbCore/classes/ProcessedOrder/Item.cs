@@ -62,7 +62,7 @@ namespace DbCore.classes
                 name = this.name,
                 code = this.code,
                 barcode = this.barcode,
-                //barcodes = this.barcodes,
+                barcodes = this.barcodes,
                 unit = this.unit,
                 unitFisc = this.unitFisc,
                 category = this.category,

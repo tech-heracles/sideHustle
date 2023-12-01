@@ -62,15 +62,13 @@ namespace DbCore
             if (documentDictionary.ContainsKey("verified"))
                 return documentDictionary["verified"].ToString() == "True" ? true : false;
             else return false;
-
-
         }
         public async void addProcessOrder(ProcessOrder processOrder)
         {
             try
             {
                 FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document();
+                DocumentReference order_ref = firestoreDb.Collection("organization").Document(processOrder.metadata.organization).Collection("process-orders").Document();
                 processOrder.metadata.id = order_ref.Id;
                 order_ref.SetAsync(processOrder.toObject());
             }
@@ -80,38 +78,38 @@ namespace DbCore
             }
 
         }
-        public async void confirmOrder(string id)
+        public async void confirmOrder(string id, string orgId)
         {
             try
             {
                 FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document(id);
+                DocumentReference order_ref = firestoreDb.Collection("organization").Document(orgId).Collection("process-orders").Document(id);
                 Dictionary<string, object> order = new Dictionary<string, object>
                 {
                     { "status" , ProcessOrderStatus.confirmed.ToString() }
                 };
                 order_ref.UpdateAsync(order);
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error changin order status");
             }
         }
-        public async void returnOrder(string id)
+        public async void returnOrder(string id, string orgId)
         {
             try
             {
                 FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-                DocumentReference order_ref = firestoreDb.Collection("process-orders").Document(id);
+                DocumentReference order_ref = firestoreDb.Collection("organization").Document(orgId).Collection("process-orders").Document(id);
                 Dictionary<string, object> order = new Dictionary<string, object>
                 {
                     { "status" , ProcessOrderStatus.returned.ToString() }
                 };
                 order_ref.UpdateAsync(order);
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error changin order status");
             }

@@ -2777,8 +2777,9 @@ namespace PlatinumWeb
                             try
                             {
                                 string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
-                                if (niveli == "UB" || niveli == "USH")
+                                if ((niveli == "UB" || niveli == "USH") && kokeShitje.IdStatusDok == 1)
                                 {
+
                                     FirebaseConfiguration firebase = new FirebaseConfiguration();
                                     clsPerdorues perdorues = new clsPerdorues(kokeShitje.IdPerdoruesi);
                                     Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
@@ -3011,6 +3012,7 @@ namespace PlatinumWeb
                         txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeShitje.DtDok.ToString().Split(' ')[0] + ' ' + kokeShitje.DtKrijimiPajisje.ToString().Split(' ')[1]));
                         kokeShitje.IIC = txtIIC.Text;
                     }
+                    bool draft = kokaekzistuese.IdStatusDok == 0;
                     //kokeShitje.IIC = txtIIC.Text;
                     mesazh = kokeShitje.modifikoSh(idGjuha, serverUrl, lidhur, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina,
                         kokaMema, dergoemail, eshteOwn, dergoemailVfOne, serialemag, konfamortizimi, isShitje, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature,
@@ -3021,9 +3023,23 @@ namespace PlatinumWeb
                     {
                         try
                         {
+                            string niveli = cmbNiveli.SelectedItem.GetFieldValue("Kodi").ToString();
                             FirebaseConfiguration firebase = new FirebaseConfiguration();
+                            clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
+                            if ((niveli == "UB" || niveli == "USH") && draft && kokeShitje.IdStatusDok == 1)
+                            {
+                                Dictionary<string, object> user = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                                string organization = user.ContainsKey("organization") ? user["organization"].ToString() : "";
+                                string uid = user.ContainsKey("uid") ? user["uid"].ToString() : "";
+                                ProcessEnums processEnums;
+                                processEnums = niveli == "USH" ? ProcessEnums.sales : niveli == "UB" ? ProcessEnums.purchase : ProcessEnums.wtn;
+                                ProcessOrder processOrder = ProcessOrder.fromInvoice(kf.EmertimiKF, kokeShitje.OColTrupiShitje, uid, organization, processEnums, kokeShitje.IdNdermarrje, kf.KodKlientFurnitor, kokeShitje.NrDok);
+                                firebase.addProcessOrder(processOrder);
+                            }
 
-                            if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2);
+                            Dictionary<string, object> user_details = await firebase.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
+                            string orgId = user_details["organization"].ToString();
+                            if (kokeShitje.Shenime2 != "") firebase.confirmOrder(kokeShitje.Shenime2, orgId);
                         }
                         catch (Exception ex)
                         {
@@ -4279,7 +4295,7 @@ namespace PlatinumWeb
         /// <summary>
         /// Percakton veprimin qe kryhet kur klikohet nje nga butonat e menuse
         /// </summary>
-        protected void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
+        protected async void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
         {
             ImbLogger.LogTraceShitje("Filloi metoda ASPxMenu1_ItemClick");
             int id;
@@ -4433,8 +4449,11 @@ namespace PlatinumWeb
                     {
                         try
                         {
+                            clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
                             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                            firebaseConfiguration.returnOrder(clsKoka.Shenime2);
+                            Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithUID(perdorues.PerdoruesEmail);
+                            string orgId = user_details["organization"].ToString();
+                            firebaseConfiguration.returnOrder(clsKoka.Shenime2, orgId);
                         }
                         catch (Exception ex)
                         {

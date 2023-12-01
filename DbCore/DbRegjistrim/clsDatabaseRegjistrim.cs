@@ -1,16 +1,14 @@
-﻿using DbCore.DbAdmin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Resources;
-using System.Threading.Tasks;
 using AlphaWeb.Core.Interfaces.Data;
+using DbCore.DbAdmin;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace DbCore.DbRegjistrim
 {
@@ -16309,7 +16307,36 @@ namespace DbCore.DbRegjistrim
 
 
         }
+        internal bool checkSale(string nrDok, DateTime docDate, int idNdermarrje)
+        {
+            var dbManager = MyScopeDbManager;
+            string queryString = $"SELECT COUNT(*) as [exists] FROM T_KOKASHITJE WHERE NRDOK = '{nrDok}' AND DTDOK= '{docDate.ToString("yyyy-MM-dd")}' AND IDSTATUSDOK <> 2 AND IDNDERM = {idNdermarrje}";
+            string connectionString = dbManager.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        if (int.Parse(reader["exists"].ToString()) > 0)
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+                finally
+                {
+                    // Always call Close when done reading.
+                    reader.Close();
+                    connection.Close();
 
+                }
+            }
+            return false;
+        }
         internal bool ekzistonDokumentRecetaOptike(string nrDok, int idndermarrje, int idnderviti)
         {
             dbManager.Open();

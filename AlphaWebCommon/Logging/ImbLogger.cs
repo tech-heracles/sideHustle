@@ -149,9 +149,9 @@ namespace DbCore.IMBUtils.Logging
 
         public static void LogErrorShitje(string error)
         {
-            //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogShitje, error);
-            //errorEvent.Properties["DataBase"] = ServerName;
-            //_shitjeLogger.Log(errorEvent);
+            LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogShitje, error);
+            errorEvent.Properties["DataBase"] = ServerName;
+            _shitjeLogger.Log(errorEvent);
         }
         public static void LogWarningShitje(string warning)
         {
