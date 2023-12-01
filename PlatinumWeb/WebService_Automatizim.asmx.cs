@@ -1201,8 +1201,13 @@ namespace PlatinumWeb
                 colAtributeTrupi atribute = new colAtributeTrupi();
                 atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
                 int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
-                clsNrAutom nrAuto = new clsNrAutom(idNrAuto);
-                nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
+                clsNrAutom nrAuto = new clsNrAutom();
+                if (idNrAuto != 0)
+                {
+                    nrAuto = new clsNrAutom(idNrAuto);
+                    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
+                }
+
 
 
                 //Creating invoice
