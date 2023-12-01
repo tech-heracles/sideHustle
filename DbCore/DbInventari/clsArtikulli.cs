@@ -3809,7 +3809,7 @@ namespace DbCore.DbInventari
                 {
                     string kodNivelCmimi = (string)cmimeArtikujsh[i].ItemArray[3];
                     decimal cmimi = (decimal)cmimeArtikujsh[i].ItemArray[9];
-                    decimal cmimiTvsh = (decimal)cmimeArtikujsh[i].ItemArray[10];
+                    decimal cmimiTvsh = (decimal)cmimeArtikujsh[i].ItemArray[16];
                     DateTime dtFillimi = (DateTime)cmimeArtikujsh[i].ItemArray[5];
                     DateTime dtMbarimi = (DateTime)cmimeArtikujsh[i].ItemArray[6];
                     if (nivele.Where(x => x.PershkrimNivelCmimi == kodNivelCmimi).Count() == 0) continue;

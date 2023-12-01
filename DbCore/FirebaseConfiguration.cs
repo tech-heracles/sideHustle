@@ -62,8 +62,6 @@ namespace DbCore
             if (documentDictionary.ContainsKey("verified"))
                 return documentDictionary["verified"].ToString() == "True" ? true : false;
             else return false;
-
-
         }
         public async void addProcessOrder(ProcessOrder processOrder)
         {

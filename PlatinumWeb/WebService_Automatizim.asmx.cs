@@ -29,6 +29,7 @@ using DbCore.DbShare;
 using DbCore.IMBUtils;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using DevExpress.Web;
 using DevExpress.XtraEditors.Filtering.Templates;
@@ -1144,9 +1145,7 @@ namespace PlatinumWeb
                 konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
                 colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
                 clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok, ndermarrje.IdNdermarrje);
-                //
 
-                //Mbushje
 
                 string dega_default_code = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente, "cmbDegeAdministrative", 506);
                 int dega_id = 0;
@@ -1199,6 +1198,13 @@ namespace PlatinumWeb
                 }
                 if (dictionary.ContainsKey("isOrder")) koka.IdStatusDok = (bool)dictionary["isOrder"] == true ? 0 : 1;
 
+                colAtributeTrupi atribute = new colAtributeTrupi();
+                atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
+                int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
+                clsNrAutom nrAuto = new clsNrAutom(idNrAuto);
+                nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
+
+
                 //Creating invoice
                 clsMesazh mesazhi = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
                     kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
@@ -1207,6 +1213,9 @@ namespace PlatinumWeb
                     new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
                 if (!mesazhi.Status) return new clsMesazh(false, mesazhi.PershkrimMesazhi);
 
+
+
+
                 var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
                             konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
@@ -1214,6 +1223,24 @@ namespace PlatinumWeb
                             false, false, zevendesimtollonakastrati, false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
                             !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
+
+                if (nrAuto.IdNrAutom != 0)
+                {
+                    bool numberChange = false;
+                    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
+                    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
+                    nrdokshi.kodKontrolli = "txtNumer";
+                    nrdokshi.idNrAuto = idNrAuto;
+                    nrdokshi.vlereNrAuto = nrdok;
+                    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
+                    List<NrAuto> autoNumbers = new List<NrAuto>();
+                    autoNumbers.Add(nrdokshi);
+                    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
+                    dbAdmin.Dispose();
+                }
+
+
+
                 return new clsMesazh(true, msg.PershkrimMesazhi + $" Numer dokumenti: {nrdok}.");
             }
             catch (ArgumentNullException ex)
