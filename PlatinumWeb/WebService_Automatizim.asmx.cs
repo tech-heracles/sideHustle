@@ -1198,15 +1198,15 @@ namespace PlatinumWeb
                 }
                 if (dictionary.ContainsKey("isOrder")) koka.IdStatusDok = (bool)dictionary["isOrder"] == true ? 0 : 1;
 
-                colAtributeTrupi atribute = new colAtributeTrupi();
-                atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
-                int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
-                clsNrAutom nrAuto = new clsNrAutom();
-                if (idNrAuto != 0)
-                {
-                    nrAuto = new clsNrAutom(idNrAuto);
-                    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
-                }
+                //colAtributeTrupi atribute = new colAtributeTrupi();
+                //atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
+                //int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
+                //clsNrAutom nrAuto = new clsNrAutom();
+                //if (idNrAuto != 0)
+                //{
+                //    nrAuto = new clsNrAutom(idNrAuto);
+                //    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
+                //}
 
 
 
@@ -1229,20 +1229,20 @@ namespace PlatinumWeb
                             !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
 
-                if (nrAuto.IdNrAutom != 0)
-                {
-                    bool numberChange = false;
-                    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-                    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
-                    nrdokshi.kodKontrolli = "txtNumer";
-                    nrdokshi.idNrAuto = idNrAuto;
-                    nrdokshi.vlereNrAuto = nrdok;
-                    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
-                    List<NrAuto> autoNumbers = new List<NrAuto>();
-                    autoNumbers.Add(nrdokshi);
-                    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
-                    dbAdmin.Dispose();
-                }
+                //if (nrAuto.IdNrAutom != 0)
+                //{
+                //    bool numberChange = false;
+                //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
+                //    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
+                //    nrdokshi.kodKontrolli = "txtNumer";
+                //    nrdokshi.idNrAuto = idNrAuto;
+                //    nrdokshi.vlereNrAuto = nrdok;
+                //    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
+                //    List<NrAuto> autoNumbers = new List<NrAuto>();
+                //    autoNumbers.Add(nrdokshi);
+                //    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
+                //    dbAdmin.Dispose();
+                //}
 
 
 
