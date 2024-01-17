@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DbCore.DbKontabiliteti;
 using System.Data;
-using System.Globalization;
-using DbCore.DbAdmin;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 
 namespace DbCore.DbInventari
@@ -83,7 +77,7 @@ namespace DbCore.DbInventari
             set { tel = value; }
         }
 
-      
+
         /// <summary>
         /// Kthen/Vendos idStatusDok
         /// </summary>
@@ -93,7 +87,7 @@ namespace DbCore.DbInventari
             set { idStatusDok = value; }
         }
 
-      
+
 
         /// <summary>
         /// Kthen/Vendos ID-ne e krijuesit.
@@ -181,7 +175,7 @@ namespace DbCore.DbInventari
         {
         }
 
-         /// <summary>
+        /// <summary>
         /// konstrukotr me 1 parameter
         /// </summary>
         /// <param name="id">id e transportuesit</param>
@@ -203,7 +197,7 @@ namespace DbCore.DbInventari
             data.Dispose();
         }
 
-        public clsTransportues(int idTransportues, string emertimi, string nipt, string adresa, string tel, int idStatusDok, int idKrijues, int idNdermarrje, int idPerdorues, DateTime dtKrijimi, DateTime dtModifikimi, bool shtim, string targa, bool aktiv,string tipiId)
+        public clsTransportues(int idTransportues, string emertimi, string nipt, string adresa, string tel, int idStatusDok, int idKrijues, int idNdermarrje, int idPerdorues, DateTime dtKrijimi, DateTime dtModifikimi, bool shtim, string targa, bool aktiv, string tipiId)
         {
             try
             {
@@ -233,7 +227,7 @@ namespace DbCore.DbInventari
 
         public clsTransportues(DataRow rreshti)
         {
-            
+
             mbushTransportues(rreshti);
         }
 
@@ -251,7 +245,7 @@ namespace DbCore.DbInventari
                 db.Dispose();
                 return new clsMesazh(false, "Ekziston nje transportues me kete emertim!");
             }
-         
+
             return new clsMesazh(true, "Kontrollet e artikullit u kaluan me sukses");
         }
 
@@ -346,7 +340,7 @@ namespace DbCore.DbInventari
             {
                 dbInventar.beginTransaksion();
                 int idTransportues = 0;
-                mesazh = dbInventar.ruajTransportues(out idTransportues, this.emertimi, this.nipt, this.adresa, this.tel, this.idStatusDok, this.idNdermarrje, this.idKrijuesi, this.idPerdorues, this.targa, this.aktiv,this.tipiId,clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3());
+                mesazh = dbInventar.ruajTransportues(out idTransportues, this.emertimi, this.nipt, this.adresa, this.tel, this.idStatusDok, this.idNdermarrje, this.idKrijuesi, this.idPerdorues, this.targa, this.aktiv, this.tipiId, clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3());
                 this.idTransportues = idTransportues;
                 if (!mesazh.Status)
                 {
@@ -370,7 +364,7 @@ namespace DbCore.DbInventari
             try
             {
                 dbInventar.beginTransaksion();
-                mesazh = dbInventar.modifikoTransportues(this.idTransportues, this.emertimi, this.nipt, this.adresa, this.tel, this.idStatusDok,this.idNdermarrje, this.idPerdorues, this.targa, this.aktiv,this.tipiId,clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3());
+                mesazh = dbInventar.modifikoTransportues(this.idTransportues, this.emertimi, this.nipt, this.adresa, this.tel, this.idStatusDok, this.idNdermarrje, this.idPerdorues, this.targa, this.aktiv, this.tipiId, clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3());
                 if (!mesazh.Status)
                 {
                     dbInventar.rollbackTransaksion();
@@ -438,12 +432,9 @@ namespace DbCore.DbInventari
                 DateTime.TryParse(dbDataRowTransportues["DTMODIFIKIMI"].ToString(), out dtModifikimi);
                 targa = Convert.ToString(dbDataRowTransportues["TARGA"]);
                 if (dbDataRowTransportues["AKTIV"] != DBNull.Value)
-                aktiv = Convert.ToBoolean(dbDataRowTransportues["AKTIV"]);
-                if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV3())
-                {
+                    aktiv = Convert.ToBoolean(dbDataRowTransportues["AKTIV"]);
+                if (dbDataRowTransportues.Table.Columns.Contains("TIPIID"))
                     tipiId = Convert.ToString(dbDataRowTransportues["TIPIID"]);
-                    return true;
-                }
 
                 return true;
             }

@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using AlphaWeb.Core.Extensions;
 using AlphaWeb.Core.Interfaces.Data;
 using AlphaWeb.Infrastructure.Data.AdoNet;
-using AlphaWeb.Infrastructure.Data.OthersDb;
 using DbCore.IMBUtils.DataBase;
 
 namespace DbCore.IMBUtils.Fiskalizimi.Controls
 {
     public static class clsKontrollePerFiskalizimin
     {
+        public static bool checkIfColumnExists(IDataRecord record, string columnToCheck)
+        {
+            for (int i = 0; i < record.FieldCount; i++)
+                if (record.GetName(i).Equals(columnToCheck))
+                    return true;
+            return false;
+        }
         public static DbManager NewDbManager(DataProviderType dataProviderType, string connectionName)
         {
             return new DbManager(dataProviderType, connectionName);
