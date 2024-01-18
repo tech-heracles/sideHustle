@@ -1263,8 +1263,8 @@ namespace PlatinumWeb
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Artikulli") || ex.Message.Contains("Item")) return new clsMesazh(false, ex.Message);
-                return new clsMesazh(false, "Fatura do riprovohet ne nje moment te dyte!");
+                if (ex.Message.Contains("connection") || ex.Message.Contains("network") || ex.Message.Contains("SQL") || ex.Message.Contains("sql") || ex.Message.Contains("timeout")) return new clsMesazh(false, "Fatura do riprovohet ne nje moment te dyte!");
+                return new clsMesazh(false, ex.Message);
 
             }
         }
