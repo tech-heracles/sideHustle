@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 
 namespace DbCore.DbAdmin
@@ -53,7 +50,15 @@ namespace DbCore.DbAdmin
             {
                 mbushKomponente(data.merrKomponenteSipasEmrit(emerKomponente));
             }
-        } public clsKomponente(int idkomp)
+        }
+        public static string merrKomponenteLikeSipasEmrit(string emerKomponente, bool like)
+        {
+            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
+            {
+                return data.merrKomponenteLikeSipasEmrit(emerKomponente);
+            }
+        }
+        public clsKomponente(int idkomp)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             mbushKomponente(data.merrKomponenteSipasId(idkomp));
@@ -73,7 +78,7 @@ namespace DbCore.DbAdmin
         /// Konstruktori default i klases
         /// </summary>
         public clsKomponente()
-        { 
+        {
         }
 
         #endregion
@@ -177,7 +182,7 @@ namespace DbCore.DbAdmin
                     pershkrimiKomponente_fr = rreshti["KOMPPERSHKRIMI_fr"].ToString();
                     string katHelpi = rreshti["KATEGORIHELPI"].ToString();
                     string detHelpi = rreshti["DETAJIMHELPI"].ToString();
-                     int.TryParse(rreshti["TIPI"].ToString(), out tipi);
+                    int.TryParse(rreshti["TIPI"].ToString(), out tipi);
                     if (detHelpi != "")
                         this.urlHelpSuffix = formoUrlSuffix(katHelpi, detHelpi);
                     else
@@ -194,7 +199,8 @@ namespace DbCore.DbAdmin
             else
                 return false;
         }
-        private static String formoUrlSuffix(string kategoriHelpi, string detajimHelpi) {
+        private static String formoUrlSuffix(string kategoriHelpi, string detajimHelpi)
+        {
             kategoriHelpi = kategoriHelpi.Replace(" ", "");
             kategoriHelpi = kategoriHelpi.Replace("?", "");
             detajimHelpi = detajimHelpi.Replace(" ", "_");
@@ -203,16 +209,16 @@ namespace DbCore.DbAdmin
             return "#" + urlHelpSuffix + ".htm";
         }
         #endregion
-        
+
         #region Metoda Publike
 
         public bool kaTeDrejtaAmbjenti(colTeDrejtaRoli teDrejtaRoliPerdoruesi, int idndermarje, int idViti)
-        {                          
-                clsTeDrejtaRoli teDrejtaRoli = teDrejtaRoliPerdoruesi.filtroTeDrejtaRoli(this.idModuli, this.idKomponente);
-                if (teDrejtaRoli != null)
-                    if (teDrejtaRoli.DAmb)
-                        return true;
-            
+        {
+            clsTeDrejtaRoli teDrejtaRoli = teDrejtaRoliPerdoruesi.filtroTeDrejtaRoli(this.idModuli, this.idKomponente);
+            if (teDrejtaRoli != null)
+                if (teDrejtaRoli.DAmb)
+                    return true;
+
             return false;
         }
 
@@ -254,8 +260,8 @@ namespace DbCore.DbAdmin
         {
             using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
             {
-                
-               return dbAdmin.MerrIdKomponenteSipasEmrit(komponenteEmri);
+
+                return dbAdmin.MerrIdKomponenteSipasEmrit(komponenteEmri);
             }
         }
         #endregion

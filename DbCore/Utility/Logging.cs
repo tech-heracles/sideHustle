@@ -3,6 +3,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using DbCore.classes;
+using DbCore.DbAdmin;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace DbCore.Utility
@@ -14,6 +16,9 @@ namespace DbCore.Utility
         {
             try
             {
+                string componentName = clsKomponente.merrKomponenteLikeSipasEmrit(message.view.Split('/')[1], true);
+                message.view = componentName;
+                if (message.view.IsNullOrEmpty()) return true;
                 using (HttpClient client = new HttpClient())
                 {
                     string json = JsonConvert.SerializeObject(message);

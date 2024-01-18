@@ -55,7 +55,7 @@ namespace PlatinumWeb.ApplicationUtils.Pages
                 {
                     clsPerdorues user = new clsPerdorues(IdPerdoruesi);
                     clsNdermarrje enterprise = new clsNdermarrje(IdNdermarrja);
-                    BigQueryLogMessage message = new BigQueryLogMessage(absolutePath.Split('.')[0], user.PerdoruesUsername, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), enterprise.NdermarrjeKodi);
+                    BigQueryLogMessage message = new BigQueryLogMessage(absolutePath, user.PerdoruesUsername, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), enterprise.NdermarrjeKodi);
                     Logging.Log(message);
                 };
 
