@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
@@ -10,13 +9,16 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mime;
 using System.Reflection;
 using System.Resources;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Script.Serialization;
@@ -24,59 +26,41 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using AlphaWeb.Core.Interfaces.Localization;
+using AlphaWeb.Core.SharedKernel;
+using CacheLayer;
 using DbCore.DbAdmin;
 using DbCore.DbArkaBanka;
 using DbCore.DbAsete;
-using DbCore.DbGIS;
+using DbCore.DbBuxheti;
 using DbCore.DbImporte;
 using DbCore.DbInventari;
 using DbCore.DbKontabiliteti;
 using DbCore.DbListPagesat;
 using DbCore.DbProdhimi;
 using DbCore.DbQendraKosto;
+using DbCore.DbRegjistrim;
 using DbCore.DbShare;
 using DbCore.IMBUtils;
-using DbCore.Raporte;
+using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Security;
+using DbCore.IMBUtils.Validation;
 using DbCore.VodSendSMS_Service;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Iam.v1;
+using Google.Apis.Services;
+using Google.Apis.SQLAdmin.v1beta4;
+using Google.Cloud.Storage.V1;
 using Newtonsoft.Json;
 using NLog;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
-using Page = System.Web.UI.Page;
-using DbCore.DbRegjistrim;
-using PlatinumWeb;
-using System.Web.UI;
-using DbCore;
-using DbCore.IMBUtils.DataBase;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Logging;
-using DbCore.IMBUtils.Security;
-using DbCore.IMBUtils.Validation;
-using CacheLayer;
-using DbCore.IMBUtils.Messages;
-using DbCore.IMBUtils.Types;
-using DbCore.DbBuxheti;
-using System.ComponentModel;
-using AlphaWeb.Core.SharedKernel;
-using AlphaWeb.Core.Interfaces.Localization;
-using System.Security.Cryptography.X509Certificates;
-using System.Net;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.SQLAdmin.v1beta4;
-using Google.Apis.Services;
-using Google.Apis.Iam.v1;
-using Google.Apis.Iam.v1.Data;
-using System.Threading.Tasks;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
-using Google.Cloud.Storage.V1;
-using System.Net.Mail;
-using Google.Cloud.Firestore;
-using Fasterflect;
-using DevExpress.Utils;
-using DevExpress.XtraCharts.Designer.Native;
-using Azure.Core;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
+using Page = System.Web.UI.Page;
 
 namespace DbCore
 {
@@ -1096,7 +1080,8 @@ namespace DbCore
             {
                 using (StreamWriter stmw = new StreamWriter(stream))
                 {
-                    stmw.Write(JsonConvert.SerializeObject(new {
+                    stmw.Write(JsonConvert.SerializeObject(new
+                    {
                         email = email,
                         subject = "Email Verification",
                         message = "Pershendetje,<br><br> Per te verifikuar email-in tuaj ndiq linkun<br><br> " + "http://localhost:4000/rest/verifyEmail?email=" + email + "&timestamp=" + timeStamp + "&apikey=" + apiKey + "<br><br>Faleminderit!"
@@ -1116,7 +1101,7 @@ namespace DbCore
             }
             return false;
         }
-        public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili (string email, string apikey)
+        public static async Task<IAsyncResult> gjeneroLinkPerKonfirmimEmaili(string email, string apikey)
         {
             try
             {
@@ -1138,7 +1123,7 @@ namespace DbCore
                 }
                 return webReq.BeginGetResponse(null, null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
 
@@ -2090,18 +2075,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                             mesazh = new clsMesazh(true);
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, null, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPunonjes, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2278,18 +2263,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
                             mesazh = new clsMesazh(true);
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2391,18 +2376,18 @@ namespace DbCore
                         }
                         catch (Exception ex)
                         {
-                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// { domainName} - username:{username} - exception: {ex}");
+                            ImbLogger.LogTrace($"LdapAuthentication nuk eshte i sakte! -> Domain name :LDAP:// {domainName} - username:{username} - exception: {ex}");
                             autentifikim = false;
                         }
                         if (!string.IsNullOrWhiteSpace(domainName) && autentifikim)
                         {
                             mesazh = new clsMesazh(true);
-                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi i sakte! -> Domain name :LDAP:// {domainName} - username:{username}");
                         }
                         else
                         {
                             arsyeLoginFail = "Autentifikimi nuk eshte i sakte.";
-                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// { domainName} - username:{username}");
+                            ImbLogger.LogTrace($"Autentifikimi nuk eshte i sakte. -> Domain name :LDAP:// {domainName} - username:{username}");
                             clsMesazh mesazhshtoLoginFail = shtoLoginFail(httpContext.Session, konfig, loginAttempts, username, loginCount, arsyeLoginFail, user.IdPerdorues, maxLoginAttempts, rm, ci);
                             if (!mesazhshtoLoginFail.Status)
                                 return mesazhshtoLoginFail;
@@ -2492,7 +2477,7 @@ namespace DbCore
                     if (!msg.Status)
                         return msg;
                 }
-                ImbLogger.Info($"Login! U logua perdoruesi me username: {username } dhe sessionid  {httpContext.Session.SessionID } !");
+                ImbLogger.Info($"Login! U logua perdoruesi me username: {username} dhe sessionid  {httpContext.Session.SessionID} !");
                 httpContext.Response.Cookies.Set(new HttpCookie("loadingUrl", clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.LOADING_URL)));
                 konfiguroNLog();
                 return new clsMesazh(true);
@@ -2941,8 +2926,8 @@ namespace DbCore
             Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
-            
-            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),"");
+
+            clsFunksione.dergoLogAlphaweb("", "Logout", "Logout", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), "");
             GlobalCacheManager.DestroySessionCache(Session.SessionID);
             if (signOutFormsAuth)
                 FormsAuthentication.SignOut();
@@ -3072,12 +3057,12 @@ namespace DbCore
             if (!eValiduar)
             {
 
-                response.Redirect("AktivizoAlphaWeb.aspx",false);
+                response.Redirect("AktivizoAlphaWeb.aspx", false);
                 return new clsMesazh(true);
             }
             if (ndryshoPassword)
             {
-                response.Redirect("NdryshimFjalekalimi.aspx",false);
+                response.Redirect("NdryshimFjalekalimi.aspx", false);
                 return new clsMesazh(true);
             }
             if (passwordISkaduar)
@@ -8221,7 +8206,7 @@ namespace DbCore
                     grupimdok3 = "", magazinieri = "", llogari = "", njesivartese = "", automjeti = "", nrProjekti = "", krijuesi = "", kodbari = "", Nivfsh = "", Wtnic = "";
                 DateTime dtDok = new DateTime();
                 error = "";
-                int idNivelGjeneruesi = 0, idKonfigGjeneruesi = 0, idGjeneruesi = 0, idDokNga = 0;
+                int idNivelGjeneruesi = 0, idKonfigGjeneruesi = 0, idGjeneruesi = 0, idDokNga = 0, idOperatori = 0, idTransportuesi = 0;
                 bool hyrje_dalje = false, mekonfirmimKokaMag = false;
 
                 #region Fushat e kokes
@@ -8337,6 +8322,16 @@ namespace DbCore
                             break;
                         case "WTNIC":
                             Wtnic = vendosVlere(trup, dokTable.Rows[0], out error);
+                            break;
+                        case "Shoferi":
+                            string transportues = vendosVlere(trup, dokTable.Rows[0], out error);
+                            idTransportuesi = new clsTransportues(transportues, idNdermarrje).IdTransportues;
+                            break;
+                        case "Operatori":
+                            if (clsOperator.MerrIdOperatoriSipasKodOperatori(vendosVlere(trup, dokTable.Rows[0], out error), idNdermarrje).ItemArray.Length == 0)
+                                idOperatori = 0;
+                            else
+                                idOperatori = Convert.ToInt32(clsOperator.MerrIdOperatoriSipasKodOperatori(vendosVlere(trup, dokTable.Rows[0], out error), idNdermarrje).ItemArray[0].ToString());
                             break;
                     }
                     if (error != "")
@@ -8497,7 +8492,7 @@ namespace DbCore
                     foreach (var trupMag in colTrupi)
                         trupMag.MerrSerialetUnike(serialeUnike, hyrje_dalje);
                 }
-                mesazh = koka.krijoMagazinePerImport(nenkategoria, llojDokumenti, klientFurnitor, idMag, kodMag, dtDok, nrAutom, 0, nrProjekti, 6, idDokNga, 0, idStatusDok, idNdermarrje, idNdermVit, idPerdorues, dtRegjistrimi, idllojDokMag, shenime, idNivelGjeneruesi, idKonfigGjeneruesi, idGjeneruesi, degeAdministrative, llogari, njesivartese, mekonfirmimKokaMag, grupimdok1, grupimdok2, grupimdok3, pershkrimi, colTrupi, kokaDest, new clsKokaFleteKontabel(), idRaportDesign, konfigAmbjenti, idPerdorues, automjeti, rm, ci, transferim, kontrolloGjendje, 0, nrSerial, Nivfsh, Wtnic, 0, dbData, false, false, 0);
+                mesazh = koka.krijoMagazinePerImport(nenkategoria, llojDokumenti, klientFurnitor, idMag, kodMag, dtDok, nrAutom, 0, nrProjekti, 6, idDokNga, 0, idStatusDok, idNdermarrje, idNdermVit, idPerdorues, dtRegjistrimi, idllojDokMag, shenime, idNivelGjeneruesi, idKonfigGjeneruesi, idGjeneruesi, degeAdministrative, llogari, njesivartese, mekonfirmimKokaMag, grupimdok1, grupimdok2, grupimdok3, pershkrimi, colTrupi, kokaDest, new clsKokaFleteKontabel(), idRaportDesign, konfigAmbjenti, idPerdorues, automjeti, rm, ci, transferim, kontrolloGjendje, 0, nrSerial, Nivfsh, Wtnic, idOperatori, dbData, false, false, idTransportuesi);
 
                 if (!mesazh.Status)
                 {
@@ -13802,7 +13797,7 @@ namespace DbCore
             }
 
         }
-        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata,string user)
+        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata, string user)
         {
             object obj = new
             {
@@ -13910,7 +13905,8 @@ namespace DbCore
                 return null;
             }
         }
-        static public DataTable getAllRolesExxeptSuperUser(){
+        static public DataTable getAllRolesExxeptSuperUser()
+        {
             return clsRoli.ktheRolePervecSuperUser();
         }
         public static string generateRandomPassword()
@@ -13930,32 +13926,32 @@ namespace DbCore
             Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
             //return "Error";
             return user["alphaOrganization"];
-            
+
         }
-        public async static Task<bool> changeOrganization(string uid,string organization,int enterprise_id,int idPerdoruesi)
+        public async static Task<bool> changeOrganization(string uid, string organization, int enterprise_id, int idPerdoruesi)
         {
             try
             {
                 clsNdermarrje ndermarrje = new clsNdermarrje(enterprise_id);
                 FirebaseConfiguration firebase = new FirebaseConfiguration();
                 Dictionary<string, dynamic> user = await firebase.getUserDetailsWithUIDDynamic(uid);
-                firebase.changeOrganization(uid, organization, ndermarrje.NdermarrjeKodi,idPerdoruesi);
+                firebase.changeOrganization(uid, organization, ndermarrje.NdermarrjeKodi, idPerdoruesi);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
             //return "Error";
-            
+
         }
-        public async static Task<object> goToDelta(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
+        public async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
             string url = await addDeltaDashboards(idNdermarje, idPerdoruesi, alphaOrganization, uid, email, "", accessToken, false);
             return url;
         }
-        public async static Task<object> userControls(int idPerdoruesi, string email,int idNdermarje, string alphaOrganization,string uid,string accessToken)
+        public async static Task<object> userControls(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
         {
             clsPerdorues user = new clsPerdorues(idPerdoruesi);
             FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
@@ -13978,7 +13974,7 @@ namespace DbCore
                     message = $"Perdoruesi {username} ekziston ne kete organizate!",
                     url = url
                 };
-                
+
             }
             var uDetailsFromNotes = await firebaseConfiguration.returnUserDetailsFromNotes(shenim);
             if (uDetailsFromNotes.Count > 0)
@@ -13998,7 +13994,7 @@ namespace DbCore
                 }
             return new { };
         }
-        public async static Task<string> createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email,HttpSessionState session,string accessToken)
+        public async static Task<string> createLoginWithGmail(string uid, int idNdermarje, int idPerdoruesi, string email, HttpSessionState session, string accessToken)
         {
             try
             {
@@ -14060,9 +14056,9 @@ namespace DbCore
                 Console.WriteLine(err);
                 return "";
             }
-           
+
         }
-        private static void synchronize(string uid, string alpha_organization, int enterprise_id,string org_id)
+        private static void synchronize(string uid, string alpha_organization, int enterprise_id, string org_id)
         {
             object message = new
             {
@@ -14080,13 +14076,13 @@ namespace DbCore
                 FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
                 return await firebaseConfiguration.checkIfUserExistsWithAlpha(shenime);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
 
         }
-        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization,string uid,string email,string org_id,string accessToken, bool create_projects)
+        public static async Task<string> addDeltaDashboards(int idNdermarje, int idPerdoruesi, string alphaOrganization, string uid, string email, string org_id, string accessToken, bool create_projects)
         {
             try
             {
@@ -14128,7 +14124,7 @@ namespace DbCore
 
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 return "";
             }
