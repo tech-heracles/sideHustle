@@ -8203,7 +8203,7 @@ namespace DbCore
                 clsMesazh mesazh = new clsMesazh(true);
 
                 string nenkategoria = "", llojDokumenti = "", nrSerial = "", nrDok = "", klientFurnitor = "", pershkrimi = "", shenime = "", degeAdministrative = "", adresa = "", grupimdok1 = "", grupimdok2 = "",
-                    grupimdok3 = "", magazinieri = "", llogari = "", njesivartese = "", automjeti = "", nrProjekti = "", krijuesi = "", kodbari = "", Nivfsh = "", Wtnic = "";
+                    grupimdok3 = "", magazinieri = "", llogari = "", njesivartese = "", automjeti = "", nrProjekti = "", krijuesi = "", kodbari = "", Nivfsh = "", Wtnic = "", tipi = "", transaksioni = "";
                 DateTime dtDok = new DateTime();
                 error = "";
                 int idNivelGjeneruesi = 0, idKonfigGjeneruesi = 0, idGjeneruesi = 0, idDokNga = 0, idOperatori = 0, idTransportuesi = 0;
@@ -8331,6 +8331,12 @@ namespace DbCore
                             string operatori = vendosVlere(trup, dokTable.Rows[0], out error);
                             int.TryParse(clsOperator.MerrIdOperatoriSipasKodOperatori(operatori, idNdermarrje).ItemArray[0].ToString(), out idOperatori);
                             break;
+                        case "Tipi":
+                            tipi = vendosVlere(trup, dokTable.Rows[0], out error);
+                            break;
+                        case "Transaksioni":
+                            transaksioni = vendosVlere(trup, dokTable.Rows[0], out error);
+                            break;
                     }
                     if (error != "")
                     {
@@ -8347,6 +8353,8 @@ namespace DbCore
                 #endregion
 
                 clsKokaMagazina koka = new clsKokaMagazina();
+                koka.Transaksioni = transaksioni;
+                koka.Tipi = tipi;
                 colTrupiMagazina colTrupi = new colTrupiMagazina();
                 colSerialeUnikeMagazina serialeUnike = null;
                 clsKokaMagazina kokaDest = new clsKokaMagazina();
