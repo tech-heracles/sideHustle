@@ -8323,15 +8323,13 @@ namespace DbCore
                         case "WTNIC":
                             Wtnic = vendosVlere(trup, dokTable.Rows[0], out error);
                             break;
-                        case "Shoferi":
+                        case "Transportuesi":
                             string transportues = vendosVlere(trup, dokTable.Rows[0], out error);
                             idTransportuesi = new clsTransportues(transportues, idNdermarrje).IdTransportues;
                             break;
                         case "Operatori":
-                            if (clsOperator.MerrIdOperatoriSipasKodOperatori(vendosVlere(trup, dokTable.Rows[0], out error), idNdermarrje).ItemArray.Length == 0)
-                                idOperatori = 0;
-                            else
-                                idOperatori = Convert.ToInt32(clsOperator.MerrIdOperatoriSipasKodOperatori(vendosVlere(trup, dokTable.Rows[0], out error), idNdermarrje).ItemArray[0].ToString());
+                            string operatori = vendosVlere(trup, dokTable.Rows[0], out error);
+                            int.TryParse(clsOperator.MerrIdOperatoriSipasKodOperatori(operatori, idNdermarrje).ItemArray[0].ToString(), out idOperatori);
                             break;
                     }
                     if (error != "")
