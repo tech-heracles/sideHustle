@@ -12,25 +12,19 @@ namespace DbCore.Utility
 	public static class Logging
 	{
 		private const string _logUrl = "https://europe-west1-alphaweb.cloudfunctions.net/logAlphawebView";
-		public static async Task<bool> Log(BigQueryLogMessage message)
+		public static async Task Log(BigQueryLogMessage message)
 		{
-			try
+			
+			string componentName = clsKomponente.merrKomponenteLikeSipasEmrit(message.view.Split('/')[1], true);
+			message.view = componentName;
+			if (message.view.IsNullOrEmpty()) return;
+			using (HttpClient client = new HttpClient())
 			{
-				string componentName = clsKomponente.merrKomponenteLikeSipasEmrit(message.view.Split('/')[1], true);
-				message.view = componentName;
-				if (message.view.IsNullOrEmpty()) return true;
-				using (HttpClient client = new HttpClient())
-				{
-					string json = JsonConvert.SerializeObject(message);
-					StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
-					await client.PostAsync(_logUrl, data);
-				}
-				return true;
+				string json = JsonConvert.SerializeObject(message);
+				StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
+				await client.PostAsync(_logUrl, data);
 			}
-			catch (Exception ex)
-			{
-				return false;
-			}
+			
 		}
 	}
 }
