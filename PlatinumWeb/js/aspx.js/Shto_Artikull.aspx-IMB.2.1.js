@@ -249,7 +249,7 @@ function textChangedKodbari(s, e) {
     for (var i = 0; i < kodbaret.length; i++) {
         if (kodbaret[i] == '')
             continue;
-        var barkodi = kodbaret[i].replace(/\s/g, '');        
+        var barkodi = kodbaret[i];
         ArrayKodbaret[i] = new Object();
         var ind = Utils.findArrayIndexByAttrValue(arrayKodbaretOld, 'pershkrimi', barkodi);
         if (ind != -1)
