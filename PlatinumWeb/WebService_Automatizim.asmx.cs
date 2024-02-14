@@ -33,7 +33,9 @@ using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using DevExpress.Web;
 using DevExpress.XtraEditors.Filtering.Templates;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestApi.WebAPI.Models;
@@ -1021,6 +1023,8 @@ namespace PlatinumWeb
                 var dictionary = (JObject)JsonConvert.DeserializeObject(obj);
                 object trupiobj = dictionary["items"].Value<object>();
                 bool blerje = dictionary.ContainsKey("supplierCode");
+                GiftCard giftCard = new GiftCard();
+                if (dictionary.ContainsKey("giftCard")) giftCard = JsonConvert.DeserializeObject<GiftCard>(dictionary["giftCard"].Value<object>().ToString());
                 Dictionary<string, string> alphaMetadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(dictionary["alphaMetadata"].Value<object>().ToString());//serializusi.DeserializeObject(gridDataObject) as object[];
                 string ndermarrja = alphaMetadata.ContainsKey("enterprise") == true ? alphaMetadata["enterprise"].ToString() : alphaMetadata["ndermarrja"].ToString();
                 DateTime dtDok = DateTime.Parse(dictionary["docDate"].ToString());
@@ -1143,9 +1147,14 @@ namespace PlatinumWeb
                 bool zevendesimtollona = !(llojZevendesimi == "Jo");
                 konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
                 konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
-                colTrupiShitje = krijoTrupShtije(perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
+                colTrupiShitje = krijoTrupShtije(giftCard, perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
                 clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok, ndermarrje.IdNdermarrje);
-
+                if (giftCard.balance != 0)
+                {
+                    clsTrupiShitje lastItem = colTrupiShitje.Last();
+                    totali += lastItem.VleftaMeTvsh;
+                    tvsh += lastItem.VleftaMeTvsh - lastItem.VleftaPaTvsh;
+                }
 
                 string dega_default_code = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente, "cmbDegeAdministrative", 506);
                 int dega_id = 0;
@@ -1198,15 +1207,15 @@ namespace PlatinumWeb
                 }
                 if (dictionary.ContainsKey("isOrder")) koka.IdStatusDok = (bool)dictionary["isOrder"] == true ? 0 : 1;
 
-                colAtributeTrupi atribute = new colAtributeTrupi();
-                atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
-                int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
-                clsNrAutom nrAuto = new clsNrAutom();
-                if (idNrAuto != 0)
-                {
-                    nrAuto = new clsNrAutom(idNrAuto);
-                    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
-                }
+                //colAtributeTrupi atribute = new colAtributeTrupi();
+                //atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
+                //int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
+                //clsNrAutom nrAuto = new clsNrAutom();
+                //if (idNrAuto != 0)
+                //{
+                //    nrAuto = new clsNrAutom(idNrAuto);
+                //    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
+                //}
 
 
 
@@ -1220,7 +1229,6 @@ namespace PlatinumWeb
 
 
 
-
                 var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
                             konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
@@ -1229,20 +1237,20 @@ namespace PlatinumWeb
                             !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
 
-                if (nrAuto.IdNrAutom != 0)
-                {
-                    bool numberChange = false;
-                    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-                    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
-                    nrdokshi.kodKontrolli = "txtNumer";
-                    nrdokshi.idNrAuto = idNrAuto;
-                    nrdokshi.vlereNrAuto = nrdok;
-                    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
-                    List<NrAuto> autoNumbers = new List<NrAuto>();
-                    autoNumbers.Add(nrdokshi);
-                    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
-                    dbAdmin.Dispose();
-                }
+                //if (nrAuto.IdNrAutom != 0)
+                //{
+                //    bool numberChange = false;
+                //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
+                //    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
+                //    nrdokshi.kodKontrolli = "txtNumer";
+                //    nrdokshi.idNrAuto = idNrAuto;
+                //    nrdokshi.vlereNrAuto = nrdok;
+                //    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
+                //    List<NrAuto> autoNumbers = new List<NrAuto>();
+                //    autoNumbers.Add(nrdokshi);
+                //    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
+                //    dbAdmin.Dispose();
+                //}
 
 
 
@@ -1255,7 +1263,8 @@ namespace PlatinumWeb
             }
             catch (Exception ex)
             {
-                return new clsMesazh(false, ex.Message.ToString());
+                if (ex.Message.Contains("connection") || ex.Message.Contains("network") || ex.Message.Contains("SQL") || ex.Message.Contains("sql") || ex.Message.Contains("timeout")) return new clsMesazh(false, "Fatura do riprovohet ne nje moment te dyte!");
+                return new clsMesazh(false, ex.Message);
 
             }
         }
@@ -1415,8 +1424,41 @@ namespace PlatinumWeb
 
             return trupat;
         }
-
-        private colTrupiShitje krijoTrupShtije(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public clsMesazh addDeposit(string obj)
+        {
+            try
+            {
+                //object json = JsonConvert.DeserializeObject(obj);
+                Deposit deposit = JsonConvert.DeserializeObject<Deposit>(obj);
+                clsMesazh serverMessage = clsLogin.setServerFromOrgName(Session.SessionID, deposit.alphaMetadata.organization);
+                if (!serverMessage.Status) return new clsMesazh(false, serverMessage.PershkrimMesazhi);
+                clsKonfigurimAmbjenti konfigurimAmbjentiShitje = new clsKonfigurimAmbjenti();
+                clsNdermarrje enterprise = new clsNdermarrje(deposit.alphaMetadata.enterprise);
+                DateTime docDate = DateTime.Parse(deposit.docDate);
+                konfigurimAmbjentiShitje.mbushKonfigAmbjSipasKod(deposit.alphaMetadata.invoiceFormat, enterprise.IdNdermarrje);
+                clsKokaShitje sale = new clsKokaShitje();
+                sale.mbushKokaShitjeSipasIdKonfigAmbNrDokDtDok(konfigurimAmbjentiShitje.IdKonfigAmbjente, deposit.docNo, docDate);
+                sale.OFleteKontabel = sale.OFleteKontabel == null ? new clsKokaFleteKontabel() : sale.OFleteKontabel;
+                if (sale.IdShitjeKoka == 0) return new clsMesazh(false, $"Fatura me numer {deposit.docNo} nuk ekziston ne Alpha");
+                bool paid = deposit.paid;
+                clsPeriudhaKontabel timeperiod = new clsPeriudhaKontabel(docDate, enterprise.IdNdermarrje);
+                clsVeprimBankaKoka bankDeposit = new clsVeprimBankaKoka();
+                string showMessage = "";
+                string showMessageWithLoop = "";
+                clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
+                clsDatabaseShare dbshare = new clsDatabaseShare();
+                clsMesazh mesazhArkeBanke = sale.krijoDokArkeBanke(sale, ref paid, ref bankDeposit, true, ref showMessage, ref showMessageWithLoop, timeperiod.IdPeriudha, dbRegj, dbshare);
+                if (!mesazhArkeBanke.Status) return mesazhArkeBanke;
+                return new clsMesazh(true, "Arketimi u sinkronizua me sukses!");
+            }
+            catch (Exception err)
+            {
+                return new clsMesazh(false, "Risinkronizimi i fatures se shitjes deshtoi");
+            }
+        }
+        private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
         {
             Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
             colTrupiShitje trupat = new colTrupiShitje();
@@ -1455,7 +1497,24 @@ namespace PlatinumWeb
 
                 trupat.Add(trupi);
             }
-            nrRendorSerial = -1;
+            if (!giftCard.code.IsNullOrEmpty())
+            {
+                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, giftCard, isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, dokumentiLength - 1, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, dokumentiLength, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
+                if (string.IsNullOrEmpty(trupi.Kodi))
+                    return trupat;
+
+                if (merrMagazinenNgaTrupi || !string.IsNullOrEmpty(btnMagazina))
+                {
+                    if (idMagTemp == -1)
+                    {
+                        idMagTemp = trupi.IdMagazina;
+                        isMagENjejte = true;
+                    }
+                    else if (isMagENjejte && trupi.IdMagazina != idMagTemp)
+                        isMagENjejte = false;
+                }
+                trupat.Add(trupi);
+            }
             return trupat;
         }
     }

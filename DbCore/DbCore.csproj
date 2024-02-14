@@ -514,6 +514,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\alphaMetadata.cs" />
+    <Compile Include="classes\Deposit.cs" />
+    <Compile Include="classes\GiftCard.cs" />
+    <Compile Include="classes\LogMessage.cs" />
     <Compile Include="classes\ProcessedOrder\ProcessEnums.cs" />
     <Compile Include="classes\ProcessedOrder\Item.cs" />
     <Compile Include="classes\ProcessedOrder\Metadata.cs" />
@@ -1595,6 +1598,7 @@
     <Compile Include="Utility\DotSpatialEx.cs" />
     <Compile Include="Utility\GeometryConverterToDotSpatial.cs" />
     <Compile Include="Utility\GeometryConverterToGeoAPI.cs" />
+    <Compile Include="Utility\Logging.cs" />
     <Compile Include="Web References\BRMAdapterServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

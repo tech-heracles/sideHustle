@@ -16,6 +16,46 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.Script.Serialization;
+using System.Web.Security;
+using System.Web.SessionState;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using AlphaWeb.Core.Interfaces.Localization;
+using AlphaWeb.Core.SharedKernel;
+using CacheLayer;
+using DbCore.DbAdmin;
+using DbCore.DbArkaBanka;
+using DbCore.DbAsete;
+using DbCore.DbBuxheti;
+using DbCore.DbImporte;
+using DbCore.DbInventari;
+using DbCore.DbKontabiliteti;
+using DbCore.DbListPagesat;
+using DbCore.DbProdhimi;
+using DbCore.DbQendraKosto;
+using DbCore.DbRegjistrim;
+using DbCore.DbShare;
+using DbCore.IMBUtils;
+using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Security;
+using DbCore.IMBUtils.Validation;
+using DbCore.VodSendSMS_Service;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Iam.v1;
+using Google.Apis.Services;
+using Google.Apis.SQLAdmin.v1beta4;
+using Google.Cloud.Storage.V1;
+using Newtonsoft.Json;
+using NLog;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using Data = Google.Apis.SQLAdmin.v1beta4.Data;
 using Page = System.Web.UI.Page;
 
@@ -1909,8 +1949,8 @@ namespace DbCore
             var ls = MerrKaraktereTePalejuara(text, lejoPresje);
             if (Regex.IsMatch(text, @"\s{2,}|[\t]"))
                 return new clsMesazh(false, MessageResource["msgPershkrimiHapesiraTeNjepasnjeshme"]);
-            if ((lloji == FusheKontrolli.Kodi || lloji == FusheKontrolli.Kodbari) && System.Text.RegularExpressions.Regex.IsMatch(text, @"\s+"))
-                return new clsMesazh(false, MessageResource["msgKodiHapsira"]);
+            //if ((lloji == FusheKontrolli.Kodi || lloji == FusheKontrolli.Kodbari) && System.Text.RegularExpressions.Regex.IsMatch(text, @"\s+"))
+            //    return new clsMesazh(false, MessageResource["msgKodiHapsira"]);
             if (text.Contains("'"))
                 return new clsMesazh(false, MessageResource["msgZevendesimThonjeze"]);
             if (text.Contains("+") && lloji == FusheKontrolli.Kodbari)
@@ -8160,10 +8200,10 @@ namespace DbCore
                 clsMesazh mesazh = new clsMesazh(true);
 
                 string nenkategoria = "", llojDokumenti = "", nrSerial = "", nrDok = "", klientFurnitor = "", pershkrimi = "", shenime = "", degeAdministrative = "", adresa = "", grupimdok1 = "", grupimdok2 = "",
-                    grupimdok3 = "", magazinieri = "", llogari = "", njesivartese = "", automjeti = "", nrProjekti = "", krijuesi = "", kodbari = "", Nivfsh = "", Wtnic = "";
+                    grupimdok3 = "", magazinieri = "", llogari = "", njesivartese = "", automjeti = "", nrProjekti = "", krijuesi = "", kodbari = "", Nivfsh = "", Wtnic = "", tipi = "", transaksioni = "";
                 DateTime dtDok = new DateTime();
                 error = "";
-                int idNivelGjeneruesi = 0, idKonfigGjeneruesi = 0, idGjeneruesi = 0, idDokNga = 0;
+                int idNivelGjeneruesi = 0, idKonfigGjeneruesi = 0, idGjeneruesi = 0, idDokNga = 0, idOperatori = 0, idTransportuesi = 0;
                 bool hyrje_dalje = false, mekonfirmimKokaMag = false;
 
                 #region Fushat e kokes
@@ -8280,6 +8320,20 @@ namespace DbCore
                         case "WTNIC":
                             Wtnic = vendosVlere(trup, dokTable.Rows[0], out error);
                             break;
+                        case "Transportuesi":
+                            string transportues = vendosVlere(trup, dokTable.Rows[0], out error);
+                            idTransportuesi = new clsTransportues(transportues, idNdermarrje).IdTransportues;
+                            break;
+                        case "Operatori":
+                            string operatori = vendosVlere(trup, dokTable.Rows[0], out error);
+                            int.TryParse(clsOperator.MerrIdOperatoriSipasKodOperatori(operatori, idNdermarrje).ItemArray[0].ToString(), out idOperatori);
+                            break;
+                        case "Tipi":
+                            tipi = vendosVlere(trup, dokTable.Rows[0], out error);
+                            break;
+                        case "Transaksioni":
+                            transaksioni = vendosVlere(trup, dokTable.Rows[0], out error);
+                            break;
                     }
                     if (error != "")
                     {
@@ -8296,6 +8350,8 @@ namespace DbCore
                 #endregion
 
                 clsKokaMagazina koka = new clsKokaMagazina();
+                koka.Transaksioni = transaksioni;
+                koka.Tipi = tipi;
                 colTrupiMagazina colTrupi = new colTrupiMagazina();
                 colSerialeUnikeMagazina serialeUnike = null;
                 clsKokaMagazina kokaDest = new clsKokaMagazina();
@@ -8439,7 +8495,7 @@ namespace DbCore
                     foreach (var trupMag in colTrupi)
                         trupMag.MerrSerialetUnike(serialeUnike, hyrje_dalje);
                 }
-                mesazh = koka.krijoMagazinePerImport(nenkategoria, llojDokumenti, klientFurnitor, idMag, kodMag, dtDok, nrAutom, 0, nrProjekti, 6, idDokNga, 0, idStatusDok, idNdermarrje, idNdermVit, idPerdorues, dtRegjistrimi, idllojDokMag, shenime, idNivelGjeneruesi, idKonfigGjeneruesi, idGjeneruesi, degeAdministrative, llogari, njesivartese, mekonfirmimKokaMag, grupimdok1, grupimdok2, grupimdok3, pershkrimi, colTrupi, kokaDest, new clsKokaFleteKontabel(), idRaportDesign, konfigAmbjenti, idPerdorues, automjeti, rm, ci, transferim, kontrolloGjendje, 0, nrSerial, Nivfsh, Wtnic, 0, dbData, false, false, 0);
+                mesazh = koka.krijoMagazinePerImport(nenkategoria, llojDokumenti, klientFurnitor, idMag, kodMag, dtDok, nrAutom, 0, nrProjekti, 6, idDokNga, 0, idStatusDok, idNdermarrje, idNdermVit, idPerdorues, dtRegjistrimi, idllojDokMag, shenime, idNivelGjeneruesi, idKonfigGjeneruesi, idGjeneruesi, degeAdministrative, llogari, njesivartese, mekonfirmimKokaMag, grupimdok1, grupimdok2, grupimdok3, pershkrimi, colTrupi, kokaDest, new clsKokaFleteKontabel(), idRaportDesign, konfigAmbjenti, idPerdorues, automjeti, rm, ci, transferim, kontrolloGjendje, 0, nrSerial, Nivfsh, Wtnic, idOperatori, dbData, false, false, idTransportuesi);
 
                 if (!mesazh.Status)
                 {

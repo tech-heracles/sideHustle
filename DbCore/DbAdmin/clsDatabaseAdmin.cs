@@ -16080,7 +16080,19 @@ namespace DbCore.DbAdmin
             autorizime = autorizime.IndexOf(',') == -1 ? autorizime : autorizime.Substring(0, autorizime.Length - 1);
             return autorizime;
         }
+        internal string merrKomponenteLikeSipasEmrit(string emerKomponente)
+        {
 
+
+            dbManager.Open();
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, $"SELECT TOP 1 KOMPPERSHKRIMI_sq FROM T_KOMPONENTE WHERE KOMPONEMRI like '%{emerKomponente}%'");
+            if (ds.Tables[0] == null)
+                return null;
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+            return ds.Tables[0].Rows[0].ItemArray[0].ToString();
+
+        }
         internal DataTable merrAprovuesDokumenti(int idfatura)
         {
             dbManager.Open();

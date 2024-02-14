@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Resources;
-using System.Threading;
-using CacheLayer;
-using DbCore;
-using DbCore.DbAdmin;
-using DbCore.IMBUtils.Extensions;
 using System.Globalization;
 using System.Reflection;
-using DevExpress.Web;
+using System.Resources;
+using System.Threading;
 using System.Web.UI;
 using AlphaWeb.Core.Logging;
-using DbCore.IMBUtils.Messages;
+using CacheLayer;
+using DbCore;
+using DbCore.classes;
+using DbCore.DbAdmin;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
+using DbCore.Utility;
+using DevExpress.Web;
 
 namespace PlatinumWeb.ApplicationUtils.Pages
 {
@@ -46,7 +48,22 @@ namespace PlatinumWeb.ApplicationUtils.Pages
             Logger.LogInformation($"Processing Request {Request.Url.ToString()}-----------Event Page_PreInit");
 #endif
             if (!User.Identity.IsAuthenticated) return; //nese nuk eshte i autentikuar nuk ka nevoj per autorizime
+            try
+            {
+                string absolutePath = Request.Url.AbsolutePath.ToString();
+                if (absolutePath.Contains("aspx") && absolutePath != "/Login_Ndermarrje.aspx" && absolutePath != "/FaqeKryesore" && Session != null && absolutePath != "/Raporti.aspx")
+                {
+                    clsPerdorues user = new clsPerdorues(IdPerdoruesi);
+                    clsNdermarrje enterprise = new clsNdermarrje(IdNdermarrja);
+                    BigQueryLogMessage message = new BigQueryLogMessage(absolutePath, user.PerdoruesUsername, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), enterprise.NdermarrjeKodi);
+                    Logging.Log(message);
+                };
 
+            }
+            catch
+            {
+                Console.WriteLine("Log error");
+            }
             AplikoTheme();
             //rreshti me poshte duhet ckomentuar ne momentin qe do aplikohet gjuha shqip e devexpress-it
             //Page.UICulture = mySessionObjects.ktheCultureInfo(Session).Name;

@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DbCore.DbAdmin;
 using System.Data;
 using AlphaWeb.Core.Interfaces.Data;
 using AlphaWeb.Core.Interfaces.Localization;
+using DbCore.DbAdmin;
 using DbCore.DbKontabiliteti;
-using DbCore.IMBUtils.DataBase;
-using DbCore.IMBUtils.Messages;
-using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Messages;
 
 namespace DbCore.DbRegjistrim
 {
@@ -18,7 +14,7 @@ namespace DbCore.DbRegjistrim
     ///  Kjo eshte klasa qe sherben per objektet qe perfaqsojne  taksat
     ///  (Te dhenat  merren nga tabela : T_TAKSAT)
     /// </summary>
-    public class clsTaksa: IDataBase
+    public class clsTaksa : IDataBase
     {
         #region Atributet
         public const int idTaksaPaTVSH = -1;
@@ -62,7 +58,7 @@ namespace DbCore.DbRegjistrim
         public clsTaksa(string kodi, int idNderm)
         {
             clsDatabaseRegjistrim dbTaksa = new clsDatabaseRegjistrim();
-            dbTaksa.ktheTaksaSipasKodi(kodi, idNderm,this);
+            dbTaksa.ktheTaksaSipasKodi(kodi, idNderm, this);
             dbTaksa.Dispose();
         }
         public clsTaksa(string kodi, int idNderm, clsDatabaseRegjistrim dbTaksa)
@@ -109,7 +105,7 @@ namespace DbCore.DbRegjistrim
             MbushDataRow(rreshti);
         }
 
-        public clsTaksa(IMessagesResource messages,  int id, string kod, string pershk, decimal nrm, int nderm, string llogdeb, string llogkred, int idlloj, string njes, int idperdoruesi, int idkonfig, int idstatusdok, bool aktiv, string llogaridogane, bool ePerjashtuar, bool aplikoTvshNeFleteDoganore, bool takseNderm, string nivelAutorizimi, bool furnizimeZero, bool ShitjePaTvshTaksa,  bool shtim, string lidhurNderfaqe, string tipiIPerjashtimit)
+        public clsTaksa(IMessagesResource messages, int id, string kod, string pershk, decimal nrm, int nderm, string llogdeb, string llogkred, int idlloj, string njes, int idperdoruesi, int idkonfig, int idstatusdok, bool aktiv, string llogaridogane, bool ePerjashtuar, bool aplikoTvshNeFleteDoganore, bool takseNderm, string nivelAutorizimi, bool furnizimeZero, bool ShitjePaTvshTaksa, bool shtim, string lidhurNderfaqe, string tipiIPerjashtimit)
         {
             idTaksa = id;
             kodi = kod;
@@ -288,7 +284,7 @@ namespace DbCore.DbRegjistrim
         }
         public bool Aktiv { get { return aktiv; } set { aktiv = value; } }
 
-        public bool ShitjePaTVSHTaksa{ get { return ShitjePaTvshTaksa; } set { ShitjePaTvshTaksa = value; } }
+        public bool ShitjePaTVSHTaksa { get { return ShitjePaTvshTaksa; } set { ShitjePaTvshTaksa = value; } }
 
         public string LlogariDogane
         {
@@ -326,7 +322,7 @@ namespace DbCore.DbRegjistrim
             set { tipiIPerjashtimit = value; }
         }
 
- 
+
 
         #endregion
 
@@ -600,7 +596,7 @@ namespace DbCore.DbRegjistrim
             bool statusVeprimi;
             clsMesazh mesazh;
 
-            mesazh = dbRegj.ruajTaks(out id, kod, pershk, nrm, idNdermarrje, llogdeb, llogkred, idlloj, njes, idperdoruesi, idkonfig, idstatusdok, aktiv, llogariDogane, ePerjashtuar, aplikoTvshNeFleteDoganore, furnizimezero, ShitjePaTvshTaksa, tipiIPerjashtimit,clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV4());
+            mesazh = dbRegj.ruajTaks(out id, kod, pershk, nrm, idNdermarrje, llogdeb, llogkred, idlloj, njes, idperdoruesi, idkonfig, idstatusdok, aktiv, llogariDogane, ePerjashtuar, aplikoTvshNeFleteDoganore, furnizimezero, ShitjePaTvshTaksa, tipiIPerjashtimit, clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV4());
             statusVeprimi = mesazh.Status;
             this.IdTaksa = id;
             if (!mesazh.Status)
@@ -618,20 +614,20 @@ namespace DbCore.DbRegjistrim
 
                     return mesazh;
                 }
-                }
-                if (!string.IsNullOrEmpty( nivelAutorizim) )
+            }
+            if (!string.IsNullOrEmpty(nivelAutorizim))
+            {
+                DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
+                string[] pars1 = nivelAutorizim.Split(',');
+                for (int i = 0; i < pars1.Length; i++)
                 {
-                    DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-                    string[] pars1 = nivelAutorizim.Split(',');
-                    for (int i = 0; i < pars1.Length; i++)
-                    {
-                        DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-                        lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i],dataAdmin);
-                        //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-                        colLidhjet.Add(lidhje);
-                    }
-                    foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
-                    {
+                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
+                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i], dataAdmin);
+                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
+                    colLidhjet.Add(lidhje);
+                }
+                foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
+                {
 
                     o.IdLloji = DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Taksa", dbkont);
                     o.IdLidhese = id;
@@ -712,7 +708,7 @@ namespace DbCore.DbRegjistrim
                             colLidhjet.Add(lidhje);
                         }
                     }
-                    mesazhAdmin = clsFunksione.modifikoLidhjeAutorizimSipasLlojitTeBuxhetit(colLidhjet, "Taksa", id, colLidhjetAutorizim, dbkont, data, false,IdPerdoruesi);
+                    mesazhAdmin = clsFunksione.modifikoLidhjeAutorizimSipasLlojitTeBuxhetit(colLidhjet, "Taksa", id, colLidhjetAutorizim, dbkont, data, false, IdPerdoruesi);
                 }
                 else
                 {
@@ -751,7 +747,7 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
         public clsMesazh ruaj(clsDatabaseRegjistrim db)
         {
-            clsMesazh u_ruajt = this.ruajTaksa(this.IdTaksa, this.KodTaksa, this.Pershkrimi, this.NormaPerqindje, this.IdNdermarje, this.LlogariDebi, this.LlogariKredi, this.IdLlojTakse, this.Njesia, this.IdPerdoruesi, this.IdNivelAutorizimi, this.IdKonfig, this.idStatusDok, this.Aktiv, this.takseNdermarje, this.llogariDogane, this.EPerjashtuar, this.AplikoTvshNeFleteDoganore, db, this.FurnizimeZero, this.ShitjePaTVSHTaksa,this.TipiIPerjashtimit);
+            clsMesazh u_ruajt = this.ruajTaksa(this.IdTaksa, this.KodTaksa, this.Pershkrimi, this.NormaPerqindje, this.IdNdermarje, this.LlogariDebi, this.LlogariKredi, this.IdLlojTakse, this.Njesia, this.IdPerdoruesi, this.IdNivelAutorizimi, this.IdKonfig, this.idStatusDok, this.Aktiv, this.takseNdermarje, this.llogariDogane, this.EPerjashtuar, this.AplikoTvshNeFleteDoganore, db, this.FurnizimeZero, this.ShitjePaTVSHTaksa, this.TipiIPerjashtimit);
             return u_ruajt;
         }
 
@@ -774,7 +770,7 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifiko(clsDatabaseRegjistrim db)
         {
             clsTaksa data = new clsTaksa();
-            clsMesazh u_modifikua = data.modifikoTaksa(this.IdTaksa, this.KodTaksa, this.Pershkrimi, this.NormaPerqindje, this.IdNdermarje, this.LlogariDebi, this.LlogariKredi, this.IdLlojTakse, this.Njesia, this.IdPerdoruesi, this.IdNivelAutorizimi, this.IdKonfig, this.idStatusDok, this.aktiv, this.takseNdermarje, this.llogariDogane, this.EPerjashtuar, this.AplikoTvshNeFleteDoganore, db, this.FurnizimeZero, this.ShitjePaTvshTaksa,this.tipiIPerjashtimit);
+            clsMesazh u_modifikua = data.modifikoTaksa(this.IdTaksa, this.KodTaksa, this.Pershkrimi, this.NormaPerqindje, this.IdNdermarje, this.LlogariDebi, this.LlogariKredi, this.IdLlojTakse, this.Njesia, this.IdPerdoruesi, this.IdNivelAutorizimi, this.IdKonfig, this.idStatusDok, this.aktiv, this.takseNdermarje, this.llogariDogane, this.EPerjashtuar, this.AplikoTvshNeFleteDoganore, db, this.FurnizimeZero, this.ShitjePaTvshTaksa, this.tipiIPerjashtimit);
             return u_modifikua;
         }
         public clsMesazh Modifiko()
@@ -833,7 +829,7 @@ namespace DbCore.DbRegjistrim
         /// <param name="taksa"></param>
         /// <param name="caktuarParam"></param>
         /// <returns></returns>
-        public static ComboListTvsh MerrComboItemTaksa(clsTaksa taksa,string caktuarParam)
+        public static ComboListTvsh MerrComboItemTaksa(clsTaksa taksa, string caktuarParam)
         {
 
             var tvshPaTakse = new ComboListTvsh
@@ -879,7 +875,7 @@ namespace DbCore.DbRegjistrim
             }
         }
         #endregion
-        
+
         #region Metoda Internal
 
         /// <summary>
@@ -907,15 +903,16 @@ namespace DbCore.DbRegjistrim
             llogariDogane = dbDataRowTaksa["LLOGARIDOG"].ToString();
             bool.TryParse(dbDataRowTaksa["EPERJASHTUAR"].ToString(), out ePerjashtuar);
             bool.TryParse(dbDataRowTaksa["APLIKOTVSHNEFLETEDOGANORE"].ToString(), out aplikoTvshNeFleteDoganore);
-			bool.TryParse(dbDataRowTaksa["FURNIZIMEZERO"].ToString(), out furnizimezero);
+            bool.TryParse(dbDataRowTaksa["FURNIZIMEZERO"].ToString(), out furnizimezero);
             bool.TryParse(dbDataRowTaksa["SHITJEPATVSHTAKSA"].ToString(), out ShitjePaTvshTaksa);
-            if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV4())
+            if (clsKontrollePerFiskalizimin.checkIfColumnExists(dbDataRowTaksa, "TIPIIPERJASHTIMIT"))
                 tipiIPerjashtimit = dbDataRowTaksa["TIPIIPERJASHTIMIT"].ToString();
 
         }
+
         public void MbushDataRow(DataRow dbDataRowTaksa)
         {
-            if(dbDataRowTaksa != null)
+            if (dbDataRowTaksa != null)
             {
                 int.TryParse(dbDataRowTaksa["IDTAKSA"].ToString(), out idTaksa);
                 kodi = dbDataRowTaksa["KODI"].ToString();
@@ -937,13 +934,13 @@ namespace DbCore.DbRegjistrim
                 bool.TryParse(dbDataRowTaksa["APLIKOTVSHNEFLETEDOGANORE"].ToString(), out aplikoTvshNeFleteDoganore);
                 bool.TryParse(dbDataRowTaksa["FURNIZIMEZERO"].ToString(), out furnizimezero);
                 bool.TryParse(dbDataRowTaksa["SHITJEPATVSHTAKSA"].ToString(), out ShitjePaTvshTaksa);
-                if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizimV4())
+                if (dbDataRowTaksa.Table.Columns.Contains("TIPIIPERJASHTIMIT"))
                     tipiIPerjashtimit = dbDataRowTaksa["TIPIIPERJASHTIMIT"].ToString();
             }
-           
+
 
         }
-        
+
         internal void mbushTaksa(clsTaksa taksa)
         {
             ImbLogger.LogTraceShitje("Filloi metoda mbushTaksa!");
