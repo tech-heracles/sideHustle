@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using DbCore.DbAdmin;
-using DbCore.DbKontabiliteti;
 using System.Data;
+using System.Globalization;
+using System.Resources;
+using DbCore.DbAdmin;
+using DbCore.DbInventari;
+using DbCore.DbKontabiliteti;
 using DbCore.DbRegjistrim;
 using DbCore.DbShare;
-using System.Resources;
-using System.Globalization;
-using DbCore.DbInventari;
 
 namespace DbCore.DbProdhimi
 {
@@ -567,7 +566,7 @@ namespace DbCore.DbProdhimi
 
         public clsKokaEkzekutim(DataRow rreshti, clsDatabazeProdhimi db)
         {
-            
+
             mbushKokaEkzekutim(rreshti, db);
         }
         #endregion
@@ -712,7 +711,7 @@ namespace DbCore.DbProdhimi
                 shenime = STR_NgaProcesiIProdhimit;
 
             }
-            DbInventari.clsDatabaseInventari db = new DbInventari.clsDatabaseInventari(dbprodh );
+            DbInventari.clsDatabaseInventari db = new DbInventari.clsDatabaseInventari(dbprodh);
             colTrupiMagazina coltrupi;
             try
             {
@@ -722,8 +721,8 @@ namespace DbCore.DbProdhimi
             {
                 return new clsMesazh(false, ex.Message);
             }
-          
-            return mag.krijoMagazine(false,0, konfmag.IdNivel, konfmag.IdKonfigAmbjente, 0, "", idmag, kodmag, dtdok, nrdok, 0, "", konfmag.IdKategori, iddoknga, 0, idstatusdok, idndermarje, idnderviti, idperdoruesi, dtregj, hyrje_dalje ? 1 : 2, shenime, idnivelekzekutim, idkonfigekzekutim, idkokaekzekutim, 0, "", 0, "", 0, "", false, idgrup1, idgrup2, idgrup3, "", "", "", coltrupi, new clsKokaMagazina(), new clsKokaFleteKontabel(), new clsKokaRezervime(), new clsDatabaseRegjistrim(dbprodh ), true, 0, "", 0, false, idkrijuesi, dtdok, 0, "", "", "", 0, null,false,false,"","",0);
+
+            return mag.krijoMagazine(false, 0, konfmag.IdNivel, konfmag.IdKonfigAmbjente, 0, "", idmag, kodmag, dtdok, nrdok, 0, "", konfmag.IdKategori, iddoknga, 0, idstatusdok, idndermarje, idnderviti, idperdoruesi, dtregj, hyrje_dalje ? 1 : 2, shenime, idnivelekzekutim, idkonfigekzekutim, idkokaekzekutim, 0, "", 0, "", 0, "", false, idgrup1, idgrup2, idgrup3, "", "", "", coltrupi, new clsKokaMagazina(), new clsKokaFleteKontabel(), new clsKokaRezervime(), new clsDatabaseRegjistrim(dbprodh), true, 0, "", 0, false, idkrijuesi, dtdok, 0, "", "", "", 0, null, false, false, "", "", 0);
         }
 
         /// <summary>
@@ -775,7 +774,7 @@ namespace DbCore.DbProdhimi
                         krijuar = false;
                         try
                         {
-                            krijuar = trupMag1.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, -rec.SasiaAktuale, rec.Kosto, -rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "",0, dbinv,false, 0, 0);
+                            krijuar = trupMag1.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, -rec.SasiaAktuale, rec.Kosto, -rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, false, 0, 0);
                         }
                         catch (Exception ex)
                         {
@@ -804,7 +803,7 @@ namespace DbCore.DbProdhimi
                         bool krijuar = false;
                         try
                         {
-                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, rec.SasiaAktuale, rec.Kosto, rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "",0, dbinv,false, 0, 0);
+                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, rec.SasiaAktuale, rec.Kosto, rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, false, 0, 0);
                         }
                         catch (Exception ex)
                         {
@@ -859,7 +858,7 @@ namespace DbCore.DbProdhimi
 
             foreach (clsProduktProdhimi trupi in colProdukte)
                 if (trupi.SasiaAktuale == 0)
-                    return new clsMesazh(false, STR_SasiaNukDuhetTeJeteZero);            
+                    return new clsMesazh(false, STR_SasiaNukDuhetTeJeteZero);
             return new clsMesazh(true, STR_KontrolletUKaluanMeSukses);
         }
 
@@ -956,7 +955,7 @@ namespace DbCore.DbProdhimi
                 if (!clsNjesiProdhimi.eshteAktiveNjesiProdhimiSipasKodit(kodNjesiProdhimi, idNder))
                     return new clsMesazh(false, "Njesia e prodhimit " + kodNjesiProdhimi + " nuk eshte aktive!");
                 idNjesiProdh = clsNjesiProdhimi.ktheIdNjesiProdhimiSipasKodit(kodNjesiProdhimi, idNder);
-            }            
+            }
             return krijoEkzekutim(idNivel, konfigAmb.IdKonfigAmbjente, idMagProd, kodmagpro, idMagRec, kodmagrec, dtDk, nrDk, 0, idSt, idNder, idNdVt, idPer, dtRegj, shenim, 0, 0, 0, totali, idGrup1, idGrup2, idGrup3, coltrupi, idNjesiProdh, kodNjesiProdhimi, true);
         }
 
@@ -1014,11 +1013,11 @@ namespace DbCore.DbProdhimi
             clsMesazh mesazh;
             string shfaqmesazhapolupemag = "jo";
             shfaqmesazhapolupe = "jo";
-         string   mesazhmevonshem = "";
+            string mesazhmevonshem = "";
             idkoka = 0;
             try
             {
-                clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbRegj );
+                clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbRegj);
                 mesazh = dbRegj.ruajKokaEkzekutim(out idkoka, idNiv, idKonf, idmagprodukt, idmagreceptura, dtDk, nrDk, idLidhes, idSt, idNder, idNdVt, idPer, dtRegj, shenim, idNivelGjenerues, idKonfigGjenerues, idGjenerues, totali, idgrup1, idgrup2, idgrup3, idNjesiProdhimi);
                 if (!mesazh.Status)
                     return new clsMesazh(false, STR_NdodhiNjeGabimGjateRuajtjesSeKokesSePlanifikimit);
@@ -1040,7 +1039,7 @@ namespace DbCore.DbProdhimi
                 }
                 if (magdalje.NrDok != null && magdalje.OcolTrupiMagazina.Count > 0)
                 {
-                    clsDatabaseShare dbshare = new clsDatabaseShare(db );
+                    clsDatabaseShare dbshare = new clsDatabaseShare(db);
                     bool gjithmone = false;
                     //clsKusht kushtgj = new clsKusht(magdalje.IdKonfigAmbjente, "GJKGJ", dbshare);
                     //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
@@ -1048,14 +1047,14 @@ namespace DbCore.DbProdhimi
                     magdalje.NrDok = nrDk;
                     magdalje.IdGjenerues = idkoka;
 
-                    mesazh = magdalje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,false, out mesazhmevonshem, null ,false, false);
+                    mesazh = magdalje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, false, out mesazhmevonshem, null, false, false);
                     if (!mesazh.Status)
                         return mesazh;
                 }
-                double shumatotale = 0; int i = 0;
+                double shumatotale = 0; int i = 0; int j = 0;
                 foreach (clsProduktProdhimi o in colprodukt)
                 {
-                   
+
                     double shuma = 0;
                     o.IdKoka = idkoka;
                     foreach (clsRecepturaProdhimi r in o.ColReceptura)
@@ -1065,13 +1064,22 @@ namespace DbCore.DbProdhimi
                             shuma += r.KostoTotale; continue;
                         }
 
-                       
-                        if (r.SasiaAktuale > 0) 
+
+                        if (r.SasiaAktuale > 0)
                         {
-                            r.Kosto = magdalje.OcolTrupiMagazina[i].Cmimi;
-                            r.KostoTotale = magdalje.OcolTrupiMagazina[i].Vlefta;
-                            shuma += r.KostoTotale;
-                            
+                            if (i >= magdalje.OcolTrupiMagazina.Count)
+                            {
+                                r.Kosto = magdalje.OcolTrupiMagazina[j].Cmimi;
+                                r.KostoTotale = magdalje.OcolTrupiMagazina[j].Vlefta;
+                                shuma += r.KostoTotale;
+                            }
+                            else
+                            {
+                                r.Kosto = magdalje.OcolTrupiMagazina[i].Cmimi;
+                                r.KostoTotale = magdalje.OcolTrupiMagazina[i].Vlefta;
+                                shuma += r.KostoTotale;
+                            }
+
                         }
                         else
                         {
@@ -1079,6 +1087,7 @@ namespace DbCore.DbProdhimi
                         }
                         i++;
                     }
+                    j++;
                     o.Kosto = shuma / o.SasiaAktuale;
                     o.KostoTotale = shuma;
                     shumatotale += shuma;
@@ -1118,7 +1127,7 @@ namespace DbCore.DbProdhimi
                 }
                 mesazh = dbRegj.modifikoTotalKokaEkzekutim(idkoka, shumatotale);
 
-              
+
                 if (konfmaghyrje.IdKonfigAmbjente != 0)
                 {
                     mesazh = krijoMagazineNgaEkzekutimi(maghyrje, nrDk, dtDk, dtRegj, idPer, idNder, idNdVt, idkoka, idKonf, idNiv, colprodukt, shenim, iddokngamag2, idSt, true, konfmaghyrje, idmagprodukt, kodmagprodukt, idgrup1, idgrup2, idgrup3, idkrijuesi, dbRegj);
@@ -1126,7 +1135,7 @@ namespace DbCore.DbProdhimi
                         return mesazh;
                 }
 
-                
+
 
                 if (maghyrje.NrDok != null)
                 {
@@ -1134,7 +1143,7 @@ namespace DbCore.DbProdhimi
                     maghyrje.NrDok = nrDk;
                     maghyrje.IdGjenerues = idkoka;
 
-                    mesazh = maghyrje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,false, out mesazhmevonshem, null, false, false);
+                    mesazh = maghyrje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, false, out mesazhmevonshem, null, false, false);
                     if (!mesazh.Status)
                         return mesazh;
                 }
@@ -1153,13 +1162,13 @@ namespace DbCore.DbProdhimi
                     DbQendraKosto.colObjektivaKosto objektivat;
                     List<double> vleratobjektiva; List<double> vleratobjektivamonbaze;
                     List<int> idllogobj;
-  clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet(dbRegj );
-                    clsKokaFleteKontabel fletekont = DbKontabiliteti.clsKokaFleteKontabel.gjeneroKontabilizimProdhim(idkoka, idNiv, idKonf, dtDk, nrDk, idNder, idNdVt, idPer, dtRegj, colprodukt, perfk, idDokNgaFK, idLlojDok, idperiudha, idkategoria, out objektivat, out vleratobjektiva, out vleratobjektivamonbaze, out idllogobj, 0, 0, 0, out  shfaqmesazhapolupe, iddokngaqendra, trupivjeterqendra, idGjuha, rm, ci, dbKont);
+                    clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet(dbRegj);
+                    clsKokaFleteKontabel fletekont = DbKontabiliteti.clsKokaFleteKontabel.gjeneroKontabilizimProdhim(idkoka, idNiv, idKonf, dtDk, nrDk, idNder, idNdVt, idPer, dtRegj, colprodukt, perfk, idDokNgaFK, idLlojDok, idperiudha, idkategoria, out objektivat, out vleratobjektiva, out vleratobjektivamonbaze, out idllogobj, 0, 0, 0, out shfaqmesazhapolupe, iddokngaqendra, trupivjeterqendra, idGjuha, rm, ci, dbKont);
                     if (fletekont.NrDukumentiKokaFleteKontabel != null)
                     {
                         fletekont.NrDukumentiKokaFleteKontabel = nrDk;
                         fletekont.IdGjenerues = idkoka;
-                      
+
                         mesazh = fletekont.Ruaj(dbKont);
                         if (!mesazh.Status)
                         {
@@ -1181,7 +1190,7 @@ namespace DbCore.DbProdhimi
         /// </summary>
         /// <param name="hfNrAutoregjistrime">hiddenField i Devit qe mban numrat automatike,null nese nuk perodren</param>
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
-        public clsMesazh ruaj(IDictionary<string, object> hfNrAutoregjistrime, colPlanifikimEkzekutim colpan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out  string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool vjenNgaImportSQL, string idDokImport, string emerTabKoka, string primaryKeyEmerFushe, string emerFusheNdermarrje, bool modifikim)
+        public clsMesazh ruaj(IDictionary<string, object> hfNrAutoregjistrime, colPlanifikimEkzekutim colpan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool vjenNgaImportSQL, string idDokImport, string emerTabKoka, string primaryKeyEmerFushe, string emerFusheNdermarrje, bool modifikim)
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
             //db.krijoManager();
@@ -1197,7 +1206,7 @@ namespace DbCore.DbProdhimi
                 }
                 if (vjenNgaImportSQL && idDokImport != string.Empty)
                 {
-                    DbRegjistrim.clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim(db );
+                    DbRegjistrim.clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim(db);
                     int statusi = 1;
                     u_ruajt = dbRegj.updateDokTabeleTemportal(idDokImport, idNdermarrje, statusi, emerTabKoka, primaryKeyEmerFushe, emerFusheNdermarrje);
                     if (!u_ruajt.Status)
@@ -1233,7 +1242,7 @@ namespace DbCore.DbProdhimi
             }
             int id = 0;
             // thirret ruajTotalEkzekutimi sepse ne rastin e modifikimit kur ruhet nje rekord i ri me ndryshimet qe bejme DtModifikimi duhet te jete null, ruhet DtModifikimi te rekordi mbi te cilin behen modifikimet
-            clsMesazh u_ruajt = clsKokaEkzekutim.ruajTotalEkzekutim(out id, IdNivel, IdKonfigAmbjente, IdMagProdukti, IdMagReceptura, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, totali, colProdukte, db, colpan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, iddokngamag, iddokngamag2, kodMagProdukti, kodMagReceptura, idDokNgaFK, IdGrup1, IdGrup2, IdGrup3, out  shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, idGjuha, rm, ci, idPerdoruesi, idNjesiProdhimi, modifikim);
+            clsMesazh u_ruajt = clsKokaEkzekutim.ruajTotalEkzekutim(out id, IdNivel, IdKonfigAmbjente, IdMagProdukti, IdMagReceptura, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, totali, colProdukte, db, colpan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, iddokngamag, iddokngamag2, kodMagProdukti, kodMagReceptura, idDokNgaFK, IdGrup1, IdGrup2, IdGrup3, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, idGjuha, rm, ci, idPerdoruesi, idNjesiProdhimi, modifikim);
             idKokaEkzekutim = id;
             if (!u_ruajt.Status)
             {
@@ -1278,7 +1287,7 @@ namespace DbCore.DbProdhimi
         /// <returns> clsMesazh</returns>
         private clsMesazh kontrolloNrAutoEkzekutim(out bool kaNdryshimNumri, clsDatabazeProdhimi dbRegj, IDictionary<string, object> hfregjistrime)
         {
-            clsDatabaseAdmin db = new clsDatabaseAdmin(dbRegj );
+            clsDatabaseAdmin db = new clsDatabaseAdmin(dbRegj);
             List<NrAuto> list = DbAdmin.clsNrAutom.kontrollogjithenumrat(db, hfregjistrime, dtDok);
             if (NrAuto.ktheVlerenEre(list, "NrDok") != "")
                 nrDok = NrAuto.ktheVlerenEre(list, "NrDok");
@@ -1310,19 +1319,19 @@ namespace DbCore.DbProdhimi
         /// <param name="dbProdh">clsDataBazeProdhimi per transaksionet</param>
         /// <param name="totali"> totali i dokumentit</param>
         /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
-        public static clsMesazh modifikoEkzekutim(int idkoka, int idNiv, int idKonf, int idmagprod, int idmagrec, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, double totali, colProduktProdhimi colProdukt, clsDatabazeProdhimi dbProdh, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, string kodmagprodukt, string kodmagrec, int idgrup1, int idgrup2, int idgrup3, out  string shfaqmesazhapolupe, out int idkokare, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, clsKokaEkzekutim koka, int idNjesiProdhimi, bool modifikim)
+        public static clsMesazh modifikoEkzekutim(int idkoka, int idNiv, int idKonf, int idmagprod, int idmagrec, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, double totali, colProduktProdhimi colProdukt, clsDatabazeProdhimi dbProdh, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, string kodmagprodukt, string kodmagrec, int idgrup1, int idgrup2, int idgrup3, out string shfaqmesazhapolupe, out int idkokare, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, clsKokaEkzekutim koka, int idNjesiProdhimi, bool modifikim)
         {
             idkokare = 0;
             shfaqmesazhapolupe = "jo";
             clsMesazh mesazh = new clsMesazh();
-            clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh );
+            clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh);
             //db.vendosManager(dbProdh );
-            clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh );
-            DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh );
+            clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh);
+            DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh);
             try
             {   //obj koka qe i kalohet si parameter eshte si duhet te modifikohet
                 clsKokaEkzekutim kokaEkzistuese = new clsKokaEkzekutim();
-                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh );
+                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh);
                 kokaEkzistuese.mbushKokaEkzekutimSipasID(idkoka, dbProdh);
 
                 if (string.IsNullOrEmpty(kokaEkzistuese.NrDok) || kokaEkzistuese.IdStatusDok == 2)
@@ -1383,7 +1392,7 @@ namespace DbCore.DbProdhimi
                 if (newclsKokaFleteKontabel.NrDukumentiKokaFleteKontabel != null)
                 {
                     kokaEkzistuese.OFleteKontabel = newclsKokaFleteKontabel;
-                   
+
                 }
 
                 if (kokaEkzistuese.OFleteKontabel.IdKokaFleteKontabel != 0)
@@ -1395,26 +1404,26 @@ namespace DbCore.DbProdhimi
                 bool kaveprimepas = false;
                 if (kokaEkzistuese.OMagazineDalje.IdKokaMagazina != 0)
                 {
-                   
-                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idPer, db,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+
+                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idPer, db, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
                     }
-                    
+
                 }
                 if (kokaEkzistuese.OMagazineHyrje.IdKokaMagazina != 0)
                 {
-               
-                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idPer, db,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+
+                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idPer, db, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
                     }
-                    
+
                 }
 
-                mesazh = ruajTotalEkzekutim(out idkoka, idNiv, idKonf, idmagprod, idmagrec, dtDk, nrDk, idLidhes, idSt, idNder, idNdVt, idPer, dtRegj, shenim, idNivelGjenerues, idKonfigGjenerues, idGjenerues, totali, colProdukt, dbProdh, colplan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, kokaEkzistuese.OMagazineDalje.IdKokaMagazina, kokaEkzistuese.oMagazineHyrje.IdKokaMagazina, kodmagprodukt, kodmagrec, kokaEkzistuese.oFleteKontabel.IdKokaFleteKontabel, idgrup1, idgrup2, idgrup3, out   shfaqmesazhapolupe, kokaEkzistuese.OFleteKontabel.KokaQendraKosto.IdKoka, kokaEkzistuese.oFleteKontabel.KokaQendraKosto.ColTrupi, eshteOwn, idGjuha, rm, ci, kokaEkzistuese.oMagazineHyrje.IdKrijuesi, idNjesiProdhimi, modifikim);
+                mesazh = ruajTotalEkzekutim(out idkoka, idNiv, idKonf, idmagprod, idmagrec, dtDk, nrDk, idLidhes, idSt, idNder, idNdVt, idPer, dtRegj, shenim, idNivelGjenerues, idKonfigGjenerues, idGjenerues, totali, colProdukt, dbProdh, colplan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, kokaEkzistuese.OMagazineDalje.IdKokaMagazina, kokaEkzistuese.oMagazineHyrje.IdKokaMagazina, kodmagprodukt, kodmagrec, kokaEkzistuese.oFleteKontabel.IdKokaFleteKontabel, idgrup1, idgrup2, idgrup3, out shfaqmesazhapolupe, kokaEkzistuese.OFleteKontabel.KokaQendraKosto.IdKoka, kokaEkzistuese.oFleteKontabel.KokaQendraKosto.ColTrupi, eshteOwn, idGjuha, rm, ci, kokaEkzistuese.oMagazineHyrje.IdKrijuesi, idNjesiProdhimi, modifikim);
                 idkokare = idkoka;
                 return mesazh;
             }
@@ -1449,19 +1458,19 @@ namespace DbCore.DbProdhimi
         /// <param name="dbProdh">clsDataBazeProdhimi per transaksionet</param>
         /// <param name="totali"> totali i dokumentit</param>
         /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
-        public static clsMesazh modifikoTotalEkzekutim(int idkoka, int idNiv, int idKonf, int idmagprod, int idmagrec, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, double totali, colProduktProdhimi colProdukt, clsDatabazeProdhimi dbProdh, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, string kodmagprodukt, string kodmagrec, int idgrup1, int idgrup2, int idgrup3, out  string shfaqmesazhapolupe, out int idkokare, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, int idNjesiProdhimi, bool modifikim)
+        public static clsMesazh modifikoTotalEkzekutim(int idkoka, int idNiv, int idKonf, int idmagprod, int idmagrec, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, double totali, colProduktProdhimi colProdukt, clsDatabazeProdhimi dbProdh, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, string kodmagprodukt, string kodmagrec, int idgrup1, int idgrup2, int idgrup3, out string shfaqmesazhapolupe, out int idkokare, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, int idNjesiProdhimi, bool modifikim)
         {
             idkokare = 0;
             shfaqmesazhapolupe = "jo";
             clsMesazh mesazh = new clsMesazh();
-            clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh );
+            clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh);
             //db.vendosManager(dbProdh );
-            clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh );
-            DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh );
+            clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh);
+            DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh);
             try
             {   //obj koka qe i kalohet si parameter eshte si duhet te modifikohet
                 clsKokaEkzekutim kokaEkzistuese = new clsKokaEkzekutim();
-                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh );
+                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh);
                 kokaEkzistuese.mbushKokaEkzekutimSipasID(idkoka, dbProdh);
                 if (string.IsNullOrEmpty(kokaEkzistuese.NrDok) || kokaEkzistuese.IdStatusDok == 2)
                 {
@@ -1516,7 +1525,7 @@ namespace DbCore.DbProdhimi
                 if (newclsKokaFleteKontabel.NrDukumentiKokaFleteKontabel != null)
                 {
                     kokaEkzistuese.OFleteKontabel = newclsKokaFleteKontabel;
-                    
+
 
                 }
 
@@ -1529,25 +1538,25 @@ namespace DbCore.DbProdhimi
                 bool kaveprimepas = false;
                 if (kokaEkzistuese.OMagazineDalje.IdKokaMagazina != 0)
                 {
-             
-                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idPer, db,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+
+                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idPer, db, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
                     }
-                    
+
                 }
                 if (kokaEkzistuese.OMagazineHyrje.IdKokaMagazina != 0)
                 {
 
-                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idPer, db,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idPer, db, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
                     }
-                  
+
                 }
-                mesazh = ruajTotalEkzekutim(out idkoka, idNiv, idKonf, idmagprod, idmagrec, dtDk, nrDk, idLidhes, idSt, idNder, idNdVt, idPer, dtRegj, shenim, idNivelGjenerues, idKonfigGjenerues, idGjenerues, totali, colProdukt, dbProdh, colplan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, kokaEkzistuese.OMagazineDalje.IdKokaMagazina, kokaEkzistuese.oMagazineHyrje.IdKokaMagazina, kodmagprodukt, kodmagrec, kokaEkzistuese.oFleteKontabel.IdKokaFleteKontabel, idgrup1, idgrup2, idgrup3, out   shfaqmesazhapolupe, kokaEkzistuese.OFleteKontabel.KokaQendraKosto.IdKoka, kokaEkzistuese.oFleteKontabel.KokaQendraKosto.ColTrupi, eshteOwn, idGjuha, rm, ci, idPer, idNjesiProdhimi, modifikim);
+                mesazh = ruajTotalEkzekutim(out idkoka, idNiv, idKonf, idmagprod, idmagrec, dtDk, nrDk, idLidhes, idSt, idNder, idNdVt, idPer, dtRegj, shenim, idNivelGjenerues, idKonfigGjenerues, idGjenerues, totali, colProdukt, dbProdh, colplan, idperiudha, mekontabilizim, konfmagdalje, konfmaghyrje, kokaEkzistuese.OMagazineDalje.IdKokaMagazina, kokaEkzistuese.oMagazineHyrje.IdKokaMagazina, kodmagprodukt, kodmagrec, kokaEkzistuese.oFleteKontabel.IdKokaFleteKontabel, idgrup1, idgrup2, idgrup3, out shfaqmesazhapolupe, kokaEkzistuese.OFleteKontabel.KokaQendraKosto.IdKoka, kokaEkzistuese.oFleteKontabel.KokaQendraKosto.ColTrupi, eshteOwn, idGjuha, rm, ci, idPer, idNjesiProdhimi, modifikim);
                 idkokare = idkoka;
                 return mesazh;
             }
@@ -1562,7 +1571,7 @@ namespace DbCore.DbProdhimi
         /// </summary>
         /// <param name="lidhur">tregon nese eshte i lidhur ose jo</param>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
-        public clsMesazh modifiko(bool lidhur, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out  string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool modifikim)
+        public clsMesazh modifiko(bool lidhur, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool modifikim)
         {
             shfaqmesazhapolupe = "jo";
             clsMesazh u_modifikua;
@@ -1598,7 +1607,7 @@ namespace DbCore.DbProdhimi
         /// </summary>
         /// <param name="lidhur">tregon nese eshte i lidhur ose jo</param>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
-        public clsMesazh modifikoTotal(bool lidhur, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out  string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool modifikim)
+        public clsMesazh modifikoTotal(bool lidhur, colPlanifikimEkzekutim colplan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool modifikim)
         {
             shfaqmesazhapolupe = "jo";
             clsMesazh u_modifikua;
@@ -1635,9 +1644,9 @@ namespace DbCore.DbProdhimi
             clsMesazh mesazh = new clsMesazh(true);
             try
             {
-                clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(dbProdh );
-                clsDatabaseRegjistrim dbRegjistrim = new clsDatabaseRegjistrim(dbProdh );
-                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh );
+                clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(dbProdh);
+                clsDatabaseRegjistrim dbRegjistrim = new clsDatabaseRegjistrim(dbProdh);
+                DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh);
                 //dbRegjistrim.vendosManager(dbProdh );
                 clsKokaEkzekutim kokaEkzistuese = new clsKokaEkzekutim();
                 kokaEkzistuese.mbushKokaEkzekutimSipasID(idkokaekzekutim, dbProdh);
@@ -1664,7 +1673,7 @@ namespace DbCore.DbProdhimi
                 if (newclsKokaFleteKontabel.NrDukumentiKokaFleteKontabel != null)
                 {
                     kokaEkzistuese.OFleteKontabel = newclsKokaFleteKontabel;
-                    
+
                 }
                 if (kokaEkzistuese.OFleteKontabel.IdKokaFleteKontabel != 0)
                 {
@@ -1677,7 +1686,7 @@ namespace DbCore.DbProdhimi
                 if (kokaEkzistuese.OMagazineDalje.IdKokaMagazina != 0)
                 {
 
-                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idperdoruesi, dbRegjistrim,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+                    mesazh = kokaEkzistuese.OMagazineDalje.fshiMagazina(kokaEkzistuese.OMagazineDalje.IdKokaMagazina, idperdoruesi, dbRegjistrim, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
@@ -1686,8 +1695,8 @@ namespace DbCore.DbProdhimi
                 }
                 if (kokaEkzistuese.OMagazineHyrje.IdKokaMagazina != 0)
                 {
-            
-                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idperdoruesi, dbRegjistrim,false,false,false, new DbAsete.colSerialetMagazine (), out kaveprimepas,true);
+
+                    mesazh = kokaEkzistuese.OMagazineHyrje.fshiMagazina(kokaEkzistuese.OMagazineHyrje.IdKokaMagazina, idperdoruesi, dbRegjistrim, false, false, false, new DbAsete.colSerialetMagazine(), out kaveprimepas, true);
                     if (!mesazh.Status)
                     {
                         return mesazh;
@@ -1945,7 +1954,7 @@ namespace DbCore.DbProdhimi
                     int.TryParse(rreshti["IDGJENERUES"].ToString(), out idGjenerues);
                     int.TryParse(rreshti["IDNJESIPRODHIMI"].ToString(), out idNjesiProdhimi);
                     DateTime.TryParse(rreshti["DTKRIJIMI"].ToString(), out dtKrijimi);
-                    DateTime.TryParse(rreshti["DTMODIFIKIMI"].ToString(), out dtModifikimi);                    
+                    DateTime.TryParse(rreshti["DTMODIFIKIMI"].ToString(), out dtModifikimi);
                     return true;
                 }
                 catch (InvalidCastException)

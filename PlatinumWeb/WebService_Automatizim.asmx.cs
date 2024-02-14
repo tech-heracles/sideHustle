@@ -1424,7 +1424,40 @@ namespace PlatinumWeb
 
             return trupat;
         }
-
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public clsMesazh addDeposit(string obj)
+        {
+            try
+            {
+                //object json = JsonConvert.DeserializeObject(obj);
+                Deposit deposit = JsonConvert.DeserializeObject<Deposit>(obj);
+                clsMesazh serverMessage = clsLogin.setServerFromOrgName(Session.SessionID, deposit.alphaMetadata.organization);
+                if (!serverMessage.Status) return new clsMesazh(false, serverMessage.PershkrimMesazhi);
+                clsKonfigurimAmbjenti konfigurimAmbjentiShitje = new clsKonfigurimAmbjenti();
+                clsNdermarrje enterprise = new clsNdermarrje(deposit.alphaMetadata.enterprise);
+                DateTime docDate = DateTime.Parse(deposit.docDate);
+                konfigurimAmbjentiShitje.mbushKonfigAmbjSipasKod(deposit.alphaMetadata.invoiceFormat, enterprise.IdNdermarrje);
+                clsKokaShitje sale = new clsKokaShitje();
+                sale.mbushKokaShitjeSipasIdKonfigAmbNrDokDtDok(konfigurimAmbjentiShitje.IdKonfigAmbjente, deposit.docNo, docDate);
+                sale.OFleteKontabel = sale.OFleteKontabel == null ? new clsKokaFleteKontabel() : sale.OFleteKontabel;
+                if (sale.IdShitjeKoka == 0) return new clsMesazh(false, $"Fatura me numer {deposit.docNo} nuk ekziston ne Alpha");
+                bool paid = deposit.paid;
+                clsPeriudhaKontabel timeperiod = new clsPeriudhaKontabel(docDate, enterprise.IdNdermarrje);
+                clsVeprimBankaKoka bankDeposit = new clsVeprimBankaKoka();
+                string showMessage = "";
+                string showMessageWithLoop = "";
+                clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
+                clsDatabaseShare dbshare = new clsDatabaseShare();
+                clsMesazh mesazhArkeBanke = sale.krijoDokArkeBanke(sale, ref paid, ref bankDeposit, true, ref showMessage, ref showMessageWithLoop, timeperiod.IdPeriudha, dbRegj, dbshare);
+                if (!mesazhArkeBanke.Status) return mesazhArkeBanke;
+                return new clsMesazh(true, "Arketimi u sinkronizua me sukses!");
+            }
+            catch (Exception err)
+            {
+                return new clsMesazh(false, "Risinkronizimi i fatures se shitjes deshtoi");
+            }
+        }
         private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
         {
             Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];

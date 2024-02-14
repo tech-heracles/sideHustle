@@ -514,6 +514,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\alphaMetadata.cs" />
+    <Compile Include="classes\Deposit.cs" />
     <Compile Include="classes\GiftCard.cs" />
     <Compile Include="classes\LogMessage.cs" />
     <Compile Include="classes\ProcessedOrder\ProcessEnums.cs" />
