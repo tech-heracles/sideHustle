@@ -51,7 +51,7 @@ namespace PlatinumWeb.ApplicationUtils.Pages
             try
             {
                 string absolutePath = Request.Url.AbsolutePath.ToString();
-                if (absolutePath.Contains("aspx") && absolutePath != "/Login_Ndermarrje.aspx" && absolutePath != "/FaqeKryesore" && Session != null)
+                if (absolutePath.Contains("aspx") && absolutePath != "/Login_Ndermarrje.aspx" && absolutePath != "/FaqeKryesore" && Session != null && absolutePath != "/Raporti.aspx")
                 {
                     clsPerdorues user = new clsPerdorues(IdPerdoruesi);
                     clsNdermarrje enterprise = new clsNdermarrje(IdNdermarrja);

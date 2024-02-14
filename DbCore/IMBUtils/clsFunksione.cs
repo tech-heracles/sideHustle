@@ -1952,8 +1952,8 @@ namespace DbCore
             var ls = MerrKaraktereTePalejuara(text, lejoPresje);
             if (Regex.IsMatch(text, @"\s{2,}|[\t]"))
                 return new clsMesazh(false, MessageResource["msgPershkrimiHapesiraTeNjepasnjeshme"]);
-            if ((lloji == FusheKontrolli.Kodi || lloji == FusheKontrolli.Kodbari) && System.Text.RegularExpressions.Regex.IsMatch(text, @"\s+"))
-                return new clsMesazh(false, MessageResource["msgKodiHapsira"]);
+            //if ((lloji == FusheKontrolli.Kodi || lloji == FusheKontrolli.Kodbari) && System.Text.RegularExpressions.Regex.IsMatch(text, @"\s+"))
+            //    return new clsMesazh(false, MessageResource["msgKodiHapsira"]);
             if (text.Contains("'"))
                 return new clsMesazh(false, MessageResource["msgZevendesimThonjeze"]);
             if (text.Contains("+") && lloji == FusheKontrolli.Kodbari)
