@@ -1473,7 +1473,7 @@ namespace PlatinumWeb
                     int.TryParse(currentRow.ItemArray[0].ToString() ?? "0", out int id);
                     if (new clsVeprimBankaKoka(id).IdKoka != 0) return new clsMesazh(false, "Fatura eshte e likuiduar!");
                 }
-                colVeprimBankaTrupi trupi = new colVeprimBankaTrupi() { new clsVeprimBankaTrupi("Klient", client.IdKlientFurnitor, description, "Kredi", sale.IdShitjeKoka, 0.00, 0.00, sale.Totali, sale.Totali * exRate, 0.00, exRate, sale.IdNivel, 0, client.CelKF, DateTime.Now.Month.ToString(), "", 0.00, 0.00, "Ruajtur", false) };
+                colVeprimBankaTrupi trupi = new colVeprimBankaTrupi() { new clsVeprimBankaTrupi("Klient", client.IdKlientFurnitor, description, "Kredi", sale.IdShitjeKoka, 0.00, 0.00, sale.Totali, sale.Totali * exRate, sale.Totali, exRate, sale.IdNivel, 0, client.CelKF, DateTime.Now.Month.ToString(), "", 0.00, 0.00, "Ruajtur", false) };
                 clsMesazh message = bankDeposit.krijoVeprimeBanke(sale.IdArka, bank.KodiBanka, exRate, DateTime.Now, DateTime.Now, sale.NrDok, 0, "", description, sale.IdMenyrePagese, sale.KodMenyrePagese, sale.Totali, sale.Totali * exRate, 0.00, 0.00, type, user.IdPerdorues, level.IdKategori, 1
                     , enterpriseYear.IdNderViti, config.IdKonfigAmbjente, 0, 0, 0, config.IdNivel, 0, sale.IdDegeAdministrative, new clsDegeAdministrative(sale.IdDegeAdministrative).Kodi, sale.IdNdermarrje, 0, trupi, true, period.IdPeriudha, currecny.IdMonedha, "", 0, 0, 0, new clsKonfigurimAmbjenti(sale.IdKonfigAmbjente),
                     new object[] { sale.IdNivel.ToString() }, dbArka, sale, out shfaqMesazh, out shfaqMesazh2, new colTrupiQendraKosto(), 0, "", "", 0, sale.Targa, 0, "", "", "", false, StatusAprovimi.Undefined, "", 0, new clsLlogari(client.IdLlogari).NrLlogari, new Dictionary<string, object>(), 3, 0, user.IdPerdorues);
@@ -1487,7 +1487,7 @@ namespace PlatinumWeb
             }
             catch (Exception err)
             {
-                return new clsMesazh(false, "Risinkronizimi i fatures se shitjes deshtoi");
+                return new clsMesazh(false, err.Message);
             }
         }
         private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
