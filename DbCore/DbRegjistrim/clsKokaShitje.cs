@@ -9841,7 +9841,7 @@ namespace DbCore.DbRegjistrim
                         if (dbDataRowKokeShitje.Table.Columns.Contains("TipiIVetefaturimit"))
                             tipiIVetefaturimit = dbDataRowKokeShitje["TipiIVetefaturimit"].ToString();
                     }
-
+                    kodMenyrePagese = ((MenyrePagese)((UInt16)IdMenyrePagese)).ToString();
                     ImbLogger.LogTraceShitje("Mbaroi metoda mbushKokeShitjePaTrup");
                     return true;
                 }

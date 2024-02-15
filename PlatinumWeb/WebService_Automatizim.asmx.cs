@@ -1435,6 +1435,9 @@ namespace PlatinumWeb
                 clsMesazh serverMessage = clsLogin.setServerFromOrgName(Session.SessionID, deposit.alphaMetadata.organization);
                 if (!serverMessage.Status) return new clsMesazh(false, serverMessage.PershkrimMesazhi);
                 clsKonfigurimAmbjenti konfigurimAmbjentiShitje = new clsKonfigurimAmbjenti();
+                clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
+                clsPerdorues user = new clsPerdorues(deposit.alphaMetadata.userEmail.Split('@')[0], deposit.alphaMetadata.userEmail, true);
+                dbAdmin.Dispose();
                 clsNdermarrje enterprise = new clsNdermarrje(deposit.alphaMetadata.enterprise);
                 DateTime docDate = DateTime.Parse(deposit.docDate);
                 konfigurimAmbjentiShitje.mbushKonfigAmbjSipasKod(deposit.alphaMetadata.invoiceFormat, enterprise.IdNdermarrje);
@@ -1445,12 +1448,41 @@ namespace PlatinumWeb
                 bool paid = deposit.paid;
                 clsPeriudhaKontabel timeperiod = new clsPeriudhaKontabel(docDate, enterprise.IdNdermarrje);
                 clsVeprimBankaKoka bankDeposit = new clsVeprimBankaKoka();
-                string showMessage = "";
-                string showMessageWithLoop = "";
-                clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
+                clsBanka bank = new clsBanka(sale.IdArka);
+                clsMonedha currecny = new clsMonedha(sale.IdMonedha);
+                double exRate = currecny.OColKurset.OrderByDescending(x => x.DataKursit).FirstOrDefault()?.VleraKursi ?? sale.Kursi;
+                string description = $"Likuiduar fatura nr: {sale.NrDok}";
+                string type = sale.IdMenyrePagese == 11 ? "Derdhje" : "Arketim";
+                string configType = sale.IdMenyrePagese == 11 ? "A" : "ARKETIM";
                 clsDatabaseShare dbshare = new clsDatabaseShare();
-                clsMesazh mesazhArkeBanke = sale.krijoDokArkeBanke(sale, ref paid, ref bankDeposit, true, ref showMessage, ref showMessageWithLoop, timeperiod.IdPeriudha, dbRegj, dbshare);
-                if (!mesazhArkeBanke.Status) return mesazhArkeBanke;
+                clsKonfigurimAmbjenti config = new clsKonfigurimAmbjenti(configType, enterprise.IdNdermarrje, dbshare);
+                clsNdermarrjeViti enterpriseYear = new clsNdermarrjeViti();
+                clsDatabaseArkaBanka dbArka = new clsDatabaseArkaBanka();
+                clsViti year = new clsViti(enterprise.IdNdermarrje, DateTime.Now.Year.ToString());
+                enterpriseYear.mbushNdermarrjeVitiSipasNdermarjesDheVitit(enterprise.IdNdermarrje, year.IdViti);
+                clsPeriudhaKontabel period = new clsPeriudhaKontabel(DateTime.Now, enterprise.IdNdermarrje);
+                string shfaqMesazh = "";
+                string shfaqMesazh2 = "";
+                clsKlientFurnitor client = new clsKlientFurnitor(sale.IdKlientFurnitor);
+                clsNivelRegjistrimi level = new clsNivelRegjistrimi();
+                level.mbushNivelRegjistrimiSipasID(config.IdNivel);
+                var dataTable = sale.merrIdsDokLidhur();
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow currentRow = dataTable.Rows[i];
+                    int.TryParse(currentRow.ItemArray[0].ToString() ?? "0", out int id);
+                    if (new clsVeprimBankaKoka(id).IdKoka != 0) return new clsMesazh(false, "Fatura eshte e likuiduar!");
+                }
+                colVeprimBankaTrupi trupi = new colVeprimBankaTrupi() { new clsVeprimBankaTrupi("Klient", client.IdKlientFurnitor, description, "Kredi", sale.IdShitjeKoka, 0.00, 0.00, sale.Totali, sale.Totali * exRate, 0.00, exRate, sale.IdNivel, 0, client.CelKF, DateTime.Now.Month.ToString(), "", 0.00, 0.00, "Ruajtur", false) };
+                clsMesazh message = bankDeposit.krijoVeprimeBanke(sale.IdArka, bank.KodiBanka, exRate, DateTime.Now, DateTime.Now, sale.NrDok, 0, "", description, sale.IdMenyrePagese, sale.KodMenyrePagese, sale.Totali, sale.Totali * exRate, 0.00, 0.00, type, user.IdPerdorues, level.IdKategori, 1
+                    , enterpriseYear.IdNderViti, config.IdKonfigAmbjente, 0, 0, 0, config.IdNivel, 0, sale.IdDegeAdministrative, new clsDegeAdministrative(sale.IdDegeAdministrative).Kodi, sale.IdNdermarrje, 0, trupi, true, period.IdPeriudha, currecny.IdMonedha, "", 0, 0, 0, new clsKonfigurimAmbjenti(sale.IdKonfigAmbjente),
+                    new object[] { sale.IdNivel.ToString() }, dbArka, sale, out shfaqMesazh, out shfaqMesazh2, new colTrupiQendraKosto(), 0, "", "", 0, sale.Targa, 0, "", "", "", false, StatusAprovimi.Undefined, "", 0, new clsLlogari(client.IdLlogari).NrLlogari, new Dictionary<string, object>(), 3, 0, user.IdPerdorues);
+                if (!message.Status) return message;
+                clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
+                dbshare.Dispose();
+                message = bankDeposit.ruajVeprimBanke(bankDeposit, false, dbArka, false, "", "", "", "", 0, StatusAprovimi.Aprovuar, 0, "", false);
+                dbArka.Dispose();
+                if (!message.Status) return message;
                 return new clsMesazh(true, "Arketimi u sinkronizua me sukses!");
             }
             catch (Exception err)
