@@ -26,7 +26,7 @@
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
  <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-    <script src="https://notification-hub-erbzqkglja-ew.a.run.app/ChatClient.js" crossorigin="anonymous"></script>
+    <script src="https://notification-hub-imb.ew.r.appspot.com/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
