@@ -299,9 +299,9 @@ namespace DbCore.DbRegjistrim
 			string detajimi = "";
 			string detajimi2 = "";
 			if (artikulli.IdKategoriDetajimi == 3)
-				detajimi = rreshtDokuKlient["expirationDate"].ToString();
+				detajimi = rreshtDokuKlient.ContainsKey("expirationDate") ? rreshtDokuKlient["expirationDate"].ToString() : "";
 			else if (artikulli.IdKategoriDetajimi2 == 3)
-				detajimi2 = rreshtDokuKlient["expirationDate"].ToString();
+				detajimi2 = rreshtDokuKlient.ContainsKey("expirationDate") ? rreshtDokuKlient["expirationDate"].ToString() : "";
 			string njesia = rreshtDokuKlient["unit"].ToString();
 			double.TryParse(rreshtDokuKlient["quantity"].ToString(), out this.sasia);
 			double.TryParse(0.ToString(), out this.sasimbetur);
