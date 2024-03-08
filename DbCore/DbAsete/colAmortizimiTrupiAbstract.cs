@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using DbCore.DbRegjistrim;
-using System.Resources;
-using System.Globalization;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Linq;
+using System.Resources;
+using DbCore.DbAdmin;
+using DbCore.DbInventari;
+using DbCore.DbRegjistrim;
+using DbCore.DbShare;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Extensions;
-using EO.Web;
-using DbCore.DbInventari;
-using DbCore.DbShare;
-using Newtonsoft.Json;
-using System.Transactions;
-using DbCore.DbAdmin;
 using DbCore.IMBUtils.Messages;
+using EO.Web;
 
 namespace DbCore.DbAsete
 {
@@ -445,8 +443,8 @@ namespace DbCore.DbAsete
         public clsMesazh krijoTrupiDokAmortizimiPerRivleresim(int nrRenditje, clsAmortizimiKoka kokaEAmortizimit, bool rivlersimXStandart, out string mesazhmevonshem)
         {
             mesazhmevonshem = "";
-               //Marrja e gjithe serialeve qe llogaritur me pare.
-               colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePare = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
+            //Marrja e gjithe serialeve qe llogaritur me pare.
+            colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePare = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
             clsMesazh pergjigja = new clsMesazh()
             {
                 Status = teGjitheSerialetLlogariturMePare.merrAmortizimTrupiAmortFunditSipasRenditjes(kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, kokaEAmortizimit.IdLlojStandarti, nrRenditje)
@@ -505,7 +503,7 @@ namespace DbCore.DbAsete
         /// <param name="meSerial">True nese llogaritja do te behet per artikujt me serial dhe False nese llogaritja do te behet per artikujt pa serial</param>
         /// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
         /// <returns>Kthen True nese rillogaritja kryhet me sukses, ne te kundert False.</returns>
-        public static clsMesazh rillogariTrupinAmortizimArtikuj(colAmortizimiKoka gjitheKokat, int idNdermarrje, int idLlojStandarti,string StandartiEmertim, DateTime dataFillimiRillogaritje, int idPerdoruesi, bool meSerial, EO.Web.ProgressTaskEventArgs e, ResourceManager rm, CultureInfo ci, colAmortizimiTrupiAbstract colAm, colAmortizimiTrupiAbstract colRez)
+        public static clsMesazh rillogariTrupinAmortizimArtikuj(colAmortizimiKoka gjitheKokat, int idNdermarrje, int idLlojStandarti, string StandartiEmertim, DateTime dataFillimiRillogaritje, int idPerdoruesi, bool meSerial, EO.Web.ProgressTaskEventArgs e, ResourceManager rm, CultureInfo ci, colAmortizimiTrupiAbstract colAm, colAmortizimiTrupiAbstract colRez)
         {
             clsMesazh pergjigje = new clsMesazh();
             List<clsAmortizimiTrupiAbstract> lista = new List<clsAmortizimiTrupiAbstract>();
@@ -532,7 +530,7 @@ namespace DbCore.DbAsete
                 FAHT = Convert.ToInt32(konfigurimeAmortizimi["FAHT"]),
                 FAHTK = Convert.ToInt32(konfigurimeAmortizimi["FAHTK"]),
                 FAB = Convert.ToInt32(konfigurimeAmortizimi["FAB"]),
-                FAFpermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FAFpermbledhese"]), 
+                FAFpermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FAFpermbledhese"]),
                 FAFpermblRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFpermblRezerve"]),
                 FAFanalitike = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitike"]),
                 FAFanalitikeRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitikeRezerve"]);
@@ -544,11 +542,11 @@ namespace DbCore.DbAsete
             {
                 colAmortizimiTrupiAbstract trupiPerSerial = colAmortizimiTrupiAbstract.krijoInstance(lista.Count > 0 ? lista[0].objektiKod : enumObjekteAmortizimi.ASETE);
                 var dbData = new DbData();
-                    for (int objektiAktual = 0; objektiAktual < mykoleksionCount; objektiAktual++)
-                    {
-                        #region retryTrans
-                        clsRetryTrans retryTrans = new clsRetryTrans("RillogaritjeAmortizimi", maxRetry);
-                        do
+                for (int objektiAktual = 0; objektiAktual < mykoleksionCount; objektiAktual++)
+                {
+                    #region retryTrans
+                    clsRetryTrans retryTrans = new clsRetryTrans("RillogaritjeAmortizimi", maxRetry);
+                    do
                     {
                         using (var scope = new MyTransactionScope(dbData, 0))
                         {
@@ -561,7 +559,7 @@ namespace DbCore.DbAsete
                                 tempSerialiAktual = serialiAktual;
                                 colAseteNormaAmortizimiAbstract aseteNorma = colAseteNormaAmortizimiAbstract.krijoInstance(objektTrupi.objektiKod);
                                 //nqs nuk eshte dok i pare ne list merr daten e dok paraardhes si data me pare amortizimi
-                                DateTime DateMepareAmortizimi =merrDateAmortizimiDokMePare ? DateAmortizimiTemp.AddDays(1) : objektTrupi.DateMePareAmortizimi.AddDays(1);
+                                DateTime DateMepareAmortizimi = merrDateAmortizimiDokMePare ? DateAmortizimiTemp.AddDays(1) : objektTrupi.DateMePareAmortizimi.AddDays(1);
                                 if (aseteNorma.ktheBoolArtikujNormaAmortizimiBrendaDatave(objektTrupi.IdArtikulli, idLlojStandarti, DateMepareAmortizimi, objektTrupi.DateAmortizimi))
                                     return new clsMesazh(false, String.Format("Serialit {0} per standartin {1} i duhet llogaritur me pare amortizimi pasi ka me shume norma se 1 gjate intervalit {2}  dhe {3} te pallogaritur!", objektTrupi.Serial, StandartiEmertim, DateMepareAmortizimi.ToString("dd/MM/yyyy"), objektTrupi.DateAmortizimi.ToString("dd/MM/yyyy")));
                                 pergjigje = RillogaritTrupDokumentAmortizimi(dbData, objektTrupi, ref tempSerialiAktual, gjitheKokat, idLlojStandarti, idNdermarrje, idPerdoruesi, objektiAktual, ref tempSerialIRi, lista, trupiPerSerial, dataFillimiRillogaritje, FA, FAB, FAS, FAD, FADT, FADTK, FANS, FASS, FRApermbledhese, FRAanalitike, FAFpermbledhese, FAFanalitike, FRApermblRezerve, FRAanalitikeRezerve, FAFpermblRezerve, FAFanalitikeRezerve, FAHT, FAHTK, meSerial, kokaAmortizimiPerModifikim, nrPerqindjeMeSerial, nrPerqindjePaSerial, llojAmortizimi, e);
@@ -588,8 +586,8 @@ namespace DbCore.DbAsete
                             }
                         }
                     } while (retryTrans.isRetrying());
-                        #endregion
-                    }
+                    #endregion
+                }
             }
             catch (Exception)
             {
@@ -628,7 +626,7 @@ namespace DbCore.DbAsete
                 amortizimiKoka.AmortizimiShteseTotal = amortizimiKoka.AmortizimiShteseTotal - amortTrupiKorrent.AmortizimiShtese;
 
             amortizimiKoka.IdPerdoruesi = idPerdoruesi;
-           
+
             //Duhet te kontrolloje per dokumenta te meparshem nga data qe ne fillojme rillogaritjen. 
             //Nese ka i referohet atij dokumenti, ne te kunder rreshti i pare per cdo serial nuk modifikohet.
             //Kjo procedure kryehet vetem kur indeksi eshte zero, pra i pari ne koleksion ose kur indeksi simbolizon nje serial te ri nga ata te meparshmit qe po llogariteshin.
@@ -837,14 +835,14 @@ namespace DbCore.DbAsete
             }
         }
 
-        private clsAmortizimiTrupiAbstract llogaritjaAmortizimitTrup(ref clsAmortizimiTrupiAbstract rreshtiVjeter,int IdArtikull_LlojAmortizimi, clsKarakteristikaStandarti karakteristikaStandartit, DbInventari.clsArtikulli artikulli,
+        private clsAmortizimiTrupiAbstract llogaritjaAmortizimitTrup(ref clsAmortizimiTrupiAbstract rreshtiVjeter, int IdArtikull_LlojAmortizimi, clsKarakteristikaStandarti karakteristikaStandartit, DbInventari.clsArtikulli artikulli,
             clsAmortizimiKoka kokaEAmortizimit, DateTime dataAktualeRresht, int nrRreshtit, int idhistorikufundit, bool ndryshimstatusmagazine, int FAFanalitike, int FAFpermbledhese, int FAB, int FASS)
         {
             bool pergjigje = true;
             artikulli = rreshtiVjeter.Artikull != null ? rreshtiVjeter.Artikull : new DbInventari.clsArtikulli(rreshtiVjeter.IdArtikulli);
             karakteristikaStandartit = clsKarakteristikaStandarti.merrKonfigurimStandarti(DbInventari.clsKodifikimArtikulli.ktheIdPrindiFillestar(artikulli.Kodifikimi1Artikulli), kokaEAmortizimit.IdLlojStandarti, kokaEAmortizimit.IdNdermarrje);
 
-            clsAmortizimiTrupiAbstract clsTrupiAmortRi = clsAmortizimiTrupiAbstract.krijoInstance(nrRreshtit, rreshtiVjeter.IdArtikulli, artikulli.PershkrimArtikulli,IdArtikull_LlojAmortizimi, rreshtiVjeter.DateAmortizimi,
+            clsAmortizimiTrupiAbstract clsTrupiAmortRi = clsAmortizimiTrupiAbstract.krijoInstance(nrRreshtit, rreshtiVjeter.IdArtikulli, artikulli.PershkrimArtikulli, IdArtikull_LlojAmortizimi, rreshtiVjeter.DateAmortizimi,
                 dataAktualeRresht, rreshtiVjeter.DateNdryshimStatusMagazine, rreshtiVjeter.IdNjesiAdministrative, rreshtiVjeter.IdAQTSeriali, rreshtiVjeter.Serial, artikulli, rreshtiVjeter.VleftaShteseRivleresim, this.objektiKod);
 
             //Llogarit vlerat e amortizimit.
@@ -1023,7 +1021,7 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                         ser.merrAQTSerialSipasID(rreshtiAmortizimFillestar.IdAQTSeriali);
                         if (amortizimetTrupipas.Count() > 0)
                             mesazhmevonshem = "Kujdes ka veprime te mevonshme me kete aset " + ser.AqtSerialKod;
-                        else if (clsAmortizimiKoka.kaVeprimeMeKeteAset(kokaEAmortizimit.IdNiveli, rreshtiAmortizimFillestar.IdAQTSeriali, kokaEAmortizimit.IdLlojStandarti,kokaEAmortizimit.IdAmortizimi))
+                        else if (clsAmortizimiKoka.kaVeprimeMeKeteAset(kokaEAmortizimit.IdNiveli, rreshtiAmortizimFillestar.IdAQTSeriali, kokaEAmortizimit.IdLlojStandarti, kokaEAmortizimit.IdAmortizimi))
                             mesazhmevonshem = "Ekziston nje FAF me kete serial " + ser.AqtSerialKod;
                     }
                     if (rreshtiAmortizimFillestar.Artikull == null)
@@ -1069,8 +1067,8 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                             List<clsAmortizimiTrupiAbstract> amortizimetTrupipas = teGjitheSerialetLlogariturMePas.FindAll(x => x.IdAQTSeriali == seriali.IdAQTSerial);
                             if (amortizimetTrupipas.Count() > 0)
                                 mesazhmevonshem = "Kujdes ka veprime te mevonshme me kete aset " + seriali.AqtSerialKod;
-                            else if (clsAmortizimiKoka.kaVeprimeMeKeteAset(kokaEAmortizimit.IdNiveli, rreshtiAmortizimFillestar.IdAQTSeriali, kokaEAmortizimit.IdLlojStandarti,kokaEAmortizimit.IdAmortizimi))
-                                mesazhmevonshem = "Ekziston nje FAF me kete serial "+ seriali.AqtSerialKod;
+                            else if (clsAmortizimiKoka.kaVeprimeMeKeteAset(kokaEAmortizimit.IdNiveli, rreshtiAmortizimFillestar.IdAQTSeriali, kokaEAmortizimit.IdLlojStandarti, kokaEAmortizimit.IdAmortizimi))
+                                mesazhmevonshem = "Ekziston nje FAF me kete serial " + seriali.AqtSerialKod;
                         }
                         clsKarakteristikaStandarti karakteristikaStandartit = clsKarakteristikaStandarti.merrKonfigurimStandarti(DbInventari.clsKodifikimArtikulli.ktheIdPrindiFillestar(rreshtiAmortizimFillestar.Artikull.Kodifikimi1Artikulli), kokaEAmortizimit.IdLlojStandarti, kokaEAmortizimit.IdNdermarrje);
 
@@ -1394,23 +1392,48 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
             clsTrupiAmortRi.NormaAmortizimi = llogaritNormenAmortizimit(clsTrupiAmortRi.IdArtikulli, karakteristikaStandartit.IdStandart, clsTrupiAmortRi.IdNjesiAdministrative, clsTrupiAmortRi.DateAmortizimi, clsTrupiAmortRi.objektiKod, clsTrupiAmortRi.Artikull.KodArtikulli);
 
             string llojAmortizimi = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(clsTrupiAmortRi.IdArtikull_LlojAmortizimi, objektiKod));
+            string llojAmortizimiVjeter = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtOld.IdArtikull_LlojAmortizimi, objektiKod));
 
             //Llogarit amortizimin shtese nga ditet e gjetura.
             if (rivleresimXStandarte)
             {
-                clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.VleftaShteseRivleresim, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
-                //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
-                //ath do amortizohet vetem sa diferenca e tyre.
-                if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.VleftaShteseRivleresim - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
-                    clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                if (llojAmortizimiVjeter == "Amortizim mbi vleren e mbetur" && llojAmortizimi == "Amortizim linear")
+                {
+                    clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShteseHeraEPare(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+                    //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
+                    //ath do amortizohet vetem sa diferenca e tyre.
+                    if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
+                        clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                    clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+                }
+                else
+                {
+                    clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.VleftaShteseRivleresim, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+                    //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
+                    //ath do amortizohet vetem sa diferenca e tyre.
+                    if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.VleftaShteseRivleresim - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
+                        clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                }
             }
             else
             {
-                clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
-                //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
-                //ath do amortizohet vetem sa diferenca e tyre.
-                if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
-                    clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                if (llojAmortizimiVjeter == "Amortizim mbi vleren e mbetur" && llojAmortizimi == "Amortizim linear")
+                {
+                    clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShteseHeraEPare(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+                    //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
+                    //ath do amortizohet vetem sa diferenca e tyre.
+                    if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
+                        clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                    clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+                }
+                else
+                {
+                    clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+                    //Nese vlera absolute e diferences mids vleftes totale te asetit dhe vleres qe eshte amortizuar deri ne kete veprim eshte me e vogel se vlera qe normalisht duhet te amortizoje ne nje muaj
+                    //ath do amortizohet vetem sa diferenca e tyre.
+                    if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
+                        clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                }
             }
 
 
@@ -1582,12 +1605,12 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 
             if (FANS != idKonfigAmbjenti)
                 clsTrupiAmortRi.DateNdryshimStatusMagazine = trupAmortRreshtVjeter.DateNdryshimStatusMagazine;
-           
+
             clsTrupiAmortRi.NormaAmortizimi = llogaritNormenAmortizimit(clsTrupiAmortRi.IdArtikulli, idLlojStandarti, clsTrupiAmortRi.IdNjesiAdministrative, clsTrupiAmortRi.DateAmortizimi, clsTrupiAmortRi.objektiKod, clsTrupiAmortRi.Artikull.KodArtikulli);
-            
+
             //Llogarit ditet qe nuk eshte llogaritur amortizimi.
             pergjigje = llogaritDitetAmortizimShtese(clsTrupiAmortRi, trupAmortRreshtVjeter, idKonfigAmbjenti, karakteristikaStandarti, 0, false, FAFanalitike, FAFpermbledhese, dbAsete);
-            
+
             if (!pergjigje)
                 return pergjigje;
 
@@ -1597,7 +1620,15 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
             else
                 clsTrupiAmortRi.AmortizimiVjetor = trupAmortRreshtVjeter.AmortizimiGjithsej + trupAmortRreshtVjeter.AmortizimiShtese + trupAmortRreshtVjeter.HdAmortizimGjithsej;
 
-            clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+            string llojAmortizimiRi = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(clsTrupiAmortRi.IdArtikull_LlojAmortizimi, clsTrupiAmortRi.objektiKod));
+            string llojAmortizimiVjeter = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtVjeter.IdArtikull_LlojAmortizimi, trupAmortRreshtVjeter.objektiKod));
+            if (llojAmortizimiVjeter == "Amortizim mbi vleren e mbetur" && llojAmortizimi == "Amortizim linear")
+            {
+                clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShteseHeraEPare(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
+                clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+
+            }
+            else clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
 
             clsTrupiAmortRi.AmortizimiGjithsej = trupAmortRreshtVjeter.HdAmortizimGjithsej + trupAmortRreshtVjeter.AmortizimiGjithsej + trupAmortRreshtVjeter.AmortizimiShtese;
 
@@ -1815,6 +1846,10 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
             if (llojAmortizimi == clsAseteLlojAmortizimi.AMORTIZIM_MBI_VLERE_TE_SHTUAR)
                 return ((vleftaGjendja - amortizimVjetor) * (double)(normeAmort / 100) * (double)(diteAmort / diteViti));
             return 0;
+        }
+        private static double llogaritAmortizimShteseHeraEPare(double vleftaGjendja, double amortizimVjetor, double normeAmort, int diteAmort, double diteViti, string llojAmortizimi)
+        {
+            return ((vleftaGjendja - amortizimVjetor) * (double)(normeAmort / 100) * (double)(diteAmort / diteViti));
         }
 
         /// <summary>

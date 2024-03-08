@@ -3774,8 +3774,11 @@ namespace DbCore.DbInventari
 
 
                 //dbInv.commitTransaksion();
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                if (this.iShitshem)
+                {
+                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                }
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
             catch (Exception ce)
@@ -3886,8 +3889,12 @@ namespace DbCore.DbInventari
                     if (!modifikim.Status)
                         return modifikim;
                 }
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                if (this.iShitshem)
+                {
+                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+
+                }
                 scope.Complete();
                 return modifikim;
             }
