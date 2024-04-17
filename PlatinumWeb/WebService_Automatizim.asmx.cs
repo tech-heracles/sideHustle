@@ -1229,6 +1229,7 @@ namespace PlatinumWeb
 
 
 
+
                 var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
                             konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
@@ -1239,6 +1240,7 @@ namespace PlatinumWeb
                 {
                     gjeneroDokMag = false;
                     koka.IdStatusDok = 0;
+                    idMenyrePAgese = 8;
                     clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
                     kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
                     0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
