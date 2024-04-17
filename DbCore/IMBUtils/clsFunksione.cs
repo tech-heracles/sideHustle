@@ -13803,45 +13803,45 @@ namespace DbCore
             }
 
         }
-        public static async Task<IAsyncResult> dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata, string user)
+        public static void dergoLogAlphaweb(string ndermarrja, string tipVeprimi, string ambjenti, string organizata, string user)
         {
-            object obj = new
-            {
-                Organizata = organizata,
-                Ndermarrja = ndermarrja,
-                TipVeprimi = tipVeprimi,
-                Ambjenti = ambjenti,
-                Perdoruesi = user
-            };
-            string result = string.Empty;
-            string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlLogAlphaweb"];
-            try
-            {
-                WebRequest webRequest;
-                webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
+            //object obj = new
+            //{
+            //    Organizata = organizata,
+            //    Ndermarrja = ndermarrja,
+            //    TipVeprimi = tipVeprimi,
+            //    Ambjenti = ambjenti,
+            //    Perdoruesi = user
+            //};
+            //string result = string.Empty;
+            //string linkDatasetEndpoint = WebConfigurationManager.AppSettings["urlLogAlphaweb"];
+            //try
+            //{
+            //    WebRequest webRequest;
+            //    webRequest = CreateJSONWebRequest(linkDatasetEndpoint);
 
-                using (Stream stream = webRequest.GetRequestStream())
-                {
-                    using (StreamWriter stmw = new StreamWriter(stream))
-                    {
-                        stmw.Write(JsonConvert.SerializeObject(obj));
-                    }
-                }
-                return webRequest.BeginGetResponse(null, null);
-                //using (WebResponse webResponse = webRequest.GetResponse())
-                //{
-                //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                //{
+            //    using (Stream stream = webRequest.GetRequestStream())
+            //    {
+            //        using (StreamWriter stmw = new StreamWriter(stream))
+            //        {
+            //            stmw.Write(JsonConvert.SerializeObject(obj));
+            //        }
+            //    }
+            //    return webRequest.BeginGetResponse(null, null);
+            //    //using (WebResponse webResponse = webRequest.GetResponse())
+            //    //{
+            //    //using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+            //    //{
 
-                //    var ServiceResult = rd.ReadToEnd();
-                //}
+            //    //    var ServiceResult = rd.ReadToEnd();
+            //    //}
 
-                //}
-            }
-            catch (WebException ex)
-            {
-                return null;
-            }
+            //    //}
+            //}
+            //catch (WebException ex)
+            //{
+            //    return null;
+            //}
 
         }
         public static bool expireLicenceRequest(object objekti, string url)

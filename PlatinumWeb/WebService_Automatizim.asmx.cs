@@ -1237,6 +1237,7 @@ namespace PlatinumWeb
                             !konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
                 if (msg.PershkrimMesazhi.Contains("Sasia e daljes është më e madhe se gjendja e artikullit"))
                 {
+                    gjeneroDokMag = false;
                     koka.IdStatusDok = 0;
                     clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
                     kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
