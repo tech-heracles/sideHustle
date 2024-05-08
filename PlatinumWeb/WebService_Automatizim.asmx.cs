@@ -1122,7 +1122,6 @@ namespace PlatinumWeb
                 DateTime.TryParse(dictionary["startDate"].ToString(), out dtFillimi);
                 DateTime.TryParse(dictionary["endDate"].ToString(), out dtMbarimi);
                 double.TryParse(dictionary["totalVatValue"].ToString(), out tvsh);
-                double.TryParse(dictionary["totalDiscount"].ToString(), out zbritje);
                 //double.TryParse(dictionary["totalDisscountPercentage"].ToString(), out zbritje);
                 double.TryParse(dictionary["totalValue"].ToString(), out totali);
                 double.TryParse(dictionary["exchangeRate"].ToString(), out kursi);
