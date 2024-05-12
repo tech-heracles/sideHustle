@@ -1049,7 +1049,7 @@ namespace DbCore.Raporte
         public static void konfigDataSetRaporti(XtraReport report, string spname, int idPerdorues, bool azhornim, int idNdermarje, int idnderviti, DateTime dtmbarimi, int idkonfig, int idperiudha, bool alphaMobile = false, params SqlParameter[] paramarray)
         {
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-            int maxRetry = 1;
+            int maxRetry = 15;
             string mesazhGabimi = MessagesResource.Messages["ndodhiNjeGabimGjateMarrjesTeTeDhenave"];
             clsRetryTrans retryTrans = new clsRetryTrans("Raportet", maxRetry);
             do
