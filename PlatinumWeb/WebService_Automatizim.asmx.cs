@@ -1238,6 +1238,7 @@ namespace PlatinumWeb
                 if (msg.PershkrimMesazhi.Contains("Sasia e daljes është më e madhe se gjendja e artikullit"))
                 {
                     gjeneroDokMag = true;
+                    kodMenyrePAgese = "Arke";
                     koka.IdStatusDok = 0;
                     idMenyrePAgese = 8;
                     clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
