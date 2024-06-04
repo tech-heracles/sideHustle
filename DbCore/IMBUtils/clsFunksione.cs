@@ -13514,7 +13514,7 @@ namespace DbCore
                         bool sameDatabase = false;
                         bool status = false;
                         string instanceName = databaseInstance.Name;
-                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-testime" || instanceName == instanca.Split('/')[0]) continue;
+                        if (instanceName == "quota-manager-database" || instanceName == "alpha-conn-strings" || instanceName == "instance-webedition1" || instanceName == "instance-2019" || instanceName == "instance-testime" || instanceName == instanca.Split('/')[0]) continue;
                         string instanceIpConfig = "";
                         if (databaseInstance.IpAddresses.FirstOrDefault().Type == "PRIMARY") instanceIpConfig = databaseInstance.IpAddresses[1].IpAddress;
                         else instanceIpConfig = databaseInstance.IpAddresses.FirstOrDefault().IpAddress;
