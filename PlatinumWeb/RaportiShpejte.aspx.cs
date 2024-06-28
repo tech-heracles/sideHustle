@@ -328,7 +328,7 @@ namespace PlatinumWeb
                 hfState.Set("isMultiDesignReport", true);
 
             CachedReportSourceWeb cachedReport = new CachedReportSourceWeb(report);
-            rvRaporti.OpenReport(cachedReport);
+            //rvRaporti.OpenReport(cachedReport);
         }
 
         private void exportReportToPdf(XtraReport report)
