@@ -3774,8 +3774,11 @@ namespace DbCore.DbInventari
 
 
                 //dbInv.commitTransaksion();
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                if (this.iShitshem)
+                {
+                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                }
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
             catch (Exception ce)
@@ -3886,8 +3889,12 @@ namespace DbCore.DbInventari
                     if (!modifikim.Status)
                         return modifikim;
                 }
-                PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+                if (this.iShitshem)
+                {
+                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
+                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
+
+                }
                 scope.Complete();
                 return modifikim;
             }
@@ -3929,46 +3936,46 @@ namespace DbCore.DbInventari
             string photoURL = "";
             Guid uuid = Guid.NewGuid();
             string fileName = $"alpha/{uuid}";
-            try
-            {
-                #region images
-                colArkiva arkiva = new colArkiva(this.IdArtikulli, 13);
-                foreach (clsArkiva keyValue in arkiva)
-                {
-                    if (keyValue.FileType != ".jpg" && keyValue.FileType != ".png") continue;
-                    string filePath = System.Web.Hosting.HostingEnvironment.MapPath(keyValue.Path);
-                    //using (FileStream image = File.Open((string)keyValue.Value, FileMode.Open))
-                    using (FileStream image = File.Open(filePath, FileMode.Open))
-                    {
-                        Image img = Image.FromStream(image);
-                        int size = 1024;
-                        Image newImage = img;
-                        if (img.Width > size && img.Height > size)
-                        {
-                            Bitmap bitMap = new Bitmap(size, size);
-                            using (Graphics graphics = Graphics.FromImage((Image)bitMap))
-                            {
-                                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                                graphics.DrawImage(img, 0, 0, size, size);
-                                newImage = (Image)bitMap;
-                            }
-                        }
-                        UploadObjectOptions options = new UploadObjectOptions();
-                        options.UserProject = "imb-payment";
+            //try
+            //{
+            //    #region images
+            //    colArkiva arkiva = new colArkiva(this.IdArtikulli, 13);
+            //    foreach (clsArkiva keyValue in arkiva)
+            //    {
+            //        if (keyValue.FileType != ".jpg" && keyValue.FileType != ".png") continue;
+            //        string filePath = System.Web.Hosting.HostingEnvironment.MapPath(keyValue.Path);
+            //        //using (FileStream image = File.Open((string)keyValue.Value, FileMode.Open))
+            //        using (FileStream image = File.Open(filePath, FileMode.Open))
+            //        {
+            //            Image img = Image.FromStream(image);
+            //            int size = 1024;
+            //            Image newImage = img;
+            //            if (img.Width > size && img.Height > size)
+            //            {
+            //                Bitmap bitMap = new Bitmap(size, size);
+            //                using (Graphics graphics = Graphics.FromImage((Image)bitMap))
+            //                {
+            //                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            //                    graphics.DrawImage(img, 0, 0, size, size);
+            //                    newImage = (Image)bitMap;
+            //                }
+            //            }
+            //            UploadObjectOptions options = new UploadObjectOptions();
+            //            options.UserProject = "imb-payment";
 
-                        GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
-                        StorageClient storage = StorageClient.Create(credential);
-                        string contentType = keyValue.FileType;
-                        storage.UploadObject(paymentBucket, fileName, contentType, image, options);
-                    }
+            //            GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
+            //            StorageClient storage = StorageClient.Create(credential);
+            //            string contentType = keyValue.FileType;
+            //            storage.UploadObject(paymentBucket, fileName, contentType, image, options);
+            //        }
 
-                }
-                #endregion
-            }
-            catch (Exception e)
-            {
-                ImbLogger.LogErrorShitje(e.Message);
-            }
+            //    }
+            //    #endregion
+            //}
+            //catch (Exception e)
+            //{
+            //    ImbLogger.LogErrorShitje(e.Message);
+            //}
 
 
             clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli(this.kodifikimi1Artikulli);
@@ -4020,7 +4027,6 @@ namespace DbCore.DbInventari
                 barCodes = kodBaret,
                 category = kodifikimArtikulli.PershkrimKodifikimi,
                 cost = cmimiBlerjeBaze,
-                fileName = fileName,
                 description = this.pershkrimiAngArtikulli
             };
             return objectForPubSub;

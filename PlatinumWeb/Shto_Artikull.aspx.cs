@@ -356,6 +356,7 @@ namespace PlatinumWeb
                     for (int i = 0; i < count; i++)
                     {
                         clsArtikulli art = itemList[i];
+                        if (!art.IShitshem) continue;
                         object item = art.krijoObjektPerPubSubBulk(njesi, codebars, kodifikimArtikulli, nivele, taksat, cmime, organization, ndermarrje.NdermarrjeKodi);
                         if (item != null) batch.Add(item);
 
@@ -391,6 +392,7 @@ namespace PlatinumWeb
                     colArtikujt itemList = new colArtikujt(artikujt);
                     foreach (clsArtikulli art in itemList)
                     {
+                        if (!art.IShitshem) continue;
                         PubSub.PublishPubSub(3, 1, 2, 1, art.krijoObjektPerPubSub());
                         //objForPubSub.Add(art.krijoObjektPerPubSub());
                     }
