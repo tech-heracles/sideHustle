@@ -1094,10 +1094,16 @@ namespace PlatinumWeb
                 string nrSerial = dictionary["nivf"].ToString();
                 string nivfKthim = "";
                 string eic = dictionary["eic"].ToString();
+                string typeOfInv = dictionary["typeOfInv"].ToString();
                 string tipVetFaturimi = dictionary["typeOfSelfIss"].ToString();
                 string nrdok = dictionary["docNo"].ToString();
                 string pershkrimi = dictionary["invoiceDescription"].ToString() + " NIVF: " + dictionary["nivf"].ToString();
-                if (eic != "")
+                if (typeOfInv == "CASH")
+                {
+                    kodMenyrePAgese = "Pagese Automatike";
+                    idMenyrePAgese = 5;
+                }
+                else if (typeOfInv == "NONCASH" && eic != "")
                 {
                     kodMenyrePAgese = "Banke";
                     idMenyrePAgese = 11;
@@ -1238,9 +1244,22 @@ namespace PlatinumWeb
                 if (msg.PershkrimMesazhi.Contains("Sasia e daljes është më e madhe se gjendja e artikullit"))
                 {
                     gjeneroDokMag = true;
-                    kodMenyrePAgese = "Arke";
+                    if (typeOfInv == "CASH")
+                    {
+                        kodMenyrePAgese = "Pagese";
+                        idMenyrePAgese = 4;
+                    }
+                    else if (eic != "")
+                    {
+                        kodMenyrePAgese = "Banke";
+                        idMenyrePAgese = 11;
+                    }
+                    else
+                    {
+                        kodMenyrePAgese = "Arke";
+                        idMenyrePAgese = 8;
+                    }
                     koka.IdStatusDok = 0;
-                    idMenyrePAgese = 8;
                     clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
                     kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
                     0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()

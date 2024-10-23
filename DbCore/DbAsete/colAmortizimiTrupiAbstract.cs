@@ -1394,6 +1394,15 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
             string llojAmortizimi = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(clsTrupiAmortRi.IdArtikull_LlojAmortizimi, objektiKod));
             string llojAmortizimiVjeter = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtOld.IdArtikull_LlojAmortizimi, objektiKod));
 
+            if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+            {
+                clsDatabazeAsete veprimePara = new clsDatabazeAsete();
+                if (veprimePara.aKaVeprimeMeLlojiAmortizimiTeNdryshemMePara(trupAmortRreshtOld.IdArtikulli, trupAmortRreshtOld.DateAmortizimi, clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtOld.IdArtikull_LlojAmortizimi, objektiKod)))
+                {
+                    if (rivleresimXStandarte) clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje - trupAmortRreshtOld.AmortizimiVjetor + clsTrupiAmortRi.VleftaShteseRivleresim + trupAmortRreshtOld.VleftaPlusMinus;
+                    else clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje - trupAmortRreshtOld.AmortizimiVjetor + trupAmortRreshtOld.VleftaPlusMinus;
+                }
+            }
             //Llogarit amortizimin shtese nga ditet e gjetura.
             if (rivleresimXStandarte)
             {
@@ -1404,7 +1413,9 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                     //ath do amortizohet vetem sa diferenca e tyre.
                     if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
                         clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
-                    clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+                    //clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+
+                    clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje + trupAmortRreshtOld.VleftaPlusMinus;
                 }
                 else
                 {
@@ -1413,6 +1424,10 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                     //ath do amortizohet vetem sa diferenca e tyre.
                     if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.VleftaShteseRivleresim - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
                         clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                    if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+                    {
+                        clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje + trupAmortRreshtOld.VleftaPlusMinus;
+                    }
                 }
             }
             else
@@ -1424,7 +1439,9 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                     //ath do amortizohet vetem sa diferenca e tyre.
                     if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
                         clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
-                    clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+                    //clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+
+                    clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje + trupAmortRreshtOld.VleftaPlusMinus;
                 }
                 else
                 {
@@ -1433,6 +1450,10 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
                     //ath do amortizohet vetem sa diferenca e tyre.
                     if (Math.Abs(clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej) < Math.Abs(clsTrupiAmortRi.AmortizimiShtese))
                         clsTrupiAmortRi.AmortizimiShtese = clsTrupiAmortRi.VleftaGjendje - clsTrupiAmortRi.AmortizimiGjithsej;
+                    if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+                    {
+                        clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtOld.VleftaGjendje + trupAmortRreshtOld.VleftaPlusMinus;
+                    }
                 }
             }
 
@@ -1622,10 +1643,20 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 
             string llojAmortizimiRi = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(clsTrupiAmortRi.IdArtikull_LlojAmortizimi, clsTrupiAmortRi.objektiKod));
             string llojAmortizimiVjeter = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtVjeter.IdArtikull_LlojAmortizimi, trupAmortRreshtVjeter.objektiKod));
+
+            if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+            {
+                clsDatabazeAsete veprimePara = new clsDatabazeAsete();
+                if (veprimePara.aKaVeprimeMeLlojiAmortizimiTeNdryshemMePara(trupAmortRreshtVjeter.IdArtikulli, trupAmortRreshtVjeter.DateAmortizimi, clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtVjeter.IdArtikull_LlojAmortizimi, trupAmortRreshtVjeter.objektiKod)))
+                {
+                    clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtVjeter.VleftaGjendje - trupAmortRreshtVjeter.AmortizimiVjetor + trupAmortRreshtVjeter.VleftaPlusMinus;
+                }
+            }
+
             if (llojAmortizimiVjeter == "Amortizim mbi vleren e mbetur" && llojAmortizimi == "Amortizim linear")
             {
                 clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShteseHeraEPare(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
-                clsTrupiAmortRi.VleftaGjendje -= clsTrupiAmortRi.AmortizimiGjithsej;
+                clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtVjeter.VleftaGjendje;
 
             }
             else clsTrupiAmortRi.AmortizimiShtese = llogaritAmortizimShtese(clsTrupiAmortRi.VleftaGjendje, clsTrupiAmortRi.AmortizimiVjetor, clsTrupiAmortRi.NormaAmortizimi, (int)clsTrupiAmortRi.DiteAmortizimi, new DateTime(clsTrupiAmortRi.DateAmortizimi.Year, 12, 31).DayOfYear, llojAmortizimi);
@@ -1724,6 +1755,11 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 
                 clsTrupiAmortRi.HdAmortizimVjetor = 0;
                 clsTrupiAmortRi.HdAmortizimGjithsej = 0;
+            }
+
+            if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+            {
+                clsTrupiAmortRi.VleftaGjendje = trupAmortRreshtVjeter.VleftaGjendje;
             }
 
             return pergjigje;
