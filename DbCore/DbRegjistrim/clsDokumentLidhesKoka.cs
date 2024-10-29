@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DbCore.DbKontabiliteti;
 using System.Data;
-using System.Collections;
-using DbCore.DbAdmin;
-using System.Resources;
 using System.Globalization;
-using DbCore.DbShare;
+using System.Linq;
+using System.Resources;
 using System.Web.Script.Serialization;
+using DbCore.DbAdmin;
+using DbCore.DbKontabiliteti;
+using DbCore.DbShare;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Messages;
 
 namespace DbCore.DbRegjistrim
-{ 
+{
     /// <summary>
     ///  Kjo eshte klasa qe sherben per objektet qe perfaqsojne  koken e nje dokumenti  lidhes
     ///  (Te dhenat  merren nga tabela : T_DOKUMENTLIDHESKOKA)
     /// </summary>
     public class clsDokumentLidhesKoka
-        {
+    {
         #region Atribute
 
         private int idKoka;
@@ -91,18 +89,18 @@ namespace DbCore.DbRegjistrim
             OColTrupi = new colDokumentLidhesTrupi();
         }
 
-      
+
 
         /// <summary>
         /// Konstruktori i klases
         /// </summary>
         public clsDokumentLidhesKoka()
-            {
-            }
+        {
+        }
 
         public clsDokumentLidhesKoka(DataRow rreshti)
         {
-            
+
             mbushDokumentLidhesKoka(rreshti, false);
         }
 
@@ -114,173 +112,173 @@ namespace DbCore.DbRegjistrim
         /// Kthen/Vendos ID-ne qe gjenerohet automatikisht
         /// </summary>
         public int IdKoka
-            {
+        {
             get { return idKoka; }
             set { idKoka = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos numrin e dokumentit te lidhjes
         /// </summary>
         public String NrLidhje
-            {
+        {
             get { return nrLidhje; }
             set { nrLidhje = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos daten e dokumentit te lidhjes
         /// </summary>
         public DateTime DateDokumenti
-            {
+        {
             get { return dateDokumenti; }
             set { dateDokumenti = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos daten e regjistrimit te dokumentit te lidhjes
         /// </summary>
         public DateTime DateRegjistrimi
-            {
+        {
             get { return dateRegjistrimi; }
             set { dateRegjistrimi = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos ID-ne e klientit/furnitorit te perbashket te dokumentit kryesor me ate lidhes
         /// </summary>
         public int IdKlientFurnitor
-            {
+        {
             get { return idKlientFurnitor; }
             set { idKlientFurnitor = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos ID-ne dokumentit qe gjeneron lidhjen
         /// </summary>
         public int IdGjenerues
-            {
+        {
             get { return idGjenerues; }
             set { idGjenerues = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos ID-ne llojit te dokumentit
         /// </summary>
         public int IdLlojDok
-            {
+        {
             get { return idLlojDok; }
             set { idLlojDok = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/vendos id e ndermarjes
         /// </summary>
         public int IdNdermarje
-            {
+        {
             get { return idNdermarje; }
             set { idNdermarje = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e ndermarje vitit
         /// </summary>
         public int IdNderViti
-            {
+        {
             get { return idNderViti; }
             set { idNderViti = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e nivelit
         /// </summary>
         public int IdNivel
-            {
+        {
             get { return idNivel; }
             set { idNivel = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e konfigurimit
         /// </summary>
         public int IdKonfigAmbjente
-            {
+        {
             get { return idKonfigAmbjente; }
             set { idKonfigAmbjente = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e dokumentit qe e gjeneron ne rastet e modifikimit
         /// </summary>
         public int IdDokNga
-            {
+        {
             get { return idDokNga; }
             set { idDokNga = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e nivelit te dokumentit qe e gjeneroi
         /// </summary>
         public int IdNivelGjenerues
-            {
+        {
             get { return idNivelGjenerues; }
             set { idNivelGjenerues = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e konfigurimi i dokumentit qe e gjeneroi
         /// </summary>
         public int IdKonfigGjenerues
-            {
+        {
             get { return idKonfigGjenerues; }
             set { idKonfigGjenerues = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e gjendes se dokumentit
         /// </summary>
         public int IdStatusDok
-            {
+        {
             get { return idStatusDok; }
             set { idStatusDok = value; }
-            }
+        }
 
         /// <summary>
         /// kthen/vendos id e perdoruesit
         /// </summary>
         public int IdPerdorues
-           {
+        {
             get { return idPerdorues; }
             set { idPerdorues = value; }
-           }
+        }
 
         /// <summary>
         /// Kthen/Vendos nje  flete kontabel te gjeneruar nga dokumenti kur kontabilizohet.
         /// </summary>
         public clsKokaFleteKontabel OFleteKontabel
-            {
+        {
             get { return oFleteKontabel; }
             set { oFleteKontabel = value; }
-            }
+        }
 
         /// <summary>
         /// Kthen/Vendos nje  clsGjendjeKlientFurnitor
         /// </summary>
         public colGjendjeKlientFurnitor OGjendjeKF
-            {
+        {
             get { return oGjendjeKF; }
             set { oGjendjeKF = value; }
-            }
+        }
         public DateTime DtKrijimi
-            {
+        {
             get { return dtKrijimi; }
 
-            }
+        }
         public DateTime DtModifikimi
-            {
+        {
             get { return dtModifikimi; }
 
-            }
+        }
         #endregion
 
         #region Metoda Publike
@@ -304,7 +302,7 @@ namespace DbCore.DbRegjistrim
                 List<int> idllogobj;
                 try
                 {
-                    oFleteKontabel = clsKokaFleteKontabel.gjeneroKontabilizimLidhjeDok(idKoka, idnivel, idkonfigambjente, datedokumenti, nrlidhje, idndermarje, idnderviti, idperdoruesi, dateregjistrimi, doklidhes, pershkrimi, 0, idllojdokfk, idperiudha, kategoria, out emratkf, out rreshtakf, out trupatperGjendjekf, idklientfurnitor, dokkryesor, totali, out objektivat, out vleratobjektiva, out vleratobjektivamonbaze, out idllogobj, 0, 0, 0, out  shfaqmesazhapolupe, trupivjeterqendra, idGjuha);
+                    oFleteKontabel = clsKokaFleteKontabel.gjeneroKontabilizimLidhjeDok(idKoka, idnivel, idkonfigambjente, datedokumenti, nrlidhje, idndermarje, idnderviti, idperdoruesi, dateregjistrimi, doklidhes, pershkrimi, 0, idllojdokfk, idperiudha, kategoria, out emratkf, out rreshtakf, out trupatperGjendjekf, idklientfurnitor, dokkryesor, totali, out objektivat, out vleratobjektiva, out vleratobjektivamonbaze, out idllogobj, 0, 0, 0, out shfaqmesazhapolupe, trupivjeterqendra, idGjuha);
                     oGjendjeKF = gjeneroGjendjeKf(idNivel, nrlidhje, datedokumenti, dateregjistrimi, emratkf, rreshtakf, trupatperGjendjekf);
                 }
                 catch (Exception ex)
@@ -342,7 +340,7 @@ namespace DbCore.DbRegjistrim
         }
 
 
-        public static clsMesazh LidhArketimeMeFatura(clsKokaShitje koka, JavaScriptSerializer serializusi, ResourceManager rm, CultureInfo ci, int idperdoruesi, int idperiudha, int idgjuha, out string shfaqmesazhapolupe, clsKonfigurimAmbjenti konfdl,bool meKontabilizim, int idnrautonrdok)
+        public static clsMesazh LidhArketimeMeFatura(clsKokaShitje koka, JavaScriptSerializer serializusi, ResourceManager rm, CultureInfo ci, int idperdoruesi, int idperiudha, int idgjuha, out string shfaqmesazhapolupe, clsKonfigurimAmbjenti konfdl, bool meKontabilizim, int idnrautonrdok)
         {
             shfaqmesazhapolupe = "";
             try
@@ -351,15 +349,15 @@ namespace DbCore.DbRegjistrim
                 dokLidhes.mbushDokumentaNgaDokumentaBanka(koka.IdShitjeKoka);
                 if (dokLidhes.Count == 0)
                     return new clsMesazh(false, "Fatura nuk ploteson kushtet per lidhje");
-                double totali = dokLidhes.Sum(x => x.Vlefta*x.Kursi);
+                double totali = dokLidhes.Sum(x => x.Vlefta * x.Kursi);
                 colDokumentat dokKryesore = new colDokumentat();
-                clsDokumenti dokshitje = new clsDokumenti(koka.IdNivel, koka.NrDok, koka.DtDok, koka.TotaliMeZbritjeMeTVSH, totali/koka.Kursi, koka.Kursi, koka.IdMonedha, koka.IdKlientFurnitor, koka.IdShitjeKoka);
+                clsDokumenti dokshitje = new clsDokumenti(koka.IdNivel, koka.NrDok, koka.DtDok, koka.TotaliMeZbritjeMeTVSH, totali / koka.Kursi, koka.Kursi, koka.IdMonedha, koka.IdKlientFurnitor, koka.IdShitjeKoka);
                 dokKryesore.Add(dokshitje);
                 clsDokumentLidhesKoka dokumentiKoka = new clsDokumentLidhesKoka();
 
                 Dictionary<string, object> hidden = new Dictionary<string, object>();
                 List<NrAuto> list = new List<NrAuto>();
-              
+
                 string nrdoklidhes = clsNrAutom.merrVlerenNrAutomatik(idnrautonrdok, koka.DtDok);
                 if (!String.IsNullOrEmpty(nrdoklidhes)) //nqs ka nr automatik
                 {
@@ -374,7 +372,7 @@ namespace DbCore.DbRegjistrim
                 }
 
                 else nrdoklidhes = koka.NrDok;//nqs nuk ka nr automatik merr nr e urdherit
-                clsMesazh mesazh =     dokumentiKoka.krijoDokumentLidhes(nrdoklidhes, DateTime.Today, DateTime.Today, koka.IdKlientFurnitor, 0, 10, koka.IdNdermarrje, koka.IdNdermarrjeVit, konfdl.IdNivel, konfdl.IdKonfigAmbjente, 0, 0, 0, 1, colDokumentLidhesTrupi.krijoTrup(dokLidhes, dokKryesore), idperdoruesi, dokLidhes, dokKryesore, idperiudha, totali, meKontabilizim, out shfaqmesazhapolupe, new DbCore.DbQendraKosto.colTrupiQendraKosto(), idgjuha, rm, ci);
+                clsMesazh mesazh = dokumentiKoka.krijoDokumentLidhes(nrdoklidhes, DateTime.Today, DateTime.Today, koka.IdKlientFurnitor, 0, 10, koka.IdNdermarrje, koka.IdNdermarrjeVit, konfdl.IdNivel, konfdl.IdKonfigAmbjente, 0, 0, 0, 1, colDokumentLidhesTrupi.krijoTrup(dokLidhes, dokKryesore), idperdoruesi, dokLidhes, dokKryesore, idperiudha, totali, meKontabilizim, out shfaqmesazhapolupe, new DbCore.DbQendraKosto.colTrupiQendraKosto(), idgjuha, rm, ci);
                 if (!mesazh.Status)
                     return mesazh;
                 return dokumentiKoka.ruaj(meKontabilizim, hidden, idperiudha);
@@ -467,8 +465,8 @@ namespace DbCore.DbRegjistrim
 
         public clsMesazh ruaj(Boolean meKontabilizim, IDictionary<string, object> hfNrAutoKF, int idperdorues)
         {
-          bool kaNdryshimNumri;
-            clsDatabaseRegjistrim db = new  clsDatabaseRegjistrim ();
+            bool kaNdryshimNumri;
+            clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
             clsMesazh mesazhKontrolli = kontrolloLidhje(out kaNdryshimNumri, db, hfNrAutoKF, false, idperdorues);
 
@@ -479,7 +477,7 @@ namespace DbCore.DbRegjistrim
             int idkoka = 0;
             clsMesazh u_ruajt = ruajLidhjeDokumentash(out idkoka, this.NrLidhje, this.DateDokumenti, this.DateRegjistrimi, this.IdKlientFurnitor, this.IdGjenerues,
                 this.IdLlojDok, this.IdNdermarje, this.IdNderViti, this.IdNivel, this.IdKonfigAmbjente, this.IdDokNga, this.IdNivelGjenerues, this.IdKonfigGjenerues,
-                this.IdStatusDok, this.IdPerdorues, this.OColTrupi, this.OFleteKontabel, this.OGjendjeKF, meKontabilizim,db);
+                this.IdStatusDok, this.IdPerdorues, this.OColTrupi, this.OFleteKontabel, this.OGjendjeKF, meKontabilizim, db);
             this.IdKoka = idkoka;
             if (!u_ruajt.Status)
             {
@@ -508,7 +506,7 @@ namespace DbCore.DbRegjistrim
                         return mes;
                 }
 
-                if (db.ekzistonRegjistrimDokuemtiLidhes(idKonfigAmbjente,nrLidhje,dateDokumenti,idNdermarje,idKlientFurnitor))
+                if (db.ekzistonRegjistrimDokuemtiLidhes(idKonfigAmbjente, nrLidhje, dateDokumenti, idNdermarje, idKlientFurnitor))
                     return new clsMesazh(false, "Ekziston nje dokument me kete nr!");
                 return new clsMesazh(mes.Status, mes.PershkrimMesazhi);
             }
@@ -517,10 +515,10 @@ namespace DbCore.DbRegjistrim
         }
         private clsMesazh kontrolloNrAutoKF(out bool kaNdryshimNumri, clsDatabaseRegjistrim db, IDictionary<string, object> hfNrAutoKf, int idperdorues)
         {
-            clsDatabaseAdmin dbadm = new clsDatabaseAdmin(db );
+            clsDatabaseAdmin dbadm = new clsDatabaseAdmin(db);
             List<NrAuto> list = DbAdmin.clsNrAutom.kontrollogjithenumrat(dbadm, hfNrAutoKf, DateTime.Today);
             if (NrAuto.ktheVlerenEre(list, "NrLidhje") != "")
-                this.NrLidhje = NrAuto.ktheVlerenEre(list, "NrLidhje");            
+                this.NrLidhje = NrAuto.ktheVlerenEre(list, "NrLidhje");
             DbCore.clsMesazh mes = NrAuto.ruajvlera(out kaNdryshimNumri, list, DateTime.Today, idperdorues, this.idNdermarje, dbadm);
             return new clsMesazh(mes.Status, mes.PershkrimMesazhi);
         }
@@ -545,7 +543,7 @@ namespace DbCore.DbRegjistrim
             clsMesazh u_fshi = fshiDokumentDheKontabilitet(data);
             if (u_fshi.Status)
                 data.commitTransaksion();
-            else 
+            else
                 data.rollbackTransaksion();
             return u_fshi;
         }
@@ -554,15 +552,15 @@ namespace DbCore.DbRegjistrim
             clsMesazh u_fshi = data.modifikoDokumentLidhesKoka(this.IdKoka, this.nrLidhje, this.dateDokumenti, this.dateRegjistrimi, this.IdKlientFurnitor, this.idGjenerues, this.idLlojDok, this.idNdermarje, this.idNderViti, this.idNivel, this.idKonfigAmbjente, this.idDokNga, this.idNivelGjenerues, this.idKonfigGjenerues, 2, idPerdorues);
             if (u_fshi.Status)
             {
-                clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(data );
+                clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(data);
                 DbCore.clsMesazh mesazhKont = new DbCore.clsMesazh(true);
                 clsKokaFleteKontabel newclsKokaFleteKontabel = new clsKokaFleteKontabel(this.IdKoka, 10, dbkontab);
                 if (newclsKokaFleteKontabel.NrDukumentiKokaFleteKontabel != null)
                 {
                     this.OFleteKontabel = newclsKokaFleteKontabel;
                     DbQendraKosto.clsKokaQendraKosto kokaqendra = new DbQendraKosto.clsKokaQendraKosto();
-                    DbQendraKosto.clsDatabaseQendraKosto dbqendra=new DbQendraKosto.clsDatabaseQendraKosto (dbkontab );
-                    kokaqendra.KtheKokaQKSipasIDGjeneruesDheKonfig(newclsKokaFleteKontabel.IdKokaFleteKontabel, newclsKokaFleteKontabel.IdKonfigAmbjente,dbqendra);
+                    DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbkontab);
+                    kokaqendra.KtheKokaQKSipasIDGjeneruesDheKonfig(newclsKokaFleteKontabel.IdKokaFleteKontabel, newclsKokaFleteKontabel.IdKonfigAmbjente, dbqendra);
                     if (kokaqendra.IdKoka != 0 && kokaqendra.IdKoka != -1)
                     {
                         this.OFleteKontabel.KokaQendraKosto = kokaqendra;
@@ -575,13 +573,13 @@ namespace DbCore.DbRegjistrim
                 u_fshi.Status = mesazhKont.Status;
                 if (u_fshi.Status)
                 {
-                    this.OGjendjeKF = new colGjendjeKlientFurnitor(this.IdKoka, this.IdNivel,data);
+                    this.OGjendjeKF = new colGjendjeKlientFurnitor(this.IdKoka, this.IdNivel, data);
                     foreach (clsGjendjeKlientFurnitor gj in this.OGjendjeKF)
                     {
                         if (gj.IdGjendjeKf != 0)
                         {
                             gj.IdStatusGjendjeKf = 2; //rasti kur ndrysheohet statusi per treguar qe dokumenti eshte i modifikuar dhe nuk duhet marre parasysh
-                            u_fshi = gj.Modifiko(data );
+                            u_fshi = gj.Modifiko(data);
                         }
                     }
                 }
@@ -590,7 +588,7 @@ namespace DbCore.DbRegjistrim
             return u_fshi;
         }
         public clsGjendjeKlientFurnitor krijoObjektGjendjeKF()
-            {
+        {
             clsGjendjeKlientFurnitor gjendje = new clsGjendjeKlientFurnitor();
             gjendje.DateDok = this.DateDokumenti;
             gjendje.DateRegj = this.DateRegjistrimi;
@@ -613,24 +611,24 @@ namespace DbCore.DbRegjistrim
                                         select l;
             clsTrupiFleteKontabel tempTrupiFleteKontabel = tempColTrupiFleteKontabel.First<clsTrupiFleteKontabel>();
             if (tempTrupiFleteKontabel.DK == "D")
-                {
+            {
                 if (klient.LlojiKF)
-                    {
+                {
                     gjendje.VlPlusMonedheBaze = tempTrupiFleteKontabel.VleftaDebiMonBazeTrupiFleteKontabel;
                     gjendje.VlPlus = 0;
                     gjendje.VlMinus = 0;
                     gjendje.VlMinusMonedheBaze = 0;
-                    }
+                }
                 else
-                    {
+                {
                     gjendje.VlPlusMonedheBaze = 0;
                     gjendje.VlPlus = 0;
                     gjendje.VlMinus = 0;
                     gjendje.VlMinusMonedheBaze = tempTrupiFleteKontabel.VleftaDebiMonBazeTrupiFleteKontabel;
-                    }
                 }
-            return gjendje;
             }
+            return gjendje;
+        }
         /// <summary>
         /// Merr objektin e  kokes se dokumentin lidhes sipas id nga tabela perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbRegjistrim.clsDatabaseRegjistrim.ktheKokaDokumentiLidhesSipasId"/> 
@@ -683,11 +681,11 @@ namespace DbCore.DbRegjistrim
         /// <param name="dbDataRowDokumentLidhesKoka">datarow qe duhet mbushur nga db</param>
         /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
         internal bool mbushDokumentLidhesKoka(DataRow dbDataRowDokumentLidhesKoka, bool eshteFshirje)
-            {
+        {
             if (dbDataRowDokumentLidhesKoka != null)
-                {
+            {
                 try
-                    {
+                {
                     int.TryParse(dbDataRowDokumentLidhesKoka["IDKOKA"].ToString(), out idKoka);
                     nrLidhje = dbDataRowDokumentLidhesKoka["NRLIDHJE"].ToString();
                     DateTime.TryParse(dbDataRowDokumentLidhesKoka["DATEDOKUMENTI"].ToString(), out dateDokumenti);
@@ -705,20 +703,20 @@ namespace DbCore.DbRegjistrim
                     int.TryParse(dbDataRowDokumentLidhesKoka["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowDokumentLidhesKoka["DTKRIJIMI"].ToString(), out dtKrijimi);
                     DateTime.TryParse(dbDataRowDokumentLidhesKoka["DTMODIFIKIMI"].ToString(), out dtModifikimi);
-                    if(!eshteFshirje)
+                    if (!eshteFshirje)
                         int.TryParse(dbDataRowDokumentLidhesKoka["IDPERDORUESI"].ToString(), out idPerdorues);
                     return true;
-                    }
-                catch (InvalidCastException)
-                    {
-                    throw new Exception("ERROR: Gabim gjate marrjes se kokes se dokumentit lidhes nga db-ja");
-                    }
                 }
+                catch (InvalidCastException)
+                {
+                    throw new Exception("ERROR: Gabim gjate marrjes se kokes se dokumentit lidhes nga db-ja");
+                }
+            }
             else
                 return false;
-            }
+        }
 
         #endregion
-        }    
+    }
 }
 

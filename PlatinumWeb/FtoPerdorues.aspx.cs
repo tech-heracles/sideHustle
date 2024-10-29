@@ -1,34 +1,34 @@
-﻿using DbCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DbCore;
+using DbCore.DbAdmin;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DevExpress.Web;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.OpenSsl;
 using Org.BouncyCastle.Security;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using System.Data;
-using DbCore.DbAdmin;
-using DevExpress.Web;
 
 namespace PlatinumWeb
 {
 
-    public partial class FtoPerdorues : System.Web.UI.Page
-    {
-        UnicodeEncoding ByteConverter = new UnicodeEncoding();
-        RSACryptoServiceProvider RSA;
-        byte[] plaintext;
-        byte[] encryptedtext;
-        string publicKey = @"-----BEGIN PUBLIC KEY-----
+	public partial class FtoPerdorues : System.Web.UI.Page
+	{
+		UnicodeEncoding ByteConverter = new UnicodeEncoding();
+		RSACryptoServiceProvider RSA;
+		byte[] plaintext;
+		byte[] encryptedtext;
+		string publicKey = @"-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoDen7UdHQuEqz5dlUhpZ
 sB7bBjSlo/xEbJqT1994jNAi39/d3Twd8BNg87o16Yrrhce5TwY+IEl8kHvdUNXY
 rkLzZDxoBSGWV05kOW+bDd52ClGTCpJfatvtn/S7nTbdSlNBJJZ2xajFg8l9T6ST
@@ -43,86 +43,86 @@ RCTzQHbk4zG6TcrYp/uR77BfUC91mqAH+OA4YiZZv1YKyP8+O+E0lIcMehn4UWXW
 JwhY6kCDqCIFqgK6rktEaOMCAwEAAQ==
 -----END PUBLIC KEY----- 
 ";
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            DataTable rolesList = clsFunksione.getAllRolesExxeptSuperUser();
-            cmbRolet.DataSource = rolesList;
-            cmbRolet.TextField = "PERDORUESI";
-            cmbRolet.ValueField = "IDPERDORUES";
-            cmbRolet.DataBind();
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			DataTable rolesList = clsFunksione.getAllRolesExxeptSuperUser();
+			cmbRolet.DataSource = rolesList;
+			cmbRolet.TextField = "PERDORUESI";
+			cmbRolet.ValueField = "IDPERDORUES";
+			cmbRolet.DataBind();
 
-        }
-        protected async void button_click(object sender, EventArgs e)
-        {
-            if (email_inline.Text == "")
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(false,false)", true);
-                return;
-            }
-            if (cmbRolet.Value == null)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkRoles()", true);
-                return;
-            }
+		}
+		protected async void button_click(object sender, EventArgs e)
+		{
+			if (email_inline.Text == "")
+			{
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(false,false)", true);
+				return;
+			}
+			if (cmbRolet.Value == null)
+			{
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkRoles()", true);
+				return;
+			}
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(true,false)", true);
-            sendEmail();
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hideLoadingGif(true,false)", true);
+			sendEmail();
 
-        }
-        public void sendEmail()
-        {
-            try
-            {
-               
-                RSA = ImportPublicKey(publicKey);
-                string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-                string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-                clsNdermarrje ndermarrje =
-                    new clsNdermarrje(mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                bool shadowUser = userFatura.Checked;
+		}
+		public void sendEmail()
+		{
+			try
+			{
 
-                List<string> emails = new List<string>(email_inline.Text.Split(','));
-                for (int i = 0; i < emails.Count; i++)
-                {
-                    string password = clsFunksione.generateRandomPassword();
-                    object json = new
-                    {
-                        timestamp = timeStamp,
-                        organization = organizata,
-                        email = emails[i],
-                        password = password,
-                        roli = cmbRolet.Value,
-                        shadowUser = shadowUser,
-                        enterprise = ndermarrje.NdermarrjeKodi
-                    };
-                    plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
-                    encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), false);
-                    string base64 = Convert.ToBase64String(encryptedtext);
-                    clsFunksione.gjeneroLinkPerKonfirmimEmaili(emails[i], base64);
-                }
-                
-                email_inline.Text = "";
-            }
-            catch (Exception ex)
-            {
-                return;
-            }
-        }
-        public static RSACryptoServiceProvider ImportPublicKey(string pem)
-        {
-            PemReader pr = new PemReader(new StringReader(pem));
-            AsymmetricKeyParameter publicKey = (AsymmetricKeyParameter)pr.ReadObject();
-            RSAParameters rsaParams = DotNetUtilities.ToRSAParameters((RsaKeyParameters)publicKey);
+				RSA = ImportPublicKey(publicKey);
+				string timeStamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+				string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
+				clsNdermarrje ndermarrje =
+					new clsNdermarrje(mySessionObjects.merrIdNdermarrjeSesioni(Session));
+				bool shadowUser = userFatura.Checked;
 
-            RSACryptoServiceProvider csp = new RSACryptoServiceProvider();// cspParams);
-            csp.ImportParameters(rsaParams);
-            return csp;
-        }
-        protected bool registerUserWithGmail(object sender, EventArgs e)
-        {
-            string test = "henrik.balla@imb.al";
-            string pass = clsFunksione.generateRandomPassword();
-            return true;
-        }
-    }
+				List<string> emails = new List<string>(email_inline.Text.Split(','));
+				for (int i = 0; i < emails.Count; i++)
+				{
+					string password = clsFunksione.generateRandomPassword();
+					object json = new
+					{
+						timestamp = timeStamp,
+						organization = organizata,
+						email = emails[i],
+						password = password,
+						roli = cmbRolet.Value,
+						shadowUser = shadowUser,
+						enterprise = ndermarrje.NdermarrjeKodi
+					};
+					plaintext = ByteConverter.GetBytes(JsonConvert.SerializeObject(json));
+					encryptedtext = clsFunksione.encrypt(plaintext, RSA.ExportParameters(false), true);
+					string base64 = Convert.ToBase64String(encryptedtext);
+					clsFunksione.gjeneroLinkPerKonfirmimEmaili(emails[i], base64);
+				}
+
+				email_inline.Text = "";
+			}
+			catch (Exception ex)
+			{
+				return;
+			}
+		}
+		public static RSACryptoServiceProvider ImportPublicKey(string pem)
+		{
+			PemReader pr = new PemReader(new StringReader(pem));
+			AsymmetricKeyParameter publicKey = (AsymmetricKeyParameter)pr.ReadObject();
+			RSAParameters rsaParams = DotNetUtilities.ToRSAParameters((RsaKeyParameters)publicKey);
+
+			RSACryptoServiceProvider csp = new RSACryptoServiceProvider();// cspParams);
+			csp.ImportParameters(rsaParams);
+			return csp;
+		}
+		protected bool registerUserWithGmail(object sender, EventArgs e)
+		{
+			string test = "henrik.balla@imb.al";
+			string pass = clsFunksione.generateRandomPassword();
+			return true;
+		}
+	}
 }

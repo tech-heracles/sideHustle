@@ -27,6 +27,7 @@ namespace DbCore.classes
         public string warehouseMan;
         public string destinationAddress;
         public string operatorCode;
+        public bool draft;
         public string type;
         public string transaction;
         public AlphaMetadata alphaMetadata;
@@ -71,6 +72,7 @@ namespace DbCore.classes
             wtn.veichlePlates = jObject.GetValue("veichlePlates")?.ToString();
             wtn.type = jObject.GetValue("type")?.ToString();
             wtn.transaction = jObject.GetValue("transaction")?.ToString();
+            wtn.draft = bool.Parse(jObject.GetValue("draft")?.ToString() ?? "false");
 
             return wtn;
         }

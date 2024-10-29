@@ -1,30 +1,26 @@
-﻿using DbCore.DbAdmin;
-using DbCore.DbArkaBanka;
-using DbCore.DbInventari;
-using DbCore.DbKontabiliteti;
-using DbCore.DbRegjistrim;
-using DbCore.IMBUtils.Extensions;
-using DbCore.IMBUtils.Fiskalizimi.Controls;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
-using System.Security;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Xml;
+using DbCore.DbAdmin;
+using DbCore.DbArkaBanka;
+using DbCore.DbInventari;
+using DbCore.DbKontabiliteti;
+using DbCore.DbRegjistrim;
 using DbCore.IMBUtils.DataBase;
-using DevExpress.Xpo;
+using DbCore.IMBUtils.Extensions;
+using DbCore.IMBUtils.Fiskalizimi.Controls;
+using Newtonsoft.Json;
 
 namespace DbCore.IMBUtils.Fiskalizimi.API
 {
@@ -121,7 +117,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
                 return "";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "";
             }
@@ -139,7 +135,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt"))
                     KEYSTORE_PASS = File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(nderm.Pathname) + @"password.txt");
                 else throw new Exception("Ju lutem ngarkoni filen e passwordit!");
-                if(DateTime.Now > DateTime.Parse(new X509Certificate2(KEYSTORE_LOCATION, KEYSTORE_PASS).GetExpirationDateString())) return true;
+                if (DateTime.Now > DateTime.Parse(new X509Certificate2(KEYSTORE_LOCATION, KEYSTORE_PASS).GetExpirationDateString())) return true;
 
                 return false;
             }
@@ -148,7 +144,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 return false;
             }
         }
-        public static string[] gjeneroFatureShoqeruese(clsNdermarrje nderm, string wtnic, string wtnicSignature, string shoqerimIKerkuar, string mallraTeDjegshme, string adresaFillimit, string vendiFillimit, string targa, colTrupiMagazina trupi, string totali, string kodi, int transportuesi, string tipiMagazina, string qyteti, string dtTransporti, bool eshteGrup, string kodBiznesi,string tipi,string transaksioni, clsNjesiAdministrative njesiAdministrativeDestinacion, clsNjesiAdministrative njesiAdministrative,string kodOperatori, bool lista)
+        public static string[] gjeneroFatureShoqeruese(clsNdermarrje nderm, string wtnic, string wtnicSignature, string shoqerimIKerkuar, string mallraTeDjegshme, string adresaFillimit, string vendiFillimit, string targa, colTrupiMagazina trupi, string totali, string kodi, int transportuesi, string tipiMagazina, string qyteti, string dtTransporti, bool eshteGrup, string kodBiznesi, string tipi, string transaksioni, clsNjesiAdministrative njesiAdministrativeDestinacion, clsNjesiAdministrative njesiAdministrative, string kodOperatori, bool lista)
         {
             var uuid = Guid.NewGuid().ToString();
             var viti = DateTime.Now.Year;
@@ -289,7 +285,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     trupiItems += "<I C =" + $"{barKodi}" + " N=" + $"{pershkrimArtikulli}" + " Q=" + $"{Q2}" + " U=" + $"{U}" + " />";
                 }
             }
-            
+
             totali = shumeArtikujsh.ToString();
             var totali2 = String.Format("{0:0.00}", Convert.ToDouble(totali));
             totali2 = $"\"{totali2}\"";
@@ -560,7 +556,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     string adresaFaturimit, string pershkrimi, string toatli, string dtMaturimi, string totali, string tvsh, string perqindjeZbritja, string emerKlienti, string niptK
                     , string vleraPaTvsh, string shteti, string qyteti, string pershkrimArtikulli, string kodArtikulli, colTrupiShitje artikujt, string tcr, string menyrePagese, clsNdermarrje ndermarje,
                     string kodKlienti, string zbritjaPaTvsh, string nenTotali, string nivfKthim, DateTime dtRegjistrimi, string operatoriEmri, bool eshteGrup, string kursi, bool einvoice, string kodBiznesi,
-                    string tipiAutongarkes, string kodOperator, bool isShitje, bool isModifikim, bool dogane,string dateMbarimi,string dateFillimi,string dateFature,DateTime dateKrijimiFature, int idNdem,int idPerdoruesi,string viti)
+                    string tipiAutongarkes, string kodOperator, bool isShitje, bool isModifikim, bool dogane, string dateMbarimi, string dateFillimi, string dateFature, DateTime dateKrijimiFature, int idNdem, int idPerdoruesi, string viti)
         {
             //Kodet e artikujve
             //N = Emri
@@ -692,8 +688,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             List<int> listTaksash = new List<int>();
             List<clsTrupiShitje> listaTrupiShitje = new List<clsTrupiShitje>();
             List<clsTrupiShitje> listaTrupiShitjePaTvsh = new List<clsTrupiShitje>();
-            List<clsTrupiShitje> listaTrupiShitjeMarginScheme= new List<clsTrupiShitje>();
-            List<clsTrupiShitje> listaTrupiShitjeTaxFree= new List<clsTrupiShitje>();
+            List<clsTrupiShitje> listaTrupiShitjeMarginScheme = new List<clsTrupiShitje>();
+            List<clsTrupiShitje> listaTrupiShitjeTaxFree = new List<clsTrupiShitje>();
             List<clsTrupiShitje> listaTrupiShitjeType1 = new List<clsTrupiShitje>();
             List<clsTrupiShitje> listaTrupiShitjeType2 = new List<clsTrupiShitje>();
             List<clsTaksa> listaETaksave = new List<clsTaksa>();
@@ -702,11 +698,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             {
                 nenTotali2 += artikujt[i].VleftaMeTvsh;
             }
-            
+
             colTaksa colTaksat = new colTaksa(idNdem, idPerdoruesi);
             colTaksat.Add(new clsTaksa());
-            colTaksat.FirstOrDefault(x=>x.IdTaksa == 0).NormaPerqindje = 0.0000000000M;
-            colTaksat.FirstOrDefault(x=>x.IdTaksa == 0).TipiIPerjashtimit = "";
+            colTaksat.FirstOrDefault(x => x.IdTaksa == 0).NormaPerqindje = 0.0000000000M;
+            colTaksat.FirstOrDefault(x => x.IdTaksa == 0).TipiIPerjashtimit = "";
             colNjesiteArtikulli njesiteEArtikujve = new colNjesiteArtikulli(idNdem);
             clsTaksa norma = new clsTaksa();
 
@@ -721,7 +717,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
                 else
                 {
-                    if(colTaksat.FirstOrDefault(z => z.IdTaksa == artikujt[i].Tvsh).TipiIPerjashtimit == "TYPE_1")
+                    if (colTaksat.FirstOrDefault(z => z.IdTaksa == artikujt[i].Tvsh).TipiIPerjashtimit == "TYPE_1")
                     {
                         listaTrupiShitjeType1.Add(artikujt[i]);
                     }
@@ -756,7 +752,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 kodiArtikulli = artikujt[i].Kodi;
                 emertimArtikulli = artikujt[i].Pershkrimi;
                 zbritjaPaTvsh2 = Convert.ToDouble(zbritjaPaTvsh);
-                if(nenTotali2 == 0)
+                if (nenTotali2 == 0)
                 {
                     PA = artikujt[i].VleftaMeTvsh * (1 - zbritjaPaTvsh2);
                     PB = artikujt[i].VleftaPaTvsh * (1 - zbritjaPaTvsh2);
@@ -772,7 +768,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     PA2 = "0.00";
                 PA2 = $"\"{PA2}\"";
                 PB2 = String.Format("{0:0.00}", PB * Double.Parse(kursi));
-                if (PB2 == "NaN") 
+                if (PB2 == "NaN")
                     PB2 = "0.00";
                 PB2 = $"\"{PB2}\"";
                 sasiCmimi = artikujt[i].Cmimi * artikujt[i].Sasia;
@@ -842,20 +838,20 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     vleftaTvsh = PB;
                 }
                 bool vazhdimTagu = false;
-                if(norma.TipiIPerjashtimit != "" && norma.NormaPerqindje.ToString() == "0.0000000000")
+                if (norma.TipiIPerjashtimit != "" && norma.NormaPerqindje.ToString() == "0.0000000000")
                 {
                     done = 0;
                 }
-                
+
                 tot += Double.Parse(String.Format("{0:0.00}", PA));
                 string taguPerjashtimi = "";
-                if(norma.NormaPerqindje.ToString() == "0.0000000000" && !dogane && norma.TipiIPerjashtimit != "")
+                if (norma.NormaPerqindje.ToString() == "0.0000000000" && !dogane && norma.TipiIPerjashtimit != "")
                 {
                     string perjashtimi = norma.TipiIPerjashtimit;
                     perjashtimi = $"\"{perjashtimi}\"";
                     taguPerjashtimi = " EX=" + $"{perjashtimi}" + "";
                 }
-                if(norma.IdTaksa == 0)
+                if (norma.IdTaksa == 0)
                 {
                     string perjashtimi = $"\"TAX_FREE\"";
                     taguPerjashtimi = " EX=" + $"{perjashtimi}" + "";
@@ -863,12 +859,12 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 if (dogane)
                     artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" EX=\"EXPORT_OF_GOODS\" U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
                 else
-                    if(taguPerjashtimi == "")
-                        artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" "+ taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + " VR=" + $"{VR3}" + "/>";
-                    else if(norma.IdTaksa == 0 || norma.TipiIPerjashtimit == "TAX_FREE")
-                        artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + "/>";
-                    else
-                        artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
+                    if (taguPerjashtimi == "")
+                    artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + " VR=" + $"{VR3}" + "/>";
+                else if (norma.IdTaksa == 0 || norma.TipiIPerjashtimit == "TAX_FREE")
+                    artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + "/>";
+                else
+                    artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
                 //}
 
 
@@ -882,7 +878,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             }
             foreach (var taks in listaETaksave)
             {
-                if (!taxArray.Contains("VATRate="+ $"\"{String.Format("{0:0.00}", taks.NormaPerqindje)}\""))
+                if (!taxArray.Contains("VATRate=" + $"\"{String.Format("{0:0.00}", taks.NormaPerqindje)}\""))
                 {
                     foreach (var item in listaTrupiShitje
                                                 .Where(x => colTaksat.FirstOrDefault(z => z.IdTaksa == x.Tvsh).NormaPerqindje.ToString() == taks.NormaPerqindje.ToString()))
@@ -912,7 +908,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     done = 0;
 
                 }
-                       
+
 
             }
             if (listaTrupiShitjePaTvsh.Count > 0 && !dogane)
@@ -979,7 +975,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             string vleraTaxFreeAmtString = $"\"{String.Format("{0:0.00}", vleraTaxFreeAmt)}\"";
             if (listaTrupiShitjeMarginScheme.Count > 0)
                 markUpAmt = " MarkUpAmt=" + $"{vleramarkUpAmtString}" + "";
-            if(listaTrupiShitjeTaxFree.Count > 0 || listaTrupiShitjePaTvsh.Count > 0)
+            if (listaTrupiShitjeTaxFree.Count > 0 || listaTrupiShitjePaTvsh.Count > 0)
                 taxFreeAmt = " TaxFreeAmt=" + $"{vleraTaxFreeAmtString}" + "";
             if (listaTrupiShitjeType1.Count > 0)
             {
@@ -1005,7 +1001,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 PriceBefVATPaTvsh = $"\"{PriceBefVATPaTvsh}\"";
                 tipiIPerjashtimit = $"\"{tipiIPerjashtimit}\"";
                 VATAmt2 = $"\"{VATAmt2}\"";
-                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
+                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>";
                 taksa20 = 0;
                 done = 0;
             }
@@ -1029,14 +1025,14 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     vleraPaTvshEArtikujve += Decimal.Parse(PriceBefVATPaTvsh);
                 PriceBefVATPaTvsh = $"\"{PriceBefVATPaTvsh}\"";
                 tipiIPerjashtimit = $"\"{tipiIPerjashtimit}\"";
-                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>"; 
+                taxArray += "<SameTax NumOfItems =" + $"{doneStringPaTvsh}" + " PriceBefVAT=" + $"{PriceBefVATPaTvsh}" + " ExemptFromVAT=" + $"{tipiIPerjashtimit}" + "/>";
                 taksa20 = 0;
                 done = 0;
             }
 
-            
+
             string supplyDateOrPeriod = "";
-            if(dateMbarimi != dateFature || dateFillimi != dateFature)
+            if (dateMbarimi != dateFature || dateFillimi != dateFature)
             {
                 dateMbarimi = Convert.ToDateTime(dateMbarimi).ToString("yyyy-MM-dd");
                 dateFillimi = Convert.ToDateTime(dateFillimi).ToString("yyyy-MM-dd");
@@ -1044,9 +1040,9 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 dateFillimi = $"\"{dateFillimi}\"";
                 supplyDateOrPeriod = "<SupplyDateOrPeriod Start=" + $"{dateFillimi}" + " End=" + $"{dateMbarimi}" + "/>";
             }
-            
+
             string fatureNeModifikim = "";
-            if(isModifikim)
+            if (isModifikim)
                 fatureNeModifikim = " SubseqDelivType=\"TECHNICALERROR\"";
             if (dateFature.Split(' ')[0] != DateTime.Now.ToString("dd/MM/yyyy") && !isModifikim)
                 fatureNeModifikim = " SubseqDelivType=\"BOUNDBOOK\"";
@@ -1137,11 +1133,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 menyrePag = $"\"CASH\"";
                 metodPagimi = $"\"BANKNOTE\"";
             }
-            else if(menyrePagese == "Karte krediti")
+            else if (menyrePagese == "Karte krediti")
             {
                 txtNumer = $"{txtNumer}/{viti}/{tcr}";
                 menyrePag = $"\"CASH\"";
-                metodPagimi = $"\"CARD\"";  
+                metodPagimi = $"\"CARD\"";
             }
             else
             {
@@ -1231,7 +1227,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
             string qytetiNdermarrjeTag = "";
             ndermarrjeVendi = rgx.Replace(ndermarrjeVendi, "");
-           
+
             ndermarrjeVendi = $"\"{ndermarrjeVendi}\"";
             if (ndermarrjeQyteti != "\"\"")
             {
@@ -1249,7 +1245,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 sameTaxes = "";
             if (dogane)
             {
-                GoodsExAmt = $" GoodsExAmt="+ $"{totali}" +"";
+                GoodsExAmt = $" GoodsExAmt=" + $"{totali}" + "";
                 vleraPaTvshEArtikujve2 = totali;
                 sameTaxes = "";
             }
@@ -1271,7 +1267,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                    " Id=\"Request\" " +
                    " Version=\"3\">\r\n" +
                    " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID=" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt+" TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + " IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + " Type=\"CORRECTIVE\"/>"+ supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>"+ sameTaxes +"</Invoice>\r\n" + "</RegisterInvoiceRequest>";
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt + " TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + " IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + " Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>" + sameTaxes + "</Invoice>\r\n" + "</RegisterInvoiceRequest>";
                 }
                 else if (!string.IsNullOrEmpty(nivfKthim) && tot < 0)
                 {
@@ -1282,7 +1278,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     " Id=\"Request\" " +
                     " Version=\"3\">\r\n" +
                     " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID =" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt+" TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + "IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + "Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>" + sameTaxes + "</Invoice>\r\n" +
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt + " TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + "IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + "Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>" + sameTaxes + "</Invoice>\r\n" +
                     "</RegisterInvoiceRequest>";
                 }
                 else
@@ -1295,7 +1291,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     " Id=\"Request\" " +
                     " Version=\"3\">\r\n" +
                     " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID =" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt+" TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + ">" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>" + sameTaxes + "</Invoice>\r\n" +
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"true\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + taxFreeAmt + markUpAmt + " TotVATAmt=" + $"{tvsh}" + " TypeOfInv=" + $"{menyrePag}" + ">" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items>" + sameTaxes + "</Invoice>\r\n" +
                     "</RegisterInvoiceRequest>";
                 }
             }
@@ -1309,8 +1305,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                    " xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\" " +
                    " Id=\"Request\" " +
                    " Version=\"3\">\r\n" +
-                   " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim +" UUID=" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt+" TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + " IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + " Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" + "</RegisterInvoiceRequest>";
+                   " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID=" + $"{uuid}" + "/>\r\n" +
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + " IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + " Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" + "</RegisterInvoiceRequest>";
                 }
                 else if (!string.IsNullOrEmpty(nivfKthim) && tot < 0)
                 {
@@ -1321,7 +1317,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     " Id=\"Request\" " +
                     " Version=\"3\">\r\n" +
                     " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID =" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt+" TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + "IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + "Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" +
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt + " TypeOfInv=" + $"{menyrePag}" + "><CorrectiveInv IICRef=" + $"{iicFatureOrigjinale}" + "IssueDateTime=" + $"{dateOrigjinaleKrijimi}" + "Type=\"CORRECTIVE\"/>" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" +
                     "</RegisterInvoiceRequest>";
                 }
                 else
@@ -1333,11 +1329,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     " Id=\"Request\" " +
                     " Version=\"3\">\r\n" +
                     " <Header SendDateTime=" + $"{dtRegjistrimiOffsetAktuale}" + fatureNeModifikim + " UUID =" + $"{uuid}" + "/>\r\n" +
-                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt+" TypeOfInv=" + $"{menyrePag}" + ">" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" +
+                   " <Invoice BusinUnitCode=" + $"{ndermarjeKodBiznesi}" + " IIC=" + $"{iic}" + " IICSignature=" + $"{iicSignature}" + " InvNum= " + $"{txtNumer}" + " InvOrdNum=" + $"{txtNumer2}" + "  IsIssuerInVAT=\"false\" IsEinvoice =" + $"{einvoicechecked}" + " IsReverseCharge=" + $"{klientiAutongarkes}" + GoodsExAmt + tipiIVetfaturimit + " IsSimplifiedInv=\"false\" IssueDateTime=" + $"{dtRegjistrimiOffset}" + " OperatorCode=" + $"{kodOperatori}" + "  PayDeadline= " + $"{dtMaturimi}" + " SoftCode=" + $"{softNum}" + " TCRCode=" + $"{tcr}" + " TotPrice=" + $"{totali}" + " TotPriceWoVAT=" + $"{vleraPaTvshEArtikujve2}" + " TaxFreeAmt=" + $"{vleraPaTvshEArtikujve2}" + markUpAmt + " TypeOfInv=" + $"{menyrePag}" + ">" + supplyDateOrPeriod + "<PayMethods><PayMethod Amt=" + $"{totali}" + " Type=" + $"{metodPagimi}" + "/></PayMethods>" + $"{currency}" + clientInfo + buyerInfo + "<Items>" + artikujtarray + "</Items></Invoice>\r\n" +
                     "</RegisterInvoiceRequest>";
                 }
             }
-            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&","&amp;");
+            REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("&", "&amp;");
             REQUEST_TO_SIGN = REQUEST_TO_SIGN.Replace("\"\"", "\"");
             string[] result = new string[2];
             string passpath = nderm.Pathname + $"/password.txt";
@@ -1483,7 +1479,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             }
             return "Ndodhi nje gabim!";
         }
-        public static string[] gjeneroFatureUBL(clsNdermarrje nderm, string nrDok, string vitiTani, string dateDergimi, string dateMaturimi, string iic, string iicSignature, string nivf, DateTime dateDergimiTimeZone, string kodOperatori, string kodBiznesi, string kodSoftueri, string kodMonedha, string niptNdermarrje, string emerNdermarrje, string adresNdermarrje, string qytetiNdermarrje, string shtetNdermarrje, string kodIdnetifikimi, double totali, decimal vleftaMeTvsh, string vleftaPaTvsh, double tvsh, string pershkrimArtikulli, string emerArtikulli, int sasia, string emerKlienti, string niptKlienti, string adresKlienti, string qytetiKlienti, string shtetiKlienti, string menyrePagese, string vleraTvsh, double cmimiIPaguar, double cmimArtikulli, string kodTvsh, string kodTvshReason, double zbritje, double zbritjePerqindje, colTrupiShitje trupShitje, double shumaEParapaguar, double roundingShumaEParapaguar, string llojDokumenti, string procesi, double kursi,string dateFillimi,string dateMbarimi,string dateFature,int idPerdoruesi,int idNderm, string QueryString,clsKlientFurnitor klientFurnitor,string pershkrimFature,string shenimFature)
+        public static string[] gjeneroFatureUBL(clsNdermarrje nderm, string nrDok, string vitiTani, string dateDergimi, string dateMaturimi, string iic, string iicSignature, string nivf, DateTime dateDergimiTimeZone, string kodOperatori, string kodBiznesi, string kodSoftueri, string kodMonedha, string niptNdermarrje, string emerNdermarrje, string adresNdermarrje, string qytetiNdermarrje, string shtetNdermarrje, string kodIdnetifikimi, double totali, decimal vleftaMeTvsh, string vleftaPaTvsh, double tvsh, string pershkrimArtikulli, string emerArtikulli, int sasia, string emerKlienti, string niptKlienti, string adresKlienti, string qytetiKlienti, string shtetiKlienti, string menyrePagese, string vleraTvsh, double cmimiIPaguar, double cmimArtikulli, string kodTvsh, string kodTvshReason, double zbritje, double zbritjePerqindje, colTrupiShitje trupShitje, double shumaEParapaguar, double roundingShumaEParapaguar, string llojDokumenti, string procesi, double kursi, string dateFillimi, string dateMbarimi, string dateFature, int idPerdoruesi, int idNderm, string QueryString, clsKlientFurnitor klientFurnitor, string pershkrimFature, string shenimFature)
         {
             string DateServeriOffset = clsKontrollePerFiskalizimin.ktheDatenEServeritOffset();
             DateTimeOffset dt = DateTimeOffset.Parse(DateServeriOffset);
@@ -1544,7 +1540,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             {
                 dateMbarimi = Convert.ToDateTime(dateMbarimi).ToString("yyyy-MM-dd");
                 dateFillimi = Convert.ToDateTime(dateFillimi).ToString("yyyy-MM-dd");
-                InvoicePeriod = "<ns3:InvoicePeriod><StartDate>"+dateFillimi+ "</StartDate><EndDate>" + dateMbarimi + "</EndDate></ns3:InvoicePeriod>";
+                InvoicePeriod = "<ns3:InvoicePeriod><StartDate>" + dateFillimi + "</StartDate><EndDate>" + dateMbarimi + "</EndDate></ns3:InvoicePeriod>";
             }
             if (kodTvsh == "S" && kodTvshReason == "vatex-eu-s")
             {
@@ -1622,7 +1618,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     perjashtimiArt = "E";
                     if (perjashtimi == false)
                     {
-                        switch(new clsTaksa(trupShitje[i].Tvsh).TipiIPerjashtimit)
+                        switch (new clsTaksa(trupShitje[i].Tvsh).TipiIPerjashtimit)
                         {
                             case "TYPE_1":
                                 TaxExemptionReasonCodePerjashtimi = "VATEX-EU-132";
@@ -1647,7 +1643,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     else
                         listaTrupiShitje.Add(trupShitje[i]);
                 }
-                
+
                 vleftaTvsh = 0;
                 zbritjeTotaleArtikulli = 0;
                 done = 1;
@@ -1658,7 +1654,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     ID = i + 1;
                 zbritjeArtikujsh = trupShitje[i].ZbritjeVlere;
                 var cmimi = trupShitje[i].VleftaPaTvsh;
-                cmimi = Math.Round(double.Parse(String.Format("{0:0.00}" ,cmimi)), 2);
+                cmimi = Math.Round(double.Parse(String.Format("{0:0.00}", cmimi)), 2);
                 chargeAmount += 0;
                 vleraEArtikujve += cmimi;
                 string njesiArtikulliEinvoice = "";
@@ -1679,14 +1675,14 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 if (normaPerqindjeArtikulli1 == "")
                     normaPerqindjeArtikulli1 = "0.0000000000";
                 normaPerqindjeArtikulli1 = String.Format("{0:0.00}", Double.Parse(normaPerqindjeArtikulli1));
-                if(trupShitje[i].Tvsh == 0)
+                if (trupShitje[i].Tvsh == 0)
                 {
-                    
+
                     kodTvshPerArtikullin = "O";
                     items += "<ns3:InvoiceLine><ID>" + $"{ID}" + "</ID><InvoicedQuantity unitCode=" + $"{njesiArtikulliEinvoice}" + ">" + $"{trupShitje[i].Sasia}" + "</InvoicedQuantity><LineExtensionAmount currencyID=" + $"{taxId}" + ">" + $"{String.Format("{0:0.00}", cmimi)}" + "</LineExtensionAmount><ns3:Item><Description>" + $"{trupShitje[i].Pershkrimi}" + "</Description><Name>" + $"{trupShitje[i].Pershkrimi}" + "</Name><ns3:ClassifiedTaxCategory><ID>" + $"{kodTvshPerArtikullin}" + "</ID><ns3:TaxScheme><ID>VAT</ID></ns3:TaxScheme></ns3:ClassifiedTaxCategory></ns3:Item><ns3:Price><PriceAmount currencyID=" + $"{taxId}" + ">" + $"{trupShitje[i].VleftaPaTvsh / trupShitje[i].Sasia}" + "</PriceAmount><BaseQuantity>" + $"{trupShitje[0].Sasia}" + "</BaseQuantity></ns3:Price></ns3:InvoiceLine>";
 
                 }
-                else if(perjashtimiArt != "")
+                else if (perjashtimiArt != "")
                 {
                     kodTvshPerArtikullin = "E";
                     items += "<ns3:InvoiceLine><ID>" + $"{ID}" + "</ID><InvoicedQuantity unitCode=" + $"{njesiArtikulliEinvoice}" + ">" + $"{trupShitje[i].Sasia}" + "</InvoicedQuantity><LineExtensionAmount currencyID=" + $"{taxId}" + ">" + $"{String.Format("{0:0.00}", cmimi)}" + "</LineExtensionAmount><ns3:Item><Description>" + $"{trupShitje[i].Pershkrimi}" + "</Description><Name>" + $"{trupShitje[i].Pershkrimi}" + "</Name><ns3:ClassifiedTaxCategory><ID>" + $"{kodTvshPerArtikullin}" + "</ID><Percent>" + $"{normaPerqindjeArtikulli1}" + "</Percent><ns3:TaxScheme><ID>VAT</ID></ns3:TaxScheme></ns3:ClassifiedTaxCategory></ns3:Item><ns3:Price><PriceAmount currencyID=" + $"{taxId}" + ">" + $"{trupShitje[i].VleftaPaTvsh / trupShitje[i].Sasia}" + "</PriceAmount><BaseQuantity>" + $"{trupShitje[0].Sasia}" + "</BaseQuantity></ns3:Price></ns3:InvoiceLine>";
@@ -1720,7 +1716,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                         items += "<ns3:InvoiceLine><ID>" + $"{ID}" + "</ID><InvoicedQuantity unitCode=" + $"{njesiArtikulliEinvoice}" + ">" + $"{trupShitje[i].Sasia}" + "</InvoicedQuantity><LineExtensionAmount currencyID=" + $"{taxId}" + ">" + $"{String.Format("{0:0.00}", cmimi)}" + "</LineExtensionAmount><ns3:Item><Description>" + $"{trupShitje[i].Pershkrimi}" + "</Description><Name>" + $"{trupShitje[i].Pershkrimi}" + "</Name><ns3:ClassifiedTaxCategory><ID>" + $"{kodTvshPerArtikullin}" + "</ID><Percent>" + $"{normaPerqindjeArtikulli1}" + "</Percent><ns3:TaxScheme><ID>VAT</ID></ns3:TaxScheme></ns3:ClassifiedTaxCategory></ns3:Item><ns3:Price><PriceAmount currencyID=" + $"{taxId}" + ">" + $"{trupShitje[i].VleftaPaTvsh / trupShitje[i].Sasia}" + "</PriceAmount><BaseQuantity>" + $"{trupShitje[0].Sasia}" + "</BaseQuantity></ns3:Price></ns3:InvoiceLine>";
                     }
                 }
-                
+
 
             }
             foreach (var item in listaTrupiShitje
@@ -1729,21 +1725,21 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
                 listaETaksave.Add(colTaksat.FirstOrDefault(z => z.IdTaksa == item.Tvsh));
                 listTaksash.AddIfNotExists(item.Tvsh);
-                
+
             }
             int tvshja = 0;
             string arsyePerjashtimi = "";
             foreach (var taks in listaETaksave)
             {
-                if (!taxSubtotal.Contains("<Percent>"+ float.Parse(taks.NormaPerqindje.ToString()).ToString() + "</Percent>"))
+                if (!taxSubtotal.Contains("<Percent>" + float.Parse(taks.NormaPerqindje.ToString()).ToString() + "</Percent>"))
                 {
                     double cmimiArtikulli = 0;
                     string normaPerqindjeArtikulli = "";
-                        
+
                     foreach (var item in listaTrupiShitje
                                                     .Where(x => colTaksat.FirstOrDefault(z => z.IdTaksa == x.Tvsh).NormaPerqindje.ToString() == taks.NormaPerqindje.ToString()))
                     {
-                        vleftaTvsh = vleftaTvsh + Math.Round(item.VleftaPaTvsh,2) * (1 - Double.Parse(vleraTvsh) / totali);
+                        vleftaTvsh = vleftaTvsh + Math.Round(item.VleftaPaTvsh, 2) * (1 - Double.Parse(vleraTvsh) / totali);
                         zbritjeArtikujsh = zbritjeArtikujsh + Double.Parse(String.Format("{0:0.00}", Math.Truncate(item.ZbritjeVlere * 100) / 100));
                         zbritjeTotaleArtikulli += (zbritjePerqindje / 100) * Math.Round(item.VleftaPaTvsh, 2);
                         cmimiArtikulli = item.VleftaPaTvsh * (1 - Double.Parse(vleraTvsh) / totali);
@@ -1752,7 +1748,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                         arsyePerjashtimi = taks.TipiIPerjashtimit;
                     }
 
-                        
+
                     normaPerqindjeArtikulli = taks.NormaPerqindje.ToString();
                     zbritjeTotaleArtikulli = Math.Round(zbritjeTotaleArtikulli, 2);
                     string doneString = $"\"{done}\"";
@@ -1823,7 +1819,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     zbritjeTotaleArtikulli = 0;
                 }
             }
-            if(listaTrupiShitjePaTvsh.Count > 0)
+            if (listaTrupiShitjePaTvsh.Count > 0)
             {
                 if (!taxSubtotal.Contains("<ID>O</ID>"))
                 {
@@ -1872,7 +1868,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     ndermarrjeIdTax = "FRE";
                 }
             }
-            if(listaTrupiShitjePerjashtim.Count > 0)
+            if (listaTrupiShitjePerjashtim.Count > 0)
             {
                 if (!taxSubtotal.Contains("<ID>E</ID>"))
                 {
@@ -1888,7 +1884,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                         tvshja = item.Tvsh;
                         done = done + 1;
                     }
-                    
+
                     vleftaTvsh = vleftaTvsh;
                     zbritjeTotaleArtikulli = Math.Round(zbritjeTotaleArtikulli, 2);
                     string doneString = $"\"{done}\"";
@@ -1913,7 +1909,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     kodTvshPerTvsh = "E";
                     VATAmt2 = "0.00";
                     kodTvshPerTvsh = "E";
-                    
+
                     taxSubtotal += "<ns3:TaxSubtotal><TaxableAmount currencyID=" + $"{taxId}" + ">" + $"{(PriceBefVAT)}" + "</TaxableAmount><TaxAmount currencyID=" + $"{taxId}" + ">" + $"{VATAmt2}" + "</TaxAmount><ns3:TaxCategory><ID>" + $"{kodTvshPerTvsh}" + "</ID><Percent>0.00</Percent><TaxExemptionReasonCode>" + TaxExemptionReasonCodePerjashtimi + "</TaxExemptionReasonCode><TaxExemptionReason>Exempt from VAT</TaxExemptionReason><ns3:TaxScheme><ID>VAT</ID></ns3:TaxScheme></ns3:TaxCategory></ns3:TaxSubtotal>";
                     if (String.Format("{0:0.00}", zbritjeTotaleArtikulli) != "0.00")
                         allowanceCharge += "<ns3:AllowanceCharge><ChargeIndicator>false</ChargeIndicator><AllowanceChargeReasonCode>41</AllowanceChargeReasonCode><Amount currencyID= " + $"{taxId}" + ">" + $"{String.Format("{0:0.00}", zbritjeTotaleArtikulli)}" + "</Amount><ns3:TaxCategory><ID>" + $"{kodTvshPerTvsh}" + "</ID><Percent>0.00</Percent><ns3:TaxScheme><ID>VAT</ID></ns3:TaxScheme></ns3:TaxCategory></ns3:AllowanceCharge>";
@@ -1933,11 +1929,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 klientiIdTax = "VAT";
 
             }
-            var bankat = colBankat.merrBankatENdermarrjesPerEinvoice(idPerdoruesi,nderm.IdNdermarrje);
+            var bankat = colBankat.merrBankatENdermarrjesPerEinvoice(idPerdoruesi, nderm.IdNdermarrje);
             Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-            adresKlienti = rgx.Replace(adresKlienti,"");
+            adresKlienti = rgx.Replace(adresKlienti, "");
             string taguIBankave = String.Empty;
-            foreach(var bank in bankat)
+            foreach (var bank in bankat)
             {
                 string kodiIMetodesSePaguar = "";
                 if (bank.ShfaqNeEinvoice)
@@ -1946,7 +1942,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                         kodiIMetodesSePaguar = "10";
                     else
                         kodiIMetodesSePaguar = "30";
-                    taguIBankave += "<ns3:PaymentMeans><PaymentMeansCode>"+kodiIMetodesSePaguar+"</PaymentMeansCode><ns3:PayeeFinancialAccount><ID>"+bank.NrLlogariBanka+ "</ID><Name>"+bank.EmerBanka+ "</Name></ns3:PayeeFinancialAccount></ns3:PaymentMeans>";
+                    taguIBankave += "<ns3:PaymentMeans><PaymentMeansCode>" + kodiIMetodesSePaguar + "</PaymentMeansCode><ns3:PayeeFinancialAccount><ID>" + bank.NrLlogariBanka + "</ID><Name>" + bank.EmerBanka + "</Name></ns3:PayeeFinancialAccount></ns3:PaymentMeans>";
                 }
             }
             vleraEArtikujve = Math.Round(double.Parse(String.Format("{0:0.00}", vleraEArtikujve)), 2);
@@ -1990,12 +1986,12 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             string shitesiTaxSCheme = "<ns3:PartyTaxScheme><CompanyID>AL" + $"{niptNdermarrje}" + "</CompanyID><ns3:TaxScheme><ID>" + $"{ndermarrjeIdTax}" + "</ID></ns3:TaxScheme></ns3:PartyTaxScheme>";
             string taxTotalAll = "";
             string taxCurrencyCodeTag = "";
-            if(kodMonedha != "ALL")
+            if (kodMonedha != "ALL")
             {
                 taxTotalAll = "<ns3:TaxTotal><TaxAmount currencyID=\"ALL\">" + $"{String.Format("{0:0.00}", Double.Parse(taxableamount2) * kursi)}" + "</TaxAmount></ns3:TaxTotal>";
                 taxCurrencyCodeTag = "<TaxCurrencyCode>ALL</TaxCurrencyCode>";
             }
-            if(kursi != 1)
+            if (kursi != 1)
             {
                 tagNoteKursi = $"<Note>CurrencyExchangeRate=" + kursi + "#AAI#</Note>";
             }
@@ -2020,7 +2016,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             "xmlns:ns5=\"http://www.w3.org/2000/09/xmldsig#\"" +
             " xmlns:ns6=\"urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2\" " +
             "xmlns:ns7=\"urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2\">" +
-            "<ns2:UBLExtensions><ns2:UBLExtension><ns2:ExtensionContent><ns7:UBLDocumentSignatures><ns6:SignatureInformation></ns6:SignatureInformation></ns7:UBLDocumentSignatures></ns2:ExtensionContent></ns2:UBLExtension></ns2:UBLExtensions><CustomizationID xmlns='urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2'>urn:cen.eu:en16931:2017</CustomizationID><ProfileID>" + $"{procesi}" + "</ProfileID><ID>" + $"{idProfili}" + "</ID><IssueDate>" + $"{dateDergimi}" + "</IssueDate><DueDate>" + $"{dateMaturimi}" + "</DueDate><InvoiceTypeCode>" + $"{llojDokumenti}" + "</InvoiceTypeCode><Note>IIC=" + $"{iic}" + "#AAI#</Note><Note>IICSignature=" + $"{iicSignature}" + "#AAI#</Note><Note>FIC=" + $"{nivf}" + "#AAI#</Note><Note>IssueDateTime=" + $"{dateDergimiSpecifike}" + "#AAI#</Note><Note>OperatorCode=" + $"{kodOperatori}" + "#AAI#</Note><Note>BusinessUnitCode=" + $"{kodBiznesi}" + "#AAI#</Note><Note>SoftwareCode=" + $"{kodSoftueri}" + "#AAI#</Note>" + pershkrimFature + tagNoteKursi + "<DocumentCurrencyCode>" + $"{kodMonedha}" + "</DocumentCurrencyCode>" + taxCurrencyCodeTag + InvoicePeriod + documentetEinvoieceXml.ToString() +"<ns3:AccountingSupplierParty><ns3:Party><EndpointID schemeID=\"9923\">" + $"{niptNdermarrje}" + "</EndpointID><ns3:PartyName><Name>" + $"{emerNdermarrje}" + "</Name></ns3:PartyName><ns3:PostalAddress><StreetName>" + $"{adresNdermarrje}" + "</StreetName><CityName>" + $"{qytetiNdermarrje}" + "</CityName><ns3:Country><IdentificationCode>" + $"{shtetNdermarrje}" + "</IdentificationCode></ns3:Country></ns3:PostalAddress>"+shitesiTaxSCheme+"<ns3:PartyLegalEntity><RegistrationName>" + $"{emerNdermarrje}" + "</RegistrationName><CompanyID>" + $"{niptNdermarrje}" + "</CompanyID></ns3:PartyLegalEntity><ns3:Contact/></ns3:Party></ns3:AccountingSupplierParty><ns3:AccountingCustomerParty><ns3:Party><EndpointID schemeID=\"9923\">" + $"{niptKlienti}" + "</EndpointID><ns3:PartyName><Name>" + $"{emerKlienti}" + "</Name></ns3:PartyName><ns3:PostalAddress><StreetName>" + $"{adresKlienti}" + "</StreetName><CityName>" + $"{qytetiKlienti}" + "</CityName><ns3:Country><IdentificationCode>" + $"{shtetiKlienti}" + "</IdentificationCode></ns3:Country></ns3:PostalAddress>"+bleresiTaxScheme+"<ns3:PartyLegalEntity><RegistrationName>" + $"{emerKlienti}" + "</RegistrationName><CompanyID>" + $"{niptKlienti}" + "</CompanyID></ns3:PartyLegalEntity><ns3:Contact/></ns3:Party></ns3:AccountingCustomerParty>" + taguIBankave + allowanceCharge + "<ns3:TaxTotal><TaxAmount currencyID=" + $"{taxId}" + ">" + $"{taxableamount2}" + "</TaxAmount>" + taxSubtotal + "</ns3:TaxTotal>"+ taxTotalAll + "<ns3:LegalMonetaryTotal>" + lineExtensionAmount + taxExclusiveAmount + taxInclusiveAmount + allowanceTotalAmount + chargeTotalAmount + prepaidAmount + payableRoundingAmount + payableAmount + payableAlternativeAmount + "</ns3:LegalMonetaryTotal>" + $"{items}" + "</ns8:Invoice>";
+            "<ns2:UBLExtensions><ns2:UBLExtension><ns2:ExtensionContent><ns7:UBLDocumentSignatures><ns6:SignatureInformation></ns6:SignatureInformation></ns7:UBLDocumentSignatures></ns2:ExtensionContent></ns2:UBLExtension></ns2:UBLExtensions><CustomizationID xmlns='urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2'>urn:cen.eu:en16931:2017</CustomizationID><ProfileID>" + $"{procesi}" + "</ProfileID><ID>" + $"{idProfili}" + "</ID><IssueDate>" + $"{dateDergimi}" + "</IssueDate><DueDate>" + $"{dateMaturimi}" + "</DueDate><InvoiceTypeCode>" + $"{llojDokumenti}" + "</InvoiceTypeCode><Note>IIC=" + $"{iic}" + "#AAI#</Note><Note>IICSignature=" + $"{iicSignature}" + "#AAI#</Note><Note>FIC=" + $"{nivf}" + "#AAI#</Note><Note>IssueDateTime=" + $"{dateDergimiSpecifike}" + "#AAI#</Note><Note>OperatorCode=" + $"{kodOperatori}" + "#AAI#</Note><Note>BusinessUnitCode=" + $"{kodBiznesi}" + "#AAI#</Note><Note>SoftwareCode=" + $"{kodSoftueri}" + "#AAI#</Note>" + pershkrimFature + tagNoteKursi + "<DocumentCurrencyCode>" + $"{kodMonedha}" + "</DocumentCurrencyCode>" + taxCurrencyCodeTag + InvoicePeriod + documentetEinvoieceXml.ToString() + "<ns3:AccountingSupplierParty><ns3:Party><EndpointID schemeID=\"9923\">" + $"{niptNdermarrje}" + "</EndpointID><ns3:PartyName><Name>" + $"{emerNdermarrje}" + "</Name></ns3:PartyName><ns3:PostalAddress><StreetName>" + $"{adresNdermarrje}" + "</StreetName><CityName>" + $"{qytetiNdermarrje}" + "</CityName><ns3:Country><IdentificationCode>" + $"{shtetNdermarrje}" + "</IdentificationCode></ns3:Country></ns3:PostalAddress>" + shitesiTaxSCheme + "<ns3:PartyLegalEntity><RegistrationName>" + $"{emerNdermarrje}" + "</RegistrationName><CompanyID>" + $"{niptNdermarrje}" + "</CompanyID></ns3:PartyLegalEntity><ns3:Contact/></ns3:Party></ns3:AccountingSupplierParty><ns3:AccountingCustomerParty><ns3:Party><EndpointID schemeID=\"9923\">" + $"{niptKlienti}" + "</EndpointID><ns3:PartyName><Name>" + $"{emerKlienti}" + "</Name></ns3:PartyName><ns3:PostalAddress><StreetName>" + $"{adresKlienti}" + "</StreetName><CityName>" + $"{qytetiKlienti}" + "</CityName><ns3:Country><IdentificationCode>" + $"{shtetiKlienti}" + "</IdentificationCode></ns3:Country></ns3:PostalAddress>" + bleresiTaxScheme + "<ns3:PartyLegalEntity><RegistrationName>" + $"{emerKlienti}" + "</RegistrationName><CompanyID>" + $"{niptKlienti}" + "</CompanyID></ns3:PartyLegalEntity><ns3:Contact/></ns3:Party></ns3:AccountingCustomerParty>" + taguIBankave + allowanceCharge + "<ns3:TaxTotal><TaxAmount currencyID=" + $"{taxId}" + ">" + $"{taxableamount2}" + "</TaxAmount>" + taxSubtotal + "</ns3:TaxTotal>" + taxTotalAll + "<ns3:LegalMonetaryTotal>" + lineExtensionAmount + taxExclusiveAmount + taxInclusiveAmount + allowanceTotalAmount + chargeTotalAmount + prepaidAmount + payableRoundingAmount + payableAmount + payableAlternativeAmount + "</ns3:LegalMonetaryTotal>" + $"{items}" + "</ns8:Invoice>";
             string passpath = nderm.Pathname + $"/password.txt";
             string[] result = new string[2];
             String KEYSTORE_PASS = "";
@@ -2265,7 +2261,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
         }
         public static object kontrolloVleratPerTCR(clsNdermarrje ndermarrje, string kodBiznesi)
         {
-            if(kodBiznesi == "")
+            if (kodBiznesi == "")
                 return new { Pershkrim = "Plotesoni degen administrative!" };
             if (ndermarrje.NdermarrjeNipt == "")
                 return new { Pershkrim = "Plotesoni Nipt te ndermarrja!" };
@@ -2365,7 +2361,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
                 return "string";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Problem certifikate";
             }
@@ -2612,7 +2608,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
         {
             string result = string.Empty;
             string linkFiskalizimiWebhook = WebConfigurationManager.AppSettings["SuksesFiskalizimi"];
-            string linkEinvoiceWebhook = WebConfigurationManager.AppSettings["SuksesFiskalizimi"];            
+            string linkEinvoiceWebhook = WebConfigurationManager.AppSettings["SuksesFiskalizimi"];
             try
             {
                 WebRequest webRequest;
@@ -2642,11 +2638,11 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     }
                 }
             }
-            catch(WebException ex)
+            catch (WebException ex)
             {
                 return false;
             }
-            
+
         }
         public static string[] InvokeService(string xml, string elementi, bool Einvoice)
         {
@@ -2701,7 +2697,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             }
             catch (WebException ex)
             {
-                if(ex.Message == "The underlying connection was closed: An unexpected error occurred on a receive.")
+                if (ex.Message == "The underlying connection was closed: An unexpected error occurred on a receive.")
                 {
                     string[] responseString = new string[4];
                     responseString[2] = "";
@@ -2808,7 +2804,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 return $"{pathDir}{data}_request.zip";
             }
         }
-        
+
         public static void downloadFileToClientZip(string filePathToOpen, HttpResponse Response, int idPerdoruesi)
         {
             FileInfo myfile = new FileInfo(filePathToOpen);
@@ -2829,8 +2825,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 //Response.End();
 
                 //return File.ReadAllBytes(filePathToOpen);
-                
-                
+
+
 
             }
             return;

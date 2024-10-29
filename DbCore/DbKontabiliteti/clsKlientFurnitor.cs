@@ -1181,7 +1181,8 @@ namespace DbCore.DbKontabiliteti
                     organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
                     ndermarrja = nder,
                     enterprise = nder,
-                    priceLevel = this.PershkrimNivelCmimi
+                    priceLevel = this.PershkrimNivelCmimi,
+                    clientDiscount = new clsKokaKategoriZbritje(this.IdKatZbritje).Zbritja
                 };
 
 

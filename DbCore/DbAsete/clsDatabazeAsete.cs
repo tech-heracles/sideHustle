@@ -58,6 +58,22 @@ namespace DbCore.DbAsete
 
 		}
 
+		internal Boolean aKaVeprimeMeLlojiAmortizimiTeNdryshemMePara(int idArtikulli, DateTime dateAmortizimiFundit, int idLlojAmort)
+		{
+			String sqlstr = "SELECT 1 FROM T_ASETE_AMORTIZIMI_TRUPI T " +
+			"INNER JOIN T_ASETE_AMORTIZIMI_KOKA K ON K.ID_AMORTIZIMI = T.IDAMORTIZIMIKOKA " +
+			"INNER JOIN T_ASETE_LIDHJE_ARTIKULL_LLOJAMORT A ON T.IDARTIKULL_LLOJAMORT = A.ID_ARTIKULL_LLOJAMORTIZIM " +
+			"WHERE T.IDARTIKULLI = " + idArtikulli + " " +
+			"AND K.IDSTATUSDOK = 1 " +
+			"AND T.DATE_AMORTIZIMI < '" + dateAmortizimiFundit.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' " +
+			"AND A.IDLLOJAMORTIZIMI <> " + idLlojAmort;
+
+			dbManager.Open();
+			DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
+
+			return ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0;
+		}
+
 		/// <summary>
 		/// MODULI ASETE:
 		/// Modifikon ne tabelen T_ASETE_STANDART_AMORT objektin e standartit te amortizimi nepermjet procedures PRC_T_ASETE_STANDART_AMORT_UPDATE.
@@ -2107,22 +2123,6 @@ namespace DbCore.DbAsete
 			DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "PRC_T_ASETE_AMORTIZIMI_TRUPI_SEL_VEPRIMETEFUNDIT");
 			return ds.Tables[0];
 
-		}
-
-		internal Boolean aKaVeprimeMeLlojiAmortizimiTeNdryshemMePara(int idArtikulli, DateTime dateAmortizimiFundit, int idLlojAmort)
-		{
-			String sqlstr = "SELECT 1 FROM T_ASETE_AMORTIZIMI_TRUPI T " +
-				"INNER JOIN T_ASETE_AMORTIZIMI_KOKA K ON K.ID_AMORTIZIMI = T.IDAMORTIZIMIKOKA " +
-				"INNER JOIN T_ASETE_LIDHJE_ARTIKULL_LLOJAMORT A ON T.IDARTIKULL_LLOJAMORT = A.ID_ARTIKULL_LLOJAMORTIZIM " +
-				"WHERE T.IDARTIKULLI = " + idArtikulli + " " +
-				"AND K.IDSTATUSDOK = 1 " +
-				"AND T.DATE_AMORTIZIMI < '" + dateAmortizimiFundit.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' " +
-				"AND A.IDLLOJAMORTIZIMI <> " + idLlojAmort;
-
-			dbManager.Open();
-			DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-
-			return ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0;
 		}
 		internal override DataTable ktheAmortizimTrupiAmortVeprimePas(int idNdermarrje, DateTime dataMaksimaleZgjedhje, int idLlojStandarti, int nrRenditje)
 		{
