@@ -7810,6 +7810,9 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemMbyll" xml:space="preserve">
     <value>Mbyll</value>
   </data>
+<data name="MenuItemFshirje" xml:space="preserve">
+    <value>Fshi Organizaten</value>
+  </data>
 	<data name="MenuLlogaritAbonim" xml:space="preserve">
     <value>Llogarit Riabonimin</value>
   </data>

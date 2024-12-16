@@ -987,6 +987,9 @@ During the warranty period, Vodafone or any other company authorized by Vodafone
   <data name="MenuItemMbyll" xml:space="preserve">
     <value>Close</value>
   </data>
+<data name="MenuItemFshirje" xml:space="preserve">
+    <value>Fshi Organizaten</value>
+  </data>
   <data name="labelFilterAvancuarMbylljeViti" xml:space="preserve">
     <value>Closing year</value>
   </data>

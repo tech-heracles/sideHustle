@@ -383,26 +383,26 @@ namespace PlatinumWeb
 			}
 			string organizata = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
 			var user = new clsPerdorues(Login1.UserName);
-			var orgs = await fb.getOrganizationsForAlphax();
-			if (!orgs.Contains(organizata))
-			{
-				bool superUser = false;
-				foreach (var role in user.OColRolPerdoruesi)
-				{
-					clsRoli rol = new clsRoli(role.IdRoli);
-					if (rol.KodRoli == "RSU")
-					{
-						superUser = true;
-						break;
-					}
-				}
-				if (!superUser)
-				{
-					Session.Clear();
-					Response.Redirect("https://alphax.al");
-					return;
-				}
-			}
+			//var orgs = await fb.getOrganizationsForAlphax();
+			//if (!orgs.Contains(organizata))
+			//{
+			//	bool superUser = false;
+			//	foreach (var role in user.OColRolPerdoruesi)
+			//	{
+			//		clsRoli rol = new clsRoli(role.IdRoli);
+			//		if (rol.KodRoli == "RSU")
+			//		{
+			//			superUser = true;
+			//			break;
+			//		}
+			//	}
+			//	if (!superUser)
+			//	{
+			//		Session.Clear();
+			//		Response.Redirect("https://alphax.al");
+			//		return;
+			//	}
+			//}
 
 
 			if (user.Shenime != "")

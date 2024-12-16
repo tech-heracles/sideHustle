@@ -438,33 +438,33 @@ namespace DbCore.DbAsete
 			return pergjigja;
 		}
 
-        /// <summary>
-        /// MODULI ASETE:
-        /// Krijon trupin e dokumentit te amortizimit per rivleresimin.
-        /// Metode qe perdoren nga metodat e : RIVLERESIMI
-        /// </summary>
-        /// <param name="kokaEAmortizimit">(clsAmortizimiKoka) Koka e amortizimit qe po regjistrohet.</param> 
-        /// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
-        /// <returns>Kthen True nese mbushja e objektit kryhet me sukses, ne te kundert False.</returns>
-        public clsMesazh krijoTrupiDokAmortizimiPerRivleresim(int nrRenditje, clsAmortizimiKoka kokaEAmortizimit, bool rivlersimXStandart, out string mesazhmevonshem)
-        {
-            mesazhmevonshem = "";
-            //Marrja e gjithe serialeve qe llogaritur me pare.
-            colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePare = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
-            clsMesazh pergjigja = new clsMesazh()
-            {
-                Status = teGjitheSerialetLlogariturMePare.merrAmortizimTrupiAmortFunditSipasRenditjes(kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, kokaEAmortizimit.IdLlojStandarti, nrRenditje)
-            };
-            if (!pergjigja.Status)
-                return pergjigja;
-            colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePas = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
-            pergjigja.Status = teGjitheSerialetLlogariturMePas.ktheAmortizimTrupiAmortVeprimePas(kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, kokaEAmortizimit.IdLlojStandarti, nrRenditje);
-            if (!pergjigja.Status)
-                return pergjigja;
-            //Llogarit amortizimin per secilin rresht te trupit.
-            pergjigja = llogaritAmortizimiRivleresim(kokaEAmortizimit, teGjitheSerialetLlogariturMePare, rivlersimXStandart, teGjitheSerialetLlogariturMePas, out mesazhmevonshem);
-            return pergjigja;
-        }
+		/// <summary>
+		/// MODULI ASETE:
+		/// Krijon trupin e dokumentit te amortizimit per rivleresimin.
+		/// Metode qe perdoren nga metodat e : RIVLERESIMI
+		/// </summary>
+		/// <param name="kokaEAmortizimit">(clsAmortizimiKoka) Koka e amortizimit qe po regjistrohet.</param> 
+		/// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
+		/// <returns>Kthen True nese mbushja e objektit kryhet me sukses, ne te kundert False.</returns>
+		public clsMesazh krijoTrupiDokAmortizimiPerRivleresim(int nrRenditje, clsAmortizimiKoka kokaEAmortizimit, bool rivlersimXStandart, out string mesazhmevonshem)
+		{
+			mesazhmevonshem = "";
+			//Marrja e gjithe serialeve qe llogaritur me pare.
+			colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePare = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
+			clsMesazh pergjigja = new clsMesazh()
+			{
+				Status = teGjitheSerialetLlogariturMePare.merrAmortizimTrupiAmortFunditSipasRenditjes(kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, kokaEAmortizimit.IdLlojStandarti, nrRenditje)
+			};
+			if (!pergjigja.Status)
+				return pergjigja;
+			colAmortizimiTrupiAbstract teGjitheSerialetLlogariturMePas = colAmortizimiTrupiAbstract.krijoInstance(this.objektiKod);
+			pergjigja.Status = teGjitheSerialetLlogariturMePas.ktheAmortizimTrupiAmortVeprimePas(kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, kokaEAmortizimit.IdLlojStandarti, nrRenditje);
+			if (!pergjigja.Status)
+				return pergjigja;
+			//Llogarit amortizimin per secilin rresht te trupit.
+			pergjigja = llogaritAmortizimiRivleresim(kokaEAmortizimit, teGjitheSerialetLlogariturMePare, rivlersimXStandart, teGjitheSerialetLlogariturMePas, out mesazhmevonshem);
+			return pergjigja;
+		}
 
 		/// <summary>
 		/// MODULI ASETE:
@@ -497,108 +497,108 @@ namespace DbCore.DbAsete
 			return pergjigja;
 		}
 
-        /// <summary>
-        /// MODULI ASETE:
-        /// Rillogarit trupin e amortizimit pas filtrimit te serialeve.
-        /// </summary>
-        /// <param name="gjitheKokat"></param>
-        /// <param name="idNdermarrje">(int) Id e ndermarrjes</param>
-        /// <param name="idLlojStandarti">(int) Id e llojit te standartit.</param>
-        /// <param name="dataFillimiRillogaritje">(DateTime) Data e fillimit te rillogaritjes. </param>
-        /// <param name="idPerdoruesi">(int) Id e perdoruesit qe po ben rillogaritjen.</param>
-        /// <param name="meSerial">True nese llogaritja do te behet per artikujt me serial dhe False nese llogaritja do te behet per artikujt pa serial</param>
-        /// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
-        /// <returns>Kthen True nese rillogaritja kryhet me sukses, ne te kundert False.</returns>
-        public static clsMesazh rillogariTrupinAmortizimArtikuj(colAmortizimiKoka gjitheKokat, int idNdermarrje, int idLlojStandarti, string StandartiEmertim, DateTime dataFillimiRillogaritje, int idPerdoruesi, bool meSerial, EO.Web.ProgressTaskEventArgs e, ResourceManager rm, CultureInfo ci, colAmortizimiTrupiAbstract colAm, colAmortizimiTrupiAbstract colRez)
-        {
-            clsMesazh pergjigje = new clsMesazh();
-            List<clsAmortizimiTrupiAbstract> lista = new List<clsAmortizimiTrupiAbstract>();
-            lista.AddRange(colAm);
-            lista.AddRange(colRez);
-            colAmortizimiKoka kokaAmortizimiPerModifikim = new colAmortizimiKoka();
-            //colAm.ktheArtikujNormaAmortizimiBrendaDatave
-            bool serialIRi = true, tempSerialIRi = true;
-            bool merrDateAmortizimiDokMePare = false;
-            DateTime DateAmortizimiTemp = DateTime.Now;
-            DataRow konfigurimeAmortizimi = clsKonfigurimAmbjenti.ktheIdKonfigurimiTeAmortizimeve(idNdermarrje);
-            int nrPerqindjeMeSerial = 0, nrPerqindjePaSerial = 0, mykoleksionCount = lista.Count,
-                FADT = Convert.ToInt32(konfigurimeAmortizimi["FADT"]),
-                FADTK = Convert.ToInt32(konfigurimeAmortizimi["FADTK"]),
-                FAD = Convert.ToInt32(konfigurimeAmortizimi["FAD"]),
-                FAS = Convert.ToInt32(konfigurimeAmortizimi["FAS"]),
-                FANS = Convert.ToInt32(konfigurimeAmortizimi["FANS"]),
-                FRAanalitike = Convert.ToInt32(konfigurimeAmortizimi["FRAanalitike"]),
-                FRAanalitikeRezerve = Convert.ToInt32(konfigurimeAmortizimi["FRAanalitikeRezerve"]),
-                FRApermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FRApermbledhese"]),
-                FRApermblRezerve = Convert.ToInt32(konfigurimeAmortizimi["FRApermblRezerve"]),
-                FA = Convert.ToInt32(konfigurimeAmortizimi["FA"]),
-                FASS = Convert.ToInt32(konfigurimeAmortizimi["FASS"]),
-                FAHT = Convert.ToInt32(konfigurimeAmortizimi["FAHT"]),
-                FAHTK = Convert.ToInt32(konfigurimeAmortizimi["FAHTK"]),
-                FAB = Convert.ToInt32(konfigurimeAmortizimi["FAB"]),
-                FAFpermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FAFpermbledhese"]),
-                FAFpermblRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFpermblRezerve"]),
-                FAFanalitike = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitike"]),
-                FAFanalitikeRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitikeRezerve"]);
-            string serialiAktual = "", tempSerialiAktual = "";//
-            int maxRetry = 200;
-            int.TryParse(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.MAXRETRY_TRANS), out maxRetry);
+		/// <summary>
+		/// MODULI ASETE:
+		/// Rillogarit trupin e amortizimit pas filtrimit te serialeve.
+		/// </summary>
+		/// <param name="gjitheKokat"></param>
+		/// <param name="idNdermarrje">(int) Id e ndermarrjes</param>
+		/// <param name="idLlojStandarti">(int) Id e llojit te standartit.</param>
+		/// <param name="dataFillimiRillogaritje">(DateTime) Data e fillimit te rillogaritjes. </param>
+		/// <param name="idPerdoruesi">(int) Id e perdoruesit qe po ben rillogaritjen.</param>
+		/// <param name="meSerial">True nese llogaritja do te behet per artikujt me serial dhe False nese llogaritja do te behet per artikujt pa serial</param>
+		/// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
+		/// <returns>Kthen True nese rillogaritja kryhet me sukses, ne te kundert False.</returns>
+		public static clsMesazh rillogariTrupinAmortizimArtikuj(colAmortizimiKoka gjitheKokat, int idNdermarrje, int idLlojStandarti, string StandartiEmertim, DateTime dataFillimiRillogaritje, int idPerdoruesi, bool meSerial, EO.Web.ProgressTaskEventArgs e, ResourceManager rm, CultureInfo ci, colAmortizimiTrupiAbstract colAm, colAmortizimiTrupiAbstract colRez)
+		{
+			clsMesazh pergjigje = new clsMesazh();
+			List<clsAmortizimiTrupiAbstract> lista = new List<clsAmortizimiTrupiAbstract>();
+			lista.AddRange(colAm);
+			lista.AddRange(colRez);
+			colAmortizimiKoka kokaAmortizimiPerModifikim = new colAmortizimiKoka();
+			//colAm.ktheArtikujNormaAmortizimiBrendaDatave
+			bool serialIRi = true, tempSerialIRi = true;
+			bool merrDateAmortizimiDokMePare = false;
+			DateTime DateAmortizimiTemp = DateTime.Now;
+			DataRow konfigurimeAmortizimi = clsKonfigurimAmbjenti.ktheIdKonfigurimiTeAmortizimeve(idNdermarrje);
+			int nrPerqindjeMeSerial = 0, nrPerqindjePaSerial = 0, mykoleksionCount = lista.Count,
+				FADT = Convert.ToInt32(konfigurimeAmortizimi["FADT"]),
+				FADTK = Convert.ToInt32(konfigurimeAmortizimi["FADTK"]),
+				FAD = Convert.ToInt32(konfigurimeAmortizimi["FAD"]),
+				FAS = Convert.ToInt32(konfigurimeAmortizimi["FAS"]),
+				FANS = Convert.ToInt32(konfigurimeAmortizimi["FANS"]),
+				FRAanalitike = Convert.ToInt32(konfigurimeAmortizimi["FRAanalitike"]),
+				FRAanalitikeRezerve = Convert.ToInt32(konfigurimeAmortizimi["FRAanalitikeRezerve"]),
+				FRApermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FRApermbledhese"]),
+				FRApermblRezerve = Convert.ToInt32(konfigurimeAmortizimi["FRApermblRezerve"]),
+				FA = Convert.ToInt32(konfigurimeAmortizimi["FA"]),
+				FASS = Convert.ToInt32(konfigurimeAmortizimi["FASS"]),
+				FAHT = Convert.ToInt32(konfigurimeAmortizimi["FAHT"]),
+				FAHTK = Convert.ToInt32(konfigurimeAmortizimi["FAHTK"]),
+				FAB = Convert.ToInt32(konfigurimeAmortizimi["FAB"]),
+				FAFpermbledhese = Convert.ToInt32(konfigurimeAmortizimi["FAFpermbledhese"]),
+				FAFpermblRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFpermblRezerve"]),
+				FAFanalitike = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitike"]),
+				FAFanalitikeRezerve = Convert.ToInt32(konfigurimeAmortizimi["FAFanalitikeRezerve"]);
+			string serialiAktual = "", tempSerialiAktual = "";//
+			int maxRetry = 200;
+			int.TryParse(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.MAXRETRY_TRANS), out maxRetry);
 
-            try
-            {
-                colAmortizimiTrupiAbstract trupiPerSerial = colAmortizimiTrupiAbstract.krijoInstance(lista.Count > 0 ? lista[0].objektiKod : enumObjekteAmortizimi.ASETE);
-                var dbData = new DbData();
-                for (int objektiAktual = 0; objektiAktual < mykoleksionCount; objektiAktual++)
-                {
-                    #region retryTrans
-                    clsRetryTrans retryTrans = new clsRetryTrans("RillogaritjeAmortizimi", maxRetry);
-                    do
-                    {
-                        using (var scope = new MyTransactionScope(dbData, 0))
-                        {
-                            try
-                            {
-                                clsAmortizimiTrupiAbstract objektTrupi = lista[objektiAktual].DeepClone();
-                                clsAseteNormaAmortizimiAbstract norma = clsAseteNormaAmortizimiAbstract.krijoInstance(objektTrupi.objektiKod);
-                                string llojAmortizimi = norma.merrNormenDheMetodenAmortizimitSipasIdArtikullStandartit(objektTrupi.IdArtikulli, idLlojStandarti, objektTrupi.DateAmortizimi);
-                                tempSerialIRi = serialIRi;
-                                tempSerialiAktual = serialiAktual;
-                                colAseteNormaAmortizimiAbstract aseteNorma = colAseteNormaAmortizimiAbstract.krijoInstance(objektTrupi.objektiKod);
-                                //nqs nuk eshte dok i pare ne list merr daten e dok paraardhes si data me pare amortizimi
-                                DateTime DateMepareAmortizimi = merrDateAmortizimiDokMePare ? DateAmortizimiTemp.AddDays(1) : objektTrupi.DateMePareAmortizimi.AddDays(1);
-                                if (aseteNorma.ktheBoolArtikujNormaAmortizimiBrendaDatave(objektTrupi.IdArtikulli, idLlojStandarti, DateMepareAmortizimi, objektTrupi.DateAmortizimi))
-                                    return new clsMesazh(false, String.Format("Serialit {0} per standartin {1} i duhet llogaritur me pare amortizimi pasi ka me shume norma se 1 gjate intervalit {2}  dhe {3} te pallogaritur!", objektTrupi.Serial, StandartiEmertim, DateMepareAmortizimi.ToString("dd/MM/yyyy"), objektTrupi.DateAmortizimi.ToString("dd/MM/yyyy")));
-                                pergjigje = RillogaritTrupDokumentAmortizimi(dbData, objektTrupi, ref tempSerialiAktual, gjitheKokat, idLlojStandarti, idNdermarrje, idPerdoruesi, objektiAktual, ref tempSerialIRi, lista, trupiPerSerial, dataFillimiRillogaritje, FA, FAB, FAS, FAD, FADT, FADTK, FANS, FASS, FRApermbledhese, FRAanalitike, FAFpermbledhese, FAFanalitike, FRApermblRezerve, FRAanalitikeRezerve, FAFpermblRezerve, FAFanalitikeRezerve, FAHT, FAHTK, meSerial, kokaAmortizimiPerModifikim, nrPerqindjeMeSerial, nrPerqindjePaSerial, llojAmortizimi, e);
-                                merrDateAmortizimiDokMePare = true;
-                                if (!pergjigje.Status)
-                                    return pergjigje;
-                                DateAmortizimiTemp = objektTrupi.DateAmortizimi;
-                                lista[objektiAktual] = objektTrupi;
-                                serialIRi = tempSerialIRi;
-                                serialiAktual = tempSerialiAktual;
+			try
+			{
+				colAmortizimiTrupiAbstract trupiPerSerial = colAmortizimiTrupiAbstract.krijoInstance(lista.Count > 0 ? lista[0].objektiKod : enumObjekteAmortizimi.ASETE);
+				var dbData = new DbData();
+				for (int objektiAktual = 0; objektiAktual < mykoleksionCount; objektiAktual++)
+				{
+					#region retryTrans
+					clsRetryTrans retryTrans = new clsRetryTrans("RillogaritjeAmortizimi", maxRetry);
+					do
+					{
+						using (var scope = new MyTransactionScope(dbData, 0))
+						{
+							try
+							{
+								clsAmortizimiTrupiAbstract objektTrupi = lista[objektiAktual].DeepClone();
+								clsAseteNormaAmortizimiAbstract norma = clsAseteNormaAmortizimiAbstract.krijoInstance(objektTrupi.objektiKod);
+								string llojAmortizimi = norma.merrNormenDheMetodenAmortizimitSipasIdArtikullStandartit(objektTrupi.IdArtikulli, idLlojStandarti, objektTrupi.DateAmortizimi);
+								tempSerialIRi = serialIRi;
+								tempSerialiAktual = serialiAktual;
+								colAseteNormaAmortizimiAbstract aseteNorma = colAseteNormaAmortizimiAbstract.krijoInstance(objektTrupi.objektiKod);
+								//nqs nuk eshte dok i pare ne list merr daten e dok paraardhes si data me pare amortizimi
+								DateTime DateMepareAmortizimi = merrDateAmortizimiDokMePare ? DateAmortizimiTemp.AddDays(1) : objektTrupi.DateMePareAmortizimi.AddDays(1);
+								if (aseteNorma.ktheBoolArtikujNormaAmortizimiBrendaDatave(objektTrupi.IdArtikulli, idLlojStandarti, DateMepareAmortizimi, objektTrupi.DateAmortizimi))
+									return new clsMesazh(false, String.Format("Serialit {0} per standartin {1} i duhet llogaritur me pare amortizimi pasi ka me shume norma se 1 gjate intervalit {2}  dhe {3} te pallogaritur!", objektTrupi.Serial, StandartiEmertim, DateMepareAmortizimi.ToString("dd/MM/yyyy"), objektTrupi.DateAmortizimi.ToString("dd/MM/yyyy")));
+								pergjigje = RillogaritTrupDokumentAmortizimi(dbData, objektTrupi, ref tempSerialiAktual, gjitheKokat, idLlojStandarti, idNdermarrje, idPerdoruesi, objektiAktual, ref tempSerialIRi, lista, trupiPerSerial, dataFillimiRillogaritje, FA, FAB, FAS, FAD, FADT, FADTK, FANS, FASS, FRApermbledhese, FRAanalitike, FAFpermbledhese, FAFanalitike, FRApermblRezerve, FRAanalitikeRezerve, FAFpermblRezerve, FAFanalitikeRezerve, FAHT, FAHTK, meSerial, kokaAmortizimiPerModifikim, nrPerqindjeMeSerial, nrPerqindjePaSerial, llojAmortizimi, e);
+								merrDateAmortizimiDokMePare = true;
+								if (!pergjigje.Status)
+									return pergjigje;
+								DateAmortizimiTemp = objektTrupi.DateAmortizimi;
+								lista[objektiAktual] = objektTrupi;
+								serialIRi = tempSerialIRi;
+								serialiAktual = tempSerialiAktual;
 
 								scope.Complete(out dbData);
 
-                                retryTrans.stopRetrying(); //dil se e bone
-                            }
-                            catch (SqlException sqlEx)
-                            {
-                                if (!retryTrans.checkRetry(sqlEx, "Rillogaritje amortzimi", maxRetry, sqlEx.Message))
-                                    throw sqlEx;
-                            }
-                            catch (Exception ex)
-                            {
-                                throw ex;
-                            }
-                        }
-                    } while (retryTrans.isRetrying());
-                    #endregion
-                }
-            }
-            catch (Exception)
-            {
-                throw new MyException("Ngeli te seriali: " + serialiAktual);
-            }
+								retryTrans.stopRetrying(); //dil se e bone
+							}
+							catch (SqlException sqlEx)
+							{
+								if (!retryTrans.checkRetry(sqlEx, "Rillogaritje amortzimi", maxRetry, sqlEx.Message))
+									throw sqlEx;
+							}
+							catch (Exception ex)
+							{
+								throw ex;
+							}
+						}
+					} while (retryTrans.isRetrying());
+					#endregion
+				}
+			}
+			catch (Exception)
+			{
+				throw new MyException("Ngeli te seriali: " + serialiAktual);
+			}
 
 
 			if (meSerial)
@@ -631,14 +631,14 @@ namespace DbCore.DbAsete
 			if (amortTrupiKorrent.objektiKod == enumObjekteAmortizimi.ASETE)
 				amortizimiKoka.AmortizimiShteseTotal = amortizimiKoka.AmortizimiShteseTotal - amortTrupiKorrent.AmortizimiShtese;
 
-            amortizimiKoka.IdPerdoruesi = idPerdoruesi;
+			amortizimiKoka.IdPerdoruesi = idPerdoruesi;
 
-            //Duhet te kontrolloje per dokumenta te meparshem nga data qe ne fillojme rillogaritjen. 
-            //Nese ka i referohet atij dokumenti, ne te kunder rreshti i pare per cdo serial nuk modifikohet.
-            //Kjo procedure kryehet vetem kur indeksi eshte zero, pra i pari ne koleksion ose kur indeksi simbolizon nje serial te ri nga ata te meparshmit qe po llogariteshin.
-            if (objektiAktual == 0 || serialIRi || amortTrupiKorrent.objektiKod != lista[objektiAktual - 1].objektiKod)
-            {
-                pergjigje = RillogaritSerialTeRiOseIndeksZero(pergjigje, ref serialIRi, amortTrupiKorrent, amortizimiKoka, karakteristikaStandartit, trupiPerSerial, dataFillimiRillogaritje, idNdermarrje, idLlojStandarti, FA, FAB, FAS, FAD, FADT, FADTK, FANS, FASS, FRApermbledhese, FRAanalitike, FAFpermbledhese, FAFanalitike, FRApermblRezerve, FRAanalitikeRezerve, FAFpermblRezerve, FAFanalitikeRezerve, meSerial, llojAmortizimi, dbAsete);
+			//Duhet te kontrolloje per dokumenta te meparshem nga data qe ne fillojme rillogaritjen. 
+			//Nese ka i referohet atij dokumenti, ne te kunder rreshti i pare per cdo serial nuk modifikohet.
+			//Kjo procedure kryehet vetem kur indeksi eshte zero, pra i pari ne koleksion ose kur indeksi simbolizon nje serial te ri nga ata te meparshmit qe po llogariteshin.
+			if (objektiAktual == 0 || serialIRi || amortTrupiKorrent.objektiKod != lista[objektiAktual - 1].objektiKod)
+			{
+				pergjigje = RillogaritSerialTeRiOseIndeksZero(pergjigje, ref serialIRi, amortTrupiKorrent, amortizimiKoka, karakteristikaStandartit, trupiPerSerial, dataFillimiRillogaritje, idNdermarrje, idLlojStandarti, FA, FAB, FAS, FAD, FADT, FADTK, FANS, FASS, FRApermbledhese, FRAanalitike, FAFpermbledhese, FAFanalitike, FRApermblRezerve, FRAanalitikeRezerve, FAFpermblRezerve, FAFanalitikeRezerve, meSerial, llojAmortizimi, dbAsete);
 
 				if (!pergjigje.Status)
 					return pergjigje;
@@ -1650,7 +1650,7 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 			string llojAmortizimiRi = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(clsTrupiAmortRi.IdArtikull_LlojAmortizimi, clsTrupiAmortRi.objektiKod));
 			string llojAmortizimiVjeter = clsAseteLlojAmortizimi.merrEmeritimiLlojAmortizimiSipasID(clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtVjeter.IdArtikull_LlojAmortizimi, trupAmortRreshtVjeter.objektiKod));
 
-			if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear")
+			if (llojAmortizimiVjeter == llojAmortizimi && llojAmortizimi == "Amortizim linear" && clsTrupiAmortRi.VleftaGjendje != 0)
 			{
 				clsDatabazeAsete veprimePara = new clsDatabazeAsete();
 				if (veprimePara.aKaVeprimeMeLlojiAmortizimiTeNdryshemMePara(trupAmortRreshtVjeter.IdArtikulli, trupAmortRreshtVjeter.DateAmortizimi, clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasID(trupAmortRreshtVjeter.IdArtikull_LlojAmortizimi, trupAmortRreshtVjeter.objektiKod)))
@@ -1767,8 +1767,8 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 				clsTrupiAmortRi.HdAmortizimGjithsej = 0;
 			}
 
-            return pergjigje;
-        }
+			return pergjigje;
+		}
 
 		/// <summary>
 		/// MODULI ASETE:

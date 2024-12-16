@@ -150,22 +150,22 @@ namespace DbCore
 			DocumentReference usersRef = firestoreDb.Collection(userDetailsCollection).Document(uid);
 			return (await usersRef.GetSnapshotAsync()).ToDictionary();
 		}
-		public async Task<List<string>> getOrganizationsForAlphax()
-		{
-			try
-			{
-				List<string> allowedOrgs = new List<string>();
-				FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
-				DocumentReference orgs = firestoreDb.Collection("alphax").Document("alphaxOrganizations");
-				DocumentSnapshot snapshot = await orgs.GetSnapshotAsync();
-				snapshot.TryGetValue("organizations", out allowedOrgs);
-				return allowedOrgs;
-			}
-			catch
-			{
-				return new List<string> { };
-			}
-		}
+		//public async Task<List<string>> getOrganizationsForAlphax()
+		//{
+		//	try
+		//	{
+		//		List<string> allowedOrgs = new List<string>();
+		//		FirestoreDb firestoreDb = FirestoreDb.Create("imb-payment");
+		//		DocumentReference orgs = firestoreDb.Collection("alphax").Document("alphaxOrganizations");
+		//		DocumentSnapshot snapshot = await orgs.GetSnapshotAsync();
+		//		snapshot.TryGetValue("organizations", out allowedOrgs);
+		//		return allowedOrgs;
+		//	}
+		//	catch
+		//	{
+		//		return new List<string> { };
+		//	}
+		//}
 		public async Task<Dictionary<string, object>> getUserDetailsWithEmail(string email)
 		{
 			try

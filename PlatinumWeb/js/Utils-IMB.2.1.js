@@ -61,7 +61,7 @@ $(document).ready(function () {
 $(window).on("load", function () {
     if (window.ASPx && ASPxClientUtils.webKitFamily && ASPxClientUtils.browserVersion >= 75) {
         ASPx.SSLSecureBlankUrl = "about:blank";
-    }  
+    }
     CreateLoadingGifDiv();
 });
 
@@ -1035,7 +1035,7 @@ Utils.LexoMesazhetNgaGrida = function (grida) {
             if (item.PershkrimMesazhi != "")
                 myMesazh.ShtoMesazhSuksesi(item.PershkrimMesazhi);
         }
-    });   
+    });
 }
 Utils.MerrMesazhNgaGrida = function (grida) {
     var mesazhi = grida["cpMesazhNeGride"];
@@ -1139,7 +1139,7 @@ Utils.findFieldValueByAttribute = function (items, attribute, field, searchValue
     return (item != null) ? item[field] : null;
 };
 Utils.ndertoPopup = function (options) {
-    var defaults = { text: { mbyll: "Mbyll", ruaj: "Ruaj"} };
+    var defaults = { text: { mbyll: "Mbyll", ruaj: "Ruaj" } };
     options = jQuery.extend({}, defaults, options);
     var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
     if (!myPopup.length) { //nuk e nderton prape nese ekziston        
@@ -1152,19 +1152,118 @@ Utils.ndertoPopup = function (options) {
 };
 
 Utils.ndertoPopupAbonimi = function (options) {
-    var defaults = { text: { mbyll: "Mbyll", ruaj: "Ruaj", llogarit:"Llogarit riabonimin" } };
+    var defaults = {
+        text: {
+            fshi: "Fshi Organizaten",
+            mbyll: "Mbyll",
+            ruaj: "Ruaj",
+            llogarit: "Llogarit riabonimin"
+        }
+    };
+
     options = jQuery.extend({}, defaults, options);
     var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
-    if (!myPopup.length) { //nuk e nderton prape nese ekziston
-        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button><h4 class='modal-title'>" + options.titulli + "</h4></div><div class='modal-body'><div class='" + options.contentClass + "'></div></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + "<a href='" + options.linkAbonim + "' target='_blank' </button><button type='button' target='_blank' class='btn btn-default' >" + options.text.llogarit + "</button></a>" + (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") + "</div></div></div></div>");
+
+    if (!myPopup.length) { // Don't rebuild if it already exists
+        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'>" +
+            "<div class='modal-dialog'>" +
+            "<div class='modal-content'>" +
+            "<div class='modal-header'>" +
+            "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
+            "<h4 class='modal-title'>" + options.titulli + "</h4>" +
+            "</div>" +
+            "<div class='modal-body'><div class='" + options.contentClass + "'></div></div>" +
+            "<div class='modal-footer'>" +
+            "<button type='button' id='fshiDatabazenBtn' class='btn btn-danger'> Fshi Organizaten</button>" +
+            "<button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + "</button>" +
+            "<button type='button' class='btn btn-default' target='_blank' >" + options.text.llogarit + "</button>" +
+            (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") +
+            "</div></div></div></div>");
+
         $(options.prependSelector).prepend(myPopup);
-        if (options.saveClick)
+
+        if (options.saveClick) {
             $("." + options.dialogClass + " .btn-primary").on("click", options.saveClick);
+        }
+
+        console.log(myPopup);
+        $("#fshiDatabazenBtn").on("click", function () {
+            myPopup.modal("hide");
+            myPopup.remove();
+            showConfirmationPopup();
+        });
     }
+
     return myPopup;
 };
-Utils.ndertoPopupCertifikata = function (options,dateSkadence) {
-    var defaults = { text: { mbyll: "Mbyll" }};
+
+function showConfirmationPopup() {
+    var confirmationPopup = $("<div class='modal confirmation-popup' role='dialog'>" +
+        "<div class='modal-dialog'>" +
+        "<div class='modal-content'>" +
+        "<div class='modal-header'>" +
+        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
+        "<h4 class='modal-title'>Konfirmoni Veprimin</h4>" +
+        "</div>" +
+        "<div class='modal-body'>" +
+        "<p> <strong> Kujdes: <br> Ju po dergoni kerkesen ne Google Cloud per fshirjen e plote te Organizates tuaj Alpha dhe cdo Back-up-i te saj. <br> Organizata e fshire, nuk mund te kthehet me mbrapsht! <br> <br> Nese jeni te sigurt qe doni te vazhdoni, shtypni butonin 'Fshi Organizaten' </strong> </p > " + // Confirmation message
+        "</div>" +
+        "<div class='modal-footer'>" +
+        "<button type='button' class='btn btn-danger' id='confirmFshi'>Fshi Organizaten</button>" +
+        "<button type='button' class='btn btn-default' data-dismiss='modal'>Anullo</button>" +
+        "</div></div></div></div>");
+
+    $("body").prepend(confirmationPopup);
+    confirmationPopup.modal("show");
+
+    $("#confirmFshi").on("click", function () {
+        confirmationPopup.modal("hide");
+        confirmationPopup.remove();
+        const cloudFunctionUrl = "https://europe-west1-alphaweb.cloudfunctions.net/fshirjeOrgKerkese";
+        const requestData = {
+            org: hfState.Get("organizata"),
+            user: hfState.Get("EmerMbiemerPerdorues"),
+            ip: "185.32.20.6",
+            // org: "Alpha",
+            // user: "Alkid",
+            // ip: "12.35.364.12"
+        };
+        fetch(cloudFunctionUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        })
+        showSuccessModal();
+    });
+}
+
+function showSuccessModal() {
+    var successModal = $("<div class='modal success-modal' role='dialog'>" +
+        "<div class='modal-dialog'>" +
+        "<div class='modal-content'>" +
+        "<div class='modal-header'>" +
+        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
+        "<h4 class='modal-title'>Sukses!</h4>" +
+        "</div>" +
+        "<div class='modal-body'>" +
+        "<p><strong>Kerkesa per fshirje u dergua!<br>Faleminderit!</strong></p>" +
+        "</div>" +
+        "<div class='modal-footer'>" +
+        "<button type='button' class='btn btn-default' data-dismiss='modal'>Mbyll</button>" +
+        "</div></div></div></div>");
+
+    $("body").prepend(successModal);
+    successModal.modal("show");
+    successModal.on('hidden.bs.modal', function () {
+        successModal.modal("hide");
+        successModal.remove();
+    });
+}
+
+Utils.ndertoPopupCertifikata = function (options, dateSkadence) {
+    var defaults = { text: { mbyll: "Mbyll" } };
     options = jQuery.extend({}, defaults, options);
     var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
     if (!myPopup.length) { //nuk e nderton prape nese ekziston
@@ -1175,7 +1274,7 @@ Utils.ndertoPopupCertifikata = function (options,dateSkadence) {
     return myPopup;
 };
 Utils.ndertoPopupPerPajisjetElektronike = function (options) {
-    var defaults = { text: { mbyll: "Mbyll" }};
+    var defaults = { text: { mbyll: "Mbyll" } };
     options = jQuery.extend({}, defaults, options);
     var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
     if (!myPopup.length) { //nuk e nderton prape nese ekziston
@@ -1628,7 +1727,7 @@ if (!Array.prototype.findIndex) {
             while (k < len) {
                 // a. Let Pk be ! ToString(k).
                 // b. Let kValue be ? Get(O, Pk).
-                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+                // c. Let testResult be ToBoolean(? Call(predicate, T, ? kValue, k, O ?)).
                 // d. If testResult is true, return k.
                 var kValue = o[k];
                 if (predicate.call(thisArg, kValue, k, o)) {
@@ -1694,7 +1793,7 @@ Utils.ShtoDetajimeNeGride = function (values) {
             index = window.parent.identifikuesRreshti;
         else
             index = idRresht;
-        if (Utils.getUrlVar('lloji') == 1){
+        if (Utils.getUrlVar('lloji') == 1) {
             idKontrolli = "#txtDetajimi" + index;
             qeliza = "txtDetajimi";
         }
@@ -1974,12 +2073,12 @@ Utils.PushToGoogleAnalytics = function (googleAnalytics, googleAnalyticsTracking
         googleAnalyticsScript.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsTrackingId);
         googleAnalyticsScript.setAttribute('async', true);
         document.head.appendChild(googleAnalyticsScript);
-            
+
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', googleAnalyticsTrackingId);
-    }    
+    }
 };
 
 var LHCChatOptions = {};
@@ -1998,9 +2097,9 @@ Utils.AppendLiveHelperChat = function (activateChat, link, httpPort, httpsPort) 
 };
 
 Utils.HiqParashtesenNgaIdFatura = function (idFatura) {
-    if (idFatura.toString().substring(0, 1) === "S") 
+    if (idFatura.toString().substring(0, 1) === "S")
         return idFatura = idFatura.toString().substring(2, idFatura.length);
-    else if (idFatura.toString().substring(0, 1) === "V") 
+    else if (idFatura.toString().substring(0, 1) === "V")
         return idFatura = idFatura.toString().substring(3, idFatura.length);
     else
         return idFatura;

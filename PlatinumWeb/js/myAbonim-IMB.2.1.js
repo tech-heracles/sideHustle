@@ -296,7 +296,7 @@
                     $("." + popUpOptions.contentClass + " > table > tbody").append("<tr class='alert-" + "'><td>" + licenca.kodlicenca + "</td><td>" + licenca.datelicenca + "</td><td>" + licenca.llojlicenca + "</td><td>" + licenca.nrperdorues + "</td><td>" + licenca.nrndermarrje + "</td></tr>");
                 }
             });
-                //mesazhList.InsertItem(licenca.kodlicenca, licenca.datelicenca, licenca.llojlicenca, licenca.nrperdorues, licenca.nrndermarrje);
+            //mesazhList.InsertItem(licenca.kodlicenca, licenca.datelicenca, licenca.llojlicenca, licenca.nrperdorues, licenca.nrndermarrje);
 
             var myDtOptions = {
                 scrollY: '50vh',
