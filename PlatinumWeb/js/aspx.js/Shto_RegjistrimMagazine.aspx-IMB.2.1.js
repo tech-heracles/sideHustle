@@ -2284,7 +2284,7 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
             if (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides - 1] == 'True' || isLidhur || !lejomod)
                 be = myJQGrid.myValueButtonFshi(true, idRresht, "#rowed5");
             else be = myJQGrid.myValueButtonFshi(false, idRresht, "#rowed5");
-            detajimet2 = (colDetArt2[i].KodDetajimArtikulli == null) ? "" : colDetArt2[i].KodDetajimArtikulli;
+            detajimet2 = colDetArt2[i]?.KodDetajimArtikulli ?? ""; 
             magazina = colNjesAdminis[i].Kodi;
             pershkrimmag = colNjesAdminis[i].Pershkrimi;
             if (hfSeriale.Contains(colTrupMag[i].IdArtikulli + '_' + idRresht) && hfSeriale.Get(colTrupMag[i].IdArtikulli + '_' + idRresht) != "[]") {
@@ -2353,8 +2353,8 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
                 emertimi = colArt[i].PershkrimArtikulli;
             else
                 emertimi = colArt[i].PershkrimiAngArtikulli;
-            detajimet = (colDetArt[i].KodDetajimArtikulli == null) ? "" : colDetArt[i].KodDetajimArtikulli;
-            detajimet2 = (colDetArt2[i].KodDetajimArtikulli == null) ? "" : colDetArt2[i].KodDetajimArtikulli;
+            detajimet = colDetArt[i]?.KodDetajimArtikulli ?? "";
+            detajimet2 = colDetArt2[i]?.KodDetajimArtikulli ?? "";
             magazina = colNjesAdminis[i].Kodi;
             pershkrimmag = colNjesAdminis[i].Pershkrimi;
             if (hfSeriale.Contains(colTrupMag[i].IdArtikulli + '_' + idRresht) && hfSeriale.Get(colTrupMag[i].IdArtikulli + '_' + idRresht) != "[]") {
