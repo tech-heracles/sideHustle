@@ -36,30 +36,6 @@
                     <Border BorderStyle="None" />
                 </DisabledStyle>
             </dx:ASPxComboBox>
-        </td><!--<td id="abonimi" style="width: auto;">
-            <dx:ASPxComboBox ID="mesazhList" ClientEnabled="true" ShowImageInEditBox="true"
-                DropDownButton-Visible="false" DropDownButton-Image-UrlHottracked="~/images/new/about.png"
-                ItemImage-Height="22px" ItemImage-Width="22px" DropDownButton-Image-UrlPressed="~/images/new/about.png"
-                DropDownButton-Image-Url="~/images/new/about.png" Width="100%" BackColor="#F3F3F3"
-                ClientInstanceName="mesazhList" runat="server" EnableClientSideAPI="True" ItemStyle-Wrap="False"
-                ValueType="System.Int32" Border-BorderStyle="None" DropDownButton-Position="Left"
-                DisabledStyle-ForeColor="Black" Style="margin-bottom: 0px" 
-                oniteminserted="mesazhList_ItemInserted">
-                <ClientSideEvents SelectedIndexChanged="function(s, e){mesazhListSelectedIndexChanged(s, e); mesazhList.ShowDropDown();}" />
-                <ItemImage Height="22px" Width="22px">
-                </ItemImage>
-                <ItemStyle Wrap="False"></ItemStyle>
-                <DropDownButton Position="Left" Visible="False">
-                    <Image UrlHottracked="~/images/new/about.png" UrlPressed="~/images/new/about.png"
-                        Url="~/images/new/about.png">
-                    </Image>
-                </DropDownButton>
-                <Border BorderStyle="None"></Border>
-                <DisabledStyle ForeColor="Black" BackColor="Transparent">
-                    <Border BorderStyle="None" />
-                </DisabledStyle>
-            </dx:ASPxComboBox>
-        </td>-->
         <td align="left">
             <table>
                 <tr>

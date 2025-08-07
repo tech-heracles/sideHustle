@@ -360,9 +360,8 @@ namespace DbCore.DbAdmin
                         skadoPassword = Convert.ToBoolean(dbDataRowKonfigurimeFjalekalimi["SKADOPASSWORD"]);
                     if (!(dbDataRowKonfigurimeFjalekalimi["RESETOPASSWORD"] is System.DBNull))
                         resetPassword = Convert.ToBoolean(dbDataRowKonfigurimeFjalekalimi["RESETOPASSWORD"]);
-                    if (!(dbDataRowKonfigurimeFjalekalimi["FACTORAUTH"] is System.DBNull))
-                        twofactorauth = Convert.ToBoolean(dbDataRowKonfigurimeFjalekalimi["FACTORAUTH"]);
-                    gjeneroPassword = Convert.ToBoolean(dbDataRowKonfigurimeFjalekalimi["FACTORAUTH"]);
+                        twofactorauth = false;
+                    gjeneroPassword = false;
                     int.TryParse(dbDataRowKonfigurimeFjalekalimi["NRSPECIALCHARSINPASS"].ToString(), out specialChars);
                     int.TryParse(dbDataRowKonfigurimeFjalekalimi["NRUPPERCASECHARSINPASS"].ToString(), out uppercaseChars);
                     int.TryParse(dbDataRowKonfigurimeFjalekalimi["NRNUMBERSCHARSINPASS"].ToString(), out numbersChars);
