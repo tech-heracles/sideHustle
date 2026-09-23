@@ -21,3 +21,10 @@ PlatinumWeb/Kase
 patch.diff
 Pakete/
 PlatiniumWeb/.vs/
+
+# IDE / tooling artifacts
+.vs/
+.idea/
+*.playlist
+*.bak
+PlatinumWeb/connectionStrings.config
