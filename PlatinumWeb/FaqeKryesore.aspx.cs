@@ -593,10 +593,8 @@ namespace PlatinumWeb
 				if (rol.KodRoli == "RSU" || rol.KodRoli == "RA" || rol.KodRoli == "RAS")
 				{
 					ASPxMenu1.Items[0].Items[1].Visible = true;
-					ASPxMenu1.Items[0].Items[1].Items[2].Visible = true;
 					ASPxMenu1.Items[0].Items[1].Items[0].Visible = false;
 					ASPxMenu1.Items[0].Items[1].Items[1].Visible = false;
-					ASPxMenu1.Items[0].Items[16].Visible = true;
 					break;
 				}
 			}
@@ -623,7 +621,6 @@ namespace PlatinumWeb
 			ASPxMenu1.Items[0].Items[13].Items[1].Text = rm.GetString("MenuItemPerdoruesit", ci);
 			ASPxMenu1.Items[0].Items[13].Items[2].Text = rm.GetString("MenuItemAutorizimet", ci);
 			ASPxMenu1.Items[0].Items[15].Text = rm.GetString("MenuItemWebhooks", ci);
-			ASPxMenu1.Items[0].Items[16].Text = rm.GetString("MenuItemInvite", ci);
 
 			ASPxMenu1.Items[1].Text = rm.GetString("MenuItemKonfigurime", ci);
 			ASPxMenu1.Items[1].Items[0].Text = rm.GetString("MenuItemAmortizimi", ci);
@@ -651,7 +648,6 @@ namespace PlatinumWeb
 			ASPxMenu1.Items[1].Items[3].Items[7].Text = rm.GetString("MenuItemImportShitjeTollonaSpecifik", ci);
 			ASPxMenu1.Items[1].Items[3].Items[8].Text = rm.GetString("MenuItemImportFleteKontabel", ci);
 			ASPxMenu1.Items[1].Items[3].Items[9].Text = rm.GetString("MenuItemTransferimDalje", ci);
-			ASPxMenu1.Items[1].Items[3].Items[10].Text = rm.GetString("MenuItemTransfoNeISKSH", ci);
 			ASPxMenu1.Items[1].Items[4].Text = rm.GetString("MenuItemElementePerIntegrim", ci);
 			ASPxMenu1.Items[1].Items[5].Text = rm.GetString("MenuItemInstrumenta", ci);
 			ASPxMenu1.Items[1].Items[5].Items[0].Text = rm.GetString("MenuItemFormatiNumrave", ci);
