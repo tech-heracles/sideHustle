@@ -2413,21 +2413,10 @@ function reportViwerEndCallBack(s, e) {
     }
     RaporteUtils.Paginator.option('value', reportViewer2.getCurrentPageIndex());
 }
-$(document).mouseup(function (e) {
-    var container = $("#delta");
-
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.css("display","none");
-    }
-});
 function menu_click(s, e) {
     switch (e.item.name) {
         case "Shiko":
             hapRaportin();
-            break;
-        case "Vizualizo ne Delta":
-            window.document.getElementById("delta").style.display = "block";
             break;
     }
 
@@ -2497,19 +2486,6 @@ function hapRaportin() {
 function showFilters() {
     var filtra = navBarFiltrat.GetGroupByName("filtraKryesor");
     filtra.SetExpanded(true);
-}
-function toast() {
-    const toast = document.getElementById('toast');
-
-    toast.querySelector('.toast-body').innerHTML = "Filloj vizualizimi ne Delta, mos e hiqni kete faqe deri ne perfundim!";
-    toast.style.opacity = 1;
-    toast.style.zIndex = 999999;
-    //toast.style.display = "block";
-    setTimeout(function(){
-        toast.style.opacity = 0;
-        toast.style.zIndex = -10;
-        //toast.style.display= "none";
-    }, 2000);
 }
 function toastMessage(message) {
     const toast = document.getElementById('toast');

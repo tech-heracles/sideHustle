@@ -252,25 +252,6 @@
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/RaporteUtils.js;~/js/aspx.js/Raporti.aspx-IMB.2.1.js&v76"
         type="text/javascript">
     </script>
-    <script>
-</script>
-    <script>
-        async function vizualizoRaportin(newReport) {
-            RaporteUtils.Parameter = "Vizualizo ne Delta";
-            if (!window.parent.window.auth.currentUser) window.parent.signInWithGooglePopup();
-            else {
-                toast();
-                const accessToken = await window.parent.window.getIdToken(window.parent.window.auth.currentUser);
-
-                hfState.Set("uid", window.parent.window.auth.currentUser.uid);
-                hfState.Set("accessToken", accessToken);
-                hfState.Set("newReport", newReport);
-                //ASPxCallbackPanel1.PerformCallback(`Vizualizo&uid=${window.parent.window.auth.currentUser.uid}&accessToken=${accessToken};${newReport}`);
-                window.document.getElementById("delta").style.display = "none";
-                document.getElementById('vizualizo').click();
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="toast" id="toast">
@@ -293,37 +274,18 @@
         </div>
     <div runat="server" id="suksesMessage" style="display:none"></div>
     <div runat="server" id="errorMessage" style="display:none"></div>
-    <div style="position:absolute; right:0; display:none;margin-top:5%; margin-right:2%;z-index:999;" id="delta">
-        <ul class='dropdown-content'>
-            <li onclick="vizualizoRaportin('newReport')"><a>Hap si raport te ri</a></li>
-            <li onclick="vizualizoRaportin()"><a>Perditeso raport</a></li>
-        </ul>
-    </div>
-   
     <form id="form1" runat="server" defaultbutton="HapRaport">
        
         <dx:ASPxButton ID="HapRaport"  OnClick="OpenReport" runat="server" ClientVisible="false">
         </dx:ASPxButton>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-         <asp:updatepanel runat="server">
-                 <ContentTemplate>
-                <dx:ASPxButton ID="vizualizo"  OnClick="vizualizoNeDelta" runat="server" AutoPostBack="false" ClientVisible="false">
-                    <ClientSideEvents Click="function(){Utils.shfaqLoadingGif();}"/>
-                </dx:ASPxButton>
-
-                 </ContentTemplate>
-             </asp:updatepanel>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
             <ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive(); }" />
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfTeDrejtaRaporti" ClientInstanceName="hfTeDrejtaRaporti" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
-         <asp:HiddenField ID="uid" runat="server" />
-        <asp:HiddenField ID="accessToken" runat="server" />
-        <asp:HiddenField ID="newReport" runat="server" />
-        <%--<asp:Button  OnClick="vizualizoNeDelta()" Text="" runat="server"  ID="vizualizo"/>--%>
         <dx:ASPxHiddenField ID="hfPerdorues" ClientInstanceName="hfPerdorues" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
         <asp:UpdatePanel ID="panelMenu" runat="server" UpdateMode="Conditional">
@@ -18826,10 +18788,6 @@
                                             Text="Ruaj" Width="50px" OnClick="btnruajfiltrin_Click">
                                             <ClientSideEvents Click="function(s, e) { popruajfiltrin.Hide(); }" />
                                         </dx:ASPxButton>
-                                        
-                                                <%--<dx:ASPxButton ID="vizualizo" runat="server" ClientIDMode="AutoID" ClientInstanceName="vizualizo"
-                                                Text="" Width="50px" OnClick="vizualizoNeDelta">
-                                            </dx:ASPxButton>--%>
                                     </td>
                                     <td style="align-content: flex-start">
                                         <dx:ASPxButton ID="btnanullo" runat="server" ClientIDMode="AutoID" ClientInstanceName="btnanullo"

@@ -917,20 +917,6 @@ namespace PlatinumWeb
                 ASPxPageControl1.ActiveTabIndex = 0;
                 return;
             }
-            clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
-            //if (perdorues.PerdoruesEmail != "")
-            //{
-            try
-            {
-                //FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                //Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
-                clsFunksione.addDeltaDashboards(ndermarrje.IdNdermarrje, idPerdoruesi, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), "", perdorues.PerdoruesEmail, "", "",true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            //}
             clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiSukses", ci), pnlMesazhi);
             DbCore.mySessionObjects.ruajImazhNeSesion(Session, null);
             DbCore.mySessionObjects.ruajpathneSession(Session, null);

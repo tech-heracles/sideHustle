@@ -59,14 +59,6 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
-        /// <summary>
-        /// vizualizo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton vizualizo;
 
         /// <summary>
         /// ASPxGlobalEvents1 control.
@@ -86,32 +78,8 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfTeDrejtaRaporti;
 
-        /// <summary>
-        /// uid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField uid;
 
-        /// <summary>
-        /// accessToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField accessToken;
 
-        /// <summary>
-        /// newReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField newReport;
 
         /// <summary>
         /// hfPerdorues control.

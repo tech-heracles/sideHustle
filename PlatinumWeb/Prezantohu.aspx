@@ -19,29 +19,6 @@
     <%--<script src="public/modernizr.min.js"></script>--%>
     <%--<script src="public/placeholder.js"></script>--%>
     <%--<link href="public/login.css" rel="stylesheet" />--%>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
-            authDomain: "alpha-secure-login.alpha.al",
-            databaseURL: "https://imb-payment.firebaseio.com",
-            projectId: "imb-payment",
-            storageBucket: "imb-payment.appspot.com",
-            messagingSenderId: "269963445243",
-            appId: "1:269963445243:web:6b8347c72e861cd438415e"
-        };
-        const app = initializeApp(firebaseConfig);
-        window.signInWithPopup = signInWithPopup;
-        window.signInWithEmail = signInWithEmailAndPassword;
-        window.getAuth = getAuth;
-        window.signInWithRedirect = signInWithRedirect;
-        window.GoogleAuthProvider = await new GoogleAuthProvider();
-        window.GoogleAuthProvider.setCustomParameters({
-            prompt: 'select_account'
-        });
-        window.auth = await getAuth();
-    </script>
     <style>
         .lds-grid {
     display: inline-block;
@@ -1345,9 +1322,6 @@
         }
 
         @media all and (max-width:690px) {
-            .google-div{
-                margin-bottom:10%;
-            }
             .left{
                 margin-left: -15%;
             }
@@ -1812,13 +1786,6 @@ section#submain header {
             localStorage.setItem("server_key", JSON.stringify({ value: item.value, text: item.text }));
         }
 
-        function TermsOk() {
-
-            var terms = window.parent.document.getElementById("hfTerms").value;
-            localStorage.setItem("TermsAccept", terms);
-
-        }
-
         function tbl() {
             var x = document.getElementById("bc");
             if (x.style.display != "none") {
@@ -1873,16 +1840,6 @@ section#submain header {
         //    s.SetVisible(true);
         //}
 
-        $(document).ready(function () {
-
-            const url = new URL(window.location.href);
-            if (url.search.includes("confirmEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
-            if (url.search.includes("linkedEmail")) M.toast({ html: "<p style='color:white;'>Email-i u verifikua, logohuni me gmail per te vazhduar!</p>", classes: 'blue darken-2' });
-        });
-        function shfaqHapaPerLogim() {
-            $("#panelDiv").css("display", "none");
-            window.open('https://alphawiki.notion.site/Aktivizo-Sign-in-me-Gmail-n-Alpha-28e7a1b0dc714bdc8fa076bc90530f74', '_blank');
-        }
     </script>
     <meta charset="UTF-8">
 
@@ -1903,11 +1860,6 @@ section#submain header {
         <div></div>
     </div>
     </div>
-    <asp:Panel runat="server" ID="panelDiv" Visible="false">
-        <div onClick="shfaqHapaPerLogim()" id="toast-container" class="toast-container-login" style="
-    /* background-color: red; */
-"><div class="toast" style="cursor:pointer; top: 0px;opacity: 1;background-color: red;">Email-i juaj nuk eshte i lidhur me ndonje ndermarrje. Ndiqni keto hapa per te mesuar si te aktivizoni login me gmail
-</div></div></asp:Panel>
     <div class="fixed-action-btn" style="bottom:0px !important;display:none; top:-5px; z-index:9999;" >
         <a onclick="showLogin()" id="pulse-btn" class="btn pulse" style="border-radius:5px; background-color: #2d7ae1; display:flex;">Hyr ne alpha
     
@@ -2027,15 +1979,6 @@ section#submain header {
                                         <dx:ASPxLabel ID="PasswordRecoveryLink" CssClass="keniHarruar" runat="server" Cursor="pointer" Text="Keni harruar fjalëkalimin?" AssociatedControlID="UserName" ClientSideEvents-Click="function(s,e){merrUsername(s,e)}">
                                         </dx:ASPxLabel>
                                     </div>--%>
-                                    <div class="col s12 m6 offset-m3 center-align google-div" style="margin-top:10%;">
-                                        <a class="oauth-container btn darken-4 white white-text custom-css-a" style="text-transform:none">
-                                            <div class="left" style="margin-top:0px; height:20px; position:absolute;">
-                                                <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" class="cutom-css-img"
-                                                    src="images/FaqjaPare/google.png" />
-                                            </div>
-                                            Sign in with Google
-                                        </a>
-                                    </div>
                                     <div class="input" style="display: flex; justify-content: center;">
                                         <%-- style="padding-top:10px;max-width:246px;padding-left:1px;"--%>
                                         <dx:ASPxButton runat="server" Height="40px" Width="100%" ClientVisible="false" ClientInstanceName="loginButton" CssClass="hyrje"
@@ -2174,45 +2117,6 @@ section#submain header {
             </dx:ASPxHiddenField>
             <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState">
             </dx:ASPxHiddenField>
-            <asp:HiddenField ID="hfTerms" runat="server" />
-                        <asp:HiddenField ID="hflocal" runat="server" />
-                        <dx:ASPxHiddenField ID="ASPxHiddenLocal" runat="server" ClientInstanceName="hflocal">
-            </dx:ASPxHiddenField>        
-                                    <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal1" runat="server" AllowDragging="False" ClientInstanceName="popupUniversal1"
-                EnableAnimation="False" EnableViewState="False" HeaderText="Kushtet e Sherbimit" ShowCloseButton="false"
-                Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="Middle" HeaderStyle-VerticalAlign="Middle" CloseAction="None" 
-                Width="100%" Height="100%" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4; text-align :center">
-                <HeaderStyle HorizontalAlign="Center">
-                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px"   />
-                </HeaderStyle>
-                <ContentCollection>
-                    <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
-                    <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel1" runat="server" Width="600px" >
-                                            <PanelCollection>
-                                                <dx:PanelContent>
-                                                   
-                                                        
-      
-                                                           <iframe id="TOS" clientidmode="Static" scrolling="yes" frameborder="0" runat="server"
-                            width="600" height="500" style="background-color: #EDF3F4" src="https://terms-of-service.imb.al/"></iframe>
-                                                  
-                                                   <dx:ASPxButton ID="ButtonOk"  runat="server" Text="Prano" CausesValidation="False" CssClass="button"   
-                                            Border-BorderStyle="None"
-                                            Theme="Metropolis"
-                                            AllowFocus="False"
-                                            Font-Size="17px" Font-Bold="true" OnClick="ButtonOk_Click" >
-                                                  <ClientSideEvents Click="function(s, e){ TermsOk(); } " />    
-                                                      
-                                                       </dx:ASPxButton>
-                                                        <dx:ASPxHiddenField ID="ASPxHiddenFieldTerms" runat="server" ClientInstanceName="hfTerms">
-            </dx:ASPxHiddenField>          
-                                                  
-                                                </dx:PanelContent>
-                                            </PanelCollection>
-                                        </dx:ASPxPanel >
-                    </dx:PopupControlContentControl>
-                </ContentCollection>
-            </dx:ASPxPopupControl>
                     </section>
                 </section>
             </section>
@@ -2236,21 +2140,10 @@ section#submain header {
                 </article>
                 <article class="cpyright">
                 </article>
-                        <asp:Button ID="logInWithGmailButton" runat="server" Text="" OnClick="logInWithGmail" />
-                        <dx:ASPxTextBox ID="txtUID" runat="server"></dx:ASPxTextBox>
-                        <dx:ASPxTextBox ID="txtFirstLogin" runat="server"></dx:ASPxTextBox>
-                        
             </footer>
         </div>
     </form>
     <script>
-        window.onload = function (e) {
-            var termsAndServices = document.getElementById('TOS');
-            if (termsAndServices.src != "https://terms-of-service.imb.al/") {
-                termsAndServices.src = "https://terms-of-service.imb.al/";
-            }
-        };
-
         // var inputPass = txtPassword.GetInputElement();
         //inputPass.addEventListener("keyup", function (event) {
         //    if (event.getModifierState("CapsLock")) {                
@@ -2321,35 +2214,6 @@ section#submain header {
             window.open("https://direct.lc.chat/13799409/");
         }
 
-        async function signInWithGooglePopup() {
-
-            await signInWithPopup(auth, GoogleAuthProvider)
-                .then(function (result) {
-                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
-                    txtUID.SetText(result.user.uid);
-                    logInWithGoogle.click();
-                    return "";
-                }).catch(function (err) {
-                    // M.toast({ html: "<span>"+err+"</span>", classes: 'rounded red darken-2' });
-                    // if(!second) signInWithGooglePopup(true);
-
-
-                })
-
-        }
-        async function signInWithRedirectGoogle() {
-            signInWithRedirect(getAuth(), new GoogleAuthProvider())
-                .then(function (result) {
-                    return getRedirectResult(auth);
-                }).then(function (result) {
-                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
-                    txtUID.SetText(result.user.uid);
-                    logInWithGoogle.click();
-                }).catch(function (err) {
-                    M.toast({ html: "<span>" + err + "</span>", classes: 'rounded red darken-2' });
-                })
-
-        }
         function demo(event) {
             var x = document.getElementById('Login1_UserName_I');
             x.value = "Vizitor";
@@ -2379,53 +2243,9 @@ section#submain header {
             hideLogin();
 
         })
-        function isSafariBrowser() {
-            var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
-            var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-            if (is_safari) {
-                if (is_chrome)  // Chrome seems to have both Chrome and Safari userAgents
-                    return false;
-                else
-                    return true;
-            }
-            return false;
-        }
-        if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i) && isSafariBrowser()) {
-
-            $(".google-div").on("click touchstart mouseenter focus", signInWithGooglePopup);
-
-        }
-        else {
-            $(".google-div").on("click", signInWithGooglePopup);
-        }
-        window.onload = async function (e) {
-
-            document.getElementById("copyright").innerHTML +=  + new Date().getFullYear()+" IMB"
-            var sessionStorageValue = sessionStorage.getItem("GoogleLogInAttemps") == null ? 0 : parseInt(sessionStorage.getItem("GoogleLogInAttemps"));
-            await getAuth();
-            var url = new URL(window.location.href);
-            var arsye = url.searchParams.get("arsye");
-            if (arsye == "logout") auth.signOut();
-            else {
-                if (auth.currentUser != null && sessionStorageValue < 1) {
-                    sessionStorage.setItem("GoogleLogInAttemps", sessionStorageValue + 1);
-                    var logInWithGoogle = document.getElementById("logInWithGmailButton");
-                    txtUID.SetText(auth.currentUser.uid);
-                    txtFirstLogin.SetText("true");
-                    logInWithGoogle.click();
-                    document.getElementById('loader-overlay').style.display = 'block';
-                    document.getElementById('loader-overlay').style.zIndex = 10000;
-                    document.getElementById('loader').style.display = 'block';
-                    document.getElementById('loader').style.zIndex = 10000;
-                }
-                else if (sessionStorageValue >= 1) {
-                    auth.signOut();
-                }
-            }
-            
-            
-            
-        }
+        window.onload = function () {
+            document.getElementById("copyright").innerHTML += new Date().getFullYear() + " IMB";
+        };
     </script>
        
 </body>

@@ -34,7 +34,6 @@ namespace PlatinumWeb
 		{
 			if (!IsPostBack)
 			{
-				googlePopup.Visible = true;
 				var cookie = Request.Cookies["adresa"];
 				if (cookie == null)
 				{
@@ -69,16 +68,6 @@ namespace PlatinumWeb
 				{
 					clsRoli rol = new clsRoli(role.IdRoli);
 					if (rol.KodRoli == "RA" || rol.KodRoli == "RAS") hfState.Set("adminUser", true);
-					colTeDrejtaRoli drejta = new colTeDrejtaRoli();
-					drejta.mbushTeDrejtaPerdoruesi(IdPerdoruesi, idNdermarrje, IdViti);
-					for (int i = 0; i < drejta.Count; i++)
-					{
-						if (drejta[i].DShtim == true && drejta[i].IdKomponente == 160)
-						{
-							hfState.Set("notification_admin", true);
-							break;
-						}
-					}
 				}
 				hfState.Set("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
 				hfState.Set("idPerdoruesi", idPerdoruesi);
@@ -248,13 +237,6 @@ namespace PlatinumWeb
 		{
 			Response.Redirect("~/TeamViewer/TeamViewerSetup.exe");
 			return;
-		}
-		private async Task showPopUp()
-		{
-			//clsPerdorues perdorues = new clsPerdorues(IdPerdoruesi);
-			//string perdoruesEmail = perdorues.Shenime != "" ? perdorues.Shenime : perdorues.PerdoruesEmail; 
-			//bool val = await clsFunksione.merrShenimePerdoruesi(perdoruesEmail);
-			//googlePopup.Visible = val;
 		}
 		protected void btnDownloadProgramKase_Click(object sender, EventArgs e)
 		{
@@ -506,8 +488,6 @@ namespace PlatinumWeb
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("abonimi").Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("dalje").Visible = true;
-				ikonaImazhPerdoruesMenuLart.Items.FindByName("google").Visible = true;
-				ikonaImazhPerdoruesMenuLart.Items.FindByName("ndrysho").Visible = true;
 				//DevExpress.Web.MenuItem grupitHelpMenuLart = ASPxMenu1.Items.FindByName("settings");
 				//grupitHelpMenuLart.Visible = true;
 				//grupitHelpMenuLart.ClientVisible = true;
@@ -1030,10 +1010,6 @@ namespace PlatinumWeb
 			fjalekalimItem.Text = rm.GetString("labelEmailFjalekalimi", ci);
 			var abonimItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("abonimi");
 			abonimItem.Visible = true;
-			MenuItem googleItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("google");
-			googleItem.Visible = true;
-			MenuItem ndryshoItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("ndrysho");
-			ndryshoItem.Visible = true;
 
 			//ASPxNavBar1.Groups[0].Text = rm.GetString("MenuItemAdminstrimi", ci);
 

@@ -6763,22 +6763,7 @@ namespace RestApi.WebAPI.Models
                 clsMesazh mesazhi = clsKoka.fshi(idPerdoruesi, idKategoria == 1 ? true : false, tollonakastrati, tollonakastratielektronik);
 
                 if (mesazhi.Status)
-                {
                     teFshire.Add(clsKoka);
-                    try
-                    {
-                        FirebaseConfiguration firebaseConfiguration = new FirebaseConfiguration();
-                        clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
-                        Dictionary<string, object> user_details = await firebaseConfiguration.getUserDetailsWithEmail(perdorues.PerdoruesEmail);
-                        string orgId = user_details["organization"].ToString();
-                        if (clsKoka.Shenime2 != "") firebaseConfiguration.returnOrder(clsKoka.Shenime2, orgId);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message.ToString());
-                    }
-
-                }
                 else
                     tePaFshire.Add(clsKoka.NrDok);
             }

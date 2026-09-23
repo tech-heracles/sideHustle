@@ -1044,8 +1044,6 @@
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice_Edit.ascx" />
     <Content Include="FaturaShitjeEinvoice.aspx" />
     <Content Include="FaturaBlerjeEinvoice.aspx" />
-    <Content Include="FtoPerdorues.aspx" />
-    <Content Include="FtoPerdorues.html" />
     <Content Include="GjendjeArkeDitore.aspx" />
     <Content Include="images\FaqjaPare\AlphaWEB-png.png" />
     <Content Include="images\FaqjaPare\GIFWEB_BLUE_1.svg">
@@ -9136,13 +9134,6 @@
     </Compile>
     <Compile Include="FormatePrintimi.aspx.designer.cs">
       <DependentUpon>FormatePrintimi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FtoPerdorues.aspx.cs">
-      <DependentUpon>FtoPerdorues.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FtoPerdorues.aspx.designer.cs">
-      <DependentUpon>FtoPerdorues.aspx</DependentUpon>
     </Compile>
     <Compile Include="GISLupaElemente.aspx.cs">
       <DependentUpon>GISLupaElemente.aspx</DependentUpon>

@@ -88,30 +88,6 @@ namespace RestApi.WebAPI.Models
 		{
 			return clsFunksione.logoAmbient(urlKomponente, id.ToString(), idNdermarrje, idPerdoruesi, logu, ci);
 		}
-		internal async static Task<string> createLoginWithGmail(string uid, int idNdermarrje, int idPerdoruesi, string email, HttpSessionState session, string accessToken)
-		{
-			return await clsFunksione.createLoginWithGmail(uid, idNdermarrje, idPerdoruesi, email, session, accessToken);
-		}
-		internal async static Task<object> userControls(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
-		{
-			return await clsFunksione.userControls(idPerdoruesi, email, idNdermarje, alphaOrganization, uid, accessToken);
-		}
-		internal async static Task<object> goToDelta(int idPerdoruesi, string email, int idNdermarje, string alphaOrganization, string uid, string accessToken)
-		{
-			return await clsFunksione.goToDelta(idPerdoruesi, email, idNdermarje, alphaOrganization, uid, accessToken);
-		}
-		internal async static Task<string> getUserOrganization(string uid)
-		{
-			return await clsFunksione.getUserOrganization(uid);
-		}
-		internal async static Task<bool> changeOrganization(string uid, string organization, int enterprise_id, int idPerdoruesi)
-		{
-			return await clsFunksione.changeOrganization(uid, organization, enterprise_id, idPerdoruesi);
-		}
-		internal async static Task<bool> merrShenimePerdoruesi(string shenime)
-		{
-			return await clsFunksione.merrShenimePerdoruesi(shenime);
-		}
 		public static bool ruajNeSessionURLART(HttpSessionState Session, string url)
 		{
 
@@ -132,14 +108,5 @@ namespace RestApi.WebAPI.Models
 		{
 			return clsFunksione.KtheMesazhPerPerdoruesin();
 		}
-		public static bool KonfirmoEmail(string email)
-		{
-			return clsFunksione.KonfirmoEmail(email);
-		}
-		public static async Task<bool> CheckIfEmailIsVerified(string email)
-		{
-			return await clsFunksione.CheckIfEmailIsVerified(email);
-		}
-
 	}
 }

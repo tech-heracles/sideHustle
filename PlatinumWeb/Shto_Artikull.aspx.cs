@@ -48,7 +48,6 @@ namespace PlatinumWeb
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             string postStringTvsh = "";
-            pubSubButton.ClientVisible = false;
             if (!Page.IsPostBack)
             {
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
@@ -322,90 +321,6 @@ namespace PlatinumWeb
             percaktoTemplateMenu((int)hfState["idGjuha"], (int)hfState["idViti"], (int)hfState["idPerdoruesi"], (int)hfState["idNdermarrje"], ASPxMenu1);
         }
 
-        protected void SendItemsToPubSub(object sender, EventArgs e)
-        {
-            try
-            {
-                string[] columnNames = new string[1];
-                columnNames[0] = "IdArtikulli";
-                List<object> items = ASPxGridView_Artikull.GetSelectedFieldValues(columnNames);
-                //clsNdermarrje ndermarrje = new clsNdermarrje();
-                colNjesiteArtikulli njesi = new colNjesiteArtikulli(this.IdNdermarrja);
-                colNiveleCmimesh nivele = new colNiveleCmimesh();
-                nivele.mbushGjitheNiveleCmimeshPrindiMeMonedheSipasNdermarjes(this.IdNdermarrja);
-                string organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-                if (items.Count > 10)
-                {
-                    colKodifikimeArtikulli kodifikimArtikulli = new colKodifikimeArtikulli();
-                    kodifikimArtikulli.mbushGjitheKodifikimetArtikulliSipasNdermarrjes(this.IdNdermarrja);
-                    DataTable cmime = colCmimeArtikujsh.ktheCmimArtikulliDtExport(this.IdNdermarrja);
-                    DataTable codebars = colKodbare.ktheKodbarePerEksport(IdNdermarrja);
-
-                    List<int> artikujt = new List<int>();
-                    clsNdermarrje ndermarrje = new clsNdermarrje(this.IdNdermarrja);
-                    List<object> objForPubSub = new List<object>();
-                    PubSub PubSub = new PubSub("alphaweb", "alpha_items_bulk", "AlphaToFatura_Items");
-                    foreach (object item in items)
-                    {
-                        artikujt.Add(int.Parse(item.ToString()));
-                    }
-                    colArtikujt itemList = new colArtikujt(artikujt);
-                    List<object> batch = new List<object>();
-                    colTaksa taksat = new colTaksa(this.IdNdermarrja, this.IdPerdoruesi);
-                    int count = itemList.Count;
-                    for (int i = 0; i < count; i++)
-                    {
-                        clsArtikulli art = itemList[i];
-                        if (!art.IShitshem) continue;
-                        object item = art.krijoObjektPerPubSubBulk(njesi, codebars, kodifikimArtikulli, nivele, taksat, cmime, organization, ndermarrje.NdermarrjeKodi);
-                        if (item != null) batch.Add(item);
-
-                        //objForPubSub.Add(art.krijoObjektPerPubSub());
-                        if (i % 500 == 0 || i == count - 1)
-                        {
-                            if (i == 0) continue;
-                            object finalJson = new
-                            {
-                                enterprise = ndermarrje.NdermarrjeKodi,
-                                organization = organization,
-                                data = batch
-                            };
-                            PubSub.PublishPubSub(3, 1, 2, 1, finalJson);
-                            batch = new List<object>();
-                        }
-                    }
-
-
-                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
-                    return;
-                }
-                else if (items.Count > 0)
-                {
-                    //clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Artikujt po sinkronizohen!", pnlMesazhi);
-                    List<int> artikujt = new List<int>();
-                    List<object> objForPubSub = new List<object>();
-                    PubSub PubSub = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items");
-                    foreach (object item in items)
-                    {
-                        artikujt.Add(int.Parse(item.ToString()));
-                    }
-                    colArtikujt itemList = new colArtikujt(artikujt);
-                    foreach (clsArtikulli art in itemList)
-                    {
-                        if (!art.IShitshem) continue;
-                        PubSub.PublishPubSub(3, 1, 2, 1, art.krijoObjektPerPubSub());
-                        //objForPubSub.Add(art.krijoObjektPerPubSub());
-                    }
-                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Artikujt u derguan me sukses!", pnlMesazhi);
-                }
-                else clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ju lutem zgjidhni te pakten 1 rresht!", pnlMesazhi);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-        }
 
         /// <summary>
         /// perdoret per te shtuar kolonen e selektimit tek grida dhe per te vendosur disa karakteristika te grides

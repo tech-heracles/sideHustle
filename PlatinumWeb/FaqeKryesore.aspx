@@ -25,8 +25,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <link rel="icon" sizes="256x256" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
- <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>
-    <script src="https://notification-hub-imb.ew.r.appspot.com/ChatClient.js" crossorigin="anonymous"></script>
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -52,31 +50,6 @@
 
 <%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-        import { getAuth, signInWithPopup, getIdToken,GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyAbxtG7R8ueB5slHXlDCkB74p2NnPiATqY",
-            authDomain: "alpha-secure-login.alpha.al",
-            databaseURL: "https://imb-payment.firebaseio.com",
-            projectId: "imb-payment",
-            storageBucket: "imb-payment.appspot.com",
-            messagingSenderId: "269963445243",
-            appId: "1:269963445243:web:6b8347c72e861cd438415e"
-        };
-        const app = initializeApp(firebaseConfig);
-        window.signInWithPopup = signInWithPopup;
-        window.signInWithEmail = signInWithEmailAndPassword;
-        window.getAuth = getAuth;
-        window.app = app;
-        window.getIdToken = getIdToken;
-        window.signInWithRedirect = signInWithRedirect;
-        window.GoogleAuthProvider = await new GoogleAuthProvider();
-        window.GoogleAuthProvider.setCustomParameters({
-            prompt: 'select_account'
-        });
-        window.auth = await getAuth();
-    </script>
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -92,20 +65,9 @@
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: searchfield-cancel-button;
         }
-        #notification-box{
-            position:absolute;
-            top:10px;
-            z-index: 99999;
-            right: 1%;
-            width:max-content;
-        }
         .material-icons{
             color:white;
 
-        }
-        .notification-badge {
-            height:50% !important;
-            border-radius: 20% !important;
         }
 
         /*#backDiv {
@@ -162,31 +124,6 @@
 			overflow-y: scroll;
 		  }
 		}
-        .einvoice-notice p{
-            font-size: 17px;
-        }
-        .einvoice-notice img{
-            height: 28px;
-            margin-right: 5px;
-        }
-        .x-image{
-            position: absolute;
-            height: 30px;
-            width: 30px;
-            cursor: pointer;
-        }
-        @media only screen and (max-width: 892px) {
-          .einvoice-notice p{
-              font-size: 10px;
-          }
-        }
-        .popup-container{
-            width: 100%;
-            z-index:999;
-            position: absolute;
-            height: 100%;
-            background: #808080ad;
-        }
         .popup{
             
             z-index:9999999999;
@@ -211,93 +148,12 @@
             font-size:18px;
             margin-top: 5px;
         }
-        .email-footer{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        #email_confirm{
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #9d9999;
-    border-radius: 0;
-    outline: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 16px;
-    margin: 0 0 8px 0;
-    padding: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-transition: border .3s, -webkit-box-shadow .3s;
-    transition: border .3s, -webkit-box-shadow .3s;
-    transition: box-shadow .3s, border .3s;
-    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-    width: 30%;
-}
-.email-footer p{
-    transition: .3s;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    /*box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
-    -webkit-box-shadow: 2px 1px 5px 1px rgb(0 0 0 / 29%);
-    -moz-box-shadow: 2px 1px 5px 1px rgba(0,0,0,0.29);*/
-}
-.einvoice-notice p{
-    width: max-content;
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: auto;
-    height: 100%;
-    cursor: pointer;
-    font-weight: bold;
-}
-.email-footer{
-    font-weight:bold;
-    margin-left:-3%;
-}
-.email-footer p{
-    opacity:.9;
-    transition: .3s ease-in-out;
-}
-.email-footer p:hover{
-    opacity:1;
-}
-@media all and (max-width:600px) {
-        .email-footer{
-            float: left;
-        }
-    }    
-@media all and (max-width:1500px) {
-        .email-footer{
-            width: 60%;
-        }
-    }    
-
-@media all and (max-width:1000px) {
-        .email-footer{
-            width: 70%;
-        }
-    }  
-@media all and (max-width:865px) {
-        .email-footer{
-            width: 90%;
-            font-size: 10px;
-        }
-    }  
 
 
 .popup img{
 
     width: 100%;
     height: max-content;
-}
-.gmail-image{
-    width: 90px !important;
-    margin: 0 0 10px !important;
 }
 #top{
     height:100%;
@@ -448,46 +304,13 @@
             <div></div>
         </div>
     </div>
-    <div id="notification-box"></div>
-    <form id="form1" class="main" runat="server">  
-        <div runat="server" id="googlePopup"> 
-            <div class="popup-container"  id="popup-container" style="display:none">
-                <div class="popup">
-                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
-                    <h3 onclick="open_delta()">Shih Raportin?</h3>
-                    <div class="email-footer">
-                        <img src="images/delta.png" onclick="open_delta()"/>
-                    </div>
-                </div>
-            </div>
-            </div>
-        <div runat="server" id="changeOrganization"> 
-            <div class="popup-container"  id="change-popup-container" style="display:none">
-                <div class="popup">
-                    <%--<img src="images/FaqjaPare/sparkle.png"/>--%>
-                    <h3 id="organization-information"></h3>
-                    <div class="email-footer">
-                        <p onclick="handleOrganizationChange()">Po</p>
-                        <p>Jo</p>
-                    </div>
-                </div>
-            </div>
-         </div>
+    <form id="form1" class="main" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
         <div id="popup"></div>
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; margin-left: -2px; display:none; text-align: center;">
             
             <p></p>
-        </div>
-        <div class="einvoice-notice" id="04" style="height: 30px;display:none;">
-            <div style="height: 30px; width:20%; position:absolute;">
-                <i class="material-icons x-image" onclick="hideNotice()">close</i>
-            </div>
-                              
-            <div style="text-align: center;">
-            <p onclick="signInWithGooglePopup()">Logohu ne programin Alpha me Gmail-in tend ne menyre te sigurt vetem me 1 klik.
-            </p>                </div>
         </div>
         <div id="backDiv" runat="server">
             <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" Height="100%" runat="server" Orientation="Vertical" SeparatorVisible="false"
@@ -593,8 +416,6 @@
                                                         </dx:MenuItem>
                                                         
                                                         <dx:MenuItem Text="Webhooks" Name="Webhooks.aspx" Visible="true">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Fto perdorues" Name="FtoPerdorues.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
@@ -1474,10 +1295,6 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Fjalekalimi" Name="NdryshimFjalekalimi.aspx">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Login me Google" name="google">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Ndrysho Organizaten" name="ndrysho">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Mesazhe" Name="mesazhe">
                                                         </dx:MenuItem>
                                                         <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
@@ -2139,150 +1956,6 @@
         //tr_menu.style.position = "absolute";
         //tr_menu.style.paddingRight = "3%";
         //tr_menu.style.backgroundColor = "#0072c6";
-        let url = "https://delta.alpha.al";
-        async function handleOrganizationChange() {
-            $("#change-popup-container").css("display", "none");
-            $("#organization-information").html(``);
-            $.ajax({
-                url: Utils.getServerApiUrl("Autorizime", "changeOrganization"),
-                data: JSON.stringify({ uid: auth.currentUser.uid, organization: hfState.Get("organizata"), enterprise_id: hfState.Get("idNdermarrje"), idPerdoruesi: hfState.Get("idPerdoruesi") })
-            })
-                .done(function (result) {
-                    result ? myMesazh.ShtoMesazhSuksesi("Organizata u ndryshua me sukses!") : myMesazh.ShtoMesazhGabimi("Ndodhi nje gabim ne ndryshimin e organizates!");
-            })
-        }
-        async function changeOrganization(){
-            const {user} = await signInWithPopup(auth, GoogleAuthProvider);
-            const current_organization = hfState.Get("organizata");
-            $.ajax({
-                url: Utils.getServerApiUrl("Autorizime", "getUserOrganization"),
-                data: JSON.stringify({uid: user.uid})
-            })
-            .done(function(organization){
-                if(organization == current_organization){
-                    myMesazh.ShtoMesazhInformues("Organizata qe keni tani eshte e njejte me organizaten qe po perpiqeni te ndryshoni!");
-                    return;
-                }
-                if(organization == "Error" || organization == "") {
-                    myMesazh.ShtoMesazhInformues("Ju nuk jeni te lidhur me ndonje organizate!");
-                    return;
-                }
-                $("#change-popup-container").css("display","block");
-                $("#organization-information").html(`Perdoruesi juaj eshte lidhur me organizaten ${organization}. Doni ta ndryshoni organizaten e lidhur me organizaten ${current_organization}?`)
-            })
-        }
-
-
-
-        async function signInWithGooglePopup(redirect) {
-            var idNdermarrje = hfState.Get("idNdermarrje");
-            var idPerdoruesi = hfState.Get("idPerdoruesi");
-            if (redirect) {
-                const {user} = await signInWithPopup(auth, GoogleAuthProvider);
-                showLoadingGif();
-                const accessToken = await window.getIdToken(window.auth.currentUser);
-                $.ajax({
-                    url: Utils.getServerApiUrl("Autorizime", "goToDelta"),
-                    data: JSON.stringify({
-                        uid: user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
-                    })
-                }).done(function (url) {
-                    url = url;
-                    $("#popup-container").css("display", "block");
-                    hideLoadingGif();
-                })
-                return;
-            }
-            if (!window.auth.currentUser) {
-                await signInWithPopup(auth, GoogleAuthProvider)
-                    .then(async function (result) {
-                        const accessToken = await window.getIdToken(window.auth.currentUser);
-                        $.ajax({
-                            url: Utils.getServerApiUrl("Autorizime", "userControls"),
-                            data: JSON.stringify({
-                                uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
-                            })
-                        }).done(function (res) {
-                            if (res.message != undefined) {
-                                if (redirect) {
-                                    url = res.url;
-                                    $("#popup-container").css("display", "block");
-                                    hideLoadingGif();
-                                }
-                                else{
-                                    myMesazh.ShtoMesazhGabimi(res.message);
-                                }
-                                return;
-                            };
-                            $.ajax({
-                                url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
-                                data: JSON.stringify({
-                                    uid: result.user.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.user.email, accessToken: accessToken
-                                })
-                            }).done(function (res_url) {
-                                if (redirect) {
-                                    url = res_url;
-                                    $("#popup-container").css("display", "block");
-                                    hideLoadingGif();
-                                }
-                                else{
-                                    window.location.href = "/Prezantohu.aspx?uid=" + result.user.uid + "endUid";
-                                    window.setTimeout(function () {
-                                        document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.user.email;
-                                        window.location.reload();
-                                    }, 2000);
-                                }
-                                
-                            });
-                        });
-
-                    });
-            }
-            else {
-                const result = window.auth.currentUser;
-                const accessToken = await window.getIdToken(window.auth.currentUser);
-                $.ajax({
-                    url: Utils.getServerApiUrl("Autorizime", "userControls"),
-                    data: JSON.stringify({
-                        uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken, alphaOrganization: hfState.Get("organizata")
-                    })
-                }).done(function (res) {
-                    if (res.message != undefined) {
-                        if (redirect) {
-                            $("#popup-container").css("display", "block");
-                            url = res.url;
-                            hideLoadingGif();
-                        }
-                        else{
-                            myMesazh.ShtoMesazhGabimi(res.message);
-                        }
-                        return;
-                    };
-                    $.ajax({
-                        url: Utils.getServerApiUrl("Autorizime", "createLoginWithGmail"),
-                        data: JSON.stringify({
-                            uid: result.uid, idNdermarrje: idNdermarrje, idPerdoruesi: idPerdoruesi, email: result.email, accessToken: accessToken
-                        })
-                    }).done(function (res_url) {
-                        if (redirect) {
-                            $("#popup-container").css("display", "block");
-                            url = res_url;
-                            hideLoadingGif();
-                        }     
-                        else{
-                            window.location.href = "/Prezantohu.aspx?uid=" + result.uid + "endUid";
-                            window.setTimeout(function () {
-                                document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6i0_T").children[0].textContent = result.email;
-                                window.location.reload();
-                            }, 2000);
-                        }
-
-                    });
-                });
-            }
-           
-        }
-        sessionStorage.setItem("GoogleLogInAttemps", 0);
         //Popup Window
         window.showPopup = function (template, title) {
             new Popup().init("#popup", template, { width: "40%", height: "30%", title: title });
@@ -2307,95 +1980,6 @@
                 }
             }
         };
-        function open_delta() {
-            $("#popup-container").css("display", "none");
-            window.open(url, "_blank");
-        };
-        function close_delta() {
-            $("#popup-container").css("display", "none");
-        }
-        $(document).ready(async function () {
-            //$.ajax({
-            //    url: "https://europe-west1-imb-licence.cloudfunctions.net/notificationFor10DaysExpiring?organization=" + hfState.Get("organization"),
-            //    async: true
-            //}).done(function (res) {
-
-            //});
-            // window.auth.onAuthStateChanged(function (user) {
-            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
-            document.getElementById("notification-box").style.left = `${offset - 40}px`;
-                if (window.auth.currentUser != null) {
-                    $("#popup-container").css("display", "none");
-                }
-
-                const client = new ChatClient({
-                    user: hfState.Get("emailPerdoruesi"),
-                    room: hfState.Get("organizata"),
-                    email: hfState.Get("emailPerdoruesi"),
-                    admin: hfState.Get("notification_admin"),
-                    token: window.auth.currentUser != null  ? window.auth.currentUser.accessToken : ""
-                })
-
-            client.addNotificationBox("notification-box");
-            client.socket.on("message", function (message) {
-                if (message.text.includes("Shih raportet")) {
-                    if (!hfState.Get("notification_admin")) {
-                        $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
-                        message = null;
-                        return;
-                    }
-                    const elements = $('.notification-text:contains("Shih raportet")');
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].children[0].addEventListener("click", function () {
-                            signInWithGooglePopup(true);
-                        })
-
-                    }
-
-                }
-                    
-                    
-            });
-                const initial_Value = [];
-                function check1(oldvalue) {
-                    undefined === oldvalue && (oldvalue = client.notifications);
-                    clearcheck = setInterval(repeatcheck, 500, oldvalue);
-                    function repeatcheck(oldvalue) {
-                        if (client.notifications.length>0) {
-                            // do something
-                            clearInterval(clearcheck);
-                            //const toggler = document.getElementById("toggler-notification");
-                            //toggler.addEventListener("click", function () {
-                            //    const drop_show = document.getElementById("notification-dropdown");
-                            //    drop_show.style.maxWidh = "400px !important";
-                            //    drop_show.style.minWidth = "400px !important";
-                            //    drop_show.style.transform  = "translate(-25rem, 0.5rem) !important";
-                            //})
-                            const elements = $('.notification-text:contains("Shih raportet")');
-                            for (var i = 0; i < elements.length; i++) {
-                                if (!hfState.Get("notification_admin")) {
-                                    $(".notification-badge").html(parseInt($(".notification-badge").html()) - 1);
-                                    elements[i].parentElement.parentElement.remove();
-                                    return;
-                                }
-                                elements.css("cursor","pointer");
-                                elements[i].children[0].addEventListener("click",function () {
-                                    signInWithGooglePopup(true);
-                                })
-
-                            }
-                        }
-                    }
-                }
-                check1(initial_Value);
-               
-            // })
-
-        });
-        $(window).resize(function () {
-            const offset = document.getElementById("ASPxSplitter1_ASPxMenu1_DXI6_").offsetLeft;
-            document.getElementById("notification-box").style.left = `${offset - 30}px`;
-        });
         // SignalR
         window.imbChatConn = function () {
             if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)

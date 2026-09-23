@@ -3774,11 +3774,6 @@ namespace DbCore.DbInventari
 
 
                 //dbInv.commitTransaksion();
-                if (this.iShitshem)
-                {
-                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
-                }
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
             catch (Exception ce)
@@ -3786,93 +3781,6 @@ namespace DbCore.DbInventari
                 //dbInv.rollbackTransaksion();
                 return new clsMesazh(false, ce.Message);
             }
-        }
-        public object krijoObjektPerPubSubBulk(colNjesiteArtikulli njesiArtikulli, DataTable kodbare, colKodifikimeArtikulli grupim1, colNiveleCmimesh nivele, colTaksa taksat, DataTable cmime, string organization, string enterprise)
-        {
-            try
-            {
-                List<int> idNjesish = new List<int>();
-                idNjesish.AddIfNotExists(this.njesi1Artikulli);
-                idNjesish.AddIfNotExists(this.njesi2Artikulli);
-
-
-                List<object> cmimeArt = new List<object>();
-                List<string> kodBaret = new List<string>();
-                List<DataRow> kodBaretArtikulli = kodbare.Rows.Cast<DataRow>().Where(x => x.Field<string>("Kod artikulli") == this.kodArtikulli).ToList();
-                List<DataRow> cmimeArtikujsh = cmime.Rows.Cast<DataRow>().Where(x => x.Field<string>("Kod artikulli") == this.kodArtikulli).ToList();
-
-                decimal cmimiBaze = 0;
-                decimal cmimiBazeMeTvsh = 0;
-                decimal cmimiBlerjeBaze = 0;
-                clsTaksa taksa = new clsTaksa();
-                if (this.IdTvsh != 0) taksa = taksat.Where(x => x.IdTaksa == this.IdTvsh).First();
-                clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli();
-                if (this.kodifikimi1Artikulli != 0) kodifikimArtikulli = grupim1.Where(x => x.IdKodifikimi == this.kodifikimi1Artikulli).First();
-                for (int i = 0; i < cmimeArtikujsh.Count; i++)
-                {
-                    string kodNivelCmimi = (string)cmimeArtikujsh[i].ItemArray[3];
-                    decimal cmimi = (decimal)cmimeArtikujsh[i].ItemArray[9];
-                    decimal cmimiTvsh = (decimal)cmimeArtikujsh[i].ItemArray[16];
-                    DateTime dtFillimi = (DateTime)cmimeArtikujsh[i].ItemArray[5];
-                    DateTime dtMbarimi = (DateTime)cmimeArtikujsh[i].ItemArray[6];
-                    if (nivele.Where(x => x.PershkrimNivelCmimi == kodNivelCmimi).Count() == 0) continue;
-                    clsNivelCmimi nvCmimi = nivele.Where(x => x.PershkrimNivelCmimi == kodNivelCmimi).First();
-                    bool nivelCmimi = nvCmimi.NivelCmimiBaze;
-                    int llojiNivelCmimi = nvCmimi.LlojiNivelCmimi;
-
-                    //if (nvCmimi.Lloji) continue;
-                    //bool nivelCmimi = nvCmimi.NivelCmimiBaze;
-                    if (llojiNivelCmimi == 1 && nivelCmimi)
-                    {
-                        cmimiBlerjeBaze = cmimi;
-                        continue;
-                    }
-                    else if (nvCmimi.LlojiNivelCmimi == 1)
-                    {
-                        continue;
-                    }
-                    cmimiBaze = nivelCmimi == true ? cmimi : cmimiBaze;
-                    cmimiBazeMeTvsh = nivelCmimi == true ? cmimiTvsh : cmimiBazeMeTvsh;
-                    long startDate = new DateTimeOffset(dtFillimi).ToUnixTimeSeconds() * 1000;
-                    long endDate = new DateTimeOffset(dtMbarimi).ToUnixTimeSeconds() * 1000;
-
-                    cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = cmimi, priceWithVat = cmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
-
-                }
-                for (int i = 0; i < kodBaretArtikulli.Count; i++)
-                {
-                    this.kodiiBarit = this.kodiiBarit == "" || this.kodiiBarit == null ? kodBaretArtikulli[0].ItemArray[2].ToString() : this.kodiiBarit;
-                    kodBaret.Add(kodBaretArtikulli[i].ItemArray[2].ToString());
-                }
-                clsNjesiArtikulli unit = njesiArtikulli.Where(x => x.IdNjesia == this.njesi1Artikulli).FirstOrDefault();
-                //object[] njesite = new object[njesiArtikulli.Count];
-                //for (int i = 0; i < njesiArtikulli.Count; i++) njesite[i] = new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice };
-                object objectForPubSub = new
-                {
-                    code = this.kodArtikulli,
-                    barcode = this.KodiIBarit,
-                    name = this.pershkrimArtikulli,
-                    unit = unit.KodNjesia,
-                    active = this.aktiv,
-                    unitFisc = unit.KodEinvoice,
-                    price = cmimiBaze,
-                    priceWithVat = cmimiBazeMeTvsh,
-                    vatPercentage = taksa.NormaPerqindje,
-                    noVat = this.IdTvsh == 0 ? true : false,
-                    exemptReason = taksa.TipiIPerjashtimit == null ? "" : taksa.TipiIPerjashtimit,
-                    priceLevels = cmimeArt,
-                    barCodes = kodBaret,
-                    category = kodifikimArtikulli.PershkrimKodifikimi
-                };
-                return objectForPubSub;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return null;
-            }
-
-
         }
         public clsMesazh modifiko(clsArtikullPerberesTemplateKoka template, colCmimeArtikujsh cmime, bool vjenNgaImportSQL, string idArtikulliImp, string emerTabele, string primaryKey, string ndermarrjeKey)
         {
@@ -3889,12 +3797,6 @@ namespace DbCore.DbInventari
                     if (!modifikim.Status)
                         return modifikim;
                 }
-                if (this.iShitshem)
-                {
-                    PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-                    ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
-
-                }
                 scope.Complete();
                 return modifikim;
             }
@@ -3904,133 +3806,6 @@ namespace DbCore.DbInventari
         {
             clsMesazh modifikim = modifikoArtikull(this.idArtikulli, this.kodArtikulli, this.pershkrimArtikulli, this.pershkrimiAngArtikulli, this.kodiDoganorArtikulli, this.vendodhjeArtikulli, this.kodifikimi1Artikulli, this.kodifikimi2Artikulli, this.origjineArtikulli, this.njesi1Artikulli, this.njesi2Artikulli, this.koeficientArtikulli, this.idFurnitoriKryesor, this.peshaBrutoArtikulli, this.peshaNetoArtikulli, this.detajimArtikulli, this.klasa, this.idSkemaKontabilitetiArtikulli, this.idLlogariInventari, this.idLlogariBlerje, this.idLlogariShitje, this.idLlogariTeTrete, this.idLlogariShpenzime, this.idLlogariAmortizimi, this.IdLlogariPakesim, this.idLlogRez, this.idLlogPakRez, this.minimumArtikulli, this.maximumArtikulli, this.metodeKostojeArtikulli, this.llogaritjaKMSHArtikulli, this.zevendesimAutomatikArtikulli, this.idPerdoruesi, this.aktiv, this.colArtikujPerberes, template.IdKoka, template.Kodi, template.Pershkrimi, this.OColFurnitoreArtikujsh, this.OColArtikujtZevendesues, this.OColVleraFushaShtese, this.OColBuxhetet, this.OColDetajime, this.IdStatusDok, this.LlojiArt, cmime, this.SasiNjesi, this.Scrap, this.ProdhimMePorosi, this.IdKategoriDetajimi, this.IdKategoriDetajimi2, this.OColDetajime2, this.KontrollGjendjeDetajim2, this.IdObjektivaKosto, this.IdllojGarancie, this.Garancia, this.IdMagazina, this.IRezervueshem, this.PerTransferim, this.loan, this.Dhurate, this.AplikimDhurate, this.Pike, this.Vlere, this.kodVFOne, this.meSerial, this.iShitshem, this.mbetjeShitshme, this.colNorma, dbInv, this.oColKodbare, idArtRaportuesi, this.perPeshore, this.pershkrimFurnitori, this.SiperfaqjaM2, this.NrKontrate, this.NrPasurie, this.ZonaKadastrale, this.Shasia, this.Marka, this.Modeli, this.VitProdhimi, this.TeDhenaTeknika, this.MeBarkodLogjik, this.SkemaBarkodit, this.kodifikimi3Artikulli, aparatBazaar, kodOferte, this.artikullIVjeter, this.idFormatSeriali, this.ColArtikujVfone, this.merezerverivleresimi, this.colNormaRezerva, this.nrKaraktereTAC, this.llogaritKomision, this.idLlogariKomision, this.stokuMaxVfOne, this.kodiiBarit, this.iRimbursueshem);
             return modifikim;
-        }
-        public void sendItemsToPubSubInBulk(List<object> itemList, PubSub ps)
-        {
-            ps.PublishPubSub(3, 1, 2, 1, itemList);
-        }
-        public void sendItemToPubSub()
-        {
-            PubSub ps = new PubSub("alphaweb", "alpha_items", "AlphaToFatura_Items", "https://aso.alpha.al/rest/importItemsFromAlphaToFirebase");
-            ps.PublishPubSub(3, 1, 2, 1, krijoObjektPerPubSub());
-        }
-        public object krijoObjektPerPubSub()
-        {
-            List<int> idNjesish = new List<int>();
-            idNjesish.AddIfNotExists(this.njesi1Artikulli);
-            idNjesish.AddIfNotExists(this.njesi2Artikulli);
-            List<object> njesite = new List<object>();
-            colNjesiteArtikulli njesiArtikulli = new colNjesiteArtikulli(idNjesish);
-
-
-            List<object> cmimeArt = new List<object>();
-            List<string> kodBaret = new List<string>();
-            colKodbare kodBaretArtikulli = new colKodbare(this.IdArtikulli);
-            colCmimeArtikujsh cmimeArtikujsh = new colCmimeArtikujsh();
-            decimal cmimiBaze = 0;
-            decimal cmimiBazeMeTvsh = 0;
-            double cmimiBlerjeBaze = 0;
-            decimal cmimiBlerjeBazeTvsh = 0;
-            cmimeArtikujsh.mbushCmimArtikulliShitjeDheBlerjeSipasArtikullitMeKostoMeAutorizime(this.idArtikulli, IdNdermarje, IdPerdoruesi);
-            clsTaksa taksa = new clsTaksa(this.IdTvsh);
-            string photoURL = "";
-            Guid uuid = Guid.NewGuid();
-            string fileName = $"alpha/{uuid}";
-            //try
-            //{
-            //    #region images
-            //    colArkiva arkiva = new colArkiva(this.IdArtikulli, 13);
-            //    foreach (clsArkiva keyValue in arkiva)
-            //    {
-            //        if (keyValue.FileType != ".jpg" && keyValue.FileType != ".png") continue;
-            //        string filePath = System.Web.Hosting.HostingEnvironment.MapPath(keyValue.Path);
-            //        //using (FileStream image = File.Open((string)keyValue.Value, FileMode.Open))
-            //        using (FileStream image = File.Open(filePath, FileMode.Open))
-            //        {
-            //            Image img = Image.FromStream(image);
-            //            int size = 1024;
-            //            Image newImage = img;
-            //            if (img.Width > size && img.Height > size)
-            //            {
-            //                Bitmap bitMap = new Bitmap(size, size);
-            //                using (Graphics graphics = Graphics.FromImage((Image)bitMap))
-            //                {
-            //                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            //                    graphics.DrawImage(img, 0, 0, size, size);
-            //                    newImage = (Image)bitMap;
-            //                }
-            //            }
-            //            UploadObjectOptions options = new UploadObjectOptions();
-            //            options.UserProject = "imb-payment";
-
-            //            GoogleCredential credential = Task.Run(() => GoogleCredential.GetApplicationDefault()).Result;
-            //            StorageClient storage = StorageClient.Create(credential);
-            //            string contentType = keyValue.FileType;
-            //            storage.UploadObject(paymentBucket, fileName, contentType, image, options);
-            //        }
-
-            //    }
-            //    #endregion
-            //}
-            //catch (Exception e)
-            //{
-            //    ImbLogger.LogErrorShitje(e.Message);
-            //}
-
-
-            clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli(this.kodifikimi1Artikulli);
-            for (int i = 0; i < cmimeArtikujsh.Count; i++)
-            {
-                clsCmimArtikulli currentPrice = cmimeArtikujsh[i];
-
-                clsNivelCmimi nvCmimi = new clsNivelCmimi(currentPrice.IdNivelCmimi);
-                //if (nvCmimi.Lloji) continue;
-                bool nivelCmimi = nvCmimi.NivelCmimiBaze;
-                if (nvCmimi.LlojiNivelCmimi == 1 && nivelCmimi)
-                {
-                    cmimiBlerjeBaze = currentPrice.Kosto;
-                    //cmimiBlerjeBazeTvsh = currentPrice.CmimiTvsh;
-                    continue;
-                }
-                else if (nvCmimi.LlojiNivelCmimi == 1)
-                {
-                    continue;
-                }
-                cmimiBaze = nivelCmimi == true ? currentPrice.Cmimi : cmimiBaze;
-                cmimiBazeMeTvsh = nivelCmimi == true ? currentPrice.CmimiTvsh : cmimiBazeMeTvsh;
-                long startDate = new DateTimeOffset(currentPrice.DateFillimi).ToUnixTimeSeconds() * 1000;
-                long endDate = new DateTimeOffset(currentPrice.DateMbarimi).ToUnixTimeSeconds() * 1000;
-
-                cmimeArt.Add(new { priceLevel = nvCmimi.PershkrimNivelCmimi, price = currentPrice.Cmimi, priceWithVat = currentPrice.CmimiTvsh, startDate = startDate, endDate = endDate, basePrice = nivelCmimi });
-            }
-            for (int i = 0; i < kodBaretArtikulli.Count; i++)
-            {
-                this.kodiiBarit = this.kodiiBarit == "" || this.kodiiBarit == null ? kodBaretArtikulli[0].Pershkrimi : this.kodiiBarit;
-                kodBaret.Add(kodBaretArtikulli[i].Pershkrimi);
-            }
-            for (int i = 0; i < njesiArtikulli.Count; i++) njesite.Add(new { unit = njesiArtikulli[i].KodNjesia, unitFisc = njesiArtikulli[i].KodEinvoice });
-            object objectForPubSub = new
-            {
-                code = this.kodArtikulli,
-                barcode = this.KodiIBarit,
-                name = this.pershkrimArtikulli,
-                units = njesite,
-                active = this.aktiv,
-                price = cmimiBaze,
-                priceWithVat = cmimiBazeMeTvsh,
-                vatPercentage = taksa.NormaPerqindje,
-                noVat = this.IdTvsh == 0 ? true : false,
-                exemptReason = taksa.TipiIPerjashtimit,
-                priceLevels = cmimeArt,
-                organization = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(),
-                ndermarrja = new clsNdermarrje(idNdermarje).NdermarrjeKodi,
-                barCodes = kodBaret,
-                category = kodifikimArtikulli.PershkrimKodifikimi,
-                cost = cmimiBlerjeBaze,
-                description = this.pershkrimiAngArtikulli
-            };
-            return objectForPubSub;
-
         }
         /// <summary>
         /// Modifikon objektin artikull ne tabelen perkatese ne databaze.Therret funksionin

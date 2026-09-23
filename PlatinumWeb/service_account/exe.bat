@@ -1,1 +1,0 @@
-gsutil cp gs://backup-cloudsqldatabase/%1 gs://"backup-cloudsqldatabase/databaseToImport/%2"

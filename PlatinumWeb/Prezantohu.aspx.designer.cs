@@ -14,14 +14,6 @@ namespace PlatinumWeb
     public partial class login
     {
 
-        /// <summary>
-        /// panelDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelDiv;
 
         /// <summary>
         /// authForm control.
@@ -149,86 +141,14 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfState;
 
-        /// <summary>
-        /// hfTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfTerms;
 
-        /// <summary>
-        /// hflocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hflocal;
 
-        /// <summary>
-        /// ASPxHiddenLocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField ASPxHiddenLocal;
 
-        /// <summary>
-        /// popupUniversal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl popupUniversal1;
 
-        /// <summary>
-        /// PopupControlContentControl4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.PopupControlContentControl PopupControlContentControl4;
 
-        /// <summary>
-        /// ASPxPanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel ASPxPanel1;
 
-        /// <summary>
-        /// TOS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlIframe TOS;
 
-        /// <summary>
-        /// ButtonOk control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ButtonOk;
 
-        /// <summary>
-        /// ASPxHiddenFieldTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField ASPxHiddenFieldTerms;
 
         /// <summary>
         /// ASPxLabel8 control.
@@ -266,31 +186,7 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxHyperLink ASPxHyperTerms;
 
-        /// <summary>
-        /// logInWithGmailButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logInWithGmailButton;
 
-        /// <summary>
-        /// txtUID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtUID;
 
-        /// <summary>
-        /// txtFirstLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtFirstLogin;
     }
 }
