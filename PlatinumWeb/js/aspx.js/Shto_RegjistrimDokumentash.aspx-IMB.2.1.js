@@ -120,16 +120,6 @@ var varKonfig = {
     identifikuesPerLocalStorageKey: 'Shitja'
 };
 
-var urlMedianInputCheck = "";
-var organizataMIC = "";
-$.ajax({
-    url: Utils.getServerApiUrl("Rregjistrime", "merrurlMedianInputCheck"),
-    data: JSON.stringify({ idNdermarrje: pageState.idNdermarrje })
-}).done(function (result) {
-    urlMedianInputCheck = result[0];
-    organizataMIC = result[1];
-});
-
 $(document).ready(function () {
     Utils.konfiguroAccorditionNeDocReady(varKonfig.identifikuesPerLocalStorageKey);
     memoryArt = new memory("IdArtikulli");
@@ -3520,7 +3510,6 @@ function JoClick(s, e) {//nese nuk do 2 rreshta me artikull njesoj
             resetRreshtKorent(rreshtidyfish);
             break;
         case "krediti":
-        case 'SubjektPasiv':
             click = false;
             break;
         case 'detajimi1':
@@ -3590,7 +3579,6 @@ function PoClick(s, e) {//po
             Utils.RuajLidhjeDetajim(2, idRresht, grida, pageState.idNdermarrje, pageState.idPerdoruesi);
             break;
         case 'printKupon':
-        case "SubjektPasiv":
             Utils.shfaqLoadingGif();
             btn.DoClick();
             break;
@@ -7069,25 +7057,6 @@ function SucceededCallbackCmimArtikulliRow(result, idFushe) {//po
         grida.setTekstQelize('txtSasia', idRreshti);
 
     changedCmimireshti(null, null, 'txtCmimi', idRreshti);
-        //$.ajax({
-    //    /*async: false,*/
-    //    url: "https://europe-west1-delta-327121.cloudfunctions.net/median_mad_input_check",
-    //    data: JSON.stringify({ KODI: grida.getTekstQelize('txtKodi', idRreshti), CMIMI: cm, idndermarje: 11107, organizata: "cinitest" }),
-    //    complete: function (res) {
-    //        if (res.status == 'Cmimi mund te jete gabim.') {
-    //            $("#txtCmimi" + idRreshti).css('background-color', '#FFA500');
-    //        } else if (res.status == 'Cmimi duket ok.') {
-    //            $("#txtCmimi" + idRreshti).css('background-color', '#42c947');
-    //        }
-    //    },
-    //    success: function (res) {
-    //        if (res.status == 'Cmimi mund te jete gabim.') {
-    //            $("#txtCmimi" + idRreshti).css('background-color', '#FFA500');
-    //        } else if (res.status == 'Cmimi duket ok.') {
-    //            $("#txtCmimi" + idRreshti).css('background-color', '#42c947');
-    //        }
-    //    }
-    //})
 }
 
 function SucceededCallbackComboCmimeArtikulli(result, idRresht, idFushe) {
@@ -7464,43 +7433,6 @@ function changedCmimireshti(event, ui, emerKodi, idRreshti) {
     grida.setTekstQelize('txtCmimiTvsh', idRreshti, cmimi * (1 + normaTvsh / 100));
     changedZbritjaReshti("txtZbritja", idRreshti);
     kontrolloSasiLimit(idRreshti, grida.getTekstQelize('txtIdKodi', idRreshti), false);
-    var timeoutId = 0;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(function() {
-
-        $.ajax({
-            /*async: false,*/
-            url: urlMedianInputCheck,
-            data: JSON.stringify({ KODI: kodi, CMIMI: cmimi, idndermarje: pageState.idNdermarrje, organizata: organizataMIC }),
-            complete: function (res) {
-                if (res.status == 'Cmimi mund te jete gabim.') {
-                    $("#txtCmimi" + idRreshti).css('background-color', '#FFA500');
-                    $("#txtCmimi" + idRreshti).attr("title", "Cmimi mund te jete gabim.");
-                } else if (res.status == 'Cmimi duket ok.') {
-                    $("#txtCmimi" + idRreshti).css('background-color', '#42c947');
-                    $("#txtCmimi" + idRreshti).attr("title", "Cmimi duket ok.");
-                }
-            },
-            error: function (res) {
-
-            },
-            success: function (res) {
-                if (res.status == 'Cmimi mund te jete gabim.') {
-                    $("#txtCmimi" + idRreshti).css('background-color', '#FFA500');
-                    $("#txtCmimi" + idRreshti).attr("title", "Cmimi mund te jete gabim.");
-                } else if (res.status == 'Cmimi duket ok.') {
-                    $("#txtCmimi" + idRreshti).css('background-color', '#42c947');
-                    $("#txtCmimi" + idRreshti).attr("title", "Cmimi duket ok.");
-                }
-            },
-            failure: function (res) {
-                console.log();
-            },
-            timeout: 4000,
-        })
-
-    }, 800);
-    return;
 }
 
 function changedCmimireshtiTvsh(event, ui, emerKodi, idRreshti) {
@@ -8950,7 +8882,6 @@ function menuClick(s, e, doPostback) {//po
         }
         if (isValidKoka()) {
             Utils.shfaqLoadingGif();
-            //isSubjektAktiv(e);            
             if ((e.item.name == 'Ruaj' || e.item.name == 'Draft') && $('#hfShtimModifikim').val() == 'shtim') {
                 ASPxMenu1.GetItemByName('Ruaj').SetEnabled(false);
                 ASPxMenu1.GetItemByName('Draft').SetEnabled(false);
@@ -9145,38 +9076,6 @@ function SuccededCallbackKthim(result) {
     else
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=' + pageState.veprimi + '&id=' + Utils.getUrlVar('id') + '&shtim_modifikim=kthim' + '&pageCacheId=' + window['CurrentPageId']);
 }
-function isSubjektAktiv(e) {
-    if (!Utils.IsNullOrEmpty(pageState.Klient))
-        if (pageState.kushte.IPSPRD && JSON.parse(pageState.Klient) != undefined && JSON.parse(pageState.Klient).kf.NiptiKF != "" && hfState.Get('URL_SUBJEKTEPASIV') != null && hfState.Get('URL_SUBJEKTEPASIV') != "") {
-            $.ajax({
-                pritPergjigje: true,
-                type: "GET",
-                async: false,
-                timeout: 3000,
-                url: hfState.Get('URL_SUBJEKTEPASIV') + JSON.parse(pageState.Klient).kf.NiptiKF,
-                success: function (result) {
-                    if (result) {
-                        if (console)
-                            console.log("URL_SUBJEKTEPASIV: PASSIV - NIPTI: " + JSON.parse(pageState.Klient).kf.NiptiKF);
-                        myMesazh.ShtoPyetje(hfState.Get("msgSubjektiMeNiptEshtePasivSipasTativemeDoniTeVazhdoni").replace('@NIPTI', JSON.parse(pageState.Klient).kf.NiptiKF), true);
-                        identifikuesPyetje = "SubjektPasiv";
-                        e.processOnServer = false;
-                        click = false;
-                        Utils.hiqLoadingGif();
-                    }
-                    else {
-                        if (console)
-                            console.log("URL_SUBJEKTEPASIV: AKTIV - NIPTI: " + JSON.parse(pageState.Klient).kf.NiptiKF);
-                    }
-                },
-                error: function () {
-                    if (console)
-                        console.log("URL_SUBJEKTEPASIV: DESHTOI KOMUNIKIMI - NIPTI: " + JSON.parse(pageState.Klient).kf.NiptiKF);
-                }
-            });
-        }
-}
-
 /*
 Function: RuajClick
 

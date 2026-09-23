@@ -497,8 +497,6 @@ namespace PlatinumWeb
                         var nivfshFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FWTNIC", false);
                         if (nivfshFature[1] != null)
                         {
-                            //var objekti = ktheObjektPerNotify(kokaShitje, "Deshtim", clsKokaShitje.merrTrupiShitje(kokaShitje.IdKokaMagazina), new clsTrupiShitje(), nivfshFature[0], nivfshFature[1], "Fature Shoqeruese");
-                            //clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                             clsMenuInfo.ShtoMesazhGabimi(_menuInfo, "Ndodhi nje gabim me fiskalizimin, fatura shoqeruese nuk u fiskalizua!" + $"Error:{nivfshFature[1]}" + $" Pershkrimi i errorit:{nivfshFature[0]}", _pnlMesazhi);
 
                         }
@@ -512,8 +510,6 @@ namespace PlatinumWeb
                             clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(kokaMag.IdKonfigAmbjente);
                             DataTable riruajtje = colKokaMagazina.riruajMag(ci, rm, ref mesazh, rreshtat, IdPerdoruesi, idNdermarrje, IdNdermarrjeVit, idGjuha, true, hfArkiva, false);
                             clsMenuInfo.ShtoMesazhSuksesi(_menuInfo, "Fisaklizimi u krye me sukses!", _pnlMesazhi);
-                            //var objekti = ktheObjektPerNotify(kokaShitje, "Sukses", clsKokaShitje.merrTrupiShitje(kokaShitje.IdKokaMagazina), new clsTrupiShitje(), nivfshFature[0], nivfshFature[1], "Fature Shoqeruese");
-                            //clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                         }
 
                     }
@@ -703,63 +699,6 @@ namespace PlatinumWeb
                 grid_RegMag.FilterExpression = "([IdLlojDokumentiMagazine] = 1) and [IdStatusDok]=1";
             else if (Request.QueryString["lloj"] == "dalje")
                 grid_RegMag.FilterExpression = "([IdLlojDokumentiMagazine] = 2) and [IdStatusDok]=1";
-        }
-        private object ktheObjektPerNotify(clsKokaMagazina kokaMagazina, string statusi, colTrupiShitje artikujt, clsTrupiShitje trupiShitje, string pershkrim, string kodErrori, string TipFature)
-        {
-            string emerDatabaze = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            clsKokaMagazina kokeMagazine = new clsKokaMagazina(kokaMagazina.IdKokaMagazina);
-            clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(kokeMagazine.IdDegeAdministrative);
-            string kodiINjesiseSeBiznesit = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokeMagazine.IdDegeAdministrative)["KODNJESIEBIZNES"].ToString();
-            clsNdermarrje ndermarrje = new clsNdermarrje(kokeMagazine.IdNdermarrje);
-            clsTransportues transportues = new clsTransportues(kokeMagazine.Transportuesi);
-            var emerOperatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(kokeMagazine.IdOperator, kokeMagazine.IdNdermarrje);
-            return new
-            {
-                Statusi = statusi,
-                meta = new
-                {
-                    Tipi = TipFature,
-                    Pershkrim = pershkrim,
-                    KodErrori = kodErrori,
-                    NumerDokumenti = kokeMagazine.NrDok,
-                    Ndermarrja = new clsNdermarrje(kokeMagazine.IdNdermarrje).NdermarrjeKodi,
-                    Organizata = emerDatabaze
-                },
-                Dokumenti = new
-                {
-                    Koka = new
-                    {
-                        DateDokumenti = kokeMagazine.DtDok,
-                        NIVFSH = kokeMagazine.NIVFSH,
-                        WTNIC = kokeMagazine.WTNIC,
-                        Adresa = kokeMagazine.Adresa,
-                        DegaAdministrative = degeAdministrative.Kodi,
-                        kodiINjesiseSeBiznesit = kodiINjesiseSeBiznesit,
-                        Transportuesi = transportues.Emertimi,
-                        TargeTransportuesi = transportues.Targa,
-                        ShoqerimIKerkuar = kokeMagazine.ShoqerimIKerkuar,
-                        MallraTeDjegshme = kokeMagazine.MallraTeDjeghsme,
-                        EmerMbiemerOperatori = emerOperatori.ItemArray[0].ToString() + " " + emerOperatori.ItemArray[1].ToString(),
-                        KodOperatori = clsOperator.MerrKodOperatoriSipasId(kokeMagazine.IdOperator, kokeMagazine.IdNdermarrje),
-                        Ndermarrje = new
-                        {
-                            Emertimi = ndermarrje.NdermarrjeKodi,
-                            Nipt = ndermarrje.NdermarrjeNipt,
-                            Qyteti = new clsQyteti(ndermarrje.NdermarrjeQyteti).EmriQyteti,
-                            Vendi = ndermarrje.NdermarrjeVendi
-                        }
-                    },
-                    Trupi = new
-                    {
-                        Artikujt = artikujt
-                    }
-
-
-
-                },
-
-
-            };
         }
     }
 }

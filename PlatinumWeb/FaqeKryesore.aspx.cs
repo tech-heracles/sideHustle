@@ -214,8 +214,6 @@ namespace PlatinumWeb
 					FormsAuthentication.RedirectToLoginPage();
 				}
 			}
-			//string connectionStringName = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-			//clsFunksione.sendExpireLicenceRequest(WebConfigurationManager.AppSettings["expireLink"], connectionStringName);
 
 		}
 		public static string buildQueryStringNgaAmbienti(System.Collections.Specialized.NameValueCollection queryStringCol)

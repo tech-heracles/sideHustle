@@ -1152,7 +1152,6 @@ namespace PlatinumWeb
 			};
 			hfObjektRuajtur.Value = JsonConvert.SerializeObject(kokaDheTrupi);
 			visibleMenu(id);
-			clsFunksione.dergoWebhookDatasetEndpoint(kokaDheTrupi);
 		}
 
 		private clsMesazh validoDok(clsBanka bank, int statusi, clsKonfigurimAmbjenti konf, out clsPeriudhaKontabel periudha)

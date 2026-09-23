@@ -1154,7 +1154,6 @@ Utils.ndertoPopup = function (options) {
 Utils.ndertoPopupAbonimi = function (options) {
     var defaults = {
         text: {
-            fshi: "Fshi Organizaten",
             mbyll: "Mbyll",
             ruaj: "Ruaj",
             llogarit: "Llogarit riabonimin"
@@ -1174,7 +1173,6 @@ Utils.ndertoPopupAbonimi = function (options) {
             "</div>" +
             "<div class='modal-body'><div class='" + options.contentClass + "'></div></div>" +
             "<div class='modal-footer'>" +
-            "<button type='button' id='fshiDatabazenBtn' class='btn btn-danger'> Fshi Organizaten</button>" +
             "<button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + "</button>" +
             "<button type='button' class='btn btn-default' target='_blank' >" + options.text.llogarit + "</button>" +
             (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") +
@@ -1186,81 +1184,12 @@ Utils.ndertoPopupAbonimi = function (options) {
             $("." + options.dialogClass + " .btn-primary").on("click", options.saveClick);
         }
 
-        console.log(myPopup);
-        $("#fshiDatabazenBtn").on("click", function () {
-            myPopup.modal("hide");
-            myPopup.remove();
-            showConfirmationPopup();
-        });
     }
 
     return myPopup;
 };
 
-function showConfirmationPopup() {
-    var confirmationPopup = $("<div class='modal confirmation-popup' role='dialog'>" +
-        "<div class='modal-dialog'>" +
-        "<div class='modal-content'>" +
-        "<div class='modal-header'>" +
-        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
-        "<h4 class='modal-title'>Konfirmoni Veprimin</h4>" +
-        "</div>" +
-        "<div class='modal-body'>" +
-        "<p> <strong> Kujdes: <br> Ju po dergoni kerkesen ne Google Cloud per fshirjen e plote te Organizates tuaj Alpha dhe cdo Back-up-i te saj. <br> Organizata e fshire, nuk mund te kthehet me mbrapsht! <br> <br> Nese jeni te sigurt qe doni te vazhdoni, shtypni butonin 'Fshi Organizaten' </strong> </p > " + // Confirmation message
-        "</div>" +
-        "<div class='modal-footer'>" +
-        "<button type='button' class='btn btn-danger' id='confirmFshi'>Fshi Organizaten</button>" +
-        "<button type='button' class='btn btn-default' data-dismiss='modal'>Anullo</button>" +
-        "</div></div></div></div>");
 
-    $("body").prepend(confirmationPopup);
-    confirmationPopup.modal("show");
-
-    $("#confirmFshi").on("click", function () {
-        confirmationPopup.modal("hide");
-        confirmationPopup.remove();
-        const cloudFunctionUrl = "https://europe-west1-alphaweb.cloudfunctions.net/fshirjeOrgKerkese";
-        const requestData = {
-            org: hfState.Get("organizata"),
-            user: hfState.Get("EmerMbiemerPerdorues"),
-            ip: "185.32.20.6",
-            // org: "Alpha",
-            // user: "Alkid",
-            // ip: "12.35.364.12"
-        };
-        fetch(cloudFunctionUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(requestData)
-        })
-        showSuccessModal();
-    });
-}
-
-function showSuccessModal() {
-    var successModal = $("<div class='modal success-modal' role='dialog'>" +
-        "<div class='modal-dialog'>" +
-        "<div class='modal-content'>" +
-        "<div class='modal-header'>" +
-        "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
-        "<h4 class='modal-title'>Sukses!</h4>" +
-        "</div>" +
-        "<div class='modal-body'>" +
-        "<p><strong>Kerkesa per fshirje u dergua!<br>Faleminderit!</strong></p>" +
-        "</div>" +
-        "<div class='modal-footer'>" +
-        "<button type='button' class='btn btn-default' data-dismiss='modal'>Mbyll</button>" +
-        "</div></div></div></div>");
-
-    $("body").prepend(successModal);
-    successModal.modal("show");
-    successModal.on('hidden.bs.modal', function () {
-        successModal.modal("hide");
-        successModal.remove();
-    });
-}
 
 Utils.ndertoPopupCertifikata = function (options, dateSkadence) {
     var defaults = { text: { mbyll: "Mbyll" } };

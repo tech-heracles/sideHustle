@@ -1073,7 +1073,6 @@ namespace PlatinumWeb
 						{
 							clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
 							clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
-							//var objekti = ktheObjektPerNotify(kokaShitje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
 							return;
 						}
 						else
@@ -1084,8 +1083,6 @@ namespace PlatinumWeb
 							clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(kokaShitje.IdKonfigAmbjente);
 							kokaShitje.Riruaj(false, idNdermarrje, idPerdoruesi, konfig, idGjuha, eshteMeme, eshteOwn, rm, ci, hfArkiva, serverUrl);
 							clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fisaklizimi u krye me sukses!", pnlMesazhi);
-							//var objekti = ktheObjektPerNotify(kokaShitje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokaShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi");
-							//clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
 						}
 
 					}
@@ -1399,73 +1396,6 @@ namespace PlatinumWeb
 
 		}
 
-		private object ktheObjektPerNotify(clsKokaShitje kokaShitje, bool einvoice, string statusi, colTrupiShitje artikujt, clsTrupiShitje trupiShitje, string pershkrim, string kodErrori, string TipFature)
-		{
-			string emerDatabaze = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-			clsKokaShitje kokeShitje = new clsKokaShitje(kokaShitje.IdShitjeKoka);
-			clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(kokeShitje.IdDegeAdministrative);
-			string kodiINjesiseSeBiznesit = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokeShitje.IdDegeAdministrative)["KODNJESIEBIZNES"].ToString();
-			clsKlientFurnitor klienti = new clsKlientFurnitor(kokeShitje.IdKlientFurnitor);
-			clsNdermarrje ndermarrje = new clsNdermarrje(kokeShitje.IdNdermarrje);
-			return new
-			{
-				Statusi = statusi,
-				meta = new
-				{
-					Tipi = TipFature,
-					Pershkrim = pershkrim,
-					KodErrori = kodErrori,
-					NumerDokumenti = kokeShitje.NrDok,
-					Ndermarrja = new clsNdermarrje(kokeShitje.IdNdermarrje).NdermarrjeKodi,
-					Organizata = emerDatabaze
-				},
-				Dokumenti = new
-				{
-					Koka = new
-					{
-						DateDokumenti = kokeShitje.DtDok,
-						IIC = kokeShitje.IIC,
-						NIVF = kokeShitje.NIVF,
-						NIFVKTHIM = kokeShitje.NivfKthim,
-						EIC = kokeShitje.EIC,
-						Procesi = kokeShitje.ktheKodDhePershkrimProcesi(kokeShitje.Procesi).Rows[0].ItemArray[0].ToString(),
-						TipiEinvoice = kokeShitje.ktheKodDhePershkrimTipiEinvoice(kokeShitje.EInvoiceType).Rows[0].ItemArray[0].ToString(),
-						AdresaEFaturimit = kokeShitje.AdresaFaturimit,
-						Kursi = kokeShitje.Kursi,
-						DegaAdministrative = degeAdministrative.Kodi,
-						kodiINjesiseSeBiznesit = kodiINjesiseSeBiznesit,
-						operatori = clsOperator.MerrKodOperatoriSipasId(kokeShitje.IdOperator, kokeShitje.IdNdermarrje).ItemArray[0].ToString(),
-						KodiTCR = new clsBanka(kokeShitje.IdArka).KodiTCR,
-						EmerMbiemerOperatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(kokeShitje.IdOperator, kokeShitje.IdNdermarrje).ItemArray[0].ToString() + " " + clsOperator.MerrEmerDheMbiemerOperatoriSipasId(kokeShitje.IdOperator, kokeShitje.IdNdermarrje).ItemArray[1].ToString(),
-						Klienti = new
-						{
-							Emertimi = klienti.EmertimiKF,
-							Nipt = klienti.NiptiKF,
-							TipiId = klienti.TipiId,
-							AutoNgarkes = klienti.AutoNgarkese,
-							Qyteti = new clsQyteti(klienti.QytetiKF).EmriQyteti,
-							Shteti = klienti.ShtetiKF
-						},
-						Ndermarrje = new
-						{
-							Emertimi = ndermarrje.NdermarrjeKodi,
-							Nipt = ndermarrje.NdermarrjeNipt,
-							Qyteti = new clsQyteti(ndermarrje.NdermarrjeQyteti).EmriQyteti,
-							Vendi = ndermarrje.NdermarrjeVendi
-						}
-					},
-					Trupi = new
-					{
-						Artikujt = artikujt
-					}
-
-
-
-				},
-
-
-			};
-		}
 
 	}
 }

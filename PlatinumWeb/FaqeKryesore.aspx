@@ -359,8 +359,6 @@
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Restore" Name="Restore.aspx" Visible="false">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text="Restore Database" Name="RestoreDatabase.aspx" Visible="true">
-                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
                                                         

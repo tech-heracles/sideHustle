@@ -2604,46 +2604,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 }
             }
         }
-        public static bool dergoWebhookNotify(object objekti, bool einvoice)
-        {
-            string result = string.Empty;
-            string linkFiskalizimiWebhook = WebConfigurationManager.AppSettings["SuksesFiskalizimi"];
-            string linkEinvoiceWebhook = WebConfigurationManager.AppSettings["SuksesFiskalizimi"];
-            try
-            {
-                WebRequest webRequest;
-                if (einvoice)
-                {
-                    webRequest = CreateJSONWebRequest(linkEinvoiceWebhook);
-                }
-                else
-                {
-                    webRequest = CreateJSONWebRequest(linkFiskalizimiWebhook);
-                }
-                using (Stream stream = webRequest.GetRequestStream())
-                {
-                    using (StreamWriter stmw = new StreamWriter(stream))
-                    {
-                        stmw.Write(JsonConvert.SerializeObject(objekti));
-                    }
-                }
-                using (WebResponse webResponse = webRequest.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                    {
-
-                        var ServiceResult = rd.ReadToEnd();
-
-                        return true;
-                    }
-                }
-            }
-            catch (WebException ex)
-            {
-                return false;
-            }
-
-        }
         public static string[] InvokeService(string xml, string elementi, bool Einvoice)
         {
             string soapResult = string.Empty;

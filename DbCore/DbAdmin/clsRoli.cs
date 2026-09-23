@@ -649,13 +649,6 @@ namespace DbCore.DbAdmin
                 return db.ekzistonRol(kodi, idlicenca);
             }
         }
-        public static DataTable ktheRolePervecSuperUser()
-        {
-            using (clsDatabaseAdmin db = new clsDatabaseAdmin())
-            {
-                return db.ktheRolePervecSuperUser();
-            }
-        }
 
         #endregion
 

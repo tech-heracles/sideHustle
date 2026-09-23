@@ -2427,15 +2427,6 @@ namespace RestApi.WebAPI.Models
             return col;
         }
 
-        public static string[] merrurlMedianInputCheck()
-        {
-            string[] linkMedianInputCheck = new string[2];
-            linkMedianInputCheck[0] = WebConfigurationManager.AppSettings["urlMedianInputCheck"];
-            linkMedianInputCheck[1] = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-
-            return linkMedianInputCheck;
-        }
-
         public static double merrKursiSipasMonedhesDatesDheLlojit(int idMonedha, DateTime date, int lloji)
         {
             return clsFunksione.merrKursiSipasMonedhesDatesDheLlojit(idMonedha, date, lloji);
@@ -7280,20 +7271,6 @@ namespace RestApi.WebAPI.Models
             bool eshtePrindQk = ((DbCore.DbQendraKosto.colQendraKosto.mbushGjitheQendraKostoPrindJoFundoreSipasNdermarjesAktiv(idNdermarrje, Kodi)));
             return new { eshtePrindQk = eshtePrindQk, Kodi = Kodi };
 
-        }
-        public static object restoreDatabase(string prefix, string[] generations)
-        {
-
-            object result = clsFunksione.getClientDatabaseBackup(prefix, generations);
-            return result;
-        }
-        public static bool krijoBackup()
-        {
-            return clsFunksione.krijoBackup();
-        }
-        public static void logout(HttpSessionState sessionState)
-        {
-            clsFunksione.LogoutRestore(sessionState, true, true, false, Paths.defaultLoginPath, "RestoreDatabase");
         }
     }
 }

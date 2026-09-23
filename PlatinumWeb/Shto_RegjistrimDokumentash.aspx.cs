@@ -161,7 +161,6 @@ namespace PlatinumWeb
                 hfState.Set("MosModifikoTrup", false);
                 hfState.Set("ci", ci.ToString());
                 hfState.Set("MNSA", true);
-                hfState.Set("URL_SUBJEKTEPASIV", WebConfigurationManager.AppSettings["URL_SUBJEKTEPASIV"]);
                 hfState["guidString"] = guidString;
                 EmrateLabelave(ci, rm);
                 mbushHiddenFieldMePerkthime(ci, rm);
@@ -2602,23 +2601,17 @@ namespace PlatinumWeb
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua:Klienti nuk eshte aktiv ne regjistrin e tatimeve", pnlMesazhi);
 
                                     }
                                     else if (nivfFature[0] == "Buyers TIN is not in the correct format.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua: Formati i NIPT-it nuk eshte i rregullt", pnlMesazhi);
                                     }
                                     else if (nivfFature[1] != null)
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
                                     }
 
@@ -2635,15 +2628,11 @@ namespace PlatinumWeb
                                                 if (EIC[1] == "Fatura nuk u be Einvoice")
                                                 {
                                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Servisi i E-invoice nuk pergjigjet, ju lutem provoni perseri me vone!", pnlMesazhi);
-                                                    var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), "Error serveri e-invoice", EIC[1], "Fature E-invoice", EIC[3], "Problem serveri e-invoice");
-                                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                     EIC[0] = "";
                                                 }
                                                 else
                                                 {
                                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me krijimin e fatures elektronike!" + $"Error:{EIC[1]}" + $" Pershkrimi i errorit:{EIC[0]}", pnlMesazhi);
-                                                    var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                     EIC[0] = "";
                                                 }
 
@@ -2671,21 +2660,8 @@ namespace PlatinumWeb
 
 
                                         }
-                                        var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, nivfFature[0], nderm.IdNdermarrje, EIC[0], txtIIC.Text);
                                         clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura u fiskalizua me sukses!", pnlMesazhi);
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
-                                        if (cbEinvoice.Checked)
-                                        {
-                                            if (EIC[0] == "")
-                                                EIC[0] = "";
-                                            else
-                                            {
-                                                objektiEinvoiceSukses = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoiceSukses, true);
-                                            }
-                                        }
 
                                     }
 
@@ -2715,7 +2691,6 @@ namespace PlatinumWeb
                                 trupi = json
                             };
                             hfObjektRuajtur.Value = JsonConvert.SerializeObject(kokaDheTrupi);
-                            clsFunksione.dergoWebhookDatasetEndpoint(kokaDheTrupi);
                         }
                     }
                     catch (Exception err)
@@ -2782,23 +2757,17 @@ namespace PlatinumWeb
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua:Klienti nuk eshte aktiv ne regjistrin e tatimeve", pnlMesazhi);
 
                                     }
                                     else if (nivfFature[0] == "Buyers TIN is not in the correct format.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua: Formati i NIPT-it nuk eshte i rregullt", pnlMesazhi);
                                     }
                                     else if (nivfFature[1] != null)
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
                                     }
 
@@ -2806,11 +2775,8 @@ namespace PlatinumWeb
                                     {
 
 
-                                        var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, nivfFature[0], nderm.IdNdermarrje, txtEIC.Text, txtIIC.Text);
                                         clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura u fiskalizua me sukses!", pnlMesazhi);
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
 
                                     }
 
@@ -2838,7 +2804,6 @@ namespace PlatinumWeb
                                 trupi = json
                             };
                             hfObjektRuajtur.Value = JsonConvert.SerializeObject(kokaDheTrupi);
-                            clsFunksione.dergoWebhookDatasetEndpoint(kokaDheTrupi);
                         }
                     }
                     catch (Exception err)
@@ -3009,23 +2974,17 @@ namespace PlatinumWeb
                                     var nivfFature = clsFunksioneFiskalizimi.InvokeService(mesazhInvoice[0], "FIC", false);
                                     if (nivfFature[0] == "Buyer TIN doesn't exist in RTP." || nivfFature[0] == "Buyer is not active in the RTP.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua:Klienti nuk eshte aktiv ne regjistrin e tatimeve", pnlMesazhi);
 
                                     }
                                     else if (nivfFature[0] == "Buyers TIN is not in the correct format.")
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Fatura nuk u fiskalizua: Formati i NIPT-it nuk eshte i rregullt", pnlMesazhi);
                                     }
                                     else if (nivfFature[1] != null)
                                     {
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
 
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura nuk u fiskalizua!" + $"Error:{nivfFature[1]}" + $" Pershkrimi i errorit:{nivfFature[0]}", pnlMesazhi);
                                     }
 
@@ -3040,15 +2999,11 @@ namespace PlatinumWeb
                                                 if (EIC[1] == "Fatura nuk u be Einvoice")
                                                 {
                                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Servisi i E-invoice nuk pergjigjet, ju lutem provoni perseri me vone!", pnlMesazhi);
-                                                    var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), "Error serveri e-invoice", EIC[1], "Fature E-invoice", EIC[3], "Problem serveri e-invoice");
-                                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                     EIC[0] = "";
                                                 }
                                                 else
                                                 {
                                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me krijimin e fatures elektronike!" + $"Error:{EIC[1]}" + $" Pershkrimi i errorit:{EIC[0]}", pnlMesazhi);
-                                                    var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                     EIC[0] = "";
                                                 }
 
@@ -3071,21 +3026,8 @@ namespace PlatinumWeb
                                             }
 
                                         }
-                                        var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, nivfFature[0], nderm.IdNdermarrje, EIC[0], txtIIC.Text);
                                         clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura u fiskalizua me sukses!", pnlMesazhi);
-                                        var objekti = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), nivfFature[0], nivfFature[1], "Fature Fiskalizimi", mesazhInvoice[1], nivfFature[2]);
-                                        clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
-                                        if (cbEinvoice.Checked)
-                                        {
-                                            if (EIC[0] == "")
-                                                EIC[0] = "";
-                                            else
-                                            {
-                                                objektiEinvoiceSukses = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoiceSukses, true);
-                                            }
-                                        }
 
                                     }
 
@@ -3101,15 +3043,11 @@ namespace PlatinumWeb
                                             if (EIC[1] == "Fatura nuk u be Einvoice")
                                             {
                                                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Servisi i E-invoice nuk pergjigjet, ju lutem provoni perseri me vone!", pnlMesazhi);
-                                                var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), "Error serveri e-invoice", EIC[1], "Fature E-invoice", EIC[3], "Problem serveri e-invoice");
-                                                clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                 EIC[0] = "";
                                             }
                                             else
                                             {
                                                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me krijimin e fatures elektronike!" + $"Error:{EIC[1]}" + $" Pershkrimi i errorit:{EIC[0]}", pnlMesazhi);
-                                                var objektiEinvoice = ktheObjektPerNotify(kokeshitjeje, false, "Deshtim", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoice, true);
                                                 EIC[0] = "";
                                             }
                                         }
@@ -3130,18 +3068,7 @@ namespace PlatinumWeb
 
 
                                         }
-                                        var objektiEinvoiceSukses = new object();
                                         clsKokaShitje.shtoKodinNivfTeShitja(kokeShitje.IdShitjeKoka, kokeShitje.NIVF, nderm.IdNdermarrje, EIC[0], txtIIC.Text);
-                                        if (cbEinvoice.Checked)
-                                        {
-                                            if (EIC[0] == "")
-                                                EIC[0] = "";
-                                            else
-                                            {
-                                                objektiEinvoiceSukses = ktheObjektPerNotify(kokeshitjeje, false, "Sukses", clsKokaShitje.merrTrupiShitje(kokeShitje.IdShitjeKoka), new clsTrupiShitje(), EIC[0], EIC[1], "Fature E-invoice", EIC[3], EIC[2]);
-                                                clsFunksioneFiskalizimi.dergoWebhookNotify(objektiEinvoiceSukses, true);
-                                            }
-                                        }
                                     }
                                 }
 
@@ -3175,7 +3102,6 @@ namespace PlatinumWeb
                             trupi = json
                         };
                         hfObjektRuajtur.Value = JsonConvert.SerializeObject(kokaDheTrupi);
-                        clsFunksione.dergoWebhookDatasetEndpoint(kokaDheTrupi);
                     }
 
                 }
@@ -4561,8 +4487,6 @@ namespace PlatinumWeb
             else
                 periudha = new clsPeriudhaKontabel(data_DateEdit.Date, idNdermarrje);
             var fazat = mySessionObjects.merrObjectNgaSesioni(Session, "fazat");
-            string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
-            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim shitje/blerje", "Regjistrim shitje ose blerje", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             switch (hfRuajDraft.Value)
             {
                 case "Ruaj":
@@ -5131,46 +5055,6 @@ namespace PlatinumWeb
 
 
 
-        }
-        private object ktheObjektPerNotify(clsKokaShitje kokaShitje, bool einvoice, string statusi, colTrupiShitje artikujt, clsTrupiShitje trupiShitje, string pershkrim, string kodErrori, string TipFature, string xml, string xmlResponse)
-        {
-            string emerDatabaze = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            clsKokaShitje kokeShitje = new clsKokaShitje(kokaShitje.IdShitjeKoka);
-            clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(kokeShitje.IdDegeAdministrative);
-            string kodiINjesiseSeBiznesit = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokeShitje.IdDegeAdministrative)["KODNJESIEBIZNES"].ToString();
-            clsKlientFurnitor klienti = new clsKlientFurnitor(kokeShitje.IdKlientFurnitor);
-            string urlFiskalizimiApp = WebConfigurationManager.AppSettings["urlFiskalizimiApp"];
-            clsNdermarrje nderm = new clsNdermarrje(kokaShitje.IdNdermarrje);
-            string data = kokaShitje.DtKrijimiPajisje.ToString("yyyy-MM-ddThh:mm:sszzz");
-            urlFiskalizimiApp = urlFiskalizimiApp + kokaShitje.IIC + "&tin=" + nderm.NdermarrjeNipt + "&crtd=" + data.Replace("+", "%2B") + "&prc=" + kokaShitje.Totali + "";
-            clsNdermarrje ndermarrje = new clsNdermarrje(kokeShitje.IdNdermarrje);
-            return new
-            {
-                docNo = kokaShitje.NrDok,
-                issuer = new
-                {
-                    nuis = ndermarrje.NdermarrjeNipt,
-                    organization = emerDatabaze,
-                    name = ndermarrje.NdermarrjeKodi
-
-                },
-
-                linkUrl = urlFiskalizimiApp,
-                message = pershkrim,
-                status = statusi,
-                receiver = new
-                {
-                    nuis = klienti.NiptiKF,
-                    name = klienti.EmertimiKF
-                },
-                type = TipFature,
-                xml = new
-                {
-                    request = xml,
-                    Response = xmlResponse
-                }
-
-            };
         }
         protected void UcDocumentEinvoice_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
         {

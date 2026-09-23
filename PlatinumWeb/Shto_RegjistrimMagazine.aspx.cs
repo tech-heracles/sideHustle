@@ -1464,8 +1464,6 @@ namespace PlatinumWeb
                 return;
             }
             var idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
-            clsFunksione.dergoLogAlphaweb(new clsNdermarrje(idNdermarrje).NdermarrjePershkrimi, "Shtim Hyrje/Dalje", "Regjistrim dalje ose hyrje ne magazine", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
             colKokaMagazina regjistrime = new colKokaMagazina();
             int meKontabilizim;
             if (Page.IsValid == false)
@@ -1698,8 +1696,6 @@ namespace PlatinumWeb
                                 var FWTNIC = clsFunksioneFiskalizimi.InvokeService(mesazhShoqerues[0], "FWTNIC", false);
                                 if (FWTNIC[1] != null)
                                 {
-                                    var objekti = ktheObjektPerNotify(regjistrim, "Deshtim", clsKokaShitje.merrTrupiShitje(regjistrim.IdKokaMagazina), new clsTrupiShitje(), FWTNIC[0], FWTNIC[1], "Fature Shoqeruese", mesazhShoqerues[1], FWTNIC[2]);
-                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim me fiskalizimin, fatura shoqeruese nuk u fiskalizua!" + $"Error:{FWTNIC[1]}" + $" Pershkrimi i errorit:{FWTNIC[0]}", pnlMesazhi);
                                     
                                 }
@@ -1708,8 +1704,6 @@ namespace PlatinumWeb
                                 {
                                     var sukses = regjistrim.shtoNivfshTeMagazina(ndermarrje.IdNdermarrje, regjistrim.IdKokaMagazina, FWTNIC[0]);
                                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura shoqeruese u fiskalizua me sukses!", pnlMesazhi);
-                                    var objekti = ktheObjektPerNotify(regjistrim, "Sukses", clsKokaShitje.merrTrupiShitje(regjistrim.IdKokaMagazina), new clsTrupiShitje(), FWTNIC[0], FWTNIC[1], "Fature Shoqeruese", mesazhShoqerues[1], FWTNIC[2]);
-                                    clsFunksioneFiskalizimi.dergoWebhookNotify(objekti, false);
                                 }
                             }
                         }
@@ -2478,42 +2472,6 @@ namespace PlatinumWeb
             {
                 CacheLayer.GlobalCacheManager.MySessionCache.Remove("SkedareSerial");
             }
-        }
-        private object ktheObjektPerNotify(clsKokaMagazina kokaMagazina, string statusi, colTrupiShitje artikujt, clsTrupiShitje trupiShitje, string pershkrim, string kodErrori, string TipFature, string xml,string xmlResponse)
-        {
-            string emerDatabaze = clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar();
-            clsKokaMagazina kokeMagazine = new clsKokaMagazina(kokaMagazina.IdKokaMagazina);
-            clsDegeAdministrative degeAdministrative = new clsDegeAdministrative(kokeMagazine.IdDegeAdministrative);
-            string kodiINjesiseSeBiznesit = clsDegeAdministrative.ktheDegeAdministrativeSipasiD(kokeMagazine.IdDegeAdministrative)["KODNJESIEBIZNES"].ToString();
-            clsNdermarrje ndermarrje = new clsNdermarrje(kokeMagazine.IdNdermarrje);
-            clsTransportues transportues = new clsTransportues(kokeMagazine.Transportuesi);
-            var emerOperatori = clsOperator.MerrEmerDheMbiemerOperatoriSipasId(kokeMagazine.IdOperator, kokeMagazine.IdNdermarrje);
-            return new
-            {
-                docNo = kokeMagazine.NrDok,
-                issuer = new
-                {
-                    nuis = TipFature,
-                    organization = emerDatabaze,
-                    name = ndermarrje.NdermarrjeKodi
-               
-                },
-                linkUrl = "",
-                message = pershkrim,
-                receiver = new
-                {
-                    nuis = "",
-                    name = ""
-                },
-                status = statusi,
-                type = TipFature,
-                xml = new
-                {
-                    Request = xml,
-                    Response = xmlResponse
-                }
-
-            };
         }
 
     }

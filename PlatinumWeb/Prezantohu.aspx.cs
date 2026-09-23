@@ -251,8 +251,6 @@ namespace PlatinumWeb
 			mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, userDefault.ToString(), passwordDefault.ToString(), false, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss", ci), false, rm, ci, "", "", "", "", false);
 			if (mesazh)
 				mesazh = clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"]);
-			if (mesazh.Status)
-				clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 			return mesazh.Status;
 		}
 		private void emertoKontrolletSipasGjuhes(ResourceManager rm, CultureInfo ci, ASPxLabel PasswordRecoveryLink, ASPxButton LoginButton)
@@ -438,7 +436,6 @@ namespace PlatinumWeb
 				var idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
 				mySessionObjects.ruajTerms(Session, true);
 				var mesazh = clsFunksione.avancoPerpara(Response, Session, idPerdoruesi, rm, ci, (bool)Application["validInstall"]);
-				if (mesazh.Status) clsFunksione.dergoLogAlphaweb("", "Logim", "Logim useri pa google", clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), Login1.UserName);
 				if (mesazh.Status) return;
 				Login1.FailureText = mesazh.PershkrimMesazhi;
 			}

@@ -19,8 +19,6 @@ using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Validation;
-using Google.Apis.Auth.OAuth2;
-using Google.Cloud.Storage.V1;
 using Newtonsoft.Json;
 
 namespace DbCore.DbInventari
@@ -37,7 +35,6 @@ namespace DbCore.DbInventari
         public static string AfatGjateLabel = "Afatgjate";
         public static string AfatShkurterLabel = "Afatshkurter";
         public const string postStringTvsh = "postStringTvsh";
-        public const string paymentBucket = "imb-payment.appspot.com";
         private int idArtikulli;
         private string kodArtikulli;
         private string pershkrimArtikulli;

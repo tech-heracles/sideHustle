@@ -1804,21 +1804,6 @@ namespace DbCore.DbAdmin
                 idRoli = Convert.ToInt32(idRoliObject);
             return idRoli;
         }
-        internal DataTable ktheRolePervecSuperUser()
-        {
-            this.dbManager.Open();
-            string queryString = "SELECT PERDORUESUSERNAME as PERDORUESI,P.IDPERDORUES FROM T_PERDORUESI P inner join T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDSTATUSDOK =1 and PERDORUESAKTIV = 1 and KODIROLI != \'RSU\' and R.IDSTATUSDOK =1 group by PERDORUESUSERNAME,P.IDPERDORUES order by PERDORUESUSERNAME asc";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                return dataTable;
-            }
-        }
 
         /// <summary>
         /// nese roli me kodRoli gjendet ne db atehere kthen id-ne e rolit nese jo kthen numer <= 0

@@ -1493,19 +1493,6 @@ namespace RestApi.WebAPI.Controllers
         }
 
         [HttpPost, HttpGet]
-        public HttpResponseMessage merrurlMedianInputCheck(JObject param)
-        {
-            try
-            {
-                return Request.KthePergjigje(RregjistrimeRepository.merrurlMedianInputCheck());
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-        [HttpPost, HttpGet]
         public HttpResponseMessage ktheRowVleraArtMeID(JObject param)
         {
             try
@@ -5045,44 +5032,6 @@ namespace RestApi.WebAPI.Controllers
             catch (Exception e)
             {
                 return Request.KthePergjigjeGabim(param, e);
-            }
-        }
-        [HttpGet, HttpPost]
-        public HttpResponseMessage restoreDatabase(JObject param)
-        {
-            try
-            {
-                string prefix = param["uri"].Value<string>();
-                string[] generations = param["generations"].ToObject<string[]>();
-                return Request.KthePergjigje(RregjistrimeRepository.restoreDatabase(prefix, generations));
-            }
-            catch (Exception e)
-            {
-                return Request.KthePergjigjeGabim(param, e);
-            }
-        }
-        [HttpGet, HttpPost]
-        public HttpResponseMessage krijoBackup(JObject param)
-        {
-            try
-            {
-                return Request.KthePergjigje(RregjistrimeRepository.krijoBackup());
-            }
-            catch (Exception e)
-            {
-                return Request.KthePergjigjeGabim(param, e);
-            }
-        }
-        [HttpGet, HttpPost]
-        public void destroySession(JObject param)
-        {
-            try
-            {
-                RregjistrimeRepository.logout(Session);
-            }
-            catch (Exception e)
-            {
-                //RregjistrimeRepository.logout(Session);
             }
         }
     }

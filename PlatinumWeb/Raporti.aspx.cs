@@ -8257,8 +8257,6 @@ namespace PlatinumWeb
 		}
 		private void AfishoRaport()
 		{
-			string usernamePerdoruesi = new clsPerdorues(IdPerdoruesi).PerdoruesUsername;
-			clsFunksione.dergoLogAlphaweb(new clsNdermarrje(IdNdermarrja).NdermarrjeKodi, "Hapje raporti", RaportiEmerReal, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar(), usernamePerdoruesi);
 			afisho(base.IdRaporti, IdNdermarrja, IdViti, IdNdermarrjeVit, mySessionObjects.merrPeriudheKontabel(base.Session), IdPerdoruesi, clsRaporti.KaSubRaporte(base.IdRaporti), hfState.Get("guidString").ToString());
 		}
 
