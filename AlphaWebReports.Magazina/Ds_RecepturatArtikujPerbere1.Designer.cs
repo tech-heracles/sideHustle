@@ -1522,8 +1522,7 @@ namespace AlphaWebReports.RaportetDs.Magazina.Ds_RecepturatArtikujPerbereTableAd
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB0\\SQL2014;Initial Catalog=WebInf;Persist Security Info=True;User I" +
-                "D=websa;Password=alphaWeb111;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

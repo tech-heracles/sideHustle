@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=imb65\webdev;Initial Catalog=webinf;Integrated Security=True;Persist Security Info=True;User ID=websa;Password=imb@IMB;Pooling=True;Min Pool Size=0;Max Pool Size=1000000" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webinfConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="webinfConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AlphaWebReports.Magazina.Properties.Settings.GlobalReference.Default.webinfConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>

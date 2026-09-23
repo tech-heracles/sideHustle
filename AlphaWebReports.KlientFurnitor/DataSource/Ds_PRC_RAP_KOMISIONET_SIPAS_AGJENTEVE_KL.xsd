@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=IMB129\EGI_INSTANCE;Initial Catalog=webinf;User ID=egi;Password=alphaweb" IsAppSettingsProperty="false" Modifier="Assembly" Name="imb129\egi_instance.webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="imb129\egi_instance.webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KLTableAdapter" GeneratorDataComponentClassName="PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KLTableAdapter" Name="PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KL" UserDataComponentName="PRC_RAP_KOMISIONET_SIPAS_AGJENTEVE_KLTableAdapter">

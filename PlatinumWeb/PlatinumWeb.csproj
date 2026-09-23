@@ -3368,7 +3368,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\AutoPublishPreProdShops.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -8665,41 +8664,17 @@
     <Content Include="Vendndodhjet.aspx" />
     <Content Include="VeprimeKF.aspx" />
     <Content Include="ucFushatShtese.ascx" />
-    <Content Include="WebEpaySlip.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Properties\PublishProfiles\AlphaWebProd.pubxml" />
-    <None Include="Properties\PublishProfiles\AlphaWebSupport.pubxml" />
-    <None Include="Properties\PublishProfiles\AlphaWebVersioni.pubxml" />
-    <None Include="Properties\PublishProfiles\AutoPublishShops.pubxml" />
-    <None Include="Properties\PublishProfiles\AutoPublishDev.pubxml" />
-    <None Include="Properties\PublishProfiles\AutoPublishPreProd.pubxml" />
     <!--<None Include="RaportetDs\RAP_SHITJE\Ds_Rap_UrdherShitjetKliente.xsd">
     </None>-->
     <Content Include="Style Raporte\hijezuar.repss" />
     <Content Include="Style Raporte\vijavija.repss" />
     <Content Include="Style Raporte\vijavijajeshile.repss" />
-    <None Include="Properties\PublishProfiles\epayslip.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\GetsonProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\Hr.pubxml" />
-    <None Include="Properties\PublishProfiles\Jurgena.pubxml" />
-    <None Include="Properties\PublishProfiles\Juri.pubxml" />
-    <None Include="Properties\PublishProfiles\MArkeli.pubxml" />
-    <None Include="Properties\PublishProfiles\PublishProfilePati.pubxml" />
     <Content Include="Style Raporte\Stripped_Style_Jeshile.repss" />
     <Content Include="Style Raporte\Stripped_Style_Zi.repss" />
     <Content Include="Style Raporte\Style_Zi.repss" />
     <Content Include="Style Raporte\Style_Blu.repss" />
-    <None Include="Properties\PublishProfiles\Vodafone_Magazine.pubxml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>WebEpaySlip.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>WebEpaySlip.config</DependentUpon>
-    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -1366,9 +1366,7 @@ namespace AlphaWebReports.RaportetDs.Magazina.Ds_NdryshimiKostos_AtikujveTableAd
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=imb65\\webdev;Initial Catalog=webinf;Integrated Security=True;Persist " +
-                "Security Info=True;User ID=websa;Password=imbI@IMB;Pooling=True;Min Pool Size=0;" +
-                "Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

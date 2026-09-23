@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=IMB0\SQL2014;Initial Catalog=webinfpreprod_1;Persist Security Info=True;User ID=websa;Password=alphaWeb111;Min Pool Size=0;Max Pool Size=1000000" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_SHITJE_DEKLARATATVSH_KOSOVETableAdapter" GeneratorDataComponentClassName="PRC_RAP_SHITJE_DEKLARATATVSH_KOSOVETableAdapter" Name="PRC_RAP_SHITJE_DEKLARATATVSH_KOSOVE" UserDataComponentName="PRC_RAP_SHITJE_DEKLARATATVSH_KOSOVETableAdapter">

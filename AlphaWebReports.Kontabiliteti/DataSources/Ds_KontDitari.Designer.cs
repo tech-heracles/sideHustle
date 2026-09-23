@@ -1168,8 +1168,7 @@ namespace AlphaWebReports.RaportetDs.Ds_KontDitariTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.5.252;Initial Catalog=WebInf;Persist Security Info=True;User " +
-                "ID=sa;Password=Tirana123";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

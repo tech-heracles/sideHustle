@@ -5,7 +5,7 @@
       <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="connStringAlpha" IsAppSettingsProperty="true" Modifier="Assembly" Name="connStringAlpha (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.connStringAlpha.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection ConnectionStringObject="Data Source=IMB94;Initial Catalog=webinf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="imb94.webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="imb94.webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="connectionStringAlpha" IsAppSettingsProperty="true" Modifier="Assembly" Name="connectionStringAlpha (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AlphaWebReports.Shitje.Properties.Settings.GlobalReference.Default.connectionStringAlpha" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>

@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=DENISA\SQL2012;Initial Catalog=WebInfMZHU_dev;User ID=websa;Password=alphaWeb111" IsAppSettingsProperty="false" Modifier="Assembly" Name="denisa\sql2012.WebInfMZHU_dev.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="denisa\sql2012.WebInfMZHU_dev.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_MAGAZINA_MZHUKOSTOPERBANORTableAdapter" GeneratorDataComponentClassName="PRC_RAP_MAGAZINA_MZHUKOSTOPERBANORTableAdapter" Name="PRC_RAP_MAGAZINA_MZHUKOSTOPERBANOR" UserDataComponentName="PRC_RAP_MAGAZINA_MZHUKOSTOPERBANORTableAdapter">

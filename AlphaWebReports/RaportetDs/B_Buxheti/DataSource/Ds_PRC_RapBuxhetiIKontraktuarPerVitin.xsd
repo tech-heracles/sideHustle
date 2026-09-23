@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=APPSERVER2012\MSSQLSERVER2012;Initial Catalog=Webinf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="anxhela-nb.Webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="anxhela-nb.Webinf.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_BUXHETIMI_I_KONTRAKTUAR_PER_VITINTableAdapter" GeneratorDataComponentClassName="PRC_RAP_BUXHETIMI_I_KONTRAKTUAR_PER_VITINTableAdapter" Name="PRC_RAP_BUXHETIMI_I_KONTRAKTUAR_PER_VITIN" UserDataComponentName="PRC_RAP_BUXHETIMI_I_KONTRAKTUAR_PER_VITINTableAdapter">

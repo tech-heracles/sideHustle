@@ -2498,9 +2498,7 @@ namespace AlphaWebReports.RaportetDs.Blerje.Ds_ArtikujTeBlereTableAdapters
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB141\\IMBMALVINA;Initial Catalog=webinf;Persist Security Info=True;U" +
-                "ser ID=malvina;Password=malvinatik;Pooling=True;Min Pool Size=0;Max Pool Size=10" +
-                "00000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

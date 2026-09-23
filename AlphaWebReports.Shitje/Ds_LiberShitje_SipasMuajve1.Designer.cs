@@ -1618,8 +1618,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Ds_LiberShitje_SipasMuajveTableA
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB0\\SQL2014;Initial Catalog=WebInfpreprod;Persist Security Info=True" +
-                ";User ID=websa;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -682,8 +682,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Ds_RAP_ShitjeSipasGrupimArtikull
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB92\\IMBJ;Initial Catalog=webinf;Persist Security Info=True;User ID=" +
-                "sa;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

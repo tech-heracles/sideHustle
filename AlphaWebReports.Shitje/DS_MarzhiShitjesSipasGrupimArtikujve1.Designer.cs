@@ -1857,8 +1857,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.DS_MarzhiShitjesSipasGrupimArtik
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB0;Initial Catalog=webinfpreprod_23;Integrated Security=True;Persis" +
-                "t Security Info=True;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -4272,8 +4272,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.DS_DeklarataTvshKosove2016TableA
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB0\\SQL2014;Initial Catalog=webinfpreprod_1;Persist Security Info=Tr" +
-                "ue;User ID=websa;Password=alphaWeb111;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

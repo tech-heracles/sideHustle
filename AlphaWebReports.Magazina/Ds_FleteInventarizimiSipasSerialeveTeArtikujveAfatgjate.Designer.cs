@@ -1279,9 +1279,7 @@ namespace AlphaWebReports.Magazina.Ds_FleteInventarizimiSipasSerialeveTeArtikujv
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB146\\AERP;Initial Catalog=webinf;Integrated Security=True;Persist S" +
-                "ecurity Info=True;User ID=websa;Pooling=True;Min Pool Size=0;Max Pool Size=10000" +
-                "00";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

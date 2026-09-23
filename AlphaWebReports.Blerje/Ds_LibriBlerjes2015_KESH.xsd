@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=IMB0\SQL2014;Initial Catalog=WebInfpreprod_13.12;Persist Security Info=True;User ID=websa;Pooling=True;Min Pool Size=0;Max Pool Size=1000000" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webinfpreprodConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webinfpreprodConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AlphaWebReports.Blerje.Properties.Settings.GlobalReference.Default.webinfpreprodConnectionString" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webinfConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webinfConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AlphaWebReports.Blerje.Properties.Settings.GlobalReference.Default.webinfConnectionString" Provider="System.Data.SqlClient" />
         </Connections>

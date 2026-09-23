@@ -1063,8 +1063,7 @@ namespace AlphaWebReports.RaportetDs.Magazina.Ds_MZHUKostoPerBanorTableAdapters
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DENISA\\SQL2012;Initial Catalog=WebInfMZHU_dev;User ID=websa;Password=" +
-                "alphaWeb111";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -5,7 +5,7 @@
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="connStringAlpha" IsAppSettingsProperty="true" Modifier="Assembly" Name="connStringAlpha (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.connStringAlpha.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection ConnectionStringObject="Data Source=anxh-pc\sql2014;Initial Catalog=WebInf;Persist Security Info=True;User ID=sa;Pooling=True;Min Pool Size=0;Max Pool Size=1000000" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_LISTPAGESA_STANDARTE_DINAMIKETableAdapter" GeneratorDataComponentClassName="PRC_RAP_LISTPAGESA_STANDARTE_DINAMIKETableAdapter" Name="PRC_RAP_LISTPAGESA_STANDARTE_DINAMIKE" UserDataComponentName="PRC_RAP_LISTPAGESA_STANDARTE_DINAMIKETableAdapter">

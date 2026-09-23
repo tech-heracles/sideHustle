@@ -26,8 +26,7 @@ namespace AlphaWebReports.Banka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=APPSERVER2012\\MSSQLSERVER2012;Initial Catalog=webinf;Integrated Secur" +
-            "ity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string webinfConnectionString {
             get {
                 return ((string)(this["webinfConnectionString"]));
@@ -37,7 +36,7 @@ namespace AlphaWebReports.Banka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=imb85;Initial Catalog=webinfpreprod;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string webinfpreprodConnectionString {
             get {
                 return ((string)(this["webinfpreprodConnectionString"]));
@@ -47,8 +46,7 @@ namespace AlphaWebReports.Banka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ANXHi-PC\\SQL2014;Initial Catalog=webinfsot;User ID=sa;Password=alphaW" +
-            "eb111")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string connStringAlpha {
             get {
                 return ((string)(this["connStringAlpha"]));
@@ -58,7 +56,7 @@ namespace AlphaWebReports.Banka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=rezi-pc;Initial Catalog=preprod;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string preprodConnectionString {
             get {
                 return ((string)(this["preprodConnectionString"]));
@@ -68,8 +66,7 @@ namespace AlphaWebReports.Banka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=IMB95\\MUCO;Initial Catalog=Develop;Integrated Security=True;Persist S" +
-            "ecurity Info=True;Pooling=True;Min Pool Size=0;Max Pool Size=1000000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DevelopConnectionString {
             get {
                 return ((string)(this["DevelopConnectionString"]));

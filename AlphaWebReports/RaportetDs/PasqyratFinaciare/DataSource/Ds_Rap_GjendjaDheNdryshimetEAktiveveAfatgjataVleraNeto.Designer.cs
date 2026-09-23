@@ -2802,7 +2802,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.DataSource.Ds_Rap_Gjendja
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=ANXHELA-NB;Initial Catalog=Webinf;Integrated Security=True";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

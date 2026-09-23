@@ -1219,7 +1219,7 @@ namespace AlphaWebReports.RaportetDs.Magazina.Ds_Magazina_MZHUQendraKostoPermble
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB94;Initial Catalog=webinf;Integrated Security=True";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

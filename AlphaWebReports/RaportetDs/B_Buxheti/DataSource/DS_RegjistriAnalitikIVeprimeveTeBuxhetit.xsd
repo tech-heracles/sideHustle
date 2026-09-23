@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=127.0.0.1;Initial Catalog=webinf;Integrated Security=True;Persist Security Info=True;Pooling=True;Min Pool Size=0;Max Pool Size=1000000" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="connStringAlpha (PlatinumWeb)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRC_RAP_RegjistriAnalitikIVeprimeveTeBuxhetitTableAdapter" GeneratorDataComponentClassName="PRC_RAP_RegjistriAnalitikIVeprimeveTeBuxhetitTableAdapter" Name="PRC_RAP_RegjistriAnalitikIVeprimeveTeBuxhetit" UserDataComponentName="PRC_RAP_RegjistriAnalitikIVeprimeveTeBuxhetitTableAdapter">

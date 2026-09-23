@@ -2058,8 +2058,7 @@ namespace AlphaWebReports.RaportetDs.Rap_Fatura_RECETAOPTIKETableAdapters {
         private void InitConnection()
         {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=imb94;Initial Catalog=webinf;Integrated Security=True;Persist Securit" +
-                "y Info=True;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

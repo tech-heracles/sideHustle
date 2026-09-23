@@ -1905,8 +1905,7 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.DataSource.rap_prc_situacion
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB8;Initial Catalog=webinf;Persist Security Info=True;User ID=alda.m" +
-                "yzeqari;Password=imb@IMB1;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

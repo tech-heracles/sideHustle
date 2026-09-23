@@ -1241,8 +1241,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.DataSource.Ds_KontGjendja
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=IMB85;Initial Catalog=WebInf;Integrated Security=True;Persist Securit" +
-                "y Info=True;Pooling=True;Min Pool Size=0;Max Pool Size=1000000";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
