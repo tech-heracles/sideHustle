@@ -482,8 +482,6 @@
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Transferim Dalje" Name="transferimDaljePopup">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text="Trasfero ne ISKSH" Name="TransferoNeISKSH.aspx" Visible ="false">
-                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Elemente per integrim" Name="ElementePerIntegrim.aspx" Visible="false">

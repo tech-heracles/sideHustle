@@ -435,12 +435,6 @@
     <Compile Include="CustomEntites\MyMenuFilterModel.cs" />
     <Compile Include="CustomEntites\StatusDokumenti.cs" />
     <Compile Include="CustomEntites\TitulliKlientFurnitor.cs" />
-    <Compile Include="DbAccessIntegration\DbAccess.cs" />
-    <Compile Include="DbAccessIntegration\DbISKSH\ClsIntegrimFaturaISKSH.cs" />
-    <Compile Include="DbAccessIntegration\DbISKSH\CustomEntitiesISKSH.cs" />
-    <Compile Include="DbAccessIntegration\DbISKSH\FaturaFactoryISKSH.cs" />
-    <Compile Include="DbAccessIntegration\DbISKSH\StructsISKSH.cs" />
-    <Compile Include="DbAccessIntegration\enumSqlCommand.cs" />
     <Compile Include="DbAdmin\clsDatabaseAdmin2.cs" />
     <Compile Include="DbAdmin\clsDokumentAbstract.cs" />
     <Compile Include="DbAdmin\clsKonfigurimEmailKI.cs" />
@@ -1562,10 +1556,6 @@
     <ProjectReference Include="..\AlphaWeb.Data.AdoNet\AlphaWeb.Infrastructure.Data.AdoNet.csproj">
       <Project>{55de6cc3-b86d-41de-b4ae-f7de678da4cb}</Project>
       <Name>AlphaWeb.Infrastructure.Data.AdoNet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AlphaWeb.Infrastructure.Data.OthersDb\AlphaWeb.Infrastructure.Data.OthersDb.csproj">
-      <Project>{ed27a952-d781-4bd9-8039-ff6e51c4ff55}</Project>
-      <Name>AlphaWeb.Infrastructure.Data.OthersDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
       <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>

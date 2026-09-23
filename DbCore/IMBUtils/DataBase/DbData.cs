@@ -3,7 +3,6 @@ using System.Data;
 using AlphaWeb.Core.Extensions;
 using AlphaWeb.Core.Interfaces.Data;
 using AlphaWeb.Infrastructure.Data.AdoNet;
-using AlphaWeb.Infrastructure.Data.OthersDb;
 
 namespace DbCore.IMBUtils.DataBase
 {
@@ -116,27 +115,6 @@ namespace DbCore.IMBUtils.DataBase
             _idbTransactionCache = trans.ShallowCopy();
         }
 
-        public DbData(transactionCache trans, DataProviderType dataProviderType, string connectionString, bool oldDbManager = true)
-        {
-            //this method is only for db access
-            oldDbManager.ThrowIfNotAllowed(false, nameof(oldDbManager), "This value is not allowed");
-
-            var myDbManager = new OldDbManager(dataProviderType, connectionString);
-            dbManager = myDbManager;
-            _idbTransactionCache = new transactionCache();
-            _idbTransactionCache = trans.ShallowCopy();
-        }
-        public DbData(DataProviderType dataProvider, string connectionString, bool oldDbManager = true)
-        {
-            oldDbManager.ThrowIfNotAllowed(false, nameof(oldDbManager), "This value is not allowed");
-
-            var myDbManager = new OldDbManager
-            {
-                ProviderType = dataProvider,
-                ConnectionString = connectionString
-            };
-            dbManager = myDbManager;
-        }
         public void Dispose()
         {
             Dispose(true);

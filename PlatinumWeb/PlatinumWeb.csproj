@@ -437,7 +437,6 @@
     <Reference Include="System.Data.Linq">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SqlClient, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.5.1\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
@@ -2935,7 +2934,6 @@
     <Content Include="js\aspx.js\Shto_RegjistrimInventarizimi.aspx-IMB.5.4.js" />
     <Content Include="js\aspx.js\Shto_SerialeUnike.aspx-IMB.6.8.js" />
     <Content Include="js\aspx.js\Shto_Vit.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\TransferoNeISKSH.aspx-IMB.7.8.js" />
     <Content Include="js\localization\DevExtreme.Perkthime.js" />
     <Content Include="js\memoryObject.js" />
     <Content Include="js\myDxTreeList.js" />
@@ -3425,7 +3423,6 @@
     <Content Include="Shto_RecetaOptike.aspx" />
     <Content Include="Test\TestDI.aspx" />
     <Content Include="ThankYou.html" />
-    <Content Include="TransferoNeISKSH.aspx" />
     <Content Include="ucPopUpEinvoice.ascx" />
     <Content Include="ucPopUpKlonimi.ascx" />
     <Content Include="ucPopupValidimMarreveshje.ascx" />
@@ -9629,13 +9626,6 @@
     </Compile>
     <Compile Include="Test\TestDI.aspx.designer.cs">
       <DependentUpon>TestDI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TransferoNeISKSH.aspx.cs">
-      <DependentUpon>TransferoNeISKSH.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TransferoNeISKSH.aspx.designer.cs">
-      <DependentUpon>TransferoNeISKSH.aspx</DependentUpon>
     </Compile>
     <Compile Include="ucFushatShtese.ascx.cs">
       <DependentUpon>ucFushatShtese.ascx</DependentUpon>

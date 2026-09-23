@@ -12,8 +12,6 @@ using DbCore.DbAsete;
 using DbCore.DbArkaBanka;
 using System.Collections.Generic;
 using DbCore.IMBUtils.Logging;
-using DbCore.DbAccessIntegration;
-using DbCore.DbAccessIntegration.DbISKSH;
 using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Messages;
 
@@ -97,14 +95,6 @@ namespace DbCore
         private int colArtikulliPerberesFromCache;
         private colNdermarrjet myColNdermarrjet;
         private int ndermarrjaNgaCache;
-        private List<FarmaciISKSH> myColFarmaciISKSH;
-        private int farmaciISKSHCache;
-        private List<DepoFarmaceutikeISKSH> myColDepoFarmaceutikeISKSH;
-        private int depoFarmaceutikeISKSHCache;
-        private List<FirmeFarmaceutikeISKSH> myColFirmeFarmaceutikeISKSH;
-        private int firmeFarmaceutikeISKSHCache;
-        private List<MedikamentISKSH> myColMedikamentISKSH;
-        private int medikamentISKSHCache;
         private colKodifikimeArtikulli myColKodifikimArtikulli;
         private int kodifikimArtikulliCache;
         private colKarakteristikaStandartiTrupi myColKarakteristikaStandartiTrupi;
@@ -227,14 +217,6 @@ namespace DbCore
             colArtikulliPerberesFromCache = 0;
             myColNdermarrjet = new colNdermarrjet();
             ndermarrjaNgaCache = 0;
-            myColFarmaciISKSH = new List<FarmaciISKSH>();
-            farmaciISKSHCache = 0;
-            myColMedikamentISKSH = new List<MedikamentISKSH>();
-            medikamentISKSHCache = 0;
-            myColDepoFarmaceutikeISKSH = new List<DepoFarmaceutikeISKSH>();
-            depoFarmaceutikeISKSHCache = 0;
-            myColFirmeFarmaceutikeISKSH = new List<FirmeFarmaceutikeISKSH>();
-            firmeFarmaceutikeISKSHCache = 0;
             myColKodifikimArtikulli = new colKodifikimeArtikulli();
             kodifikimArtikulliCache = 0;
             myColKarakteristikaStandartiTrupi = new colKarakteristikaStandartiTrupi();
@@ -260,7 +242,7 @@ namespace DbCore
         public int getFromCacheTotal()
         {
             //return llogFromCache + kfFromCache + nenLlojLlogFromCache + llojLlogFromCache + konfigAmbientiFromCache + artFromCache + taksaFromCache + njesiAdministrativeFromCache + njesiArtFromCache + monedhaFromCache + colQendraNgaCache + statusMagazineCache + karakteristikaNgaCache + objektivaNgaCache + konfigQkCache + degaCache + strukturaCache + monedhaNdermCache + trupiskemaqkCache;
-            return llogFromCache + kfFromCache + nenLlojLlogFromCache + llojLlogFromCache + konfigAmbientiFromCache + artFromCache + taksaFromCache + njesiAdministrativeFromCache + statusMagazineCache + monedhaFromCache + colQendraNgaCache + karakteristikaNgaCache + objektivaNgaCache + llogariTeMundshmeQkCache + konfigQkCache + degaCache + strukturaCache + monedhaNdermCache + trupiskemaqkCache + nivelRegjFromCache + pikeShitjeFromCache + kushteFromCache + kartatFromCache + perdoruesiFromCache + ndermarrjeVitiFromCache + periudhaKonabelFromCache + vitiFromCache + formatKonfigFromCache + agjentShitjeFromCache + automjeteFromCache + bankaFromCache + grupimDokumentiKokaFromCache + grupimeKFFromCache + alternativaCache + konfigAutorizimeCache + colArtikulliPerberesFromCache + ndermarrjaNgaCache + medikamentISKSHCache + farmaciISKSHCache + depoFarmaceutikeISKSHCache + firmeFarmaceutikeISKSHCache + kodifikimArtikulliCache + karakteristikaStandartiTrupiCache + kursFromCache + skemaKontabelFromCache + monedhaNdermarrjesFromCache + kaLlogariQkNdermarrja + eshtePrindQk + nivelCmimiFromCache;
+            return llogFromCache + kfFromCache + nenLlojLlogFromCache + llojLlogFromCache + konfigAmbientiFromCache + artFromCache + taksaFromCache + njesiAdministrativeFromCache + statusMagazineCache + monedhaFromCache + colQendraNgaCache + karakteristikaNgaCache + objektivaNgaCache + llogariTeMundshmeQkCache + konfigQkCache + degaCache + strukturaCache + monedhaNdermCache + trupiskemaqkCache + nivelRegjFromCache + pikeShitjeFromCache + kushteFromCache + kartatFromCache + perdoruesiFromCache + ndermarrjeVitiFromCache + periudhaKonabelFromCache + vitiFromCache + formatKonfigFromCache + agjentShitjeFromCache + automjeteFromCache + bankaFromCache + grupimDokumentiKokaFromCache + grupimeKFFromCache + alternativaCache + konfigAutorizimeCache + colArtikulliPerberesFromCache + ndermarrjaNgaCache + kodifikimArtikulliCache + karakteristikaStandartiTrupiCache + kursFromCache + skemaKontabelFromCache + monedhaNdermarrjesFromCache + kaLlogariQkNdermarrja + eshtePrindQk + nivelCmimiFromCache;
         }
 
         public transactionCache ShallowCopy()
@@ -1457,106 +1439,10 @@ namespace DbCore
             return ndermarrja;
         }
 
-        public T getKlientFurnitorISKSH<T>(string kodi, EnumStructTypeISKSH lloji, DbAccess dbAccess)
-        {
-            object klientFurnitor = null;
-            switch (lloji)
-            {
-                case EnumStructTypeISKSH.DepoFarmaceutikeISKSH:
-                    klientFurnitor = getDepoFarmaceutikeISKSH(kodi, dbAccess);
-                    break;
-                case EnumStructTypeISKSH.FarmaciISKSH:
-                    klientFurnitor = getFarmaciISKSH(kodi, dbAccess);
-                    break;
-                case EnumStructTypeISKSH.FirmeFarmaceutikeISKSH:
-                    klientFurnitor = getFirmeFarmaceutikeISKSH(kodi, dbAccess);
-                    break;
-            }
-            return (T)klientFurnitor;
-        }
 
-        public DepoFarmaceutikeISKSH getDepoFarmaceutikeISKSH(string kodi, DbAccess dbAccess)
-        {
-            DepoFarmaceutikeISKSH depo = myColDepoFarmaceutikeISKSH.FirstOrDefault(x => x.KodiDepos == kodi);
 
-            if (depo == null)
-            {
-                System.Diagnostics.Debug.WriteLine("DB - DepoFarmaceutikeISKSH me kod: " + kodi);
-                string condition = $" KodiDepos = '{kodi}'";
-                depo = ClsIntegrimFaturaISKSH.MerrObjektNgaDbAccessSipasKushtit<DepoFarmaceutikeISKSH>(EnumStructTypeISKSH.DepoFarmaceutikeISKSH, TablesISKSH.DepoFarmaceutikeISKSH, condition, dbAccess);
-                if (depo == null)
-                    throw new MyException($"DepoFarmaceutikeISKSH me kod: {kodi} nuk ekziston");
-                myColDepoFarmaceutikeISKSH.Add(depo);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Cache - Mbush DepoFarmaceutikeISKSH: " + kodi);
-                depoFarmaceutikeISKSHCache++;
-            }
-            return depo;
-        }
 
-        public FarmaciISKSH getFarmaciISKSH(string kodi, DbAccess dbAccess)
-        {
-            FarmaciISKSH farmaci = myColFarmaciISKSH.FirstOrDefault(x => x.KodFarmacise == kodi);
 
-            if (farmaci == null)
-            {
-                System.Diagnostics.Debug.WriteLine("DB - FarmaciISKSH me kod: " + kodi);
-                string condition = $" KodFarmacise = '{kodi}'";
-                farmaci = ClsIntegrimFaturaISKSH.MerrObjektNgaDbAccessSipasKushtit<FarmaciISKSH>(EnumStructTypeISKSH.FarmaciISKSH, TablesISKSH.FarmaciISKSH, condition, dbAccess);
-                if (farmaci == null)
-                    throw new MyException($"FarmaciISKSH me kod: {kodi} nuk ekziston");
-                myColFarmaciISKSH.Add(farmaci);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Cache - Mbush FarmaciISKSH: " + kodi);
-                farmaciISKSHCache++;
-            }
-            return farmaci;
-        }
-
-        public FirmeFarmaceutikeISKSH getFirmeFarmaceutikeISKSH(string kodi, DbAccess dbAccess)
-        {
-            FirmeFarmaceutikeISKSH firme = myColFirmeFarmaceutikeISKSH.FirstOrDefault(x => x.Kodi.ToString() == kodi);
-
-            if (firme == null)
-            {
-                System.Diagnostics.Debug.WriteLine("DB - FirmeFarmaceutikeISKSH me kod: " + kodi);
-                string condition = $" Kodi = {kodi}";
-                firme = ClsIntegrimFaturaISKSH.MerrObjektNgaDbAccessSipasKushtit<FirmeFarmaceutikeISKSH>(EnumStructTypeISKSH.FirmeFarmaceutikeISKSH, TablesISKSH.FirmeFarmaceutikeISKSH, condition, dbAccess);
-                if (firme == null)
-                    throw new MyException($"FirmeFarmaceutikeISKSH me kod: {kodi} nuk ekziston");
-                myColFirmeFarmaceutikeISKSH.Add(firme);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Cache - Mbush FirmeFarmaceutikeISKSH: " + kodi);
-                firmeFarmaceutikeISKSHCache++;
-            }
-            return firme;
-        }
-
-        public MedikamentISKSH getMedikamentISKSH(string kodiBarit, DbAccess dbAccess)
-        {
-            MedikamentISKSH medikament = myColMedikamentISKSH.FirstOrDefault(x => x.KodiBarit == kodiBarit);
-            if (medikament == null)
-            {
-                System.Diagnostics.Debug.WriteLine("DB - Mbush MedikamentISKSH me kod: " + kodiBarit);
-                string condition = $"KodiBarit = '{kodiBarit}'";
-                medikament = ClsIntegrimFaturaISKSH.MerrObjektNgaDbAccessSipasKushtit<MedikamentISKSH>(EnumStructTypeISKSH.MedikamentISKSH, TablesISKSH.MedikamentISKSH, condition, dbAccess);
-                if (medikament == null || string.IsNullOrEmpty(medikament.KodiBarit))
-                    throw new MyException($"MedikamentISKSH me kod: {kodiBarit} nuk ekziston");
-                myColMedikamentISKSH.Add(medikament);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Cache - Mbush MedikamentISKSH: " + kodiBarit);
-                medikamentISKSHCache++;
-            }
-            return (MedikamentISKSH)medikament;
-        }
 
         internal clsKarakteristikaStandarti getKarakteristikaStandarti(int idStandarti, int idKodifikimArtikulli, int idNdermarrje, bool merrNgaDb, clsDatabazeAsete data)
         {

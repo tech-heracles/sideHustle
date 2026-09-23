@@ -8,7 +8,6 @@ using System.Xml;
 using AlphaWeb.Core.Extensions;
 using AlphaWeb.Core.Interfaces.Data;
 using AlphaWeb.Infrastructure.Data.AdoNet;
-using AlphaWeb.Infrastructure.Data.OthersDb;
 using DbCore.IMBUtils.DataBase;
 
 namespace DbCore.IMBUtils.Kontrolle.Controls
