@@ -1725,8 +1725,6 @@
     <Content Include="images\theme\Aqua\grida\check2_W.png" />
     <Content Include="images\theme\Aqua\grida\checks.png" />
     <Content Include="images\theme\Aqua\grida\checks_W.png" />
-    <Content Include="images\theme\Aqua\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Aqua\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Aqua\grida\expand.png" />
     <Content Include="images\theme\Aqua\grida\expand_W.png" />
     <Content Include="images\theme\Aqua\grida\filter_default.png" />
@@ -1766,8 +1764,6 @@
     <Content Include="images\theme\BlackGlass\grida\check2_W.png" />
     <Content Include="images\theme\BlackGlass\grida\checks.png" />
     <Content Include="images\theme\BlackGlass\grida\checks_W.png" />
-    <Content Include="images\theme\BlackGlass\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\BlackGlass\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\BlackGlass\grida\expand.png" />
     <Content Include="images\theme\BlackGlass\grida\expand_W.png" />
     <Content Include="images\theme\BlackGlass\grida\filter_default.png" />
@@ -1807,8 +1803,6 @@
     <Content Include="images\theme\DevEx\grida\check2_W.png" />
     <Content Include="images\theme\DevEx\grida\checks.png" />
     <Content Include="images\theme\DevEx\grida\checks_W.png" />
-    <Content Include="images\theme\DevEx\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\DevEx\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\DevEx\grida\expand.png" />
     <Content Include="images\theme\DevEx\grida\expand_W.png" />
     <Content Include="images\theme\DevEx\grida\filter_default.png" />
@@ -1848,8 +1842,6 @@
     <Content Include="images\theme\Glass\grida\check2_W.png" />
     <Content Include="images\theme\Glass\grida\checks.png" />
     <Content Include="images\theme\Glass\grida\checks_W.png" />
-    <Content Include="images\theme\Glass\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Glass\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Glass\grida\expand.png" />
     <Content Include="images\theme\Glass\grida\expand_W.png" />
     <Content Include="images\theme\Glass\grida\filter_default.png" />
@@ -1888,8 +1880,6 @@
     <Content Include="images\theme\IMB\grida\check2_W.png" />
     <Content Include="images\theme\IMB\grida\checks.png" />
     <Content Include="images\theme\IMB\grida\checks_W.png" />
-    <Content Include="images\theme\IMB\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\IMB\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\IMB\grida\expand.png" />
     <Content Include="images\theme\IMB\grida\expand_W.png" />
     <Content Include="images\theme\IMB\grida\filter_default.png" />
@@ -2018,8 +2008,6 @@
     <Content Include="images\theme\iOS\grida\check2_W.png" />
     <Content Include="images\theme\iOS\grida\checks.png" />
     <Content Include="images\theme\iOS\grida\checks_W.png" />
-    <Content Include="images\theme\iOS\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\iOS\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\iOS\grida\expand.png" />
     <Content Include="images\theme\iOS\grida\expand_W.png" />
     <Content Include="images\theme\iOS\grida\filter_default.png" />
@@ -2058,8 +2046,6 @@
     <Content Include="images\theme\Kesh\grida\check2_W.png" />
     <Content Include="images\theme\Kesh\grida\checks.png" />
     <Content Include="images\theme\Kesh\grida\checks_W.png" />
-    <Content Include="images\theme\Kesh\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Kesh\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Kesh\grida\expand.png" />
     <Content Include="images\theme\Kesh\grida\expand_W.png" />
     <Content Include="images\theme\Kesh\grida\filter_default.png" />
@@ -2188,8 +2174,6 @@
     <Content Include="images\theme\MetropolisBlue\grida\check2_W.png" />
     <Content Include="images\theme\MetropolisBlue\grida\checks.png" />
     <Content Include="images\theme\MetropolisBlue\grida\checks_W.png" />
-    <Content Include="images\theme\MetropolisBlue\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\MetropolisBlue\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\MetropolisBlue\grida\expand.png" />
     <Content Include="images\theme\MetropolisBlue\grida\expand_W.png" />
     <Content Include="images\theme\MetropolisBlue\grida\filter_default.png" />
@@ -2248,8 +2232,6 @@
     <Content Include="images\theme\MetropolisIMB\grida\check2_W.png" />
     <Content Include="images\theme\MetropolisIMB\grida\checks.png" />
     <Content Include="images\theme\MetropolisIMB\grida\checks_W.png" />
-    <Content Include="images\theme\MetropolisIMB\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\MetropolisIMB\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\MetropolisIMB\grida\expand.png" />
     <Content Include="images\theme\MetropolisIMB\grida\expand_W.png" />
     <Content Include="images\theme\MetropolisIMB\grida\filter_default.png" />
@@ -2386,8 +2368,6 @@
     <Content Include="images\theme\Metropolis\grida\check2_W.png" />
     <Content Include="images\theme\Metropolis\grida\checks.png" />
     <Content Include="images\theme\Metropolis\grida\checks_W.png" />
-    <Content Include="images\theme\Metropolis\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Metropolis\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Metropolis\grida\expand.png" />
     <Content Include="images\theme\Metropolis\grida\expand_W.png" />
     <Content Include="images\theme\Metropolis\grida\filter_default.png" />
@@ -2430,8 +2410,6 @@
     <Content Include="images\theme\Moderno\grida\check2_W.png" />
     <Content Include="images\theme\Moderno\grida\checks.png" />
     <Content Include="images\theme\Moderno\grida\checks_W.png" />
-    <Content Include="images\theme\Moderno\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Moderno\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Moderno\grida\expand.png" />
     <Content Include="images\theme\Moderno\grida\expand_W.png" />
     <Content Include="images\theme\Moderno\grida\filter_default.png" />
@@ -2484,8 +2462,6 @@
     <Content Include="images\theme\notheme\grida\check2_W.png" />
     <Content Include="images\theme\notheme\grida\checks.png" />
     <Content Include="images\theme\notheme\grida\checks_W.png" />
-    <Content Include="images\theme\notheme\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\notheme\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\notheme\grida\expand.png" />
     <Content Include="images\theme\notheme\grida\expand_W.png" />
     <Content Include="images\theme\notheme\grida\filter_default.png" />
@@ -2525,8 +2501,6 @@
     <Content Include="images\theme\Office2012Blue\grida\check2_W.png" />
     <Content Include="images\theme\Office2012Blue\grida\checks.png" />
     <Content Include="images\theme\Office2012Blue\grida\checks_W.png" />
-    <Content Include="images\theme\Office2012Blue\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Office2012Blue\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Office2012Blue\grida\expand.png" />
     <Content Include="images\theme\Office2012Blue\grida\expand_W.png" />
     <Content Include="images\theme\Office2012Blue\grida\filter_default.png" />
@@ -2566,8 +2540,6 @@
     <Content Include="images\theme\PlasticBlue\grida\check2_W.png" />
     <Content Include="images\theme\PlasticBlue\grida\checks.png" />
     <Content Include="images\theme\PlasticBlue\grida\checks_W.png" />
-    <Content Include="images\theme\PlasticBlue\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\PlasticBlue\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\PlasticBlue\grida\expand.png" />
     <Content Include="images\theme\PlasticBlue\grida\expand_W.png" />
     <Content Include="images\theme\PlasticBlue\grida\filter_default.png" />
@@ -2607,8 +2579,6 @@
     <Content Include="images\theme\RedWine\grida\check2_W.png" />
     <Content Include="images\theme\RedWine\grida\checks.png" />
     <Content Include="images\theme\RedWine\grida\checks_W.png" />
-    <Content Include="images\theme\RedWine\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\RedWine\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\RedWine\grida\expand.png" />
     <Content Include="images\theme\RedWine\grida\expand_W.png" />
     <Content Include="images\theme\RedWine\grida\filter_default.png" />
@@ -2649,8 +2619,6 @@
     <Content Include="images\theme\SoftOrange\grida\check2_W.png" />
     <Content Include="images\theme\SoftOrange\grida\checks.png" />
     <Content Include="images\theme\SoftOrange\grida\checks_W.png" />
-    <Content Include="images\theme\SoftOrange\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\SoftOrange\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\SoftOrange\grida\expand.png" />
     <Content Include="images\theme\SoftOrange\grida\expand_W.png" />
     <Content Include="images\theme\SoftOrange\grida\filter_default.png" />
@@ -2691,8 +2659,6 @@
     <Content Include="images\theme\Vodafone\grida\check2_W.png" />
     <Content Include="images\theme\Vodafone\grida\checks.png" />
     <Content Include="images\theme\Vodafone\grida\checks_W.png" />
-    <Content Include="images\theme\Vodafone\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Vodafone\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Vodafone\grida\expand.png" />
     <Content Include="images\theme\Vodafone\grida\expand_W.png" />
     <Content Include="images\theme\Vodafone\grida\filter_default.png" />
@@ -2823,8 +2789,6 @@
     <Content Include="images\theme\Youthful\grida\check2_W.png" />
     <Content Include="images\theme\Youthful\grida\checks.png" />
     <Content Include="images\theme\Youthful\grida\checks_W.png" />
-    <Content Include="images\theme\Youthful\grida\disk_blue %283%29.png" />
-    <Content Include="images\theme\Youthful\grida\disk_blue %283%29_W.png" />
     <Content Include="images\theme\Youthful\grida\expand.png" />
     <Content Include="images\theme\Youthful\grida\expand_W.png" />
     <Content Include="images\theme\Youthful\grida\filter_default.png" />
@@ -6492,18 +6456,14 @@
     <Content Include="images\new\add2.png" />
     <Content Include="images\new\book_blue.png" />
     <Content Include="images\new\check.png" />
-    <Content Include="images\new\check2 %282%29.png" />
     <Content Include="images\new\check2.png" />
     <Content Include="images\new\comment_add.ico" />
     <Content Include="images\new\delegate.ico" />
     <Content Include="images\new\delete.png" />
-    <Content Include="images\new\disk_blue %282%29.png" />
-    <Content Include="images\new\disk_blue %283%29.png" />
     <Content Include="images\new\element_selection_delete.png" />
     <Content Include="images\new\export.ico" />
     <Content Include="images\new\flash.png" />
     <Content Include="images\new\fleta_kontabel.png" />
-    <Content Include="images\new\funnel %282%29.png" />
     <Content Include="images\new\funnel.png" />
     <Content Include="images\new\import.ico" />
     <Content Include="images\new\kontrollo.ico" />
@@ -6511,7 +6471,6 @@
     <Content Include="images\new\money2.png" />
     <Content Include="images\new\ngarko.ico" />
     <Content Include="images\new\palette_preferences.png" />
-    <Content Include="images\new\replace2%282%29.png" />
     <Content Include="images\new\replace2.png" />
     <Content Include="images\new\undo2.png" />
     <Content Include="images\new\view.png" />
@@ -6763,7 +6722,6 @@
     <Content Include="images\new\help_18.png" />
     <Content Include="images\new\index_delete.png" />
     <Content Include="images\new\info.png" />
-    <Content Include="images\new\kerko %282%29.png" />
     <Content Include="images\new\kerko-2.png" />
     <Content Include="images\new\kerko.png" />
     <Content Include="images\new\klono.png" />
@@ -6787,11 +6745,9 @@
     <Content Include="images\new\ndrysho.png" />
     <Content Include="images\new\notepad.png" />
     <Content Include="images\new\note_find.png" />
-    <Content Include="images\new\Pastro %282%29.png" />
     <Content Include="images\new\pastro.png" />
     <Content Include="images\new\printer.png" />
     <Content Include="images\new\printer_view.png" />
-    <Content Include="images\new\refresh %282%29.png" />
     <Content Include="images\new\refresh.png" />
     <Content Include="images\new\Ruaj filter.png" />
     <Content Include="images\new\shiko-3.png" />
@@ -6886,7 +6842,6 @@
     <Content Include="js\aspx.js\ListeAprovimi.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\ListPagesa.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LlogariShperndarjeQK.aspx-IMB.3.1.js" />
-    <Content Include="js\aspx.js\login.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Login_Ndermarrje.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaAfateMaturimi.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaAgjenteShitje.aspx-IMB.2.1.js" />
@@ -6933,7 +6888,6 @@
     <Content Include="js\aspx.js\LupaNivelZbritje.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaNivelZbritjePrind.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaNjesiVartese.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\LupaNrAutomatik.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaPasqyreFinanciare.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaPeriudhaKontabel.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaPikeShitjeFurnizimi.aspx-IMB.2.1.js" />
@@ -6941,7 +6895,6 @@
     <Content Include="js\aspx.js\LupaRole.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\LupaShtoArtikull.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaFk.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\LupaSkemaKontabel.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaKontabelArtikulli.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaKontabelRegjistrime.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaWorkFlow.aspx-IMB.3.1.js" />
@@ -6992,7 +6945,6 @@
     <Content Include="js\aspx.js\Shto_KushtPagese.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_ListPagesa.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_Llogari.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\Shto_Makro.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_MenyreTransporti.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_ModelInfoArtikulli.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_Monedhe.aspx-IMB.2.1.js" />
