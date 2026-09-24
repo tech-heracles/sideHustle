@@ -1521,7 +1521,7 @@ namespace PlatinumWeb
 				if (!message.Status) return message;
 				clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
 				dbshare.Dispose();
-				message = bankDeposit.ruajVeprimBanke(bankDeposit, false, dbArka, false, "", "", "", "", 0, StatusAprovimi.Aprovuar, 0, "", false);
+				message = bankDeposit.ruajVeprimBanke(bankDeposit, false, dbArka, false, "", "", "", "", 0, StatusAprovimi.Aprovuar, 0, "");
 				dbArka.Dispose();
 				if (!message.Status) return message;
 				return new clsMesazh(true, "Arketimi u sinkronizua me sukses!");

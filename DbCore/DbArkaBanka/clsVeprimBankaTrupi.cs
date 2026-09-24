@@ -46,7 +46,7 @@ namespace DbCore.DbArkaBanka
         #region Konstruktoret
 
 
-        public clsVeprimBankaTrupi(Dictionary<string, object> rreshtDokuKlient, object nivele, int idndermarje, DateTime data, int idmonedhabanka, string kursiKoka, string hfShtimModifikim, string hfKursiEkzistues, object id, int idperdoruesi, bool perBRM)
+        public clsVeprimBankaTrupi(Dictionary<string, object> rreshtDokuKlient, object nivele, int idndermarje, DateTime data, int idmonedhabanka, string kursiKoka, string hfShtimModifikim, string hfKursiEkzistues, object id, int idperdoruesi)
         {
             string kodi = Convert.ToString(rreshtDokuKlient["txtSubjekti"]);
             if (kodi == "null" || kodi == "")
@@ -57,7 +57,7 @@ namespace DbCore.DbArkaBanka
 
             string lloji = Convert.ToString(rreshtDokuKlient["txtLloji"]);
             //Nuk duhet te ishte ne fillim ky kushti?
-            if (lloji == "Llogari" || perBRM)
+            if (lloji == "Llogari")
                 this.IdFatura = 0;
             else if (!(lloji == "Furnitor" || lloji == "Klient"  || lloji == "Llogari" || lloji == "Punonjes"))
                 return;

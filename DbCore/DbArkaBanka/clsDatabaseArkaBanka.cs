@@ -561,15 +561,6 @@ namespace DbCore.DbArkaBanka
 
         }
 
-        internal void merrKlienteTerminated(colKlienteTerminated klienteListPerTuMbushur)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(0);
-            dbManager.FillObject("prc_T_KLIENTE_TERMINATED_merrKlientet", klienteListPerTuMbushur);
-
-
-        }
         internal DataRow ktheGjendjeDitoreSipasIdArke(int idArka, DateTime dtKrijimi)
         {
             dbManager.Open();
@@ -2196,84 +2187,6 @@ namespace DbCore.DbArkaBanka
         #endregion
 
 
-        #region BRM
-
-        internal clsMesazh ruajArketimPerTransferimNeBRM(string llojPagese, string msisdn, string emerKlienti, string nrLlogarie, string nrSerial, DateTime dtArketimi, string Perdoruesi, string shenimet, string muajFature, string kodFature, double vlerePagesePerFature, double totaliPageses, int idVeprimeBankaKoka)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(13);
-            dbManager.AddParameters(0, "@LLOJ_PAGESE", llojPagese, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@MSISDN", msisdn, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@EMER_KLIENTI", emerKlienti, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@NR_LLOGARIE", nrLlogarie, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@NR_SERIAL", nrSerial, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@DATE_ARKETIMI", dtArketimi, ParameterDirection.Input);
-            dbManager.AddParameters(6, "@PERDORUESI", Perdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(7, "@SHENIMET", shenimet, ParameterDirection.Input);
-            dbManager.AddParameters(8, "@MUAJ_FATURE", muajFature, ParameterDirection.Input);
-            dbManager.AddParameters(9, "@KOD_FATURE", kodFature, ParameterDirection.Input);
-            dbManager.AddParameters(10, "@VLERE_PAGESE_PER_FATURE", vlerePagesePerFature, ParameterDirection.Input);
-            dbManager.AddParameters(11, "@TOTALI_PAGESES", totaliPageses, ParameterDirection.Input);
-            dbManager.AddParameters(12, "@IDVEPRIMEBANKAKOKA", idVeprimeBankaKoka, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_ins");
-            return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-        }
-        internal clsMesazh ShtoRreshtTeRiPerAnullim(int idKoka, bool perAnullim)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDKOKA", idKoka, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@PERANULLIM", perAnullim, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_insPerAnullim");
-            return new clsMesazh(true);
-        }
-
-
-        internal bool updateArketimDerguarGabim(string id, string statusSTR, string errorDescr)
-        {
-            //GTODO skripti
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@STATUSSTR", statusSTR, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@ERRORDESCR", errorDescr, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_UPD_DERGUAR_error");
-            return true;
-        }
-        internal bool updateArketimDerguarInProgress(string id)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
-            return Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_UPD_INPROGRESS").ToString()); // kthen true ose false nese e gjen me statustr 2 qe dmth in progress
-        }
-        internal DataTable merrTempArketimePerBRMCon(bool anullim)
-        {
-            //GTODO merr faturat per anullim ose per dergim ne varesi te parametrit ndrysho sp
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@ANULLIM", anullim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_sel");
-            return ds.Tables[0];
-
-        }
-
-        internal bool updateArketimDerguarCon(string id, string transID, bool anullim, string statusSTR, string errorDescr)
-        {
-
-            //GTODO ndrysho skriptin ne db te marri dy params
-            dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@TRANSID", transID, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@ANULLIM", anullim, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@STATUSSTR", statusSTR, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@ERRORDESCR", errorDescr, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TEMP_ARKETIMET_BRM_UPD_DERGUAR");
-            return true;
-        }
-        #endregion
 
 
     }

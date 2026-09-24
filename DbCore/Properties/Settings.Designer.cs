@@ -25,16 +25,6 @@ namespace DbCore.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://10.5.47.2/Kasa/KasaWebService.asmx")]
-        public string DbCore_KasaService_KasaWebService {
-            get {
-                return ((string)(this["DbCore_KasaService_KasaWebService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("WebInf")]
         public string DbCore_EmriDatabaze_Import {
             get {
@@ -75,39 +65,6 @@ namespace DbCore.Properties {
         public int DbCoreKontrollFkPresjeDhjetore {
             get {
                 return ((int)(this["DbCoreKontrollFkPresjeDhjetore"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://195.233.190.109/axis2/services/VFALSendSMSGateWay.VFALSendSMSGateWayHttpSo" +
-            "ap11Endpoint/")]
-        public string DbCore_VodSendSMS_Service_VFALSendSMSGateWay {
-            get {
-                return ((string)(this["DbCore_VodSendSMS_Service_VFALSendSMSGateWay"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://osb-preprod-vfal.internal.vodafone.com:80/VFALSelfCareOperationsOSBProxy/p" +
-            "roxy/VFALSelfCareOperationsProxy")]
-        public string DbCore_PromocioneProxy1_VFALSelfCareOperations {
-            get {
-                return ((string)(this["DbCore_PromocioneProxy1_VFALSelfCareOperations"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://osb-preprod-vfal.internal.vodafone.com:80/VFALBRMServicesOSBProject/proxy/" +
-            "VFALBRMServicesOSBProxy")]
-        public string DbCore_BRMAdapterServices_BRMAdapterServicesSoap12BindingQSService {
-            get {
-                return ((string)(this["DbCore_BRMAdapterServices_BRMAdapterServicesSoap12BindingQSService"]));
             }
         }
     }

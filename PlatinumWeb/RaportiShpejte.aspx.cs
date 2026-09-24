@@ -95,7 +95,7 @@ namespace PlatinumWeb
 			int idVit = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
 			if (!string.IsNullOrEmpty(orientim))
 				ReportOrientation = orientim;
-			if (Request.QueryString["db"] == "jo" || (Request.QueryString["printoDetyrim"] != null && Request.QueryString["printoDetyrim"] == "po"))  // hapja e raportit te gabimit te importit ose hapja e raportit te printimit te detyrimit
+			if (Request.QueryString["db"] == "jo")  // hapja e raportit te gabimit te importit
 			{
 				hapRaportGabimiOseDetyrimi(idRaporti, idDesign, guidString);
 				return;
@@ -118,33 +118,6 @@ namespace PlatinumWeb
 
 			if (idRaporti >= 0)
 				hapRaportFaturashOseSubRaport(report, idRaporti, guidString, teDhenaRap);
-		}
-
-		private Ds_PrintimDetyrimesh ktheDsPerDetyrimet()
-		{
-			Ds_PrintimDetyrimesh ds = new Ds_PrintimDetyrimesh();
-			Tuple<string, string, string, string, string, DataTable> faturaNgaBRM = mySessionObjects.MerrFaturatBRMngaSession(Session);
-			DataTable dt = faturaNgaBRM.Item6;
-			string nrfature = "";
-			string periudhaFaturimit = "";
-			decimal totaliMujor = 0;
-			decimal totaliPerTuPaguar = decimal.Parse(faturaNgaBRM.Item5 ?? "0");
-
-			string kyMuaj = string.Format("{0} {1}", clsFunksione.ktheMuaj(DateTime.Now.Month), DateTime.Now.Year);
-
-			foreach (DataRow dr in dt.Rows)
-			{
-				object[] data = dr.ItemArray;
-				if (kyMuaj.Equals(Convert.ToString(data[7]), StringComparison.InvariantCultureIgnoreCase))
-				{
-					periudhaFaturimit = kyMuaj;
-					nrfature = Convert.ToString(data[3]);
-					totaliMujor = Convert.ToDecimal(data[11]);
-					continue;
-				}
-			}
-			ds.detyrime.AdddetyrimeRow((totaliPerTuPaguar - totaliMujor), totaliMujor.ToString("n2"), faturaNgaBRM.Item2, DateTime.Now, nrfature, periudhaFaturimit, faturaNgaBRM.Item1, faturaNgaBRM.Item3, totaliPerTuPaguar.ToString("n2"));
-			return ds;
 		}
 
 		private Ds_RapGabimesh ktheDsPerRaportGabimesh()
@@ -283,8 +256,6 @@ namespace PlatinumWeb
 
 			if (Request.QueryString["db"] == "jo")
 				report.DataSource = ktheDsPerRaportGabimesh();
-			else if (Request.QueryString["printoDetyrim"] != null && Request.QueryString["printoDetyrim"] == "po")
-				report.DataSource = ktheDsPerDetyrimet();
 
 			report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(StylePath, ReportStyle));
 			KonfigFleteRaporti(report, perdoruesi);

@@ -1099,13 +1099,11 @@ namespace DbCore.DbArkaBanka
         ///Therret funksionin <see cref="DbCore.DbKontabiliteti.clsKokaFleteKontabel.Ruaj"/> per te ruajtur kontabilitetin (bashke me diferencat nga kursi)
         /// <returns> Kthen statusin e perfundimit te ekzekutimit te transaksionit (nje objekt clsMesazh qe tregon nese veprimi eshte kryer me sukses apo jo.<seealso cref="DbCore.clsMesazh"/>)</returns>
         /// </summary>
-        public clsMesazh ruajVeprimBanke(clsVeprimBankaKoka koka, bool eshteModifikim, clsDatabaseArkaBanka dbArkaBanka, bool vjenNgaImportSQL, string idDokImport, string emerTabKoka, string primaryKeyEmerFushe, string emerFusheNdermarrje, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl, bool perBRM)
+        public clsMesazh ruajVeprimBanke(clsVeprimBankaKoka koka, bool eshteModifikim, clsDatabaseArkaBanka dbArkaBanka, bool vjenNgaImportSQL, string idDokImport, string emerTabKoka, string primaryKeyEmerFushe, string emerFusheNdermarrje, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl)
         {
             clsMesazh mesazh = null;
             var kontMesazh = new clsMesazh(true);
             var mesazhRegjistrimi = new clsMesazh(true);
-            clsPerdorues perdoruesi = null;
-            clsKonfigurimAmbjenti konf = null;
             if (!string.IsNullOrEmpty(this.NrSerial))
             {
                 var nivelRegjistrimi = new clsNivelRegjistrimi();
@@ -1132,14 +1130,6 @@ namespace DbCore.DbArkaBanka
                 {
                     break;
                 }
-
-                if (!perBRM) continue;
-                if (idStatusDokumenti != 1 || statusAprovimi != StatusAprovimi.Undefined) continue;
-                if (!string.IsNullOrEmpty(o.Kodi) && o.Kodi.Contains("Permbledhese"))
-                    o.Kodi = string.Empty;
-                if (konf == null) konf = new clsKonfigurimAmbjenti(koka.idKonfigAmbjente);
-                if (perdoruesi == null) perdoruesi = new clsPerdorues(koka.IdPerdoruesi);
-                dbArkaBanka.ruajArketimPerTransferimNeBRM(konf.KodKonfigAmbjente, koka.CustomerNumber, koka.Shoqeria, koka.NrLlogari, koka.NrSerial, koka.DateDokumenti, perdoruesi.EmriPerdorues, koka.PershkrimiKoka, o.Muaji, o.Kodi, o.VleraPaguar, koka.Vlera, koka.IdKoka);
             }
 
             mesazh = ruajVeprimBankeNeHistorik(dbArkaBanka, koka.IdKoka, koka.IdStatusDokumenti, koka.IdPerdoruesi);
@@ -1193,8 +1183,6 @@ namespace DbCore.DbArkaBanka
                     {
                         var anull = new clsVeprimBankaKoka(koka.idDokAnullimi, dbArkaBanka);
                         dite = (koka.dateDokumenti - anull.dateDokumenti).Days;
-                        if (koka.statusAprovimi == StatusAprovimi.Undefined && statusAprovimi == StatusAprovimi.Undefined && !eshteModifikim && koka.idStatusDokumenti == 1) // pa skeme fare, direkt ruajtje
-                            dbArkaBanka.ShtoRreshtTeRiPerAnullim(koka.idDokAnullimi, true);
                     }
                     if (!(statusAprovimi == StatusAprovimi.Undefined && this.StatusAprovimi == StatusAprovimi.Aprovuar))
                     {
@@ -1211,8 +1199,6 @@ namespace DbCore.DbArkaBanka
                         {
                             return mesazh;
                         }
-                        if (koka.statusAprovimi == StatusAprovimi.Aprovuar)
-                            dbArkaBanka.ShtoRreshtTeRiPerAnullim(koka.idDokAnullimi, true);
                     }
                     if (mesazhRegjistrimi.Status)
                     {
@@ -1296,7 +1282,7 @@ namespace DbCore.DbArkaBanka
                 else kokaEkzistuese.OKokaFleteKontabel.KokaQendraKosto = new clsKokaQendraKosto();
                 koka.OKokaFleteKontabel.IdDokNga = kokaEkzistuese.OKokaFleteKontabel.IdKokaFleteKontabel;
                 koka.OKokaFleteKontabel.KokaQendraKosto.IdDokNga = kokaEkzistuese.OKokaFleteKontabel.KokaQendraKosto.IdKoka;
-                mesazh = ruajVeprimBanke(koka, true, dbArkaBanka, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl, false);
+                mesazh = ruajVeprimBanke(koka, true, dbArkaBanka, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl);
                 if (!mesazh.Status)
                     return mesazh;
                 if (kokaEkzistuese.OKokaFleteKontabel.IdKokaFleteKontabel == 0) return new clsMesazh(true, rm.GetString("msgModifikimiMeSukses", ci));
@@ -1413,7 +1399,7 @@ namespace DbCore.DbArkaBanka
         /// Ruan objektin e veprimit te bankes ne tabelen perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbArkaBanka.clsVeprimBankaKoka.ruajVeprimBanke"/>
         /// </summary>
-        public clsMesazh ruaj(IDictionary<string, object> hfregjistrime, bool vjenNgaImportSQL, string idDokImporti, string emerTabKoka, string primaryKeyEmerFushe, string ndermarrjeKey, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl, bool perBRM)
+        public clsMesazh ruaj(IDictionary<string, object> hfregjistrime, bool vjenNgaImportSQL, string idDokImporti, string emerTabKoka, string primaryKeyEmerFushe, string ndermarrjeKey, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl)
         {
             using (var scope=new MyTransactionScope())
             {
@@ -1422,7 +1408,7 @@ namespace DbCore.DbArkaBanka
                 var mesazhkontrolli = kontrolloBanka(out kaNdryshimNumri, db, hfregjistrime);
                 if (!mesazhkontrolli.Status)
                     return mesazhkontrolli;
-                var uRuajt = ruajVeprimBanke(this, false, db, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKeyEmerFushe, ndermarrjeKey, idskema, statusAprovimi, idetapa, serverUrl, perBRM);
+                var uRuajt = ruajVeprimBanke(this, false, db, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKeyEmerFushe, ndermarrjeKey, idskema, statusAprovimi, idetapa, serverUrl);
                 if (!uRuajt.Status) return uRuajt;
                 uRuajt = colArkiva.RuajArkiven(IdKoka, ktheIdkatDokArkiva(this.llojiVeprimit), idPerdoruesi, idNdermarje, HfArkiva);
                 if (!uRuajt.Status) return uRuajt;
@@ -1432,7 +1418,7 @@ namespace DbCore.DbArkaBanka
             }
         }
 
-        public clsMesazh ruaj(IDictionary<string, object> hfregjistrime, clsDatabaseArkaBanka db, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl, bool perBRM)
+        public clsMesazh ruaj(IDictionary<string, object> hfregjistrime, clsDatabaseArkaBanka db, int idskema, StatusAprovimi statusAprovimi, int idetapa, string serverUrl)
         {
             bool kaNdryshimNumri;
             var mesazhkontrolli = kontrolloBanka(out kaNdryshimNumri, db, hfregjistrime);
@@ -1441,7 +1427,7 @@ namespace DbCore.DbArkaBanka
                 return mesazhkontrolli;
             }
 
-            var u_ruajt = ruajVeprimBanke(this, false, db, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl, perBRM);
+            var u_ruajt = ruajVeprimBanke(this, false, db, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl);
             if (!u_ruajt.Status)
             {
                 return u_ruajt;

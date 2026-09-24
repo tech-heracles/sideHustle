@@ -2877,7 +2877,6 @@
     <Content Include="js\aspx.js\LupaShopsHierarkiLeaveReason.aspx-IMB.7.2.js" />
     <Content Include="js\aspx.js\LupaShopsHierarkiStatus.aspx-IMB.7.2.js" />
     <Content Include="js\aspx.js\LupaShopsHierarkiUniform.aspx-IMB.7.2 .js" />
-    <Content Include="js\aspx.js\LupaValidimKlientiArketime.aspx-IMB.4.0.24.js" />
     <Content Include="js\aspx.js\NdryshimCmimi.aspx-IMB.4.0.30.js" />
     <Content Include="js\aspx.js\Pajisje.aspx-IMB.5.8.js" />
     <Content Include="js\aspx.js\PostoEPaySlip.aspx-IMB.2.1.js" />
@@ -2887,7 +2886,6 @@
     <Content Include="js\aspx.js\B_RegjistrimBuxheti.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RegjistrimInventarizimi.aspx-IMB.5.4.js" />
     <Content Include="js\aspx.js\ShperndaDhurate.aspx-IMB.5.4.js" />
-    <Content Include="js\aspx.js\Shto_AlphawebEnhancments.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\Shto_FazaKontrate.aspx-IMB.5.4.js" />
     <Content Include="js\aspx.js\LupaModelFushaShtese.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_KartaKlienti.aspx-IMB.5.4.js" />
@@ -2951,8 +2949,6 @@
     <Content Include="LupaShopsHierarkiLeaveReason.aspx" />
     <Content Include="LupaShopsHierarkiStatus.aspx" />
     <Content Include="LupaShopsHierarkiUniform.aspx" />
-    <Content Include="LupaValidim.aspx" />
-    <Content Include="LupaValidimKlientiArketime.aspx" />
     <Content Include="MbylljePeriudhe.html" />
     <Content Include="NdryshimCmimi.aspx" />
     <Content Include="Pajisje.aspx" />
@@ -3377,7 +3373,6 @@
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
-    <Content Include="Shto_AlphawebEnhancments.aspx" />
     <Content Include="Shto_FormatSeriali.aspx" />
     <Content Include="Shto_KategoriSeriali.aspx" />
     <Content Include="js\aspx.js\Shto_KategoriSeriali.aspx-IMB.6.8.js" />
@@ -5907,7 +5902,6 @@
     <Content Include="js\aspx.js\LupaSkemaKosto.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\LupaTransportues.aspx-IMB.4.0.10.js" />
     <Content Include="js\aspx.js\LupaTransportuesShpejte.aspx-IMB.4.0.10.js" />
-    <Content Include="js\aspx.js\LupaValidim.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\PolitikaFjalekalimi.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RegjistrimAmortizimi.aspx-IMB.4.1.js" />
     <Content Include="js\aspx.js\RegjistrimQendraKosto.aspx-IMB.3.3.js" />
@@ -9287,20 +9281,6 @@
     <Compile Include="LupaShopsHierarkiUniform.aspx.designer.cs">
       <DependentUpon>LupaShopsHierarkiUniform.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LupaValidim.aspx.cs">
-      <DependentUpon>LupaValidim.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaValidim.aspx.designer.cs">
-      <DependentUpon>LupaValidim.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LupaValidimKlientiArketime.aspx.cs">
-      <DependentUpon>LupaValidimKlientiArketime.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaValidimKlientiArketime.aspx.designer.cs">
-      <DependentUpon>LupaValidimKlientiArketime.aspx</DependentUpon>
-    </Compile>
     <Compile Include="NdryshimCmimi.aspx.cs">
       <DependentUpon>NdryshimCmimi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -9357,13 +9337,6 @@
     </Compile>
     <Compile Include="RegjistrimInventarizimi.aspx.designer.cs">
       <DependentUpon>RegjistrimInventarizimi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shto_AlphawebEnhancments.aspx.cs">
-      <DependentUpon>Shto_AlphawebEnhancments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shto_AlphawebEnhancments.aspx.designer.cs">
-      <DependentUpon>Shto_AlphawebEnhancments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shto_FazaKontrate.aspx.cs">
       <DependentUpon>Shto_FazaKontrate.aspx</DependentUpon>
@@ -11433,10 +11406,6 @@
     <Compile Include="Webhooks.aspx.designer.cs">
       <DependentUpon>Webhooks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebServicePeopleFinder.asmx.cs">
-      <DependentUpon>WebServicePeopleFinder.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="WebServiceTopMotivi.asmx.cs">
       <DependentUpon>WebServiceTopMotivi.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -11447,10 +11416,6 @@
     </Compile>
     <Compile Include="WebService_mobile.asmx.cs">
       <DependentUpon>WebService_mobile.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="webService_Vod.asmx.cs">
-      <DependentUpon>webService_Vod.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZbritjeAnalitike.aspx.cs">
@@ -11512,11 +11477,9 @@
     <Content Include="Shto_NrAutom.aspx" />
     <Content Include="toword.js" />
     <Content Include="VeprimeBanka.aspx" />
-    <Content Include="WebServicePeopleFinder.asmx" />
     <Content Include="WebServiceTopMotivi.asmx" />
     <Content Include="WebService_Automatizim.asmx" />
     <Content Include="WebService_mobile.asmx" />
-    <Content Include="webService_Vod.asmx" />
     <Content Include="ZbritjeAnalitike.aspx" />
   </ItemGroup>
   <ItemGroup>

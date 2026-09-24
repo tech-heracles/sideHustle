@@ -55,7 +55,6 @@ var varKonfig = {
 jQuery(document).ready(function () {
     pageState.mySessionStorage = new mySessionStorage();
     var lloji = Utils.getUrlVar("lloji");
-    NgjyrosFaqetERegjistrimeve(lloji);
     Utils.konfiguroAccorditionNeDocReady(varKonfig.identifikuesPerLocalStorageKey);
     $(window).on('resize', function () {
         try {
@@ -579,7 +578,7 @@ function vendosPunonjes(result, rresht) {
                 else
                     shuma = shuma + parseFloat(vlefta);
             }
-            else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent") {
+            else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim") {
                 if (grida.getTekstQelize('txtDebiKredi', idTe[i]) === 'Kredi')
                     shuma -= parseFloat(vlefta);
                 else
@@ -716,7 +715,7 @@ function vendosLlogari(result, rresht) {
                     else
                         shuma = shuma + parseFloat(vlefta);
                 }
-                else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent") {
+                else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim") {
                     if (grida.getTekstQelize('txtDebiKredi', idTe[i]) === 'Kredi')
                         shuma -= parseFloat(vlefta);
                     else
@@ -1474,7 +1473,7 @@ function callWebserviceKonfig(idKomp, kodKonf, init) {
     //nqs jemi ne init duhet te marr arken fillestare, nqs nuk jemi ne init te marre vleren e arkes qe ka ruajtur ne ls nqs kushti ka qene po perndryshe -1
     var idArkaBankaFillestareLocalStorage = init ? (arkaBankaFillestareLs ? arkaBankaFillestareLs.value : idVleraCombos) : (arkaBankaLs ? arkaBankaLs.value : - 1);
 
-    var llojiKF = pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim" || pageState.llojDokumenti === "arketimLlogariKlienti" || pageState.llojDokumenti === "arketimAbonent";
+    var llojiKF = pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim";
     var item = furnitori_ComboBox.GetSelectedItem();
 
     $.ajax({
@@ -1720,9 +1719,6 @@ function SucceededCallbackKonfig(fullResult) {
             }
             pageState.kushte["ALF"] = colAlterKusht[j].Alternativa === "Po";
         }
-        else if (kushte[j].Kodi === 'MKBRM') {
-            pageState.kushte["MKBRM"] = colAlterKusht[j].Alternativa === "Po";
-        }
         else if (kushte[j].Kodi === 'LLMKF') {
             pageState.kushte["LLMKF"] = colAlterKusht[j].Alternativa === "Po";
         }
@@ -1789,9 +1785,6 @@ function SucceededCallbackKonfig(fullResult) {
     if (shfaqlupepaprintuar && cmbDegeAdministrative.GetValue() > 0 && pageState.shtimModifikim !== 'modifikim')
         kontrollofaturaTePaprintuara();
 
-    else if ((pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent") && pageState.shtimModifikim != 'modifikim') {
-        ButtonClickValidim();
-    }
     if (Utils.getUrlVar('idfatura') !== typeof (undefined)) //do te lihet keshtu per momentin sepse nuk mund te ruajme faturen ne trup ne ndryshimin e llojit te dokumentit
         konfigurimi_ComboBox.SetEnabled(false);
     $("#DergoArke").css("display", "flex");
@@ -1897,7 +1890,7 @@ function ButtonClickFurnitori() {
     var url = "";
     if (pageState.llojDokumenti == "terheqje" || pageState.llojDokumenti == "pagese")
         url = 'LupaKlientFurnitor.aspx?KlientApoFurnitor=Furnitor&idKonfigAmbjente=' + queryStr;
-    else if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent")
+    else if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim")
         url = 'LupaKlientFurnitor.aspx?KlientApoFurnitor=Klient&idKonfigAmbjente=' + queryStr;
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhKF"), url, 600, 600);
 }
@@ -2045,18 +2038,14 @@ function TextChangedPunonjesi() {
 }
 
 function FiltroGrideSipasKlientFurnitor() {
-    if (Utils.getUrlVars["lloji"] == "arketimLlogariKlienti" || Utils.getUrlVars["lloji"] == "arketimAbonent")
-        return;
-    else if (pageState.shtimModifikim == 'shtim')
+    if (pageState.shtimModifikim == 'shtim')
         grid_faturat.PerformCallback("pastroKF");
 }
 
 
 
 function FiltroGrideSipasPunonjes() {
-    if (Utils.getUrlVars["lloji"] == "arketimLlogariKlienti" || Utils.getUrlVars["lloji"] == "arketimAbonent")
-        return;
-    else if (pageState.shtimModifikim == 'shtim')
+    if (pageState.shtimModifikim == 'shtim')
         grid_faturat.PerformCallback("pastroP");
 }
 
@@ -2104,7 +2093,7 @@ function LostFocusFurnitori(result) {
         SucceededCallbackEmertimiNew(result);
         return;
     }
-    var llojiKF = pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent";
+    var llojiKF = pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim";
 
     $.ajax({
         pritPergjigje: true,
@@ -2124,7 +2113,7 @@ function LostFocusPunonjesi(result) {
         SucceededCallbackEmertimiNew(result);
         return;
     }
-    var llojiP = pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent";
+    var llojiP = pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim";
 
     $.ajax({
         pritPergjigje: true,
@@ -2550,7 +2539,7 @@ function MerrShumen(grida) {
                 else
                     shuma = shuma + parseFloat(vlefta);
             }
-            else if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent") {
+            else if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim") {
                 if (grida.getTekstQelize('txtDebiKredi', idTe[i]) == 'Kredi')
                     shuma -= parseFloat(vlefta);
                 else
@@ -2934,7 +2923,7 @@ function Totalet() {
         continue;
     }
 
-    if (lloji == "arketimLlogariKlienti" || lloji == "arketimAbonent" || lloji == "arketim") {
+    if (lloji == "arketim") {
         if (pageState.kushte['PVKST'] == 'PO') PlotesoFushatEKokesNgaTrupi(totalikredi);
     }
     var vlera = isNaN(Utils.HiqPresjet(vlera_TextBox.GetText())) ? 0 : Utils.HiqPresjet(vlera_TextBox.GetText());
@@ -2947,7 +2936,7 @@ function Totalet() {
         totalikredi = totalikredi + parseFloat(vlera);
         totalidebi = totalidebi + parseFloat(komision);
     }
-    else if (lloji == 'arketim' || lloji == "arketimLlogariKlienti" || lloji == "arketimAbonent") {
+    else if (lloji == 'arketim') {
         totalidebi = totalidebi + parseFloat(vlera);
     }
     else if (lloji == 'pagese') {
@@ -3249,7 +3238,6 @@ function closePopup(s, e) {
     var status = hf.value;
     if (status == "kthehu" && ($('#hfUrl').val() == "" && $('#hfUrlVDK').val() == ""))
         myFaqeCelje.kontrolloTeDrejta($('#hfUrl1').val());
-    HapLupeValidimiPasLupesPaPrintuar();
 }
 
 
@@ -3323,9 +3311,6 @@ function isValidKoka() {
             return false;
         }
     }
-    if (pageState.llojDokumenti === "arketimAbonent" || pageState.llojDokumenti === "arketimLlogariKlienti") {
-        return kontrolloFaturaPerStatusin();
-    }
     return true;
 }
 
@@ -3369,7 +3354,7 @@ function llogaritTotaleDebiKredi() {
                     totalDebi = totalDebi + parseFloat(grida.getTekstQelize('txtVleraArketuar', idTe[i]));
             continue;
         }
-        else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim" || pageState.llojDokumenti === "arketimLlogariKlienti" || pageState.llojDokumenti === "arketimAbonent") {
+        else if (pageState.llojDokumenti === "derdhje" || pageState.llojDokumenti === "arketim") {
             if (grida.getTekstQelize('txtSubjekti', idTe[i]) === "") {
                 continue;
             }
@@ -3403,7 +3388,7 @@ function llogaritTotaleDebiKredi() {
         kuadruar = diferenca.toFixed(pageState.formatVleftaDB) == Math.abs(vleraBankes.toFixed(pageState.formatVleftaDB));
 
     }
-    else if (pageState.llojDokumenti == "arketim" && diferenca <= 0 || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent") {
+    else if (pageState.llojDokumenti == "arketim" && diferenca <= 0) {
         kuadruar = Math.abs(diferenca.toFixed(pageState.formatVleftaDB)) == Math.abs(vleraBankes.toFixed(pageState.formatVleftaDB));
 
     }
@@ -3415,65 +3400,6 @@ function llogaritTotaleDebiKredi() {
     return kuadruar;
 }
 
-
-function kontrolloFaturaPerStatusin() {
-    var grida = $("#rowed5");
-    var nrFaturashAktive = parseInt(grid_faturat["cpNrFaturashActive"]);
-    var nrFaturashTerminated = parseInt(grid_faturat["cpNrFaturashTerminated"]);
-
-
-    //Kontrollet vlejne vetem ne rastet kur klienti ka fatura me statusin terminated
-    if (nrFaturashTerminated == 0)
-        return true;
-
-    var totaliPaguar = parseFloat(txtTotaliPaguar.GetText());
-    var totaliZgjedhur = parseFloat(txtTotaliZgjedhur.GetText());
-
-
-    if (totaliZgjedhur == 0) {
-        if (nrFaturashAktive > 0)
-            myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhFaturatTerminated"));
-        else
-            myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhCaFatura"));
-        return false;
-    }
-    //te mos merret parasysh mbipagesa ne rastin kur ajo ka vetem rrumbullakosje
-    if (nrFaturashAktive == 0 && (totaliPaguar - totaliZgjedhur) >= 1) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukLejohetPageseMeEMadheSeTotaliIFaturave"));
-        return false;
-    }
-
-    var NrFaturashJoTerminatedNeGride = 0;
-    var NrFaturashTerminatedNeGride = 0;
-    var idTe = grida.getDataIDs();
-    for (var i = 0; i < idTe.length; i++) {
-        if (eshteRreshtBosh(idTe, i))
-            continue;
-        var vlera = grida.getTekstQelize("txtVlera", idTe[i]);
-        var vleraMbetur = grida.getTekstQelize("txtVleraMbetur", idTe[i]);
-        var status = grida.getTekstQelize("StatusFature", idTe[i]);
-        var muaji = grida.getTekstQelize("txtMuaji", idTe[i]);
-
-        if (status == "Terminated") {
-            if (vleraMbetur > 0)
-                NrFaturashTerminatedNeGride++;
-            if (parseFloat(vlera) > parseFloat(vleraMbetur)) {
-                myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukLejohetPageseMeEMadheSeDetyrim"));
-                return false;
-            }
-        } else {
-            if (muaji != "Pa fature" || (muaji == "Pa fature" && vlera > 1))
-                NrFaturashJoTerminatedNeGride++;
-        }
-
-    }
-    if (NrFaturashJoTerminatedNeGride > 0 && NrFaturashTerminatedNeGride < nrFaturashTerminated) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhFaturaTerminated"));
-        return false;
-    }
-
-    return true;
-}
 
 function eshteRreshtBosh(idte, index) {
     var grida = $("#rowed5");
@@ -3599,8 +3525,6 @@ function menuclick(s, e, doPostback) {
             myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=aprovim');
         else if (Utils.getUrlVar('vjenNga') === 'kerkese')
             myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=kerkese');
-        else if (pageState.llojDokumenti === 'arketimLlogariKlienti' || pageState.llojDokumenti === 'arketimAbonent')
-            myFaqeCelje.kontrolloTeDrejta('VeprimeBanka.aspx?lloji=arketim');
         else
             myFaqeCelje.kontrolloTeDrejta('VeprimeBanka.aspx?lloji=' + pageState.llojDokumenti);
 
@@ -3612,16 +3536,6 @@ function menuclick(s, e, doPostback) {
         ButtonClickArkiva();
         e.processOnServer = false;
         click = false;
-        return;
-    }
-    else if (e.item.name === "Validim") {
-        ButtonClickValidim();
-        e.processOnServer = false;
-        return;
-    }
-    else if (e.item.name === "PrintoBalancen") {
-        window.open("RaportiShpejte.aspx?Sesioni=false&emriReal=Fature_detyrimi&printo=0&printoDetyrim=po&scopeID=" + Utils.getUrlVar("scopeID"));
-        e.processOnServer = false;
         return;
     }
     else if (e.item.name === "DergoEmail") {
@@ -3758,18 +3672,6 @@ function KlonoClick(e) {
     ndryshoKonfigurimin(true);
     click = false;
 }
-var lupaValidimHapur = false;
-function ButtonClickValidim() {
-    if (lupaValidimHapur)
-        return;
-
-    lupaValidimHapur = true;
-    popupUniversal.SetHeaderText('Lupa e validimit');
-    popupUniversal.SetSize(400, 400);
-    popupUniversal.SetContentUrl('LupaValidimKlientiArketime.aspx?lloji=' + pageState.llojDokumenti + "&MerrKlient=" + pageState.kushte["MKBRM"]);
-    popupUniversal.Show();
-}
-
 function SucededCallbackLupaKomente(result) {
     myButtonClickLupa.LupaUniversal_Click('Komentet', 'LupaKomente.aspx?idetapa=' + result.IdEtapa + '&nrprocesi=' + result.NrProcesi + '&veprimi=Gjitha&idkategoria=3', 600, 500);
 }
@@ -4345,13 +4247,7 @@ function SuccededCallbackPaPrintuar(result) {
 
     if (result)
         ButtonClickPaPrintuar();
-    else {
-        var lloji = Utils.getUrlVar("lloji");
-        if (lloji == "arketimLlogariKlienti" || lloji == "arketimAbonent")
-            ButtonClickValidim();
-    }
 }
-var hapLupeValidimi = false;
 function ButtonClickPaPrintuar() {//po
     popupUniversal.SetHeaderText('Arketimet e meposhtme nuk jane printuar ne kase. Per ti printuar zgjidhni nje nga nje arketimet dhe riprintoji!');
     identifikuesPerPopupDokumentat = "VeprimeBankaPaprintuar";
@@ -4359,48 +4255,6 @@ function ButtonClickPaPrintuar() {//po
     popupUniversal.SetSize(600, 600);
     //  popupUniversal.AdjustSize();
     popupUniversal.Show();
-    var lloji = Utils.getUrlVar("lloji");
-    if (lloji == "arketimLlogariKlienti" || lloji == "arketimAbonent") {
-        hapLupeValidimi = true;
-    }
-}
-function MbushGridenEfaturave() {
-    grid_faturat.PerformCallback('mbush');
-}
-function EndCallbackGrid_Faturat(s, e) {
-    var detyrimiActive = s["cpDetyrimiMbeturActive"];
-    var detyrimiTerminated = s["cpDetyrimiMbeturTerminated"];
-    if (detyrimiActive != undefined && detyrimiActive != '')
-        txtDetyrimi.SetText(detyrimiActive);
-    if (detyrimiTerminated != undefined && detyrimiTerminated != '')
-        txtDetyrimiTerminated.SetText(detyrimiTerminated);
-    var mesazh = s["cpMesazhKlientTerminated"];
-    var terminated = s["cpKlientTerminated"];
-    if (!Utils.IsNullOrEmpty(mesazh)) {
-        myMesazh.ShtoMesazhInformues(mesazh);
-        s["cpMesazhKlientTerminated"] = "";
-    }
-    if (!Utils.IsNullOrEmpty(terminated)) {
-        setMenuItemEnabled("RuajPrint", false);
-        setMenuItemEnabled("Ruaj", false);
-        setMenuItemEnabled("Draft", false);
-    } else {
-        setMenuItemEnabled("RuajPrint", getMenuItemEnabled("RuajPrint"));
-        setMenuItemEnabled("Ruaj", getMenuItemEnabled("Ruaj"));
-        setMenuItemEnabled("Draft", getMenuItemEnabled("Draft"));
-    }
-}
-function getMenuItemEnabled(name) {
-    var item = ASPxMenu1.GetItemByName(name);
-    if (item)
-        return item.GetEnabled();
-
-    return false;
-}
-function setMenuItemEnabled(name, enabled) {
-    var item = ASPxMenu1.GetItemByName(name);
-    if (item)
-        item.SetEnabled(enabled);
 }
 
 function SelectionChanged(s, e) {
@@ -4424,30 +4278,6 @@ function OnGetSelectedFieldValues(selectedValues) {
     }
     if (shtoFaturat.length === 0)
         Utils.hiqLoadingGif();
-}
-
-function NgjyrosFaqetERegjistrimeve(lloji) {
-    if (hfState.Get("vodafoneShops")) {
-        document.getElementsByTagName("body")[0].setAttribute("id", "faqetengjyrosura");
-        var faqetengjyrosura = document.querySelector("#faqetengjyrosura");
-        switch (lloji) {
-            case "pagese":
-                faqetengjyrosura.classList.add("KlasePerKthimetEGarancive");
-                break;
-            case "arketimLlogariKlienti":
-                faqetengjyrosura.classList.add("KlasePerLlogariKlienti");
-                break;
-            case "arketimAbonent":
-                faqetengjyrosura.classList.add("KlasePerArketimAbonenti");
-                break;
-            case "arketim":
-                if (Utils.getUrlVar('shtim_modifikim') === "shtim")
-                    faqetengjyrosura.classList.add("KlasePerArketim");
-                break;
-            default:
-                break;
-        }
-    }
 }
 
 function callWebServiceInfoKF() {
@@ -4654,37 +4484,6 @@ function TextChangedGrupe(s, e) {
     }
 }
 
-function VendosTeDhenaPerKlienteNgaBRM(TeDhenaKlienti) {
-    txtCustomerNr.SetText(TeDhenaKlienti.MSISDN);
-    txtNrLlogari.SetText(TeDhenaKlienti.ACCOUNTNO);
-    txtShoqeria.SetText(TeDhenaKlienti.EMRIKLIENTIT);
-    txtMbiPagesa.SetText(TeDhenaKlienti.MBIPAGESA);
-    myMesazh.ShtoMesazhSuksesi("Validimi perfundoi me sukses!");
-    //mbyll popupin edhe mbush griden e faturave nese eshte nje nga keto dy lloje dokumenti
-    var lloji = Utils.getUrlVar('lloji');
-    if (lloji == "arketimLlogariKlienti" || lloji == "arketimAbonent");
-    {
-        popupUniversal.Hide();
-        MbushGridenEfaturave();
-        nvFatura.ExpandAll();
-
-    }
-    if (pageState.kushte["MKBRM"]) {
-        var klientItem = furnitori_ComboBox.FindItemByText(TeDhenaKlienti.ACCOUNTNO);
-        if (klientItem == undefined) {
-            if (!TeDhenaKlienti.KLIENTI)
-                myMesazh.ShtoMesazhGabimi("Klienti me kod " + TeDhenaKlienti.ACCOUNTNO + " nuk ekziston!");
-            else {
-                furnitori_ComboBox.AddItem([TeDhenaKlienti.KLIENTI.KodKlientFurnitor, TeDhenaKlienti.KLIENTI.EmertimiKF], TeDhenaKlienti.KLIENTI.IdKlientFurnitor);
-                furnitori_ComboBox.SetValue(TeDhenaKlienti.KLIENTI.IdKlientFurnitor);
-            }
-        } else {
-            furnitori_ComboBox.SetSelectedItem(klientItem);
-        }
-        VendosTeDhenaFurnitoriNeTrup(false);
-    }
-}
-
 function ndryshoFormatimKursi(s, e) {
     if (pageState.isKursiTextChange) {
         pageState.isKursiTextChange = false;
@@ -4695,14 +4494,6 @@ function ndryshoFormatimKursi(s, e) {
 
 function ValuedChangedKursi(s, e) {
     pageState.isKursiTextChange = true;
-}
-
-function HapLupeValidimiPasLupesPaPrintuar() {
-    lupaValidimHapur = false;
-    if (hapLupeValidimi) {
-        hapLupeValidimi = false;
-        ButtonClickValidim();
-    }
 }
 
 function cmbKonfigurimKaseInit(s, e) {
@@ -4726,7 +4517,7 @@ function SucceededCallbackVendosPunonjesPerDisaRreshta(pergjigje) {
 function ktheDebiKrediSipasDok() {
     if (pageState.llojDokumenti == "terheqje" || pageState.llojDokumenti == "pagese")
         return "Debi";
-    if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim" || pageState.llojDokumenti == "arketimLlogariKlienti" || pageState.llojDokumenti == "arketimAbonent")
+    if (pageState.llojDokumenti == "derdhje" || pageState.llojDokumenti == "arketim")
         return "Kredi";
 }
 function merrKonfigurimeWebhook(idnderrmarje) {

@@ -907,13 +907,6 @@ namespace PlatinumWeb
 
 			ASPxMenu1.Items[3].Items[15].Items[3].Text = rm.GetString("menuItemFaturaShitjeGjeneroFaturePermbledhese", ci);
 			ASPxMenu1.Items[3].Items[15].Items[4].Text = rm.GetString("menuItemFaturaShitjeRuajteAutomatikeDokumentave", ci);
-			ASPxMenu1.Items[3].Items[15].Items[5].Text = rm.GetString("MenuItemDiscountDevice", ci);
-			ASPxMenu1.Items[3].Items[15].Items[5].Items[0].Text = rm.GetString("MenuItemLista", ci);
-			ASPxMenu1.Items[3].Items[15].Items[5].Items[1].Text = rm.GetString("MenuItemERe", ci);
-			ASPxMenu1.Items[3].Items[15].Items[6].Text = rm.GetString("MenuItemBazaar", ci);
-			ASPxMenu1.Items[3].Items[15].Items[6].Items[0].Text = rm.GetString("MenuItemLista", ci);
-			ASPxMenu1.Items[3].Items[15].Items[6].Items[1].Text = rm.GetString("MenuItemERe", ci);
-			ASPxMenu1.Items[3].Items[15].Items[7].Text = rm.GetString("PromocioniPlus", ci);
 
 
 
@@ -1045,12 +1038,8 @@ namespace PlatinumWeb
 			ASPxNavBar1.Groups[3].Items[5].Text = rm.GetString("NavBarItemRegjistrimetBlerjeve", ci);
 			ASPxNavBar1.Groups[3].Items[6].Text = rm.GetString("MenuItemFaturatShitjeve", ci);
 			ASPxNavBar1.Groups[3].Items[7].Text = rm.GetString("NavBarItemRegjistrimetShitjeve", ci);
-			ASPxNavBar1.Groups[3].Items[8].Text = rm.GetString("MenuItemDiscountDevice", ci);
-			ASPxNavBar1.Groups[3].Items[9].Text = rm.GetString("MenuItemRegjistrimeDiscountDevice", ci);
-			ASPxNavBar1.Groups[3].Items[10].Text = rm.GetString("MenuItemBazaar", ci);
-			ASPxNavBar1.Groups[3].Items[11].Text = rm.GetString("MenuItemRegjistrimeBazaar", ci);
-			ASPxNavBar1.Groups[3].Items[12].Text = "Fatura Blerje Einvoice";
-			ASPxNavBar1.Groups[3].Items[12].Visible = true;
+			ASPxNavBar1.Groups[3].Items[8].Text = "Fatura Blerje Einvoice";
+			ASPxNavBar1.Groups[3].Items[8].Visible = true;
 
 
 			ASPxNavBar1.Groups[4].Text = rm.GetString("MenuItemRaportArkadheBanka", ci);
@@ -1111,127 +1100,124 @@ namespace PlatinumWeb
 			ASPxNavBar1.Groups[10].Items[0].Text = rm.GetString("MenuItemAprovimet", ci);
 			ASPxNavBar1.Groups[10].Items[1].Text = rm.GetString("MenuItemKerkesePerAprovim", ci);
 
-			//Promocioni Plus
-			ASPxNavBar1.Groups[11].Text = rm.GetString("PromocioniPlus", ci);
-			ASPxNavBar1.Groups[11].Items[0].Text = rm.GetString("PromocioniPlus", ci);
 
-			ASPxNavBar1.Groups[12].Text = rm.GetString("MenuItemRaportet", ci);
-			ASPxNavBar1.Groups[12].Items[0].Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
-			ASPxNavBar1.Groups[12].Items[1].Text = rm.GetString("MenuItemRaportBlerjet", ci);
-			ASPxNavBar1.Groups[12].Items[2].Visible = true;
-			ASPxNavBar1.Groups[12].Items[3].Text = rm.GetString("MenuItemRaportShitjet", ci);
-			ASPxNavBar1.Groups[12].Items[4].Text = rm.GetString("MenuItemRaportInventari", ci);
-			ASPxNavBar1.Groups[12].Items[5].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
-			ASPxNavBar1.Groups[12].Items[6].Text = rm.GetString("MenuItemRaportArka", ci);
-			ASPxNavBar1.Groups[12].Items[7].Text = rm.GetString("MenuItemRaportBanka", ci);
-			ASPxNavBar1.Groups[12].Items[8].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
-			ASPxNavBar1.Groups[12].Items[9].Text = rm.GetString("MenuItemRaportProdhimi", ci);
-			ASPxNavBar1.Groups[12].Items[10].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
-			ASPxNavBar1.Groups[12].Items[11].Text = rm.GetString("MenuItemAmortizimi", ci);
-			ASPxNavBar1.Groups[12].Items[12].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
-			ASPxNavBar1.Groups[12].Items[13].Text = rm.GetString("MenuItemRaportTollonash", ci);
-			ASPxNavBar1.Groups[12].Items[14].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-			ASPxNavBar1.Groups[12].Items[15].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-			ASPxNavBar1.Groups[12].Items[16].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-			ASPxNavBar1.Groups[12].Items[17].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-			ASPxNavBar1.Groups[12].Items[18].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
-			ASPxNavBar1.Groups[12].Items[19].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
-			ASPxNavBar1.Groups[12].Items[20].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
-			ASPxNavBar1.Groups[12].Items[21].Text = rm.GetString("MenuItemRaportBuxheti", ci);
+			ASPxNavBar1.Groups[11].Text = rm.GetString("MenuItemRaportet", ci);
+			ASPxNavBar1.Groups[11].Items[0].Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
+			ASPxNavBar1.Groups[11].Items[1].Text = rm.GetString("MenuItemRaportBlerjet", ci);
+			ASPxNavBar1.Groups[11].Items[2].Visible = true;
+			ASPxNavBar1.Groups[11].Items[3].Text = rm.GetString("MenuItemRaportShitjet", ci);
+			ASPxNavBar1.Groups[11].Items[4].Text = rm.GetString("MenuItemRaportInventari", ci);
+			ASPxNavBar1.Groups[11].Items[5].Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
+			ASPxNavBar1.Groups[11].Items[6].Text = rm.GetString("MenuItemRaportArka", ci);
+			ASPxNavBar1.Groups[11].Items[7].Text = rm.GetString("MenuItemRaportBanka", ci);
+			ASPxNavBar1.Groups[11].Items[8].Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
+			ASPxNavBar1.Groups[11].Items[9].Text = rm.GetString("MenuItemRaportProdhimi", ci);
+			ASPxNavBar1.Groups[11].Items[10].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
+			ASPxNavBar1.Groups[11].Items[11].Text = rm.GetString("MenuItemAmortizimi", ci);
+			ASPxNavBar1.Groups[11].Items[12].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
+			ASPxNavBar1.Groups[11].Items[13].Text = rm.GetString("MenuItemRaportTollonash", ci);
+			ASPxNavBar1.Groups[11].Items[14].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
+			ASPxNavBar1.Groups[11].Items[15].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+			ASPxNavBar1.Groups[11].Items[16].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+			ASPxNavBar1.Groups[11].Items[17].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+			ASPxNavBar1.Groups[11].Items[18].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+			ASPxNavBar1.Groups[11].Items[19].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
+			ASPxNavBar1.Groups[11].Items[20].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
+			ASPxNavBar1.Groups[11].Items[21].Text = rm.GetString("MenuItemRaportBuxheti", ci);
 
 
 
 
 
 
-			ASPxNavBar1.Groups[13].Text = rm.GetString("MenuItemGroupBusinessIntelligence", ci); //"Business Intelligence";
-			ASPxNavBar1.Groups[13].Items[0].Text = rm.GetString("labelShitje", ci);
-			ASPxNavBar1.Groups[13].Items[1].Text = rm.GetString("lblRaportMagazina", ci);
-			ASPxNavBar1.Groups[13].Items[2].Text = rm.GetString("labelBlerje", ci);
-			//  ASPxNavBar1.Groups[12].Items[3].Text = rm.GetString("MenuItemRaportKontabiliteti");
+			ASPxNavBar1.Groups[12].Text = rm.GetString("MenuItemGroupBusinessIntelligence", ci); //"Business Intelligence";
+			ASPxNavBar1.Groups[12].Items[0].Text = rm.GetString("labelShitje", ci);
+			ASPxNavBar1.Groups[12].Items[1].Text = rm.GetString("lblRaportMagazina", ci);
+			ASPxNavBar1.Groups[12].Items[2].Text = rm.GetString("labelBlerje", ci);
+			//  ASPxNavBar1.Groups[11].Items[3].Text = rm.GetString("MenuItemRaportKontabiliteti");
 
 
-			ASPxNavBar1.Groups[14].Text = rm.GetString("MenuGroupHarta", ci);
-			ASPxNavBar1.Groups[14].Items[0].Text = rm.GetString("MenuItem_0_Harta", ci);  // Hartat e Njesive Administrative
-			ASPxNavBar1.Groups[14].Items[1].Text = rm.GetString("MenuItem_1_Harta", ci);   // Hartat e shitjeve sipas magazinave
-			ASPxNavBar1.Groups[14].Items[2].Text = rm.GetString("MenuItem_2_Harta", ci);   // Harta e shitjeve sipas klienteve
-			ASPxNavBar1.Groups[14].Items[3].Text = rm.GetString("MenuItem_3_Harta", ci);   // Harta e shitjeve sipas furnitoreve
-			ASPxNavBar1.Groups[14].Items[4].Text = rm.GetString("MenuItem_4_Harta_Marzhi", ci);   //   Marzhi i shitjes sipas klienteve
-			ASPxNavBar1.Groups[14].Items[5].Text = rm.GetString("MenuItem_5_Harta", ci);   //   Harta e shitjeve sipas pikave te shitjes
-			ASPxNavBar1.Groups[14].Items[6].Text = rm.GetString("MenuItem_6_Harta", ci);   //  Harta e gjendjes se magazinave
-			ASPxNavBar1.Groups[14].Items[7].Text = rm.GetString("MenuItem_7_Harta", ci);    // Harta e amortizimit te aseteve ne perqindje  
-			ASPxNavBar1.Groups[14].Items[8].Text = rm.GetString("MenuItem_HartaEKlienteve", ci);    //Harta e klienteve
+			ASPxNavBar1.Groups[13].Text = rm.GetString("MenuGroupHarta", ci);
+			ASPxNavBar1.Groups[13].Items[0].Text = rm.GetString("MenuItem_0_Harta", ci);  // Hartat e Njesive Administrative
+			ASPxNavBar1.Groups[13].Items[1].Text = rm.GetString("MenuItem_1_Harta", ci);   // Hartat e shitjeve sipas magazinave
+			ASPxNavBar1.Groups[13].Items[2].Text = rm.GetString("MenuItem_2_Harta", ci);   // Harta e shitjeve sipas klienteve
+			ASPxNavBar1.Groups[13].Items[3].Text = rm.GetString("MenuItem_3_Harta", ci);   // Harta e shitjeve sipas furnitoreve
+			ASPxNavBar1.Groups[13].Items[4].Text = rm.GetString("MenuItem_4_Harta_Marzhi", ci);   //   Marzhi i shitjes sipas klienteve
+			ASPxNavBar1.Groups[13].Items[5].Text = rm.GetString("MenuItem_5_Harta", ci);   //   Harta e shitjeve sipas pikave te shitjes
+			ASPxNavBar1.Groups[13].Items[6].Text = rm.GetString("MenuItem_6_Harta", ci);   //  Harta e gjendjes se magazinave
+			ASPxNavBar1.Groups[13].Items[7].Text = rm.GetString("MenuItem_7_Harta", ci);    // Harta e amortizimit te aseteve ne perqindje  
+			ASPxNavBar1.Groups[13].Items[8].Text = rm.GetString("MenuItem_HartaEKlienteve", ci);    //Harta e klienteve
 
 
 
-			ASPxNavBar1.Groups[15].Text = rm.GetString("MenuItemGrupCRM", ci); //"CRM";
-			ASPxNavBar1.Groups[15].Items[0].Text = rm.GetString("MenuItemCRM", ci);
-			ASPxNavBar1.Groups[15].Items[1].Text = rm.GetString("CRMRoute", ci);
-			ASPxNavBar1.Groups[15].Items[2].Text = rm.GetString("CRMFushaAnkete", ci);
-			ASPxNavBar1.Groups[15].Items[3].Text = rm.GetString("CRMAnketa", ci);
-			ASPxNavBar1.Groups[15].Items[4].Text = rm.GetString("CRMListeAnketa", ci);
-			ASPxNavBar1.Groups[15].Items[5].Text = rm.GetString("CRMLidhAnkete", ci);
-			ASPxNavBar1.Groups[15].Items[6].Text = rm.GetString("CRMHistoriku", ci);
-			ASPxNavBar1.Groups[15].Items[7].Text = rm.GetString("CRMDetyra", ci);
-			ASPxNavBar1.Groups[15].Items[8].Text = rm.GetString("CRMRaporte", ci);
+			ASPxNavBar1.Groups[14].Text = rm.GetString("MenuItemGrupCRM", ci); //"CRM";
+			ASPxNavBar1.Groups[14].Items[0].Text = rm.GetString("MenuItemCRM", ci);
+			ASPxNavBar1.Groups[14].Items[1].Text = rm.GetString("CRMRoute", ci);
+			ASPxNavBar1.Groups[14].Items[2].Text = rm.GetString("CRMFushaAnkete", ci);
+			ASPxNavBar1.Groups[14].Items[3].Text = rm.GetString("CRMAnketa", ci);
+			ASPxNavBar1.Groups[14].Items[4].Text = rm.GetString("CRMListeAnketa", ci);
+			ASPxNavBar1.Groups[14].Items[5].Text = rm.GetString("CRMLidhAnkete", ci);
+			ASPxNavBar1.Groups[14].Items[6].Text = rm.GetString("CRMHistoriku", ci);
+			ASPxNavBar1.Groups[14].Items[7].Text = rm.GetString("CRMDetyra", ci);
+			ASPxNavBar1.Groups[14].Items[8].Text = rm.GetString("CRMRaporte", ci);
 
-			ASPxNavBar1.Groups[16].Text = rm.GetString("MenuItemGroupGIS", ci);  // "GIS"; 
-			ASPxNavBar1.Groups[16].Items[0].Text = rm.GetString("MenuItemGIS", ci);
+			ASPxNavBar1.Groups[15].Text = rm.GetString("MenuItemGroupGIS", ci);  // "GIS"; 
+			ASPxNavBar1.Groups[15].Items[0].Text = rm.GetString("MenuItemGIS", ci);
 
 
-			ASPxNavBar1.Groups[17].Text = rm.GetString("MenuItemGrupAnalizBuxheti", ci);//"Analiza e Buxhetit";
-			ASPxNavBar1.Groups[17].Items[0].Text = rm.GetString("MenuItem_0_AnalizBuzheti", ci); //Konfigurimi i zerave per ambjentet e analizes se buxhetit//
-			ASPxNavBar1.Groups[17].Items[1].Text = rm.GetString("MenuItem_3_AnalizBuxheti", ci);  //Regjistrimi i buxhetit permbledhes//
-			ASPxNavBar1.Groups[17].Items[2].Text = rm.GetString("MenuItem_4_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te shpenzimeve per personelin//
-			ASPxNavBar1.Groups[17].Items[3].Text = rm.GetString("MenuItem_5_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te te ardhurave//
-			ASPxNavBar1.Groups[17].Items[4].Text = rm.GetString("MenuItem_6_AnalizBuxheti", ci);   //Regjistrimi i shpenzimeve kapitale//
-			ASPxNavBar1.Groups[17].Items[5].Text = rm.GetString("MenuItem_7_AnalizBuxheti", ci);    //Regjistrimi i projektbuxhetit per tre vite
-			ASPxNavBar1.Groups[17].Items[6].Text = rm.GetString("MenuItem_8_AnalizBuxheti", ci); //Regjistrimi i planifikimit te produkteve  // 
-			ASPxNavBar1.Groups[17].Items[7].Text = rm.GetString("MenuItem_9_AnalizBuxheti", ci);  //Regjistrimi i shpenzimeve operative 
-			ASPxNavBar1.Groups[17].Items[8].Text = rm.GetString("MenuItem_12_AnalizBuxheti", ci);  //Regjistrimi i pasqyres organike
-			ASPxNavBar1.Groups[17].Items[9].Text = rm.GetString("MenuItem_13_AnalizBuxheti", ci); //Regjistrimi i evidences statistikore
-			ASPxNavBar1.Groups[17].Items[10].Text = rm.GetString("MenuItem_31_AnalizBuxheti", ci); //Planifikim dhe realizim
-			ASPxNavBar1.Groups[17].Items[11].Text = rm.GetString("MenuItem_28_AnalizBuxheti", ci); //Regjistrim i realizimit te prokurimeve publike
-			ASPxNavBar1.Groups[17].Items[12].Text = rm.GetString("MenuItem_30_AnalizBuxheti", ci); //Regjistrim i parashikimit te prokurimeve publike
-			ASPxNavBar1.Groups[17].Items[13].Text = rm.GetString("MenuItem_14_AnalizBuxheti", ci);  //Raporti per projekt buxhetin permbledhes
-			ASPxNavBar1.Groups[17].Items[14].Text = rm.GetString("MenuItem_15_AnalizBuxheti", ci); //Raporti per parashikimin e te ardhurave
-			ASPxNavBar1.Groups[17].Items[15].Text = rm.GetString("MenuItem_16_AnalizBuxheti", ci); //Raporti per parashikimin e shpenzimeve per personelin
-			ASPxNavBar1.Groups[17].Items[16].Text = rm.GetString("MenuItem_17_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne vitet pasardhes
-			ASPxNavBar1.Groups[17].Items[17].Text = rm.GetString("MenuItem_18_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne 3 vitet pasardhese
-			ASPxNavBar1.Groups[17].Items[18].Text = rm.GetString("MenuItem_22_AnalizBuxheti", ci);   //Raporti per parashikimin e shpenzimeve kapitale
-			ASPxNavBar1.Groups[17].Items[19].Text = rm.GetString("MenuItem_20_AnalizBuxheti", ci);  //Raporti per projekt buxhetin 3 vjecar
-			ASPxNavBar1.Groups[17].Items[20].Text = rm.GetString("MenuItem_19_AnalizBuxheti", ci);     //Raporti per shpenzimet operative ne baze mujore
-			ASPxNavBar1.Groups[17].Items[21].Text = rm.GetString("MenuItem_21_AnalizBuxheti", ci); //Raporti per planifikimin e produkteve te programit
-			ASPxNavBar1.Groups[17].Items[22].Text = rm.GetString("MenuItem_23_AnalizBuxheti", ci);  //Raporti per parashikimin e shpenzimeve per vitin pasardhes(Raportuese)
-			ASPxNavBar1.Groups[17].Items[23].Text = rm.GetString("MenuItem_24_AnalizBuxheti", ci);            //Raporti permbledhes per shpenzimet operative
-			ASPxNavBar1.Groups[17].Items[24].Text = rm.GetString("MenuItem_27_AnalizBuxheti", ci);  // Raporti i evidences statistikore(Raportuese)
-			ASPxNavBar1.Groups[17].Items[25].Text = rm.GetString("MenuItem_25_AnalizBuxheti", ci);      //Raporti i inventarit sipas viteve (Raportuese)
-			ASPxNavBar1.Groups[17].Items[26].Text = rm.GetString("MenuItem_26_AnalizBuxheti", ci);     //Raporti i inventarit sipas perdoruesve(Raportuese)
-			ASPxNavBar1.Groups[17].Items[27].Text = rm.GetString("MenuItem_29_AnalizBuxheti", ci);     //Regjistri i realizimit te prokurimeve publike
-			ASPxNavBar1.Groups[17].Items[28].Text = rm.GetString("MenuItem_32_AnalizBuxheti", ci);     //Tabela permbledhese e planifikimeve dhe realizimeve
+			ASPxNavBar1.Groups[16].Text = rm.GetString("MenuItemGrupAnalizBuxheti", ci);//"Analiza e Buxhetit";
+			ASPxNavBar1.Groups[16].Items[0].Text = rm.GetString("MenuItem_0_AnalizBuzheti", ci); //Konfigurimi i zerave per ambjentet e analizes se buxhetit//
+			ASPxNavBar1.Groups[16].Items[1].Text = rm.GetString("MenuItem_3_AnalizBuxheti", ci);  //Regjistrimi i buxhetit permbledhes//
+			ASPxNavBar1.Groups[16].Items[2].Text = rm.GetString("MenuItem_4_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te shpenzimeve per personelin//
+			ASPxNavBar1.Groups[16].Items[3].Text = rm.GetString("MenuItem_5_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te te ardhurave//
+			ASPxNavBar1.Groups[16].Items[4].Text = rm.GetString("MenuItem_6_AnalizBuxheti", ci);   //Regjistrimi i shpenzimeve kapitale//
+			ASPxNavBar1.Groups[16].Items[5].Text = rm.GetString("MenuItem_7_AnalizBuxheti", ci);    //Regjistrimi i projektbuxhetit per tre vite
+			ASPxNavBar1.Groups[16].Items[6].Text = rm.GetString("MenuItem_8_AnalizBuxheti", ci); //Regjistrimi i planifikimit te produkteve  // 
+			ASPxNavBar1.Groups[16].Items[7].Text = rm.GetString("MenuItem_9_AnalizBuxheti", ci);  //Regjistrimi i shpenzimeve operative 
+			ASPxNavBar1.Groups[16].Items[8].Text = rm.GetString("MenuItem_12_AnalizBuxheti", ci);  //Regjistrimi i pasqyres organike
+			ASPxNavBar1.Groups[16].Items[9].Text = rm.GetString("MenuItem_13_AnalizBuxheti", ci); //Regjistrimi i evidences statistikore
+			ASPxNavBar1.Groups[16].Items[10].Text = rm.GetString("MenuItem_31_AnalizBuxheti", ci); //Planifikim dhe realizim
+			ASPxNavBar1.Groups[16].Items[11].Text = rm.GetString("MenuItem_28_AnalizBuxheti", ci); //Regjistrim i realizimit te prokurimeve publike
+			ASPxNavBar1.Groups[16].Items[12].Text = rm.GetString("MenuItem_30_AnalizBuxheti", ci); //Regjistrim i parashikimit te prokurimeve publike
+			ASPxNavBar1.Groups[16].Items[13].Text = rm.GetString("MenuItem_14_AnalizBuxheti", ci);  //Raporti per projekt buxhetin permbledhes
+			ASPxNavBar1.Groups[16].Items[14].Text = rm.GetString("MenuItem_15_AnalizBuxheti", ci); //Raporti per parashikimin e te ardhurave
+			ASPxNavBar1.Groups[16].Items[15].Text = rm.GetString("MenuItem_16_AnalizBuxheti", ci); //Raporti per parashikimin e shpenzimeve per personelin
+			ASPxNavBar1.Groups[16].Items[16].Text = rm.GetString("MenuItem_17_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne vitet pasardhes
+			ASPxNavBar1.Groups[16].Items[17].Text = rm.GetString("MenuItem_18_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne 3 vitet pasardhese
+			ASPxNavBar1.Groups[16].Items[18].Text = rm.GetString("MenuItem_22_AnalizBuxheti", ci);   //Raporti per parashikimin e shpenzimeve kapitale
+			ASPxNavBar1.Groups[16].Items[19].Text = rm.GetString("MenuItem_20_AnalizBuxheti", ci);  //Raporti per projekt buxhetin 3 vjecar
+			ASPxNavBar1.Groups[16].Items[20].Text = rm.GetString("MenuItem_19_AnalizBuxheti", ci);     //Raporti per shpenzimet operative ne baze mujore
+			ASPxNavBar1.Groups[16].Items[21].Text = rm.GetString("MenuItem_21_AnalizBuxheti", ci); //Raporti per planifikimin e produkteve te programit
+			ASPxNavBar1.Groups[16].Items[22].Text = rm.GetString("MenuItem_23_AnalizBuxheti", ci);  //Raporti per parashikimin e shpenzimeve per vitin pasardhes(Raportuese)
+			ASPxNavBar1.Groups[16].Items[23].Text = rm.GetString("MenuItem_24_AnalizBuxheti", ci);            //Raporti permbledhes per shpenzimet operative
+			ASPxNavBar1.Groups[16].Items[24].Text = rm.GetString("MenuItem_27_AnalizBuxheti", ci);  // Raporti i evidences statistikore(Raportuese)
+			ASPxNavBar1.Groups[16].Items[25].Text = rm.GetString("MenuItem_25_AnalizBuxheti", ci);      //Raporti i inventarit sipas viteve (Raportuese)
+			ASPxNavBar1.Groups[16].Items[26].Text = rm.GetString("MenuItem_26_AnalizBuxheti", ci);     //Raporti i inventarit sipas perdoruesve(Raportuese)
+			ASPxNavBar1.Groups[16].Items[27].Text = rm.GetString("MenuItem_29_AnalizBuxheti", ci);     //Regjistri i realizimit te prokurimeve publike
+			ASPxNavBar1.Groups[16].Items[28].Text = rm.GetString("MenuItem_32_AnalizBuxheti", ci);     //Tabela permbledhese e planifikimeve dhe realizimeve
 
 			//Buxheti
-			ASPxNavBar1.Groups[18].Text = rm.GetString("MenuItemBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[0].Text = rm.GetString("MenuItem_01_KategoriBuxhetimi", ci);
-			ASPxNavBar1.Groups[18].Items[1].Text = rm.GetString("MenuItem_KomponenteBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[2].Text = rm.GetString("MenuItemHedhjaTeDhenave", ci);
-			ASPxNavBar1.Groups[18].Items[3].Text = rm.GetString("MenuItem_03_PlanifikimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[4].Text = rm.GetString("MenuItem_02_MiratimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[5].Text = rm.GetString("MenuItem_04_AlokimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[6].Text = rm.GetString("MenuItem_RialokimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[7].Text = rm.GetString("MenuItem_PerfitimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[8].Text = rm.GetString("MenuItem_PlanifikimEkzekutimBuxheti", ci);
-			ASPxNavBar1.Groups[18].Items[9].Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Text = rm.GetString("MenuItemBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[0].Text = rm.GetString("MenuItem_01_KategoriBuxhetimi", ci);
+			ASPxNavBar1.Groups[17].Items[1].Text = rm.GetString("MenuItem_KomponenteBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[2].Text = rm.GetString("MenuItemHedhjaTeDhenave", ci);
+			ASPxNavBar1.Groups[17].Items[3].Text = rm.GetString("MenuItem_03_PlanifikimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[4].Text = rm.GetString("MenuItem_02_MiratimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[5].Text = rm.GetString("MenuItem_04_AlokimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[6].Text = rm.GetString("MenuItem_RialokimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[7].Text = rm.GetString("MenuItem_PerfitimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[8].Text = rm.GetString("MenuItem_PlanifikimEkzekutimBuxheti", ci);
+			ASPxNavBar1.Groups[17].Items[9].Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
 
 
 
-			ASPxNavBar1.Groups[20].Text = rm.GetString("MenuItemHelp", ci);
-			ASPxNavBar1.Groups[20].Items[0].Text = rm.GetString("MenuItemManualiPerdoruesit", ci);
-			ASPxNavBar1.Groups[20].Items[1].Text = rm.GetString("MenuItemRemoteSupport", ci);
+			ASPxNavBar1.Groups[19].Text = rm.GetString("MenuItemHelp", ci);
+			ASPxNavBar1.Groups[19].Items[0].Text = rm.GetString("MenuItemManualiPerdoruesit", ci);
+			ASPxNavBar1.Groups[19].Items[1].Text = rm.GetString("MenuItemRemoteSupport", ci);
 
-			ASPxNavBar1.Groups[21].Text = rm.GetString("MobileMenu", ci);
+			ASPxNavBar1.Groups[20].Text = rm.GetString("MobileMenu", ci);
 			//Settings
-			ASPxNavBar1.Groups[22].Text = rm.GetString("MenuItemSettings", ci);
+			ASPxNavBar1.Groups[21].Text = rm.GetString("MenuItemSettings", ci);
 
 
 			hfState.Set("MenuItemMbyll", rm.GetString("MenuItemMbyll", ci));

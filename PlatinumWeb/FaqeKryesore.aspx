@@ -1092,21 +1092,6 @@
                                                                         </dx:MenuItem>        
                                                                         <dx:MenuItem Text="Gjenero fature permbledhese" Name="GjeneroFaturePermbledhese.aspx"  Visible="false"> </dx:MenuItem>
                                                                         <dx:MenuItem Text="Ruajtja automatike e dokumentave" Name="GjenerimAutomatik.aspx" Visible="false">  </dx:MenuItem>
-                                                                        <dx:MenuItem Text="Discounted device" Name="discounted-device" Visible="false">
-                                                                                <Items>
-                                                                                      <dx:MenuItem Text=" Lista" Name="RegjistrimDokumentash.aspx?shitje_blerje=shitjediscount" Visible="false">  </dx:MenuItem>
-                                                                                      <dx:MenuItem Text=" E Re" Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitjediscount&shtim_modifikim=shtim" Visible="false"> </dx:MenuItem>
-
-                                                                                </Items>
-                                                                        </dx:MenuItem>
-                                                                        <dx:MenuItem Text="Bazaar" Name="bazar" Visible="false">
-                                                                              <Items>
-                                                                                     <dx:MenuItem Text=" Lista" Name="RegjistrimDokumentash.aspx?shitje_blerje=bazaar" Visible="false"> </dx:MenuItem>
-                                                                                     <dx:MenuItem Text=" E Re" Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=bazaar&shtim_modifikim=shtim"  Visible="false"> </dx:MenuItem>
-
-                                                                              </Items>
-                                                                      </dx:MenuItem>
-                                                                     <dx:MenuItem Text="Promocioni Plus" Name="Shto_AlphawebEnhancments.aspx" Visible="false"></dx:MenuItem>
                                                            </Items>
                                                         </dx:MenuItem>
                                                       
@@ -1136,13 +1121,6 @@
                                                                                 <dx:MenuItem Name="VeprimeBanka.aspx?lloji=arketim" Text="Lista" Visible="false">
                                                                                 </dx:MenuItem>
                                                                                 <dx:MenuItem Name="ShtoVeprimBanka.aspx?lloji=arketim&shtim_modifikim=shtim" Text="E Re"
-                                                                                    Visible="false">
-                                                                                </dx:MenuItem>
-                                                                                <dx:MenuItem Name="ShtoVeprimBanka.aspx?lloji=arketimLlogariKlienti&shtim_modifikim=shtim" Text="Arketim per llogari klienti"
-                                                                                    Visible="false">
-                                                                                </dx:MenuItem>
-
-                                                                                <dx:MenuItem Name="ShtoVeprimBanka.aspx?lloji=arketimAbonent&shtim_modifikim=shtim" Text="Arketim per abonent"
                                                                                     Visible="false">
                                                                                 </dx:MenuItem>
                                                                             </Items>
@@ -1404,18 +1382,6 @@
                                                         <dxnb:NavBarItem Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&shtim_modifikim=shtim"
                                                             Text="Regjistrimet e shitjeve" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RegjistrimDokumentash.aspx?shitje_blerje=shitjediscount" Text="Discounted device"
-                                                            Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitjediscount&shtim_modifikim=shtim"
-                                                            Text="Regjistrimet e discounted devices" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dx:NavBarItem Name="RegjistrimDokumentash.aspx?shitje_blerje=bazaar" Text="Shitje bazaar"
-                                                            Visible="false">
-                                                        </dx:NavBarItem>
-                                                        <dx:NavBarItem Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=bazaar&shtim_modifikim=shtim"
-                                                            Text="Regjistrimet e shitjeve bazaar" Visible="false">
-                                                        </dx:NavBarItem>
                                                         <dx:NavBarItem Name="FaturaBlerjeEinvoice.aspx?"
                                                             Text="Fatura Blerje Einvoice" Visible="true">
                                                         </dx:NavBarItem>
@@ -1448,13 +1414,6 @@
                                                         </dxnb:NavBarItem>
                                                          <dxnb:NavBarItem Name="GjendjeArkeDitore.aspx" Text="Gjendje arke ditore"  Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dx:NavBarItem Name="ShtoVeprimBanka.aspx?lloji=arketimLlogariKlienti&shtim_modifikim=shtim"
-                                                            Text="Regjistrimi i arkëtimeve per llogari klienti" Visible="false">
-                                                        </dx:NavBarItem>
-
-                                                        <dx:NavBarItem Name="ShtoVeprimBanka.aspx?lloji=arketimAbonent&shtim_modifikim=shtim"
-                                                            Text="Regjistrimi i arkëtimeve per abonent" Visible="false">
-                                                        </dx:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Burimet Njerëzore" Name="hr" Expanded="False">
@@ -1555,12 +1514,6 @@
                                                     </Items>
                                                 </dxnb:NavBarGroup>
 
-                                                <dx:NavBarGroup Text="Promocioni Plus" Name="Promocioni_Plus" Expanded="False">
-                                                    <Items>
-                                                        <dx:NavBarItem Text="Promocioni Plus" Name="Shto_AlphawebEnhancments.aspx" Visible="false">
-                                                        </dx:NavBarItem>
-                                                    </Items>
-                                                </dx:NavBarGroup>
 
                                                 <dxnb:NavBarGroup Text="Raportet" Name="rap" Expanded="False">
                                                     <Items>

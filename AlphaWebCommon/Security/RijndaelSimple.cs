@@ -8,8 +8,6 @@ namespace DbCore.IMBUtils.Security
 {
     public class RijndaelSimple
     {
-        private static string VodKeyString = "anjueolkdiwpoida";//16 char
-        private static string VodIVString = "4528711254935489";//16 char
         private static string ImbKeyString = "ankdiwpjueoloida";//16 char
         private static string ImbIVString = "5244548871125493";//16 char
 
@@ -18,15 +16,6 @@ namespace DbCore.IMBUtils.Security
         {
             var decbuff = Convert.FromBase64String(str);
             return decbuff;
-        }
-        /// <summary>
-        /// Dekripton mesazhin me paramtrat e Vodafone(Vetem per vodafone)
-        /// </summary>
-        /// <param name="crypt">mesazhi qe do dekriptohet</param>
-        /// <returns></returns>
-        public static String DecryptVodafoneString(string crypt)
-        {
-            return DecryptString(crypt, VodKeyString, VodIVString, PaddingMode.Zeros);
         }
         /// <summary>
         /// Dekripton mesazhin
@@ -135,16 +124,6 @@ namespace DbCore.IMBUtils.Security
         }
 
 
-
-        /// <summary>
-        /// Enkripton mesazhin duke perdorur celsin e Vodafone(Vetem per vodafone)
-        /// </summary>
-        /// <param name="message">mesazhi qe do enkriptohet</param>
-        /// <returns></returns>
-        public static string EncryptVodafoneString(string message)
-        {
-            return EncryptString(message, VodKeyString, VodIVString, PaddingMode.Zeros);
-        }
 
         public static string EncryptDDString(string message)
         {

@@ -83,10 +83,6 @@ namespace PlatinumWeb
 					btnPeriudha.Text = periudha.NrPeriudha.ToString();
 					lblPeriudhaAktuale.Text = $"{periudha.FillimiPeriudha.ToShortDateString()}-{periudha.MbarimiPeriudha.ToShortDateString()}";
 				}
-				if (KlientSpecifik.VodafoneShops.ToString().EqualsIgnoreCase(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.Klienti)))
-					hfState.Set("vodafoneShops", true);
-				else
-					hfState.Set("vodafoneShops", false);
 				veprimi = Request.QueryString["lloji"] != "" ? Request.QueryString["lloji"] : "Terheqje";
 				idKatDokShitje = (veprimi.EqualsAnyIgnoreCase("terheqje", "pagese")) ? 2 : 1;
 				idKategori = (veprimi.EqualsAnyIgnoreCase("derdhje", "terheqje")) ? 4 : 3;
@@ -426,16 +422,6 @@ namespace PlatinumWeb
 					MbushComboKonfigurimet();
 					konfigurimi_ComboBox.SelectedIndex = 0;
 					break;
-				case "arketimLlogariKlienti":
-					veprimi_ComboBox.SelectedIndex = 0;
-					MbushComboKonfigurimet();
-					konfigurimi_ComboBox.SelectedIndex = 1;
-					break;
-				case "arketimAbonent":
-					veprimi_ComboBox.SelectedIndex = 0;
-					MbushComboKonfigurimet();
-					konfigurimi_ComboBox.SelectedIndex = 2;
-					break;
 				case "terheqje":
 				case "pagese":
 					veprimi_ComboBox.SelectedIndex = 1;
@@ -641,7 +627,7 @@ namespace PlatinumWeb
 		{
 			var colKonfig = new colKonfigurimAmbjenti();
 			var konf = new clsKonfigurimAmbjenti();
-			if (veprimi.EqualsAnyIgnoreCase("arketim", "pagese", "arketimAbonent", "arketimLlogariKlienti"))
+			if (veprimi.EqualsAnyIgnoreCase("arketim", "pagese"))
 				konf.IdKategori = 3;   //arka
 			else
 				konf.IdKategori = 4;  //banka
@@ -940,7 +926,6 @@ namespace PlatinumWeb
 			string hfShtimModifikimValue = hfShtimModifikim.Value;
 			string shfaqmesazhapolupe = "jo";
 			string shfaqmesazhapolupeVdk = "jo";
-			bool perBRM = (veprimi == "arketimLlogariKlienti" || veprimi == "arketimAbonent");
 			if (clsAlternativaKushti.getAlternativa(Convert.ToInt32(konfigurimi_ComboBox.Value), "ALF") == "Po")
 				MerrGridFaturatSession(gridFaturat);
 
@@ -973,7 +958,7 @@ namespace PlatinumWeb
 			}
 			try
 			{
-				koka = krijoDokumentArkaBanka(serverUrl, idetapa, statusi, statusAprovimi, out shfaqmesazhapolupe, out shfaqmesazhapolupeVdk, id, perBRM);
+				koka = krijoDokumentArkaBanka(serverUrl, idetapa, statusi, statusAprovimi, out shfaqmesazhapolupe, out shfaqmesazhapolupeVdk, id);
 			}
 			catch (Exception ex)
 			{
@@ -1013,7 +998,7 @@ namespace PlatinumWeb
 						status1.Value = "false";
 						return;
 					}
-					mesazh = koka.ruaj(hfNrAutoBanka, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl, perBRM);
+					mesazh = koka.ruaj(hfNrAutoBanka, false, "", "", "", "", idskema, statusAprovimi, idetapa, serverUrl);
 					break;
 				case "modifikim":
 					if ((statusi == 1 && !tedrejtaInfo.DMod) || (statusi == 0 && !tedrejtaInfo.DModifikimDraft))
@@ -1213,9 +1198,8 @@ namespace PlatinumWeb
 		/// <param name="shfaqmesazhapolupe"></param>
 		/// <param name="shfaqmesazhapolupeVdk"></param>
 		/// <param name="id"></param>
-		/// <param name="perBRM"></param>
 		/// <returns>Kthen nje collection me objekte te tipit clsVeprimBankaTrupi</returns>
-		private clsVeprimBankaKoka krijoDokumentArkaBanka(string serverUrl, int idetapa, int statusi, StatusAprovimi statusAprovimi, out string shfaqmesazhapolupe, out string shfaqmesazhapolupeVdk, int id, bool perBRM)
+		private clsVeprimBankaKoka krijoDokumentArkaBanka(string serverUrl, int idetapa, int statusi, StatusAprovimi statusAprovimi, out string shfaqmesazhapolupe, out string shfaqmesazhapolupeVdk, int id)
 		{
 			clsVeprimBankaKoka koka = new clsVeprimBankaKoka();
 			clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
@@ -1302,7 +1286,7 @@ namespace PlatinumWeb
 			object[] nivele = (object[])serializusi.DeserializeObject(hfNivele.Value);
 
 			konflidhes.mbushKonfigAmbjSipasId(konf.IdKonfigurimi, IdGjuha);
-			colVeprimBankaTrupi trupi = RuajTrupinVeprimitBankes(bank.IdMonedhaBanka, perBRM);
+			colVeprimBankaTrupi trupi = RuajTrupinVeprimitBankes(bank.IdMonedhaBanka);
 			if (trupi.Count == 0)
 				throw new Exception(MessagesResource.Messages["msgTrupiDokNukDuhetBosh"]);
 			if (hfShtimModifikim.Value == "modifikim")
@@ -1337,7 +1321,7 @@ namespace PlatinumWeb
 			return koka;
 		}
 
-		public colVeprimBankaTrupi RuajTrupinVeprimitBankes(int idmonedhabanka, bool perBRM)
+		public colVeprimBankaTrupi RuajTrupinVeprimitBankes(int idmonedhabanka)
 		{
 			colVeprimBankaTrupi trupat = new colVeprimBankaTrupi();
 
@@ -1349,7 +1333,7 @@ namespace PlatinumWeb
 
 			for (int i = 0; i < dokumenti.Length; i++)
 			{
-				clsVeprimBankaTrupi trupArkaBanka = new clsVeprimBankaTrupi((Dictionary<string, object>)dokumenti[i], nivele[i], IdNdermarrja, data_DateEdit.Date, idmonedhabanka, kursi_TextBox.Text, hfShtimModifikim.Value, hfKursiEkzistues.Value, id[i], IdPerdoruesi, perBRM);
+				clsVeprimBankaTrupi trupArkaBanka = new clsVeprimBankaTrupi((Dictionary<string, object>)dokumenti[i], nivele[i], IdNdermarrja, data_DateEdit.Date, idmonedhabanka, kursi_TextBox.Text, hfShtimModifikim.Value, hfKursiEkzistues.Value, id[i], IdPerdoruesi);
 				if (trupArkaBanka.IdSubjekti == -1 && String.IsNullOrEmpty(trupArkaBanka.Lloji))
 					continue;
 
@@ -1780,9 +1764,6 @@ namespace PlatinumWeb
 
 		private string MerrKodKlientiPerFiltrim()
 		{
-			bool faturaNgaBRM = (Request.QueryString["lloji"] == "arketimLlogariKlienti" || Request.QueryString["lloji"] == "arketimAbonent");
-			if (faturaNgaBRM)
-				return string.Empty;
 			if (Request.QueryString["shtim_modifikim"] == "modifikim")
 				return string.Empty;
 			if (furnitori_ComboBox.Text == "")
@@ -1819,39 +1800,6 @@ namespace PlatinumWeb
 				{
 					string kodKlientFurnitor = MerrKodKlientiPerFiltrim();
 					gridFaturat.FilterExpression = String.IsNullOrWhiteSpace(kodKlientFurnitor) ? "" : $"[KodiKlientit] = '{kodKlientFurnitor}'";
-				}
-			}
-		}
-
-		private void PershtatKolonaPerFaturaNgaBRM(ASPxGridView grid)
-		{
-			foreach (GridViewDataColumn col in grid.DataColumns)
-			{
-				switch (col.FieldName)
-				{
-					case "NrDokumenti":
-						col.Caption = "Kod fature";
-						col.Visible = true;
-						break;
-					case "Pershkrimi":
-						col.Caption = "Muaj fature";
-						col.Visible = true;
-						break;
-					case "VleftaPaLikujduar":
-						col.Caption = "Vlera e mbetur";
-						col.Visible = true;
-						break;
-					case "Vlefta":
-						col.Caption = "Vlera fillestare";
-						col.Visible = true;
-						break;
-					case "StatusFature":
-						col.Caption = "Status Fature";
-						col.Visible = true;
-						break;
-					default:
-						col.Visible = false;
-						break;
 				}
 			}
 		}
@@ -1951,23 +1899,7 @@ namespace PlatinumWeb
 
 			if (e.Parameters == "mbush" || e.Parameters == "kushtDokPerLikujdim")
 			{
-				if (Request.QueryString["lloji"] == "arketimLlogariKlienti" || Request.QueryString["lloji"] == "arketimAbonent")
-				{
-					dt = mySessionObjects.MerrFaturatBRMngaSession(Session).Item6;
-					grid_faturat_VendosTotaletEDetyrimeve(dt, gridFaturat, e.Parameters.Contains("pastro"));
-					if (e.Parameters == "mbush")
-					{
-						if (!ValidoKlientin(dt))
-						{
-							gridFaturat.JSProperties["cpMesazhKlientTerminated"] = MessagesResource.Messages["msgKlientMeStatusTerminated"];
-							gridFaturat.JSProperties["cpKlientTerminated"] = "True";
-						}
-						else
-							gridFaturat.JSProperties["cpKlientTerminated"] = "";
-					}
-				}
-				else
-					dt = mySessionObjects.merrGridFaturatNgaSessioni(komponente + IdNdermarrja + idKatDokShitje, Session);
+				dt = mySessionObjects.merrGridFaturatNgaSessioni(komponente + IdNdermarrja + idKatDokShitje, Session);
 				//dt = colDokumentat.mbushKokaShitjePaLikuiduar(IdNdermarrja, idKatDokShitje, Convert.ToString(hfTeDrejtaGjitheDokPerTuLikujduar.Get("kushtDokPerLikujdim")), IdPerdoruesi, Int32.Parse(konfigurimi_ComboBox.Value.ToString()));
 				//mySessionObjects.ruajGridFaturatNeSession(komponente + IdNdermarrja + idKatDokShitje, Session, dt);
 			}
@@ -2007,58 +1939,6 @@ namespace PlatinumWeb
 				dt.Dispose();
 			}
 		}
-		protected void grid_faturat_VendosTotaletEDetyrimeve(DataTable dt, ASPxGridView grida, bool pastro)
-		{
-			if (pastro)
-			{
-				grida.JSProperties["cpDetyrimiMbeturActive"] = 0;
-				grida.JSProperties["cpDetyrimiMbeturTerminated"] = 0;
-				grida.JSProperties["cpNrFaturashActive"] = 0;
-				grida.JSProperties["cpNrFaturashTerminated"] = 0;
-				return;
-			}
-			try
-			{
-				if (dt == null || dt.Rows.Count == 0)
-					return;
-				int nrFaturashTerminated = 0, nrFaturashActive = 0;
-				decimal detyrimiMbeturActive = 0, detyrimiMbeturTerminated = 0;
-				foreach (DataRow row in dt.Rows)
-				{
-					if ((string)row["StatusFature"] == "Terminated" && (decimal)row["VleftaPaLikujduar"] > 0)
-					{
-						detyrimiMbeturTerminated += (decimal)row["VleftaPaLikujduar"];
-						nrFaturashTerminated++;
-					}
-					else if ((string)row["StatusFature"] == "Active")
-					{
-						detyrimiMbeturActive += (decimal)row["VleftaPaLikujduar"];
-						nrFaturashActive++;
-					}
-				}
-				grida.JSProperties["cpDetyrimiMbeturActive"] = detyrimiMbeturActive.ToString();
-				grida.JSProperties["cpDetyrimiMbeturTerminated"] = detyrimiMbeturTerminated.ToString();
-				grida.JSProperties["cpNrFaturashActive"] = nrFaturashActive.ToString();
-				grida.JSProperties["cpNrFaturashTerminated"] = nrFaturashTerminated.ToString();
-			}
-			catch (Exception ex)
-			{
-				ImbLogger.Error(ex, $"Ndodhi nje problem ne mbledhjen e totalit te palikujduar  dt:{Newtonsoft.Json.JsonConvert.SerializeObject(dt)}");
-			}
-		}
-
-		protected bool ValidoKlientin(DataTable dt)
-		{
-			if (string.IsNullOrEmpty(txtNrLlogari.Text))
-				return true;
-			colKlienteTerminated klienteTerminated = new colKlienteTerminated();
-			if (!klienteTerminated.Contains(txtNrLlogari.Text.Trim()))
-				return true;
-			if (dt.Rows.Count == 0)
-				return false;
-			return (dt.AsEnumerable().Count(row => row["StatusFature"].ToString() == "Active") > 0);
-		}
-
 		protected void grid_faturat_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
 		{
 			var gridFaturat = (ASPxGridView)sender;
@@ -2103,9 +1983,6 @@ namespace PlatinumWeb
 			var VleftaPaLikujduarMonBaze = gridFaturat.Columns["VleftaPaLikujduarMonBaze"] as GridViewDataTextColumn;
 			VleftaPaLikujduarMonBaze.PropertiesEdit.DisplayFormatString = "0.00";
 
-
-			if (Request.QueryString["lloji"] == "arketimLlogariKlienti" || Request.QueryString["lloji"] == "arketimAbonent")
-				PershtatKolonaPerFaturaNgaBRM(gridFaturat);
 		}
 		#endregion
 

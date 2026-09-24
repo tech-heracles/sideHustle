@@ -3659,71 +3659,6 @@ namespace DbCore.DbRegjistrim
                         }
                     }
 
-                    #region bazaari dhe device with 
-                    eshteShitjeBazaar = (new clsKonfigurimAmbjenti(IdKonfigAmbjente, dbshare)).KodKonfigAmbjente.Contains("BAZAAR");
-                    if (eshteShitjeBazaar)
-                    {
-                        clsArtikulli art = new clsArtikulli(oColTrupiShitje[0].IdKodi, new clsDatabaseInventari(dbRegj));
-                        kodOferteBundle = art.KodOferte;
-
-                        if (art.AparatBazaar)
-                        {//bazaar
-                            ImbLogger.LogInfoPromocione(string.Format("Po tentohet te update-ohet statusi i klientit per bazaar  me msisdn {0} nga perdoruesi {1}", msisdn, idPerdoruesi));
-                            u_ruajt = clsKlientPerBazaar.UpdateStatusPerdorur(dbRegj, msisdn, LlojMsisdn.Bazaar, idShitjeKoka, idPerdoruesi);
-
-                            if (!u_ruajt.Status)
-                            {
-                                ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate updatetimi te klientit per bazaar  me msisdn {0} nga perdoruesi {1}", msisdn, idPerdoruesi), u_ruajt.PershkrimMesazhi);
-                                //dbRegj.rollbackTransaksion();
-                                return u_ruajt;
-                            }
-                            ImbLogger.LogInfoPromocione(string.Format("klienti per bazaar me msisdn {0} u shenua si i perdorur nga perdoruesi {1}", msisdn, idPerdoruesi));
-                        }
-
-
-                        if (!string.IsNullOrEmpty(kodOferteBundle))
-                        {
-                            clsMesazh mesazh = AktivizoBundle(kontakti, kodOferteBundle, " bundle per bazaar", "0", idPerdoruesi);
-                            if (!mesazh.Status)
-                            {
-                                fshiFunction(idPerdoruesi, true, false, false, dbRegj);
-
-                            }
-                            u_ruajt.PershkrimMesazhi += mesazh.PershkrimMesazhi;
-                        }
-                    }
-                    if (!string.IsNullOrWhiteSpace(kodKuponiDD))
-                    {
-                        ImbLogger.LogInfoPromocione(string.Format("Po tentohet te update-ohet statusi i kuponit me kodin {0} nga perdoruesi {1}", kodKuponiDD, idPerdoruesi));
-                        u_ruajt = clsKlientMeKupon.UpdateStatusPerdorur(dbRegj, kodKuponiDD, kontakti, idShitjeKoka, idPerdoruesi);
-                        ImbLogger.LogInfoPromocione(string.Format("Po tentohet te update-ohet statusi i kuponit me kodin {0} nga perdoruesi {1}", kodKuponiDD, idPerdoruesi));
-                        ImbLogger.LogInfoPromocione(string.Format("kuponi me kodin  {0} u shenua si i perdorur nga perdoruesi {1}", kodKuponiDD, idPerdoruesi));
-                        ImbLogger.LogInfoPromocione(string.Format("Po tentohet te update-ohet statusi i  msisdn {0} nga perdoruesi {1} per DD", kontakti, idPerdoruesi));
-                        u_ruajt = clsKlientPerBazaar.UpdateStatusPerdorur(dbRegj, kontakti, LlojMsisdn.DeviceWithDiscount, idShitjeKoka, idPerdoruesi);
-                        if (!u_ruajt.Status)
-                        {
-                            ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate updatetimi te klientit per bazaar  me msisdn {0} nga perdoruesi {1}", kontakti, idPerdoruesi), u_ruajt.PershkrimMesazhi);
-                            //dbRegj.rollbackTransaksion();
-                            return u_ruajt;
-                        }
-                        ImbLogger.LogInfoPromocione(string.Format(" msisdn {0} u shenua si i perdorur nga perdoruesi {1}", msisdn, idPerdoruesi));
-                    }
-
-                    if (kodvodone != "")
-                    {
-                        ImbLogger.LogInfoPromocione(string.Format("dokumenti me nr {0} u ruajt me sukses nga perdoruesi {1}", nrDok, idPerdoruesi));
-                        var vfOneAdapter = new PromocioneAdapter();
-                        clsMesazh mesazh = vfOneAdapter.DergoDhuratenEZgjedhur(this.kontakti, kodvodone);
-                        if (!mesazh.Status)
-                        {
-                            fshiFunction(idPerdoruesi, true, false, false, dbRegj);
-                            if (shitjemema.nrDok != null && shitjemema.nrDok != string.Empty)
-                                shitjemema.fshiFunction(idPerdoruesi, true, false, false, dbRegj);
-                            return mesazh;
-                        }
-                        u_ruajt.PershkrimMesazhi += " Piket u zbriten me sukses!";
-                    }
-                    #endregion
 
 
                     scope.Complete(out dbData);
@@ -3845,7 +3780,7 @@ namespace DbCore.DbRegjistrim
                     ImbLogger.LogTraceShitje($"Mbaroi clsMesazh krijoDokArkeBanke me parametra faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, isShitje:{isShitje}, int idPeriudha:{idPeriudha}");
                     return new clsMesazh(false, MessagesResource.Messages["msgNdodhi1GabimGjateKrijimitTeVeprimitTeBankes"]);
                 }
-                u_ruajt = banka.ruaj(null, db, 0, StatusAprovimi.Undefined, 0, string.Empty, false);
+                u_ruajt = banka.ruaj(null, db, 0, StatusAprovimi.Undefined, 0, string.Empty);
                 if (!u_ruajt.Status)
                 {
                     ImbLogger.LogTraceShitje($"Mbaroi clsMesazh krijoDokArkeBanke me parametra faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, isShitje:{isShitje}, int idPeriudha:{idPeriudha}");
@@ -3876,7 +3811,7 @@ namespace DbCore.DbRegjistrim
 
 
                 }
-                u_ruajt = banka.ruaj(null, db, 0, StatusAprovimi.Undefined, 0, string.Empty, false);
+                u_ruajt = banka.ruaj(null, db, 0, StatusAprovimi.Undefined, 0, string.Empty);
                 if (!u_ruajt.Status)
                 {
                     ImbLogger.LogTraceShitje($"Mbaroi clsMesazh krijoDokArkeBanke me parametra faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, isShitje:{isShitje}, int idPeriudha:{idPeriudha}");
@@ -9054,43 +8989,6 @@ namespace DbCore.DbRegjistrim
             }
             ImbLogger.LogTraceShitje($"Mbaroi metoda krijoRegjistrimPermbledhese me parametra KonfigAmbjente:{JsonConvert.SerializeObject(KonfigAmbjente)}, klienti:{klienti}, kodklienti:" + kodklienti + $", dtDk:{dtDk}, idMon:{idMon}, kodMon:{kodMon}, kursi:{kursi}, zbritje:{zbritje}, totali:{totali}, tvsh:{tvsh}, degeadm:{degeadm}, koddege:" + koddege + $", idpikeshitje:{idpikeshitje}, kodpikeshitje:" + kodpikeshitje + $", idgrup:{idgrup}, kodgrup:{kodgrup}, idmag:{idmag}, kodmag:" + kodmag + $", idNderVIti:{idNderViti}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, kokamema:{JsonConvert.SerializeObject(kokamema)}, kontrolloSasi:{kontrolloSasi}, faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, meme:{meme}, ngaImporti:{ngaImporti}, gjeneruar:{gjeneruar}, idMenyrePagese:{idMenyrePagese}, dbData:{dbData}, idGjuha:{idGjuha}");
             return koka;
-        }
-
-        public static clsMesazh AktivizoBundle(string msisdn, string bundleCode, string reason, string bundleCOST, int idPerdoruesi)
-        {
-            ImbLogger.LogTraceShitje($"Filloi clsMesazh AktivizoBundle me parametra msisdn:" + msisdn + $", bundleCode:" + bundleCode + $", reason:" + reason + $", bundleCOST:" + bundleCOST + $", idPerdoruesi:{idPerdoruesi}");
-
-            if (KonfigurimeStatikeIntegrimi.FakeResponse)
-                return new clsMesazh(true);
-            //msisdn = "355692223906";
-            //bundleCode = "500MBMonthly"; // </ inp:PTP_ID >
-            //bundleCOST = "0";
-            //reason = "8888";
-
-            clsMesazh mesazh = new clsMesazh(false);
-            string url = System.Web.Configuration.WebConfigurationManager.AppSettings["wsAktivzoBundle"];
-
-            clsWebRequest req = new clsWebRequest(url, "SubscribeBundle_WithSoap");
-            mesazh = req.SubscribeBundle(msisdn, bundleCode, bundleCOST, reason, idPerdoruesi);
-            ImbLogger.LogTraceShitje($"Mbaroi clsMesazh AktivizoBundle me parametra msisdn:" + msisdn + $", bundleCode:" + bundleCode + $", reason:" + reason + $", bundleCOST:" + bundleCOST + $", idPerdoruesi:{idPerdoruesi}");
-            return mesazh;
-        }
-        public static clsMesazh CaktivizoBundle(string msisdn, string bundleCode, string reason, string bundleCOST, int idPerdoruesi)
-        {
-            ImbLogger.LogTraceShitje($"Filloi clsMesazh CaktivizoBundle me parametra msisdn:" + msisdn + $", bundleCode:" + bundleCode + $", reason:" + reason + $", bundleCOST:" + bundleCOST + $", idPerdoruesi:{idPerdoruesi}");
-            //msisdn = "355692223906";
-            //bundleCode = "500MBMonthly"; // </ inp:PTP_ID >
-            //bundleCOST = "0";
-            //reason = "8888";
-            if (KonfigurimeStatikeIntegrimi.FakeResponse)
-                return new clsMesazh(true);
-            clsMesazh mesazh = new clsMesazh(false);
-            string url = System.Web.Configuration.WebConfigurationManager.AppSettings["wsAktivzoBundle"];
-
-            clsWebRequest req = new clsWebRequest(url, "SubscribeBundle_WithSoap");
-            mesazh = req.RemoveBundle(msisdn, bundleCode, bundleCOST, reason, idPerdoruesi);
-            ImbLogger.LogTraceShitje($"Mbaroi clsMesazh CaktivizoBundle me parametra msisdn:" + msisdn + $", bundleCode:" + bundleCode + $", reason:" + reason + $", bundleCOST:" + bundleCOST + $", idPerdoruesi:{idPerdoruesi}");
-            return mesazh;
         }
 
         public static DataTable merrArtikujTeKonvertuarPlotesisht(int idShitjeKoka, int idNdermarje, bool isBlerje)

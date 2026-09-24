@@ -121,21 +121,6 @@ namespace DbCore.DbListPagesat
                 return tabela;
             }
         }
-        /// <summary>
-        /// Kerkon punonjesin sipas shprehjes se kerkimit
-        /// </summary>
-        /// <param name="shprehjeKerkimi">(string) Shprehja e kerkimit qe vjen nga People Finder</param>
-        /// <returns>Kthen nese kerkimi perfundoi me sukses apo jo</returns>
-        public bool kerkoPunonjesPeopleFinder(string shprehjeKerkimi, string kodNdermarrje)
-        {
-            using (clsDatabazeListPagesa db = new clsDatabazeListPagesa())
-            {
-                bool mbush = mbushPunonjesitPeopleFinder(db.ktheGjithePunonjesitSipasKerkimitPeopleFinder(shprehjeKerkimi, kodNdermarrje));
-                db.Dispose();
-                return mbush;
-            }
-        }
-
         public Dictionary<string, int> ktheNrPersonalePerId()
         {
             Dictionary<string, int> punonjesit = new Dictionary<string, int>();
@@ -158,22 +143,6 @@ namespace DbCore.DbListPagesat
         #endregion
 
         #region Metoda Private
-        /// <summary>
-        /// Metoda perdoret vetem per rastet kur duam te mbushim punonjesin per People Finder
-        /// </summary>
-        /// <param name="dt"> data table me te dhena te tipit punonjes</param>
-        /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        private bool mbushPunonjesitPeopleFinder(DataTable dt)
-        {
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                var komp = new clsPunonjes();
-                komp.mbushPunonjesPeopleFinder(rreshti);
-                Add(komp);
-            }
-            return true;
-        }
-
         public static Dictionary<string,int> GetDictionaryNrPersonalIdPunonjesi(int idNdermarrje)
         {
 

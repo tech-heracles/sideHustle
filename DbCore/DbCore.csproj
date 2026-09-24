@@ -459,7 +459,6 @@
     <Compile Include="DbAnalizeBuxheti\colPlanifikimRealizim.cs" />
     <Compile Include="DbArkaBanka\ArketimeMailHelper.cs" />
     <Compile Include="DbArkaBanka\clsGjendjeArkeDitore.cs" />
-    <Compile Include="DbArkaBanka\colKlienteTerminated.cs" />
     <Compile Include="DbArkaBanka\LlojVeprimi.cs" />
     <Compile Include="DbAsete\clsAmortizimiTrupi.cs" />
     <Compile Include="DbAsete\clsAmortizimiTrupiRezerva.cs" />
@@ -552,21 +551,6 @@
     <Compile Include="DbListPagesat\cdPunonjesitMeVleraPerMuajt.cs" />
     <Compile Include="DbListPagesat\ListePagesaRegjistrues.cs" />
     <Compile Include="DbListPagesat\PunonjesMeSigurime.cs" />
-    <Compile Include="DbOTC\clsDatabaseOTC.cs" />
-    <Compile Include="DbOTC\colOTCFatura.cs" />
-    <Compile Include="DbOTC\LlojFatureOSHEE.cs" />
-    <Compile Include="DbOTC\OTCcheckBalance.cs" />
-    <Compile Include="DbOTC\OTCFatura.cs" />
-    <Compile Include="DbOTC\OTCLlojSherbimi.cs" />
-    <Compile Include="DbOTC\OTCLogData.cs" />
-    <Compile Include="DbOTC\OTCMPESABaseOperation.cs" />
-    <Compile Include="DbOTC\OTCPagesa.cs" />
-    <Compile Include="DbOTC\OTCPaguesi.cs" />
-    <Compile Include="DbOTC\OTCStatusMPESA.cs" />
-    <Compile Include="DbOTC\OTCTransferMoney.cs" />
-    <Compile Include="DbOTC\OTCUserMPESA.cs" />
-    <Compile Include="DbOTC\TipKomisioni.cs" />
-    <Compile Include="DbOTC\TripleDes.cs" />
     <Compile Include="DbRegjistrim\clsAzhornimKFKoka.cs" />
     <Compile Include="DbRegjistrim\clsAzhornimKFTrupi.cs" />
     <Compile Include="DbRegjistrim\clsDatabaseRegjistrim.cs" />
@@ -599,7 +583,6 @@
     <Compile Include="DbRegjistrim\clsKasaTrupi.cs" />
     <Compile Include="DbRegjistrim\clsKategoriNivelDok.cs" />
     <Compile Include="DbRegjistrim\clsKlientMeKupon.cs" />
-    <Compile Include="DbRegjistrim\clsKlientMeMSISDN.cs" />
     <Compile Include="DbRegjistrim\clsKlientPerBazaar.cs" />
     <Compile Include="DbRegjistrim\clsKokaInventarizim.cs" />
     <Compile Include="DbRegjistrim\clsKokaMagazina.cs" />
@@ -671,7 +654,6 @@
     <Compile Include="DbRegjistrim\colKarta.cs" />
     <Compile Include="DbRegjistrim\colKategoriNiveleDok.cs" />
     <Compile Include="DbRegjistrim\colKlientMeKupon.cs" />
-    <Compile Include="DbRegjistrim\colKlientMeMSISDN.cs" />
     <Compile Include="DbRegjistrim\colKlientPerBazaar.cs" />
     <Compile Include="DbRegjistrim\colKokaInventarizim.cs" />
     <Compile Include="DbRegjistrim\colKokaMagazina.cs" />
@@ -716,7 +698,6 @@
     <Compile Include="DbRegjistrim\colVeprimeKFTrupi.cs" />
     <Compile Include="DbRegjistrim\KonfigurimTVSHGjateRregj.cs" />
     <Compile Include="DbRegjistrim\KrijuesKasash.cs" />
-    <Compile Include="DbRegjistrim\LlojPromocionMsisdn.cs" />
     <Compile Include="DbRegjistrim\LlojMsisdn.cs" />
     <Compile Include="DbRegjistrim\LlojTakse.cs" />
     <Compile Include="DbRegjistrim\MarreveshjeExcelReader.cs" />
@@ -767,11 +748,8 @@
     <Compile Include="DbListPagesat\Utils.cs" />
     <Compile Include="IMBUtils\clsFunksione.cs" />
     <Compile Include="IMBUtils\Cache\SessionKeyUtils.cs" />
-    <Compile Include="CustomEntites\clsLoginVodafone.cs" />
     <Compile Include="Email\clsMailSender.cs" />
     <Compile Include="DbAnalizeBuxheti\clsShpenzimeOperativeCeshtje.cs" />
-    <Compile Include="CustomEntites\clsShtoDyqanVodafone.cs" />
-    <Compile Include="CustomEntites\clsShtoUserVodafone.cs" />
     <Compile Include="CustomEntites\comboList.cs" />
     <Compile Include="DbAnalizeBuxheti\clsAmbjenti.cs" />
     <Compile Include="DbAnalizeBuxheti\AnalizeBuxheti.cs" />
@@ -830,11 +808,9 @@
     <Compile Include="DbAdmin\clsGjenerimPIN.cs" />
     <Compile Include="DbAdmin\clsKokaErrorImporti.cs" />
     <Compile Include="DbAdmin\colFiltraGIS.cs" />
-    <Compile Include="DbAdmin\colLogetPeopleFinder.cs" />
     <Compile Include="DbAdmin\clsLogRivleresimInventari.cs" />
     <Compile Include="DbAdmin\clsLogu.cs" />
     <Compile Include="DbAdmin\clsKonfigurimeFjalekalimi.cs" />
-    <Compile Include="DbAdmin\clsLoguPeopleFinder.cs" />
     <Compile Include="DbAdmin\clsTeDrejtaRoliKoka.cs" />
     <Compile Include="DbAdmin\clsTrupiErrorImporti.cs" />
     <Compile Include="DbAdmin\colAmbjent.cs" />
@@ -979,20 +955,7 @@
     <Compile Include="IMBUtils\Fiskalizimi\Controls\clsKontrollePerFiskalizimin.cs" />
     <Compile Include="IMBUtils\Kontrolle\Controls\clsKontrolle.cs" />
     <Compile Include="IMBUtils\Messages\MessagesResource.cs" />
-    <Compile Include="Integrime\BrmAdapter.cs" />
-    <Compile Include="Integrime\clsSocket.cs" />
-    <Compile Include="Integrime\clsWebRequest.cs" />
-    <Compile Include="Integrime\clsWebServiceAuten.cs" />
-    <Compile Include="Integrime\clsWebServiceKasaVodafone.cs" />
     <Compile Include="Integrime\KonfigurimeStatikeIntegrimi.cs" />
-    <Compile Include="Integrime\OTC\MPESAAdapter.cs" />
-    <Compile Include="Integrime\OTC\MPESAObjects.cs" />
-    <Compile Include="Integrime\OTC\MPESAStatusCode.cs" />
-    <Compile Include="Integrime\OTC\OTCPagesaAdapter.cs" />
-    <Compile Include="Integrime\OTC\SendSMSAdapter.cs" />
-    <Compile Include="Integrime\OTC\SMSHelper.cs" />
-    <Compile Include="Integrime\PromocioneAdapter.cs" />
-    <Compile Include="Integrime\StatuseNgaBrm.cs" />
     <Compile Include="KodGjuhePerPerkthim.cs" />
     <Compile Include="MbylljePeriudhe\Commons\ClosedPeriod.cs" />
     <Compile Include="MbylljePeriudhe\Commons\Process.cs" />
@@ -1479,42 +1442,10 @@
     <Compile Include="Raporte\ReportFunctions.cs" />
     <Compile Include="IMBUtils\Cache\StaticCache.cs" />
     <Compile Include="Raporte\VeprimtariaDitoreExporter.cs" />
-    <Compile Include="Service References\MPESARequestProxy\Reference.cs" />
-    <Compile Include="Service References\MPESARequestProxy\Reference1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\SendSMSProxy\Reference.cs" />
-    <Compile Include="Service References\SendSMSProxy\Reference1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Utility\DotSpatialEx.cs" />
     <Compile Include="Utility\GeometryConverterToDotSpatial.cs" />
     <Compile Include="Utility\GeometryConverterToGeoAPI.cs" />
-    <Compile Include="Web References\BRMAdapterServices\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\KasaService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Email\EmailComposer.cs" />
-    <Compile Include="Web References\PromocioneProxy\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\VodSendSMS_Service\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="WebAutoFear\clsDatabaseWebAutoFear.cs" />
     <Compile Include="WebAutoFear\Klasat\Address.cs" />
     <Compile Include="WebAutoFear\Klasat\ArticleAction.cs" />
@@ -1577,9 +1508,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -1589,113 +1517,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\MPESARequestProxy\BizTalkServiceInstance.wsdl" />
-    <None Include="Service References\MPESARequestProxy\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SendSMSProxy\sendSms.wsdl" />
-    <None Include="Web References\BRMAdapterServices\PCM_OP_VF_BALANCE_INQUIRY_RPLY.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\BRMAdapterServices\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl" />
-    <None Include="Web References\BRMAdapterServices\VF_OP_BAL_RETRIEVE_BAL_RPLY.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\BRMAdapterServices\VF_OP_PYMT_APPLY_ERP_PAYMENT_RPLY.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\BRMAdapterServices\VF_OP_PYMT_REVERSE_PAYMENT_RPLY.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\KasaService\KasaWebService.wsdl" />
-    <None Include="Web References\KasaService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\PromocioneProxy\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\PromocioneProxy\VFALSelfCareOperationsProxy.wsdl" />
-    <None Include="Web References\VodSendSMS_Service\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\VodSendSMS_Service\VFALSendSMSGateWay.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="C:\Users\alda\Desktop\TFS Alpha\DbCore\Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\BRMAdapterServices\</RelPath>
-      <UpdateFromURL>C:\Users\alda\Desktop\TFS Alpha\DbCore\Web References\BRMAdapterServices\VFALBRMServicesOSBProxy.wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>DbCore_BRMAdapterServices_BRMAdapterServicesSoap12BindingQSService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="C:\Users\getson\Desktop\TfsProjects\AlphaWeb\DbCore\Web References\VFALSelfCareOperations\VFALSelfCareOperationsProxy.wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\PromocioneProxy\</RelPath>
-      <UpdateFromURL>C:\Users\getson\Desktop\TfsProjects\AlphaWeb\DbCore\Web References\VFALSelfCareOperations\VFALSelfCareOperationsProxy.wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>DbCore_PromocioneProxy1_VFALSelfCareOperations</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="C:\Users\ridi\Desktop\VFALSendSMSGateWay.wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\VodSendSMS_Service\</RelPath>
-      <UpdateFromURL>C:\Users\ridi\Desktop\VFALSendSMSGateWay.wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>DbCore_VodSendSMS_Service_VFALSendSMSGateWay</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://10.5.47.2/Kasa/KasaWebService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\KasaService\</RelPath>
-      <UpdateFromURL>http://10.5.47.2/Kasa/KasaWebService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>DbCore_KasaService_KasaWebService</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\KasaService\KasaWebService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Service References\MPESARequestProxy\configuration.svcinfo" />
-    <Content Include="Service References\MPESARequestProxy\configuration91.svcinfo" />
-    <Content Include="Service References\MPESARequestProxy\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Service References\SendSMSProxy\configuration.svcinfo" />
-    <Content Include="Service References\SendSMSProxy\configuration91.svcinfo" />
-    <Content Include="Service References\SendSMSProxy\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference1.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service References\OSHEEProxy\" />
-    <Folder Include="Service References\UKTProxy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

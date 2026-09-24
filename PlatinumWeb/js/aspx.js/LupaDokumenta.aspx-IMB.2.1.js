@@ -181,7 +181,6 @@ function OnGridSelectionComplete(values) {
     if (window.parent.identifikuesPerPopupDokumentat == "ShtoVeprimBanka.aspx")
         window.parent.location = 'ShtoVeprimBanka.aspx?lloji=' + Utils.getUrlVar('lloji') + '&id=' + id + '&shtim_modifikim=modifikim';
     if (window.parent.identifikuesPerPopupDokumentat == "VeprimeBankaPaprintuar") {
-        window.parent.hapLupeValidimi = false;
         window.parent.location = 'ShtoVeprimBanka.aspx?lloji=' + Utils.getUrlVar('lloji') + '&id=' + id + '&shtim_modifikim=modifikim';
     }
     if (window.parent.identifikuesPerPopupDokumentat == "FleteDoganore.aspx?lloji=import") {
@@ -228,7 +227,6 @@ function OnGridSelectionComplete(values) {
             window.parent.location = "Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&id=" + id + "&shtim_modifikim=modifikim";
     }
     if (window.parent.identifikuesPerPopupDokumentat == "Shto_RegjistrimDokumentashPaPrint.aspx") {
-        window.parent.hapLupeValidimi = false;
         window.parent.location = "Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&id=" + id + "&shtim_modifikim=modifikim";
 
     }
@@ -363,8 +361,6 @@ function menu_click(s, e) {
         case "Anullo":
             e.processOnServer = false;
             window.parent.popupUniversal.Hide();
-            //if (window.parent.identifikuesPerPopupDokumentat == "VeprimeBankaPaprintuar" || window.parent.identifikuesPerPopupDokumentat == "Shto_RegjistrimDokumentashPaPrint.aspx")
-            //    window.parent.HapLupeValidimiPasLupesPaPrintuar();
             break;
         case "Printo":
             Utils.shfaqLoadingGif();

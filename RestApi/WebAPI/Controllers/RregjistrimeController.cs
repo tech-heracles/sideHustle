@@ -22,20 +22,6 @@ namespace RestApi.WebAPI.Controllers
         private System.Web.SessionState.HttpSessionState Session { get { return HttpContext.Current.Session; } }
 
 
-        [HttpPost, HttpGet]
-        public HttpResponseMessage kontrollobundle(JObject param)
-        {
-            try
-            {
-                int[] idartikujsh = param["idartikujsh"].ToObject<int[]>();
-
-                return Request.KthePergjigje(RregjistrimeRepository.kontrollobundle(idartikujsh));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
         public HttpResponseMessage ktheRowVleraIdArtTvshEPlote(JObject param)
         {
             try

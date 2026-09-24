@@ -587,41 +587,6 @@ namespace DbCore
             }
         }
         
-        public static clsMesazh dergoEmailFailAuthPeopleFinder(string mesazhiFail)
-        {
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            int idNdermarje = clsNdermarrje.ktheIdNdermPareNeListeSipasLicences();
-            if (idNdermarje == 0)
-                return new clsMesazh(false, "Nuk ekziston konfigurimi i email për asnjë nga ndërmarrjet e licencës. Ju lutemi, kontakoni me administratorin!");
-            clsMailSender mailSender = new clsMailSender(idNdermarje, "People Finder");
-            string subject = "AUTHENTICATION PEOPLE FINDER ERROR";
-            string headerbody = rm.GetString("njoftimPeopleFinderHeaderEmail", new CultureInfo("sq-AL"));
-            //headerbody = headerbody.Replace("<br />", Environment.NewLine);
-            string footerbody = rm.GetString("njoftimPeopleFinderFooterEmail", new CultureInfo("sq-AL"));
-            //footerbody = footerbody.Replace("<br />", Environment.NewLine);
-            string toEmail = System.Web.Configuration.WebConfigurationManager.AppSettings["adreseDergimiVodafoneAdmin"].ToString();
-            mailSender.SendPlainAsyncEmail(toEmail.Split(';'), subject, headerbody + mesazhiFail + footerbody);
-            return new clsMesazh(true, "Emaili u vendos per dergim");
-        }
-
-        public static clsMesazh dergoEmailFailDergimMesazhPeopleFinder(string mesazhiFail)
-        {
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            int idNdermarje = clsNdermarrje.ktheIdNdermPareNeListeSipasLicences();
-            if (idNdermarje == 0)
-                return new clsMesazh(false, "Nuk ekziston konfigurimi i email për asnjë nga ndërmarrjet e licencës. Ju lutemi, kontakoni me administratorin!");
-            clsMailSender mailSender = new clsMailSender(idNdermarje, "People Finder");
-            string subject = "DERGIM ME SMS PEOPLE FINDER ERROR";
-            string headerbody = rm.GetString("njoftimPeopleFinderHeaderEmail", new CultureInfo("sq-AL"));
-            //headerbody = headerbody.Replace("<br />", Environment.NewLine);
-            string footerbody = rm.GetString("njoftimPeopleFinderFooterEmail", new CultureInfo("sq-AL"));
-            //footerbody = footerbody.Replace("<br />", Environment.NewLine);
-            string toEmail = System.Web.Configuration.WebConfigurationManager.AppSettings["adreseDergimiVodafoneAdmin"].ToString();
-            mailSender.SendPlainAsyncEmail(toEmail.Split(';'), subject, headerbody + mesazhiFail + footerbody);
-            return new clsMesazh(true, "Emaili u vendos per dergim");
-
-        }
-
         /// <summary>
         /// Dergon me email raportet te plotesuara te tabela T_EMAILRAPORT per te gjitha adresat e email te specifikuara ne fushen EMAIL 
         /// </summary>

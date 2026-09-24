@@ -1663,23 +1663,6 @@ namespace RestApi.WebAPI.Models
 
 
         }
-        public static string kontrollobundle(int[] idte)
-        {
-
-            for (int i = 0; i < idte.Length; i++)
-            {
-                if (idte[i] != 0)
-                {
-                    clsArtikulli art = new clsArtikulli(idte[i]);
-                    if (art.KodOferte != "" && !art.AparatBazaar)
-                    {
-                        return art.KodOferte;
-                    }
-                }
-
-            }
-            return "";
-        }
         public static List<string> ktheTvshSipasArtikullit(int[] idartikulli, string[] lloji)
         {
             List<string> result = new List<string>();

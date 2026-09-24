@@ -3767,19 +3767,6 @@ namespace DbCore
             else return null;
 
         }
-        public static bool RuajFaturatNgaBrmNeSession(HttpSessionState session, Tuple<string, string, string, string, string, DataTable> faturat)
-        {
-            if (MySessionCache["brmFaturat"] == null)
-                MySessionCache.Add("brmFaturat", faturat);
-            else MySessionCache["brmFaturat"] = faturat;
-            return true;
-        }
-
-        public static Tuple<string, string, string, string, string, DataTable> MerrFaturatBRMngaSession(HttpSessionState session)
-        {
-            return (MySessionCache["brmFaturat"] as Tuple<string, string, string, string, string, DataTable>) ?? new Tuple<string, string, string, string, string, DataTable>(null, null, null, null, null, BrmAdapter.KrijoDataTableBoshPerArkaBanka());
-        }
-
         public static void RuajNdermarrjeRolNeSession(HttpSessionState session, string guidString, int idRoli, DataTable ndermarrjet)
         {
             if (MySessionCache[guidString + idRoli] == null)

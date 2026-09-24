@@ -182,7 +182,6 @@
     <Compile Include="WebAPI\Controllers\DashboardController.cs" />
     <Compile Include="WebAPI\Controllers\ImportiController.cs" />
     <Compile Include="WebAPI\Controllers\MbylljePeriudheController.cs" />
-    <Compile Include="WebAPI\Controllers\OTCController.cs" />
     <Compile Include="WebAPI\Controllers\PlanifikimProdhimiController.cs" />
     <Compile Include="WebAPI\Controllers\QendraKostoController.cs" />
     <Compile Include="WebAPI\Controllers\SerialeUnikeController.cs" />
@@ -209,8 +208,6 @@
     <Compile Include="WebAPI\Models\DashboardRepository.cs" />
     <Compile Include="WebAPI\Models\ImportiRepository.cs" />
     <Compile Include="WebAPI\Models\MbylljePeriudheRepository.cs" />
-    <Compile Include="WebAPI\Models\ModelKerkimi.cs" />
-    <Compile Include="WebAPI\Models\OTCRepository.cs" />
     <Compile Include="WebAPI\Models\PlanifikimProdhimiRepository.cs" />
     <Compile Include="WebAPI\Models\QendraKostoRepository.cs" />
     <Compile Include="WebAPI\Models\SerialeUnikeRepository.cs" />

@@ -16972,31 +16972,6 @@ namespace DbCore.DbAdmin
             return true;
 
         }
-        internal clsMesazh ruajLogPeopleFinder(string ipKlient, DateTime kohaLogut, string pershkrimiLogut, string kodPershkrimi)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@ID", 0, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@IPKLIENT", ipKlient, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@KOHALOG", kohaLogut, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@PERSHKRIMI", pershkrimiLogut, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@KOD_PERSHKRIMI", pershkrimiLogut, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LOG_PEOPLEFINDER_AUTENTIFIKIM_ins");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-            return mesazh;
-        }
-
-        internal int ktheErrorLogimiNgaPeopleFinder()
-        {
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LOG_PEOPLEFINDER_AUTENTIFIKIM_SEL_ERRLOGIMPEOPLEFINDER");
-            return ds.Tables[0].Rows.Count;
-        }
-
-
-
-
-
         #endregion
 
     }

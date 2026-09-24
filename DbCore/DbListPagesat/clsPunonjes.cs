@@ -1581,29 +1581,6 @@ namespace DbCore.DbListPagesat
         /// </summary>
         /// <param name="dbDataRow">rreshti me te dhena</param>
         /// <returns> kthen ne se mbushja u be ne rregull apo jo</returns>
-        /// <summary>
-        ///     Mbush punonjesin vetem per People finder
-        /// </summary>
-        /// <param name="dbDataRow">Rreshti me te dhena</param>
-        /// <returns> Kthen nese mbushja u be ne rregull apo jo</returns>
-        internal clsMesazh mbushPunonjesPeopleFinder(DataRow dbDataRow)
-        {
-            if (dbDataRow != null)
-            {
-                try
-                {
-                    Emer = dbDataRow["EMER"].ToString();
-                    Mbiemer = dbDataRow["MBIEMER"].ToString();
-                    Telefon = dbDataRow["TELEFON"].ToString();
-                    return new clsMesazh(true, mbushjeSukses);
-                }
-                catch (InvalidCastException)
-                {
-                    throw new Exception(gabimNeTeDhena);
-                }
-            }
-            return new clsMesazh(false, drbosh);
-        }
         public static clsPunonjes KrijoPunonjesSLim(IDataRecord record)
         {
             var punonjes = new clsPunonjes();

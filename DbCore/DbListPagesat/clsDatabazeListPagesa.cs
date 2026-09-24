@@ -8817,30 +8817,6 @@ namespace DbCore.DbListPagesat
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsPunonjes per People Finder
         /// </summary>
-        #region People finder
-
-        /// <summary>
-        /// merr gjithe punonjesit e ndermarjes
-        /// </summary>
-        /// <param name="idnder"> id e ndermarjes</param>
-        /// <param name="lloji">lloji</param>
-        /// <returns> nje datatable qe permban nje koleksion me te gjithe punonjesit te ndermarjes</returns>
-        internal DataTable ktheGjithePunonjesitSipasKerkimitPeopleFinder(string shprehjeKerkimi, string kodNdermarrje)
-        {
-            string salt = WebConfigurationManager.AppSettings["salt"];
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@SHPREHJEKERKIMI", shprehjeKerkimi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@KODNDERMARRJE", kodNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@SALT", salt, ParameterDirection.Input);
-            using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PUNONJES_merrPunonjesPerPeopleFinder"))
-            {
-                return ds.Tables[0];
-            }
-        }
-
-        #endregion
-
         internal DataTable ktheACListePunonjesishLikeKodiEmerMbiemer(string kodi, int idNdermarrje)
         {
             string salt = WebConfigurationManager.AppSettings["salt"];

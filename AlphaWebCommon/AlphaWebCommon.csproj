@@ -110,9 +110,7 @@
     <Compile Include="MultiTasking\ImbTasks.cs" />
     <Compile Include="Paths.cs" />
     <Compile Include="RealTime\MessageToAllHub.cs" />
-    <Compile Include="Security\clsEnDecVodafone.cs" />
     <Compile Include="Security\clsStrongPassword.cs" />
-    <Compile Include="Security\clsWebServiceAuten.cs" />
     <Compile Include="Security\LdapAuthentication.cs" />
     <Compile Include="Security\PasswordHelper.cs" />
     <Compile Include="Security\RijndaelSimple.cs" />

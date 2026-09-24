@@ -326,7 +326,7 @@
                                                                 <HeaderStyle Font-Bold="True" Font-Size="14px" ForeColor="Gray"></HeaderStyle>
                                                                 <ContentTemplate>
                                                                     <dx:ASPxGridView ID="grid_faturat" runat="server" ClientInstanceName="grid_faturat" OnHtmlDataCellPrepared="grid_faturat_HtmlDataCellPrepared" Width="100%" OnCustomCallback="grid_faturat_CustomCallback" OnDataBound="grid_faturat_DataBound" OnCustomJSProperties="grid_faturat_CustomJSProperties">
-                                                                        <ClientSideEvents SelectionChanged="SelectionChanged" RowDblClick="SelectionChanged" EndCallback="EndCallbackGrid_Faturat" />
+                                                                        <ClientSideEvents SelectionChanged="SelectionChanged" RowDblClick="SelectionChanged" />
                                                                         <Styles>
                                                                             <Header ImageSpacing="5px" SortingImageSpacing="5px"></Header>
                                                                         </Styles>

@@ -44,7 +44,6 @@ namespace PlatinumWeb
 	public partial class login : MyPageBase
 	{
 		public ITestService TestService { get; set; }
-		private const string PARAMETER_NAME = "enc=";
 		private DataTable dtServera;
 		private const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 		protected void Page_Load(object sender, EventArgs e)
@@ -87,10 +86,6 @@ namespace PlatinumWeb
 				ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
 
 				emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
-				if (Request.QueryString["enc"] != null)
-				{
-					loginETopUpVod(Request.QueryString["enc"], rm, ci);
-				}
 				//ruhet ne web config nese do shfaqet linku per resetim passowrdi ose jo, pasi ne politikat e fjalekalimit nuk mund te vendoset per sa kohe nuk kemi asnje te dhene per ndermarrjen ose licencen ne momentin qe hapet faqja e login
 				bool shfaqLinkResetPass = Convert.ToBoolean(WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
 				if (shfaqLinkResetPass)
@@ -288,49 +283,6 @@ namespace PlatinumWeb
 			}
 		}
 
-		/// <summary>
-		/// Metode qe perdoret vetem per VODAFONE, per log-in nga eTopUp.
-		/// </summary>
-		/// <param name="enc">String e enkriptuar e parametrave</param>
-		private void loginETopUpVod(string enc, ResourceManager rm, CultureInfo ci)
-		{
-			try
-			{
-				string decryptedQuery = clsEnDecVodafone.dekriptoMesazh(enc);
-				NameValueCollection myQuery = HttpUtility.ParseQueryString(decryptedQuery);
-				int sekondaTeToleruara = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["toleroSekonda"]);
-				if (myQuery["username"] != "" && myQuery["webService"] != "")
-				{
-					TimeSpan diffTime = DateTime.Now - Convert.ToDateTime(myQuery["dataLogin"], new CultureInfo("en-us", false));
-					if (diffTime.TotalSeconds > sekondaTeToleruara)
-					{
-						LabelInfo.Text = MessagesResource.Messages["msgLoginLinkuPerSingleSignONJoIVlefshem"];
-						clsFunksione.logout(Session, false, true, true);
-						return;
-					}
-					if (loginAutentification(myQuery["username"], myQuery["dataLogin"], Boolean.Parse(myQuery["webService"]), rm, ci, myQuery["ndermarrja"], myQuery["ipkasa"], myQuery["emerprinteri"], myQuery["dyqani"]))
-						clsFunksione.avancoPerpara(Response, Session, mySessionObjects.ktheIdPerdoruesi(Session), rm, ci, (bool)Application["validInstall"], false, false, false);
-					else
-					{
-						LabelInfo.Text = MessagesResource.Messages["msgLoginNukUKryeLogimi"];
-						clsFunksione.logout(Session, false, true, true);
-					}
-				}
-			}
-			catch (MyException m)
-			{
-				ImbLogger.Error(m);
-				LabelInfo.Text = m.Message;
-				clsFunksione.logout(Session, false, true, true);
-			}
-			catch (Exception m)
-			{
-				ImbLogger.Error(m);
-				LabelInfo.Text = MessagesResource.Messages["msgLoginLinkuPerSingleSignONJoIVlefshem"];
-				clsFunksione.logout(Session, false, true, true);
-			}
-		}
-
 		protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
 		{
 			ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton2");
@@ -440,10 +392,10 @@ namespace PlatinumWeb
 				Login1.FailureText = mesazh.PershkrimMesazhi;
 			}
 		}
-		internal bool loginAutentification(string username, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
+		internal bool loginAutentification(string username, string data, bool webServise, ResourceManager rm, CultureInfo ci)
 		{
 			ASPxTextBox pass = (ASPxTextBox)Login1.FindControl("Password");
-			clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, username, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, ndermarrjaWS, ipKasaWS, emerPrinteriWS, dyqaniWS, false);
+			clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, username, pass.Text, Login1.RememberMeSet, data, webServise, rm, ci, "", "", "", "", false);
 			if (mesazh)
 			{
 				return true;

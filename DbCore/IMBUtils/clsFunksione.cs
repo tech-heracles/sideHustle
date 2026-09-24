@@ -49,7 +49,6 @@ using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Security;
 using DbCore.IMBUtils.Validation;
-using DbCore.VodSendSMS_Service;
 using Newtonsoft.Json;
 using NLog;
 using OfficeOpenXml;
@@ -2354,7 +2353,7 @@ namespace DbCore
 				string nrTel = clsPunonjes.merrNumerTelefoneSipasUsername(username);
 				var dergoPinMeSMS = clsServerConfiguration.LexoKonfigurimSipasKey<int>(ServerKonfigKey.DERGO_PIN_SMS);
 				if (dergoPinMeSMS == 1)
-					return DergoPinMeSMS(piniRi, nrTel);
+					return new clsMesazh(false, "Dergimi i PIN-it me SMS nuk eshte i disponueshem.");
 				return new MesazhSuksesi();
 
 			}
@@ -2362,25 +2361,6 @@ namespace DbCore
 			{
 				ImbLogger.Error("Login1_Authenticate(object sender, AuthenticateEventArgs e) - Pati nje gabim gjate gjenerimit te PIN-it! Ju lutem provoni perseri");
 				return new clsMesazh(false, "Pati nje gabim gjate gjenerimit te PIN-it! Ju lutem provoni perseri");
-			}
-		}
-
-		private static clsMesazh DergoPinMeSMS(clsGjenerimPIN piniRi, string nrTel)
-		{
-
-			using (VFALSendSMSGateWay dergoSMS = new VFALSendSMSGateWay())
-			{
-				try
-				{
-					dergoSMS.Url = Convert.ToString(ConfigurationManager.AppSettings["VodSendSMS_Service_URL"]);
-					dergoSMS.SendSMS(Convert.ToString(ConfigurationManager.AppSettings["SendSMSVodUser"]), Convert.ToString(ConfigurationManager.AppSettings["SendSMSVodPassword"]), Convert.ToString(ConfigurationManager.AppSettings["SendSMSVodOriginator"]), nrTel, String.Format("{0}\r\n{1}", MessagesResource.Messages["kodiPinPerSherbiminEpayslip"], piniRi.KodiPIN));
-					return new clsMesazh(true);
-				}
-				catch (Exception err)
-				{
-					ImbLogger.Error("Pati nje gabim gjate dergimit te PIN-it! " + err);
-					return new clsMesazh(false, "Pati nje gabim gjate dergimit te PIN-it! " + err);
-				}
 			}
 		}
 
@@ -9075,7 +9055,7 @@ namespace DbCore
 						idDokImporti = dokTable.Rows[0][primaryKey].ToString();
 					}
 
-					mesazh = koka.ruaj(null, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKey, ndermarrjeKey, 0, StatusAprovimi.Undefined, 0, "", false);
+					mesazh = koka.ruaj(null, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKey, ndermarrjeKey, 0, StatusAprovimi.Undefined, 0, "");
 
 					if (!mesazh.Status)
 					{

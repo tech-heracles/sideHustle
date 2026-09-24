@@ -1117,7 +1117,7 @@ namespace DbCore.DbBuxheti
             if (!mesazh)
                 return mesazh;
 
-            mesazh = kokaArka.ruaj(null, new clsDatabaseArkaBanka(dbData), 0, StatusAprovimi.Undefined, 0, string.Empty, false);
+            mesazh = kokaArka.ruaj(null, new clsDatabaseArkaBanka(dbData), 0, StatusAprovimi.Undefined, 0, string.Empty);
 
             ImbLogger.LogExit(ImbLogger.LogTraceBuxhetimi);
             return mesazh;

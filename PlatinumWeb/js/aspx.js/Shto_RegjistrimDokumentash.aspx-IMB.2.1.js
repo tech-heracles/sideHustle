@@ -4339,8 +4339,6 @@ function kontrollofaturaTePaprintuara() {//po
 function SuccededCallbackPaPrintuar(result) {
     if (result)
         ButtonClickPaPrintuar();
-    else if (hapLupeValidimi)
-        ButtonClickValidim();
 }
 
 function ButtonClickPaPrintuar() {//po
@@ -4351,12 +4349,6 @@ function ButtonClickPaPrintuar() {//po
     popupUniversal.Show();
 }
 
-function HapLupeValidimiPasLupesPaPrintuar() {
-    if (hapLupeValidimi) {
-        hapLupeValidimi = false; //se pastaj po shtype X tek lupa validim, sdo te mbyllet kurre
-        ButtonClickValidim();
-    }
-}
 function ButtonClickArkiva(idDok, lupeOptions) {//po  
     var teDrejtaNiveli = merrTeDrejtaNiveli(cmbNiveli.GetValue());
     if (!teDrejtaNiveli.DArkiva) {
@@ -4375,15 +4367,6 @@ function ButtonClickArkiva(idDok, lupeOptions) {//po
     //popupUniversal.Show();
 }
 
-function ButtonClickValidim() {//po
-    hapLupeValidimi = false;
-    popupUniversal.SetHeaderText(hfState.Get("msgValidimiKlientit"));
-
-    popupUniversal.SetContentUrl('LupaValidim.aspx?mag=' + btnMagazina.GetValue() + '&status=' + hfState.Get('Status') + '&kodi=' + cmbModeli.GetText().substring(0, 5) + "&KGJVFONE=" + pageState.kushte["KGJVFONE"]);
-
-    popupUniversal.SetSize(700, 600);
-    popupUniversal.Show();
-}
 
 /*
 Function: ButtonClickKonverto
@@ -4517,7 +4500,6 @@ var cmimemetvsh = false;
 //var ruajlocalstorage = false;
 //var vlereperqindje = 'perqindje';
 var percaktoCmimPerKF = "";
-var hapLupeValidimi = false;
 
 function initKushte() {
     hfState.Set("LAVK", false);
@@ -4662,10 +4644,6 @@ function SucceededCallbackKonfig(result) {  //po
         magazinagrides.selectedIndex = 0;
         magazina1 = '';
     }
-    if (((cmbModeli.GetText().length >= 5 && (cmbModeli.GetText().substring(0, 5) == "VFONE" && (Utils.getUrlVar("kthehu") != "kthehu" && !((!hfState.Get("RoliSR") && hfState.Get("Status") == 0))) || cmbModeli.GetText().substring(0, 5) == "USHDD")) || (cmbModeli.GetText().length >= 6 && cmbModeli.GetText().substring(0, 6) == "BAZAAR")) && pageState.lloji != 'konvertim' && (pageState.lloji != 'modifikim' || (hfState.Get('Status') == 0 && pageState.lloji == 'modifikim')))
-        hapLupeValidimi = true;
-
-    var hapLupeValidimiPaFaturaPaPrintuar = false;
 
     initKushte();
 
@@ -5108,8 +5086,6 @@ function SucceededCallbackKonfig(result) {  //po
                 cmbDegeAdministrative.SetSelectedItem(cmbDegeAdministrative.FindItemByValue(colAtrTrupi[i].VlereDefault));
                 TextChangedDega();
             }
-            else
-                hapLupeValidimiPaFaturaPaPrintuar = true;
         }
 
         //if (colKontrollet[i].KodKontrolli == "cmbOperatori" && pageState.lloji != 'modifikim' && pageState.lloji != 'klonim') {
@@ -5232,9 +5208,6 @@ function SucceededCallbackKonfig(result) {  //po
         $("input[id$='hfVlera']").val(Utils.getUrlVar("zbritje"));
     }
 
-    if (hapLupeValidimi && hapLupeValidimiPaFaturaPaPrintuar) {
-        ButtonClickValidim();
-    }
     lblKonfigurimi.SetVisible(false);
 
     Utils.konfiguroAccorditionPasKonfigDokumenti(varKonfig.identifikuesPerLocalStorageKey);
@@ -5408,25 +5381,8 @@ function SuccedcallbackSkemaMenu(result) {
     if (cmbModeli.GetText().length >= 5 && (cmbModeli.GetText().substring(0, 5) == "VFONE") && Utils.getUrlVar("kthehu") == "kthehu") {
         ASPxMenu1.GetItemByName('Draft').SetVisible(true);
         ASPxMenu1.GetItemByName('Ruaj').SetVisible(false);
-        ASPxMenu1.GetItemByName('Validim').SetVisible(false);
         cmbLlojZbritje.SetValue(Utils.llojZbritje.Perqindje);
     }
-    if (cmbModeli.GetText().length >= 5 && (cmbModeli.GetText().substring(0, 5) == "USHDD") && $("input[id$='hfShtimModifikim']").val() == "konvertim") {
-        ASPxMenu1.GetItemByName('Validim').SetVisible(false);
-    }
-    if (cmbModeli.GetText().length >= 6 && (cmbModeli.GetText().substring(0, 6) == "BAZAAR") && $("input[id$='hfShtimModifikim']").val() == "konvertim") {
-        ASPxMenu1.GetItemByName('Validim').SetVisible(false);
-    }
-    if (hfState.Get('Status') == 0 && $("input[id$='hfShtimModifikim']").val() == 'modifikim')
-        try {
-            ASPxMenu1.GetItemByName('Validim').SetVisible(true);
-        }
-        catch (exx) {
-
-        }
-
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
-        ASPxMenu1.GetItemByName('Validim').SetVisible(result[11]);
 
 
     if ($("input[id$='hfShtimModifikim']").val() == "modifikim" && hfState.Get("Status") == 4 && hfState.Get("Meme") == false)
@@ -6369,8 +6325,6 @@ function TextChangedDega() {
             txtPershkrimDege.SetText(dega.GetColumnText('Pershkrimi'));
             if (shfaqlupepaprintuar && $('#hfShtimModifikim').val() != 'modifikim')
                 kontrollofaturaTePaprintuara();
-            else if (hapLupeValidimi)
-                ButtonClickValidim();
         }
     }
 }
@@ -6399,8 +6353,6 @@ function TextChangedPika() { //pershkrimi i Pike shitje
             txtPershkrimPike.SetText(pika.GetColumnText('Pershkrimi'));
             if (shfaqlupepaprintuar && $('#hfShtimModifikim').val() != 'modifikim')
                 kontrollofaturaTePaprintuara();
-            else if (hapLupeValidimi)
-                ButtonClickValidim();
         }
     }
 }
@@ -8668,13 +8620,6 @@ function JopopupClick(s, e) {
 
 function closePopup(s, e) {
     var popUpUrl = popupUniversal.GetContentUrl();
-    if (popUpUrl.search('LupaValidim.aspx') != -1) {
-        if ($('#hfVodOne').val() == "false" && cmbModeli.GetText().substring(0, 5) != "USHma") {
-
-            cmbModeli.SetSelectedIndex(0);
-            ndryshoKonfigurimin(true);
-        }
-    }
     popupUniversal.SetContentUrl('');
     hapPopMesazhQK();
     var hf = document.getElementById("status1");
@@ -8683,7 +8628,6 @@ function closePopup(s, e) {
         myFaqeCelje.kontrolloTeDrejta($('#hfId').val());
     if (pageStateLloji == "pagese" && ($('#hfUrl').val() == "" && $('#hfUrlmag').val() == "" && $('#hfUrlbanka').val() == "" && $('#hfUrlVDK').val() == ""))
         myFaqeCelje.kontrolloTeDrejta($('#hfId').val());
-    HapLupeValidimiPasLupesPaPrintuar();
 }
 
 function hapPopUp(s, e) {
@@ -9014,12 +8958,6 @@ function menuClick(s, e, doPostback) {//po
         click = false;
         return;
     }
-    if (e.item.name == 'Validim') {
-        ButtonClickValidim();
-        e.processOnServer = false;
-        click = false;
-        return;
-    }
     Utils.doPostback(s, e, doPostback);
 }
 
@@ -9145,28 +9083,10 @@ function RuajClick(status, s, e) {//po
                 Utils.hiqLoadingGif();
             }
         }
-        if ($('#hfShtimModifikim').val() == 'shtim' && ((Utils.getUrlVar('shitje_blerje') == "shitjediscount" && ((cmbModeli.GetText().length > 5 && cmbModeli.GetText().substring(0, 5) == "USHDD") || (cmbModeli.GetText().length > 8 && cmbModeli.GetText().substring(0, 8) == "POROSIDD"))) ||
-            (Utils.getUrlVar('shitje_blerje') == "bazaar" && ((cmbModeli.GetText().length > 6 && cmbModeli.GetText().substring(0, 6) == "BAZAAR") || (cmbModeli.GetText().length > 12 && cmbModeli.GetText().substring(0, 12) == "POROSIBAZAAR"))))) {
-            e.processOnServer = false;
-            $.ajax({
-                pritPergjigje: true,
-                url: Utils.getServerApiUrl("Rregjistrime", "kontrollobundle"),
-                data: JSON.stringify({ idartikujsh: idartikujsh })
-            }).done(SucceededCallbackBundle);
-        }
     }
     else {
         e.processOnServer = false;
         click = false;
-        Utils.hiqLoadingGif();
-    }
-}
-function SucceededCallbackBundle(result) {
-    if (result == "" || result == null)
-        btn.DoClick();
-    else {
-        $('#hfKodBundle').val(result);
-        ButtonClickValidim();
         Utils.hiqLoadingGif();
     }
 }

@@ -60,12 +60,6 @@ namespace PlatinumWeb.E_PaySlip
 
                 System.Resources.ResourceManager rm = MessagesResource.CurrentResourceManager;
                 emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
-                string decryptedQuery = clsEnDecVodafone.dekriptoMesazh(Request.QueryString["enc"]);
-                NameValueCollection myQuery = HttpUtility.ParseQueryString(decryptedQuery);
-                if (Request.QueryString["enc"] != null)
-                {
-                    clsLogin.loginETopUpVod(HttpContext.Current,Request.QueryString["enc"], rm, ci, LabelInfo, Login1, (bool)Application["validInstall"], myQuery, true);
-                }
                 bool shfaqLinkResetPass = Convert.ToBoolean(System.Web.Configuration.WebConfigurationManager.AppSettings["shfaqLinkResetPass"]);
 
                 if (shfaqLinkResetPass)

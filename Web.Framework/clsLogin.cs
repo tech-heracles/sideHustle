@@ -120,48 +120,6 @@ namespace PlatinumWeb
             return new clsMesazh(true, "u vendos me sukses");
         }
 
-        /// <summary>
-        /// Metode qe perdoret vetem per VODAFONE, per log-in nga eTopUp.
-        /// </summary>
-        /// <param name="enc">String e enkriptuar e parametrave</param>
-        public static void loginETopUpVod(HttpContext httpContext, string enc, System.Resources.ResourceManager rm, CultureInfo ci, ASPxLabel label, System.Web.UI.WebControls.Login Login1, bool validInstall, NameValueCollection myQuery, bool punonjes)
-        {
-            try
-            {
-
-                int sekondaTeToleruara = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["toleroSekonda"]);
-                if (myQuery["username"] != "" && myQuery["webService"] != "")
-                {
-                    TimeSpan diffTime = DateTime.Now - Convert.ToDateTime(myQuery["dataLogin"], new System.Globalization.CultureInfo("en-us", false));
-                    if (diffTime.TotalSeconds > sekondaTeToleruara)
-                    {
-                        label.Text = rm.GetString("msgLoginLinkuPerSingleSignONJoIVlefshem", ci);
-                        clsFunksione.logout(httpContext.Session, false, true, true);
-                        return;
-                    }
-                    if (loginAutentification(httpContext, myQuery["username"], myQuery["password"], myQuery["dataLogin"], Boolean.Parse(myQuery["webService"]), rm, ci, Login1, punonjes, myQuery["ndermarrja"], myQuery["ipkasa"], myQuery["emerprinteri"], myQuery["dyqani"]))
-                        clsFunksione.avancoPerpara(httpContext.Response, httpContext.Session, mySessionObjects.ktheIdPerdoruesi(httpContext.Session), rm, ci, validInstall);
-                    else
-                    {
-                        label.Text = rm.GetString("msgLoginNukUKryeLogimi", ci);
-                        clsFunksione.logout(httpContext.Session, false, true, true);
-                    }
-                }
-            }
-            catch (DbCore.MyException m)
-            {
-                ImbLogger.Error(m);
-                label.Text = m.Message;
-                clsFunksione.logout(httpContext.Session, false, true, true);
-            }
-            catch (Exception m)
-            {
-                ImbLogger.Error(m);
-                label.Text = rm.GetString("msgLoginLinkuPerSingleSignONJoIVlefshem", ci);
-                clsFunksione.logout(httpContext.Session, false, true, true);
-            }
-        }
-
         public static bool loginAutentification(HttpContext httpContext, string username, string pass, string data, bool webServise, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci, System.Web.UI.WebControls.Login Login1, bool punonjes, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", clsPunonjes user = null)
         {
             clsMesazh mesazh = new clsMesazh();
