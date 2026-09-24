@@ -120,7 +120,7 @@
             <dx:ASPxPageControl EnableHierarchyRecreation="false" ID="ASPxPageControl1" runat="server" TabSpacing="3px"
                 ClientInstanceName="PageControl" Width="100%" ActiveTabIndex="0">
                 <ContentStyle>
-                    <border bordercolor="#AECAF0" borderstyle="Solid" borderwidth="1px" />
+                    <border bordercolor="#F9E7E1" borderstyle="Solid" borderwidth="1px" />
                 </ContentStyle>
                 <TabPages>
                     <dx:TabPage Name="Te pergjithshme" Text="Te pergjithshme">

@@ -52,15 +52,31 @@
         }
 		
 		body.kesh{
-			background-color: #1478B4;
+			background-color: #E8693C;
 		}
 		
 		body form div.style1{
 			background-color: transparent;
 		}
 		
-		div table td #lblNdermarrje, div table td #lblEmriNdermarrje, div table td #lblPeriudha{
-			color: black;
+		div table td #lblNdermarrje, div table td #lblPeriudha{
+			color: #a3a3a0 !important;
+			font-size: 12px !important;
+		}
+		div table td #lblEmriNdermarrje{
+			color: #f2f2f0 !important;
+			font-size: 13px !important;
+		}
+		body{
+			background-color: #121212 !important;
+			border-top: 1px solid #262626;
+		}
+		.copyright span, .copyright a{
+			font-size: 12px !important;
+			color: #6e6e6b !important;
+		}
+		.copyright a{
+			color: #e8683a !important;
 		}
 		
 		.kesh div table td #lblNdermarrje, .kesh div table td #lblEmriNdermarrje, .kesh div table td #lblPeriudha{
@@ -85,7 +101,7 @@
                     </td>
                     <td class="style3" style="vertical-align: top">
                         <dx:ASPxButtonEdit ID="txtNdermarrja" ClientInstanceName="txtNdermarrja" ReadOnly="true" runat="server" ClientIDMode="AutoID"
-                            Width="100%" NullText="             " Font-Bold="True" Font-Size="11" ForeColor="Black">
+                            Width="100%" NullText="             " Font-Bold="True" Font-Size="11">
                             <Buttons>
                                 <dx:EditButton>
                                 </dx:EditButton>
@@ -122,7 +138,7 @@
                         <dx:ASPxButtonEdit ID="btnPeriudha" ReadOnly="true" runat="server" Width="160px"
                             ClientInstanceName="btnPeriudha" ClientIDMode="AutoID"
                             Style="text-align: center"
-                            NullText="                     " Font-Bold="True" Font-Size="11" ForeColor="Black">
+                            NullText="                     " Font-Bold="True" Font-Size="11">
                             <Buttons>
                                 <dx:EditButton>
                                 </dx:EditButton>

@@ -22,7 +22,7 @@
         .style13
         {
             font-weight: 700;
-            color: #0072c6;
+            color: #e8683a;
         }
 
         td.tdStyle6

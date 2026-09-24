@@ -96,7 +96,7 @@
             border-radius: 5%;
             border: none;
             /* font-size: 20px; */
-            background-color: #0081db;
+            background-color: #ea764d;
             padding: 5px 20px;
             color: white;
             transition: .2s ease-in-out;
@@ -104,11 +104,11 @@
         }
         .gjenero button:hover{
             border: none;
-            background-color:#0096ff;
+            background-color:#ee8f6d;
         }
         .gjenero button:hover{
             border: none;
-            background-color:#0096ff;
+            background-color:#ee8f6d;
         }
         .lds-grid {
     display: inline-block;
@@ -171,7 +171,7 @@
   }
   @keyframes lds-grid {
     0%,100% {
-        background-color: #4584ec;
+        background-color: #f3b19a;
     }
     25% {background-color: #38a555;}
     50% {

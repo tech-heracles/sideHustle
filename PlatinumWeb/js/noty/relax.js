@@ -128,8 +128,8 @@ $.noty.themes.relax = {
                 this.$buttons.css({borderTop: '1px solid darkred'});
                 break;
             case 'information':
-                this.$bar.css({backgroundColor: '#78C5E7', borderColor: '#3badd6', color: '#FFF'});
-                this.$buttons.css({borderTop: '1px solid #0B90C4'});
+                this.$bar.css({backgroundColor: '#F5D2C6', borderColor: '#e6a087', color: '#FFF'});
+                this.$buttons.css({borderTop: '1px solid #E96E42'});
                 break;
             case 'success':
                 this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});

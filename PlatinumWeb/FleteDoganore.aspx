@@ -224,7 +224,7 @@
                                     </td>
                                     <td>
                                         <dx:ASPxRadioButtonList ID="radDtDok" SelectedIndex="-1" ClientInstanceName="radDtDok" OnPreRender="radDtDok_PreRender"
-                                            Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="5"
+                                            Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="5"
                                             CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                             Border-BorderStyle="None">
                                             <ClientSideEvents ValueChanged="function(s,e){ onSelectionChanged(s,e);}" />

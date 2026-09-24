@@ -121,7 +121,7 @@
                     TabSpacing="3px" Width="100%" ActiveTabIndex="3" Height="520px"
                     ClientIDMode="AutoID">
                     <ContentStyle>
-                        <border bordercolor="#AECAF0" borderstyle="Solid" borderwidth="1px" />
+                        <border bordercolor="#F9E7E1" borderstyle="Solid" borderwidth="1px" />
                     </ContentStyle>
                     <TabPages>
                         <dxtc:TabPage Name="Te pergjithshme" Text="Te pergjithshme" NewLine="True">

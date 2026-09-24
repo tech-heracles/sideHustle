@@ -169,7 +169,7 @@
                                     </td>
                                     <td>
                                         <dx:ASPxRadioButtonList ID="radDtDok11" ClientInstanceName="radDtDok11" Font-Size="12px"
-                                            Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4" CssClass="Glass"
+                                            Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4" CssClass="Glass"
                                             CssPostfix="Glass" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                             <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}"
                                                 Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}" SelectedIndexChanged="function (s,e){ gvRaporti.PerformCallback('filtro');}" />
@@ -183,7 +183,7 @@
 
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">
@@ -207,7 +207,7 @@
                                         </dx:ASPxDateEdit>
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">
@@ -240,7 +240,7 @@
                                     </td>
                                     <td>
                                         <dx:ASPxRadioButtonList ID="radDtDok5" ClientInstanceName="radDtDok5" Font-Size="12px"
-                                            Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4" CssClass="Glass"
+                                            Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4" CssClass="Glass"
                                             CssPostfix="Glass" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                             <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok1,txtDeriDok1);}"
                                                 Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok1,txtDeriDok1);}" SelectedIndexChanged="function (s,e){ gvRaporti.PerformCallback('filtro');}" />
@@ -253,7 +253,7 @@
                                         </dx:ASPxRadioButtonList>
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblNgaDok1" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblNgaDok1" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">
@@ -277,7 +277,7 @@
                                         </dx:ASPxDateEdit>
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblDeriDok1" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblDeriDok1" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">

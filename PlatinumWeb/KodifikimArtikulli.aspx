@@ -148,7 +148,7 @@
                         TabSpacing="3px" Width="100%" ActiveTabIndex="0" Height="600px">
                         <ClientSideEvents ActiveTabChanging="function(s, e) {ndryshimTabi(e.tab);}" ActiveTabChanged="function(s, e) { tabsActiveTabChanged(s,e);}" />
                         <ContentStyle>
-                            <border bordercolor="#AECAF0" borderstyle="Solid" borderwidth="1px" />
+                            <border bordercolor="#F9E7E1" borderstyle="Solid" borderwidth="1px" />
                         </ContentStyle>
                         <TabPages>
                             <dxtc:TabPage Name="Grupimi 1" Text="Grupimi 1" ClientVisible="false">

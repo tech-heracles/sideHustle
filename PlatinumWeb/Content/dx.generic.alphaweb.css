@@ -16332,7 +16332,7 @@
 }
 
 .dx-field-item-optional-mark {
-    color: #7cb3da;
+    color: #eecfc4;
 }
 
 .dx-filterbuilder .dx-filterbuilder-action-icon {
@@ -16809,43 +16809,43 @@
     }
 
 .dx-diagram-i-connector-begin-none {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M1%2c15l9-9l1%2c1l-9%2c9L1%2c15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23FF0000%22%2f%3e%0a%3cpath%20d%3d%22M12%2c10V5H0v12h12v-5h20v-2H12z%20M10%2c15H2V7h8V15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M1%2c15l9-9l1%2c1l-9%2c9L1%2c15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23FF0000%22%2f%3e%0a%3cpath%20d%3d%22M12%2c10V5H0v12h12v-5h20v-2H12z%20M10%2c15H2V7h8V15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-connector-begin-arrow {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M12%2c12v4L0%2c11l12-5v4h20v2H12z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M12%2c12v4L0%2c11l12-5v4h20v2H12z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-connector-end-none {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M21%2c15l9-9l1%2c1l-9%2c9L21%2c15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23FF0000%22%2f%3e%0a%3cpath%20d%3d%22M0%2c10l0%2c2h20v5h12V5H20v5H0z%20M22%2c7h8v8h-8V7z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M21%2c15l9-9l1%2c1l-9%2c9L21%2c15z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23FF0000%22%2f%3e%0a%3cpath%20d%3d%22M0%2c10l0%2c2h20v5h12V5H20v5H0z%20M22%2c7h8v8h-8V7z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-connector-end-arrow {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M0%2c12l0-2h20V6l12%2c5l-12%2c5v-4H0z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M0%2c12l0-2h20V6l12%2c5l-12%2c5v-4H0z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-connector-orthogonal {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M24%2c22v-8h3V5H8v3H0V0h8v3h19h2v2v9h3v8H24z%20M6%2c2H2v4h4V2z%20M30%2c16h-4v4h4V16z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M24%2c22v-8h3V5H8v3H0V0h8v3h19h2v2v9h3v8H24z%20M6%2c2H2v4h4V2z%20M30%2c16h-4v4h4V16z%22%20fill-rule%3d%22evenodd%22%20clip-rule%3d%22evenodd%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-connector-straight {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M24%2c14v2.2L8%2c2.8V0H0v8h8V5.8l16%2c13.3V22h8v-8H24z%20M6%2c6H2V2h4V6z%20M30%2c20h-4v-4h4V20z%22%20fill%3d%22%230072c6%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2032%2022%22%20style%3d%22enable-background%3anew%200%200%2032%2022%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M24%2c14v2.2L8%2c2.8V0H0v8h8V5.8l16%2c13.3V22h8v-8H24z%20M6%2c6H2V2h4V6z%20M30%2c20h-4v-4h4V20z%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 32px;
     height: 22px;
 }
 
 .dx-diagram-i-button-fill {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2018%2018%22%20style%3d%22enable-background%3anew%200%200%2018%2018%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M5%2c0L4%2c1l2%2c2L0%2c9l7%2c7l7-7L5%2c0z%20M2%2c9l5-5l5%2c5H2z%22%20fill%3d%22%230072c6%22%2f%3e%0a%3cpath%20d%3d%22M15%2c10c0%2c0-3%2c3-3%2c5.5c0%2c0%2c0%2c0.1%2c0%2c0.1c0%2c1.3%2c1.3%2c2.4%2c3%2c2.4c1.7%2c0%2c3-1.1%2c3-2.4c0%2c0%2c0-0.1%2c0-0.1%0a%09C18%2c13%2c15%2c10%2c15%2c10z%20M13%2c15.5c0-2%2c2-4%2c2-4s0.7%2c0.7%2c1.3%2c1.7L13%2c15.5z%22%20fill%3d%22currentColor%22%2f%3e%0a%3c%2fsvg%3e%0a");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3c%3fxml%20version%3d%221.0%22%20encoding%3d%22utf-8%22%3f%3e%0a%3csvg%20version%3d%221.1%22%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20xmlns%3axlink%3d%22http%3a%2f%2fwww.w3.org%2f1999%2fxlink%22%20x%3d%220px%22%20y%3d%220px%22%0a%09%20viewBox%3d%220%200%2018%2018%22%20style%3d%22enable-background%3anew%200%200%2018%2018%3b%22%20xml%3aspace%3d%22preserve%22%3e%0a%3cpath%20d%3d%22M5%2c0L4%2c1l2%2c2L0%2c9l7%2c7l7-7L5%2c0z%20M2%2c9l5-5l5%2c5H2z%22%20fill%3d%22%23e8683a%22%2f%3e%0a%3cpath%20d%3d%22M15%2c10c0%2c0-3%2c3-3%2c5.5c0%2c0%2c0%2c0.1%2c0%2c0.1c0%2c1.3%2c1.3%2c2.4%2c3%2c2.4c1.7%2c0%2c3-1.1%2c3-2.4c0%2c0%2c0-0.1%2c0-0.1%0a%09C18%2c13%2c15%2c10%2c15%2c10z%20M13%2c15.5c0-2%2c2-4%2c2-4s0.7%2c0.7%2c1.3%2c1.7L13%2c15.5z%22%20fill%3d%22currentColor%22%2f%3e%0a%3c%2fsvg%3e%0a");
     width: 18px;
     height: 18px;
 }

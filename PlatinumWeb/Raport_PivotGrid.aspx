@@ -28,7 +28,7 @@
 
         .style13 {
             font-weight: 700;
-            color: #0072c6;
+            color: #e8683a;
         }
 
         td.tdStyle6 {
@@ -160,7 +160,7 @@
             <dx:ASPxPageControl EnableHierarchyRecreation="false" ID="ASPxPageControl1" ClientInstanceName="PageControl" runat="server"
                   TabSpacing="3px" Width="100%" ActiveTabIndex="2">
                 <ContentStyle>
-                    <Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+                    <Border BorderColor="#F9E7E1" BorderStyle="Solid" BorderWidth="1px" />
                 </ContentStyle>
                 <TabPages>
                     <dx:TabPage Name="Te pergjithshme" Text="Te pergjithshme">
@@ -403,7 +403,7 @@
                                                                 <tr>
                                                                     <td class="tdStyle6">
                                                                         <dx:ASPxLabel ID="lblDtDok" ClientInstanceName="lblDtDok" runat="server" Text="Datë dokumenti"
-                                                                            Style="font-weight: 700; color: #0072c6">
+                                                                            Style="font-weight: 700; color: #e8683a">
                                                                         </dx:ASPxLabel>
 
                                                                     </td>
@@ -426,7 +426,7 @@
                                                                         </dx:ASPxRadioButtonList>
                                                                     </td>
                                                                     <td class="tdStyle9">
-                                                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                                                         </dx:ASPxLabel>
                                                                     </td>
                                                                     <td class="tdStyle7">
@@ -450,7 +450,7 @@
                                                                         </dx:ASPxDateEdit>
                                                                     </td>
                                                                     <td class="tdStyle9">
-                                                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                                                         </dx:ASPxLabel>
                                                                     </td>
                                                                     <td class="tdStyle7">

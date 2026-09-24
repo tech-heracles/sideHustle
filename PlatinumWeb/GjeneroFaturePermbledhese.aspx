@@ -150,7 +150,7 @@
                         </dx:ASPxLabel>
                     </td>
                     <td class="tdStyle9" style="width:3%">
-                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                         </dx:ASPxLabel>
                     </td>
                     <td class="tdStyle7" style="width:5%">
@@ -175,7 +175,7 @@
                     </td>
                     <td  style="width:2%"></td>
                     <td class="tdStyle9"  style="width:3%">
-                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                         </dx:ASPxLabel>
                     </td>
                     <td class="tdStyle7"  style="width:4%">

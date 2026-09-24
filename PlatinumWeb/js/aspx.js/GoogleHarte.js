@@ -47,7 +47,7 @@
 
     var options = function () {
         switch (hartaType) {
-            case 'geochart': return { region: 'AL', displayMode: 'markers', legend: { textStyle: { color: 'blue', fontSize: 16 } }, colorAxis: { colors: ['#e7711c', '#4374e0'] } };
+            case 'geochart': return { region: 'AL', displayMode: 'markers', legend: { textStyle: { color: 'blue', fontSize: 16 } }, colorAxis: { colors: ['#e7711c', '#edaa92'] } };
             case 'map':
                 switch (raporti) {
                     case 'klientKoordinata': return { showTooltip: true, showInfoWindow: true };

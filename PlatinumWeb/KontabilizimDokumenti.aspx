@@ -127,7 +127,7 @@
 								</td>
 								<td class="tdStyle6">
 									<dx:ASPxRadioButtonList ID="radDtDok" ClientInstanceName="radDtDok" Font-Size="12px" RepeatDirection="Horizontal"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4" CssClass="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4" CssClass="Glass"
                                                 CssPostfix="Glass" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
 										<ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}"
                                                     Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}" />
@@ -139,7 +139,7 @@
 									</dx:ASPxRadioButtonList>
 								</td>
 								<td style="padding-left: 20px;" >
-									<dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6"></dx:ASPxLabel>
+									<dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a"></dx:ASPxLabel>
 								</td>
 								<td>
 									<dx:ASPxDateEdit ID="txtNgaDok" ClientEnabled="false" runat="server" TabIndex="10"
@@ -161,7 +161,7 @@
 									</dx:ASPxDateEdit>
 								</td>
 								<td>
-									<dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6"></dx:ASPxLabel>
+									<dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a"></dx:ASPxLabel>
 								</td>
 								<td>
 									<dx:ASPxDateEdit ID="txtDeriDok" ClientEnabled="false" runat="server" TabIndex="11"
@@ -261,7 +261,7 @@
 							</tr>
                             <tr>
                                 <td >
-									<dx:ASPxLabel ID="lblDateRegjistrimi" runat="server" Text="Date Regjistrimi" Style="font-weight: 700; color: #0072c6"></dx:ASPxLabel>
+									<dx:ASPxLabel ID="lblDateRegjistrimi" runat="server" Text="Date Regjistrimi" Style="font-weight: 700; color: #e8683a"></dx:ASPxLabel>
 								</td>
 								<td>
 									<dx:ASPxDateEdit ID="txtDateRegjistrimi" runat="server" ClientInstanceName="txtDateRegjistrimi" ShowShadow="False">

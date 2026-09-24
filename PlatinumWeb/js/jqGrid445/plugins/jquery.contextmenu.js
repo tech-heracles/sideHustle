@@ -38,7 +38,7 @@
       backgroundColor: 'transparent'
     },
     itemHoverStyle: {
-      border: '1px solid #0a246a',
+      border: '1px solid #ba4116',
       backgroundColor: '#b6bdd2'
     },
     eventPosX: 'pageX',

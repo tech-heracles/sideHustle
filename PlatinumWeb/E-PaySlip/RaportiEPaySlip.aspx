@@ -32,7 +32,7 @@
         .style13
         {
             font-weight: 700;
-            color: #0072c6;
+            color: #e8683a;
         }
 
         td.tdStyle6
@@ -256,12 +256,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokQenderKosto" ClientInstanceName="lblDtDokQenderKosto"
-                                                runat="server" Text="Datë dokumenti" Style="font-weight: 700; color: #0072c6">
+                                                runat="server" Text="Datë dokumenti" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokQenderKosto" ClientInstanceName="radDtDokQenderKosto"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4"
                                                 CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokQenderKosto,txtDeriDokQenderKosto);}"
@@ -275,7 +275,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokQenderKosto" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokQenderKosto" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -299,7 +299,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokQenderKosto" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokQenderKosto" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -329,12 +329,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokFshirje" ClientInstanceName="lblDtDokFshirje"
-                                                runat="server" Text="Datë dokumenti" Style="font-weight: 700; color: #0072c6">
+                                                runat="server" Text="Datë dokumenti" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokFshirje" ClientInstanceName="radDtDokFshirje"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4"
                                                 CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokFshirje,txtDeriDokFshirje);}"
@@ -348,7 +348,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokFshirje" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokFshirje" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -372,7 +372,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokFshirje" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokFshirje" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -402,12 +402,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDok" ClientInstanceName="lblDtDok" runat="server" Text="Datë dokumenti1"
-                                                Style="font-weight: 700; color: #0072c6">
+                                                Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDok" ClientInstanceName="radDtDok" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4" CssClass="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4" CssClass="Glass"
                                                 CssPostfix="Glass" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}"
                                                     Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDok,txtDeriDok);}" />
@@ -420,7 +420,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -444,7 +444,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -475,12 +475,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokKonvertuar" ClientInstanceName="lblDtDokKonvertuar" runat="server"
-                                                Text="Datë dokumenti1" Style="font-weight: 700; color: #0072c6">
+                                                Text="Datë dokumenti1" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokKonvertuar" ClientInstanceName="radDtDokKonvertuar"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokKonvertuar,txtDeriDokKonvertuar);}"
@@ -494,7 +494,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtDokKonvertuar" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtDokKonvertuar" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -518,7 +518,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtDokKonvertuar" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtDokKonvertuar" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -548,12 +548,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokKrahasues" ClientInstanceName="lblDtDok" runat="server"
-                                                Text="Datë dokumenti krahasues" Style="font-weight: 700; color: #0072c6">
+                                                Text="Datë dokumenti krahasues" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokKrahasues" ClientInstanceName="radDtDokKrahasues"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDtKrahasues,txtDeriDtKrahasues);}"
@@ -567,7 +567,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokKrahasues" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokKrahasues" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -591,7 +591,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokKrahasues" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokKrahasues" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -736,12 +736,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokUrdherPagese" runat="server" Text="Dt. Urdher Pageses"
-                                                Style="font-weight: 700; color: #0072c6">
+                                                Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokUrdherPagese" ClientInstanceName="radDtDokUrdherPagese"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueDtDokUrdherPagese(s,e);}" />
@@ -754,7 +754,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtDokUrdherPagese" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtDokUrdherPagese" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -779,7 +779,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtDokUrdherPagese" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtDokUrdherPagese" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -808,12 +808,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtDokAprovimit" runat="server" Text="Dt. Aprovimi1" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtDokAprovimit" runat="server" Text="Dt. Aprovimi1" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokAprovimit" ClientInstanceName="radDtDokAprovimit"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueDtDokAprovimit(s,e);}" />
@@ -826,7 +826,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtDokAprovimit" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtDokAprovimit" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -851,7 +851,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtDokAprovimit" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtDokAprovimit" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -883,12 +883,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtStatus" ClientInstanceName="lblDtStatus" runat="server"
-                                                Text="Data e statusit" Style="font-weight: 700; color: #0072c6">
+                                                Text="Data e statusit" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokStatus" ClientInstanceName="radDtDokStatus"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueDtStatus(s,e);}" />
@@ -901,7 +901,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtStatus" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtStatus" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -925,7 +925,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtStatus" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtStatus" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -996,12 +996,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokAfatKohor" ClientInstanceName="lblDtDokAfatKohor"
-                                                runat="server" Text="Afati Kohor:" Style="font-weight: 700; color: #0072c6">
+                                                runat="server" Text="Afati Kohor:" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokAfatKohor" ClientInstanceName="radDtDokAfatKohor"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4"
                                                 CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokAfatKohor,txtDeriDokAfatKohor);}"
@@ -1015,7 +1015,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokAfatKohor" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokAfatKohor" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -1039,7 +1039,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokAfatKohor" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokAfatKohor" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -1573,13 +1573,13 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtFillimi" runat="server" Text="Datë Fillimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtFillimi" runat="server" Text="Datë Fillimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                                                               
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDtFillimi" ClientInstanceName="radDtDtFillimi" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass" CssPostfix="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass" CssPostfix="Glass"
                                                 RepeatColumns="3" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDtFillimi,txtDeriDtFillimi);}"
                                                     Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDtFillimi,txtDeriDtFillimi);}" />
@@ -1591,7 +1591,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblngaDtFillimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblngaDtFillimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -1616,7 +1616,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtFillimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtFillimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -1648,12 +1648,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtMbarimi" runat="server" Text="Datë Mbarimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtMbarimi" runat="server" Text="Datë Mbarimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtMbarimi" ClientInstanceName="radDtMbarimi" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass" CssPostfix="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass" CssPostfix="Glass"
                                                 RepeatColumns="3" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueMbarimi(s,e);}" />
                                                 <Items>
@@ -1664,7 +1664,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblngaDtMbarimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblngaDtMbarimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -1689,7 +1689,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtMbarimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtMbarimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2685,12 +2685,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtRegj" runat="server" Text="Datë regjistrimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtRegj" runat="server" Text="Datë regjistrimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtRegj" ClientInstanceName="radDtRegj" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass" CssPostfix="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass" CssPostfix="Glass"
                                                 RepeatColumns="3" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueregj(s,e);}" />
                                                 <Items>
@@ -2701,7 +2701,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblngaRegj" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblngaRegj" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2726,7 +2726,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriRegj" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriRegj" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2756,12 +2756,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtKrijimiAqtSerial" runat="server" Text="Datë krijimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtKrijimiAqtSerial" runat="server" Text="Datë krijimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtKrijimiAqtSerial" ClientInstanceName="radDtKrijimiAqtSerial" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass" CssPostfix="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass" CssPostfix="Glass"
                                                 RepeatColumns="3" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvaluedtkrijimi(s,e);}" />
                                                 <Items>
@@ -2772,7 +2772,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtNgaKrijimiAqtSerial" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtNgaKrijimiAqtSerial" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2797,7 +2797,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtDeriKrijimiAqtSerial" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtDeriKrijimiAqtSerial" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2829,12 +2829,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblDtPorosie" runat="server" Text="Datë porosie:" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtPorosie" runat="server" Text="Datë porosie:" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtPorosie" ClientInstanceName="radDtPorosie" Font-Size="12px"
-                                                Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass" CssPostfix="Glass"
+                                                Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass" CssPostfix="Glass"
                                                 RepeatColumns="3" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueDtProdhimi(s,e);}" />
                                                 <Items>
@@ -2845,7 +2845,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtPorosie" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtPorosie" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2870,7 +2870,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtPorosie" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtPorosie" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2901,12 +2901,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblPeriudheMaturimi" runat="server" Text="Datë maturimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblPeriudheMaturimi" runat="server" Text="Datë maturimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radPeriudheMaturimi" ClientInstanceName="radPeriudheMaturimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="3" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvaluePeriudheMaturimi(s,e);}" />
@@ -2918,7 +2918,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaPeriudheMaturimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaPeriudheMaturimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -2943,7 +2943,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriPeriudheMaturimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriPeriudheMaturimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3229,12 +3229,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblPeriudheFillimi" runat="server" Text="Datë Fillimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblPeriudheFillimi" runat="server" Text="Datë Fillimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radPeriudheFillimi" ClientInstanceName="radPeriudheFillimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="3" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvaluePeriudheFillimi(s,e);}" />
@@ -3246,7 +3246,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaPeriudheFillimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaPeriudheFillimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3271,7 +3271,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriPeriudheFillimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriPeriudheFillimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3300,12 +3300,12 @@
                                 <table style="width: 100%;">
                                     <tr>
                                         <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblPeriudheMbarimi" runat="server" Text="Datë Mbarimi" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblPeriudheMbarimi" runat="server" Text="Datë Mbarimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radPeriudheMbarimi" ClientInstanceName="radPeriudheMbarimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="3" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvaluePeriudheMbarimi(s,e);}" />
@@ -3317,7 +3317,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaPeriudheMbarimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaPeriudheMbarimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3342,7 +3342,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriPeriudheMbarimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriPeriudheMbarimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3372,12 +3372,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokKryesor" ClientInstanceName="lblDtDokKryesor" runat="server"
-                                                Text="Datë dok. që rrit detyrimin" Style="font-weight: 700; color: #0072c6">
+                                                Text="Datë dok. që rrit detyrimin" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokKryesor" ClientInstanceName="radDtDokKryesor"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokKryesor,txtDeriDokKryesor);}"
@@ -3391,7 +3391,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokKryesor" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokKryesor" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3415,7 +3415,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokKryesor" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokKryesor" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3448,12 +3448,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtAmortizimi" ClientInstanceName="lblDtAmortizimi" runat="server"
-                                                Text="Datë amortizimi" Style="font-weight: 700; color: #0072c6">
+                                                Text="Datë amortizimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokAmortizimi" ClientInstanceName="radDtDokAmortizimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueamort(s,e);}" />
@@ -3466,7 +3466,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtNgaAmortizimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtNgaAmortizimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3490,7 +3490,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtDeriAmortizimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtDeriAmortizimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3522,12 +3522,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtReg" ClientInstanceName="lblDtReg" runat="server"
-                                                Text="Registr.Date" Style="font-weight: 700; color: #0072c6">
+                                                Text="Registr.Date" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokReg" ClientInstanceName="radDtDokReg"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){klickselectedvalueReg(s,e);}" />
@@ -3540,7 +3540,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtNgaReg" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtNgaReg" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3564,7 +3564,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDtDeriReg" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDtDeriReg" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3657,12 +3657,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtDokLidhes" ClientInstanceName="lblDtDokLidhes" runat="server"
-                                                Text="Datë dok. që ul detyrimin" Style="font-weight: 700; color: #0072c6">
+                                                Text="Datë dok. që ul detyrimin" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtDokLidhes" ClientInstanceName="radDtDokLidhes"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" CssClass="Glass"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" CssClass="Glass"
                                                 CssPostfix="Glass" RepeatColumns="4" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDokLidhes,txtDeriDokLidhes);}"
@@ -3676,7 +3676,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDokLidhes" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDokLidhes" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -3700,7 +3700,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDokLidhes" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDokLidhes" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -12576,12 +12576,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtPlanifikimi" ClientInstanceName="lblDtPlanifikimi"
-                                                runat="server" Text="Datë planifikimi" Style="font-weight: 700; color: #0072c6">
+                                                runat="server" Text="Datë planifikimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtPlanifikimi" ClientInstanceName="radDtPlanifikimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="3"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="3"
                                                 CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDtPlanifikimi,txtDeriDtPlanifikimi);}"
@@ -12594,7 +12594,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtPlanifikimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtPlanifikimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -12618,7 +12618,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtPlanifikimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtPlanifikimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -12648,12 +12648,12 @@
                                     <tr>
                                         <td class="tdStyle6">
                                             <dx:ASPxLabel ID="lblDtProdhimi" ClientInstanceName="lblDtProdhimi"
-                                                runat="server" Text="Datë prodhimi" Style="font-weight: 700; color: #0072c6">
+                                                runat="server" Text="Datë prodhimi" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle8">
                                             <dx:ASPxRadioButtonList ID="radDtProdhimi" ClientInstanceName="radDtProdhimi"
-                                                Font-Size="12px" Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="3"
+                                                Font-Size="12px" Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="3"
                                                 CssClass="Glass" CssPostfix="Glass" Height="16px" EnableClientSideAPI="true"
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDtProdhimi,txtDeriDtProdhimi);}"
@@ -12666,7 +12666,7 @@
                                             </dx:ASPxRadioButtonList>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblNgaDtProdhimi" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblNgaDtProdhimi" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">
@@ -12690,7 +12690,7 @@
                                             </dx:ASPxDateEdit>
                                         </td>
                                         <td class="tdStyle9">
-                                            <dx:ASPxLabel ID="lblDeriDtProdhimi" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                            <dx:ASPxLabel ID="lblDeriDtProdhimi" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                             </dx:ASPxLabel>
                                         </td>
                                         <td class="tdStyle7">

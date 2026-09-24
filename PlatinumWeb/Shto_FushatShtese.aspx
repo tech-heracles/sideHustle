@@ -139,7 +139,7 @@
             ClientInstanceName="PageControl" Width="100%" ActiveTabIndex="0">
             <Paddings Padding="2px" PaddingLeft="5px" PaddingRight="5px" />
             <ContentStyle>
-                <Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+                <Border BorderColor="#F9E7E1" BorderStyle="Solid" BorderWidth="1px" />
             </ContentStyle>
             <TabPages>
                 <dxtc:TabPage Name="Te pergjithshme" Text="Te pergjithshme">

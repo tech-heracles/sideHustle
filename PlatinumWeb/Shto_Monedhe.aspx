@@ -135,7 +135,7 @@
             <dxtc:ASPxPageControl EnableHierarchyRecreation="false" ID="ASPxPageControl1" runat="server" Width="100%" ClientInstanceName="monedhat_PageControl"
                 ActiveTabIndex="3" Height="600px"  TabSpacing="3px">
                 <ContentStyle>
-                    <Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+                    <Border BorderColor="#F9E7E1" BorderStyle="Solid" BorderWidth="1px" />
                 </ContentStyle>
                 <TabPages>
                     <dxtc:TabPage Name="Te pergjithshme" Text="Te pergjithshme">

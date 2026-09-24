@@ -72,7 +72,7 @@
         .right {
             width: auto;
             height: 16px;
-            background-color: #0072c6;
+            background-color: #e8683a;
             border-radius: 4px;
             padding: 9px 11px 9px 11px;
             float: right;
@@ -80,13 +80,13 @@
         }
 
         .right:hover {
-            background-color: #208bda;
+            background-color: #e98e6d;
         }
 
         .kesh .right{
             width: 100%;
             height: 40px;
-            background-color: #1478B4;
+            background-color: #E8693C;
             display: inline-flex;
             border-radius: 0px;
             padding: 0;
@@ -100,7 +100,7 @@
         .klient .right {
             width: auto;
             height: 16px;
-            background-color: #5D9AD3;
+            background-color: #E7B7A5;
             border-radius: 4px;
             padding: 9px 11px 9px 11px;
             float: right;
@@ -108,7 +108,7 @@
         }
 
         .klient .right:hover {
-            background-color: #75afe5;
+            background-color: #f4cfc2;
         }
 
         .emri {
@@ -133,7 +133,7 @@
 			border-radius:5px;
 			margin-top:5px;
 			display: inline-flex;
-			background-color: #3375a8;
+			background-color: #d18266;
 			margin-right: 10px;
         }
 
@@ -151,7 +151,7 @@
 			bottom: 0;
 			left: 0;
 			padding: 0.6rem;
-			background-color: #1478B4;
+			background-color: #E8693C;
 			text-align: center;
 		}
         #ASPxTextBoxViti, #ASPxTextBoxNdermarrja{

@@ -250,7 +250,7 @@
     }
     @keyframes lds-grid {
     0%,100% {
-        background-color: #4584ec;
+        background-color: #f3b19a;
     }
     25% {background-color: #38a555;}
     50% {
@@ -1903,7 +1903,7 @@
         //const tr_menu = document.getElementById("ASPxSplitter1_0").parentElement;
         //tr_menu.style.position = "absolute";
         //tr_menu.style.paddingRight = "3%";
-        //tr_menu.style.backgroundColor = "#0072c6";
+        //tr_menu.style.backgroundColor = "#e8683a";
         //Popup Window
         window.showPopup = function (template, title) {
             new Popup().init("#popup", template, { width: "40%", height: "30%", title: title });
@@ -1935,9 +1935,10 @@
             return pageState.signalR.imbChatConn;
         };
 
-        window.imbChatConn().client.broadcastMessage = function (template, title) {
-            window.showPopup(template, title);
-        };
+        if (window.imbChatConn())
+            window.imbChatConn().client.broadcastMessage = function (template, title) {
+                window.showPopup(template, title);
+            };
 
         window.startHub();
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx'); }

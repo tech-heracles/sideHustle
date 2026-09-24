@@ -2522,7 +2522,7 @@
   color: #000000;
 }
 .dx-button-mode-contained.dx-button-default {
-  background-color: #52BBE7;
+  background-color: #F2B8A3;
   border-color: transparent;
   color: #000000;
 }
@@ -2530,15 +2530,15 @@
   color: #000000;
 }
 .dx-button-mode-contained.dx-button-default.dx-state-hover {
-  background-color: #25a9e1;
+  background-color: #ec9576;
   border-color: transparent;
 }
 .dx-button-mode-contained.dx-button-default.dx-state-focused {
-  background-color: #1d9bd0;
+  background-color: #e98460;
   border-color: transparent;
 }
 .dx-button-mode-contained.dx-button-default.dx-state-active {
-  background-color: #1a8ab9;
+  background-color: #e5734a;
   border-color: transparent;
   color: #000000;
 }
@@ -2607,24 +2607,24 @@
 }
 .dx-button-mode-outlined.dx-button-default {
   background-color: transparent;
-  border-color: #52BBE7;
-  color: #52BBE7;
+  border-color: #F2B8A3;
+  color: #F2B8A3;
 }
 .dx-button-mode-outlined.dx-button-default .dx-icon {
-  color: #52BBE7;
+  color: #F2B8A3;
 }
 .dx-button-mode-outlined.dx-button-default.dx-state-hover {
   background-color: rgba(82, 187, 231, 0.1);
-  border-color: #52BBE7;
+  border-color: #F2B8A3;
 }
 .dx-button-mode-outlined.dx-button-default.dx-state-focused {
   background-color: rgba(82, 187, 231, 0.2);
-  border-color: #52BBE7;
+  border-color: #F2B8A3;
 }
 .dx-button-mode-outlined.dx-button-default.dx-state-active {
   background-color: rgba(82, 187, 231, 0.3);
-  border-color: #52BBE7;
-  color: #52BBE7;
+  border-color: #F2B8A3;
+  color: #F2B8A3;
 }
 .dx-button-mode-text {
   background-color: transparent;
@@ -2692,10 +2692,10 @@
 .dx-button-mode-text.dx-button-default {
   background-color: transparent;
   border-color: transparent;
-  color: #52BBE7;
+  color: #F2B8A3;
 }
 .dx-button-mode-text.dx-button-default .dx-icon {
-  color: #52BBE7;
+  color: #F2B8A3;
 }
 .dx-button-mode-text.dx-button-default.dx-state-hover {
   background-color: rgba(82, 187, 231, 0.1);
@@ -2708,7 +2708,7 @@
 .dx-button-mode-text.dx-button-default.dx-state-active {
   background-color: rgba(82, 187, 231, 0.3);
   border-color: transparent;
-  color: #52BBE7;
+  color: #F2B8A3;
 }
 .dx-button-normal.dx-state-hover .dx-button-content,
 .dx-button-back.dx-state-hover .dx-button-content {
@@ -2771,7 +2771,7 @@
   background-color: #71C35E;
 }
 .dx-buttongroup-item.dx-button.dx-item-selected.dx-button-default {
-  background-color: #52BBE7;
+  background-color: #F2B8A3;
 }
 .dx-buttongroup-item.dx-button.dx-item-selected.dx-button-danger {
   background-color: #EE5959;
@@ -4010,7 +4010,7 @@
 .dx-list-slide-menu-button-menu {
   border: 1px solid transparent;
   color: #000000;
-  background-color: #52BBE7;
+  background-color: #F2B8A3;
 }
 .dx-list-switchable-delete-button,
 .dx-list-static-delete-button {
@@ -4259,7 +4259,7 @@
 .dx-device-mobile .dx-list-slide-menu-button-menu {
   border: 1px solid transparent;
   color: #000000;
-  background-color: #52BBE7;
+  background-color: #F2B8A3;
 }
 .dx-device-mobile .dx-list-switchable-delete-button,
 .dx-device-mobile .dx-list-static-delete-button {
@@ -4983,7 +4983,7 @@
   height: 35px;
 }
 .dx-toast-info {
-  background-color: #80b9e4;
+  background-color: #f4d7cc;
 }
 .dx-toast-info .dx-toast-icon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAQAAAC00HvSAAABoklEQVRIx63WPUvDQBjA8QMFsZNLlgpxtINjBsFVqINghm4dRAe/Rpdm6UcQHERwUYdAJ8HvkKHEQdrPEBQUrf7PoabtveSSSrit3PPjeve8RCCsyyMkIiYlAzJSYiJCPPt+248BfRKkdSX0CcoZnx7jAiJfY3r4LqbNsITI15B2EdNlVBGRSEZ0bUyXyQqIRDJZQIu/M1oRmZ2ovcz4zjt558NxR/6C6Vk2fHLPOXtsIhA0aHHGA1/Gvl7OBMYT/3BF05poTS5Be/5gxvQ15JWjgtyerWPelP19hMDTMvabQyciEJwoJ0rwBKF2lutSRCC4UWJCQaQx+5WYAyUmEsQas1WJ2VJiYkGqMTuVmG0lJhVkGnNaiblQYjKhZYHkmY1SpMGLEoN5Gskt605kjTstIjPvRiJ50tuSksePxv7UfKm8HAe0DGKXgZbB85eKHLWdKkjHUpjzvAmdHaUKIgnNmrIzLiTBs1W4ybiQvwq39RuV6TB1jpvA1f1yxo0sdT9XLy5DlF5cPBmmq0yG2uZUbVOzthle2xdFbd83//za+gXw/JH9LjmoAgAAAABJRU5ErkJggg==);
@@ -13310,7 +13310,7 @@
   background-color: #71C35E;
 }
 .dx-htmleditor-toolbar .dx-format-active:not(.dx-color-format):not(.dx-background-format).dx-button-default {
-  background-color: #52BBE7;
+  background-color: #F2B8A3;
 }
 .dx-htmleditor-toolbar .dx-format-active:not(.dx-color-format):not(.dx-background-format).dx-button-danger {
   background-color: #EE5959;

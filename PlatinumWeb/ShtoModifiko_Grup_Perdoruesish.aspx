@@ -675,7 +675,7 @@
                             </dxtc:TabPage>
                         </TabPages>
                         <ContentStyle>
-                            <border bordercolor="#AECAF0" borderstyle="Solid" borderwidth="1px" />
+                            <border bordercolor="#F9E7E1" borderstyle="Solid" borderwidth="1px" />
                         </ContentStyle>
                     </dxtc:ASPxPageControl>
                 </div>

@@ -431,7 +431,7 @@
                                             </table>
                                         </dx:PanelContent>
                                     </PanelCollection>
-                                    <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                    <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                 </dx:ASPxPanel >
                                 <br />
                                 <br />
@@ -459,7 +459,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlIVA" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlIVA" ClientVisible="false"
                                                 Height="300px">
@@ -608,7 +608,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlAED" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlAED" ClientVisible="false"
                                                 Height="300px">
@@ -702,7 +702,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlBTN" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlBTN" ClientVisible="false"
                                                 Height="300px">
@@ -841,7 +841,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlCKVNOKI" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlCKVNOKI" ClientVisible="false"
                                                 Height="300px">
@@ -930,7 +930,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlPKP" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlPKP" ClientVisible="false"
                                                 Height="300px">
@@ -1039,7 +1039,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlGEKOS" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlGEKOS" ClientVisible="false"
                                                 Height="300px">
@@ -1175,7 +1175,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlBNTAClass" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlBNTAClass" ClientVisible="false"
                                                 Height="300px">
@@ -1232,7 +1232,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                             <dx:ASPxPanel EnableHierarchyRecreation="false" ID="pnlPeshore" runat="server" ClientIDMode="AutoID" ClientInstanceName="pnlPeshore" ClientVisible="false"
                                                 Height="300px">
@@ -1262,7 +1262,7 @@
                                                         </table>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                         </div>
                                         <div style="overflow:auto; width: 900px" >
@@ -1278,7 +1278,7 @@
                                                         </dx:ASPxGridView>
                                                     </dx:PanelContent>
                                                 </PanelCollection>
-                                                <Border BorderColor="#99CCFF" BorderStyle="Solid" BorderWidth="1px"></Border>
+                                                <Border BorderColor="#FBE6DF" BorderStyle="Solid" BorderWidth="1px"></Border>
                                             </dx:ASPxPanel >
                                         </div>
                                     </div>

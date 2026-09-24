@@ -241,3 +241,77 @@ div.dxbButton_Material.dxb-outline {
     border-color: var(--avec-border);
     color: var(--avec-text);
 }
+
+/* ---- DevExpress icon-only buttons (grid title panels, toolbars): no fill, so the icon stays visible ---- */
+div.dxbButton_Material:has(img):not(:has(span.dx-vam)),
+div.dxbButton_Material:has(img):not(:has(span.dx-vam)).dxbButtonHover_Material {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    width: auto !important;
+    min-width: 32px;
+    border-radius: 8px !important;
+}
+
+div.dxbButton_Material:has(img):not(:has(span.dx-vam)):hover {
+    background: var(--avec-surface-highest) !important;
+}
+
+div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
+    padding: 6px 8px !important;
+}
+
+/* ---- grids: focused / selected rows as an orange tint instead of a solid fill ---- */
+.dxgvFocusedRow_Material,
+.dxgvFocusedRow_Material td.dxgv,
+.dxgvSelectedRow_Material,
+.dxgvSelectedRow_Material td.dxgv,
+.dxtlFocusedNode_Material,
+.dxtlSelectedNode_Material {
+    background-color: var(--avec-orange-tint) !important;
+    color: var(--avec-text) !important;
+}
+
+.dxgvFocusedRow_Material td.dxgv:first-child,
+.dxgvSelectedRow_Material td.dxgv:first-child {
+    box-shadow: inset 3px 0 0 var(--avec-orange);
+}
+
+.dxgvControl_Material,
+.dxgvTable_Material,
+.dxgvControl_Material table.dxgvTable_Material {
+    background-color: var(--avec-surface) !important;
+}
+
+.dxgvDataRow_Material:hover td.dxgv {
+    background-color: #202020;
+}
+
+/* ---- inline white/light backgrounds set in page markup ---- */
+[style*="background-color:White" i],
+[style*="background-color: White" i],
+[style*="background-color:#fff" i],
+[style*="background-color: #fff" i],
+[style*="background:#fff" i],
+[style*="background: #fff" i],
+[style*="background-color:#ffffff" i],
+[style*="background-color: #ffffff" i],
+[style*="background: white" i],
+[style*="background:white" i],
+[style*="background-color:#f9fbfd" i],
+[style*="background-color:#EDF3F4" i],
+[style*="background-color: #EDF3F4" i],
+[style*="background-color:LightGray" i],
+[style*="background-color:#d3d3d3" i] {
+    background-color: var(--avec-surface) !important;
+    color: var(--avec-text) !important;
+}
+
+[style*="color:Black" i],
+[style*="color: Black" i],
+[style*="color:#000" i],
+[style*="color: #000" i],
+[style*="color:#333" i],
+[style*="color: #333" i] {
+    color: var(--avec-text) !important;
+}

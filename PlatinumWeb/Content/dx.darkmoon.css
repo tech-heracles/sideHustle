@@ -7049,8 +7049,8 @@
 .dx-datagrid-rowsview .dx-selection.dx-row:hover > td.dx-pointer-events-none,
 .dx-datagrid-rowsview .dx-selection.dx-row > tr > td.dx-pointer-events-none,
 .dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td.dx-pointer-events-none {
-  border-left-color: #45c7de;
-  border-right-color: #45c7de;
+  border-left-color: #ecab93;
+  border-right-color: #ecab93;
 }
 .dx-datagrid-rowsview .dx-selection.dx-row > td.dx-focused,
 .dx-datagrid-rowsview .dx-selection.dx-row:hover > td.dx-focused,
@@ -7076,14 +7076,14 @@
 .dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-column-lines > td,
 .dx-datagrid-rowsview .dx-selection.dx-row.dx-column-lines > tr > td,
 .dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-column-lines > tr > td {
-  border-left-color: #45c7de;
-  border-right-color: #45c7de;
+  border-left-color: #ecab93;
+  border-right-color: #ecab93;
 }
 .dx-datagrid-rowsview .dx-selection.dx-row.dx-row-lines > td,
 .dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-row-lines > td,
 .dx-datagrid-rowsview .dx-selection.dx-row.dx-row-lines > tr > td,
 .dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-row-lines > tr > td {
-  border-bottom-color: #45c7de;
+  border-bottom-color: #ecab93;
 }
 .dx-datagrid-rowsview.dx-scrollable-scrollbars-alwaysvisible.dx-scrollable-both .dx-scrollable-content {
   padding-right: 0;
@@ -7168,7 +7168,7 @@
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row:hover > td,
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row > tr > td,
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td {
-  border-right-color: #45c7de;
+  border-right-color: #ecab93;
 }
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row > td:not(.dx-focused).dx-datagrid-group-space,
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row:hover > td:not(.dx-focused).dx-datagrid-group-space,
@@ -7180,7 +7180,7 @@
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row:hover > td.dx-pointer-events-none,
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row > tr > td.dx-pointer-events-none,
 .dx-rtl .dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td.dx-pointer-events-none {
-  border-left-color: #45c7de;
+  border-left-color: #ecab93;
 }
 .dx-rtl .dx-datagrid-rowsview.dx-scrollable-scrollbars-alwaysvisible.dx-scrollable-both .dx-scrollable-content {
   padding-left: 0;
@@ -8081,8 +8081,8 @@
 .dx-treelist-rowsview .dx-selection.dx-row:hover > td.dx-pointer-events-none,
 .dx-treelist-rowsview .dx-selection.dx-row > tr > td.dx-pointer-events-none,
 .dx-treelist-rowsview .dx-selection.dx-row:hover > tr > td.dx-pointer-events-none {
-  border-left-color: #45c7de;
-  border-right-color: #45c7de;
+  border-left-color: #ecab93;
+  border-right-color: #ecab93;
 }
 .dx-treelist-rowsview .dx-selection.dx-row > td.dx-focused,
 .dx-treelist-rowsview .dx-selection.dx-row:hover > td.dx-focused,
@@ -8108,14 +8108,14 @@
 .dx-treelist-rowsview .dx-selection.dx-row:hover.dx-column-lines > td,
 .dx-treelist-rowsview .dx-selection.dx-row.dx-column-lines > tr > td,
 .dx-treelist-rowsview .dx-selection.dx-row:hover.dx-column-lines > tr > td {
-  border-left-color: #45c7de;
-  border-right-color: #45c7de;
+  border-left-color: #ecab93;
+  border-right-color: #ecab93;
 }
 .dx-treelist-rowsview .dx-selection.dx-row.dx-row-lines > td,
 .dx-treelist-rowsview .dx-selection.dx-row:hover.dx-row-lines > td,
 .dx-treelist-rowsview .dx-selection.dx-row.dx-row-lines > tr > td,
 .dx-treelist-rowsview .dx-selection.dx-row:hover.dx-row-lines > tr > td {
-  border-bottom-color: #45c7de;
+  border-bottom-color: #ecab93;
 }
 .dx-treelist-rowsview.dx-scrollable-scrollbars-alwaysvisible.dx-scrollable-both .dx-scrollable-content {
   padding-right: 0;
@@ -8200,7 +8200,7 @@
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row:hover > td,
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row > tr > td,
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row:hover > tr > td {
-  border-right-color: #45c7de;
+  border-right-color: #ecab93;
 }
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row > td:not(.dx-focused).dx-treelist-group-space,
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row:hover > td:not(.dx-focused).dx-treelist-group-space,
@@ -8212,7 +8212,7 @@
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row:hover > td.dx-pointer-events-none,
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row > tr > td.dx-pointer-events-none,
 .dx-rtl .dx-treelist-rowsview .dx-selection.dx-row:hover > tr > td.dx-pointer-events-none {
-  border-left-color: #45c7de;
+  border-left-color: #ecab93;
 }
 .dx-rtl .dx-treelist-rowsview.dx-scrollable-scrollbars-alwaysvisible.dx-scrollable-both .dx-scrollable-content {
   padding-left: 0;
@@ -13199,7 +13199,7 @@
   color: #c1c7c9;
 }
 .dx-field-item-required-mark {
-  color: #0d8bb5;
+  color: #e86536;
 }
 .dx-field-item-optional-mark {
   color: #444c4e;

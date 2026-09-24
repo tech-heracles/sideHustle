@@ -46,7 +46,7 @@
   line-height: 50px;
   font-size: 2em;
   border-radius: 50%;
-  background-color: #0072c6;
+  background-color: #e8683a;
   color: white;
   text-align: center;
   border: none;

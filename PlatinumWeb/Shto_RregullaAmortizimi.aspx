@@ -122,7 +122,7 @@
             <dx:ASPxPageControl EnableHierarchyRecreation="false" ID="ASPxPageControl1" runat="server"   TabSpacing="3px"
                 ClientInstanceName="PageControl" Width="100%" ActiveTabIndex="1">
                 <ContentStyle>
-                    <Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+                    <Border BorderColor="#F9E7E1" BorderStyle="Solid" BorderWidth="1px" />
                 </ContentStyle>
                 <ClientSideEvents ActiveTabChanged="PageControlTabChanging"/>
                 <TabPages>

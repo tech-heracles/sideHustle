@@ -234,7 +234,7 @@ ui-not-accordion-icon {
 
  .klasePerDialogtitlebar{
      color: white !important;
-     background: #0072c6 !important;
+     background: #e8683a !important;
      font-size: 13px !important;
  }
 
@@ -278,9 +278,9 @@ ui-not-accordion-icon {
 
 .myAltRowClass:hover,
 .myAltRowEvenClass:hover {
-    background: #0072c6 !important;
+    background: #e8683a !important;
     color : #ffffff !important;
-    border-color: #0072c6 !important;
+    border-color: #e8683a !important;
 }
 
 .thumbnailDefault 
@@ -454,20 +454,20 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 
 
 .KlasePerArketim .dxmMenu_DevEx {
-	background: #b2d4ed repeat-x left top !important;
+	background: #f8e8e2 repeat-x left top !important;
 }
 
 .KlasePerArketim .renditKontrolleCaption{
-	color: #004f8a !important;
+	color: #ce4818 !important;
 }
 
 .KlasePerArketim  tr.ui-widget-content {
-    background: #b2d4ed 50% bottom repeat-x !important;
+    background: #f8e8e2 50% bottom repeat-x !important;
 }
 
 .KlasePerArketim .ui-widget-content .ui-state-default{
     color: #ffffff !important;
-    background: #0072c6 50% 50% repeat-x !important;
+    background: #e8683a 50% 50% repeat-x !important;
     font-size: small !important;
     font-weight: normal;
 }
@@ -481,12 +481,12 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 }
 
 .KlasePerArketim tr.ui-widget-content.ui-state-hover{
-    color: #0072c6 !important ;
+    color: #e8683a !important ;
 	background: #e5f0f9 50% 50% repeat-x !important;
 }
 
 .KlasePerArketim .ui-widget-content .ui-state-default.ui-state-hover{
-    color: #0072c6 !important ;
+    color: #e8683a !important ;
 	background: #e5f0f9 50% 50% repeat-x !important;
     font-weight: normal;
 }
@@ -495,7 +495,7 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 }
 
 .KlasePerArketim .dxm-item.dxm-noSubMenu{
-    background: #b2d4ed repeat-x left top !important;
+    background: #f8e8e2 repeat-x left top !important;
 }
 
 .KlasePerArketim .dxm-item.dxm-hovered, .dxmMenuLargeItemHoverWithImage_DevEx {
@@ -504,7 +504,7 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 }
 
 .KlasePerArketim .dxm-horizontal .dxm-separator b, .dxmMenuFullHeightSeparator_DevEx {
-	background: #004f8a no-repeat left top !important;
+	background: #ce4818 no-repeat left top !important;
 }
 
 

@@ -150,7 +150,7 @@
                   TabSpacing="3px" Width="100%" ActiveTabIndex="0" Height="600px">
 
                 <ContentStyle>
-                    <Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+                    <Border BorderColor="#F9E7E1" BorderStyle="Solid" BorderWidth="1px" />
                 </ContentStyle>
                 <TabPages>
                     <dxtc:TabPage Name="Tepergjithshme" Text="Te pergjithshme">

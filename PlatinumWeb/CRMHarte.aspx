@@ -104,12 +104,12 @@
                                 <tr>
                                     <td class="tdStyle6">
                                         <dx:ASPxLabel ID="lblDtDok" ClientInstanceName="lblDtDok" runat="server" Text="Datë dokumenti"
-                                            Style="font-weight: 700; color: #0072c6">
+                                            Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle8">
                                         <dx:ASPxRadioButtonList ID="radDtDok" ClientInstanceName="radDtDok" Font-Size="12px"
-                                            Font-Bold="true" ForeColor="#0072c6" runat="server" RepeatColumns="4" CssClass="Glass"
+                                            Font-Bold="true" ForeColor="#e8683a" runat="server" RepeatColumns="4" CssClass="Glass"
                                             CssPostfix="Glass" Height="16px" EnableClientSideAPI="true" Border-BorderStyle="None">
                                             <ClientSideEvents ValueChanged="ValueChanged_radDtDok"
                                                 Init="Init_radDtDok" />
@@ -122,7 +122,7 @@
                                         </dx:ASPxRadioButtonList>
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblNgaDok" runat="server" Text="Nga" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">
@@ -146,7 +146,7 @@
                                         </dx:ASPxDateEdit>
                                     </td>
                                     <td class="tdStyle9">
-                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #0072c6">
+                                        <dx:ASPxLabel ID="lblDeriDok" runat="server" Text="Deri" Style="font-weight: 700; color: #e8683a">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td class="tdStyle7">

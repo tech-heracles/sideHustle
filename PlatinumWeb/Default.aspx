@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PlatinumWeb._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PlatinumWeb._Default" %>
 
 <!DOCTYPE html>
 <html>
@@ -42,13 +42,13 @@
                 'arkaBanka': { icon: 'fa-university', desc: 'Arkëtime, pagesa dhe banka' },
                 'hr': { icon: 'fa-users', desc: 'Punonjës dhe departamente' },
                 'pagesa': { icon: 'fa-credit-card', desc: 'Urdhërpagesat' },
-                'prodhimi': { icon: 'fa-industry', desc: 'Planifikim dhe ekzekutim' },
+                'prodhimi': { icon: 'fa-cogs', desc: 'Planifikim dhe ekzekutim' },
                 'qk': { icon: 'fa-sitemap', desc: 'Qendrat e kostos' },
                 'amortizimi': { icon: 'fa-building', desc: 'Aktivet afatgjata' },
                 'aprovime-dokumentash': { icon: 'fa-check-square-o', desc: 'Aprovimi i dokumenteve' },
                 'rap': { icon: 'fa-file-text-o', desc: 'Të gjitha raportet' },
                 'bi': { icon: 'fa-bar-chart', desc: 'Analiza e biznesit' },
-                'map': { icon: 'fa-map-o', desc: 'Hartat e shitjeve' },
+                'map': { icon: 'fa-map-marker', desc: 'Hartat e shitjeve' },
                 'crm': { icon: 'fa-comments', desc: 'Klientët, anketat dhe detyrat' },
                 'gis': { icon: 'fa-globe', desc: 'Sistemi gjeografik' },
                 'analizeBuxheti': { icon: 'fa-line-chart', desc: 'Analiza e buxhetit' },
@@ -100,8 +100,8 @@
                 return c;
             }
 
-            function openItem(item) {
-                host.kontrolloTeDrejta(navbar, { item: item, processOnServer: false }, item.name);
+            function openItem(item, ev) {
+                host.kontrolloTeDrejta(navbar, { item: item, processOnServer: false, htmlEvent: ev || window.event }, item.name);
             }
 
             function showGroup(group, items) {
@@ -111,7 +111,7 @@
                 crumbs.hidden = false;
                 crumbTitle.textContent = group.GetText();
                 items.forEach(function (it) {
-                    grid.appendChild(card(meta.icon, it.GetText(), '', function () { openItem(it); }, true));
+                    grid.appendChild(card(meta.icon, it.GetText(), '', function (ev) { openItem(it, ev); }, true));
                 });
                 window.scrollTo(0, 0);
             }
@@ -130,8 +130,8 @@
                     var meta = MODULES[g.name] || { icon: 'fa-folder-o', desc: '' };
                     var desc = meta.desc || (items.length + ' faqe');
                     (function (group, list) {
-                        grid.appendChild(card(meta.icon, group.GetText(), desc, function () {
-                            if (list.length === 1) openItem(list[0]); else showGroup(group, list);
+                        grid.appendChild(card(meta.icon, group.GetText(), desc, function (ev) {
+                            if (list.length === 1) openItem(list[0], ev); else showGroup(group, list);
                         }));
                     })(g, items);
                     shown++;

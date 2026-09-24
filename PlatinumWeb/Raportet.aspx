@@ -70,9 +70,9 @@
 
         .box:hover {
             /*background-color: #f0f0f0;*/
-            border: 1px solid #0072c6;
+            border: 1px solid #e8683a;
             cursor: pointer;
-            background-color: #0072c6;
+            background-color: #e8683a;
             color: #FFFFFF;
         }
 
@@ -98,7 +98,7 @@
             .box a {
                 text-decoration: none;
                 text-align: center;
-                color: #0072c6;
+                color: #e8683a;
             }
 
         .boxHeader {
@@ -136,7 +136,7 @@
             padding-bottom: 0px;
             display: inline-block;
             font-family: OpenSansLight;
-            Color: #0072c6;
+            Color: #e8683a;
             font-weight: bold;
             margin-right: 10px;
             display: none;
@@ -154,7 +154,7 @@
         }
 
         .sortable-placeholder {
-            background-color: #0072c6;
+            background-color: #e8683a;
         }
 
         #ruajKonfig {

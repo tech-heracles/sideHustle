@@ -347,7 +347,7 @@
                                                     <dxtc:ASPxPageControl EnableHierarchyRecreation="false" ID="ASPxPageControl1" runat="server" ClientInstanceName="PageControl"
                                                         TabSpacing="3px" Width="100%" ActiveTabIndex="0">
                                                         <ContentStyle>
-                                                            <border bordercolor="#AECAF0" borderstyle="Solid" borderwidth="1px" />
+                                                            <border bordercolor="#F9E7E1" borderstyle="Solid" borderwidth="1px" />
                                                         </ContentStyle>
                                                         <TabPages>
                                                             <dxtc:TabPage Name="Produktet" Text="Produktet">
