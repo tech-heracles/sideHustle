@@ -8,10 +8,8 @@ namespace DbCore.DbShare
 {
     public enum KlientSpecifik
     {
-        Vodafone,
         KESH,
         OSHEE,
-        VodafoneShops,
 
     }
 }

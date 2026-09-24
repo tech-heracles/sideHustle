@@ -511,14 +511,7 @@ namespace PlatinumWeb
             {
                 switch (EmerRaporti)
                 {
-                    case "hyrjeVodafone":
-                    case "gjendjeArtikujtVodafone":
-                    case "veprimeTeAnulluaraVodafone":
                     case "gjendjaEProdukteveLoan":
-                    case "porosiDealerVodafone":
-                    case "shitjeAnalitikeVodafone":
-                    case "hyrjeVodafoneNdermarrjeBije":
-                    case "veprimeTeAnulluaraVodafoneNdermarrjeBije":
                     case "gjendjaMagazinesSipasDetajimeve":
                     case "logePerKartelePunonjesi":
                     case "RptKartelaLlogariveFormat2":
@@ -536,7 +529,6 @@ namespace PlatinumWeb
                     case "gjendjaArtikujveIMEIEkspozitor":
                     case "analizeStokuKrahasimShitje":
                     case "analizaStokutEkspozitorKrahasimShitje":
-                    case "gjendjaArtikujveVodafoneExp":
                     case "KontrolliPorosive":
                         hiqReporHeaderNgaRaporti(r);
                         break;

@@ -123,22 +123,8 @@
             display: inline-flex;
         }
 
-        .vodafone .right {
-            width: auto;
-            height: 16px;
-            background-color: #ed1b24;
-            border-radius: 4px;
-            padding: 9px 11px 9px 11px;
-            float: right;
-            display: inline-flex;
-        }
-
         .klient .right:hover {
             background-color: #75afe5;
-        }
-
-        .vodafone .right:hover {
-            background-color: #f13941;
         }
 
         .emri {

@@ -310,18 +310,6 @@
     <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.Designer.cs">
       <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone2A5.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone2A5.designer.cs">
-      <DependentUpon>rap_MandatArketimiVodafone2A5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone2.designer.cs">
-      <DependentUpon>rap_MandatArketimiVodafone2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\rap_MandatArketimPages.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -551,12 +539,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentaveLidhes.resx">
       <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone2A5.resx">
-      <DependentUpon>rap_MandatArketimiVodafone2A5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone2.resx">
-      <DependentUpon>rap_MandatArketimiVodafone2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\rap_MandatArketimPages.resx">
       <DependentUpon>rap_MandatArketimPages.cs</DependentUpon>

@@ -582,8 +582,6 @@
     <Compile Include="DbRegjistrim\clsKasaKokaFile.cs" />
     <Compile Include="DbRegjistrim\clsKasaTrupi.cs" />
     <Compile Include="DbRegjistrim\clsKategoriNivelDok.cs" />
-    <Compile Include="DbRegjistrim\clsKlientMeKupon.cs" />
-    <Compile Include="DbRegjistrim\clsKlientPerBazaar.cs" />
     <Compile Include="DbRegjistrim\clsKokaInventarizim.cs" />
     <Compile Include="DbRegjistrim\clsKokaMagazina.cs" />
     <Compile Include="DbRegjistrim\clsKokaMbylljeKF.cs" />
@@ -653,8 +651,6 @@
     <Compile Include="DbRegjistrim\colInventarizim.cs" />
     <Compile Include="DbRegjistrim\colKarta.cs" />
     <Compile Include="DbRegjistrim\colKategoriNiveleDok.cs" />
-    <Compile Include="DbRegjistrim\colKlientMeKupon.cs" />
-    <Compile Include="DbRegjistrim\colKlientPerBazaar.cs" />
     <Compile Include="DbRegjistrim\colKokaInventarizim.cs" />
     <Compile Include="DbRegjistrim\colKokaMagazina.cs" />
     <Compile Include="DbRegjistrim\colKokaMbylljeKF.cs" />
@@ -698,7 +694,6 @@
     <Compile Include="DbRegjistrim\colVeprimeKFTrupi.cs" />
     <Compile Include="DbRegjistrim\KonfigurimTVSHGjateRregj.cs" />
     <Compile Include="DbRegjistrim\KrijuesKasash.cs" />
-    <Compile Include="DbRegjistrim\LlojMsisdn.cs" />
     <Compile Include="DbRegjistrim\LlojTakse.cs" />
     <Compile Include="DbRegjistrim\MarreveshjeExcelReader.cs" />
     <Compile Include="DbRegjistrim\StatusAprovimi.cs" />
@@ -955,7 +950,6 @@
     <Compile Include="IMBUtils\Fiskalizimi\Controls\clsKontrollePerFiskalizimin.cs" />
     <Compile Include="IMBUtils\Kontrolle\Controls\clsKontrolle.cs" />
     <Compile Include="IMBUtils\Messages\MessagesResource.cs" />
-    <Compile Include="Integrime\KonfigurimeStatikeIntegrimi.cs" />
     <Compile Include="KodGjuhePerPerkthim.cs" />
     <Compile Include="MbylljePeriudhe\Commons\ClosedPeriod.cs" />
     <Compile Include="MbylljePeriudhe\Commons\Process.cs" />

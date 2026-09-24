@@ -5345,7 +5345,7 @@ function spliterPaneResized(s, e) {
 
 function SuccedcallbackSkemaMenu(result) {
     if (hfState.Get("Meme") && pageState.veprimi == "blerje") {
-        vodafoneExeptionMenu(ASPxMenu1);
+        shfaqVetemAnullo(ASPxMenu1);
         return;
     }
 
@@ -5389,7 +5389,7 @@ function SuccedcallbackSkemaMenu(result) {
         ASPxMenu1.GetItemByName('Ruaj').SetVisible(false);
 }
 
-function vodafoneExeptionMenu(container) {
+function shfaqVetemAnullo(container) {
     if (container.GetItemCount() > 0) {
         for (var i = 0; i < container.GetItemCount(); i++) {
             var item = container.GetItem(i);

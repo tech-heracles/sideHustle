@@ -889,10 +889,6 @@ namespace PlatinumWeb
                                         cmb3.ClientInstanceName = "txtVleraLlojDokumenti";
                                         cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVleraLlojDokumenti,'txtVlera', {0});}}", e.VisibleIndex);
                                         break;
-                                    case "List MSISDN":
-                                        cmb3.Items.Add(DbCore.DbRegjistrim.LlojMsisdn.DeviceWithDiscount.ToString(), 1);
-                                        cmb3.Items.Add(DbCore.DbRegjistrim.LlojMsisdn.Bazaar.ToString(), 2);
-                                        break;
                                     case "Detajime artikulli":
                                         cmb3.DataSource = KonfigurimComboGride.MerrItemsPerLlojDetajimArtikulli(rm, ci);
                                         cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);

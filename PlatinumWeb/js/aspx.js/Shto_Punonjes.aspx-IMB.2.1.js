@@ -767,8 +767,6 @@ function OnGridSelectionChanged(e) {
 function mbushEmail() {
     var emri = txtEmri.GetText();
     var mbiemri = txtMbiemri.GetText();
-    if (sugjerim)
-        txtEmail.SetText(emri + '.' + mbiemri + '@vodafone.com');
     txtUsername.SetText(emri + '.' + mbiemri);
     if (emri != "" && mbiemri != "") {
         $.ajax({
@@ -813,8 +811,6 @@ function SucceededCallbackUsername(result) {
 function mbushEmailPunonjesi(s, e) {
     var emri = s.GetText().split(' ')[0];
     var mbiemri = s.GetText().split(' ')[1];
-    if (sugjerim)
-        txtEmail.SetText(emri + '.' + mbiemri + '@vodafone.com');
     txtUsername.SetText(emri + '.' + mbiemri);
     txtEmri.SetText(emri);
     txtMbiemri.SetText(mbiemri);
@@ -867,7 +863,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
     }
 }
 var resultkonf;
-var sugjerim;
 var colKontrollet, colAtrTrupi;
 //        var colAlterKusht;
 //        var colKushte;
@@ -898,17 +893,8 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
         }
 
-        sugjerim = false;
         for (k = 0; k < colKushte.length; k++) {
             var kusht = colKushte[k];
-            if (kusht.Kodi == 'SE') {
-                if (kusht.Alternativa == "Po") {
-                    sugjerim = true;
-                }
-                else {
-                    sugjerim = false;
-                }
-            }
             if (kusht.Kodi == 'LSHNRB') {
                 if (kusht.Alternativa == "Po") {
                     $('#hfLejoNrLlogBank').val("True")

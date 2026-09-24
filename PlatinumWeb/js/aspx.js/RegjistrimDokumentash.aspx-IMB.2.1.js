@@ -264,18 +264,12 @@ function Print() {
         myMesazh.ShtoMesazhGabimi(hfState.Get("regjMagMesazhZgjidhniFaturePerPrintim"));
         return;
     }
-    grid_RegDok.GetRowValues(index, "IdShitjeKoka;NrDok;PershkrimKonfigDokumenti;IdStatusDok;IdRaportDesing", function (result) {
+    grid_RegDok.GetRowValues(index, "IdShitjeKoka;NrDok;IdRaportDesing", function (result) {
         var idkoka = result[0];
         var nrDok = result[1];
-        var pershkrim = result[2].toLowerCase();
-        var idstatusdok = result[3];
-        var idDesign = result[4];
+        var idDesign = result[2];
         if (idkoka == 0) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("regjMagMesazhZgjidhniFaturePerPrintim"));
-            return;
-        }
-        if ((pershkrim.indexOf("vodafone one") !== -1 && idstatusdok == "0") || pershkrim.indexOf("porosi bazaar") !== -1 || pershkrim.indexOf("porosi summer promo") !== -1) {
-            myMesazh.ShtoMesazhGabimi("Nuk mund te printoni porosi!");
             return;
         }
         if (idDesign == 0) {
@@ -787,23 +781,6 @@ function kontrolloNivel(result) {
     }).done(hapRaportTeFiltruar);
 }
 
-function kontrolloNivelPorosiDealer(result) {
-    var ids = new Array();
-    var idNivele = new Array();
-    var niveli = result[0][1]; //ruajme id e nivelit te dokumentit te pare te selektuar
-    for (i = 0; i < result.length; i++) {
-        if (result[i][1] != niveli) { //nqs id e nivelit nuk eshte e njejte me ate te dokumentit te pare, atehere nuk hapet raporti
-            myMesazh.ShtoMesazhGabimi(hfState.Get("msgDokTeJeneTeSeNjejtesNenkategori"));
-            return;
-        }
-        ids[i] = result[i][0];
-        idNivele[i] = result[i][1];
-    }
-    $.ajax({
-        url: Utils.getServerApiUrl("Rregjistrime", "janeOferteShitje"),
-        data: JSON.stringify({ ids: ids, idNivele: idNivele })
-    }).done(hapRaportTeFiltruarPorosiDealer);
-}
 function ktheVleratEShitjesPerFiskalizimin(result) {
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "ktheVleratEShitjesPerFiskalizimin"),
@@ -846,23 +823,6 @@ function hapRaportTeFiltruar(result) {
     }
 }
 
-function hapRaportTeFiltruarPorosiDealer(result) {
-    if (result.janeOSH == false) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("msgDokNukJaneOferteShitje"));
-    }
-    else {
-        var width = $(window).width();
-        var idte = '';//ruajme id e dokumentave te selektuara te ndara me '-' qe t'ia kalojme raportit ne url
-        var idDok = result.idte;
-        for (var i = 0; i < idDok.length; i++) {
-            if (idte == '')
-                idte = idDok[i];
-            else
-                idte = idte + '-' + idDok[i];
-        }
-        window.open("RaportiShpejte.aspx?Sesioni=false&emriReal=porosiDealerVodafone&printo=0&kodkonf=&dtdok=&artGjendjeZero=Po&idDokKonv=" + idte, "_blank");
-    }
-}
 
 function hapRaportTeFiltruarOferteBlerje(result) {
     if (result.janeOB == false) {

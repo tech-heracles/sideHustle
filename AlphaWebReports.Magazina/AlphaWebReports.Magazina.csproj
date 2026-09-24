@@ -253,16 +253,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_RapGjendjaArtikujveSipasMagazines.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_RapGjendjaArtikujVodafone1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_RapGjendjaArtikujVodafone_Exp1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone_Exp.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_RapGjendjaCmimeShitjeArtikuj1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -348,16 +338,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_RapMagazinaGjendjeZero.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_RapMagazinaHyrjeVodafone1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafone.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_RapMagazinaHyrjeVodafoneNdermarjeBije1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_RapMagazinaRegjistriAnalitikSeriale1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -377,16 +357,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_RapMaturimiStokut.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_RapVeprimeTeAnulluaraVodafone1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafone.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xsd</DependentUpon>
     </Compile>
     <Compile Include="Ds_Rap_Analizaeartikujve1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -572,18 +542,6 @@
     <Compile Include="Format_Printimi\Rap_FatureShoqerimi_SePDeFn_131445037206576240.Designer.cs">
       <DependentUpon>Rap_FatureShoqerimi_SePDeFn_131445037206576240.cs</DependentUpon>
     </Compile>
-    <Compile Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone_Aparate.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone_Aparate.Designer.cs">
-      <DependentUpon>Rap_FatureShoqerimi_Vodafone_Aparate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone.Designer.cs">
-      <DependentUpon>Rap_FatureShoqerimi_Vodafone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Format_Printimi\Rap_FormatInventarizimi_AlPetrol.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -613,12 +571,6 @@
     </Compile>
     <Compile Include="Format_Printimi\Rap_Format_Printimi_AlPetrolA5.Designer.cs">
       <DependentUpon>Rap_Format_Printimi_AlPetrolA5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_FD_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_FD_Vodafone.Designer.cs">
-      <DependentUpon>Rap_Format_Printimi_FD_Vodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina.cs">
       <SubType>Component</SubType>
@@ -799,18 +751,6 @@
     </Compile>
     <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina_SePDeFn_131703314326224430.Designer.cs">
       <DependentUpon>Rap_Format_Printimi_Magazina_SePDeFn_131703314326224430.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone.Designer.cs">
-      <DependentUpon>Rap_Format_Printimi_Magazina_Vodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone2.Designer.cs">
-      <DependentUpon>Rap_Format_Printimi_Magazina_Vodafone2.cs</DependentUpon>
     </Compile>
     <Compile Include="Format_Printimi\Rap_Format_Printimi_Model10.cs">
       <SubType>Component</SubType>
@@ -1059,18 +999,6 @@
     <Compile Include="Rap_GjendjaArtikujveSipasMagazines_format2.Designer.cs">
       <DependentUpon>Rap_GjendjaArtikujveSipasMagazines_format2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_GjendjaArtikujVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_GjendjaArtikujVodafone.Designer.cs">
-      <DependentUpon>Rap_GjendjaArtikujVodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_GjendjaArtikujVodafone_Exp.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_GjendjaArtikujVodafone_Exp.designer.cs">
-      <DependentUpon>Rap_GjendjaArtikujVodafone_Exp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_GjendjaArtPerberes.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1118,12 +1046,6 @@
     </Compile>
     <Compile Include="Rap_GjendjaMagDet.Designer.cs">
       <DependentUpon>Rap_GjendjaMagDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_GjendjaMagDet_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_GjendjaMagDet_Vodafone.Designer.cs">
-      <DependentUpon>Rap_GjendjaMagDet_Vodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_GjendjaMagDet_Vodafone2.cs">
       <SubType>Component</SubType>
@@ -1401,18 +1323,6 @@
     <Compile Include="Rap_MagazinaGjendja_SePDeFn_131387254592020949.Designer.cs">
       <DependentUpon>Rap_MagazinaGjendja_SePDeFn_131387254592020949.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_MagazinaHyrjeVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaHyrjeVodafone.Designer.cs">
-      <DependentUpon>Rap_MagazinaHyrjeVodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaHyrjeVodafoneNdermarjeBije.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaHyrjeVodafoneNdermarjeBije.Designer.cs">
-      <DependentUpon>Rap_MagazinaHyrjeVodafoneNdermarjeBije.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_MagazinaMaturimiStokut.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1574,18 +1484,6 @@
     </Compile>
     <Compile Include="Rap_RegjistriAnalitik_SipasSerialeve.Designer.cs">
       <DependentUpon>Rap_RegjistriAnalitik_SipasSerialeve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_VeprimeTeAnulluaraVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_VeprimeTeAnulluaraVodafone.Designer.cs">
-      <DependentUpon>Rap_VeprimeTeAnulluaraVodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_VeprimeTeAnulluaraVodafoneNdermarjeBije.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_VeprimeTeAnulluaraVodafoneNdermarjeBije.Designer.cs">
-      <DependentUpon>Rap_VeprimeTeAnulluaraVodafoneNdermarjeBije.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_Veprime_Aparate_Ekspozitore.cs">
       <SubType>Component</SubType>
@@ -1951,28 +1849,6 @@
     <None Include="Ds_RapGjendjaArtikujveSipasMagazines.xss">
       <DependentUpon>Ds_RapGjendjaArtikujveSipasMagazines.xsd</DependentUpon>
     </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone.xsc">
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapGjendjaArtikujVodafone1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone.xss">
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone_Exp.xsc">
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone_Exp.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone_Exp.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapGjendjaArtikujVodafone_Exp1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapGjendjaArtikujVodafone_Exp.xss">
-      <DependentUpon>Ds_RapGjendjaArtikujVodafone_Exp.xsd</DependentUpon>
-    </None>
     <None Include="Ds_RapGjendjaCmimeShitjeArtikuj.xsc">
       <DependentUpon>Ds_RapGjendjaCmimeShitjeArtikuj.xsd</DependentUpon>
     </None>
@@ -2160,28 +2036,6 @@
     <None Include="Ds_RapMagazinaGjendjeZero.xss">
       <DependentUpon>Ds_RapMagazinaGjendjeZero.xsd</DependentUpon>
     </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafone.xsc">
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafone.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapMagazinaHyrjeVodafone1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafone.xss">
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xsc">
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapMagazinaHyrjeVodafoneNdermarjeBije1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xss">
-      <DependentUpon>Ds_RapMagazinaHyrjeVodafoneNdermarjeBije.xsd</DependentUpon>
-    </None>
     <None Include="Ds_RapMagazinaRegjistriAnalitikSeriale.xsc">
       <DependentUpon>Ds_RapMagazinaRegjistriAnalitikSeriale.xsd</DependentUpon>
     </None>
@@ -2225,28 +2079,6 @@
     </None>
     <None Include="Ds_RapMaturimiStokut.xss">
       <DependentUpon>Ds_RapMaturimiStokut.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafone.xsc">
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafone.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapVeprimeTeAnulluaraVodafone1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafone.xss">
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xsc">
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xss">
-      <DependentUpon>Ds_RapVeprimeTeAnulluaraVodafoneNdermarjeBije.xsd</DependentUpon>
     </None>
     <None Include="Ds_Rap_Analizaeartikujve.xsc">
       <DependentUpon>Ds_Rap_Analizaeartikujve.xsd</DependentUpon>
@@ -2594,12 +2426,6 @@
     <EmbeddedResource Include="Format_Printimi\Rap_FatureShoqerimi_SePDeFn_131445037206576240.resx">
       <DependentUpon>Rap_FatureShoqerimi_SePDeFn_131445037206576240.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone_Aparate.resx">
-      <DependentUpon>Rap_FatureShoqerimi_Vodafone_Aparate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_FatureShoqerimi_Vodafone.resx">
-      <DependentUpon>Rap_FatureShoqerimi_Vodafone.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_FormatInventarizimi_AlPetrol.resx">
       <DependentUpon>Rap_FormatInventarizimi_AlPetrol.cs</DependentUpon>
     </EmbeddedResource>
@@ -2614,9 +2440,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_AlPetrolA5.resx">
       <DependentUpon>Rap_Format_Printimi_AlPetrolA5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_FD_Vodafone.resx">
-      <DependentUpon>Rap_Format_Printimi_FD_Vodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Magazina.resx">
       <DependentUpon>Rap_Format_Printimi_Magazina.cs</DependentUpon>
@@ -2707,12 +2530,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Magazina_SePDeFn_131703314326224430.resx">
       <DependentUpon>Rap_Format_Printimi_Magazina_SePDeFn_131703314326224430.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone.resx">
-      <DependentUpon>Rap_Format_Printimi_Magazina_Vodafone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Magazina_Vodafone2.resx">
-      <DependentUpon>Rap_Format_Printimi_Magazina_Vodafone2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Model10.resx">
       <DependentUpon>Rap_Format_Printimi_Model10.cs</DependentUpon>
@@ -2837,12 +2654,6 @@
     <EmbeddedResource Include="Rap_GjendjaArtikujveSipasMagazines_format2.resx">
       <DependentUpon>Rap_GjendjaArtikujveSipasMagazines_format2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_GjendjaArtikujVodafone.resx">
-      <DependentUpon>Rap_GjendjaArtikujVodafone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_GjendjaArtikujVodafone_Exp.resx">
-      <DependentUpon>Rap_GjendjaArtikujVodafone_Exp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_GjendjaArtPerberes.resx">
       <DependentUpon>Rap_GjendjaArtPerberes.cs</DependentUpon>
     </EmbeddedResource>
@@ -2866,9 +2677,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_GjendjaMagDet.resx">
       <DependentUpon>Rap_GjendjaMagDet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_GjendjaMagDet_Vodafone.resx">
-      <DependentUpon>Rap_GjendjaMagDet_Vodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_GjendjaMagDet_Vodafone2.resx">
       <DependentUpon>Rap_GjendjaMagDet_Vodafone2.cs</DependentUpon>
@@ -3013,12 +2821,6 @@
     <EmbeddedResource Include="Rap_MagazinaGjendja_SePDeFn_131387254592020949.resx">
       <DependentUpon>Rap_MagazinaGjendja_SePDeFn_131387254592020949.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaHyrjeVodafone.resx">
-      <DependentUpon>Rap_MagazinaHyrjeVodafone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaHyrjeVodafoneNdermarjeBije.resx">
-      <DependentUpon>Rap_MagazinaHyrjeVodafoneNdermarjeBije.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaMaturimiStokut.resx">
       <DependentUpon>Rap_MagazinaMaturimiStokut.cs</DependentUpon>
     </EmbeddedResource>
@@ -3101,12 +2903,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_RegjistriAnalitik_SipasSerialeve.resx">
       <DependentUpon>Rap_RegjistriAnalitik_SipasSerialeve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_VeprimeTeAnulluaraVodafone.resx">
-      <DependentUpon>Rap_VeprimeTeAnulluaraVodafone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_VeprimeTeAnulluaraVodafoneNdermarjeBije.resx">
-      <DependentUpon>Rap_VeprimeTeAnulluaraVodafoneNdermarjeBije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_Veprime_Aparate_Ekspozitore.resx">
       <DependentUpon>Rap_Veprime_Aparate_Ekspozitore.cs</DependentUpon>

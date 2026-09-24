@@ -20,7 +20,6 @@ using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
-using DbCore.Integrime;
 using Newtonsoft.Json;
 
 namespace DbCore.DbRegjistrim
@@ -3672,24 +3671,6 @@ namespace DbCore.DbRegjistrim
                 System.Diagnostics.Debug.WriteLine(debugMsg);
                 ImbLogger.Info(debugMsg);
                 //dbRegj.commitTransaksion();
-                if (dergoEmail)
-                {
-                    EmailComposer.dergoEmailFaturen(idGjuha, idPerdoruesi, idNdermarjeVit, idNdermarje, idShitjeKoka, IdKlientFurnitor, NrDok, dtDok);
-                    //to do kevi dergo email nga emaili i konfiguruar tek ambjenti i konfigurimit te emailit tek emaili i tabeles t_klientfurnitor per klientit e fatures  me tekst Porosia juaj nr xxx, dt 0x/0x/201x u modifikua
-                }
-
-                if (dergoemailVFOne)
-                {
-                    clsMesazh msgDergoEmailVfOne = EmailComposer.dergoEmailRezervimVodOne(idNdermarje, idPerdoruesi, this.oColTrupiShitje, NrDok, DtDok, this.IdKonfigAmbjente, true, false);
-                    if (!msgDergoEmailVfOne.Status)
-                        ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate dergimit te email dergoEmailRezervimVodOne idNdermarje: {0}, perdoruesi: {1}, nrdok: {2}, dtdok: {3}, IdKonfigAmbjente: {4}, dergoEmailVfOne : {5}, dergoEmailPorosi:{6} ", idNdermarje, idPerdoruesi, NrDok, DtDok, IdKonfigAmbjente), msgDergoEmailVfOne.PershkrimMesazhi, true, false);
-                }
-                if (clsAlternativaKushti.getAlternativa(this.IdKonfigAmbjente, "DEPOROSI", dbshare) == "Po")
-                {
-                    clsMesazh msgDergoEmailVfOne = EmailComposer.dergoEmailRezervimVodOne(idNdermarje, idPerdoruesi, this.oColTrupiShitje, NrDok, DtDok, this.IdKonfigAmbjente, false, true);
-                    if (!msgDergoEmailVfOne.Status)
-                        ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate dergimit te email dergoEmailRezervimVodOne idNdermarje: {0}, perdoruesi: {1}, nrdok: {2}, dtdok: {3}, IdKonfigAmbjente: {4}, dergoEmailVfOne : {5}, dergoEmailPorosi:{6} ", idNdermarje, idPerdoruesi, NrDok, DtDok, IdKonfigAmbjente), msgDergoEmailVfOne.PershkrimMesazhi, false, true);
-                }
                 if (kaNdryshimNumri)
                 {
                     return mesazhKontrolli;
@@ -5465,25 +5446,6 @@ namespace DbCore.DbRegjistrim
                     scope.Complete();
                 }
 
-                if (dergoEmail)
-                {
-                    EmailComposer.dergoEmailFaturen(idGjuha, idPerdoruesi, idNdermarjeVit, idNdermarje, idShitjeKoka, IdKlientFurnitor, NrDok, dtDok);
-                    //to do kevi dergo email nga emaili i konfiguruar tek ambjenti i konfigurimit te emailit tek emaili i tabeles t_klientfurnitor per klientit e fatures  me tekst Porosia juaj nr xxx, dt 0x/0x/201x u modifikua
-                }
-
-                if (dergoemailVFOne)
-                {
-                    clsMesazh msgDergoEmailVfOne = EmailComposer.dergoEmailRezervimVodOne(idNdermarje, idPerdoruesi, this.oColTrupiShitje, NrDok, DtDok, this.IdKonfigAmbjente, true, false);
-                    if (!msgDergoEmailVfOne.Status)
-                        ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate dergimit te email dergoEmailRezervimVodOne idNdermarje: {0}, perdoruesi: {1}, nrdok: {2}, dtdok: {3}, IdKonfigAmbjente: {4}, dergoEmailVfOne : {5}, dergoEmailPorosi:{6} ", idNdermarje, idPerdoruesi, NrDok, DtDok, IdKonfigAmbjente), msgDergoEmailVfOne.PershkrimMesazhi, true, false);
-                }
-
-                if (clsAlternativaKushti.getAlternativa(this.IdKonfigAmbjente, "DEPOROSI") == "Po")
-                {
-                    clsMesazh msgDergoEmailVfOne = EmailComposer.dergoEmailRezervimVodOne(idNdermarje, idPerdoruesi, this.oColTrupiShitje, NrDok, DtDok, this.IdKonfigAmbjente, false, true);
-                    if (!msgDergoEmailVfOne.Status)
-                        ImbLogger.LogErrorPromocione(string.Format("Ndodhi nje gabim gjate dergimit te email dergoEmailRezervimVodOne idNdermarje: {0}, perdoruesi: {1}, nrdok: {2}, dtdok: {3}, IdKonfigAmbjente: {4}, dergoEmailVfOne : {5}, dergoEmailPorosi:{6} ", idNdermarje, idPerdoruesi, NrDok, DtDok, IdKonfigAmbjente), msgDergoEmailVfOne.PershkrimMesazhi, false, true);
-                }
 
                 if (u_modifikua.PershkrimMesazhi == "Modifikimi përfundoi me sukses!")
                     u_modifikua.PershkrimMesazhi = rm.GetString("msgModifikimiMeSukses", cultinf);

@@ -229,11 +229,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_LibriShitjes2019.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_LibriShitjeveVodafone1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_LibriShitjeveVodafone.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ds_MarzhiShitjesSipasAgjenteve1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1808,12 +1803,6 @@
     <Compile Include="Fatura\Rap_Fature_Tatimore_Shitje_Vod_Aparate.Designer.cs">
       <DependentUpon>Rap_Fature_Tatimore_Shitje_Vod_Aparate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fatura\Rap_Fature_Tatimore_Shitje_Vod.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_Fature_Tatimore_Shitje_Vod.Designer.cs">
-      <DependentUpon>Rap_Fature_Tatimore_Shitje_Vod.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fatura\Rap_FaturShitjeModelA5Format3.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1879,12 +1868,6 @@
     </Compile>
     <Compile Include="Fatura\Rap_FormatFleteGaranci_PcStore_SePDeFn_131316272514433267.Designer.cs">
       <DependentUpon>Rap_FormatFleteGaranci_PcStore_SePDeFn_131316272514433267.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatKerkeseShitjeVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatKerkeseShitjeVodafone.Designer.cs">
-      <DependentUpon>Rap_FormatKerkeseShitjeVodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Fatura\Rap_FormatPorosie_KlimaTeknika.cs">
       <SubType>Component</SubType>
@@ -3051,12 +3034,6 @@
     <Compile Include="Rap_LibriShitjeveSunPetrolium.Designer.cs">
       <DependentUpon>Rap_LibriShitjeveSunPetrolium.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_LibriShitjeveVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_LibriShitjeveVodafone.Designer.cs">
-      <DependentUpon>Rap_LibriShitjeveVodafone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_LibriShitjeve_AlphaBank.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3332,12 +3309,6 @@
     </Compile>
     <Compile Include="Rap_ShitjeAnalitikDekoll.Designer.cs">
       <DependentUpon>Rap_ShitjeAnalitikDekoll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitike_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitike_Vodafone.Designer.cs">
-      <DependentUpon>Rap_ShitjeAnalitike_Vodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ShitjeAnalitikKodiDoganor.cs">
       <SubType>Component</SubType>
@@ -4024,17 +3995,6 @@
     </None>
     <None Include="Ds_LibriShitjes2019.xss">
       <DependentUpon>Ds_LibriShitjes2019.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_LibriShitjeveVodafone.xsc">
-      <DependentUpon>Ds_LibriShitjeveVodafone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_LibriShitjeveVodafone.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_LibriShitjeveVodafone1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_LibriShitjeveVodafone.xss">
-      <DependentUpon>Ds_LibriShitjeveVodafone.xsd</DependentUpon>
     </None>
     <None Include="ds_MarzhiShitjesSipasAgjenteve.xsc">
       <DependentUpon>ds_MarzhiShitjesSipasAgjenteve.xsd</DependentUpon>
@@ -5685,9 +5645,6 @@
     <EmbeddedResource Include="Fatura\Rap_Fature_Tatimore_Shitje_Vod_Aparate.resx">
       <DependentUpon>Rap_Fature_Tatimore_Shitje_Vod_Aparate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_Fature_Tatimore_Shitje_Vod.resx">
-      <DependentUpon>Rap_Fature_Tatimore_Shitje_Vod.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FaturShitjeModelA5Format3.resx">
       <DependentUpon>Rap_FaturShitjeModelA5Format3.cs</DependentUpon>
     </EmbeddedResource>
@@ -5720,9 +5677,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FormatFleteGaranci_PcStore_SePDeFn_131316272514433267.resx">
       <DependentUpon>Rap_FormatFleteGaranci_PcStore_SePDeFn_131316272514433267.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FormatKerkeseShitjeVodafone.resx">
-      <DependentUpon>Rap_FormatKerkeseShitjeVodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FormatPorosie_KlimaTeknika.resx">
       <DependentUpon>Rap_FormatPorosie_KlimaTeknika.cs</DependentUpon>
@@ -6306,9 +6260,6 @@
     <EmbeddedResource Include="Rap_LibriShitjeveSunPetrolium.resx">
       <DependentUpon>Rap_LibriShitjeveSunPetrolium.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_LibriShitjeveVodafone.resx">
-      <DependentUpon>Rap_LibriShitjeveVodafone.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_LibriShitjeve_AlphaBank.resx">
       <DependentUpon>Rap_LibriShitjeve_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
@@ -6446,9 +6397,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalitikDekoll.resx">
       <DependentUpon>Rap_ShitjeAnalitikDekoll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAnalitike_Vodafone.resx">
-      <DependentUpon>Rap_ShitjeAnalitike_Vodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalitikKodiDoganor.resx">
       <DependentUpon>Rap_ShitjeAnalitikKodiDoganor.cs</DependentUpon>

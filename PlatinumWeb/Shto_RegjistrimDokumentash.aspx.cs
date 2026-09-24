@@ -3153,7 +3153,7 @@ namespace PlatinumWeb
             if (mesazhmevonshem != "")
                 clsMenuInfo.ShtoMesazhInformues(MenuInfo, mesazhmevonshem, pnlMesazhi);
 
-            if ((pershkrim.Contains("Vodafone One") && kokeShitje.IdStatusDok == 0) || (pershkrim.Contains("Porosi") && (eshteOwn || nderm.Prind || (nderm.IdPrindi != null && nderm.IdPrindi != 0))))
+            if (pershkrim.Contains("Porosi") && (eshteOwn || nderm.Prind || (nderm.IdPrindi != null && nderm.IdPrindi != 0)))
             {
                 Container55.Attributes["src"] = ""; Container1.Attributes["src"] = "";
             }
@@ -4225,16 +4225,6 @@ namespace PlatinumWeb
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("regjShitjeMesazhSkaFormatPerPrintim", cultinf), pnlMesazhi);
                         else
                         {
-                            clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti(clsKoka.IdKonfigAmbjente);
-                            string pershkrim = konf.PershkrimKonfigAmbjente.ToLower();
-
-                            if ((pershkrim.Contains("vodafone one") && clsKoka.IdStatusDok == 0) || pershkrim.Contains("porosi bazaar") || pershkrim.Contains("porosi summer promo"))
-                            {
-                                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk mund te printoni porosi!", pnlMesazhi);
-                                Container55.Attributes["src"] = ""; Container1.Attributes["src"] = "";
-                                ImbLogger.LogTraceShitje("Mbaroi metoda ASPxMenu1_ItemClick sepse nuk mund te printoni porosi");
-                                return;
-                            }
                             int idRaporti = clsRaporti.KtheIdRaporti(idGjuha, Convert.ToInt32(cmbFormatiPrintimit.Value));
                             Container55.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + id + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
                         }

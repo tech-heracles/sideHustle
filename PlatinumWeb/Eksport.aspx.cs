@@ -807,12 +807,6 @@ namespace PlatinumWeb
 				case 139:
 					table = colQendraKostoPunonjes.ktheQendraKostoNdermarrjesAndAutorizimeDTExport(IdNdermarrja);
 					break;
-				case 147:
-					table = colKlientMeKupon.MerrSipasNdermarrjesPerExport(IdNdermarrja);
-					break;
-				case 148:
-					table = colKlientPerBazaar.MerrSipasNdermarrjesPerExport(IdNdermarrja);
-					break;
 				case 149:
 					table = colNormaAmortizimiRezerva.ktheNormaperEkport(IdNdermarrja);
 					break;
@@ -1261,12 +1255,6 @@ namespace PlatinumWeb
 					break;
 				case 138:
 					kodKontrolli = "IdPunesim";
-					break;
-				case 147:
-					kodKontrolli = "IdKlientKupon";
-					break;
-				case 148:
-					kodKontrolli = "IdKlientPerBazaar";
 					break;
 				case 149:
 					kodKontrolli = "IdNorma";

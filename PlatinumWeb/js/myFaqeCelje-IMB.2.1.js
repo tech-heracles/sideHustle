@@ -1658,20 +1658,6 @@ myFaqeCelje.shfaqButonRaportOfertaBlerje = function (s, e, emerRaporti) {
     else s.SetVisible(false);
 };
 
-//ky eshte butoni te lista e shitjes qe hap raportin Pagesa Dealer te Vodafone
-myFaqeCelje.hapRaportinPagesa = function (s, e, grida) {
-    var width = $(window).width();
-    if (Utils.getUrlVar("shitje_blerje") == "shitje" || Utils.getUrlVar('shitje_blerje') == 'shitjediscount' || Utils.getUrlVar('shitje_blerje') == 'bazaar') {
-        if (grida.GetSelectedRowCount() == 0)
-            window.location = "Raporti.aspx?emriReal=porosiDealerVodafone&windowWidth=" + width + "&Filtro=false";
-        else {
-            //hap raportin te filtruar sipas dokumentave te selektuara ne gride
-            e.processOnServer = false;
-            grida.GetSelectedFieldValues('IdShitjeKoka;IdNivel', kontrolloNivelPorosiDealer);
-        }
-    }
-};
-
 //ky eshte butoni te lista e shitjeve qe hap raportin e aparateve/kartave/ringarkuesve te shitur/a te Vodafone
 myFaqeCelje.hapRaportin = function (s, e, emerRaporti) {
     if (Utils.getUrlVar("shitje_blerje") == "shitje") {

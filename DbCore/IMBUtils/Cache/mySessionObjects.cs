@@ -9,7 +9,6 @@ using DbCore.DbListPagesat;
 using DbCore.DbProdhimi;
 using DbCore.DbQendraKosto;
 using DbCore.DbShare;
-using DbCore.Integrime;
 using System;
 using System.Collections.Generic;
 using System.Data;

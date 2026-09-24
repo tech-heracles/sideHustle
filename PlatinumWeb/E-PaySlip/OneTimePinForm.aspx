@@ -54,7 +54,7 @@
             <section class="submain">
                 <header class="header">
                     <div id ="logoHeade" style=" display: inline;">
-					<dx:ASPxImage ID="ASPxImage6" Height="60px" Width="231px" CssClass="logo" runat="server" ImageUrl="~/images/FaqjaPare/vodLogo.png">
+					<dx:ASPxImage ID="ASPxImage6" Height="60px" Width="231px" CssClass="logo" runat="server" ImageUrl="~/E-PaySlip/images/AlphaWEB.png">
                     </dx:ASPxImage>
                     <section class="gjuhet">
                     </section>
@@ -63,7 +63,7 @@
                             <div>
                                 <div>
 										<a style="position:relative; color:black; "  runat="server" href="~/E-PaySlip/Login.aspx?arsye=logout">
-										<img border="0" style="float: right;" alt="vodLogout" src="images/FaqjaPare/vodLogout.png" width="52px" height="52px">
+										<img border="0" style="float: right;" alt="Dil" src="../images/logOut.png" width="52px" height="52px">
 										</a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
 							<div id="userInfo" >
                                 <div id="emri" >
 										<a style="position:relative; color:black; "  runat="server" ID="dalje"   href="~/E-PaySlip/Login.aspx?arsye=logout">
-										<dx:ASPxImage Height="52px" Width="52px" runat="server"  CssClass="logoutIMG" ImageUrl="~/images/FaqjaPare/vodLogout.png"></dx:ASPxImage>
+										<dx:ASPxImage Height="52px" Width="52px" runat="server"  CssClass="logoutIMG" ImageUrl="~/images/logOut.png"></dx:ASPxImage>
 										</a>
                                 </div>
                             </div>

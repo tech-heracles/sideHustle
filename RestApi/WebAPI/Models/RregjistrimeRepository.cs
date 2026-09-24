@@ -5230,15 +5230,6 @@ namespace RestApi.WebAPI.Models
                 return new { janeUSH = true, idte = ids };
             else return new { janeUSH = false, idte = ids };
         }
-        public static Object janeOferteShitje(int[] ids, int[] idNivele)
-        {
-            colNivelRegjistrimi nivelet = new colNivelRegjistrimi();
-            clsNivelRegjistrimi niv = new clsNivelRegjistrimi();
-            niv.mbushNivelRegjistrimiSipasIdPaKonvertime(idNivele[0]);
-            if (niv.Kodi == "OSH")
-                return new { janeOSH = true, idte = ids };
-            else return new { janeOSH = false, idte = ids };
-        }
         public static Object ktheVleratEShitjesPerFiskalizimin(int idKokaShitje)
         {
             string lnkFiskalizimi = WebConfigurationManager.AppSettings["urlFiskalizimiApp"];

@@ -337,12 +337,6 @@
     <Compile Include="Raporte\Rap_ListaArketimeAnullime.Designer.cs">
       <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\rap_MandatArketimiVodafone.Designer.cs">
-      <DependentUpon>rap_MandatArketimiVodafone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_PagesatEKryeraPerMPesa.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -449,9 +443,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullime.resx">
       <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\rap_MandatArketimiVodafone.resx">
-      <DependentUpon>rap_MandatArketimiVodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_PagesatEKryeraPerMPesa.resx">
       <DependentUpon>Rap_PagesatEKryeraPerMPesa.cs</DependentUpon>

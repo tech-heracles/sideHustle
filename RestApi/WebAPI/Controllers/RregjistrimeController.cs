@@ -3546,21 +3546,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage janeOferteShitje(JObject param)
-        {
-            try
-            {
-
-                int[] ids = param["ids"].ToObject<int[]>();
-                int[] idNivele = param["idNivele"].ToObject<int[]>();
-                return Request.KthePergjigje(RregjistrimeRepository.janeOferteShitje(ids, idNivele));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-        [HttpPost, HttpGet]
         public HttpResponseMessage ktheVleratEShitjesPerFiskalizimin(JObject param)
         {
             try

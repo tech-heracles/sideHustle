@@ -103,7 +103,7 @@ namespace PlatinumWeb
 				konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idGjuha);
 
 				merrColKushtet(konf.IdKonfigAmbjente);
-				shfaqButonaRaporti(idPerdoruesi, idNdermarrje, idViti, "porosiDealerVodafone", "procedimProdhimi", "ofertBlerje", "AparateTeShitur", "KartaTeShitura", "RingarkuesTeShitur", "ShitjeDheLikujdimePermbledhese", "FaturaShitjeEinvoice", "FaturaBlerjeEinvoice");
+				shfaqButonaRaporti(idPerdoruesi, idNdermarrje, idViti, "procedimProdhimi", "ofertBlerje", "AparateTeShitur", "KartaTeShitura", "RingarkuesTeShitur", "ShitjeDheLikujdimePermbledhese", "FaturaShitjeEinvoice", "FaturaBlerjeEinvoice");
 				hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
 				DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
 				tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, idViti, "Konfigurime Gride");
@@ -543,21 +543,13 @@ namespace PlatinumWeb
 			switch (e.Item.Name)
 			{
 				case "PrintPreview":
-					string idKoka = string.Empty, nrDok = string.Empty, idDesign = string.Empty, pershkrim = string.Empty, idstatusdok = string.Empty;
+					string idKoka = string.Empty, nrDok = string.Empty, idDesign = string.Empty;
 					List<string> paDesign = new List<string>();
 					if (grid_RegDok.FocusedRowIndex > -1)
 					{
 						idKoka = grid_RegDok.GetRowValues(grid_RegDok.FocusedRowIndex, "IdShitjeKoka").ToString();
 						nrDok = grid_RegDok.GetRowValues(grid_RegDok.FocusedRowIndex, "NrDok").ToString();
-						pershkrim = grid_RegDok.GetRowValues(grid_RegDok.FocusedRowIndex, "PershkrimKonfigDokumenti").ToString().ToLower();
-						idstatusdok = grid_RegDok.GetRowValues(grid_RegDok.FocusedRowIndex, "IdStatusDok").ToString();
 						idDesign = grid_RegDok.GetRowValues(grid_RegDok.FocusedRowIndex, "IdRaportDesing").ToString();
-					}
-
-					if ((pershkrim.Contains("vodafone one") && idstatusdok == "0") || pershkrim.Contains("porosi bazaar") || pershkrim.Contains("porosi summer promo"))
-					{
-						clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk mund te printoni porosi!", pnlMesazhi);
-						return;
 					}
 
 					int idShitjeKoka = 0, idRapDesign = 0;

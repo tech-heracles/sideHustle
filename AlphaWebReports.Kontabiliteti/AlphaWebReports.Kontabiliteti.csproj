@@ -161,12 +161,6 @@
     <Compile Include="Reports\Rap_GjendjaLlogTotaleLandscape.Designer.cs">
       <DependentUpon>Rap_GjendjaLlogTotaleLandscape.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Rap_GjendjaLlogTotale_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\Rap_GjendjaLlogTotale_Vodafone.Designer.cs">
-      <DependentUpon>Rap_GjendjaLlogTotale_Vodafone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\Rap_KartelaLlogariveMeKunderparti.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -184,12 +178,6 @@
     </Compile>
     <Compile Include="Reports\Rap_KontDitari_Kastrati.Designer.cs">
       <DependentUpon>Rap_KontDitari_Kastrati.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Rap_KontGjendjaLlogariaVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\Rap_KontGjendjaLlogariaVodafone.Designer.cs">
-      <DependentUpon>Rap_KontGjendjaLlogariaVodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Rap_KontGjendjaLlogaria.cs">
       <SubType>Component</SubType>
@@ -449,9 +437,6 @@
     <EmbeddedResource Include="Reports\Rap_GjendjaLlogTotaleLandscape.resx">
       <DependentUpon>Rap_GjendjaLlogTotaleLandscape.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Rap_GjendjaLlogTotale_Vodafone.resx">
-      <DependentUpon>Rap_GjendjaLlogTotale_Vodafone.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rap_KartelaLlogariveMeKunderparti.resx">
       <DependentUpon>Rap_KartelaLlogariveMeKunderparti.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,9 +445,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rap_KontDitari_Kastrati.resx">
       <DependentUpon>Rap_KontDitari_Kastrati.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogariaVodafone.resx">
-      <DependentUpon>Rap_KontGjendjaLlogariaVodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rap_KontGjendjaLlogaria.resx">
       <DependentUpon>Rap_KontGjendjaLlogaria.cs</DependentUpon>

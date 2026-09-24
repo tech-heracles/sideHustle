@@ -25,6 +25,11 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             
             InitializeComponent();
             parameter1.Value = report.Parameters["filterDtDok"].Value.ToString().Substring(19);
+
+            var ndermarrja = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
+            xrLabel1.Text = ndermarrja.NdermarrjePershkrimi;
+            xrLabel2.Text = ndermarrja.NdermarrjeVendi;
+            xrLabel35.Text = $"Telefon {ndermarrja.NdermarrjeTel}            Fax {ndermarrja.NdermarrjeFax}";
          
 
             //DateTime moment = DateTime.ParseExact(report.Parameters["filterDtDok2"].Value.ToString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);

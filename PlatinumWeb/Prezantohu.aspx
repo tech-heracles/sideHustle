@@ -214,10 +214,6 @@
             width: 340px;
         }
 
-        .vodafone .main .submain {
-            width: 340px;
-        }
-
         .moh .main .submain {
             width: 340px;
         }
@@ -257,14 +253,6 @@
 
         .oshe .main .content {
             border-top: 1px #002857 solid;
-            border-bottom: none;
-            padding: 0;
-            margin: 0;
-            clear: both;
-        }
-
-        .vodafone .main .content {
-            border-top: 1px #ed1b24 solid;
             border-bottom: none;
             padding: 0;
             margin: 0;
@@ -316,20 +304,12 @@
             display: none;
         }
 
-        .vodafone footer {
-            display: none;
-        }
-
         .moh footer {
             display: none;
         }
 
         .mzhu footer {
             display: none;
-        }
-
-        .vodafone .dxh2h, .vodafone .dxh1s {
-            background-color: #f06666 !important;
         }
 
         .moh .dxh2h, .moh .dxh1s {
@@ -432,7 +412,7 @@
             height: 100%;
         }
 
-        .oshe .loginForm, .vodafone .loginForm {
+        .oshe .loginForm {
             background: white;
             box-shadow: 1px 4px 3px 0px #bfbdbd;
         }
@@ -502,19 +482,6 @@
             box-sizing: border-box;
         }
 
-        .vodafone .main .logo {
-            background-image: url(images/FaqjaPare/vodSlogan.png);
-            background-repeat: no-repeat;
-            float: left;
-            width: 285px;
-            height: 68px;
-            margin-bottom: 0;
-            border: none;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
         .moh .main .logo {
             background-image: url(images/FaqjaPare/mohSlogan.png);
             background-repeat: no-repeat;
@@ -554,11 +521,6 @@
             background-color: #f7f7f7;
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
             border-radius: 2px;
-        }
-
-        .vodafone .header {
-            background-color: transparent;
-            margin-top: 7%;
         }
 
         .moh .header {
@@ -605,10 +567,6 @@
             display: none;
         }
 
-        .vodafone .mainContent .left {
-            display: none;
-        }
-
         .moh .mainContent .left {
             display: none;
         }
@@ -624,12 +582,6 @@
         }
 
         .oshe .mainContent .right {
-            float: none;
-            display: inline-block;
-            margin: auto;
-        }
-
-        .vodafone .mainContent .right {
             float: none;
             display: inline-block;
             margin: auto;
@@ -663,14 +615,6 @@
         .oshe .main .mylink {
             color: #002857;
         }
-
-        .vodafone .main .mylink {
-            color: #e60000;
-        }
-
-            .vodafone .main .mylink:hover {
-                color: #f06666 !important;
-            }
 
         .moh .main .mylink {
             color: #99cfd1;
@@ -707,14 +651,6 @@
             .hyrje:hover {
                 background-color: white;
                 color:black;
-            }
-
-        .vodafone .hyrje {
-            background-color: #e60000;
-        }
-
-            .vodafone .hyrje:hover {
-                background-color: #eb3232;
             }
 
         .moh .hyrje {
@@ -759,15 +695,6 @@
             padding-left: 1px;
         }
 
-        .vodafone .main .right .input .hyrje {
-            color: white;
-            background-color: #ed1b24;
-            height: 40px;
-            width: 100%;
-            max-width: 246px;
-            padding-left: 1px;
-        }
-
         .moh .main .right .input .hyrje {
             color: white;
             background-color: #ed1b24;
@@ -794,10 +721,6 @@
             background-color: #ffac3b;
         }
 
-        .vodafone .main .right .input .hyrje:hover {
-            background-color: #f03d45;
-        }
-
         .moh .main .right .input .hyrje:hover {
             background-color: #f03d45;
         }
@@ -820,15 +743,6 @@
         .keniHarruar:hover {
             color: white !important;
         }
-
-        .vodafone .keniHarruar {
-            color: #e60000;
-            margin-top: 5px;
-        }
-
-            .vodafone .keniHarruar:hover {
-                color: #f06666;
-            }
 
         .moh .keniHarruar {
             color: #99cfd1;
@@ -877,16 +791,6 @@
             font-size: 13px;
         }
 
-        .vodafone .main .right .input .keniHarruar {
-            text-align: left;
-            display: block;
-            font: medium;
-            font-weight: bold;
-            color: #ed1b24;
-            height: auto;
-            font-size: 13px;
-        }
-
         .moh .main .right .input .keniHarruar {
             text-align: left;
             display: block;
@@ -913,10 +817,6 @@
 
         .oshe .main .right .input .keniHarruar:hover {
             color: #ffac3b;
-        }
-
-        .vodafone .main .right .input .keniHarruar:hover {
-            color: #f03d45;
         }
 
         .moh .main .right .input .keniHarruar:hover {
@@ -963,12 +863,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-        }
-
-        .vodafone {
-            background-image: url(images/FaqjaPare/vodBCG.png);
-            background-position: top left;
-            background-repeat: no-repeat;
         }
 
         .moh {
@@ -1146,9 +1040,6 @@
         }
 
         @media all and (max-width:1450px) {
-            .vodafone .main {
-                margin-left: 8%;
-            }
 
             .moh .main {
                 margin-left: 8%;

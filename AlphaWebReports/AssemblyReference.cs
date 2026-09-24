@@ -16,7 +16,7 @@ namespace AlphaWebReports
     {
         public AssemblyReference()
         {
-            var unused = new RaportetDs.ListPagesat.Raportet.Rap_Amendament();
+            var unused = new RaportetDs.ListPagesat.Raportet.Rap_AnnualEmployeeRegister();
             var rap_Amortizimi = new RaportetDs.Amortizimi.Rap_Amortizimi();
             var rAP_ARKA_ARKETIMETDITORE = new RaportetDs.Arka.Raporte.RAP_ARKA_ARKETIMETDITORE();
             var rAP_ARKABANKA_DITARIPERMBLEDHES = new RaportetDs.Banka.Raporte.RAP_ARKABANKA_DITARIPERMBLEDHES();

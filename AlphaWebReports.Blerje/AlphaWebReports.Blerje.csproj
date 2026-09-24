@@ -335,12 +335,6 @@
     <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.Designer.cs">
       <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.cs</DependentUpon>
     </Compile>
-    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.Designer.cs">
-      <DependentUpon>Rap_FormatKerkeseBlerjeVodafone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Format_Printimi\Rap_FormatPrintimiBlerje_TopLine.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -358,24 +352,6 @@
     </Compile>
     <Compile Include="Format_Printimi\Rap_Format_Printimi_Blerje_Model4.Designer.cs">
       <DependentUpon>Rap_Format_Printimi_Blerje_Model4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.Designer.cs">
-      <DependentUpon>Rap_UrdherBlerje2Vodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.Designer.cs">
-      <DependentUpon>Rap_FormatPrintimi_BlerjeVodafone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_UrdherBlerjeVodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Format_Printimi\Rap_UrdherBlerjeVodafone.Designer.cs">
-      <DependentUpon>Rap_UrdherBlerjeVodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="LibriBlerjes.cs">
       <SubType>Component</SubType>
@@ -785,12 +761,6 @@
     </Compile>
     <Compile Include="Rap_ListeCmimeshBlerje.Designer.cs">
       <DependentUpon>Rap_ListeCmimeshBlerje.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_Porosi_Vodafone.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Porosi_Vodafone.Designer.cs">
-      <DependentUpon>Rap_Porosi_Vodafone.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_RegjistriAnalitikDoganimeImport.cs">
       <SubType>Component</SubType>
@@ -1347,26 +1317,14 @@
     <EmbeddedResource Include="Format_Printimi\Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.resx">
       <DependentUpon>Rap_FormatKerkeseBlerjeMeArtikuj_SePDeFn_131370844374847897.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_FormatKerkeseBlerjeVodafone.resx">
-      <DependentUpon>Rap_FormatKerkeseBlerjeVodafone.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_FormatPrintimiBlerje_TopLine.resx">
       <DependentUpon>Rap_FormatPrintimiBlerje_TopLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_FormatPrintimi_BlerjeVodafone.resx">
-      <DependentUpon>Rap_FormatPrintimi_BlerjeVodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Blerje_KerkeseperFurnizim.resx">
       <DependentUpon>Rap_Format_Printimi_Blerje_KerkeseperFurnizim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Format_Printimi\Rap_Format_Printimi_Blerje_Model4.resx">
       <DependentUpon>Rap_Format_Printimi_Blerje_Model4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_UrdherBlerje2Vodafone.resx">
-      <DependentUpon>Rap_UrdherBlerje2Vodafone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Format_Printimi\Rap_UrdherBlerjeVodafone.resx">
-      <DependentUpon>Rap_UrdherBlerjeVodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibriBlerjes.resx">
       <DependentUpon>LibriBlerjes.cs</DependentUpon>
@@ -1571,9 +1529,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ListeCmimeshBlerje.resx">
       <DependentUpon>Rap_ListeCmimeshBlerje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Porosi_Vodafone.resx">
-      <DependentUpon>Rap_Porosi_Vodafone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_RegjistriAnalitikDoganimeImport.resx">
       <DependentUpon>Rap_RegjistriAnalitikDoganimeImport.cs</DependentUpon>

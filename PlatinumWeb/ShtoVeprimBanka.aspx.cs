@@ -25,7 +25,6 @@ using DbCore.IMBUtils.Fiskalizimi.API;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
-using DbCore.Integrime;
 using DevExpress.Utils;
 using DevExpress.Web;
 using Newtonsoft.Json;

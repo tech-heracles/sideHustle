@@ -1775,10 +1775,6 @@ namespace PlatinumWeb
             {
                 (grid.FindTitleTemplateControl("konvertimetBtn") as ASPxButton).ToolTip = rm.GetString("regjisDokToolTipProcedimProdhimi", cultinf);
             }
-            if ((grid.FindTitleTemplateControl("pagesaBtn") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("pagesaBtn") as ASPxButton).ToolTip = rm.GetString("RaportPorosiDealerTitulli", cultinf);
-            }
             if ((grid.FindTitleTemplateControl("filterDefault") as ASPxButton) != null)
             {
                 (grid.FindTitleTemplateControl("filterDefault") as ASPxButton).ToolTip = rm.GetString("regjisDokBtnToolTipAplikoFilterDefault", cultinf);

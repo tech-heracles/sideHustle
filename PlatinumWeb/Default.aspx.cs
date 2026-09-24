@@ -98,14 +98,6 @@ namespace PlatinumWeb
                 mbushHiperLinkePerHelp();
                 shfaqLinqetSipasTeDrejtave(idPerdoruesi, idNdermarrje, vit.IdViti);
 
-                var PershkrimiNdermarrjes = nderm.NdermarrjePershkrimi;
-                var KodiVitit = vit.KodiViti;
-                var queryString = "Welcome_HR.html?" + "NdermarrjePershkrimi=" + PershkrimiNdermarrjes + '&' + "KodiViti=" + KodiVitit;
-                if (KlientSpecifik.Vodafone.ToString().EqualsIgnoreCase(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.Klienti)))
-                {
-                    Response.Redirect(queryString, true);
-                    return;
-                }
             }
         }
         /// <summary>

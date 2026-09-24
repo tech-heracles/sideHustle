@@ -20,7 +20,6 @@ namespace PlatinumWeb.Templates
     public class MyTitlePanelRegjistrimDokumentash : MyTitlePanelMePeriudheDheComboTop
     {
         private ASPxButton _btnProcedimProdhimi;
-        private ASPxButton _btnPorosiDealer;
         private ASPxButton _btnOfertaBlerje;
         private ASPxButton _btnAparateShitur;
         private ASPxButton _btnKartaShitur;
@@ -31,7 +30,6 @@ namespace PlatinumWeb.Templates
         private ASPxButton _btnFatureFiskalizimi;
 
         protected ASPxButton BtnProcedimProdhimi => _btnProcedimProdhimi;
-        protected ASPxButton BtnPorosiDealer => _btnPorosiDealer;
         protected ASPxButton BtnOfertaBlerje => _btnOfertaBlerje;
         protected ASPxButton BtnAparateShitur => _btnAparateShitur;
         protected ASPxButton BtnKartaShitur => _btnKartaShitur;
@@ -61,9 +59,9 @@ namespace PlatinumWeb.Templates
             InicializoRadioDtDok(raiseValueChanged, false);
             InicializoButonaShitje();
             if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
-                periudhaControls.AddRange(new Control[] { _btnProcedimProdhimi, _btnPorosiDealer, _btnOfertaBlerje, _btnAparateShitur, _btnKartaShitur, _btnRingarkuesShitur, _btnShitjeLikujdimePermbledhese, BtnFilterDefault, _btnFatureFiskalizimi, _btnShitjeEinvoce, _btnBlerjeEinvoce, new TableCell(), LblPeriudha, RadDtDok});
+                periudhaControls.AddRange(new Control[] { _btnProcedimProdhimi, _btnOfertaBlerje, _btnAparateShitur, _btnKartaShitur, _btnRingarkuesShitur, _btnShitjeLikujdimePermbledhese, BtnFilterDefault, _btnFatureFiskalizimi, _btnShitjeEinvoce, _btnBlerjeEinvoce, new TableCell(), LblPeriudha, RadDtDok});
             else
-                periudhaControls.AddRange(new Control[] { _btnProcedimProdhimi, _btnPorosiDealer, _btnOfertaBlerje, _btnAparateShitur, _btnKartaShitur, _btnRingarkuesShitur, _btnShitjeLikujdimePermbledhese, BtnFilterDefault, new TableCell(), LblPeriudha, RadDtDok });
+                periudhaControls.AddRange(new Control[] { _btnProcedimProdhimi, _btnOfertaBlerje, _btnAparateShitur, _btnKartaShitur, _btnRingarkuesShitur, _btnShitjeLikujdimePermbledhese, BtnFilterDefault, new TableCell(), LblPeriudha, RadDtDok });
             return periudhaControls;
         }
 
@@ -81,18 +79,6 @@ namespace PlatinumWeb.Templates
             _btnProcedimProdhimi.Image.Height = 16;
             _btnProcedimProdhimi.ClientSideEvents.Init = "function(s,e){myFaqeCelje.shfaqButonRaportPorosiDealerdheProcedimProdhimi(s, e, 'procedimProdhimi')}";
             _btnProcedimProdhimi.ClientSideEvents.Click = $"function(s,e){{myFaqeCelje.hapRaporti(s,e,{Grid.ClientInstanceName})}}";
-
-            _btnPorosiDealer = new ASPxButton();
-            _btnPorosiDealer.ID = "pagesaBtn";
-            _btnPorosiDealer.ClientInstanceName = "pagesaBtn";
-            _btnPorosiDealer.ToolTip = rm.GetString("btnPorosiDealer", cultinf);
-            _btnPorosiDealer.AutoPostBack = false;
-            _btnPorosiDealer.Image.Url = $"images/theme/{CurrentPage.Theme}/grida/porosi_dealer.png";
-            _btnPorosiDealer.Image.UrlHottracked = $"images/theme/{CurrentPage.Theme}/grida/porosi_dealer_W.png";
-            _btnPorosiDealer.Font.Size = 8;
-            _btnPorosiDealer.Image.Height = 16;
-            _btnPorosiDealer.ClientSideEvents.Init = "function(s,e){myFaqeCelje.shfaqButonRaportPorosiDealerdheProcedimProdhimi(s, e, 'porosiDealerVodafone')}";
-            _btnPorosiDealer.ClientSideEvents.Click = $"function(s,e){{myFaqeCelje.hapRaportinPagesa(s,e,{Grid.ClientInstanceName})}}";
 
             _btnOfertaBlerje = new ASPxButton();
             _btnOfertaBlerje.ID = "ofertaBlerjeBtn";

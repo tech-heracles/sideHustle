@@ -42,14 +42,7 @@ RaporteUtils.SetDefaultExportOptions = function () {
 RaporteUtils.IsForCustomExport = function () {
     var rapEmriReal = hfState.Get("RaportiEmerReal");
     switch (rapEmriReal) {
-        case "hyrjeVodafone":
-        case "gjendjeArtikujtVodafone":
-        case "veprimeTeAnulluaraVodafone":
         case "gjendjaEProdukteveLoan":
-        case "porosiDealerVodafone":
-        case "shitjeAnalitikeVodafone":
-        case "hyrjeVodafoneNdermarrjeBije":
-        case "veprimeTeAnulluaraVodafoneNdermarrjeBije":
         case "gjendjaMagazinesSipasDetajimeve":
         case "logePerKartelePunonjesi":
         case "RptKartelaLlogariveFormat2":

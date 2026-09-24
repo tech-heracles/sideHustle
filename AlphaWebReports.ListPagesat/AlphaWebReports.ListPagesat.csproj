@@ -332,12 +332,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Raportet\Rap_Amendament.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_Amendament.Designer.cs">
-      <DependentUpon>Rap_Amendament.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raportet\Rap_AnalitikiParadhenieve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -349,12 +343,6 @@
     </Compile>
     <Compile Include="Raportet\Rap_AnnualEmployeeRegister.Designer.cs">
       <DependentUpon>Rap_AnnualEmployeeRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_BirthdayCard.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_BirthdayCard.Designer.cs">
-      <DependentUpon>Rap_BirthdayCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Raportet\Rap_BorderojaPagave.cs">
       <SubType>Component</SubType>
@@ -373,12 +361,6 @@
     </Compile>
     <Compile Include="Raportet\Rap_BorderojaPagaveBuxhetor.Designer.cs">
       <DependentUpon>Rap_BorderojaPagaveBuxhetor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_ConfirmationOfEmployement.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_ConfirmationOfEmployement.Designer.cs">
-      <DependentUpon>Rap_ConfirmationOfEmployement.cs</DependentUpon>
     </Compile>
     <Compile Include="Raportet\Rap_ContractChanges.cs">
       <SubType>Component</SubType>
@@ -475,18 +457,6 @@
     </Compile>
     <Compile Include="Raportet\Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.Designer.cs">
       <DependentUpon>Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_KontrataEPensionit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_KontrataEPensionit.Designer.cs">
-      <DependentUpon>Rap_KontrataEPensionit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_kontrata_punes.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_kontrata_punes.Designer.cs">
-      <DependentUpon>Rap_kontrata_punes.cs</DependentUpon>
     </Compile>
     <Compile Include="Raportet\Rap_LabourOffice .cs">
       <SubType>Component</SubType>
@@ -643,24 +613,6 @@
     </Compile>
     <Compile Include="Raportet\Rap_ListpagesaPermbledheseFormat3.Designer.cs">
       <DependentUpon>Rap_ListpagesaPermbledheseFormat3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_MarreveshjeEPensionit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_MarreveshjeEPensionit.Designer.cs">
-      <DependentUpon>Rap_MarreveshjeEPensionit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_MemoAnnualBonus.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_MemoAnnualBonus.Designer.cs">
-      <DependentUpon>Rap_MemoAnnualBonus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_MemoAnnualDeclaration.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_MemoAnnualDeclaration.Designer.cs">
-      <DependentUpon>Rap_MemoAnnualDeclaration.cs</DependentUpon>
     </Compile>
     <Compile Include="Raportet\Rap_NrPunonjes_FondiPagave.cs">
       <SubType>Component</SubType>
@@ -1246,17 +1198,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Raportet\Rap_Amendament.resx">
-      <DependentUpon>Rap_Amendament.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_AnalitikiParadhenieve.resx">
       <DependentUpon>Rap_AnalitikiParadhenieve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_AnnualEmployeeRegister.resx">
       <DependentUpon>Rap_AnnualEmployeeRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_BirthdayCard.resx">
-      <DependentUpon>Rap_BirthdayCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_BorderojaPagave.resx">
       <DependentUpon>Rap_BorderojaPagave.cs</DependentUpon>
@@ -1266,9 +1212,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_BorderojaPagaveBuxhetor.resx">
       <DependentUpon>Rap_BorderojaPagaveBuxhetor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_ConfirmationOfEmployement.resx">
-      <DependentUpon>Rap_ConfirmationOfEmployement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_ContractChanges.resx">
       <DependentUpon>Rap_ContractChanges.cs</DependentUpon>
@@ -1317,12 +1260,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.resx">
       <DependentUpon>Rap_KartelaPunonjesve_A5_SePDeFn_131305212231929495.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_KontrataEPensionit.resx">
-      <DependentUpon>Rap_KontrataEPensionit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_kontrata_punes.resx">
-      <DependentUpon>Rap_kontrata_punes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_LabourOffice .resx">
       <DependentUpon>Rap_LabourOffice .cs</DependentUpon>
@@ -1401,15 +1338,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_ListpagesaPermbledheseFormat3.resx">
       <DependentUpon>Rap_ListpagesaPermbledheseFormat3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_MarreveshjeEPensionit.resx">
-      <DependentUpon>Rap_MarreveshjeEPensionit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_MemoAnnualBonus.resx">
-      <DependentUpon>Rap_MemoAnnualBonus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_MemoAnnualDeclaration.resx">
-      <DependentUpon>Rap_MemoAnnualDeclaration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_NrPunonjes_FondiPagave.resx">
       <DependentUpon>Rap_NrPunonjes_FondiPagave.cs</DependentUpon>

@@ -2066,8 +2066,6 @@ namespace PlatinumWeb
                         checkVlera.ClientSideEvents.LostFocus = "function(s,e){ LostFocusShit(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
                         break;
                     case "PEMAIL":
-                    case "MAILVODAFONE":
-                    case "MAILDEALER":
                         ConfigureAspxComboBox.percaktoTemplateComboMeLupe(checkVlera);
                         checkVlera.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 

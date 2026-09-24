@@ -965,7 +965,7 @@ namespace PlatinumWeb
 					cmbGjendjeArt.Items.Add(STR_GjendjeJoZero, 1);
 					cmbGjendjeArt.Items.Add(STR_GjendjeZero, 2);
 					cmbGjendjeArt.Items.Add(STR_MeVeprime, 3);
-					cmbGjendjeArt.SelectedIndex = (KlientSpecifik.VodafoneShops.ToString().EqualsIgnoreCase(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.Klienti))) ? 0 : 1;
+					cmbGjendjeArt.SelectedIndex = 1;
 					break;
 
 				case "regjisterAsetesh":
@@ -1051,7 +1051,6 @@ namespace PlatinumWeb
 				case "listeArtikujZbritjeAnalitike":
 				case "gjendjeArtikujshMinMaxSipasMagazines":
 				case "veprimtariaDitore":
-				case "gjendjeArtikujtVodafone":
 					STR_ArtBurimGjitha = rm.GetString("cmbboxItemFilterAvancTeGjithe", ci);
 					STR_GjendjeJoZero = rm.GetString("labelRaportArtikujMeGjendje", ci);
 					STR_GjendjeZero = rm.GetString("labelRaportArtikujMeGjendjeZero", ci);
@@ -1647,7 +1646,6 @@ namespace PlatinumWeb
 			{
 				case "gjendjaArtikujveIMEIEkspozitor":
 				case "gjendjaArtikujveIMEI":
-				case "gjendjeArtikujtVodafone":
 					cmbArtikullIVjeter.SelectedIndex = 2;
 					break;
 				default:
@@ -1900,7 +1898,6 @@ namespace PlatinumWeb
 				case "bilancikontabelformat2":
 				case "liber_shitje2015":
 				case "LibriBlerjes2019":
-				case "LibriShitjeveVodafone":
 				case "LibriShitjes2019":
 					combo.SelectedIndex = 0;
 					break;
@@ -2683,14 +2680,7 @@ namespace PlatinumWeb
 			{
 				switch (EmerRaporti)
 				{
-					case "hyrjeVodafone":
-					case "gjendjeArtikujtVodafone":
-					case "veprimeTeAnulluaraVodafone":
 					case "gjendjaEProdukteveLoan":
-					case "porosiDealerVodafone":
-					case "shitjeAnalitikeVodafone":
-					case "hyrjeVodafoneNdermarrjeBije":
-					case "veprimeTeAnulluaraVodafoneNdermarrjeBije":
 					case "gjendjaMagazinesSipasDetajimeve":
 					case "logePerKartelePunonjesi":
 					case "RptKartelaLlogariveFormat2":

@@ -168,7 +168,7 @@
         }
 
         .logo {
-            background-image: url(images/FaqjaPare/vodSlogan.png);
+            background-image: url(images/AlphaWEB.png);
             background-repeat: no-repeat;
             float: left;
             width: 285px;
@@ -249,11 +249,6 @@
             background-position: center
         }
 
-        body {
-            background-image: url(images/vodBCG.png);
-            background-position: top left;
-            background-repeat: no-repeat;
-        }
 
 
 
