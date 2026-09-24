@@ -307,6 +307,44 @@ div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
     color: var(--avec-text) !important;
 }
 
+[style*="background-color:AliceBlue" i],
+[style*="background-color:WhiteSmoke" i],
+[style*="background-color:GhostWhite" i],
+[style*="background-color:#eeeeee" i],
+[style*="background-color: #eeeeee" i],
+[style*="background-color:#f0f0f0" i],
+[style*="background-color:#f3f3f3" i],
+[style*="background-color:#f7f7f7" i],
+[style*="background-color:#fcfcfc" i],
+[style*="background-color:#dedede" i],
+[style*="background-color:#cccccc" i],
+[style*="background-color:#e2f0ff" i],
+[style*="background-color:#bbdcfc" i] {
+    background-color: var(--avec-surface-highest) !important;
+    color: var(--avec-text) !important;
+}
+
+/* ---- disabled editors: page markup sets DisabledStyle BackColor=#EEEEEE ForeColor=Black, which DevExpress
+        emits as a generated class with !important; the element-qualified selectors below outrank it ---- */
+table.dxeDisabled_Material,
+table.dxeDisabled_Material td,
+input.dxeDisabled_Material,
+textarea.dxeDisabled_Material,
+table.dxeDisabled_Material input,
+table.dxeDisabled_Material textarea {
+    background-color: var(--avec-surface) !important;
+    color: var(--avec-text-secondary) !important;
+}
+
+table.dxeDisabled_Material {
+    border-color: var(--avec-surface-highest) !important;
+}
+
+span.dxeDisabled_Material,
+label.dxeDisabled_Material {
+    color: var(--avec-text-muted) !important;
+}
+
 [style*="color:Black" i],
 [style*="color: Black" i],
 [style*="color:#000" i],
