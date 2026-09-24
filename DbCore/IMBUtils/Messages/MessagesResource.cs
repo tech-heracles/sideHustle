@@ -55,7 +55,6 @@ namespace DbCore.IMBUtils.Messages
             {
                 case 0: return new CultureInfo("sq-AL");
                 case 1: return new CultureInfo("en-US");
-                case 2: return new CultureInfo("fr-FR");
                 default: throw new mySessionNewException("CultureInfo ska vlere");
             }
         }
@@ -65,7 +64,6 @@ namespace DbCore.IMBUtils.Messages
             {
                 case 0: return "sq";
                 case 1: return "en";
-                case 2: return "fr";
                 default: throw new MyException("Id gjuhe e pa njohur");
             }
         }

@@ -198,7 +198,6 @@ namespace PlatinumWeb
 				{
 					case "AL": return 0;
 					case "EN": return 1;
-					case "FR": return 2;
 					default: return 0;
 				}
 			}
@@ -256,10 +255,8 @@ namespace PlatinumWeb
 			//ASPxHyperLink NdryshoOrganizate = Login1.FindControl("NdryshoOrganizate") as ASPxHyperLink;
 			ASPxHyperLink lblGjuhaAL = Login1.FindControl("lblGjuhaAL") as ASPxHyperLink;
 			ASPxHyperLink lblGjuhaEN = Login1.FindControl("lblGjuhaEN") as ASPxHyperLink;
-			ASPxHyperLink lblGjuhaFR = Login1.FindControl("lblGjuhaFR") as ASPxHyperLink;
 			lblGjuhaAL.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
 			lblGjuhaEN.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
-			lblGjuhaFR.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
 			ASPxHiddenField loginHiddenField = Login1.FindControl("loginHiddenField") as ASPxHiddenField;
 
 			loginHiddenField.Set("userlbl", MessagesResource.Messages["lblLoginPerdoruesi"]);
@@ -273,9 +270,6 @@ namespace PlatinumWeb
 					break;
 				case "en-US":
 					LoginButton.Text = "Login";
-					break;
-				case "fr-FR":
-					LoginButton.Text = "Entrer";
 					break;
 			}
 		}

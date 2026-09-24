@@ -256,7 +256,7 @@
     <Item8 Ref="142" ControlType="PageFooterBand" Name="PageFooter" HeightF="68.75005">
       <Controls>
         <Item1 Ref="143" ControlType="XRPageInfo" Name="xrPageInfo1" TextAlignment="TopRight" SizeF="86.67657,23" LocationFloat="992.3233, 45.75005" Font="Times New Roman, 8.25pt, style=Bold, charSet=0" ForeColor="Gray" Padding="2,2,0,0,100" />
-        <Item2 Ref="144" ControlType="XRLabel" Name="xrLabel21" Multiline="true" Text="Copyright © IMB&#xD;&#xA;Instituti i Modelimeve ne Biznes &#xD;&#xA;www.imb.al" TextAlignment="MiddleLeft" SizeF="307.8625,44.29166" LocationFloat="0, 24.45838" StyleName="Copyright" Font="Times New Roman, 8.25pt, style=Italic, charSet=0" ForeColor="0,0,0,0" Padding="2,2,0,0,100" />
+        <Item2 Ref="144" ControlType="XRLabel" Name="xrLabel21" Multiline="true" Text="Copyright © IMB&#xD;&#xA;&#xD;&#xA;www.avec.al" TextAlignment="MiddleLeft" SizeF="307.8625,44.29166" LocationFloat="0, 24.45838" StyleName="Copyright" Font="Times New Roman, 8.25pt, style=Italic, charSet=0" ForeColor="0,0,0,0" Padding="2,2,0,0,100" />
       </Controls>
     </Item8>
     <Item9 Ref="145" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" TextAlignment="TopLeft" StyleName="GrupimShuma1" Padding="0,0,0,0,100" />

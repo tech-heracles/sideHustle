@@ -19,7 +19,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>E PaySlip</title>
-       <link rel="icon" type="image/ico" href="CRM/faviconCRM.ico"/>
+       <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>   
     <link rel="stylesheet" href="~/public/jquery.mmenu.all.css" />    
     <link rel="stylesheet" href="~/public/AlphaCRM.css" />

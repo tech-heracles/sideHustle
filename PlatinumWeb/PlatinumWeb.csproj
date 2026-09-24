@@ -599,6 +599,22 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\ThemeData.xml" />
+    <Content Include="App_Themes\Avec\sprites\CardView.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\Editors.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\GridView.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\HtmlEditor.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\PivotGrid.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\RichEdit.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\Scheduler.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\Spreadsheet.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\TreeList.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\VerticalGrid.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\Web.sprite.svg" />
+    <Content Include="App_Themes\Avec\sprites\XtraReports.sprite.svg" />
+    <Content Include="App_Themes\Avec\zz-avec-dark-devexpress.css" />
+    <Content Include="css\avec-dashboard.css" />
+    <Content Include="css\avec-shell.css" />
+    <Content Include="images\brand\avec-favicon.png" />
     <Content Include="App_Themes\Avec\avec.css" />
     <Content Include="css\avec-login.css" />
     <Content Include="images\brand\avec-icon-192.png" />
@@ -8595,11 +8611,6 @@
     <Compile Include="ABShpenzimeOperative.aspx.designer.cs">
       <DependentUpon>ABShpenzimeOperative.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Strings.fr-FR.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.fr-FR.resx</DependentUpon>
-    </Compile>
     <Compile Include="Asistenti.aspx.cs">
       <DependentUpon>Asistenti.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -11498,13 +11509,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Strings.fr-FR.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Strings.fr-FR.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

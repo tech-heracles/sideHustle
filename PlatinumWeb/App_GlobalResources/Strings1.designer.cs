@@ -3734,8 +3734,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Copyright © AVEC
-        ///Instituti i Modelimeve ne Biznes 
-        ///www.imb.al.
+        //////www.avec.al.
         /// </summary>
         internal static string labelIMB {
             get {
@@ -3745,8 +3744,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Copyright © AVEC
-        ///Instituti i Modelimeve ne Biznes 
-        ///www.imb.al.
+        //////www.avec.al.
         /// </summary>
         internal static string labelIMB1 {
             get {
@@ -3774,8 +3772,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Copyright © AVEC
-        ///Instituti i Modelimeve ne Biznes 
-        ///www.imb.al.
+        //////www.avec.al.
         /// </summary>
         internal static string labelLogoIMB {
             get {

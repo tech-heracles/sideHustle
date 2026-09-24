@@ -9,7 +9,7 @@
 <head runat="server">
     <title>AVEC GIS</title>
 
-    <link rel="shortcut icon" href="images/GIS/faviconGIS.ico" />
+    <link rel="shortcut icon" href="/images/brand/avec-favicon.png" />
     <link rel="stylesheet" type="text/css" href="js/srcGIS/ext-3.4.0/resources/css/ext-all.css" />
     <link rel="stylesheet" type="text/css" href="js/srcGIS/ext-3.4.0/resources/css/xtheme-gray.css" />
     <link rel="stylesheet" type="text/css" href="js/srcGIS/GeoExt/css/geoext-all-debug.css" />

@@ -1236,7 +1236,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             this.xrLabel14.SizeF = new System.Drawing.SizeF(267.6865F, 23F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
-            this.xrLabel14.Text = "Printuar nga AVEC Accounting    www.imb.al";
+            this.xrLabel14.Text = "Printuar nga AVEC Accounting    www.avec.al";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // nrRendor

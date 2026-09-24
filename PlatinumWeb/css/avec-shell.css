@@ -1,0 +1,208 @@
+/* AVEC Accounting - main frame (FaqeKryesore.aspx): top bar with the full menu, content area, footer. */
+html, body, #form1, #backDiv {
+    background: #121212 !important;
+}
+
+/* ---- top bar ---- */
+.topSpliter,
+.topSpliter > div,
+#top {
+    background: #121212 !important;
+}
+
+#ASPxSplitter1_0_CC,
+.topSpliter {
+    border-bottom: 1px solid #262626 !important;
+}
+
+#top {
+    display: flex !important;
+    align-items: center;
+    gap: 14px;
+    height: 55px !important;
+    padding: 0 14px 0 16px;
+    box-sizing: border-box;
+}
+
+.avec-brand {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    flex: none;
+    height: 55px;
+    width: auto !important;
+    float: none !important;
+    cursor: pointer;
+}
+
+.avec-brand img {
+    height: 22px !important;
+    width: auto !important;
+    display: block;
+}
+
+.avec-brand-product {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #a3a3a0;
+}
+
+#faqja {
+    flex: none;
+    float: none !important;
+    padding: 0 0 0 14px !important;
+    border-left: 1px solid #2e2e2e;
+    max-width: 28vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#faqja .style15,
+#faqja span {
+    color: #f2f2f0 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+#menu.menu {
+    flex: 1 1 auto;
+    min-width: 0;
+    float: none !important;
+    height: 55px;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* ---- top menu (DevExpress ASPxMenu, Material) ---- */
+#menu .dxm-main,
+#menu .dxmLite_Material,
+#menu .dxm-main.dxm-horizontal {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+#menu .dxm-main .dxm-item,
+#menu .dxm-main .dxm-item .dxm-content {
+    background: transparent !important;
+    border: 0 !important;
+    color: #d6d6d3 !important;
+}
+
+#menu .dxm-main .dxm-item {
+    border-radius: 8px;
+    padding: 6px 10px !important;
+    margin: 0 1px;
+}
+
+#menu .dxm-main .dxm-item .dx-vam,
+#menu .dxm-main .dxm-item a {
+    color: #d6d6d3 !important;
+    font-size: 13px !important;
+    font-weight: 500;
+}
+
+#menu .dxm-main .dxm-item.dxm-hovered,
+#menu .dxm-main .dxm-item.dxm-selected,
+#menu .dxm-main .dxm-item.dxm-checked {
+    background: #232323 !important;
+}
+
+#menu .dxm-main .dxm-item.dxm-hovered .dx-vam,
+#menu .dxm-main .dxm-item.dxm-selected .dx-vam {
+    color: #e8683a !important;
+}
+
+#menu .dxm-popOut,
+#menu .dxWeb_mHorizontalPopOut_Material {
+    filter: invert(0.85);
+}
+
+.material-icons {
+    color: #d6d6d3 !important;
+}
+
+/* drop-down menus (rendered at body level) */
+.dxm-popup,
+.dxmLite_Material .dxm-popup,
+.dxm-shadow {
+    background: #1a1a1a !important;
+    border: 1px solid #383838 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55) !important;
+    padding: 4px 0 !important;
+}
+
+.dxm-popup .dxm-item,
+.dxm-popup .dxm-item .dxm-content,
+.dxm-popup .dxm-gutter,
+.dxm-popup .dxm-separator {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.dxm-popup .dxm-item .dx-vam,
+.dxm-popup .dxm-item a {
+    color: #e6e6e3 !important;
+    font-size: 13px !important;
+}
+
+.dxm-popup .dxm-item {
+    padding: 0 !important;
+}
+
+.dxm-popup .dxm-item .dxm-content {
+    padding: 7px 14px !important;
+}
+
+.dxm-popup .dxm-item.dxm-hovered {
+    background: #262626 !important;
+}
+
+.dxm-popup .dxm-item.dxm-hovered .dx-vam {
+    color: #e8683a !important;
+}
+
+.dxm-popup .dxm-separator b {
+    background: #2e2e2e !important;
+}
+
+/* ---- content + footer ---- */
+#ASPxSplitter1 td,
+.dxsplControl_Material,
+.dxsplPane_Material,
+.dxsplLCC {
+    background-color: #121212 !important;
+    border-color: #262626 !important;
+}
+
+.dxsplSeparator_Material,
+.dxsplVSeparator_Material,
+.dxsplHSeparator_Material {
+    background: #121212 !important;
+}
+
+.footer1 {
+    border-top: 1px solid #262626 !important;
+}
+
+/* ---- loader ---- */
+.loader-overlay {
+    background-color: rgba(18, 18, 18, 0.7) !important;
+}
+
+@keyframes lds-grid {
+    0%, 100% { background-color: #e8683a; }
+    50% { background-color: #8a4a2e; }
+}
+
+/* ---- popups owned by the frame ---- */
+.popup {
+    background: #1a1a1a !important;
+    border-color: #383838 !important;
+    color: #f2f2f0;
+}

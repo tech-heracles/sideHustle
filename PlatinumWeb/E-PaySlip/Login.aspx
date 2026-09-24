@@ -11,7 +11,7 @@
 <html> 
 <head runat="server">
     <title>AVEC Accounting</title>
-    <link rel="icon" type="image/ico" href="CRM/faviconCRM.ico"/>
+    <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Login-i AlphaWeb" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />

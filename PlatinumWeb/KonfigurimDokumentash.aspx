@@ -277,12 +277,12 @@
                         </dx:ASPxTextBox>
                     </td>
                     <td class="renditKontrolleCaption">
-                        <dx:ASPxLabel Wrap="False" AssociatedControlID="pershkrimKonfigFr_TextBox" ID="pershkrimiFr_Label"
+                        <dx:ASPxLabel Wrap="False" AssociatedControlID="pershkrimKonfigFr_TextBox" ID="pershkrimiFr_Label" ClientVisible="false"
                             runat="server" Text="Pershkrimi Frengjisht i Konfigurimit:">
                         </dx:ASPxLabel>
                     </td>
                     <td class="renditKontrolleCellMeWidth50">
-                        <dx:ASPxTextBox ID="pershkrimKonfigFr_TextBox" runat="server" Width="100%" ClientInstanceName="pershkrimKonfigFr_TextBox">
+                        <dx:ASPxTextBox ID="pershkrimKonfigFr_TextBox" ClientVisible="false" runat="server" Width="100%" ClientInstanceName="pershkrimKonfigFr_TextBox">
                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                                 ValidationGroup="entries">
                                 <ErrorImage Height="14px" />

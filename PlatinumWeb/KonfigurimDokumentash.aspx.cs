@@ -1366,7 +1366,7 @@ namespace PlatinumWeb
             grid_trupi.Columns["KodLupa"].Caption = "Lupa";
             grid_trupi.Columns["IdKonfigLupaMultiple"].Visible = false;
             grid_trupi.Columns["PershkrimiTrupi_en"].Caption = "Description";
-            grid_trupi.Columns["PershkrimiTrupi_fr"].Caption = "La Description";
+            grid_trupi.Columns["PershkrimiTrupi_fr"].Visible = false;
             grid_trupi.Columns["Tipi"].Visible = false;
             grid_trupi.Columns["ShfaqMobile"].Caption = "Shfaq Mobile";
             grid_trupi.Columns["RenditjaMobile"].Caption = "Renditja Mobile";

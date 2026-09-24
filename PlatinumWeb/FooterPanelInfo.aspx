@@ -107,8 +107,8 @@
                         <div class="copyright">
                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="copyright@AVEC" Style="font-size: small">
                         </dx:ASPxLabel>
-                        &nbsp;<dx:ASPxHyperLink ID="ASPxHyperLink2" runat="server" Text="www.imb.al" Target="_blank"
-                            NavigateUrl="http://www.imb.al" Style="font-size: small">
+                        &nbsp;<dx:ASPxHyperLink ID="ASPxHyperLink2" runat="server" Text="www.avec.al" Target="_blank"
+                            NavigateUrl="http://www.avec.al" Style="font-size: small">
                         </dx:ASPxHyperLink>
                             </div>
                          <div style="display: none; background:url('images/emri_kesh_white.png')" class="kesh_slogan"></div> 

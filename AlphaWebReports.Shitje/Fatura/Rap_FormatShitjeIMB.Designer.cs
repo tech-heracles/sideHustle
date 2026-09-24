@@ -1220,7 +1220,7 @@
             this.xrLabel65.SizeF = new System.Drawing.SizeF(324F, 19.79F);
             this.xrLabel65.StylePriority.UseBorders = false;
             this.xrLabel65.StylePriority.UseFont = false;
-            this.xrLabel65.Text = "Tel: +355 4 22 53466 | imb@imb.al | www.imb.al";
+            this.xrLabel65.Text = "Tel: +355 4 22 53466 | info@avec.al | www.avec.al";
             // 
             // xrLabel64
             // 
@@ -1246,7 +1246,7 @@
             this.xrLabel62.StylePriority.UseBorders = false;
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseForeColor = false;
-            this.xrLabel62.Text = "INSTITUTI I MODELIMEVE NË BIZNES SH.P.K";
+            this.xrLabel62.Text = "AVEC";
             // 
             // xrLabel7
             // 

@@ -12,8 +12,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>AVEC CRM</title>
-    <link id="Link1" runat="server" rel="shortcut icon" href="~/images/CRM/faviconCRM.ico" type="image/x-icon" />
-    <link id="Link2" runat="server" rel="icon" href="~/images/CRM/faviconCRM.ico" type="image/ico" />
+    <link id="Link1" runat="server" rel="shortcut icon" href="~/images/brand/avec-favicon.png" type="image/png" />
+    <link id="Link2" runat="server" rel="icon" href="~/images/brand/avec-favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%--<script type="text/javascript" src="~/js/srcCRM/js/jquery.mmenu.min.all.js"></script>--%>
     <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />

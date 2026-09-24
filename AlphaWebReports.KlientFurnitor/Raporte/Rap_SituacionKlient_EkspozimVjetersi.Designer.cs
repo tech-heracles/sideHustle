@@ -1377,8 +1377,8 @@
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseForeColor = false;
             this.xrLabel20.Text = "Copyright © AVECCopyright © AVEC\r\nIn" +
-    "stituti i Modelimeve ne Biznes \r\nwww.imb.alCopyright © AVEC\r\nInstituti i Modelime" +
-    "ve ne Biznes \r\nwww.imb.al";
+    "stituti i Modelimeve ne Biznes \r\nwww.avec.alCopyright © AVEC\r\nInstituti i Modelime" +
+    "ve ne Biznes \r\nwww.avec.al";
             // 
             // ReportFooter
             // 

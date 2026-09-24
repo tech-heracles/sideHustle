@@ -1,7 +1,7 @@
 /*
- * AVEC Accounting theme.
+ * AVEC Accounting theme (dark).
  * Loaded automatically on every page that uses the "Avec" ASP.NET theme (Web.config <pages theme="Avec">).
- * DevExpress controls use the Material theme with base colour #E8683A (Web.config <devExpress><themes>).
+ * DevExpress controls use Material with base colour #E8683A; zz-avec-dark-devexpress.css (generated) darkens them.
  * Colours match the manager_flutter app (lib/app/theme.dart).
  */
 :root {
@@ -17,18 +17,27 @@
     --avec-orange-hover: #f07b50;
     --avec-orange-on: #1a1208;
     --avec-orange-muted: #8a4a2e;
-    --avec-orange-tint: rgba(232, 104, 58, 0.12);
+    --avec-orange-tint: rgba(232, 104, 58, 0.14);
     --avec-error: #e5484d;
     --avec-success: #3daa6e;
+    color-scheme: dark;
 }
 
-/* ---- page content (light) ---- */
+html, body, form {
+    background-color: var(--avec-bg) !important;
+    color: var(--avec-text);
+}
+
+body, input, select, textarea, button, table {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 a, a:visited {
-    color: #c9541f;
+    color: var(--avec-orange);
 }
 
 a:hover, a:focus {
-    color: var(--avec-orange);
+    color: var(--avec-orange-hover);
 }
 
 ::selection {
@@ -37,69 +46,198 @@ a:hover, a:focus {
 }
 
 * {
-    scrollbar-color: #b9b9b6 transparent;
+    scrollbar-color: #4a4a48 transparent;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c4c4c1;
+    background: #3a3a38;
     border-radius: 5px;
     border: 2px solid transparent;
     background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #9d9d9a;
+    background-color: #555553;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* plain HTML form elements */
+input[type="text"], input[type="password"], input[type="number"], input[type="email"], input[type="search"],
+input[type="date"], select, textarea {
+    background-color: var(--avec-surface-high);
+    color: var(--avec-text);
+    border-color: var(--avec-border);
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--avec-text-muted);
+}
+
+hr {
+    border-color: var(--avec-border);
 }
 
 /* ---- jQuery UI / jqGrid (base: smoothness) ---- */
+.ui-widget-content {
+    background: var(--avec-surface) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
+}
+
 .ui-widget-header {
-    background: #f4f4f2;
-    border-color: #deded9;
-    color: #2b2b2a;
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-jqgrid .ui-jqgrid-btable tr.jqgrow:hover td {
+    background: var(--avec-surface-highest) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
 }
 
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
-.ui-jqgrid tr.ui-row-ltr.ui-state-highlight td {
+.ui-jqgrid tr.ui-row-ltr.ui-state-highlight td,
+.ui-jqgrid .ui-jqgrid-btable tr.jqgrow.ui-state-highlight td {
     background: var(--avec-orange-tint) !important;
-    border-color: var(--avec-orange) !important;
-    color: #1a1a1a !important;
+    border-color: var(--avec-orange-muted) !important;
+    color: var(--avec-text) !important;
 }
 
 .ui-state-active,
 .ui-widget-content .ui-state-active {
-    background: var(--avec-orange);
-    border-color: var(--avec-orange);
-    color: #fff;
+    background: var(--avec-orange) !important;
+    border-color: var(--avec-orange) !important;
+    color: var(--avec-orange-on) !important;
 }
 
-.ui-state-hover,
-.ui-widget-content .ui-state-hover {
-    background: #fbe7de;
-    border-color: #f2b79f;
-    color: #1a1a1a;
+.ui-jqgrid,
+.ui-jqgrid .ui-jqgrid-view,
+.ui-jqgrid .ui-jqgrid-bdiv,
+.ui-jqgrid .ui-jqgrid-pager,
+.ui-jqgrid .ui-jqgrid-titlebar {
+    background: var(--avec-surface) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
 }
 
-.ui-jqgrid .ui-jqgrid-htable th {
-    background: #f4f4f2;
-    color: #2b2b2a;
+.ui-jqgrid .ui-jqgrid-htable th,
+.ui-jqgrid .ui-jqgrid-hdiv {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text-secondary) !important;
     font-weight: 600;
 }
 
-/* ---- Bootstrap primary buttons used on some pages ---- */
+.ui-jqgrid tr.jqgrow td,
+.ui-jqgrid tr.footrow td,
+.ui-jqgrid tr.jqgfirstrow td {
+    border-color: #2a2a2a !important;
+    color: var(--avec-text);
+}
+
+.ui-jqgrid tr.jqgrow td input,
+.ui-jqgrid tr.jqgrow td select {
+    background: var(--avec-surface-high);
+    color: var(--avec-text);
+    border: 1px solid var(--avec-border);
+}
+
+.ui-jqgrid tr.footrow td {
+    background: var(--avec-surface-high) !important;
+    font-weight: 600;
+}
+
+.ui-dialog, .ui-menu, .ui-autocomplete {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    color: var(--avec-text) !important;
+}
+
+/* ---- Bootstrap bits used on some pages ---- */
+.btn-default {
+    background-color: var(--avec-surface-high);
+    border-color: var(--avec-border);
+    color: var(--avec-text);
+}
+
+.btn-default:hover, .btn-default:focus {
+    background-color: var(--avec-surface-highest);
+    border-color: #4a4a48;
+    color: var(--avec-text);
+}
+
 .btn-primary {
     background-color: var(--avec-orange);
-    border-color: #d45a2e;
-    color: #fff;
+    border-color: var(--avec-orange);
+    color: var(--avec-orange-on);
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background-color: #d45a2e;
-    border-color: #bf4f27;
-    color: #fff;
+    background-color: var(--avec-orange-hover);
+    border-color: var(--avec-orange-hover);
+    color: var(--avec-orange-on);
+}
+
+.panel, .panel-default, .well, .modal-content, .dropdown-menu, .list-group-item, .table, .popover {
+    background-color: var(--avec-surface);
+    border-color: var(--avec-border);
+    color: var(--avec-text);
+}
+
+.panel-default > .panel-heading, .modal-header, .modal-footer {
+    background-color: var(--avec-surface-high);
+    border-color: var(--avec-border);
+    color: var(--avec-text);
+}
+
+.table > thead > tr > th, .table > tbody > tr > td {
+    border-color: var(--avec-border);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #1e1e1e;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: var(--avec-surface-highest);
+}
+
+/* ---- DevExpress buttons: keep the label readable on the orange fill ---- */
+div.dxbButton_Material:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material),
+div.dxbButton_Material:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) .dx-vam {
+    color: var(--avec-orange-on);
+}
+
+div.dxbButton_Material.dxbDisabled_Material {
+    background-color: #2e2e2e;
+    border-color: #2e2e2e;
+    color: #6e6e6b;
+}
+
+div.dxbButton_Material.dxb-secondary,
+div.dxbButton_Material.dxb-outline {
+    background: var(--avec-surface-high);
+    border-color: var(--avec-border);
+    color: var(--avec-text);
 }

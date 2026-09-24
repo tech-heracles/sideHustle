@@ -286,12 +286,12 @@
                                     </dx:ASPxMemo>
                                     <%--</div>--%>
                                     <%--<div id="dvlblEmerFr">--%>
-                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmerLlogarieFr" ID="lblEmerFr"
+                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmerLlogarieFr" ID="lblEmerFr" ClientVisible="false"
                                         runat="server" Text="Emer Llogarie Frengjisht:" ClientInstanceName="lblEmerFr">
                                     </dx:ASPxLabel>
                                     <%--</div>--%>
                                     <%--<div id="dvtxtEmerLlogarieFr">--%>
-                                    <dx:ASPxMemo ID="txtEmerLlogarieFr" runat="server" Width="100%" ClientInstanceName="txtEmerLlogarieFr"
+                                    <dx:ASPxMemo ID="txtEmerLlogarieFr" ClientVisible="false" runat="server" Width="100%" ClientInstanceName="txtEmerLlogarieFr"
                                         Rows="3">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries"
                                             ValidateOnLeave="false">

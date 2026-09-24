@@ -1226,10 +1226,7 @@ namespace DbCore
 		/// <returns> nje string me daten e konvertuar sipas formatit te kultures</returns>
 		public static String ktheDateFormat(DateTime d)
 		{
-			string dataKonvertuar;
-			IFormatProvider culture = new CultureInfo("fr-FR", false);
-			dataKonvertuar = d.ToString("d", culture);
-			return dataKonvertuar;
+			return d.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 		}
 		//edi 29/04/2009
 		//ky funksion konvertimi per daten do perdoret ngado ne kod. Ndersa ne momentet qe

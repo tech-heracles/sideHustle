@@ -1,0 +1,221 @@
+/* AVEC Accounting - home dashboard (Default.aspx). Layout follows the AVEC Manager home screen. */
+html, body.avec-dashboard {
+    margin: 0;
+    background: #121212 !important;
+    color: #f2f2f0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.avec-dashboard form {
+    padding: 20px 22px 32px;
+    box-sizing: border-box;
+    background: transparent !important;
+}
+
+.dash-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-bottom: 20px;
+}
+
+.dash-eyebrow {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a3a3a0;
+}
+
+.dash-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #f2f2f0;
+}
+
+.dash-facts {
+    display: flex;
+    gap: 28px;
+    margin: 0;
+}
+
+.dash-facts dt {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e6e6b;
+}
+
+.dash-facts dd {
+    margin: 2px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f2f2f0;
+    font-variant-numeric: tabular-nums;
+}
+
+.dash-crumbs {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.dash-crumbs[hidden] {
+    display: none;
+}
+
+.dash-back {
+    background: #232323;
+    border: 1px solid #383838;
+    color: #f2f2f0;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.dash-back:hover {
+    border-color: #e8683a;
+    color: #e8683a;
+}
+
+.dash-crumb-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+}
+
+.dash-grid-items {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 10px;
+}
+
+.dash-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 132px;
+    padding: 16px;
+    text-align: left;
+    background: #1a1a1a;
+    border: 1px solid #383838;
+    border-radius: 12px;
+    color: #f2f2f0;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.dash-card:hover,
+.dash-card:focus-visible {
+    border-color: #e8683a;
+    background: #1f1f1f;
+    outline: none;
+}
+
+.dash-card:active {
+    transform: translateY(1px);
+}
+
+.dash-card-small {
+    min-height: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+}
+
+.dash-card-small .dash-card-top {
+    order: 0;
+}
+
+.dash-card-small .dash-arrow {
+    display: none;
+}
+
+.dash-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.dash-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(232, 104, 58, 0.16);
+    color: #e8683a;
+    font-size: 17px;
+    flex: none;
+}
+
+.dash-card-small .dash-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.dash-arrow {
+    color: #6e6e6b;
+    font-size: 13px;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.dash-card:hover .dash-arrow {
+    color: #e8683a;
+    transform: translateX(2px);
+}
+
+.dash-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 18px;
+}
+
+.dash-card-small .dash-card-body {
+    margin-top: 0;
+}
+
+.dash-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f2f2f0;
+}
+
+.dash-card-small .dash-card-title {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dash-card-desc {
+    font-size: 12px;
+    color: #a3a3a0;
+}
+
+.dash-empty {
+    color: #a3a3a0;
+    text-align: center;
+    margin-top: 48px;
+}
+
+.dash-empty[hidden] {
+    display: none;
+}

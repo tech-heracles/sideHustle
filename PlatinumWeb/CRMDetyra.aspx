@@ -24,8 +24,8 @@
 <head runat="server">
     <title>AVEC CRM</title>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
-    <link id="Link1" runat="server" rel="shortcut icon" href="~/images/CRM/faviconCRM.ico" type="image/x-icon" />
-    <link id="Link2" runat="server" rel="icon" href="~/images/CRM/faviconCRM.ico" type="image/ico" />
+    <link id="Link1" runat="server" rel="shortcut icon" href="~/images/brand/avec-favicon.png" type="image/png" />
+    <link id="Link2" runat="server" rel="icon" href="~/images/brand/avec-favicon.png" type="image/png" />
     <link href="css/selectize.css" type="text/css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <%--<script type="text/javascript" src="~/js/srcCRM/js/jquery.mmenu.min.all.js"></script>--%>

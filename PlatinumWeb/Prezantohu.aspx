@@ -12,8 +12,8 @@
     <meta name="identifikuesLogin" content="LoginPage" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="theme-color" content="#121212" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="images/brand/avec-icon-192.png" />
+    <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png" />
+    <link rel="apple-touch-icon" href="/images/brand/avec-icon-192.png" />
     <link href="css/avec-login.css" rel="stylesheet" />
     <script>
 
@@ -245,11 +245,6 @@
                                         </div>
                                         <div class="gjuha" runat="server" id="Div4">
                                             <dx:ASPxHyperLink ID="lblGjuhaAL" CssClass="mylink" Font-Underline="false" runat="server" Text="AL" Cursor="pointer"
-                                                Font-Size="11pt">
-                                            </dx:ASPxHyperLink>
-                                        </div>
-                                        <div class="gjuha" runat="server" id="Div1">
-                                            <dx:ASPxHyperLink ID="lblGjuhaFR" CssClass="mylink" Font-Underline="false" runat="server" Text="FR" Cursor="pointer"
                                                 Font-Size="11pt">
                                             </dx:ASPxHyperLink>
                                         </div>

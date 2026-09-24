@@ -510,12 +510,12 @@
                                   
                                     <%--</div>--%>
 								   <%--<div id="dvlblEmerFr">--%>
-                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmerLlogarieFr" ID="lblEmerFr" runat="server"
+                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmerLlogarieFr" ID="lblEmerFr" ClientVisible="false" runat="server"
                                         Text="Emertimi Frengjisht:" ClientInstanceName="lblEmerFr">
                                     </dx:ASPxLabel>
                                     <%--</div>--%>
                                     <%--<div id="dvtxtShenime">--%>
-                                    <dx:ASPxMemo ID="txtEmerLlogarieFr" runat="server" Rows="3" Width="100%" ClientInstanceName="txtEmerLlogarieFr">
+                                    <dx:ASPxMemo ID="txtEmerLlogarieFr" ClientVisible="false" runat="server" Rows="3" Width="100%" ClientInstanceName="txtEmerLlogarieFr">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries"
                                             ValidateOnLeave="false">
                                             <ErrorFrameStyle ImageSpacing="4px">

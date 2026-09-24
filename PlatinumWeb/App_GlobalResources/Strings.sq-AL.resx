@@ -2838,9 +2838,7 @@ Garancia nuk përfshin:
     <value>Të rejat e versionit</value>
   </data>
   <data name="labelLogoIMB" xml:space="preserve">
-    <value>Copyright © AVEC
-Instituti i Modelimeve ne Biznes 
-www.imb.al</value>
+    <value>Copyright © AVEC</value>
   </data>
   <data name="labelLogOut" xml:space="preserve">
     <value>Dalje</value>
@@ -3793,7 +3791,7 @@ puna qe ka kryer</value>
     <value>Lloji</value>
   </data>
   <data name="labelRaportIMBAl" xml:space="preserve">
-    <value>www.imb.com.al</value>
+    <value>www.avec.al</value>
   </data>
   <data name="labelRaportimi" xml:space="preserve">
     <value>Raportimi</value>

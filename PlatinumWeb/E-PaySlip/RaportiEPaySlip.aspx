@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-      <link rel="icon" type="image/ico" href="CRM/faviconCRM.ico"/>
+      <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png"/>
     <title>AVEC Accounting</title>
     <style type="text/css">
         .style9

@@ -331,8 +331,8 @@
             this.xrLabel20.SizeF = new System.Drawing.SizeF(363.2609F, 48.45832F);
             this.xrLabel20.StyleName = "Copyright";
             this.xrLabel20.Text = "Copyright © AVECCopyright © AVEC\r\nIn" +
-    "stituti i Modelimeve ne Biznes \r\nwww.imb.alCopyright © AVEC\r\nInstituti i Modelime" +
-    "ve ne Biznes \r\nwww.imb.al";
+    "stituti i Modelimeve ne Biznes \r\nwww.avec.alCopyright © AVEC\r\nInstituti i Modelime" +
+    "ve ne Biznes \r\nwww.avec.al";
             // 
             // xrControlStyle1
             // 

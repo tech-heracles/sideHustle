@@ -18,13 +18,13 @@
 <html>
 <head id="Head1" runat="server">
     <title>AVEC Accounting</title>
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png" />
 
   <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <link rel="icon" sizes="256x256" href="/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/favicon.ico">
+    <link rel="icon" sizes="256x256" href="/images/brand/avec-favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/brand/avec-icon-192.png">
 
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -50,6 +50,7 @@
 
 <%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
+    <link href="css/avec-shell.css" rel="stylesheet" />
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -325,8 +326,9 @@
                             <dx:SplitterContentControl EnableViewState="false" CssClass="topSpliter" Height="32px" ID="SplitterContentControl1" runat="server">
 
                                 <div id="top" style="vertical-align: top; height:55px !important;">
-                                    <div id="btnHome" class="logoHome" onclick="dashboard()">
-                                        <img src="images/home2.png" "/>
+                                    <div id="btnHome" class="logoHome avec-brand" onclick="dashboard()" title="Kryefaqja">
+                                        <img src="images/brand/avec-logo.png" alt="AVEC" />
+                                        <span class="avec-brand-product">Accounting</span>
 
                                         <%-- ImageUrl="images/home.png"--%>
 <%--                                        <img src="images/home2.png" />--%>
@@ -336,7 +338,6 @@
                                         </dx:ASPxHyperLink>--%>
                                     </div>
                                     <div id="faqja" class="faqja" style="padding-left:0px !important">
-                                        <span class="dxeBase_MetropolisBlue style15" id="alpha" style="color:White;font-size:Large; padding-right:10px !important;">Alpha</span>
                                         <dx:ASPxLabel runat="server" ClientInstanceName="lblFaqja" CssClass="style15"
                                             Font-Size="Large" ForeColor="#ffffff" ClientIDMode="AutoID" ID="ASPxLabel1">
                                         </dx:ASPxLabel>
@@ -1291,15 +1292,15 @@
                     </dx:SplitterPane>
                     <%-- Middle pane--%>
                     <dx:SplitterPane ScrollBars="Auto">
-                        <Separators Size="10px" Visible="true">
+                        <Separators Size="0px" Visible="False">
                         </Separators>
                         <Panes>
                             <%-- Navigation pane --%>
-                            <dx:SplitterPane Size="170px" MinSize="150px" MaxSize="360px" ScrollBars="Auto" ShowCollapseBackwardButton="True"
-                                Separators-Size="10px" PaneStyle-Paddings-Padding="0">
+                            <dx:SplitterPane Size="170px" MinSize="150px" MaxSize="360px" ScrollBars="Auto" Collapsed="True" ShowCollapseBackwardButton="False"
+                                PaneStyle-Paddings-Padding="0" Name="paneNavigimi">
                                 <PaneStyle>
                                 </PaneStyle>
-                                <Separators Size="10px">
+                                <Separators Size="0px" Visible="False">
                                 </Separators>
                                 <ContentCollection>
                                     <dx:SplitterContentControl ID="SplitterContentControl2" runat="server">
@@ -1701,8 +1702,8 @@
                             </dx:SplitterPane>
                             <%-- Main pane (iOS problem pane) --%>
                             <dx:SplitterPane Name="paneKryesor" ContentUrl="javascript:false" ContentUrlIFrameName="frameKryesor"
-                                ScrollBars="Auto" PaneStyle-BackColor="White" AutoWidth="true">
-                                <PaneStyle BackColor="White">
+                                ScrollBars="Auto" PaneStyle-BackColor="#121212" AutoWidth="true">
+                                <PaneStyle BackColor="#121212">
                                 </PaneStyle>
                                 <ContentCollection>
                                     <dx:SplitterContentControl ID="SplitterContentControl3" Height="100%" runat="server">
@@ -1716,7 +1717,7 @@
                     </dx:SplitterPane>
                     <%-- Footer pane --%>
                     <dx:SplitterPane Size="30px" ScrollBars="None" AutoWidth="true" MinSize="30px" MaxSize="30px" ShowCollapseForwardButton="True" PaneStyle-Paddings-Padding="0"
-                        Name="Footer" ContentUrl="FooterPanelInfo.aspx" PaneStyle-BackColor="#d5d5d5" PaneStyle-CssClass="footer1"
+                        Name="Footer" ContentUrl="FooterPanelInfo.aspx" PaneStyle-BackColor="#121212" PaneStyle-CssClass="footer1"
                         ContentUrlIFrameName="frameFooter">
                     </dx:SplitterPane>
                 </Panes>
@@ -1774,7 +1775,7 @@
                             <PanelCollection>
                                 <dx:PanelContent ID="PanelContent1" runat="server" SupportsDisabledAttribute="True">
                                     <dx:ASPxLabel runat="server" Text="Merrni tani online kursin për programin Alpha:"> </dx:ASPxLabel> <a href='http://www.udemy.com/course/kurs-per-programin-alpha-certifikohu-online' target="_blank">Kliko</a> <br> 
-                                        <dx:ASPxLabel runat="server" Text="Për të kërkuar support na shkruani në adresën e email:"> </dx:ASPxLabel> <a href='mailto:ndihma@imb.al'>ndihma@imb.al</a> <dx:ASPxLabel runat="server" Text="ose klikoni"> </dx:ASPxLabel> <a href='https://helpdesk.alpha.al' target="_blank">këtu.</a>
+                                        <dx:ASPxLabel runat="server" Text="Për të kërkuar support na shkruani në adresën e email:"> </dx:ASPxLabel> <a href='mailto:ndihma@avec.al'>ndihma@avec.al</a> <dx:ASPxLabel runat="server" Text="ose klikoni"> </dx:ASPxLabel> <a href='https://helpdesk.alpha.al' target="_blank">këtu.</a>
                                        <dx:ASPxLabel ForeColor="#595959" ClientIDMode="AutoID" ID="lblMsgbox">
                                             </dx:ASPxLabel>
                                     <br />
@@ -1939,7 +1940,7 @@
         };
 
         window.startHub();
-        function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true'); }
+        function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx'); }
         
     </script>
     <style>
@@ -1961,9 +1962,6 @@
             }
             .dxm-separator{
                 display:none !important;
-            }
-            .dxm-separator b{
-                background-color: #0072c6 !important;
             }
             #ASPxSplitter1_ASPxMenu1_DXI6_IS{
                 display:block !important;
