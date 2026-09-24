@@ -28,10 +28,7 @@ namespace PlatinumWeb
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request.QueryString["idTheme"]))
-                DbCore.clsFunksione.percaktoThemeAmbjenteDheJQueryMeId(Page, Convert.ToInt32(Request.QueryString["idTheme"]));
-            else
-                DbCore.clsFunksione.percaktoThemeAmbjenteDheJQuery(Page, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+            DbCore.clsFunksione.aplikoThemeAvec(Page);
         }
 
         protected void Page_Load(object sender, EventArgs e)

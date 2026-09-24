@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IMB")]
 [assembly: AssemblyProduct("PlatinumWeb")]
-[assembly: AssemblyCopyright("Copyright © IMB 2009")]
+[assembly: AssemblyCopyright("Copyright © AVEC 2009")]
 [assembly: AssemblyTrademark("IMB SHPK")]
 [assembly: AssemblyCulture("")]
 

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="js/css/le-frog/jquery-ui.css" rel="stylesheet" type="text/css" runat="server" id="themeJQuery" />
     <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />

@@ -207,7 +207,7 @@
             this.xrLabel20.SizeF = new System.Drawing.SizeF(898F, 50F);
             this.xrLabel20.StyleName = "Copyright";
             this.xrLabel20.StylePriority.UseTextAlignment = false;
-            this.xrLabel20.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // parameter1

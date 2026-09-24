@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html> 
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <link rel="icon" type="image/ico" href="CRM/faviconCRM.ico"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Login-i AlphaWeb" />
@@ -534,20 +534,20 @@
                                 InstructionText="   Nuk eshte aktivizuar" LoginButtonImageUrl="~/images/FaqjaPare/loginbutton.png">
                                 <LayoutTemplate>
                                         <div class="input" style="height:auto;max-height:40px;padding-top:0px">
-                                            <dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#00A74F" IncrementalFilteringMode="Contains" DropDownStyle="DropDownList" ItemStyle-SelectedStyle-BackColor="#00A74F" Border-BorderColor="#999999" Paddings-Padding="0" Width="100%" Height="40px"  Font-Size="16px" Theme="Metropolis"  ClientInstanceName="cmbServerat" runat="server">
+                                            <dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#00A74F" IncrementalFilteringMode="Contains" DropDownStyle="DropDownList" ItemStyle-SelectedStyle-BackColor="#00A74F" Border-BorderColor="#999999" Paddings-Padding="0" Width="100%" Height="40px"  Font-Size="16px"  ClientInstanceName="cmbServerat" runat="server">
                                                 <ClientSideEvents Init="cmbServerInit" SelectedIndexChanged="cmbServerSelectedChanged" />     
                                                 <ValidationSettings ValidationGroup="Login1" RequiredField-IsRequired="true" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom"></ValidationSettings>
                                             </dx:ASPxComboBox>
                                         </div>
                                         <div class="input">
-                                            <dx:ASPxTextBox ID="UserName" ClientInstanceName="txtUserName"  Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0" Theme="Metropolis">
+                                            <dx:ASPxTextBox ID="UserName" ClientInstanceName="txtUserName"  Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0">
                                                 <ClientSideEvents Init="txtUsername_Init"  />
                                                 <ValidationSettings RequiredField-IsRequired="true" ValidationGroup="Login1" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom">
                                                 </ValidationSettings>
                                             </dx:ASPxTextBox>
                                         </div>
                                         <div class="input">
-                                            <dx:ASPxTextBox ID="Password" ClientInstanceName="txtPassword"  Password="true" runat="server" Font-Size="16px" Border-BorderStyle="Solid" Theme="Metropolis"
+                                            <dx:ASPxTextBox ID="Password" ClientInstanceName="txtPassword"  Password="true" runat="server" Font-Size="16px" Border-BorderStyle="Solid"
                                                 Paddings-Padding="0" Height="40" Width="100%" Border-BorderColor="#999999">
                                                 <ClientSideEvents Init="txtPassword_Init" />
                                                 <ValidationSettings RequiredField-IsRequired="true" ValidationGroup="Login1" ErrorFrameStyle-Paddings-Padding="0"  ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom"></ValidationSettings>
@@ -563,7 +563,6 @@
                                                 ID="loginButton"
                                                 Border-BorderStyle="None"
                                                 HorizontalAlign="Center"
-                                                Theme="Metropolis"
                                                 AllowFocus="False"
                                                 Font-Size="23px" Font-Bold="true" Font-Names="Open Sans" ForeColor="White">
                                                 <ClientSideEvents Click="function(s,e){getClientDate();}"
@@ -597,7 +596,7 @@
                 </section>
                 <footer>
                     <section class="cpyright">
-                        <dx:ASPxLabel ID="ASPxLabel8" CssClass="cpyright" runat="server"  Text="© 2015 IMB" />
+                        <dx:ASPxLabel ID="ASPxLabel8" CssClass="cpyright" runat="server"  Text="© 2015 AVEC" />
                     </section>
                     <section class="contact">
                         <article>

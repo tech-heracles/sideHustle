@@ -27,7 +27,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha CRM</title>
+    <title>AVEC CRM</title>
       <link type="text/css" rel="stylesheet" href="AlphaCRM.css" />
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />

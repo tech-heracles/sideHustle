@@ -542,7 +542,7 @@
             this.xrLabel61.SizeF = new System.Drawing.SizeF(186.6326F, 44.29166F);
             this.xrLabel61.StyleName = "Copyright";
             this.xrLabel61.StylePriority.UseForeColor = false;
-            this.xrLabel61.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel61.Text = "Copyright © AVEC";
             // 
             // xrPageInfo1
             // 

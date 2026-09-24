@@ -1123,7 +1123,7 @@ namespace DbCore
 
 			String versionUrl = port.Length == 0 ? serveri + "/" : serveri + ":" + port + "/";
 
-			versionUrl = "http://" + versionUrl + "#Versione_te_Reja/Versionet e Alpha Web/Versioni " + dr["VersioniFunditHelp"].ToString() + ".htm";
+			versionUrl = "http://" + versionUrl + "#Versione_te_Reja/Versionet e AVEC Accounting/Versioni " + dr["VersioniFunditHelp"].ToString() + ".htm";
 
 
 			return new Tuple<string, string, string>(urlManuali, versionUrl, dr["VersioniAlphaWeb"].ToString());
@@ -1349,46 +1349,18 @@ namespace DbCore
 		}
 
 		/// <summary>
-		/// ky eshte funksioni qe percakton theme te nje ambjenti (theme te ambjentit kryesor dhe te gridave JQuery). Duhet thirrur gjithmone vetem te Page_PreInit, perndryshe shkakton runtime error
+		/// Aplikon theme-n AVEC (App_Themes/Avec + jQuery UI) ne faqe. Duhet thirrur vetem te Page_PreInit.
 		/// </summary>
-		/// <param name="page"> Page eshte faqja ku do aplikohet tema </param>
-		/// <param name="idPerdorues"> Id e perdoruesit te loguar </param>
-		/// <param name="themeJQuery"> themeJQuery eshte linku ku percaktohet tema per komponente JQuery; tek faqet qe nuk ka komponente JQuery, ky parameter kalohet null </param>
-		public static void percaktoThemeAmbjenteDheJQuery(Page page, int idPerdorues)
+		public static void aplikoThemeAvec(Page page)
 		{
-			clsThemesAmbjente themeAmbjente = new clsThemesAmbjente();
-			themeAmbjente.ktheThemeZgjedhurPerdorues(idPerdorues);
-			page.Theme = themeAmbjente.PathDevExpress;
+			page.Theme = "Avec";
 			HtmlLink themeJQuery = (HtmlLink)page.FindControl("themeJquery");
 			if (themeJQuery == null)
 			{
 				themeJQuery = new HtmlLink();
 				page.Controls.Add(themeJQuery);
 			}
-			if (themeJQuery != null)
-			{
-				string emriThemeJQuery = themeAmbjente.PathJquery;
-				themeJQuery.Href = @emriThemeJQuery;
-			}
-		}
-
-		public static void percaktoThemeAmbjenteDheJQueryMeId(Page page, int idThemeAmbjente)
-		{
-			clsThemesAmbjente themeAmbjente = new clsThemesAmbjente(idThemeAmbjente);
-
-			page.Theme = themeAmbjente.PathDevExpress;
-
-			HtmlLink themeJQuery = (HtmlLink)page.FindControl("themeJquery");
-			if (themeJQuery == null)
-			{
-				themeJQuery = new HtmlLink();
-				page.Controls.Add(themeJQuery);
-			}
-			if (themeJQuery != null)
-			{
-				string emriThemeJQuery = themeAmbjente.PathJquery;
-				themeJQuery.Href = @emriThemeJQuery;
-			}
+			themeJQuery.Href = "~/js/themes/smoothness/jquery-ui.min.css";
 		}
 
 		/// <summary>

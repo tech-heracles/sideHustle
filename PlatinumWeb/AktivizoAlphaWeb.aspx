@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Autentifiko Alpha Web</title>
+    <title>Autentifiko AVEC Accounting</title>
 	    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <style type="text/css">
@@ -296,7 +296,7 @@
                         </td>
                         <td>
                             <dx:ASPxLabel ID="ASPxLabel8" runat="server" Font-Names="Arial" Font-Size="13pt"
-                                Text="© 2014 IMB">
+                                Text="© 2014 AVEC">
                             </dx:ASPxLabel>
                         </td>
                         <td style="text-align: right;">

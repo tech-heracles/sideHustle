@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha GIS</title>
+    <title>AVEC GIS</title>
 
     <link rel="shortcut icon" href="images/GIS/faviconGIS.ico" />
     <link rel="stylesheet" type="text/css" href="js/srcGIS/ext-3.4.0/resources/css/ext-all.css" />

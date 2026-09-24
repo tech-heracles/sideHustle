@@ -29,7 +29,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>Alpha Web</title>
+     <title>AVEC Accounting</title>
      <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
@@ -235,7 +235,7 @@
                                                     </dx:ASPxLabel>
                                                 </td>
                                                 <td class="renditKontrolleCellMeWidth50">
-                                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="100%" Theme="Aqua" ClientInstanceName="txtEmerSheet">
+                                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="100%" ClientInstanceName="txtEmerSheet">
                                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                                         </DisabledStyle>
                                                     </dx:ASPxTextBox>

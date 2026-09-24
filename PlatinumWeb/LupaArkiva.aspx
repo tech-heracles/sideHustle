@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
    
     <link href="js/css/le-frog/jquery-ui.css" rel="stylesheet" type="text/css" runat="server"
           id="themeJQuery"/>

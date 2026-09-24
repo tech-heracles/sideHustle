@@ -505,7 +505,7 @@
             this.labelLogoIMB.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.labelLogoIMB.SizeF = new System.Drawing.SizeF(245.7456F, 44.29165F);
             this.labelLogoIMB.StyleName = "Copyright";
-            this.labelLogoIMB.Text = "Copyright © IMB\nInstituti i Modelimeve ne Biznes \nwww.imb.al";
+            this.labelLogoIMB.Text = "Copyright © AVEC";
             // 
             // titulliLabel
             // 

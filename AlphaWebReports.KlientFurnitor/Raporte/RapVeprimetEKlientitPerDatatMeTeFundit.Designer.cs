@@ -260,7 +260,7 @@
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(282.2917F, 44.29F);
             this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel1.Text = "Copyright © AVEC";
             // 
             // kokaTable
             // 

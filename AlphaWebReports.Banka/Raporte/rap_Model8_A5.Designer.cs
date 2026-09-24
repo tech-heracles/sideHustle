@@ -350,7 +350,7 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             this.xrTableCell30.StylePriority.UseBorders = false;
             this.xrTableCell30.StylePriority.UseFont = false;
             this.xrTableCell30.StylePriority.UseTextAlignment = false;
-            this.xrTableCell30.Text = "Prodhuar nga IMB";
+            this.xrTableCell30.Text = "Prodhuar nga AVEC";
             this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             this.xrTableCell30.Weight = 0.96875002844093783D;
             // 
@@ -980,7 +980,7 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             this.xrTableCell83.StylePriority.UseBorders = false;
             this.xrTableCell83.StylePriority.UseFont = false;
             this.xrTableCell83.StylePriority.UseTextAlignment = false;
-            this.xrTableCell83.Text = "Prodhuar nga IMB";
+            this.xrTableCell83.Text = "Prodhuar nga AVEC";
             this.xrTableCell83.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell83.Weight = 0.74278895857780536D;
             // 

@@ -56,7 +56,7 @@ namespace PlatinumWeb
 			if (!IsPostBack)
 			{
 
-				ASPxLabel8.Text = $@"© {DateTime.Now.Year} IMB";
+				ASPxLabel8.Text = $@"© {DateTime.Now.Year} AVEC";
 				LabelInfo.Text = "";
 				//lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
 				//ruaj connstring default ne hapje te pare
@@ -260,9 +260,6 @@ namespace PlatinumWeb
 			lblGjuhaAL.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
 			lblGjuhaEN.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
 			lblGjuhaFR.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
-			//lblGjuhaALKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
-			//lblGjuhaENKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=EN";
-			//lblGjuhaFRKesh.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=FR";
 			ASPxHiddenField loginHiddenField = Login1.FindControl("loginHiddenField") as ASPxHiddenField;
 
 			loginHiddenField.Set("userlbl", MessagesResource.Messages["lblLoginPerdoruesi"]);

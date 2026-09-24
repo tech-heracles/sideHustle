@@ -807,7 +807,7 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
             this.xrLabel20.SizeF = new System.Drawing.SizeF(204.9584F, 48.45832F);
             this.xrLabel20.StyleName = "Copyright";
             this.xrLabel20.StylePriority.UseBorders = false;
-            this.xrLabel20.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             // 
             // pRC_RAP_SITUACIONI_FURNITORITableAdapter
             // 

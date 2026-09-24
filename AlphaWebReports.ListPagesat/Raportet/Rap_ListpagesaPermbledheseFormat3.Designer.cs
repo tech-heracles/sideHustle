@@ -606,7 +606,7 @@
             this.xrLabel81.SizeF = new System.Drawing.SizeF(287.9785F, 44.29166F);
             this.xrLabel81.StyleName = "Copyright";
             this.xrLabel81.StylePriority.UseBorders = false;
-            this.xrLabel81.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel81.Text = "Copyright © AVEC";
             // 
             // GroupHeader1
             // 

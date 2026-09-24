@@ -1189,10 +1189,10 @@ During the warranty period, Vodafone or any other company authorized by Vodafone
     <value>Cope</value>
   </data>
   <data name="labelRaportProdhuarNgaIMB" xml:space="preserve">
-    <value>Copyright © IMB</value>
+    <value>Copyright © AVEC</value>
   </data>
   <data name="labelLogoIMB" xml:space="preserve">
-    <value>Copyright © IMB
+    <value>Copyright © AVEC
 Institute of Modeling in Business 
 www.imb.al</value>
   </data>
@@ -2280,10 +2280,10 @@ Garancia nuk përfshin:
     <value>Get detailed information for every action performed by your business.</value>
   </data>
   <data name="labelAdministrimi" xml:space="preserve">
-    <value>Get started with AlphaWeb by performing your initial setups.</value>
+    <value>Get started with AVEC Accounting by performing your initial setups.</value>
   </data>
   <data name="labelFillimiPunes" xml:space="preserve">
-    <value>Getting started with AlphaWeb</value>
+    <value>Getting started with AVEC Accounting</value>
   </data>
   <data name="labelKthyer" xml:space="preserve">
     <value>Given Back</value>
@@ -2731,11 +2731,11 @@ Garancia nuk përfshin:
 To log in the program enter the following data:#enter#
 Username: #username##enter#
 New Password: #newPass##enter##enter#
-To log in Alpha Web program, click the link below:#enter# #enter# #linku#. #enter# #enter#</value>
+To log in AVEC Accounting program, click the link below:#enter# #enter# #linku#. #enter# #enter#</value>
   </data>
   <data name="ResetPasswordVerifikimKerkeseEmail" xml:space="preserve">
-    <value>Kindly be informed that a request to set a new password in your Alpha Web account, is performed. #enter# #enter#
-To initiate the password reset process for your Alpha Web account, click the link below: #enter# #enter#
+    <value>Kindly be informed that a request to set a new password in your AVEC Accounting account, is performed. #enter# #enter#
+To initiate the password reset process for your AVEC Accounting account, click the link below: #enter# #enter#
 #linku# #enter# #enter#
 If clicking the link above doesn't work, please copy and paste the URL in a
 new browser window instead. #enter# #enter#
@@ -3578,7 +3578,7 @@ Date/ Time: #Data# #enter# #enter# </value>
     <value>Print Report</value>
   </data>
   <data name="labelRaportPrintuarNgaAlphaPlatinium" xml:space="preserve">
-    <value>Printed by Alpha Platinium</value>
+    <value>Printed by AVEC Accounting</value>
   </data>
   <data name="labelRaportPrintuarMe" xml:space="preserve">
     <value>Printed on</value>
@@ -3978,7 +3978,7 @@ Date/ Time: #Data# #enter# #enter# </value>
     <value>Reserved Quantity</value>
   </data>
   <data name="ResetPasswordSubjectEmail" xml:space="preserve">
-    <value>Reset your Alpha Web password‏</value>
+    <value>Reset your AVEC Accounting password‏</value>
   </data>
   <data name="labelMbetja" xml:space="preserve">
     <value>Residue</value>
@@ -5276,7 +5276,7 @@ bëhet i kërkueshëm nga Vodafone, pranoj se do të shlyej pranë Vodafone të 
     <value>Work Flow</value>
   </data>
   <data name="aprovimTitullEmail" xml:space="preserve">
-    <value>Work Flow AlphaWeb</value>
+    <value>Work Flow AVEC Accounting</value>
   </data>
   <data name="RaportUrdherPuneTitulli" xml:space="preserve">
     <value>Work Order</value>
@@ -10198,7 +10198,7 @@ financa@albmail.com_eng</value>
     <value>Plotesoni detajimin 2 te artikullit ne rreshtin _eng</value>
   </data>
   <data name="msgLicencaJoValid" xml:space="preserve">
-    <value>Licence is modified manually contact IMB</value>
+    <value>Licence is modified manually contact AVEC</value>
   </data>
   <data name="labelRaportArketimi" xml:space="preserve">
     <value>Arketimi_eng</value>
@@ -10406,7 +10406,7 @@ Në rastë reklamimi për Artikujt e blerë nga ju, ju lutemi drejtohuni personi
     <value>Price</value>
   </data>
   <data name="lblRaportPrintuarAlphaWeb" xml:space="preserve">
-    <value>Printuar nga Alpha Web_Eng</value>
+    <value>Printuar nga AVEC Web_Eng</value>
   </data>
   <data name="lblRaportPurchaseInvoice" xml:space="preserve">
     <value>Purchase Invoice</value>
@@ -10748,12 +10748,12 @@ Në rastë reklamimi për Artikujt e blerë nga ju, ju lutemi drejtohuni personi
     <value>Status</value>
   </data>
   <data name="msgBodyDergoEmailGjenerimPassword" xml:space="preserve">
-    <value>Your login details in Alpha Web program are as follows: #enter#
+    <value>Your login details in AVEC Accounting program are as follows: #enter#
 Username: #username##enter#
 Password: #newPass##enter##enter#</value>
   </data>
   <data name="subjectEmailGeneratedPassword" xml:space="preserve">
-    <value>Alpha Web Generated Password</value>
+    <value>AVEC Accounting Generated Password</value>
   </data>
   <data name="lblAlbamedia" xml:space="preserve">
     <value>Albamedia sh.p.k</value>

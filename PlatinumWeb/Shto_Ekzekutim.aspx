@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="js/css/le-frog/jquery-ui.css" rel="stylesheet" type="text/css" runat="server"

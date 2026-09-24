@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <link rel="icon" type="image/ico" href="/favicon.ico" />
 
   <meta name="mobile-web-app-capable" content="yes">
@@ -363,8 +363,6 @@
                                                         </dx:MenuItem>
                                                         
                                                         <dx:MenuItem Text="Dergo mesazh" Name="MessageToAll.html" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Motivet" Name="UserThemes.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Fjalekalimi" Name="fjalekalimi" Visible="false">
                                                             <Items>
@@ -1595,7 +1593,7 @@
                                                 </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="CRM" Name="crm" Expanded="False">
                                                     <Items>
-                                                        <dxnb:NavBarItem Text="Alpha CRM" Name="CRMDefault.aspx" Visible="false" Target="_blank">
+                                                        <dxnb:NavBarItem Text="AVEC CRM" Name="CRMDefault.aspx" Visible="false" Target="_blank">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="CRMRouteAgjenti.aspx" Text="Route i Agjenteve" Target="_blank" Visible="false" />
                                                         <dxnb:NavBarItem Name="CRMFushaAnkete.aspx" Text="Fusha Ankete" Target="_blank" Visible="false" />
@@ -1613,7 +1611,7 @@
                                                 </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="GIS" Name="gis" Expanded="False">
                                                     <Items>
-                                                        <dxnb:NavBarItem Text="Alpha GIS" Name="GISDefault.aspx" Visible="false" Target="_blank">
+                                                        <dxnb:NavBarItem Text="AVEC GIS" Name="GISDefault.aspx" Visible="false" Target="_blank">
                                                         </dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>

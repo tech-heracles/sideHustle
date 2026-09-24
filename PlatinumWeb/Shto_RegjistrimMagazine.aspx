@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <link href="js/css/le-frog/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"
         runat="server" id="themeJQuery" />
     <%--     <link href="js/jquery-ui-1.11.1.min.css" media="screen" rel="stylesheet" type="text/css"

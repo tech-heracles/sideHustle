@@ -708,7 +708,7 @@
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel32.SizeF = new System.Drawing.SizeF(148.557F, 23F);
-            this.xrLabel32.Text = "Printuar nga Alpha Web";
+            this.xrLabel32.Text = "Printuar nga AVEC Accounting";
             // 
             // xrLabel31
             // 

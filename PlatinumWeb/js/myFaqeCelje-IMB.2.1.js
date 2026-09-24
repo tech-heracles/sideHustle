@@ -1832,10 +1832,10 @@ myFaqeCelje.krijoMenuPerCRM = function (idPerdoruesi, idNdermarrje, idVitNdermar
             }
         }
         html += "<li><a href=Login_Ndermarrje.aspx><span style='vertical-align:middle' class='fa fa-building-o fa-2x'></span>&nbsp; Ndermarrjet </a></li>";
-        html += "<li><a target='_blank' href=FaqeKryesore.aspx?vjenNga=CRM><img style='vertical-align:middle' class='ui-li-thumb' width='28px' height='28px' src='images/CRM/AlphaWebMenu.png'>&nbsp; Alpha Web </a></li>";
+        html += "<li><a target='_blank' href=FaqeKryesore.aspx?vjenNga=CRM><img style='vertical-align:middle' class='ui-li-thumb' width='28px' height='28px' src='images/CRM/AlphaWebMenu.png'>&nbsp; AVEC Accounting </a></li>";
 
         htmlHomePage += "<li class='ui-li-has-thumb'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href=Login_Ndermarrje.aspx><img class='ui-li-thumb' src='images/CRM/fa-building-o.png'><h2>Ndermarrjet</h2></a></li>";
-        htmlHomePage += "<li class='ui-li-has-thumb'><a target='_blank' class='ui-btn ui-btn-icon-right ui-icon-carat-r' href=FaqeKryesore.aspx?vjenNga=CRM><img class='ui-li-thumb' src='images/CRM/AlphaWeb.png'><h2>Alpha Web</h2></a></li>";
+        htmlHomePage += "<li class='ui-li-has-thumb'><a target='_blank' class='ui-btn ui-btn-icon-right ui-icon-carat-r' href=FaqeKryesore.aspx?vjenNga=CRM><img class='ui-li-thumb' src='images/CRM/AlphaWeb.png'><h2>AVEC Accounting</h2></a></li>";
 
         $ul.html(html);
         $ulHomePage.html(htmlHomePage);

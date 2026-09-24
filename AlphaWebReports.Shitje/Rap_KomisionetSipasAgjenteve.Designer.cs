@@ -209,7 +209,7 @@
             this.xrLabel50.Name = "xrLabel50";
             this.xrLabel50.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel50.SizeF = new System.Drawing.SizeF(174.3331F, 74.49995F);
-            this.xrLabel50.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel50.Text = "Copyright © AVEC";
             // 
             // pRC_RAP_KOMISIONET_SIPAS_AGJENTEVETableAdapter
             // 

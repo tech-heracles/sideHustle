@@ -1,0 +1,237 @@
+/* AVEC Accounting - login page (Prezantohu.aspx). Colours from manager_flutter lib/app/theme.dart. */
+html, body.avec-login {
+    height: 100%;
+    margin: 0;
+}
+
+body.avec-login {
+    background: #121212;
+    color: #f2f2f0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+}
+
+body.avec-login #authForm {
+    min-height: 100%;
+}
+
+.avec-login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    background: radial-gradient(1200px 600px at 50% -10%, rgba(232, 104, 58, 0.10), transparent 60%), #121212;
+}
+
+.avec-card {
+    width: 100%;
+    max-width: 380px;
+    background: #1a1a1a;
+    border: 1px solid #383838;
+    border-radius: 12px;
+    padding: 32px 28px 24px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.avec-card-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.avec-logo {
+    height: 56px;
+    width: auto;
+    display: inline-block;
+}
+
+.avec-product {
+    margin: 10px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #a3a3a0;
+}
+
+/* status / error text */
+.avec-card .labelInfo,
+.avec-card .LoginError span,
+.avec-card .LoginError label {
+    display: block;
+    color: #e5484d !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-align: center;
+}
+
+.avec-card .labelInfo:empty,
+.avec-card .LoginError span:empty {
+    display: none;
+}
+
+.avec-card table.login,
+.avec-card table.login > tbody > tr > td {
+    width: 100%;
+    border: 0;
+    padding: 0;
+}
+
+.avec-card .input {
+    margin-bottom: 12px;
+}
+
+/* DevExpress editors inside the dark card */
+.avec-card .dxeTextBoxSys,
+.avec-card .dxeButtonEditSys,
+.avec-card table.dxeTextBoxSys,
+.avec-card table.dxeButtonEditSys {
+    width: 100% !important;
+    background: #232323 !important;
+    border: 1px solid #383838 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    overflow: hidden;
+}
+
+.avec-card .dxeTextBoxSys.dxeFocused,
+.avec-card .dxeButtonEditSys.dxeFocused,
+.avec-card .dxeFocused {
+    border-color: #e8683a !important;
+    box-shadow: 0 0 0 1px #e8683a !important;
+}
+
+.avec-card .dxeTextBoxSys input,
+.avec-card .dxeButtonEditSys input,
+.avec-card input.dxeEditArea,
+.avec-card input[type="text"],
+.avec-card input[type="password"] {
+    background: transparent !important;
+    color: #f2f2f0 !important;
+    font-size: 15px !important;
+    padding: 0 14px !important;
+    height: 42px !important;
+    border: 0 !important;
+    outline: none !important;
+}
+
+.avec-card input::placeholder {
+    color: #6e6e6b !important;
+    opacity: 1;
+}
+
+.avec-card input:-webkit-autofill {
+    -webkit-text-fill-color: #f2f2f0 !important;
+    -webkit-box-shadow: 0 0 0 40px #232323 inset !important;
+    caret-color: #f2f2f0;
+}
+
+.avec-card .dxeButtonEditButton,
+.avec-card td.dxeButton {
+    background: #232323 !important;
+    border: 0 !important;
+    color: #a3a3a0 !important;
+}
+
+/* primary button */
+.avec-card .hyrje,
+.avec-card .hyrje.dxbButton,
+.avec-card div.hyrje {
+    width: 100% !important;
+    height: 46px !important;
+    margin-top: 8px;
+    background: #e8683a !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    color: #1a1208 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.avec-card .hyrje:hover {
+    background: #f07b50 !important;
+}
+
+.avec-card .hyrje .dx-vam,
+.avec-card .hyrje span {
+    color: #1a1208 !important;
+}
+
+/* secondary links */
+.avec-card .keniHarruar {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #e8683a !important;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+.avec-card .keniHarruar:hover {
+    color: #f07b50 !important;
+    text-decoration: underline;
+}
+
+.avec-card .gjuhet {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #2e2e2e;
+}
+
+.avec-card .gjuha a,
+.avec-card .gjuha .mylink,
+.avec-card .avec-org-switch a {
+    color: #a3a3a0 !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+.avec-card .gjuha a:hover,
+.avec-card .avec-org-switch a:hover {
+    color: #f2f2f0 !important;
+}
+
+.avec-card .avec-org-switch {
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* two-factor step */
+.avec-card .avec-otp-qr {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.avec-card .avec-otp-qr img {
+    max-width: 200px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+}
+
+.avec-card .avec-otp-hint {
+    color: #a3a3a0;
+    font-size: 13px;
+    text-align: center;
+    margin: 8px 0 4px;
+}
+
+.avec-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.avec-footer .cpyrightText {
+    color: #6e6e6b !important;
+    font-size: 12px !important;
+}

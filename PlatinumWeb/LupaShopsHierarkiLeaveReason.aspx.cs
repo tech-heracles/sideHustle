@@ -20,7 +20,7 @@ namespace PlatinumWeb
         private string emerKomponente = "LupaShopsHierarkiLeaveReason.aspx";
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            DbCore.clsFunksione.percaktoThemeAmbjenteDheJQuery(Page, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+            DbCore.clsFunksione.aplikoThemeAvec(Page);
         }
 
         protected void Page_Load(object sender, EventArgs e)

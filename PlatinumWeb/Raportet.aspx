@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     
 <%--    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />--%>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />

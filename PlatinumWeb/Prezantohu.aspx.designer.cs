@@ -10,10 +10,8 @@
 namespace PlatinumWeb
 {
 
-
     public partial class login
     {
-
 
         /// <summary>
         /// authForm control.
@@ -23,15 +21,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm authForm;
-
-        /// <summary>
-        /// hasAlpha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField hasAlpha;
 
         /// <summary>
         /// clientDate control.
@@ -50,60 +39,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField step1Complete;
-
-        /// <summary>
-        /// Div3Kesh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3Kesh;
-
-        /// <summary>
-        /// lblGjuhaENKesh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink lblGjuhaENKesh;
-
-        /// <summary>
-        /// Div4Kesh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4Kesh;
-
-        /// <summary>
-        /// lblGjuhaALKesh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink lblGjuhaALKesh;
-
-        /// <summary>
-        /// Div2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
-
-        /// <summary>
-        /// lblGjuhaFRKesh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink lblGjuhaFRKesh;
 
         /// <summary>
         /// LabelInfo control.
@@ -141,15 +76,6 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfState;
 
-
-
-
-
-
-
-
-
-
         /// <summary>
         /// ASPxLabel8 control.
         /// </summary>
@@ -158,35 +84,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel ASPxLabel8;
-
-        /// <summary>
-        /// ASPxLabelKontakto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink ASPxLabelKontakto;
-
-        /// <summary>
-        /// ASPxLabel11Demo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink ASPxLabel11Demo;
-
-        /// <summary>
-        /// ASPxHyperTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink ASPxHyperTerms;
-
-
 
     }
 }

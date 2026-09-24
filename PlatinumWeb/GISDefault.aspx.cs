@@ -21,7 +21,7 @@ namespace PlatinumWeb
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            Page.Theme = "MetropolisBlue";
+            DbCore.clsFunksione.aplikoThemeAvec(Page);
         }
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -763,7 +763,7 @@
             this.xrLabel32.StylePriority.UseBackColor = false;
             this.xrLabel32.StylePriority.UseFont = false;
             this.xrLabel32.StylePriority.UseForeColor = false;
-            this.xrLabel32.Text = "Printuar nga Alpha Web";
+            this.xrLabel32.Text = "Printuar nga AVEC Accounting";
             // 
             // xrLabel36
             // 

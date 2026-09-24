@@ -25,9 +25,6 @@ namespace PlatinumWeb
 		protected void Page_PreInit(object sender, EventArgs e)
 		{
 			base.Page_PreInit(sender, e);
-
-			//if (!(Request.Browser.Browser == "InternetExplorer" && Request.Browser.Version == "11.0"))
-			ASPxMenu1.Theme = "Moderno1";
 		}
 
 		protected void Page_Load(object sender, EventArgs e)
@@ -579,7 +576,7 @@ namespace PlatinumWeb
 			var rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
 			//ASPxHyperLink2.Text = " | " + rm.GetString("labelLogOut", ci);
-			ASPxMenu1.Items[0].Items[15].Visible = true;
+			ASPxMenu1.Items[0].Items[14].Visible = true;
 
 			ASPxMenu1.Items[0].Text = rm.GetString("MenuItemAdminstrimi", ci);
 			ASPxMenu1.Items[0].Items[0].Text = rm.GetString("MenuItemAsistenti", ci);
@@ -599,28 +596,27 @@ namespace PlatinumWeb
 				}
 			}
 			ASPxMenu1.Items[0].Items[2].Text = "Dergo Mesazh";
-			ASPxMenu1.Items[0].Items[3].Text = rm.GetString("MenuItemMotivet", ci);
-			ASPxMenu1.Items[0].Items[4].Text = rm.GetString("MenuItemFjalekalimi", ci);
-			ASPxMenu1.Items[0].Items[4].Items[0].Text = rm.GetString("MenuItemPolitikaFjalekalimi", ci);
-			ASPxMenu1.Items[0].Items[4].Items[1].Text = rm.GetString("MenuItemNdryshimFjalekalimi", ci);
-			ASPxMenu1.Items[0].Items[5].Text = rm.GetString("MenuItemHistorikuEmail", ci);
-			ASPxMenu1.Items[0].Items[6].Text = rm.GetString("MenuItemHyrjetDaljetNeProgram", ci);
-			ASPxMenu1.Items[0].Items[7].Text = rm.GetString("MenuItemKonfigurimEmail", ci);
-			ASPxMenu1.Items[0].Items[8].Text = rm.GetString("MenuItemKonfigurimFtp", ci);
-			ASPxMenu1.Items[0].Items[9].Text = rm.GetString("MenuItemLogeSistemi", ci);
+			ASPxMenu1.Items[0].Items[3].Text = rm.GetString("MenuItemFjalekalimi", ci);
+			ASPxMenu1.Items[0].Items[3].Items[0].Text = rm.GetString("MenuItemPolitikaFjalekalimi", ci);
+			ASPxMenu1.Items[0].Items[3].Items[1].Text = rm.GetString("MenuItemNdryshimFjalekalimi", ci);
+			ASPxMenu1.Items[0].Items[4].Text = rm.GetString("MenuItemHistorikuEmail", ci);
+			ASPxMenu1.Items[0].Items[5].Text = rm.GetString("MenuItemHyrjetDaljetNeProgram", ci);
+			ASPxMenu1.Items[0].Items[6].Text = rm.GetString("MenuItemKonfigurimEmail", ci);
+			ASPxMenu1.Items[0].Items[7].Text = rm.GetString("MenuItemKonfigurimFtp", ci);
+			ASPxMenu1.Items[0].Items[8].Text = rm.GetString("MenuItemLogeSistemi", ci);
 
-			ASPxMenu1.Items[0].Items[10].Text = rm.GetString("MenuItemMbylljePeriudhe", ci);
-			ASPxMenu1.Items[0].Items[11].Text = rm.GetString("MenuItemSkemaWorkFlow", ci);
-			ASPxMenu1.Items[0].Items[12].Text = rm.GetString("MenuItemStrukturaOrganizimit", ci);
-			ASPxMenu1.Items[0].Items[12].Items[0].Text = rm.GetString("MenuItemGrupimNdermarrjesh", ci);
-			ASPxMenu1.Items[0].Items[12].Items[1].Text = rm.GetString("MenuItemNdermarrjet", ci);
-			ASPxMenu1.Items[0].Items[12].Items[2].Text = rm.GetString("MenuItemDegetAdministrative", ci);
-			ASPxMenu1.Items[0].Items[12].Items[3].Text = rm.GetString("MenuItemDepartamentet", ci);
-			ASPxMenu1.Items[0].Items[13].Text = rm.GetString("MenuItemTeDrejtat", ci);
-			ASPxMenu1.Items[0].Items[13].Items[0].Text = rm.GetString("MenuItemRolet", ci);
-			ASPxMenu1.Items[0].Items[13].Items[1].Text = rm.GetString("MenuItemPerdoruesit", ci);
-			ASPxMenu1.Items[0].Items[13].Items[2].Text = rm.GetString("MenuItemAutorizimet", ci);
-			ASPxMenu1.Items[0].Items[15].Text = rm.GetString("MenuItemWebhooks", ci);
+			ASPxMenu1.Items[0].Items[9].Text = rm.GetString("MenuItemMbylljePeriudhe", ci);
+			ASPxMenu1.Items[0].Items[10].Text = rm.GetString("MenuItemSkemaWorkFlow", ci);
+			ASPxMenu1.Items[0].Items[11].Text = rm.GetString("MenuItemStrukturaOrganizimit", ci);
+			ASPxMenu1.Items[0].Items[11].Items[0].Text = rm.GetString("MenuItemGrupimNdermarrjesh", ci);
+			ASPxMenu1.Items[0].Items[11].Items[1].Text = rm.GetString("MenuItemNdermarrjet", ci);
+			ASPxMenu1.Items[0].Items[11].Items[2].Text = rm.GetString("MenuItemDegetAdministrative", ci);
+			ASPxMenu1.Items[0].Items[11].Items[3].Text = rm.GetString("MenuItemDepartamentet", ci);
+			ASPxMenu1.Items[0].Items[12].Text = rm.GetString("MenuItemTeDrejtat", ci);
+			ASPxMenu1.Items[0].Items[12].Items[0].Text = rm.GetString("MenuItemRolet", ci);
+			ASPxMenu1.Items[0].Items[12].Items[1].Text = rm.GetString("MenuItemPerdoruesit", ci);
+			ASPxMenu1.Items[0].Items[12].Items[2].Text = rm.GetString("MenuItemAutorizimet", ci);
+			ASPxMenu1.Items[0].Items[14].Text = rm.GetString("MenuItemWebhooks", ci);
 
 			ASPxMenu1.Items[1].Text = rm.GetString("MenuItemKonfigurime", ci);
 			ASPxMenu1.Items[1].Items[0].Text = rm.GetString("MenuItemAmortizimi", ci);

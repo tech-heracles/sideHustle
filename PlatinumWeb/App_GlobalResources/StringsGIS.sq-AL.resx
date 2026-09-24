@@ -830,7 +830,7 @@
     <comment>GIS</comment>
   </data>
   <data name="GP_BTN_MENU_TEXT_AlphaWEB" xml:space="preserve">
-    <value>AlphaWEB</value>
+    <value>AVEC Accounting</value>
     <comment>GIS</comment>
   </data>
   <data name="GP_BTN_MENU_TEXT_ManPerd" xml:space="preserve">
@@ -1630,7 +1630,7 @@
     <comment>GIS</comment>
   </data>
   <data name="GP_TITPAGE" xml:space="preserve">
-    <value>Alpha GIS</value>
+    <value>AVEC GIS</value>
     <comment>GIS</comment>
   </data>
   <data name="GP_TOLTIP_BTN_Topologji_edit" xml:space="preserve">
@@ -1742,7 +1742,7 @@
     <comment>GIS</comment>
   </data>
   <data name="GP_WIN_TIT_TeDhenaHyreseNgaAlpha" xml:space="preserve">
-    <value>Te dhena hyrese nga Alpha</value>
+    <value>Te dhena hyrese nga AVEC</value>
     <comment>GIS</comment>
   </data>
   <data name="GP_WIN_TIT_topologji" xml:space="preserve">

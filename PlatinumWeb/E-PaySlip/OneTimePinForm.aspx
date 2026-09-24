@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%--    <meta http-equiv="X-UA-Compatible" content="IE=8" >--%>
     <meta name="description" content="Login-i AlphaWeb" />
@@ -181,27 +181,27 @@
                                     InstructionText="   Nuk eshte aktivizuar" LoginButtonImageUrl="~/images/FaqjaPare/loginbutton.png">
                                     <LayoutTemplate>
                                         <%--     <div class="input" style="height:auto;max-height:40px;padding-top:0px; top: 0px; left: 0px;">
-                                            <dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#00A74F" IncrementalFilteringMode="Contains" DropDownStyle="DropDownList" ItemStyle-SelectedStyle-BackColor="#00A74F" Border-BorderColor="#999999" Paddings-Padding="0" Width="100%" Height="40px"  Font-Size="16px" Theme="Metropolis"  ClientInstanceName="cmbServerat" runat="server">
+                                            <dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#00A74F" IncrementalFilteringMode="Contains" DropDownStyle="DropDownList" ItemStyle-SelectedStyle-BackColor="#00A74F" Border-BorderColor="#999999" Paddings-Padding="0" Width="100%" Height="40px"  Font-Size="16px"  ClientInstanceName="cmbServerat" runat="server">
                                                 <ClientSideEvents Init="cmbServerInit" SelectedIndexChanged="cmbServerSelectedChanged" />     
                                                 <ValidationSettings ValidationGroup="Login1" RequiredField-IsRequired="true" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom"></ValidationSettings>
                                             </dx:ASPxComboBox>
                                         </div>--%>
                                         <div class="input" style="display: none;" >
-                                            <dx:ASPxTextBox ID="UserName" Visible="false" ClientInstanceName="txtUserName" Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0" Theme="Metropolis">
+                                            <dx:ASPxTextBox ID="UserName" Visible="false" ClientInstanceName="txtUserName" Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0">
                                                 <ClientSideEvents Init="txtUsername_Init" />
                                                 <ValidationSettings RequiredField-IsRequired="true" ValidationGroup="Login1" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom">
                                                 </ValidationSettings>
                                             </dx:ASPxTextBox>
                                         </div>
                                         <div class="input" style="display:none;">
-                                            <dx:ASPxTextBox ID="Password" Visible="false" ClientInstanceName="txtPassword" Password="true" runat="server" Font-Size="16px" Border-BorderStyle="Solid" Theme="Metropolis"
+                                            <dx:ASPxTextBox ID="Password" Visible="false" ClientInstanceName="txtPassword" Password="true" runat="server" Font-Size="16px" Border-BorderStyle="Solid"
                                                 Paddings-Padding="0" Height="40" Width="100%" Border-BorderColor="#999999">
                                                 <ClientSideEvents Init="txtPassword_Init" />
                                                 <ValidationSettings RequiredField-IsRequired="true" ValidationGroup="Login1" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom"></ValidationSettings>
                                             </dx:ASPxTextBox>
                                         </div>
                                         <div class="input" id="divPin" style="width:98%; margin-left:1px;">
-												<dx:ASPxTextBox ID="fusheKodi" ClientInstanceName="fusheKodi" Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0" Theme="Metropolis" Password="true" autocomplete="new-password">
+												<dx:ASPxTextBox ID="fusheKodi" ClientInstanceName="fusheKodi" Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0" Password="true" autocomplete="new-password">
                                             </dx:ASPxTextBox>
                                         </div>
                                         <div class="input LoginError ">
@@ -214,7 +214,6 @@
                                                 ID="butonPerTeHyre" BackColor="#ed1b24"
                                                 Border-BorderStyle="None"
                                                 HorizontalAlign="Center"
-                                                Theme="Metropolis"
                                                 AllowFocus="False"
                                                 Font-Size="23px" Font-Bold="true" Font-Names="Open Sans" ForeColor="White">
                                                 <ClientSideEvents Click="function(s,e){getClientDate();}"

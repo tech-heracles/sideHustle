@@ -707,7 +707,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             this.LogoIMB.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.LogoIMB.SizeF = new System.Drawing.SizeF(225.6454F, 44.29164F);
             this.LogoIMB.StyleName = "Copyright";
-            this.LogoIMB.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.LogoIMB.Text = "Copyright © AVEC";
             // 
             // xrPageInfo1
             // 

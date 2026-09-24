@@ -468,7 +468,7 @@ namespace AlphaWebReports.RaportetDs.Magazina
             this.xrLabel37.SizeF = new System.Drawing.SizeF(251.4588F, 44.29165F);
             this.xrLabel37.StyleName = "Copyright";
             this.xrLabel37.StylePriority.UseBorders = false;
-            this.xrLabel37.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel37.Text = "Copyright © AVEC";
             // 
             // gjendjamag
             // 

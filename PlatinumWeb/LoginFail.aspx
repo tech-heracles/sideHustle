@@ -3,7 +3,7 @@
 <%@ MasterType  virtualPath="~/design.master"%>
 
 <head>
-  <title> Alpha Web</title>
+  <title> AVEC Accounting</title>
 </head>
 <body>
 <form id="form1" runat="server" style="width:100%">

@@ -19,7 +19,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <%--    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
     <script src="js/aspx.js/Makro.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>

@@ -317,7 +317,7 @@
             this.xrLabel35.StyleName = "Copyright";
             this.xrLabel35.StylePriority.UsePadding = false;
             this.xrLabel35.StylePriority.UseTextAlignment = false;
-            this.xrLabel35.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel35.Text = "Copyright © AVEC";
             // 
             // ds_Rap_PasqyraSigSuplementare1
             // 

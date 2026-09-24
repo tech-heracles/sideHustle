@@ -22,7 +22,7 @@
 <html>
 <head runat="server">
       <link rel="icon" type="image/ico" href="CRM/faviconCRM.ico"/>
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <style type="text/css">
         .style9
         {

@@ -1872,7 +1872,7 @@
             this.label29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label29.SizeF = new System.Drawing.SizeF(177.08F, 22.99F);
             this.label29.StylePriority.UseFont = false;
-            this.label29.Text = "Gjeneruar nga Alpha Web";
+            this.label29.Text = "Gjeneruar nga AVEC Accounting";
             // 
             // xrLine2
             // 

@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha CRM</title>
+    <title>AVEC CRM</title>
     <link id="Link1" runat="server" rel="shortcut icon" href="~/images/CRM/faviconCRM.ico" type="image/x-icon" />
     <link id="Link2" runat="server" rel="icon" href="~/images/CRM/faviconCRM.ico" type="image/ico" />
     <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />
@@ -307,7 +307,7 @@
                 <table>
                     <tr>
                         <td>
-                            <dxwschs:ASPxScheduler ID="ASPxScheduler1" runat="server" ActiveViewType="Month" Theme="Moderno" ClientIDMode="AutoID" Start="2014-12-28" OnCustomCallback="ASPxScheduler1_CustomCallback" ClientInstanceName="skeduler" Width="100%" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing" OnAppointmentRowInserting="SkedulerAgjenti_AppointmentRowInserting" OnAppointmentRowUpdating="ASPxScheduler1_AppointmentRowUpdating" OnAppointmentRowDeleting="ASPxScheduler1_AppointmentRowDeleting" OnCustomErrorText="ASPxScheduler1_CustomErrorText" OnHtmlTimeCellPrepared="ASPxScheduler1_HtmlTimeCellPrepared" OnInitAppointmentDisplayText="ASPxScheduler1_InitAppointmentDisplayText">
+                            <dxwschs:ASPxScheduler ID="ASPxScheduler1" runat="server" ActiveViewType="Month" ClientIDMode="AutoID" Start="2014-12-28" OnCustomCallback="ASPxScheduler1_CustomCallback" ClientInstanceName="skeduler" Width="100%" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing" OnAppointmentRowInserting="SkedulerAgjenti_AppointmentRowInserting" OnAppointmentRowUpdating="ASPxScheduler1_AppointmentRowUpdating" OnAppointmentRowDeleting="ASPxScheduler1_AppointmentRowDeleting" OnCustomErrorText="ASPxScheduler1_CustomErrorText" OnHtmlTimeCellPrepared="ASPxScheduler1_HtmlTimeCellPrepared" OnInitAppointmentDisplayText="ASPxScheduler1_InitAppointmentDisplayText">
                                 <ClientSideEvents AppointmentDeleting="RuajTakimeIDneHiddenField" AppointmentDrop="RuajTakimeIDneHiddenField"
                                     MenuItemClicked="function(s,e){MenuItemClicked(s,e)}" 
                                     AppointmentDoubleClick="AppointementDblClick"                                   

@@ -599,6 +599,163 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\ThemeData.xml" />
+    <Content Include="App_Themes\Avec\avec.css" />
+    <Content Include="css\avec-login.css" />
+    <Content Include="images\brand\avec-icon-192.png" />
+    <Content Include="images\brand\avec-icon-512.png" />
+    <Content Include="images\brand\avec-logo.png" />
+    <Content Include="images\theme\Avec\grida\add2.png" />
+    <Content Include="images\theme\Avec\grida\add2_W.png" />
+    <Content Include="images\theme\Avec\grida\aparateShitur.png" />
+    <Content Include="images\theme\Avec\grida\aparateShitur_W.png" />
+    <Content Include="images\theme\Avec\grida\book_open.png" />
+    <Content Include="images\theme\Avec\grida\book_open_W.png" />
+    <Content Include="images\theme\Avec\grida\butoni_refresh.png" />
+    <Content Include="images\theme\Avec\grida\butoni_refresh_w.png" />
+    <Content Include="images\theme\Avec\grida\check2.png" />
+    <Content Include="images\theme\Avec\grida\check2_W.png" />
+    <Content Include="images\theme\Avec\grida\checks.png" />
+    <Content Include="images\theme\Avec\grida\checks_W.png" />
+    <Content Include="images\theme\Avec\grida\disk_blue (3).png" />
+    <Content Include="images\theme\Avec\grida\disk_blue (3)_W.png" />
+    <Content Include="images\theme\Avec\grida\expand.png" />
+    <Content Include="images\theme\Avec\grida\expand_W.png" />
+    <Content Include="images\theme\Avec\grida\filter_default.png" />
+    <Content Include="images\theme\Avec\grida\filter_default_W.png" />
+    <Content Include="images\theme\Avec\grida\kartaShitur.png" />
+    <Content Include="images\theme\Avec\grida\kartaShitur_W.png" />
+    <Content Include="images\theme\Avec\grida\ofertaBlerje.png" />
+    <Content Include="images\theme\Avec\grida\ofertaBlerje_W.png" />
+    <Content Include="images\theme\Avec\grida\pdf_icon.png" />
+    <Content Include="images\theme\Avec\grida\pdf_icon_W.png" />
+    <Content Include="images\theme\Avec\grida\porosi_dealer.png" />
+    <Content Include="images\theme\Avec\grida\porosi_dealer_W.png" />
+    <Content Include="images\theme\Avec\grida\procedim_prodhimi.png" />
+    <Content Include="images\theme\Avec\grida\procedim_prodhimi_W.png" />
+    <Content Include="images\theme\Avec\grida\ringarkuesShitur.png" />
+    <Content Include="images\theme\Avec\grida\ringarkuesShitur_W.png" />
+    <Content Include="images\theme\Avec\grida\shitjeLikujdimePermbledhese.png" />
+    <Content Include="images\theme\Avec\grida\shitjeLikujdimePermbledhese_W.png" />
+    <Content Include="images\theme\Avec\grida\uncheck2.png" />
+    <Content Include="images\theme\Avec\grida\uncheck2_W.png" />
+    <Content Include="images\theme\Avec\grida\wrench.png" />
+    <Content Include="images\theme\Avec\grida\wrench_W.png" />
+    <Content Include="images\theme\Avec\grida\xlsx24.png" />
+    <Content Include="images\theme\Avec\grida\xlsx24_W.png" />
+    <Content Include="images\theme\Avec\menu\Anullo.png" />
+    <Content Include="images\theme\Avec\menu\AnulloNdryshimet.png" />
+    <Content Include="images\theme\Avec\menu\AnulloNdryshimet_W.png" />
+    <Content Include="images\theme\Avec\menu\Anullo_W.png" />
+    <Content Include="images\theme\Avec\menu\Aprovo.png" />
+    <Content Include="images\theme\Avec\menu\Aprovo_W.png" />
+    <Content Include="images\theme\Avec\menu\Arkiva.png" />
+    <Content Include="images\theme\Avec\menu\Arkiva_W.png" />
+    <Content Include="images\theme\Avec\menu\AutoKonvert.png" />
+    <Content Include="images\theme\Avec\menu\AutoKonvert_W.png" />
+    <Content Include="images\theme\Avec\menu\Backup.png" />
+    <Content Include="images\theme\Avec\menu\Backup_W.png" />
+    <Content Include="images\theme\Avec\menu\Collapse.png" />
+    <Content Include="images\theme\Avec\menu\Collapse_W.png" />
+    <Content Include="images\theme\Avec\menu\Delego.png" />
+    <Content Include="images\theme\Avec\menu\Delego_W.png" />
+    <Content Include="images\theme\Avec\menu\DergoEmail.png" />
+    <Content Include="images\theme\Avec\menu\DergoEmailAttachment.png" />
+    <Content Include="images\theme\Avec\menu\DergoEmailAttachment_W.png" />
+    <Content Include="images\theme\Avec\menu\DergoEmail_W.png" />
+    <Content Include="images\theme\Avec\menu\Draft.png" />
+    <Content Include="images\theme\Avec\menu\Draft_W.png" />
+    <Content Include="images\theme\Avec\menu\Eksporto.png" />
+    <Content Include="images\theme\Avec\menu\Eksporto_W.png" />
+    <Content Include="images\theme\Avec\menu\Expand.png" />
+    <Content Include="images\theme\Avec\menu\Expand_W.png" />
+    <Content Include="images\theme\Avec\menu\FaqeRe.png" />
+    <Content Include="images\theme\Avec\menu\FaqeRe_W.png" />
+    <Content Include="images\theme\Avec\menu\FletaKontabel.png" />
+    <Content Include="images\theme\Avec\menu\FletaKontabel_W.png" />
+    <Content Include="images\theme\Avec\menu\Fshi.png" />
+    <Content Include="images\theme\Avec\menu\Fshi_W.png" />
+    <Content Include="images\theme\Avec\menu\Gjenero.png" />
+    <Content Include="images\theme\Avec\menu\Gjenero_W.png" />
+    <Content Include="images\theme\Avec\menu\Grupo.png" />
+    <Content Include="images\theme\Avec\menu\Grupo_W.png" />
+    <Content Include="images\theme\Avec\menu\HiqGrupin.png" />
+    <Content Include="images\theme\Avec\menu\HiqGrupin_W.png" />
+    <Content Include="images\theme\Avec\menu\Import.png" />
+    <Content Include="images\theme\Avec\menu\Import_W.png" />
+    <Content Include="images\theme\Avec\menu\Kerko.png" />
+    <Content Include="images\theme\Avec\menu\Kerko_W.png" />
+    <Content Include="images\theme\Avec\menu\Klono.png" />
+    <Content Include="images\theme\Avec\menu\Klono_W.png" />
+    <Content Include="images\theme\Avec\menu\Komento.png" />
+    <Content Include="images\theme\Avec\menu\Komento_W.png" />
+    <Content Include="images\theme\Avec\menu\Kontrollo.png" />
+    <Content Include="images\theme\Avec\menu\Kontrollo_W.png" />
+    <Content Include="images\theme\Avec\menu\Konverto.png" />
+    <Content Include="images\theme\Avec\menu\Konverto_W.png" />
+    <Content Include="images\theme\Avec\menu\Kthim.png" />
+    <Content Include="images\theme\Avec\menu\Kthim_Shitje.png" />
+    <Content Include="images\theme\Avec\menu\Kthim_Shitje_W.png" />
+    <Content Include="images\theme\Avec\menu\Kthim_W.png" />
+    <Content Include="images\theme\Avec\menu\Lidh.png" />
+    <Content Include="images\theme\Avec\menu\Lidh_W.png" />
+    <Content Include="images\theme\Avec\menu\Likuidim.png" />
+    <Content Include="images\theme\Avec\menu\Likuidim_W.png" />
+    <Content Include="images\theme\Avec\menu\Lista.png" />
+    <Content Include="images\theme\Avec\menu\ListaGabimeve.png" />
+    <Content Include="images\theme\Avec\menu\ListaGabimeve_W.png" />
+    <Content Include="images\theme\Avec\menu\Lista_W.png" />
+    <Content Include="images\theme\Avec\menu\MbyllVitin.png" />
+    <Content Include="images\theme\Avec\menu\MbyllVitin_W.png" />
+    <Content Include="images\theme\Avec\menu\Modifiko.png" />
+    <Content Include="images\theme\Avec\menu\Modifiko_W.png" />
+    <Content Include="images\theme\Avec\menu\Ndihme.png" />
+    <Content Include="images\theme\Avec\menu\Ndihme_W.png" />
+    <Content Include="images\theme\Avec\menu\NdryshoLicencen.png" />
+    <Content Include="images\theme\Avec\menu\NdryshoLicencen_W.png" />
+    <Content Include="images\theme\Avec\menu\Ngarko.png" />
+    <Content Include="images\theme\Avec\menu\NgarkoTeGjitha.png" />
+    <Content Include="images\theme\Avec\menu\NgarkoTeGjitha_W.png" />
+    <Content Include="images\theme\Avec\menu\Ngarko_W.png" />
+    <Content Include="images\theme\Avec\menu\PaLogo.png" />
+    <Content Include="images\theme\Avec\menu\PaLogo_W.png" />
+    <Content Include="images\theme\Avec\menu\Pastro.png" />
+    <Content Include="images\theme\Avec\menu\Pastro_W.png" />
+    <Content Include="images\theme\Avec\menu\Pezullo.png" />
+    <Content Include="images\theme\Avec\menu\Pezullo_W.png" />
+    <Content Include="images\theme\Avec\menu\Print.png" />
+    <Content Include="images\theme\Avec\menu\PrintPreview.png" />
+    <Content Include="images\theme\Avec\menu\PrintPreview_W.png" />
+    <Content Include="images\theme\Avec\menu\Print_W.png" />
+    <Content Include="images\theme\Avec\menu\QendraKosto.png" />
+    <Content Include="images\theme\Avec\menu\QendraKosto_W.png" />
+    <Content Include="images\theme\Avec\menu\Refuzo.png" />
+    <Content Include="images\theme\Avec\menu\Refuzo_W.png" />
+    <Content Include="images\theme\Avec\menu\Restore.png" />
+    <Content Include="images\theme\Avec\menu\Restore_W.png" />
+    <Content Include="images\theme\Avec\menu\Rillogarit.png" />
+    <Content Include="images\theme\Avec\menu\Rillogarit_W.png" />
+    <Content Include="images\theme\Avec\menu\Riruaj.png" />
+    <Content Include="images\theme\Avec\menu\Riruaj_W.png" />
+    <Content Include="images\theme\Avec\menu\Ruaj.png" />
+    <Content Include="images\theme\Avec\menu\RuajSiDraft.png" />
+    <Content Include="images\theme\Avec\menu\RuajSiDraft_W.png" />
+    <Content Include="images\theme\Avec\menu\Ruaj_W.png" />
+    <Content Include="images\theme\Avec\menu\Shiko.png" />
+    <Content Include="images\theme\Avec\menu\Shiko_W.png" />
+    <Content Include="images\theme\Avec\menu\Shto.png" />
+    <Content Include="images\theme\Avec\menu\Shto_W.png" />
+    <Content Include="images\theme\Avec\menu\ValidimKlienti.png" />
+    <Content Include="images\theme\Avec\menu\ValidimKlienti_W.png" />
+    <Content Include="images\theme\Avec\menu\Zgjidh.png" />
+    <Content Include="images\theme\Avec\menu\Zgjidh_W.png" />
+    <Content Include="images\theme\Avec\menu\krahaso_B.png" />
+    <Content Include="images\theme\Avec\menu\krahaso_W.png" />
+    <Content Include="images\theme\Avec\menu\rifresko.png" />
+    <Content Include="images\theme\Avec\menu\rifresko_W.png" />
+    <Content Include="images\theme\Avec\menu\rregullo.png" />
+    <Content Include="images\theme\Avec\menu\rregullo_W.png" />
+    <Content Include="images\theme\Avec\save.png" />
+    <Content Include="images\theme\Avec\save_W.png" />
     <Content Include="App_Themes\IMB\Chart\Loading.gif" />
     <Content Include="App_Themes\IMB\Chart\styles.css" />
     <Content Include="App_Themes\IMB\Editors\edtBinaryImageDesign.gif" />
@@ -6573,7 +6730,6 @@
     <Content Include="js\aspx.js\NdryshimFjalekalimi.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\NjesiArtikulli.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Planifikimi.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\PreviewThemeAmbjente.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Qytetet.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Raportet.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RaportetAll.aspx-IMB.2.1.js" />
@@ -6636,7 +6792,6 @@
     <Content Include="js\aspx.js\SigurimeSuplementare.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\StrukturaAdministrative.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\UrdherPagesa.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\UserThemes.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\VeprimeBanka.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\VeprimeKF.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\ZbritjeAnalitike.aspx-IMB.2.1.js" />
@@ -6752,7 +6907,6 @@
     <Content Include="NdryshimFjalekalimi.aspx" />
     <Content Include="Planifikimi.aspx" />
     <Content Include="PolitikaFjalekalimi.aspx" />
-    <Content Include="PreviewThemeAmbjente.aspx" />
     <Content Include="RaporteGrida.aspx" />
     <Content Include="Raportet.aspx" />
     <Content Include="RaportetAll.aspx" />
@@ -8277,7 +8431,6 @@
     <Content Include="theme\default\style.tidy.min.css" />
     <Content Include="TimeoutControl.ascx" />
     <Content Include="UrdherPagesa.aspx" />
-    <Content Include="UserThemes.aspx" />
     <Content Include="Vendndodhjet.aspx" />
     <Content Include="VeprimeKF.aspx" />
     <Content Include="ucFushatShtese.ascx" />
@@ -10179,13 +10332,6 @@
     <Compile Include="PolitikaFjalekalimi.aspx.designer.cs">
       <DependentUpon>PolitikaFjalekalimi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreviewThemeAmbjente.aspx.cs">
-      <DependentUpon>PreviewThemeAmbjente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PreviewThemeAmbjente.aspx.designer.cs">
-      <DependentUpon>PreviewThemeAmbjente.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RaporteGrida.aspx.cs">
       <DependentUpon>RaporteGrida.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -11041,13 +11187,6 @@
     </Compile>
     <Compile Include="UrdherPagesa.aspx.designer.cs">
       <DependentUpon>UrdherPagesa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserThemes.aspx.cs">
-      <DependentUpon>UserThemes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserThemes.aspx.designer.cs">
-      <DependentUpon>UserThemes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vendndodhjet.aspx.cs">
       <DependentUpon>Vendndodhjet.aspx</DependentUpon>

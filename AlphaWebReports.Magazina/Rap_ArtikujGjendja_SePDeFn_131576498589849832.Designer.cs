@@ -458,7 +458,7 @@
             this.xrLabel37.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel37.SizeF = new System.Drawing.SizeF(468.0113F, 54.08333F);
             this.xrLabel37.StyleName = "Copyright";
-            this.xrLabel37.Text = "Copyright © IMB\nInstituti i Modelimeve ne Biznes \nwww.imb.al";
+            this.xrLabel37.Text = "Copyright © AVEC";
             // 
             // tableCell8
             // 

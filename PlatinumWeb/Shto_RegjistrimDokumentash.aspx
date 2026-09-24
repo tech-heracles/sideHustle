@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
 
     <link href="js/css/le-frog/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" runat="server" id="themeJQuery" />
     <link href="fine-uploader/fine-uploader-new.css" rel="stylesheet" />

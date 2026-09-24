@@ -393,7 +393,7 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(287.25F, 48.45833F);
             this.xrLabel20.StyleName = "Copyright";
-            this.xrLabel20.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             // 
             // GroupHeader1
             // 

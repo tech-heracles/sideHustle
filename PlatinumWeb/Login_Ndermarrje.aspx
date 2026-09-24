@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <style type="text/css">
@@ -248,7 +248,7 @@
             </header>
             <section class="content center">
                 <dx:ASPxGridView ID="grid_ListLoginNdermarrje" Width="100%" CssClass="grid" runat="server" ClientInstanceName="grid"
-                    OnDataBound="grid_ListLoginNdermarrje_DataBound" SettingsBehavior-AllowFocusedRow="true" Theme="Default">
+                    OnDataBound="grid_ListLoginNdermarrje_DataBound" SettingsBehavior-AllowFocusedRow="true">
                     <ClientSideEvents RowDblClick="OnGridDoubleClick"
                         EndCallback="setSize" Init="setSize" BeginCallback="setSize" />
                     <Styles>
@@ -289,7 +289,7 @@
                 </dx:ASPxGridView>
                          <footer class="zgjidh">
                 <dx:ASPxButton ID="ok_ASPxButton" CssClass="center" runat="server" Text="OK" ClientInstanceName="btnOk"
-                    OnClick="ok_ASPxButton_Click"  Width="100px" Theme="Default">
+                    OnClick="ok_ASPxButton_Click"  Width="100px">
                     <ClientSideEvents Click="function(s, e) {
                         updateSessionStorage();
 	            SetSplitterPaneContentUrl('Footer','FooterPanelInfo.aspx');

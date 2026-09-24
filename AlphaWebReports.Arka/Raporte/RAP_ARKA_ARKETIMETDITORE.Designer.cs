@@ -582,7 +582,7 @@
             this.xrLabel61.StylePriority.UseForeColor = false;
             this.xrLabel61.StylePriority.UsePadding = false;
             this.xrLabel61.StylePriority.UseTextAlignment = false;
-            this.xrLabel61.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel61.Text = "Copyright © AVEC";
             // 
             // xrPageInfo1
             // 

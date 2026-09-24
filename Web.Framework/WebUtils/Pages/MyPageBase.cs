@@ -135,32 +135,12 @@ namespace PlatinumWeb.ApplicationUtils.Pages
         }
 
         /// <summary>
-        /// aplikon theme-n e zgjedhur  per kete faqe
+        /// aplikon theme-n AVEC per kete faqe
         /// </summary>
         private void AplikoTheme()
         {
             ASPxWebControl.SetIECompatibilityMode(11);
-            if (Request.Url.AbsolutePath.StartsWith("/CRM"))
-            {
-                Page.Theme = "Moderno";
-                return;
-            }
-            if (!(Request.Url.AbsolutePath.ContainsAnyIgnoreCase("FaqeKryesore.aspx") || Request.Url.AbsolutePath.ContainsAnyIgnoreCase("Raportet.aspx")))
-                switch (Request.QueryString["vjenNga"])
-                {
-                    case "CRM":
-                        Page.Theme = "Moderno";
-                        return;
-                    case "GIS":
-                    case "epayslip":
-                        Page.Theme = "MetropolisBlue";
-                        return;
-                }
-            var idTheme = Request.QueryString["idTheme"];
-            if (!string.IsNullOrEmpty(idTheme))
-                clsFunksione.percaktoThemeAmbjenteDheJQueryMeId(Page, Convert.ToInt32(idTheme));
-            else
-                clsFunksione.percaktoThemeAmbjenteDheJQuery(Page, IdPerdoruesi);
+            clsFunksione.aplikoThemeAvec(Page);
         }
         /// <summary>
         /// merr nje unique id per faqje,e cila gjenerohet kur faqja hapet per heren e pare.

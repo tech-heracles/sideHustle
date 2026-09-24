@@ -594,7 +594,7 @@ namespace DbCore
                 body = body.Replace("#adresaIP#", adresaip);
                 body = body.Replace("#Data#", DateTime.Now.ToString());
                 string headerbody = rm.GetString("njoftimDokHeaderEmail", ci);
-                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />Alpha Web";
+                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 string htmlBody = headerbody + body + footerbody;
                 /*merret id ndermarrje nga e cila do merret konfigurimi i email. Kur eshte punonjes do merret ndermarrja se ciles i perket punonjesi, kur eshte perdorues do merret ndermarrja e pare ne listen e ndermarrjeve qe i perkasin licences se perdoruesit qe ka harruar fjalekalimin. Kur nuk ekziston konfigurimi per ndermarrjen ne fjale, ath merret idndermarrje -1. */
                 idNdermarje = clsNdermarrje.ktheIdNdermPareNeListeSipasIdPerdoruesit(eshtePunonjes ? punonjes.IdPunonjes : user.IdPerdorues, eshtePunonjes);
@@ -761,7 +761,7 @@ namespace DbCore
                 body = body.Replace("#username#", username);
                 body = body.Replace("#linku#", "<a href=" + linku + ">" + linku + "</a>");
                 string headerbody = rm.GetString("njoftimDokHeaderEmail", ci);
-                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />Alpha Web";
+                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 int idNdermarje = clsNdermarrje.ktheIdNdermPareNeListeSipasIdPerdoruesit(idPerdorues, punonjes);
                 if (idNdermarje == 0)
                     return new clsMesazh(false, rm.GetString("nukEkzistonKonfigurimEmailNdermarrjeLicense", ci));
@@ -792,7 +792,7 @@ namespace DbCore
                 body = body.Replace("#newPass#", passwordiIRi);
                 body = body.Replace("#username#", username);
                 string headerbody = rm.GetString("njoftimDokHeaderEmail", ci);
-                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />Alpha Web";
+                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 int idNdermarje = clsNdermarrje.ktheIdNdermPareNeListeSipasIdPerdoruesit(idPerdorues, false, dbAdmin);
                 if (idNdermarje == 0)
                     return new clsMesazh(false, rm.GetString("nukEkzistonKonfigurimEmailNdermarrjeLicense", ci));
@@ -816,11 +816,11 @@ namespace DbCore
             {
                 ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 System.Globalization.CultureInfo ci = mySessionObjects.ktheCultureInfo(System.Web.HttpContext.Current.Session);
-                string subject = "Alpha Web Fjalekalimi i Pajisjes";
+                string subject = "AVEC Accounting Fjalekalimi i Pajisjes";
                 string adresaip = HttpContext.Current.Request.UserHostAddress;
                 string body = "Fjalëkalimi për t'u loguar në pajisjen me kod " + username + " është: " + passwordiIRi + " !";
                 string headerbody = rm.GetString("njoftimDokHeaderEmail", ci);
-                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />Alpha Web";
+                string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 DbCore.clsMailSender mail = new DbCore.clsMailSender(subject);
                 mail.SendPlainAsyncEmail(toEmail, subject, headerbody + body + footerbody);
                 return new clsMesazh(true, "Një email me fjalëkalimin e ri po dërgohet në postën tuaj elektronike!");
@@ -840,7 +840,7 @@ namespace DbCore
                     return new clsMesazh(false, "Emaili nuk mund te dergohet sepse mungon adresa e emailit!");
                 string roletNew = clsPerdorues.merrKodeteRolevesipasPerdoruesit(idPerdoruesi, IdLicenca);
                 clsMailSender mail = new clsMailSender(idNdermarje, "Notification, change in user role");
-                mail.SendPlainAsyncEmail(toEmail, "Notification, change in user role", "Dear Admin, <br/><br/>" + "Please be informed that the role of the user " + emriPerdorues + " " + MbiemriPerdorues + " has been changed from the role " + roletOLD + " to the role " + roletNew + " <br /><br/>" + "Thank you!" + "<br /><br/>Alpha Web");
+                mail.SendPlainAsyncEmail(toEmail, "Notification, change in user role", "Dear Admin, <br/><br/>" + "Please be informed that the role of the user " + emriPerdorues + " " + MbiemriPerdorues + " has been changed from the role " + roletOLD + " to the role " + roletNew + " <br /><br/>" + "Thank you!" + "<br /><br/>AVEC Accounting");
                 return new clsMesazh(true, "Emaili per njoftimin e ndryshimit te rolit per perdoruesin u dergua me sukses");
             }
             catch (Exception ex)
@@ -1083,7 +1083,7 @@ namespace DbCore
                 string tePakontaktuarHeader = "Lisa e agjenteve te pa kontaktuar : <br/>";
                 string jashteRrezesHeader = "<br/>Lista e agjenteve qe e kane kryer takimin jashte rrezes se percaktuar:<br/>";
                 string paNisurAkomaHeader = "<br/>Lista e agjenteve qe nuk e kane nisur takimin akoma:<br/>";
-                string footerBody = "<br /><br />Ju faleminderit!" + " <br/>Alpha Web";
+                string footerBody = "<br /><br />Ju faleminderit!" + " <br/>AVEC Accounting";
                 string headerBody = " Pershendetje! <br/>";
 
                 StringBuilder body = new StringBuilder("");
@@ -1108,7 +1108,7 @@ namespace DbCore
                     body.Append($"{agjent.EmriAgjentShitje} {agjent.MbiemriAgjentShitje} <br/>");
                 }
 
-                //string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />Alpha Web";
+                //string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 clsMailSender mail = new clsMailSender(subject);
                 mail.SendPlainAsyncEmail(toEmail, subject, headerBody + body + footerBody, idNdermarrje, 0);
 

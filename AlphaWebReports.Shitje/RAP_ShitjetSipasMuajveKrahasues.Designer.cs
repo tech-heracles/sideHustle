@@ -255,7 +255,7 @@
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(971F, 50F);
             this.xrLabel20.StyleName = "Copyright";
-            this.xrLabel20.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // ds_RAP_ShitjetSipasMuajveKrahasues1

@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <style type="text/css">
         body {
             padding: 3px 12px 2px 12px;
@@ -105,7 +105,7 @@
                     </td>
                     <td class="style4" style="vertical-align: top">
                         <div class="copyright">
-                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="copyright@IMB" Style="font-size: small">
+                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="copyright@AVEC" Style="font-size: small">
                         </dx:ASPxLabel>
                         &nbsp;<dx:ASPxHyperLink ID="ASPxHyperLink2" runat="server" Text="www.imb.al" Target="_blank"
                             NavigateUrl="http://www.imb.al" Style="font-size: small">

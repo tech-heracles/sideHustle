@@ -178,7 +178,7 @@
     <value>Për të parë dokumentin klikoni në këtë link:</value>
   </data>
   <data name="aprovimTitullEmail" xml:space="preserve">
-    <value>Aprovimi i Dokumentave Alpha Web</value>
+    <value>Aprovimi i Dokumentave AVEC Accounting</value>
   </data>
   <data name="bktEuroAlbas" xml:space="preserve">
     <value>IBAN (EUR) : AL8420511021794691CLPRCFEURA</value>
@@ -2838,7 +2838,7 @@ Garancia nuk përfshin:
     <value>Të rejat e versionit</value>
   </data>
   <data name="labelLogoIMB" xml:space="preserve">
-    <value>Copyright © IMB
+    <value>Copyright © AVEC
 Instituti i Modelimeve ne Biznes 
 www.imb.al</value>
   </data>
@@ -4676,10 +4676,10 @@ punesimi</value>
     <value>Printuar me</value>
   </data>
   <data name="labelRaportPrintuarNgaAlphaPlatinium" xml:space="preserve">
-    <value>Printuar nga Alpha Platinium</value>
+    <value>Printuar nga AVEC Accounting</value>
   </data>
   <data name="labelRaportProdhuarNgaIMB" xml:space="preserve">
-    <value>Prodhuar nga IMB</value>
+    <value>Prodhuar nga AVEC</value>
   </data>
   <data name="labelRaportProdukti" xml:space="preserve">
     <value>Produkti</value>
@@ -6793,7 +6793,7 @@ financa@albmail.com</value>
     <value>Price</value>
   </data>
   <data name="lblRaportPrintuarAlphaWeb" xml:space="preserve">
-    <value>Printuar nga Alpha Web</value>
+    <value>Printuar nga AVEC Accounting</value>
   </data>
   <data name="lblRaportPurchaseInvoice" xml:space="preserve">
     <value>Purchase Invoice</value>
@@ -8477,7 +8477,7 @@ Nr. i biznesit:70026257</value>
     <value>Ju lutem zgjidhni te pakten nje kategori zbritjeje!</value>
   </data>
   <data name="msgBodyDergoEmailGjenerimPassword" xml:space="preserve">
-    <value>Të dhënat për t'u loguar në programin Alpha Web, janë si më poshtë:  #enter# 
+    <value>Të dhënat për t'u loguar në programin AVEC Accounting, janë si më poshtë:  #enter# 
 Emri i përdoruesit: #username# #enter#
 Fjalëkalimi: #newPass##enter# #enter#</value>
   </data>
@@ -9634,7 +9634,7 @@ Fjalëkalimi: #newPass##enter# #enter#</value>
     <value>Ky serial artikulli mund te perdoret vetem per Loan!</value>
   </data>
   <data name="msgLicencaJoValid" xml:space="preserve">
-    <value>Licenca eshte modifikuar manualisht kontakto IMB</value>
+    <value>Licenca eshte modifikuar manualisht kontakto AVEC</value>
   </data>
   <data name="msgLidhesMesazhi" xml:space="preserve">
     <value>. Kurse </value>
@@ -12592,17 +12592,17 @@ MBI TE ARDHURAT NGA PUNESIMI</value>
 Të dhënat për t'u loguar në program, janë si më poshtë: #enter# 
 Emri i përdoruesit: #username##enter#
 Fjalëkalimi i ri: #newPass##enter##enter#
-Për t'u loguar në programin Alpha Web, klikoni linkun e meposhtem:#enter##linku#</value>
+Për t'u loguar në programin AVEC Accounting, klikoni linkun e meposhtem:#enter##linku#</value>
   </data>
   <data name="ResetPasswordSubjectEmail" xml:space="preserve">
-    <value>Rivendosja e fjalekalimit ne Alpha Web</value>
+    <value>Rivendosja e fjalekalimit ne AVEC Accounting</value>
   </data>
   <data name="ResetPasswordVerficationLink" xml:space="preserve">
     <value>Verifikimi i kerkeses per rivendosjen e fjalekalimit</value>
   </data>
   <data name="ResetPasswordVerifikimKerkeseEmail" xml:space="preserve">
-    <value>Ju bëjmë me dije se, është bërë një kërkesë për t'ju dërguar një fjalëkalim të ri për programin e Alpha Web. #enter# #enter#
-#bold# Rivendosja e fjalëkalimit të ri #/bold#  #enter# #enter# Për të nisur proçesin e rivendosjes së fjalëkalimit për llogarinë tuaj në programin Alpha Web, klikoni në linkun e mëposhtëm: #enter# #enter#
+    <value>Ju bëjmë me dije se, është bërë një kërkesë për t'ju dërguar një fjalëkalim të ri për programin e AVEC Accounting. #enter# #enter#
+#bold# Rivendosja e fjalëkalimit të ri #/bold#  #enter# #enter# Për të nisur proçesin e rivendosjes së fjalëkalimit për llogarinë tuaj në programin AVEC Accounting, klikoni në linkun e mëposhtëm: #enter# #enter#
 #linku# #enter# #enter#
 Në rast se klikimi i linkut nuk funksionon, ju lutemi kopjojeni URL-në në një dritare të re në browser. #enter# #enter#
 #bold# Nuk e bëtë ju kërkesën për ndryshimin e fjalëkalimit? #/bold# #enter#  #enter#
@@ -12655,7 +12655,7 @@ Datë/Orë: #Data# #enter# #enter#</value>
     <value>Struktura 3</value>
   </data>
   <data name="subjectEmailGeneratedPassword" xml:space="preserve">
-    <value>Alpha Web Fjalekalimi i Gjeneruar</value>
+    <value>AVEC Accounting Fjalekalimi i Gjeneruar</value>
   </data>
   <data name="suffixMesazhGabimGrupNjejes" xml:space="preserve">
     <value> nuk ka grup</value>

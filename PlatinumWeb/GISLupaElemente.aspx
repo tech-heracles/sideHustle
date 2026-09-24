@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <style type="text/css">
         .style1 {
             height: 58px;

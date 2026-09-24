@@ -1108,7 +1108,7 @@
             this.xrLabel43.SizeF = new System.Drawing.SizeF(230.594F, 68.12503F);
             this.xrLabel43.StyleName = "Copyright";
             this.xrLabel43.StylePriority.UseTextAlignment = false;
-            this.xrLabel43.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel43.Text = "Copyright © AVEC";
             // 
             // Rap_Pagesat
             // 

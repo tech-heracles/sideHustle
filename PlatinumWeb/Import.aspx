@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
 
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <link href="js/css/le-frog/jquery-ui.css" rel="stylesheet" type="text/css" runat="server" id="themeJQuery" />
@@ -275,7 +275,7 @@
                                                     </dx:ASPxLabel>
                                                 </td>
                                                 <td class="renditKontrolleCellMeWidth50" colspan="1" style="width:38%;">
-                                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="100%" Theme="Aqua" ClientInstanceName="txtEmerSheet">
+                                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="100%" ClientInstanceName="txtEmerSheet">
                                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                                         </DisabledStyle>
                                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">

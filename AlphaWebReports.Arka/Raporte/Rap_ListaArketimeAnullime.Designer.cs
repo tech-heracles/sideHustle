@@ -867,7 +867,7 @@
             this.xrLabel45.SizeF = new System.Drawing.SizeF(214.7926F, 45.83333F);
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UseForeColor = false;
-            this.xrLabel45.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel45.Text = "Copyright © AVEC";
             // 
             // ds_LISTA_ARKETIME_ANULLIME1
             // 

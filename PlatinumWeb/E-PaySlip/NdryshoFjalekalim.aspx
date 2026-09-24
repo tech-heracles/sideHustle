@@ -268,7 +268,7 @@
                      <td></td>
                      <td>
                                      <div id="dvkonfirmo_Textbox">
-                                         <dx:ASPxButton runat="server" id="btnruaj" Text="Ruaj"  OnClick="btnRuaj_Click" Theme="Metropolis" ></dx:ASPxButton>
+                                         <dx:ASPxButton runat="server" id="btnruaj" Text="Ruaj"  OnClick="btnRuaj_Click" ></dx:ASPxButton>
                                          </div>
                      </td>
 
@@ -277,7 +277,7 @@
                      <td></td>
                      <td>
                                      <div id="dvkonfirmo_Textbox">
-                                      <dx:ASPxLabel runat="server" ID="lblmsg" visible="false" Theme="RedWine" ></dx:ASPxLabel>
+                                      <dx:ASPxLabel runat="server" ID="lblmsg" visible="false" ></dx:ASPxLabel>
                                          </div>
                      </td>
 

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" />
     <link href="js/themes/black-tie/jquery-ui.css" runat="server" id="themeJQuery" rel="stylesheet" />
@@ -976,7 +976,7 @@
                         <td style="width:80%;">
                         </td>
                         <td style="float:left">
-                            <%--  <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Copyright © IMB
+                            <%--  <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Copyright © AVEC
 Instituti i Modelimeve ne Biznes 
 www.imb.al" Font-Italic="True" ForeColor="Green" Font-Bold="True">
                             </dx:ASPxLabel>--%>

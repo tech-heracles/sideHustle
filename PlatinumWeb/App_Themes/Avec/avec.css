@@ -1,0 +1,105 @@
+/*
+ * AVEC Accounting theme.
+ * Loaded automatically on every page that uses the "Avec" ASP.NET theme (Web.config <pages theme="Avec">).
+ * DevExpress controls use the Material theme with base colour #E8683A (Web.config <devExpress><themes>).
+ * Colours match the manager_flutter app (lib/app/theme.dart).
+ */
+:root {
+    --avec-bg: #121212;
+    --avec-surface: #1a1a1a;
+    --avec-surface-high: #232323;
+    --avec-surface-highest: #2e2e2e;
+    --avec-border: #383838;
+    --avec-text: #f2f2f0;
+    --avec-text-secondary: #a3a3a0;
+    --avec-text-muted: #6e6e6b;
+    --avec-orange: #e8683a;
+    --avec-orange-hover: #f07b50;
+    --avec-orange-on: #1a1208;
+    --avec-orange-muted: #8a4a2e;
+    --avec-orange-tint: rgba(232, 104, 58, 0.12);
+    --avec-error: #e5484d;
+    --avec-success: #3daa6e;
+}
+
+/* ---- page content (light) ---- */
+a, a:visited {
+    color: #c9541f;
+}
+
+a:hover, a:focus {
+    color: var(--avec-orange);
+}
+
+::selection {
+    background: var(--avec-orange);
+    color: #fff;
+}
+
+* {
+    scrollbar-color: #b9b9b6 transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4c4c1;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9d9d9a;
+}
+
+/* ---- jQuery UI / jqGrid (base: smoothness) ---- */
+.ui-widget-header {
+    background: #f4f4f2;
+    border-color: #deded9;
+    color: #2b2b2a;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-jqgrid tr.ui-row-ltr.ui-state-highlight td {
+    background: var(--avec-orange-tint) !important;
+    border-color: var(--avec-orange) !important;
+    color: #1a1a1a !important;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+    background: var(--avec-orange);
+    border-color: var(--avec-orange);
+    color: #fff;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover {
+    background: #fbe7de;
+    border-color: #f2b79f;
+    color: #1a1a1a;
+}
+
+.ui-jqgrid .ui-jqgrid-htable th {
+    background: #f4f4f2;
+    color: #2b2b2a;
+    font-weight: 600;
+}
+
+/* ---- Bootstrap primary buttons used on some pages ---- */
+.btn-primary {
+    background-color: var(--avec-orange);
+    border-color: #d45a2e;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #d45a2e;
+    border-color: #bf4f27;
+    color: #fff;
+}

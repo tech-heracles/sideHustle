@@ -166,7 +166,7 @@
     <value>Pour voir le document, suivez le lien:</value>
   </data>
   <data name="aprovimTitullEmail" xml:space="preserve">
-    <value>Flux de travail AlphaWeb</value>
+    <value>Flux de travail AVEC Accounting</value>
   </data>
   <data name="ArketimeNgaShitja" xml:space="preserve">
     <value>Recettes des ventes</value>
@@ -2285,7 +2285,7 @@ AL77206110110000110316914101</value>
     <value>Edlira Konini</value>
   </data>
   <data name="labelAdministrimi" xml:space="preserve">
-    <value>Commencez avec AlphaWeb en effectuant vos configurations initiales.</value>
+    <value>Commencez avec AVEC Accounting en effectuant vos configurations initiales.</value>
   </data>
   <data name="labelAdministrimiEmail" xml:space="preserve">
     <value>Email:</value>
@@ -2966,7 +2966,7 @@ AL77206110110000110316914101</value>
     <value>Des agriculteurs intérieurs</value>
   </data>
   <data name="labelFillimiPunes" xml:space="preserve">
-    <value>Débuter avec AlphaWeb</value>
+    <value>Débuter avec AVEC Accounting</value>
   </data>
   <data name="labelFilterArtCmim" xml:space="preserve">
     <value>Article à prix</value>
@@ -3721,7 +3721,7 @@ Interférence de personnes non autorisées; "</value>
     <value>Les nouveautés de cette version</value>
   </data>
   <data name="labelLogoIMB" xml:space="preserve">
-    <value>Copyright © Instituti i Modelimeve ne Biznes, www.imb.al</value>
+    <value>Copyright © AVEC</value>
   </data>
   <data name="labelLogOut" xml:space="preserve">
     <value>Sortir</value>
@@ -5848,10 +5848,10 @@ Interférence de personnes non autorisées; "</value>
     <value>Imprimé avec</value>
   </data>
   <data name="labelRaportPrintuarNgaAlphaPlatinium" xml:space="preserve">
-    <value>Imprimé par Alpha Platinium</value>
+    <value>Imprimé par AVEC Accounting</value>
   </data>
   <data name="labelRaportProdhuarNgaIMB" xml:space="preserve">
-    <value>Copyright © IMB</value>
+    <value>Copyright © AVEC</value>
   </data>
   <data name="labelRaportProdukti" xml:space="preserve">
     <value>Produit</value>
@@ -9215,7 +9215,7 @@ RR.DERVISH HIMA NO.1,ADA TOWER,TIRANË</value>
     <value>Prix</value>
   </data>
   <data name="lblRaportPrintuarAlphaWeb" xml:space="preserve">
-    <value>Imprimez par Alpha Web</value>
+    <value>Imprimez par AVEC Accounting</value>
   </data>
   <data name="lblRaportPurchaseInvoice" xml:space="preserve">
     <value>Facture d'achat</value>
@@ -11494,7 +11494,7 @@ Nr. i biznesit:70026257</value>
     <value>Veuillez sélectionner au moins une catégorie de réduction!</value>
   </data>
   <data name="msgBodyDergoEmailGjenerimPassword" xml:space="preserve">
-    <value>La connexion au programme Alpha Web est la suivante: # enter # nom d'utilisateur: # username # # enter # mot de passe: # newPass ## enter # # enter # #</value>
+    <value>La connexion au programme AVEC Accounting est la suivante: # enter # nom d'utilisateur: # username # # enter # mot de passe: # newPass ## enter # # enter # #</value>
   </data>
   <data name="msgBurimiMeKod" xml:space="preserve">
     <value>Source de code:</value>
@@ -13285,7 +13285,7 @@ Nr. i biznesit:70026257</value>
     <value>Le document est sauvegardé a plusieurs entrepôts et des entrepôts de destination différents. Voulez-vous poursuivre?</value>
   </data>
   <data name="msgLicencaJoValid" xml:space="preserve">
-    <value>La licence est modifiée manuellement. Contactez IMB</value>
+    <value>La licence est modifiée manuellement. Contactez AVEC</value>
   </data>
   <data name="msgLidhDetajimiMeArtikull" xml:space="preserve">
     <value>L'extension {0} a été liée à l'article {1}</value>
@@ -17326,13 +17326,13 @@ EUR 6665598</value>
     <value>Veuillez être informé que le nouveau mot de passe a été réinitialisé avec succès. # Enter # # enter #</value>
   </data>
   <data name="ResetPasswordSubjectEmail" xml:space="preserve">
-    <value>Réinitialisation de votre mot de passe Alpha Web</value>
+    <value>Réinitialisation de votre mot de passe AVEC Accounting</value>
   </data>
   <data name="ResetPasswordVerficationLink" xml:space="preserve">
     <value>Validation de la demande de remplacement du mot de passe</value>
   </data>
   <data name="ResetPasswordVerifikimKerkeseEmail" xml:space="preserve">
-    <value>Veuillez être informé qu'une demande de définition d'un nouveau mot de passe dans votre compte Alpha Web est effectuée. # enter # # enter #</value>
+    <value>Veuillez être informé qu'une demande de définition d'un nouveau mot de passe dans votre compte AVEC Accounting est effectuée. # enter # # enter #</value>
   </data>
   <data name="ringarkuesJoGjendje" xml:space="preserve">
     <value>Le chargeur XXX n'a pas tous ses numéros de série dans l'inventaire!</value>
@@ -17659,7 +17659,7 @@ EUR 6665598</value>
     <value>Choisissez la date d'enregistrement!</value>
   </data>
   <data name="subjectEmailGeneratedPassword" xml:space="preserve">
-    <value>Alpha Web Mot de passe généré</value>
+    <value>AVEC Accounting Mot de passe généré</value>
   </data>
   <data name="subjectEmailRaport" xml:space="preserve">
     <value>Rapport de paiements</value>

@@ -355,7 +355,7 @@
             this.xrLabel42.StyleName = "Copyright";
             this.xrLabel42.StylePriority.UseBorders = false;
             this.xrLabel42.StylePriority.UseTextAlignment = false;
-            this.xrLabel42.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel42.Text = "Copyright © AVEC";
             this.xrLabel42.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // parameter1

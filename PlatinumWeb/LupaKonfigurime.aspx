@@ -21,7 +21,7 @@
     Namespace="DevExpress.Web" TagPrefix="dxw" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <style type="text/css">
         .style1
         {

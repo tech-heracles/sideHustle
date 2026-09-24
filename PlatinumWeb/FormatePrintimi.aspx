@@ -16,7 +16,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="Stylesheet" type="text/css" href="Stylesheet1.css" />

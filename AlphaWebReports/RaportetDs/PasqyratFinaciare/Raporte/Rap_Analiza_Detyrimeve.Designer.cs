@@ -2035,7 +2035,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             this.xrLabel85.SizeF = new System.Drawing.SizeF(425.2068F, 33.9166F);
             this.xrLabel85.StyleName = "Copyright";
             this.xrLabel85.StylePriority.UseFont = false;
-            this.xrLabel85.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel85.Text = "Copyright © AVEC";
             // 
             // BorderiPoshtemCopyright
             // 

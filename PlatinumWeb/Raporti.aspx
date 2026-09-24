@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <link href="AlphaWeb.css" rel="stylesheet" />    
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <style type="text/css">

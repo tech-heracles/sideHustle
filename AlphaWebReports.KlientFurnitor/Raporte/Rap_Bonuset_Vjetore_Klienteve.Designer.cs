@@ -547,7 +547,7 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.StyleName = "Copyright";
-            this.xrLabel6.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes\r\nwww.imb.al";
+            this.xrLabel6.Text = "Copyright © AVEC";
             this.xrLabel6.Weight = 3D;
             // 
             // ds_InfoKlient1

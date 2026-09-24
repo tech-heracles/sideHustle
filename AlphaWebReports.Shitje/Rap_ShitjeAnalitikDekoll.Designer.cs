@@ -1571,7 +1571,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel43.SizeF = new System.Drawing.SizeF(256.6637F, 44.29165F);
             this.xrLabel43.StyleName = "Copyright";
-            this.xrLabel43.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel43.Text = "Copyright © AVEC";
             // 
             // GrupimTop1
             // 

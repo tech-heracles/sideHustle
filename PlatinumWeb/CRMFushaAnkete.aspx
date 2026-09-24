@@ -19,7 +19,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha CRM</title>
+    <title>AVEC CRM</title>
     <link id="Link1" runat="server" rel="shortcut icon" href="~/images/CRM/faviconCRM.ico" type="image/x-icon"/>
     <link id="Link2" runat="server" rel="icon" href="~/images/CRM/faviconCRM.ico" type="image/ico"/>
     <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />
@@ -169,7 +169,7 @@
                         <contenttemplate>
                             <dx:ASPxGridView ID="gvFushaAnkete" runat="server" Width="100%" OnAfterPerformCallback="gvFushaAnkete_AfterPerformCallback"
                                 OnHeaderFilterFillItems="gvFushaAnkete_HeaderFilterFillItems"  OnDataBound="gvFushaAnkete_DataBound"
-                                OnRowUpdating="gvFushaAnkete_RowUpdating" ClientInstanceName="gvFushaAnkete" Theme="Moderno"
+                                OnRowUpdating="gvFushaAnkete_RowUpdating" ClientInstanceName="gvFushaAnkete"
                                 OnProcessColumnAutoFilter="gvFushaAnkete_ProcessColumnAutoFilter" OnCancelRowEditing="gvFushaAnkete_StartRowEditing"
                                 OnRowInserting="gvFushaAnkete_RowInserting" OnRowValidating="gvFushaAnkete_RowValidating"
                                OnCustomCallback="gvFushaAnkete_CustomCallback"

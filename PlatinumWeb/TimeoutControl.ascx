@@ -77,7 +77,7 @@
 <dx:ASPxPopupControl EnableHierarchyRecreation="false" runat="server" ID="TimeoutPopup" ClientInstanceName="ClientTimeoutPopup"
     CloseAction="None" HeaderText="   Sesioni juaj po mbaron!" Modal="True" PopupHorizontalAlign="WindowCenter"
     PopupVerticalAlign="WindowCenter" ShowCloseButton="False" Width="250px" 
-    ShowFooter="True" AllowDragging="True" Theme="MetropolisBlue">
+    ShowFooter="True" AllowDragging="True">
     <ContentCollection>
         <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server" SupportsDisabledAttribute="True">
             <br/>

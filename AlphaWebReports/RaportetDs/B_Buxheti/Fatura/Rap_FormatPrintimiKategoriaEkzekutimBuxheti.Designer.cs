@@ -327,7 +327,7 @@
             this.xrTableCell16.StylePriority.UseBorders = false;
             this.xrTableCell16.StylePriority.UseFont = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
-            this.xrTableCell16.Text = "Prodhuar nga IMB";
+            this.xrTableCell16.Text = "Prodhuar nga AVEC";
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             this.xrTableCell16.Weight = 0.76489018055121727D;
             // 

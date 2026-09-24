@@ -38,7 +38,6 @@ namespace PlatinumWeb
         protected void Page_PreInit(object sender, EventArgs e)
         {
             KontrolloTeDrejtaDheAutorizim(mySessionObjects.merrIdNdermarrjeSesioni(Session),mySessionObjects.ktheIdVitNdermarrje(Session));
-            Page.Theme = "Moderno";
         }
 
         /// <summary>

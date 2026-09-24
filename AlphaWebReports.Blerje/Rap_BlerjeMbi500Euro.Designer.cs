@@ -792,7 +792,7 @@
             this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel34.SizeF = new System.Drawing.SizeF(225.4498F, 44.29166F);
             this.xrLabel34.StyleName = "Copyright";
-            this.xrLabel34.Text = "Copyright © IMB\r\nInstituti i Modelimeve ne Biznes \r\nwww.imb.al";
+            this.xrLabel34.Text = "Copyright © AVEC";
             // 
             // ds_BlerjeMbi500Euro1
             // 

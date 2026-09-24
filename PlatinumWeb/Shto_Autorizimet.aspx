@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
      <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />

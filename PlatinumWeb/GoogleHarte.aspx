@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
         <link href="styleOL.css" rel="stylesheet" type="text/css" />
     <link href="stileShtoPike.css" rel="stylesheet" type="text/css" />

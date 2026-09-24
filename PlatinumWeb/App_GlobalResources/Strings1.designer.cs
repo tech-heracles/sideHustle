@@ -3733,7 +3733,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright © IMB
+        ///   Looks up a localized string similar to Copyright © AVEC
         ///Instituti i Modelimeve ne Biznes 
         ///www.imb.al.
         /// </summary>
@@ -3744,7 +3744,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright © IMB
+        ///   Looks up a localized string similar to Copyright © AVEC
         ///Instituti i Modelimeve ne Biznes 
         ///www.imb.al.
         /// </summary>
@@ -3773,7 +3773,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright © IMB
+        ///   Looks up a localized string similar to Copyright © AVEC
         ///Instituti i Modelimeve ne Biznes 
         ///www.imb.al.
         /// </summary>

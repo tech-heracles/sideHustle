@@ -8,7 +8,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
-    <title> Alpha Web</title>
+    <title> AVEC Accounting</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <style type="text/css"> 
@@ -178,7 +178,7 @@
 <%--<div id="wrapper">--%>
 	<div id="header" class="style19" dir="ltr">
 			<h1 class="style1">
-                <span lang="en-us">Alpha Web</span></h1>
+                <span lang="en-us">AVEC Accounting</span></h1>
             <h2 class="style20">
                 <span lang="en-us">Program Kontabiliteti</span></h2>
             <p class="style26">

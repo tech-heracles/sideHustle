@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Alpha Web</title>
+    <title>AVEC Accounting</title>
     <style type="text/css">
         .style1
         {
@@ -92,7 +92,7 @@
                                     </dx:ASPxLabel>
                                 </td>
                                 <td>
-                                    <dx:ASPxRadioButtonList ID="rbTipi" runat="server" ValueType="System.String" Theme="Aqua"
+                                    <dx:ASPxRadioButtonList ID="rbTipi" runat="server" ValueType="System.String"
                                         ClientInstanceName="rbTipi" Width="168px">
                                         <Items>
                                             <dx:ListEditItem Text="XLS" Value="XLS" Selected="true" />
@@ -109,14 +109,14 @@
                                     </dx:ASPxLabel>
                                 </td>
                                 <td>
-                                    <dx:ASPxTextBox ID="txtSimboliNdares" runat="server" Width="170px" Theme="Aqua"
+                                    <dx:ASPxTextBox ID="txtSimboliNdares" runat="server" Width="170px"
                                         ClientInstanceName="txtSimboliNdares">
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
                                 </td>
                                 <td>
-                                    <dx:ASPxCheckBox ID="cbSimboliNdares" runat="server" Text="Tab" Theme="Aqua" ClientInstanceName="cbSimboliNdares">
+                                    <dx:ASPxCheckBox ID="cbSimboliNdares" runat="server" Text="Tab" ClientInstanceName="cbSimboliNdares">
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxCheckBox>
@@ -128,7 +128,7 @@
                                     </dx:ASPxLabel>
                                 </td>
                                 <td>
-                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="170px" Theme="Aqua" ClientInstanceName="txtEmerSheet">
+                                    <dx:ASPxTextBox ID="txtEmerSheet" runat="server" Width="170px" ClientInstanceName="txtEmerSheet">
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
@@ -141,7 +141,7 @@
                                 </td>
                                 <td>
                                     <dx:ASPxTextBox ID="txtEmerSkedari" runat="server" ClientInstanceName="txtEmerSkedari"
-                                        Width="170px" Theme="Aqua">
+                                        Width="170px">
                                         <ValidationSettings CausesValidation="True" ValidationGroup="entries">
                                             <RequiredField IsRequired="True" />
                                         </ValidationSettings>

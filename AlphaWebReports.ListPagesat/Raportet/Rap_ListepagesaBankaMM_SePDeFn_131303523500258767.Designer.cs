@@ -487,7 +487,7 @@
             this.xrLabel35.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel35.SizeF = new System.Drawing.SizeF(254.75F, 44.29166F);
             this.xrLabel35.StyleName = "Copyright";
-            this.xrLabel35.Text = "Copyright © IMB\nInstituti i Modelimeve ne Biznes \nwww.imb.al";
+            this.xrLabel35.Text = "Copyright © AVEC";
             // 
             // FiltratKoka
             // 
