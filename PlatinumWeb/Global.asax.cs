@@ -392,6 +392,25 @@ namespace PlatinumWeb
 			//GlobalCacheManager.MyAppCache.Clear();
 			//var trackUsers = new clsTrackUser(MyConnectionsManager.GetPoolConnectionNames());
 			//trackUsers.modifikoAllOffline(DateTime.Now);
+			ShkruajArsyenEMbylljes();
+		}
+
+		/// <summary>
+		/// Shkruan ne log/app-lifetime.txt arsyen e rinisjes se aplikacionit (sesionet InProc humbasin ne rinisje).
+		/// </summary>
+		private static void ShkruajArsyenEMbylljes()
+		{
+			try
+			{
+				var runtime = typeof(HttpRuntime).InvokeMember("_theRuntime", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.GetField, null, null, null);
+				var mesazhi = runtime == null ? "" : (string)runtime.GetType().InvokeMember("_shutDownMessage", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField, null, runtime, null);
+				var rreshti = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} {HostingEnvironment.ShutdownReason}{Environment.NewLine}{mesazhi}{Environment.NewLine}";
+				System.IO.File.AppendAllText(System.IO.Path.Combine(HttpRuntime.AppDomainAppPath, "log", "app-lifetime.txt"), rreshti);
+			}
+			catch
+			{
+				// logimi i mbylljes nuk duhet te pengoje mbylljen
+			}
 		}
 
 		private void RegisterDevExpressContents()
