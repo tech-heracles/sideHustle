@@ -1233,10 +1233,6 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Fatura Shitje Einvoice" Name="FaturaShitjeEinvoice.aspx" Visible="true">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Name="RaporteGrida.aspx?lloji=tollon" Text="Raport tollonash" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="RaporteGrida.aspx?lloji=kastrat" Text="Raport tollonash kastrati" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Name="RaporteGrida.aspx?lloji=GjendjaEMagazines" Text="Raport Gjendja e Magazines" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale" Text="Raport Gjendja e Artikujve me Seriale" Visible="false">
@@ -1541,10 +1537,6 @@
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=21" Text="Amortizimi" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=19" Text="Business Intelligence" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=tollon" Text="Raport tollonash" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=kastrat" Text="Raport tollonash kastrati" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=GjendjaEMagazines" Text="Raport Gjendja e Magazines" Visible="false">
                                                         </dxnb:NavBarItem>

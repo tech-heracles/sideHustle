@@ -962,12 +962,10 @@ namespace PlatinumWeb
 			ASPxMenu1.Items[4].Items[15].Text = rm.GetString("MenuItemRaportShitjet", ci);
 			ASPxMenu1.Items[4].Items[16].Text = rm.GetString("MenuItemRaportShitjetEinvoice", ci);
 			ASPxMenu1.Items[4].Items[16].Visible = true;
-			ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportTollonash", ci);
-			ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-			ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-			ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-			ASPxMenu1.Items[4].Items[21].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-			ASPxMenu1.Items[4].Items[22].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+			ASPxMenu1.Items[4].Items[17].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+			ASPxMenu1.Items[4].Items[18].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+			ASPxMenu1.Items[4].Items[19].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+			ASPxMenu1.Items[4].Items[20].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 
 
 			ASPxMenu1.Items[5].Text = "";
@@ -1111,15 +1109,13 @@ namespace PlatinumWeb
 			ASPxNavBar1.Groups[11].Items[10].Text = rm.GetString("MenuItemRaportQendratKostos", ci);
 			ASPxNavBar1.Groups[11].Items[11].Text = rm.GetString("MenuItemAmortizimi", ci);
 			ASPxNavBar1.Groups[11].Items[12].Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
-			ASPxNavBar1.Groups[11].Items[13].Text = rm.GetString("MenuItemRaportTollonash", ci);
-			ASPxNavBar1.Groups[11].Items[14].Text = rm.GetString("MenuItemRaportTollonashKastrati", ci);
-			ASPxNavBar1.Groups[11].Items[15].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
-			ASPxNavBar1.Groups[11].Items[16].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-			ASPxNavBar1.Groups[11].Items[17].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-			ASPxNavBar1.Groups[11].Items[18].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
-			ASPxNavBar1.Groups[11].Items[19].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
-			ASPxNavBar1.Groups[11].Items[20].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
-			ASPxNavBar1.Groups[11].Items[21].Text = rm.GetString("MenuItemRaportBuxheti", ci);
+			ASPxNavBar1.Groups[11].Items[13].Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
+			ASPxNavBar1.Groups[11].Items[14].Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
+			ASPxNavBar1.Groups[11].Items[15].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
+			ASPxNavBar1.Groups[11].Items[16].Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
+			ASPxNavBar1.Groups[11].Items[17].Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
+			ASPxNavBar1.Groups[11].Items[18].Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
+			ASPxNavBar1.Groups[11].Items[19].Text = rm.GetString("MenuItemRaportBuxheti", ci);
 
 
 

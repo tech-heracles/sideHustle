@@ -315,3 +315,114 @@ div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
 [style*="color: #333" i] {
     color: var(--avec-text) !important;
 }
+
+/* ---- compact density (Material's defaults are made for touch) ---- */
+.dxgvControl_Material,
+.dxtlControl_Material,
+.dxeBase_Material,
+.dxeEditArea_Material,
+.dxflFormLayout_Material {
+    font-size: 13px !important;
+}
+
+.dxgvDataRow_Material td.dxgv,
+.dxgvGroupRow_Material td.dxgv,
+.dxgvFooter_Material td.dxgv,
+.dxgvInlineEditRow_Material td.dxgv {
+    padding: 6px 10px !important;
+}
+
+.dxgvHeader_Material,
+.dxgvHeaderPanel_Material {
+    padding: 8px 10px !important;
+    font-weight: 600;
+    color: var(--avec-text-secondary) !important;
+}
+
+.dxgvFilterRow_Material td.dxgv {
+    padding: 4px 6px !important;
+}
+
+.dxgvSearchPanel_Material {
+    padding: 4px 0 6px !important;
+}
+
+.dxgvSearchPanel_Material .dxeButtonEdit_Material td.dxic {
+    padding: 6px 8px !important;
+}
+
+.dxgvGroupPanel_Material {
+    padding: 4px 10px 6px !important;
+}
+
+.dxgvTitlePanel_Material {
+    padding: 2px 3px !important;
+}
+
+.dxgvPagerBottomPanel_Material,
+.dxgvPagerTopPanel_Material {
+    padding: 4px 8px !important;
+}
+
+.dxtcLite_Material .dxtc-tab .dxtc-link,
+.dxtcLite_Material .dxtc-activeTab .dxtc-link {
+    padding: 8px 18px !important;
+}
+
+.dxflFormLayout_Material .dxflItem_Material,
+.dxflFormLayout_Material td.dxflItem_Material {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+/* ---- jQuery UI accordions (document entry pages: koke / trup / fund sections) ---- */
+.ui-accordion .ui-accordion-header,
+.ui-accordion-header {
+    background: var(--avec-surface-high) !important;
+    border: 1px solid var(--avec-border) !important;
+    color: var(--avec-text) !important;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active,
+.ui-accordion .ui-accordion-header.ui-accordion-header-active {
+    background: var(--avec-surface-highest) !important;
+    border-color: var(--avec-orange-muted) !important;
+    color: var(--avec-text) !important;
+}
+
+.ui-accordion .ui-accordion-content {
+    background: transparent !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
+}
+
+/* ---- Bootstrap form controls and report navigation (Raportet.aspx) ---- */
+.form-control,
+input.form-control,
+select.form-control,
+textarea.form-control {
+    background-color: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-text) !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: var(--avec-orange) !important;
+    box-shadow: 0 0 0 1px var(--avec-orange) !important;
+}
+
+.imb-nav-text,
+.imb-nav a,
+.nav > li > a {
+    color: var(--avec-text) !important;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus,
+.nav > li.active > a {
+    background-color: var(--avec-surface-highest) !important;
+    color: var(--avec-orange) !important;
+}
