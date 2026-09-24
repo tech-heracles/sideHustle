@@ -89,7 +89,15 @@ namespace PlatinumWeb
                 hfTeDrejta.Add("DAmb", tedrejtaInfo.DAmb);
 
 
-                mbushGridenNgaDB();
+                try
+                {
+                    mbushGridenNgaDB();
+                }
+                catch (Exception ex)
+                {
+                    // p.sh. raportet pivot qe lejohen vetem per ndermarrjet raportuese
+                    ShfaqGabimin(ex.Message);
+                }
                 KonfiguroOpsionet();
                 KrijoKolonaPivotGrid();
 
@@ -126,6 +134,19 @@ namespace PlatinumWeb
             pvgRaproti.DataSource = dt;
             pvgRaproti.DataBind();
             mySessionObjects.ruajObjectNeSesion(Session, dt, "dataSourcePivoti");
+        }
+
+        /// <summary>
+        /// Shfaq arsyen pse raporti nuk u ngarkua, ne vend te faqes se gabimit.
+        /// </summary>
+        private void ShfaqGabimin(string mesazhi)
+        {
+            Response.Clear();
+            Response.ContentType = "text/html";
+            Response.Write("<!DOCTYPE html><html><head><meta charset=\"utf-8\"><link href=\"App_Themes/Avec/avec.css\" rel=\"stylesheet\" /></head>"
+                + "<body style=\"padding:24px\"><h3 style=\"margin:0 0 8px;font-size:16px;color:#f2f2f0\">Raporti nuk mund të shfaqet</h3>"
+                + "<p style=\"margin:0;color:#a3a3a0\">" + HttpUtility.HtmlEncode(mesazhi) + "</p></body></html>");
+            Response.End();
         }
 
         /// <summary>

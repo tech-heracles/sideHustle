@@ -49,7 +49,7 @@
             <dx:ASPxTimer ID="Timer" runat="server" Interval="1800000" ClientInstanceName="Timer">
                 <ClientSideEvents Tick="ReloadData"></ClientSideEvents>
             </dx:ASPxTimer>
-            <dx:ASPxDashboard ID="ASPxDashboard1" runat="server" WorkingMode="Viewer" ClientInstanceName="ASPxDashboard1" ColorScheme="light.compact" AllowExportDashboard="false"  AllowExportDashboardItems="true" OnCustomJSProperties="ASPxDashboard1_CustomJSProperties">
+            <dx:ASPxDashboard ID="ASPxDashboard1" runat="server" WorkingMode="Viewer" ClientInstanceName="ASPxDashboard1" ColorScheme="dark.compact" AllowExportDashboard="false"  AllowExportDashboardItems="true" OnCustomJSProperties="ASPxDashboard1_CustomJSProperties">
                 <ClientSideEvents 
                     DashboardChanged ="onDashboardChanged"
                     BeforeRender="onBeforeRender" 

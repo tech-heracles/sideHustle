@@ -307,6 +307,7 @@ div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
     color: var(--avec-text) !important;
 }
 
+[style*="background-color:LightGrey" i],
 [style*="background-color:AliceBlue" i],
 [style*="background-color:WhiteSmoke" i],
 [style*="background-color:GhostWhite" i],
@@ -322,6 +323,78 @@ div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
 [style*="background-color:#bbdcfc" i] {
     background-color: var(--avec-surface-highest) !important;
     color: var(--avec-text) !important;
+}
+
+/* ---- grid headers: some pages colour them inline (e.g. LightGrey in ABRaporti) ---- */
+td.dxgvHeader_Material,
+td.dxtlHeader_Material {
+    background-color: var(--avec-surface-high) !important;
+}
+
+/* ---- DevExtreme grids: AlphaWeb.css paints the header panel and headers light ---- */
+.grayBackground,
+.dx-datagrid-header-panel,
+.dx-datagrid-headers,
+.divTableCell {
+    background-color: var(--avec-surface-high);
+    border-color: var(--avec-border);
+}
+
+.dx-datagrid-headers .dx-datagrid-filter-row,
+.mbylljePeriudheDrawer .dx-drawer-content {
+    background-color: var(--avec-surface);
+    border-color: var(--avec-border);
+}
+
+#toolbar {
+    background-color: var(--avec-surface-high);
+}
+
+.menuToolbar .dx-item-content > div:hover {
+    background: var(--avec-orange-tint);
+}
+
+.blue-border-toolbar-widget > div > div {
+    border-color: var(--avec-orange-muted) !important;
+}
+
+/* ---- report tiles (Raportet.aspx) styled like the dashboard cards ---- */
+.imb-sortable .box {
+    background-color: var(--avec-surface);
+    border: 1px solid var(--avec-border);
+    border-radius: 10px;
+    transition: border-color .15s, background-color .15s;
+}
+
+.imb-sortable .box a {
+    color: var(--avec-text);
+    font-size: 12.5px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.imb-sortable .box:hover {
+    background-color: var(--avec-surface-high);
+    border-color: var(--avec-orange);
+}
+
+.imb-sortable .box:hover a {
+    color: var(--avec-orange);
+}
+
+/* ---- Bootstrap default buttons (report search / save) ---- */
+.btn-default {
+    background-color: var(--avec-surface-high);
+    border-color: var(--avec-border);
+    color: var(--avec-text);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+    background-color: var(--avec-surface-highest);
+    border-color: var(--avec-orange-muted);
+    color: var(--avec-orange);
 }
 
 /* ---- disabled editors: page markup sets DisabledStyle BackColor=#EEEEEE ForeColor=Black, which DevExpress
