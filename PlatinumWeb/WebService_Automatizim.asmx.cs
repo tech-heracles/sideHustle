@@ -934,7 +934,7 @@ namespace PlatinumWeb
 					kontrolloIMEIFifo = true;
 				konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
 				konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
-				colTrupiShitje = krijoTrupShtije(giftCard, perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, dtDok);
+				colTrupiShitje = krijoTrupShtije(giftCard, perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, dtDok);
 				clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok, ndermarrje.IdNdermarrje);
 				if (giftCard.balance != 0)
 				{
@@ -1010,7 +1010,7 @@ namespace PlatinumWeb
 				clsMesazh mesazhi = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
 					kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
 					0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
-					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
+					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, perdorues.IdGjuha, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
 					new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
 				if (!mesazhi.Status) return new clsMesazh(false, mesazhi.PershkrimMesazhi);
 
@@ -1018,10 +1018,10 @@ namespace PlatinumWeb
 
 
 				var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
-							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
+							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, serialemag,
 							konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
-							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
-							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
+							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo,
+							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
 				if (msg.PershkrimMesazhi.Contains("Sasia e daljes është më e madhe se gjendja e artikullit"))
 				{
 					gjeneroDokMag = true;
@@ -1044,14 +1044,14 @@ namespace PlatinumWeb
 					clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
 					kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
 					0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
-					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
+					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, perdorues.IdGjuha, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
 					new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
 					if (!draftMessage.Status) return new clsMesazh(false, draftMessage.PershkrimMesazhi);
 					msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
-							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
+							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, serialemag,
 							konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, false, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
-							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
-							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
+							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo,
+							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
 				}
 				if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
 
@@ -1160,7 +1160,7 @@ namespace PlatinumWeb
 				clsMesazh clsmsg = kokaMagazina.ruaj(true, 0, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, "",
 					out outParameter, true, new colSerialetMagazine(), new colSerialetMagazine(),
 					new clsKonfigurimAmbjenti(), konfigurimAmbjentiHyrje, false, false, "", "", "", "", true,
-					false, new int[0], false, false, false, out outParameter, 0, ref dbData, false,
+					false, new int[0], false, false, out outParameter, 0, ref dbData, false,
 					new colSerialeUnikeKategori(), false, true);
 				if (clsmsg.Status)
 					return new clsMesazh(true, clsmsg.PershkrimMesazhi + $" Numer dokumenti: {wtn.docNo}.");
@@ -1309,7 +1309,7 @@ namespace PlatinumWeb
 				return new clsMesazh(false, err.Message);
 			}
 		}
-		private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
+		private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool mosLidhDetajimet, DateTime dtdok)
 		{
 			Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
 			colTrupiShitje trupat = new colTrupiShitje();
@@ -1324,14 +1324,13 @@ namespace PlatinumWeb
 			bool merrDhurata = clsAlternativaKushti.getAlternativa(idKonfAmbj, "AADH") == "Po";
 			var merrMagazinenNgaTrupi = clsAlternativaKushti.getAlternativa(idKonfAmbj, "NKDMMT") == "Po";
 			int dokumentiLength = dokumenti.Length;
-			bool kthimVod = shtimModifikim == "kthimVod";
 			bool ruajBarkod = clsAlternativaKushti.getAlternativa(idKonfAmbj, "RBART") == "Po";
 			bool lejoMagNdryshme = clsAlternativaKushti.getAlternativa(idKonfAmbj, "LMNGB") == "Po";
 			bool lejoSasiPozitiveKthim = clsAlternativaKushti.getAlternativa(idKonfAmbj, "LSPK") == "Po";
 			var nrRendorSerial = -1;
 			for (int i = 0; i < dokumentiLength; i++)
 			{
-				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, i, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
+				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, i, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, mosLidhDetajimet, i + 1, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
 				if (string.IsNullOrEmpty(trupi.Kodi))
 					continue;
 
@@ -1350,7 +1349,7 @@ namespace PlatinumWeb
 			}
 			if (!giftCard.code.IsNullOrEmpty())
 			{
-				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, giftCard, isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, dokumentiLength - 1, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, dokumentiLength, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
+				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, giftCard, isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, dokumentiLength - 1, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, mosLidhDetajimet, dokumentiLength, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
 				if (string.IsNullOrEmpty(trupi.Kodi))
 					return trupat;
 

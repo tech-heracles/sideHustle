@@ -152,7 +152,7 @@ function menu_click(s, e) {
             break;
         case "Fshi":
             e.processOnServer = false;
-            if (shitjeBlerje == 'shitje' || shitjeBlerje == 'shitjediscount' || shitjeBlerje == 'bazaar' || shitjeBlerje == 'blerje') {            
+            if (shitjeBlerje == 'shitje' || shitjeBlerje == 'blerje') {            
                 gridaDokumentave.GetSelectedFieldValues('IdShitjeKoka;IdKonfigAmbjente;Kase', SuccededCallbackSelect);
             }
             else {
@@ -201,14 +201,6 @@ function menu_click(s, e) {
         case "KthimB":
         case "KthimSh":
             kthim(idDok);
-            e.processOnServer = false;
-            break;
-        case 'KthimVod':
-            kthimVod(idDok, gridaDokumentave);
-            e.processOnServer = false;
-            break;
-        case 'Bli':
-            bli(idDok);
             e.processOnServer = false;
             break;
         case "Konverto":
@@ -292,8 +284,7 @@ function Print() {
 
 
 function kontrolloTeDrejtaPerNivelRegjistrimiDokumenti(values, veprimi, callBackFunction) {
-    var shitjeBlerje = Utils.getUrlVar('shitje_blerje');
-    if (shitjeBlerje == 'shitjediscount' || shitjeBlerje == 'bazaar' || values.length === 0) {
+    if (values.length === 0) {
         callBackFunction();
         return;
     }
@@ -325,16 +316,6 @@ function kontrolloTeDrejtaPerNivelRegjistrimiDokumenti(values, veprimi, callBack
         myMesazh.ShtoMesazhGabimi("Ju nuk keni te drejta " + eDrejta + " per nenkategorine: " + teDrejtaNiveli.PershkrimKomponente);
 }
 
-function kthimVod(idDok) {
-    if (idDok === null) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("regjisDokNukKeniAsnjeDokTeZgjedhur"));
-        return;
-    }
-    Utils.shfaqLoadingGif();
-    $.ajax({ url: Utils.getServerApiUrl("Rregjistrime", "KontrolloKthim"), data: JSON.stringify({ ids: idDok, kthyer: true, pageId: window['CurrentPageId'] }) })
-        .done(SuccededCallbackKthimVod);
-}
-
 function kthim(idDok) {
     if (idDok === null) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("regjisDokNukKeniAsnjeDokTeZgjedhur"));
@@ -342,33 +323,6 @@ function kthim(idDok) {
     }
     Utils.shfaqLoadingGif();
     $.ajax({ url: Utils.getServerApiUrl("Rregjistrime", "merrUrlKthim"), data: JSON.stringify({ id: idDok, idNdermarrje: hfState.Get("idNdermarrje"), pageId: window['CurrentPageId'] }) }).done(SuccededCallbackKthim);
-}
-
-function bli(idDok) {
-    if (idDok === null) {
-        myMesazh.ShtoMesazhGabimi(hfState.Get("regjisDokNukKeniAsnjeDokTeZgjedhur"));
-        return;
-    }
-    Utils.shfaqLoadingGif();
-    $.ajax({ url: Utils.getServerApiUrl("Rregjistrime", "KontrolloKthim"), data: JSON.stringify({ ids: idDok, kthyer: false, pageId: window['CurrentPageId'] }) }).done(SuccededCallbackBli);
-}
-
-function SuccededCallbackBli(result) {
-    if (result[1] != "") {
-        Utils.hiqLoadingGif();
-        myMesazh.ShtoMesazhGabimi(result[1]);        
-    }
-    else
-        myFaqeCelje.kontrolloTeDrejta(Utils.buildUrl('Shto_RegjistrimDokumentash.aspx', { 'shitje_blerje': Utils.getUrlVar('shitje_blerje'), 'id': result[0], 'shtim_modifikim': 'bli', 'pageCacheId': window['CurrentPageId'] }));
-}
-
-function SuccededCallbackKthimVod(result) {    
-    if (result[1] != "") {
-        Utils.hiqLoadingGif();
-        myMesazh.ShtoMesazhGabimi(result[1]);        
-    }
-    else
-        myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=' + Utils.getUrlVar('shitje_blerje') + '&id=' + result[0] + '&shtim_modifikim=kthimVod&pageCacheId=' + window['CurrentPageId']);
 }
 
 function OnGridSelectionCompleteArketim(values) {
@@ -595,7 +549,7 @@ function SuccededCallbackKontrolloEkzistojneDokQePoKonvertohen() {
     else {
         var shitjeBlerje = Utils.getUrlVar('shitje_blerje');
         var shtim_modifikim = 'konvertim';
-        if ((shitjeBlerje == 'shitje' || shitjeBlerje == 'shitjediscount' || shitjeBlerje == 'bazaar') && (konvertoTekst == 'FB' || konvertoTekst == 'UB' || konvertoTekst == 'OB' || konvertoTekst == 'KB')) {
+        if ((shitjeBlerje == 'shitje') && (konvertoTekst == 'FB' || konvertoTekst == 'UB' || konvertoTekst == 'OB' || konvertoTekst == 'KB')) {
             shitjeBlerje = 'blerje';
             shtim_modifikim = 'konvertimblerje';
         }

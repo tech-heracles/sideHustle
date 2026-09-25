@@ -747,7 +747,7 @@ namespace DbCore.DbProdhimi
                     bool krijuar = false;
                     try
                     {
-                        krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, tsh.IdArtikulli, tsh.PershkrimArtikull, tsh.IdDetajim1, tsh.IdNjesia, tsh.SasiaAktuale, tsh.Kosto, tsh.KostoTotale, tsh.IdMag, shenja, tsh.IdDetajim2, tsh.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, false, 0, 0);
+                        krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, tsh.IdArtikulli, tsh.PershkrimArtikull, tsh.IdDetajim1, tsh.IdNjesia, tsh.SasiaAktuale, tsh.Kosto, tsh.KostoTotale, tsh.IdMag, shenja, tsh.IdDetajim2, tsh.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, 0, 0);
                     }
                     catch (Exception ex)
                     {
@@ -774,7 +774,7 @@ namespace DbCore.DbProdhimi
                         krijuar = false;
                         try
                         {
-                            krijuar = trupMag1.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, -rec.SasiaAktuale, rec.Kosto, -rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, false, 0, 0);
+                            krijuar = trupMag1.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, -rec.SasiaAktuale, rec.Kosto, -rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, 0, 0);
                         }
                         catch (Exception ex)
                         {
@@ -803,7 +803,7 @@ namespace DbCore.DbProdhimi
                         bool krijuar = false;
                         try
                         {
-                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, rec.SasiaAktuale, rec.Kosto, rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, false, 0, 0);
+                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(idndermarje, dtdok, 1, 1, rec.IdArtikulli, rec.PershkrimArtikull, rec.IdDetajimi, rec.NjesiArtikull, rec.SasiaAktuale, rec.Kosto, rec.KostoTotale, rec.IdMag, shenja, rec.IdDetajimi2, rec.KodiArtikull, "", "", 0, 0, 0, "", 0, dbinv, 0, 0);
                         }
                         catch (Exception ex)
                         {
@@ -1047,7 +1047,7 @@ namespace DbCore.DbProdhimi
                     magdalje.NrDok = nrDk;
                     magdalje.IdGjenerues = idkoka;
 
-                    mesazh = magdalje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, false, out mesazhmevonshem, null, false, false);
+                    mesazh = magdalje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, out mesazhmevonshem, null, false, false);
                     if (!mesazh.Status)
                         return mesazh;
                 }
@@ -1143,7 +1143,7 @@ namespace DbCore.DbProdhimi
                     maghyrje.NrDok = nrDk;
                     maghyrje.IdGjenerues = idkoka;
 
-                    mesazh = maghyrje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, false, out mesazhmevonshem, null, false, false);
+                    mesazh = maghyrje.ruaj(false, 0, null, idperiudha, "", 0, 0, db, out shfaqmesazhapolupemag, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new DbAsete.colAmortizimiKoka(), 0, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0], false, false, out mesazhmevonshem, null, false, false);
                     if (!mesazh.Status)
                         return mesazh;
                 }

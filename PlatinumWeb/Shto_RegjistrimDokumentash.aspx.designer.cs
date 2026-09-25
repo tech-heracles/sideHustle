@@ -10,7 +10,6 @@
 namespace PlatinumWeb
 {
 
-
     public partial class Shto_RegjistrimDokumentash
     {
 
@@ -519,15 +518,6 @@ namespace PlatinumWeb
         protected global::System.Web.UI.WebControls.HiddenField hfPiket;
 
         /// <summary>
-        /// hfKodVFOne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfKodVFOne;
-
-        /// <summary>
         /// hfKodBundle control.
         /// </summary>
         /// <remarks>
@@ -535,15 +525,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfKodBundle;
-
-        /// <summary>
-        /// hfMsisdnBazaari control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfMsisdnBazaari;
 
         /// <summary>
         /// hfVlera control.
@@ -571,15 +552,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfZbritja;
-
-        /// <summary>
-        /// hfKodKuponiDD control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfKodKuponiDD;
 
         /// <summary>
         /// hfKodi control.

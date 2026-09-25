@@ -3156,69 +3156,7 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0];
 
         }
-        internal DataTable mbushGjitheTrupiShitjeNgaKokaPerKthimVod(int idShitjeKoka)
-        {
 
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSHITJEKOKA", idShitjeKoka, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISHITJE_selAllSipasKokaKthimVod");
-            return ds.Tables[0];
-
-        }
-        internal DataTable mbushGjitheTrupiShitjeNgaKokaPerBlerje(int idShitjeKoka)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSHITJEKOKA", idShitjeKoka, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISHITJE_selAllSipasKokaBlerje");
-            return ds.Tables[0];
-
-        }
-        internal bool KaTrupiShitjeNgaKokaPerKthim(int idShitjeKoka)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSHITJEKOKA", idShitjeKoka, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISHITJE_selAllSipasKokaKthimVod");
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-
-
-        }
-        internal bool KaDokumetKthimi(int idShitjeKoka)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSHITJEKOKA", idShitjeKoka, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASHITJE_ktheDokKthimi");
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-        }
-
-        internal bool KaMagazinaTePaRuajtura(int idShitjeKoka)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSHITJEKOKA", idShitjeKoka, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASHITJE_ktheMagazinaTeParuajtura");
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-
-        }
         internal DataTable ktheGjitheTrupiShitjeNgaKokaKonvert(int idShitjeKoka, int indermarje)
         {
 

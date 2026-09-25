@@ -518,7 +518,7 @@ namespace DbCore.DbRegjistrim
 
                 clsArtikulli art = new clsArtikulli(tsh.IdArtikulli, dbInv);
                 if (art.Klasa != 4)
-                    krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.DtDok, 1, 1, tsh.IdArtikulli, tsh.PershkrimArtikull, -1, tsh.IdNjesia, tsh.SasiaRe - tsh.SasiaGjendje, (tsh.VleftaRe - tsh.VleftaGjendje) / ((tsh.SasiaRe - tsh.SasiaGjendje) == 0 ? 1 : (tsh.SasiaRe - tsh.SasiaGjendje)), tsh.VleftaRe - tsh.VleftaGjendje, tsh.IdMag, 1, konvertim ? 0 : -1, tsh.KodiArtikull, "", "", 0, 0, 0, 0, art, "",0, dbInv,false, 0);
+                    krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.DtDok, 1, 1, tsh.IdArtikulli, tsh.PershkrimArtikull, -1, tsh.IdNjesia, tsh.SasiaRe - tsh.SasiaGjendje, (tsh.VleftaRe - tsh.VleftaGjendje) / ((tsh.SasiaRe - tsh.SasiaGjendje) == 0 ? 1 : (tsh.SasiaRe - tsh.SasiaGjendje)), tsh.VleftaRe - tsh.VleftaGjendje, tsh.IdMag, 1, konvertim ? 0 : -1, tsh.KodiArtikull, "", "", 0, 0, 0, 0, art, "",0, dbInv, 0);
                 else
                 {
                     DbInventari.colArtikulliPerberes artper = new DbInventari.colArtikulliPerberes();
@@ -531,7 +531,7 @@ namespace DbCore.DbRegjistrim
 
                             int idNjesia = tsh.IdNjesia;
                             DbInventari.clsArtikulli a = new DbInventari.clsArtikulli(aper.IdLidheseArt, dbInv);
-                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.dtDok, 1, 1, a.IdArtikulli, a.PershkrimArtikulli, -1, a.Njesi1Artikulli, (tsh.SasiaRe - tsh.SasiaGjendje) * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli)), (tsh.VleftaRe - tsh.VleftaGjendje) / ((tsh.SasiaRe - tsh.SasiaGjendje) == 0 ? 1 : (tsh.SasiaRe - tsh.SasiaGjendje)), tsh.VleftaRe - tsh.VleftaGjendje, tsh.IdMag, 1, -1, a.KodArtikulli, "", "", 0, 0, 0, 0, a, "", art.IdArtikulli,dbInv,false, 0);
+                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.dtDok, 1, 1, a.IdArtikulli, a.PershkrimArtikulli, -1, a.Njesi1Artikulli, (tsh.SasiaRe - tsh.SasiaGjendje) * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli)), (tsh.VleftaRe - tsh.VleftaGjendje) / ((tsh.SasiaRe - tsh.SasiaGjendje) == 0 ? 1 : (tsh.SasiaRe - tsh.SasiaGjendje)), tsh.VleftaRe - tsh.VleftaGjendje, tsh.IdMag, 1, -1, a.KodArtikulli, "", "", 0, 0, 0, 0, a, "", art.IdArtikulli,dbInv, 0);
 
                             if (trupMag.IdArtikulli != -1 && krijuar) //ky kusht duhet pare kur te shtohen makrot
                             {
@@ -813,7 +813,7 @@ namespace DbCore.DbRegjistrim
                         gjithmone = true;
                     int kontabalizimmag = 0;
                     string mesazhmevonshem = "";
-                    mesazh = koka.OKokaMagazina.ruaj(false, kontabalizimmag, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, koka.oKokaMagazina.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new colAmortizimiKoka(), 0, false, false, new colTrupiMagazina(), new colAmortizimiKoka(), new int[0],false,false,false, out mesazhmevonshem, null, false, false);
+                    mesazh = koka.OKokaMagazina.ruaj(false, kontabalizimmag, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, koka.oKokaMagazina.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new colAmortizimiKoka(), 0, false, false, new colTrupiMagazina(), new colAmortizimiKoka(), new int[0],false,false, out mesazhmevonshem, null, false, false);
 
                     if (!mesazh.Status)
                         return mesazh;

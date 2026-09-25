@@ -265,13 +265,10 @@
                 <asp:HiddenField ID="hfLloji" runat="server" />
                 <asp:HiddenField ID="hfVodOne" runat="server" />
                 <asp:HiddenField ID="hfPiket" runat="server" />
-                <asp:HiddenField ID="hfKodVFOne" runat="server" />
                 <asp:HiddenField ID="hfKodBundle" runat="server" />
-                <asp:HiddenField ID="hfMsisdnBazaari" runat="server" />
                 <asp:HiddenField ID="hfVlera" runat="server" />
                 <asp:HiddenField ID="hfIdKodi" runat="server" />
                 <asp:HiddenField ID="hfZbritja" runat="server" />
-                <asp:HiddenField ID="hfKodKuponiDD" runat="server" />
                 <asp:HiddenField ID="hfKodi" runat="server" />
                 <asp:HiddenField ID="hfPershkrimi" runat="server" />
                 <asp:HiddenField ID="hfDetajimi" runat="server" />

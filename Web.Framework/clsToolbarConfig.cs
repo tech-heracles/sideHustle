@@ -301,6 +301,8 @@ namespace PlatinumWeb
             {
                 DbCore.DbShare.clsMenuItem m = menu[i];
                 //if (!m.Enabled) continue;
+                if (m.Name == "KthimVod" || m.Name == "Bli")
+                    continue; // veprime te Vodafone (kthim orderi / blerje dealer), jo pjese e AVEC
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame" && m.Name != "ItemExport")
                 {
                     ShtoMenuItem(page.Theme, aSPxMenu1, m, menuPerCRM);
@@ -311,8 +313,6 @@ namespace PlatinumWeb
                     else if (m.Name == "Trasfero" && !meme)
                         aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
                     else if (m.Name == "TransferoM" && !meme)
-                        aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
-                    else if (m.Name == "KthimVod" && meme)
                         aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
                     else if (m.Name == "CmimDetajim" && mosShfaqDetajim)
                         aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
@@ -369,12 +369,6 @@ namespace PlatinumWeb
             {
                 case "LidhArketim":
                     emerKomp = "LidhArketim";
-                    break;
-                case "Bli":
-                    emerKomp = "BlerjeDealer";
-                    break;
-                case "KthimVod":
-                    emerKomp = "KthimOrderi";
                     break;
                 case "Cancel":
                     emerKomp = "AnulloVeprimArke";

@@ -1475,7 +1475,7 @@ namespace DbCore.DbRegjistrim
             colSerialetMagazine serialemag, colSerialetMagazine serialetransf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, clsKokaMagazina koka, colAmortizimiKoka colAmortizimetEVjetra,
             colAmortizimiKoka colAmortizimetEVjetraHyrje, int idDokNgaFKAM, int iddokngaQKFKAM, DbQendraKosto.colTrupiQendraKosto trupivjeterqendraAM, bool isshitje, clsKokaShitje kokashitje, bool ngarivleresimi, bool gjithmone,
             colAmortizimiKoka col, int kontabilizoamortizim, bool mosLlogaritAmortizimShtese, int idkrijuesi, DateTime dttranp, string shoferi, string targaShoferi, colTrupiMagazina coltrupivjeterKryesor, bool ruajrenditje,
-            int[] idinv, bool kaveprimepas, bool kontrolloIMEIFifo, bool blerjengadealer, bool promocione, int idKategoriSeriali, string nrSeriali,  out string mesazhmevonshem, colSerialeUnikeKategori kategorite, bool serialeNeDetajim,
+            int[] idinv, bool kaveprimepas, bool kontrolloIMEIFifo, bool promocione, int idKategoriSeriali, string nrSeriali,  out string mesazhmevonshem, colSerialeUnikeKategori kategorite, bool serialeNeDetajim,
             bool bashkoArtikujt, string nivfsh, string wtnic, int operatori, bool mallraTeDjegshme, bool shoqerimIKerkuar, int transportuesi, string tipi,string transaksioni)
         {
             mesazhmevonshem = "";
@@ -1830,7 +1830,7 @@ namespace DbCore.DbRegjistrim
                         else
                             trup.IdDetajimi = clsDetajimArtikulli.ktheIdDetajimi(trup.KodDetajimi1, idNder, dbinventari);
                     }
-                    else if (trup.IdDetajimi > 0 && !blerjengadealer) //nqs o.IdDetajimi=-1 ath nuk do krijohet as nuk do lidhet ndonje detajim
+                    else if (trup.IdDetajimi > 0) //nqs o.IdDetajimi=-1 ath nuk do krijohet as nuk do lidhet ndonje detajim
                     {
                         bool lidhurMeArt = DbInventari.clsDetajimArtikulli.ekzistonDetajimLidhurMeArtikullinSipasId(trup.IdDetajimi, idNder, tmpArt.KodArtikulli, 1, dbinventari);
                         if (!lidhurMeArt)
@@ -2220,7 +2220,7 @@ namespace DbCore.DbRegjistrim
         /// <param name="hfNrAutoregjistrime">hiddenField i Devit qe mban numrat automatike,null nese nuk perodren</param>
         /// <param name="idPeriudha"></param>
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
-        public clsMesazh ruaj(bool eshteTransferim, int meKontabilizim, IDictionary<string, object> hfNrAutoregjistrime, int idPeriudha, string pershkrimFK, out string shfaqmesazhapolupe, bool eshteOwn, colSerialetMagazine serialemag, colSerialetMagazine serialetranf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, bool gjithmone, bool vjenNgaImportSQL, string idDokImporti, string ndermarrjeKey, string emerTabKoka, string primaryKey, bool ruajrenditje, bool modifikim, int[] idinv, bool kontrolloIMEIFifo, bool blerjengadealer, bool promocione, out string mesazhmevonshem, int idShitjeTransferimi, ref DbData dbData, bool ngaImporti, colSerialeUnikeKategori kategorite, bool serialeNeDetajim,bool bashkoArtikujt)
+        public clsMesazh ruaj(bool eshteTransferim, int meKontabilizim, IDictionary<string, object> hfNrAutoregjistrime, int idPeriudha, string pershkrimFK, out string shfaqmesazhapolupe, bool eshteOwn, colSerialetMagazine serialemag, colSerialetMagazine serialetranf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, bool gjithmone, bool vjenNgaImportSQL, string idDokImporti, string ndermarrjeKey, string emerTabKoka, string primaryKey, bool ruajrenditje, bool modifikim, int[] idinv, bool kontrolloIMEIFifo, bool promocione, out string mesazhmevonshem, int idShitjeTransferimi, ref DbData dbData, bool ngaImporti, colSerialeUnikeKategori kategorite, bool serialeNeDetajim,bool bashkoArtikujt)
         {
             mesazhmevonshem = "";
             clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
@@ -2242,7 +2242,7 @@ namespace DbCore.DbRegjistrim
                 {
                     clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbData);
 
-                    u_ruajt = ruaj(eshteTransferim, meKontabilizim, hfNrAutoregjistrime, idPeriudha, pershkrimFK, idLlojDokFK, idDokNgaFK, db, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, serialemag, serialetranf, konfamortizimi, konfamortizimihyrje, iddokngafkam, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new colAmortizimiKoka(), meKontabilizim, ruajrenditje, modifikim, new colTrupiMagazina(), new colAmortizimiKoka(), idinv, kontrolloIMEIFifo, blerjengadealer, promocione, out mesazhmevonshem, kategorite, serialeNeDetajim, bashkoArtikujt); //perdor ruajtjen me transaksion
+                    u_ruajt = ruaj(eshteTransferim, meKontabilizim, hfNrAutoregjistrime, idPeriudha, pershkrimFK, idLlojDokFK, idDokNgaFK, db, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, serialemag, serialetranf, konfamortizimi, konfamortizimihyrje, iddokngafkam, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new colAmortizimiKoka(), meKontabilizim, ruajrenditje, modifikim, new colTrupiMagazina(), new colAmortizimiKoka(), idinv, kontrolloIMEIFifo, promocione, out mesazhmevonshem, kategorite, serialeNeDetajim, bashkoArtikujt); //perdor ruajtjen me transaksion
                     if (!u_ruajt.Status)
                     {
                         return u_ruajt;
@@ -2306,7 +2306,7 @@ namespace DbCore.DbRegjistrim
         /// <param name="idPeriudha"></param>
         /// <param name="kontabilizioamortizim"> perdoret per rastet kur kemi kontabilizim magazine brenda shitjes dhe nuk kontabilizohet magazina por duhet te kontabilizohet amortizimi</param>
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
-        public clsMesazh ruaj(bool eshteTransferim, int meKontabilizim, IDictionary<string, object> hfNrAutoregjistrime, int idPeriudha, string pershkrimFK, int idLlojDokFK, int idDokNgaFK, clsDatabaseRegjistrim db, out string shfaqmesazhapolupe, int iddokngaqk, DbQendraKosto.colTrupiQendraKosto trupivjeterqendra, bool eshteOwn, colSerialetMagazine serialemag, colSerialetMagazine serialetransf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, int idDokNgaFKAM, int iddokngaqkAM, DbQendraKosto.colTrupiQendraKosto trupivjeterqendraAM, bool isshitje, clsKokaShitje kokashitje, bool ngarivleresimi, bool gjithmone, colAmortizimiKoka col, int kontabilizioamortizim, bool ruajrenditje, bool modifikim, colTrupiMagazina trupivjetermagKryesor, colAmortizimiKoka colAmortizimeVjetra, int[] idinv, bool kontrolloIMEIFifo, bool blerjengadealer, bool promocione, out string mesazhmevonshem, colSerialeUnikeKategori kategorite, bool serialeNeDetajim, bool bashkoArtikujt)
+        public clsMesazh ruaj(bool eshteTransferim, int meKontabilizim, IDictionary<string, object> hfNrAutoregjistrime, int idPeriudha, string pershkrimFK, int idLlojDokFK, int idDokNgaFK, clsDatabaseRegjistrim db, out string shfaqmesazhapolupe, int iddokngaqk, DbQendraKosto.colTrupiQendraKosto trupivjeterqendra, bool eshteOwn, colSerialetMagazine serialemag, colSerialetMagazine serialetransf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, int idDokNgaFKAM, int iddokngaqkAM, DbQendraKosto.colTrupiQendraKosto trupivjeterqendraAM, bool isshitje, clsKokaShitje kokashitje, bool ngarivleresimi, bool gjithmone, colAmortizimiKoka col, int kontabilizioamortizim, bool ruajrenditje, bool modifikim, colTrupiMagazina trupivjetermagKryesor, colAmortizimiKoka colAmortizimeVjetra, int[] idinv, bool kontrolloIMEIFifo, bool promocione, out string mesazhmevonshem, colSerialeUnikeKategori kategorite, bool serialeNeDetajim, bool bashkoArtikujt)
         {
             mesazhmevonshem = "";
             clsDatabaseShare dbshare = new clsDatabaseShare(db);
@@ -2325,7 +2325,7 @@ namespace DbCore.DbRegjistrim
                 OMagazinaTransferim, eshteTransferim, modifikim, meKontabilizim, 0, idPeriudha, db, pershkrimFK, idLlojDokFK, idDokNgaFK, idLlogari, IdNjesiVartese, MeKonfirmim, IdGrup1, IdGrup2, IdGrup3, Pershkrimi,
                 Magazinieri, Adresa, out shfaqmesazhapolupe, iddokngaqk, trupivjeterqendra, oKokaRezervime, kontrollodisponibel, eshteOwn, idAutomjet, idRaportDesing, serialemag, serialetransf, konfamortizimi,
                 konfamortizimihyrje, this, colAmortizimeVjetra, new colAmortizimiKoka(), idDokNgaFKAM, iddokngaqkAM, trupivjeterqendraAM, isshitje, kokashitje, ngarivleresimi, gjithmone, col, kontabilizioamortizim,
-                mosLlogaritAmortizimShtese, IdKrijuesi, dtTransporti, Shoferi, TargaShoferi, trupivjetermagKryesor, ruajrenditje, idinv, false, kontrolloIMEIFifo, blerjengadealer, promocione, idKategoriSeriali, 
+                mosLlogaritAmortizimShtese, IdKrijuesi, dtTransporti, Shoferi, TargaShoferi, trupivjetermagKryesor, ruajrenditje, idinv, false, kontrolloIMEIFifo, promocione, idKategoriSeriali, 
                 nrSerial, out mesazhmevonshem, kategorite, serialeNeDetajim, bashkoArtikujt, NIVFSH, WTNIC, idOperator,mallraTeDjegshme,shoqerimIKerkuar,transportuesi,tipi,transaksioni);
 
             idKokaMagazina = idkoka;
@@ -2440,7 +2440,7 @@ namespace DbCore.DbRegjistrim
             int idgrup3, string pershkrimi, string magazinieri, string adresa, clsDatabaseRegjistrim dbRegj, out string shfaqmesazhapolupe, out int idkokare, clsKokaRezervime kokarezeervime, bool kontrollodisponibel, 
             bool eshteOwn, int idAutomjet, int idRap, colSerialetMagazine serialemag, colSerialetMagazine serialetransf, clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, clsKokaMagazina koka,
             bool gjithmone, int kontabilizoamortizim, bool mosLlogaritAmortizimShtese, ResourceManager rm, CultureInfo ci, int idkrijuesi, DateTime dttranp, bool ruajrenditje, string shoferi, string targashoferi,
-            bool kontrolloIMEIFifo, bool blerjengadealer, bool promocione, int idKategoriSeriali, out string mesazhmevonshem, bool mbajIdgjeneruesTevjeter, ref List<object[]> mesazheInformueseAsete, 
+            bool kontrolloIMEIFifo, bool promocione, int idKategoriSeriali, out string mesazhmevonshem, bool mbajIdgjeneruesTevjeter, ref List<object[]> mesazheInformueseAsete, 
             colSerialeUnikeKategori kategorite, bool serialeNeDetajim, bool bashkoArtikujt, string nivfsh, string wtnic, int operatori, bool mallraTeDjegshme, bool shoqerimIKerkuar, int transportuesi,string tipi,string transaksioni)
         {
             mesazhmevonshem = "";
@@ -2784,7 +2784,7 @@ namespace DbCore.DbRegjistrim
                 dbRegj, pershkrimFK, idLlojDok, idDokNgaFK, idllogari, idnjesivartese, mekonfirmim, idgrup1, idgrup2, idgrup3, pershkrimi, magazinieri, adresa, out shfaqmesazhapolupe, OFleteKontabel.KokaQendraKosto.IdDokNga,
                 kokaqendra.ColTrupi, kokarezeervime, kontrollodisponibel, eshteOwn, idAutomjet, idRap, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, koka, colAmortizimetEVjetra, colAmortizimetEVjetraHyrje, 0, 0,
                 new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new colAmortizimiKoka(), kontabilizoamortizim, mosLlogaritAmortizimShtese, kokaEkzistuese.idKrijuesi, dttranp, shoferi, targaShoferi,
-                kokaEkzistuese.ocolTrupiMagazina, ruajrenditje, idinv, kaveprimepas, kontrolloIMEIFifo, blerjengadealer, promocione, idKategoriSeriali,nrSerial, out mesazhmevonshem, kategorite, serialeNeDetajim, bashkoArtikujt, nivfsh,
+                kokaEkzistuese.ocolTrupiMagazina, ruajrenditje, idinv, kaveprimepas, kontrolloIMEIFifo, promocione, idKategoriSeriali,nrSerial, out mesazhmevonshem, kategorite, serialeNeDetajim, bashkoArtikujt, nivfsh,
                 wtnic, operatori, mallraTeDjegshme,shoqerimIKerkuar,transportuesi,tipi,transaksioni);
 
             idkokare = idMagKoka;
@@ -2809,7 +2809,7 @@ namespace DbCore.DbRegjistrim
         /// <param name="lidhur">tregon nese eshte i lidhur ose jo</param>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
         public clsMesazh modifiko(bool transferim, int meKontabilizim, bool lidhur, string pershkrimFK, out string shfaqmesazhapolupe, bool eshteOwn, colSerialetMagazine serialemag, colSerialetMagazine serialetransf,
-            clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, bool gjithmone, int kontabilizoamortizim, ResourceManager rm, CultureInfo ci, bool ruajrenditje, bool kontrolloIMEIFifo, bool blerjengadealer,
+            clsKonfigurimAmbjenti konfamortizimi, clsKonfigurimAmbjenti konfamortizimihyrje, bool gjithmone, int kontabilizoamortizim, ResourceManager rm, CultureInfo ci, bool ruajrenditje, bool kontrolloIMEIFifo,
             bool promocione, out string mesazhmevonshem, bool mbajIdGjeneruestevjeter, ref List<object[]> mesazheInformueseAsete, colSerialeUnikeKategori kategorite, bool serialeNeDetajim, bool bashkoArtikujt, bool DokumentTransferimiOwn)
         {
             mesazhmevonshem = "";
@@ -2836,7 +2836,7 @@ namespace DbCore.DbRegjistrim
                             IdNdermarrjeVit, IdPerdoruesi, DtRegjistrimi, IdLlojDokumentiMagazine, Shenime, IdRenditjes, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, IdDegeAdministrative, idLlogari, IdNjesiVartese,
                             MeKonfirmim, OcolTrupiMagazina, OFleteKontabel, OMagazinaTransferim, meKontabilizim, transferim, pershkrimFK, IdGrup1, IdGrup2, IdGrup3, Pershkrimi, Magazinieri, Adresa, data, out shfaqmesazhapolupe,
                             out idkokare, oKokaRezervime, kontrollodisponibel, eshteOwn, idAutomjet, idRaportDesing, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, this, gjithmone, kontabilizoamortizim,
-                            mosLlogaritAmortizimShtese, rm, ci, idKrijuesi, dtTransporti, ruajrenditje, Shoferi, targaShoferi, kontrolloIMEIFifo, blerjengadealer, promocione, idKategoriSeriali, out mesazhmevonshem, mbajIdGjeneruestevjeter,
+                            mosLlogaritAmortizimShtese, rm, ci, idKrijuesi, dtTransporti, ruajrenditje, Shoferi, targaShoferi, kontrolloIMEIFifo, promocione, idKategoriSeriali, out mesazhmevonshem, mbajIdGjeneruestevjeter,
                             ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt, NIVFSH, WTNIC, idOperator,mallraTeDjegshme,shoqerimIKerkuar,transportuesi,tipi,transaksioni);
                         if (!u_modifikua.Status)
                             return u_modifikua;

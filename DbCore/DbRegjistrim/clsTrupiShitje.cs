@@ -180,7 +180,7 @@ namespace DbCore.DbRegjistrim
         {
         }
 
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool mosLidhDetajimet, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);    
             string kodi = rreshtDokuKlient["txtKodi"].ToString();
@@ -237,7 +237,7 @@ namespace DbCore.DbRegjistrim
             if (njesia != string.Empty && njesia != null && njesia != "null")
                 idNjesi = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje);
 
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, pershkr, detajimi, isShitje, ownshop, mosLidhDetajimet, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -278,7 +278,7 @@ namespace DbCore.DbRegjistrim
                     break;
             }
         }
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool mosLidhDetajimet, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
             Dictionary<string, string> itemMetadata = rreshtDokuKlient;
@@ -345,7 +345,7 @@ namespace DbCore.DbRegjistrim
                 clsNjesiArtikulli njesiaFound = colNjesi.Find(x => x.KodEinvoice == rreshtDokuKlient["unitFisc"].ToString());
                 idNjesi = njesiaFound != null ? njesiaFound.IdNjesia : 0;
             }
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, pershkr, detajimi, isShitje, ownshop, mosLidhDetajimet, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -386,7 +386,7 @@ namespace DbCore.DbRegjistrim
                     break;
             }
         }
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, GiftCard giftCard, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, GiftCard giftCard, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool mosLidhDetajimet, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
             clsArtikulli item = new clsArtikulli(giftCard.code, idNdermarrje);
@@ -451,7 +451,7 @@ namespace DbCore.DbRegjistrim
                 clsNjesiArtikulli njesiaFound = new clsNjesiArtikulli(item.Njesi1Artikulli);
                 idNjesi = njesiaFound != null ? njesiaFound.IdNjesia : 0;
             }
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, pershkr, detajimi, isShitje, ownshop, mosLidhDetajimet, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -498,12 +498,13 @@ namespace DbCore.DbRegjistrim
             return (clsTrupiShitje)this.MemberwiseClone();
         }
 
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool konvertimblerje, bool kthimVod, bool blerjengadealer, string kodi, string lloji, int idKodi, int idShitjeTrupi, int idTrupiKonvertimi, int idTrupiKonvertimBlerje, int idTrupiRezervimi, int idTrupiTransferimi, int idTrupiKthim, string pershkr, string detajimi, string detajimi2, int idNjesia, double sasia, double sasiRez, double gjeresi, double gjatesi, double sasiPermasa, double cmimi, double zbritje, int llojZbritje, double zbritjeVlere, double vleftaPaTvsh, int idTvsh, double vleftaMeTvsh, int idMagazina, string shenime, string nrLlogShpenz, DateTime dtFillimi, DateTime dtMbarimi, string shenime2, int idBarkodi, int idKategoriShpenzimi, string kodKonfigKVDN, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool konvertimblerje, string kodi, string lloji, int idKodi, int idShitjeTrupi, int idTrupiKonvertimi, int idTrupiKonvertimBlerje, int idTrupiRezervimi, int idTrupiTransferimi, int idTrupiKthim, string pershkr, string detajimi, string detajimi2, int idNjesia, double sasia, double sasiRez, double gjeresi, double gjatesi, double sasiPermasa, double cmimi, double zbritje, int llojZbritje, double zbritjeVlere, double vleftaPaTvsh, int idTvsh, double vleftaMeTvsh, int idMagazina, string shenime, string nrLlogShpenz, DateTime dtFillimi, DateTime dtMbarimi, string shenime2, int idBarkodi, int idKategoriShpenzimi, string kodKonfigKVDN, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
         {
-            bool shitjevodafone = false;
+            // konfigurimet qe mbarojne me kodin 3-shkronjesh te magazines (p.sh. FSHmag) nuk lidhin detajimet me artikullin
+            bool mosLidhDetajimet = false;
             string magazina = clsNjesiAdministrative.ktheKodiNjesiAdministrativeSipasiDPaAutorizime(idMagazina);
             if (magazina.Length == 3 && kodKonfigKVDN.EndsWith(magazina))
-                shitjevodafone = true;
+                mosLidhDetajimet = true;
 
             if (kodi == string.Empty || kodi == null || kodi == "null")
                 return;
@@ -534,7 +535,7 @@ namespace DbCore.DbRegjistrim
             clsArtikulli art = new clsArtikulli();
             clsLlogari llog = new clsLlogari();
 
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkodi, kodi, shenime, shenime2, idNjesia, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, pershkr, detajimi, isShitje, ownshop, mosLidhDetajimet, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkodi, kodi, shenime, shenime2, idNjesia, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
 
             switch ((llojRreshtiShitje)idLlojVeprimi)
             {
@@ -547,7 +548,7 @@ namespace DbCore.DbRegjistrim
             }
         }
 
-        public void kontrolloTrupShitje(string lloji, clsArtikulli art, clsLlogari llog, int idNdermarrje, int idPerdoruesi, string veprimi, bool gjenerodokumentmagazine, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool konvertim, bool klonim, bool kthim, bool konvertimblerje, bool kthimVod, bool blerjengadealer, string pershkr, string detajimi, bool isShitje, bool ownshop, bool shitjevodafone, bool meme, string detajimi2, int idTvsh, string magazina, string nrLlogShpenz, int idBarkod, string kodArt, string shenim, string shenim2, int idNjesi, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
+        public void kontrolloTrupShitje(string lloji, clsArtikulli art, clsLlogari llog, int idNdermarrje, int idPerdoruesi, string veprimi, bool gjenerodokumentmagazine, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool konvertim, bool klonim, bool kthim, bool konvertimblerje, string pershkr, string detajimi, bool isShitje, bool ownshop, bool mosLidhDetajimet, bool meme, string detajimi2, int idTvsh, string magazina, string nrLlogShpenz, int idBarkod, string kodArt, string shenim, string shenim2, int idNjesi, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
         {
             if (lloji == "Artikull")
             {
@@ -637,13 +638,6 @@ namespace DbCore.DbRegjistrim
                 this.idTrupiKonvertimBlerje = this.idShitjeTrupi;
                 this.idTrupiKonvertimi = 0;
             }
-            if (kthimVod || blerjengadealer)
-            {
-                this.IdTrupiKthim = this.IdShitjeTrupi;
-                this.idTrupiTransferimi = 0;
-                this.idTrupiKonvertimi = 0;
-
-            }
 
             this.kodi = kodArt;
             if (this.dtMbarimi < this.dtFillimi)
@@ -692,7 +686,7 @@ namespace DbCore.DbRegjistrim
                     else
                         if (this.IdDetajimArt > 0) //nqs o.IdDetajimArt=-1 ath nuk do krijohet as nuk do lidhet ndonje detajim
                     {
-                        if (!clsDetajimArtikulli.ekzistonDetajimLidhurMeArtikullin(this.KodDetajim1, idNdermarrje, art.KodArtikulli, 1) && !shitjevodafone)
+                        if (!clsDetajimArtikulli.ekzistonDetajimLidhurMeArtikullin(this.KodDetajim1, idNdermarrje, art.KodArtikulli, 1) && !mosLidhDetajimet)
                         {
 
                             if (!clsDetajimPerArt.ruajLidhje(art, this.IdDetajimArt, 1, idNdermarrje, idPerdoruesi).Status)
@@ -751,7 +745,7 @@ namespace DbCore.DbRegjistrim
                         if (this.IdDetajimArt2 > 0) //nqs o.IdDetajimArt=-1 ath nuk do krijohet as nuk do lidhet ndonje detajim
                     {
                         bool lidhurMeArt = clsDetajimArtikulli.ekzistonDetajimLidhurMeArtikullin(this.KodDetajim2, idNdermarrje, art.KodArtikulli, 2);
-                        if (!lidhurMeArt && !shitjevodafone)
+                        if (!lidhurMeArt && !mosLidhDetajimet)
                         {
                             clsMesazh mesazh = clsDetajimPerArt.ruajLidhje(art, this.IdDetajimArt2, 2, idNdermarrje, idPerdoruesi);
                             if (!mesazh.Status)

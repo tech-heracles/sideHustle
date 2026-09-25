@@ -5761,29 +5761,28 @@ namespace DbCore
 								int idskema = (new clsKusht(konfigAmbjenti.IdKonfigAmbjente, "ZSP")).Vlera;
 								string shfaqmesazhapolupemagazina = "jo";
 								bool dergoemail = clsAlternativaKushti.getAlternativa(konfigAmbjenti.IdKonfigAmbjente, "LE") == "Po";
-								bool dergoemailVFOne = (clsAlternativaKushti.getAlternativa(konfigAmbjenti.IdKonfigAmbjente, "DEVFOne") == "Po");
 								bool kontrolloSasiKonvertimiDheKthimi = (clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "NK") == "Po");
 								bool kontrolloIMEIFifo = (clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "AFI") == "Po");
 								clsKokaQendraKosto qend = new clsKokaQendraKosto();
 								clsKokaFleteKontabel kok = new clsKokaFleteKontabel(koka.IdShitjeKoka, idKategoria);
 								qend.KtheKokaQKSipasIDGjeneruesDheKonfigMeTrup(kok.IdKokaFleteKontabel, kok.IdKonfigAmbjente);
 
-								mesazh = koka.modifiko(idGjuha, "", koka.eshteILidhur(), hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, idskema, koka.StatusAprovimi, 0, out shfaqmesazhapolupemagazina, new clsKokaShitje(), dergoemail, new clsNdermarrje(idNdermarrje).OwnShop, dergoemailVFOne, new colSerialetMagazine(), konfamortizimi, (idKategoria == 1) ? true : false, new clsKokaShitje(), out printofature, out printogarancifature, out shfaqmesazhapolupe, meKontabilizim, qend.ColTrupi, konfigAmbjenti.KodKonfigAmbjente, rm, ci, false, kontrolloSasiKonvertimiDheKthimi, true, kontrolloIMEIFifo, false, !konfigAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, out mesazhmevonshem, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKey, ndermarrjeKey);
+								mesazh = koka.modifiko(idGjuha, "", koka.eshteILidhur(), hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, idskema, koka.StatusAprovimi, 0, out shfaqmesazhapolupemagazina, new clsKokaShitje(), dergoemail, new clsNdermarrje(idNdermarrje).OwnShop, new colSerialetMagazine(), konfamortizimi, (idKategoria == 1) ? true : false, new clsKokaShitje(), out printofature, out printogarancifature, out shfaqmesazhapolupe, meKontabilizim, qend.ColTrupi, konfigAmbjenti.KodKonfigAmbjente, rm, ci, false, kontrolloSasiKonvertimiDheKthimi, true, kontrolloIMEIFifo, !konfigAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, out mesazhmevonshem, vjenNgaImportSQL, idDokImporti, emerTabKoka, primaryKey, ndermarrjeKey);
 							}
 							else // Rasti kur importohet per here te pare ne Alphawebin e Finances (magazine)
 							{
-								mesazh = koka.ruaj(idGjuha, ci, shitje_blerje, hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out vep, 0, 0, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, new clsKokaShitje(), 0, 0, false, false, false, "", colSerialet, konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, meKontabilizim, out shfaqmesazhapolupe, llojDokumenti, rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, ruajrenditje, false, new colKokaShitje(), false, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, importo, true, "", "");
+								mesazh = koka.ruaj(idGjuha, ci, shitje_blerje, hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out vep, 0, 0, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, new clsKokaShitje(), 0, 0, false, false, colSerialet, konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, meKontabilizim, out shfaqmesazhapolupe, llojDokumenti, rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, ruajrenditje, false, new colKokaShitje(), false, false, ref dbData, false, out mesazhmevonshem, importo, true, "", "");
 							}
 						}
 						else if (nderm.Prind && dbR.ktheKokaShitjeEkzistonDoksipasID(idDokTransferimNga)) // Rasti i importimit te FSH te mema pasi eshte Ruajtur ne magazine
 						{
 							bool kontrolloIMEIFifo = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "AFI") == "Po";
 
-							mesazh = koka.ruaj(idGjuha, ci, true, hiddenFieldPerNrAuto, periudha.IdPeriudha, colkonv, false, out vep, 0, kokaurdhershitje.StatusAprovimi, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, kokaMeme, kokaurdhershitje.IdShitjeKoka, 0, false, eshteOwn, false, "", new colSerialetMagazine(), new clsKonfigurimAmbjenti(), new clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, true, out shfaqmesazhapolupe, "FSH", rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, false, false, new colKokaShitje(), kontrolloIMEIFifo, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, importo, true, "", "");
+							mesazh = koka.ruaj(idGjuha, ci, true, hiddenFieldPerNrAuto, periudha.IdPeriudha, colkonv, false, out vep, 0, kokaurdhershitje.StatusAprovimi, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, kokaMeme, kokaurdhershitje.IdShitjeKoka, 0, false, eshteOwn, new colSerialetMagazine(), new clsKonfigurimAmbjenti(), new clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, true, out shfaqmesazhapolupe, "FSH", rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, false, false, new colKokaShitje(), kontrolloIMEIFifo, false, ref dbData, false, out mesazhmevonshem, importo, true, "", "");
 						}
 						else
 						{// Rasti normal sic ishte 
-							mesazh = koka.ruaj(idGjuha, ci, shitje_blerje, hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out vep, 0, 0, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, new clsKokaShitje(), 0, 0, false, false, false, "", colSerialet, konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, meKontabilizim, out shfaqmesazhapolupe, llojDokumenti, rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, ruajrenditje, false, new colKokaShitje(), false, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, importo, true, koka.IIC, koka.NIVF);
+							mesazh = koka.ruaj(idGjuha, ci, shitje_blerje, hiddenFieldPerNrAuto, per.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out vep, 0, 0, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, new clsKokaShitje(), 0, 0, false, false, colSerialet, konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, meKontabilizim, out shfaqmesazhapolupe, llojDokumenti, rm, vjenNgaImportSQL, idDokImporti, 0, false, false, emerTabKoka, primaryKey, ndermarrjeKey, ruajrenditje, false, new colKokaShitje(), false, false, ref dbData, false, out mesazhmevonshem, importo, true, koka.IIC, koka.NIVF);
 							bool dergoemailMag = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "DEFM") == "Po";
 							if (!string.IsNullOrEmpty(kodKlientIntegrimi))
 							{
@@ -6345,7 +6344,6 @@ namespace DbCore
 						var kushtamor = new clsKusht(kokeShitje.IdKonfigAmbjente, "ZDAM");
 						var konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera);
 						var dergoemail = clsAlternativaKushti.getAlternativa(kokeShitje.IdKonfigAmbjente, "LE") == "Po";
-						var dergoemailVfOne = clsAlternativaKushti.getAlternativa(kokeShitje.IdKonfigAmbjente, "DEVFOne") == "Po";
 
 						foreach (DataRow dr in dt.Rows)
 							dr[dtDokumentiEmerImport] = DateTime.Parse(dr[dtDokumentiEmerImport].ToString()).ToString("dd/MM/yyyy HH:mm:ss");
@@ -6454,7 +6452,7 @@ namespace DbCore
 						var mesazhmevonshem = "";
 						var idPeriudhaKont = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(kokeShitje.DtDok, idNdermarrje);
 
-						mesazh = kokeShitje.ruaj(idGjuha, serverUrl, true, hidden, idPeriudhaKont, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, DbCore.DbRegjistrim.StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new DbCore.DbRegjistrim.clsKokaShitje(), 0, 0, dergoemail, eshteOwn, dergoemailVfOne, "", new colSerialetMagazine(), konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, kodKonfigFp, ngaImportSql, idDokumentat, 0, true, false, emerTabKoka, primaryKey, ndermarrjeKey, false, false, new colKokaShitje(), false, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, false, true, "", "");
+						mesazh = kokeShitje.ruaj(idGjuha, serverUrl, true, hidden, idPeriudhaKont, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, DbCore.DbRegjistrim.StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new DbCore.DbRegjistrim.clsKokaShitje(), 0, 0, dergoemail, eshteOwn, new colSerialetMagazine(), konfamortizimi, new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, kodKonfigFp, ngaImportSql, idDokumentat, 0, true, false, emerTabKoka, primaryKey, ndermarrjeKey, false, false, new colKokaShitje(), false, false, ref dbData, false, out mesazhmevonshem, false, true, "", "");
 
 						if (!mesazh.Status)
 						{
@@ -8211,7 +8209,7 @@ namespace DbCore
 						konfamortizimihyrje.mbushKonfigAmbjSipasId(kushtamortizim.Vlera, idGjuha);
 					}
 
-					mesazh = koka.ruaj(transferim, meKontabilizim, hiddenFieldPerNrAuto, per.IdPeriudha, "", out shfaqmesazhapolupe, false, colSerialet, serialemagtransf, konfamortizimi, konfamortizimihyrje, gjithmone, vjenNgaImportSQL, idDokImporti, ndermarrjeKey, emerTabKoka, primaryKey, ruajrenditje, false, new int[0], false, false, false, out mesazhmevonshem, 0, ref dbData, importo, null, false, bashkoArtikujt);
+					mesazh = koka.ruaj(transferim, meKontabilizim, hiddenFieldPerNrAuto, per.IdPeriudha, "", out shfaqmesazhapolupe, false, colSerialet, serialemagtransf, konfamortizimi, konfamortizimihyrje, gjithmone, vjenNgaImportSQL, idDokImporti, ndermarrjeKey, emerTabKoka, primaryKey, ruajrenditje, false, new int[0], false, false, out mesazhmevonshem, 0, ref dbData, importo, null, false, bashkoArtikujt);
 					if (!mesazh.Status)
 					{
 						DateTime datedok = new DateTime();
@@ -11390,8 +11388,6 @@ namespace DbCore
 				case "klonim":
 				case "shtimraport":
 				case "kthim":
-				case "kthimVod":
-				case "bli":
 				case "konvertim":
 				case "konvertimblerje":
 				case "rezervim":
@@ -12696,24 +12692,16 @@ namespace DbCore
 			return dataPerKontroll >= dateFillimi && dataPerKontroll <= dateMbarimi;
 		}
 
+		/// <summary>
+		/// Konfigurimet e shitjes pa llojet e dokumenteve te Vodafone (discount / bazaar) qe mbeten ne te dhenat e vjetra.
+		/// </summary>
 		public static IEnumerable<clsKonfigurimAmbjenti> MerrKonfigurimShitje(colKonfigurimAmbjenti colKonfig, string veprimi)
 		{
-			IEnumerable<clsKonfigurimAmbjenti> rezult;
-			if (veprimi == "shitjediscount")
-				rezult = colKonfig.Where(x =>
-					x.KodKonfigAmbjente.StartsWith("USHDD") ||
-					x.KodKonfigAmbjente.StartsWith("POROSIDD"));
-			else if (veprimi == "bazaar")
-				rezult = colKonfig.Where(x =>
-					x.KodKonfigAmbjente.StartsWith("BAZAAR") ||
-					x.KodKonfigAmbjente.StartsWith("POROSIBAZAAR"));
-			else
-				rezult = colKonfig.Where(x =>
-					!x.KodKonfigAmbjente.StartsWith("BAZAAR") &&
-					!x.KodKonfigAmbjente.StartsWith("POROSIBAZAAR") &&
-					!x.KodKonfigAmbjente.StartsWith("USHDD") &&
-					!x.KodKonfigAmbjente.StartsWith("POROSIDD"));
-			return rezult;
+			return colKonfig.Where(x =>
+				!x.KodKonfigAmbjente.StartsWith("BAZAAR") &&
+				!x.KodKonfigAmbjente.StartsWith("POROSIBAZAAR") &&
+				!x.KodKonfigAmbjente.StartsWith("USHDD") &&
+				!x.KodKonfigAmbjente.StartsWith("POROSIDD"));
 		}
 
 

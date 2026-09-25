@@ -153,7 +153,7 @@ namespace DbCore.DbRegjistrim
         /// </summary>
         /// <param name="idTrupiMagazina"></param>
         /// <param name="dbtrupMagazine"></param>
-        public bool krijoTrupMagazinaNgaGrida(int idNdermarrje, DateTime date, double kursi, int lloji, int idkodi, string emertimi, int detajimi, int njesia, double sasia, double cmimi, double VleftaPaTVSH, int magazina, int shenja, int iddetajim2, string kodi, string kodDetajimi1, string kodDetajimi2, int idkonvertimifsh, int idkonvertimiush, int idkonvertimiud, int rreshti, clsArtikulli art, string shenime, int idartikulliset, clsDatabaseInventari db, bool blerjedealer, int idBarkod)
+        public bool krijoTrupMagazinaNgaGrida(int idNdermarrje, DateTime date, double kursi, int lloji, int idkodi, string emertimi, int detajimi, int njesia, double sasia, double cmimi, double VleftaPaTVSH, int magazina, int shenja, int iddetajim2, string kodi, string kodDetajimi1, string kodDetajimi2, int idkonvertimifsh, int idkonvertimiush, int idkonvertimiud, int rreshti, clsArtikulli art, string shenime, int idartikulliset, clsDatabaseInventari db, int idBarkod)
         {
             ImbLogger.LogWarningShitje("Filloi metoda krijotrupMagazinaNgaGrida");
             if (idkodi == 0 || idkodi == -1)
@@ -189,9 +189,9 @@ namespace DbCore.DbRegjistrim
                     this.koeficenti = 1;
                 else
                     this.koeficenti = double.Parse(art.KoeficientArtikulli.ToString());//nese njesia e zgjedhur nuk eshte njesia e pare e artikullit ath koeficienti vendoset sa koeficienti i percaktuar tek artikulli     
-                this.sasia = blerjedealer ? -sasia : sasia;
+                this.sasia = sasia;
                 this.cmimi = cmimi * kursi;
-                this.vlefta = blerjedealer ? -(VleftaPaTVSH * kursi) : VleftaPaTVSH * kursi;
+                this.vlefta = VleftaPaTVSH * kursi;
 
 
                 idMag = magazina;
@@ -216,7 +216,7 @@ namespace DbCore.DbRegjistrim
       
 
        
-        public bool krijoTrupMagazinaNgaGrida(int idNdermarrje, DateTime date, double kursi, int lloji, int idkodi, string emertimi, int detajimi, int njesia, double sasia, double cmimi, double VleftaPaTVSH, int magazina, int shenja, int iddetajim2, string kodi, string kodDetajimi1, string kodDetajimi2, int idkonvertimifsh, int idkonvertimiush, int idkonvertimiud, string shenime, int idartikullset,clsDatabaseInventari db, bool blerjedealer, int idBarkodi, int rreshti)
+        public bool krijoTrupMagazinaNgaGrida(int idNdermarrje, DateTime date, double kursi, int lloji, int idkodi, string emertimi, int detajimi, int njesia, double sasia, double cmimi, double VleftaPaTVSH, int magazina, int shenja, int iddetajim2, string kodi, string kodDetajimi1, string kodDetajimi2, int idkonvertimifsh, int idkonvertimiush, int idkonvertimiud, string shenime, int idartikullset,clsDatabaseInventari db, int idBarkodi, int rreshti)
         {
             if (idkodi == 0 || idkodi == -1)
                 return false;
@@ -224,7 +224,7 @@ namespace DbCore.DbRegjistrim
             if (lloji != 1)
                 return false;
             clsArtikulli art = new clsArtikulli(idkodi, db);
-            return krijoTrupMagazinaNgaGrida(idNdermarrje, date, kursi, lloji, idkodi, emertimi, detajimi, njesia, sasia, cmimi, VleftaPaTVSH, magazina, shenja, iddetajim2, kodi, kodDetajimi1, kodDetajimi2, idkonvertimifsh, idkonvertimiush, idkonvertimiud, rreshti, art, shenime,idartikullset, db,blerjedealer, idBarkodi);
+            return krijoTrupMagazinaNgaGrida(idNdermarrje, date, kursi, lloji, idkodi, emertimi, detajimi, njesia, sasia, cmimi, VleftaPaTVSH, magazina, shenja, iddetajim2, kodi, kodDetajimi1, kodDetajimi2, idkonvertimifsh, idkonvertimiush, idkonvertimiud, rreshti, art, shenime,idartikullset, db, idBarkodi);
         }
 
         /// <summary>

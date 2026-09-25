@@ -1579,9 +1579,9 @@ namespace PlatinumWeb
                         int[] idinv = MerrIdInventarizimi();
 
                         if (hfState.Get("kushtTransferim") != null && hfState.Get("kushtTransferim").ToString() == "Po") //Transferim
-                            mesazh = regjistrim.ruaj(true, meKontabilizim, hfNrAutoShitje, idPeriudheZgjedhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, false, String.Empty, string.Empty, string.Empty, string.Empty, cbRenditje.Checked, false, idinv, false, false, false, out mesazhmevonshem, 0, ref dbData, false, kategorite, serialeNeDetajim, bashkoArtikujt);
+                            mesazh = regjistrim.ruaj(true, meKontabilizim, hfNrAutoShitje, idPeriudheZgjedhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, false, String.Empty, string.Empty, string.Empty, string.Empty, cbRenditje.Checked, false, idinv, false, false, out mesazhmevonshem, 0, ref dbData, false, kategorite, serialeNeDetajim, bashkoArtikujt);
                         else
-                            mesazh = regjistrim.ruaj(false, meKontabilizim, hfNrAutoShitje, idPeriudheZgjedhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, false, String.Empty, string.Empty, string.Empty, string.Empty, cbRenditje.Checked, false, idinv, false, false, false, out mesazhmevonshem, 0, ref dbData, false, kategorite, serialeNeDetajim, bashkoArtikujt);
+                            mesazh = regjistrim.ruaj(false, meKontabilizim, hfNrAutoShitje, idPeriudheZgjedhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, false, String.Empty, string.Empty, string.Empty, string.Empty, cbRenditje.Checked, false, idinv, false, false, out mesazhmevonshem, 0, ref dbData, false, kategorite, serialeNeDetajim, bashkoArtikujt);
                         if (statusDokumenti != 0 && (hfKontrollRivleresim.Value.ToLower() == "true" && regjistrim.rivleresim()))
                         {
                             rivleresim = true;
@@ -1631,7 +1631,7 @@ namespace PlatinumWeb
                         else
                         {
                             var myWatch = Stopwatch.StartNew();
-                            mesazh = regjistrim.modifiko(transferim, meKontabilizim, lidhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, cbRenditje.Checked, false, false, false, out mesazhmevonshem, hfState.Get<bool>("GjeneruarNgaMema"), ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,hfState.Get<bool>("HyrjeGjeneruarNgaMema"));
+                            mesazh = regjistrim.modifiko(transferim, meKontabilizim, lidhur, pershkrimFk, out shfaqmesazhapolupe, eshteOwn, serialemag, serialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, cbRenditje.Checked, false, false, out mesazhmevonshem, hfState.Get<bool>("GjeneruarNgaMema"), ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,hfState.Get<bool>("HyrjeGjeneruarNgaMema"));
                             myWatch.Stop();
                             if (myWatch.Elapsed > new TimeSpan(0, 0, 1))
                                 System.Diagnostics.Trace.WriteLine("regjistrim.modifiko: " + myWatch.Elapsed);

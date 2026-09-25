@@ -251,20 +251,6 @@ namespace DbCore.DbRegjistrim
             dbTrupShitje.Dispose();
             return mbush;
         }
-        public bool mbushGjitheTrupiShitjeNgaKokaPerKthimVod(int idShitjeKoka)
-        {
-            clsDatabaseRegjistrim dbTrupShitje = new clsDatabaseRegjistrim();
-            bool mbush = mbushTrupatShitje(dbTrupShitje.mbushGjitheTrupiShitjeNgaKokaPerKthimVod(idShitjeKoka));
-            dbTrupShitje.Dispose();
-            return mbush;
-        }
-        public bool mbushGjitheTrupiShitjeNgaKokaPerBlerje(int idShitjeKoka)
-        {
-            clsDatabaseRegjistrim dbTrupShitje = new clsDatabaseRegjistrim();
-            bool mbush = mbushTrupatShitje(dbTrupShitje.mbushGjitheTrupiShitjeNgaKokaPerBlerje(idShitjeKoka));
-            dbTrupShitje.Dispose();
-            return mbush;
-        }
         public bool ktheGjitheTrupiShitjeNgaKokaRezervime(int idShitjeKoka, int idndermarje)
         {
             clsDatabaseRegjistrim dbTrupShitje = new clsDatabaseRegjistrim();

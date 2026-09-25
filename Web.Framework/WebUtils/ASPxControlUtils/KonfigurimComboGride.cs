@@ -1219,8 +1219,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                 switch (veprimi)
                 {
                     case "shitje":
-                    case "shitjediscount":
-                    case "bazaar":
                         dt = colPikaShitjeFurnizimi.mbushGjithePikaShitjeDtSmall(idNdermarrje);
                         break;
                     case "blerje":

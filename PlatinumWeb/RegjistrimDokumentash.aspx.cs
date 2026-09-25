@@ -94,7 +94,7 @@ namespace PlatinumWeb
 				hfState.Set("teDrejtaNivele", Newtonsoft.Json.JsonConvert.SerializeObject(teDrejtaNiveleRregjistrimi));
 
 				ci = MessagesResource.KtheCultureInfo(idGjuha);
-				string kodniveli = veprimi == "shitje" ? "LDSH" : (veprimi == "shitjediscount" ? "LDSHD" : (veprimi == "bazaar" ? "LDSHB" : "LDB"));
+				string kodniveli = veprimi == "shitje" ? "LDSH" : "LDB";
 				hfState.Set("kodNiveli", kodniveli);
 				ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorise(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 52, kodniveli, rm, ci, idGjuha);
 				mbushHiddenFieldMePerkthime(ci, rm);
@@ -332,10 +332,10 @@ namespace PlatinumWeb
 			bool merrProdhuar = false;
 			DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
 			konf.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text.Split(';')[0], idNdermarrje);
-			int discountdevice = veprimi == "shitjediscount" ? 1 : veprimi == "bazaar" ? 2 : 0;
+			int discountdevice = 0; // vetem dokumentat e zakonshme
 			bool merrKonvertuarPlote = (clsAlternativaKushti.getAlternativa(konf.IdKonfigAmbjente, "SHK") == "Po");
 			bool merrDokKonvertuar = (clsAlternativaKushti.getAlternativa(konf.IdKonfigAmbjente, "SHSKD") == "Po");
-			if (veprimi == "shitje" || veprimi == "shitjediscount" || veprimi == "bazaar")
+			if (veprimi == "shitje")
 			{
 				if (clsAlternativaKushti.getAlternativa(konf.IdKonfigAmbjente, "SHSP") == "Po")
 					merrStatusPorosie = true;
@@ -397,7 +397,7 @@ namespace PlatinumWeb
 				grid_RegDok.Columns["#"].VisibleIndex = 0;
 			}
 			grid_RegDok.SettingsPager.PageSize = 20;
-			var idKategoria = (veprimi == "shitje" || veprimi == "shitjediscount" || veprimi == "bazaar") ? 1 : 2;
+			var idKategoria = (veprimi == "shitje") ? 1 : 2;
 			KonfigurimComboGride.ShtoNivel(grid_RegDok, idKategoria, idNdermarrje, idPerdoruesi, idGjuha, Session, komponente, guidString);
 			KonfigurimComboGride.ShtoModel(grid_RegDok, idKategoria, idNdermarrje, idPerdoruesi, idGjuha, Session, komponente, guidString);
 			KonfigurimComboGride.ShtoMonedhe(grid_RegDok, idNdermarrje, idPerdoruesi, Session, komponente, guidString);
@@ -1134,7 +1134,7 @@ namespace PlatinumWeb
 				if (clsKoka.IdStatusDok == 2)
 					continue;
 
-				bool isShitje = (veprimi == "shitje" || veprimi == "shitjediscount" || veprimi == "bazaar");
+				bool isShitje = (veprimi == "shitje");
 				if (DbCore.MbylljePeriudhe.PeriodClosing.IsPeriodClosed(clsKoka.DtDok, MyConnectionsManager.GetSelectedConNameServer(), clsKoka.IdNdermarrje, isShitje ? KategoriDokumenti.Shitje : KategoriDokumenti.Blerje, clsKoka.IdKonfigAmbjente))
 				{
 					object[] arr = { konfig.KodKonfigAmbjente + " " + clsKoka.NrDok + " " + clsKoka.DtDok.ToShortDateString(), MessagesResource.Messages["msgPeriodIsClosed"], nrreshta };

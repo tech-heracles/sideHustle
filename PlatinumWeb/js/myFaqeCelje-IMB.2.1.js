@@ -1629,7 +1629,7 @@ myFaqeCelje.CreateCustomizationWindow = function (grida, idKomponente, idKonfig)
 
 myFaqeCelje.hapRaporti = function (s, e, grida) {
     var width = $(window).width();
-    if (Utils.getUrlVar("shitje_blerje") == "shitje" || Utils.getUrlVar('shitje_blerje') == 'shitjediscount' || Utils.getUrlVar('shitje_blerje') == 'bazaar') {
+    if (Utils.getUrlVar("shitje_blerje") == "shitje") {
         if (grida.GetSelectedRowCount() == 0)
             window.location = "Raporti.aspx?emriReal=procedimProdhimi&windowWidth=" + width + "&Filtro=false";
         else {
@@ -1645,7 +1645,7 @@ myFaqeCelje.shfaqButonRaportPorosiDealerdheProcedimProdhimi= function (s, e, eme
     if (!hfState.Get(emerRaporti.toLowerCase()))
         s.SetVisible(false);
     else
-        if (Utils.getUrlVar("shitje_blerje") == "shitje" || Utils.getUrlVar('shitje_blerje') == 'shitjediscount' || Utils.getUrlVar('shitje_blerje') == 'bazaar')
+        if (Utils.getUrlVar("shitje_blerje") == "shitje")
             s.SetVisible(true);
         else s.SetVisible(false);
 };

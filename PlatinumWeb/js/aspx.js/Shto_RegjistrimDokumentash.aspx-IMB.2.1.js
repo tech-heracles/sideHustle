@@ -710,12 +710,12 @@ function changeFunc(event, ui, emerKodi, index) {
         switch (vleraLlojit) {
             case "Artikull":
                 grida.vendosTeDhenaPerQelizen("txtKodi", index, "barkodiEkzistues", vleraKodit);
-                if (pageState.veprimi != "blerje" && pageState.veprimi != "shitje" && pageState.veprimi != "shitjediscount" && pageState.veprimi != "bazaar") {
+                if (pageState.veprimi != "blerje" && pageState.veprimi != "shitje") {
                     myMesazh.ShtoMesazhGabimi("GABIM: lloj dokumenti i panjohur!!! veprimi: " + pageState.veprimi);
                     return;
                 }
                 var listeIMEIArtikull = new Array();
-                if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar')) {
+                if ((pageState.veprimi == 'shitje')) {
                     peshoreArt = pageState.peshore.checkPeshore(vleraKodit);
                     if (peshoreArt) {
                         vleraKodit = peshoreArt.kodArt;
@@ -1285,7 +1285,7 @@ function kontrolloGjendje(idartikuli, mag, data, koddetajim, koddetajim2, iddok,
             data: JSON.stringify({
                 idja: idartikuli, mag: mag, data: data, koddetajim: koddetajim, koddetajim2: koddetajim2, iddok: iddok, idndermarje: idndermarje,
                 idKonfigAmbjente: idKonfigAmbjente, idreshti: idrreshti, totalartikulli: totali, totaldetajim1: totalDetajimpare, totaldetajim2: totaliDetajimdyte,
-                shitje_blerje: pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar', ekzekutimProdhim:false
+                shitje_blerje: pageState.veprimi == 'shitje', ekzekutimProdhim:false
             })
         }).done(SucceededCallbackKontrollGjendje);
 
@@ -1425,7 +1425,7 @@ function vendosDetajim(result, event) {
             callWebserviceCmimArtikulliRow(grida.getTekstQelize("txtKodi", idRreshti), NivelCmimi, data_DateEdit.GetText(), cmbMonedha.GetText(), grida.getTekstQelize('cmbNjesia', idRreshti), txtKursi.GetText(), idRreshti, grida.getTekstQelize("txtSasia", idRreshti), merrDetajim(grida, idRreshti), true);
         return;
     }
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && detajim.Loan == 1 && !hfState.Get('Meme')) {
+    if ((pageState.veprimi == 'shitje') && detajim.Loan == 1 && !hfState.Get('Meme')) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgKySerialMundTePerdoretVetemPerLoan"));
         grida.setTekstQelize(idDet, idRreshti, undefined);
         $(det).data('Kodi', '');
@@ -1505,7 +1505,7 @@ function callWebserviceArtikulliIPlote(object) {
     myJQGrid.beginWebserviceCmimArtikulliRow(object.idRresht, "txtCmimiTvsh");
     var counterWsKodi = beginWebserviceKodArtikulliRow(object.idRresht);
     var doneFunc;
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && object.idArt == -1)
+    if ((pageState.veprimi == 'shitje') && object.idArt == -1)
         doneFunc = function (result) {
             vendosArtPlote(result, object.idRresht, object.ngaLupa, object.peshoreArt);
             postShtimModifikimNgaLupa(object, grida);
@@ -1538,7 +1538,7 @@ function callWebserviceArtikulliIPlote(object) {
             njesiDef: njesiDef,
             kursi: txtKursi.GetText() == "" ? 1 : txtKursi.GetText(),
             sasia: grida.getTekstQelize('txtSasia', object.idRresht) == '' ? grida.getVlereDefault('txtSasia') : grida.getTekstQelize('txtSasia', object.idRresht),
-            shitjeblerje: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? 0 : 1,
+            shitjeblerje: (pageState.veprimi == 'shitje') ? 0 : 1,
             gjendjeMinMax: gjendjeartminmax == 1,
             kontrolloImeiFifo: pageState.kushte.AFI,
             listeIMEIArtikull: object.listeIMEIArtikull,
@@ -1700,7 +1700,7 @@ function vendosArtPlote(result, idRreshti, ngaLupa, artPeshore) {
         resetRreshtKorent(idRreshti);
         return;
     }
-    if ((artikulli.Klasa === 6) && (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar')) {
+    if ((artikulli.Klasa === 6) && (pageState.veprimi == 'shitje')) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukKryhenVeprimeMeArtikujProdhimProces"));
         resetRreshtKorent(idRreshti);
         return;
@@ -1774,7 +1774,7 @@ function vendosArtPlote(result, idRreshti, ngaLupa, artPeshore) {
 
     if (artikulli.KodArtikulli != "" && detajimi != null && pageState.veprimi != 'blerje') //detajimi pare
     {
-        if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && detajimi.Loan == 1 && !hfState.Get('Meme')) {
+        if ((pageState.veprimi == 'shitje') && detajimi.Loan == 1 && !hfState.Get('Meme')) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgKySerialMundTePerdoretVetemPerLoan"));
             grida.setTekstQelize('txtDetajimi', idRreshti, '');
             $('#txtDetajimi' + idRreshti).data('Kodi', '');
@@ -1974,7 +1974,7 @@ function vendosArtNgaLupa(result) {
     var rreshtiFundit = grida.getGridParam('reccount');
     if (grida.getCell(rreshtiFundit, 'txtKodi') != "") {//Shto nje rresht bosh ne fund nese nuk ka nje te tille
         var rreshtiTjeter = parseInt(rreshtiFundit) + 1;
-        var disable = (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && $("input[id$='hfShtimModifikim']").val() == "konvertim") || (lidhur && $("input[id$='hfShtimModifikim']").val() != "bli"));
+        var disable = (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || lidhur);
 
 
         be = myJQGrid.myValueButtonFshi(disable, rreshtiTjeter, "#rowed5");
@@ -2353,8 +2353,6 @@ function formGridColsArray(isLidhur) {//po
     var hfLupaLlogShpenz = $('#hfLupaLlogShpenz');
     var IdKonfigAmbjenteLupat = [{ hfVar: hfGridKod, kodiText: "txtKodi" }, { hfVar: hfGridDetajim, kodiText: "txtDetajimi" }, { hfVar: hfLupaLlogShpenz, kodiText: "txtIdLlogShpenzimi" }];
     myJQGrid.formArrayKolGrides($("input[id$='HfGridCol']"), arrayIdKolonaGrides, arrayPershkrimiKolonaGrides, arrayVisibleKolonaGrides, arrayReadOnlyKolonaGrides, isLidhur, arrayWidthKolonaGrides, IdKonfigAmbjenteLupat, arrayRenditjeKolonaGrides);
-    if ($("input[id$='hfShtimModifikim']").val() == "bli")
-        arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] = "False";
 
 }
 
@@ -2371,7 +2369,7 @@ function myelemCmimi(value, options) {//po
     //if ((arrayReadOnlyKolonaGrides[14] == 'True') || !lejomod || vleraLlojit == "Llogari" || (hfTeDrejta.Get("NdryshoCmimShitje") == false && pageState.veprimi == 'shitje') || (hfTeDrejta.Get("NdryshoCmimBlerje") == false && pageState.veprimi == 'blerje'))
     //    disable = 'True';
     var shitje;
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+    if ((pageState.veprimi == 'shitje'))
         shitje = true;
     else shitje = false;
     return myJQGrid.myElemCmimiAutocomplete({ value: value, options: options, disabled: ((arrayReadOnlyKolonaGrides[14] == "True") || (readOnly(grida, idRow) ? "True" : "False")), idRreshti: idRow, id: 'txtCmimi', buttonClickKodi: ButtonClickCmimi, keyUpKodi: keyPressCmimi, changefunction: changedCmimireshti, fokusi: pageState.kushte.F, lostFocusKoloneFundit: lostFocusKoloneFundit, shitje: shitje, hfFormatNumri: hfFormatNumri });
@@ -2385,7 +2383,7 @@ function myelemCmimiTvsh(value, options) {//po
     //if ((arrayReadOnlyKolonaGrides[14] == 'True') || !lejomod || vleraLlojit == "Llogari" || (hfTeDrejta.Get("NdryshoCmimShitje") == false && pageState.veprimi == 'shitje') || (hfTeDrejta.Get("NdryshoCmimBlerje") == false && pageState.veprimi == 'blerje'))
     //    disable = 'True';
     var shitje;
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+    if ((pageState.veprimi == 'shitje'))
         shitje = true;
     else shitje = false;
     return myJQGrid.myElemCmimiAutocomplete({ value: value, options: options, disabled: ((arrayReadOnlyKolonaGrides[40] == "True") || (readOnly(grida, idRow) ? "True" : "False")), idRreshti: idRow, id: 'txtCmimiTvsh', buttonClickKodi: ButtonClickCmimi, keyUpKodi: keyPressCmimi, changefunction: changedCmimireshtiTvsh, fokusi: pageState.kushte.F, lostFocusKoloneFundit: lostFocusKoloneFundit, shitje: shitje, hfFormatNumri: hfFormatNumri });
@@ -2461,7 +2459,7 @@ function enable(idRow) {//po
         var isReadOnly = readOnly(grida, idRow);
         switch (vleraLlojit) {
             case "Artikull":
-                var kushtiPerCmimet = (hfTeDrejta.Get("NdryshoCmimShitje") == false && pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') || (hfTeDrejta.Get("NdryshoCmimBlerje") == false && pageState.veprimi == 'blerje');
+                var kushtiPerCmimet = (hfTeDrejta.Get("NdryshoCmimShitje") == false && pageState.veprimi == 'shitje') || (hfTeDrejta.Get("NdryshoCmimBlerje") == false && pageState.veprimi == 'blerje');
 
                 $('#txtCmimi' + idRow).attr('disabled', kushtiPerCmimet || arrayReadOnlyKolonaGrides[14] == "True" || isReadOnly);
                 $('#fTvsh' + idRow).attr('disabled', kushtiPerCmimet || arrayReadOnlyKolonaGrides[40] == "True" || isReadOnly);
@@ -2600,7 +2598,7 @@ function keyPressSeriali(e) {
             $.ajax({
                 pritPergjigje: true,
                 url: Utils.getServerApiUrl("Rregjistrime", "CelSerialNqsNukEkziston"),
-                data: JSON.stringify({ kodserial: serial, idndermarje: pageState.idNdermarrje, idperdoruesi: pageState.idPerdoruesi, idartikulli: idkodi, lastsel: idRreshti, serialeekzistuese: hfSeriale.Contains(idkodi + '_' + idRreshti) ? hfSeriale.Get(idkodi + '_' + idRreshti) : "", serialeteperdoruraNeKeteFature: arrayMeSeriale, celnqsnukekziston: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? false : true, magazina: grida.getTekstQelize('txtMagazina', idRreshti), sasishuma: sasishumaperserial, iddokmodmagazine: $('#hfIdMag').val() })
+                data: JSON.stringify({ kodserial: serial, idndermarje: pageState.idNdermarrje, idperdoruesi: pageState.idPerdoruesi, idartikulli: idkodi, lastsel: idRreshti, serialeekzistuese: hfSeriale.Contains(idkodi + '_' + idRreshti) ? hfSeriale.Get(idkodi + '_' + idRreshti) : "", serialeteperdoruraNeKeteFature: arrayMeSeriale, celnqsnukekziston: (pageState.veprimi == 'shitje') ? false : true, magazina: grida.getTekstQelize('txtMagazina', idRreshti), sasishuma: sasishumaperserial, iddokmodmagazine: $('#hfIdMag').val() })
             }).done(SucceededCallbackSerial);
         }
         grida.setTekstQelize('txtSerial', idRreshti, "");
@@ -2738,7 +2736,7 @@ function keyPressCmimi(event, idRow, id) {     //po
 
 function myValueButtonFshi(elem, operation, value) {//po
     var idRow = $(pageState.gridaSelector).getLastSel2();
-    var disabled = (hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && $("input[id$='hfShtimModifikim']").val() == "konvertim"));
+    var disabled = (hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True');
 
     return myJQGrid.myValueButtonFshi(disabled, idRow, "#rowed5");
 }
@@ -2801,7 +2799,7 @@ function myElemButtonFshi() {//po
     var idRreshti = $(pageState.gridaSelector).getLastSel2();
     callWebServiceInfoRow(idRreshti);
     changell(null, idRreshti);
-    var disabled = hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && $("input[id$='hfShtimModifikim']").val() == "konvertim");
+    var disabled = hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True';
 
     return myJQGrid.myElemButtonFshi(disabled, idRreshti, "#rowed5", lostFocusKoloneFundit);
 
@@ -3012,7 +3010,7 @@ function myelemVleftaTVSH(value, options) {
 
 function readOnly(grida, idRow) {
     var vleraLlojit = grida.getTekstQelize('cmbLloji', idRow);
-    return !lejomod || (vleraLlojit !== "Llogari" && (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && hfTeDrejta.Get("NdryshoCmimShitje") == false) || (vleraLlojit !== "Llogari" && pageState.veprimi == 'blerje' && hfTeDrejta.Get("NdryshoCmimBlerje") == false);
+    return !lejomod || (vleraLlojit !== "Llogari" && (pageState.veprimi == 'shitje') && hfTeDrejta.Get("NdryshoCmimShitje") == false) || (vleraLlojit !== "Llogari" && pageState.veprimi == 'blerje' && hfTeDrejta.Get("NdryshoCmimBlerje") == false);
 }
 
 function kontrolloRow(rowid, artikulli) {
@@ -3339,7 +3337,7 @@ function updateCmimiGrid() {
             ajaxCmimi = $.ajax({
                 pritPergjigje: true,
                 url: Utils.getServerApiUrl("Rregjistrime", "ktheCmimArtikulliRow"),
-                data: JSON.stringify({ idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, kodArtikulli: kodArt, nivelCmimi: NivelCmimi, date: data_DateEdit.GetText(), monedha: cmbMonedha.GetText(), njesia: njesiRreshti, kursi: txtKursi.GetText(), idRreshti: indexi, sasi: sasia, shitjeblerje: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? 0 : 1, detajim: detajim })
+                data: JSON.stringify({ idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, kodArtikulli: kodArt, nivelCmimi: NivelCmimi, date: data_DateEdit.GetText(), monedha: cmbMonedha.GetText(), njesia: njesiRreshti, kursi: txtKursi.GetText(), idRreshti: indexi, sasi: sasia, shitjeblerje: (pageState.veprimi == 'shitje') ? 0 : 1, detajim: detajim })
             });
         }
         if (ajaxCmimi && ajaxZbritja)
@@ -3535,7 +3533,7 @@ function callWebserviceKodi(vlera, idRreshti) {
             $.ajax({
                 pritPergjigje: true,
                 url: Utils.getServerApiUrl("Rregjistrime", "ktheACListeArtikujshKodPershkKodbarEShpejt"),
-                data: JSON.stringify({ infixText: vlera, pershk: pershk, grup: grup, idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, artikujTeShitshem: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? true : false, merrVetemAfatgjate: false, merrSipasDetajimit: pageState.kushte["NAGDN"], klasa: "" })
+                data: JSON.stringify({ infixText: vlera, pershk: pershk, grup: grup, idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, artikujTeShitshem: (pageState.veprimi == 'shitje') ? true : false, merrVetemAfatgjate: false, merrSipasDetajimit: pageState.kushte["NAGDN"], klasa: "" })
             }).done(function (result) { SucceededCallbackKodi(result, idRreshti); });
             break;
         case "Makro":
@@ -3770,7 +3768,7 @@ function percaktoButonFshiEnabled() {
         isLidhur = true;
 
 
-    return hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides - 1] == 'True' || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && $("input[id$='hfShtimModifikim']").val() == "konvertim") || (isLidhur && $("input[id$='hfShtimModifikim']").val() != "bli");
+    return hfState.Get("MosModifikoTrup") || arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides - 1] == 'True' || isLidhur;
 }
 
 function krijoRreshtBosh(id, txtFshi, txtSerialUnik) {
@@ -3794,7 +3792,7 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
         return;
     }
 
-    if (shtimModifikim == "modifikim" || shtimModifikim === "klonim" || shtimModifikim === "shtimraport" || shtimModifikim === "kthim" || shtimModifikim === "kthimVod" || shtimModifikim === "bli" || shtimModifikim === "konvertim" || shtimModifikim === "konvertimblerje" || shtimModifikim === "rezervim") {
+    if (shtimModifikim == "modifikim" || shtimModifikim === "klonim" || shtimModifikim === "shtimraport" || shtimModifikim === "kthim" || shtimModifikim === "konvertim" || shtimModifikim === "konvertimblerje" || shtimModifikim === "rezervim") {
         if ($('#HfColTrup').val() !== '') {
             colTrup = JSON.parse($('#HfColTrup').val());
             $('#HfColTrup').val('');
@@ -3894,7 +3892,7 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
             if (colTrup[i].Zbritje !== null)
                 rreshti.txtZbritja = colTrup[i].Zbritje;
             if (colTrup[i].ZbritjeVlere !== null)
-                rreshti.txtZbritjaVlere = (shtimModifikim === "kthim" || shtimModifikim === "kthimVod") ? -colTrup[i].ZbritjeVlere : colTrup[i].ZbritjeVlere;
+                rreshti.txtZbritjaVlere = (shtimModifikim === "kthim") ? -colTrup[i].ZbritjeVlere : colTrup[i].ZbritjeVlere;
             if (colTrup[i].LlojZbritje !== null)
                 rreshti.txtLlojZbritje = (colTrup[i].LlojZbritje == 1 ? 'Perqindje' : 'Vlere');
             //fushat Sasia, Cmimi, Gjatesia, Gjeresia, SasiaMbetur, SasiPermasa duhen plotesuar ne cdo rast, si ne rastin kur ka artikull tek trupi, po ashtu edhe ne rastin kur ka llogari
@@ -3959,7 +3957,7 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
                 rreshti.txtIdTrupiKonvertimi = colTrup[i].IdTrupiKonvertimi;
             if (colTrup[i].IdTrupiKonvertimBlerje !== null)
                 rreshti.txtIdTrupiKonvertimBlerje = colTrup[i].IdTrupiKonvertimBlerje;
-            if (shtimModifikim === "kthim" || shtimModifikim === "kthimVod") {
+            if (shtimModifikim === "kthim") {
                 if (colTrup[i].IdShitjeTrupi !== null)
                     rreshti.txtIdTrupiKthim = colTrup[i].IdShitjeTrupi;
             }
@@ -4516,7 +4514,7 @@ function SucceededCallbackKonfig(result) {  //po
         cmbModeli.SetEnabled(false);
     }
 
-    if (pageState.lloji == "shtim" || pageState.lloji === "klonim" || pageState.lloji === "shtimraport" || pageState.lloji === "kthim" || pageState.lloji === "kthimVod" || pageState.lloji === "bli" || pageState.lloji === "konvertim" || pageState.lloji === "konvertimblerje" || pageState.lloji === "rezervim") {
+    if (pageState.lloji == "shtim" || pageState.lloji === "klonim" || pageState.lloji === "shtimraport" || pageState.lloji === "kthim" || pageState.lloji === "konvertim" || pageState.lloji === "konvertimblerje" || pageState.lloji === "rezervim") {
         hfNrAuto.Clear();
         hfNrAutoShitje.Clear();
         myNrAuto.vendosNrAutomatik(colAtrTrupi, colKontrollet, data_DateEdit.GetDate(), result.objekteDefault);
@@ -5104,16 +5102,9 @@ function SucceededCallbackKonfig(result) {  //po
         if (Utils.getUrlVar("shitje_blerje") == 'shitje') {
             $("input[id$='hfVlera']").val(Utils.getUrlVar("zbritje"));
         }
-        else if (Utils.getUrlVar("shitje_blerje") == 'shitjediscount') {
-            // $("input[id$='hfZbritja']").val(100);
-            cmbLlojZbritje.SetValue(Utils.llojZbritje.Perqindje);
-            $("input[id$='hfVlera']").val(Utils.getUrlVar("zbritje"));
-            //  $("input[id$='hfZbritja']").val(Utils.getUrlVar("zbritje"));
-        }
         $("input[id$='hfPiket']").val(Utils.getUrlVar("pike"));
         txtPike.SetText(Utils.getUrlVar("pike"));
     }
-    else $("input[id$='hfKodVFOne']").val('');
 
     if (Utils.getUrlVar("zbritje") != "undefined" && cmbModeli.GetText().substring(0, 5) == "VFONE") {
         $("input[id$='hfVlera']").val(Utils.getUrlVar("zbritje"));
@@ -5143,7 +5134,7 @@ function SucceededCallbackKonfig(result) {  //po
     }
 
     if (btnKlienti.GetText() == "") {
-        if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && cmbKarta.GetVisible())
+        if ((pageState.veprimi == 'shitje') && cmbKarta.GetVisible())
             callwebserviceMbushKarta(0);
     }
 
@@ -5434,7 +5425,7 @@ function ButtonClickKlientiVartes() {//po
         kfkryesor = btnKlienti.GetValue();
 
     popupUniversal.SetHeaderText(hfState.Get("msgZgjidhKF"));
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+    if ((pageState.veprimi == 'shitje'))
         popupUniversal.SetContentUrl('LupaKlientFurnitor.aspx?idKonfigAmbjente=' + queryStr + '&veprimi=' + 1 + '&kfkryesor=' + kfkryesor + '&idKfV=' + btneKlientfurnitorVartes.GetText());
     else
         popupUniversal.SetContentUrl('LupaKlientFurnitor.aspx?idKonfigAmbjente=' + queryStr + '&veprimi=' + 2 + '&kfkryesor=' + kfkryesor + '&idKfV=' + btneKlientfurnitorVartes.GetText());
@@ -5660,7 +5651,7 @@ function ButtonClickAfateMaturimi() {//po
     var hfMat = document.getElementById("hfLupaAfatMaturimi");
     var queryStr = hfMat.value;
     popupUniversal.SetHeaderText(hfState.Get("msgZgjidhAfateMaturimi"));
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+    if ((pageState.veprimi == 'shitje'))
         popupUniversal.SetContentUrl('LupaAfateMaturimi.aspx?veprimi=2&idKonfigAmbjente=' + queryStr);
     else popupUniversal.SetContentUrl('LupaAfateMaturimi.aspx?veprimi=1&idKonfigAmbjente=' + queryStr);
     popupUniversal.SetSize(widthLupaMaturimi, heightLupaMaturimi);
@@ -5790,7 +5781,7 @@ function callWebServiceKategorizbritje(kf, date) {//po
 }
 
 function aplikoZbritjeKlienti() {
-    return (pageState.Kf.alternativaKushtZbritje == "Te dyja" || ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && pageState.Kf.alternativaKushtZbritje == "Dokument shitje") || (pageState.veprimi == "blerje" && pageState.Kf.alternativaKushtZbritje == "Dokument blerje"));
+    return (pageState.Kf.alternativaKushtZbritje == "Te dyja" || ((pageState.veprimi == 'shitje') && pageState.Kf.alternativaKushtZbritje == "Dokument shitje") || (pageState.veprimi == "blerje" && pageState.Kf.alternativaKushtZbritje == "Dokument blerje"));
 }
 
 function setZbritjeTotal(llojZbritje, zbritje, changeZbritje) {
@@ -5970,7 +5961,7 @@ function SucceededCallbacOKF(result) {//po
         if (!(result.mosPlotesoTeDhena === true && (txtAdresaFaturimit.GetText() !== "" || txtAdresaDergimit.GetText() !== "")))
             vendosAdresaKF(result.oColAdresatKF);
 
-        if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && cmbKarta.GetVisible())//&& cmbKarta.GetSelectedItem() == null //hequr te ngarkohen kartat e vetem klientit
+        if ((pageState.veprimi == 'shitje') && cmbKarta.GetVisible())//&& cmbKarta.GetSelectedItem() == null //hequr te ngarkohen kartat e vetem klientit
             callwebserviceMbushKarta(result.kf.IdKlientFurnitor);
 
         var vleraDoganes = result.kf.MeDogane ? 'True' : 'False';
@@ -6096,7 +6087,7 @@ function SucceededCallbackOKFDefault(result) {//po
         //updateCmimiGrid();
     }
     else NivelCmimi = -1;
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && cmbKarta.GetVisible() && cmbKarta.GetText() == "")
+    if ((pageState.veprimi == 'shitje') && cmbKarta.GetVisible() && cmbKarta.GetText() == "")
         callwebserviceMbushKarta(result.kf.IdKlientFurnitor);
     if (pageState.lloji == "shtim" && !(result.mosPlotesoTeDhena === true && (txtAdresaFaturimit.GetText() !== "" || txtAdresaDergimit.GetText() !== "")))
         vendosAdresaKF(result.oColAdresatKF);
@@ -6331,13 +6322,10 @@ function SucceededCallbackNiveli(colModelet) {
     if (pageState.lloji == "shtim") {
         cmbModeli.ClearItems();
         for (i = 0; i < colModelet.length; i++) {
-            if ((Utils.getUrlVar('shitje_blerje') == "shitjediscount" && ((colModelet[i].KodKonfigAmbjente.length > 5 && colModelet[i].KodKonfigAmbjente.substring(0, 5) == "USHDD") || (colModelet[i].KodKonfigAmbjente.length > 8 && colModelet[i].KodKonfigAmbjente.substring(0, 8) == "POROSIDD"))) ||
-                (Utils.getUrlVar('shitje_blerje') == "bazaar" && ((colModelet[i].KodKonfigAmbjente.length > 6 && colModelet[i].KodKonfigAmbjente.substring(0, 6) == "BAZAAR") || (colModelet[i].KodKonfigAmbjente.length > 12 && colModelet[i].KodKonfigAmbjente.substring(0, 12) == "POROSIBAZAAR")))
-                || (Utils.getUrlVar('shitje_blerje') != "shitjediscount" && Utils.getUrlVar('shitje_blerje') != "bazaar" && !(((colModelet[i].KodKonfigAmbjente.length > 5 && colModelet[i].KodKonfigAmbjente.substring(0, 5) == "USHDD") || (colModelet[i].KodKonfigAmbjente.length > 8 && colModelet[i].KodKonfigAmbjente.substring(0, 8) == "POROSIDD") ||
-                    (colModelet[i].KodKonfigAmbjente.length > 6 && colModelet[i].KodKonfigAmbjente.substring(0, 6) == "BAZAAR") || (colModelet[i].KodKonfigAmbjente.length > 12 && colModelet[i].KodKonfigAmbjente.substring(0, 12) == "POROSIBAZAAR")))))
-
-
-
+            // llojet e dokumenteve te Vodafone (discount / bazaar) nuk shfaqen
+            var kodiModelit = colModelet[i].KodKonfigAmbjente;
+            if (!((kodiModelit.length > 5 && kodiModelit.substring(0, 5) == "USHDD") || (kodiModelit.length > 8 && kodiModelit.substring(0, 8) == "POROSIDD") ||
+                (kodiModelit.length > 6 && kodiModelit.substring(0, 6) == "BAZAAR") || (kodiModelit.length > 12 && kodiModelit.substring(0, 12) == "POROSIBAZAAR")))
                 cmbModeli.AddItem([colModelet[i].KodKonfigAmbjente, colModelet[i].PershkrimKonfigAmbjente], colModelet[i].IdKonfigAmbjente); //AddItem(teksti, vlera);
         }
         if (!selektoKonfigurim)
@@ -6771,7 +6759,7 @@ function ButtonClickKodi() {//po
             var idMagazina = -1;
             if (btnMagazina.GetText() !== '')
                 idMagazina = btnMagazina.GetValue();
-            if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+            if ((pageState.veprimi == 'shitje'))
                 popupUniversal.SetContentUrl('LupaArtikull.aspx?idKonfigAmbjente=' + queryStr + '&grup=' + grup + '&idMag=' + idMagazina + '&shitshem=true&idUserPerTheme=' + pageState.idPerdoruesi);
             else
                 popupUniversal.SetContentUrl('LupaArtikull.aspx?idKonfigAmbjente=' + queryStr + '&grup=' + grup + '&idMag=' + idMagazina + '&shitshem=false&idUserPerTheme=' + pageState.idPerdoruesi);
@@ -6854,7 +6842,7 @@ function callWebserviceCmimArtikulliRow(kodartikulli, nivel, date, monedhe, njes
     $.ajax({
         pritPergjigje: true,
         url: Utils.getServerApiUrl("Rregjistrime", "ktheCmimArtikulliRow"),
-        data: JSON.stringify({ idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, kodArtikulli: kodartikulli, nivelCmimi: nivel, date: date, monedha: monedhe, njesia: njesi, kursi: kursi, idRreshti: idRreshti, sasi: sasi, shitjeblerje: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? 0 : 1, detajim: detajim })
+        data: JSON.stringify({ idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, kodArtikulli: kodartikulli, nivelCmimi: nivel, date: date, monedha: monedhe, njesia: njesi, kursi: kursi, idRreshti: idRreshti, sasi: sasi, shitjeblerje: (pageState.veprimi == 'shitje') ? 0 : 1, detajim: detajim })
     }).done(function (res) {
         myJQGrid.endWebserviceCmimArtikulliRow(idRreshti, "txtCmimi");
         myJQGrid.endWebserviceCmimArtikulliRow(idRreshti, "txtCmimiTvsh");
@@ -6868,7 +6856,7 @@ function callWebserviceComboCmimArtikulliRow(kodartikulli, nivel, date, monedhe,
     $.ajax({
         pritPergjigje: true,
         url: Utils.getServerApiUrl("Rregjistrime", "ktheCmimetSipasNiveleveArtComboMeKodRow"),
-        data: JSON.stringify({ kodi: kodartikulli, idNdermarrje: pageState.idNdermarrje, idPerdorues: pageState.idPerdoruesi, data: date, monedha: monedhe, njesia: njesi, kursi: kursi, index: idRreshti, sasi: sasi, nivel: nivel, shitjeblerje: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? 0 : 1, detajim: det })
+        data: JSON.stringify({ kodi: kodartikulli, idNdermarrje: pageState.idNdermarrje, idPerdorues: pageState.idPerdoruesi, data: date, monedha: monedhe, njesia: njesi, kursi: kursi, index: idRreshti, sasi: sasi, nivel: nivel, shitjeblerje: (pageState.veprimi == 'shitje') ? 0 : 1, detajim: det })
     }).done(function (result) {
         SucceededCallbackComboCmimeArtikulli(result, idRreshti, idFushe);
     });
@@ -7689,7 +7677,7 @@ function updateTotalet(zbritTotalPerqindje, zbritTotalVlere) {//po
     var grida = $(pageState.gridaSelector);
     var gridaKomision = $(pageState.gridaKomision);
     var idRresht = grida.getLastSel2();
-    if (zbritTotalPerqindje === "" || ((pageState.veprimi == "blerje" && pageState.Kf.alternativaKushtZbritje == "Dokument shitje") || ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && pageState.Kf.alternativaKushtZbritje == "Dokument blerje"))) //todo Pati - ca sensi ka kjo???
+    if (zbritTotalPerqindje === "" || ((pageState.veprimi == "blerje" && pageState.Kf.alternativaKushtZbritje == "Dokument shitje") || ((pageState.veprimi == 'shitje') && pageState.Kf.alternativaKushtZbritje == "Dokument blerje"))) //todo Pati - ca sensi ka kjo???
         zbritTotalPerqindje = 0;
     if (zbritTotalVlere === "")
         zbritTotalVlere = 0;
@@ -7722,15 +7710,8 @@ function updateTotalet(zbritTotalPerqindje, zbritTotalVlere) {//po
             zbritTotalVlere = totale.totali;
         }
         else if ($('#hfVlera').val() != '' && $('#hfVlera').val() != 0) {
-            if (Utils.getUrlVar("shitje_blerje") == 'shitjediscount') {
-                txtVlefte.SetText((totale.totali >= $('#hfVlera').val()) ? $('#hfVlera').val() : 0);
-                zbritTotalVlere = (totale.totali >= $('#hfVlera').val()) ? $('#hfVlera').val() : 0;
-            }
-            else {
-                txtVlefte.SetText((totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0);
-                zbritTotalVlere = (totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0;
-
-            }
+            txtVlefte.SetText((totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0);
+            zbritTotalVlere = (totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0;
             txtPerqindje.SetText(zbritTotalVlere * 100 / totale.totali);
             zbritTotalPerqindje = zbritTotalVlere * 100 / totale.totali;
         }
@@ -7757,7 +7738,7 @@ function updateTotalet(zbritTotalPerqindje, zbritTotalVlere) {//po
     vendosTotaleMonedheFature();
 
     //gerta
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar')) {
+    if ((pageState.veprimi == 'shitje')) {
         if ($("input[id$='hfPolitike']").val() != "" && $("input[id$='hfPolitike']").val() != undefined) {
             var politike = JSON.parse($("input[id$='hfPolitike']").val());
             if (politike.Lloji == 0) {
@@ -7822,7 +7803,7 @@ function vendosKuponTatimor() {
             myNrAuto.vendosNrAutomatikNrSerial(pageState.colAtrTrupi, pageState.colKontrollet, data_DateEdit.GetDate());
     }
     else {
-        if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && !serialShenuarNgaPerdoruesi && kupon) {
+        if ((pageState.veprimi == 'shitje') && !serialShenuarNgaPerdoruesi && kupon) {
             if ((kuponKerkonKlienti || kuponKerkonKonfigurim) && kontrolloNrAutomatik)
                 myNrAuto.vendosNrAutomatikNrSerial(pageState.colAtrTrupi, pageState.colKontrollet, data_DateEdit.GetDate());
             else {
@@ -8196,8 +8177,6 @@ function vendosDateDefault(shtimMod) {
 
     switch (shtimMod) {
         case "kthim":
-        case "kthimVod":
-        case "bli":
             dateRegjistrimi_DateEdit.SetDate(dataSot);
             cmbMuajRaportimi.SetValue(dataSot.getMonth() + 1);
             cmbVitRaportimi.SetText(dataSot.getFullYear());
@@ -8871,7 +8850,7 @@ function menuClick(s, e, doPostback) {//po
 }
 
 function HapLupeSerialeshUnike(idSeti) {
-    var hyrje_dalje = (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? "dalje" : "hyrje";
+    var hyrje_dalje = (pageState.veprimi == 'shitje') ? "dalje" : "hyrje";
     var idMag = btnMagazina.GetValue();
     myButtonClickLupa.ButtonClickLupaSerialeUnike(popupSerialet, 'Serialet', {
         "guidString": pageState.guidString,
@@ -9016,7 +8995,6 @@ function PastroClick() {//po
     $("input[id$='hfLidhur']").val(false);
     $("input[id$='hfAutorizimi']").val(true);
     $("input[id$='hfPiket']").val('');
-    $("input[id$='hfKodVFOne']").val('');
     $("input[id$='hfVodOne']").val('');
     hfState.Set("konvNgaUshNeFsh", false);
     hfState.Set("eshteDokKthimi", false);
@@ -9218,7 +9196,7 @@ function SuccededCallbackKonvertim(result) {
     //lastsel2 = parseFloat(arrid[arrid.length - 1]) + 1;
     grida.setLastSel2(parseFloat(arrid[arrid.length - 1]) + 1);
     for (var i = 0; i < colArt.length; i++) {
-        if (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && $("input[id$='hfShtimModifikim']").val() == "konvertim") || (lidhur && $("input[id$='hfShtimModifikim']").val() != "bli"))
+        if (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True' || lidhur)
 
             be = myJQGrid.myValueButtonFshi(true, grida.getLastSel2(), "#rowed5");
         else
@@ -9757,7 +9735,7 @@ function SuccededCallbackKontrolloEkzistojneDokQePoKonvertohen() {
     else if (cmbKonverto.GetText() == 'FH' || cmbKonverto.GetText() == 'UH')
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimMagazine.aspx?lloj=hyrje' + '&id=' + idte[0] + '&shtim_modifikim=konvertim&niveli=' + cmbKonverto.GetValue() + '&konfigurim=' + cmbKonf.GetValue() + '&fsh=po' + '&pageCacheId=' + window['CurrentPageId']);
 
-    else if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') && (cmbKonverto.GetText() == 'FB' || cmbKonverto.GetText() == 'UB' || cmbKonverto.GetText() == 'OB' || cmbKonverto.GetText() == 'KB'))
+    else if ((pageState.veprimi == 'shitje') && (cmbKonverto.GetText() == 'FB' || cmbKonverto.GetText() == 'UB' || cmbKonverto.GetText() == 'OB' || cmbKonverto.GetText() == 'KB'))
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&id=' + idte[0] + '&shtim_modifikim=konvertimblerje&niveli=' + cmbKonverto.GetValue() + '&konfigurim=' + cmbKonf.GetValue() + '&klientKonv=' + btnKlienti.GetValue() + '&pageCacheId=' + window['CurrentPageId']);
     else
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=' + pageState.veprimi + '&id=' + idte[0] + '&shtim_modifikim=konvertim&niveli=' + cmbKonverto.GetValue() + '&konfigurim=' + cmbKonf.GetValue() + '&klientKonv=' + btnKlienti.GetValue() + '&pageCacheId=' + window['CurrentPageId']);
@@ -10075,7 +10053,7 @@ function TextChangedKlienti(s, e) {
 
 
 function kontrolloSasiLimit(idRow, idartikulli, kontrollSasi) {
-    if ((pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar'))
+    if ((pageState.veprimi == 'shitje'))
         return;
     var totali = 0;
     var totalivlere = 0;

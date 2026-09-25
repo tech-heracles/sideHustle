@@ -5716,36 +5716,6 @@ namespace DbCore.DbInventari
         }
 
 
-        public bool MundTePorositet(decimal gjendje, decimal gjendje2, decimal gjendjeOwn, decimal porositur, bool eshteOwn, decimal vlere, bool bazaar, bool vfone)
-        {
-
-            if ((this.klasa != 4 && !this.IRezervueshem) || (this.Klasa == 4 && !eshteERezervueshmeRecepturaAparat(this.IdArtikulli)) || this.KodArtikulli.EndsWith("blere_nga_dealer") || gjendje2 > 0)
-                return false;
-
-            if (bazaar)
-            {
-                if (vlere <= 0)
-                    return false;
-
-                return gjendje <= 0;
-
-            }
-
-            if (vfone)
-            {
-                if (gjendje > 0)
-                    return false;
-
-                if (gjendjeOwn <= 0)
-                    return false;
-
-                return (porositur < this.StokuMaxVfOne);
-
-            }
-            return gjendje <= 0;
-
-        }
-
         public static System.Object MerrDetajimeArtikulli(string kodArtikulli, int idNdermarrje, int idPerdorues)
         {
             string detajime = "";

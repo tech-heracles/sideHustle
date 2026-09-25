@@ -1312,23 +1312,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage KontrolloKthim(JObject param)
-        {
-            try
-            {
-
-                int ids = param["ids"].Value<int>();
-                bool kthyer = param["kthyer"].Value<bool>();
-                string pageId = param["pageId"].Value<string>();
-
-                return Request.KthePergjigje(RregjistrimeRepository.KontrolloKthim(ids, kthyer, pageId));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-        [HttpPost, HttpGet]
         public HttpResponseMessage merrUrlPaguaj(JObject param)
         {
             try

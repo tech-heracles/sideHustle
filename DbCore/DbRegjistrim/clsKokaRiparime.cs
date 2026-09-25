@@ -750,7 +750,7 @@ namespace DbCore.DbRegjistrim
                 else det = new clsDetajimArtikulli(tsh.IdDetSwap, dbInv);
 
                 if (art.Klasa != 4)
-                    krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.DtDok, 1, 1, art.IdArtikulli, art.PershkrimArtikulli, det.IdDetajimArtikulli, art.Njesi1Artikulli, 1, cmimi, cmimi, koka.idMagazina, shenja, 0, art.KodArtikulli, det.KodDetajimArtikulli, "", 0, 0, 0, "",0, dbInv,false, 0, 0);
+                    krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.DtDok, 1, 1, art.IdArtikulli, art.PershkrimArtikulli, det.IdDetajimArtikulli, art.Njesi1Artikulli, 1, cmimi, cmimi, koka.idMagazina, shenja, 0, art.KodArtikulli, det.KodDetajimArtikulli, "", 0, 0, 0, "",0, dbInv, 0, 0);
 
                 else
                 {
@@ -765,7 +765,7 @@ namespace DbCore.DbRegjistrim
 
                             int idNjesia = art.Njesi1Artikulli;
                             DbInventari.clsArtikulli a = new DbInventari.clsArtikulli(aper.IdLidheseArt, dbInv);
-                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.dtDok, 1, 1, a.IdArtikulli, a.PershkrimArtikulli, tsh.IdDetLoan, a.Njesi1Artikulli, 1 * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli)), cmimi, (1 * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli))) * cmimi, koka.idMagazina, shenja, 0, a.KodArtikulli, det.KodDetajimArtikulli, "", 0, 0, 0, "",art.IdArtikulli, dbInv,false, 0, 0);
+                            krijuar = trupMag.krijoTrupMagazinaNgaGrida(koka.idNdermarje, koka.dtDok, 1, 1, a.IdArtikulli, a.PershkrimArtikulli, tsh.IdDetLoan, a.Njesi1Artikulli, 1 * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli)), cmimi, (1 * (double)aper.Koeficienti * ((art.Njesi1Artikulli == idNjesia) ? 1 : Convert.ToDouble(art.KoeficientArtikulli))) * cmimi, koka.idMagazina, shenja, 0, a.KodArtikulli, det.KodDetajimArtikulli, "", 0, 0, 0, "",art.IdArtikulli, dbInv, 0, 0);
 
                             if (trupMag.IdArtikulli != -1 && krijuar) //ky kusht duhet pare kur te shtohen makrot
                             {
@@ -936,7 +936,7 @@ namespace DbCore.DbRegjistrim
                         //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                         if (clsAlternativaKushti.getAlternativa(kokamag.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po")
                             gjithmone = true;
-                        mesazh = kokamag.ruaj(false, 1, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, kokamag.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,false,out mesazhmevonshem, null, false, false);
+                        mesazh = kokamag.ruaj(false, 1, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, kokamag.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,out mesazhmevonshem, null, false, false);
 
                         if (!mesazh.Status)
                             return mesazh;
@@ -969,7 +969,7 @@ namespace DbCore.DbRegjistrim
                         //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                         if (clsAlternativaKushti.getAlternativa(kokamag2.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po")
                             gjithmone = true;
-                        mesazh = kokamag2.ruaj(false, 1, null, idPeriudha, pershkrimMagFK2, idLlojDok2, idDokNgaFK2, dbRegj, out shfaqmesazhapolupemag, kokamag2.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,false, out mesazhmevonshem, null, false, false);
+                        mesazh = kokamag2.ruaj(false, 1, null, idPeriudha, pershkrimMagFK2, idLlojDok2, idDokNgaFK2, dbRegj, out shfaqmesazhapolupemag, kokamag2.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false, out mesazhmevonshem, null, false, false);
 
                         if (!mesazh.Status)
                             return mesazh;

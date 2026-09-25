@@ -2143,7 +2143,7 @@ function callWebserviceKodi(vlera) {
     var kategoria = grida.getTekstQelize('txtKategoria', idRresht);
     if (kategoria == "Artikull") //Artikull
         $.ajax({
-            url: Utils.getServerApiUrl("Rregjistrime", "ktheACListeArtikujshKodPershkKodbarEShpejt"), data: JSON.stringify({ infixText: vlera, pershk: pershk, grup: '', idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, artikujTeShitshem: (pageState.veprimi == 'shitje' || pageState.veprimi == 'shitjediscount' || pageState.veprimi == 'bazaar') ? true : false, merrVetemAfatgjate: false, merrSipasDetajimit: hfState.Get("NAGDN"), klasa: "" })
+            url: Utils.getServerApiUrl("Rregjistrime", "ktheACListeArtikujshKodPershkKodbarEShpejt"), data: JSON.stringify({ infixText: vlera, pershk: pershk, grup: '', idNdermarrje: pageState.idNdermarrje, idPerdoruesi: pageState.idPerdoruesi, artikujTeShitshem: (pageState.veprimi == 'shitje') ? true : false, merrVetemAfatgjate: false, merrSipasDetajimit: hfState.Get("NAGDN"), klasa: "" })
         }).done(SucceededCallbackKodi);
 }
 

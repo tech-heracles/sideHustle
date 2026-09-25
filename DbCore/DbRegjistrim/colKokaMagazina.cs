@@ -130,7 +130,7 @@ namespace DbCore.DbRegjistrim
             foreach (clsKokaMagazina kok in this)
             {
                 DbAdmin.clsPeriudhaKontabel per = new DbAdmin.clsPeriudhaKontabel(kok.DtDok, kok.IdNdermarrje, new DbAdmin.clsDatabaseAdmin(dbregj));
-                mesazh = kok.ruaj(false, 1, null, per.IdPeriudha, "Nga ndryshimi i cmimit", 6, 0, dbregj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false,new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbShare.clsKonfigurimAmbjenti(),0,0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new colAmortizimiKoka(),1,false,false, new colTrupiMagazina(),new colAmortizimiKoka(),new int [0],false,false,false, out mesazhmevonshem, null, false, false);
+                mesazh = kok.ruaj(false, 1, null, per.IdPeriudha, "Nga ndryshimi i cmimit", 6, 0, dbregj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false,new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbShare.clsKonfigurimAmbjenti(),0,0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new colAmortizimiKoka(),1,false,false, new colTrupiMagazina(),new colAmortizimiKoka(),new int [0],false,false, out mesazhmevonshem, null, false, false);
                
                 if (!mesazh.Status)
                 {
@@ -542,9 +542,9 @@ namespace DbCore.DbRegjistrim
             bool bashkoArtikujt = clsAlternativaKushti.getAlternativa(kokare.IdKonfigAmbjente, "TD1S") == "Po";
             bool ruajRenditje = clsAtributeTrupi.merrVleredefaultSipasKontrollitDheKonfigurimit(kokare.IdKonfigAmbjente, "cbRenditje", 510).ToLower()== "true";
             if (lidhur == true)
-                mesazh = kokare.modifiko(transferim, meKontabilizim, true, pershkrimFK, out shfaqmesazhapolupe, eshteOwn, colseriale, colserialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, ruajRenditje, false,false,false, out mesazhmevonshem, false, ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,false);
+                mesazh = kokare.modifiko(transferim, meKontabilizim, true, pershkrimFK, out shfaqmesazhapolupe, eshteOwn, colseriale, colserialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, ruajRenditje, false,false, out mesazhmevonshem, false, ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,false);
             else
-                mesazh = kokare.modifiko(transferim, meKontabilizim, false, pershkrimFK, out shfaqmesazhapolupe, eshteOwn, colseriale, colserialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, ruajRenditje, false,false,false, out mesazhmevonshem, false, ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,false);
+                mesazh = kokare.modifiko(transferim, meKontabilizim, false, pershkrimFK, out shfaqmesazhapolupe, eshteOwn, colseriale, colserialetransf, konfamortizimi, konfamortizimihyrje, gjithmone, meKontabilizim, rm, ci, ruajRenditje, false,false, out mesazhmevonshem, false, ref mesazheInformueseAsete, kategorite, serialeNeDetajim, bashkoArtikujt,false);
            
                 return mesazh;
         }

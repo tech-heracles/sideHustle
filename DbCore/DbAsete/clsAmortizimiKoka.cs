@@ -1559,7 +1559,7 @@ namespace DbCore.DbAsete
                     oKokaMagazina.IdGjenerues = idAmortizimi;
                     var gjithmone = clsAlternativaKushti.getAlternativa(oKokaMagazina.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po";
                     clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-                    pergjigja = oKokaMagazina.ruaj(false, 0, null, idPeriudha, "", 0, 0, dbRegj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false, seriale, new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), ngarivleresimi, gjithmone, new colAmortizimiKoka(), 0, false, false, new colTrupiMagazina(), new colAmortizimiKoka(), new int[0], false, false, false,out mesazhmevonshem, null, false, false);
+                    pergjigja = oKokaMagazina.ruaj(false, 0, null, idPeriudha, "", 0, 0, dbRegj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false, seriale, new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), ngarivleresimi, gjithmone, new colAmortizimiKoka(), 0, false, false, new colTrupiMagazina(), new colAmortizimiKoka(), new int[0], false, false,out mesazhmevonshem, null, false, false);
                     if (!pergjigja.Status)
                     {
                         return pergjigja;
