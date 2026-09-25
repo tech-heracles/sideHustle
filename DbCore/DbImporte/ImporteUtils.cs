@@ -868,18 +868,8 @@ namespace DbCore.DbImporte
                         {
 
                             //krijojme nje tabele te re, ku vendosim dokumentin 
-                            string selekti = "";
 
-                            for (int j = 0; j < fushat.Count(); j++)
-                            {
-                                if (!String.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-                                {
-                                    string fusha = drDok[fushat[j]].ToString().Replace("'", "''");
-                                    selekti += "[" + fushat[j] + "] = '" + fusha + "' AND ";
-                                }
-                            }
-                            selekti += "1 = 1";
-                            dokumentKokTrup = dt.Select(selekti).GetDataTable(dt);
+                            dokumentKokTrup = clsFunksione.rreshtatEDokumentit(dt, drDok, fushat).GetDataTable(dt);
                             clsMesazh mesazh = krijoDokVeprimeKF(dbData, dokumentKokTrup, col, pozicionkodi, gabime, tePaImportuara, importo, false, ref indexRreshtImporti, "", "", monedhaNdermarrjes);
 
                         }
@@ -2082,17 +2072,7 @@ namespace DbCore.DbImporte
                     {
 
                         //krijojme nje tabele te re, ku vendosim dokumentin 
-                        string selekti = "";
-                        for (int j = 0; j < fushat.Count(); j++)
-                        {
-                            if (!String.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-                            {
-                                string fusha = drDok[fushat[j]].ToString().Replace("'", "''");
-                                selekti += "[" + fushat[j] + "] = '" + drDok[fushat[j]] + "' AND ";
-                            }
-                        }
-                        selekti += "1 = 1";
-                        dokumentKokTrup = dt.Select(selekti).GetDataTable(dt);
+                        dokumentKokTrup = clsFunksione.rreshtatEDokumentit(dt, drDok, fushat).GetDataTable(dt);
                         clsMesazh mesazh = krijoDokAmortizimiFillestar(serverName, dokumentKokTrup, col, pozicionkodi, gabime, tePaImportuara, importo, false, ref indexRreshtImporti);
                     }
                     catch (Exception ex)

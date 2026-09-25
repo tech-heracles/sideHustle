@@ -4731,9 +4731,9 @@ namespace DbCore
 				{
 					var selekti = "";
 					Debug.WriteLine($"READED CACHE: {dbData.TransCache.getFromCacheTotal()}");
+					DataTable dokumentKokTrup = null;
 					try
 					{
-						DataTable dokumentKokTrup;
 						if (vjenNgaImportSQL)
 						{
 							selekti = $"[{primaryKey}] = '{drDok[primaryKey]}'";
@@ -4744,20 +4744,19 @@ namespace DbCore
 						else
 						{
 							var fushat = fushatEGrupimit.Split(';');
-							for (var j = 0; j < fushat.Length; j++)
-							{
-								if (!string.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-									selekti += "[" + fushat[j] + "] = '" + drDok[fushat[j]].ToString().Replace("'", "''") + "' AND "; //toTell kevi
-							}
-							selekti += "1 = 1";
 
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							mesazh = krijoDokBlerjeShitje(dokumentKokTrup, rm, ci, idNdermarrje, idNdermVit, idPerdorues, col, ref gabime, importo, idGjuha, false, colBlerjeShitje, ref gabimePermbledhese, "", "", gjeneroFaturePermbledhese, idKategori, "", ref indexRreshtImporti, nrDokumentiEmerImport, dtDokumentiEmerImport, llojDokumentiEmerImport, ref tePaImportuara, importAutomatik, fushat, false, monedheNdermarrje, dbData, ref deadLocked, fushaSerialesh, kategori); //primary key duhet vetem per importin nga sql
 						}
 					}
+					catch (System.Data.SqlClient.SqlException)
+					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
+						continue;
+					}
 					catch (Exception ex)
 					{
-						continue;
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 
@@ -4892,18 +4891,8 @@ namespace DbCore
 					else
 					{
 						//krijojme nje tabele te re, ku vendosim dokumentin 
-						string selekti = "";
 						string[] fushat = fushatEGrupimit.Split(';');
-						for (int j = 0; j < fushat.Count(); j++)
-						{
-							if (!string.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-							{
-								string fusha = drDok[fushat[j]].ToString().Replace("'", "''");
-								selekti += "[" + fushat[j] + "] = '" + drDok[fushat[j]].ToString() + "' AND ";
-							}
-						}
-						selekti += "1 = 1";
-						dokumentKokTrup = teDhenatPerImport.Select(selekti).GetDataTable(teDhenatPerImport);
+						dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).GetDataTable(teDhenatPerImport);
 						mesazh = krijoDokInventarizimi(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, pozicionkodi, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, "", "", ref indexRreshtImporti, false, "", fushat, false, idkategoria, dbData);
 					}
 				}
@@ -6390,6 +6379,72 @@ namespace DbCore
 			}
 		}
 
+		/// <summary>
+		/// Rreshtat e nje dokumenti te importit: ata qe kane vlerat e <paramref name="drDok"/> ne <paramref name="fushat"/>
+		/// (fushat bosh te drDok nuk filtrojne), njesoj si <c>Select("[fushe] = 'vlere' AND ... 1 = 1")</c>.
+		/// Kerkon me vlerat e tipizuara ne indeksin e nje DataView (te njejtat rregulla krahasimi si Select) ne vend qe te
+		/// ndertoje nje shprehje: me pare nje apostrof ne vlere, ose nje date/numer qe nuk dilte njesoj nga ToString(),
+		/// e hidhte dokumentin me poshte pa asnje mesazh.
+		/// </summary>
+		public static DataRow[] rreshtatEDokumentit(DataTable teDhenat, DataRow drDok, string[] fushat)
+		{
+			string[] kolonat = fushat.Where(f => !string.IsNullOrEmpty(drDok[f].ToString())).ToArray();
+			if (kolonat.Length == 0)
+				return teDhenat.Select();
+			// renditja e DataView-it ndahet me presje dhe nuk ka escape; per emra te tille kolonash krahasohet rresht per rresht
+			if (kolonat.Any(k => k.Contains(",") || k.Trim() != k))
+				return teDhenat.Select().Where(r => kolonat.All(k => vleratBarabarte(teDhenat, r[k], drDok[k]))).ToArray();
+			string renditja = string.Join(",", kolonat.Select(k => "[" + k + "]"));
+			// DataView mban indeksin te perditesuar kur tabela ndryshon; ruhet per tabelen qe te mos rindertohet per cdo dokument
+			var pamjet = pamjetEDokumenteve.GetOrCreateValue(teDhenat);
+			if (!pamjet.TryGetValue(renditja, out DataView pamja))
+				pamjet[renditja] = pamja = new DataView(teDhenat, "", renditja, DataViewRowState.CurrentRows);
+			return pamja.FindRows(kolonat.Select(k => drDok[k]).ToArray()).Select(v => v.Row).ToArray();
+		}
+
+		// si krahasimi i DataTable: tekstet pa hapesirat ne fund, pa dallim germash te medha/vogla kur tabela s'eshte CaseSensitive
+		private static bool vleratBarabarte(DataTable tabela, object a, object b)
+		{
+			if (a is string ta && b is string tb)
+			{
+				var opsionet = tabela.CaseSensitive ? CompareOptions.None : CompareOptions.IgnoreCase | CompareOptions.IgnoreKanaType | CompareOptions.IgnoreWidth;
+				return tabela.Locale.CompareInfo.Compare(ta.TrimEnd(' ', '　'), tb.TrimEnd(' ', '　'), opsionet) == 0;
+			}
+			return !(a is DBNull) && a.Equals(b);
+		}
+
+		// jeton sa tabela e importit (ConditionalWeakTable nuk e mban gjalle)
+		private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<DataTable, Dictionary<string, DataView>> pamjetEDokumenteve =
+			new System.Runtime.CompilerServices.ConditionalWeakTable<DataTable, Dictionary<string, DataView>>();
+
+		/// <summary>
+		/// Regjistron nje dokument qe deshtoi jashte kontrolleve te zakonshme. Me pare keto kapeshin me "catch { continue; }"
+		/// dhe dokumenti zhdukej nga rezultati i importit pa asnje mesazh.
+		/// </summary>
+		private static void shtoGabimDokumentiPaPerpunuar(DataTable gabime, DataTable tePaImportuara, DataTable dokumenti, DataRow drDok, Exception ex)
+		{
+			string identifikuesi = string.Join(" / ", drDok.ItemArray.Select(v => v?.ToString()).Where(v => !string.IsNullOrEmpty(v)));
+			LogManager.GetCurrentClassLogger().Error(ex, "Importi: dokumenti [" + identifikuesi + "] nuk u perpunua");
+			try
+			{
+				string idRreshti = "";
+				if (dokumenti != null && dokumenti.Rows.Count > 0)
+				{
+					bool meId = dokumenti.Columns.Contains("Id") && tePaImportuara.Columns.Contains("Id");
+					if (meId)
+						idRreshti = dokumenti.Rows[0]["Id"].ToString();
+					foreach (DataRow dr in dokumenti.Rows)
+						if (!meId || !tePaImportuara.Rows.Cast<DataRow>().Any(r => r.RowState != DataRowState.Deleted && Equals(r["Id"], dr["Id"])))
+							tePaImportuara.ImportRow(dr);
+				}
+				gabime.Rows.Add(identifikuesi, "Dokumenti nuk u perpunua: " + ex.Message, idRreshti);
+			}
+			catch (Exception)
+			{
+				// raportimi i gabimit nuk duhet te ndaloje dokumentet e tjera
+			}
+		}
+
 		public static void shtoGabimeNeDataTable(ref DataTable gabime, ref DataTable tePaImportuara, int indexRreshti, bool importo, string mesazhGabimi, string identifikuesi, bool vjenNgaImportSQL, DataTable dokKoka, int kategoria, DataRow drRreshti = null)
 		{
 			bool meIndexRreshti = !gabime.Columns.Contains("Rreshti me id");
@@ -7074,9 +7129,9 @@ namespace DbCore
 				colSerialeUnikeKategori kategori = new colSerialeUnikeKategori(idNdermarrje);
 				foreach (DataRow drDok in dataGrupime.Rows)
 				{
+					DataTable dokumentKokTrup = null;
 					try
 					{
-						DataTable dokumentKokTrup;
 						if (vjenNgaImportSQL)
 						{
 							dokumentKokTrup = teDhenatPerImport.Select($"[{primaryKey}] = '{drDok[primaryKey]}'").CopyToDataTable();
@@ -7086,15 +7141,18 @@ namespace DbCore
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
 							var fushat = fushatEGrupimit.Split(';');
-							var selekti = fushat.Where(t => !string.IsNullOrEmpty(drDok[t].ToString())).Aggregate("", (current, t) => current + "[" + t + "] = '" + drDok[t] + "' AND ");
-							selekti += "1 = 1";
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							mesazh = krijoDokMagazine(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, indexRreshtImporti, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, "", "", ref indexRreshtImporti, importAutomatik, emerTabKoka, fushat, false, dbData, ref deadLocked, fushaSerialesh, kategori);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
@@ -7129,9 +7187,9 @@ namespace DbCore
 			{
 				foreach (DataRow drDok in dataGrupime.Rows)
 				{
+					DataTable dokumentKokTrup = null;
 					try
 					{
-						DataTable dokumentKokTrup;
 						if (vjenNgaImportSQL)
 						{
 							dokumentKokTrup = teDhenatPerImport.Select($"[{primaryKey}] = '{drDok[primaryKey]}'").CopyToDataTable();
@@ -7141,15 +7199,18 @@ namespace DbCore
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
 							var fushat = fushatEGrupimit.Split(';');
-							var selekti = fushat.Where(t => !string.IsNullOrEmpty(drDok[t].ToString())).Aggregate("", (current, t) => current + "[" + t + "] = '" + drDok[t] + "' AND ");
-							selekti += "1 = 1";
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							mesazh = krijoDokShperndarjeShpenz(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, ref indexRreshtImporti, ref gabime, ref tePaImportuara, importo, idNdermVit, idGjuha, false, "", "", importAutomatik, emerTabKoka, fushat, false, dbData, ref deadLocked);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
@@ -7522,9 +7583,9 @@ namespace DbCore
 			{
 				foreach (DataRow drDok in dataGrupime.Rows)
 				{
+					DataTable dokumentKokTrup = null;
 					try
 					{
-						DataTable dokumentKokTrup;
 						if (vjenNgaImportSql)
 						{
 							dokumentKokTrup = teDhenatPerImport.Select($"[{primaryKey}] = '{drDok[primaryKey]}'").CopyToDataTable();
@@ -7535,17 +7596,19 @@ namespace DbCore
 						else
 						{
 							var fushat = fushatEGrupimit.Split(';');
-							var selekti = fushat.Where(t => !string.IsNullOrEmpty(drDok[t].ToString())).Aggregate("",
-								(current, t) => current + "[" + t + "] = '" + drDok[t] + "' AND ");
-							selekti += "1 = 1";
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							KrijoFleteKontabel(dokumentKokTrup, idNdermarrje, idPerdorues, col, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, "",
 								ref indexRreshtImporti, new string[0], dbData);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
@@ -8657,26 +8720,20 @@ namespace DbCore
 						else
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
-							string selekti = "";
 							string[] fushat = fushatEGrupimit.Split(';');
-							for (int j = 0; j < fushat.Count(); j++)
-							{
-								if (!String.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-								{
-									bool isDouble = (drDok[fushat[j]].GetType().Name.ToLower() == "double");
-									string value = isDouble ? ((double)drDok[fushat[j]]).ToString("R") : drDok[fushat[j]].ToString().Replace("'", "''");
-									selekti += $"[{fushat[j]}] = '{value}' AND ";
-								}
-							}
-							selekti += "1 = 1";
 
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							mesazh = krijoDokArkaBanka(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, ref indexRreshtImporti, monNderm, "", "", idKategori, "", importAutomatik, fushat, dbData);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
@@ -9044,21 +9101,19 @@ namespace DbCore
 						else
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
-							string selekti = "";
 							string[] fushat = fushatEGrupimit.Split(';');
-							for (int j = 0; j < fushat.Count(); j++)
-							{
-								if (!String.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-									selekti += "[" + fushat[j] + "] = '" + drDok[fushat[j]].ToString() + "' AND ";
-							}
-							selekti += "1 = 1";
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							mesazh = krijoDokEkzekutimProdhimi(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, gabime, tePaImportuara, importo, idNdermVit, idGjuha, vjenNgaImportSQL, ref indexRreshtImporti, primaryKeyEkzekutim, primaryKeyProdukt, ndermarrjeKey, emerTabKoka, importAutomatik, fushat, dbData);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
@@ -9459,14 +9514,7 @@ namespace DbCore
 			}
 			else
 			{
-				string selekti = "";
-				for (int j = 0; j < fushat.Count(); j++)
-				{
-					if (!String.IsNullOrEmpty(dokTable.Rows[0][fushat[j]].ToString()))
-						selekti += "[" + fushat[j] + "] = '" + dokTable.Rows[0][fushat[j]].ToString().Replace("'", "''") + "' AND ";
-				}
-				selekti += "1 = 1";
-				if (tePaImportuara.Select(selekti).Count() > 0)
+				if (rreshtatEDokumentit(tePaImportuara, dokTable.Rows[0], fushat).Count() > 0)
 					return false;
 			}
 			return true;
@@ -11761,24 +11809,22 @@ namespace DbCore
 						else
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
-							string selekti = "";
 							string[] fushat = fushatEGrupimit.Split(';');
-							for (int j = 0; j < fushat.Count(); j++)
-							{
-								if (!String.IsNullOrEmpty(drDok[fushat[j]].ToString()))
-									selekti += "[" + fushat[j] + "] = '" + drDok[fushat[j]].ToString() + "' AND ";
-							}
-							selekti += "1 = 1";
-							dokumentKokTrup = teDhenatPerImport.Select(selekti).CopyToDataTable();
+							dokumentKokTrup = rreshtatEDokumentit(teDhenatPerImport, drDok, fushat).CopyToDataTable();
 							if (idKategori == 172)
 								mesazh = krijoDokAlokimBuxheti(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, ref indexRreshtImporti, "", "", idKategori, "", importAutomatik, fushat, dbData);
 							else
 								mesazh = krijoDokumentBuxheti(dokumentKokTrup, rm, ci, idNdermarrje, idPerdorues, col, gabime, tePaImportuara, importo, idNdermVit, idGjuha, false, ref indexRreshtImporti, "", "", idKategori, "", importAutomatik, fushat, dbData);
 						}
 					}
-					catch (Exception)
+					catch (System.Data.SqlClient.SqlException)
 					{
+						// gabimet e SQL (p.sh. deadlock) i regjistron vete krijimi i dokumentit dhe i shton te deadLocked per riprovim
 						continue;
+					}
+					catch (Exception ex)
+					{
+						shtoGabimDokumentiPaPerpunuar(gabime, tePaImportuara, dokumentKokTrup, drDok, ex);
 					}
 				}
 			}
