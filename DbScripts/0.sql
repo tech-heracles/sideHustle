@@ -1,1 +1,0 @@
-UPDATE dbo.T_SERVERSETTINGS SET VersioniAlphaWeb='9.5.0.5'
