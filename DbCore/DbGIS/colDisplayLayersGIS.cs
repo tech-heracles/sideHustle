@@ -194,21 +194,6 @@ namespace DbCore.DbGIS
             return true;
         }
 
-        private bool mbushDisplayLayersPaTrup(DataTable dt)
-        {
-            try
-            {
-                for (int i = 0, count = dt.Rows.Count; i < count; i++)
-                {
-                    Add(new clsDisplayLayersGIS(dt.Rows[i]));
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
         #endregion
     }
 }

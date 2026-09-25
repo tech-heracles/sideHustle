@@ -57,18 +57,6 @@ namespace PlatinumWeb
             }
         }
 
-        private void mbushPopUpListeNgaSession(int idPerdoruesi, int idNdermarrje)
-        {
-            Object tmpObject;
-            DbCore.mySessionObjects.merrGrideNgaSessioniLupa(Session, out tmpObject);
-            if (tmpObject == null)
-                mbushPopUpListe(idNdermarrje, idPerdoruesi);
-            else
-            {
-                gvLupaDetArtRegj.DataSource = tmpObject;
-                gvLupaDetArtRegj.DataBind();
-            }
-        }
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes

@@ -203,14 +203,6 @@ namespace DbCore.DbShare
             }
         }
 
-        private static clsMesazh KopjoArkiven(string originalFolder,string copiedFolder,int idDokNew,int idNdermarrje,int idPerdoruesi)
-        {
-            return new clsMesazh();
-        }
-        private static clsMesazh ZhvendosArkivenNgaFolderiTmp()
-        {
-            return new clsMesazh();
-        }
         /// <summary>
         /// updateton pathet ne db te fileve te ngarkuar,pasi ato jane zhvendosur ne nje direktori te re,gjithashtu vendos edhe id e re te dokumentit lidhes
         /// </summary>

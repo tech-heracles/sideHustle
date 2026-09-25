@@ -408,14 +408,6 @@ namespace PlatinumWeb
         }
 
 
-        private void mbushListeKategorish()
-        {//mbush griden me te dhena
-
-
-            DbCore.DbInventari.colKokatKategoriteZbritjes col = new DbCore.DbInventari.colKokatKategoriteZbritjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            gvKokaKategoriZbritje.DataSource = col;
-            gvKokaKategoriZbritje.DataBind();
-        }
 
         private void mbushListeNenKategorish()
         {//mbushet grida me te dhena            

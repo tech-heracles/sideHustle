@@ -306,51 +306,6 @@ namespace DbCore.DbInventari
             return mesazh;
         }
 
-        private static clsMesazh RuajNjePerNje(IEnumerable<clsCmimArtikulli> cmimetPerTuRuajtur)
-        {
-
-            clsDatabaseInventari dbInventar = new clsDatabaseInventari();
-            clsMesazh mesazh;
-            try
-            {
-                dbInventar.beginTransaksion();
-                foreach (clsCmimArtikulli c in cmimetPerTuRuajtur)
-                {
-                    int idcmim = 0;
-                    if (!dbInventar.ekzistonCmimArtikulli(c.IdArtikulli, c.IdNivelCmimi, out idcmim))
-                    {
-                        int idC;
-                        mesazh = dbInventar.ruajCmimArtikulli(out idC, c.IdArtikulli, c.IdNivelCmimi, c.IdNjesia, c.IdMonedha, c.DateFillimi, c.DateMbarimi, c.SasiMin,
-                            c.SasiMax, c.Cmimi, c.IdPerdoruesi, c.IdNdermarje, c.IdKonfig, c.IdStatusDok, c.IdNjesia2, c.Cmimi2, c.KoheFillimi, c.KoheMbarimi,c.IdDetajim);//, c.formula
-                        if (!mesazh.Status)
-                        {
-                            dbInventar.rollbackTransaksion();
-                            return mesazh;
-                        }
-                    }
-                    else
-                    {
-                        mesazh = dbInventar.modifikoCmimArtikulli(idcmim, c.IdArtikulli, c.IdNivelCmimi, c.IdNjesia, c.IdMonedha, c.DateFillimi, c.DateMbarimi, c.SasiMin,
-                            c.SasiMax, c.Cmimi, c.IdPerdoruesi, c.IdNdermarje, c.IdKonfig, c.IdStatusDok, c.IdNjesia2, c.Cmimi2, c.KoheFillimi, c.KoheMbarimi, c.IdDetajim);//, c.formula
-                        if (!mesazh.Status)
-                        {
-                            dbInventar.rollbackTransaksion();
-                            return mesazh;
-                        }
-                    }
-                }
-                dbInventar.commitTransaksion();
-
-             mesazh = new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
-             
-                return mesazh;
-            }
-            catch (Exception ce)
-            {
-                dbInventar.rollbackTransaksion();
-                return new clsMesazh(false, ce.Message);
-            }
-        }
 
         public static clsMesazh RuajTeGjitheMeDT(IEnumerable<clsCmimArtikulli> cmimetPerTuRuajtur)
         {

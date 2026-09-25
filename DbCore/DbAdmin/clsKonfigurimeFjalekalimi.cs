@@ -467,13 +467,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         /// <param name="idPerdorues"></param>
         /// <returns>kthen true nqs ka perdorues me te njejtin username qe eshte i loguar, pra aktiv ne sistem</returns>
-        private bool eshtePerdoruesILoguar(int idPerdorues)
-        {
-            using (clsDatabaseAdmin dbAdm = new clsDatabaseAdmin())
-            {
-                return dbAdm.perdoruesILoguar(idPerdorues);
-            }
-        }
 
         /// <summary>
         /// kontrollon nese passwordi i perdoruesit ka skaduar ose jo

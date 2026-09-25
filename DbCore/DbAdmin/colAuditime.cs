@@ -37,17 +37,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         /// <param name="dt">datatable ne hyrje</param>
         /// <returns>True nese koleksioni kryhet me sukses, false perndryshe</returns>
-        private bool mbushAuditimet(DataTable dt)
-        {
-            //try
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    this.Add(new clsAuditim(dr));
-                }
-                return true;
-
-        }
 
         #endregion
         /// <summary>

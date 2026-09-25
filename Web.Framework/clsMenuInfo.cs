@@ -121,15 +121,7 @@ namespace PlatinumWeb
             return;
         }
 
-        private static Int32 getIntOfDate(DateTime date)
-        {
-            return date.Day * (Int32)Math.Pow(10, 6) + date.Hour * (Int32)Math.Pow(10, 4) + date.Minute * (Int32)Math.Pow(10, 2) + date.Second;
-        }
 
-        private static string appendStringOfTime(DateTime date, String mesazh)
-        {
-            return date.Hour + ":" + date.Minute + ":" + date.Second + " - " + mesazh;
-        }
         private static void shtoMesazh(string type, string mesazh, UpdatePanel pnlMesazhi)
         {
             shtoMesazh(type,mesazh,false,pnlMesazhi);

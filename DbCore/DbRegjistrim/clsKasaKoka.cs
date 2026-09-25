@@ -501,27 +501,7 @@ namespace DbCore.DbRegjistrim
 
         #region Metoda Private
 
-        private static string kriposPass(string pass)
-        {
-            byte[] utf16Data = Encoding.Unicode.GetBytes(pass);
-            char[] charPasUtf16 = System.Text.Encoding.ASCII.GetString(utf16Data).ToCharArray();
 
-            HashAlgorithm hash = new SHA256Managed();
-            byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(charPasUtf16);
-            byte[] hashBytes = hash.ComputeHash(plainTextBytes);
-
-            var hexString = BitConverter.ToString(hashBytes);
-            hexString = hexString.Replace("-", "").ToLower();
-            return hexString;
-
-        }
-
-        private static string EncodeTo64(string toEncode)
-        {
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
-            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
-            return returnValue;
-        }
 
         #endregion
     }

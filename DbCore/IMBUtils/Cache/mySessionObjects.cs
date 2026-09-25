@@ -2024,12 +2024,6 @@ namespace DbCore
             var myCache = GetSessionCacheByKey(sessionId);
             return myCache.Get<int>("Idperdoruesi",false);
         }
-        private static bool idPerdoruesiRequired()
-        {
-            if (HttpContext.Current.Request.Url.LocalPath.ContainsAnyIgnoreCase("NdryshimFjalekalimi"))
-                return false;
-            return true;
-        }
     
 
         /// <summary>

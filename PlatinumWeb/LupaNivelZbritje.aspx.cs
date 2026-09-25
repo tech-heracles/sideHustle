@@ -71,15 +71,6 @@ namespace PlatinumWeb
             gvNivelZbritje.DataBind();
             dt.Dispose();
         }
-        private void mbushPopUpListeNiveleZbritje()
-        {
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-            var colNiveleZbritjesh = new DbCore.DbInventari.colNiveleZbritjesh();
-            colNiveleZbritjesh.mbushGjitheNiveleZbritjeshSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-
-            this.gvNivelZbritje.DataSource = colNiveleZbritjesh;
-            gvNivelZbritje.DataBind();
-        }
 
         private void konfiguroPopupGride(int idKonfigambjenti, bool visibleIndex, bool kerkosaposhkruar)
         {

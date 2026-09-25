@@ -305,11 +305,6 @@ namespace PlatinumWeb
             dteDtRegjistrimi.Value = DateTime.Today;
         }
 
-        private void konfiguroGriden()
-        {//konfigurohet grida
-            DbCore.DbShare.clsKonfigurimAmbjenti konfigurimi = new DbCore.DbShare.clsKonfigurimAmbjenti();
-            konfigurimi.mbushKonfigDefaultKomponentes(906, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        }
 
         //nestila nuk perdoret me ky buton per ruajtjen e skemave por ato ruhen nga menuja siper
         protected void Ruaj_ASPxButton_Click(object sender, EventArgs e)
@@ -317,20 +312,6 @@ namespace PlatinumWeb
 
         }
 
-        private bool pastroPanelLidhur()
-        {
-            try
-            {
-                hl = new HtmlTable(); //boshatis linkun
-                pnlLidhur.Update();
-                return true;
-            }
-            catch (Exception err)
-            {
-                NLog.LogManager.GetCurrentClassLogger().Error(err.Message);
-                return false;
-            }
-        }
 
         private void pastroFusha(int idNdermarrje)
         {//pastron fushat

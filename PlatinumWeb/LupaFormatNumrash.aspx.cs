@@ -185,11 +185,6 @@ namespace PlatinumWeb
             
         }
 
-        private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
-        {
-            //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
-        }
 
         protected void Ruaj_ASPxButton_Click(object sender, EventArgs e)
         {

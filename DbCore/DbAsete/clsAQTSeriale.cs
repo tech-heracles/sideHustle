@@ -770,13 +770,6 @@ namespace DbCore.DbAsete
         /// </summary>
         /// <param name="moduliAsete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
         /// <returns>Kthen clsMesazh me atribut statusi True nese modifikimi ne transaksion kryhet me sukses ose False dhe mesazhin e gabimit ne te kundert.</returns>
-        private clsMesazh modifikoAQTSerialTransaksion(clsDatabazeAsete moduliAsete)
-        {
-            clsMesazh pergjigja = fshiAQTSerialTransaksion(moduliAsete);
-            if (pergjigja.Status)
-                pergjigja = ruajAQTSerialTransaksion(moduliAsete);
-            return pergjigja;
-        }
 
         private clsMesazh modifikoAQTSerialTransaksionPaFshirje(clsDatabazeAsete moduliAsete)
         {

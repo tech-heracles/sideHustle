@@ -483,19 +483,6 @@ namespace PlatinumWeb
             }
             else mbushGridViteshNgaDB();
         }
-        private void shtoVitNeGrid(int idNdermarrje, int idviti, ResourceManager rm, CultureInfo ci)
-        {
-            if (ASPxGridView_Vitet.DataSource != null)
-            {
-                DataTable dt = (DataTable)ASPxGridView_Vitet.DataSource;
-                DataRow[] drs = dt.Select("IdViti = " + idviti);
-                if (drs.Length > 0)
-                    throw new DbCore.MyException(rm.GetString("msgVitetEkzistonVitiNeGride", ci));
-                DataRow newArtDr = DbCore.DbAdmin.colVitet.merrViteSipasNdermarjesDR(idNdermarrje, idviti);
-                dt.ImportRow(newArtDr);
-            }
-            else mbushGridViteshNgaDB();
-        }
         private void modifikoVitNeGrid(int idNdermarrje, int idviti, ResourceManager rm, CultureInfo ci)
         {
             if (ASPxGridView_Vitet.DataSource != null)
@@ -724,15 +711,6 @@ namespace PlatinumWeb
         }
 
 
-        private bool isValidVit(int idNdermarrje, ResourceManager rm, CultureInfo ci)
-        {
-            bool isValid;
-            isValid = true;
-            DbCore.DbAdmin.clsViti viti = new DbCore.DbAdmin.clsViti();
-            //    else
-
-            return isValid;
-        }
 
         /// <summary>
         /// perdoret per te rikonfiguruar griden kur ndryshohet konfigurimi

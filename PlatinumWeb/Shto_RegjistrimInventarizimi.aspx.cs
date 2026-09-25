@@ -433,16 +433,6 @@ namespace PlatinumWeb
 
         }
 
-        private void konfigGrid()
-        {
-            string emriKomponentes = "Shto_RegjistrimInventarizimi.aspx?lloj=" + Request.QueryString["lloj"];
-            DbCore.DbAdmin.clsKomponente oKomponente = new DbCore.DbAdmin.clsKomponente(emriKomponentes);
-            DbCore.DbShare.clsKonfigurimAmbjenti konfigurimi = new DbCore.DbShare.clsKonfigurimAmbjenti();
-            konfigurimi.mbushKonfigDefaultKomponentes(oKomponente.IdKomponente, mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            DbCore.DbAdmin.colGridaTrupi trupiGrides = new DbCore.DbAdmin.colGridaTrupi(oKomponente.IdKomponente, konfigurimi.IdKonfigAmbjente, (int)hfState["idGjuha"]);
-            JavaScriptSerializer serializusi = new JavaScriptSerializer();
-            HfGridCol.Value = serializusi.Serialize(trupiGrides);
-        }
 
         private void mbushComboKonfigurimet(bool mod, ResourceManager rm, CultureInfo ci, int idGjuha, int idNdermarje, int idPerdoruesi)
         {

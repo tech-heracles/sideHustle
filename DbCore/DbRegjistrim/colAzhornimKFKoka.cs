@@ -26,13 +26,6 @@ namespace DbCore.DbRegjistrim
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="clsAzhornimKFKoka"/> 
         /// </summary>
-        private void MbushAzhornimetKfKoka(DataTable dt)
-        {
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                Add(new clsAzhornimKFKoka(rreshti));
-            }
-        }
 
         #endregion
     }

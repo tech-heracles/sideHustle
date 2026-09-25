@@ -122,19 +122,6 @@ namespace DbCore.DbProdhimi
         /// </summary>
         /// <param name="dt">data table me te dhenat e tipit trupi planifikim</param>
         /// <returns>true ose false ne se coleksioni u mbush ne rregull</returns>
-        private bool mbushTrupatPlanifikim(DataTable dt)
-        {
-            try
-            {
-
-
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
     }

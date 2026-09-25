@@ -2172,14 +2172,6 @@ namespace DbCore.DbRegjistrim
             }
         }
 
-        private clsKokaRezervime venndosIdNgaVjenRezervim(clsKokaRezervime kokarezervime, DataTable idTrupis)
-        {
-            for (int i = 0, nrTrupi = kokarezervime.OcolTrupiRezervime.Count; i < nrTrupi; i++)
-            {
-                kokarezervime.OcolTrupiRezervime[i].IdTrupiNgaVjen = (int)idTrupis.Select("IDTRUPIREZERVIMI = " + kokarezervime.OcolTrupiRezervime[i].IdTrupiRezervime)[0]["IDTRUPIMAGAZINA"];
-            }
-            return kokarezervime;
-        }
 
         /// <summary>
         /// Ruan objektin e  kokes se dokumentit te magazines ne tabelen perkatese ne databaze.Therret funksionin

@@ -51,17 +51,6 @@ namespace PlatinumWeb
             gvLupaViti.DataBind();
             dt.Dispose();
         }
-        private void mbushPopUpListe()
-        {
-            DbCore.DbAdmin.colVitet col = new DbCore.DbAdmin.colVitet();
-            DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-            col.merrGjitheVitetENdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-           
-            gvLupaViti.DataSource = col;
-            gvLupaViti.DataBind();
-            konfiguroPopupGride();
-        }
 
         private void konfiguroPopupGride()
         {

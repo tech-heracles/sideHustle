@@ -116,23 +116,6 @@ namespace DbCore.DbCRM
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbCRM.clsDetyreKlientAgjent"/> 
         /// </summary>
-        private bool mbushDetyreKlientAgjent(DataTable dt)
-        {
-            try
-            {
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsDetyreKlientAgjent obj = new clsDetyreKlientAgjent();
-                    obj.mbushDetyreKlientAgjent(rreshti);
-                    this.Add(obj);
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
 

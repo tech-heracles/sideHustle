@@ -27,13 +27,7 @@ namespace PlatinumWeb
             ////if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             ////if (CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"] != null)
         } 
-        private void perktheKontrollet(CultureInfo ci, ResourceManager rm)
-        {
-        }
 
-        private void mbushHiddenFieldMePerkthime(CultureInfo ci, ResourceManager rm)
-        {
-        }
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
@@ -42,9 +36,6 @@ namespace PlatinumWeb
         /// <param name="idViti"></param>
         /// <param name="idPerdorues"></param>
         /// <param name="idNermarrje"></param>
-        private void percaktoTemplateMenu(ASPxMenu aSPxMenu1, int idViti, int idPerdorues, int idNdermarrje)
-        {
-        }
 
         /// <summary>
         /// ndodh kur menuja ben bound
@@ -71,15 +62,6 @@ namespace PlatinumWeb
 
             //// DbCore.clsFunksione.percaktoTemplateCombo(cmbArtikuj);
             //// funk.mbushComboArtikulli(cmbArtikuj);
-        }
-        private void mbushListeArtikujsh()
-        {//mbush griden e popupit me te dhena  
-
-
-            //else 
-            //else
-
-            ////CacheLayer.GlobalCacheManager.MySessionCache["colArtikull2"] = DbCore.DbInventari.colArtikujt.merrSipasArtikujAktivNdermarrjesAndAutorizimeDT(-5, -5);
         }
 
         private void konfiguroGride()

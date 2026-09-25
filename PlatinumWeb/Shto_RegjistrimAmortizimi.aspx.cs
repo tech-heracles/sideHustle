@@ -377,20 +377,6 @@ namespace PlatinumWeb
         }
 
 
-        private bool pastroPanelLidhur()
-        {
-            try
-            {
-                hl = new HtmlTable();
-                pnlLidhur.Update();
-                return true;
-            }
-            catch (Exception err)
-            {
-                NLog.LogManager.GetCurrentClassLogger().Error(err.Message);
-                return false;
-            }
-        }
 
 
         private DbCore.clsMesazh isValid(int idNdermarrje, int draft, ResourceManager rm, CultureInfo ci)
@@ -859,33 +845,6 @@ namespace PlatinumWeb
         }
 
 
-        private void shtoSerial(int idNdermarrje)
-        {
-            var colnew = new GridViewDataComboBoxColumn();
-            var grid_faturat = (ASPxGridView)this.ASPxNavBar1.Groups[0].FindControl("grid_faturat");
-            if (typeof(GridViewDataComboBoxColumn) != grid_faturat.Columns["IdAQTSeriali"].GetType())
-            {
-                grid_faturat.Columns.Remove(grid_faturat.Columns["IdAQTSeriali"]);
-                grid_faturat.Columns.Add(colnew);
-                var seriale = new DbCore.DbAsete.colAQTSeriale();
-                seriale.Add(new DbCore.DbAsete.clsAQTSeriale());
-                seriale.ktheAQTSerialSipasIDNdermarje(idNdermarrje);
-                colnew.PropertiesComboBox.DataSource = seriale;
-                colnew.PropertiesComboBox.TextField = "AqtSerialKod";
-                colnew.PropertiesComboBox.ValueField = "IdAQTSerial";
-                colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                colnew.FieldName = "IdAQTSeriali";
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, seriale, "seriale");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)grid_faturat.Columns["IdAQTSeriali"];
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "seriale");
-                }
-            }
-        }
 
         private void inicializoGridFaturatSession()
         {

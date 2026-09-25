@@ -313,13 +313,6 @@ namespace DbCore.DbInventari
             return new clsMesazh(true, "Kontrollet e artikullit u kaluan me sukses");
         }
 
-        private bool mbushAutomjetSipasTarges(string targa, int idNdermarrje)
-        {
-            clsDatabaseInventari dbInventari = new clsDatabaseInventari();
-            bool sukses = mbushAutomjet(dbInventari.merrAutomjetSipasTarges(targa, idNdermarrje));
-            dbInventari.Dispose();
-            return sukses;
-        }
 
         protected int merrIdAutomjetiSipasTarges(string targa, int idNdermarrje)
         {

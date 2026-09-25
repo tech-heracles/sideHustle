@@ -122,16 +122,6 @@ namespace DbCore.DbAdmin
             return true;
         }
 
-        private bool mbushGrupetPerdoruesve(DataTable dt, int idndermarrjeviti)
-        {
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    Add(new clsGrupiPerdorues(rreshti, idndermarrjeviti));
-                }
-
-            return true;
-        }
 
         #endregion
         [Obsolete("Perdor: bool mbushGrupetPerdoruesveGjitheNdermarrje(DataTable dt)", true)]

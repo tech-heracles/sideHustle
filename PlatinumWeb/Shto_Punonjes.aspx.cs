@@ -230,25 +230,6 @@ namespace PlatinumWeb
         /// mbush combon e filtrave
         /// </summary>
         /// <param name="idNdermarrje"></param>
-        private void mbushComboBoxFiltra(int idGjuha, int idNdermarrje, int idkonfig)
-        {
-
-            var ngaSessioni = mySessionObjects.merrObjectNgaSesioni(Session, filtraSessionKey) as Tuple<clsGridaKoka, colFiltratGrida>;
-            if (ngaSessioni == null || ngaSessioni.Item1.IdKonfigurim != idkonfig)
-            {
-                //nese eshte hera e pare qe hapet 
-                mbushComboBoxFiltraNgaDb(idGjuha, idNdermarrje, idkonfig);
-            }
-            var model = new DbCore.MyMenuFilterModel
-            {
-                ValueField = "IdFiltra",
-                TextField = "FiltraShenime",
-                DataSource = ngaSessioni.Item2
-            };
-            clsFiltraGrida filtriDef = DbCore.clsFunksione.merrFilterDefault(idkonfig);
-            if (filtriDef != null) model.ValueToSelect = filtriDef.FiltraKodi;
-            mySessionObjects.RuajNeSession(System.Web.HttpContext.Current.Session, model, $"filtraGride_{idkonfig}");
-        }
         private void mbushComboBoxFiltraNgaDb(int idGjuha, int idNdermarrje, int idkonfig)
         {
             clsGridaKoka koka = new clsGridaKoka(idGjuha, "gvPunonjesit", komponente, idNdermarrje, idkonfig);
@@ -873,14 +854,6 @@ namespace PlatinumWeb
             pnlMesazhi.Update();
         }
 
-        private void fshiPunesiminEfundit(colPunesim col)
-        {
-            if (col.Count > 0)//ka punesime per te fshire
-                col.RemoveRange(col.Count - 1, col.Count);
-            gvPunesim.DataSource = col;
-            gvPunesim.DataBind();
-            mySessionObjects.ruajPunesimNeSesion(Session, col);
-        }
 
         /// <summary>
         /// krijon punonjesin sipas te dhenave

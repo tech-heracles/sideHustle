@@ -33,18 +33,6 @@ namespace DbCore.DbKontabiliteti
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbKontabiliteti.clsLlojLlogarish"/> 
         /// </summary>
-        private bool mbushLlojLlogarish(DataTable dt)
-        {
-            //try
-
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    Add(new clsLlojLlogarish(rreshti));
-                }
-
-            //    //throw;
-            return true;
-        }
 
         #endregion
         [Obsolete("Perdor: bool mbushLlojLlogarish(DataTable dt)", true)]

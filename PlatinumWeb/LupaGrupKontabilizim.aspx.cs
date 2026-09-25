@@ -190,33 +190,6 @@ namespace PlatinumWeb
             }
         }
 
-        private void ruajGrupKontabilizimiOverview()
-        {//ben ruajtjen  e nje rreshti te ri
-            
-            if (Page.IsValid == false)
-                return;
-            else
-            {
-                gvLupaGrKont.UpdateEdit();
-                if (isValidGrupKontabilizimiOverview())
-                {
-                    DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-                    mesazh = grupoverview.ruaj();
-                    if (!mesazh.Status == true)
-                    {
-                      clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim. Ruajtja nuk u krye!",pnlMesazhi);
-                    }
-                    else
-                    {
-                    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["mesazhRuajtjeMeSukses"], pnlMesazhi);
-
-                    }
-
-                    mbushPopUpListeGrupeKontabilizimi();
-                    gvLupaGrKont.AddNewRow();
-                }
-            }
-        }
         //kontrollon nese grupi i kontabilizimit ekziston
         private bool isValidGrupKontabilizimiOverview()
         {

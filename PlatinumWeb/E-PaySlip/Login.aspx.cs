@@ -115,10 +115,6 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-        private bool validateUser(string username, string paswd)
-        {
-            return true;
-        }
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {

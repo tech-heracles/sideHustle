@@ -92,20 +92,6 @@ namespace PlatinumWeb
             gvLupaSkemaKontArt.Columns.Add(colnew);
         }
 
-        private void shtoLlogariInventar(int idGjuha)
-        {// shton kombobox tek grida per llogarine
-            int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariInventari"].VisibleIndex;
-            gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariInventari"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DataTable dt = DbCore.DbKontabiliteti.colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeDT(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idGjuha);
-            colnew.PropertiesComboBox.DataSource = dt;// colLlog;
-            colnew.PropertiesComboBox.TextField = "NrLlogari";
-            colnew.PropertiesComboBox.ValueField = "IdLlogari";
-            colnew.FieldName = "NrLlogariInventari";
-            colnew.VisibleIndex = visibleindex;
-            gvLupaSkemaKontArt.Columns.Add(colnew);
-            dt.Dispose();
-        }
 
         #region metodaShtimi komentuar
         //private void shtoLlogariBlerje()

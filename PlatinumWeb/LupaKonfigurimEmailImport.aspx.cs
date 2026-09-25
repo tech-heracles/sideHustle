@@ -81,18 +81,6 @@ namespace PlatinumWeb
             gvLupaKonfigurimEmailImport.DataBind();
         }
 
-        private void mbushPopUpListeNgaSession()
-        {
-            Object tmpObject;
-            DbCore.mySessionObjects.merrGrideNgaSessioniLupa(Session, out tmpObject);
-            if (tmpObject == null)
-            {
-                mbushPopUpListeNgaDB(idKonfigImporti);
-                return;
-            }
-            gvLupaKonfigurimEmailImport.DataSource = tmpObject;
-            gvLupaKonfigurimEmailImport.DataBind();
-        }
 
         private void konfiguroPopupGride()
         {

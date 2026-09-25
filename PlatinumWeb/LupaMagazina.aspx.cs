@@ -100,18 +100,6 @@ namespace PlatinumWeb
             dt.Dispose();
         }
 
-        private void mbushPopUpListe()
-        {
-            DbCore.DbRegjistrim.colNjesiAdministrative col = new colNjesiAdministrative();
-         
-            DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-          
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-     
-            col.mbushGjitheNjesiAdministrativeAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), oPerdorues.IdPerdorues);
-            gvLupaMagazina.DataSource = col;
-            gvLupaMagazina.DataBind();
-        }
 
         private void konfiguroPopupGride(int idKonfigAmbjenti, bool visibleIndex, bool kerkosaposhkruar)
         {

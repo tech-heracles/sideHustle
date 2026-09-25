@@ -496,13 +496,6 @@ namespace PlatinumWeb
             gvDegeAdministrative.DataBind();
             dt.Dispose();
         }
-        private void mbushListeDegeAdministrative()
-        {//mbush griden me te dhena
-            DbCore.DbRegjistrim.colDegeAdministrative col = new DbCore.DbRegjistrim.colDegeAdministrative();
-            col.mbushGjitheDegeAdministrative(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            gvDegeAdministrative.DataSource = col;
-            gvDegeAdministrative.DataBind();
-        }
 
         private void percaktoTamplateAutorizime()
         {//templatet per kolonat e Autorizimeve

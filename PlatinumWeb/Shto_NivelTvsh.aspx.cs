@@ -218,14 +218,6 @@ namespace PlatinumWeb
             gvShtoNivelTvsh.DataBind();
             dt.Dispose();
         }
-        private void mbushListeTaksash(int idNdermarrje)
-        {//mbush griden me te dhena
-
-            DbCore.DbRegjistrim.colTaksa col = new DbCore.DbRegjistrim.colTaksa(idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-
-            gvShtoNivelTvsh.DataSource = col;
-            gvShtoNivelTvsh.DataBind();
-        }
         private void mbushComboLloji()
         {
             DbCore.DbRegjistrim.colLlojTakse lloj = new DbCore.DbRegjistrim.colLlojTakse();
@@ -259,17 +251,6 @@ namespace PlatinumWeb
             GridViewDataTextColumn col3 = gvShtoNivelTvsh.Columns["NormaPerqindje"] as GridViewDataTextColumn;
             col3.PropertiesEdit.DisplayFormatString = "0.00";
             gvShtoNivelTvsh.Columns["#"].VisibleIndex = 0;
-        }
-        private void shto_TakseNdermarje()
-        {
-            gvShtoNivelTvsh.Columns.Remove(gvShtoNivelTvsh.Columns["TakseNdermarje"]);
-            GridViewDataCheckColumn colnew = new GridViewDataCheckColumn();
-            colnew.PropertiesCheckEdit.ValueChecked = "True";
-            colnew.PropertiesCheckEdit.ValueUnchecked = "false";
-            colnew.PropertiesCheckEdit.ValueGrayed = "";
-
-            colnew.FieldName = "TakseNdermarje";
-            gvShtoNivelTvsh.Columns.Add(colnew);
         }
  
 

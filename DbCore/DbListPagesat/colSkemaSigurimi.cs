@@ -98,15 +98,6 @@ namespace DbCore.DbListPagesat
         /// </summary>
         /// <param name="dt"> data table me te dhena te tipit skema sigurimi</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        private bool mbushSkemaSigurimi(DataTable dt)
-        {
-
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                Add(new clsSkemaSigurimi(rreshti));
-            }
-            return true;
-        }
         #endregion
     }
 }

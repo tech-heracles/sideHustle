@@ -536,17 +536,6 @@ namespace PlatinumWeb
         /// <summary>
         /// mbush kombon e modeleve te fushave shtese
         /// </summary>
-        private void mbushComboModeli()
-        {//mbush kombon e modelit me te dhena nga databasa
-
-            DbCore.DbAdmin.clsLlojModeliFushaShtese llojmod = new DbCore.DbAdmin.clsLlojModeliFushaShtese("Llogari");
-            int idlloj = llojmod.IdLlojModeliFushaShtese;
-            DbCore.DbAdmin.colModeletFushaShtese colModeli = new DbCore.DbAdmin.colModeletFushaShtese(idlloj, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            cmbModeli.DataSource = colModeli;
-            cmbModeli.TextField = "KodiModeliFushashtese";
-            cmbModeli.ValueField = "IdModeliFushaShtese";
-            cmbModeli.DataBind(); 
-        }
 
         /// <summary>
         /// inicializon dbKontabilitetin
@@ -579,13 +568,6 @@ namespace PlatinumWeb
         /// mbush griden e llogarive
         /// </summary>
         /// <param name="idPerdoruesi"></param>
-        private void mbushListeLlogarish(int idPerdoruesi)
-        {//mbush griden me te dhena 
-            DbCore.DbKontabiliteti.colLlogarite colLlog = new DbCore.DbKontabiliteti.colLlogarite();
-            colLlog.mbushLLogariteNdermarrjesAndAutorizime(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), idPerdoruesi);
-            grid_ListLlogarish.DataSource = colLlog;
-            grid_ListLlogarish.DataBind();
-        }
 
 
         /// <summary>

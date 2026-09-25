@@ -70,25 +70,6 @@ namespace DbCore.DbRegjistrim
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbRegjistrim.clsDetajimArtikulliRegjistrim"/> 
         /// </summary>
-        private bool mbushDetajimeRegjistrimeMagazine(DataTable dt)
-        {
-            try
-            {
-
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsDetajimArtikulliRegjistrim det = new clsDetajimArtikulliRegjistrim();
-                    det.mbushDetajimRegjistrimMagazine(rreshti);
-                    Add(det);
-                }
-
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
         [Obsolete("Perdor: bool mbushDetajimeRegjistrime(DataTable dt)", true)]

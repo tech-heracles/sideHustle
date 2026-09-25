@@ -69,11 +69,6 @@ namespace PlatinumWeb.E_PaySlip
                 btnPerdorues.Text = punonjes.Username;
             }
         }
-        private void mbushHiddenFieldMePerkthime(System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
-        {
-            hfState.Set("msgPerdoruesitMinGjatesiPassword", rm.GetString("msgPerdoruesitMinGjatesiPassword", ci));
-            hfState.Set("msgPerdoruesitMinKarakterePass", rm.GetString("msgPerdoruesitMinKarakterePass", ci));
-        }
 
         private void EmratELabelave(System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
         {

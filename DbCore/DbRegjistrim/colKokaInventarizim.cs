@@ -64,18 +64,6 @@ namespace DbCore.DbRegjistrim
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbRegjistrim.clsKokaInventarizim"/> 
         /// </summary>
-        private bool mbushKokaInventarizm(DataTable dt)
-        {
-            //try
-
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    Add(new clsKokaInventarizim(rreshti));
-                }
-
-            //    //throw;
-            return true;
-        }
 
         #endregion
        

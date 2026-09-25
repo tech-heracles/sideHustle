@@ -1599,35 +1599,6 @@ namespace PlatinumWeb
                 MbushGrideNgaDb();
         }
 
-        private void ModifikoKfNeGrid(clsKlientFurnitor Kf)
-        {
-            if (ASPxGridView_KF.DataSource != null)
-            {
-                var dt = (DataTable)ASPxGridView_KF.DataSource;
-
-
-                var op = CriteriaOperator.Parse(ASPxGridView_KF.FilterExpression, 0);
-                var filterString = CriteriaToWhereClauseHelper.GetMsSqlWhere(op);
-                if (!string.IsNullOrWhiteSpace(filterString))
-                    filterString = $"{filterString} AND";
-                //plotesojme filtrin dhe kontrollojme neqoftese klienti me modifikimet e bera eshte pjese e ds ne gride 
-                var drs = dt.Select("IdKlientFurnitor = " + Kf.IdKlientFurnitor);
-                if (drs.Length > 1)
-                    throw new Exception(MessagesResource.Messages["msgExceptionkfGride"]);
-                if (drs.Length == 0)
-                    return;
-                dt.Rows.Remove(drs[0]);//fshijme rreshtin e modifikuar 
-                var dr = drs[0];
-                var newArtDr = colKlienteFurnitore.merrSipasKFNdermarrjesAndAutorizimeDTFiltered(IdNdermarrja, IdPerdoruesi, Convert.ToInt32(cmbKonfigurimi.Value), $"{filterString} IdKlientFurnitor = {Kf.IdKlientFurnitor}", string.Empty, string.Empty);
-                if (newArtDr.Rows.Count != 0) {//nqs klienti i modifikuar i  bindet filtrit te grides e shtojm perseri ne ds 
-                    var arr = newArtDr.Rows[0].ItemArray;
-                    dr.ItemArray = arr;
-                }
-                ASPxGridView_KF.DataBind();
-            }
-            else
-                MbushGrideNgaDb();
-        }
 
         protected void ASPxGridView_KF_DataBound(object sender, EventArgs e)
         {
@@ -1764,18 +1735,6 @@ namespace PlatinumWeb
             GridUtil.renditGriden(sortHfString, ASPxGridView_KF);
         }
 
-        private string GetSortedColumns()
-        {
-            var sortedColumns = ASPxGridView_KF.GetSortedColumns();
-            if (sortedColumns.Count < 1)
-                return string.Empty;
-            else
-            {
-                string fieldName = sortedColumns[0].FieldName;
-                string sortOrder = sortedColumns[0].SortOrder.ToString();
-                return $"{fieldName} {sortOrder}";
-            }
-        }
 
     }
 }

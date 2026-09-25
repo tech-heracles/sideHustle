@@ -210,14 +210,6 @@ namespace DbCore.DbListPagesat
 
         #region Metoda Private
 
-        private bool mbushKomponenteNr(DataTable dt)
-        {
-            //try
-            foreach (DataRow rreshti in dt.Rows)
-            {
-            }
-            return true;
-        }
 
         #endregion
 

@@ -826,32 +826,6 @@ namespace PlatinumWeb
             combo.DataBind();
         }
 
-        private ArrayList mbushComboPrioriteti()
-        {//mbush combon e prioriteteve 
-            ArrayList prioriteti = new ArrayList();
-            prioriteti.Add("1");
-            prioriteti.Add("2");
-            prioriteti.Add("3");
-            prioriteti.Add("4");
-            prioriteti.Add("5");
-            prioriteti.Add("6");
-            prioriteti.Add("7");
-            prioriteti.Add("8");
-            prioriteti.Add("9");
-            prioriteti.Add("10");
-            prioriteti.Add("11");
-            prioriteti.Add("12");
-            prioriteti.Add("13");
-            prioriteti.Add("14");
-            prioriteti.Add("15");
-            prioriteti.Add("16");
-            prioriteti.Add("17");
-            prioriteti.Add("18");
-            prioriteti.Add("19");
-            prioriteti.Add("20");
-
-            return prioriteti;
-        }
 
         private void konfiguroGrideCmimesh(int idPerdoruesi, int idNdermarrje)
         {//konfigurohet grida
@@ -981,29 +955,6 @@ namespace PlatinumWeb
         }
 
 
-        private void percaktoTemplateBuxheti()
-        {// percaktohen tipet e kolonave per griden e buxheteve
-            GridViewDataTextColumn col1 = gvBuxheti.Columns["Muaj"] as GridViewDataTextColumn;
-            col1.VisibleIndex = 0;
-            col1.DataItemTemplate = new MyLabelTemplate();
-            GridViewDataTextColumn col2 = gvBuxheti.Columns["Gjendja"] as GridViewDataTextColumn;
-            col2.VisibleIndex = 1;
-            col2.DataItemTemplate = new MyLabelTemplate();
-            GridViewDataTextColumn col3 = gvBuxheti.Columns["Buxheti_1"] as GridViewDataTextColumn;
-            col3.VisibleIndex = 2;
-            col3.DataItemTemplate = new MyDoubleTemplate(false, 2, "0"); // "0.00");
-            GridViewDataTextColumn col4 = gvBuxheti.Columns["Buxheti_2"] as GridViewDataTextColumn;
-            col4.VisibleIndex = 3;
-            col4.DataItemTemplate = new MyDoubleTemplate(false, 2, "0"); // "0.00");
-            GridViewDataTextColumn col5 = gvBuxheti.Columns["Diferenca_1"] as GridViewDataTextColumn;
-            col5.VisibleIndex = 4;
-            col5.ReadOnly = true;
-            col5.DataItemTemplate = new MyReadOnlyTextTemplate();
-            GridViewDataTextColumn col6 = gvBuxheti.Columns["Diferenca_2"] as GridViewDataTextColumn;
-            col6.VisibleIndex = 5;
-            col6.ReadOnly = true;
-            col6.DataItemTemplate = new MyReadOnlyTextTemplate();
-        }
 
         private void percaktoTemplateCmimi()
         {//percaktohen templatet per fushat e grides

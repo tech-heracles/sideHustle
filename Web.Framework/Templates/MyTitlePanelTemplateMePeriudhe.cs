@@ -214,10 +214,6 @@ namespace PlatinumWeb.Templates
             radDtDok.SelectedItem = radDtDok.Items.FindByValue(Periudhat.PeriudhaDok);
         }
 
-        private void btnfilterDefault_Click(object sender, EventArgs e)
-        {
-            GridUtil.AplikoFilterDefault(Grid, idKonfig);
-        }
 
         #endregion 
 

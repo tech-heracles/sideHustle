@@ -64,29 +64,8 @@ namespace PlatinumWeb
             gvLupaKpf.DataBind();
             dt.Dispose();
         }
-        private void mbushPopUpGrideKPFsh2()
-        {//mbush griden e popupit me te dhena
-            DataTable dt = DbCore.DbKontabiliteti.colKPFte.merrSipasKPFNdermarrjesAndAutorizimePerLupeKPF(2, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            gvLupaKpf.DataSource = dt;// colKPFte;
-            gvLupaKpf.DataBind();
-            dt.Dispose();
-        }
 
-        private void mbushPopUpGrideKPFsh3()
-        {//mbush griden e popupit me te dhena
-            DataTable dt = DbCore.DbKontabiliteti.colKPFte.merrSipasKPFNdermarrjesAndAutorizimePerLupeKPF(3, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            gvLupaKpf.DataSource = dt;// colKPFte;
-            gvLupaKpf.DataBind();
-            dt.Dispose();
-        }
 
-        private void mbushPopUpGrideKPFsh1()
-        {//mbush griden e popupit me te dhena
-            DataTable dt = DbCore.DbKontabiliteti.colKPFte.merrSipasKPFNdermarrjesAndAutorizimePerLupeKPF(1, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            gvLupaKpf.DataSource = dt;// colKPFte;
-            gvLupaKpf.DataBind();
-            dt.Dispose();
-        }
 
         private void konfiguroPopupGrideKPF1(int idKonfigambjenti, bool visibleIndex, bool kerkosaposhkruar)
         {//konfiguron popupgriden

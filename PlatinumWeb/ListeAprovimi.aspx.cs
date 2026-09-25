@@ -187,19 +187,6 @@ namespace PlatinumWeb
 
             g.DataItemTemplate = new MyLinkKomenteTemplate();
         }
-        private void shtoProgres()
-        {
-            GridViewDataColumn g = gvAprovimet.Columns["Progresi"] as GridViewDataColumn;
-            gvAprovimet.Columns.Remove(g);
-            GridViewDataProgressBarColumn col9 = new GridViewDataProgressBarColumn();
-            col9.PropertiesProgressBar.Minimum = 0;
-            col9.PropertiesProgressBar.Maximum = 100;
-            col9.PropertiesProgressBar.IndicatorStyle.BackColor = System.Drawing.Color.FromArgb(102, 102, 102);
-
-            col9.FieldName = "Progresi";
-            col9.Caption = IdGjuha == 0 ? "Progresi" : "Progress";
-            gvAprovimet.Columns.Add(col9);
-        }
 
         /// <summary>
         /// kur grida ben databound per ti shtuar kolonen e selektimit

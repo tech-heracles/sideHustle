@@ -552,14 +552,6 @@ namespace PlatinumWeb
             combo.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
             combo.DataBind();
         }
-        private void mbushListePikaShitjeFurnizimi()
-        {//mbush griden me te dhena
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-            DbCore.DbRegjistrim.colPikaShitjeFurnizimi col = new DbCore.DbRegjistrim.colPikaShitjeFurnizimi();
-            col.mbushGjithePikeShitjeFurnizimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            gvPikeShitjeFurnizimi.DataSource = col;
-            gvPikeShitjeFurnizimi.DataBind();
-        }
 
         private void percaktoTamplateAutorizime()
         {//templatet per kolonat e Autorizimeve

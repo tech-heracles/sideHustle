@@ -132,16 +132,6 @@ namespace PlatinumWeb
             DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "");
         }
 
-        bool IsRowVisibleOnScreen(int rowIndex)
-        {
-            int startIndex = gvNjesiAdm.PageIndex * gvNjesiAdm.SettingsPager.PageSize;
-            int endIndex = startIndex + gvNjesiAdm.SettingsPager.PageSize;
-            return rowIndex >= startIndex && rowIndex < endIndex;
-        }
-        void GoToPage(int rowIndex)
-        {
-            gvNjesiAdm.PageIndex = rowIndex / gvNjesiAdm.SettingsPager.PageSize;
-        }
 
         private void vendosHfMePerkthime(ResourceManager rm, CultureInfo cultinf)
         {
@@ -251,31 +241,6 @@ namespace PlatinumWeb
         }
 
     
-        private void shto_Autorizim()
-        {//shtohen komboja me Autorizimeve tek grida e KPF
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            if (typeof(GridViewDataComboBoxColumn) != gvNjesiAdm.Columns["KodiAutorizim"].GetType())
-            {
-                gvNjesiAdm.Columns.Remove(gvNjesiAdm.Columns["KodiAutorizim"]);
-                gvNjesiAdm.Columns.Add(colnew);
-                DbCore.DbAdmin.colAutorizimetKoka colAutorizim = new DbCore.DbAdmin.colAutorizimetKoka(DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                colnew.PropertiesComboBox.DataSource = colAutorizim;
-                colnew.PropertiesComboBox.TextField = "KodiAutorizim";
-                colnew.PropertiesComboBox.ValueField = "KodiAutorizim";
-                colnew.FieldName = "KodiAutorizim";
-
-                colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, colAutorizim, "colAutorizim");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)gvNjesiAdm.Columns["KodiAutorizim"];
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "colAutorizim");
-                }
-            }
-        }
 
    
         //thirret sa here qe behet Callback, dhe ben edhe njeher lidhjen me datasource-in
@@ -646,13 +611,6 @@ namespace PlatinumWeb
             dt.Dispose();
         }
 
-        private void mbushListeNjesiAdministrative(int idNdermarrje)
-        {//mbush griden me te dhena
-            DbCore.DbRegjistrim.colNjesiAdministrative colNjesiAdm = new DbCore.DbRegjistrim.colNjesiAdministrative();
-            colNjesiAdm.mbushGjitheNjesiAdministrative(idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            gvNjesiAdm.DataSource = colNjesiAdm;
-            gvNjesiAdm.DataBind();
-        }
 
         private void percaktoTamplateAutorizime()
         {//templatet per kolonat e Autorizimeve

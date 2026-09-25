@@ -1112,39 +1112,6 @@ namespace PlatinumWeb
         {
         }
 
-        private void mbushGridenKurset()
-        {
-            var trupiFillestar = string.Empty;
-            var id = int.Parse(hfId.Value.ToString());
-            var tempColKurset = new DbCore.DbAdmin.colKurset();
-            var colKurset = new DbCore.DbAdmin.colKurset();
-            tempColKurset.mbushKursetFunditMonedhes(id);
-            var lloji = 0;
-            foreach (DbCore.DbAdmin.clsKurset kursi in tempColKurset)
-            {
-                if (lloji != kursi.LlojKursi)
-                {
-                    string vlereKursi;
-                    if (btneFormatNumri.Text != string.Empty)
-                    {
-                        vlereKursi = kursi.VleraKursi.ToString("################################" + btneFormatNumri.Text);
-                    }
-                    else
-                    {
-                        vlereKursi = kursi.VleraKursi.ToString();
-                    }
-                    trupiFillestar += kursi.LlojKursi + ":" + vlereKursi + ":" + DbCore.clsFunksione.ktheDateFormat(kursi.DataKursit) + ":" + kursi.NjesiaKursit + ":" + kursi.PershkrimLlojKursi + ";";
-                    njesia_TextBox.Text = tempColKurset[0].NjesiaKursit.ToString();
-                    colKurset.Add(kursi);
-                    lloji = kursi.LlojKursi;
-                }
-            }
-            hfTrupiFillimit.Value = trupiFillestar;
-
-            gvKurset.DataSource = colKurset;
-            gvKurset.DataBind();
-            updateraporti.Update();
-        }
 
         protected void btneLlogFitimi_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {

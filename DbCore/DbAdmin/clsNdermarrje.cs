@@ -1647,41 +1647,6 @@ namespace DbCore.DbAdmin
             return true;
         }
         
-        private string unzip(Stream filecontent, int idlicenca)
-        {
-            string finame = "";
-            clsLicenca licenca = new clsLicenca(idlicenca);
-            string pathDir = System.Web.HttpContext.Current.Server.MapPath(null) + @"\Licencat\";
-            DirectoryExtension.CreateDirIfNotExists(pathDir);
-            pathDir += licenca.KodLicenca + "\\";
-            DirectoryExtension.CreateDirIfNotExists(pathDir);
-            try
-            {                                    // File.OpenRead(zipname)
-                ZipInputStream s = new ZipInputStream(filecontent);
-                ZipEntry theEntry = s.GetNextEntry();
-                string dirname = Path.GetDirectoryName(theEntry.Name);
-                finame = Path.GetFileName(theEntry.Name);
-                FileStream sWriter = File.Create(pathDir + finame);
-                int size = 2048;
-                byte[] data = new byte[2048];
-                bool vazhdo = true;
-                while (vazhdo)
-                {
-                    size = s.Read(data, 0, 2048);
-                    if (size > 0)
-                        sWriter.Write(data, 0, size);
-                    else vazhdo = false;
-                }
-                sWriter.Close();
-                s.Close();
-            }
-            catch (Exception)
-            {
-
-            }
-            return pathDir + finame;
-
-        }
 
         private DataSet krijods(string inidnderm)
         {

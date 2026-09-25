@@ -74,14 +74,7 @@ namespace DbCore.IMBUtils.Logging
 
         }
 
-        private static void Log(LogLevel level, Exception ex, string message = null)
-        {
 
-        }
-
-        private static void Log(LogLevel level, string message)
-        {
-        }
 
         [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(Exception ex)
@@ -161,9 +154,6 @@ namespace DbCore.IMBUtils.Logging
         {
         }
         public static void LogWarningBuxhetimi(string warning)
-        {
-        }
-        private static void WarnBuxhetimi(string warning)
         {
         }
         public static void LogTraceBuxhetimi(string trace)
@@ -279,10 +269,6 @@ namespace DbCore.IMBUtils.Logging
         #endregion
 
         #region Enter/Exit Logging
-        private static void LogMethod(Action<string> loggerMethod, string msgStart, bool isInfo, params object[] args)
-        {
-            //StackTrace trace = new StackTrace(true);  // need `true` for getting file and line info
-        }
 
         [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogEnter(Action<string> loggerMethod, params object[] args)

@@ -556,10 +556,6 @@ namespace DotSpatial.Topology
             return ret;
         }
 
-        private static bool HasM(this Data.Shape self)
-        {
-            return self.M != null && self.M.Length > 0;
-        }
 
         private static bool HasZ(this Data.Shape self)
         {

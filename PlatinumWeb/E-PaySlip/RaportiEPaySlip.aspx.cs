@@ -332,28 +332,6 @@ namespace PlatinumWeb.E_PaySlip
 
             ImbReportToolbar1.hiqButonExport();
         }
-        private void hiqNrPersonalPunonjesi()
-        {
-            navBarFiltrat.Groups[1].FindControl("lblNrPersonal").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("cmbVeprim1NP").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("txtBtnNrPersonal1").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("cmbLidhesaNP").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("cmbVeprim2NP").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("txtBtnNrPersonal2").Visible = false;
-        }
-        private void hiqNrSigurimesh()
-        {
-
-            navBarFiltrat.Groups[1].FindControl("lblNrSigurimesh").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("txtNrSigurimesh").Visible = false;
-
-        }
-        private void hiqFilterDraft()
-        {
-
-            navBarFiltrat.Groups[1].FindControl("lblDraft").Visible = false;
-            navBarFiltrat.Groups[1].FindControl("cbDraft").Visible = false;
-        }
 
 
         private void vendosHfMePerkthime(ResourceManager rm, CultureInfo ci)
@@ -1150,10 +1128,6 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-        private void konfigKontrolleRaporti(int idRaporti)
-        {
-
-        }
         /// <summary>
         /// Gjen minimumin ne nje liste te dhene duke filluar nga indexi i dhene
         /// </summary>
@@ -1549,60 +1523,7 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-        private void mbushGrupDokumenti1(int idgrupi, string emri, int idNdermarrje, int idPerdoruesi)
-        {//mbush kombon e monedhes me te dhena nga databasa
-            DbCore.DbRegjistrim.colGrupimDokumentiKoka col = new DbCore.DbRegjistrim.colGrupimDokumentiKoka();
-            col.Add(new DbCore.DbRegjistrim.clsGrupimDokumentiKoka());
-            clsRaporti rap = new clsRaporti(0, idRaporti);
-            switch (rap.IdModul)
-            {
-                case 12:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "1", idPerdoruesi);
-                    break;
-                case 13:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "2", idPerdoruesi);
-                    break;
-                case 16:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "6", idPerdoruesi);
-                    break;
-                case 2:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "3", idPerdoruesi);
-                    break;
-                case 6:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "4", idPerdoruesi);
-                    break;
-                case 18:
-                    col.merrGrupeSipasKategorise(idgrupi, idNdermarrje, "44,45,46", idPerdoruesi);
-                    break;
-            }
-            ASPxComboBox cmbGrup1 = new ASPxComboBox();
-            string kontrollEmri = emri;
-            cmbGrup1 = (ASPxComboBox)navBarFiltrat.Groups[1].FindControl(kontrollEmri);
 
-            cmbGrup1.DataSource = col;
-            cmbGrup1.TextField = "Kodi";
-            cmbGrup1.ValueField = "IdGrupimKoka";
-            cmbGrup1.DataBind();
-        }
-
-        private void mbushComboQyteti(int idNdermarrje)
-        {
-            colQytetet colQyt = new colQytetet();
-            colQyt.mbushGjitheQytetetPozitive(idNdermarrje);
-
-            ASPxComboBox cmbQyteti1 = new ASPxComboBox();
-            ASPxComboBox cmbQyteti2 = new ASPxComboBox();
-            cmbQyteti1 = (ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbQyteti1");
-            cmbQyteti2 = (ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbQyteti2");
-            cmbQyteti1.DataSource = colQyt;
-            cmbQyteti2.DataSource = colQyt;
-            cmbQyteti1.TextField = "KODIQYTETI";
-            cmbQyteti2.TextField = "KODIQYTETI";
-            cmbQyteti1.ValueField = "IDQYTETI";
-            cmbQyteti2.ValueField = "IDQYTETI";
-            cmbQyteti1.DataBind();
-            cmbQyteti2.DataBind();
-        }
 
         private void pastroFiltra()
         {
@@ -1615,39 +1536,6 @@ namespace PlatinumWeb.E_PaySlip
             pastroFiltra();
         }
 
-        private DateTime ktheVlereDateLibrat(int idNdermarrje, int idViti, int idNderViti, clsPeriudhaKontabel periudhaKontabel)
-        {
-            DateTime dtmbarimi = DateTime.Today;
-            switch (((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedItem.Value.ToString())
-            {
-                case "Aktuale":
-                    if (periudhaKontabel != null)
-                        dtmbarimi = periudhaKontabel.MbarimiPeriudha;
-                    break;
-                case "VitiUshtrimor":
-                    if (idNderViti != 0)
-                    {
-                        dtmbarimi = new clsNdermarrjeViti(idNderViti).NdermarrjeVitiFund;
-
-                    }
-                    break;
-                case "Periudha":
-                    dtmbarimi = ((ASPxDateEdit)navBarFiltrat.Groups[0].FindControl("txtDeriDok")).Date;
-                    break;
-                case "GjitheVitet":
-                    {
-                        clsNdermarrjeViti ndermviti = new clsNdermarrjeViti();
-                        ndermviti.mbushNdermVitFillimFundPerGjitheVitetSipasNdermarjes(idNdermarrje);
-                        dtmbarimi = ndermviti.NdermarrjeVitiFund;
-                    }
-                    break;
-
-                default:
-                    break;
-
-            }
-            return dtmbarimi;
-        }
         private string ktheVlerenEKontrollit(clsKontroll kontrolli, string tipiKontrollit)
         {
             string kodKontrolli = kontrolli.KodKontrolli;
@@ -3990,10 +3878,6 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-        private colFilterKoka ktheFiltraRaporti()
-        {
-            return null;
-        }
 
 
         protected void Apliko_ASPxButton_Click(object sender, EventArgs e)

@@ -215,25 +215,6 @@ namespace PlatinumWeb
         /// perdoret per te shfaqur kodet e modelit te automjetit ne vend te id si dhe filtri i modelit te auto te shfaqet ne forme komboje
         /// </summary>       
         /// <param name="idNdermarrje"></param>
-        private void shtoModelAutomjeti(int idNdermarrje, bool visibleIndex)
-        {
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            int indexi = ASPxGridView_Automjete.Columns["ModelAutomjeti"].VisibleIndex;
-            ASPxGridView_Automjete.Columns.Remove(ASPxGridView_Automjete.Columns["ModelAutomjeti"]);
-            ASPxGridView_Automjete.Columns.Add(colnew);
-            if (visibleIndex)
-                colnew.VisibleIndex = indexi;
-            DbCore.DbInventari.colModeleAutomjetesh modelet = new DbCore.DbInventari.colModeleAutomjetesh();
-            modelet.Add(new DbCore.DbInventari.clsModelAutomjeti(0, "", "", 0, 0, 0, 0));
-            modelet.mbushModeleAutomjeteshSipasNdermarrjes(idNdermarrje);
-            colnew.PropertiesComboBox.DataSource = modelet;
-            colnew.PropertiesComboBox.TextField = "KodModelAutomjeti";
-            colnew.PropertiesComboBox.ValueField = "IdModelAutomjeti";
-            colnew.FieldName = "ModelAutomjeti";
-
-            colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            //else
-        }
 
         /// <summary>
         /// perdoret per te shfaqur kodet e klienteve ne vend te id si dhe filtri i klientit te shfaqet ne forme komboje

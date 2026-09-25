@@ -57,15 +57,6 @@ namespace DbCore.DbQendraKosto
         /// </summary>
         /// <param name="dt">data table me te dhena te tipit konfigurim qendra kosto</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        private bool mbushKonfigurim(DataTable dt)
-        {
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    Add(new clsKonfigurimQK(rreshti));
-                }
-            return true;
-        }
 
         #endregion
     }

@@ -28,10 +28,6 @@ namespace DbCore.MbylljePeriudhe
             Mbush(record);
         }
 
-        private Month CreateMonth(IDataRecord record)
-        {
-            return new Month(record);
-        }
 
         public void Mbush(IDataRecord record)
         {

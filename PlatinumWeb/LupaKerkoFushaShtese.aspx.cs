@@ -214,23 +214,6 @@ namespace PlatinumWeb
             KonfiguroDataSourceGride(ndryshoiLayeri, ndryshoiGrupimi);
         }
 
-        private dynamic merrVlerenNgaCombo()
-        {
-            //vlera e combos eshte ne formatin IdLayerType_IdLayer
-            //per te shmangur duplikimet eshte bere qe idLayer te jete 0 per te gjithe layerat jo baze
-            int idLayer = -1;
-            string[] vlera = cmbLayers.Value.ToString().Split('_');
-            if (vlera[0] == "3")//layer baze
-                idLayer = int.Parse(vlera[1]);
-            else
-                idLayer = int.Parse(vlera[0]);//merrr tipin e layerit
-            return new
-            {
-                IdLayeri = idLayer,
-                KodLayeri = cmbLayers.Text,
-                IdLayerType = int.Parse(vlera[0])
-            };
-        }
 
         private void KonfiguroDataSourceGride(bool ndryshoiLayeri, bool ndryshoiGrupimi)
         {
@@ -270,32 +253,6 @@ namespace PlatinumWeb
             }
         }
 
-        private void shtoKolonStatusi()
-        {
-            CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-
-            GridViewDataComboBoxColumn newCol = new GridViewDataComboBoxColumn();
-
-            var colStatusi = gvLupaKerko.Columns["Status"];
-            //rasti per layerat qe kane statuse,perjashtohen layarat pa status
-            if (colStatusi.Visible)
-            {
-                newCol.PropertiesComboBox.Items.Add(rm.GetString("statusGisTeGjitha", ci), null);       //Të gjitha
-                newCol.PropertiesComboBox.Items.Add(rm.GetString("statusGisSaktësuar", ci), 1);         //E saktësuar
-                newCol.PropertiesComboBox.Items.Add(rm.GetString("statusGisPasaktësuar", ci), 2);       //E pasaktësuar
-                newCol.PropertiesComboBox.Items.Add(rm.GetString("statusGisPlanifikuar", ci), 3);       //E planifikuar
-
-                newCol.PropertiesComboBox.ValueType = typeof(Int32);
-                newCol.FieldName = "Status";
-                newCol.Caption = "Status";
-                newCol.VisibleIndex = colStatusi.VisibleIndex;
-
-                gvLupaKerko.Columns.Remove(colStatusi);
-                gvLupaKerko.Columns.Add(newCol);
-            }
-        }
 
         private string krijoFilterString()
         {

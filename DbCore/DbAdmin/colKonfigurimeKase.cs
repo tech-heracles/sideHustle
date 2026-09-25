@@ -48,17 +48,6 @@ namespace DbCore.DbAdmin
 
         #region metoda private
 
-        private bool mbushKonfigurimKasash(DataTable dt)
-        {
-            //try
-            foreach (DataRow rreshti in dt.Rows)
-            {
-
-                this.Add(new clsKonfigurimKase(rreshti));
-            }
-            //    //throw;
-            return true;
-        }
         #endregion
     }
 }

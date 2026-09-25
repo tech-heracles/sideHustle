@@ -576,10 +576,6 @@ namespace PlatinumWeb
             combo.DataBind();
         }
 
-        private void inicializoObjekte()
-        {
-
-        }
 
         private void mbushGridABNgaSession(int idNdermarrje, int idPerdorues)
         {

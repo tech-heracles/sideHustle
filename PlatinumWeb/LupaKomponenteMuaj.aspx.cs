@@ -383,17 +383,6 @@ namespace PlatinumWeb
             GridViewDataTextColumn col4 = gvLupaKomp.Columns["VleraParam"] as GridViewDataTextColumn;
             col4.PropertiesEdit.DisplayFormatString = "0.00";
         }
-        private void shto_Kategori()
-        {
-            int visibleindex = gvLupaKomp.Columns["KategoriDetajimi"].VisibleIndex;
-            gvLupaKomp.Columns.Remove(gvLupaKomp.Columns["KategoriDetajimi"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            colnew.PropertiesComboBox.Items.Add("Detajim 1", 1);
-            colnew.PropertiesComboBox.Items.Add("Detajim 2", 2);
-            colnew.FieldName = "KategoriDetajimi";
-            colnew.VisibleIndex = visibleindex;
-            gvLupaKomp.Columns.Add(colnew);
-        }
 
     }
 }

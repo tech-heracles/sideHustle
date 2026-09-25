@@ -255,35 +255,6 @@ namespace PlatinumWeb
             if (hfPrioriteteMax.Value != "")
                 hfPrioriteteMax.Value = hfPrioriteteMax.Value.Substring(1);
         }
-        private void mbushListeNiveleCmimesh()
-        {//mbush griden me te dhena
-            hfPrioriteteMax.Value = "";
-            DbCore.DbInventari.colNiveleCmimesh colNivele = new DbCore.DbInventari.colNiveleCmimesh();
-            colNivele.mbushGjitheNiveleCmimeshSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            this.gvNivelCmimi.DataSource = colNivele;
-            this.gvNivelCmimi.DataBind();
-            DbCore.DbInventari.colNiveleCmimesh colNivelePrind = new DbCore.DbInventari.colNiveleCmimesh();
-            colNivelePrind.mbushGjitheNiveleCmimeshPrindiSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-
-            foreach (DbCore.DbInventari.clsNivelCmimi n in colNivelePrind)
-            {
-                int prioriteti = 0;
-                DbCore.DbInventari.colNiveleCmimesh newcolNivCmim = new DbCore.DbInventari.colNiveleCmimesh();
-                newcolNivCmim.mbushNivelSipasPrindit(n.IdNivelCmimi);
-                if (newcolNivCmim.Count > 0)
-                {
-                    prioriteti = newcolNivCmim[0].PrioritetiNivelCmimi + 1;
-                    if (prioriteti < n.PrioritetiNivelCmimi + 1)
-                        prioriteti = n.PrioritetiNivelCmimi + 1;
-                }
-                else
-                    prioriteti = n.PrioritetiNivelCmimi + 1;
-                hfPrioriteteMax.Value += "," + n.KodNivelCmimi + ":" + prioriteti;
-            }
-            if (hfPrioriteteMax.Value != "")
-                hfPrioriteteMax.Value = hfPrioriteteMax.Value.Substring(1);
-
-        }
 
         private void konfiguroGride(string kodKonfigurimi, int idKomponente, ResourceManager rm, CultureInfo ci)
         {//konfiguron griden

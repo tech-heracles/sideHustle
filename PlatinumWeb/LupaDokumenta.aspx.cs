@@ -126,16 +126,6 @@ namespace PlatinumWeb
             merrSipasPeriudhes(DbCore.mySessionObjects.merrPeriudheNgaSesioni(Session).ToString());
         }
 
-        private void mbushPopUpListe()
-        {
-            if (rbAktuale.Checked)
-                DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 1);
-            else if (rbVitiUshtrimor.Checked)
-                DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 2);
-            else
-                DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 3);
-            merrSipasPeriudhes(DbCore.mySessionObjects.merrPeriudheNgaSesioni(Session).ToString());
-        }
 
         private void konfiguroPopupGride(int idKonfigambjenti, bool visibleIndex, int idGjuha, bool kerkosaposhkruar, ResourceManager rm, CultureInfo ci, bool endlessScroll)
         {
@@ -399,37 +389,6 @@ namespace PlatinumWeb
         }
 
 
-        private void shtoKlientFurnitor()
-        {
-            int visibleindex = gvLupaDok.Columns["IdKlientFurnitori"].VisibleIndex;
-            gvLupaDok.Columns.Remove(gvLupaDok.Columns["IdKlientFurnitori"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbKontabiliteti.colKlienteFurnitore col = new DbCore.DbKontabiliteti.colKlienteFurnitore();
-            col.mbushKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            DbCore.DbKontabiliteti.clsKlientFurnitor kf = new DbCore.DbKontabiliteti.clsKlientFurnitor();
-            kf.IdKlientFurnitor = 0;
-            kf.KodKlientFurnitor = "";
-            col.Add(kf);
-            colnew.PropertiesComboBox.DataSource = col;
-            colnew.PropertiesComboBox.ClientInstanceName = "IdKlientFurnitori";
-            colnew.PropertiesComboBox.ClientSideEvents.KeyPress = "function(s,e){var code =_getKeyCode(e.htmlEvent);KeyPresKF(code,IdKlientFurnitori,0); }";
-            colnew.PropertiesComboBox.ClientSideEvents.TextChanged = "function(s,e){TextChangedKF(0); }";
-            colnew.PropertiesComboBox.ClientSideEvents.LostFocus = "function(s,e){LostFocusKF(0);}";
-            colnew.PropertiesComboBox.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedKF(IdKlientFurnitori, 0) }";
-            colnew.PropertiesComboBox.DropDownButton.Visible = false;
-            EditButton b1 = new EditButton();
-
-            colnew.PropertiesComboBox.Buttons.Add(b1);
-            colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            colnew.PropertiesComboBox.DropDownStyle = DropDownStyle.DropDownList;
-            colnew.PropertiesComboBox.TextFormatString = "{0}";
-            colnew.VisibleIndex = visibleindex;
-            colnew.PropertiesComboBox.TextField = "KodKlientFurnitor";
-            colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-            colnew.FieldName = "IdKlientFurnitori";
-
-            gvLupaDok.Columns.Add(colnew);
-        }
 
         private void shtoMonedha()
         {

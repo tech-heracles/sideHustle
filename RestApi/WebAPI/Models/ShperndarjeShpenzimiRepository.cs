@@ -353,47 +353,7 @@ namespace RestApi.WebAPI.Models
             return koka;
         }
 
-        private static object[] ruajTrupin(object kokaDokumentitShperndare, object trupiDokumentitShperndare, HttpSessionState Session)
-        {
 
-            JavaScriptSerializer serializusi = new JavaScriptSerializer();
-            object[] dokumenti = (object[])serializusi.DeserializeObject(kokaDokumentitShperndare.ToString());
-            object[] shpenzimi = (object[])serializusi.DeserializeObject(trupiDokumentitShperndare.ToString());
-            colShperndarjeShpenzimeTrupi col = new colShperndarjeShpenzimeTrupi();
-            colShperndarjeShpenzimeFaturat colFaturat = new colShperndarjeShpenzimeFaturat();
-            for (int i = 0; i < dokumenti.Length; i++)
-            {
-                if (dokumenti[i] != null)
-                {
-                    clsShperndarjeShpenzimeTrupi trup = new clsShperndarjeShpenzimeTrupi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), (Dictionary<string, object>)dokumenti[i], shpenzimi[i]);
-                    if (trup.IdFatura != -1)
-                    {
-                        col.Add(trup);
-                        clsShperndarjeShpenzimeFaturat fat = new clsShperndarjeShpenzimeFaturat();
-                        fat.IdFatura = trup.IdFatura;
-                        colFaturat.Add(fat);
-                    }
-                }
-            }
-            object[] o = { col, colFaturat };
-            return o;
-        }
-
-        private static colShperndarjeShpenzimeLlogarite merrLlogarite(object llogarite)
-        {
-            JavaScriptSerializer serializusi = new JavaScriptSerializer();
-            object[] llogariteArr = (object[])serializusi.DeserializeObject(llogarite.ToString());
-
-            colShperndarjeShpenzimeLlogarite trupat = new colShperndarjeShpenzimeLlogarite();
-            clsShperndarjeShpenzimeLlogarite trupi;
-
-            for (int i = 0; i < llogariteArr.Length; i++)
-            {
-                trupi = (clsShperndarjeShpenzimeLlogarite)llogariteArr[i];
-                trupat.Add(trupi);
-            }
-            return trupat;
-        }
 
         internal static object MerrDokumentShperndarjeShpenzimi(int idDokumenti, HttpSessionState Session)
         {

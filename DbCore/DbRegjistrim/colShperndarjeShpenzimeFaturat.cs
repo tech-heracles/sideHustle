@@ -31,14 +31,6 @@ namespace DbCore.DbRegjistrim
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         /// <see cref="DbCore.DbRegjistrim.clsShperndarjeShpenzimeFaturat"/> 
         /// </summary>
-        private bool mbushShperndarjeShpezimeFaturat(DataTable dt)
-        {
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                Add(new clsShperndarjeShpenzimeFaturat(rreshti));
-            }
-            return true;
-        }
 
         #endregion
         [Obsolete("Perdor: bool mbushShperndarjeShpezimeFaturat(DataTable dt)", true)]

@@ -90,19 +90,6 @@ namespace DbCore.DbAdmin
         /// <param name="dt">datatable me te dhenat e colection-it</param>
         /// <returns>colectioni i mbushur nga datatable-i i dhene </returns>
         /// <seealso cref="mbushAmbientet"/>
-        private colAmbientModuli konvAmbientet(DataTable dt)
-        {
-            colAmbientModuli ambientet = new colAmbientModuli();
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsAmbientModuli ambienti = new clsAmbientModuli(Convert.ToInt32(rreshti["IDAMBJMODULI"]), Convert.ToString(rreshti["AMBJKODI"]),
-                        Convert.ToString(rreshti["AMBJPERSHKRIMI"]), Convert.ToInt32(rreshti["IDMODULI"]));
-                    ambientet.Add(ambienti);
-                }
-            //    //throw;
-            return ambientet;
-        }
     
         #endregion
 

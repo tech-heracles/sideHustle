@@ -9228,23 +9228,6 @@ namespace DbCore.DbAdmin
             string query = $"SELECT NRDOK FROM T_KOKASHITJE";
             return query;
         }
-        private SqlCommand getAlphaMobileReport(params SqlParameter[] param_array)
-        {
-            SqlCommand SqlCmd = new SqlCommand
-            {
-                Transaction = (SqlTransaction)dbManager.Transaction,
-                Connection = (SqlConnection)dbManager.Connection,
-                CommandText = getAlphaMobileQuery(),
-                CommandType = CommandType.Text
-            };
-
-            SqlCmd.Parameters.Clear();
-            foreach (SqlParameter param in param_array)
-            {
-                SqlCmd.Parameters.Add(param);
-            }
-            return SqlCmd;
-        }
         /// <summary>
         /// 
         /// </summary>

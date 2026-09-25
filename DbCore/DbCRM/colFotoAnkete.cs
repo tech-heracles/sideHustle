@@ -115,23 +115,6 @@ namespace DbCore.DbCRM
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbCRM.clsFotoAnkete"/> 
         /// </summary>
-        private bool mbushFotoAnkete(DataTable dt)
-        {
-            try
-            {
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsFotoAnkete FotoAnkete = new clsFotoAnkete();
-                    FotoAnkete.mbushFotoAnketa(rreshti);
-                    this.Add(FotoAnkete);
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
     }

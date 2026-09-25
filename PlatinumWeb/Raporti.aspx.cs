@@ -255,15 +255,6 @@ namespace PlatinumWeb
 			}
 		}
 
-		private void vendosVleraRadioKontrolleraveNgaSuperRaporti(string VleraRadiokontrolli)
-		{
-			switch (VleraRadiokontrolli)
-			{
-				case "filterNumerLlogarie":
-					(navBarFiltrat.Groups[1].FindControl("txtBtnNrLlog1") as ASPxButtonEdit).Text = VleraRadiokontrolli;
-					break;
-			}
-		}
 		private void VendosFiltraPerSubRaportQeVijneNgaUrl(string parametri, string vlera)
 		{
 			switch (parametri)
@@ -4916,14 +4907,6 @@ namespace PlatinumWeb
 
 		}
 
-		private void merrDataSourceRaport(XtraReport reportLibriPaMerge, XtraReport report, int idPerdorues)
-		{
-			clsPerdorues perdoruesi = DbCore.mySessionObjects.kthePerdorues(Session);
-			reportLibriPaMerge.DataSource = report.DataSource;
-			reportLibriPaMerge.DataAdapter = report.DataAdapter;
-			reportLibriPaMerge.DataMember = report.DataMember;
-			KonfigFleteRaporti(reportLibriPaMerge, perdoruesi);
-		}
 
 		/// <summary>
 		/// Ngarkon filtrin e personalizuar te zgjedhur te faqja e raporteve sipas modulit
@@ -6325,10 +6308,6 @@ namespace PlatinumWeb
 		}
 
 
-		private colFilterKoka ktheFiltraRaporti()
-		{
-			return null;
-		}
 
 		protected void Apliko_ASPxButton_Click(object sender, EventArgs e)
 		{
@@ -8090,17 +8069,9 @@ namespace PlatinumWeb
 		{
 			mySessionObjects.ruajMyReportNeSession(Session, hfState.Get("guidString").ToString(), report);
 		}
-		private void SaveReportData(object report, string name)
-		{
-			mySessionObjects.ruajMyReportNeSessionData(Session, hfState.Get("guidString").ToString(), report, name);
-		}
 		private XtraReport GetReport()
 		{
 			return mySessionObjects.merrMyReportNgaSessioni<XtraReport>(Session, hfState.Get("guidString").ToString());
-		}
-		private object GetReportData(string name)
-		{
-			return mySessionObjects.merrMyReportNgaSessioniData<object>(Session, hfState.Get("guidString").ToString(), name);
 		}
 		protected void OpenReport(object sender, EventArgs e)
 		{

@@ -230,31 +230,6 @@ namespace PlatinumWeb
         /// </summary>
         /// <param name="idNdermarrje"></param>
         /// <param name="idPerdorues"></param>
-        private void shtoMonedha(int idNdermarrje, int idPerdorues)
-        {
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            if (typeof(GridViewDataComboBoxColumn) != gvTrupiFormatNr.Columns["IdMonedha"].GetType())
-            {
-                gvTrupiFormatNr.Columns.Remove(gvTrupiFormatNr.Columns["IdMonedha"]);
-                gvTrupiFormatNr.Columns.Add(colnew);
-                DbCore.DbAdmin.colMonedhat colMonedha = new DbCore.DbAdmin.colMonedhat();
-                colMonedha.Add(new DbCore.DbAdmin.clsMonedha(0, "", "", false, 0, 0, 0, 0, 0, new DbCore.DbAdmin.colLidhjetAutorizim(), 0));
-                colMonedha.mbushGjitheMonedhatAktive(idNdermarrje, idPerdorues);
-                colnew.PropertiesComboBox.DataSource = colMonedha;
-                colnew.PropertiesComboBox.TextField = "KodiMonedha";
-                colnew.PropertiesComboBox.ValueField = "IdMonedha";
-                colnew.FieldName = "IdMonedha";
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, colnew.PropertiesComboBox.Items, "colMonedha");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)gvTrupiFormatNr.Columns["IdMonedha"];
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.Items.AddRange((ListEditItemCollection)DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "colMonedha"));
-                }
-            }
-        }
 
  
         /// <summary>

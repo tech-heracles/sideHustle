@@ -603,20 +603,6 @@ namespace DbCore.DbRegjistrim
         /// perdoret per popupin e kerkimit te dokumentave
         ///  <see cref="DbCore.DbRegjistrim.clsDokumenti"/> 
         /// </summary>
-        private bool mbushDokumentaKerkimi(DataTable dt)
-        {
-            //try
-
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsDokumenti doc = new clsDokumenti();
-                    doc.mbushDokumentKerkimi(rreshti);
-                    Add(doc);
-                }
-
-            //    //throw;
-            return true;
-        }
 
         #endregion
        

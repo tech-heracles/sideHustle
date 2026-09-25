@@ -228,15 +228,6 @@ namespace DbCore.DbListPagesat
         /// </summary>
         /// <param name="dt">data table me te dhena te tipit komponente page</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        private bool mbushKomponente(DataTable dt)
-        {
-            //try
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                Add(new clsKomponentePage(rreshti));
-            }
-            return true;
-        }
 
         #endregion
 

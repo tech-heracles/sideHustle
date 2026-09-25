@@ -619,20 +619,6 @@ namespace PlatinumWeb
         /// <summary>
         /// Mbush combon e klienteve/furnitoreve ne gride
         /// </summary>
-        private void shtoKlientFurnitor(ASPxGridView grid, string emerkolone)
-        {
-            int visibleindex = grid.Columns["IdKlientFurnitori"].VisibleIndex;
-            grid.Columns.Remove(grid.Columns[emerkolone]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new colKlienteFurnitore();
-            colKlientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor());
-            colKlientet.mbushKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            colnew.PropertiesComboBox.DataSource = colKlientet;
-            colnew.PropertiesComboBox.TextField = "KodKlientFurnitor";
-            colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-            colnew.FieldName = emerkolone; colnew.VisibleIndex = visibleindex;
-            grid.Columns.Add(colnew);
-        }
 
         /// <summary>
         /// I vendos nje emer identifikues kontrolleve te grides se dok kryesore dhe percakton funksinet qe manipulojne ato ne client side

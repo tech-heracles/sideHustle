@@ -133,16 +133,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <param name="dt">Merr si parameter nje DataTable.</param>
         /// <returns>Kthen True nese kryhet me sukses, ne te kundert False.</returns>
-        private bool mbushFormulat(DataTable dt)
-        {
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    this.Add(new clsFormula(rreshti));
-                }
-            //    //throw;
-            return true;
-        }
 
         #endregion
     }

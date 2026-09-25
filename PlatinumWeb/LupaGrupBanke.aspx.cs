@@ -194,39 +194,6 @@ namespace PlatinumWeb
             }
         }
 
-        private void ruajGrupBankeOverview()
-        {//ben ruajtjen  e nje rreshti te ri
-
-            if (Page.IsValid == false)
-                return;
-            else
-            {
-                gvLupaGrBanka.UpdateEdit();
-                if (isValidGrupBankeOverview())
-                {
-                    DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-                    mesazh = grupoverview.ruaj();
-                    if (!mesazh.Status == true)
-                    {
-                        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim. Ruajtja nuk u krye!", pnlMesazhi);
-                    }
-                    else
-                    {
-                        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["mesazhRuajtjeMeSukses"], pnlMesazhi);
-                    }
-
-                    mbushPopUpListeGrupeBanke();
-                    konfiguroPopupGride();
-
-                    gvLupaGrBanka.AddNewRow();
-                }
-                else
-                {
-                    mbushPopUpListeGrupeBanke();
-
-                }
-            }
-        }
 
         //kontrollon nese grupi i bankes ekziston
         private bool isValidGrupBankeOverview()

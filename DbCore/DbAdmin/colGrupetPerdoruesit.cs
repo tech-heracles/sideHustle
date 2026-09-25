@@ -74,16 +74,6 @@ namespace DbCore.DbAdmin
 
         #region Metoda Private
 
-        private bool mbushGrupetPerdoruesve(DataTable dt)
-        {
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    grupetPerdoruesve.Add(new clsGrupetPerdoruesit(rreshti));
-                }
-
-            return true;
-        }
 
         #endregion
         [Obsolete("Perdor: bool mbushGrupetPerdoruesve(DataTable dt)", true)]

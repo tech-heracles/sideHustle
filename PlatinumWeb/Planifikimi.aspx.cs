@@ -220,19 +220,6 @@ namespace PlatinumWeb
         /// <summary>
         /// kthen kolonen e idklient ne kombo me kodet e klientit
         /// </summary>
-        private void shtoKlient()
-        {
-            gvPlanifikimi.Columns.Remove(gvPlanifikimi.Columns["IdKlientFurnitor"]);
-            var colnew = new GridViewDataComboBoxColumn();
-            var colKlientet = new DbCore.DbKontabiliteti.colKlienteFurnitore();
-            colKlientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor());
-            colKlientet.mbushKlienteFurnitoreNdermarrjes(idndermarje);
-            colnew.PropertiesComboBox.DataSource = colKlientet;
-            colnew.PropertiesComboBox.TextField = "EmertimiKF";
-            colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-            colnew.FieldName = "IdKlientFurnitor";
-            gvPlanifikimi.Columns.Add(colnew);
-        }
 
         /// <summary>
         /// kur grida ben databound per ti shtuar kolonen e selektimit

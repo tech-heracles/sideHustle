@@ -128,60 +128,6 @@ namespace PlatinumWeb
             GridUtil.konfiguroGrideListeEvogelPaTheme(grida, "IdGrupimKoka");
         }
 
-        private void shtoKategori(ASPxGridView grid)
-        {
-            grid.Columns.Remove(grid.Columns["Kategoria"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            colnew.UnboundType = DevExpress.Data.UnboundColumnType.String;
-            DbCore.DbRegjistrim.colKategoriNiveleDok col = new DbCore.DbRegjistrim.colKategoriNiveleDok();
-            DbCore.DbRegjistrim.clsKategoriNivelDok kat = new DbCore.DbRegjistrim.clsKategoriNivelDok("Shitje");
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(2);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(3);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(4);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(6);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(44);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(45);
-            col.Add(kat);
-            kat = new DbCore.DbRegjistrim.clsKategoriNivelDok(46);
-            col.Add(kat);
-
-            colnew.PropertiesComboBox.DataSource = col;
-            colnew.PropertiesComboBox.TextField = "Pershkrimi";
-            colnew.PropertiesComboBox.ValueField = "Pershkrimi";
-            colnew.FieldName = "Kategoria";
-            colnew.Caption = "Kategoria";
-            grid.Columns.Add(colnew);
-        }
-        private void shtoLloje(ASPxGridView grid)
-        {
-            grid.Columns.Remove(grid.Columns["Lloji"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            colnew.UnboundType = DevExpress.Data.UnboundColumnType.String;
-            DbCore.DbShare.colKonfigurimAmbjenti col = new DbCore.DbShare.colKonfigurimAmbjenti();
-            int idndermarje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            int idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(1, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(2, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(3, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(4, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(6, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(44, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(45, idndermarje, idperdoruesi);
-            col.mbushKonfigAmbjSipasIdKategoriJoVartese(46, idndermarje, idperdoruesi);
-
-            colnew.PropertiesComboBox.DataSource = col;
-            colnew.PropertiesComboBox.TextField = "KodKonfigAmbjente";
-            colnew.PropertiesComboBox.ValueField = "KodKonfigAmbjente";
-            colnew.FieldName = "Lloji";
-            colnew.Caption = "Lloji";
-            grid.Columns.Add(colnew);
-        }
         private void percaktoTamplatePrindi(ASPxGridView grida, int llojikf)
         {
             GridViewDataColumn col = grida.Columns["Kategoria"] as GridViewDataColumn;

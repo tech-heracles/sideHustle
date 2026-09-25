@@ -630,54 +630,10 @@ namespace PlatinumWeb
              this.ASPxGridView_Ndermarrjet.Columns["#"].VisibleIndex = 0;
         }
 
-        private void shtoVit()
-        {
-            ASPxGridView_Ndermarrjet.Columns.Remove(ASPxGridView_Ndermarrjet.Columns["IdViti"]);
-
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbAdmin.colVitet col = new DbCore.DbAdmin.colVitet();
-            col.Add(new DbCore.DbAdmin.clsViti(0, "", new DateTime(), new DateTime(), "", true, true, 0, 0, 0, 0, new DateTime(), 0));
-            col.merrGjitheVitetENdermarjes(-1);
-
-            colnew.PropertiesComboBox.DataSource = col;
-            colnew.PropertiesComboBox.TextField = "KodiViti";
-            colnew.PropertiesComboBox.ValueField = "IdViti";
-            colnew.FieldName = "IdViti";
-            ASPxGridView_Ndermarrjet.Columns.Add(colnew);
-        }
 
         //sherben per ta bere ne forme combo-je shtyllen e monedhave
-        private void shtoMonedhat()
-        {
-
-            ASPxGridView_Ndermarrjet.Columns.Remove(ASPxGridView_Ndermarrjet.Columns["NdermarrjeMonedha"]);
-
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbAdmin.colMonedhat colMonedhat = new DbCore.DbAdmin.colMonedhat();
-            colMonedhat.Add(new DbCore.DbAdmin.clsMonedha(0, "", "", true, 0, 0, 0, 0, 0, new DbCore.DbAdmin.colLidhjetAutorizim(), 0));
-            colMonedhat.mbushGjitheMonedhatAktive(-1, 0);
-            colnew.PropertiesComboBox.DataSource = colMonedhat;
-            colnew.PropertiesComboBox.TextField = "PershkrimiMonedha";
-            colnew.PropertiesComboBox.ValueField = "IdMonedha";
-            colnew.FieldName = "NdermarrjeMonedha";
-            ASPxGridView_Ndermarrjet.Columns.Add(colnew);
-        }
 
         //sherben per ta bere ne forme combo-je shtyllen e qyteteve
-        private void shtoQytetet()
-        {
-            ASPxGridView_Ndermarrjet.Columns.Remove(ASPxGridView_Ndermarrjet.Columns["NdermarrjeQyteti"]);
-
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbAdmin.colQytetet colQytetet = new DbCore.DbAdmin.colQytetet();
-            colQytetet.Add(new DbCore.DbAdmin.clsQyteti(-1, "", "", 0, 0, 0));
-            colQytetet.mbushGjitheQytetetPozitive(-1);
-            colnew.PropertiesComboBox.DataSource = colQytetet;
-            colnew.PropertiesComboBox.TextField = "EmriQyteti";
-            colnew.PropertiesComboBox.ValueField = "IdQyteti";
-            colnew.FieldName = "NdermarrjeQyteti";
-            ASPxGridView_Ndermarrjet.Columns.Add(colnew);
-        }
 
         private void pastroFusha()
         {

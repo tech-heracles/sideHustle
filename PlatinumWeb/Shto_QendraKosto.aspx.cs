@@ -312,26 +312,6 @@ namespace PlatinumWeb
         /// </summary>
         /// <param name="id"> id </param>
         /// <param name="idNdermarrje">id e ndermarjes</param>
-        private void modifikoNeGrid(int idNdermarrje, int id, ResourceManager rm, CultureInfo ci)
-        {
-            if (trlQendra.DataSource != null)
-            {
-                DataTable dt = (DataTable)trlQendra.DataSource;
-                DataRow[] drs = dt.Select("Id = " + id);
-                if (drs.Length > 1)
-                    throw new DbCore.MyException(rm.GetString("msgQKNdodhen2QKMeTeNjejteIDNeGride", ci));
-                if (drs.Length == 0) return;
-                DataRow dr = drs[0];
-                DataRow newArtDr = DbCore.DbQendraKosto.colQendraKosto.merrQendraKostoDR(id);
-                if (newArtDr != null)
-                {
-                    object[] arr = newArtDr.ItemArray;
-                    dr.ItemArray = arr;
-                }
-                else mbushGridNgaDB(idNdermarrje);
-            }
-            else mbushGridNgaDB(idNdermarrje);
-        }
 
         /// <summary>
         /// perdoret per te trajtuar ngjarjet e butonave te menuse. 

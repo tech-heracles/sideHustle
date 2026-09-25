@@ -700,17 +700,6 @@ namespace PlatinumWeb
             return kasa;
         }
 
-        private void shtoVleraTakse(DbCore.DbAdmin.clsKonfigurimKase kasa)
-        {
-            string[] separator = { "],[" };
-            string[] rreshtat = hfVlerat.Value.ToString().Split(separator, gvNiveleTVSHIVA.VisibleRowCount, System.StringSplitOptions.None);
-            for (int i = 0; i < rreshtat.Length; i++)
-            {
-                string rreshti = rreshtat[i].Replace("\"", "");
-                DbCore.DbRegjistrim.clsTaksa taksa = new DbCore.DbRegjistrim.clsTaksa(rreshti.Split(',')[1], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                kasa.OColVlerat.Add(krijoObjektVlera(taksa.NormaPerqindje.ToString(), rreshti.Split(',')[2].Split(']')[0], taksa.IdTaksa));
-            }
-        }
 
         private void merrVleraTakse(DbCore.DbAdmin.clsKonfigurimKase kasa)
         {

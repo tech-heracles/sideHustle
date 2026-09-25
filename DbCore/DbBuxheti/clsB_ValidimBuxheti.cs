@@ -598,11 +598,6 @@ namespace DbCore.DbBuxheti
                 return db.MerrGjendjePerKategoriBuxhetimi(idNderm, dtDok, periudha, idKategoriBuxhetimi, idBuxhetiKoka, idBuxheti, vlera, idKatDok);
         }
 
-        private decimal MerrGjendjeMbeturNgaPerfitimi(int idNderm, DateTime? dtDok, int idBuxhetiKoka, int idBuxheti)
-        {
-            using (var db = new ClsDatabaseBuxheti())
-                return db.MerrGjendjeMbeturNgaPerfitimi(idNderm, dtDok, idBuxhetiKoka, idBuxheti);
-        }
 
         private DataRow ktheGjendjePerKategoriBuxhetimiNgaKonvertimi(int idKategoriBuxhetimi, int idTrupKonvertimiNga, int idBuxheti, int idBuxhetiKoka)
         {

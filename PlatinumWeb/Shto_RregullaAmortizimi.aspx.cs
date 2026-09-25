@@ -361,21 +361,6 @@ namespace PlatinumWeb
             }
             else mbushGridNgaDB();
         }
-        private void shtoNjesiNeGrid(int idKarakteristika)
-        {
-            CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            if (gvRregullat.DataSource != null)
-            {
-                DataTable dt = (DataTable)gvRregullat.DataSource;
-                DataRow[] drs = dt.Select("IdKarakteristika = " + idKarakteristika);
-                if (drs.Length > 0)
-                    throw new Exception(rm.GetString("msgGabimRregulliEkzistonNeGride",cultinf));
-                DataRow newArtDr = DbCore.DbAsete.clsKarakteristikaStandarti.merrSipasNjesiNdermarrjesDR(idKarakteristika);
-                dt.ImportRow(newArtDr);
-            }
-            else mbushGridNgaDB();
-        }
         private void modifikoNjesiNeGrid(int idKarakteristika)
         {
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);

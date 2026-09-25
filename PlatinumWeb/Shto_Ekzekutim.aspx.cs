@@ -1469,20 +1469,6 @@ namespace PlatinumWeb
         /// Mbush combon e klienteve/furnitoreve ne gride
         /// </summary>
         /// <param name="idNdermarrje"></param>
-        private void shtoKlientFurnitor(ASPxGridView grid, int idNdermarrje)
-        {
-            int visibleindex = grid.Columns["IdKlientFurnitori"].VisibleIndex;
-            grid.Columns.Remove(grid.Columns["IdKlientFurnitori"]);
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new colKlienteFurnitore();
-            colKlientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor());
-            colKlientet.mbushKlienteFurnitoreNdermarrjes(idNdermarrje);
-            colnew.PropertiesComboBox.DataSource = colKlientet;
-            colnew.PropertiesComboBox.TextField = "EmertimiKF";
-            colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-            colnew.FieldName = "IdKlientFurnitori"; colnew.VisibleIndex = visibleindex;
-            grid.Columns.Add(colnew);
-        }
 
         protected void grid_faturat_DataBound(object sender, EventArgs e)
         {

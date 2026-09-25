@@ -74,14 +74,6 @@ namespace DbCore.DbAsete
         /// </summary>
         /// <param name="dt">(DataTable) Merr si parameter nje datatable qe kthehet nga store procedura per te mbushur nje list me objekte.</param>
         /// <returns>(bool) Kthen true nese nuk ndodh asnje gabim gjate leximit te te dhenave, ne te kundert false.</returns>
-        private bool mbushSerialeMeRivlersim(DataTable dt)
-        {
-            foreach (DataRow rreshti in dt.Rows)
-            {
-                Add(new clsSerialPerRivleresim(rreshti));
-            }
-            return true;
-        }
 
         #endregion
     }

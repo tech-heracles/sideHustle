@@ -211,56 +211,8 @@ namespace PlatinumWeb
         }
 
      
-        private void shtoKategori()
-        {
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            if (typeof(GridViewDataComboBoxColumn) != gvRegRZ.Columns["IdKategoria"].GetType())
-            {
-                gvRegRZ.Columns.Remove(gvRegRZ.Columns["IdKategoria"]);
-                gvRegRZ.Columns.Add(colnew);
-                DbCore.DbRegjistrim.colKategoriNiveleDok nivelet = new DbCore.DbRegjistrim.colKategoriNiveleDok();
-                nivelet.mbushGjitheKategoriNivelDok();
-                colnew.PropertiesComboBox.DataSource = nivelet;
-                colnew.PropertiesComboBox.TextField = "Pershkrimi";
-                colnew.PropertiesComboBox.ValueField = "IdKategori";
-                colnew.FieldName = "IdKategoria";
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, nivelet, "kategoria");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)gvRegRZ.Columns["IdKategoria"];
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "kategoria");
-                }
-            }
-        }
 
 
-        private void shtoKlient()
-        {
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            if (typeof(GridViewDataComboBoxColumn) != gvRegRZ.Columns["IdKlientFurnitor"].GetType())
-            {
-                gvRegRZ.Columns.Remove(gvRegRZ.Columns["IdKlientFurnitor"]);
-                gvRegRZ.Columns.Add(colnew);
-                DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new DbCore.DbKontabiliteti.colKlienteFurnitore();
-                colKlientet.mbushKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                colnew.PropertiesComboBox.DataSource = colKlientet;
-                colnew.PropertiesComboBox.TextField = "EmertimiKF";
-                colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-                colnew.FieldName = "IdKlientFurnitor";
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, colKlientet, "klientfurnitor");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)gvRegRZ.Columns["IdKlientFurnitor"];
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "klientfurnitor");
-                }
-            }
-        }
 
  
         protected void gvRegRZ_DataBound(object sender, EventArgs e)

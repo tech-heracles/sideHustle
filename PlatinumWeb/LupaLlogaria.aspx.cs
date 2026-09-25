@@ -108,21 +108,6 @@ namespace PlatinumWeb
             gvLupaLlog.DataBind();
             dt.Dispose();
         }
-        private void mbushPopUpListeLlogarish(int idNdermarrje)
-        {//mbush griden e popupit me te dhena
-            DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-            DbCore.DbKontabiliteti.colLlogarite colLlog = new DbCore.DbKontabiliteti.colLlogarite();
-            if (Request.QueryString["veprimi"] == "LlogariAzhornimi")
-            {
-                colLlog.mbushLLogariteAzhornimit(idNdermarrje, DbCore.DbAdmin.clsNdermarrje.ktheIdMonedheNdermSipasID(idNdermarrje));
-            }
-            else
-                colLlog.mbushLLogariteNdermarrjesAndAutorizime(idNdermarrje, oPerdorues.IdPerdorues);
-
-            gvLupaLlog.DataSource = colLlog;
-            gvLupaLlog.DataBind();
-        }
 
         private void konfiguroPopupGride(int idKonfigambjenti, bool visibleIndex, bool kerkosaposhkruar)
         {//konfiguron popupgriden

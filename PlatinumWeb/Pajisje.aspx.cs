@@ -162,32 +162,6 @@ namespace PlatinumWeb
             gvPajisje.Columns["#"].VisibleIndex = 0;
         }
 
-        private void shtoLlojKonvertimi()
-        {
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            if (typeof(GridViewDataComboBoxColumn) != gvPajisje.Columns["LlojKonvertimi"].GetType())
-            {
-                gvPajisje.Columns.Remove(gvPajisje.Columns["LlojKonvertimi"]);
-                gvPajisje.Columns.Add(colnew);
-                DataTable dt = DbCore.DbInventari.colPajisjet.merrLlojeKonvertimeshPerPajisje();
-                dt.Rows.InsertAt(dt.NewRow(), 0);
-                colnew.PropertiesComboBox.DataSource = dt;
-                colnew.PropertiesComboBox.TextField = "Lloji";
-                colnew.PropertiesComboBox.ValueField = "LlojiID";
-                colnew.FieldName = "LlojKonvertimi";
-                colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, "llojKonvertimeshPajisje");
-            }
-            else
-            {
-                colnew = (GridViewDataComboBoxColumn)gvPajisje.Columns["LlojKonvertimi"];
-
-                if (colnew.PropertiesComboBox.Items.Count == 0)
-                {
-                    colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "llojKonvertimeshPajisje");
-                }
-            }
-        }
 
 
         /// <summary>

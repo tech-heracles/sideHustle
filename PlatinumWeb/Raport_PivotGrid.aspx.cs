@@ -286,9 +286,6 @@ namespace PlatinumWeb
         /// <summary>
         /// Krijon nje instance te klases clsDatabaseRegjistrim
         /// </summary>
-        private void inicializoObjekte()
-        {
-        }
 
         /// <summary>
         /// Ne rastin kur shtohet nje konfigurim i ri pivot gride, behet shtimi edhe ne datasource-n e grides ASPxGridView_KonfigPivotGrid

@@ -875,11 +875,5 @@ namespace PlatinumWeb
         /// Metoda qe percakton template e kolones se llogarise
         /// </summary>
         /// <param name="idNdermarrje">Id e ndermarrjes</param>
-        private void percaktoTamplateLlogari(int idNdermarrje)
-        {
-            var col1 = grid_AgjenteShitje.Columns["IdLlogari"] as GridViewDataComboBoxColumn;
-            col1.EditItemTemplate = new MyTemplateLlogari(idNdermarrje);
-            col1.Width = 100;
-        }
     }
 }

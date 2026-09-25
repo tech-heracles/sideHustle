@@ -293,28 +293,6 @@ namespace PlatinumWeb
 			rvRaporti.OpenReport(cachedReport);
 		}
 
-		private void exportReportToPdf(XtraReport report)
-		{
-			using (MemoryTributary ms = new MemoryTributary())
-			{
-				PdfExportOptions options = new PdfExportOptions();
-				options.ConvertImagesToJpeg = true;
-				options.ImageQuality = PdfJpegImageQuality.Lowest;
-				report.ExportToPdf(ms, options);
-				report.Dispose();
-				Response.ClearContent();
-				Response.ClearHeaders();
-				Response.ContentType = "Application/pdf";
-				Response.AddHeader("Content-Disposition", "attachment;filename=DokumentatPerPrintim.pdf");
-				foreach (byte[] block in ms.Blocks)
-				{
-					Response.BinaryWrite(block);
-					Response.Flush();
-				}
-				Response.CacheControl = "No-cache";
-				Response.End();
-			}
-		}
 
 		private void shtoFaturaOseSubRaportNeRaport(int idRaporti, XtraReport report, string guidString, List<Dictionary<string, string>> teDhenaRap)
 		{

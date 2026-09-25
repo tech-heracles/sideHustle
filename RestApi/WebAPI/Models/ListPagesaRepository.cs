@@ -941,28 +941,6 @@ namespace RestApi.WebAPI.Models
             }
         }
 
-        private static void ShtoKateringNeKomponentetPerkatese(clsKomponentePage catering, colKomponentePage colkom, Dictionary<string, colKomponenteMuaji> vleraMujore, colKomponentePage komponenteLp, int idgjuha)
-        {
-            if (catering == null)
-                return;
-
-            foreach(var komponente in komponenteLp)
-            {
-                if (komponente.Njesi != 1)
-                    continue;
-                var charIndex = komponente.Formula.IndexOf(catering.Kodi);
-                if (charIndex == -1)
-                    continue;
-                decimal vlera = LlogaritVlerenSipasFormules(0, 0, idgjuha, catering);
-                colKomponenteMuaji colmuaji;
-                if (!vleraMujore.TryGetValue(komponente.Kodi, out colmuaji))
-                    colmuaji = new colKomponenteMuaji();
-
-                if (charIndex > 0 && komponente.Formula[charIndex - 1] == '-')
-                    vlera *= -1;
-
-            }
-        }
 
         private static string PercaktoDm(string formula, bool ditemuajindryshueshme, int muaji, DateTime data, bool ditemuaji, int muajitjeter, int vititjeter)
         {
@@ -2311,59 +2289,8 @@ namespace RestApi.WebAPI.Models
         #region TEST METHODS
 
 
-        private static Tuple<clsMesazh, colPunonjes> colPunonjesTest(int idNdermarje)
-        {
-            colPunonjes punonjesit = new colPunonjes();
-            try
-            {
-                punonjesit = new colPunonjes(idNdermarje);
-                if (punonjesit.Count == 0)
-                {
-                    return new Tuple<clsMesazh, colPunonjes>(new clsMesazh(TipMesazhi.Informim, "Nuk ka punonjes"), punonjesit);
-                }
-            }
-            catch (Exception e)
-            {
-                return new Tuple<clsMesazh, colPunonjes>(new clsMesazh(TipMesazhi.Gabim, e.Message), punonjesit);
-            }
-            return new Tuple<clsMesazh, colPunonjes>(new clsMesazh(TipMesazhi.Sukses, "Punonjesit u morren me sukses"), punonjesit);
-        }
 
-        private static Tuple<clsMesazh, colPunesim> colPunesimeTest(int idpunonjes, string nrPersonal)
-        {
-            colPunesim punesime = new colPunesim();
-            try
-            {
-                punesime = new colPunesim(idpunonjes);
-                if (punesime.Count == 0)
-                {
-                    return new Tuple<clsMesazh, colPunesim>(new clsMesazh(TipMesazhi.Gabim, "punonjesi {0} Nuk ka punesime", nrPersonal), punesime);
-                }
-            }
-            catch (Exception e)
-            {
-                return new Tuple<clsMesazh, colPunesim>(new clsMesazh(TipMesazhi.Gabim, "punonjesi :{0} gabimi :{}", nrPersonal, e.Message), punesime);
-            }
-            return new Tuple<clsMesazh, colPunesim>(new clsMesazh(TipMesazhi.Sukses, "Punonjesi {0} punesimet u morren me sukses"), punesime);
-        }
 
-        private static Tuple<clsMesazh, colKompListPagese> colKomponenteListpageseTest(int idPunonjes, string nrPersonal)
-        {
-            colKompListPagese punesime = new colKompListPagese();
-            try
-            {
-                punesime = new colKompListPagese();
-                if (punesime.Count == 0)
-                {
-                    return new Tuple<clsMesazh, colKompListPagese>(new clsMesazh(TipMesazhi.Gabim, "punonjesi {0} Nuk ka punesime", nrPersonal), punesime);
-                }
-            }
-            catch (Exception e)
-            {
-                return new Tuple<clsMesazh, colKompListPagese>(new clsMesazh(TipMesazhi.Gabim, "punonjesi :{0} gabimi :{}", nrPersonal, e.Message), punesime);
-            }
-            return new Tuple<clsMesazh, colKompListPagese>(new clsMesazh(TipMesazhi.Sukses, "Punonjesi {0} punesimet u morren me sukses"), punesime);
-        }
 
         #endregion TEST METHODS
 

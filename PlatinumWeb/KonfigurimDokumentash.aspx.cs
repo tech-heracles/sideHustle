@@ -1371,19 +1371,6 @@ namespace PlatinumWeb
             grid_trupi.SettingsPager.PageSize = 15;
             grid_trupi.SettingsBehavior.AllowSort = false;
         }
-        private void mbushGridNgaSession()
-        {
-            DataTable tmpObject = DbCore.mySessionObjects.MerrNgaSession<DataTable>(Session, "grid_kontrollet");
-            if (tmpObject == null)
-            {
-            }
-            else
-            {
-                grid_kontrollet.DataSource = tmpObject;
-                grid_kontrollet.DataBind();
-                tmpObject.Dispose();
-            }
-        }
         private void MbushGrideTrupi()
         {
             _oColTrupi = new colGridaTrupi();

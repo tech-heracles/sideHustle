@@ -62,17 +62,6 @@ namespace PlatinumWeb
             DataEPergjigjes.PropertiesDateEdit.DisplayFormatString = "dd/MM/yyyy HH:mm:ss";
 
         }
-        private void shtoButoninResend()
-        {
-            GridViewDataColumn resend = new GridViewDataColumn();
-            resend.Caption = "Ridergo";
-            resend.Width = 10;
-            grid_HistorikuEmail.Columns.Add(resend);
-            GridViewDataTextColumn col8 = new GridViewDataTextColumn();
-            col8.DataItemTemplate = new PlatinumWeb.Templates.MyButtonTemplate("Ridergo");
-            col8.VisibleIndex = 8;
-            grid_HistorikuEmail.Columns.Add(col8);
-        }
         protected void grid_HistorikuEmail_DataBound(object sender, EventArgs e)
         {
             if (grid_HistorikuEmail.Columns["#"] == null)

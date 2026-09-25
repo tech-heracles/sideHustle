@@ -779,25 +779,9 @@ namespace PlatinumWeb
         /// <summary>
         /// ben konfigurimin e grides sipas konfigurimit te zgjedhur
         /// </summary>
-        private void konfiguroGride2()
-        {
-            shtoNivelKPF(grid_ListKPFsh2);
-            shtoKolonaFolder(grid_ListKPFsh2);
-            percaktoTamplate2();
-            GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), "grid_ListKPFsh1", grid_ListKPFsh2, cmbKonfigurimi.Text.Split(';')[0], "110", DbCore.mySessionObjects.ktheGjuhe(Session));
-            GridUtil.konfigGrideListeEMadhePaTheme(grid_ListKPFsh2, "IdKPF");
-        }
         /// <summary>
         /// ben konfigurimin e grides sipas konfigurimit te zgjedhur
         /// </summary>
-        private void konfiguroGride3()
-        {
-            shtoNivelKPF(grid_ListKPFsh3);
-            shtoKolonaFolder(grid_ListKPFsh3);
-            percaktoTamplate3();
-            GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), "grid_ListKPFsh1", grid_ListKPFsh3, cmbKonfigurimi.Text.Split(';')[0], "110", DbCore.mySessionObjects.ktheGjuhe(Session));
-            GridUtil.konfigGrideListeEMadhePaTheme(grid_ListKPFsh3, "IdKPF");
-        }
         /// <summary>
         ///  sherben per ta bere ne forme combo-je shtyllen e niveleve 
         /// </summary>

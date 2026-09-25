@@ -144,11 +144,6 @@ namespace PlatinumWeb
         }
 
 
-        private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
-        {
-            //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
-        }
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
@@ -516,64 +511,6 @@ namespace PlatinumWeb
             hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
         }
 
-        private void enableComboKategoriaDheLloji()
-        {
-            int kategoria;
-            if (!String.IsNullOrEmpty(Request.QueryString["veprimi"]))
-                kategoria = int.Parse(Request.QueryString["veprimi"]);
-            else kategoria = 0;
-
-            switch (kategoria)
-            {
-                case 1: //Detajim
-                    cmbKategoria.SelectedIndex = 0;
-                    cmbKategoria.ClientEnabled = false;
-                    cmbLloji.Items.Clear();
-                    cmbLloji.Items.Add("Alfanumerik", 1);
-                    cmbLloji.SelectedIndex = 0;
-                    cmbLloji.ClientEnabled = false;
-                    txtKodi.ClientEnabled = true;
-                    txtPershkrimi.ClientEnabled = true;
-                    break;
-                case 2://Serial
-                    cmbKategoria.SelectedIndex = 1;
-                    cmbKategoria.ClientEnabled = false;
-                    cmbLloji.Items.Clear();
-                    cmbLloji.Items.Add("Alfanumerik", 1);
-                    cmbLloji.Items.Add("Numerik", 2);
-                    cmbLloji.ClientEnabled = true;
-                    txtKodi.ClientEnabled = true;
-                    txtPershkrimi.ClientEnabled = true;
-                    break;
-                case 3://date skadence
-                    cmbKategoria.SelectedIndex = 2;
-                    cmbKategoria.ClientEnabled = false;
-                    cmbLloji.Items.Clear();
-                    cmbLloji.Items.Add("Date", 3);
-                    cmbLloji.ClientEnabled = false;
-                    cmbLloji.SelectedIndex = 0;
-                    txtPershkrimi.ClientEnabled = false;
-                    break;
-                case 4://seri
-                    cmbKategoria.SelectedIndex = 3;
-                    cmbKategoria.ClientEnabled = false;
-                    cmbLloji.Items.Clear();
-                    cmbLloji.Items.Add("Alfanumerik", 1);
-                    cmbLloji.ClientEnabled = false;
-                    cmbLloji.SelectedIndex = 0;
-                    txtPershkrimi.ClientEnabled = false;
-                    break;
-                case 0:
-                default:
-                    cmbLloji.Items.Clear();
-                    cmbKategoria.SelectedIndex = -1;
-                    cmbLloji.ClientEnabled = true;
-                    cmbKategoria.ClientEnabled = true;
-                    txtKodi.ClientEnabled = true;
-                    txtPershkrimi.ClientEnabled = true;
-                    break;
-            }
-        }
 
         public void mbushComboKonfigurimeshSipasKategorise(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int kat, string nivel, int idGjuha)
         {

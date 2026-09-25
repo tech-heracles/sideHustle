@@ -60,21 +60,6 @@ namespace DbCore.DbGIS
         #endregion
 
         #region Metoda Interial
-        private bool mbushLidhjeObjekteWebGis(DataTable dt)
-        {
-            try
-            {
-                for (int i = 0, count = dt.Rows.Count; i < count; i++)
-                {
-                    Add(new clsLidhjeObjekteWebGis(dt.Rows[i]));
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
     }

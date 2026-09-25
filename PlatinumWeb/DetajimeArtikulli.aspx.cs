@@ -294,20 +294,6 @@ namespace PlatinumWeb
         }
 
 
-        private void shto_Autorizim(int idPerdoruesi)
-        {//shtohen komboja me Autorizimeve tek grida e KPF
-
-            gvDetajimArtikulli.Columns.Remove(gvDetajimArtikulli.Columns["IdNivelAutorizimi"]);
-
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-
-            DbCore.DbAdmin.colAutorizimetKoka colAutorizim = new DbCore.DbAdmin.colAutorizimetKoka(idPerdoruesi);
-            colnew.PropertiesComboBox.DataSource = colAutorizim;
-            colnew.PropertiesComboBox.TextField = "KodiAutorizim";
-            colnew.PropertiesComboBox.ValueField = "IdAutorizimKoka";
-            colnew.FieldName = "IdNivelAutorizimi";
-            gvDetajimArtikulli.Columns.Add(colnew);
-        }
 
 
         protected void gvDetajimArtikulli_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
@@ -501,26 +487,6 @@ namespace PlatinumWeb
             mbushGrideNgaDb(idPerdoruesi, idNdermarrje);
 
             hfAutorizime.Value = "";
-        }
-        private void hiqDetajimeNgaGrida(int idPerdoruesi, int idNdermarrje, int IdDetajimArtikulli, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
-        {
-            if (gvDetajimArtikulli.DataSource != null)
-            {
-                DataTable dt = (DataTable)gvDetajimArtikulli.DataSource;
-                DataRow[] drs = dt.Select("IdDetajimArtikulli = " + IdDetajimArtikulli);
-                if (drs.Length > 1)
-                    throw new DbCore.MyException(rm.GetString("msgShtoArtikulGabimNdodhen2ArtikujNeGride", ci));
-                if (drs.Length == 0) return;
-                DataRow dr = drs[0];
-                dt.Rows.Remove(dr);
-                gvDetajimArtikulli.DataSource = dt;
-                gvDetajimArtikulli.DataBind();
-            }
-            else
-            {
-
-                mbushGrideNgaDb(idPerdoruesi, idNdermarrje);
-            }
         }
         private void FshiDetajime(List<string> TeFshire, List<string> TePaFshire)
         {

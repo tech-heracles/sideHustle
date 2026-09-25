@@ -411,13 +411,6 @@ namespace PlatinumWeb
         /// <summary>
         ///     vendos datat dhe mujin sipas periudhes
         /// </summary>
-        private void vendosDataDefault()
-        {
-            var periudha = mySessionObjects.merrPeriudheKontabel(Session);
-            dteDtDok.Value = periudha.MbarimiPeriudha;
-            dteDtRegjistrimi.Value = periudha.MbarimiPeriudha;
-            cmbMuaji.SelectedIndex = periudha.MbarimiPeriudha.Month - 1;
-        }
 
         /// <summary>
         ///     Vendos vlerat default kur po behet shtim

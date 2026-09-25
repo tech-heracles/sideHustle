@@ -86,9 +86,6 @@ namespace PlatinumWeb
             aSPxMenu1.Items.FindByName("Anullo").Text = rm.GetString("MenuItemMbyll", ci);
         }
 
-        private void mbushGriden(int idPerdoruesi, int idNermarrje)
-        {
-        }
 
         private void AplikoGjeresiStandarte(ASPxGridView grida)
         {

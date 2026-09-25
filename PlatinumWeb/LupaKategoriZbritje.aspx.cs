@@ -77,15 +77,6 @@ namespace PlatinumWeb
             dt.Dispose();
         }
 
-        private void mbushPopUpListeKategorish()
-        {//mbush griden e popupit me te dhena
-
-            idNdermVit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-            DbCore.DbInventari.colKokatKategoriteZbritjes col = new DbCore.DbInventari.colKokatKategoriteZbritjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            this.gvLupaKatZbr.DataSource = col;
-            gvLupaKatZbr.DataBind();
-        }
 
         private void konfiguroPopupGride(int idKonfigambjenti, bool visibleIndex, bool kerkosaposhkruar, bool endlessScroll)
         {//konfiguron popupgriden

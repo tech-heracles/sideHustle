@@ -91,24 +91,6 @@ namespace DbCore.DbAdmin
         /// <param name="dt">datatable me te dhenat e colection-it</param>
         /// <returns>colectioni i mbushur nga datatable-i i dhene </returns>
         /// <seealso cref="mbushAmbientet"/>
-        private colKlaseObjektesh konvKlasat(DataTable dt)
-        {
-            colKlaseObjektesh klasat = new colKlaseObjektesh();
-            try
-            {
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsKlaseObjektesh klasa = new clsKlaseObjektesh(Convert.ToInt32(rreshti["IDKLASEOBJEKTESH"]), Convert.ToString(rreshti["PERSHKRIMKLASEOBJEKTESH"]),
-                        Convert.ToInt32(rreshti["IDAMBJMODULI"]));
-                    klasat.Add(klasa);
-                }
-            }
-            catch (Exception)
-            {
-                return klasat;
-            }
-            return klasat;
-        }
     
         #endregion
 

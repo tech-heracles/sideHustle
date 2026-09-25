@@ -121,23 +121,6 @@ namespace DbCore.DbCRM
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbCRM.clsKokaKlientAnketaAgjent"/> 
         /// </summary>
-        private bool mbushkokaKlientAnketaAgjent(DataTable dt)
-        {
-            try
-            {
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    clsKokaKlientAnketaAgjent kokaAnkete = new clsKokaKlientAnketaAgjent();
-                    kokaAnkete.mbushKokaKlientAnketaAgjent(rreshti);
-                    this.Add(kokaAnkete);
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
 
         #endregion
     }

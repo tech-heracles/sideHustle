@@ -603,18 +603,6 @@ namespace PlatinumWeb
         }
 
 
-        void SetNodeSelectionSettings()
-        {
-            TreeListNodeIterator iterator = trlStruktura.CreateNodeIterator();
-            TreeListNode node;
-            while (true)
-            {
-                node = iterator.GetNext();
-                if (node == null) break;
-                node.AllowSelect = !node.HasChildren;
-
-            }
-        }
         protected void trlStruktura_StartNodeEditing(object sender, TreeListNodeEditingEventArgs e)
         {
           

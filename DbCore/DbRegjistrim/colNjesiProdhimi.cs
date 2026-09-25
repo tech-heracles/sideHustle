@@ -48,16 +48,6 @@ namespace DbCore.DbRegjistrim
         /// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         ///  <see cref="DbCore.DbRegjistrim.clsPikeShitjeFurnizimi"/> 
         /// </summary>
-        private bool mbushNjesiteEProdhimit(DataTable dt)
-        {
-            //try
-                foreach (DataRow rreshti in dt.Rows)
-                {
-                    Add(new clsNjesiProdhimi(rreshti));
-                }
-            //    //throw;
-            return true;
-        }
 
         #endregion
     }

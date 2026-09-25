@@ -780,19 +780,6 @@ namespace PlatinumWeb
         /// perdoret per te shfaqur pershkrimet e grupeve te perdoruesve ne vend te id si dhe filtri i grupit te perdoruesit te shfaqet ne forme komboje
         /// </summary>
         ///  :  <see cref="DbCore.DbAdmin.clsDatabaseAdmin .ktheGjitheGrupetPerdoruesve()"/> 
-        private void shtoGrupetPerdoruesve()
-        {
-            grid_ListPerdoruesit.Columns.Remove(grid_ListPerdoruesit.Columns["IdGrupiPerdorues"]);
-
-            GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            DbCore.DbAdmin.colGrupetPerdoruesve colGrupe = new DbCore.DbAdmin.colGrupetPerdoruesve();
-            colGrupe.mbushGjitheGrupetPerdoruesve();
-            colnew.PropertiesComboBox.DataSource = colGrupe;
-            colnew.PropertiesComboBox.TextField = "GrupiPerdoruesPershkrimi";
-            colnew.PropertiesComboBox.ValueField = "IdGrupiPerdorues";
-            colnew.FieldName = "IdGrupiPerdorues";
-            grid_ListPerdoruesit.Columns.Add(colnew);
-        }
 
 
         protected void grid_ListPerdoruesit_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
