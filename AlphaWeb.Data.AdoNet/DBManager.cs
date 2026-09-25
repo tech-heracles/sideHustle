@@ -55,15 +55,32 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
         /// </summary>
         public void Open()
         {
+            EnsureConnectionOpen();
+            Command = _dbManagerFactory.GetCommand();
+            _indeksiRadhes = 0;
+            ClearParameters();
+        }
+
+        /// <summary>
+        /// hap lidhjen vetem nese nuk eshte e hapur, pa prekur komanden dhe parametrat
+        /// </summary>
+        private void EnsureConnectionOpen()
+        {
             if (Connection == null)
                 Connection = _dbManagerFactory.GetConnection();
             if (string.IsNullOrEmpty(Connection.ConnectionString))
                 Connection.ConnectionString = ConnectionString;
             if (Connection.State != ConnectionState.Open)
                 Connection.Open();
-            Command = _dbManagerFactory.GetCommand();
-            _indeksiRadhes = 0;
-            ClearParameters();
+        }
+
+        /// <summary>
+        /// kthen lidhjen ne pool pas nje komande, pervec kur ky manager ka hapur vete nje SqlTransaction
+        /// </summary>
+        private void ReleaseConnection()
+        {
+            if (Transaction == null || System.Transactions.Transaction.Current != null)
+                Connection?.Dispose();
         }
         /// <summary>
         /// mbyll conectionin e hapur
@@ -320,17 +337,11 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
           commandText)
         {
             Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-
-            PrepareCommand(Command, Connection, Transaction, commandType, commandText, Parameters);
+            PrepareCommand(Command, Transaction, commandType, commandText, Parameters);
             DataReader = Command.ExecuteReader();
 
             Command.Parameters.Clear();
-
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-            {
-                Connection.Dispose();
-            }
+            ReleaseConnection();
 
             return DataReader;
         }
@@ -352,11 +363,12 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             }
         }
 
-        private void PrepareCommand(IDbCommand command, IDbConnection connection, IDbTransaction transaction,
+        private void PrepareCommand(IDbCommand command, IDbTransaction transaction,
                                     CommandType commandType, string commandText, IList<IDbDataParameter> commandParameters
         )
         {
-            command.Connection = connection;
+            EnsureConnectionOpen();
+            command.Connection = Connection;
             command.CommandText = commandText;
             command.CommandType = commandType;
 
@@ -371,64 +383,72 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             }
         }
 
+        /// <summary>
+        /// Heq parametrat nga komanda qe te mund te riperdoren dhe liron lidhjen, edhe kur komanda deshton.
+        /// Lidhja mbahet e hapur vetem kur ky manager ka hapur vete nje SqlTransaction.
+        /// </summary>
+        private void MbaroKomanden()
+        {
+            Command?.Parameters.Clear();
+            ReleaseConnection();
+        }
+
         public int ExecuteNonQuery(CommandType commandType, string commandText)
         {
-            Command = _dbManagerFactory.GetCommand();
-
-            PrepareCommand(Command, Connection, Transaction,
-            commandType, commandText, Parameters);
-
-            Command.CommandTimeout = CommandTimeOut;
-
-            int returnValue = Command.ExecuteNonQuery();
-            Command.Parameters.Clear();
-
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
+            try
             {
-                Connection.Dispose();
+                Command = _dbManagerFactory.GetCommand();
+                PrepareCommand(Command, Transaction, commandType, commandText, Parameters);
+                Command.CommandTimeout = CommandTimeOut;
+                return Command.ExecuteNonQuery();
             }
-            return returnValue;
+            finally
+            {
+                MbaroKomanden();
+            }
         }
 
         public object ExecuteScalar(CommandType commandType, string
           commandText)
         {
-            Command = _dbManagerFactory.GetCommand();
-            PrepareCommand(Command, Connection, Transaction, commandType, commandText, Parameters);
-            Command.CommandTimeout = 120;
-
-            object returnValue = Command.ExecuteScalar();
-
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
+            try
             {
-                Connection.Dispose();
+                Command = _dbManagerFactory.GetCommand();
+                PrepareCommand(Command, Transaction, commandType, commandText, Parameters);
+                Command.CommandTimeout = 120;
+                return Command.ExecuteScalar();
             }
-            return returnValue;
+            finally
+            {
+                MbaroKomanden();
+            }
         }
 
         public DataSet ExecuteDataSet(CommandType commandType, string
          commandText)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, commandType, commandText, Parameters);
-            IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter
-              ();
-            dataAdapter.SelectCommand = Command;
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return dataSet;
+            try
+            {
+                Command = _dbManagerFactory.GetCommand();
+                Command.CommandTimeout = CommandTimeOut;
+                PrepareCommand(Command, Transaction, commandType, commandText, Parameters);
+                IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
+                dataAdapter.SelectCommand = Command;
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                return dataSet;
+            }
+            finally
+            {
+                MbaroKomanden();
+            }
         }
         public bool ExecuteUpdate(DataTable dt, CommandType selectCommandType, string selectCommandText, CommandType updateCommandType, string updateCommandText)
         {
             try
             {
                 Command = _dbManagerFactory.GetCommand();
-                PrepareCommand(Command, Connection, Transaction, selectCommandType, selectCommandText, Parameters);
+                PrepareCommand(Command, Transaction, selectCommandType, selectCommandText, Parameters);
                 IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
                 dataAdapter.SelectCommand = Command;
                 DataSet dataSet = new DataSet();
@@ -440,16 +460,18 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 origDt.Merge(dt);
 
                 IdbUpdateCommand = _dbManagerFactory.GetCommand();
-                PrepareCommand(IdbUpdateCommand, Connection, Transaction, updateCommandType, updateCommandText, UpdateParameters);
+                PrepareCommand(IdbUpdateCommand, Transaction, updateCommandType, updateCommandText, UpdateParameters);
                 dataAdapter.UpdateCommand = IdbUpdateCommand;
                 dataAdapter.Update(dataSet);
-                if (Transaction == null || System.Transactions.Transaction.Current != null)
-                    Connection.Dispose();
                 return true;
             }
             catch (System.Exception)
             {
                 return false;
+            }
+            finally
+            {
+                ReleaseConnection();
             }
         }
 
@@ -458,7 +480,7 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             try
             {
                 Command = _dbManagerFactory.GetCommand();
-                PrepareCommand(Command, Connection, Transaction, selectCommandType, selectCommandText, Parameters);
+                PrepareCommand(Command, Transaction, selectCommandType, selectCommandText, Parameters);
                 IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
                 dataAdapter.SelectCommand = Command;
                 DataSet dataSet = new DataSet();
@@ -472,55 +494,67 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 origDt.PrimaryKey = keys;
                 origDt.Merge(dt);
                 IdbUpdateCommand = _dbManagerFactory.GetCommand();
-                PrepareCommand(IdbUpdateCommand, Connection, Transaction, updateCommandType, updateCommandText, UpdateParameters);
+                PrepareCommand(IdbUpdateCommand, Transaction, updateCommandType, updateCommandText, UpdateParameters);
                 dataAdapter.UpdateCommand = IdbUpdateCommand;
                 dataAdapter.Update(dataSet);
-                if (Transaction == null || System.Transactions.Transaction.Current != null)
-                    Connection.Dispose();
                 return true;
             }
             catch (System.Exception)
             {
                 return false;
             }
+            finally
+            {
+                ReleaseConnection();
+            }
         }
 
         public bool ExecuteInsert(DataTable dt, CommandType selectCommandType, string selectCommandText, CommandType insertCommandType, string insertCommandText)
         {
-            Command = _dbManagerFactory.GetCommand();
-            PrepareCommand(Command, Connection, Transaction, selectCommandType,
-                selectCommandText, Parameters);
-            IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
-            dataAdapter.SelectCommand = Command;
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-            DataTable origDt = dataSet.Tables[0];
-            foreach (DataRow row in dt.Rows)
+            try
             {
-                origDt.ImportRow(row);
+                Command = _dbManagerFactory.GetCommand();
+                PrepareCommand(Command, Transaction, selectCommandType,
+                    selectCommandText, Parameters);
+                IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
+                dataAdapter.SelectCommand = Command;
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                DataTable origDt = dataSet.Tables[0];
+                foreach (DataRow row in dt.Rows)
+                {
+                    origDt.ImportRow(row);
+                }
+                IdbInsertCommand = _dbManagerFactory.GetCommand();
+                PrepareCommand(IdbInsertCommand, Transaction, insertCommandType, insertCommandText, InsertParameters);
+                dataAdapter.InsertCommand = IdbInsertCommand;
+                dataAdapter.Update(dataSet);
+                return true;
             }
-            IdbInsertCommand = _dbManagerFactory.GetCommand();
-            PrepareCommand(IdbInsertCommand, Connection, Transaction, insertCommandType, insertCommandText, InsertParameters);
-            dataAdapter.InsertCommand = IdbInsertCommand;
-            dataAdapter.Update(dataSet);
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return true;
+            finally
+            {
+                ReleaseConnection();
+            }
         }
 
         public bool ExecuteInsert(DataTable dt, CommandType insertCommandType, string insertCommandText)
         {
-            IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
-            DataSet dataSet = new DataSet();
-            dataSet.Tables.Add(dt);
-            IdbInsertCommand = _dbManagerFactory.GetCommand();
-            PrepareCommand(IdbInsertCommand, Connection, Transaction, insertCommandType, insertCommandText, InsertParameters);
-            dataAdapter.TableMappings.Add("Table", dt.TableName);
-            dataAdapter.InsertCommand = IdbInsertCommand;
-            dataAdapter.Update(dataSet);
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return true;
+            try
+            {
+                IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter();
+                DataSet dataSet = new DataSet();
+                dataSet.Tables.Add(dt);
+                IdbInsertCommand = _dbManagerFactory.GetCommand();
+                PrepareCommand(IdbInsertCommand, Transaction, insertCommandType, insertCommandText, InsertParameters);
+                dataAdapter.TableMappings.Add("Table", dt.TableName);
+                dataAdapter.InsertCommand = IdbInsertCommand;
+                dataAdapter.Update(dataSet);
+                return true;
+            }
+            finally
+            {
+                ReleaseConnection();
+            }
         }
 
         /// <summary>
@@ -532,38 +566,40 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
         /// <returns></returns>
         public IEnumerable<T> GetIEnumerbale<T>(string spName, Func<IDataRecord, T> buildObject)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-
-            using (var reader = Command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                BeginExecuting(spName);
+                using (var reader = Command.ExecuteReader())
                 {
-                    yield return buildObject(reader);
+                    while (reader.Read())
+                    {
+                        yield return buildObject(reader);
+                    }
                 }
             }
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
+            finally
+            {
+                // ekzekutohet edhe kur thirresi ndalon para fundit (p.sh. FirstOrDefault)
+                MbaroKomanden();
+            }
         }
         public void FillCollection(string spName, IDataBaseReader collectionPerTuMbushur)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-
-            var reader = Command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                collectionPerTuMbushur.Mbush(reader);
+                BeginExecuting(spName);
+                using (var reader = Command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        collectionPerTuMbushur.Mbush(reader);
+                    }
+                }
             }
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
+            finally
+            {
+                MbaroKomanden();
+            }
         }
 
         /// <summary>
@@ -576,140 +612,132 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
         /// <returns></returns>
         public bool FillObject<T>(string spName, Action<IDataRecord> fillObject)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-
-            var reader = Command.ExecuteReader();
-            int countRows = 0;
-            while (reader.Read())
+            try
             {
-                fillObject(reader);
-                countRows++;
+                BeginExecuting(spName);
+                using (var reader = Command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        fillObject(reader);
+                    }
+                }
+                return true;
             }
-            if (countRows > 1)
+            finally
             {
+                MbaroKomanden();
             }
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return true;
         }
         public void FillObject(string spName, IDataBaseReader objektiPerTuMbushur)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-            try {
-               
-
-                var reader = Command.ExecuteReader();
-                int countRows = 0;
-                while (reader.Read())
+            try
+            {
+                BeginExecuting(spName);
+                using (var reader = Command.ExecuteReader())
                 {
-                    objektiPerTuMbushur.Mbush(reader);
-                    countRows++;
+                    while (reader.Read())
+                    {
+                        objektiPerTuMbushur.Mbush(reader);
+                    }
                 }
-                if (countRows > 1)
-                {
-                }
-                reader.Close();
-                Command.Parameters.Clear();
-                if (Transaction == null || System.Transactions.Transaction.Current != null)
-                    Connection.Dispose();
             }
             catch
             {
-                Command.Parameters.Clear();
-                Connection.Dispose();
+                // Sjellja e meparshme: gabimi nuk i kalon thirresit, objekti mbetet i pambushur.
                 Console.WriteLine("Error encountered!");
             }
-            
-
+            finally
+            {
+                MbaroKomanden();
+            }
         }
         public Dictionary<string, object> GetDictionary(string spName)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-
-            var reader = Command.ExecuteReader();
-            var dic = new Dictionary<string, object>();
-            while (reader.Read())
-                dic.Add(reader[0].ToString(), reader[1]);
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return dic;
+            try
+            {
+                BeginExecuting(spName);
+                var dic = new Dictionary<string, object>();
+                using (var reader = Command.ExecuteReader())
+                {
+                    while (reader.Read())
+                        dic.Add(reader[0].ToString(), reader[1]);
+                }
+                return dic;
+            }
+            finally
+            {
+                MbaroKomanden();
+            }
         }
 
         public Dictionary<TKey, TValue> GetDictionary<TKey, TValue>(string spName)
         {
-            Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
-            Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
-
-            var reader = Command.ExecuteReader();
-            var dic = new Dictionary<TKey, TValue>();
-            while (reader.Read())
-                dic.Add((TKey)Convert.ChangeType(reader[0], typeof(TKey)), (TValue)Convert.ChangeType(reader[1], typeof(TValue)));
-
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
-                Connection.Dispose();
-            return dic;
+            try
+            {
+                BeginExecuting(spName);
+                var dic = new Dictionary<TKey, TValue>();
+                using (var reader = Command.ExecuteReader())
+                {
+                    while (reader.Read())
+                        dic.Add((TKey)Convert.ChangeType(reader[0], typeof(TKey)), (TValue)Convert.ChangeType(reader[1], typeof(TValue)));
+                }
+                return dic;
+            }
+            finally
+            {
+                MbaroKomanden();
+            }
         }
 
         public List<T> GetList<T>(string spName)
         {
-            BeginExecuting(spName);
-
-            var reader = Command.ExecuteReader();
-            var list = new List<T>();
-            while (reader.Read())
+            try
             {
-                var vlera = reader[0];
-                if (vlera == DBNull.Value)
-                    continue;
-                list.Add((T)vlera);
+                BeginExecuting(spName);
+                var list = new List<T>();
+                using (var reader = Command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var vlera = reader[0];
+                        if (vlera == DBNull.Value)
+                            continue;
+                        list.Add((T)vlera);
+                    }
+                }
+                return list;
             }
-            reader.Close();
-            Command.Parameters.Clear();
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
+            finally
             {
-                Connection.Dispose();
+                MbaroKomanden();
             }
-            return list;
         }
 
         private void BeginExecuting(string spName)
         {
             Command = _dbManagerFactory.GetCommand();
-            Command.Connection = Connection;
             Command.CommandTimeout = CommandTimeOut;
-            PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
+            PrepareCommand(Command, Transaction, CommandType.StoredProcedure, spName, Parameters);
         }
 
         public void ExecuteSqlBulk(string tableName, DataTable dataTable)
         {
-            var sqlBulk = new SqlBulkCopy((SqlConnection)Connection, SqlBulkCopyOptions.FireTriggers, (SqlTransaction)Transaction)
+            try
             {
-                DestinationTableName = tableName
-            };
-            sqlBulk.BulkCopyTimeout = 0;
-            Open();
-            sqlBulk.WriteToServer(dataTable);
-
-            if (Transaction == null || System.Transactions.Transaction.Current != null)
+                Open();
+                using (var sqlBulk = new SqlBulkCopy((SqlConnection)Connection, SqlBulkCopyOptions.FireTriggers, (SqlTransaction)Transaction)
+                {
+                    DestinationTableName = tableName,
+                    BulkCopyTimeout = 0
+                })
+                {
+                    sqlBulk.WriteToServer(dataTable);
+                }
+            }
+            finally
             {
-                Connection.Dispose();
+                ReleaseConnection();
             }
         }
     }

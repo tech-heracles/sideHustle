@@ -9243,7 +9243,8 @@ namespace DbCore.DbAdmin
             ds = new DataSet();
             try
             {
-
+                if (dbManager.Connection == null)
+                    dbManager.Open();
 
                 SqlCommand SqlCmd = new SqlCommand
                 {
