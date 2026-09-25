@@ -2811,7 +2811,7 @@ function myElemButtonSerialeUnike() {
     var vleraLlojit = grida.getTekstQelize('cmbLloji', idRow);
     var idkodi = grida.getTekstQelize('txtIdKodi', idRow);
     var art = memoryArt.Get(idkodi);
-    var disabled = vleraLlojit == "Llogari" || (!art || art && art.Klasa != 4) || (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && Utils.getUrlVar("kthehu") == "kthehu");
+    var disabled = vleraLlojit == "Llogari" || (!art || art && art.Klasa != 4);
     return myJQGrid.myElemButtonSerialetUnike(disabled, idRow);
 }
 
@@ -2886,9 +2886,7 @@ function myElemDetajimi(value, options) {//po
     var idRow = grida.getLastSel2();
     var vleraLlojit = grida.getTekstQelize('cmbLloji', idRow);
     var disabled = (arrayReadOnlyKolonaGrides[6] == 'True') || !lejomod || vleraLlojit == "Llogari";
-    if (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && Utils.getUrlVar("kthehu") == "kthehu")
-        disabled = 'True';
-    else if (hfState.Get("MosModifikoTrup"))
+    if (hfState.Get("MosModifikoTrup"))
         disabled = 'False';
     return myJQGrid.myElemKodi(value, options, disabled, idRow, arrayIdKolonaGrides[6], ButtonClickDetajimet, keyPressDet, changeFunc2, pageState.kushte.F, lostFocusKoloneFundit);
 }
@@ -3281,9 +3279,6 @@ function myelemKodi(value, options) {//po
     var grida = $("#rowed5");
     var index = grida.getLastSel2();
     var disabled = (arrayReadOnlyKolonaGrides[3] == 'True') || !lejomod;
-    if (cmbModeli.GetText().length >= 5 && cmbModeli.GetText().substring(0, 5) == "VFONE" && !hfState.Get("RoliSR") && index == 1)
-        disabled = false;
-
     return myJQGrid.myElemKodi(value, options, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[3], ButtonClickKodi, keyPressKodi, changeFunc, pageState.kushte.F, lostFocusKoloneFundit);
 }
 
@@ -4580,8 +4575,6 @@ function SucceededCallbackKonfig(result) {  //po
             case "AFI":
             case "RDDNR":
             case "NAGDN":
-            case "KGJVFONE":
-            case "ZBVFONE":
             case "NDPAP":
             case "NKAKNKA":
                 pageState.kushte[kusht.Kodi] = kusht.Alternativa == "Po" ? true : false;
@@ -5088,13 +5081,7 @@ function SucceededCallbackKonfig(result) {  //po
     }
     mbushGrideNgaHiddenFieldet(isLidhur);
     
-    $("input[id$='hfVodOne']").val('');
-
     $("input[id$='hfZbritja']").val('');
-    if (pageState.lloji == 'modifikim' && cmbModeli.GetText().substring(0, 5) == "VFONE") {
-        var idDok = (Utils.getUrlVar("id") === undefined || Utils.getUrlVar("id") === "undefined" || typeof (Utils.getUrlVar("id")) === "undefined") ? 0 : parseInt(Utils.getUrlVar("id"));
-        MerrPiketNeModifikimTeVfoneMeWebservice(idDok);
-    }
 
     if (Utils.getUrlVar("idartikulli") != undefined && Utils.getUrlVar("idartikulli") != "undefined" && vendosartikullblerje) {
         callWebserviceArtikulliIPlote({ idArt: Utils.getUrlVar("idartikulli"), idRresht: 1, magazine: "", kodKodbarArt: "", peshoreArt: "", listeIMEIArtikull: new Array(), sasiaNeGride: new Object() });
@@ -5106,9 +5093,6 @@ function SucceededCallbackKonfig(result) {  //po
         txtPike.SetText(Utils.getUrlVar("pike"));
     }
 
-    if (Utils.getUrlVar("zbritje") != "undefined" && cmbModeli.GetText().substring(0, 5) == "VFONE") {
-        $("input[id$='hfVlera']").val(Utils.getUrlVar("zbritje"));
-    }
 
     lblKonfigurimi.SetVisible(false);
 
@@ -5257,15 +5241,6 @@ function SuccedcallbackSkemaMenu(result) {
     else
         ASPxMenu1.GetItemByName('Draft').SetVisible(result[1]);
 
-    if (cmbModeli.GetText().length >= 5 && (cmbModeli.GetText().substring(0, 5) == "VFONE")) {
-        if (!hfState.Get("RoliSR")) {
-            ASPxMenu1.GetItemByName('Ruaj').SetVisible(false);
-            ASPxMenu1.GetItemByName('Draft').SetVisible(true);
-            cmbLlojZbritje.SetValue(Utils.llojZbritje.Perqindje);
-        }
-        else
-            ASPxMenu1.GetItemByName('Draft').SetVisible(false);
-    }
     ASPxMenu1.GetItemByName('Aprovo').SetVisible(result[2]);
     ASPxMenu1.GetItemByName('Refuzo').SetVisible(result[3]);
     ASPxMenu1.GetItemByName('Delego').SetVisible(result[4]);
@@ -5280,11 +5255,6 @@ function SuccedcallbackSkemaMenu(result) {
     }
     ASPxMenu1.GetItemByName('Shto').SetVisible(result[8]);
     ASPxMenu1.GetItemByName('Fshi').SetVisible(result[10]);
-    if (cmbModeli.GetText().length >= 5 && (cmbModeli.GetText().substring(0, 5) == "VFONE") && Utils.getUrlVar("kthehu") == "kthehu") {
-        ASPxMenu1.GetItemByName('Draft').SetVisible(true);
-        ASPxMenu1.GetItemByName('Ruaj').SetVisible(false);
-        cmbLlojZbritje.SetValue(Utils.llojZbritje.Perqindje);
-    }
 
 
     if ($("input[id$='hfShtimModifikim']").val() == "modifikim" && hfState.Get("Status") == 4 && hfState.Get("Meme") == false)
@@ -7685,43 +7655,35 @@ function updateTotalet(zbritTotalPerqindje, zbritTotalVlere) {//po
     editorKodi = $("#txtKodi" + idRresht); 
     var totale = calcTotale(grida);
 
-    if (cmbModeli.GetText().substring(0, 5) == "VFONE" && !pageState.kushte.ZBVFONE) {
-        txtVlefte.SetText(0);
-        zbritTotalVlere = 0;
-        txtPerqindje.SetText(0);
-        zbritTotalPerqindje = 0;
+    if (cmbLlojZbritje.GetValue() == Utils.llojZbritje.Perqindje) {
+        zbritTotalVlere = parseFloat((totale.totali * parseFloat(zbritTotalPerqindje) / 100));
+        txtVlefte.SetText(zbritTotalVlere);
     }
     else {
-        if (cmbLlojZbritje.GetValue() == Utils.llojZbritje.Perqindje) {
-            zbritTotalVlere = parseFloat((totale.totali * parseFloat(zbritTotalPerqindje) / 100));
-            txtVlefte.SetText(zbritTotalVlere);
-        }
-        else {
-            if (totale.totali == 0)
-                zbritTotalPerqindje = parseFloat(zbritTotalVlere) * 100 / 1;
-            else
-                zbritTotalPerqindje = parseFloat(zbritTotalVlere) * 100 / totale.totali;
-            txtPerqindje.SetText(zbritTotalPerqindje);
-        }
-        if ($('#hfVlera').val() === "0") {
-            txtPerqindje.SetText(100);
-            zbritTotalPerqindje = 100;
-            txtVlefte.SetText((totale.totali));
-            zbritTotalVlere = totale.totali;
-        }
-        else if ($('#hfVlera').val() != '' && $('#hfVlera').val() != 0) {
-            txtVlefte.SetText((totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0);
-            zbritTotalVlere = (totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0;
-            txtPerqindje.SetText(zbritTotalVlere * 100 / totale.totali);
-            zbritTotalPerqindje = zbritTotalVlere * 100 / totale.totali;
-        }
+        if (totale.totali == 0)
+            zbritTotalPerqindje = parseFloat(zbritTotalVlere) * 100 / 1;
+        else
+            zbritTotalPerqindje = parseFloat(zbritTotalVlere) * 100 / totale.totali;
+        txtPerqindje.SetText(zbritTotalPerqindje);
+    }
+    if ($('#hfVlera').val() === "0") {
+        txtPerqindje.SetText(100);
+        zbritTotalPerqindje = 100;
+        txtVlefte.SetText((totale.totali));
+        zbritTotalVlere = totale.totali;
+    }
+    else if ($('#hfVlera').val() != '' && $('#hfVlera').val() != 0) {
+        txtVlefte.SetText((totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0);
+        zbritTotalVlere = (totale.totali - $('#hfVlera').val()) >= 0 ? (totale.totali - $('#hfVlera').val()) : 0;
+        txtPerqindje.SetText(zbritTotalVlere * 100 / totale.totali);
+        zbritTotalPerqindje = zbritTotalVlere * 100 / totale.totali;
+    }
 
-        if ($('#hfZbritja').val() != '' && $('#hfZbritja').val() != 0) {
-            txtVlefte.SetText((totale.totali - $('#hfZbritja').val()) >= 0 ? ($('#hfZbritja').val()) : 0);
-            zbritTotalVlere = (totale.totali - $('#hfZbritja').val()) >= 0 ? ($('#hfZbritja').val()) : 0;
-            txtPerqindje.SetText(zbritTotalVlere * 100 / totale.totali);
-            zbritTotalPerqindje = zbritTotalVlere * 100 / totale.totali;
-        }
+    if ($('#hfZbritja').val() != '' && $('#hfZbritja').val() != 0) {
+        txtVlefte.SetText((totale.totali - $('#hfZbritja').val()) >= 0 ? ($('#hfZbritja').val()) : 0);
+        zbritTotalVlere = (totale.totali - $('#hfZbritja').val()) >= 0 ? ($('#hfZbritja').val()) : 0;
+        txtPerqindje.SetText(zbritTotalVlere * 100 / totale.totali);
+        zbritTotalPerqindje = zbritTotalVlere * 100 / totale.totali;
     }
     var rreshtaTeGridesId = grida.jqGrid('getDataIDs');
     var shumaKomision = 0;
@@ -7997,9 +7959,7 @@ function pastroFushatKokes() {//po
     txtAdresaFaturimit.SetText('');
     txtEmriKlienti.SetText('');
     ucEmerSkedari.ClearText('');
-    if (Utils.getUrlVar('nrklienti') == undefined || (cmbModeli.GetText().substring(0, 5) != 'VFONE' && cmbModeli.GetText().substring(0, 8) != 'POROSIBA' && cmbModeli.GetText().substring(0, 8) != 'POROSIDD')) {
-        txtKontakti.SetText('');
-    }
+    txtKontakti.SetText('');
     hfState.Set('Status', 1);
     cbKasa.SetChecked(false);
     hfSeriale.Clear(); hfSasiSeriale.Clear();
@@ -8995,7 +8955,6 @@ function PastroClick() {//po
     $("input[id$='hfLidhur']").val(false);
     $("input[id$='hfAutorizimi']").val(true);
     $("input[id$='hfPiket']").val('');
-    $("input[id$='hfVodOne']").val('');
     hfState.Set("konvNgaUshNeFsh", false);
     hfState.Set("eshteDokKthimi", false);
     if (pageState.kushte.RVF) {
@@ -10674,18 +10633,6 @@ function TextChangedNrDok(s, e) {
     if (pageState.lloji == 'modifikim')
         txtNrDokMagazine.SetText(txtNumer.GetText());
 }
-function MerrPiketNeModifikimTeVfoneMeWebservice(idDok) {
-    $.ajax({
-        pritPergjigje: true,
-        url: Utils.getServerApiUrl("Rregjistrime", "kthePiketNeModifikimTeVFONE"), data: JSON.stringify({ idDok: idDok })
-    }).done(SuccededCallbackKthePikeNeModifikimVFONE);
-
-}
-
-function SuccededCallbackKthePikeNeModifikimVFONE(result) {
-    txtPike.SetText(result.Piket);
-}
-
 function merrKonfigurimeWebhook(idnderrmarje) {
     $.ajax({
         pritPergjigje: true,

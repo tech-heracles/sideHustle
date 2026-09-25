@@ -1412,7 +1412,7 @@ namespace DbCore
 					visible[7] = false;//konverto
 					visible[9] = false;//paguaj
 					visible[10] = false;//fshi
-					visible[11] = ((kodkonfig.Length >= 5 && (kodkonfig.Substring(0, 5) == "VFONE" || kodkonfig.Substring(0, 5) == "USHDD")) || (kodkonfig.Length >= 6 && kodkonfig.Substring(0, 6) == "BAZAAR")) ? true : false;//validim
+					visible[11] = false;//validim (vetem per dokumentat e Vodafone)
 					visible[12] = false;//refuzoDraft
 					visible[13] = false;//pezullo
 				}
@@ -1443,7 +1443,7 @@ namespace DbCore
 				visible[8] = true;//shto
 				visible[9] = false;//paguaj
 				visible[10] = false;//fshi
-				visible[11] = ((kodkonfig.Length >= 5 && (kodkonfig.Substring(0, 5) == "VFONE" || kodkonfig.Substring(0, 5) == "USHDD")) || (kodkonfig.Length >= 6 && kodkonfig.Substring(0, 6) == "BAZAAR")) ? true : false;//validim
+				visible[11] = false;//validim (vetem per dokumentat e Vodafone)
 				visible[12] = false;//refuzoDraft
 				visible[13] = false;//pezullo
 			}

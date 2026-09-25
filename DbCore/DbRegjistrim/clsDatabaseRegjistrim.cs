@@ -9201,14 +9201,6 @@ namespace DbCore.DbRegjistrim
             dbManager.AddInputParameters("@IDSTATUSDOK", idstatusdok);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKASHITJE_updIdstatusdokDokumentaVartes");
         }
-        internal string MerrPikeNeModifikimTeVFONE(int idshitjekoka, int idNdermarrje)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddInputParameters("@IDSHITJEKOKA", idshitjekoka);
-            dbManager.AddInputParameters("@IDNDERMARRJE", idNdermarrje);
-            return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KOKASHITJE_merrPiketNeModifikimTeVFONE").ToString();
-        }
         internal DataTable merrSipasDegeNdermarjePerLupeDege(int idnderm)
         {
 

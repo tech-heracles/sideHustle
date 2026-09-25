@@ -598,9 +598,6 @@ namespace PlatinumWeb
                         konvNgaUshNeFsh = true;
                 }
             }
-            if (cmbModeli.Text.StartsWith("VFONE") && koka.IdStatusDok == 0)
-                cbGaranci.Checked = true;
-
             hfState.Set("Status", koka.IdStatusDok);
             hfState.Set("konvNgaUshNeFsh", konvNgaUshNeFsh);
             hfState.Set("idstatusdok", koka.IdStatusDok);

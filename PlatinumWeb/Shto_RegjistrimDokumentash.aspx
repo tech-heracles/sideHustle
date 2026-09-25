@@ -263,7 +263,6 @@
                 <asp:HiddenField ID="hfUrlbanka" runat="server" />
                 <asp:HiddenField ID="hfStatusRuajtje" runat="server" />
                 <asp:HiddenField ID="hfLloji" runat="server" />
-                <asp:HiddenField ID="hfVodOne" runat="server" />
                 <asp:HiddenField ID="hfPiket" runat="server" />
                 <asp:HiddenField ID="hfKodBundle" runat="server" />
                 <asp:HiddenField ID="hfVlera" runat="server" />

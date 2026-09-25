@@ -8840,11 +8840,6 @@ namespace DbCore.DbRegjistrim
             var gjenerimi = GjeneroFaturePermbledhese(0, idNdermarrja, "", dt.Select(), false, dtFillimi, dtMbarimi, null, true, false);
             return gjenerimi.Item3;
         }
-        public static string MerrPikeNeModifikimTeVFONE(int idshitjekoka, int idNdermarrje)
-        {
-            using (var db = new clsDatabaseRegjistrim())
-                return db.MerrPikeNeModifikimTeVFONE(idshitjekoka, idNdermarrje);
-        }
         private static DataRow FillDataRowKlientFurnitorVartes(DataRow dtRow, int idShitjeKoka, int idKlientFurnitor)
         {
             dtRow["IDSHITJEKOKAKLIENTVARTES"] = 0;

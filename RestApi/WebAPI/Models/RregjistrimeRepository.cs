@@ -7177,12 +7177,6 @@ namespace RestApi.WebAPI.Models
             return clsLimitKarta.MerrLimitetSipasKartes(idKarta);
         }
 
-        public static object kthePiketNeModifikimTeVFONE(int idDok, HttpSessionState session)
-        {
-            string piket = clsKokaShitje.MerrPikeNeModifikimTeVFONE(idDok, mySessionObjects.merrIdNdermarrjeSesioni(session));
-            return new { Piket = piket };
-        }
-
         public static object merrPrindQenderKosto(int idNdermarrje, string Kodi)
         {
 

@@ -4959,20 +4959,6 @@ namespace RestApi.WebAPI.Controllers
         }
 
 
-        [HttpGet, HttpPost]
-        public HttpResponseMessage kthePiketNeModifikimTeVFONE(JObject param)
-        {
-            try
-            {
-                int idDok = param["idDok"].Value<int>();
-                return Request.CreateResponse(RregjistrimeRepository.kthePiketNeModifikimTeVFONE(idDok, Session));
-            }
-            catch (Exception e)
-            {
-                return Request.KthePergjigjeGabim(param, e);
-            }
-        }
-
 
         [HttpGet, HttpPost]
         public HttpResponseMessage eshtePrindQenderKosto(JObject param)
