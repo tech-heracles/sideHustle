@@ -171,13 +171,10 @@ namespace DbCore.DbListPagesat
                 PunonjesMeSigurime sigDefault = PunonjesMeSigurime.MerrSigurimeSipasDatesMeTeAfert(idNdermarrje, dtAktivizimiSkema);
 
                 CancellationTokenSource tokenSource = new CancellationTokenSource();
+                // brenda nje MyTransactionScope (nje lidhje e vetme me databazen), prandaj punonjesit perpunohen nje nga nje
                 var options = new ParallelOptions
                 {
-#if DEBUG
                     MaxDegreeOfParallelism = 1
-#else
-                    MaxDegreeOfParallelism=100
-#endif
                 };
                 var punonjesitEPerfunduar = new List<int>();
 

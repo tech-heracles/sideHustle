@@ -6413,15 +6413,14 @@ namespace DbCore.DbAdmin
 
         internal DataTable ktheTrupin(int idGjuha, int idGrida)
         {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@idgjuha", idGjuha, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@GRIDAKOKAID", idGrida, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_merrTrupin");
-            return ds.Tables[0];
-
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_merrTrupin|" + idGjuha + "|" + idGrida, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@idgjuha", idGjuha, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@GRIDAKOKAID", idGrida, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_merrTrupin");
+                return ds.Tables[0];
+            });
         }
 
         public clsMesazh fshiTrupin(int idGrida)
@@ -6571,94 +6570,102 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         public IEnumerable<clsGridaTrupi> merrGridenKonfigurimitKomponentesSipasGridesNew(string emriGrides, int idKomponente, int idKonfigurim, int idGjuha)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            return dbManager.GetIEnumerbale("prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGrides", clsGridaTrupi.Create);
+            // e njejta procedure dhe parametra si varianti me DataTable, prandaj ndan te njejtin cache
+            DataTable dt = merrGridenKonfigurimitKomponentesSipasGrides(emriGrides, idKomponente, idKonfigurim, idGjuha);
+            var lista = new List<clsGridaTrupi>(dt.Rows.Count);
+            using (DataTableReader reader = dt.CreateDataReader())
+                while (reader.Read())
+                    lista.Add(clsGridaTrupi.Create(reader));
+            return lista;
         }
         internal DataTable merrGridenKonfigurimitKomponentesSipasGjuhes(int idKomponente, int idKonfigurim, int idGjuha)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhes");
-            return ds.Tables[0];
-
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhes|" + idKomponente + "|" + idKonfigurim + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhes");
+                return ds.Tables[0];
+            });
         }
         internal DataTable merrGridenKonfigurimitKomponentesSipasGjuhes(string emerKomponente, int idKonfigurim, int idGjuha)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@EMERKOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhesEmerKomp").Tables[0];
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhesEmerKomp|" + emerKomponente + "|" + idKonfigurim + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@EMERKOMPONENTE", emerKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGjuhesEmerKomp").Tables[0];
+            });
         }
         internal DataTable merrGridenKonfigurimitKomponentes(int idKomponente, int idKonfigurim, int idGjuha)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentes");
-            return ds.Tables[0];
-
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentes|" + idKomponente + "|" + idKonfigurim + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentes");
+                return ds.Tables[0];
+            });
         }
 
         internal DataTable merrGridenKonfigurimitKomponentesSipasGrides(string emriGrides, int idKomponente, int idKonfigurim, int idGjuha)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGrides");
-            return ds.Tables[0];
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGrides|" + emriGrides + "|" + idKomponente + "|" + idKonfigurim + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(4);
+                dbManager.AddParameters(0, "@IDKOMPONENTE", idKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridenKonfigurimitKomponentesSipasGrides");
+                return ds.Tables[0];
+            });
         }
         internal DataTable merrGridenKonfigurimit(int idKonfigurim, int idGjuha)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridatEKonfigurimit");
-            return ds.Tables[0];
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGridatEKonfigurimit|" + idKonfigurim + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGridatEKonfigurimit");
+                return ds.Tables[0];
+            });
         }
 
         internal DataTable merrGrideTrupinSipasEmerGride(int idKonfigurim, string emriGrides, int idGjuha)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGride|" + idKonfigurim + "|" + emriGrides + "|" + idGjuha, () =>
+            {
+                dbManager.CreateParameters(3);
 
-            dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGride");
-            return ds.Tables[0];
-
+                dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGride");
+                return ds.Tables[0];
+            });
         }
 
         internal DataTable merrGrideTrupinSipasEmerGrideDheKomponente(int idKonfigurim, string emriGrides, int idGjuha, string emerKomponente)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(4);
+            return KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGrideDheKomponente|" + idKonfigurim + "|" + emriGrides + "|" + idGjuha + "|" + emerKomponente, () =>
+            {
+                dbManager.CreateParameters(4);
 
-            dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@EMERKOMP", emerKomponente, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGrideDheKomponente");
-            return ds.Tables[0];
-
+                dbManager.AddParameters(0, "@IDKONFIG", idKonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@EMRIGRIDES", emriGrides, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDGJUHA", idGjuha, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@EMERKOMP", emerKomponente, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_ktheGrideTrupinSipasEmerGrideDheKomponente");
+                return ds.Tables[0];
+            });
         }
 
         #endregion

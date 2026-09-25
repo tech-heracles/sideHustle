@@ -110,7 +110,7 @@ namespace CacheLayer
             {
                 if (scope == null)
                 {
-                    throw new Exception("NullError scope") { Data = { { "mesazh", "scope == null" }, { "ObjektiMySessionCache", MySessionCache.GetAllAsJson().ToString() }, { "scope", scope } } };
+                    throw new Exception("NullError scope") { Data = { { "mesazh", "scope == null" }, { "ObjektiMySessionCache", MySessionCache.AllKeys.Count }, { "scope", scope } } };
                 }
                 if (keys != null && keys.Contains(scope))
                     return true;
