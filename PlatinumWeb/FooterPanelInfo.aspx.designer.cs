@@ -57,14 +57,6 @@ namespace PlatinumWeb {
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
-        /// <summary>
-        /// ASPxHyperLink2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHyperLink ASPxHyperLink2;
         
         /// <summary>
         /// lblPeriudha control.

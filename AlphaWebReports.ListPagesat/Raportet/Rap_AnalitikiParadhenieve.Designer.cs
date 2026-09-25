@@ -327,9 +327,7 @@
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(188.1807F, 48.45831F);
             this.xrLabel20.StyleName = "Copyright";
-            this.xrLabel20.Text = "Copyright © AVECCopyright © AVEC\r\nIn" +
-    "stituti i Modelimeve ne Biznes \r\nwww.avec.alCopyright © AVEC\r\nInstituti i Modelime" +
-    "ve ne Biznes \r\nwww.avec.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             // 
             // xrControlStyle1
             // 

@@ -121,13 +121,9 @@
                     </td>
                     <td class="style4" style="vertical-align: top">
                         <div class="copyright">
-                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="copyright@AVEC" Style="font-size: small">
+                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="© AVEC Accounting" Style="font-size: small">
                         </dx:ASPxLabel>
-                        &nbsp;<dx:ASPxHyperLink ID="ASPxHyperLink2" runat="server" Text="www.avec.al" Target="_blank"
-                            NavigateUrl="http://www.avec.al" Style="font-size: small">
-                        </dx:ASPxHyperLink>
                             </div>
-                         <div style="display: none; background:url('images/emri_kesh_white.png')" class="kesh_slogan"></div> 
                     </td>
                     <td style="text-align: right; width: 8%; vertical-align: top; padding-right: 14px;">
                         <dx:ASPxLabel ID="lblPeriudha" runat="server" Text="Periudha"

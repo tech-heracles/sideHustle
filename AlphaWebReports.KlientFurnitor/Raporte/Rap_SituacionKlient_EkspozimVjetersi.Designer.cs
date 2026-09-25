@@ -1376,9 +1376,7 @@
             this.xrLabel20.SizeF = new System.Drawing.SizeF(198.79F, 48.45832F);
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseForeColor = false;
-            this.xrLabel20.Text = "Copyright © AVECCopyright © AVEC\r\nIn" +
-    "stituti i Modelimeve ne Biznes \r\nwww.avec.alCopyright © AVEC\r\nInstituti i Modelime" +
-    "ve ne Biznes \r\nwww.avec.al";
+            this.xrLabel20.Text = "Copyright © AVEC";
             // 
             // ReportFooter
             // 

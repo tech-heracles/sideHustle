@@ -1173,7 +1173,7 @@
             this.xrLabel73.StylePriority.UseBorders = false;
             this.xrLabel73.StylePriority.UseFont = false;
             this.xrLabel73.StylePriority.UseTextAlignment = false;
-            this.xrLabel73.Text = "Printuar nga AVEC Accounting www.avec.al";
+            this.xrLabel73.Text = "Printuar nga AVEC Accounting";
             this.xrLabel73.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // Detail

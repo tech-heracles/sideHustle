@@ -1192,9 +1192,7 @@ During the warranty period, Vodafone or any other company authorized by Vodafone
     <value>Copyright © AVEC</value>
   </data>
   <data name="labelLogoIMB" xml:space="preserve">
-    <value>Copyright © AVEC
-Institute of Modeling in Business 
-www.avec.al</value>
+    <value>Copyright © AVEC</value>
   </data>
   <data name="labelFilterAvancuarLlogKoresp" xml:space="preserve">
     <value>Corresponding account</value>
@@ -5283,9 +5281,6 @@ bëhet i kërkueshëm nga Vodafone, pranoj se do të shlyej pranë Vodafone të 
   </data>
   <data name="msgAdministrimiFormatGabuar" xml:space="preserve">
     <value>Wrong e-mail format!</value>
-  </data>
-  <data name="labelRaportIMBAl" xml:space="preserve">
-    <value>www.avec.al</value>
   </data>
   <data name="labelViti" xml:space="preserve">
     <value>Year</value>
