@@ -104,8 +104,6 @@ namespace PlatinumWeb
 				ikonaImazhPerdorues.Image.Url = urlImazhPerdoruesi;
 				ikonaImazhPerdorues.Image.Width = 25;
 				ikonaImazhPerdorues.Image.Height = 25;
-				bool kycurMobile = clsPerdorues.kthePerdoruesKycurMobile(idPerdoruesi);
-				hfState.Set("kycurMobile", kycurMobile);
 				var IdNdermViti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session).ToString();
 				var KodViti = DbCore.mySessionObjects.ktheVitiNdermarrjes(Session).ToString();
 				var pathBck = "height: 100%; width: 100%;";
@@ -389,21 +387,6 @@ namespace PlatinumWeb
 							count++;
 					}
 
-					if (tmpGrup.ToString() == "Mobile")
-					{
-						var drMobile = dt.Select("TEXTMODUL= 'Mobile'");
-						for (var m = 0; m < drMobile.Length; m++)
-						{
-							if (drMobile[m]["KOMPONEMRI"].ToString() != string.Empty)
-							{
-								if (drMobile[m]["D_AMB"].ToString() == "1")
-								{
-									count++;
-								}
-							}
-						}
-
-					}
 					for (var l = 0; l < tmpGrup.Items.Count; l++)
 					{
 						if (ConfigurationManager.AppSettings["ZyreKlient"].ToString() == "true")
@@ -441,11 +424,6 @@ namespace PlatinumWeb
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("dalje").Visible = true;
 				ASPxNavBar1.Groups.FindByName("settings").Visible = true;
 				ASPxNavBar1.Groups.FindByName("settings").ClientVisible = true;
-				if (ASPxNavBar1.Groups.FindByName("Mobile").ClientVisible)
-				{
-					ASPxNavBar1.Groups.FindByName("Mobile").ClientVisible = !(bool)hfState["kycurMobile"];
-					ASPxNavBar1.Groups.FindByName("Mobile").Visible = !(bool)hfState["kycurMobile"];
-				}
 			}
 			catch (Exception err)
 			{
@@ -1107,7 +1085,6 @@ namespace PlatinumWeb
 			NavElement("buxheti", "B_RegjistrimBuxheti.aspx?lloji=ekzekutim").Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
 
 
-			NavGrup("Mobile").Text = rm.GetString("MobileMenu", ci);
 			//Settings
 			NavGrup("settings").Text = rm.GetString("MenuItemSettings", ci);
 

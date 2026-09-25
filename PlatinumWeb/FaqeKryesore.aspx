@@ -1635,8 +1635,6 @@
                                                         </dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="Mobile" Name="Mobile" Expanded="False" Visible="False">
-                                                </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Personalizo" Name="settings" Expanded="False" Visible="true">
                                                 </dxnb:NavBarGroup>
                                             </Groups>

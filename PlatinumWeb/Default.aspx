@@ -55,7 +55,6 @@
                 'buxheti': { icon: 'fa-pie-chart', desc: 'Planifikimi i buxhetit' },
                 'dashboard': { icon: 'fa-tachometer', desc: 'Treguesit kryesorë' },
                 'help': { icon: 'fa-question-circle', desc: 'Manuali dhe ndihma' },
-                'Mobile': { icon: 'fa-mobile', desc: 'Aplikacioni celular' },
                 'settings': { icon: 'fa-cog', desc: 'Cilësimet' }
             };
 

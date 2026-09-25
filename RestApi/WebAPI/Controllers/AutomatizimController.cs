@@ -58,45 +58,6 @@ namespace RestApi.WebAPI.Controllers
                 return Request.KthePergjigjeGabim(param, ex);
             }
         }
-        public HttpResponseMessage importKlientProspektNgaMobile(JObject param)
-        {
-            try
-            {
-                var kodmobile = param["KODIMOBILE"].Value<string>();
-                var emertimikf = param["EMERTIMIKF"].ToObject<string>();
-                var niptkf = param["NIPTKF"].ToObject<string>();
-                var adresa = param["ADRESA"].ToObject<string>();
-                var qytetikodi = param["QYTETIKODI"].ToObject<string>();
-                var celkf = param["CELKF"].ToObject<string>();
-                var kodgrup1 = param["KODGRUP1"].ToObject<string>();
-                var kodgrup2 = param["KODGRUP2"].ToObject<string>();
-                var kodndermarrje = param["KODNDERMARRJE"].ToObject<string>();
-                var username = param["USERNAME"].ToObject<string>();
-                return Request.KthePergjigje(AutomatizimRepository.importKlientProspektNgaMobile(kodmobile, emertimikf, niptkf, adresa, qytetikodi, celkf, kodgrup1, kodgrup2, kodndermarrje, username));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-
-        public HttpResponseMessage importFotoNgaMobile(JObject param)
-        {
-            try
-            {
-                var idObjekti  = param["IDOBJEKTI"].Value<int>();
-                var foto  = param["FOTO"].ToObject<string>();
-                var kodNdermarrje = param["KODNDERMARRJE"].ToObject<string>();
-                var  username = param["USERNAME"].ToObject<string>();
-                var lloji = param["lloji"].Value<int>();
-                return Request.KthePergjigje(AutomatizimRepository.importFotoNgaMobile(idObjekti, foto, kodNdermarrje, username, lloji));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
 
 
         public HttpResponseMessage eksportAutomatikDokumentesh(JObject param)

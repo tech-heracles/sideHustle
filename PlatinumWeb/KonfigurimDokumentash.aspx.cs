@@ -538,10 +538,9 @@ namespace PlatinumWeb
             col12.DataItemTemplate = new MyIntTemplate(false);
             GridViewDataTextColumn col18 = grid_kontrollet.Columns["IdNrAutomatik"] as GridViewDataTextColumn;
             col18.DataItemTemplate = new MyComboTemplate();
-            GridViewDataCheckColumn col20 = grid_kontrollet.Columns["ShfaqMobile"] as GridViewDataCheckColumn;
-            col20.DataItemTemplate = new MyComboTemplate();
-            GridViewDataTextColumn col21 = grid_kontrollet.Columns["RenditjaMobile"] as GridViewDataTextColumn;
-            col21.DataItemTemplate = new MyTextTemplate();
+            // kolonat per versionin mobile nuk shfaqen me (vlerat e ruajtura mbeten te paprekura)
+            grid_kontrollet.Columns["ShfaqMobile"].Visible = false;
+            grid_kontrollet.Columns["RenditjaMobile"].Visible = false;
             GridViewDataCheckColumn col22 = grid_kontrollet.Columns["Unike"] as GridViewDataCheckColumn;
             col22.DataItemTemplate = new MyComboTemplate();
         }
@@ -1456,11 +1455,8 @@ namespace PlatinumWeb
             col171.DataItemTemplate = new MyTemplateLupa();
             col171.Width = 250;
 
-            var col20 = grid_trupi.Columns["ShfaqMobile"] as GridViewDataCheckColumn;
-            col20.DataItemTemplate = new MyComboTemplate();
-
-            var col21 = grid_trupi.Columns["RenditjaMobile"] as GridViewDataTextColumn;
-            col21.DataItemTemplate = new MyTextTemplate();
+            grid_trupi.Columns["ShfaqMobile"].Visible = false;
+            grid_trupi.Columns["RenditjaMobile"].Visible = false;
         }
 
         protected void grid_trupi_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)

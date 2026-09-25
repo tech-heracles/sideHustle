@@ -17,15 +17,6 @@ function grupKlick(s, e, emrimenuse) {
             paneKryesor.SetContentUrl(emrimenuse);
             paneKryesor.RefreshContentUrl();
             break;
-        case "Mobile":
-            $.ajax({
-                pritPergjigje: true,
-                url: Utils.getServerApiUrl("Konfigurime", "merrKonfigurimeMobile")
-            }).done(function (result) {
-                var guidObject = ktheGuidObject(result.param);
-                window.open(result.urlMobile + "" + encodeURIComponent(JSON.stringify(guidObject)), '_blank');
-            });
-            break;
         default:
             break;
     }
@@ -176,8 +167,6 @@ $(document).ready(function (e) {
         pageState.idPerdoruesi = hfState.Get("idPerdoruesi");
         pageState.idNdermarrje = hfState.Get("idNdermarrje");
         window.menuMajtas = new imbMenu(navbar, stringKonfigMenuMajtas, window.menuTypes.navbar, pageState.idPerdoruesi, pageState.idNdermarrje, { idGjuha: hfState.Get("idGjuha") });
-        if (Utils.getUrlVar("ambDef") == "raporteMenaxheriale")
-            pergatitHapjePerMobile();
 
         njoftimet = JSON.parse(hfState.Get("njoftimet"));
         afishonjoftime = hfState.Get("afishonjoftime");
@@ -301,36 +290,6 @@ function Click_ASPxHyperLink1(s, e) {
     }
     else
         lblFaqja.SetText('');
-}
-
-function pergatitHapjePerMobile() {
-    $.ajax({
-        pritPergjigje: true,
-        url: Utils.getServerApiUrl("Konfigurime", "merrKonfigurimeMobile")
-    }).done(function (result) {
-        var guidObject = ktheGuidObject(result.param);
-        var url = result.urlMobile + "" + encodeURIComponent(JSON.stringify(guidObject));
-        loadDashboardFromUrl(url);
-    });
-}
-
-function loadDashboardFromUrl(url) {
-    var paneKryesor = splitter.GetPaneByName('paneKryesor');
-    //kontrollohet nese ekziston faqja e mobile ne projekt
-    //nese nuk ekziston vendoset faqja default
-    $.ajax({
-        url: url,
-        type: 'HEAD',
-        error: function () {
-            paneKryesor.SetContentUrl("Default.aspx");
-            paneKryesor.RefreshContentUrl();
-            myMesazh.ShtoMesazhGabimi("Konfigurimi i dashboard-it nuk eshte i sakte!");
-        },
-        success: function () {
-            paneKryesor.SetContentUrl(url);
-            paneKryesor.RefreshContentUrl();
-        }
-    });
 }
 
 function ktheGuidObject(param) {

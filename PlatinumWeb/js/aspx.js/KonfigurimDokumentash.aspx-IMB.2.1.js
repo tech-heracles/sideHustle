@@ -265,8 +265,6 @@ function merrTeDhena() {//merren te dhenat qe ka grida
             colAtribute[i].Detyrueshme = Utils.ktheKontroll('cmbDetyrueshme' + i).GetValue();
             colAtribute[i].IdNrAutomatik = Utils.ktheKontroll('cmbNrAutomatik' + i).GetValue();
             colAtribute[i].KodLupa = $("input[id$='txtKodLupa" + i + "']").val();
-            colAtribute[i].ShfaqMobile = Utils.ktheKontroll('cmbShfaqMobile' + i).GetValue();
-            colAtribute[i].RenditjaMobile = Utils.ktheKontroll('txtRenditjaMobile' + i).GetText();
             colAtribute[i].Unike = Utils.ktheKontroll('cmbUnike' + i).GetValue();
         }
     else {
@@ -285,8 +283,6 @@ function merrTeDhena() {//merren te dhenat qe ka grida
             colAtribute[i].Detyrueshme = Utils.ktheKontroll('cmbDetyrueshme' + i).GetValue();
             colAtribute[i].IdNrAutomatik = Utils.ktheKontroll('cmbNrAutomatik' + i).GetValue();
             colAtribute[i].KodLupa = $("input[id$='txtKodLupa" + i + "']").val();
-            colAtribute[i].ShfaqMobile = Utils.ktheKontroll('cmbShfaqMobile' + i).GetValue();
-            colAtribute[i].RenditjaMobile = Utils.ktheKontroll('txtRenditjaMobile' + i).GetText();
             colAtribute[i].Unike = Utils.ktheKontroll('cmbUnike' + i).GetValue();
         }
     }
@@ -330,8 +326,6 @@ function ShfaqTeDhenat() {
             Utils.ktheKontroll('cmbNrAutomatik' + i).SetValue(colAtribute[i].IdNrAutomatik);
             $("input[id$='txtKodLupa" + i + "']").val(colAtribute[i].KodLupa);
 
-            Utils.ktheKontroll('cmbShfaqMobile' + i).SetValue(colAtribute[i].ShfaqMobile);
-            Utils.ktheKontroll('txtRenditjaMobile' + i).SetText(colAtribute[i].RenditjaMobile);
             Utils.ktheKontroll('cmbUnike' + i).SetValue(colAtribute[i].Unike);
         }
     else {
@@ -367,8 +361,6 @@ function ShfaqTeDhenat() {
             Utils.ktheKontroll('cmbDetyrueshme' + i).SetValue(colAtribute[i].Detyrueshme);
             Utils.ktheKontroll('cmbNrAutomatik' + i).SetValue(colAtribute[i].IdNrAutomatik);
             $("input[id$='txtKodLupa" + i + "']").val(colAtribute[i].KodLupa);
-            Utils.ktheKontroll('cmbShfaqMobile' + i).SetValue(colAtribute[i].ShfaqMobile);
-            Utils.ktheKontroll('txtRenditjaMobile' + i).SetText(colAtribute[i].RenditjaMobile);
             Utils.ktheKontroll('cmbUnike' + i).SetValue(colAtribute[i].Unike);
 
         }
@@ -605,8 +597,6 @@ function mbushTeDhenaTeCollectionTrupi(i) {
     colTrupi[i].WidthTrupi = Utils.ktheKontroll('txtWidthTrupi' + i).GetText();
     colTrupi[i].ReadonlyTrupi = Utils.ktheKontroll('cmbReadonlyTrupi' + i).GetValue() == "Unchecked" ? false : true;
     colTrupi[i].KodLupa = $("input[id$='txtKodLupaTrupi" + i + "']").val();
-    colTrupi[i].ShfaqMobile = Utils.ktheKontroll('cmbShfaqMobileGrida' + i).GetValue() == "Unchecked" ? false : true;
-    colTrupi[i].RenditjaMobile = Utils.ktheKontroll('txtRenditjaMobileGrida' + i).GetText();
 }
 
 function afishoTeDhenaNgaCollectionTrupi(i) {
@@ -615,8 +605,6 @@ function afishoTeDhenaNgaCollectionTrupi(i) {
     Utils.ktheKontroll('txtWidthTrupi' + i).SetText(colTrupi[i].WidthTrupi);
     Utils.ktheKontroll('cmbReadonlyTrupi' + i).SetValue(colTrupi[i].ReadonlyTrupi ? "Checked" : "Unchecked");
     $("input[id$='txtKodLupaTrupi" + i + "']").val(colTrupi[i].KodLupa);
-    Utils.ktheKontroll('cmbShfaqMobileGrida' + i).SetValue(colTrupi[i].ShfaqMobile ? "Checked" : "Unchecked");
-    Utils.ktheKontroll('txtRenditjaMobileGrida' + i).SetText(colTrupi[i].RenditjaMobile);
 }
 
 // rasti i caktimit te filtrave default ne konfigurimin e lupave si konfigurim ambjenti

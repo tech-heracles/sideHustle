@@ -1073,31 +1073,6 @@ namespace RestApi.WebAPI.Models
         }
 
 
-        /// <summary>
-        /// Metode qe sherben per te marre konfigurimet per aplikacionin AlphaWebMobile
-        /// </summary>
-        /// <param name="perdorues">Perdoruesi i loguar ne AlphaWeb</param>
-        /// <param name="ndermarrje">Ndermarrja ne te cilen eshte loguar perdoruesi</param>
-        /// <returns></returns>
-        public static Object merrKonfigurimeMobile(clsPerdorues perdorues, clsNdermarrje ndermarrje, HttpSessionState Session)
-        {
-            byte[] toEncodeAsBytes = Encoding.ASCII.GetBytes(perdorues.PerdoruesUsername + ":" + perdorues.PerdoruesPassword);
-            return new
-            {
-                urlMobile = $"{clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.URL_MOBILE)}?param=",
-                param = new
-                {
-                    perdoruesObject = perdorues,
-                    token = Convert.ToBase64String(toEncodeAsBytes),
-                    nodeServerURL = clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.NODE_SERVER_URL),
-                    ndermarrjeObject = ndermarrje,
-                    faqe = clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.DEFAULT_PAGE_MOBILE),
-                    periudha = mySessionObjects.merrPeriudheKontabel(Session),
-                    connectionStringName = DbCore.IMBUtils.DataBase.MyConnectionsManager.GetSelectedConNameServer()
-                }
-            };
-        }
-
         public static string merrMenuPersonalizuar(HttpSessionState Session, int idNdermarrje, int idPerdoruesi)
         {
             string menute = mySessionObjects.merrMenuPersonalizuar(Session);

@@ -1175,23 +1175,7 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxCheckBox dtPrintimi_CheckBox;
 
-        /// <summary>
-        /// lblPerdoruesIKycurMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblPerdoruesIKycurMobile;
 
-        /// <summary>
-        /// cbKycurMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox cbKycurMobile;
 
         /// <summary>
         /// lblPerdoruesShfaqNjoftime control.
@@ -1409,23 +1393,7 @@ namespace PlatinumWeb
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbAmbjenti;
 
-        /// <summary>
-        /// lblAmbjentiMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblAmbjentiMobile;
 
-        /// <summary>
-        /// cmbAmbjentiMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbAmbjentiMobile;
 
         /// <summary>
         /// gvRolet control.

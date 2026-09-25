@@ -1307,20 +1307,6 @@
                                             <RequiredField IsRequired="true" />
                                         </ValidationSettings>
                                     </dx:ASPxCheckBox>
-                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="cbKycur" ID="lblPerdoruesIKycurMobile"
-                                        runat="server" Text="I kyçur Mobile:" ClientInstanceName="lblPerdoruesIKycurMobile">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxCheckBox ID="cbKycurMobile" runat="server" TabIndex="9" ClientInstanceName="cbKycurMobile">
-                                        <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
-                                        </DisabledStyle>
-                                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
-                                            ValidateOnLeave="false">
-                                            <ErrorFrameStyle ImageSpacing="4px">
-                                                <ErrorTextPaddings PaddingLeft="4px" />
-                                            </ErrorFrameStyle>
-                                            <RequiredField IsRequired="true" />
-                                        </ValidationSettings>
-                                    </dx:ASPxCheckBox>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cbShfaqNjoftime" ID="lblPerdoruesShfaqNjoftime"
                                         runat="server" Text="Shfaq njoftime:" ClientInstanceName="lblPerdoruesShfaqNjoftime">
                                     </dx:ASPxLabel>
@@ -1518,33 +1504,9 @@
                                                         </dx:ASPxLabel>
                                                         <dx:ASPxComboBox ID="cmbAmbjenti" ClientInstanceName="cmbAmbjenti"
                                                             runat="server" Width="100%" ValueType="System.String" ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
-                                                            <ClientSideEvents TextChanged="function(s, e) { ShowHideAmbjentMobile(); }"/>
                                                             <DropDownButton>
                                                                 <Image> 
                                                                     <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                                                </Image>
-                                                            </DropDownButton>
-                                                            <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
-                                                                ValidateOnLeave="false">
-                                                                <ErrorFrameStyle ImageSpacing="4px">
-                                                                    <ErrorTextPaddings PaddingLeft="4px" />
-                                                                </ErrorFrameStyle>
-                                                                <RequiredField IsRequired="true" />
-                                                            </ValidationSettings>
-                                                            <DisabledStyle Font-Bold="False">
-                                                            </DisabledStyle>
-                                                        </dx:ASPxComboBox>
-                                                <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAmbjentiMobile" ID="lblAmbjentiMobile"
-                                                            runat="server" Text="Ambjenti i punes Mobile:" ClientInstanceName="lblAmbjentiMobile">
-                                                        </dx:ASPxLabel>
-                                                        <dx:ASPxComboBox ID="cmbAmbjentiMobile" ClientInstanceName="cmbAmbjentiMobile"
-                                                            runat="server" Width="100%" ValueType="System.String" 
-                                                            ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
-                                                            <ClientSideEvents  TextChanged="function(s, e) {}" />
-                                                            <DropDownButton>
-                                                                <Image>
-                                                                    <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" 
-                                                                        PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
                                                                 </Image>
                                                             </DropDownButton>
                                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"

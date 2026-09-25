@@ -3848,7 +3848,7 @@ namespace PlatinumWeb.E_PaySlip
 
                 }
 
-                ReportFunctions.konfigDataSetRaporti(report, spemri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, false, sqlParam);
+                ReportFunctions.konfigDataSetRaporti(report, spemri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
                 ImbReportToolbar1.konfigFleteRaporti(report, idPerdorues, EmerRealRaporti);
                 //CacheLayer.GlobalCacheManager.MySessionCache["MyReport"] = report; //KEVI 
 

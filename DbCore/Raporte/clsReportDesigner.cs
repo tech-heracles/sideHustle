@@ -127,7 +127,7 @@ namespace DbCore.Raporte
             {
 
                 var spName = string.IsNullOrEmpty(report.DataMember) ? (report.DataAdapter as SqlDataAdapter).SelectCommand.CommandText : report.DataMember;
-                ReportFunctions.konfigDataSetRaporti(report, spName, true, false, parametra);
+                ReportFunctions.konfigDataSetRaporti(report, spName, true, parametra);
             }
             catch (Exception ex)
             {

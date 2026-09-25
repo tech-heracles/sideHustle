@@ -145,7 +145,6 @@ namespace PlatinumWeb
             hfState.Set("msgPerdoruesitMinGjatesiPassword", rm.GetString("msgPerdoruesitMinGjatesiPassword", ci));
             hfState.Set("msgPerdoruesitMinKarakterePass", rm.GetString("msgPerdoruesitMinKarakterePass", ci));
             hfState.Set("msgPerdoruesitZgjidhniNjePerdorues", rm.GetString("msgPerdoruesitZgjidhniNjePerdorues", ci));
-            hfState.Set("msgambjentindefaultmodulimobile", rm.GetString("msgambjentindefaultmodulimobile", ci));
             hfState.Set("msgZgjidhArsyeLargimi", rm.GetString("msgZgjidhArsyeLargimi", ci));
             hfState.Set("msgStatus", rm.GetString("msgStatus", ci));
             hfState.Set("msgUniform", rm.GetString("msgUniform", ci));
@@ -604,7 +603,9 @@ namespace PlatinumWeb
             clsLicenca licenca = new clsLicenca(idLicenca);
 
             ConfigureAspxComboBox.mbushComboAmbjente(cmbAmbjenti, licenca.IdLlojLicenca, idgjuha, false);
-            ConfigureAspxComboBox.mbushComboAmbjente(cmbAmbjentiMobile, licenca.IdLlojLicenca, idgjuha, true);
+            var ambjentMobile = cmbAmbjenti.Items.FindByText("Mobile"); // versioni mobile nuk ekziston me
+            if (ambjentMobile != null)
+                cmbAmbjenti.Items.Remove(ambjentMobile);
             ConfigureAspxComboBox.mbushComboGjuha(cmbGjuha);
             ConfigureAspxComboBox.mbushShopsHierarkiStatus(cmbStatus);
             ConfigureAspxComboBox.mbushShopsHierarkiUniform(cmbUniform);
@@ -792,7 +793,7 @@ namespace PlatinumWeb
             if (cmbKonfigKase.Value != null)
                 KonfigKase = int.Parse(cmbKonfigKase.Value.ToString());
 
-            return krijoPerdorues(emri_TextBox.Text, mbiemri_TextBox.Text, username_TextBox.Text, tel_TextBox.Text, fax_TextBox.Text, email_TextBox.Text, adresa_TextBox.Text, idQyteti, true, aktiv_CheckBox.Checked, password_TextBox.Text, idPerdoruesi, 1, 2, cbPassPerkohshem.Checked, cbKycur.Checked, Convert.ToInt32(cmbAmbjenti.Value), Convert.ToInt32(cmbGjuha.SelectedItem.Value), kontrolloPassword_CheckBox.Checked, dtPrintimi_CheckBox.Checked, cbKycurMobile.Checked, shfaqPerdoruesMenu_CheckBox.Checked, cbShfaqNjoftime.Checked, ruajRole(), Convert.ToInt32(cmbAmbjentiMobile.Value), txtKodiDyqanit.Text, txtShopName.Text, txtDealer.Text, txtUserCRM.Text, txtUserEtopUP.Text,txtIDETopUp.Text, txtTypeDeviceSalesRep.Text, txtSalesRepMobile.Text, txtSalesRepMPesaMSISDN.Text, Gjinia, 
+            return krijoPerdorues(emri_TextBox.Text, mbiemri_TextBox.Text, username_TextBox.Text, tel_TextBox.Text, fax_TextBox.Text, email_TextBox.Text, adresa_TextBox.Text, idQyteti, true, aktiv_CheckBox.Checked, password_TextBox.Text, idPerdoruesi, 1, 2, cbPassPerkohshem.Checked, cbKycur.Checked, Convert.ToInt32(cmbAmbjenti.Value), Convert.ToInt32(cmbGjuha.SelectedItem.Value), kontrolloPassword_CheckBox.Checked, dtPrintimi_CheckBox.Checked, true, shfaqPerdoruesMenu_CheckBox.Checked, cbShfaqNjoftime.Checked, ruajRole(), 0, txtKodiDyqanit.Text, txtShopName.Text, txtDealer.Text, txtUserCRM.Text, txtUserEtopUP.Text,txtIDETopUp.Text, txtTypeDeviceSalesRep.Text, txtSalesRepMobile.Text, txtSalesRepMPesaMSISDN.Text, Gjinia, 
                dteSalesRepStartDate.Date, dteSalesRepTrainingDate.Date, dteSalesRepStartDateShop.Date, dteSalesRepStartMaternityLeave.Date,dteLeaveDateVodafoneVod.Date,dteLeaveDateShop.Date, dteMaternityLeaveEndDate.Date,
              dteTrainingEndDate.Date,txtComRetSal.Text,txtAccountExecutive.Text,txtIDNumber.Text, IsInsured, txtComROS.Text,txtRegSup.Text, txtRetailSAE.Text,txtRetailSAM.Text, dteBirthday.Date,txtSiteCode.Text,txtDistrict.Text, txtShopMainCode.Text, txtLatitude.Text,txtLongitude.Text, statusi, leaveReason, uniform, txtShenime.Text, StatusAprovimi, cbNjoftimEmailAprovim.Checked, KonfigKase);
         }

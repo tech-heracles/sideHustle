@@ -150,8 +150,6 @@ namespace PlatinumWeb
 					hfState.Set("reportPageCount", 0);
 					HfState.Set("lastOpenDate", DateTime.MinValue);
 					HfState.Set("reportDatasource", null);
-					HfState.Set("alphaMobile", Request.QueryString["alphaMobile"]);
-					if (Request.QueryString["alphaMobile"] == null) HfState.Set("alphaMobile", false);
 
 					hfState.Set("_idViti", Convert.ToString(DbCore.mySessionObjects.ktheVitiNdermarrjes(Session)));
 					DbCore.DbAdmin.clsKomponente oKomponente = new DbCore.DbAdmin.clsKomponente("Raporti.aspx");
@@ -555,7 +553,7 @@ namespace PlatinumWeb
 					SqlParameter[] pars = (System.Data.SqlClient.SqlParameter[])params1[4];
 					SqlParameter paramQK = Array.Find(pars, x => x.ParameterName == "filterQK");
 					paramQK.Value = String.Format(" = ('{0}') ", colqendra[q].Kodi);
-					ReportFunctions.konfigDataSetRaporti(raporti, raporti.DataMember, perdoruesi.IdPerdorues, (bool)params1[0], idNdermarrje, idNderVit, (DateTime)params1[1], (int)params1[2], (int)params1[3], (bool)HfState.Get("alphaMobile"), pars);
+					ReportFunctions.konfigDataSetRaporti(raporti, raporti.DataMember, perdoruesi.IdPerdorues, (bool)params1[0], idNdermarrje, idNderVit, (DateTime)params1[1], (int)params1[2], (int)params1[3], pars);
 					KonfigFleteRaporti(raporti, perdoruesi, false);
 					o.SheetName = colqendra[q].Kodi + "(" + colqendra[q].Pershkrimi + ")";
 					o.RawDataMode = true;
@@ -4899,7 +4897,7 @@ namespace PlatinumWeb
 				}
 			}
 			int idPeriudha = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtmbarimi, idNdermarrje);
-			XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey], "", bool.Parse(HfState.Get("alphaMobile").ToString()));
+			XtraReport report = ReportFunctions.krijoObjektRaporti("", idGjuha, idPerdorues, idViti, oRap.IdRaporti, idNdermarrje, sqlParamShfaqRaport, IdReportDesign, ReportOrientation, guidString, Request.QueryString[ScopeManager.ScopeIdKey], "");
 			report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(pathStyle.Value, ReportStyle));
 			afisho(oRap.IdRaporti, report, oSp, sqlParam, idPerdorues, azhornim, idNdermarrje, idNderViti, dtmbarimi, konf.IdKonfigAmbjente, idPeriudha);
 			RaportiEmerReal = oRap.RaportiEmriReal;
@@ -6248,7 +6246,7 @@ namespace PlatinumWeb
 					DbCore.mySessionObjects.ruajParametratERaportit(Session, param, guidString);
 				}
 				//long lastOpenDate = 0;_REgjistrim
-				ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, bool.Parse(HfState.Get("alphaMobile").ToString()), sqlParam);
+				ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
 				HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
 				HfState.Set("filter", ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedItem.Value.ToString());
 				//else  

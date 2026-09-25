@@ -7251,10 +7251,6 @@
       <DependentUpon>WebService_Automatizim.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WebService_mobile.asmx.cs">
-      <DependentUpon>WebService_mobile.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ZbritjeAnalitike.aspx.cs">
       <DependentUpon>ZbritjeAnalitike.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7316,7 +7312,6 @@
     <Content Include="VeprimeBanka.aspx" />
     <Content Include="WebServiceTopMotivi.asmx" />
     <Content Include="WebService_Automatizim.asmx" />
-    <Content Include="WebService_mobile.asmx" />
     <Content Include="ZbritjeAnalitike.aspx" />
   </ItemGroup>
   <ItemGroup>

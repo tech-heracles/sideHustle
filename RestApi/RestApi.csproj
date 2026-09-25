@@ -193,7 +193,6 @@
     <Compile Include="WebAPI\Controllers\GISController.cs" />
     <Compile Include="WebAPI\Controllers\KonfigurimeController.cs" />
     <Compile Include="WebAPI\Controllers\ListPagesaController.cs" />
-    <Compile Include="WebAPI\Controllers\MobileController.cs" />
     <Compile Include="WebAPI\Controllers\MyBaseApiController.cs" />
     <Compile Include="WebAPI\Controllers\NodeApiController.cs" />
     <Compile Include="WebAPI\Controllers\RregjistrimeController.cs" />
@@ -220,7 +219,6 @@
     <Compile Include="WebAPI\Models\GISRepository.cs" />
     <Compile Include="WebAPI\Models\KonfigurimeRepository.cs" />
     <Compile Include="WebAPI\Models\ListPagesaRepository.cs" />
-    <Compile Include="WebAPI\Models\MobileRepository.cs" />
     <Compile Include="WebAPI\Models\NodeApiRepository.cs" />
     <Compile Include="WebAPI\Models\RregjistrimeRepository.cs" />
     <Compile Include="WebAPI\Models\ShperndarjeShpenzimiRepository.cs" />

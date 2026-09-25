@@ -23,9 +23,6 @@ function hapRaport(idRaporti, emerRaporti, filtro) {
     myParams.push("idmod=" + pageState.idModuliRaporteve)
     myParams.push("windowWidth=" + $(window).width());
     myParams.push("Filtro=" + filtro);
-    if (emerRaporti == "Raport Alpha Mobile") {
-        myParams.push("alphaMobile=true");
-    }
     var ngaCRM = Utils.getUrlVar("vjenNga");
     if (ngaCRM != "undefined")
         myParams.push("vjenNga=" + ngaCRM); 

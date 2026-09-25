@@ -9170,7 +9170,7 @@ namespace DbCore.DbAdmin
         /// <param name="ekzekuto2here"> perdoret per te ekzekutuar query 2 here ne vend qe te beje union te dy query sepse unioni e ngadaleson me shume sesa kur ekzekutohen vecan</param>
         /// <param name="param_array"></param>
         /// <returns></returns>
-        public clsMesazh GetReportDataAdapter(out SqlDataAdapter dataAdapter, out DataSet ds, string prc_name, bool alphaMobile = false, params SqlParameter[] param_array)
+        public clsMesazh GetReportDataAdapter(out SqlDataAdapter dataAdapter, out DataSet ds, string prc_name, params SqlParameter[] param_array)
         {
             dataAdapter = new SqlDataAdapter();
             ds = new DataSet();

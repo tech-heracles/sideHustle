@@ -771,20 +771,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
 
-        [HttpPost]
-        public HttpResponseMessage merrKonfigurimeMobile()
-        {
-            try
-            {
-                DbCore.DbAdmin.clsNdermarrje ndermarrja = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                DbCore.DbAdmin.clsPerdorues perdorues = DbCore.mySessionObjects.kthePerdorues(Session);
-                return Request.KthePergjigje(KonfigurimeRepository.merrKonfigurimeMobile(perdorues, ndermarrja, Session));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(null, ex);
-            }
-        }
        
 
         [HttpGet]

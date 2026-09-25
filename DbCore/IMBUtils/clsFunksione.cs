@@ -11610,14 +11610,14 @@ namespace DbCore
 		public static string ktheKomponenteDefaultPerPerdorues(int idPerdorues, int idNdermarrje, string ambjentDefaultParacaktuar, string KodViti)
 		{
 			string ambjentiDef = clsKomponente.merrKomponenteDefaultPerdoruesiSipasLlojit(idPerdorues, false);
-			if (ambjentiDef == "Mobile" || ambjentiDef == "Dashboard.aspx")
+			if (ambjentiDef == "Mobile") // versioni mobile nuk ekziston me: perdoret ambjenti default
+				ambjentiDef = "";
+			if (ambjentiDef == "Dashboard.aspx")
 			{
 				var teDrejta = new clsTeDrejtaRoli();
 				int idViti = clsViti.ktheIdVitPerNdermarrjenSipasKodit(idNdermarrje, KodViti);
-				teDrejta.merrTeDrejtaPerKeteKomponente(idPerdorues, idNdermarrje, idViti, ambjentiDef == "Dashboard.aspx" ? ambjentiDef : "raporteMenaxheriale");
-				if (ambjentiDef == "Mobile")
-					ambjentiDef = clsKomponente.merrKomponenteDefaultPerdoruesiSipasLlojit(idPerdorues, true);
-				if (!String.IsNullOrEmpty(ambjentiDef) && teDrejta.DAmb)
+				teDrejta.merrTeDrejtaPerKeteKomponente(idPerdorues, idNdermarrje, idViti, ambjentiDef);
+				if (teDrejta.DAmb)
 					ambjentiDef = "FaqeKryesore.aspx?ambDef=" + ambjentiDef;
 				else
 				{
@@ -11626,17 +11626,11 @@ namespace DbCore
 				}
 			}
 
-			if (!String.IsNullOrEmpty(ambjentiDef) && ambjentiDef != "Dashboard.aspx" && ambjentiDef != "CRMDefault.aspx" && ambjentiDef != "GISDefault.aspx"
-				&& ambjentiDef != "FaqeKryesore.aspx?ambDef=raporteMenaxheriale")
+			if (!String.IsNullOrEmpty(ambjentiDef) && ambjentiDef != "Dashboard.aspx" && ambjentiDef != "CRMDefault.aspx" && ambjentiDef != "GISDefault.aspx")
 				ambjentiDef += "&shtim_modifikim=shtim";
 			if (String.IsNullOrEmpty(ambjentiDef))
 				ambjentiDef = ambjentDefaultParacaktuar;
 			return ambjentiDef;
-		}
-
-		public static string ktheUrlMobile(clsPerdorues perdorues, clsNdermarrje ndermarrje)
-		{
-			return $"{clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.URL_MOBILE)}?param=";
 		}
 
 		public static clsMesazh eksportAutomatikDokumentesh(string templateEksporti, int idNdermarrje, int idPerdorues, List<int> shitjepertrasferim, bool grupoTrupDokumenti)

@@ -48,14 +48,6 @@ $(document).ready(function () {
     });
 });
 
-function ShowHideAmbjentMobile() {
-    if (cmbAmbjenti.GetSelectedItem() && cmbAmbjenti.GetSelectedItem().text == 'Mobile')
-        cmbAmbjentiMobile.SetEnabled(true);
-    else {
-        cmbAmbjentiMobile.SetEnabled(false);
-        cmbAmbjentiMobile.SetSelectedIndex(-1);
-    }
-}
 /*
 Function: menu_click
 
@@ -76,11 +68,6 @@ function menu_click(s, e) {
     else {
         password_TextBox.validationGroup = "aaa";
         konfirmo_Textbox.validationGroup = "aaa";
-    }
-    if (cmbAmbjenti.GetSelectedItem() && cmbAmbjenti.GetSelectedItem().text == 'Mobile' && cmbAmbjentiMobile.GetSelectedItem().text == '') {
-        myMesazh.ShtoMesazhGabimi(hfState.Get('msgambjentindefaultmodulimobile'));
-        e.processOnServer = false;
-        return;
     }
   
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
@@ -103,7 +90,6 @@ function menu_click(s, e) {
     if (hfShtimModifikim.val() == "shtim") {
         lblPasswordieksistues.SetVisible(false);
         txtPasswordieksistues.SetVisible(false);
-        cbKycurMobile.SetChecked(true);
         AktivizoFushatEPasswordit();
         cbShfaqNjoftime.SetChecked(false);
     }
@@ -179,12 +165,8 @@ function SelektoPerdorues(indexi) {
         cbKycur.SetChecked(values[13]);
         kontrolloPassword_CheckBox.SetChecked(values[14]);
         dtPrintimi_CheckBox.SetChecked(values[15]);
-        cbKycurMobile.SetChecked(values[16]);
         shfaqPerdoruesMenu_CheckBox.SetChecked(values[17]);
         cbShfaqNjoftime.SetChecked(values[18]);
-        if (values[19] != null)
-            cmbAmbjentiMobile.SetValue(values[19]);
-        else cmbAmbjentiMobile.SetSelectedIndex(0);
 
         txtKodiDyqanit.SetText(values[20]);
         txtShopName.SetText(values[21]);
@@ -302,7 +284,6 @@ function pastrofusha() {
     ASPxGridView_Autorizimet.PerformCallback(-1);
     gvRolet.PerformCallback(-1);
     cmbAmbjenti.SetText('');
-    cmbAmbjentiMobile.SetText('');
     emri_TextBox.SetText('');
     mbiemri_TextBox.SetText('');
     txtEmri2.SetText('');
@@ -321,7 +302,6 @@ function pastrofusha() {
     konfirmo_Textbox.SetText('');
     cbKycur.SetChecked(false);
     cbPassPerkohshem.SetChecked(false);
-    cbKycurMobile.SetChecked(true);
     kontrolloPassword_CheckBox.SetChecked(true);
     cbShfaqNjoftime.SetChecked(false);
     setTimeout(AktivizoFushatEPasswordit, 10);
@@ -468,7 +448,6 @@ function SucceededCallbackKonfig(result) {
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
-    ShowHideAmbjentMobile();    
 }
 
 function ndryshoKonfigurimin() {
