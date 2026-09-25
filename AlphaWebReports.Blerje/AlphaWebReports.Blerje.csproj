@@ -232,11 +232,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_RaportiBlerjeAnalitike.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_Rap_AparateteBleraNgaDealer1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_RAP_ArtikujTeBlereMeSeriale1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -443,12 +438,6 @@
     </Compile>
     <Compile Include="RapArtikujTeBlereMeSeriale.Designer.cs">
       <DependentUpon>RapArtikujTeBlereMeSeriale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_AparateteBleraNgaDealer.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_AparateteBleraNgaDealer.Designer.cs">
-      <DependentUpon>Rap_AparateteBleraNgaDealer.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ArtikujBlereDet.cs">
       <SubType>Component</SubType>
@@ -1136,17 +1125,6 @@
     <None Include="Ds_RaportiBlerjeAnalitike.xss">
       <DependentUpon>Ds_RaportiBlerjeAnalitike.xsd</DependentUpon>
     </None>
-    <None Include="Ds_Rap_AparateteBleraNgaDealer.xsc">
-      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_AparateteBleraNgaDealer.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Rap_AparateteBleraNgaDealer1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Rap_AparateteBleraNgaDealer.xss">
-      <DependentUpon>Ds_Rap_AparateteBleraNgaDealer.xsd</DependentUpon>
-    </None>
     <None Include="Ds_RAP_ArtikujTeBlereMeSeriale.xsc">
       <DependentUpon>Ds_RAP_ArtikujTeBlereMeSeriale.xsd</DependentUpon>
     </None>
@@ -1370,9 +1348,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RapArtikujTeBlereMeSeriale.resx">
       <DependentUpon>RapArtikujTeBlereMeSeriale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_AparateteBleraNgaDealer.resx">
-      <DependentUpon>Rap_AparateteBleraNgaDealer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ArtikujBlereDet.resx">
       <DependentUpon>Rap_ArtikujBlereDet.cs</DependentUpon>

@@ -92,11 +92,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="DataSource\Ds_ARKA_PAGESADEALER.Designer.cs">
-      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="DataSource\Ds_Arka_Sipas_Kategorise.Designer.cs">
       <DependentUpon>Ds_Arka_Sipas_Kategorise.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -144,16 +139,6 @@
     </Compile>
     <Compile Include="DataSource\Ds_Rap_LevizjetELikujditeteve.Designer.cs">
       <DependentUpon>Ds_Rap_LevizjetELikujditeteve.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.Designer.cs">
-      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs">
-      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -264,12 +249,6 @@
     <Compile Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.Designer.cs">
       <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\RAP_ARKA_PAGESADEALER.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_PAGESADEALER.Designer.cs">
-      <DependentUpon>RAP_ARKA_PAGESADEALER.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\RAP_ARKA_SIPAS_KATEGORISE.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -311,18 +290,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_ListaArketimeAnullime.Designer.cs">
       <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_PagesatEKryeraPerMPesa.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_PagesatEKryeraPerMPesa.Designer.cs">
-      <DependentUpon>Rap_PagesatEKryeraPerMPesa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs">
-      <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\RAP_UserKrediti.cs">
       <SubType>Component</SubType>
@@ -383,9 +350,6 @@
     <EmbeddedResource Include="Raporte\RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.resx">
       <DependentUpon>RAP_ARKA_GJENDJAPERMBLEDHUR_NIVEL_RAPORTUES.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_ARKA_PAGESADEALER.resx">
-      <DependentUpon>RAP_ARKA_PAGESADEALER.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_ARKA_SIPAS_KATEGORISE.resx">
       <DependentUpon>RAP_ARKA_SIPAS_KATEGORISE.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,12 +370,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullime.resx">
       <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_PagesatEKryeraPerMPesa.resx">
-      <DependentUpon>Rap_PagesatEKryeraPerMPesa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.resx">
-      <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_UserKrediti.resx">
       <DependentUpon>RAP_UserKrediti.cs</DependentUpon>
@@ -479,17 +437,6 @@
     </None>
     <None Include="DataSource\Ds_ARKA_GJENDJAPERMBLEDHUR.xss">
       <DependentUpon>Ds_ARKA_GJENDJAPERMBLEDHUR.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xsc">
-      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_ARKA_PAGESADEALER.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSource\Ds_ARKA_PAGESADEALER.xss">
-      <DependentUpon>Ds_ARKA_PAGESADEALER.xsd</DependentUpon>
     </None>
     <None Include="DataSource\Ds_Arka_Sipas_Kategorise.xsc">
       <DependentUpon>Ds_Arka_Sipas_Kategorise.xsd</DependentUpon>
@@ -600,28 +547,6 @@
     </None>
     <None Include="DataSource\Ds_Rap_LevizjetELikujditeteve.xss">
       <DependentUpon>Ds_Rap_LevizjetELikujditeteve.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xsc">
-      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RAP_PagesatEKryeraPerMPesa.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatEKryeraPerMPesa.xss">
-      <DependentUpon>Ds_RAP_PagesatEKryeraPerMPesa.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsc">
-      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSource\Ds_RAP_PagesatPerMPesaSipasIntervaleve.xss">
-      <DependentUpon>Ds_RAP_PagesatPerMPesaSipasIntervaleve.xsd</DependentUpon>
     </None>
     <None Include="DataSource\Ds_Rap_VleratDitoreteArkes.xsc">
       <DependentUpon>Ds_Rap_VleratDitoreteArkes.xsd</DependentUpon>

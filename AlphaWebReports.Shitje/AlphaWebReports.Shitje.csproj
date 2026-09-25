@@ -316,11 +316,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ds_RapLiberShitje.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_RapPorosiDealer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_RapPorosiDealer.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_RapShitjeEcuria1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3148,12 +3143,6 @@
     <Compile Include="Rap_Permbledhes_Urdher_Shitje.Designer.cs">
       <DependentUpon>Rap_Permbledhes_Urdher_Shitje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_PorosiDealer.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_PorosiDealer.Designer.cs">
-      <DependentUpon>Rap_PorosiDealer.cs</DependentUpon>
-    </Compile>
     <Compile Include="RAP_Porosive.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4108,17 +4097,6 @@
     </None>
     <None Include="ds_RapLiberShitje.xss">
       <DependentUpon>ds_RapLiberShitje.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapPorosiDealer.xsc">
-      <DependentUpon>Ds_RapPorosiDealer.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_RapPorosiDealer.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_RapPorosiDealer.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_RapPorosiDealer.xss">
-      <DependentUpon>Ds_RapPorosiDealer.xsd</DependentUpon>
     </None>
     <None Include="Ds_RapShitjeEcuria.xsc">
       <DependentUpon>Ds_RapShitjeEcuria.xsd</DependentUpon>
@@ -6199,9 +6177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_Permbledhes_Urdher_Shitje.resx">
       <DependentUpon>Rap_Permbledhes_Urdher_Shitje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_PorosiDealer.resx">
-      <DependentUpon>Rap_PorosiDealer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RAP_Porosive.resx">
       <DependentUpon>RAP_Porosive.cs</DependentUpon>

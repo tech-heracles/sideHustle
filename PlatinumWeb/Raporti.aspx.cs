@@ -1928,13 +1928,11 @@ namespace PlatinumWeb
 			ConfigureAspxComboBox.mbushComboLlojModeli((ASPxComboBox)navBarFiltrat.Groups[1].FindControl("cmbLlojFushaShtese"), true);
 			((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("dteDtMaturimi")).Date = DateTime.Today;
 			AspxWebControlUtils.vendosDateEditMask(((ASPxDateEdit)navBarFiltrat.Groups[1].FindControl("dteDtMaturimi")));
-			((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval1")).Text = (RaportiEmerReal == "PagesatPerMPesaSipasIntervaleve") ? "1" : "0";
-			if (RaportiEmerReal == "PagesatPerMPesaSipasIntervaleve")
-				((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval6")).Text = "10000";
-			else if (RaportiEmerReal == "shitjeKlienteveIntervale")
+			((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval1")).Text = "0";
+			if (RaportiEmerReal == "shitjeKlienteveIntervale")
 				((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval6")).Text = "42000000";
 			else ((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval6")).Text = "150";
-			((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval7")).Text = (RaportiEmerReal == "PagesatPerMPesaSipasIntervaleve") ? "15000" : "140000000";
+			((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval7")).Text = "140000000";
 
 
 			if (RaportiEmerReal == "shitjeanalizaarikujprodhim")
@@ -1995,14 +1993,6 @@ namespace PlatinumWeb
 						break;
 					}
 
-				case "PagesatPerMPesaSipasIntervaleve":
-					{
-						interval2 = "1000";
-						interval3 = "2000";
-						interval4 = "3000";
-						interval5 = "5000";
-						break;
-					}
 				default:
 					{
 						interval2 = "30";
@@ -7889,8 +7879,6 @@ namespace PlatinumWeb
 			((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblPaguar")).Text = rm.GetString("filterPaguar", ci);
 			((ASPxLabel)navBarFiltrat.Groups[0].FindControl("lblViti")).Text = rm.GetString("koloneLoginNdermarrjeViti", ci);
 			((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblEmertimLlog")).Text = rm.GetString("filterEmertimLlog", ci);
-			if (RaportiEmerReal == "PagesatEKryeraPerMPesa")
-				((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblCustomerNumber")).Text = rm.GetString("filterSrNumber", ci);
 			if (RaportiEmerReal == "gjendjePermbledhurKartaKlienti")
 				((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblGjendja")).Text = rm.GetString("lblcmbGjendjeKarte", ci);
 			else

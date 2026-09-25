@@ -2931,14 +2931,6 @@ function pastrofiltrat() {
                 int3 = "31";
                 int4 = "61";
             }
-            if (RaportiEmerReal == "PagesatPerMPesaSipasIntervaleve") {
-                int2 = "1000";
-                int3 = "2000";
-                int4 = "3000";
-                int5 = "5000";
-                int6 = "10000";
-                int7 = "15000";
-            }
 
             txtInterval1.SetText("0");
             txtInterval2.SetText(int2);
