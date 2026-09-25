@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DbCore")]
 [assembly: AssemblyDescription("Core i Alphawebit")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IMB")]
+[assembly: AssemblyCompany("AVEC")]
 [assembly: AssemblyProduct("DbCore")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("IMB SHPK")]

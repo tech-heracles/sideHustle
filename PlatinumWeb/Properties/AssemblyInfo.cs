@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PlatinumWeb")]
 [assembly: AssemblyDescription("AlphaWeb UI")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IMB")]
+[assembly: AssemblyCompany("AVEC")]
 [assembly: AssemblyProduct("PlatinumWeb")]
 [assembly: AssemblyCopyright("Copyright © AVEC 2009")]
 [assembly: AssemblyTrademark("IMB SHPK")]

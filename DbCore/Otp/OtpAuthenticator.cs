@@ -16,7 +16,7 @@ namespace DbCore.Otp
     {
         private readonly int _intervalLength = 30;
         private readonly int _pinLength = 6;
-        private readonly string _issuer = "IMB";
+        private readonly string _issuer = "AVEC";
 
         /// <summary>
         /// Gets or sets the secret key of the user.

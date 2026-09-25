@@ -436,12 +436,12 @@ function CmimeApp() {
                         item.visible = false;
                     }
                 });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/wrench.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.showColumnChooser(); } }, location: "before" });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/disk_blue (3).png", text: "", onClick: function () { controllerContext.RuajKonfigurimGride(); } }, location: "before" });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/check2.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.option("selection.selectAllMode", "page"); app.view.PricesDataGrid.Grida.selectAll(); } }, location: "before" });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/checks.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.option("selection.selectAllMode", "allPages"); app.view.PricesDataGrid.Grida.selectAll(); } }, location: "before" });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/uncheck2.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.clearSelection(); } }, location: "before" });
-                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/MetropolisBlue/grida/xlsx24.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.exportToExcel(true); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/wrench.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.showColumnChooser(); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/disk_blue (3).png", text: "", onClick: function () { controllerContext.RuajKonfigurimGride(); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/check2.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.option("selection.selectAllMode", "page"); app.view.PricesDataGrid.Grida.selectAll(); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/checks.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.option("selection.selectAllMode", "allPages"); app.view.PricesDataGrid.Grida.selectAll(); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/uncheck2.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.clearSelection(); } }, location: "before" });
+                toolbarItems.push({ widget: "dxButton", options: { icon: "images/theme/Avec/grida/xlsx24.png", text: "", onClick: function () { app.view.PricesDataGrid.Grida.exportToExcel(true); } }, location: "before" });
                 toolbarItems.push(controllerContext.GetCmbNivelCmimi());
                 toolbarItems.unshift({ location: "after", template: $("<div class='label'> rreshta te selektuar</div>") });
                 toolbarItems.unshift({ location: "after", template: $("<div class='label' id='nrRreshtaTeSelektuar'>0</div>") });

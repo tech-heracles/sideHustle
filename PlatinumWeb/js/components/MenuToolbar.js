@@ -52,9 +52,9 @@ function MenuToolbar() {
                     var itemTemplate = $("<div>");
                     itemTemplate.mouseenter(view.onMenuItemOver);
                     itemTemplate.mouseleave(view.onMenuItemOut);
-                    itemTemplate.data("coloredIcon","images/theme/MetropolisBlue/menu/" + itemData.icon);
-                    itemTemplate.data("whiteIcon", "images/theme/MetropolisBlue/menu/" + itemData.icon.replace(".png", "_W.png"));
-                    var itemTemplateImage = $("<div class='menuItemImage " + itemData.position + "'></div>").css("background-image", "url(images/theme/MetropolisBlue/menu/" + itemData.icon + ")");
+                    itemTemplate.data("coloredIcon","images/theme/Avec/menu/" + itemData.icon);
+                    itemTemplate.data("whiteIcon", "images/theme/Avec/menu/" + itemData.icon.replace(".png", "_W.png"));
+                    var itemTemplateImage = $("<div class='menuItemImage " + itemData.position + "'></div>").css("background-image", "url(images/theme/Avec/menu/" + itemData.icon + ")");
                     var itemTemplateText = $("<span>" + itemData.text + "</span>");
                     itemTemplate.append(itemTemplateImage).append(itemTemplateText);
                     itemElement.append(itemTemplate);
