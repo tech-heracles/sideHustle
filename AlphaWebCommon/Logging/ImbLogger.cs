@@ -67,6 +67,7 @@ namespace DbCore.IMBUtils.Logging
         }
 
         #region te pergjithshme
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Log(LogLevel level, StackFrame stackFrame, string message)
         {
             //var method = stackFrame.GetMethod();
@@ -91,44 +92,54 @@ namespace DbCore.IMBUtils.Logging
             //Log(level, new StackFrame(2), message);
         }
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(Exception ex)
         {
             //Log(LogLevel.Error, ex);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(Exception ex, string message)
         {
             //Log(LogLevel.Error, ex, message);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(string message, Exception ex)
         {
             //Log(LogLevel.Error, ex, message);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(string errorMesage)
         {
             //Log(LogLevel.Error, errorMesage);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Warn(Exception ex)
         {
             //Log(LogLevel.Warn, ex);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Warn(string warnMessage)
         {
             //Log(LogLevel.Warn, warnMessage);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Info(string infoMessage)
         {
             //Log(LogLevel.Info, infoMessage);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Trace(string traceMessage)
         {
             //Log(LogLevel.Trace, traceMessage);
         }
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Fatal(Exception ex)
         {
             //Log(LogLevel.Fatal, ex);
         }
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Fatal(string fatalErrorMessage)
         {
             //Log(LogLevel.Fatal, fatalErrorMessage);
@@ -136,6 +147,7 @@ namespace DbCore.IMBUtils.Logging
         #endregion
 
         #region Log Traces
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogTrace(string message)
         {
             //LogEventInfo traceEvent = new LogEventInfo(LogLevel.Trace, LogTraces, message);
@@ -153,12 +165,14 @@ namespace DbCore.IMBUtils.Logging
             errorEvent.Properties["DataBase"] = ServerName;
             _shitjeLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogWarningShitje(string warning)
         {
             //LogEventInfo warnEvent = new LogEventInfo(LogLevel.Warn, LogShitje, warning);
             //warnEvent.Properties["DataBase"] = ServerName;
             //_shitjeLogger.Log(warnEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogTraceShitje(string trace)
         {
             //LogEventInfo traceEvent = new LogEventInfo(LogLevel.Trace, LogShitje, trace);
@@ -170,6 +184,7 @@ namespace DbCore.IMBUtils.Logging
 
         #region Loget e Buxhetimit
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorBuxhetimi(Exception error)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogBuxhetimi, error.Message);
@@ -196,12 +211,14 @@ namespace DbCore.IMBUtils.Logging
 
         #region Loget e importit
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorImporti(string error)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Info, LogImportiName, error);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_importiLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoImporti(string infoMessage)
         {
             //LogEventInfo intoEvent = new LogEventInfo(LogLevel.Info, LogImportiName, infoMessage);
@@ -212,12 +229,14 @@ namespace DbCore.IMBUtils.Logging
         #endregion
 
         #region Loget e webapi
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorWebApi(string error, params object[] args)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Info, LogWebApi, CultureInfo.InvariantCulture, error, args);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_webApiLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoWebApi(string infoMessage, params object[] args)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogWebApi, CultureInfo.InvariantCulture, infoMessage, args);
@@ -228,36 +247,42 @@ namespace DbCore.IMBUtils.Logging
 
         #region Loget e BRM
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorBrm(string error)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogBrmName, error);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_brmLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorBrm(Exception ex, string error)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogBrmName, error + " " + ex.Message);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_brmLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorBrm(string error, params object[] args)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogBrmName, CultureInfo.InvariantCulture, error, args);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_brmLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorBrm(Exception ex, string error, params object[] args)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogBrmName, CultureInfo.InvariantCulture, error + " " + ex.Message, args);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_brmLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoBrm(string infoMessage)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogBrmName, infoMessage);
             //infoEvent.Properties["DataBase"] = ServerName;
             //_brmLogger.Log(infoEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoBrm(string infoMessage, params object[] args)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogBrmName, CultureInfo.InvariantCulture, infoMessage, args);
@@ -267,24 +292,28 @@ namespace DbCore.IMBUtils.Logging
         #endregion
 
         #region Loget e promocioneve
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorPromocione(string error)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogPromocioneshName, error);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_promoLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorPromocione(string error, params object[] args)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogPromocioneshName, CultureInfo.InvariantCulture, error, args);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_promoLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoPromocione(string infoMessage)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogPromocioneshName, infoMessage);
             //infoEvent.Properties["DataBase"] = ServerName;
             //_promoLogger.Log(infoEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoPromocione(string infoMessage, params object[] args)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogPromocioneshName, CultureInfo.InvariantCulture, infoMessage, args);
@@ -294,12 +323,14 @@ namespace DbCore.IMBUtils.Logging
         #endregion
 
         #region Loget e rivleresimit
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorRivleresimi(string error, params object[] args)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogRivleresimi, CultureInfo.InvariantCulture, error, args);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_rivleresimiLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoRivleresimi(string infoMessage, params object[] args)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogRivleresimi, CultureInfo.InvariantCulture, infoMessage, args);
@@ -310,30 +341,35 @@ namespace DbCore.IMBUtils.Logging
 
         #region Loget e OTC
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogInfoOTC(string mesazh)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogOTCName, mesazh);
             //infoEvent.Properties["DataBase"] = ServerName;
             //_otcLogger.Log(infoEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorOTC(Exception ex)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogOTCName, ex.Message);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_otcLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogErrorOTC(string ex)
         {
             //LogEventInfo errorEvent = new LogEventInfo(LogLevel.Error, LogOTCName, ex);
             //errorEvent.Properties["DataBase"] = ServerName;
             //_otcLogger.Log(errorEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogOTC(string mesazhi, object vleraPerTuLoguar)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogOTCName, $"{mesazhi} {JsonConvert.SerializeObject(vleraPerTuLoguar)}");
             //infoEvent.Properties["DataBase"] = ServerName;
             //_otcLogger.Log(infoEvent);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogOTC(string mesazhi, object parametri, object rezultati)
         {
             //LogEventInfo infoEvent = new LogEventInfo(LogLevel.Info, LogOTCName, $"{mesazhi} parametri: {JsonConvert.SerializeObject(parametri)} rezultati :{JsonConvert.SerializeObject(rezultati)}");
@@ -357,10 +393,12 @@ namespace DbCore.IMBUtils.Logging
             //}
         }
 
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogEnter(Action<string> loggerMethod, params object[] args)
         {
             //LogMethod(loggerMethod, ">> Filloi metoda", true, args);
         }
+        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void LogExit(Action<string> loggerMethod, params object[] args)
         {
             //LogMethod(loggerMethod, "Perfundoi metoda", true, args);
