@@ -448,22 +448,6 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <dx:ASPxLabel Wrap="False" AssociatedControlID="cbPerdorues" ID="lblPerdorues" runat="server"
-                                    Text="Cel perdorues tek tollonat" ClientInstanceName="lblPerdorues">
-                                </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%-- <div id="dvcbAktiv">--%>
-                                <dx:ASPxCheckBox ID="cbPerdorues" runat="server" ClientInstanceName="cbPerdorues">
-                                    <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
-                                    </DisabledStyle>
-                                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
-                                        ValidateOnLeave="false">
-                                        <ErrorFrameStyle ImageSpacing="4px">
-                                            <ErrorTextPaddings PaddingLeft="4px" />
-                                        </ErrorFrameStyle>
-                                        <RequiredField IsRequired="true" />
-                                    </ValidationSettings>
-                                </dx:ASPxCheckBox>
                                 <%--</div> --%>
                                 <%--<div id="dvlblNdjekjeGjendje">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbNdjekjeGjendje" ID="lblNdjekjeGjendje"

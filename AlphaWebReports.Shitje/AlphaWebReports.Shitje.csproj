@@ -342,11 +342,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_Rap_Agreguar_Shitjeve.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_Rap_Analitik_I_Tollonave.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Rap_Analitik_I_Tollonave.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_Rap_ArtikujShiturDegeAdministrative.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -483,16 +478,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_Rap_LibriShitjeve2015_KESH.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_Rap_MarzhiShitjeveTollona1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Rap_MarzhiShitjeveTollona.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_Rap_PermbledhesITollonave.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Rap_PermbledhesITollonave.xsd</DependentUpon>
     </Compile>
     <Compile Include="Ds_Rap_Permbledhes_Fature_Shitje.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2584,12 +2569,6 @@
     <Compile Include="Rap_Agreguar_Shitjeve.designer.cs">
       <DependentUpon>Rap_Agreguar_Shitjeve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_Analitik_I_Tollonave.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Analitik_I_Tollonave.Designer.cs">
-      <DependentUpon>Rap_Analitik_I_Tollonave.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_AnalizaPorosive.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3052,12 +3031,6 @@
     <Compile Include="Rap_MarzhiShitjeveMagazina_NjesiPerberesi.Designer.cs">
       <DependentUpon>Rap_MarzhiShitjeveMagazina_NjesiPerberesi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_MarzhiShitjeveTollona.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MarzhiShitjeveTollona.Designer.cs">
-      <DependentUpon>Rap_MarzhiShitjeveTollona.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_MarzhiShitjeve_2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3177,12 +3150,6 @@
     </Compile>
     <Compile Include="RAP_Nivelet_e_Cmimeve.Designer.cs">
       <DependentUpon>RAP_Nivelet_e_Cmimeve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_PermbledhesITollonave.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_PermbledhesITollonave.Designer.cs">
-      <DependentUpon>Rap_PermbledhesITollonave.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_Permbledhes_Fature_Shitje.cs">
       <SubType>Component</SubType>
@@ -4226,17 +4193,6 @@
     <None Include="Ds_Rap_Agreguar_Shitjeve.xss">
       <DependentUpon>Ds_Rap_Agreguar_Shitjeve.xsd</DependentUpon>
     </None>
-    <None Include="Ds_Rap_Analitik_I_Tollonave.xsc">
-      <DependentUpon>Ds_Rap_Analitik_I_Tollonave.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_Analitik_I_Tollonave.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Rap_Analitik_I_Tollonave.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Rap_Analitik_I_Tollonave.xss">
-      <DependentUpon>Ds_Rap_Analitik_I_Tollonave.xsd</DependentUpon>
-    </None>
     <None Include="Ds_Rap_ArtikujShiturDegeAdministrative.xsc">
       <DependentUpon>Ds_Rap_ArtikujShiturDegeAdministrative.xsd</DependentUpon>
     </None>
@@ -4525,28 +4481,6 @@
     </None>
     <None Include="Ds_Rap_LibriShitjeve2015_KESH.xss">
       <DependentUpon>Ds_Rap_LibriShitjeve2015_KESH.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_MarzhiShitjeveTollona.xsc">
-      <DependentUpon>Ds_Rap_MarzhiShitjeveTollona.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_MarzhiShitjeveTollona.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Rap_MarzhiShitjeveTollona1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Rap_MarzhiShitjeveTollona.xss">
-      <DependentUpon>Ds_Rap_MarzhiShitjeveTollona.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_PermbledhesITollonave.xsc">
-      <DependentUpon>Ds_Rap_PermbledhesITollonave.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Rap_PermbledhesITollonave.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Rap_PermbledhesITollonave.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Rap_PermbledhesITollonave.xss">
-      <DependentUpon>Ds_Rap_PermbledhesITollonave.xsd</DependentUpon>
     </None>
     <None Include="Ds_Rap_Permbledhes_Fature_Shitje.xsc">
       <DependentUpon>Ds_Rap_Permbledhes_Fature_Shitje.xsd</DependentUpon>
@@ -6035,9 +5969,6 @@
     <EmbeddedResource Include="Rap_Agreguar_Shitjeve.resx">
       <DependentUpon>Rap_Agreguar_Shitjeve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Analitik_I_Tollonave.resx">
-      <DependentUpon>Rap_Analitik_I_Tollonave.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_AnalizaPorosive.resx">
       <DependentUpon>Rap_AnalizaPorosive.cs</DependentUpon>
     </EmbeddedResource>
@@ -6269,9 +6200,6 @@
     <EmbeddedResource Include="Rap_MarzhiShitjeveMagazina_NjesiPerberesi.resx">
       <DependentUpon>Rap_MarzhiShitjeveMagazina_NjesiPerberesi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MarzhiShitjeveTollona.resx">
-      <DependentUpon>Rap_MarzhiShitjeveTollona.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_MarzhiShitjeve_2.resx">
       <DependentUpon>Rap_MarzhiShitjeve_2.cs</DependentUpon>
     </EmbeddedResource>
@@ -6331,9 +6259,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RAP_Nivelet_e_Cmimeve.resx">
       <DependentUpon>RAP_Nivelet_e_Cmimeve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_PermbledhesITollonave.resx">
-      <DependentUpon>Rap_PermbledhesITollonave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_Permbledhes_Fature_Shitje.resx">
       <DependentUpon>Rap_Permbledhes_Fature_Shitje.cs</DependentUpon>

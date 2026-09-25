@@ -1068,21 +1068,6 @@ namespace PlatinumWeb
                 clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti(koka.IdKonfigAmbjente);
                 if ((konf.KodKonfigAmbjente == "FBKTHIM" || konf.KodKonfigAmbjente == "FBD") && koka.IdStatusDok != 4)
                     hfLidhur.Value = "True";
-                bool tollona = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "RSHTT") == "Po";
-                bool tollonakastrati = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "RSHTTK") == "Po";
-                bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "RSHTTKE") == "Po";
-                if (tollona && (DbCore.DbTollona.clsShitjeMeSerial.kaTollonaShitja(koka.IdShitjeKoka) || !(clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "ZT") == "Jo")))
-                {
-                    hfLidhur.Value = "True";
-                }
-                if (koka.IdStatusDok == 1 && tollonakastrati && (DbCore.DbTollona.clsTollonaLeter.kaTollonaShitja(koka.IdShitjeKoka) || !(clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "ZT") == "Jo")))
-                {
-                    hfLidhur.Value = "True";
-                }
-                if (tollonakastratielektronik && DbCore.DbTollona.clsTollonaElektronik.kaTollonaShitja(koka.IdShitjeKoka))
-                {
-                    hfLidhur.Value = "True";
-                }
                 AspxWebControlUtils.ShtoLidhje(idPerdoruesi, idViti, idNdermarrje, hl, dtlidhur, koka.IdGjenerues, koka.IdNivelGjenerues, koka.IdKonfigGjenerues, idGjuha);
                 shtoGauget(hl, koka);
             }
@@ -2421,14 +2406,8 @@ namespace PlatinumWeb
             string arkabanka = "arka";
 
             bool autoshitje = (bool)hfState["LAVK"];
-            bool tollona = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "RSHTT") == "Po";
-            bool tollonakastrati = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "RSHTTK") == "Po";
-            bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "RSHTTKE") == "Po";
             bool krijoartri = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "BKAR") == "Po";
 
-            string llojZevendesimi = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "ZT");
-            bool zevendesimtollona = !(llojZevendesimi == "Jo");
-            bool zevendesimtollonakastrati = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "ZTK") == "Po";
             string shfaqmesazhapolupe = "jo";
             string shfaqmesazhapolupemagazina = "jo";//per rastet nqs do merret parasysh magazina ne shfaqen e mesazhit
             string shfaqmesazhapolupebanka = "jo";
@@ -2456,9 +2435,9 @@ namespace PlatinumWeb
             try
             {
                 if (kf.IdKlientFurnitor < 1)
-                    kokeShitje = krijoRegjistrim(veprimi, ref gjenerodokmag, idNdermarrjeVit, idPerdoruesi, idNdermarrje, statusDokumenti, 0, string.Empty, konfig, konfmag, statusAprovimi, out shfaqmesazhapolupe, out mesazhinformues, kokaMema, kase, serialemag, kontrolloSasi, faturashitjengaurdhershitjamekupontatimor, tollona, autoshitje, cultinf, rm, shtimModifikim, periudha, mekontabilizim, eshteOwn, idetapa, tollonakastrati, tollonakastratielektronik, fazat, llojZevendesimi, zevendesimtollonakastrati, hfShtimModifikim.Value == "bli", krijoartri, idGjuha, serialetUnike);
+                    kokeShitje = krijoRegjistrim(veprimi, ref gjenerodokmag, idNdermarrjeVit, idPerdoruesi, idNdermarrje, statusDokumenti, 0, string.Empty, konfig, konfmag, statusAprovimi, out shfaqmesazhapolupe, out mesazhinformues, kokaMema, kase, serialemag, kontrolloSasi, faturashitjengaurdhershitjamekupontatimor, autoshitje, cultinf, rm, shtimModifikim, periudha, mekontabilizim, eshteOwn, idetapa, fazat, hfShtimModifikim.Value == "bli", krijoartri, idGjuha, serialetUnike);
                 else
-                    kokeShitje = krijoRegjistrim(veprimi, ref gjenerodokmag, idNdermarrjeVit, idPerdoruesi, idNdermarrje, statusDokumenti, kf.IdKlientFurnitor, kf.KodKlientFurnitor, konfig, konfmag, statusAprovimi, out shfaqmesazhapolupe, out mesazhinformues, kokaMema, kase, serialemag, kontrolloSasi, faturashitjengaurdhershitjamekupontatimor, tollona, autoshitje, cultinf, rm, shtimModifikim, periudha, mekontabilizim, eshteOwn, idetapa, tollonakastrati, tollonakastratielektronik, fazat, llojZevendesimi, zevendesimtollonakastrati, hfShtimModifikim.Value == "bli", krijoartri, idGjuha, serialetUnike);
+                    kokeShitje = krijoRegjistrim(veprimi, ref gjenerodokmag, idNdermarrjeVit, idPerdoruesi, idNdermarrje, statusDokumenti, kf.IdKlientFurnitor, kf.KodKlientFurnitor, konfig, konfmag, statusAprovimi, out shfaqmesazhapolupe, out mesazhinformues, kokaMema, kase, serialemag, kontrolloSasi, faturashitjengaurdhershitjamekupontatimor, autoshitje, cultinf, rm, shtimModifikim, periudha, mekontabilizim, eshteOwn, idetapa, fazat, hfShtimModifikim.Value == "bli", krijoartri, idGjuha, serialetUnike);
             }
             catch (MyException myEx)
             {
@@ -2562,8 +2541,7 @@ namespace PlatinumWeb
                         mesazh = kokeShitje.ruaj(idGjuha, serverUrl, true, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa,
                             out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag,
                             konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text,
-                            false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "",
-                            false, false, zevendesimtollonakastrati, cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli",
+                            false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, false, false, "", "", "", cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli",
                             !cmbModeli.Text.Contains("USHmag"), ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, false, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
@@ -2719,7 +2697,7 @@ namespace PlatinumWeb
                         bool kthimVod = hfShtimModifikim.Value == "kthimVod";
                         if (txtIIC.Text == "" && nderm.Fiskalizimi)
                             txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeShitje.DtDok.ToString().Split(' ')[0] + ' ' + kokeShitje.DtKrijimiPajisje.ToString().Split(' ')[1]));
-                        mesazh = kokeShitje.ruaj(idGjuha, serverUrl, false, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text, false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "", false, false, zevendesimtollonakastrati, cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli", false, ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, kthimVod, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
+                        mesazh = kokeShitje.ruaj(idGjuha, serverUrl, false, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, out veprimebanka, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMema, 0, 0, dergoemail, eshteOwn, dergoemailVfOne, hfKodVFOne.Value, serialemag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, cmbModeli.Text, false, string.Empty, shtimModifikim == "kthim" ? idNgaQueryString : 0, false, false, "", "", "", cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, hfShtimModifikim.Value == "bli", false, ref dbData, krijoartri, hfKodKuponiDD.Value, hfMsisdnBazaari.Value, kthimVod, out mesazhmevonshem, false, String.IsNullOrEmpty(txtNrDokMagazine.Text), txtIIC.Text, txtNIVF.Text);
                         if (mesazh.Status)
                         {
                             if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
@@ -2890,14 +2868,6 @@ namespace PlatinumWeb
                     lidhur = false;
                 if (hfState.Get<bool>("MosModifikoTrup"))
                     lidhur = false;
-                if (tollona && DbCore.DbTollona.clsShitjeMeSerial.kaTollonaShitja(idNgaQueryString))
-                {
-                    hfLidhur.Value = "True";
-                }
-                if (tollonakastrati && DbCore.DbTollona.clsTollonaLeter.kaTollonaShitja(idNgaQueryString))
-                {
-                    hfLidhur.Value = "True";
-                }
                 DbCore.DbQendraKosto.clsKokaQendraKosto qend = new DbCore.DbQendraKosto.clsKokaQendraKosto();
                 if (shtimModifikim == "modifikim")
                 {
@@ -2932,7 +2902,7 @@ namespace PlatinumWeb
                     //kokeShitje.IIC = txtIIC.Text;
                     mesazh = kokeShitje.modifikoSh(idGjuha, serverUrl, lidhur, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina,
                         kokaMema, dergoemail, eshteOwn, dergoemailVfOne, serialemag, konfamortizimi, isShitje, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature,
-                        out shfaqmesazhapolupe, mekontabilizim, qend.ColTrupi, cmbModeli.Text, rm, cultinf, tollona, zevendesimtollona, tollonakastrati, tollonakastratielektronik, zevendesimtollonakastrati,
+                        out shfaqmesazhapolupe, mekontabilizim, qend.ColTrupi, cmbModeli.Text, rm, cultinf,
                         cbRenditje.Checked, kontrolloSasiKonvertimiDheKthimi, out veprimebanka, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, out pageseFature, false, kontrolloIMEIFifo,
                         hfShtimModifikim.Value == "bli", !cmbModeli.Text.Contains("USHmag"), ref dbData, out mesazhmevonshem, false, "", "", "", "");
                     if (mesazh.Status)
@@ -3441,9 +3411,9 @@ namespace PlatinumWeb
         /// <param name="rm"></param>
         /// <param name="shtimModifikim"></param>
         /// <param name="idEtapa"></param>
-        private clsKokaShitje krijoRegjistrim(string veprimi, ref bool gjeneroDokMag, int idNderViti, int idPerdoruesi, int idNdermarrje, int statusDokumenti, int klienti, string kodklienti, clsKonfigurimAmbjenti KonfigAmbjente, clsKonfigurimAmbjenti konfmag, StatusAprovimi statusAprovimi, out string shfaqmesazhapolupe, out string mesazhinformues, clsKokaShitje kokamema, bool kasa, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, clsKokaShitje faturashitjengaurdhershitjamekupontatimor, bool tollon, bool autoshitje, CultureInfo ci, ResourceManager rm, string shtimModifikim, clsPeriudhaKontabel periudha, bool meKontabilizim, bool eshteOwn, int idEtapa, bool tollonakastrati, bool tollonakastratielektronik, object tmp, string llojZevendesimi, bool zevendesimtollonakastrati, bool blerengadealer, bool krijoartri, int idGjuha, colSerialeUnikeMagazina serialetUnike)
+        private clsKokaShitje krijoRegjistrim(string veprimi, ref bool gjeneroDokMag, int idNderViti, int idPerdoruesi, int idNdermarrje, int statusDokumenti, int klienti, string kodklienti, clsKonfigurimAmbjenti KonfigAmbjente, clsKonfigurimAmbjenti konfmag, StatusAprovimi statusAprovimi, out string shfaqmesazhapolupe, out string mesazhinformues, clsKokaShitje kokamema, bool kasa, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, clsKokaShitje faturashitjengaurdhershitjamekupontatimor, bool autoshitje, CultureInfo ci, ResourceManager rm, string shtimModifikim, clsPeriudhaKontabel periudha, bool meKontabilizim, bool eshteOwn, int idEtapa, object tmp, bool blerengadealer, bool krijoartri, int idGjuha, colSerialeUnikeMagazina serialetUnike)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda krijoRegjistrim me parametra veprimi:{veprimi}, gjeneroDokMag:{gjeneroDokMag}, idNderViti:{idNderViti}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, statusDokumenti:{statusDokumenti}, klienti:{klienti}, kodklienti:{kodklienti}, KonfigAmbjente:{JsonConvert.SerializeObject(KonfigAmbjente)}, konfmag:{JsonConvert.SerializeObject(konfmag)}, kokamema:{JsonConvert.SerializeObject(kokamema)}, kasa:{kasa}, kontrolloSasi:{kontrolloSasi}, faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, tollon:{tollon}, autoshitje:{autoshitje}, shtimModifikim:{shtimModifikim}, periudha:{JsonConvert.SerializeObject(periudha)}, meKontabilizim:{meKontabilizim}, eshteOwn:{eshteOwn}, idEtapa:{idEtapa}, tollonakastrati:{tollonakastrati}, tollonakastratielektronik:{tollonakastratielektronik}, llojZevendesimi:{llojZevendesimi}, zevendesimtollonakastrati:{zevendesimtollonakastrati}, blerengadealer:{blerengadealer}, krijoartri:{krijoartri}, idGjuha:{idGjuha}, serialetUnike:{serialetUnike?.Count}");
+            ImbLogger.LogTraceShitje($"Filloi metoda krijoRegjistrim me parametra veprimi:{veprimi}, gjeneroDokMag:{gjeneroDokMag}, idNderViti:{idNderViti}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, statusDokumenti:{statusDokumenti}, klienti:{klienti}, kodklienti:{kodklienti}, KonfigAmbjente:{JsonConvert.SerializeObject(KonfigAmbjente)}, konfmag:{JsonConvert.SerializeObject(konfmag)}, kokamema:{JsonConvert.SerializeObject(kokamema)}, kasa:{kasa}, kontrolloSasi:{kontrolloSasi}, faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, autoshitje:{autoshitje}, shtimModifikim:{shtimModifikim}, periudha:{JsonConvert.SerializeObject(periudha)}, meKontabilizim:{meKontabilizim}, eshteOwn:{eshteOwn}, idEtapa:{idEtapa}, blerengadealer:{blerengadealer}, krijoartri:{krijoartri}, idGjuha:{idGjuha}, serialetUnike:{serialetUnike?.Count}");
             var controls = this.GetAsPxTextEditIdValue();
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
@@ -3620,11 +3590,8 @@ namespace PlatinumWeb
             double kursi;
             double.TryParse(txtKursi.Text, out kursi);
             bool eshteMemme = (bool)hfState["Meme"];
-            //SpeedTest st = new SpeedTest("PlatinumWeb", "Shto_RegjistrimDokumentash");
-            //st.SpeedTestMethod("ruajTrupShitje", new object[] { idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, tollon, gridDataObject.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm }, 10);
-            //st.startTest();
             bool shitjevodafone = btnMagazina.Text.Length == 3 && KonfigAmbjente.KodKonfigAmbjente.EndsWith(btnMagazina.Text);
-            colTrupiShitje trupi = ruajTrupShitje(idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, tollon, gridDataObject.Value, gridObjectKomision.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm, tollonakastrati, zevendesimtollonakastrati, blerengadealer, shitjevodafone);
+            colTrupiShitje trupi = ruajTrupShitje(idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, gridDataObject.Value, gridObjectKomision.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm, blerengadealer, shitjevodafone);
             //krijoSeriale(colserialemag, trupi, statusDokumenti, idNdermarrje, idPerdoruesi, idPerdoruesi, konfmag, kontrolloSasi, ci, rm, perqindjeZbritje);
             if (cbFiskalizo.Checked)
                 for (int i = 0; i < trupi.Count; i++)
@@ -3824,7 +3791,7 @@ namespace PlatinumWeb
             }
             double.TryParse(txtCash.Text, out double nrtxtCash);
             int operatori = cmbOperatori.Value != null ? int.Parse(cmbOperatori.Value.ToString()) : 0;
-            var mesazh = koka.krijoShitje(ref gjeneroDokMag, int.Parse(cmbNiveli.Value.ToString()), 0, KonfigAmbjente.IdKonfigAmbjente, klienti, kodklienti, 1, txtNumerProjekti.Text, data_DateEdit.Date, txtNumer.Text, txtNumerSerial.Text, dtMaturimi, int.Parse(cmbMonedha.Value.ToString()), cmbMonedha.Text, kursi, menyretransporti, btnMenyreTransporti.Text, dttransporti, kushtedergimi, btnKushtDergimi.Text, idagjenti, btnAgjenti.Text, int.Parse(cmbMenyrePagese.Value.ToString()), cmbMenyrePagese.Text, kushtepagese, btnKushtPagese.Text, vlefte, total1 + vlefte, tvsh1, dateRegjistrimi_DateEdit.Date, statusDokumenti, idNdermarrje, idNderViti, 0, 0, 0, 0, txtAdresaFaturimit.Text, txtAdresaDergimit.Text, txtPershkrimi.Text, bool.Parse(cmbDogana.SelectedItem.Value.ToString()), degeadministrative, cmbDegeAdministrative.Text.Split(' ')[0], pikeshitje, cmbPikeShitjeFurnizimi.Text.Split(' ')[0], idPerdoruesi, idFormatPrintimi, trupi, veprimi == "shitje" || veprimi == "shitjediscount" || veprimi == "bazaar" ? true : false, KonfigAmbjente.KodKonfigAmbjente, periudha.IdPeriudha, konfmag, idmagazina, btnMagazina.Text.Split(' ')[0], meKontabilizim, idgrup, idgrup2, idgrup3, dteAfatiKohor.Date, nrtxtCash, statusAprovimi, idPerdoruesi, perqindjeAgjent, out shfaqmesazhapolupe, hfArkiva, qend.ColTrupi, rez.IdKokaRezervimi, out mesazhinformues, gjeneromeme, kokamema, 0, 0, eshteMemme, gjenerobij, StatusTrasferimi.PaTransferuar, txtEmriKlienti.Text, txtKontakti.Text, kasa, cbKupon.Checked, cmbGrup1.Text, dtfillimi, dtmbarimi, idAutomjet, kilometraAtuo, txtTarga.Text, idAgjenti2, perqindjeAgjent2, btnAgjenti2.Text, idAgjenti3, perqindjeAgjent3, btnAgjenti3.Text, txtMarresi.Text, idTransportues, btnTransportues.Text, false, faturashitjengaurdhershitjamekupontatimor, cbShpenzimeJoTeZbritshme.Checked, idArka, false, tollon, autoshitje, false, dtfature, false, tollonakastrati, tollonakastratielektronik, idMuajRaportimi, idVitRaportimi, txtShoferi.Text, txtTarga2.Text, zbritjeNeVlere, perqindje, idKarta, pike, ocolFaza, idFaza, colKlienteFurnitoreVartes, DateTime.Now, new DbData(), llojZevendesimi, koordinata, blerengadealer, krijoartri, idGjuha, konfvfone, idstatusvjeter, niptKlienti, txtQytetiK.Text, false, idkategoriseriali, serialetUnike, txtShenime2.Text, cbKartaPaPagese.Checked, Convert.ToInt32(CacheLayer.GlobalCacheManager.MyPageCache["IdDokTransferimNga"]), kthim, idLlojMarreveshje, txtIdMarreveshje.Text, (StatusMarreveshje)int.Parse(cmbStatusMarreveshje.Value.ToString()), txtKerkuarNga.Text, shtimModifikim, DtKerkese_DateEdit.Date, hfState.Get<bool>("KGJAPMR"), nrDokPerMag, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, cmbTipiIVetefaturimit.Text);
+            var mesazh = koka.krijoShitje(ref gjeneroDokMag, int.Parse(cmbNiveli.Value.ToString()), 0, KonfigAmbjente.IdKonfigAmbjente, klienti, kodklienti, 1, txtNumerProjekti.Text, data_DateEdit.Date, txtNumer.Text, txtNumerSerial.Text, dtMaturimi, int.Parse(cmbMonedha.Value.ToString()), cmbMonedha.Text, kursi, menyretransporti, btnMenyreTransporti.Text, dttransporti, kushtedergimi, btnKushtDergimi.Text, idagjenti, btnAgjenti.Text, int.Parse(cmbMenyrePagese.Value.ToString()), cmbMenyrePagese.Text, kushtepagese, btnKushtPagese.Text, vlefte, total1 + vlefte, tvsh1, dateRegjistrimi_DateEdit.Date, statusDokumenti, idNdermarrje, idNderViti, 0, 0, 0, 0, txtAdresaFaturimit.Text, txtAdresaDergimit.Text, txtPershkrimi.Text, bool.Parse(cmbDogana.SelectedItem.Value.ToString()), degeadministrative, cmbDegeAdministrative.Text.Split(' ')[0], pikeshitje, cmbPikeShitjeFurnizimi.Text.Split(' ')[0], idPerdoruesi, idFormatPrintimi, trupi, veprimi == "shitje" || veprimi == "shitjediscount" || veprimi == "bazaar" ? true : false, KonfigAmbjente.KodKonfigAmbjente, periudha.IdPeriudha, konfmag, idmagazina, btnMagazina.Text.Split(' ')[0], meKontabilizim, idgrup, idgrup2, idgrup3, dteAfatiKohor.Date, nrtxtCash, statusAprovimi, idPerdoruesi, perqindjeAgjent, out shfaqmesazhapolupe, hfArkiva, qend.ColTrupi, rez.IdKokaRezervimi, out mesazhinformues, gjeneromeme, kokamema, 0, 0, eshteMemme, gjenerobij, StatusTrasferimi.PaTransferuar, txtEmriKlienti.Text, txtKontakti.Text, kasa, cbKupon.Checked, cmbGrup1.Text, dtfillimi, dtmbarimi, idAutomjet, kilometraAtuo, txtTarga.Text, idAgjenti2, perqindjeAgjent2, btnAgjenti2.Text, idAgjenti3, perqindjeAgjent3, btnAgjenti3.Text, txtMarresi.Text, idTransportues, btnTransportues.Text, false, faturashitjengaurdhershitjamekupontatimor, cbShpenzimeJoTeZbritshme.Checked, idArka, false, autoshitje, false, dtfature, false, idMuajRaportimi, idVitRaportimi, txtShoferi.Text, txtTarga2.Text, zbritjeNeVlere, perqindje, idKarta, pike, ocolFaza, idFaza, colKlienteFurnitoreVartes, DateTime.Now, new DbData(), koordinata, blerengadealer, krijoartri, idGjuha, konfvfone, idstatusvjeter, niptKlienti, txtQytetiK.Text, false, idkategoriseriali, serialetUnike, txtShenime2.Text, cbKartaPaPagese.Checked, Convert.ToInt32(CacheLayer.GlobalCacheManager.MyPageCache["IdDokTransferimNga"]), kthim, idLlojMarreveshje, txtIdMarreveshje.Text, (StatusMarreveshje)int.Parse(cmbStatusMarreveshje.Value.ToString()), txtKerkuarNga.Text, shtimModifikim, DtKerkese_DateEdit.Date, hfState.Get<bool>("KGJAPMR"), nrDokPerMag, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, cmbTipiIVetefaturimit.Text);
 
             if (!mesazh.Status)
             {
@@ -3841,7 +3808,7 @@ namespace PlatinumWeb
                 if (diferenca / kursiifundit.VleraKursi > 0.2)
                     clsMenuInfo.ShtoMesazhInformues(MenuInfo, rm.GetString("msgKursiRiNdryshonShumeMeKursinMePare", ci), pnlMesazhi);
             }
-            ImbLogger.LogTraceShitje($"Mbaroi metoda krijoRegjistrim me parametra veprimi:{veprimi}, gjeneroDokMag:{gjeneroDokMag}, idNderViti:{idNderViti}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, statusDokumenti:{statusDokumenti}, klienti:{klienti}, kodklienti:{kodklienti}, KonfigAmbjente:{JsonConvert.SerializeObject(KonfigAmbjente)}, konfmag:{JsonConvert.SerializeObject(konfmag)}, kokamema:{JsonConvert.SerializeObject(kokamema)}, kasa:{kasa}, kontrolloSasi:{kontrolloSasi}, faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, tollon:{tollon}, autoshitje:{autoshitje}, shtimModifikim:{shtimModifikim}, periudha:{JsonConvert.SerializeObject(periudha)}, meKontabilizim:{meKontabilizim}, eshteOwn:{eshteOwn}, idEtapa:{idEtapa}, tollonakastrati:{tollonakastrati}, tollonakastratielektronik:{tollonakastratielektronik}, llojZevendesimi:{llojZevendesimi}, zevendesimtollonakastrati:{zevendesimtollonakastrati}, blerengadealer:{blerengadealer}, krijoartri:{krijoartri}, idGjuha:{idGjuha}, serialetUnike:{JsonConvert.SerializeObject(serialetUnike)}");
+            ImbLogger.LogTraceShitje($"Mbaroi metoda krijoRegjistrim me parametra veprimi:{veprimi}, gjeneroDokMag:{gjeneroDokMag}, idNderViti:{idNderViti}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, statusDokumenti:{statusDokumenti}, klienti:{klienti}, kodklienti:{kodklienti}, KonfigAmbjente:{JsonConvert.SerializeObject(KonfigAmbjente)}, konfmag:{JsonConvert.SerializeObject(konfmag)}, kokamema:{JsonConvert.SerializeObject(kokamema)}, kasa:{kasa}, kontrolloSasi:{kontrolloSasi}, faturashitjengaurdhershitjamekupontatimor:{JsonConvert.SerializeObject(faturashitjengaurdhershitjamekupontatimor)}, autoshitje:{autoshitje}, shtimModifikim:{shtimModifikim}, periudha:{JsonConvert.SerializeObject(periudha)}, meKontabilizim:{meKontabilizim}, eshteOwn:{eshteOwn}, idEtapa:{idEtapa}, blerengadealer:{blerengadealer}, krijoartri:{krijoartri}, idGjuha:{idGjuha}, serialetUnike:{JsonConvert.SerializeObject(serialetUnike)}");
             return koka;
         }
 
@@ -3852,7 +3819,6 @@ namespace PlatinumWeb
         /// <param name="veprimi"></param>
         /// <param name="idNdermarrje"></param>
         /// <param name="idKonfAmbj"></param>
-        /// <param name="tollon"></param>
         /// <param name="gridDataObject"></param>
         /// <param name="shtimModifikim"></param>
         /// <param name="gjenerodokumentmagazine"></param>
@@ -3861,9 +3827,9 @@ namespace PlatinumWeb
         /// <param name="btnMagazina"></param>
         /// <param name="meme"></param>
         /// <returns></returns>
-        public colTrupiShitje ruajTrupShitje(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, ASPxComboBox btnMagazina, bool meme, DevExpress.Web.ASPxHiddenField hfSeriale, DevExpress.Web.ASPxHiddenField hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, CultureInfo ci, ResourceManager rm, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone)
+        public colTrupiShitje ruajTrupShitje(int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, ASPxComboBox btnMagazina, bool meme, DevExpress.Web.ASPxHiddenField hfSeriale, DevExpress.Web.ASPxHiddenField hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, CultureInfo ci, ResourceManager rm, bool blerengadealer, bool shitjevodafone)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda ruajTrupShitje me parametra idPerdoruesi:{idPerdoruesi}, veprimi:" + veprimi + $", idNdermarrje:{idNdermarrje}, idKonfAmbj:{idKonfAmbj}, tollon:{tollon}, gridDataObject:" + gridDataObject + $", shtimModifikim:" + shtimModifikim + $", gjenerodokumentmagazine:{gjenerodokumentmagazine}, ownshop:{ownshop}, Grup1:" + Grup1 + $", meme:{meme}, perqindjeZbritje:{perqindjeZbritje}, kontrolloSasi:{kontrolloSasi}, kursi:{kursi}, statusDokumenti:{statusDokumenti}, konfmag:{JsonConvert.SerializeObject(konfmag)}, tollonkastati:{tollonkastati}, zevendesimtollonakastrati:{zevendesimtollonakastrati}, blerengadealer:{blerengadealer}, shitjevodafone:{shitjevodafone}");
+            ImbLogger.LogTraceShitje($"Filloi metoda ruajTrupShitje me parametra idPerdoruesi:{idPerdoruesi}, veprimi:" + veprimi + $", idNdermarrje:{idNdermarrje}, idKonfAmbj:{idKonfAmbj}, gridDataObject:" + gridDataObject + $", shtimModifikim:" + shtimModifikim + $", gjenerodokumentmagazine:{gjenerodokumentmagazine}, ownshop:{ownshop}, Grup1:" + Grup1 + $", meme:{meme}, perqindjeZbritje:{perqindjeZbritje}, kontrolloSasi:{kontrolloSasi}, kursi:{kursi}, statusDokumenti:{statusDokumenti}, konfmag:{JsonConvert.SerializeObject(konfmag)}, blerengadealer:{blerengadealer}, shitjevodafone:{shitjevodafone}");
             Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
             Dictionary<string, string>[] dokumentiKomision = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridObjectKomision);
 
@@ -3887,7 +3853,7 @@ namespace PlatinumWeb
             var nrRendorSerial = -1;
             for (int i = 0; i < dokumentiLength; i++)
             {
-                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, i, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, data_DateEdit.Date, lejoSasiPozitiveKthim, ref nrRendorSerial);
+                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, i, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, data_DateEdit.Date, lejoSasiPozitiveKthim, ref nrRendorSerial);
                 if (string.IsNullOrEmpty(trupi.Kodi))
                     continue;
 
@@ -3907,7 +3873,7 @@ namespace PlatinumWeb
             nrRendorSerial = -1;
             for (int i = 0; i < dokumentiKomisionLength; i++)
             {
-                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumentiKomision[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, i, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, true, lejoMagNdryshme, data_DateEdit.Date, lejoSasiPozitiveKthim, ref nrRendorSerial);
+                clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumentiKomision[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, i, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, true, lejoMagNdryshme, data_DateEdit.Date, lejoSasiPozitiveKthim, ref nrRendorSerial);
                 trupat.Add(trupi);
             }
 
@@ -3919,7 +3885,7 @@ namespace PlatinumWeb
             else
                 btnMagazina.Text = string.Empty;
 
-            ImbLogger.LogTraceShitje($"Mbaroi metoda ruajTrupShitje me parametra idPerdoruesi:{idPerdoruesi}, veprimi:" + veprimi + $", idNdermarrje:{idNdermarrje}, idKonfAmbj:{idKonfAmbj}, tollon:{tollon}, gridDataObject:" + gridDataObject + $", shtimModifikim:" + shtimModifikim + $", gjenerodokumentmagazine:{gjenerodokumentmagazine}, ownshop:{ownshop}, Grup1:" + Grup1 + $", meme:{meme}, perqindjeZbritje:{perqindjeZbritje}, kontrolloSasi:{kontrolloSasi}, kursi:{kursi}, statusDokumenti:{statusDokumenti}, konfmag:{JsonConvert.SerializeObject(konfmag)}, tollonkastati:{tollonkastati}, zevendesimtollonakastrati:{zevendesimtollonakastrati}, blerengadealer:{blerengadealer}, shitjevodafone:{shitjevodafone}");
+            ImbLogger.LogTraceShitje($"Mbaroi metoda ruajTrupShitje me parametra idPerdoruesi:{idPerdoruesi}, veprimi:" + veprimi + $", idNdermarrje:{idNdermarrje}, idKonfAmbj:{idKonfAmbj}, gridDataObject:" + gridDataObject + $", shtimModifikim:" + shtimModifikim + $", gjenerodokumentmagazine:{gjenerodokumentmagazine}, ownshop:{ownshop}, Grup1:" + Grup1 + $", meme:{meme}, perqindjeZbritje:{perqindjeZbritje}, kontrolloSasi:{kontrolloSasi}, kursi:{kursi}, statusDokumenti:{statusDokumenti}, konfmag:{JsonConvert.SerializeObject(konfmag)}, blerengadealer:{blerengadealer}, shitjevodafone:{shitjevodafone}");
             return trupat;
         }
 
@@ -4281,11 +4247,7 @@ namespace PlatinumWeb
                         return;
                     }
 
-                    bool tollonakastrati = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTK") == "Po";
-                    //clsKusht kushttollona = new clsKusht(clsKoka.IdKonfigAmbjente, "RSHTT");
-                    //clsAlternativaKushti alttollona = new clsAlternativaKushti(kushttollona.Vlera);
-                    bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTKE") == "Po";
-                    clsKoka.fshi(idPerdoruesi, veprimi == "shitje" ? true : false, tollonakastrati, tollonakastratielektronik);
+                    clsKoka.fshi(idPerdoruesi, veprimi == "shitje" ? true : false);
                     Response.Redirect("RegjistrimDokumentash.aspx?shitje_blerje=" + veprimi);
                     break;
                 case "Pezullo":
@@ -4343,21 +4305,6 @@ namespace PlatinumWeb
             clsKoka.mbushKokaShitjeSipasIDPaTrup(id);
 
             bool lidhur = clsKoka.eshteILidhur();
-            bool tollona = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTT") == "Po";
-            bool tollonakastrati = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTK") == "Po";
-            bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTKE") == "Po";
-            if (tollona && DbCore.DbTollona.clsShitjeMeSerial.kaTollonaShitja(clsKoka.IdShitjeKoka))
-            {
-                lidhur = true;
-            }
-            if (tollonakastrati && DbCore.DbTollona.clsTollonaLeter.kaTollonaShitja(clsKoka.IdShitjeKoka))
-            {
-                lidhur = true;
-            }
-            if (tollonakastratielektronik && DbCore.DbTollona.clsTollonaElektronik.kaTollonaShitja(clsKoka.IdShitjeKoka))
-            {
-                lidhur = true;
-            }
             if (lidhur)
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("vepBankaMsgDokEshteILidhurNukFshihet", ci), pnlMesazhi);
@@ -4420,7 +4367,7 @@ namespace PlatinumWeb
             string guidString = hfState["guidString"].ToString();
             int idPerdoruesi = IdPerdoruesi;
             clsKoka.IdPerdoruesi = idPerdoruesi;
-            mesazh = clsKoka.fshi(idPerdoruesi, isShitje, tollonakastrati, tollonakastratielektronik);
+            mesazh = clsKoka.fshi(idPerdoruesi, isShitje);
             mySessionObjects.ruajTrupatNeSession(Session, trupat);
             if (mesazh.Status)
             {

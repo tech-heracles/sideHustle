@@ -10276,12 +10276,6 @@ Në rastë reklamimi për Artikujt e blerë nga ju, ju lutemi drejtohuni personi
   <data name="lblRaportiSituacionShpenzimeve" xml:space="preserve">
     <value>Expenses situation</value>
   </data>
-  <data name="MenuItemRaportTollonash" xml:space="preserve">
-    <value>Tollon</value>
-  </data>
-  <data name="MenuItemRaportTollonashKastrati" xml:space="preserve">
-    <value>Tollon (format 2)</value>
-  </data>
   <data name="MenuItemRaportGjendjaArtikujveIMEI" xml:space="preserve">
     <value>Stock items with IMEI</value>
   </data>
@@ -12983,18 +12977,6 @@ Model type:</value>
   <data name="lblGjatesiKodbar" xml:space="preserve">
     <value>barcode length</value>
   </data>
-  <data name="MenuItemImportShitjeTollona" xml:space="preserve">
-    <value>Import sales Token</value>
-  </data>
-  <data name="MenuItemImportShitjeTollonaSpecifik" xml:space="preserve">
-    <value>Import sales Specific Digital Token</value>
-  </data>
-  <data name="MenuItemImportTollonaElekronike" xml:space="preserve">
-    <value>Import sales Digital Token</value>
-  </data>
-  <data name="MenuItemImportTollonaLeter" xml:space="preserve">
-    <value>Import sales Paper Token</value>
-  </data>
   <data name="mesazhRuajtjeMeSukses" xml:space="preserve">
     <value>Successfully saved!</value>
   </data>
@@ -14222,9 +14204,6 @@ Swift code:</value>
   <data name="filterGrupimDokArsye" xml:space="preserve">
     <value>Reason</value>
   </data>
-  <data name="RaportPermbledhesTollonaTitulli" xml:space="preserve">
-    <value>Rregjistri Permbledhes i Tollonave</value>
-  </data>
   <data name="labelRegjistriPermbledhesiKlienteve" xml:space="preserve">
     <value>Rregjistri Permbledhes i Klienteve</value>
   </data>
@@ -14545,9 +14524,6 @@ Banka Kombetare Tregtare
   </data>
   <data name="labelRaportVleraFaturimit" xml:space="preserve">
     <value>Vlera e faturimit</value>
-  </data>
-  <data name="RaportMarzhiShitjeveTollonaTitull" xml:space="preserve">
-    <value>Marzhi i shitjeve (tollona)</value>
   </data>
   <data name="RaportMarzhiShitjeveSipasDetajimeveTitulli" xml:space="preserve">
     <value>Marzhi i shitjeve sipas detajimeve te artikujve</value>

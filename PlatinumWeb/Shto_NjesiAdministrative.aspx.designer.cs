@@ -435,23 +435,7 @@ namespace PlatinumWeb {
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtEmail;
         
-        /// <summary>
-        /// lblPerdorues control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblPerdorues;
         
-        /// <summary>
-        /// cbPerdorues control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox cbPerdorues;
         
         /// <summary>
         /// lblNdjekjeGjendje control.

@@ -792,7 +792,6 @@ function ButtonClickedKlientFurnitor(editor) {
         case "marzhiShitjeveMagazineNjesiPerberese":
         case "marzhiShitjevePerberesit":
         case "ShitjetSipasSasiveKrahasuese":
-        case "marzhiShitjeveTollona":
         case "marzhiShitjeveDetajimArtikujsh":
         case "veprimtariaDitore":
         case "klienteMeAfateMaturimi":
@@ -1091,7 +1090,6 @@ function ButtonClickedPikeShitjeFurnizim(editor) {
         case "marzhiShitjeveMagazineNjesiPerberese":
         case "marzhiShitjevePerberesit":
         case "ShitjetSipasSasiveKrahasuese":
-        case "marzhiShitjeveTollona":
         case "marzhiShitjeveDetajimArtikujsh":
             contentUrl = 'LupaPikeShitjeFurnizimi.aspx?shitjeblerje=Shitje&vjenNgaRaporti=true';
             break;
@@ -2178,7 +2176,6 @@ function renditFiltra() {
         case "marzhiShitjeveMagazineNjesiPerberese":
         case "marzhiShitjesNjesiPerberese":
         case "marzhiShitjevePerberesit":
-        case "marzhiShitjeveTollona":
         case "marzhiShitjeveDetajimArtikujsh":
         case "ShitjetSipasSasiveKrahasuese":
             lblGrupTKF.SetText(hfgjuha.Get("labelGrupKlienti3"));

@@ -54,87 +54,6 @@ namespace PlatinumWeb
 	public class WebService_Automatizim : System.Web.Services.WebService
 	{
 		private static NLog.Logger logu = NLog.LogManager.GetCurrentClassLogger();
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh ndryshoCmimeAutomatikTollona(int idperdoruesi, int idNdermarrje, DateTime date, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string ip = HttpContext.Current.Request.UserHostAddress;
-			if (ip.Equals(System.Configuration.ConfigurationManager.AppSettings["ipEkzekutoWebServiceAuto"]))
-			{
-				//DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idperdoruesi);
-				DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-				//CultureInfo cultinf;
-				//switch (perdorues.IdGjuha)
-				//{
-				//    case 0: cultinf = new CultureInfo("sq-AL"); break;
-				//    case 1: cultinf = new CultureInfo("en-US"); break;
-				//    default: throw new mySessionNewException("CultureInfo ska vlere");
-				//}
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-				//int idGjuha = perdorues.IdGjuha;
-				int idGjuha = 0; // mySessionObjects.ktheGjuhe(Session);
-				CultureInfo cultinf = MessagesResource.KtheCultureInfo(idGjuha);
-				bool eshteOwn = ndermarje.OwnShop;
-				DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-				int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-				DbCore.clsMesazh mesazh = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialKonsumuarandryshoCmimin(date.AddDays(-1));
-				if (mesazh.Status)
-					mesazh = ekzekutoImportAutomatikTollona(idperdoruesi, idNdermarrje, date, connectionString);
-				if (mesazh.Status)
-					mesazh = ekzekutoImportAutomatikTollonaElektronik(idperdoruesi, idNdermarrje, date, connectionString);
-				return mesazh;
-			}
-			return new DbCore.clsMesazh(false, "Kerkesa nuk vjen nga serveri i duhur!");
-		}
-
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh ekzekutoImportAutomatikTollona(int idperdoruesi, int idNdermarrje, DateTime date, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string ip = HttpContext.Current.Request.UserHostAddress;
-			if (ip.Equals(System.Configuration.ConfigurationManager.AppSettings["ipEkzekutoWebServiceAuto"]))
-			{
-				//DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idperdoruesi);
-				DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-				//CultureInfo cultinf;
-				//switch (perdorues.IdGjuha)
-				//{
-				//    case 0: cultinf = new CultureInfo("sq-AL"); break;
-				//    case 1: cultinf = new CultureInfo("en-US"); break;
-				//    default: throw new mySessionNewException("CultureInfo ska vlere");
-				//}
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-				//int idGjuha = perdorues.IdGjuha;
-				int idGjuha = 0; // mySessionObjects.ktheGjuhe(Session);
-				CultureInfo cultinf = MessagesResource.KtheCultureInfo(idGjuha);
-				bool eshteOwn = ndermarje.OwnShop;
-				DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-				int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-				DataTable dt = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialKonsumuaraPerImport(idNdermarrje, date);
-
-				int rreshta = dt.Rows.Count;
-				DataTable err = new DataTable();
-				err.Columns.Add("Kodi");
-				err.Columns.Add("Gabimi");
-				err.Columns.Add("Rreshti");
-				DataTable rreshtaok = new DataTable();
-				DataTable rreshtajoOk = new DataTable();
-				rreshtajoOk = dt.Clone();
-				rreshtaok = dt.Copy();
-				DbCore.DbTollona.colShitjeMeSerial.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, cultinf, rm, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-				DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-				koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-				DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-				return mesazh;
-			}
-			return new DbCore.clsMesazh(false, "Kerkesa nuk vjen nga serveri i duhur!");
-		}
 
 		[System.Web.Services.WebMethod(EnableSession = true)]
 		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
@@ -316,139 +235,6 @@ namespace PlatinumWeb
 		public DbCore.clsMesazh eksportAutomatikDokumentashPaKomision(string templateEksporti, int idNdermarrje, int idPerdorues, bool grupoTrupDokumenti, bool hiqRreshtaKomisioni, string connectionString)
 		{
 			return eksportAutomatikDokumentesh(templateEksporti, idNdermarrje, idPerdorues, grupoTrupDokumenti, hiqRreshtaKomisioni, connectionString);
-		}
-
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh ekzekutoImportAutomatikTollonaLeter(int idperdoruesi, int idNdermarrje, DateTime date, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string ip = HttpContext.Current.Request.UserHostAddress;
-			if (ip.Equals(System.Configuration.ConfigurationManager.AppSettings["ipEkzekutoWebServiceAuto"]))
-			{
-				//DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idperdoruesi);
-				DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-				//CultureInfo cultinf;
-				//switch (perdorues.IdGjuha)
-				//{
-				//    case 0: cultinf = new CultureInfo("sq-AL"); break;
-				//    case 1: cultinf = new CultureInfo("en-US"); break;
-				//    default: throw new mySessionNewException("CultureInfo ska vlere");
-				//}
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-				//int idGjuha = perdorues.IdGjuha;
-				int idGjuha = 0; // mySessionObjects.ktheGjuhe(Session);
-				CultureInfo cultinf = MessagesResource.KtheCultureInfo(idGjuha);
-				bool eshteOwn = ndermarje.OwnShop;
-				DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-				int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-				DataTable dt = DbCore.DbTollona.colTollonaLeter.merrTollonaLeterKonsumuaraPerImport(idNdermarrje, date);
-
-				int rreshta = dt.Rows.Count;
-				DataTable err = new DataTable();
-				err.Columns.Add("Kodi");
-				err.Columns.Add("Gabimi");
-				err.Columns.Add("Rreshti");
-				DataTable rreshtaok = new DataTable();
-				DataTable rreshtajoOk = new DataTable();
-				rreshtajoOk = dt.Clone();
-				rreshtaok = dt.Copy();
-				DbCore.DbTollona.colTollonaLeter.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, cultinf, rm, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-				DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-				koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-				DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-				return mesazh;
-			}
-			return new DbCore.clsMesazh(false, "Kerkesa nuk vjen nga serveri i duhur!");
-		}
-
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh ekzekutoImportAutomatikTollonaElektronik(int idperdoruesi, int idNdermarrje, DateTime date, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string ip = HttpContext.Current.Request.UserHostAddress;
-			if (ip.Equals(System.Configuration.ConfigurationManager.AppSettings["ipEkzekutoWebServiceAuto"]))
-			{
-				//DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idperdoruesi);
-				DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-				//CultureInfo cultinf;
-				//switch (perdorues.IdGjuha)
-				//{
-				//    case 0: cultinf = new CultureInfo("sq-AL"); break;
-				//    case 1: cultinf = new CultureInfo("en-US"); break;
-				//    default: throw new mySessionNewException("CultureInfo ska vlere");
-				//}
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-				//int idGjuha = perdorues.IdGjuha;
-				int idGjuha = mySessionObjects.ktheGjuhe(Session);
-				CultureInfo cultinf = MessagesResource.KtheCultureInfo(idGjuha);
-				bool eshteOwn = ndermarje.OwnShop;
-				DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-				int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-				DataTable dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImport(idNdermarrje, date);
-
-				int rreshta = dt.Rows.Count;
-				DataTable err = new DataTable();
-				err.Columns.Add("Kodi");
-				err.Columns.Add("Gabimi");
-				err.Columns.Add("Rreshti");
-				DataTable rreshtaok = new DataTable();
-				DataTable rreshtajoOk = new DataTable();
-				rreshtajoOk = dt.Clone();
-				rreshtaok = dt.Copy();
-				DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-				DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-				koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-				DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-				return mesazh;
-			}
-			return new DbCore.clsMesazh(false, "Kerkesa nuk vjen nga serveri i duhur!");
-		}
-
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh ekzekutoImportAutomatikTollonaElektronikSpecifik(int idperdoruesi, int idNdermarrje, DateTime date, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string ip = HttpContext.Current.Request.UserHostAddress;
-			if (ip.Equals(System.Configuration.ConfigurationManager.AppSettings["ipEkzekutoWebServiceAuto"]))
-			{
-				//DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idperdoruesi);
-				DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-				//CultureInfo cultinf;
-				//switch (perdorues.IdGjuha)
-				//{
-				//    case 0: cultinf = new CultureInfo("sq-AL"); break;
-				//    case 1: cultinf = new CultureInfo("en-US"); break;
-				//    default: throw new mySessionNewException("CultureInfo ska vlere");
-				//}
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-				int idGjuha = 0; // mySessionObjects.ktheGjuhe(Session);
-				bool eshteOwn = ndermarje.OwnShop;
-				DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-				int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-				DataTable dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImportSpecifik(idNdermarrje, date);
-				int rreshta = dt.Rows.Count;
-				DataTable err = new DataTable();
-				err.Columns.Add("Kodi");
-				err.Columns.Add("Gabimi");
-				err.Columns.Add("Rreshti");
-				DataTable rreshtaok = new DataTable();
-				DataTable rreshtajoOk = new DataTable();
-				rreshtajoOk = dt.Clone();
-				rreshtaok = dt.Copy();
-				DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollonaSpecifik(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, rm, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-				DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-				koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-				DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-				return mesazh;
-			}
-			return new DbCore.clsMesazh(false, "Kerkesa nuk vjen nga serveri i duhur!");
 		}
 
 		[System.Web.Services.WebMethod(EnableSession = true)]
@@ -1141,20 +927,14 @@ namespace PlatinumWeb
 				bool.TryParse(alphaMetadata["generateWarehouseDoc"].ToString(), out gjeneroDokMag);
 				//
 				//Alternativat
-				bool tollona = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTT") == "Po";
-				string llojZevendesimi = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "ZT");
-				bool tollonakastrati = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTTK") == "Po";
-				bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "RSHTTKE") == "Po";
 				bool krijoartri = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "BKAR") == "Po";
-				bool zevendesimtollonakastrati = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "ZTK") == "Po";
 				bool kontrolloSasiKonvertimiDheKthimi = clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "NK") == "Po";
 				DbData dbData = new DbData();
 				if (clsAlternativaKushti.getAlternativa(konfigurimAmbjenti.IdKonfigAmbjente, "AFI") == "Po")
 					kontrolloIMEIFifo = true;
-				bool zevendesimtollona = !(llojZevendesimi == "Jo");
 				konfigurimAmbjenti.mbushKonfigAmbjSipasKod(alphaMetadata["invoiceFormat"].ToString(), ndermarrje.IdNdermarrje);
 				konfigurimAmbjentiMag.mbushKonfigAmbjSipasKod(!blerje ? "FDS" : "FHB", ndermarrje.IdNdermarrje);
-				colTrupiShitje = krijoTrupShtije(giftCard, perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, false, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, false, false, dtDok);
+				colTrupiShitje = krijoTrupShtije(giftCard, perdorues.IdPerdorues, !blerje ? "shitje" : "blerje", ndermarrje.IdNdermarrje, konfigurimAmbjenti.IdKonfigAmbjente, trupi, new { }.ToString(), "shtim", gjeneroDokMag, false, "", magazina.Kodi, false, new Dictionary<string, object>(), new Dictionary<string, object>(), perqindjeZbritje, new DbCore.DbAsete.colSerialetMagazine(), false, kursi, 1, konfigurimAmbjentiMag, false, false, dtDok);
 				clsPeriudhaKontabel periudhaKontabel = new clsPeriudhaKontabel(dtDok, ndermarrje.IdNdermarrje);
 				if (giftCard.balance != 0)
 				{
@@ -1230,7 +1010,7 @@ namespace PlatinumWeb
 				clsMesazh mesazhi = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
 					kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
 					0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
-					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, false, dtDok, false, false, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
+					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
 					new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
 				if (!mesazhi.Status) return new clsMesazh(false, mesazhi.PershkrimMesazhi);
 
@@ -1240,8 +1020,7 @@ namespace PlatinumWeb
 				var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
 							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
 							konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, true, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
-							false, string.Empty, 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "",
-							false, false, zevendesimtollonakastrati, false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
+							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
 							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
 				if (msg.PershkrimMesazhi.Contains("Sasia e daljes është më e madhe se gjendja e artikullit"))
 				{
@@ -1265,14 +1044,13 @@ namespace PlatinumWeb
 					clsMesazh draftMessage = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
 					kursi, 0, "", dtDok, 0, "", agjentShitje.IdAgjentShitje, agjentShitje.KodiAgjentShitje, idMenyrePAgese, kodMenyrePAgese, 0, "", zbritje, totali, tvsh, dtDok, koka.IdStatusDok, ndermarrje.IdNdermarrje, ndermarrjeViti.IdNderViti,
 					0, 0, 0, 0, adresa, adresa, pershkrimi, false, dega.IdDegeAdministrative, dega.Kodi, 0, "", perdorues.IdPerdorues, 0, colTrupiShitje, !blerje, konfigurimAmbjenti.KodKonfigAmbjente, periudhaKontabel.IdPeriudha, konfigurimAmbjentiMag, magazina.IdNjesiAdministrative, magazina.Kodi, false, 0, 0, 0, dtDok, totali, StatusAprovimi.Undefined, perdorues.IdPerdorues, 0.00, out shfaqmesazhapolupe, new Dictionary<string, object>(), new DbCore.DbQendraKosto.colTrupiQendraKosto()
-					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, false, dtDok, false, false, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
+					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, false, perdorues.IdGjuha, konfigurimAmbjenti, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
 					new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
 					if (!draftMessage.Status) return new clsMesazh(false, draftMessage.PershkrimMesazhi);
 					msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
 							out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, new clsKokaShitje(), 0, 0, false, false, false, "", serialemag,
 							konfamortizimi, new clsKokaShitje(), out printofature, out printogarancifature, out pageseFature, false, out shfaqmesazhapolupe, konfigurimAmbjenti.KodKonfigAmbjente,
-							false, string.Empty, 0, tollona, zevendesimtollona, false, false, "", "", "", tollonakastrati, tollonakastratielektronik, false, "",
-							false, false, zevendesimtollonakastrati, false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
+							false, string.Empty, 0, false, false, "", "", "", false, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, shtimModifikim == "bli",
 							!konfigurimAmbjenti.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoartri, "", "", false, out mesazhmevonshem, false, String.IsNullOrEmpty(nrdok), iic, nivf);
 				}
 				if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
@@ -1531,7 +1309,7 @@ namespace PlatinumWeb
 				return new clsMesazh(false, err.Message);
 			}
 		}
-		private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, bool tollon, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool tollonkastati, bool zevendesimtollonakastrati, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
+		private colTrupiShitje krijoTrupShtije(GiftCard giftCard, int idPerdoruesi, string veprimi, int idNdermarrje, int idKonfAmbj, string gridDataObject, string gridObjectKomision, string shtimModifikim, bool gjenerodokumentmagazine, bool ownshop, string Grup1, string btnMagazina, bool meme, IDictionary<string, object> seriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrolloSasi, double kursi, int statusDokumenti, clsKonfigurimAmbjenti konfmag, bool blerengadealer, bool shitjevodafone, DateTime dtdok)
 		{
 			Dictionary<string, string>[] dokumenti = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(gridDataObject);//serializusi.DeserializeObject(gridDataObject) as object[];
 			colTrupiShitje trupat = new colTrupiShitje();
@@ -1553,7 +1331,7 @@ namespace PlatinumWeb
 			var nrRendorSerial = -1;
 			for (int i = 0; i < dokumentiLength; i++)
 			{
-				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, i, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
+				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, dokumenti[i], isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, i, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, i + 1, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
 				if (string.IsNullOrEmpty(trupi.Kodi))
 					continue;
 
@@ -1572,7 +1350,7 @@ namespace PlatinumWeb
 			}
 			if (!giftCard.code.IsNullOrEmpty())
 			{
-				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, giftCard, isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, tollon, dokumentiLength - 1, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, tollonkastati, konvertimblerje, zevendesimtollonakastrati, kthimVod, blerengadealer, shitjevodafone, dokumentiLength, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
+				clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, giftCard, isShitje, konvertim, meme, merrSipasGrupit, Grup1, merrDhurata, ownshop, gjenerodokumentmagazine, klonim, kthim, veprimi, dokumentiLength - 1, seriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, konvertimblerje, kthimVod, blerengadealer, shitjevodafone, dokumentiLength, ruajBarkod, false, lejoMagNdryshme, dtdok, lejoSasiPozitiveKthim, ref nrRendorSerial, true);
 				if (string.IsNullOrEmpty(trupi.Kodi))
 					return trupat;
 

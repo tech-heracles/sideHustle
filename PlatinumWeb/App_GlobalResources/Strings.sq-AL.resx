@@ -7958,12 +7958,6 @@ Nr. i biznesit:70026257</value>
   <data name="MenuItemRaportShitjetEinvoice" xml:space="preserve">
     <value>Fatura shitje Einvoice</value>
   </data>
-  <data name="MenuItemRaportTollonash" xml:space="preserve">
-    <value>Tollona</value>
-  </data>
-  <data name="MenuItemRaportTollonashKastrati" xml:space="preserve">
-    <value>Tollona 2</value>
-  </data>
   <data name="MenuItemRaportGjendjaArtikujveIMEI" xml:space="preserve">
     <value>Gjendja e artikujve me IMEI</value>
   </data>
@@ -12184,9 +12178,6 @@ MBI TE ARDHURAT NGA PUNESIMI</value>
   <data name="RaportListpgKontributetSigShoqTitulli" xml:space="preserve">
     <value>Listëpagesa e Kontributeve të Sigurimeve Shoqërore, Shëndetësore dhe Tatimit mbi të Ardhurat nga Punësimi</value>
   </data>
-  <data name="RaportMarzhiShitjeveSipasKlienteveTitulli" xml:space="preserve">
-    <value>Regjistri Analitik i Tollonave</value>
-  </data>
   <data name="RaportMarzhiShitjeveTitulli" xml:space="preserve">
     <value>Marzhi i Shitjeve</value>
   </data>
@@ -13227,18 +13218,6 @@ Zgjidhni skedarin e backupit per te ngarkuar</value>
   </data>
   <data name="lblGjatesiKodbar" xml:space="preserve">
     <value>Codebar length</value>
-  </data>
-  <data name="MenuItemImportShitjeTollona" xml:space="preserve">
-    <value>Import shitje Tollona</value>
-  </data>
-  <data name="MenuItemImportShitjeTollonaSpecifik" xml:space="preserve">
-    <value>Import shitje Tollona Elektronik Specifik</value>
-  </data>
-  <data name="MenuItemImportTollonaElekronike" xml:space="preserve">
-    <value>Import shitje Tollona Elektronik</value>
-  </data>
-  <data name="MenuItemImportTollonaLeter" xml:space="preserve">
-    <value>Import shitje Tollona Letër</value>
   </data>
   <data name="mesazhRuajtjeMeSukses" xml:space="preserve">
     <value>Ruajtja perfundoi me sukses!</value>
@@ -14534,9 +14513,6 @@ www.digicom.al</value>
   <data name="filterGrupimDokArsye" xml:space="preserve">
     <value>Arsye</value>
   </data>
-  <data name="RaportPermbledhesTollonaTitulli" xml:space="preserve">
-    <value>Regjistri Permbledhes i Tollonave</value>
-  </data>
   <data name="labelRegjistriPermbledhesiKlienteve" xml:space="preserve">
     <value>Regjistri Permbledhes i Klienteve</value>
   </data>
@@ -14854,9 +14830,6 @@ Banka Kombetare Tregtare
   </data>
   <data name="labelRaportVleraFaturimit" xml:space="preserve">
     <value>Vlera e faturimit</value>
-  </data>
-  <data name="RaportMarzhiShitjeveTollonaTitull" xml:space="preserve">
-    <value>Marzhi i shitjeve (tollona)</value>
   </data>
   <data name="RaportMarzhiShitjeveSipasDetajimeveTitulli" xml:space="preserve">
     <value>Marzhi i shitjeve sipas detajimeve te artikujve</value>

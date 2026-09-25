@@ -353,17 +353,11 @@ namespace RestApi.WebAPI.Models
                 bool gjeneroBij = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "GJUBB") == "Po" || clsAlternativaKushti.getAlternativa(idkonfigKVDN, "GJFBB") == "Po";
                 string kodGrup1 = new clsGrupimDokumentiKoka(dok.IdGrup1).Kodi;
                 bool faturePermbledhese = false, kontrollEkzistence = false, blerenNgaDealeri = false, kontrolloGjendje = false;
-                bool tollona = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "RSHTT") == "Po";
                 bool autoKlient = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "LAVK") == "Po";
-                bool tollonaKastrati = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "RSHTTK") == "Po";
-                bool tollonaKastratiElektronik = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "RSHTTKE") == "Po";
-                string llojZevendesimi = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "ZT");
-                bool zevendesimtollona = !(llojZevendesimi == "Jo");
                 bool krijoArtRi = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "BKAR") == "Po";
                 clsKusht kushtVfone = new clsKusht(idkonfigKVDN, "ZDVFONE");
                 clsKonfigurimAmbjenti konfVfone = new clsKonfigurimAmbjenti(kushtVfone.Vlera);
                 var serialetUnike = mySessionObjects.MerrNgaSession<colSerialeUnikeMagazina>(Session, Constants.SERIALE_UNIKE_TE_NGARKUAR);
-                bool zevendesimtollonakastrati = clsAlternativaKushti.getAlternativa(idkonfigKVDN, "ZTK") == "Po";
 
                 clsMesazh mesazh = new clsMesazh(true);
                 string serverUrl = "", mesazhmevonshem = "";
@@ -397,7 +391,7 @@ namespace RestApi.WebAPI.Models
                         if (new clsArtikulli(tr.IdKodi).Klasa == 3)
                             continue; // kur kushti MPASHGJK eshte Jo, nuk perfshihen artikujt sherbim ne dok e konvertuar
 
-                    clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, isShitje, konvertim, eshteMeme, merrSipasGrupit, kodGrup1, merrDhurata, eshteOwn, gjeneroDokMag, false, false, veprimi, tollona, tollonaKastrati, konvertimBlerje, zevendesimtollonakastrati, false, blerenNgaDealeri, tr.Kodi, tr.IdLlojVeprimi == 1 ? "Artikull" : "Llogari", tr.IdKodi, tr.IdShitjeTrupi, tr.IdTrupiKonvertimi, tr.IdTrupiKonvertimBlerje, tr.IdTrupiRezervimi, tr.IdTrupiTransferimi, tr.IdTrupiKthim, tr.Pershkrimi, tr.KodDetajim1, tr.KodDetajim2, tr.IdNjesia, tr.Sasia, tr.SasiRez, tr.Gjeresi, tr.Gjatesi, tr.SasiPermasa, tr.Cmimi, tr.Zbritje, tr.LlojZbritje, tr.ZbritjeVlere, tr.VleftaPaTvsh, tr.Tvsh, tr.VleftaMeTvsh, tr.IdMagazina, tr.Shenime, tr.NrLlogShpenzimi, tr.DtFillimi, tr.DtMbarimi, tr.Shenime2, tr.IdBarkodi, tr.IdKategoriShpenzimi, konfigKVDN.KodKonfigAmbjente, i, lejoMagNdryshme, dok.DtDok, lejoSasiPozitiveKthim);
+                    clsTrupiShitje trupi = new clsTrupiShitje(idNdermarrje, idPerdoruesi, isShitje, konvertim, eshteMeme, merrSipasGrupit, kodGrup1, merrDhurata, eshteOwn, gjeneroDokMag, false, false, veprimi, konvertimBlerje, false, blerenNgaDealeri, tr.Kodi, tr.IdLlojVeprimi == 1 ? "Artikull" : "Llogari", tr.IdKodi, tr.IdShitjeTrupi, tr.IdTrupiKonvertimi, tr.IdTrupiKonvertimBlerje, tr.IdTrupiRezervimi, tr.IdTrupiTransferimi, tr.IdTrupiKthim, tr.Pershkrimi, tr.KodDetajim1, tr.KodDetajim2, tr.IdNjesia, tr.Sasia, tr.SasiRez, tr.Gjeresi, tr.Gjatesi, tr.SasiPermasa, tr.Cmimi, tr.Zbritje, tr.LlojZbritje, tr.ZbritjeVlere, tr.VleftaPaTvsh, tr.Tvsh, tr.VleftaMeTvsh, tr.IdMagazina, tr.Shenime, tr.NrLlogShpenzimi, tr.DtFillimi, tr.DtMbarimi, tr.Shenime2, tr.IdBarkodi, tr.IdKategoriShpenzimi, konfigKVDN.KodKonfigAmbjente, i, lejoMagNdryshme, dok.DtDok, lejoSasiPozitiveKthim);
                     i++;
                     totaliPaTvsh += tr.VleftaPaTvsh;
                     totaliMeTvsh += tr.VleftaMeTvsh;
@@ -439,7 +433,7 @@ namespace RestApi.WebAPI.Models
                 var merrMagazinePerberesi = clsAlternativaKushti.getAlternativa(konfigKVDN.IdKonfigAmbjente, "KGJAPMR") == "Po";
                 try
                 {
-                    mesazh = shitjaKonvert.krijoShitje(ref gjeneroDokMag, konfigKVDN.IdNivel, dok.IdTemplate, idkonfigKVDN, dok.IdKlientFurnitor > 1 ? dok.IdKlientFurnitor : 0, dok.EmerKlienti, dok.IdProjekt, dok.NrProjekt, DateTime.Today, dok.NrDok, dok.NrSerial, dok.DtMaturimi, dok.IdMonedha, dokKodMonedhe, dok.Kursi, dok.IdMenyreTransporti, dok.KodMenyreTransporti, dok.DtTransportimi, dok.IdKushtDergimi, dok.KodKushtDergimi, dok.IdAgjent, dok.KodAgjenti, dok.IdMenyrePagese, dok.KodMenyrePagese == null ? "" : dok.KodMenyrePagese, dok.IdKushtPagese, dok.KodKushtPagese == null ? "" : dok.KodKushtPagese, dok.Zbritje, totaliMeTvsh, tvsh, DateTime.Today, idStatusDokKonvert, idNdermarrje, idNderVit, 0, 0, 0, 0, dok.AdresaFaturimit, dok.AdresaDergimit, dok.Pershkrimi, dok.Dogana, dok.IdDegeAdministrative, dok.KodDegeAdministrative == null ? "" : dok.KodDegeAdministrative, dok.IdPikeShitjeFurnizimi, dok.KodPikeShitje == null ? "" : dok.KodPikeShitje, idPerdoruesi, dok.IdRaportDesing, trupat, isShitje, konfigKVDN.KodKonfigAmbjente, idPeriudheKontabel, konfmag, idMag, kodMag, mekontabilizim, dok.IdGrup1, dok.IdGrup2, dok.IdGrup3, dok.AfatKohor, dok.Cash, dok.StatusAprovimi, idPerdoruesi, dok.PerqindjeAgjenti, out shfaqmesazhapolupe, dok.HfArkiva, new colTrupiQendraKosto(), 0, out mesazhinformues, gjeneroMeme, kokaMeme, 0, 0, eshteMeme, gjeneroBij, StatusTrasferimi.PaTransferuar, dok.EmerKlienti, dok.Kontakti, dok.Kase, dok.Kupon, kodGrup1 == null ? "" : kodGrup1, dok.DtFillimi, dok.DtMbarimi, dok.IdAutomjet, dok.KilometraAuto, dok.Targa, dok.IdAgjenti2, dok.PerqindjeAgjenti2, dok.KodAgjenti2, dok.IdAgjenti3, dok.PerqindjeAgjenti3, dok.KodAgjenti3, dok.Marresi, dok.IdTransportues, dok.EmertimTr == null ? "" : dok.EmertimTr, faturePermbledhese, faturashitjengaurdhershitjamekupontatimor, dok.ShpenzimeJoTeZbritshme, dok.IdArka, kontrollEkzistence, tollona, autoKlient, false, dok.DtFature, false, tollonaKastrati, tollonaKastratiElektronik, dok.MuajRaportimi, dok.IdVitRaportimi, dok.Shoferi, dok.TargaShoferit == null ? "" : dok.TargaShoferit, dok.ZbritjeNeVlere, dok.PerqindjeZbritje, dok.IdKarta, dok.Pike, dok.OColFazat, dok.IdFaza, dok.ColKlienteFurnitoreVartes, DateTime.Now, new DbData(), llojZevendesimi, dok.Koordinata, blerenNgaDealeri, krijoArtRi, idGjuha, konfVfone, -1, dok.NiptK, dok.QytetiK, kontrolloGjendje, dok.IdKategoriSeriali, serialetUnike, dok.Shenime2, dok.KartaPaPagese, 0, false, 0, dok.IdMarreveshje, StatusMarreveshje.Inaktive, dok.KerkuarNga, "shtim", dok.DateKerkese, merrMagazinePerberesi, dok.NrDok, "", "", 0, "", "", "", 0, 0, "");
+                    mesazh = shitjaKonvert.krijoShitje(ref gjeneroDokMag, konfigKVDN.IdNivel, dok.IdTemplate, idkonfigKVDN, dok.IdKlientFurnitor > 1 ? dok.IdKlientFurnitor : 0, dok.EmerKlienti, dok.IdProjekt, dok.NrProjekt, DateTime.Today, dok.NrDok, dok.NrSerial, dok.DtMaturimi, dok.IdMonedha, dokKodMonedhe, dok.Kursi, dok.IdMenyreTransporti, dok.KodMenyreTransporti, dok.DtTransportimi, dok.IdKushtDergimi, dok.KodKushtDergimi, dok.IdAgjent, dok.KodAgjenti, dok.IdMenyrePagese, dok.KodMenyrePagese == null ? "" : dok.KodMenyrePagese, dok.IdKushtPagese, dok.KodKushtPagese == null ? "" : dok.KodKushtPagese, dok.Zbritje, totaliMeTvsh, tvsh, DateTime.Today, idStatusDokKonvert, idNdermarrje, idNderVit, 0, 0, 0, 0, dok.AdresaFaturimit, dok.AdresaDergimit, dok.Pershkrimi, dok.Dogana, dok.IdDegeAdministrative, dok.KodDegeAdministrative == null ? "" : dok.KodDegeAdministrative, dok.IdPikeShitjeFurnizimi, dok.KodPikeShitje == null ? "" : dok.KodPikeShitje, idPerdoruesi, dok.IdRaportDesing, trupat, isShitje, konfigKVDN.KodKonfigAmbjente, idPeriudheKontabel, konfmag, idMag, kodMag, mekontabilizim, dok.IdGrup1, dok.IdGrup2, dok.IdGrup3, dok.AfatKohor, dok.Cash, dok.StatusAprovimi, idPerdoruesi, dok.PerqindjeAgjenti, out shfaqmesazhapolupe, dok.HfArkiva, new colTrupiQendraKosto(), 0, out mesazhinformues, gjeneroMeme, kokaMeme, 0, 0, eshteMeme, gjeneroBij, StatusTrasferimi.PaTransferuar, dok.EmerKlienti, dok.Kontakti, dok.Kase, dok.Kupon, kodGrup1 == null ? "" : kodGrup1, dok.DtFillimi, dok.DtMbarimi, dok.IdAutomjet, dok.KilometraAuto, dok.Targa, dok.IdAgjenti2, dok.PerqindjeAgjenti2, dok.KodAgjenti2, dok.IdAgjenti3, dok.PerqindjeAgjenti3, dok.KodAgjenti3, dok.Marresi, dok.IdTransportues, dok.EmertimTr == null ? "" : dok.EmertimTr, faturePermbledhese, faturashitjengaurdhershitjamekupontatimor, dok.ShpenzimeJoTeZbritshme, dok.IdArka, kontrollEkzistence, autoKlient, false, dok.DtFature, false, dok.MuajRaportimi, dok.IdVitRaportimi, dok.Shoferi, dok.TargaShoferit == null ? "" : dok.TargaShoferit, dok.ZbritjeNeVlere, dok.PerqindjeZbritje, dok.IdKarta, dok.Pike, dok.OColFazat, dok.IdFaza, dok.ColKlienteFurnitoreVartes, DateTime.Now, new DbData(), dok.Koordinata, blerenNgaDealeri, krijoArtRi, idGjuha, konfVfone, -1, dok.NiptK, dok.QytetiK, kontrolloGjendje, dok.IdKategoriSeriali, serialetUnike, dok.Shenime2, dok.KartaPaPagese, 0, false, 0, dok.IdMarreveshje, StatusMarreveshje.Inaktive, dok.KerkuarNga, "shtim", dok.DateKerkese, merrMagazinePerberesi, dok.NrDok, "", "", 0, "", "", "", 0, 0, "");
                 }
                 catch (Exception exp)
                 {
@@ -458,7 +452,7 @@ namespace RestApi.WebAPI.Models
                 {
                     DbData dbData = new DbData();
 
-                    mesazh = shitjaKonvert.ruaj(idGjuha, serverUrl, isShitje, null, idPeriudheKontabel, new colKonvertimi(), gjeneroDokMag, out veprimeBanka, kushtZSP.Vlera, StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMeme, 0, 0, dergoemail, eshteOwn, dergoemailVFOne, "", serialeMag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, konfigKVDN.KodKonfigAmbjente, false, string.Empty, 0, tollona, zevendesimtollona, false, false, "", "", "", tollonaKastrati, tollonaKastratiElektronik, false, "", false, false, zevendesimtollonakastrati, ruajRenditje, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, blerenNgaDealeri, !konfigKVDN.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoArtRi, "", "", false, out mesazhmevonshem, false, true, "", "");
+                    mesazh = shitjaKonvert.ruaj(idGjuha, serverUrl, isShitje, null, idPeriudheKontabel, new colKonvertimi(), gjeneroDokMag, out veprimeBanka, kushtZSP.Vlera, StatusAprovimi.Undefined, 0, out shfaqmesazhapolupemagazina, out shfaqmesazhapolupebanka, out shfaqmesazhapolupeVDK, kokaMeme, 0, 0, dergoemail, eshteOwn, dergoemailVFOne, "", serialeMag, konfamortizimi, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature, out pageseFature, mekontabilizim, out shfaqmesazhapolupe, konfigKVDN.KodKonfigAmbjente, false, string.Empty, 0, false, false, "", "", "", ruajRenditje, kontrolloSasiKonvertimiDheKthimi, new colKokaShitje(), kontrolloIMEIFifo, blerenNgaDealeri, !konfigKVDN.KodKonfigAmbjente.Contains("USHmag"), ref dbData, krijoArtRi, "", "", false, out mesazhmevonshem, false, true, "", "");
                 }
                 catch (Exception exp)
                 {
@@ -6645,13 +6639,7 @@ namespace RestApi.WebAPI.Models
 
 
                 bool kontrollorivleresim = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "KR") == "Po";
-                bool tollona = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTT") == "Po";
-                bool tollonakastrati = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTK") == "Po";
-                bool tollonakastratielektronik = clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "RSHTTKE") == "Po";
-                bool lidhur = (clsKoka.eshteILidhur()
-                    || (tollona && DbCore.DbTollona.clsShitjeMeSerial.kaTollonaShitja(clsKoka.IdShitjeKoka))
-                    || (tollonakastrati && DbCore.DbTollona.clsTollonaLeter.kaTollonaShitja(clsKoka.IdShitjeKoka))
-                    || (tollonakastratielektronik && DbCore.DbTollona.clsTollonaElektronik.kaTollonaShitja(clsKoka.IdShitjeKoka)));
+                bool lidhur = clsKoka.eshteILidhur();
                 if (lidhur)
                 {
                     teLidhur.Add(clsKoka.NrDok);
@@ -6725,7 +6713,7 @@ namespace RestApi.WebAPI.Models
                         trupat.AddRange(tr);
                     }
                 clsKoka.IdPerdoruesi = idPerdoruesi;
-                clsMesazh mesazhi = clsKoka.fshi(idPerdoruesi, idKategoria == 1 ? true : false, tollonakastrati, tollonakastratielektronik);
+                clsMesazh mesazhi = clsKoka.fshi(idPerdoruesi, idKategoria == 1 ? true : false);
 
                 if (mesazhi.Status)
                     teFshire.Add(clsKoka);

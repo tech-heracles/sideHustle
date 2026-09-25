@@ -180,7 +180,7 @@ namespace DbCore.DbRegjistrim
         {
         }
 
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);    
             string kodi = rreshtDokuKlient["txtKodi"].ToString();
@@ -237,7 +237,7 @@ namespace DbCore.DbRegjistrim
             if (njesia != string.Empty && njesia != null && njesia != "null")
                 idNjesi = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje);
 
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -278,7 +278,7 @@ namespace DbCore.DbRegjistrim
                     break;
             }
         }
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, Dictionary<string, string> rreshtDokuKlient, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
             Dictionary<string, string> itemMetadata = rreshtDokuKlient;
@@ -345,7 +345,7 @@ namespace DbCore.DbRegjistrim
                 clsNjesiArtikulli njesiaFound = colNjesi.Find(x => x.KodEinvoice == rreshtDokuKlient["unitFisc"].ToString());
                 idNjesi = njesiaFound != null ? njesiaFound.IdNjesia : 0;
             }
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -386,7 +386,7 @@ namespace DbCore.DbRegjistrim
                     break;
             }
         }
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, GiftCard giftCard, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, GiftCard giftCard, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, int rreshti, IDictionary<string, object> hfSeriale, IDictionary<string, object> hfIdGride, double perqindjeZbritje, DbCore.DbAsete.colSerialetMagazine colserialemag, bool kontrollosasi, double kursi, int statusDokumenti, DbCore.DbShare.clsKonfigurimAmbjenti konfmag, bool konvertimblerje, bool kthimVod, bool blerjengadealer, bool shitjevodafone, int nrRreshtit, bool ruajbarkod, bool meKomision, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim, ref int nrRendorSerial, bool fatureAutomatike)
         {
             //  DbAdmin.colGridaTrupi colGrida = new DbAdmin.colGridaTrupi(idKomp, idKonfigurimAmbiente);
             clsArtikulli item = new clsArtikulli(giftCard.code, idNdermarrje);
@@ -451,7 +451,7 @@ namespace DbCore.DbRegjistrim
                 clsNjesiArtikulli njesiaFound = new clsNjesiArtikulli(item.Njesi1Artikulli);
                 idNjesi = njesiaFound != null ? njesiaFound.IdNjesia : 0;
             }
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkod, kodi, shenime, shenime2, idNjesi, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
             if (idLlojVeprimi == 1)
                 nrRendorSerial++;
             if (art.LlojiArt)
@@ -498,7 +498,7 @@ namespace DbCore.DbRegjistrim
             return (clsTrupiShitje)this.MemberwiseClone();
         }
 
-        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool tollon, bool tollonkastrati, bool konvertimblerje, bool zevendesimtollonakastrati, bool kthimVod, bool blerjengadealer, string kodi, string lloji, int idKodi, int idShitjeTrupi, int idTrupiKonvertimi, int idTrupiKonvertimBlerje, int idTrupiRezervimi, int idTrupiTransferimi, int idTrupiKthim, string pershkr, string detajimi, string detajimi2, int idNjesia, double sasia, double sasiRez, double gjeresi, double gjatesi, double sasiPermasa, double cmimi, double zbritje, int llojZbritje, double zbritjeVlere, double vleftaPaTvsh, int idTvsh, double vleftaMeTvsh, int idMagazina, string shenime, string nrLlogShpenz, DateTime dtFillimi, DateTime dtMbarimi, string shenime2, int idBarkodi, int idKategoriShpenzimi, string kodKonfigKVDN, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
+        public clsTrupiShitje(int idNdermarrje, int idPerdoruesi, bool isShitje, bool konvertim, bool meme, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool ownshop, bool gjenerodokumentmagazine, bool klonim, bool kthim, string veprimi, bool konvertimblerje, bool kthimVod, bool blerjengadealer, string kodi, string lloji, int idKodi, int idShitjeTrupi, int idTrupiKonvertimi, int idTrupiKonvertimBlerje, int idTrupiRezervimi, int idTrupiTransferimi, int idTrupiKthim, string pershkr, string detajimi, string detajimi2, int idNjesia, double sasia, double sasiRez, double gjeresi, double gjatesi, double sasiPermasa, double cmimi, double zbritje, int llojZbritje, double zbritjeVlere, double vleftaPaTvsh, int idTvsh, double vleftaMeTvsh, int idMagazina, string shenime, string nrLlogShpenz, DateTime dtFillimi, DateTime dtMbarimi, string shenime2, int idBarkodi, int idKategoriShpenzimi, string kodKonfigKVDN, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
         {
             bool shitjevodafone = false;
             string magazina = clsNjesiAdministrative.ktheKodiNjesiAdministrativeSipasiDPaAutorizime(idMagazina);
@@ -534,7 +534,7 @@ namespace DbCore.DbRegjistrim
             clsArtikulli art = new clsArtikulli();
             clsLlogari llog = new clsLlogari();
 
-            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, tollon, tollonkastrati, zevendesimtollonakastrati, idBarkodi, kodi, shenime, shenime2, idNjesia, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
+            kontrolloTrupShitje(lloji, art, llog, idNdermarrje, idPerdoruesi, veprimi, gjenerodokumentmagazine, merrSipasGrupit, kodgrupi, merrDhurata, konvertim, klonim, kthim, konvertimblerje, kthimVod, blerjengadealer, pershkr, detajimi, isShitje, ownshop, shitjevodafone, meme, detajimi2, idTvsh, magazina, nrLlogShpenz, idBarkodi, kodi, shenime, shenime2, idNjesia, nrRreshtit, lejoMagNdryshme, dtDok, lejoSasiPozitiveKthim);
 
             switch ((llojRreshtiShitje)idLlojVeprimi)
             {
@@ -547,7 +547,7 @@ namespace DbCore.DbRegjistrim
             }
         }
 
-        public void kontrolloTrupShitje(string lloji, clsArtikulli art, clsLlogari llog, int idNdermarrje, int idPerdoruesi, string veprimi, bool gjenerodokumentmagazine, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool konvertim, bool klonim, bool kthim, bool konvertimblerje, bool kthimVod, bool blerjengadealer, string pershkr, string detajimi, bool isShitje, bool ownshop, bool shitjevodafone, bool meme, string detajimi2, int idTvsh, string magazina, string nrLlogShpenz, bool tollon, bool tollonkastrati, bool zevendesimtollonakastrati, int idBarkod, string kodArt, string shenim, string shenim2, int idNjesi, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
+        public void kontrolloTrupShitje(string lloji, clsArtikulli art, clsLlogari llog, int idNdermarrje, int idPerdoruesi, string veprimi, bool gjenerodokumentmagazine, bool merrSipasGrupit, string kodgrupi, bool merrDhurata, bool konvertim, bool klonim, bool kthim, bool konvertimblerje, bool kthimVod, bool blerjengadealer, string pershkr, string detajimi, bool isShitje, bool ownshop, bool shitjevodafone, bool meme, string detajimi2, int idTvsh, string magazina, string nrLlogShpenz, int idBarkod, string kodArt, string shenim, string shenim2, int idNjesi, int nrRreshtit, bool lejoMagNdryshme, DateTime dtDok, bool lejoSasiPozitiveKthim)
         {
             if (lloji == "Artikull")
             {
@@ -832,33 +832,6 @@ namespace DbCore.DbRegjistrim
             else
                 this.shenime2 = "";
 
-            if ((tollon || tollonkastrati) && idLlojVeprimi == 1)
-            {
-                if (shenime == string.Empty)
-                    throw new MyException("Duhet te shenoni serialin fillestar te tollonave!");
-                if (zevendesimtollonakastrati)
-                {
-                    if (shenime != "0" && tollon)
-                    {
-                        long serialitollon = 0;
-                        long.TryParse(shenime, out serialitollon);
-                        if (serialitollon == 0)
-                            throw new MyException("Seriali fillestar i tollonave duhet te jete numer!");
-
-
-                    }
-                    int length = shenime.Length;
-                    if (tollonkastrati && length != 19)
-                        throw new MyException("Gjatesia e tollonit nuk eshte e sakte!");
-                    if (tollonkastrati)
-                    {
-                        long serialitollon1 = 0;
-                        long.TryParse(shenime.Substring(10, 9), out serialitollon1);
-                        if (serialitollon1 == 0)
-                            throw new MyException("Seriali fillestar i tollonave nuk eshte ne formatin e duhur!");
-                    }
-                }
-            }
         }
 
         //private void KontrolloZbritjeAnalitike(bool lejoZbritjeNegative)
@@ -1384,16 +1357,16 @@ namespace DbCore.DbRegjistrim
 
         }
         public clsMesazh krijoTrupShitje(int idShiTrup, int idShiKoka, int idLlojVep, string kod, string pershkr, int IdDetaj, int idNjes, double sas, double cm,
-            double zbr, double vlMeTv, int tv, double vlPaTv, int idkodi, int idMagazina, double gjeresi, double gjatesi, double sasipermasa, string shenime, DateTime dtfill, DateTime dtmb, int idtrupikonvertimi, double sasirez, int idtrupirez, int idtrupitransferim, int idtrupikthim, int idndermarje, int idLlogShpenzimi, int idDetajim2, object elem, bool tollona, bool tollonkastrati, int idtrupikonvertimblerje, string shenime2, int llojzbritje, double zbritjavlere, int idKategoriShpenzimi, int idBarkodi, int idTrupiTransferimNga, int sasiambetur)
+            double zbr, double vlMeTv, int tv, double vlPaTv, int idkodi, int idMagazina, double gjeresi, double gjatesi, double sasipermasa, string shenime, DateTime dtfill, DateTime dtmb, int idtrupikonvertimi, double sasirez, int idtrupirez, int idtrupitransferim, int idtrupikthim, int idndermarje, int idLlogShpenzimi, int idDetajim2, object elem, int idtrupikonvertimblerje, string shenime2, int llojzbritje, double zbritjavlere, int idKategoriShpenzimi, int idBarkodi, int idTrupiTransferimNga, int sasiambetur)
         {
             using (clsDatabaseKontabilitet dbk = new clsDatabaseKontabilitet())
             {
                 return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, IdDetaj, idNjes, sas, cm,
-                 zbr, vlMeTv, tv, vlPaTv, idkodi, idMagazina, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idtrupikonvertimi, sasirez, idtrupirez, idtrupitransferim, idtrupikthim, idndermarje, idLlogShpenzimi, idDetajim2, elem, tollona, tollonkastrati, idtrupikonvertimblerje, shenime2, llojzbritje, zbritjavlere, idKategoriShpenzimi, idBarkodi, dbk, idTrupiTransferimNga, 0, false, sasiambetur);
+                 zbr, vlMeTv, tv, vlPaTv, idkodi, idMagazina, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idtrupikonvertimi, sasirez, idtrupirez, idtrupitransferim, idtrupikthim, idndermarje, idLlogShpenzimi, idDetajim2, elem, idtrupikonvertimblerje, shenime2, llojzbritje, zbritjavlere, idKategoriShpenzimi, idBarkodi, dbk, idTrupiTransferimNga, 0, false, sasiambetur);
             }
         }
         public clsMesazh krijoTrupShitje(int idShiTrup, int idShiKoka, int idLlojVep, string kod, string pershkr, int IdDetaj, int idNjes, double sas, double cm,
-            double zbr, double vlMeTv, int tv, double vlPaTv, int idkodi, int idMagazina, double gjeresi, double gjatesi, double sasipermasa, string shenime, DateTime dtfill, DateTime dtmb, int idtrupikonvertimi, double sasirez, int idtrupirez, int idtrupitransferim, int idtrupikthim, int idndermarje, int idLlogShpenzimi, int idDetajim2, object elem, bool tollona, bool tollonkastrati, int idtrupikonvertimblerje, string shenime2, int llojzbritje,
+            double zbr, double vlMeTv, int tv, double vlPaTv, int idkodi, int idMagazina, double gjeresi, double gjatesi, double sasipermasa, string shenime, DateTime dtfill, DateTime dtmb, int idtrupikonvertimi, double sasirez, int idtrupirez, int idtrupitransferim, int idtrupikthim, int idndermarje, int idLlogShpenzimi, int idDetajim2, object elem, int idtrupikonvertimblerje, string shenime2, int llojzbritje,
             double zbritjavlere, int idKategoriShpenzimi, int idBarkodi, clsDatabaseKontabilitet dbK, int idTrupiTransferimNga, double vleraKomisionit, bool MeKomision, int sasiambetur)
         {
             idShitjeTrupi = idShiTrup;
@@ -1440,7 +1413,7 @@ namespace DbCore.DbRegjistrim
             this.vleraKomisionit = vleraKomisionit;
             this.meKomision = MeKomision;//shtuar dy fushat e reja 
             OColDetajimet = new colDetajimeArtikulliRegjistrim();
-            clsMesazh mesazh = kontrollo(idndermarje, tollona, tollonkastrati, dbK);
+            clsMesazh mesazh = kontrollo(idndermarje, dbK);
             if (!mesazh.Status)
                 return mesazh;
             return new clsMesazh(true, "Dokumenti i trupit shitje/blerjes u krijua me sukses!");
@@ -1479,7 +1452,7 @@ namespace DbCore.DbRegjistrim
                 idkodi = llog.IdLlogari;
                 elem = llog;
             }
-            return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, idDetaj, idNjes, sas, cm, zbr, vlMeTv, tv, vlPaTv, idkodi, idMagazina, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idtrupikonvertimi, sasirez, idtrupirez, idtrupitransferim, idtrupikthim, idndermarje, idLlogShpenz, 0, elem, false, false, idtrupikonvertimblerje, shenime2, llojzbritje, zbritjevlere, idkategoriShpenzimi, idBarkodi, idTrupiTransferimNga, 0);
+            return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, idDetaj, idNjes, sas, cm, zbr, vlMeTv, tv, vlPaTv, idkodi, idMagazina, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idtrupikonvertimi, sasirez, idtrupirez, idtrupitransferim, idtrupikthim, idndermarje, idLlogShpenz, 0, elem, idtrupikonvertimblerje, shenime2, llojzbritje, zbritjevlere, idkategoriShpenzimi, idBarkodi, idTrupiTransferimNga, 0);
 
         }
 
@@ -1777,7 +1750,7 @@ namespace DbCore.DbRegjistrim
 
             if (!ruajKomision && !klientKomision)
                 VleraKomisionit = 0;
-            return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, !String.IsNullOrEmpty(serialiUnikKryesor) ? idSerialiUnikKryesor : idDetaj1, idNjesia, sas, cm, zbr, vlMeTvsh, taksa.IdTaksa, vlPaTvsh, idkodi, mag.IdNjesiAdministrative, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idTrupiKonvertim, sasirez, 0, idtrupitransferim, idTrupiKthimi, idndermarje, idLlogshpenz, idDetaj2, elem, false, false, 0, shenime2trupi, llojzbritje, zbritjevlere, idKategoriShpenzimi, idBarkodi, dbK, idTrupiTransferimNga, VleraKomisionit, klientKomision, sasiambetur);
+            return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, !String.IsNullOrEmpty(serialiUnikKryesor) ? idSerialiUnikKryesor : idDetaj1, idNjesia, sas, cm, zbr, vlMeTvsh, taksa.IdTaksa, vlPaTvsh, idkodi, mag.IdNjesiAdministrative, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idTrupiKonvertim, sasirez, 0, idtrupitransferim, idTrupiKthimi, idndermarje, idLlogshpenz, idDetaj2, elem, 0, shenime2trupi, llojzbritje, zbritjevlere, idKategoriShpenzimi, idBarkodi, dbK, idTrupiTransferimNga, VleraKomisionit, klientKomision, sasiambetur);
         }
 
         public static void KtheColKomision(ref colTrupiShitje colTrupiKomision, clsTrupiShitje trupiurdher, int idNdermarrje, bool klientKomision, double vleraKomisionit, string kodi, int idPerdorues, ref bool ruajKomision)
@@ -1809,7 +1782,7 @@ namespace DbCore.DbRegjistrim
                 ruajKomision = false;
         }
 
-        private clsMesazh kontrollo(int idndermarje, bool tollon, bool tollonkastrati, clsDatabaseKontabilitet dbK)
+        private clsMesazh kontrollo(int idndermarje, clsDatabaseKontabilitet dbK)
         {
             if (idLlojVeprimi == 1)
             {
@@ -1832,28 +1805,6 @@ namespace DbCore.DbRegjistrim
                 clsLlogari LLogShpenz = new clsLlogari(nrLlogShpenzimi, idndermarje, dbK); //behet throw nese llogaria nuk ekziston
                                                                                            //if (!clsLlogari.ekzistonLlogari(nrLlogShpenzimi, idndermarje))
                                                                                            //    return new clsMesazh(false, "Llogaria e shpenzimit nuk ekziston!");
-            }
-            if ((tollon || tollonkastrati) && idLlojVeprimi == 1)
-            {
-                if (shenime == string.Empty)
-                    return new clsMesazh(false, "Duhet te shenoni serialin fillestar te tollonave!");
-                if (shenime != "0" && tollon)
-                {
-                    long serialitollon = 0;
-                    long.TryParse(shenime, out serialitollon);
-                    if (serialitollon == 0)
-                        return new clsMesazh(false, "Seriali fillestar i tollonave duhet te jete numer!");
-                }
-                if (shenime != "0" && tollonkastrati)
-                {
-                    int length = shenime.Length;
-                    if (length != 19)
-                        return new clsMesazh(false, "Gjatesia e tollonit nuk eshte e sakte!");
-                    long serialitollon = 0;
-                    long.TryParse(shenime.Substring(10, 9), out serialitollon);
-                    if (serialitollon == 0)
-                        return new clsMesazh(false, "Seriali fillestar i tollonave nuk eshte ne formatin e duhur!");
-                }
             }
             return new clsMesazh(true, "Kontrollet u kaluan me sukses!");
         }

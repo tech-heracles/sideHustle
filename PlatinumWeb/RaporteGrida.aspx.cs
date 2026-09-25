@@ -210,12 +210,6 @@ namespace PlatinumWeb
             DataTable dt;
             switch (Request.QueryString["lloji"])
             {
-                case "tollon":
-                    dt = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialPerRaport(IdNdermarrja);
-                    break;
-                case "kastrat":
-                    dt = DbCore.DbTollona.colTollonaLeter.merrTollonaLeterPerRaport(IdNdermarrja, dtfillimi, dtmbarimi, dtfillimiexe, dtmbarimiexe);
-                    break;
                 case "GjendjaEMagazines":
                     dt = DbCore.DbInventari.colSerialeUnikeMagazina.MerrRaportinGjendjaEMagazines("", dtfillimi.ToString(), dtmbarimi.ToString(), "", "", "", "", "", "", "", "", IdNdermarrja.ToString(), "", "", "", "", "", "", "", "", "", "", IdPerdoruesi.ToString());
                     break;
@@ -309,42 +303,7 @@ namespace PlatinumWeb
                     KonfigurimComboGride.ShtoKategoriSerileshUnike(gvRaporti, IdNdermarrja, Session, Request.QueryString["lloji"], GuidString, "IdKategori");
                     KonfigurimComboGride.ShtoMagazinaSipasPerdoruesitDheNdermarrjes(gvRaporti, IdNdermarrja, IdPerdoruesi, Session, Request.QueryString["lloji"], GuidString, "IDNJESIADM");
                     break;
-                default:
-                    ShtoDtEkzekutimiTime();
-                    gvRaporti.Settings.ShowFooter = true;
-
-                    var col3 = gvRaporti.Columns["Cmimi"] as GridViewDataTextColumn;
-                    col3.PropertiesEdit.DisplayFormatString = "0.00000";
-
-                    var col2 = gvRaporti.Columns["CmimFaturimi"] as GridViewDataTextColumn;
-                    col2.PropertiesEdit.DisplayFormatString = "0.00000";
-
-                    var col4 = gvRaporti.Columns["Diferenca"] as GridViewDataTextColumn;
-                    col4.PropertiesEdit.DisplayFormatString = "0.00000";
-
-                    gvRaporti.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Diferenca");
-                    gvRaporti.TotalSummary.GetVisibleItem(0).DisplayFormat = "Shuma {0}";
-
-                    if (Request.QueryString["lloji"] == "kastrat")
-                    {
-                        col4.PropertiesEdit.DisplayFormatString = "0.00000";
-                        gvRaporti.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "TotaliLitra");
-                        gvRaporti.TotalSummary.GetVisibleItem(1).DisplayFormat = "Shuma {0}";
-                    }
-                    break;
             }
-        }
-
-        private void ShtoDtEkzekutimiTime()
-        {
-            gvRaporti.Columns.Remove(gvRaporti.Columns["DtEkzekutimi"]);
-
-            var colnew = new GridViewDataDateColumn();
-            colnew.PropertiesDateEdit.DateOnError = DateOnError.Undo;
-            colnew.PropertiesDateEdit.DisplayFormatString = Request.QueryString["lloji"] == "tollon" ? "dd/MM/yyyy hh:mm:ss tt" : "dd/MM/yyyy";
-            colnew.FieldName = "DtEkzekutimi";
-            colnew.Settings.AutoFilterCondition = AutoFilterCondition.Greater;
-            gvRaporti.Columns.Add(colnew);
         }
 
         /// <summary>
@@ -533,7 +492,7 @@ namespace PlatinumWeb
         {
             if (Request.QueryString["lloji"] != "GjendjaEArtikujveMeSeriale" && Request.QueryString["lloji"] != "GjendjaEMagazines")
             {
-                GridUtil.GridHeaderFilterFillItem(sender, e, rm, ci, "Klienti", "KodKlienti", "LlojiTolloni", "PikeShitje", "Perdoruesi");
+                GridUtil.GridHeaderFilterFillItem(sender, e, rm, ci, "Klienti", "KodKlienti", "PikeShitje", "Perdoruesi");
             }
         }
 

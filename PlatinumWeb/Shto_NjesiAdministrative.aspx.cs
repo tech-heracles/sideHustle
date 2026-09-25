@@ -752,14 +752,6 @@ namespace PlatinumWeb
 
                         mesazh = njesia.ruajMagazine(hfNrAutoKF, idNderVit, idPeriudheZgjedhur, idnivel);
 
-                        if (mesazh.Status && cbAktiv.Checked && cbPerdorues.Checked)
-                        {
-                            if (!DbCore.DbTollona.clsPerdoruesTolloni.ekzistonPerdorues(njesia.Kodi))
-                            {
-                                DbCore.DbTollona.clsPerdoruesTolloni perdorues = new DbCore.DbTollona.clsPerdoruesTolloni(0, njesia.Kodi, njesia.Kodi, njesia.Kodi, "p", false, true, true, 1);
-                                mesazh = perdorues.ruaj();
-                            }
-                        }
 
 
 
@@ -825,14 +817,6 @@ namespace PlatinumWeb
                         }
                         mesazh = njesia.modifikoMagazine(idNderVit, idPeriudheZgjedhur, idnivel, rm, ci);
                         dbRegjistrim.Dispose();
-                        if (mesazh.Status && cbAktiv.Checked && cbPerdorues.Checked)
-                        {
-                            if (!DbCore.DbTollona.clsPerdoruesTolloni.ekzistonPerdorues(njesia.Kodi))
-                            {
-                                DbCore.DbTollona.clsPerdoruesTolloni perdorues = new DbCore.DbTollona.clsPerdoruesTolloni(0, njesia.Kodi, njesia.Kodi, njesia.Kodi, "p", false, true, true, 1);
-                                mesazh = perdorues.ruaj();
-                            }
-                        }
                     }
                     if (mesazh.Status)
                     {
@@ -951,13 +935,13 @@ namespace PlatinumWeb
             }
             DbCore.DbAdmin.colVleraFushaShtese colFushatShtese = ucFushatShtese.merrFushatShtese();
             if (hfStatusMagazine.Value != "" && hfStatusMagazine.Value != "0" && int.Parse(cmbLloji.Value.ToString()) != 1)
-                njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, int.Parse(hfStatusMagazine.Value.ToString()), DateTime.Parse(hfData.Value.ToString()), 0, kohezgjatja, col, koordinata, cbPerdorues.Checked, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, btnTipiMag.Value.ToString(),idqyteti);
+                njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, int.Parse(hfStatusMagazine.Value.ToString()), DateTime.Parse(hfData.Value.ToString()), 0, kohezgjatja, col, koordinata, false, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, btnTipiMag.Value.ToString(),idqyteti);
             else
             {
                 if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
-                    njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, 0, DateTime.Now, 0, kohezgjatja, col, koordinata, cbPerdorues.Checked, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, btnTipiMag.Value.ToString(), idqyteti);
+                    njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, 0, DateTime.Now, 0, kohezgjatja, col, koordinata, false, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, btnTipiMag.Value.ToString(), idqyteti);
                 else
-                    njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, 0, DateTime.Now, 0, kohezgjatja, col, koordinata, cbPerdorues.Checked, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, "", idqyteti);
+                    njesi = new DbCore.DbRegjistrim.clsNjesiAdministrative(int.Parse(hfId.Value.ToString()), DbCore.clsFunksione.ktheStringunPaHapesira(txtKodi.Text, true), DbCore.clsFunksione.ktheStringunPaHapesira(txtPershkrimi.Text, false), txtAdresa.Text, int.Parse(cmbInventarizimi.Value.ToString()), cbNdjekjeGjendje.Checked, cbAktiv.Checked, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), dteDtRegjistrimi.Date, konfig.IdKonfigAmbjente, iddege, cmbDegeAdministrative.Text.Split(' ')[0], shtim, colLidhje, idlloj, 0, DateTime.Now, 0, kohezgjatja, col, koordinata, false, txtShenime.Text, txtTelefon.Text, int.Parse(cmbLlojLayer.Value.ToString()), idMagPrind, colFushatShtese, txtEmail.Text, hfArkiva, cmbMagPrind.Text, ElementPerIntegrim, idqendra, idskema, int.Parse(cmbLlojiQ.Value.ToString()), rm, ci, cbDet1.Checked, cbDet2.Checked, cbOwnShop.Checked, "", idqyteti);
             }
             return njesi;
         }

@@ -65,16 +65,6 @@ namespace PlatinumWeb
                 DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
                 if (Request.QueryString["lloji"] == "importwk")
                     tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importwk");
-                else if (Request.QueryString["lloji"] == "importtollona")
-                    tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importtollona");
-                else if (Request.QueryString["lloji"] == "importtollonaleter")
-                    tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importtollonaleter");
-                else
-                    if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                    tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importtollonaelektronik");
-                else
-                        if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                    tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importtollonaelektronikspecifik");
                 else
                     tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "ImportWK.aspx?lloji=importfk");
 
@@ -159,14 +149,6 @@ namespace PlatinumWeb
                 ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 if (Request.QueryString["lloji"] == "importwk")
                     kontrolloShitje(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 5);
-                else if (Request.QueryString["lloji"] == "importtollona")
-                    kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaleter")
-                    kontrolloShitjeTollonaLeter(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                    kontrolloShitjeTollonaElektronik(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                    kontrolloShitjeTollonaElektronikSpecifik(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0);
                 else kontrolloFleteKont(idNdermarrje, dt, err, rreshtajoOk, true, 2, rm, cultinf);
 
                 DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, err);
@@ -176,16 +158,8 @@ namespace PlatinumWeb
                     clsKokaErrorImporti koka;
                     if (Request.QueryString["lloji"] == "importwk")
                         koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve nga winline karta", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importfk")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i fleteve kontabel", 5, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaleter")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona leter", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona elektronik", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona elektronik specifik", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     else
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+                        koka = new clsKokaErrorImporti(0, "Nga importi i fleteve kontabel", 5, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
                     DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgImportuan", ci) + " " + (rreshta - err.Rows.Count) + " " + rm.GetString("msgRreshtatDeshtuan", ci) + " " + " " + err.Rows.Count + " " + rm.GetString("msgHapniListenGabimeve", ci), pnlMesazhi);
@@ -201,79 +175,6 @@ namespace PlatinumWeb
             {
                 NLog.LogManager.GetCurrentClassLogger().Error(e.Message);
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, e.Message, pnlMesazhi);
-            }
-        }
-        private void kontrolloShitjeTollona(int idNdermarrje, DataTable dt, DataTable gabime, DataTable tePaImportuara, bool importo, int pozicionkodi)
-        {
-            CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-            int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            System.Globalization.CultureInfo ci = MessagesResource.Messages.CurrentCultureInfo;
-            bool eshteOwn = DbCore.mySessionObjects.merrEshteOwnSesioni(Session);
-            int idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            int idndermvit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-
-            DbCore.DbTollona.colShitjeMeSerial.kontrolloShitjeTollona(idNdermarrje, dt, gabime, tePaImportuara, importo, pozicionkodi, cultinf, rm, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-            if (importo)
-            {
-                DbCore.mySessionObjects.ruajRreshtaImportiNgaGrida(Session, tePaImportuara);
-                gvImport.DataSource = tePaImportuara;
-                gvImport.DataBind();
-                status1.Value = "import";
-            }
-        }
-        private void kontrolloShitjeTollonaLeter(int idNdermarrje, DataTable dt, DataTable gabime, DataTable tePaImportuara, bool importo, int pozicionkodi)
-        {
-
-            int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            System.Globalization.CultureInfo ci = MessagesResource.Messages.CurrentCultureInfo;
-            bool eshteOwn = DbCore.mySessionObjects.merrEshteOwnSesioni(Session);
-            int idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            int idndermvit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            DbCore.DbTollona.colTollonaLeter.kontrolloShitjeTollona(idNdermarrje, dt, gabime, tePaImportuara, importo, pozicionkodi, MessagesResource.Messages.CurrentCultureInfo, MessagesResource.CurrentResourceManager, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-            if (importo)
-            {
-                DbCore.mySessionObjects.ruajRreshtaImportiNgaGrida(Session, tePaImportuara);
-                gvImport.DataSource = tePaImportuara;
-                gvImport.DataBind();
-                status1.Value = "import";
-            }
-        }
-        private void kontrolloShitjeTollonaElektronik(int idNdermarrje, DataTable dt, DataTable gabime, DataTable tePaImportuara, bool importo, int pozicionkodi)
-        {
-            CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-
-            int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            System.Globalization.CultureInfo ci = MessagesResource.Messages.CurrentCultureInfo;
-            bool eshteOwn = DbCore.mySessionObjects.merrEshteOwnSesioni(Session);
-            int idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            int idndermvit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollona(idNdermarrje, dt, gabime, tePaImportuara, importo, pozicionkodi, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-            if (importo)
-            {
-                DbCore.mySessionObjects.ruajRreshtaImportiNgaGrida(Session, tePaImportuara);
-                gvImport.DataSource = tePaImportuara;
-                gvImport.DataBind();
-                status1.Value = "import";
-            }
-        }
-        private void kontrolloShitjeTollonaElektronikSpecifik(int idNdermarrje, DataTable dt, DataTable gabime, DataTable tePaImportuara, bool importo, int pozicionkodi)
-        {
-            ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-
-            bool eshteOwn = DbCore.mySessionObjects.merrEshteOwnSesioni(Session);
-            int idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            int idndermvit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollonaSpecifik(idNdermarrje, dt, gabime, tePaImportuara, importo, pozicionkodi, MessagesResource.CurrentResourceManager, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-            if (importo)
-            {
-                DbCore.mySessionObjects.ruajRreshtaImportiNgaGrida(Session, tePaImportuara);
-                gvImport.DataSource = tePaImportuara;
-                gvImport.DataBind();
-                status1.Value = "import";
             }
         }
 
@@ -294,15 +195,6 @@ namespace PlatinumWeb
                 ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 if (Request.QueryString["lloji"] == "importwk")
                     kontrolloShitje(idNdermarrje, dt, err, rreshtajoOk, false, 5);
-                else
-                    if (Request.QueryString["lloji"] == "importtollona")
-                    kontrolloShitjeTollona(idNdermarrje, dt, err, rreshtajoOk, false, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaleter")
-                    kontrolloShitjeTollonaLeter(idNdermarrje, dt, err, rreshtajoOk, false, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                    kontrolloShitjeTollonaElektronik(idNdermarrje, dt, err, rreshtajoOk, false, 0);
-                else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                    kontrolloShitjeTollonaElektronikSpecifik(idNdermarrje, dt, err, rreshtajoOk, false, 0);
                 else kontrolloFleteKont(idNdermarrje, dt, err, rreshtajoOk, false, 2, rm, ci);
 
                 DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, err);
@@ -312,16 +204,8 @@ namespace PlatinumWeb
                     clsKokaErrorImporti koka;
                     if (Request.QueryString["lloji"] == "importwk")
                         koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve nga winline karta", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importfk")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i fleteve kontabel", 5, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaleter")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona leter", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona elektronik", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-                    else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona elektronik specifik", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     else
-                        koka = new clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
+                        koka = new clsKokaErrorImporti(0, "Nga importi i fleteve kontabel", 5, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
                     DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
 
@@ -427,7 +311,7 @@ namespace PlatinumWeb
                     {
                         bool kontrolloIMEIFifo = clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "AFI") == "Po";
                         string mesazhmevonshem = "";
-                        DbCore.clsMesazh mesazhinv = koka.ruaj(idGjuha, ci, true, new DevExpress.Web.ASPxHiddenField(), idPeriudheKontabel, colkonv, false, out vep, 0, kokaurdhershitje.StatusAprovimi, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, kokameme, kokaurdhershitje.IdShitjeKoka, idtransferimi, false, eshteOwn, false, "", new DbCore.DbAsete.colSerialetMagazine(), new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, true, out shfaqmesazhapolupe, "FSH", rm, false, "", 0, false, false, false, false, "", "", "", false, false, false, false, new DbCore.DbRegjistrim.colKokaShitje(), kontrolloIMEIFifo, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, importo,true,"","");
+                        DbCore.clsMesazh mesazhinv = koka.ruaj(idGjuha, ci, true, new DevExpress.Web.ASPxHiddenField(), idPeriudheKontabel, colkonv, false, out vep, 0, kokaurdhershitje.StatusAprovimi, 0, out mesazhmag, out mesazhbanka, out mesazhvdk, kokameme, kokaurdhershitje.IdShitjeKoka, idtransferimi, false, eshteOwn, false, "", new DbCore.DbAsete.colSerialetMagazine(), new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbRegjistrim.clsKokaShitje(), out printofature, out printogarancifature, out pagesefature, true, out shfaqmesazhapolupe, "FSH", rm, false, "", 0, false, false, "", "", "", false, false, new DbCore.DbRegjistrim.colKokaShitje(), kontrolloIMEIFifo, false, false, ref dbData, false, "", "", false, out mesazhmevonshem, importo,true,"","");
 
                         if (!mesazhinv.Status)
                         {
@@ -733,26 +617,6 @@ namespace PlatinumWeb
                 GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvImport, "gvImport", "ImportWK.aspx?lloji=importfk");
                 GridUtil.konfiguroGrideListeEvogelPaTheme(gvImport, "ID_KOKAIMPORT");
             }
-            else if (Request.QueryString["lloji"] == "importtollonaleter")
-            {
-                GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvImport, "gvImport", "ImportWK.aspx?lloji=importtollonaleter");
-                GridUtil.konfiguroGrideListeEvogelPaTheme(gvImport, "id");
-            }
-            else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-            {
-                GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvImport, "gvImport", "ImportWK.aspx?lloji=importtollonaelektronik");
-                GridUtil.konfiguroGrideListeEvogelPaTheme(gvImport, "id");
-            }
-            else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-            {
-                GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvImport, "gvImport", "ImportWK.aspx?lloji=importtollonaelektronikspecifik");
-                GridUtil.konfiguroGrideListeEvogelPaTheme(gvImport, "id");
-            }
-            else
-            {
-                GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvImport, "gvImport", "ImportWK.aspx?lloji=importtollona");
-                GridUtil.konfiguroGrideListeEvogelPaTheme(gvImport, "id");
-            }
         }
 
         private void mbushPopUpListeNgaDB()
@@ -773,13 +637,7 @@ namespace PlatinumWeb
             }
             else if (Request.QueryString["lloji"] == "importwk")
                 dt = DbCore.DbRegjistrim.colKokaShitje.merrKokaShitjeTransferWKDT();
-            else if (Request.QueryString["lloji"] == "importtollonaleter")
-                dt = DbCore.DbTollona.colTollonaLeter.merrTollonaLeterKonsumuaraPerImport(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DateTime.Now);
-            else if (Request.QueryString["lloji"] == "importtollonaelektronik")
-                dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImport(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DateTime.Now);
-            else if (Request.QueryString["lloji"] == "importtollonaelektronikspecifik")
-                dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImportSpecifik(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DateTime.Now);
-            else dt = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialKonsumuaraPerImport(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DateTime.Now);
+            else dt = new DataTable();
             DbCore.mySessionObjects.ruajRreshtaImportiNgaGrida(Session, dt);
             gvImport.DataSource = dt;
             gvImport.DataBind();
@@ -868,7 +726,7 @@ namespace PlatinumWeb
             DataRow dr = dt.Rows.Find(id);
 
             foreach (DataColumn dc in dt.Columns)
-                if (((Request.QueryString["lloji"] == "importfk" && dc.ColumnName != "ID_KOKAIMPORT") || (Request.QueryString["lloji"] == "importwk" && dc.ColumnName != "ID_TRANSFERIM") || (Request.QueryString["lloji"] == "importtollona" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaleter" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaelektronik" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaelektronikspecifik" && dc.ColumnName != "id")) && e.NewValues[dc.ColumnName] != null)
+                if (((Request.QueryString["lloji"] == "importfk" && dc.ColumnName != "ID_KOKAIMPORT") || (Request.QueryString["lloji"] == "importwk" && dc.ColumnName != "ID_TRANSFERIM")) && e.NewValues[dc.ColumnName] != null)
                     dr[dc.ColumnName] = e.NewValues[dc.ColumnName];
             if (Request.QueryString["lloji"] == "importfk")
                 dr["ID_KOKAIMPORT"] = id;
@@ -895,7 +753,7 @@ namespace PlatinumWeb
             int id = dt.Rows.Count > 0 ? Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["ID_TRANSFERIM"]) + 1 : 0;
             DataRow dr = dt.NewRow();
             foreach (DataColumn dc in dt.Columns)
-                if (((Request.QueryString["lloji"] == "importfk" && dc.ColumnName != "ID_KOKAIMPORT") || (Request.QueryString["lloji"] == "importwk" && dc.ColumnName != "ID_TRANSFERIM") || (Request.QueryString["lloji"] == "importtollona" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaleter" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaelektronik" && dc.ColumnName != "id") || (Request.QueryString["lloji"] == "importtollonaelektronikspecifik" && dc.ColumnName != "id")) && e.NewValues[dc.ColumnName] != null)
+                if (((Request.QueryString["lloji"] == "importfk" && dc.ColumnName != "ID_KOKAIMPORT") || (Request.QueryString["lloji"] == "importwk" && dc.ColumnName != "ID_TRANSFERIM")) && e.NewValues[dc.ColumnName] != null)
                     dr[dc.ColumnName] = e.NewValues[dc.ColumnName];
             if (Request.QueryString["lloji"] == "importfk")
                 dr["ID_KOKAIMPORT"] = id;

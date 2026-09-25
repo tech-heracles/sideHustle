@@ -99,52 +99,6 @@ namespace RestApi.WebAPI.Controllers
         }
 
 
-        public HttpResponseMessage ekzekutoImportAutomatikTollonaElektronikSpecifik(JObject param)
-        {
-            try
-            {
-                var idPerdoruesi = param["idperdoruesi"].Value<int>();
-                var idNdermarrje = param["idNdermarrje"].ToObject<int>();
-                var  date = param["date"].ToObject<DateTime>();
-
-                return Request.KthePergjigje(AutomatizimRepository.ekzekutoImportAutomatikTollonaElektronikSpecifik(idPerdoruesi, idNdermarrje, date));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-        public HttpResponseMessage ekzekutoImportAutomatikTollonaElektronik(JObject param)
-        {
-            try
-            {
-                var idPerdoruesi = param["idperdoruesi"].Value<int>();
-                var idNdermarrje = param["idNdermarrje"].ToObject<int>();
-                var date = param["date"].ToObject<DateTime>();
-
-                return Request.KthePergjigje(AutomatizimRepository.ekzekutoImportAutomatikTollonaElektronik(idPerdoruesi, idNdermarrje, date));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-        public HttpResponseMessage ekzekutoImportAutomatikTollonaLeter(JObject param)
-        {
-            try
-            {
-                var idPerdoruesi = param["idperdoruesi"].Value<int>();
-                var idNdermarrje = param["idNdermarrje"].ToObject<int>();
-                var date = param["date"].ToObject<DateTime>();
-
-                return Request.KthePergjigje(AutomatizimRepository.ekzekutoImportAutomatikTollonaLeter(idPerdoruesi, idNdermarrje, date));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
         public HttpResponseMessage eksportAutomatikDokumentesh(JObject param)
         {
             try
@@ -170,37 +124,6 @@ namespace RestApi.WebAPI.Controllers
                 var idPerdorues = param["idPerdorues"].ToObject<int>();
 
                 return Request.KthePergjigje(AutomatizimRepository.importAutomatikShitjeBlerje(templateImporti, idNdermarrje, idPerdorues));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-        public HttpResponseMessage ekzekutoImportAutomatikTollona(JObject param)
-        {
-            try
-            {
-                var idPerdorues = param["idperdoruesi"].Value<int>();
-                var idNdermarrje = param["idNdermarrje"].ToObject<int>();
-                var date = param["date"].ToObject<DateTime>();
-
-                return Request.KthePergjigje(AutomatizimRepository.ekzekutoImportAutomatikTollona(idPerdorues, idNdermarrje, date));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-        public HttpResponseMessage ndryshoCmimeAutomatikTollona(JObject param)
-        {
-            try
-            {
-                var idPerdorues = param["idperdoruesi"].Value<int>();
-                var idNdermarrje = param["idNdermarrje"].ToObject<int>();
-                var date = param["date"].ToObject<DateTime>();
-
-                return Request.KthePergjigje(AutomatizimRepository.ndryshoCmimeAutomatikTollona(idPerdorues, idNdermarrje, date));
             }
             catch (Exception ex)
             {

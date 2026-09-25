@@ -131,8 +131,7 @@ function BeginCallback(s, e) {
         btnFiltrat.SetText('');
 }
 function endCallback(s, e) {
-    if (Utils.getUrlVar('lloji') != "tollon")
-        $('#filtra').show();
+    $('#filtra').show();
 
 }
 function enter() {
@@ -155,8 +154,7 @@ function callWebserviceKonfigurimi(idKomp, kodKonf) {
     gvRaporti.PerformCallback(idKomp + ";" + kodKonf);
 }
 function EndRequestHandler(sender, args) {
-    if (Utils.getUrlVar('lloji') != "tollon")
-        $('#filtra').show();
+    $('#filtra').show();
 
 }
 

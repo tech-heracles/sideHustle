@@ -986,16 +986,6 @@
     <Compile Include="Raporte\clsReportDesigner.cs" />
     <Compile Include="DbShare\colFormatKonfigTrupi.cs" />
     <Compile Include="DbShare\colKategoriArkive.cs" />
-    <Compile Include="DbTollona\clsArtikullTolloni.cs" />
-    <Compile Include="DbTollona\clsDatabazeTollona.cs" />
-    <Compile Include="DbTollona\clsPerdoruesTollona.cs" />
-    <Compile Include="DbTollona\clsShitjeMeSerial.cs" />
-    <Compile Include="DbTollona\clsTollonaElektronik.cs" />
-    <Compile Include="DbTollona\clsTollonaLeter.cs" />
-    <Compile Include="DbTollona\colArtikullTolloni.cs" />
-    <Compile Include="DbTollona\colShitjeMeSerial.cs" />
-    <Compile Include="DbTollona\colTollonaElektronik.cs" />
-    <Compile Include="DbTollona\colTollonaLeter.cs" />
     <Compile Include="CustomEntites\konfigAmbientiSlim.cs" />
     <Compile Include="DbAdmin\ClientScriptJsonUtilities.cs" />
     <Compile Include="DbAdmin\clsAgjentShitje.cs" />

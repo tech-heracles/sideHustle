@@ -26,49 +26,6 @@ namespace RestApi.WebAPI.Models
 {
     public class AutomatizimRepository
     {
-        public static DbCore.clsMesazh ndryshoCmimeAutomatikTollona(int idperdoruesi, int idNdermarrje, DateTime date)
-        {
-
-            var ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-            bool eshteOwn = ndermarje.OwnShop;
-            DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-            int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-            DbCore.clsMesazh mesazh = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialKonsumuarandryshoCmimin(date.AddDays(-1));
-            if (mesazh.Status)
-                mesazh = ekzekutoImportAutomatikTollona(idperdoruesi, idNdermarrje, date);
-            if (mesazh.Status)
-                mesazh = ekzekutoImportAutomatikTollonaElektronik(idperdoruesi, idNdermarrje, date);
-            return mesazh;
-
-        }
-        public static DbCore.clsMesazh ekzekutoImportAutomatikTollona(int idperdoruesi, int idNdermarrje, DateTime date)
-        {
-
-            DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-            int idGjuha = 0; 
-            bool eshteOwn = ndermarje.OwnShop;
-            DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-            int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-            DataTable dt = DbCore.DbTollona.colShitjeMeSerial.merrShitjeMeSerialKonsumuaraPerImport(idNdermarrje, date);
-
-            int rreshta = dt.Rows.Count;
-            DataTable err = new DataTable();
-            err.Columns.Add("Kodi");
-            err.Columns.Add("Gabimi");
-            err.Columns.Add("Rreshti");
-            DataTable rreshtaok = new DataTable();
-            DataTable rreshtajoOk = new DataTable();
-            rreshtajoOk = dt.Clone();
-            rreshtaok = dt.Copy();
-            DbCore.DbTollona.colShitjeMeSerial.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, MessagesResource.Messages.CurrentCultureInfo, MessagesResource.CurrentResourceManager, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-            DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-            koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-            DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-            return mesazh;
-
-        }
         public static DbCore.clsMesazh importAutomatikShitjeBlerje(string templateImporti, int idNdermarrje, int idPerdorues)
         {
             try
@@ -212,86 +169,6 @@ namespace RestApi.WebAPI.Models
             }
         }
 
-        public static DbCore.clsMesazh ekzekutoImportAutomatikTollonaLeter(int idperdoruesi, int idNdermarrje, DateTime date)
-        {
-           
-                DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-               
-               
-                bool eshteOwn = ndermarje.OwnShop;
-                DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-                int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-                DataTable dt = DbCore.DbTollona.colTollonaLeter.merrTollonaLeterKonsumuaraPerImport(idNdermarrje, date);
-
-                int rreshta = dt.Rows.Count;
-                DataTable err = new DataTable();
-                err.Columns.Add("Kodi");
-                err.Columns.Add("Gabimi");
-                err.Columns.Add("Rreshti");
-                DataTable rreshtaok = new DataTable();
-                DataTable rreshtajoOk = new DataTable();
-                rreshtajoOk = dt.Clone();
-                rreshtaok = dt.Copy();
-                DbCore.DbTollona.colTollonaLeter.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, MessagesResource.KtheCultureInfo(0), MessagesResource.CurrentResourceManager, 0, eshteOwn, idperdoruesi, idndermvit);
-                DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-                koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-                DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-                return mesazh;
-         
-        }
-        public static DbCore.clsMesazh ekzekutoImportAutomatikTollonaElektronik(int idperdoruesi, int idNdermarrje, DateTime date)
-        {
-                DbCore.DbAdmin.clsNdermarrje ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-
-                int idGjuha = 0; 
-                bool eshteOwn = ndermarje.OwnShop;
-                DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-                int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-
-                DataTable dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImport(idNdermarrje, date);
-
-                int rreshta = dt.Rows.Count;
-                DataTable err = new DataTable();
-                err.Columns.Add("Kodi");
-                err.Columns.Add("Gabimi");
-                err.Columns.Add("Rreshti");
-                DataTable rreshtaok = new DataTable();
-                DataTable rreshtajoOk = new DataTable();
-                rreshtajoOk = dt.Clone();
-                rreshtaok = dt.Copy();
-                DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollona(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-                DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-                koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-                DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-                return mesazh;
-          
-        }
-        public static DbCore.clsMesazh ekzekutoImportAutomatikTollonaElektronikSpecifik(int idperdoruesi, int idNdermarrje, DateTime date)
-        {
-              var ndermarje = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-                var rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-                int idGjuha = 0; // mySessionObjects.ktheGjuhe(Session);
-                bool eshteOwn = ndermarje.OwnShop;
-                DbCore.DbAdmin.clsNdermarrjeViti ndervit = new DbCore.DbAdmin.clsNdermarrjeViti();
-                int idndermvit = ndervit.merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(idNdermarrje);
-                DataTable dt = DbCore.DbTollona.colTollonaElektronik.merrTollonaElektronikKonsumuaraPerImportSpecifik(idNdermarrje, date);
-                int rreshta = dt.Rows.Count;
-                DataTable err = new DataTable();
-                err.Columns.Add("Kodi");
-                err.Columns.Add("Gabimi");
-                err.Columns.Add("Rreshti");
-                DataTable rreshtaok = new DataTable();
-                DataTable rreshtajoOk = new DataTable();
-                rreshtajoOk = dt.Clone();
-                rreshtaok = dt.Copy();
-                DbCore.DbTollona.colTollonaElektronik.kontrolloShitjeTollonaSpecifik(idNdermarrje, rreshtaok, err, rreshtajoOk, true, 0, rm, idGjuha, eshteOwn, idperdoruesi, idndermvit);
-                DbCore.DbAdmin.clsKokaErrorImporti koka = new DbCore.DbAdmin.clsKokaErrorImporti(0, "Nga importi i shitjeve me tollona", 1, idNdermarrje, idperdoruesi);
-                koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-                DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
-                return mesazh;
-           
-        }
         public static DbCore.clsMesazh importFotoNgaMobile(int IDOBJEKTI, string FOTO, string KODNDERMARRJE, string USERNAME, int lloji)
         {
             try

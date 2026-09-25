@@ -240,9 +240,6 @@ function OnGetRowValuesMod(values) {
     var tmpGeoms = new Array(1);
     tmpGeoms[0] = values[13];
     hfState.Set("geom", JSON.stringify(tmpGeoms));
-    cbPerdorues.SetChecked(values[14]);
-    if (values[14])
-        cbPerdorues.SetEnabled(false);
     txtShenime.SetText(values[15]);
     txtTelefon.SetText(values[17]);
     cmbLlojLayer.SetValue(values[18]);
@@ -330,8 +327,6 @@ function pastrofusha() {
     cmbStatusi.SetText('');
     dteDtFillimStatusi.SetText('');
     txtKohezgjatja.SetText('1');
-    cbPerdorues.SetChecked(false);
-    cbPerdorues.SetEnabled(true);
     btneCaktoNeHarte.SetText('');
     cmbLlojLayer.SetValue(1);
     cmbLlojLayer.SetText('');

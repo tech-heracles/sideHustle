@@ -15,44 +15,6 @@ var pageState = {
     kushte: {},
     gridaSelector: "#rowed5",
     gridaKomision: "#rowed6",
-    kastratiTollona: {
-        seriale: {
-            TD05: ["BC01L0005"],
-            TD010: ["BC01L0010"],
-            TB05: ["BC03L0005"],
-            TB010: ["BC03L0010"],
-            TB020: ["BC03L0020"],
-            TD020: ["BC01L0020"],
-            TG10: ["BC04L0010"],
-            TB110: ["BC05L0010"]
-        },
-        gjatesi: 19,
-        isValid: function (grida) {
-            if (!pageState.kushte.RSHTTK)
-                return true;
-            var ids = grida.getDataIDs();
-            var isValid = true;
-            $.each(ids, function (index, item) {
-                if (!changeShenime(null, item)) {
-                    isValid = false;
-                    return;
-                }
-            });
-            return isValid;
-        },
-        getSerialNumber: function (changedShenime, mySerials) {
-            var serialNumber;
-            if (typeof mySerials == "undefined")
-                return serialNumber;
-            $.each(mySerials, function (index, item) {
-                if (changedShenime.indexOf(item) == 0) {
-                    serialNumber = changedShenime.substring(item.length + 1);
-                    return;
-                }
-            });
-            return serialNumber;
-        }
-    },
     peshore: {
         aktiv: function (vleraKodi) { return this.skema && this.skema.length > 0 && vleraKodi.length === this.skema.length; },
         skema: "99kkkkkkppmmmm",
@@ -1852,7 +1814,7 @@ function vendosArtPlote(result, idRreshti, ngaLupa, artPeshore) {
         grida.setTekstQelize('txtRezervuar', idRreshti, 'false');
     }
 
-    //fusha sasi litra per tollonat
+    //fusha sasi litra per artikujt e perbere
     if (artikulli.KodArtikulli != "" && artikulli.Klasa === 4) {
         vendosSasiLiter(result.koefArtPerbere, idRreshti);
         updateTotalSasiLitra();
@@ -2898,7 +2860,7 @@ Nderton nje textbox per te vendosur shenime tek rreshtat e grides.
 */
 function myElemShenime(value) {//po
     disabled = (arrayReadOnlyKolonaGrides[19] == 'True') || !lejomod;
-    return myJQGrid.myElemEmertimi(value, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[19], pageState.kushte.RSHTTK ? changeShenime : null);
+    return myJQGrid.myElemEmertimi(value, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[19], null);
 }
 
 /*
@@ -2908,62 +2870,12 @@ Nderton nje textbox per te vendosur shenime tek rreshtat e grides.
 function myElemShenime2(value) {//po
     disabled = (arrayReadOnlyKolonaGrides[35] == 'True') || !lejomod;
 
-    return myJQGrid.myElemEmertimi(value, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[35], pageState.kushte.RSHTTK ? changeShenime : null);
+    return myJQGrid.myElemEmertimi(value, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[35], null);
 }
 
 function myElemKodbari(value) {//po
     disabled = (arrayReadOnlyKolonaGrides[4] == 'True') || !lejomod;
     return myJQGrid.myElemEmertimi(value, disabled, $(pageState.gridaSelector).getLastSel2(), arrayIdKolonaGrides[4]);
-}
-
-/*
- * Perdoret si ne change te shenimeve si ne fund per te kontrolluar saktesine
- * @param {} idElem - nese eshte null eshte rasti ne fund
- * @param {} idRreshti - id e rreshtit qe po analizohet
- * @returns {} true apo false nese eshte valid change-i - nderkohe lajmeron perdoruesin me mesazhe
- */
-function changeShenime(idElem, idRreshti) {
-    var grida = $(pageState.gridaSelector);
-    var kodArt = grida.getTekstQelize(arrayIdKolonaGrides[3], idRreshti);
-    var lloji = grida.getTekstQelize("cmbLloji", idRreshti);
-    if (kodArt == "" || lloji != "Artikull")
-        return true;
-    var isShenime1 = arrayIdKolonaGrides[19] == idElem ? true : false;
-    var shenime1 = grida.getTekstQelize(arrayIdKolonaGrides[19], idRreshti);
-    var shenime2 = grida.getTekstQelize(arrayIdKolonaGrides[35], idRreshti);
-    var changedShenime = isShenime1 ? shenime1 : shenime2;
-    var validShenime = (isShenime1 ? "shenime1" : "shenime2");
-    var mySerials = pageState.kastratiTollona.seriale[kodArt];
-    var serialNumber1 = pageState.kastratiTollona.getSerialNumber(shenime1, mySerials);
-    var serialNumber2 = pageState.kastratiTollona.getSerialNumber(shenime2, mySerials);
-
-    var validSerialNumber = (isShenime1 ? serialNumber1 : serialNumber2);
-    var suggestedSasi = parseInt(serialNumber2) - parseInt(serialNumber1) + 1;
-    var nrRreshti = grida.getTekstQelize(arrayIdKolonaGrides[0], idRreshti);
-    if (idElem) {
-        if (changedShenime.length != pageState.kastratiTollona.gjatesi || !validSerialNumber) {
-            myMesazh.ShtoMesazhGabimi("Seriali i tollonit ne " + validShenime + ": " + changedShenime + " per rreshtin: " + nrRreshti + " nuk eshte i sakte!!!");
-            return false;
-        }
-        if (!isNaN(suggestedSasi) && suggestedSasi > 0) {
-            grida.setTekstQelize(arrayIdKolonaGrides[13], idRreshti, suggestedSasi);
-            changedSasia(null, idRreshti);
-        }
-        return true;
-    }
-    if (shenime1.length != pageState.kastratiTollona.gjatesi || !serialNumber1) {
-        myMesazh.ShtoMesazhGabimi("Seriali i tollonit ne shenime1 " + shenime1 + " per rreshtin: " + nrRreshti + " nuk eshte i sakte!!!");
-        return false;
-    }
-    if (shenime2.length != pageState.kastratiTollona.gjatesi || !serialNumber2) {
-        myMesazh.ShtoMesazhGabimi("Seriali i tollonit ne shenime2 " + shenime2 + " per rreshtin: " + nrRreshti + " nuk eshte i sakte!!!");
-        return false;
-    }
-    if (Math.abs(suggestedSasi) != Math.abs(parseInt(grida.getTekstQelize(arrayIdKolonaGrides[13], idRreshti)))) {
-        myMesazh.ShtoMesazhGabimi("Shuma e serialeve ne rreshtin: " + nrRreshti + " nuk eshte e sakte!!!");
-        return false;
-    }
-    return true;
 }
 
 /*
@@ -4665,7 +4577,6 @@ function SucceededCallbackKonfig(result) {  //po
             case "ZT":
                 pageState.kushte[kusht.Kodi] = kusht.Alternativa == "Jo" ? false : true;
                 break;
-            case "RSHTTK":
             case "RVF":
             case "VCVS":
             case "AFI":
@@ -7586,7 +7497,7 @@ function changedSasiaPaFocusTeSasia(event, idRresht) {
             //  grida.setTekstQelize('txtSasia', idRresht, sasia);
         }
     var art = memoryArt.Get(grida.getTekstQelize('txtIdKodi', idRresht));
-    //fusha sasi litra per tollonat
+    //fusha sasi litra per artikujt e perbere
 
     if (art && art.Klasa === 4) {
         //ktheArtikullPerberes - todo nestila duhet ktheKoefArtPerberes
@@ -7627,7 +7538,7 @@ function ndryshonSasia(idRresht) {
     }
 
     var art = memoryArt.Get(grida.getTekstQelize('txtIdKodi', idRresht));
-    //fusha sasi litra per tollonat
+    //fusha sasi litra per artikujt e perbere
 
     if (art && art.Klasa === 4) {
         //ktheArtikullPerberes - todo nestila duhet ktheKoefArtPerberes
@@ -8346,8 +8257,6 @@ function isValidKoka() {//po
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgPoTransferohetTeDhenatShtypniPerseriRuaj"));
         return false;
     }
-    if (!pageState.kastratiTollona.isValid(grida))
-        return false;
     editorCmimi = jQuery("#txtCmimi" + idRresht)[0];
     editorKodi = jQuery("#txtKodi" + idRresht)[0];
     editorVlefte = jQuery("#txtVleftaTVSH" + idRresht)[0];
