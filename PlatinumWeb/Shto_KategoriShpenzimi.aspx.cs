@@ -266,18 +266,7 @@ namespace PlatinumWeb
                 IdStatusDok = 1
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvKategoria);
-            //var kolona = gvKategoria.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
-
 
 
             var mesazh = filtri.ruaj();

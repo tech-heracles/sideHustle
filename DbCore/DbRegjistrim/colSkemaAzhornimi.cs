@@ -54,21 +54,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushSkematAzhornimit(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSkemaAzhornimi skema = new clsSkemaAzhornimi();
-                    //skema.mbushSkemaAzhornimi(rreshti);
                     Add(new clsSkemaAzhornimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

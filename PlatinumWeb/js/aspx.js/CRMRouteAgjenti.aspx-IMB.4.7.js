@@ -73,8 +73,6 @@ function menu_click(s, e) {
 }
 
 function EndCallbackGrida(s, e) {
-    // $('#hfklienti').val('');
-    //  $('#hfLlojDetyre').val('');
     $.ajax({
         url: Utils.getServerApiUrl("Konfigurime", "lexoMesazhNgaSessioni"),
     }).done(SucceededCallbackMesazhi);
@@ -98,7 +96,6 @@ function popupDateRangesEndCallback(s, e) {
     }
 }
 function mbyllPopupKlonimi(s, e) {
-    // ASPxClientEdit.ClearEditorsInContainer(popupDateRanges.GetMainElement());
     lblInfo.SetText('');
 
     popupDateRanges.Hide();
@@ -132,7 +129,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {
@@ -145,7 +141,6 @@ function SucceededCallbackMesazhi(result) {
 
 function LostFocusKlientDetyra(s, e) {
     $('#hfklienti').val(ddKlienti.GetValue());
-    //  llojDetyreChanged(s, e);
 }
 
 function ButtonClickLupaKlientDetyra(s, e) {
@@ -189,7 +184,6 @@ function OnSchedulerControlInit(s, e) {
 
 function MerrVleratNgaCombot(s, e) {
     $('#hfklienti').val(ddKlienti.GetValue());
-    //  $('#hfLlojDetyre').val(ddLlojDetyre.GetValue());
 }
 
 function RuajTakim(s, e) {
@@ -265,7 +259,6 @@ function ShikoDetajePerKlientin(url, params) {
             if (result == -1) {
                 return;
             }
-            //skeduler = new ASPxClientScheduler();
 
             var app = skeduler.GetAppointmentById(idTakimi);
             if (url == "Raporti.aspx?") {
@@ -323,7 +316,6 @@ function OnGetAppointmentProps(values) {
 
         desc.innerHTML = values[1];
         teKlienti.innerHTML = values[2];
-        //contact.innerHTML = (values[5] == null) ? "" : values[5];
     } else {
         pnlAptDetails.SetVisible(false);
         var emptyStr = '&nbsp';

@@ -41,8 +41,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
         private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
@@ -61,7 +59,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
             niv++;
         }
 
@@ -261,7 +258,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
         
-
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;

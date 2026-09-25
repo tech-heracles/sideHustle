@@ -53,7 +53,6 @@ function OnGridSelectionChanged() {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     if (window.parent.identifikuesPerPopupNiveli == "Shto Nivel") {
@@ -114,10 +113,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

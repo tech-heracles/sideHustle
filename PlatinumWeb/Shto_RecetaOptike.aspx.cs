@@ -177,8 +177,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         private void percaktoTemplate()
         {
 
@@ -278,7 +276,6 @@ namespace PlatinumWeb
         }
 
         
-
         protected void gvRecetaTrupi_DataBound(object sender, EventArgs e)
         {
 
@@ -290,8 +287,6 @@ namespace PlatinumWeb
 
         }
         #endregion
-
-
 
 
         /// <summary>
@@ -418,7 +413,6 @@ namespace PlatinumWeb
             var koka =ShtimModifikim == "shtim" ? new clsKokaRecetaOptike(hfNrAuto, mySessionObjects.merrPeriudheKontabel(Session), rm, ci) : new clsKokaRecetaOptike(Id);
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, this.GetAsPxTextEditIdValue());
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, null, null);
 
             koka.NrDok = txtNumri.Text;
             koka.NrSerial = txtNrSerial.Text;

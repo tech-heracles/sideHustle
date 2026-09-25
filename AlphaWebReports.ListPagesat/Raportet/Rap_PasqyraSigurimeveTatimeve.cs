@@ -41,7 +41,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             nrFaqes.Text = nrCurrent + rm.GetString("labelRaportNgaLowCase", ci) + nrTotal;
         }
 
-        //int i = 1;
         double runnPagaFaktike = 0;
         double sumPagePagaFaktike = 0;
         double runnPagaMeKufi = 0;
@@ -61,7 +60,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
 
         private void xrLabel48_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //xrLabel48.Text = Convert.ToString(i++);
         }
 
         /// <summary>
@@ -303,8 +301,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
              xrLabel106.Text = rm.GetString("labelRaportVertetoj", ci);
             xrLabel102.Text = rm.GetString("labelRaportListepagesaInspektori", ci);
             xrLabel108.Text = rm.GetString("labelRaportEmerMbiemerFirmeFq1", ci);
-
-
 
 
         }

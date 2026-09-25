@@ -44,28 +44,15 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",System.Reflection.Assembly.Load("App_GlobalResources"));
             xrLabel7.Text = rm.GetString("labelRaportDetyrimMeparshem", ci); //labelRaportDetyrimMeparshem
-          //  xrLabel11.Text = rm.GetString("lblRaportTotaliNe", ci);
-          //xrLabel2.Text = rm.GetString("labelRaportDateFature", ci);
-          //xrTableCell17.Text = rm.GetString("labelKartela", ci).ToUpper();
-          // xrLabel6.Text = rm.GetString("labelRaportiNrUpperCase", ci);
             xrLabel13.Text = rm.GetString("labelRaportAdresa", ci) + ":";
-            // xrLabel54.Text = rm.GetString("labelRaportTel", ci) + ":";
-            //xrLabel14.Text = rm.GetString("labelRaportTel", ci) + ":";
-            // xrLabel53.Text = rm.GetString("labelEmriBleresit", ci) + ":";
-            //xrLabel55.Text = rm.GetString("labelRaportAdresa", ci) + ":";
-            //  xrLabel15.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel35.Text = rm.GetString("lblBleresi", ci).ToUpper();
             xrTableCell4.Text = rm.GetString("labelRaportiNr", ci).ToUpper();
             xrTableCell5.Text = rm.GetString("labelRaportiPershkrimi", ci).ToUpper();
             xrTableCell7.Text = rm.GetString("labelNjesia", ci).ToUpper();
             xrTableCell9.Text = rm.GetString("labelSasia", ci).ToUpper();
             xrTableCell10.Text = rm.GetString("labelCmimi", ci).ToUpper();
-          //  xrTableCell8.Text = rm.GetString("labelVleftapaTVSH", ci).ToUpper();
-           // xrTableCell11.Text = rm.GetString("labelTVSH", ci).ToUpper();
             xrTableCell6.Text = rm.GetString("labelVlefta", ci).ToUpper();
-          //  xrLabel24.Text = rm.GetString("labelKursi", ci);
             xrLabel44.Text = rm.GetString("lblBleresi", ci).ToUpper();
-          //  xrLabel46.Text = rm.GetString("labelRaportMenyrePagese", ci) + ":";
             xrLabel45.Text = rm.GetString("lblShitesKrijues", ci).ToUpper();
         }
     }

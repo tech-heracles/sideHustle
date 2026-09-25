@@ -41,19 +41,15 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             fieldKartela.Caption = rm.GetString("labelKartela", ci);
 
 
-         
-            //fieldKartela.Width = 50;
             XRPivotGridField fieldKodbari = new XRPivotGridField("Kodbari", PivotArea.RowArea);
             fieldKodbari.FieldName = "KODBARI";
             fieldKodbari.Caption = rm.GetString("labelFilterAvancuarKodbari", ci);
-            //fieldKodbari.Width = 50;
 
             XRPivotGridField fieldPershkrimArtikulli = new XRPivotGridField("Emertimi", PivotArea.RowArea);
             fieldPershkrimArtikulli.FieldName = "PERSHKRIMARTIKULLI";
             fieldPershkrimArtikulli.Caption = rm.GetString("labelRaportiEmertimi", ci);
             fieldPershkrimArtikulli.Appearance.FieldValue.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             fieldPershkrimArtikulli.ColumnValueLineCount = 3;
-            //fieldPershkrimArtikulli.Width = 70;
             XRPivotGridField fieldNjesia = new XRPivotGridField("Njesia", PivotArea.RowArea);
             if (Grupim2.Value.ToString() == "Çmimi parë")
             {
@@ -61,11 +57,9 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             }
             else fieldNjesia.FieldName = "njesi2";
             fieldNjesia.Caption = rm.GetString("labelNjesia", ci);
-            //fieldNjesia.Width = 30;
             XRPivotGridField fieldNivelCmimi = new XRPivotGridField("Cmimet", PivotArea.ColumnArea);
             fieldNivelCmimi.FieldName = "KODNIVELCMIMI";
             fieldNivelCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);
-            //fieldNivelCmimi.Width = 30;
             XRPivotGridField fieldVleraCmimi = new XRPivotGridField("Cmimet", PivotArea.DataArea);
             if (Grupim2.Value.ToString() == "Çmimi dytë")
             { 
@@ -106,8 +100,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void Rap_CmimeShitje_Artikulli_AfterPrint(object sender, EventArgs e)
         {
-            //this.PageWidth = cmimetPivotGrid.ActualWidth + 1000;
-            //SetCustomPageSize();
             cmimetPivotGrid.WordWrap = true;
         }
         

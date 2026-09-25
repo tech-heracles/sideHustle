@@ -108,7 +108,6 @@ namespace DbCore.DbCRM
         {
             DbCore.DbCRM.clsDatabaseCRM dbCRM = new DbCore.DbCRM.clsDatabaseCRM();
             colTrupiAnketa trupi = new colTrupiAnketa();
-         //   trupi.mbushTrupiAnketeSipasIdKoka(dbCRM.merrOpsionAnketeSipasNdermarrjes(indermarje));
             dbCRM.Dispose();
             return trupi;
         }

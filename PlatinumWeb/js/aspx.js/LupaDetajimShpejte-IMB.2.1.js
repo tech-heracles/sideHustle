@@ -10,7 +10,6 @@ e-eventi
 function menu_click(s, e) {
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     //    var hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //    //            var hfKontrollet = $('#hfKontrollet');
     //    var ruajbuxhetet = false; //i here per i here
     if (e.item.name == 'Ruaj') {
         Utils.shfaqLoadingGif();

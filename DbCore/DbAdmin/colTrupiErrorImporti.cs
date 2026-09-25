@@ -39,7 +39,6 @@ namespace DbCore.DbAdmin
         public bool mbushErrorImportiNgaProgrami(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsTrupiErrorImporti info = new clsTrupiErrorImporti();
@@ -47,11 +46,6 @@ namespace DbCore.DbAdmin
                     Add(info);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
         public bool mbushErrorImportiNgaAmbienti(DataTable dt)

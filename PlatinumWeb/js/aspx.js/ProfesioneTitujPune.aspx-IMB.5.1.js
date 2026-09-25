@@ -250,17 +250,13 @@ function menu_click(s, e) {
     }
    
 
-    
-
 }
 
 function EndCallbackGrida(s, e) {
     myMesazh.ShtoMesazhNgaGrida(s);
     enable();
-    //$.ajax({
     //    url: Utils.getServerApiUrl("Rregjistrime", "merrMesazhNgaSesioni"),
     //    data: JSON.stringify({})
-    //}).done(SucceededCallbackMesazhi);
 }
 
 function SucceededCallbackMesazhi(result) {
@@ -273,10 +269,7 @@ function SucceededCallbackMesazhi(result) {
 function ndryshoKonfigurimin() {
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
-    //            cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     callWebserviceKonfigurimi(718, cmbKonfigurimi.GetText());
-    //var grida = $('#rowed5');
-    //ndryshoKonfigFormatNumri(grida);
 
 }
 function ndryshoKonfiguriminInit() {

@@ -87,7 +87,6 @@ namespace PlatinumWeb
         }
 
         
-        
         private void shtoButtonImageSlider(ASPxFileManager fileManager)
         {
             var customButton = new FileManagerToolbarCustomButton();
@@ -255,7 +254,6 @@ namespace PlatinumWeb
                 Directory.CreateDirectory(MapPath(UploadDirectory));
             }
             UploadDirectory += String.IsNullOrWhiteSpace(connString) ? $"{idNdermarrje}/" : $"{ connString}/{ idNdermarrje}/"; 
-            //UploadDirectory +=connString+"/"+ idNdermarrje + "/";
             if (!Directory.Exists(MapPath(UploadDirectory)))
             {
                 Directory.CreateDirectory(MapPath(UploadDirectory));
@@ -414,7 +412,6 @@ namespace PlatinumWeb
                 e.Cancel = true;
             }
         }
-
 
 
         protected void fileManager_FolderCreating(object sender, FileManagerFolderCreateEventArgs e)

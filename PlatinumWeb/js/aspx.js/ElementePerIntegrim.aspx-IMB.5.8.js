@@ -37,13 +37,9 @@ function valido(s, e) {
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
  
 
-    
-   
-   
 }
 
 function vendosNrAutomatik(colAtrTrupi, colKontrollet) {
@@ -91,7 +87,6 @@ function OnGetRowValuesMod(values) {
         PageControl.SetActiveTabIndex(1);
         ASPxMenu1.AdjustControl();
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
-        // AktivizoDraft();
     }
 
     Utils.hiqLoadingGif();;
@@ -102,13 +97,11 @@ function pastrofusha() {
     txtKodi.SetValue("");
     txtEmertimi.SetValue("");
     memoShenime.SetValue("");
-    //cmbLloji.SetValue(0);
     cbAktiv.SetValue(true);
     deDateRegjistrimi.SetValue(new Date());
     aktivizoFusha(colKontrollet, colAtrTrupi, false);
    
   
-    
 }
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
@@ -131,8 +124,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 }
 
 
-
-
 function SucceededCallbackKonfig(result) {
     if (!result.d && !result)
         return;
@@ -142,7 +133,6 @@ function SucceededCallbackKonfig(result) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
         resultkonf = result;
-        //  LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
@@ -153,9 +143,7 @@ function SucceededCallbackKonfig(result) {
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
 
         $("#divFillim").show();
-        // $("#divGrida").width($("#tblPasqyra").width() + "%");
         $("#divGrida").show();
-        //$("#divFundi").show();
 
         if (hfMod.val() == "shtim" || hfMod.val() == "klonim") {
             hfNrAuto.Clear();
@@ -163,7 +151,6 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
             
         }
-        //AktivizoDraft();
     }
 }
 
@@ -264,7 +251,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {

@@ -142,20 +142,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaSkemaKosto.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKoka", gvLupaSkemaKosto);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaSkemaKosto.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdKoka";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -163,7 +151,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaSkemaKosto", Convert.ToInt32(cmbKonfigurimi.Value), "LupaSkemaKosto.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -186,7 +173,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaSkemaKosto", Convert.ToInt32(cmbKonfigurimi.Value), "LupaSkemaKosto.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)

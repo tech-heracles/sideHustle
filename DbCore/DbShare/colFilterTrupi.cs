@@ -13,34 +13,10 @@ namespace DbCore.DbShare
     {
         
         //public new clsFilterTrupi this[int index]
-        //{
         //    get { return ((clsFilterTrupi)base[index]); }
-        //}
 
         //public bool merriTeGjithe(int idKokaFilter)
-        //{
-        //    clsDatabaseShare db = new clsDatabaseShare();
-        //    return mbushColFilterTrupi(db.merrFilterTrupin(idKokaFilter));
 
-        //}
-
-        //public colFilterTrupi mbushArrayListFilterTrupi(DataSet ds)
-        //{
-        //    colFilterTrupi trupat = new colFilterTrupi();
-
-        //    foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //    {
-        //        clsFilterTrupi trupi = new clsFilterTrupi();
-
-        //        trupi.IdTrupiFilter = int.Parse(rreshti[0].ToString());
-        //        trupi.IdKokaFilter = int.Parse(rreshti[1].ToString());
-        //        trupi.Kontrolli = rreshti[2].ToString();
-        //        trupi.Vlera = rreshti[3].ToString();
-        //        //trupi.LidhesaLogjike = rreshti[4].ToString();                
-        //        trupat.Add(trupi);
-        //    }
-        //    return trupat;
-        //}
 
         #region Konstruktoret
 
@@ -57,7 +33,6 @@ namespace DbCore.DbShare
         }
         
         
-
         #endregion
 
         #region Metoda Internal
@@ -100,7 +75,6 @@ namespace DbCore.DbShare
             catch (Exception)
             {
                 return null;
-                //throw;
             }
             return trupat;
         }
@@ -112,7 +86,6 @@ namespace DbCore.DbShare
         private bool mbushColFilterTrupi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsFilterTrupi trupi = new clsFilterTrupi();
@@ -120,12 +93,7 @@ namespace DbCore.DbShare
                         Add(trupi);
                 }
                 return true;
-            //}
-            //catch (Exception)
-            //{
                 
-            //    return false;
-            //}
         }
 
         #endregion

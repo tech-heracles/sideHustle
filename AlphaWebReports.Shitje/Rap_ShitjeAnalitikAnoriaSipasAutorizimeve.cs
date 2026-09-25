@@ -93,7 +93,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel7.Text = rm.GetString("labelNjesia", ci);
             xrLabel8.Text = rm.GetString("labelSasia", ci);
             xrLabel13.Text = rm.GetString("labelVlefta", ci);
-            //xrLabel9.Text = rm.GetString("labelCmimi", ci);
             xrLabel14.Text = rm.GetString("labelGjithsej", ci);
             xrLabel15.Text = rm.GetString("labelZbritjeAnalitike", ci);
             xrLabel23.Text = rm.GetString("labelVleftapaTVSH", ci);

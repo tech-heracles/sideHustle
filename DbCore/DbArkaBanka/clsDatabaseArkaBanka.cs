@@ -132,7 +132,6 @@ namespace DbCore.DbArkaBanka
         {
             dbManager.Open();
             dbManager.CreateParameters(22);
-            //dbManager.CreateParameters(21);
             dbManager.AddParameters(0, "@IDTRUPI", idtrupi, ParameterDirection.Output);
             dbManager.AddParameters(1, "@IDKOKA", idkoka, ParameterDirection.Input);
             dbManager.AddParameters(2, "@LLOJI", llojisubjektit, ParameterDirection.Input);
@@ -594,7 +593,6 @@ namespace DbCore.DbArkaBanka
         {
 
          
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDKOKA", idkoka, ParameterDirection.Input);
@@ -2185,8 +2183,6 @@ namespace DbCore.DbArkaBanka
 
         }
         #endregion
-
-
 
 
     }

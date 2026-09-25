@@ -116,9 +116,6 @@ function Fund_click(e) {
 }
 
 
-
-
-
 function ndryshimTabi(tab) {
     ASPxMenu1.GetItemByName('Ruaj').SetVisible(false);
     if (tab.GetText() == "Grupimi 1") {
@@ -148,20 +145,13 @@ function pastro() {
 
 
     ////unselect all - tocheck doesn't work
-    //var items = new Array();
-    //try {
-    //    for (var i = 0; i < arrKategoria.length - 1; i++)
-    //        lbxKategoria.FindItemByText(arrKategoria[i]).selected= false;
 
     //} catch (ee) {
-    //}
     if (typeof (cmbAutorizimi) !== "undefined" && cmbAutorizimi.GetListBoxControl() != null && cmbAutorizimi.GetText())
         cmbAutorizimi.SetText('');
     arrKategoria = new Array();
     arrLloji = new Array();
     //lbxKategoria.selectedIndex = -1
-    //lbxKategoria.ClearItems();
-    //lbxLloji.ClearItems();
 }
 
 function _getKeyCode(evt) {
@@ -216,7 +206,6 @@ function OnCallback(result) {
         if (cmbAutorizimi.GetInputElement()!=null)
         cmbAutorizimi.SetText(result.Autorizimet);
         if (grida == "gvGrupet") {
-            //gvGrupet = ASPxClientGridView.Cast(gvGrupet);
             gvGrupet.SetEditValue("Kodi", result.Kodi);
             gvGrupet.SetEditValue("Pershkrimi", result.Pershkrimi);
         }
@@ -269,7 +258,6 @@ function enable() {//kur humb fokusin kolona Autorizimeve
     if (!editorKodi) return;
     editorKodi.SetEnabled($("#hfRuaj").val() == "Modifiko" ? false : true);
 }
-
 
 
 function menu_click(s, e) {

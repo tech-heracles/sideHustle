@@ -217,9 +217,7 @@ namespace DbCore.DbCRM
 
         public static bool ekzistonDetyraPerKeteKlient(int idKlient, int idDetyra,int idNdermarrje,DateTime dtFillimi ,DateTime dtMbarimi,clsDatabaseCRM db)
         {
-            //clsDatabaseCRM db = new clsDatabaseCRM();
             bool ekziston = db.ekzistonDetyreKlient(idKlient, idDetyra,idNdermarrje,dtFillimi,dtMbarimi);
-            //db.Dispose();
             return ekziston;
         }
 
@@ -315,7 +313,6 @@ namespace DbCore.DbCRM
       ,[IDNDERMARRJE]
       ,[DTFILLIMI]
       ,[DTMBARIMI]
- 
  
  
  */

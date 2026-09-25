@@ -150,8 +150,6 @@ namespace PlatinumWeb
         private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
         {
             //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            //DbCore.DbShare.clsKonfigurimAmbjenti ambj = new DbCore.DbShare.clsKonfigurimAmbjenti(idNdermarrje, idNivel);
-            //return ambj.IdKonfigAmbjente;
             return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
         }
 
@@ -372,7 +370,6 @@ namespace PlatinumWeb
                     txtVleraParametri.ClientEnabled = false;
             }
         }
-
 
 
         private void konfiguroGride(int idPerdoruesi, int idNdermarrje, bool visibleIndex, int idKonfigambjenti, bool kerkosaposhkruar)

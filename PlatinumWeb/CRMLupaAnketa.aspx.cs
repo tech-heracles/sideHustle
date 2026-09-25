@@ -19,7 +19,6 @@ namespace PlatinumWeb
     public partial class CRMLupaAnketa : MyPageBase
     {
 
-        //private DbCore.DbAdmin.clsDatabaseAdmin dbAdmin;
         private int idKonfigambjenti;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -127,7 +126,6 @@ namespace PlatinumWeb
         private void konfiguroPopupGride(bool visibleIndex, bool kerkosaposhkruar, bool endlessScroll)
         {//konfiguron popupgriden
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaAnketa, "gvLupaAnketa", "CRMLupaAnketa.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhe(gvLupaAnketa, "IdAutorizimKoka");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaAnketa, "IdKokaAnketa", kerkosaposhkruar, endlessScroll);
             this.gvLupaAnketa.Columns["#"].VisibleIndex = 0;
@@ -141,7 +139,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //   check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gvLupaAnketa.Settings.ShowFilterRow = true;
                 gvLupaAnketa.Columns.Add(check);
@@ -150,7 +147,6 @@ namespace PlatinumWeb
                 gvLupaAnketa.SettingsBehavior.AllowSelectByRowClick = true;
 
             }
-
 
 
         }
@@ -185,17 +181,7 @@ namespace PlatinumWeb
                 else
                 {
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvLupaAnketa, arr[2], "gvLupaAnketa", "CRMLupaAnketa.aspx", 1);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), "gvLupaAnketa", "CRMLupaAnketa.aspx", idNdermarrje);
-                    //filtra.mbushFilterPerGrideSipasKodit(arr[2], idNdermarrje, koka.IdGridaKoka);
-                    //if (filtra.FiltraKodi != null)
-                    //{
-                    //    gvLupaAnketa.FilterExpression = filtra.FiltraVlera;
-                    //    if (filtra.DrejtimRenditje == true)
-                    //        gvLupaAnketa.SortBy(gvLupaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
                     //    else
-                    //        gvLupaAnketa.SortBy(gvLupaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
-                    //}
                 }
             }
             else if (arr.Length == 2)//nese eshte zgjedhur nje konfigurim tek combo e konfigurimeve
@@ -241,20 +227,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaAnketa.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKokaAnketa", gvLupaAnketa);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaAnketa.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdKokaAnketa";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -263,7 +237,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAnketa", 1, "CRMLupaAnketa.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -287,7 +260,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAnketa", 1, "CRMLupaAnketa.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -342,11 +314,6 @@ namespace PlatinumWeb
                         continue;
                     DbCore.DbKontabiliteti.clsKlientFurnitor kf = new DbCore.DbKontabiliteti.clsKlientFurnitor(int.Parse(arr[i]));
                     DbCore.DbCRM.clsKokaAnketa kok = new DbCore.DbCRM.clsKokaAnketa((int)rreshtat[0]);
-                    //if (DbCore.DbCRM.clsKokaAnketa.kaPrerjeAnketashKlienti(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(arr[i]), kok.DtFillimi, kok.DtMbarimi))
-                    //{
-                    //    klientetepalidhur.Add(kf.KodKlientFurnitor);
-                    //    continue;
-                    //}
 
                     DbCore.DbCRM.clsKlientAnketa klient = new DbCore.DbCRM.clsKlientAnketa(0, int.Parse(arr[i]), (int)rreshtat[0], 1, DateTime.Now, DateTime.Now, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.clsMesazh mesazh = klient.ruaj();

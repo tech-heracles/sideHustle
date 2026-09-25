@@ -422,14 +422,10 @@ namespace PlatinumWeb
             ASPxButton_SaveWindow_B.ToolTip = ASPxButton_SaveWindow.ToolTip = rm.GetString("ReportToolbarButtonSaveToWindow", ci);
 
             ASPxComboBox_ExportFormat_B.ToolTip = ASPxComboBox_ExportFormat.ToolTip = rm.GetString("ReportToolbarExportFormatTooltip", ci);
-            //ASPxCheckBox_Raw.ToolTip = rm.GetString("ReportToolbarExportExcelRaw", ci);
 
             ASPxButton_SaveRaw_B.ToolTip = ASPxButton_SaveRaw.ToolTip = rm.GetString("ReportToolbarExportExcelRaw", ci);
-            //labelZoomFactor.Text = rm.GetString("ReportToolbarLabelScaleFactor", ci);
             ASPxComboBox_ZoomFactor_B.ToolTip = ASPxComboBox_ZoomFactor.ToolTip = rm.GetString("ReportToolbarZoomFactorTooltip", ci);
-            //labelStili.Text = rm.GetString("ReportToolbarLabelStili", ci);
             ASPxComboBox_Style_B.ToolTip = ASPxComboBox_Style.ToolTip = rm.GetString("ReportToolbarComboBoxStiliTooltip", ci);
-            //labelOrientimi.Text = rm.GetString("ReportToolbarLabelOrientimi", ci);
             ASPxButton_SaveStyle_B.Text = ASPxButton_SaveStyle.Text = rm.GetString("ReportToolbarButtonRuajStil", ci);
             ASPxComboBox_Orientimi.ToolTip = ASPxComboBox_Orientimi.ToolTip = rm.GetString("ReportToolbarLabelOrientimi", ci);
             ListEditItem landscapeItem = ASPxComboBox_Orientimi.Items.FindByValue(clsRaportDesign._rap_landscape);
@@ -445,7 +441,6 @@ namespace PlatinumWeb
             if (portraitItem_B != null)
                 portraitItem_B.Text = rm.GetString("ReportToolbarComboBoxOrientimiPortrait", ci);
             HfState.Set("ReportToolbarExportModeSingleFile", rm.GetString("ReportToolbarExportModeSingleFile", ci));
-            //HfState.Set("ReportToolbarExportModeDifferentFiles", rm.GetString("ReportToolbarExportModeDifferentFiles", ci));
             HfState.Set("ReportToolbarExportModeSingleFilePageByPage", rm.GetString("ReportToolbarExportModeSingleFilePageByPage", ci));
         }
 
@@ -495,7 +490,6 @@ namespace PlatinumWeb
                 btn_SaveRapPerTatime.ToolTip = "Eksporto sipas qendrave te kostos";
             btn_SaveRapPerTatime.ClientVisible = true;
         }
-
 
 
         /// <summary>
@@ -586,7 +580,6 @@ namespace PlatinumWeb
             {
                 DevExpress.XtraReports.UI.Band pageHeaderBand = r.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.PageHeaderBand));
                 pageHeaderBand.Visible = false;
-                //r.Bands.Remove(pageHeaderBand);
                 r.CreateDocument();
                 pageHeaderBand.Visible = true;
             }
@@ -613,7 +606,6 @@ namespace PlatinumWeb
                 {
                     DevExpress.XtraReports.UI.Band pageHeaderBand = r.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.PageHeaderBand));
                     pageHeaderBand.Visible = true;
-                    //r.Bands.Remove(pageHeaderBand);
                     r.CreateDocument();
                     break;
                 }

@@ -41,8 +41,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
-
         public static List<string> MerriTeGjitha()
         {
             using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(Constants.DefaultConnectionName))
@@ -50,12 +48,6 @@ namespace DbCore.DbAdmin
                 return dbAdmin.MerrGjitheKomponentet();
             }
         }
-
-
-
-
-
-
 
 
         public bool mbushKomponentetAmbjentit(int idllojlicence)
@@ -99,19 +91,13 @@ namespace DbCore.DbAdmin
         private bool mbushKomponentet(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
                 clsKomponente komp = new clsKomponente();
                 if (komp.mbushKomponente(rreshti))
                     Add(komp);
             }
-            //}
-            //catch (Exception)
-            //{
 
-            //    return false;
-            //}
             return true;
         }
 

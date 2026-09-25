@@ -79,7 +79,6 @@ namespace DbCore.Raporte
 
             var folder = $"{IMBUtils.DataBase.MyConnectionsManager.GetSelectedConNameServer()}/";
             var type = MerrReportDesignType(idDesign, idNdermarrje, idRaporti, orientimi, out var reportName);
-            //if (alphaMobile) reportName = "RaportetDs.RAP_SHITJE.Fatura.Rap_Fature_Shitje_Redis";
             if (type != null)
                 report = (XtraReport)Activator.CreateInstance(type, parametraPerKonstruktor, report);
             else if (clsReportDesigner.EkzistonRaporti(reportName))
@@ -1146,10 +1145,7 @@ namespace DbCore.Raporte
                                     tvsh10 += secondRow.Field<double>("TVSH10");
                                     vlefta6 += secondRow.Field<double>("VLEFTA6");
                                     tvsh6 += secondRow.Field<double>("TVSH6");
-                                    //totaliAgj += secondRow.Field<double>("totaliagjente");
                                     totaliAuto += secondRow.Field<double>("tvshautongarkese");
-                                    //totaliBorxhi += secondRow.Field<double>("TOTALIBORXHI");
-                                    //tvshBorxhi += secondRow.Field<double>("TVSHBORXHI");
                                 }
 
                             }
@@ -1186,12 +1182,9 @@ namespace DbCore.Raporte
                             newDataTable.Rows.Add(rowsToInsert);
 
 
-
                         }
-                        //var a = ;
                         dataset.Tables.Remove(dataset.Tables[0]);
                         dataset.Tables.Add(newDataTable);
-                        //newDataTable.Rows.Add(new dynamic[""]);
                     }
                     report.DataSource = dataset;
                     report.DataAdapter = adapter;
@@ -1219,7 +1212,6 @@ namespace DbCore.Raporte
                 return;
 
             table.Rows.Clear();
-            // table.Rows.Add(table.Rows[0]);
         }
 
         public static void konfigDataSetRaporti(XtraReport report, string spname, bool sampleData, bool alphaMobile = false, params SqlParameter[] paramarray)

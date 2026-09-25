@@ -33,18 +33,10 @@ namespace DbCore.DbRegjistrim
         private bool mbushColKonfigPGKoka(int idGjuha, DataTable konfigPGDataTable)
         {
             //try
-            //{
                 foreach (DataRow row in konfigPGDataTable.Rows)
                 {
-                    //clsKonfigPivotGridaKoka konfKoka = new clsKonfigPivotGridaKoka();
-                    //konfKoka.mbushKonfigPivotGridaKoka(idGjuha, row);
                     Add(new clsKonfigPivotGridaKoka(idGjuha, row));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

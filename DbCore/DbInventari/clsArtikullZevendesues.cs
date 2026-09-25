@@ -131,7 +131,6 @@ namespace DbCore.DbInventari
             int id;
             clsMesazh u_ruajt = data.ruajArtikulliZevendesues(out id, this.IdArtikulliKryesor, this.IdArtikulliZevend, this.Prioriteti);
             data.Dispose();
-            //clsMesazh u_ruajt = data.ruajArtikulliZevendesues(this);
             return u_ruajt;
         }
         /// <summary>
@@ -144,7 +143,6 @@ namespace DbCore.DbInventari
         {
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_modifikua = data.modifikoArtikulliZevendesues(this.IdArtikulliZevendesues, this.IdArtikulliKryesor, this.IdArtikulliZevend, this.Prioriteti);
-            //clsMesazh u_modifikua = data.modifikoArtikulliZevendesues(this);
             data.Dispose();
             return u_modifikua;
         }
@@ -159,7 +157,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiArtikulliZevendesues(this.IdArtikulliZevendesues);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiArtikulliZevendesues(this);
             return u_fshi;
         }
         /// <summary>
@@ -172,7 +169,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.merrArtikulliZevendesues(this.IdArtikulliZevendesues);
             data.Dispose();
-            //data.merrArtikulliZevendesues(this);
         }
         #endregion
 

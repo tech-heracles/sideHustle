@@ -23,8 +23,6 @@ namespace DbCore.DbListPagesat
         private System.Data.DataRow rreshti;
      
       
-
-
         #endregion
 
         #region Properties
@@ -129,7 +127,6 @@ namespace DbCore.DbListPagesat
         }
 
        
-       
         #endregion
 
         #region Konstruktoret
@@ -205,8 +202,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
-
         #endregion
 
         #region Metoda Publike
@@ -226,8 +221,6 @@ namespace DbCore.DbListPagesat
                 if (dt.Year != vitinderm)
                     throw new Exception("Viti i listpageses duhet ti perkase vitit ushtrimor!");
                
-                //if (ekzistonListOrari(data, idPunonjesi, dblist))
-                //    throw new Exception("Ekziston nje list orari per punonjesin " + pun.NrPersonal + " per daten " + data.ToShortDateString());
                 return new clsKontrolliMjekesor(0, idPunonjesi, dt, idkrijuesi, idperdoruesi, idndermarje, idstatusdok);
             }
             catch (Exception e)
@@ -303,21 +296,10 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi)
-        //{
-        //    clsDatabazeListPagesa data = new clsDatabazeListPagesa();
-        //    bool sukses = data.ekzistonOreShtese(date, idpunonjesi);
-        //    data.Dispose();
-        //    return sukses;
-        //}
         //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi, clsDatabazeListPagesa data)
-        //{
 
-        //    bool sukses = data.ekzistonOreShtese(date, idpunonjesi);
 
-        //    return sukses;
-        //}
         #endregion
 
         #region Metoda Internal

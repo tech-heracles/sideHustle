@@ -638,7 +638,6 @@ function pastrofusha() {
     btneKlientiKryesor.SetValue(null);
     txtShenime.SetText('');
     dteDatelindjaKF.SetValue(null);
-   // btneFurnitoriKryesor.SetText('');
     btnAgjenti3.SetValue(null);
     cmbAutorizimi.SetValue(null);
     aktivizoFusha(colKontrollet, colAtrTrupi, false);
@@ -1000,11 +999,9 @@ var counter = 0;
 var arr2 = new Array();
 var counter2 = 0;
 var arradresa;
-//var arrkodipostar = new Array();
 var countadresa = 0;
 var editorValues = new Object();
 var idllojadrese = 1;
-//var arrVlerat = new Array();
 var countvlerat = 0;
 var autorizime;
 //pastron fushat
@@ -1105,7 +1102,6 @@ function pastro() {
     counter = 0;
     arr2 = new Array();
     counter2 = 0;
-    //arrVlerat = new Array();
     countvlerat = 0;
     arrEmer = new Array();
     arrMbiemer = new Array();
@@ -1496,12 +1492,10 @@ function enter() {
 //thirret ne momentin qe klikohet butoni qe konfirmos fshirjen e klient\furnitoreve. Ben callback te grides, dhe ne server
 //side ndodhe fshirja
 function fshiKlientFurnitor() {
-    //ASPxGridView_KF.PerformCallback();
 }
 //eshte bere me setTimeout sepse gjithesesi thirret ajax per nrauto. ne kete menyre i jep mundesi funksionit mbush() te resetoj combon perpara se te vi nrAuto nqs ka nrAuto per ate kontroll
 function vendosNrAutomatik(colAtrTrupi, colKontrollet) { 
     setTimeout(function () { myNrAuto.vendosNrAutomatik(colAtrTrupi, colKontrollet, new Date()); }, 0);    
-    //            myNrAuto.vendosNrAutomatikCelje(kontrollet, new Date());
 }
 
 function ekzistonNumriAutomatikPerKontroll(colKontrollet, colAtrTrupi){

@@ -95,13 +95,7 @@ function menu_click(s, e) {
 }
 var mbush = false;
 function OnGridDoubleClick(e, index) {
-//    if (!focuschange) {
-//        var hidField1 = $("#hfVeprimi")[0];
-//        myMenu.ShikoClick(editor, 'Shto_AzhornimKlientFurnitor.aspx?vep=' + Utils.getUrlVar('vep') + '&shtim_modifikim=modifikim&numer=' + numur + '&indexrow=' + indexModifiko + '&id=' + id + '&shitje_blerje=' + hidField1.value);
 //    } else {
-//        indexModifiko = index;
-//        mbush = true;
-    //    }
     indexModifiko = index;
     if (Utils.getUrlVar('vep') == 'azhornim')
         grid_AzhornimKF.GetRowValues(indexModifiko, 'IdAzhornimKFKoka;NrDok', OnGetRowValues);

@@ -407,27 +407,18 @@ namespace DbCore.DbInventari
         private bool mbushDetajimArtikujsh(DataTable dt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsDetajimArtikulli detajimArtikulli = new clsDetajimArtikulli();
-                //detajimArtikulli.mbushDetajimArtikulli(rreshti);
                 this.Add(new clsDetajimArtikulli(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
 
         }
         private bool mbushDetajimArtikujsh(DataTable dt, colDetajimeArtikulli colDetArt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
@@ -437,15 +428,8 @@ namespace DbCore.DbInventari
                 {
                     this.Add(new clsDetajimArtikulli(rreshti));
                 }
-                //clsDetajimArtikulli detajimArtikulli = new clsDetajimArtikulli();
-                //detajimArtikulli.mbushDetajimArtikulli(rreshti);
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
 
         }

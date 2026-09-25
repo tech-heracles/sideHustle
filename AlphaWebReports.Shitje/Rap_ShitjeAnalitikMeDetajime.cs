@@ -60,7 +60,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         {
             xrLabel27.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel28.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-           // xrLabel38.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel32.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel36.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel33.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
@@ -124,8 +123,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel66.Text = rm.GetString("labelShumaPaTvsh", ci);
             xrLabel64.Text = rm.GetString("labelTVSH", ci);
             xrLabel65.Text = rm.GetString("labelShumaMeTvsh", ci);
-            //xrLabel90.Text = rm.GetString("labelFilterAvancuarPerdorues", ci);
-            //xrLabel94.Text = rm.GetString("filterRaportPershkrimFature", ci);
             xrLabel1.Text = rm.GetString("labelNr", ci);
             xrLabel2.Text = rm.GetString("label_Klienti",ci);
             xrLabel71.Text = rm.GetString("label_Emri", ci);
@@ -145,8 +142,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             VlmeZbritjeKokaR.Text = rm.GetString("labelVleftameZbritje", ci);
             MonLlogKokaR.Text = rm.GetString("labelMonLlogari", ci);
             MonBazeKokaR.Text = rm.GetString("labelMonBaze", ci);
-            //xrLabel124.Text = rm.GetString("labelFilterAvancuarPerdorues", ci);
-            //xrLabel125.Text = rm.GetString("filterRaportPershkrimFature", ci);
             Detajime1KokaR.Text = rm.GetString("labelDetajim1", ci);
             Detajime2KokaR.Text = rm.GetString("labelDetajim2", ci);
         }

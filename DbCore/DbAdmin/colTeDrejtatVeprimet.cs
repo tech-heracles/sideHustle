@@ -84,19 +84,11 @@ namespace DbCore.DbAdmin
         private bool mbushVeprimet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTeDrejtaVeprim veprimi = new clsTeDrejtaVeprim();
-                    //veprimi.mbushTeDrejtaVeprim(rreshti);
                     Add(new clsTeDrejtaVeprim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

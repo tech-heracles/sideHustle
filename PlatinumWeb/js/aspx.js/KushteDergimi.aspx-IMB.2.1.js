@@ -30,21 +30,8 @@ function changeName() {
 }
 
 function switchEditMode(index) {
-    //            if (editmode) {
-    //                if (index == indexEdit) {
-    //                    grid_KushteDergimi.CancelEdit();
-    //                    editmode = !editmode;
-    //                }
-    //                else {
     grid_KushteDergimi.StartEditRow(index);
     indexEdit = index;
-    //                }
-    //            }
-    //            else {
-    //                grid_KushteDergimi.StartEditRow(index);
-    //                indexEdit = index;
-    //                editmode = !editmode;
-    //            }
 }
 
 function Init() {

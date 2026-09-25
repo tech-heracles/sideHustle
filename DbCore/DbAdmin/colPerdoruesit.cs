@@ -112,8 +112,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
-
         public static int merrNrPerdoruesishSipasLicences(int idperdorues, int idlicenca)
         {
             using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
@@ -137,8 +135,6 @@ namespace DbCore.DbAdmin
         }
 
         
-
-
         /// <summary>
         /// mbush gjithe perdoruesit e licences se perdoruesit
         /// </summary>
@@ -195,19 +191,11 @@ namespace DbCore.DbAdmin
         internal bool mbushPerdoruesit(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPerdorues perdorues = new clsPerdorues();
-                    //perdorues.mbushPerdorues(rreshti);
                     Add(new clsPerdorues(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

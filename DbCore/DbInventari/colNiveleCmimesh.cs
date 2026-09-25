@@ -261,20 +261,12 @@ namespace DbCore.DbInventari
         private bool mbushNiveleCmimesh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNivelCmimi nivelCmimi = new clsNivelCmimi(rreshti);
-                    //nivelCmimi.mbushNivelCmimi(rreshti);
                     this.Add(new clsNivelCmimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
         #endregion
@@ -295,7 +287,6 @@ namespace DbCore.DbInventari
                 nivelCmimi.BrutoNetoNivelCmimi =int.Parse(rreshti[6].ToString());
                 nivelCmimi.PrioritetiNivelCmimi =int.Parse(rreshti[7].ToString());
                 nivelCmimi.IdPerdoruesi =int.Parse(rreshti[8].ToString());
-                //nivelCmimi.IdNderViti =int.Parse(rreshti[9].ToString());
                 nivelCmimi.IdNdermarje = int.Parse(rreshti[9].ToString());
 
                 niveleCmimesh.Add(nivelCmimi);

@@ -342,20 +342,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_veprimeBankaKoka.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("LlojiVeprimit", grid_veprimeBankaKoka);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_veprimeBankaKoka.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "LlojiVeprimit";
-            //    filtri.DrejtimRenditje = true;
-            //}
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = IdPerdoruesi;
             filtri.IdNdermarje = IdNdermarrja;
@@ -717,7 +705,6 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhInfoGabimLidhur, pnlMesazhi);
             else
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazhInfoSukses, pnlMesazhi);
-            //}
         }
 
         private void hiqDokumentNgaGrida(int idkoka, int idKategori)

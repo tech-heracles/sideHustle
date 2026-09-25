@@ -17,7 +17,6 @@ namespace DbCore.DbShare
         public void mbushMenuItem(int idgjuha)
         {
             clsDatabaseShare data = new clsDatabaseShare();
-            //data.krijoManager();
             mbushMenuItem(idgjuha, data.merrGjitheMenuItems());
             data.Dispose();
         }
@@ -126,20 +125,12 @@ namespace DbCore.DbShare
         private bool mbushMenuItem(int idgjuha, DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
 
-                    //clsMenuItem koka = new clsMenuItem(idgjuha);
-                    //koka.mbushMenuItem(idgjuha, rreshti);
                     this.Add(new clsMenuItem(idgjuha, rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

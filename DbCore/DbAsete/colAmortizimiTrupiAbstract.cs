@@ -96,9 +96,6 @@ namespace DbCore.DbAsete
 				clsAQTSeriale serial = new clsAQTSeriale();
 				if (trupMag.IdAQTSeriali == 0)
 				{
-					// colAQTSeriale seriale = new colAQTSeriale();
-					// seriale.merrAQTSerialSipasIDArtikulliIDMagazine(trupMag.IdArtikulli, trupMag.IdNjesiAdministrative, idndermarje);
-					// serial.AmortizimiFillestar = seriale.Sum(x => x.AmortizimiFillestar);
 					serial.AqtSerialKod = "";
 				}
 				else serial.merrAQTSerialSipasID(trupMag.IdAQTSeriali);
@@ -176,12 +173,6 @@ namespace DbCore.DbAsete
 		/// <param name="idNjesiAdministrative">(int) Id e njesi administrative ku po ndodh ndryshimi i statusit.</param>
 		/// <returns>Kthen True nese nuk ndodh asnje gabim gjate marrjes se trupit te dokumentit te amortizimit ose False ne te kundert.</returns>
 		//public bool merrAmortizimTrupiSipasIdKokaAmortizimiIdNjesiAdministrative(int idAmortizimKoka, int idNjesiAdministrative)
-		//{
-		//    clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
-		//    bool pergjigja = mbushAmortizimiTrupiList(moduliAsete.ktheAmortizimTrupiSipasIdKokaAmortizimiIdNjesiAdministrative(idAmortizimKoka, idNjesiAdministrative));
-		//    moduliAsete.Dispose();
-		//    return pergjigja;
-		//}
 
 		/// <summary>
 		/// MODULI ASETE:
@@ -324,7 +315,6 @@ namespace DbCore.DbAsete
 		public bool krijoTrupiDokAmortizimiNgaVeprimeMagazineHyrjePerTransferim(clsAmortizimiKoka amortizimiKrijuarNgaDalja, int idNjesiAdministrative, colHistorikAQTSeriale serialetendashem, clsKokaMagazina maghyrese)
 		{
 			DateTime dateNdryshimStatusMagazine;
-			//int i = 0;
 			int indexArtSerialeTeNdashme = 0; //mban indeksin per artikujt me seriale te ndashme
 			int magazinatransf = 0;
 			colAmortizimiTrupiAbstract amortizimDalje;
@@ -672,7 +662,6 @@ namespace DbCore.DbAsete
 			}
 
 			//Kontrollon nese rreshti i ri ne koleksionin e trupit i perket te njejtit serial ose jo.
-			//Nese nuk i perket te njejtit serial duhet te filloj procedurat sikur te ishte objektiAktual = 0;
 			//Kontrolli behet deri per serialin e parafundit te koleksionit.
 			if (objektiAktual < lista.Count - 1)
 			{
@@ -1048,8 +1037,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 					}
 					//Llogarit vlerat e amortizimit.
 					llogaritVleraAmortizimiAmortizimiFillestar(clsTrupiAmortRi, rreshtiAmortizimFillestar, karakteristikaStandartit, 1);
-					//if (objektiKod==enumObjekteAmortizimi.ASETE&& clsTrupiAmortRi.NormaAmortizimi == 0.0)
-					//    return new clsMesazh(false, "Mungon norma e amortizimit per artikull " + clsTrupiAmortRi.Artikull.KodArtikulli + "!"); ;
 					if (objektiKod == enumObjekteAmortizimi.ASETE)
 						clsTrupiAmortRi.VleftaGjendje = clsSerialetMagazine.merrSerialetMagazineSipasIDSerialDokFundit(clsTrupiAmortRi.IdAQTSeriali, karakteristikaStandartit.IdNdermarrje, kokaEAmortizimit.DateDokumenti, 0);
 					else clsTrupiAmortRi.VleftaGjendje = rreshtiAmortizimFillestar.VleftaGjendje;
@@ -1063,7 +1050,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 					seriale.merrAQTSerialSipasIDArtikulliIDMagazine(rreshtiAmortizimFillestar.IdArtikulli, rreshtiAmortizimFillestar.IdNjesiAdministrative, kokaEAmortizimit.IdNdermarrje, kokaEAmortizimit.DateDokumenti);
 					if (rreshtiAmortizimFillestar.Artikull == null)
 						rreshtiAmortizimFillestar.Artikull = new DbInventari.clsArtikulli(rreshtiAmortizimFillestar.IdArtikulli);
-					//DbInventari.clsArtikulli artikulli = new DbInventari.clsArtikulli(rreshtiAmortizimFillestar.IdArtikulli, dbinv);
 					if (seriale.Count == 0)
 						return new clsMesazh(false, String.Format("Nuk ka gjendje per artikullin {0}!", rreshtiAmortizimFillestar.Artikull.KodArtikulli));
 					foreach (clsAQTSeriale seriali in seriale)
@@ -1302,7 +1288,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 			bool pergjigja = true;
 			int nrRendorFiks = 0;
 			for (int i = 0; i < seriale.Count; i++)
-			//foreach (clsSerialetMagazine seriali in seriale)
 			{
 				//Per rastet kur ka me shume se nje dokument ne shperndarje shpenzimet
 				//Sa here qe njeh nje numerRendor == 0 do te thote qe eshte dokument i ri dhe ngrin numrin fiks per t'iu shtuar cdo numri rendor te dokumentit te ri.
@@ -1324,7 +1309,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 				clsAmortizimiTrupiAbstract clsTrupiAmortRi = clsAmortizimiTrupiAbstract.krijoInstance(seriale[i].NrRendor, idArtikullAktual, artikulli.PershkrimArtikulli, clsAseteNormaAmortizimiAbstract.merrIDLlojAmortizimiNormaAmortizimiSipasIDArtikullStandart(idArtikullAktual, kokaEAmortizimit.IdLlojStandarti, dateAmortizimi, this.objektiKod),
 					dateAmortizimi, dateAmortizimi, dateAmortizimi, seriale[i].IdNjesiAdministrative, seriale[i].IdAQTSeriali, ser.AqtSerialKod, artikulli, 0, this.objektiKod);
 
-				//float vleraShperndarje = (float)kokamag.OcolTrupiMagazina.Find(x => x.IdArtikulli == idArtikullAktual).Vlefta;
 				float vleraShperndarje = (float)kokamag.OcolTrupiMagazina[nrRendorFiks + seriale[i].NrRendor].Vlefta;
 				clsKokaMagazina dokMagazine = new clsKokaMagazina();
 				pergjigja = dokMagazine.mbushKokaMagazinaSipasID(seriale[i].IdDok);
@@ -1332,7 +1316,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 				if (!pergjigja)
 					return pergjigja;
 
-				//float sasia = (float)dokMagazine.OcolTrupiMagazina.Find(x => x.IdArtikulli == idArtikullAktual).Sasia;
 				float sasia = (float)dokMagazine.OcolTrupiMagazina[seriale[i].NrRendor].Sasia;
 				//Llogarit vlerat e amortizimit.
 				if (artikulli.MeSerial)
@@ -1389,7 +1372,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 				clsTrupiAmortRi.AmortizimiVjetor = trupAmortRreshtOld.AmortizimiGjithsej + trupAmortRreshtOld.AmortizimiShtese + +trupAmortRreshtOld.HdAmortizimGjithsej;
 
 			//Llogarit ditet qe nuk eshte llogaritur amortizimi.
-			//pergjigje = llogaritDitetAmortizimShtese(clsTrupiAmortRi, trupAmortRreshtOld, llojDokumentiAktual, karakteristikaStandartit, idhistorikufundit, ndryshimstatusimagazine, FAB, FASS, FAFanalitike, FAFpermbledhese);
 			pergjigje = llogaritDitetAmortizimShtese(clsTrupiAmortRi, trupAmortRreshtOld, llojDokumentiAktual, karakteristikaStandartit, idhistorikufundit, ndryshimstatusimagazine, FAFanalitike, FAFpermbledhese, new clsDatabazeAsete());
 			if (!pergjigje)
 				return pergjigje;
@@ -1464,7 +1446,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 			}
 
 
-
 			return pergjigje;
 		}
 
@@ -1505,7 +1486,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 			if (objektiKod == enumObjekteAmortizimi.REZERVA)
 				clsTrupiAmortRi.VleftaPlusMinus = -clsTrupiAmortRi.VleftaGjendje;
 			else clsTrupiAmortRi.VleftaPlusMinus = -seriali.Vlefta;
-			//clsTrupiAmortRi.HdAmortizimGjithsej = -seriali.Sasia * (clsTrupiAmortRi.AmortizimiGjithsej + clsTrupiAmortRi.AmortizimiShtese) / sasiaProgresive;
 			clsTrupiAmortRi.HdAmortizimGjithsej = clsTrupiAmortRi.VleftaGjendje == 0 ? 0 : (clsTrupiAmortRi.VleftaPlusMinus * (clsTrupiAmortRi.AmortizimiGjithsej + clsTrupiAmortRi.AmortizimiShtese) / clsTrupiAmortRi.VleftaGjendje);
 			clsTrupiAmortRi.HdAmortizimVjetor = clsTrupiAmortRi.VleftaGjendje == 0 ? 0 : clsTrupiAmortRi.VleftaPlusMinus * clsTrupiAmortRi.AmortizimiVjetor / clsTrupiAmortRi.VleftaGjendje;
 
@@ -1586,7 +1566,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 			clsTrupiAmortRi.HdAmortizimGjithsej = 0;
 			clsTrupiAmortRi.HdAmortizimVjetor = 0;
 			clsTrupiAmortRi.DiteAmortizimi = 0;
-			//clsTrupiAmortRi.VleftaGjendje = vleftaGjendja;
 			clsTrupiAmortRi.VleftaGjendje = clsSerialetMagazine.ktheSerialetMagazineSipasIDSerialDheDates(clsTrupiAmortRi.IdAQTSeriali, idndermarje, dateDok, nrrendorditor);
 			clsTrupiAmortRi.VleftaPlusMinus = vleraShperndarje;
 
@@ -1855,7 +1834,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 					if (clsTrupiAmortRi.AmortizimAkumuluar == 0)
 					{
 						//U kthye ne baze te llojeve te dokumentave, pasi kishte raste te paparashikuara nga procedura e perdorur.
-						//if (clsAmortizimiTrupi.merrNrAmortizimTrupiSipasIdSerialiDateAmortizimi(clsTrupiAmortRi.IdAQTSeriali, clsTrupiAmortRi.DateAmortizimi, idStandartAmortizimi, dbAsete) == 1)
 						clsTrupiAmortRi.DiteAmortizimi = clsTrupiAmortRi.DiteAmortizimi + 1;
 					}
 				}

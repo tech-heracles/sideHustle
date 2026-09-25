@@ -46,7 +46,6 @@ namespace DbCore.DbInventari
         private decimal gjendje;
         private string kodNiveli;
         private string kodMonedha;
-        //private string formula;
         private double kursi;
         private DateTime koheFillimi;
         private DateTime koheMbarimi;
@@ -356,7 +355,6 @@ namespace DbCore.DbInventari
             this.sasiMax = sasiMax;
             this.cmimi = cmimi;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idNdermarje;
             this.idKonfig = idkonfig;
             this.idStatusDok = idstatusdok;
@@ -365,7 +363,6 @@ namespace DbCore.DbInventari
             this.NjesiTeVarura = njesitevarura;
             this.koheFillimi = kohefillimi;
             this.koheMbarimi = kohembarimi;
-            //this.formula = formula;
             this.kursi = kursi;
             this.idTvsh = idtvsh;
             this.cmimiTvsh = cmimitvsh;
@@ -410,7 +407,6 @@ namespace DbCore.DbInventari
                 this.idDetajim = detajim;
                 this.idCmimRetail = idCmimRetail;
 
-                //this.formula = formula;
                 clsMesazh mesazh = this.kontrolloCmim(rm, ci);
 
                 if (!mesazh.Status)
@@ -472,7 +468,6 @@ namespace DbCore.DbInventari
                 idNivelCmimi = nc.IdNivelCmimi;
                 NjesiTeVarura = nc.NjesiTeVarura;
                 
-
 
                 if (!NjesiTeVarura)
                 {
@@ -787,7 +782,6 @@ namespace DbCore.DbInventari
             clsMesazh u_ruajt = data.ruajCmimArtikulli(out id, this.IdArtikulli, this.IdNivelCmimi, this.IdNjesia, this.IdMonedha, this.DateFillimi,
                 this.DateMbarimi, this.SasiMin, this.SasiMax, this.Cmimi, this.IdPerdoruesi, this.IdNdermarje, this.IdKonfig, this.idStatusDok, this.idNjesia2, this.cmimi2, this.koheFillimi,this.KoheMbarimi,this.IdDetajim);//, this.formula
             data.Dispose();
-            //clsMesazh u_ruajt = data.ruajCmimArtikulli(this);
             return u_ruajt;
         }
 
@@ -798,7 +792,6 @@ namespace DbCore.DbInventari
             clsMesazh u_ruajt = data.ruajCmimArtikulli(out id, this.IdArtikulli, this.IdNivelCmimi, this.IdNjesia, this.IdMonedha, this.DateFillimi,
                 this.DateMbarimi, this.SasiMin, this.SasiMax, this.Cmimi, this.IdPerdoruesi, this.IdNdermarje, this.IdKonfig, this.idStatusDok, this.idNjesia2, this.cmimi2, this.koheFillimi,this.koheMbarimi, this.idDetajim);//, this.formula
 
-            //clsMesazh u_ruajt = data.ruajCmimArtikulli(this);
             return u_ruajt;
         }
 
@@ -813,7 +806,6 @@ namespace DbCore.DbInventari
             clsMesazh u_modifikua = data.modifikoCmimArtikulli(this.IdCmimArtikulli, this.IdArtikulli, this.IdNivelCmimi, this.IdNjesia, this.IdMonedha, this.DateFillimi,
                 this.DateMbarimi, this.SasiMin, this.SasiMax, this.Cmimi, this.IdPerdoruesi, this.IdNdermarje, this.IdKonfig, this.idStatusDok, this.idNjesia2, this.cmimi2, this.koheFillimi,this.koheMbarimi, this.idDetajim);//, this.Formula
             data.Dispose();
-            //clsMesazh u_modifikua = data.modifikoCmimArtikulli(this);
             return u_modifikua;
         }
 
@@ -838,7 +830,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiCmimArtikulliStatus(this.IdCmimArtikulli, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiCmimArtikulli(this);
             return u_fshi;
         }
 
@@ -851,7 +842,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.ktheCmimArtikulli(this.idCmimArtikulli);
             data.Dispose();
-            //data.merrCmimArtikulli(this);
         }
 
         /// <summary>
@@ -914,7 +904,6 @@ namespace DbCore.DbInventari
             this.IdKonfig = int.Parse(rresht["IdKonfig"].ToString());
             this.IdMonedha = int.Parse(rresht["IdMonedha"].ToString());
             this.IdNdermarje = int.Parse(rresht["IdNdermarje"].ToString());
-            //this.IdNderViti = int.Parse(rresht["IdNderViti"].ToString());
             this.IdNivelCmimi = int.Parse(rresht["IdNivelCmimi"].ToString());
             this.IdNjesia = int.Parse(rresht["IdNjesia"].ToString());
             this.IdNjesia2 = int.Parse(rresht["IdNjesia2"].ToString());
@@ -928,7 +917,6 @@ namespace DbCore.DbInventari
             this.idTvsh = int.Parse(rresht["IdTvsh"].ToString());
             this.CmimiTvsh = decimal.Parse(rresht["CmimiTvsh"].ToString());
             this.Cmimi2Tvsh = decimal.Parse(rresht["Cmimi2Tvsh"].ToString());
-            //this.Formula = rresht["Formula"].ToString();
             return this;
         }
 
@@ -961,7 +949,6 @@ namespace DbCore.DbInventari
                 DateTime.TryParse(dbDataRowCmimArtikulli["Kohefillimi"].ToString(), out koheFillimi);
                 DateTime.TryParse(dbDataRowCmimArtikulli["Kohembarimi"].ToString(), out koheMbarimi);
                 int.TryParse(dbDataRowCmimArtikulli["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                //int.TryParse(dbDataRowCmimArtikulli["IDNDERVITI"].ToString(), out idNderViti);
                 int.TryParse(dbDataRowCmimArtikulli["IDNDERMARJE"].ToString(), out idNdermarje);
                 int.TryParse(dbDataRowCmimArtikulli["IDKONFIG"].ToString(), out idKonfig);
                 int.TryParse(dbDataRowCmimArtikulli["IDSTATUSDOK"].ToString(), out idStatusDok);
@@ -977,7 +964,6 @@ namespace DbCore.DbInventari
                 double.TryParse(dbDataRowCmimArtikulli["Kosto"].ToString(), out kosto);
                 decimal.TryParse(dbDataRowCmimArtikulli["Gjendje"].ToString(), out gjendje);
                 decimal.TryParse(dbDataRowCmimArtikulli["Koeficent"].ToString(), out koeficent);
-                //   double.TryParse(dbDataRowCmimArtikulli["Kursi"].ToString(), out kursi); 
                 decimal.TryParse(dbDataRowCmimArtikulli["norme"].ToString(), out norme);
                 NjesiTeVarura = bool.Parse(dbDataRowCmimArtikulli["NjesiTeVarura"].ToString());
                 PershkrimNjesia1 = dbDataRowCmimArtikulli["PershkrimNjesia1"].ToString();
@@ -1030,7 +1016,6 @@ namespace DbCore.DbInventari
                     DateTime.TryParse(dbDataRowCmimArtikulli["Kohefillimi"].ToString(), out koheFillimi);
                     DateTime.TryParse(dbDataRowCmimArtikulli["Kohembarimi"].ToString(), out koheMbarimi);
                     int.TryParse(dbDataRowCmimArtikulli["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowCmimArtikulli["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowCmimArtikulli["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowCmimArtikulli["IDKONFIG"].ToString(), out idKonfig);
                     int.TryParse(dbDataRowCmimArtikulli["IDSTATUSDOK"].ToString(), out idStatusDok);
@@ -1050,7 +1035,6 @@ namespace DbCore.DbInventari
                     decimal.TryParse(dbDataRowCmimArtikulli["norme"].ToString(), out norme);
                     int.TryParse(dbDataRowCmimArtikulli["IdDetajim"].ToString(), out idDetajim);
                     int.TryParse(dbDataRowCmimArtikulli["IdCmimRetail"].ToString(), out idCmimRetail);
-                    //formula = dbDataRowCmimArtikulli["Formula"].ToString();                    
                     return true;
                 }
                 catch (InvalidCastException)

@@ -58,21 +58,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushLidhesetPerKontroll(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLidhesPerKontroll lidhes = new clsLidhesPerKontroll();
-                    //lidhes.mbushLidhes(rreshti);
                     Add(new clsLidhesPerKontroll(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

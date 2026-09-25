@@ -52,7 +52,6 @@ namespace PlatinumWeb
             idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             idnderviti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
             idviti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idperdoruesi);
@@ -505,7 +504,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], idndermarje);
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvProfesione", "ProfesioneTitujPune.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)

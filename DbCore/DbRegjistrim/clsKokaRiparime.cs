@@ -664,8 +664,6 @@ namespace DbCore.DbRegjistrim
                 return new clsMesazh(false, "Nuk keni autorizime ne kete magazine!");
             if (kodMagazina != "" && !mag.Aktiv)
                 return new clsMesazh(false, STR_MagazinaNukEshteAktive);
-            //if(colTrupi.Count==0)
-            //    return new clsMesazh(false, "Nuk mund te ruani dokumentin me trup bosh!");
             foreach (clsTrupiRiparime trupi in colTrupi)
             {
                 if (kodniveli == "RF")
@@ -709,8 +707,6 @@ namespace DbCore.DbRegjistrim
             if (koka.pershkrimi != String.Empty) shenime = koka.pershkrimi;
             else
             {
-                //if (!hyrje_dalje)
-                //    shenime = "Nga blerja";
                 //else 
                 shenime = "Nga riparimet";
             }
@@ -754,7 +750,6 @@ namespace DbCore.DbRegjistrim
 
                 else
                 {
-                    // dbInv.vendosManager(dbregj );                
                     DbInventari.colArtikulliPerberes artper = new DbInventari.colArtikulliPerberes();
                     artper.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(art.IdArtikulli,koka.dtDok, dbInv);
                     foreach (DbInventari.clsArtikulliPerberes aper in artper)
@@ -932,8 +927,6 @@ namespace DbCore.DbRegjistrim
 
                         idLlojDok = 52; //shitje
                         bool gjithmone = false;
-                        //clsKusht kushtgj = new clsKusht(kokamag.IdKonfigAmbjente, "GJKGJ", dbshare);
-                        //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                         if (clsAlternativaKushti.getAlternativa(kokamag.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po")
                             gjithmone = true;
                         mesazh = kokamag.ruaj(false, 1, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, kokamag.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false,out mesazhmevonshem, null, false, false);
@@ -965,8 +958,6 @@ namespace DbCore.DbRegjistrim
 
                         idLlojDok2 = 51; //shitje
                         bool gjithmone = false;
-                        //clsKusht kushtgj = new clsKusht(kokamag2.IdKonfigAmbjente, "GJKGJ", dbshare);
-                        //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                         if (clsAlternativaKushti.getAlternativa(kokamag2.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po")
                             gjithmone = true;
                         mesazh = kokamag2.ruaj(false, 1, null, idPeriudha, pershkrimMagFK2, idLlojDok2, idDokNgaFK2, dbRegj, out shfaqmesazhapolupemag, kokamag2.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, new DbAsete.colSerialetMagazine(), new DbAsete.colSerialetMagazine(), new DbShare.clsKonfigurimAmbjenti(), new DbShare.clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, gjithmone, new DbAsete.colAmortizimiKoka(), 1, false, modifikim, new colTrupiMagazina(), new DbAsete.colAmortizimiKoka(), new int[0],false,false, out mesazhmevonshem, null, false, false);
@@ -992,7 +983,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh ruaj(IDictionary<string, object> hfNrAutoregjistrime, int idPeriudha, bool gjenerodokmagazine, out string shfaqmesazhapolupemag, bool eshteOwn, ResourceManager rm, CultureInfo ci)
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, idPeriudha, gjenerodokmagazine, out shfaqmesazhapolupemag, db, eshteOwn, rm, ci); //perdor ruajtjen me transaksion
             if (!u_ruajt.Status)
@@ -1168,7 +1158,6 @@ namespace DbCore.DbRegjistrim
                     }
 
                     kokamag.IdDokNga = kokaEkzistueseMag.IdKokaMagazina;
-
 
 
                 }

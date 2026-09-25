@@ -61,7 +61,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// mbush te gjitha sigurime sipas ndermarrjes  
         /// </summary>
@@ -99,18 +98,10 @@ namespace DbCore.DbListPagesat
         private bool mbushSigurim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSigurimeSuplementare kat = new clsSigurimeSuplementare();
-                    //kat.mbushSigurim(rreshti);
                     Add(new clsSigurimeSuplementare(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

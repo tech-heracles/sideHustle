@@ -21,7 +21,6 @@ namespace PlatinumWeb
 
             if (!Page.IsPostBack)
             {
-                //Session.Add("mesazh", ":Green");
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
                 mbushPopUpListeTipKontrate();
                 konfiguroPopupGride();
@@ -33,18 +32,6 @@ namespace PlatinumWeb
                 if (!tedrejtaInfo.DShtim) gvLupaTipKontrate.CancelEdit();
             }
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["mesazh"].ToString().Split(':')[1] == "Green")
-            //if (DbCore.mySessionObjects.merrMesazhNgaSesioni(Session).Split(':')[1] == "Green")
-            //{
-            //    //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, CacheLayer.GlobalCacheManager.MySessionCache["mesazh"].ToString().Split(':')[0], pnlMesazhi);
-            //    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, DbCore.mySessionObjects.merrMesazhNgaSesioni(Session).Split(':')[0], pnlMesazhi);
-            //}
-            //else if (DbCore.mySessionObjects.merrMesazhNgaSesioni(Session).Split(':')[1] == "Red")
-            //{
-            //    //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, CacheLayer.GlobalCacheManager.MySessionCache["mesazh"].ToString().Split(':')[0], pnlMesazhi);
-            //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, DbCore.mySessionObjects.merrMesazhNgaSesioni(Session).Split(':')[0], pnlMesazhi);
-            //}
-            //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = ":Green";
             DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
         }
         /// <summary>
@@ -155,7 +142,6 @@ namespace PlatinumWeb
 
                 gvLupaTipKontrate.AddNewRow();
             }
-
 
 
         }

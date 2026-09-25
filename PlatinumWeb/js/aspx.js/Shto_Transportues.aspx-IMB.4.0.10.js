@@ -404,8 +404,6 @@ function SucceededCallbackKonfig(result) {
 }
 
 function vendosKonfig(result) {
-    //$("#dvTransportues").show();
-    //$("#dvTransportues")[0].style.visibility = 'visible';
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
@@ -430,7 +428,6 @@ function ndryshoKonfigurimin() {
 }
 
 function ndryshoKonfiguriminInit() {
-   // $("#dvTransportues").show();
     callWebserviceKonfigurimiInit(913, cmbKonfigurimi.GetText());
 }
 
@@ -484,5 +481,4 @@ function onNdryshimFokusi() {
     }
     catch (e) { }
 }
-
 

@@ -23,7 +23,6 @@ namespace DbCore.DbAdmin
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin())
             {
-                //data.krijoManager();
                 mbushRolePerdoruesi(data.merrRolPerdoruesSipasIdPerdoruesi(idperdoruesi));
             }
         }
@@ -78,17 +77,11 @@ namespace DbCore.DbAdmin
         private bool mbushRolePerdoruesi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     this.Add(new clsRolPerdorues(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

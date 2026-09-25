@@ -43,7 +43,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
           ResourceManager  rm = new ResourceManager("Resources.Strings",
                      System.Reflection.Assembly.Load("App_GlobalResources"));
 
-            //xrLabel17.Text = rm.GetString("RaportRegjistriAnalitikMagazinesTitulli", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrTableCell3.Text = rm.GetString("lblRaportiNumerDokumenti", ci);
             xrTableCell1.Text = rm.GetString("lblRaportiNumerSerial", ci);

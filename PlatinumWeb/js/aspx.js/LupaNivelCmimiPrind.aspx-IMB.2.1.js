@@ -55,7 +55,6 @@ function OnGridSelectionChanged() {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
 
@@ -74,7 +73,6 @@ function OnGridSelectionComplete(values) {
         else {
             var hf = window.parent.document.getElementById("hfPrindi");
             hf.value = vl[1];
-            //window.parent.btneEmertimPrindi.SetText(vl[2]);
             Utils.ShtoNeseNukGjendetDheSelektoCombo(window.parent.btneEmertimPrindi, vl[0], new Array(vl[1], vl[2], vl[3] == 0 ? 'Cmim Shitje' : 'Cmim Blerje', vl[6], vl[7]));
             window.parent.Selected_IndexChanged();
             window.parent.cmbLloji.SetValue(vl[3]);
@@ -113,10 +111,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
         OnGridSelectionChanged();

@@ -206,7 +206,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
         
-
         private void xrTableCell13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -338,7 +337,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
 
-
         private void xrTableCell20_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -374,9 +372,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //if (niv != 12)
             //    niv++;
-            //else niv += 3;
         }
 
         private void xrTableCell15_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -400,7 +396,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         {
             XRLabel label = sender as XRLabel;
             string catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //string catid = GetCurrentColumnValue("KodZeri").ToString();
             label.NavigateUrl = "";
             if (GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ1") != null && GetCurrentColumnValue("SHFAQBIJ1").ToString() == "False"))
                 label.Text = "";
@@ -1260,9 +1255,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell147_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //if (niv != 12)
             //    niv++;
-            //else niv += 3;
         }
 
         private void xrTableCell150_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1378,8 +1371,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell162_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //e.Result = niv;
-            //e.Handled = true;
         }
 
         private void xrTableCell165_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

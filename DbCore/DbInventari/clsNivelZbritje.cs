@@ -20,7 +20,6 @@ namespace DbCore.DbInventari
         private int idPrindi;     
         private int prioritetiNivelZbritje;
         private int idPerdoruesi;
-        //private int idNderViti;
         private int idNdermarje;
         private int idKonfig;
         private int idStatusDok;
@@ -83,10 +82,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne e ndermarje vitit
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos ID-ne e ndermarjes.
         /// </summary>
@@ -142,7 +139,6 @@ namespace DbCore.DbInventari
             this.idPrindi = idPrindi;         
             this.prioritetiNivelZbritje = prioritetiNivelZbritje;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idnderm;
             this.idKonfig = idkonfig;
             this.idStatusDok = idstatusdok;
@@ -165,7 +161,6 @@ namespace DbCore.DbInventari
             this.idPrindi = idPrindi;          
             this.prioritetiNivelZbritje = prioritetiNivelZbritje;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idnderm; 
             this.idKonfig = idkonfig;
             this.idStatusDok = idstatusdok;
@@ -198,45 +193,25 @@ namespace DbCore.DbInventari
             this.IdNivelZbritje = idNivelZbritje;
             mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);            
             int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CNZ", new DbAdmin.clsDatabaseAdmin ());
-            //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CNZ")[0].IdCR;
-            //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
             int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod",new DbAdmin.clsDatabaseAdmin ());
             
-            //if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idnderm).IdLidhjeNrAuto!=0)
-            //{
-            //    DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idnderm);
-            //    DbAdmin.clsNrAutom NrAutom = new DbAdmin.clsNrAutom(ACR.IdNumraAutoLidhje);
-            //    //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-            //    int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-            //    int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-            //    string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-            //    string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-            //    ACR.VleraFunditLidhje = vlera;
-            //    ACR.modifiko();
-            //}
 
             if (ruaj == true)
             {
                 if (nivelZbritje.IdPrindi != 0)
                 {
-                    //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
                     clsNivelZbritje clsNivele = new clsNivelZbritje();
                     clsNivelZbritje nivelPrindi = new clsNivelZbritje();
                     nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
                     nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
                     clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje);
-                    //colNivele.Add(merrNivelZbritje (nivelPrindi)[0] );
                     if (clsNivele != null)
-                        //if (colNivele.Count > 0)
                         if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
-                        //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
                         {
-                            //foreach (clsNivelZbritje n in colNivele)
                             if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
                             {
                                 clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
                                 modifikoNivelZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNdermarje, clsNivele.IdKonfig, clsNivele.idStatusDok);
-                                //modifikoNivelZbritje(clsNivele);
                             }
                         }
                 }
@@ -250,13 +225,6 @@ namespace DbCore.DbInventari
         /// <param name="idndermarje"> id e ndermarjes </param>
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor: clsMesazh ruajNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //public clsMesazh ruaj(int idndermarje)
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_ruajt = data.ruajNivelZbritje(this.IdNivelZbritje, this.KodNivelZbritje, this.PershkrimNivelZbritje, this.IdPrindi, this.PrioritetiNivelZbritje, this.IdPerdoruesi, this.IdNderViti, this.IdNdermarje, idndermarje);
-        //    //clsMesazh u_ruajt = data.ruajNivelZbritje(this, idndermarje );
-        //    return u_ruajt;
-        //}
 
         /// <summary>
         /// modifikon nje nivel zbritje duke ndryshuar prioritetet e te gjithe nivele te tjera te te njejtit prind ne varesi te ndryshimit te nivelit qe u modifikua
@@ -278,7 +246,6 @@ namespace DbCore.DbInventari
             clsNivelZbritje nivelZbritje = new clsNivelZbritje(idNivelZbritje, kodNivelZbritje, pershkrimNivelZbritje, idPrindi, prioritetiNivelZbritje, idPerdoruesi, idnderm, idkonfig, idstatusdok);
             clsNivelZbritje nivelipara = new clsNivelZbritje();
             nivelipara.mbushNivelZbritje(nivelZbritje.IdNivelZbritje);
-            //clsNivelZbritje nivelipara = merrNivelZbritje(nivelZbritje)[0];
             ruaj = db.modifikoNivZbritje(idNivelZbritje, kodNivelZbritje, pershkrimNivelZbritje, idPrindi, prioritetiNivelZbritje, idPerdoruesi, idnderm, idkonfig, idstatusdok);
             if (ruaj == true)
             {
@@ -290,32 +257,26 @@ namespace DbCore.DbInventari
                     {
                         if (nivelipara.PrioritetiNivelZbritje != nivelZbritje.PrioritetiNivelZbritje)
                         {
-                            //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
                             clsNivelZbritje clsNivele = new clsNivelZbritje();
                             clsNivelZbritje nivelPrindi = new clsNivelZbritje();
                             nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
                             nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
                             clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje);
-                            //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
                             if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
                             {
-                                //foreach (clsNivelZbritje n in colNivele)
                                 if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
                                 {
                                     clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
                                     db.modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNdermarje,clsNivele.IdKonfig, clsNivele.idStatusDok);
-                                    //modifikoNivZbritje(clsNivele);
                                 }
 
                             }
                             else
                             {
-                                //foreach (clsNivelZbritje n in colNivele)
                                 if (clsNivele.PrioritetiNivelZbritje <= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje > nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
                                 {
                                     clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje - 1;
                                     db.modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNdermarje, clsNivele.IdKonfig, clsNivele.idStatusDok);
-                                    //modifikoNivZbritje(clsNivele);
                                 }
                             }
 
@@ -323,24 +284,18 @@ namespace DbCore.DbInventari
                     }
                     else
                     {
-                        //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
                         clsNivelZbritje clsNivele = new clsNivelZbritje();
                         clsNivelZbritje nivelPrindi = new clsNivelZbritje();
                         nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
                         nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
                         clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje);
-                        //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
                         if (clsNivele != null)
-                            //if (colNivele.Count > 0)
                             if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
-                            //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
                             {
-                                //foreach (clsNivelZbritje n in colNivele)
                                 if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
                                 {
                                     clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
                                     db.modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNdermarje, clsNivele.IdKonfig, clsNivele.idStatusDok);
-                                    //modifikoNivZbritje(clsNivele);
                                 }
 
                             }
@@ -352,7 +307,6 @@ namespace DbCore.DbInventari
                     {
                         colNiveleZbritjesh colNivele = new colNiveleZbritjesh();
                         colNivele.mbushNiveleZbritjeshSipasPrindit(nivelZbritje.IdNivelZbritje);
-                        //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdNivelZbritje);
 
                         if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
                         {
@@ -361,7 +315,6 @@ namespace DbCore.DbInventari
                                 {
                                     n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje + 1;
                                     db.modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNdermarje,n.IdKonfig, n.idStatusDok);
-                                    //modifikoNivZbritje(n);
                                 }
 
                         }
@@ -372,7 +325,6 @@ namespace DbCore.DbInventari
                                 {
                                     n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje - 1;
                                     db.modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNdermarje,n.IdKonfig,n.idStatusDok);
-                                    //modifikoNivZbritje(n);
                                 }
                         }
 
@@ -388,13 +340,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: modifikoNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public clsMesazh modifiko()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_modifikua = data.modifikoNivelZbritje(this.IdNivelZbritje, this.KodNivelZbritje, this.PershkrimNivelZbritje, this.IdPrindi, this.PrioritetiNivelZbritje, this.IdPerdoruesi, this.IdNderViti, this.IdNdermarje);
-        //    //clsMesazh u_modifikua = data.modifikoNivelZbritje(this);
-        //    return u_modifikua;
-        //}
 
         /// <summary>
         /// Fshin objektin nivel zbritje ne tabelen perkatese ne databaze.Therret funksionin
@@ -406,7 +351,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiNivelZbritjeStatus(this.IdNivelZbritje, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiNivelZbritje(this);
             return u_fshi;
         }
 
@@ -419,7 +363,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.ktheNivelZbritje(this.IdNivelZbritje);
             data.Dispose();
-            //data.merrNivelZbritje(this);
         }
 
         /// <summary>
@@ -513,7 +456,6 @@ namespace DbCore.DbInventari
                     int.TryParse(dbDataRowNivelZbritje["IDPRINDI"].ToString(), out idPrindi);
                     int.TryParse(dbDataRowNivelZbritje["PRIORITETINIVELZBRITJE"].ToString(), out prioritetiNivelZbritje);
                     int.TryParse(dbDataRowNivelZbritje["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowNivelZbritje["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowNivelZbritje["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowNivelZbritje["IDKONFIG"].ToString(), out idKonfig);
                     int.TryParse(dbDataRowNivelZbritje["IDSTATUSDOK"].ToString(), out idStatusDok);

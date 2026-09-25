@@ -41,11 +41,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             adresaFaturimit.Value = raport.Parameters[27].Value;
             Monedha.Value = raport.Parameters["monedhaKF"].Value;
         ///    if (Monedha.Value.ToString() == "False")
-              //  xrLabel9.Text =rm.GetString("labelRaportJo", ci);
-           // else xrLabel9.Text = rm.GetString("labelRaportPo", ci);
-         //   xrLabel10.Text = rm.GetString("labelFilterAvancuarMonedheKF", ci);
-            //xrLabel65.Text = raport.Parameters[28].Description;
-            //parameter19.Value = raport.Parameters[28].Value;
 
    
         }
@@ -61,7 +56,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);           
             xrLabel18.Text = rm.GetString("labelRaportiPershkrimi", ci);
             xrLabel19.Text = rm.GetString("labelNjesia", ci);
@@ -73,7 +67,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrTableCell3.Text = rm.GetString("labelRaportVlera", ci);
             xrLabel1.Text = rm.GetString("labelRaportPikaShitjes", ci);
             xrLabel5.Text = rm.GetString("labelRaportiShuma", ci);
-          //  xrLabel76.Text = rm.GetString("labelRaportTotalKliente", ci);
         }
 
     }

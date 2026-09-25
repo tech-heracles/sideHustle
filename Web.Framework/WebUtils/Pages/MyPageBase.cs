@@ -47,7 +47,6 @@ namespace PlatinumWeb.ApplicationUtils.Pages
             if (!User.Identity.IsAuthenticated) return; //nese nuk eshte i autentikuar nuk ka nevoj per autorizime
             AplikoTheme();
             //rreshti me poshte duhet ckomentuar ne momentin qe do aplikohet gjuha shqip e devexpress-it
-            //Page.UICulture = mySessionObjects.ktheCultureInfo(Session).Name;
             if (Request.Url.AbsolutePath.ContainsAnyIgnoreCase("Prezantohu.aspx") && Request.UrlReferrer == null && !Session.IsNewSession && terms)
                 Context.RedirectToLoginNdermarrje();
 
@@ -161,8 +160,6 @@ namespace PlatinumWeb.ApplicationUtils.Pages
             if (Page.ClientScript.IsClientScriptBlockRegistered(this.GetType(), IdentifikuesFaqjeKeyJS)) return;
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), IdentifikuesFaqjeKeyJS, $"<script>window['{IdentifikuesFaqjeKeyJS}']='{MerrIdentifikuesFaqje()}'</script>");
 
-            //if (Page.IsClientScriptBlockRegistered(IdentifikuesFaqjeKeyJS)) return;
-            //Page.RegisterStartupScript(IdentifikuesFaqjeKeyJS, $"<script>window['{IdentifikuesFaqjeKeyJS}']='{MerrIdentifikuesFaqje()}'</script>");
         }
 
         public virtual void MbushGrideNgaDb(bool ndryshoFiltrinGrides = false)

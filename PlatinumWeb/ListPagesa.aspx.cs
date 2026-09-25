@@ -192,7 +192,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvListPagesa", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -200,7 +199,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = idperdoruesi;
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvListPagesa", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu(idGjuha, ASPxMenu1, idviti, idperdoruesi, idndermarje);
                 if (mesazh)
@@ -224,24 +222,11 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvListPagesa", komponente, idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvListPagesa.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", gvListPagesa);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvListPagesa.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idndermarje, "gvListPagesa", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
             percaktoTemplateMenu(idGjuha, ASPxMenu1, idviti, idperdoruesi, idndermarje);
             if (mesazh.Status == true)
@@ -266,7 +251,6 @@ namespace PlatinumWeb
                 ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
                 cmbFiltra.Text = "";
             }
-            //  konfiguroGride();
         }
 
         protected void gvListPagesa_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
@@ -280,7 +264,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvListPagesa", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)

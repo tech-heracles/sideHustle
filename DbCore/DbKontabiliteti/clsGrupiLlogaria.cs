@@ -167,8 +167,6 @@ namespace DbCore.DbKontabiliteti
             colGrupetLlogaria data = new colGrupetLlogaria();
             data.mbushGjitheGrupetLlogaria();
             return data;
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrGjitheGrupetLlogaria();
 
         }
 

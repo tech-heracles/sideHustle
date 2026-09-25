@@ -34,7 +34,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -98,7 +97,6 @@ namespace PlatinumWeb
                 mbushGridenEEvidencaveNgaSession();
                 konfiguroGrideListEvidencash(cmbKonfigurimi.Text);
                 krijoTotalSummary();
-                // GridUtil.PercaktoNgjyrenPerKolonatReadOnly(gvEvidenca, "IdTrupiDok", "RreshtiId", "IdKokaDok", "IdNdermarrje", "IdKrijuesi", "IdModifikuesi", "DtKrijimi", "DtModifikimi");
             }
             
             ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
@@ -108,7 +106,6 @@ namespace PlatinumWeb
 
             konfiguroGrideEvidencaMod();
             gvListaEvidencat.PercaktoTitlePanel(this, MenuInfo, pnlMesazhi, hfState, idPerdoruesi, idNdermarrje, idViti, idGjuha, idKonfig, komponente, rm, ci);
-            //GridUtil.PercaktoTitlePanelPerTrupDokumenti(gvEvidenca, this, MenuInfo, pnlMesazhi, hfState, idPerdoruesi, idNdermarrje, idViti, idGjuha, 1, komponente, idKomponente, "IdTrupiDok", rm, ci);
             percaktoTemplateMenu();
         }
 
@@ -137,8 +134,6 @@ namespace PlatinumWeb
         }
      
       
-    
-
         protected void gvListaEvidencat_DataBound(object sender, EventArgs e)
         {
             gvListaEvidencat.KeyFieldName = "IdKokaDok";
@@ -284,7 +279,6 @@ namespace PlatinumWeb
                 var idkoka = int.Parse(e.Parameters);
                 mbushGridenEvidencaPerEditim(idkoka);
 
-                //  gvEvidenca.AddNewRow();
             }
             catch (Exception ex)
             {

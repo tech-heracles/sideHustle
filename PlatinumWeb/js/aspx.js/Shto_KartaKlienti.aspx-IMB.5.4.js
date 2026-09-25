@@ -196,12 +196,7 @@ function OnGetRowValuesMod(values) {
     txtKontakt.SetValue(values[4]);
     cbAktiv.SetChecked(values[5]);
 
-    //if (values[9] != null) {
-    //    var kf = new Array(values[9], values[10]);
-    //    cmbKlienti.SetSelectedIndex(cmbKlienti.AddItem(kf, values[6]));
-    //}
     //else
-    //    cmbKlienti.SetSelectedIndex(-1);
 
     if (values[9] != null) {
         cmbKlienti.SetText(values[9]);
@@ -553,7 +548,6 @@ function activeTabsChanged(s, e) {
 }
 
 //Limitet
-
 
 
 var defaultObject;

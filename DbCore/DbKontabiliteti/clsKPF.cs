@@ -34,7 +34,6 @@ namespace DbCore.DbKontabiliteti
         private string shenimeKPF;
         private int grupiKPF;
         private int idNdermarje;
-        //private int idNderViti;
         private int idPerdoruesi;
         private string urlImage1;//per shfaqjen ne forme peme
         private string urlImage2;//per shfaqjen ne forme peme
@@ -73,7 +72,6 @@ namespace DbCore.DbKontabiliteti
             shenimeKPF = shenimekpf;
             grupiKPF = grupikpf;
             idNdermarje = idndermarje;
-            //idNderViti = idndervit;
             idPerdoruesi = idperdoruesi;
             urlImage1 = urlimage1;
             urlImage2 = urlimage2;
@@ -106,7 +104,6 @@ namespace DbCore.DbKontabiliteti
             shenimeKPF = shenimekpf;
             grupiKPF = grupikpf;
             idNdermarje = idndermarje;
-            //idNderViti = idndervit;
             idPerdoruesi = idperdoruesi;
             urlImage1 = urlimage1;
             urlImage2 = urlimage2;
@@ -559,7 +556,6 @@ namespace DbCore.DbKontabiliteti
         public clsMesazh ruajKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder,
             int idperdoruesi, int idkonfig, int idndermarje, string idAutorizimi, int idstatusdok, clsDatabaseKontabilitet dbKont, string emertimikpf_fr)
         {//ruan KPFne dhe buxhetet perkatese
-            //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("KPF");
             clsMesazh mesazh = new clsMesazh();
             DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
 
@@ -567,7 +563,6 @@ namespace DbCore.DbKontabiliteti
             {
                 mesazh = dbKont.ruajKPF(out idkpf, kodikpf, nivelikpf, emertimikpf, inakt, shenimekpf, grupikpf, idnder, idperdoruesi, idkonfig, idstatusdok, emertimikpf_fr);
                 this.idKPF = idkpf;
-                //clsKPF KPF = new clsKPF(idkpf);
                 if (mesazh.Status)
                 {
                     DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin(dbKont );
@@ -582,7 +577,6 @@ namespace DbCore.DbKontabiliteti
                             {
                                 DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                                 lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                                //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                                 colLidhjet.Add(lidhje);
                             }
                             foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
@@ -704,12 +698,6 @@ namespace DbCore.DbKontabiliteti
         }
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder, int idndervit, " +
         //    "int idperdoruesi, int idkonfig)", true)]
-        //public clsMesazh modifiko()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    clsMesazh u_modifikua = data.modifikoKPFAndBuxhete(this);
-        //    return u_modifikua;
-        //}
 
         /// <summary>
         /// Ekzekuton nje transaksion per te fshire nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -719,9 +707,7 @@ namespace DbCore.DbKontabiliteti
         public clsMesazh fshiKPFAndBuxhete(int idkpf, int idPerdorues)
         {//fshin KPFne dhe buxhetet perkatese
             clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet();
-            //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("KPF");
             DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(idkpf, "KPF");
-            //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idkpf, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF"));
             clsMesazh mesazh = new clsMesazh();
             DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
             try
@@ -814,8 +800,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public colKPFte merriTeGjithe(int grupiKPF, int idndermarje)
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrGjitheKPFteSipasGrupit(grupiKPF, idNdermVit);
             colKPFte data = new colKPFte();
             data.mbushGjitheKPFteSipasGrupit(grupiKPF, idndermarje);
             return data;
@@ -881,7 +865,6 @@ namespace DbCore.DbKontabiliteti
             }
             return mesazh;
         }
-
 
 
         #endregion

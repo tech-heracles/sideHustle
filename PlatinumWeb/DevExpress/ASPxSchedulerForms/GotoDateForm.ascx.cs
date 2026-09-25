@@ -41,7 +41,6 @@ public partial class GotoDateForm : SchedulerFormControl {
     protected override void OnLoad(EventArgs e) {
         base.OnLoad(e);
         Localize();
-        //PrepareChildControls();
         edtDate.Focus();
     }
     void Localize() {

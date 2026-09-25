@@ -145,9 +145,6 @@ namespace DbCore.DbListPagesat
         /// <see cref="LlojKomponentePage"/>
         public colKompListPagese(bool lloji, DateTime data, int idndermarje, int idpunonjes) : base(new clsDatabazeListPagesa().ktheKompListPageseFillestare(lloji, data, idndermarje, idpunonjes))
         {
-            //var db = new clsDatabazeListPagesa();
-            //mbushKompListPagese(db.ktheKompListPageseFillestare(lloji, data, idndermarje, idpunonjes));
-            //db.Dispose();
         }
         public colKompListPagese(bool lloji, DateTime data, int idNdermarrje, int idPunonjes, bool paMuajt)
             : base(new clsDatabazeListPagesa().ktheKompListPageseFillestarePaKomponenteMuaji(lloji, data, idNdermarrje, idPunonjes))
@@ -330,7 +327,6 @@ namespace DbCore.DbListPagesat
         public void merrKomponenteSipasIdTrupit(int idtrupi)
         {
             var db = new clsDatabazeListPagesa();
-            // mbushKompListPagese(db.ktheKompListPageseSipasIdTrupi(idtrupi));
             AddRange(db.ktheKompListPageseSipasIdTrupi(idtrupi));
             db.Dispose();
         }
@@ -339,6 +335,4 @@ namespace DbCore.DbListPagesat
 
     }
 }
-
-
 

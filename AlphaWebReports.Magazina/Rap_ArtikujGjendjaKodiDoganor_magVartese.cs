@@ -59,10 +59,7 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrLabel17.Text = rm.GetString("LinkbtnLogOut", ci);
             xrLabel16.Text = rm.GetString("labelRaportGjendje", ci);
             xrLabel14.Text = rm.GetString("labelRaportLLogariInventar", ci);
-         //   xrLabel34.Text = rm.GetString("filterMagazina", ci) + ":";
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel9.Text = rm.GetString("lblRaportKodiDoganor", ci) + " 2";
-            //xrLabel8.Text = rm.GetString("lblRaportKodiDoganor", ci);
         }
     }
 }

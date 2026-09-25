@@ -71,21 +71,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushShperndarjeShpenzimeTrupiFaturat(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsShperndarjeShpenzimeTrupiFaturat trupi = new clsShperndarjeShpenzimeTrupiFaturat();
-                    //trupi.mbushShperndarjeShpenzTrupFat(rreshti);
                     Add(new clsShperndarjeShpenzimeTrupiFaturat(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

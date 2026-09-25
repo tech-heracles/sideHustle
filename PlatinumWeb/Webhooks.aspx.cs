@@ -31,7 +31,6 @@ namespace PlatinumWeb
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
@@ -45,7 +44,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 EmrateTabeve();
-                //mbushHiddenFieldMePerkthime(cultinf, rm);
                 hfState.Set("idGjuha", IdGjuha);
                 hfState.Set("idNdermarrje", idNdermarrje);
                 guidString = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
@@ -54,7 +52,6 @@ namespace PlatinumWeb
                 mbushListeWebhooks(idNdermarrje);
                 var tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerd, idNdermarrje, idViti, "Konfigurime Gride");
-                //hfTeDrejtaKonfGride.Value = tedrejtaInfo.DPlot.ToString();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerd, idNdermarrje, idViti, komponenteEmri);
                 hfTeDrejta.Add("Shtim", tedrejtaInfo.DShtim);
                 hfTeDrejta.Add("Modifikim", tedrejtaInfo.DMod);
@@ -72,7 +69,6 @@ namespace PlatinumWeb
             percaktoTemplateMenu(ASPxMenu1, idViti, idPerd, idNdermarrje);
             idKonfig = int.Parse(cmbKonfigurimi.Value.ToString());
             gvWebhooks.PercaktoTitlePanel(this, MenuInfo, pnlMesazhi, hfState, idPerd, idNdermarrje, idViti, idgjuha, idKonfig, komponenteEmri, rm, cultinf);
-            //clsToolbarConfig.mbushComboBoxFiltra(idgjuha, idNdermarrje, "gvWebhooks", idKonfig, komponenteEmri);
             AspxWebControlUtils.perkthePopUp(popFshi, MessagesResource.Messages["labelKujdes"], lblMsgbox, MessagesResource.Messages["labelAdministrimiMsgJeniSigurt"], ButtonCancel, MessagesResource.Messages["labelAnullo"]);
 
         }
@@ -183,8 +179,6 @@ namespace PlatinumWeb
                     return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbAdmin.clsWebhooks.merrWebhookSipasIdDR(idwebhooks);
-                //dt.Rows.Remove(dr);
-                //dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -341,7 +335,6 @@ namespace PlatinumWeb
             {
                 gvWebhooks.AllColumns[int.Parse(e.Args[0])].Width = Unit.Percentage(3);
             }
-            //mbushListeKonfigurimeshFtp(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             GridUtil.ToolTipButonaveMbiGride(gvWebhooks, cultinf, rm);
         }
 

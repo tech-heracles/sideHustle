@@ -27,7 +27,6 @@ namespace PlatinumWeb
         private const string komponente = "ABPlanifikimiIProdukteve.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -128,7 +127,6 @@ namespace PlatinumWeb
         }
 
       
-
         private void percaktoTemplateMenu()
         {
             clsToolbarConfig.percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1, komponente, this, MenuInfo, Ruaj_ASPxButton_Click, FshiFilter_ASPxButton_Click, false, true, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session), true);
@@ -169,7 +167,6 @@ namespace PlatinumWeb
 
                     for (int i = 0; i < e.UpdateValues.Count; i++)
                     {
-                        //string key = e.UpdateValues[i].Keys[0].ToString();
                         clsPlanifikimiProdukteve planifikimiVjeter = col.FirstOrDefault(x => x.RreshtiId == e.UpdateValues[i].MerrKeyValue<int>());
 
                         clsPlanifikimiProdukteve planifikimiRi = e.UpdateValues[i].MerrCustomUpdatedObject<clsPlanifikimiProdukteve>(planifikimiVjeter);
@@ -200,7 +197,6 @@ namespace PlatinumWeb
         }
 
         
-
         protected void gvPlanifikimiIProdukteve_HtmlFooterCellPrepared(object sender, ASPxGridViewTableFooterCellEventArgs e)
         {
 

@@ -13,10 +13,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
     public partial class Rap_BilanciQK : DevExpress.XtraReports.UI.XtraReport, IUpdateDetailKPF
     {
 		public Rap_BilanciQK(){InitializeComponent();} 
-        //public Rap_Bilanci()
-        //    {
-        //    InitializeComponent();
-        //    }
 
         bool hapurgjitha = false; CultureInfo ci;
         public Rap_BilanciQK(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
@@ -44,87 +40,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
 
         }
-        //string[] romake = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX" };
-        //string[] romakevogel = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi", "xvii", "xviii", "xix", "xx" };
-        //string[] shkronje = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
-        //string[] shkronjevogel = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" };
 
-        //int niveli1 = 0;
-        //int niveli2 = 0;
-        //int niveli3 = 0;
-        //int niveli4 = 0;
-        //int niveli5 = 0;
-        //private void xrLabel4_SummaryReset(object sender, EventArgs e)
-        //{
-        //   niveli1 = 0;
-        //}
-        //private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-        //private void xrLabel32_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //}
-
-        //private void xrLabel32_SummaryReset(object sender, EventArgs e)
-        //{
-        //    niveli2 = 0;
-        //}
-        //private void xrLabel23_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-        //private void xrLabel23_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niveli2;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel23_SummaryReset(object sender, EventArgs e)
-        //{
-        //    niveli3 = 0;
-        //}
-        //private void xrLabel24_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-        //private void xrLabel24_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //}
-
-        //private void xrLabel24_SummaryReset(object sender, EventArgs e)
-        //{
-        //    niveli4 = 0;
-        //}
-        //private void xrLabel25_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-        //private void xrLabel25_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //}
-
-        //private void xrLabel25_SummaryReset(object sender, EventArgs e)
-        //{
-        //    niveli5 = 0;
-        //}
-        //private void xrLabel26_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-        //private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //}
-
-        //private void xrLabel4_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = "";
-        //    e.Handled = true;
-        //}
 
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
@@ -346,10 +262,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel57_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //string niv = "";
-            //if (niveli1 > 0)
-            //    niv = romake[niveli1 - 1];
-            //else niv = "I";
             XRLabel label = sender as XRLabel;
             label.Text = xrLabel32.Text + "." + xrLabel23.Text;
         }

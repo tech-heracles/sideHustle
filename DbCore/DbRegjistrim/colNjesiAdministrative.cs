@@ -263,44 +263,28 @@ namespace DbCore.DbRegjistrim
         private bool mbushNjesiteAdministrative(DataTable dt, colNjesiAdministrative colNjesiAd)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsNjesiAdministrative nivel = new clsNjesiAdministrative();
-                //nivel.mbushNjesiAdministrative(rreshti, db);
                 if (!rreshti.IsNull("IDNJESIADM"))
                     Add(colNjesiAd.Where(x=>x.IdNjesiAdministrative == int.Parse(rreshti["IDNJESIADM"].ToString())).FirstOrDefault());
                 else
                     Add(new clsNjesiAdministrative());
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         private bool mbushNjesiteAdministrative(DataTable dt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsNjesiAdministrative nivel = new clsNjesiAdministrative();
-                //nivel.mbushNjesiAdministrative(rreshti, db);
                 Add(new clsNjesiAdministrative(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

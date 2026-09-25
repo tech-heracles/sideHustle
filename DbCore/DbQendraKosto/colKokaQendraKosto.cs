@@ -53,13 +53,6 @@ namespace DbCore.DbQendraKosto
         ///// <param name="idmagazina"></param>
         ///// <param name="datanga"></param>
         ///// <param name="dataderi"></param>
-        //public colKokaQendraKosto(int idartikulli, int idmagazina, DateTime datanga, DateTime dataderi)
-        //{
-        //    using (clsDatabaseQendraKosto db = new clsDatabaseQendraKosto())
-        //    {
-        //        mbushKokaQendraKostoPaTrup(db.ktheReshtaDokQKPerRivleresimFifoArtikulli(idartikulli, idmagazina, datanga, dataderi));
-        //    }
-        //}
 
         public colKokaQendraKosto(int idartikulli, int idmagazina, DateTime datanga, DateTime dataderi, int maxRetry, DbAdmin.clsLogRivleresimInventari log)
         {

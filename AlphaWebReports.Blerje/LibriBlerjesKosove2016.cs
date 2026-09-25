@@ -35,8 +35,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
 
             xrLabel1.Text = rm.GetString("RaportLibriBlerjeveTitulli", ci);
 
-            //xrLabel2.Text = rm.GetString("labelShoqeria", ci);
-            //xrLabel3.Text = rm.GetString("labelNipti", ci);
             xrLabel4.Text = rm.GetString("labelViti", ci);
             xrLabel5.Text = rm.GetString("labelFilterKryesorMuaji", ci);
             

@@ -399,7 +399,6 @@ namespace DbCore.DbShare
         {
 
             int nrFotoshLexuar = fototDT.Rows.Count;
-          //  Object[] fotot = new Object[nrFotoshLexuar];
             List<Object> list = new List<Object>();
             for (int i = 0; i < nrFotoshLexuar; i++)
             {
@@ -425,12 +424,10 @@ namespace DbCore.DbShare
                     });
             }
             return list.ToArray();
-            //return fotot;
 
 
         }
         
-
 
         #region Metoda Internal
 

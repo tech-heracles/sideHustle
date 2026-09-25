@@ -67,18 +67,10 @@ namespace DbCore.DbAsete
         private bool mbushStatusMagazineList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsStatusMagazine_Asete statusMagazine = new clsStatusMagazine_Asete();
-                    //statusMagazine.mbushStatusMagazineObjekt(rreshti);
                     Add(new clsStatusMagazine_Asete(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

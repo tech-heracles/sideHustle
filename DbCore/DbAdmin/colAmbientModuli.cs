@@ -74,19 +74,13 @@ namespace DbCore.DbAdmin
         private bool mbushAmbientet(DataTable dt)
         {            
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsAmbientModuli ambienti = new clsAmbientModuli(Convert.ToInt32(rreshti["IDAMBJMODULI"]), Convert.ToString(rreshti["AMBJKODI"]),
                         Convert.ToString(rreshti["AMBJPERSHKRIMI"]), Convert.ToInt32(rreshti["IDMODULI"]));
                     this.Add(ambienti);
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -100,19 +94,13 @@ namespace DbCore.DbAdmin
         {
             colAmbientModuli ambientet = new colAmbientModuli();
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsAmbientModuli ambienti = new clsAmbientModuli(Convert.ToInt32(rreshti["IDAMBJMODULI"]), Convert.ToString(rreshti["AMBJKODI"]),
                         Convert.ToString(rreshti["AMBJPERSHKRIMI"]), Convert.ToInt32(rreshti["IDMODULI"]));
                     ambientet.Add(ambienti);
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return ambientet;
             //    //throw;
-            //}
             return ambientet;
         }
     

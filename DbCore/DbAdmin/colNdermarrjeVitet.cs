@@ -53,19 +53,11 @@ namespace DbCore.DbAdmin
         private bool mbushcolNermarrjeVitet(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsNdermarrjeViti ndermarrjeViti = new clsNdermarrjeViti();
-                //ndermarrjeViti.mbushNdermarrjeViti(rreshti);
                 Add(new clsNdermarrjeViti(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

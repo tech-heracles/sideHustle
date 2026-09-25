@@ -17,22 +17,18 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             // Prevent caching, so can't be viewed offline
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
                 return;
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
                 return;
             }
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             if (!IsPostBack)
             {
@@ -58,9 +54,7 @@ namespace PlatinumWeb
 
         private void konfiguroVleraFillestare()
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.colKushteDergimi colKushteDergimi = new DbCore.DbAdmin.colKushteDergimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbAdmin.colKushteDergimi colKushteDergimi = dbAdmin.merrKushtetDergimit();
             grid_KushteDergimi.DataSource = colKushteDergimi;
             grid_KushteDergimi.DataBind();
         }
@@ -90,7 +84,6 @@ namespace PlatinumWeb
         private void konfiguroGride()
         {
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), grid_KushteDergimi, "grid_KushteDergimi", "KushteDergimi.aspx");
-            //funk.konfiguroGrideListeMadhe(grid_KushteDergimi, "IdKushtDergimi");
             GridUtil.konfigGrideListeEMadhePaTheme(grid_KushteDergimi, "IdKushtDergimi");
         }
 
@@ -158,17 +151,12 @@ namespace PlatinumWeb
         protected void ButtonOk_Click2(object sender, EventArgs e)
         {
             List<object> rreshtat = grid_KushteDergimi.GetSelectedFieldValues("IdKushtDergimi");
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (int id in rreshtat)
             {
                 
-                //DbCore.DbAdmin.colKushteDergimi colKushteDergimi = dbAdmin.ktheKushtDergimi(id);
                 DbCore.DbAdmin.clsKushtDergimi clsKushtDergimi = new DbCore.DbAdmin.clsKushtDergimi(id);
-                //foreach (DbCore.DbAdmin.clsKushtDergimi k in colKushteDergimi)
-                //{
                 clsKushtDergimi.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 clsKushtDergimi.fshi();
-                //}
             }
             Response.Redirect("KushteDergimi.aspx");
             return;

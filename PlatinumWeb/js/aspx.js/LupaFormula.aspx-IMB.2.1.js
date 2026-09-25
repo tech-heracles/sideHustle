@@ -63,7 +63,6 @@ function Init() {
         indexEdit = -1;
         myFaqeCelje.shtoHandlerSession();
         gvFormula.SetFocusedRowIndex(0);
-        //gvFormula.SelectRowOnPage(0, true);
     }
     catch (err) {
     }
@@ -81,30 +80,6 @@ $(window).bind('resize', function () {//po
 $(window).on('unload',function () {
 });
 
-//document.onkeydown = ProcessKeyPress;
-
-//function ProcessKeyPress() {
-//    var currentIndex = gvFormula.GetFocusedRowIndex();
-//    if (event.keyCode == 40) {
-//        if (currentIndex == gvFormula.GetVisibleRowsOnPage() - 1) {
-//            gvFormula.SetFocusedRowIndex(0);
-//        }
-//        else {
-//            gvFormula.SetFocusedRowIndex(currentIndex + 1);
-//        }
-//    }
-//    if (event.keyCode == 38) {
-//        if (currentIndex == 0) {
-//            return;
-//        }
-//        else {
-//            gvFormula.SetFocusedRowIndex(currentIndex - 1);
-//        }
-//    }
-//    if (event.keyCode == 13) {
-//        OnGridSelectionChanged();
-//    }
-//}
 
 function menu_click(s, e) {
     var hfRuaj = $('#hfRuaj');
@@ -120,23 +95,18 @@ function menu_click(s, e) {
 function OnGridSelectionChanged() {
     var indexi = gvFormula.GetFocusedRowIndex();
     gvFormula.GetRowValues(indexi, 'IdFormula;KodFormula;PershkrimFormula;IdNdermarje;IdPerdorues;DtKrijimi;DtModifikimi;IdStatusDok', OnGridSelectionComplete);
-    //gvFormula.GetSelectedFieldValues('IdFormula;KodFormula;PershkrimFormula;IdNdermarje;IdPerdorues;DtKrijimi;DtModifikimi;IdStatusDok', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {
-//    var s = new String();
     if (values.length == 0 || values == null) {
         alert("Ju lutemi, zgjidhni një rresht!");
         return;
     }
-//    s = s + values[0];
-//    var vl = s.split(",");
     var id = values[0];
     var formula = values[2];
     switch (window.parent.identikuesPerPopupFormula) {
         case 'Artikull':
             window.parent.editorFormula.SetText(formula);
-            //window.parent.editorFormula.SetValue(id);
             window.parent.editorFormula.SetFocus(true);
             break;
         case 'KonfigurimDokumentash':
@@ -146,7 +116,6 @@ function OnGridSelectionComplete(values) {
             break;
         case 'LupaArtShpejt':
             window.parent.editorFormula.SetText(formula);
-            //window.parent.editorFormula.SetValue(id);
             window.parent.editorFormula.SetFocus(true);
             break;
     }    
@@ -230,16 +199,6 @@ function ProcessTextChanged(fieldName, value) {
     if (fieldName == "PershkrimFormula") {
         var formula = PershkrimFormula.GetText();
         if (formula.match(/[^0-9\.*-+\/]/)) {
-//            myMesazh.ShtoMesazhGabimi('Formula që keni shkruar nuk është e vlefshme!');
-//            var kodi = KodFormula.GetText();
-//            gvFormula.CancelEdit();
-//            if ($("#hfRuaj").val() == 'Ruaj') {
-//                gvFormula.AddNewRow();
-//                KodFormula.SetText(kodi);
-//            }
-//            else {
-//                gvFormula.StartEditRow(gvFormula.GetFocusedRowIndex());
-//            }
         }
     }
 }

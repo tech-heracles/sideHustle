@@ -78,7 +78,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
 
         ~DbManager()
         {
-            //System.Diagnostics.Trace.WriteLine("DBManager: Destructor");
             Dispose(false);
         }
 
@@ -94,12 +93,9 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             // not been disposed of.
             if (!_disposed)
             {
-                //System.Diagnostics.Trace.WriteLine("DBManager: Resources not disposed");
                 if (disposeManagedResources)
                 {
-                    //System.Diagnostics.Trace.WriteLine("DBManager: Closing connection");
                     Close();
-                    //System.Diagnostics.Trace.WriteLine("DBManager: Disposing managed resources");
                     // dispose managed resources
                     if (Command != null)
                     {
@@ -118,12 +114,10 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                     }
                 }
                 // dispose unmanaged resources
-                //System.Diagnostics.Trace.WriteLine("DBManager: Disposing unmanaged resouces");
                 _disposed = true;
             }
             else
             {
-                //System.Diagnostics.Trace.WriteLine("DBManager: Resources already disposed");
             }
         }
 
@@ -293,7 +287,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 Transaction = _dbManagerFactory.GetTransaction(Connection, isolationLevel);
             Command.Transaction = Transaction;
             CommandTimeOut = timeout;
-            //this.idbConnection.ConnectionTimeout = 0;
         }
 
         /// <summary>
@@ -306,7 +299,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 Transaction = _dbManagerFactory.GetTransaction(Connection, isolationLevel);
             Command.Transaction = Transaction;
             CommandTimeOut = Constants.StaticCommandTimeOut;
-            //this.idbConnection.ConnectionTimeout = 0;
         }
 
         /// <summary>
@@ -395,7 +387,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             {
                 Connection.Dispose();
             }
-            //idbParameters = null;
             return returnValue;
         }
 
@@ -420,7 +411,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
          commandText)
         {
             Command = _dbManagerFactory.GetCommand();
-            //if (this.Transaction == null)
             Command.CommandTimeout = CommandTimeOut;
             PrepareCommand(Command, Connection, Transaction, commandType, commandText, Parameters);
             IDbDataAdapter dataAdapter = _dbManagerFactory.GetDataAdapter
@@ -460,7 +450,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             catch (System.Exception)
             {
                 return false;
-                //throw;
             }
         }
 
@@ -480,14 +469,8 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 {
                     keys[i] = origDt.Columns[int.Parse(pkeys[i].ToString())];
                 }
-                //keys[0] = origDt.Columns[0];
-                //keys[1] = origDt.Columns[1];
                 origDt.PrimaryKey = keys;
                 origDt.Merge(dt);
-                //foreach (DataRow rreshti in dt.Rows)
-                //{
-                //    origDt.LoadDataRow(rreshti.ItemArray, true);
-                //}
                 IdbUpdateCommand = _dbManagerFactory.GetCommand();
                 PrepareCommand(IdbUpdateCommand, Connection, Transaction, updateCommandType, updateCommandText, UpdateParameters);
                 dataAdapter.UpdateCommand = IdbUpdateCommand;
@@ -499,7 +482,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             catch (System.Exception)
             {
                 return false;
-                //throw;
             }
         }
 
@@ -555,7 +537,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             Command.CommandTimeout = CommandTimeOut;
             PrepareCommand(Command, Connection, Transaction, CommandType.StoredProcedure, spName, Parameters);
 
-            //var reader = Command.ExecuteReader();
             using (var reader = Command.ExecuteReader())
             {
                 while (reader.Read())
@@ -609,7 +590,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             }
             if (countRows > 1)
             {
-                // TO DO GETSON  throw new Exception($"SP '{idbCommand.CommandText}' e thirrur nga metoda  '{FillObject.Method.Name}' ktheu me teper se nje rresht!");
             }
             reader.Close();
             Command.Parameters.Clear();
@@ -635,7 +615,6 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
                 }
                 if (countRows > 1)
                 {
-                    // TO DO GETSON  throw new Exception($"SP '{idbCommand.CommandText}' e thirrur nga metoda  '{FillObject.Method.Name}' ktheu me teper se nje rresht!");
                 }
                 reader.Close();
                 Command.Parameters.Clear();

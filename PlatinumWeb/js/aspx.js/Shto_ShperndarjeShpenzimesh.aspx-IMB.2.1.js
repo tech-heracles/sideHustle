@@ -583,11 +583,7 @@ function bejGatiGrideFaturat(columnsKonfig) {
                 else {
                     HiqRreshtNgaTrupiShperndarjeShpenzimi(selectedItems.currentDeselectedRowKeys[i]);
                 }
-                //if (selectedItems.currentSelectedRowKeys[i])
-                //    CallWebServiceFaturaZgjedhur(selectedItems.currentSelectedRowKeys[i]);
                 //else
-                //    if (selectedItems.currentDeselectedRowKeys[i])
-                //        HiqRreshtNgaTrupiShperndarjeShpenzimi(selectedItems.currentDeselectedRowKeys[i]);
             }
             Utils.nrWsRrugesManager.zbritNrWsRruges();
         }

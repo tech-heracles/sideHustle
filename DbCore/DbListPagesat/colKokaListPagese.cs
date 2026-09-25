@@ -28,12 +28,6 @@ namespace DbCore.DbListPagesat
         /// merr gjithe dokumentat e list pageses te nje ndermarje viti
         /// </summary>
         /// <param name="idNdermVit">id qe lidh ndermarrjen me vitin</param>
-        //public colKokaListPagese(int idNdermVit)
-        //{
-        //    clsDatabazeListPagesa db = new clsDatabazeListPagesa();
-        //    mbushKokat(db.ktheGjitheKokaListPagese(idNdermVit), db);
-        //    db.Dispose();
-        //}
 
         /// <summary>
         ///  konstruktori qe implementon klasen bazekoleksion me clsSkemaSigurimi
@@ -44,8 +38,6 @@ namespace DbCore.DbListPagesat
         {
 
         }
-
-
 
 
         #endregion
@@ -85,11 +77,6 @@ namespace DbCore.DbListPagesat
         /// <param name="db"> clsDatabazeListPagesa qe perdoret ne rastet e transaksioneve</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
         //private bool mbushKokat(DataTable dt, clsDatabazeListPagesa db)
-        //{
-        //    foreach (DataRow rreshti in dt.Rows)
-        //        Add(new clsKokaListPagese(rreshti, db));
-        //    return true;
-        //}
 
         #endregion
 

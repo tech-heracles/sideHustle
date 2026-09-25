@@ -76,7 +76,6 @@ function MessageToAll() {
         };
 
         this.dispose = function () {
-            //this.wizard.dispose();
         };
     };
 

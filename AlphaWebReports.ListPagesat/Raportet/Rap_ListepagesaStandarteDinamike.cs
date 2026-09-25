@@ -178,7 +178,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
                 for (int i = 0; i < ds.RowCount; i++)
                 {
                     object currentType = ds.GetValue(i, "TIPI");
-                   // object currentType = ds.GetValue(i, "TIPINR");
                     if (currentType != null && Convert.ToInt32(currentType.ToString()) == 1)
                         customValue += Convert.ToDouble(ds.GetValue(i, "VLERA"));
                     else

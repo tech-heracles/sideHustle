@@ -71,7 +71,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             xrLabel40.Text = rm.GetString("labelVleraMbetur", ci);
             xrLabel62.Text = rm.GetString("labelRaportiTotali", ci) + ":";
             xrLabel28.Text = rm.GetString("labelRaportPershkrimi", ci);
-          //  xrLabel32.Text = rm.GetString("lblRaportMagazina", ci);
             xrLabel71.Text = rm.GetString("labelLogoIMB", ci);
         }
 
@@ -88,8 +87,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
         private void xrLabel35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             //ResourceManager rm = new ResourceManager("Resources.Strings",
-            //               System.Reflection.Assembly.Load("App_GlobalResources"));
-            //xrLabel35.Text = rm.GetString("labelRaportTotaliPer", ci) + " " + GetCurrentColumnValue("magazina") + ":";
         }
 
         private void xrLabel53_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

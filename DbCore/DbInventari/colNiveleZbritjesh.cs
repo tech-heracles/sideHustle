@@ -175,20 +175,12 @@ namespace DbCore.DbInventari
         private bool mbushNiveleZbritjesh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNivelZbritje nivelZbritje = new clsNivelZbritje();
-                    //nivelZbritje.mbushNivelZbritje(rreshti);
                     this.Add(new clsNivelZbritje(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -207,7 +199,6 @@ namespace DbCore.DbInventari
                 nivelZbritje.IdPrindi = int.Parse(rreshti[3].ToString());               
                 nivelZbritje.PrioritetiNivelZbritje = int.Parse(rreshti[4].ToString());
                 nivelZbritje.IdPerdoruesi = int.Parse(rreshti[5].ToString());
-                //nivelZbritje.IdNderViti = int.Parse(rreshti[6].ToString());
                 nivelZbritje.IdNdermarje = int.Parse(rreshti[6].ToString());
 
                 niveleZbritjesh.Add(nivelZbritje);

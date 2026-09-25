@@ -54,7 +54,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaSkemaFK.GetSelectedFieldValues('Kodi;Monedha', OnGridSelectionComplete);
     gvLupaSkemaFK.GetRowValues(gvLupaSkemaFK.GetFocusedRowIndex(), 'IdKokaSkemaFK;KodiKokaSkemaFK', OnGridSelectionComplete);
 }
 
@@ -69,10 +68,6 @@ function OnGridSelectionComplete(values) {
 
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
         OnGridSelectionChanged(); 

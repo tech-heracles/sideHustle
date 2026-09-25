@@ -39,7 +39,6 @@ function reportViwerEndCallBack(s, e) {
     }).done(myMesazh.ShtoMesazhSesioni);
 }
 function SuccedktheFiltra(result) {
-    // eshtememe = hfgjuha.Get("eshtememe");
     if (result != "" || result != "undefined") {
         pastrofiltrat();
         var rezultati, filertrupikontrolle, filtertrupivlera, i, val;
@@ -303,10 +302,8 @@ function SuccedktheFiltra(result) {
             }
 
 
-
             try {
 
-                //  if( (val.toString() == "btneKompania")&&(!eshtememe))  { filtertrupivlera[i] = ""; }
                 var kontrolli = Utils.ktheKontroll(val.toString());
                 if (kontrolli != undefined) {
                     if (val.indexOf('cb') == 0)
@@ -610,7 +607,6 @@ function SuccedeedPrind(result) {
     btnGlobalBand.SetText(result.Kodi);
     btnGlobalBand.SetValue(result.Id);
 
-    //btnGlobalBand.SetSelectedIndex(btnGlobalBand.SetText(result.Kodi, result.Id));
 
 }
 
@@ -667,12 +663,10 @@ function ButtonClickedBurimi(editor) {
     var widthLupa = '600';
     var heightLupa = '600';
     editorGlobal = editor;
-    //identikuesPerPopupArtikulli = "raportBurim";
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhBurimin"), contentUrl, widthLupa, heightLupa);
 }
 function ButtonClickedAktiviteti(editor) {
     editorGlobal = editor;
-    //identikuesPerPopupArtikulli = "raportBurim";
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhAktivitetin"), 'LupaAktivitete.aspx?vjenNgaRaporti=true', 600, 500);
 }
 
@@ -724,7 +718,6 @@ function ButtonClickedNjesiProdhimi(editor) {
     //if (Utils.getUrlVar('idraporti') != 99)//raportProdhimi
     myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
     //else
-    //    myButtonClickLupa.LupaUniversal_Click(hfState.Get("roundPanelZgjidhArtikullin"), 'LupaArtikull.aspx?klasa=0&vjenNgaRaporti=true&idKonfigAmbjente=' + $("#hfGridaKodi")[0].value, widthLupa, heightLupa);
 
 }
 
@@ -1004,12 +997,10 @@ function klickselectedvalueReg(theRadio, e) {
         if (rblCaseControl == 'Periudha') {
             txtDeriDokReg.SetEnabled(true);
             txtNgaDokReg.SetEnabled(true);
-            //txtDeriDokReg.SetEnabled(true);
         }
         else {
             txtDeriDokReg.SetEnabled(false);
             txtNgaDokReg.SetEnabled(false);
-            // txtNgaDokReg.SetEnabled(false);
         }
     }
 }
@@ -1285,7 +1276,6 @@ function changeName() {
     if (Utils.getUrlVar('idraporti') == undefined)
         window.parent.callWebServiceKtheInfoLart('Raporti.aspx', 0);
     //else
-    //    window.parent.callWebServiceKtheInfoLart('Raporti.aspx', Utils.getUrlVar('idraporti'));
     window.parent.createCookie('adresa', 'Raporti.aspx', 1);
 }
 
@@ -1295,7 +1285,6 @@ function OnGridSelectionChanged() {
 
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     txtEmerFiltri.SetText(vl[1]);
@@ -1314,7 +1303,6 @@ function changeRadioButtonDateValue() {
     }
 }
 function initNgaDok(s, e) {
-    //$(s.GetInputElement()).css('zIndex', 3000);
 }
 function ngaDokDateChanged(s, e) {
     if (txtDeriDok.GetDate() < txtNgaDok.GetDate())
@@ -1433,7 +1421,6 @@ function ngaDokDateChangedProdhimi(s, e) {
 }
 
 function getClientID(key) {
-    //return constanteParashtese + key + constantePrapashtese + 'txtNrLlogari' + key;
     return 'navBarFiltrat_GCTC1_' + key;
 }
 
@@ -1460,7 +1447,6 @@ function OnGridSelectionChangedRaportCustom() {
 
 function OnGridSelectionCompleteRaporti(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     txtIdRap.SetText(vl[0]);
@@ -1582,8 +1568,6 @@ function renditFiltra() {//TODO PATI - Perdoret edhe ketu id e raportit
         $('#' + idDivAvanc[i]).show();
         $('#' + idDivAvanc[i]).css({ left: '1%' });
     }
-    //$('#filtraKrye').css({ height: (40 * idDivKrye.length) });
-    //$('#filtraAvanc').css({ height: (40 * idDivAvanc.length) });
     if (id == 232 || id == 247) {
         cmbLidhesaKatShpenzimi.SetEnabled(false);
         cmbVeprimiKatShpenzimi2.SetEnabled(false);
@@ -1772,7 +1756,6 @@ function menu_click(s, e) {
         if (id === "272")
             window.location = "Raportet.aspx?idmod=24";
     }
-        //else if (e.item.name == "Eksporto") { return; }
 
     else {
         var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
@@ -1920,14 +1903,12 @@ function pastrofiltrat() {
     if (idRaporti == 82) vendosVleraDefaultStatusKonvertuar();
 }
 function vendosVleraDefaultStatusKonvertuar() {
-    //  if (Utils.getUrlVar("idraporti") == 82) {
     cmbStatusKonvertimiDyte1.SetValue(3);
     cmbStatusKonvertimiDyte2.SetValue(2);
     cmbStatusKonvertimiDyte2.SetEnabled(true);
     cmbVeprimiStatusKonvertimiDyte2.SetEnabled(true);
     cmbVeprimiStatusKonvertimiDyte2.SetSelectedIndex(0);
     cmbLidhesaStatusKonvertimDyte.SetSelectedIndex(2);
-    //   }
 
 }
 

@@ -236,13 +236,8 @@ function changeFunc(event, ui, emerKodi, index) {
     var emerfushe = '#' + emerKodi + idRow;
     var detajim = -1;
     var plotesuarMagKoka = (btneMagazina.GetValue() != null);
-    //var index = -1;
-    //var idKod = 'txtKodi';
     var lloj = Utils.getUrlVar('lloj');
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
 
     if (index == idRow) {
         var magazine = grida.getTekstQelize('txtMagazina', index);
@@ -350,12 +345,7 @@ function vendosArt(result) {
         }
         // u komnetua sepse u kerkua qe te beheshin veprime edhe me artikuj pa serial, pika ALPHAWEB-2271
 
-        //if (analitike == 1 && !artikulli.MeSerial) {
 
-        //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukMundTeKryesniVeprimeAnalitikeMeArtMeSerialeTeNdashem"));
-        //    resetRreshtKorent(idRreshti);
-        //    return;
-        //}
         if (analitike == 2) {
             if (kontrolloRow(idRreshti))
                 return;
@@ -389,7 +379,6 @@ function vendosArt(result) {
             
             if (((artikulli.IdMagazina != 0) && (mag == ''))) //magazina 
                 mag = artikulli.Magazina;
-            // comboMag.replaceWith(myelemComboMagazina(mag, null, idRreshti).children()[0]);
             comboMag.zevendeso($(myelemComboMagazina(mag, null, idRreshti).children()[0]), idRreshti);
 
             if (pershk == 1) {
@@ -401,7 +390,6 @@ function vendosArt(result) {
                     grida.setTekstQelize('txtEmertimi', idRreshti, artikulli.PershkrimiAngArtikulli)
                 else
                     grida.setTekstQelize('txtEmertimi', idRreshti, artikulli.PershkrimArtikulli)
-
 
 
             return;
@@ -627,12 +615,8 @@ function merrGjendjePerSerial(idrreshti) {
 }
 
 function changeFuncSeriali(event, ui, emerKodi, index) {
-    //var idKod = 'txtSerial';
     var grida = $('#rowed5');
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     ////////else
-    //    index = emerKodi.split(idKod)[1];
     var idkodi = grida.getTekstQelize('txtIdKodi', index);
     if (!hfSeriale.Contains(idkodi + '_' + index) || hfSeriale.Get(idkodi + '_' + index) == "[]")
         grida.setTekstQelize('txtSerial', index, "");
@@ -704,8 +688,6 @@ function myElemEmertimi(value) {
     var idRresht = grida.getLastSel2();
     return myJQGrid.myElemEmertimi(value, arrayReadOnlyKolonaGrides[2], idRresht, arrayIdKolonaGrides[2]);
 }
-
-
 
 
 /*
@@ -1700,7 +1682,6 @@ function EndRequestHandler(sender, args) {
     formatoFushaDevi();
     var hf = document.getElementById("status1");
     if ($('#hfqkmesazhi').val() == 'shfaqmesazh') {
-        //popMesazhQK.Show();
         myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDeshironiShperndarjeQendraKosto"), okClick: function () { Utils.hapPopUp(hfState.Get("msgShperndarjeNeQendratEKostos"), $('#hfUrl')); }, cancelClick: function () { Utils.JopopupClick($('#hfUrl')); } });
     }
     if ($('#hfqkmesazhi').val() == 'shfaqlupe') {
@@ -1750,7 +1731,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false; click = false;
-            // myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     if (e.item.name == 'QendraKosto') {

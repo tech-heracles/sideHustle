@@ -70,19 +70,11 @@ namespace DbCore.DbArkaBanka
         private bool mbushKonfigUrdherPagese(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKonfigUrdherPagese konfig = new clsKonfigUrdherPagese();
-                    //konfig.mbushKonfigUrdherPagese(rreshti);
                     Add(new clsKonfigUrdherPagese(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
         public static DataTable colKonfigUrdherPageseNew(int idnderm, int lloji, string kodi)

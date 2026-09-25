@@ -50,7 +50,6 @@ namespace DbCore.DbInventari
         }
 
 
-
         #endregion
 
         #region Metoda private
@@ -76,7 +75,6 @@ namespace DbCore.DbInventari
             catch (Exception)
             {
                 return false;
-                //throw;
             }
             return true;
 

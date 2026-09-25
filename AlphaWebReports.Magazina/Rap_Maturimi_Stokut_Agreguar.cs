@@ -23,7 +23,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
         public Rap_Maturimi_Stokut_Agreguar(CultureInfo ci, int idNdermarrje, int idViti, DevExpress.XtraReports.UI.XtraReport raport)
         {
             InitializeComponent();
-            //  hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
 
             }
 

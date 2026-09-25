@@ -285,24 +285,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvObjektiva.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvObjektiva);
-            //var kolona = gvObjektiva.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //    {
-            //        filtri.DrejtimRenditje = true;
-            //    }
             //    else
-            //    {
-            //        filtri.DrejtimRenditje = false;
-            //    }
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             var oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);

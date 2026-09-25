@@ -70,7 +70,6 @@ namespace DbCore.DbAnalizeBuxheti
             rreshti.Mbush(record);
             return rreshti;
             //return new clsRreshtaAmbjenti
-            //{
             //    RreshtiId = !Convert.IsDBNull(record["RRESHTIID"]) ? Convert.ToInt32(record["RRESHTIID"]) : 0,
             //    KodiRreshtit = !Convert.IsDBNull(record["KODI_RRESHTIT"]) ? Convert.ToString(record["KODI_RRESHTIT"]) : "",
             //    PershkrimiRreshtit = !Convert.IsDBNull(record["PERSHKRIMI_RRESHTIT"]) ? Convert.ToString(record["PERSHKRIMI_RRESHTIT"]) : "",
@@ -81,7 +80,6 @@ namespace DbCore.DbAnalizeBuxheti
             //    IdModifikuesi = !Convert.IsDBNull(record["IDMODIFIKUESI"]) ? Convert.ToInt32(record["IDMODIFIKUESI"]) : 0,
             //    DtKrijimi = !Convert.IsDBNull(record["DTKRIJIMI"]) ? Convert.ToDateTime(record["DTKRIJIMI"]) : (DateTime?)null,
             //    DtModifikimi = !Convert.IsDBNull(record["DTMODIFIKIMI"]) ? Convert.ToDateTime(record["DTMODIFIKIMI"]) : (DateTime?)null,
-            //};
         }
 
         public clsMesazh Modifiko()

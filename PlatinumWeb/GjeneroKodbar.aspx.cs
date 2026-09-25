@@ -61,10 +61,7 @@ namespace PlatinumWeb
                 vendosPerkthimet(cultinf, rm);
                 mbushHiddenFieldMePerkthime(cultinf, rm);
                 percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-                //konfiguroVleraFillestareShto(idNdermarrje);
                 mbushComboGjatesia(cmbGjatesiKodbar);
-                //   mbushPopUpListeNgaDB();
-                // percaktoTemplate();
                 DbCore.mySessionObjects.ruajGrideNeSession(string.Empty, Session, (object)new DataTable());
             }
             else
@@ -78,7 +75,6 @@ namespace PlatinumWeb
 
             }
             mbushPopUpListeNgaDB();
-            //shtoSasi();  
         }
 
         /// <summary>
@@ -130,8 +126,6 @@ namespace PlatinumWeb
         {
             if (e.Item.Name == "Gjenerokodbar")
             {
-                //Page.Validate();
-                // gjeneroKodbar();
             }
             if (e.Item.Name == "Ngarko")
             {
@@ -149,7 +143,6 @@ namespace PlatinumWeb
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
 
-            //gvExport.Selection.SelectAll();
             List<object> rreshta = gvExport.GetSelectedFieldValues(new string[] { "Kodbari", "IdArtikulli" });
             Object selectedItem = cmbGjatesiKodbar.SelectedItem;
             clsDatabaseInventari db = new clsDatabaseInventari();
@@ -169,14 +162,12 @@ namespace PlatinumWeb
                     // per rreshtat qe nuk kane kodbare
                     if (kodbar[0].ToString() == "")
                     {
-                        //clsArtikulli art = new clsArtikulli(Convert.ToInt32(kodbar[1]));
                         //int kodBareCount = colKodbare.kodBareCount(Convert.ToInt32(kodbar[1])); //todo senada
                         if (colKodbare.kodBareCount(Convert.ToInt32(kodbar[1])) == 0)
                         {
                             //gjenerohet kodbari i tille qe mos te ekzistoje per artikuj te tjere
                             while (db.ekzistonKodbar(nrGjeneruar.ToString(), idNdermarrje) || (nrGjeneruar.ToString() == ""))
                             {
-                                //Random random = new Random();
                                 nrGjeneruar = new StringBuilder();
                                 for (int i = 0; i < Convert.ToInt32(selectedItem.ToString()); i++)
                                 {
@@ -185,7 +176,6 @@ namespace PlatinumWeb
 
                             }
 
-                            //  colKodbare colKod = new colKodbare();
 
                             clsKodbari kod = new clsKodbari();
                             kod.Pershkrimi = nrGjeneruar.ToString();
@@ -213,7 +203,6 @@ namespace PlatinumWeb
             gvExport.Columns.Clear();
             gvExport.AutoGenerateColumns = true;
             gvExport.DataSource = null;
-            //gvExport.SettingsPager.PageSize = 10;
             gvExport.DataBind();
 
             System.Data.DataTable table = new System.Data.DataTable();
@@ -241,7 +230,6 @@ namespace PlatinumWeb
                 }
 
 
-                //  hfSasia.Value =(Object)a.ToString();
                 JavaScriptSerializer serializusi = new JavaScriptSerializer();
                 hfSasia.Value = serializusi.Serialize((Object)a).ToString();
             }
@@ -261,10 +249,7 @@ namespace PlatinumWeb
                 gvExport.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
                 gvExport.Settings.ShowFilterRowMenu = true;
                 gvExport.Columns.Add(check);
-                //  gvExport.SettingsBehavior.AllowSelectByRowClick = true;
-                //  gvExport.SettingsBehavior.AllowFocusedRow = true;
             }
-
 
 
             if (this.gvExport.Columns["Sasia"] == null)
@@ -278,7 +263,6 @@ namespace PlatinumWeb
 
                 gvExport.SettingsBehavior.AllowFocusedRow = true;
             }
-            // shtoSasi();
         }
 
         protected void gvExport_AfterPerformCallback(object sender, DevExpress.Web.ASPxGridViewAfterPerformCallbackEventArgs e)
@@ -324,7 +308,6 @@ namespace PlatinumWeb
             gvExport.KeyFieldName = "IdArtikulli;Niveli i cmimit;Kodbari;idcmimartikulli ";
 
 
-
         }
 
 
@@ -341,7 +324,6 @@ namespace PlatinumWeb
             btnSelectAllOnPage.Text = rm.GetString("zgjidhTeGjithaBtn", cultinf);
             btnUnselectAllOnPage.Text = rm.GetString("btnHiqZgjedhjenNeFaqe", cultinf);
         }
-
 
 
         /// <summary>
@@ -391,7 +373,6 @@ namespace PlatinumWeb
         }
         protected void btnExporto_Click(object sender, EventArgs e)
         {
-            //gjeneroKodbar();
             exportoGride();
         }
         protected void gjeneroKodbar_Click(object sender, EventArgs e)
@@ -413,10 +394,8 @@ namespace PlatinumWeb
             }
   
        
-          //  hfSasia.Value =(Object)a.ToString();
             JavaScriptSerializer serializusi = new JavaScriptSerializer();
             hfSasia.Value = serializusi.Serialize((Object)a).ToString();
-           // gvExport.Selection.SelectAll();
            
         }
 
@@ -431,9 +410,6 @@ namespace PlatinumWeb
                 gvExport.Selection.SetSelection(i, true);
             }
            
-            //Page page = HttpContext.Current.CurrentHandler as Page;
-            //page.ClientScript.RegisterStartupScript(typeof(Page), "Test1", "<script type='text/javascript'>gvExport.SelectAllRowsOnPage();</script>");
-        
         
         }
 
@@ -458,10 +434,7 @@ namespace PlatinumWeb
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
 
             List<object> rreshta =
-                //foreach (DataRow dr in gvExport)
-                //DataRow   rreshta = gvExport.GetDataRow(1);
 
-                //gvExport.GetSelectedFieldValues(new string[] {"IdArtikulli" });
 
                gvExport.GetSelectedFieldValues(new string[] { "IdArtikulli", "Niveli i cmimit", "Monedha e nivelit te cmimit", "Date fillimi i cmimit", "Kodi", "Emer i artikullit", "Kodbari","Detajim 1","Detajim 2", "Njesia 1", "Cmimi 1", "Njesia 2", "Cmimi 2", "Klasa", "Lloji i artikullit", "Grupimi 1", "Grupimi 2", "Furnitori Kryesor", "idcmimartikulli" });
 
@@ -484,111 +457,47 @@ namespace PlatinumWeb
                 for (int i = 0; i < item.Length; i++)
                 {
                     row[i] = item[i];
-                    //   if (i == item.Length - 1) k =Convert.ToInt32( item[i]);
 
                 }
-                //if ((item[6] == null) || (item[6].ToString() == ""))
-                //{
-                    // popKodbare.ShowOnPageLoad = true;
-                    //  clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Disa nga artikujt nuk kane kodbare!", pnlMesazhi);
-                    // break;
-               // }
                 //else
-               // {
                     int index = gvExport.FindVisibleIndexByKeyValue(new object[] { item[0], item[1], item[6],item[18] });
-                    //  GridViewDataTextColumn col0 = gvExport.Columns["Sasia"] as GridViewDataTextColumn;
                     JavaScriptSerializer serializusi = new JavaScriptSerializer();
                     object[] Sasia = (object[])serializusi.DeserializeObject(this.hfSasia.Value);
                     object[] Sasia1 = (object[])serializusi.DeserializeObject(this.hfSasia1.Value);
-                    //for (int i = 0; i < Sasia.Length; i++)
-                    //{
-                    //    if (Sasia[i] != null)
-                    //    {
                 int sasia=0;
                 sasia = Convert.ToInt32(Sasia[index].ToString());
                 if (Sasia1!=null)
                 if (index <= Sasia1.Length-1)  
                     if (Sasia1[index] != null) sasia = Convert.ToInt32(Sasia1[index].ToString());
-                   // else sasia = Convert.ToInt32(Sasia[index].ToString()); ;
 
                
                     for (int j = 1; j <= sasia; j++)
                     {
                         DataRow dr3 = table.NewRow();
                         dr3.ItemArray = row.ItemArray;
-                        // dataTable.Rows.Add(newRow);
                         table.Rows.Add(dr3);
-                        //    }
-                        //}
                     }
 
-                    //DataRow dr= gvExport.GetDataRow(index);
-                    //int sasia =Convert.ToInt32( dr["Sasia"].ToString());
-                    //   for (int j=1;j<=sasia;j++)
-                    // table.Rows.Add(row);
-                    // DataRow dr3 = table.NewRow();
-                    // dr3.ItemArray = row.ItemArray;
                     //// dataTable.Rows.Add(newRow);
-                    // table.Rows.Add(dr3);  
-                    //table1.ImportRow(row);
-                    //   table.Rows.Add(row);
                     k++;
                 }
-            //}
 
             DataSet ds = new DataSet();
             ds.Tables.Add(table);
             ds.Tables.Add(table1);
 
             //
-            //List<object> rreshta1= new  List<object>();
-            //List<object> rreshta = gvExport.DataSource as List<object>;
-            //DataRow   rreshta1=rreshta;
-            //  int i=0;
-            //foreach (object[] rr in rreshta)
-            //{
 
-            //if (rr[1].ToString()=="2")
-            //{
-            // int index=  gvExport.FindVisibleIndexByKeyValue(rr[0]);
-            //    rreshta1.Add(rr);
-            //string[] b = new string[14];
-            //b[0] = "7";
-            //b[1] = "6";
-            //b[2] = "6";
-            //b[3] = "7";
-            //b[4] = "7";
-            //b[5] = "7";
-            //b[6] = "7";
-            //b[7] = "7";
-            //b[8] = "7";
-            //b[9] = "7";
-            //b[10] = "7";
-            //b[11] = "7";
-            //b[12] = "7";
-            //b[13] = "7";
             ////b[14] = "7";
 
-            //rreshta1.AddRange(b);
-            //rreshta[i] = rr.;
             //i++;
 
-            //rreshta1.Add(rr);
-            // rreshta1.Add(rr);
-            // }
-            // }
             //    
             // gvExport.get
-            //gvExport.GetDataRow(IndexedString);
 
-            //foreach (GridViewDataColumn d in fieldNames)
-            //    gvExport.Columns.Add(d);
-            //DataSet ds =(DataSet) rreshta;
-            //    (DataSet) gvExport.DataSource;
             gvExport.DataSource = table;
             gvExport.DataBind();
             gvExport.Columns["Sasia"].Visible = false;
-            //ASPxGridViewExporter1.DataBind();
             switch (rbTipi.Value.ToString())
             {
                 case "CSV":
@@ -602,7 +511,6 @@ namespace PlatinumWeb
 
                         try
                         {
-                            //  DbCore.clsFunksione.eksportoGridenKodbare(txtEmerSheet.Text, txtEmerSkedari.Text, ASPxGridViewExporter1, Session, Response, gvExport, table);
                             ASPxGridViewExporter1.WriteCsvToResponse(txtEmerSkedari.Text, o);
                         }
                         catch (Exception err)
@@ -621,7 +529,6 @@ namespace PlatinumWeb
 
                         try
                         {
-                            // DbCore.clsFunksione.eksportoGridenKodbare(txtEmerSheet.Text, txtEmerSkedari.Text, ASPxGridViewExporter1, Session, Response, gvExport, table);
                             ASPxGridViewExporter1.WriteXlsxToResponse(txtEmerSkedari.Text, o);
                         }
                         catch (Exception err)
@@ -641,7 +548,6 @@ namespace PlatinumWeb
 
                         try
                         {
-                            // DbCore.clsFunksione.eksportoGridenKodbare(txtEmerSheet.Text, txtEmerSkedari.Text, ASPxGridViewExporter1, Session, Response, gvExport, table);
                             ASPxGridViewExporter1.WriteXlsToResponse(txtEmerSkedari.Text, o);
 
                         }
@@ -658,11 +564,7 @@ namespace PlatinumWeb
                     break;
             }
             gvExport.Columns["Sasia"].Visible = true;
-            //  ngarkogride();
         }
-
-
-        //String[] a = new String[] { }; int i = 0;
 
 
         protected void gvExport_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
@@ -686,9 +588,7 @@ namespace PlatinumWeb
                
 
                 }
-                //a[i] = "1";
                 //i++;
-                //hfSasia.Value = a.ToString();
                 if (e.VisibleIndex == ((ASPxGridView)sender).VisibleRowCount - 2)
                 {
 
@@ -703,15 +603,11 @@ namespace PlatinumWeb
             col2.DataItemTemplate = new PlatinumWeb.Templates.MyDoubleTemplate(true, 0, "1"); // "0.00");
 
 
-
         }
-
 
 
         protected void gvExport_SelectedIndexChanged(object sender, EventArgs e) {
 
-            //Page page = HttpContext.Current.CurrentHandler as Page;
-            //page.ClientScript.RegisterStartupScript(typeof(Page), "Test", "function (s,e){merrTeDhena('');}");
         }
 
 

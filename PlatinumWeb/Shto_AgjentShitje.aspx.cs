@@ -25,8 +25,6 @@ namespace PlatinumWeb
         private string guidString;
 
 
-
-
         /// <summary>
         /// Metoda qe thirret sa here qe ngarkohet faqja
         /// </summary>
@@ -153,24 +151,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_AgjenteShitje.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", grid_AgjenteShitje);
-            //var kolona = grid_AgjenteShitje.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //    {
-            //        filtri.DrejtimRenditje = true;
-            //    }
             //    else
-            //    {
-            //        filtri.DrejtimRenditje = false;
-            //    }
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
 
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
@@ -330,7 +312,6 @@ namespace PlatinumWeb
                 agjenti.IdAgjentShitje = int.Parse(hfId.Value.ToString());
 
                 var lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(agjenti.IdKonfig.ToString(), konf.IdNivel.ToString());
-
 
 
                 mesazh = agjenti.modifiko();
@@ -523,7 +504,6 @@ namespace PlatinumWeb
                         throw new DbCore.MyException(rm.GetString("msgCeljeArkaBankaLlogariaNukEkziston", cultinf));
                     }
                 }
-
 
 
             }

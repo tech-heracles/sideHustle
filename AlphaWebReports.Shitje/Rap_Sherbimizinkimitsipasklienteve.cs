@@ -30,27 +30,11 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void caktoFormatinENumrave()
         {
-            //xrLabel25.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel32.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel39.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel26.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel27.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel33.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel28.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel36.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel41.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel42.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel29.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel37.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel32.Summary.FormatString = xrLabel33.Summary.FormatString = xrLabel36.Summary.FormatString = xrLabel37.Summary.FormatString = xrLabel39.Summary.FormatString =  xrLabel41.Summary.FormatString = xrLabel42.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             //xrLabel32.XlsxFormatString = xrLabel33.XlsxFormatString = xrLabel36.XlsxFormatString = xrLabel37.XlsxFormatString = xrLabel39.XlsxFormatString = xrLabel41.XlsxFormatString = xrLabel42.XlsxFormatString
             //    = xrLabel25.XlsxFormatString = xrLabel26.XlsxFormatString = xrLabel27.XlsxFormatString = xrLabel28.XlsxFormatString = xrLabel29.XlsxFormatString = xrLabel30.XlsxFormatString
-            //    = 0.ToString("N" + shifraPasPresjes);
         }
 
  
-
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>

@@ -19,7 +19,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
         public RapMagazinaHistorik(CultureInfo ci, int idNdermarrje, DevExpress.XtraReports.UI.XtraReport raport)
         {
             InitializeComponent();
-            //EmrateLabelave(ci);
             ResourceManager rm = new ResourceManager("Resources.Strings",
                          System.Reflection.Assembly.Load("App_GlobalResources"));
             parameter1.Value = raport.Parameters[0].Value;

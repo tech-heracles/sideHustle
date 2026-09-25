@@ -98,21 +98,8 @@ namespace PlatinumWeb
 
         private void shtoAutorizim()
         {
-            //GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
 
-            //gvStatusRiparimi.Columns.Remove(gvStatusRiparimi.Columns["Autorizimi"]);
-            //gvStatusRiparimi.Columns.Add(colnew);
-            //DbCore.DbAdmin.colAutorizimetKoka col = new DbCore.DbAdmin.colAutorizimetKoka();
-            //col.Add(new DbCore.DbAdmin.clsAutorizimKoka(0,"","",0,0,0));
-            //col.mbushGjitheAutorizimet(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
         
-
-            //colnew.PropertiesComboBox.DataSource = col;
-            //colnew.PropertiesComboBox.TextField = "KodiAutorizim";
-            //colnew.PropertiesComboBox.ValueField = "IdAutorizimKoka";
-            //colnew.Caption = "Autorizimi";
-            //colnew.FieldName = "Autorizimi";
-           
             percaktoTamplate();
         }
         private void percaktoTamplate()
@@ -123,7 +110,6 @@ namespace PlatinumWeb
           
                 col7.EditItemTemplate = new MyTemplateAutorizime(idNdermarrje, idPerdoruesi);
 
-               // col7.Width = Unit.Percentage(100);
          
         }
         protected void gvStatusRiparimi_HeaderFilterFillItems(object sender, ASPxGridViewHeaderFilterEventArgs e)
@@ -327,20 +313,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvStatusRiparimi.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvStatusRiparimi);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvStatusRiparimi.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;

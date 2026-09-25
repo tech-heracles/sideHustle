@@ -87,21 +87,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushKokatRezervime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaRezervime koka = new clsKokaRezervime();
-                    //koka.mbushKokaRezervime(rreshti);
                     Add(new clsKokaRezervime(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

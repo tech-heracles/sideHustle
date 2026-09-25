@@ -57,10 +57,7 @@ function Init() {
     gvLupaDok.SetFocusedRowIndex(0);
     window.parent.Utils.hiqLoadingGif();
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
-    //  btnOk.Focus();
 
-    //  alert(window.parent.document.documentElement.clientHeight);
-    //   alert(document.documentElement.clientHeight);
     if (rbNga.GetChecked() == false) {
         dteNga.SetEnabled(false);
         dteDeri.SetEnabled(false);
@@ -287,17 +284,14 @@ function OnGridSelectionComplete(values) {
         window.parent.location = 'Shto_AzhornimKlientFurnitor.aspx?vep=azhornim&id=' + id + '&shtim_modifikim=modifikim';
 
 
-
     } else if (window.parent.identifikuesPerPopupDokumentat == "Shto_AzhornimKlientFurnitor.aspx?vep=mbyllje") {
 
         window.parent.location = 'Shto_AzhornimKlientFurnitor.aspx?vep=mbyllje&id=' + id + '&shtim_modifikim=modifikim';
 
 
-
     } else if (window.parent.identifikuesPerPopupDokumentat == "ShperndarjeShpenzimeshKerkoMenu") {
 
         window.parent.location = 'Shto_ShperndarjeShpenzimesh.aspx?id=' + id + '&shtim_modifikim=modifikim';
-
 
 
     }
@@ -333,7 +327,6 @@ function OnGridSelectionCompleteMultiSelect(values) {
         if (gvLupaDok.GetSelectedRowCount() > 1) {
             var vleftat = vlefta.split(',');
             for (i = 0; i < vleftat.length; i++)
-            //vleftaTotale += parseFloat(vleftat[i].toString());
                 vleftaTotale = vleftaTotale + parseFloat(vleftat[i].toString());
         }
         else if (gvLupaDok.GetSelectedRowCount() == 1)

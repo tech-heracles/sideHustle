@@ -34,38 +34,9 @@ namespace DbCore.DbCRM
         }
 
         //public byte[] Foto
-        //{
         //    get
-        //    {
-        //        if (foto == null && fotoLoaded)
-        //            return null;
                
-        //        MemoryStream ms = null;
-        //        if (foto == null && !fotoLoaded)
-        //        {
-        //            byte[] logoja; //= merrFoto();
-        //            if (logoja != null && ((byte[])logoja).Length != 0)
-        //            {
-        //                ms = new MemoryStream(logoja);
-        //                foto = Image.FromStream(ms);
-        //            }
-        //            else return null;
-        //        }
-        //        if (ms == null)
-        //        {
-        //            ms = new MemoryStream();
-        //            foto.Save(ms, foto.RawFormat);
-        //        }
-        //        return ms.ToArray();
-        //    }
         //    set
-        //    {
-        //        if (value != null)
-        //            foto = Image.FromStream(new MemoryStream(value));
-        //        else foto = null;
-        //        fotoLoaded = true;
-        //    }
-        //}
 
         #endregion
 
@@ -80,31 +51,11 @@ namespace DbCore.DbCRM
 
         #region Metoda Publike
 
-        //public clsMesazh ruaj()
-        //{
-        //    clsDatabaseCRM data = new clsDatabaseCRM();
-        //    clsMesazh u_ruajt = ruaj(data);
-        //    data.Dispose();
-        //    return u_ruajt;
-        //}
-
-        //public clsMesazh ruaj(clsDatabaseCRM data)
-        //{
-        //    int id;
-        //    clsMesazh u_ruajt = data.ruajFotoAnkete(out id, this.IdTrupiKlientAnketa,this.Foto);
-        //    this.IdFotoAnkete = id;
-        //    return u_ruajt;
-        //}
-
-      
-       
-      
 
         public static byte[] merrFoto(int id)
         {
             clsDatabaseCRM dbCRM = new clsDatabaseCRM();
             byte[] foto = dbCRM.merrFoto(id);
-           // fotoLoaded = true;
             dbCRM.Dispose();
             return foto;
         }

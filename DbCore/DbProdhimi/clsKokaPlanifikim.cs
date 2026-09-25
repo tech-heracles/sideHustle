@@ -979,7 +979,6 @@ namespace DbCore.DbProdhimi
             clsDatabazeProdhimi data = new clsDatabazeProdhimi();
             if (lidhur == false)
             {
-                //data.krijoManager();
                 data.beginTransaksion();
                 u_modifikua = modifikoPlanifikim(IdKokaPlanifikim, IdNivel, IdKonfigAmbjente, IdKlientFurnitor, IdMagazina, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues,IdGrup1,IdGrup2,IdGrup3, afatiKohor, colTrupi, data, colUrdherPlan, IdRaportDesing, IdNjesiProdhimi);
                 if (u_modifikua.Status)
@@ -1012,7 +1011,6 @@ namespace DbCore.DbProdhimi
                 clsKokaPlanifikim kokaEkzistuese = new clsKokaPlanifikim();
                 kokaEkzistuese.mbushKokaPlanifikimSipasID(idkokaplanifikim, dbProdh);
                 kokaEkzistuese.IdStatusDok = 2;  //duhet vendosur nje status i pershtatshem per kete modifikim
-              //  mesazh = dbProdh.modifikoKokaPlanifikim(kokaEkzistuese.IdKokaPlanifikim, kokaEkzistuese.IdNivel, kokaEkzistuese.IdKonfigAmbjente, kokaEkzistuese.IdKlientFurnitor, kokaEkzistuese.IdMagazina, kokaEkzistuese.DtDok, kokaEkzistuese.NrDok, kokaEkzistuese.idDokNga, kokaEkzistuese.IdStatusDok, kokaEkzistuese.idNdermarrje, kokaEkzistuese.idNdermarrjeVit, idperdoruesi, kokaEkzistuese.DtRegj, kokaEkzistuese.Shenime, kokaEkzistuese.idNivelGjenerues, kokaEkzistuese.idKonfigGjenerues, kokaEkzistuese.idGjenerues, kokaEkzistuese.IdGrup1,kokaEkzistuese.IdGrup2,kokaEkzistuese.idGrup3);
                 mesazh = dbProdh.fshiKokaPlanifikim(kokaEkzistuese.IdKokaPlanifikim, idperdoruesi);
                 if (!mesazh.Status)
                     return mesazh;
@@ -1040,7 +1038,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh fshi()
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_fshi = fshiPlanifikim(IdKokaPlanifikim, idPerdoruesi, db);
             if (u_fshi.Status)
@@ -1057,7 +1054,6 @@ namespace DbCore.DbProdhimi
         public static clsKokaPlanifikim merrSipasId(int id)
         {
             clsKokaPlanifikim data = new clsKokaPlanifikim();
-            //data.mbushKokaPlanifikimSipasID(id, null);
             data.mbushKokaPlanifikimSipasID(id);
             return data;
         }
@@ -1128,8 +1124,6 @@ namespace DbCore.DbProdhimi
         /// <param name="db"></param>
         public bool mbushKokaPlanifikimSipasID(int idKokaPlanifikim, clsDatabazeProdhimi db)
         {
-            //if (db == null) 
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushKokaPlanifikim(db.ktheKokaPlanifikimSipasID(idKokaPlanifikim), db);
             return mbush;
         }
@@ -1262,5 +1256,4 @@ namespace DbCore.DbProdhimi
         #endregion
     }
 }
-
 

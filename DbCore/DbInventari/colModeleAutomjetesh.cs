@@ -146,18 +146,10 @@ namespace DbCore.DbInventari
         private bool mbushModeleAutomjetesh(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsModelAutomjeti modelAutomjeti = new clsModelAutomjeti();
-                    //modelAutomjeti.mbushModelAutomjeti(rreshti);
                     this.Add(new clsModelAutomjeti(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

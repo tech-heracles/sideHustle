@@ -24,7 +24,6 @@ namespace PlatinumWeb
             set
             {
                 _pivotGridFld = value;
-                //BindGridView(CurrentField);
                 PivotGrid.HeaderTemplate = new MyPivotHeaderFilterTemplate(ThemeName, ASPxPopupControl1.ClientInstanceName);
                 PivotGrid.CustomCallback += PivotGrid_CustomCallback;
             }
@@ -116,12 +115,6 @@ namespace PlatinumWeb
         {
             public string FilterValue { get; set; }
         }
-
-
-
-       
-  
-    
 
 
     }

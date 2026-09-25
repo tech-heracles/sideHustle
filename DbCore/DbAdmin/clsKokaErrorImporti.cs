@@ -77,7 +77,6 @@ namespace DbCore.DbAdmin
         }
 
        
-
         /// <summary>
         /// Kthen/Vendos pershkrimin 
         /// </summary>
@@ -126,7 +125,6 @@ namespace DbCore.DbAdmin
         }
 
      
-
         /// <summary>
         /// Kthen/Vendos collection-in me trupat 
         /// </summary>
@@ -146,9 +144,6 @@ namespace DbCore.DbAdmin
         /// <returns>Mesazhin qe jep info ne lidhje me ruajtjen e sukseshme, ose gabimin qe ka ndodhur nese ka te tille</returns>
         public clsMesazh ruajErrorImporti()
         {
-            //clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-            //clsMesazh mesazh;
-            //dbAdmin.beginTransaksion();
             try
             {
                 ImbLogger.LogErrorImporti(ToString());
@@ -160,7 +155,6 @@ namespace DbCore.DbAdmin
                 }
                 ImbLogger.LogErrorImporti(strTrupat.ToString());
                 //Nqs ruhet me sukses edhe trupi kthejme mesazhin e suksesit
-                //dbAdmin.commitTransaksion();
                 return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
                 //Ne te gjitha rastet e tjera kthejme mesazhin me pershkrimin e gabimit qe ka ndodhur                                             
             }

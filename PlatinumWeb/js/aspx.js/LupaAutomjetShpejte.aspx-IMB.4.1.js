@@ -22,7 +22,6 @@ $(window).load(function () {
 
 $(window).bind('resize', function () {//po
     try {
-        //document.getElementById("menu").style.width = document.documentElement.clientWidth - 50;
         ASPxPanel1.SetWidth(document.documentElement.clientWidth - 20);
     }
     catch (e) {
@@ -44,7 +43,6 @@ function menu_click(s, e) {
         valido(s, e);
     }
     if (e.item.name == 'Anullo') {
-        //window.parent.popupUniversal.Hide();
         if (Utils.getUrlVar("vjenNga") == undefined) {
             $.ajax({
                 url: Utils.getServerApiUrl("Konfigurime", "merrNgaSessionURLLupaShpejte"),
@@ -215,7 +213,6 @@ function EndRequestHandler(sender, args) {
             }).done(Succeded);
             return;
         }
-            //else if (Utils.getUrlVar("vjenNga") == 'Shto_RegjistrimDokumentash' || Utils.getUrlVar("vjenNga") == 'Shto_RegjistrimMagazine' || Utils.getUrlVar("vjenNga") == 'ShtoVeprimBanka') {
 
         else if (Utils.getUrlVar("vjenNga") == 'Shto_RegjistrimDokumentash') {
             window.parent.btneAutomjeti.SetValue(hfId.value);
@@ -232,12 +229,6 @@ function EndRequestHandler(sender, args) {
             if (window.parent.btneKlientFurnitori.GetText() == '')
                 window.parent.btneKlientFurnitori.SetValue(btneKlienti.GetValue());
         }
-        //else if (Utils.getUrlVar("vjenNga") == 'ShtoVeprimBanka') {
-        //    window.parent.btneAutomjet.SetValue(hfId.value);
-        //    window.parent.btneAutomjet.SetText(txtNrShasie.GetText());
-        //    window.parent.txtTarga.SetText(txtTarga.GetText());
-        //}
-        //}
         hf.value = "false";
         window.parent.popupUniversal.Hide();
     }

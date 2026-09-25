@@ -57,7 +57,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
             xrLabel24.Text = rm.GetString("labelRaportTotaliBrutoNe", ci);
             xrLabel25.Text = rm.GetString("labelKursi", ci) + ":";
-         //   xrLabel26.Text = rm.GetString("labelRaportTotalNeto", ci);
 
           }
 

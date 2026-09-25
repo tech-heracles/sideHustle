@@ -19,11 +19,7 @@ namespace PlatinumWeb.Templates
             cmb.SelectionMode = ListEditSelectionMode.CheckColumn;
             if (!(gridContainer.Text == "&nbsp;" || gridContainer.Text == "0"))
             {
-                //string text = "";
-                //text = gridContainer.Text;
 
-                //text = DbCore.clsFunksione.zevendesoKaraktere(text);
-                //cmb..Text = text;
                 cmb.Width = Unit.Percentage(100);
             }
             else

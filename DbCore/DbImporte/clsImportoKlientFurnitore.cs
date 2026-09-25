@@ -68,7 +68,6 @@ namespace DbCore.DbImporte
             const bool ofertaAutomatike = false;
             const string nrLlogZbritje = "", kushtepagese = "", kushtedergimi = "", menyratransporti = "", adresaBanka = "";
             int vit = DateTime.Today.Year;
-            //clsNdermarrje nder = new clsNdermarrje(idndermarje);
             int monndermarje = clsNdermarrje.ktheIdMonedheNdermSipasID(idndermarje);
 
             int idKonfigFurnitor = clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("F", idndermarje);

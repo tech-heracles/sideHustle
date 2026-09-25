@@ -18,7 +18,6 @@ function BeginCallback(s, e) {
 }
 
 function Init() {
- //   myMesazh.shtoHandler();
     try {
         myFaqeCelje.shtoHandlerSession();      
         btnOk.Focus();
@@ -87,7 +86,6 @@ function SucceededCallback(result) {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     var kodifik = vl[1];
@@ -128,25 +126,20 @@ function OnGridSelectionComplete(values) {
             break;
         case "Shto_Artikull":
             if (window.parent.grida == '1') {
-                //                        window.parent.btneKodifikimi1.SetText(vl[1]);
                 Utils.SelectComboItem(window.parent.btneKodifikimi1, vl[0], vl[1]);
                 window.parent.btneKodifikimi1.SetFocus(true);
                 window.parent.UpdateGrida(vl[0]);
                 Utils.SelectComboItem(window.parent.btnLlogPakesim, vl[4], vl[5]);
             }
             else if (window.parent.grida == '2') {
-                //                        window.parent.btneKodifikimi2.SetText(vl[1]);
                 Utils.SelectComboItem(window.parent.btneKodifikimi2, vl[0], vl[1]);
               
                 window.parent.btneKodifikimi2.SetFocus(true);
-                //Utils.SelectComboItem(window.parent.btnLlogPakesim, vl[4], vl[5]);
             }
             else if (window.parent.grida == '3') {
-                //                        window.parent.btneKodifikimi2.SetText(vl[1]);
                 Utils.SelectComboItem(window.parent.btneKodifikimi3, vl[0], vl[1]);
               
                 window.parent.btneKodifikimi3.SetFocus(true);
-                //Utils.SelectComboItem(window.parent.btnLlogPakesim, vl[4], vl[5]);
             }
             break;
         case "Cmim Artikulli":
@@ -174,7 +167,6 @@ function OnGridSelectionComplete(values) {
                  kodifik = kodifik + "," + values[i][1];
              window.parent.editorGlobal.SetText(kodifik);
              window.parent.editorGlobal.SetFocus(true);
-            //window.parent.editorGlobal.SetText(vl[1]);
             window.parent.editorGlobal.SetFocus(true);
             break; 
             case "Import":
@@ -193,10 +185,6 @@ function OnGridSelectionComplete(values) {
     window.parent.popupUniversal.Hide();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

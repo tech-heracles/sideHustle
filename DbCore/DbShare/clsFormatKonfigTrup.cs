@@ -343,10 +343,6 @@ namespace DbCore.DbShare
                     int.TryParse(dbDataRowFormatKonfigTrup["ShifraPasPresjesVlefta"].ToString(), out shifraPasPresjesVlefta);
                     int.TryParse(dbDataRowFormatKonfigTrup["ShifraPasPresjesZbritja"].ToString(), out shifraPasPresjesZbritja);
                     kodMonedhe = dbDataRowFormatKonfigTrup["KODIMONEDHA"].ToString();
-                    //formatSasia = dbDataRowFormatKonfigTrup["FORMATSASI"].ToString();
-                    //formatCmimi = dbDataRowFormatKonfigTrup["FORMATCMIMI"].ToString();
-                    //formatVlefta = dbDataRowFormatKonfigTrup["FORMATVLEFTA"].ToString();
-                    //formatZbritja = dbDataRowFormatKonfigTrup["FORMATZBRITJA"].ToString();
                     return true;
                 }
                 catch (InvalidCastException)

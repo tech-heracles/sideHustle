@@ -22,7 +22,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             EmrateLabelave(ci);
 
             
-
         }
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
@@ -37,7 +36,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             titulliLabel.Text = rm.GetString("labelRaportShitjetSipasSasiveKrahasueseTitulli", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             
-            //labelRaportiTotali.Text = rm.GetString("labelRaportiTotali", ci);
             labelLogoIMB.Text = rm.GetString("labelLogoIMB", ci);
             xrTableCell85.Text = rm.GetString("labelRaportiPershkrimi", ci);
             xrTableCell86.Text = rm.GetString("labelRaportJanar", ci);

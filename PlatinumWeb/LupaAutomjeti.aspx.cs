@@ -67,8 +67,6 @@ namespace PlatinumWeb
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvLupaAutomjet", idKonfigambjenti, "LupaAutomjeti.aspx");
                 GridUtil.AplikoFilterDefault(gvLupaAutomjet, idKonfigambjenti);
                 hfState.Set("idKonfigambjenti", idKonfigambjenti);
-                //DbCore.DbShare.clsKusht kushtkss = new DbCore.DbShare.clsKusht(idKonfigambjenti, "KSSH");
-                //DbCore.DbShare.clsAlternativaKushti alterkss = new DbCore.DbShare.clsAlternativaKushti(kushtkss.Vlera);
                 if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
                     hfState.Add("KSSH", true);
                 else hfState.Add("KSSH", false);
@@ -129,7 +127,6 @@ namespace PlatinumWeb
         {//konfiguron popupgriden
             shtoModelAutomjeti(idNdermarrje);
             shtoKlient(idNdermarrje, idPerdorues);
-            //gvLupaAutomjet.Columns["#"].VisibleIndex = 0;
         }
 
         /// <summary>
@@ -216,8 +213,6 @@ namespace PlatinumWeb
         private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
         {
             //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            //DbCore.DbShare.clsKonfigurimAmbjenti ambj = new DbCore.DbShare.clsKonfigurimAmbjenti(idNdermarrje, idNivel);
-            //return ambj.IdKonfigAmbjente;
             return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
         }
 
@@ -238,29 +233,15 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaAutomjet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdAutomjeti", gvLupaAutomjet);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaAutomjet.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdAutomjeti";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
             percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAutomjet", Convert.ToInt32(cmbKonfigurimi.Value), "LupaAutomjeti.aspx");
-            //percaktoTemplateMenu(ASPxMenu1);
             if (mesazh.Status == true)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -285,7 +266,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
                 percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAutomjet", Convert.ToInt32(cmbKonfigurimi.Value), "LupaAutomjeti.aspx");
                 if (mesazh.Status == true)
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);

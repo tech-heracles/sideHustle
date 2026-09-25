@@ -80,7 +80,6 @@ namespace PlatinumWeb
                 }
                 if (Request.QueryString["kontrollodefault"] == "true")
                 {
-                    //string komponente = clsKomponente.merrKomponenteDefaultPerdoruesi(idPerdoruesi);
                     string komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrje, String.Empty, vitiNdermarrjes);
                     if (komponente != "")
                     {

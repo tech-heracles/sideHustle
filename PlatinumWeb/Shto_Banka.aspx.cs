@@ -278,7 +278,6 @@ namespace PlatinumWeb
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             konfiguroVleraFillestare(idNdermarrje, rm, cultinf, DbCore.mySessionObjects.ktheGjuhe(Session));
             GridUtil.ToolTipButonaveMbiGride(ASPxGridView_Bankat, cultinf, rm);
-            //  konfiguroGride(idNdermarrje, cmbKonfigurimi.Text.Split(';')[0], 121);
         }
         /// <summary>
         /// perdoret per te vendosur filtrat tek headeri i grides
@@ -294,7 +293,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "EmerBanka")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue(TeGjithe, string.Empty, "true");
                 e.AddValue(nga + " A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue(nga + " D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");
@@ -437,7 +435,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqABNgaGrida(clsBankat.IdBanka, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, rm, ci);
                     #endregion
                     TeFshire.Add(clsBankat.KodiBanka);
@@ -504,8 +501,6 @@ namespace PlatinumWeb
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbArkaBanka.colBankat.merrSipasABNdermarrjesAndAutorizimeDR(idNdermarrje, idPerdorues, idbanka);
-                //  dt.Rows.Remove(dr);
-                // dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -531,7 +526,6 @@ namespace PlatinumWeb
             ASPxPageControl1.ActiveTabIndex = 0;
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             bool llojiArkaBanka = Request.QueryString["ab"] != "arka";
-            //inicializoObjekte();
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(txtNrLlogari);
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(komisioni_ButtonEdit);
             ConfigureAspxComboBox.mbushComboMonedha(0, idNdermarrje, false, cmbMonedha);
@@ -877,7 +871,6 @@ namespace PlatinumWeb
                 else
                 {
                     dege = new DbCore.DbRegjistrim.clsDegeAdministrative(cmbDegeAdministrative.Text, idNdermarrje);
-                    //mag = dbRegjistrim.merrNjesiAdministrativeSipasKodit(mag);
                     if (dege.Aktiv == false)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgCeljeArkaBankaJoAtkiveDegaAdmin", ci), pnlMesazhi);

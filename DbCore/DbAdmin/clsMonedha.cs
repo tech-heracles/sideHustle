@@ -97,7 +97,6 @@ namespace DbCore.DbAdmin
             if (idMonedha < 1)
                 return;
             mbushMonedha(data.TransCache.getMonedha(idMonedha, data));
-            //mbushMonedha(data.merrMonedhe(idMonedha));
         }
         public clsMonedha(DataRow dr)
         {
@@ -112,7 +111,6 @@ namespace DbCore.DbAdmin
         public clsMonedha(string kod, int IdNdermarrja, clsDatabaseAdmin data)
         {
             mbushMonedha(data.TransCache.getMonedha(kod, IdNdermarrja, data));
-            //mbushMonedha(data.ktheMonedhen(kod, IdNdermarrja));
         }
         
         #endregion
@@ -303,7 +301,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         public bool mbushMonedhenENdermarrjes(int idNdermarrje)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
@@ -332,7 +329,6 @@ namespace DbCore.DbAdmin
         public void mbushMonedhenENdermarrjes(int idNdermarrje, clsDatabaseAdmin data)
         {
             mbushMonedha(data.TransCache.getMonedheNdermarrje(idNdermarrje, data));
-            //return mbushMonedha(data.ktheMonedhenNdermarrjes(idNdermarrje));            
         }
         public void merrMonedheNdermarjeNgaCacheja(int idndermarje,clsDatabaseAdmin db)
         {
@@ -355,10 +351,8 @@ namespace DbCore.DbAdmin
         public clsMesazh ruaj(DbCore.DbAdmin.clsDatabaseAdmin dbAdmin)
         {
 
-            //clsDatabaseAdmin data = new clsDatabaseAdmin();
             colMonedhat monedhatdefault = new colMonedhat();
             monedhatdefault.mbushGjitheMonedhatPozitive(-1, 0, dbAdmin);
-            //colMonedhat monedhatdefault = merrGjitheMonedhatPozitive(-1,0);           
             clsMesazh mesazh;
             try
             {                
@@ -438,35 +432,19 @@ namespace DbCore.DbAdmin
                 {
                     return new clsMesazh("Ekziston nje monedhe me kete pershkrim! Ju lutem zgjidhni nje tjeter!");
                 }
-                //mesazh = dbAdmin.ekzistonMonedhaPershkrim(pershkrimiMonedha, IdNdermarje);
-                //if (mesazh.Status)
-                //{
-                //    return new clsMesazh(false, mesazh.PershkrimMesazhi);
-                //}
                 mesazh = dbAdmin.modifikoMonedhe(IdMonedha, KodiMonedha, PershkrimiMonedha, AktivMonedha, IdPerdoruesi, IdLlogFitimi, IdLlogHumbje, IdNdermarje, IdStatusDok, idFormatNrKursi);
                 if (!mesazh.Status)
                 {
 
                     return mesazh;
                 }
-                //colKurset kurs = merrKursetMonedhes(monedha.IdMonedha);
-                //foreach (clsKurset k in kurs)
-                //    fshiKurs(k);
                 foreach (clsKurset kursi in OColKurset)
                 {
                     kursi.IdMonedha = IdMonedha;
-                    // if (o.VleraKursi > 0)
-                    // {
-                    //if (dbAdmin.ekzistonKurs(kursi.LlojKursi, kursi.DataKursit, kursi.VleraKursi, kursi.IdMonedha))
-                    //{
-                    //    //  mesazh = fshiKurs(o);
                     //    //   if (mesazh.Status)
-                    //    //       mesazh = ruajKurs(o);
                     //    //  else { dbManager.Transaction.Rollback(); return mesazh; }
-                    //}
                     //else
                     mesazh = kursi.krijoKurs(dbAdmin);
-                    // }
                     if (!mesazh.Status)
                     {
 
@@ -481,7 +459,6 @@ namespace DbCore.DbAdmin
                     {
                         DbCore.DbAdmin.clsLidhjeAutorizim lidhje = new DbCore.DbAdmin.clsLidhjeAutorizim();
                         lidhje.IdAutorizimeKoka = DbCore.DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                        //lidhje.IdAutorizimeKoka = new DbCore.DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                         colLidhjet.Add(lidhje);
                     }
                 }
@@ -517,48 +494,11 @@ namespace DbCore.DbAdmin
                         return mesazh;
                 }
                 //if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-                //{
-                //    for (int i = 0; i < colLidhjet.Count; i++)
-                //    {
-                //        colLidhjet[i].IdLloji = 12;
-                //        colLidhjet[i].IdLidhese = IdMonedha;
-                //        if (i < colLidhjetAutorizim.Count)
-                //        {
-                //            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-                //            mesazh = dbAdmin.modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka,1);
-                //        }
                 //        else
-                //            mesazh = dbAdmin.ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka, 1);
-                //        if (!mesazh.Status)
-                //        {
 
-                //            return mesazh;
-                //        }
-                //    }
-                //}
                 //else//rasti kur jane fshire rreshta
-                //{
-                //    int count = 0;
-                //    for (int i = 0; i < colLidhjetAutorizim.Count; i++)
-                //    {
-                //        if (count < colLidhjet.Count)
-                //        {
-                //            colLidhjet[i].IdLloji = 12;
-                //            colLidhjet[i].IdLidhese = IdMonedha;
-                //            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-                //            mesazh = dbAdmin.modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka,1);
-                //        }
                 //        else
-                //        {
-                //            mesazh = dbAdmin.fshiLidhjeAutorizim(colLidhjetAutorizim[i].IdLidhjeAutorizim);
-                //        }
                 //        count++;
-                //        if (!mesazh.Status)
-                //        {
-                //            return mesazh;
-                //        }
-                //    }
-                //}
 
                 mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
                 return mesazh;
@@ -645,7 +585,6 @@ public bool mbushMonedhePershk(string pershMonedha, int idNdermarrja)
             try
             {
                 DbCore.DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbCore.DbAdmin.colLidhjetAutorizim(monedha.IdMonedha, 12, dbAdmin);
-                //DbCore.DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbCore.DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji();
                 foreach (DbCore.DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
                 {
                     mesazh = dbAdmin.fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
@@ -657,7 +596,6 @@ public bool mbushMonedhePershk(string pershMonedha, int idNdermarrja)
                 }
                 colKurset kurs = new colKurset();
                 kurs.mbushKursetMonedhes(monedha.IdMonedha);
-                //colKurset kurs = dbAdmin.merrKursetMonedhes(monedha.IdMonedha);
                 foreach (clsKurset k in kurs)
                 {
                     mesazh = dbAdmin.fshiKurs(k.LlojKursi, k.DataKursit, k.IdMonedha);

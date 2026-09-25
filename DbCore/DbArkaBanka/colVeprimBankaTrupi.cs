@@ -82,7 +82,6 @@ namespace DbCore.DbArkaBanka
         }
 
 
-
         public DbCore.DbRegjistrim.colKokaShitje ktheColShitje(int idndermarje)
         {
             DbCore.DbRegjistrim.colKokaShitje col = new DbCore.DbRegjistrim.colKokaShitje();
@@ -90,8 +89,6 @@ namespace DbCore.DbArkaBanka
             {
                 if (trupBanke.IdFatura != 0)
                 {
-                    //DbCore.DbRegjistrim.clsNivelRegjistrimi niveli = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                    // niveli.mbushNivelRegjistrimiSipasID(trupMag.IdNivel);
                      int idKategori = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(trupBanke.IdNivel);
                      if (idKategori != 20)
                     {
@@ -121,8 +118,6 @@ namespace DbCore.DbArkaBanka
                 if (trupMag.IdFatura != 0)
                 {
 
-                    //DbCore.DbRegjistrim.clsNivelRegjistrimi niveli = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                    //niveli.mbushNivelRegjistrimiSipasID(trupMag.IdNivel);
                     int idKategori = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(trupMag.IdNivel);
                     if (idKategori == 20)
                     {

@@ -32,7 +32,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
@@ -158,7 +157,6 @@ namespace PlatinumWeb
 
             ZevendesoCmbLloji();
         }
-
 
 
         protected void ButtonOk_Click(object sender, EventArgs e)
@@ -328,7 +326,6 @@ namespace PlatinumWeb
                     gvElementePerIntegrim.Selection.UnselectAll();
 
 
-
                 }
                
             }
@@ -383,10 +380,8 @@ namespace PlatinumWeb
             element.DtKrijimi = DateTime.Now;
             
 
-
             return element;
         }
-
 
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)

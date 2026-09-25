@@ -32,7 +32,6 @@ namespace PlatinumWeb
                 {
                     fileId = "filenameShp";
                     filePrefix = "ShapeFile";
-                  //  fileEx = ".shp";
                     filesExt.Add(".shp");
                     filePath = "~/UploadFiles/shapeFiles";
                     string fileEx = ".shp";

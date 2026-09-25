@@ -107,7 +107,6 @@ function _getKeyCode(evt) {
 
 //metodat per te hapur faqen e modifikimit me double click
 function OnGridDoubleClick(index) {
-    //colTrupiKonfig = new Array();
     indexModifiko = index;
     lista = true;
     mbushfusha();
@@ -303,7 +302,6 @@ function TextChangedFormatNr(s, e, emerFushe) {
 }
 
 function TextChangedKategoria(s, e) {
-    //var kategoria = s.GetText();
     var hfKat = $("#hfKategori")[0];
     hfKat.value = s.GetText();
 }

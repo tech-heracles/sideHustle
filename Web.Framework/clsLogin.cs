@@ -25,11 +25,6 @@ namespace PlatinumWeb
             DataTable data = DbCore.DbAdmin.clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
 
             MyConnectionsManager.SetListServera(session, data);
-            //if (data.Rows.Count <= 1)
-            //{
-            //    combo.ClientVisible = false;
-            //    combo.Enabled = false;
-            //}
 
             combo.DataSource = data;
             combo.TextField = "KODLICENCA";
@@ -41,17 +36,9 @@ namespace PlatinumWeb
         {
 
 
-            // DataTable data = DbCore.DbAdmin.clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
-
-
             DataTable data = DbCore.DbAdmin.clsLicenca.MerrLicencatMeDBMeID(MyConnectionsManager.ConnStringNameDefault, value);
 
             MyConnectionsManager.SetListServera(session, data);
-            //if (data.Rows.Count <= 1)
-            //{
-            //    combo.ClientVisible = false;
-            //    combo.Enabled = false;
-            //}
 
             combo.DataSource = data;
             combo.TextField = "KODLICENCA";
@@ -69,11 +56,6 @@ namespace PlatinumWeb
                 dtServera = clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
                 MyConnectionsManager.SetListServera(session, dtServera);
             }
-            //if (dtServera.Rows.Count == 1)
-            //{
-            //    MyConnectionsManager.SetSelectedConNameServer(session, MyConnectionsManager.ConnStringNameDefault);
-            //    return new clsMesazh(true, "U zgjodh connstring default");
-            //}
             var lic = dtServera.Select("IDLICENCA = " + idLicenca).FirstOrDefault();
             if (lic == null)
             {
@@ -98,11 +80,6 @@ namespace PlatinumWeb
                 dtServera = clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
                 MyConnectionsManager.SetListServera(session, dtServera);
             }
-            //if (dtServera.Rows.Count == 1)
-            //{
-            //    MyConnectionsManager.SetSelectedConNameServer(session, MyConnectionsManager.ConnStringNameDefault);
-            //    return new clsMesazh(true, "U zgjodh connstring default");
-            //}
             var lic = dtServera.Select("KODLICENCA = '" +  orgName+"'").FirstOrDefault();
             if (lic == null)
             {
@@ -182,11 +159,6 @@ namespace PlatinumWeb
                     }
 
                 }
-                //if (Request.QueryString["em"] != null)
-                //{
-                //    LabelInfo.Text = DbCore.EmailComposer.DergoEmailNewPassword(Request.QueryString["em"], HttpContext.Current.Request, true).PershkrimMesazhi;
-                //    return;
-                //}
 
             }
             else

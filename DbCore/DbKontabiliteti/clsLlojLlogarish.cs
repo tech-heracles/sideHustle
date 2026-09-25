@@ -48,7 +48,6 @@ namespace DbCore.DbKontabiliteti
         public clsLlojLlogarish(int id, clsDatabaseKontabilitet dbLlojLlogarish)
         {
             mbushLlojLlogarish(dbLlojLlogarish.TransCache.getLlojLlogari(id, dbLlojLlogarish));
-            //mbushLlojLlogarish(dbLlojLlogarish.ktheLlojLlogarieSipasID(id));
         }
         /// <summary>
         /// konstruktor me 1 parameter string
@@ -120,8 +119,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public clsLlojLlogarish merrLlojLlogarieSipasID()
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrLlojLlogarieSipasID(this.IdLlojLlogarie);
             clsLlojLlogarish data = new clsLlojLlogarish(this.IdLlojLlogarie);
             return data;
         }
@@ -132,8 +129,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public clsLlojLlogarish merrLlojLlogarieSipasKodit()
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrLlojLlogarieSipasKodit(this.kodLlojLlogarie);
             clsLlojLlogarish data = new clsLlojLlogarish(this.kodLlojLlogarie);
             return data;
         }

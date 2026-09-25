@@ -423,7 +423,6 @@ namespace GeoAPI.Geometries
             };
             var vIndex = offset / 2;
             //TODO GETSON check if is it correct
-            //shx.Parts = new List<DSPartRange>();
             var shapeStart = vIndex;
 
             for (var part = 0; part < geometry.NumGeometries; part++)

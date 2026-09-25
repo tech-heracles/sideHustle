@@ -193,8 +193,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public colGrupeKontabilizimi merriTeGjithe(int idndermarje)
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrGjitheGrupetKontabilizimi(idndermarje);
             colGrupeKontabilizimi colgrupeKont = new colGrupeKontabilizimi(idndermarje);
             return colgrupeKont;
 

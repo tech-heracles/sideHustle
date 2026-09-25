@@ -38,7 +38,6 @@ jQuery(document).ready(function () {
 });
 
 
-
 function enableDisableButona(gjendjaEButonave)
 {
  
@@ -49,8 +48,6 @@ function enableDisableButona(gjendjaEButonave)
 	btnSiper.SetEnabled(gjendjaEButonave);
 	btnPoshte.SetEnabled(gjendjaEButonave);
 }
-
-
 
 
 function changeName() {//po
@@ -104,12 +101,9 @@ function SucceededCallbackKonfig(result) {//po
     var arrTabela = ['tblFillim'];
     var arrPrind = ["dvFillim"];
     var hfLidhur = $("input[id$='hfLidhur']");
-    //myJQGrid.SucceededCallbackKonfig(result, hf, hfLidhur, arrTabela, arrPrind, "ASPxSplitter1_");
-    //myJQGrid.SucceededCallbackKonfigSlim(result, hf, hfLidhur, arrTabela, arrPrind, "ASPxSplitter1_");
     myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, undefined, hf, '', arrTabela, undefined, undefined, hfLidhur, arrPrind);
     $("#divgride1").show();//$("#divgride1")[0].style.visibility = 'visible';
     $("#dvFillim").show();//$("#dvFillim")[0].style.visibility = 'visible';
-    //$("#dvFillim")[0].style.display = '';
     var colGrida = result.colGrida;
     colKushte = result.colKushte;
     colAlterKusht = result.colAlterKusht;
@@ -131,13 +125,7 @@ function ndryshoKonfigurimin() {//po
 
 function ndryshoKategori(s, e) {//po
 
-    //s.PerformCallback();
     e.processOnServer = true;
-    //cmbKategoria.SetValue(2);
-    //var a = cmbKategoria.GetValue();
-    //cmbKategoria_UpdatePanel3ET.PerformCallback();
-    //  s.PerformCallback(a);
-    //cmbKategoria_UpdatePanel3ET.PerformCallback();
 
 }
 /*
@@ -157,9 +145,6 @@ Function: pastroFushatKokes
 Pastron fushat pasi eshte bere ruajtja apo modifikimi per te bere gati ambjentin per shtim.
 */
 function pastroFushatKokes() {
-    //cmbKategoria.SetText('');
-    //cmbKategoria.SetValue(0);
-  //  cmbKategoria.SetSelectedIndex(-1);
     cmbKategoria.PerformCallback();
     txtKodi.SetText('');
     txtShenime.SetText('');
@@ -568,12 +553,6 @@ function changeArtikull(editor, field, key) {
     }).done(function () {
         console.log("OK");
     })
-    //if (editor.GetText() == 'Afatshkurter') {
-    //    hfState.Set("Artikull", false);       
-    //}
-    //else {
-    //    hfState.Set("Artikull", true);
-    //}
 }
 
 function ButtonClickedKategoriZbritje(editor, key) {
@@ -629,7 +608,6 @@ var grupi = "";
 function ButtonClickedGrupi(editor, key, prind) {
     identikuesPerPopupGrupeLlogari = "Import";
     editorGlobal = editor;
-    //grupi = editor.GetText();
     myButtonClickLupa.Grupi_Click('Zgjidh grupin', 1, 600, 600);
 }
 
@@ -644,7 +622,6 @@ function ButtonClickedNengrupi(editor, key, prind) {
 
 function ButtonClickedDep(editor, key, prind) {
     editorGlobal = editor;
-    //grupi = editor.GetText();
     myButtonClickLupa.LupaUniversal_Click('Zgjidhni departamentin', 'LupaStrukturaAdministrative.aspx?vjenNga=ImportDep', 600, 600);
 }
 
@@ -657,7 +634,6 @@ function ButtonClickedNendep(editor, key, prind) {
 }
 function ButtonClickedQK1(editor, key, prind) {
     editorGlobal = editor;
-    //grupi = editor.GetText();
     myButtonClickLupa.LupaUniversal_Click('Zgjidhni qendren e kostos', 'Shto_QendraKosto.aspx?lupe=true&llojLupe=prind&vjenNga=PunonjesQK1Import', 900, 600);
 }
 
@@ -671,7 +647,6 @@ function ButtonClickedQK2(editor, key, prind) {
 var global;
 function ButtonClickedGlobal(editor, key, prind) {
     editorGlobal = editor;
-    //grupi = editor.GetText();
     myButtonClickLupa.LupaUniversal_Click('Zgjidhni grupimin', 'LupaGrupimeLocaleGlobale.aspx?vjenNga=PunonjesGlobaleImp', 600, 600);
 }
 

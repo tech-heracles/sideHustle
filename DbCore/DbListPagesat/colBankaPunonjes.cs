@@ -61,21 +61,13 @@ namespace DbCore.DbListPagesat
         private bool mbushBanka(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsBankaPunonjes skema = new clsBankaPunonjes();
-                    //skema.mbushBanka(rreshti);
                     Add(new clsBankaPunonjes(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         #endregion

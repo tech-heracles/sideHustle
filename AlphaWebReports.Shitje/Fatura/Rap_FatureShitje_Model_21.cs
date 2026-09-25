@@ -34,32 +34,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",
                        System.Reflection.Assembly.Load("App_GlobalResources"));
-        //    xrLabel1.Text = rm.GetString("RaportFatureShitjeTitulli", ci);
-        //    xrLabel60.Text = rm.GetString("labelNIPT", ci);
-        //    xrLabel44.Text = rm.GetString("labelRaportNumriFatures", ci);
-        //    xrLabel7.Text = rm.GetString("lblRaportDataFatures", ci);
         ////    xrLabel61.Text = rm.GetString("labelRaportTelFax", ci);
-        //    xrLabel8.Text = rm.GetString("lblRaportNumriSerial", ci);
-        //    xrLabel4.Text = rm.GetString("labelRaportSubjektBleres", ci);
-        //    xrLabel2.Text = rm.GetString("labelRaportAdresa", ci);
-        //    xrLabel16.Text = rm.GetString("labelNIPT", ci);
-        //    xrLabel18.Text = rm.GetString("labelRaportTelFax", ci);
-        //    xrTableCell4.Text = rm.GetString("lblRaportNrkartel", ci);
-        //    xrTableCell5.Text = rm.GetString("labelRaportiPershkrimi", ci);
-        //    xrTableCell7.Text = rm.GetString("labelNjesia", ci);
-        //    xrTableCell9.Text = rm.GetString("labelSasia", ci);
-        //    xrTableCell10.Text = rm.GetString("labelCmimi", ci);
-        //    xrTableCell8.Text = rm.GetString("labelVleraPaTVSH", ci);
-        //    xrTableCell3.Text = rm.GetString("labelTVSH", ci);
-        //    xrTableCell6.Text = rm.GetString("labelVleraMeTVSH", ci);
-        //    xrLabel13.Text = rm.GetString("labelRaportiTotali", ci);
-        //    xrLabel20.Text = rm.GetString("lblRaportTotaliNe", ci);
-        //    xrLabel22.Text = rm.GetString("labelKursi", ci);
-        // //   xrLabel27.Text = rm.GetString("labelBleresi", ci);
-        //    xrLabel36.Text = rm.GetString("labelShitesi", ci);
-           // xrLabel31.Text = rm.GetString("labelEmerMbiemerFirma", ci);
-       //     xrLabel37.Text = rm.GetString("labelEmerMbiemerFirma", ci);
-            //xrLabel59.Text = rm.GetString("lblRaportNrLlogarie", ci);
         }
 
     }

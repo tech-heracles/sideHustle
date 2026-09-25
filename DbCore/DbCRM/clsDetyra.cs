@@ -222,7 +222,6 @@ namespace DbCore.DbCRM
        }
 
 
-
         #endregion Metoda Publike
 
         #region Metoda Private
@@ -250,7 +249,6 @@ namespace DbCore.DbCRM
                 {
                     clsLidhjeAutorizim lidhje = new clsLidhjeAutorizim();
                     lidhje.IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                     colLidhjet.Add(lidhje);
                 }
                 DbKontabiliteti.clsDatabaseKontabilitet dbKont = new DbKontabiliteti.clsDatabaseKontabilitet(dbCRM );

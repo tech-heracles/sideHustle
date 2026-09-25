@@ -73,19 +73,11 @@ namespace DbCore.DbAdmin
         private bool mbushFormatImporti(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaFormatImporti info = new clsKokaFormatImporti();
-                    //info.mbushFormatImporti(rreshti);
                     Add(new clsKokaFormatImporti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

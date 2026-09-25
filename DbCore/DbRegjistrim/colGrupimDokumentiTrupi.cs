@@ -29,7 +29,6 @@ namespace DbCore.DbRegjistrim
         }
 
     
-
         #endregion
 
         #region Metoda Private
@@ -37,19 +36,11 @@ namespace DbCore.DbRegjistrim
         private bool mbushGrupimTrupi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupimDokumentiTrupi konvertim = new clsGrupimDokumentiTrupi();
-                    //konvertim.mbushGrupimTrupi(rreshti);
                     Add(new clsGrupimDokumentiTrupi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

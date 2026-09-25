@@ -17,7 +17,6 @@ namespace PlatinumWeb
     {
         public static int idNdermVit = -1;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-        //private DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti;
         protected void Page_Load(object sender, EventArgs e)
         {
             String array = Request.QueryString["array"];
@@ -25,12 +24,8 @@ namespace PlatinumWeb
             if (Request.QueryString["idKonfigAmbjente"] != null && Request.QueryString["idKonfigAmbjente"] != "")
                 vleraQueryString = Request.QueryString["idKonfigAmbjente"].ToString();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "NivCmPrind"; //mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             int idKonfigambjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "NivCmPrind");
             bool kerkosaposhkruar = true;
             if (clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
@@ -39,7 +34,6 @@ namespace PlatinumWeb
             mbushPopUpListeNiveleCmimi();
             if (!IsPostBack)
             {
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvLupaNivCmPrind, idKonfigambjenti);
                 konfiguroPopupGride(idKonfigambjenti, true, kerkosaposhkruar);
@@ -55,11 +49,9 @@ namespace PlatinumWeb
         {//mbush griden e popupit me te dhena            
             string KF = "";
             KF = Request.QueryString["KF"];
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             DbCore.DbInventari.colNiveleCmimesh colNiveleCmimesh = new DbCore.DbInventari.colNiveleCmimesh();
             colNiveleCmimesh.mbushGjitheNiveleCmimeshPrindiSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbInventari.colNiveleCmimesh colNiveleCmimesh = dbInventari.merrGjitheNiveleCmimeshPrindiSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbInventari.colNiveleCmimesh colNiveleShitje = new DbCore.DbInventari.colNiveleCmimesh();
             DbCore.DbInventari.colNiveleCmimesh colNiveleBlerje = new DbCore.DbInventari.colNiveleCmimesh();
 
@@ -93,7 +85,6 @@ namespace PlatinumWeb
             shtoBrutoNeto();
             shtoPrioritet();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaNivCmPrind, "gvLupaNivCmPrind", "LupaNivelCmimiPrind.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhe(gvLupaNivCmPrind, "IdNivelCmimi");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             var endlessScroll = clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaNivCmPrind, "IdNivelCmimi", kerkosaposhkruar, endlessScroll);
@@ -157,13 +148,11 @@ namespace PlatinumWeb
         //sherben per ta bere ne forme combo-je shtyllen e monedhave
         private void shtoMonedhe()
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaNivCmPrind.Columns["IdMonedha"].VisibleIndex;
             gvLupaNivCmPrind.Columns.Remove(gvLupaNivCmPrind.Columns["IdMonedha"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbAdmin.colMonedhat colMonedhat = new DbCore.DbAdmin.colMonedhat();
             colMonedhat.mbushGjitheMonedhatAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //colMonedhat = dbAdmin.merrGjitheMonedhatAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             colnew.PropertiesComboBox.DataSource = colMonedhat;
             colnew.PropertiesComboBox.TextField = "KodiMonedha";
             colnew.PropertiesComboBox.ValueField = "IdMonedha";
@@ -184,8 +173,6 @@ namespace PlatinumWeb
         protected void gvLupaNivCmPrind_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
             //kur popupgrida ben callback
-            //  mbushPopUpListeLlogarish();
-            //  konfiguroPopupGride();
             gvLupaNivCmPrind.Selection.UnselectAll();
         }
 
@@ -250,20 +237,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNivCmPrind.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivelCmimi", gvLupaNivCmPrind);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNivCmPrind.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivelCmimi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -272,7 +247,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNivCmPrind", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNivelCmimiPrind.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -296,7 +270,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNivCmPrind", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNivelCmimiPrind.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -309,13 +282,5 @@ namespace PlatinumWeb
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaNivCmPrind", "LupaNivelCmimiPrind.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
     }
 }

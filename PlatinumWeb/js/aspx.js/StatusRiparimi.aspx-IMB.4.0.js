@@ -162,7 +162,6 @@ function SucceededCallbackMesazhi(result) {
 
 function InitAutorizim() {
    
-   // Autorizimi.SetText("");
 
 }
 var editorAutorizime;
@@ -177,7 +176,6 @@ function KeyPresAutorizime(kodi, editor, key) {//kur shtypet nje key per kolonen
         hf.value = editorAutorizime.GetText();
        
        
-
     }
 }
 function LostFocusAutorizime(key) {//kur humb fokusin kolona Autorizimeve

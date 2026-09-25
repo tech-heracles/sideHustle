@@ -1,8 +1,5 @@
 ﻿
 
-
-//var hfState = new ASPxClientHiddenField();
-
 function saveReport(s, e, saveMode) {
     hfState.Set("saveMode", saveMode);
     s.save();
@@ -35,7 +32,6 @@ function reportDesigner_CustomizeMenuActions(s, e) {
                 idGjuha: hfState.Get("idGjuha")
             });
         }
-
 
 
         exitAction.clickAction = function (s, e) { window.close(); };

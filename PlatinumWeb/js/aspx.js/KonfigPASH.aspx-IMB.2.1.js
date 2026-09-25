@@ -367,11 +367,6 @@ function mbushbuxhete() {
     }
 }
 
-//hfState.Set('lastselgrid', "ASPxPageControl1_rowed5");
-//hfState.Set('lastprindi', "");
-//hfState.Set('lastniveli', 1);
-//var grida = $('#' + hfState.Get('lastselgrid'));
-//var idRresht = grida.setLastSel2(1);
 var arrayIdKolonaGrides = new Array();
 var arrayPershkrimiKolonaGrides = new Array();
 var arrayVisibleKolonaGrides = new Array();
@@ -768,7 +763,6 @@ function merrEmerPrindi(emergride) {
     var prind = "";
     var arr = emergride.split('_t');
     for (var i = 0; i < arr.length - 2; i++)
-        //prind += arr[i] + "_t";
         prind = prind + arr[i] + "_t";
     if (prind === "")
         prind = merrgridenkryesore(emergride);

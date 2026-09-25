@@ -97,7 +97,6 @@ function menu_click(s, e) {
 
     //hfShtimModifikim.val($('#hfShtimModifikim').val); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     //hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, $('#hfShtimModifikim'), $('#hfId'), PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 }
 
@@ -154,7 +153,6 @@ function OnGetRowValuesMod(values) {
 }
 
 
-
 //thirret pasi eshte kthyer pergjigje nga serveri
 function DoneCallbackAutorizime(result) {
     if (!result)
@@ -196,9 +194,6 @@ Parameters:
 
 e-eventi
 */
-//function OnGridSelectionChanged(e) {
-//    indexSel = myMenu.JSlevizNeGride.OnGridSelectionChanged(e, indexSel);
-//}
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
     var idGjuha = hfState.Get('idGjuha');
@@ -218,11 +213,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
         data: JSON.stringify({ idKomp: idKomp, kodKonf: kodKonf, idNdermarrje: hfState.Get('idNdermarrje'), idGjuha: idGjuha })
     }).done(SucceededCallbackKonfig);
     //.then(function () {
-    //    lblKategoria.SetVisible(!eshteLupe);
-    //    cmbKategoria.SetVisible(!eshteLupe);
-    //    lblRendesia.SetVisible(!eshteLupe);
-    //    cmbRendesia.SetVisible(!eshteLupe);
-    //});
 }
 
 var resultkonf;
@@ -280,13 +270,9 @@ function changeName() {
     if (hf !== null) {
         lblKonfigurimi.SetText(hf.value.split(';')[1]);
         cmbKonfigurimi.SetText(hf.value.split(';')[0]);
-        // cmbKonfigurimi.SetText(hfKonffillestar.value);
         ndryshoKonfiguriminInit();
     }
-    //if(eshteLupe)
-    //myMenu.PercaktoMenuSipasTabit(1, hfTeDrejta, $("#hfShtimModifikim"));
     //else
-    //myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $("#hfShtimModifikim"));
 
     var prm = Sys.WebForms.PageRequestManager.getInstance();
     prm.add_endRequest(EndRequestHandler);

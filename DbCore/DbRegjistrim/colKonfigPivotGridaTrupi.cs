@@ -65,18 +65,10 @@ namespace DbCore.DbRegjistrim
         private bool mbushColKonfigPGTrupi(DataTable konfigPGTrupiDataTable)
         {
             //try
-            //{
                 foreach (DataRow row in konfigPGTrupiDataTable.Rows)
                 {
-                    //clsKonfigPivotGridaTrupi konfigTrupi = new clsKonfigPivotGridaTrupi();
-                    //konfigTrupi.mbushKonfigPGTrupi(row);
                     Add(new clsKonfigPivotGridaTrupi(row));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

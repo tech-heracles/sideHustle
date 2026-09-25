@@ -113,7 +113,6 @@ function ButtonClickKerko(listUrl) {//po
 function Init() {
     if (typeof (isPostBack) == "undefined") {
         editorData = dteDtDok;
-        //    callWebserviceKonfigurimi("804"); //804 = id komponente (Shto_Planifikim.aspx)
         var hf = document.getElementById("hfKonffillestar");
         document.getElementById("kokeKonfigurimi").innerHTML = hfState.Get("MenuKokeDokumenti");
         document.getElementById("trupKonfigurimi").innerHTML = hfState.Get("MenuTrupDokumenti");
@@ -224,7 +223,6 @@ Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te
 function ndryshoKonfigurimin() {
     var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     if (pershkKonfigAmb != undefined)
-      //  lblKonfigurimi.SetText(pershkKonfigAmb);
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") +': ' + pershkKonfigAmb);
     callWebserviceKonfigurimi(804, cmbKonfigurimi.GetText());
 }
@@ -385,7 +383,6 @@ function menu_click(s, e) {
             e.processOnServer = false;
             return;
         }
-        //myFaqeCelje.valido(s, e);
         var valid = myFaqeCelje.validim(s, e);
         if (!valid) {
             Utils.hiqLoadingGif();
@@ -398,7 +395,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            //myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
 

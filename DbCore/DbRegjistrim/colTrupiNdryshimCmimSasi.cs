@@ -120,21 +120,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushTrupatNdryshimCmimSasi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiNdryshimCmimSasi trupi = new clsTrupiNdryshimCmimSasi();
-                    //trupi.mbushTrupNdryshimCmimSasi(rreshti);
                     Add(new clsTrupiNdryshimCmimSasi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

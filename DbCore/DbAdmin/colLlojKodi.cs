@@ -92,19 +92,11 @@ namespace DbCore.DbAdmin
         private bool mbushLlojetKodeve(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojKodi oLojKodi = new clsLlojKodi();
-                    //oLojKodi.mbushLlojKodi(rreshti);
                     Add(new clsLlojKodi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

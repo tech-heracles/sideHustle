@@ -52,7 +52,6 @@ namespace PlatinumWeb
                     mbushPopUpListeNgaDB(idKonfigImporti);
             }
             //else
-            //    mbushPopUpListeNgaSession();
             percaktoTemplateGride();
 
         }
@@ -233,7 +232,6 @@ namespace PlatinumWeb
         {
             if (e.Item.Name == "Ruaj")
             {
-                //Page.Validate("entries");
                 ruajKonfigurimeEmail();
             }
         }
@@ -295,7 +293,6 @@ namespace PlatinumWeb
 
         protected void gvLupaKonfigurimEmailImport_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
         {
-            //bool ugjet;
             if (e.RowType == GridViewRowType.Data)
             {
                 GridViewDataTextColumn col0 = ((ASPxGridView)sender).Columns["Statusi"] as GridViewDataTextColumn;

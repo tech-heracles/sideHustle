@@ -36,7 +36,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private string[] shkronjemadhe = { string.Empty, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
       
-        
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -145,7 +144,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-            // xrLabel12.Text = rm.GetString("RaportGjendjaNdryshimetAktiveveTitulli", ci);
         }
 
 
@@ -265,7 +263,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }   
 
       
-
         private void xrTableCell76_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = sender as XRLabel;

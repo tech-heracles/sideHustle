@@ -48,7 +48,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrTableCell9.Text = rm.GetString("label_SASIA", ci);
             xrTableCell10.Text = rm.GetString("label_CMIMI", ci);
             xrTableCell8.Text = rm.GetString("labelVlera_Pa_Tvsh",ci);
-            //xrLabel6.Text = rm.GetString("labelFaturePlanet", ci);
             xrTableCell3.Text = rm.GetString("labelTVSH", ci);
             xrTableCell6.Text = rm.GetString("labelVLERA_ME_TVSH", ci);
             xrLabel13.Text = rm.GetString("labelRaportiTotali", ci);
@@ -60,8 +59,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel37.Text = rm.GetString("labelEmerMbiemerFirma", ci);
 
             xrLabel8.Text = rm.GetString("labelFatureEmail", ci);
-            //xrLabel10.Text = rm.GetString("labelFaturePlanetEmail", ci);
-            //xrLabel11.Text = rm.GetString("labelRaportPlanetWeb", ci);
             xrLabel14.Text = rm.GetString("labelRaportFax", ci);
         }
                 

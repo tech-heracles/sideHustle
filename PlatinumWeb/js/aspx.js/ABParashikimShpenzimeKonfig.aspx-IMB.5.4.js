@@ -23,11 +23,9 @@ function changeName() {
     if (hf !== null) {
         lblKonfigurimi.SetText(hf.value.split(';')[1]);
         cmbKonfigurimi.SetText(hf.value.split(';')[0]);
-        // cmbKonfigurimi.SetText(hfKonffillestar.value);
 
     }
     var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(EndRequestHandler);
     prm.add_endRequest(myMesazh.EndRequestTimer);
     myFaqeCelje.changeName(hfState.Get('komponente'), 0, hf);
 }
@@ -39,7 +37,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {
@@ -84,10 +81,7 @@ function StartEditing(s, e) {
 function menu_click(s, e) {
     
     if (e.item.name == "Ruaj") {
-        //Utils.shfaqLoadingGif();;
-        //gvKonfigParashikimShpenz.AddNewRow();
         gvKonfigParashikimShpenz.UpdateEdit();
-        //gvKonfigParashikimShpenz.CancelEdit();
     }
     else if (e.item.name == "AnulloNdryshimet") {
         gvKonfigParashikimShpenz.CancelEdit();

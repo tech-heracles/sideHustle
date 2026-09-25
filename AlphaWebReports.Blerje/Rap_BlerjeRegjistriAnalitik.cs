@@ -49,15 +49,10 @@ namespace AlphaWebReports.RaportetDs.Blerje
 
         private void caktoFormatinENumrave()
         {
-       //     xrLabel28.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell6.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-          //  xrLabel38.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell8.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-         //   xrLabel27.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell17.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-        //    xrLabel32.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell16.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-        //    xrLabel36.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell10.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell15.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell14.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
@@ -72,21 +67,10 @@ namespace AlphaWebReports.RaportetDs.Blerje
 
             xrTableCell5.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
           xrTableCell7.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-       //     xrTablecell9.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
 
           
-
             xrLabel25.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel26.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel47.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel34.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel42.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel50.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel49.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel51.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel39.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel40.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel41.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel25.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel26.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell1.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
@@ -159,7 +143,5 @@ namespace AlphaWebReports.RaportetDs.Blerje
         }
 
         
-
-    
     }
 }

@@ -85,15 +85,6 @@ namespace PlatinumWeb
             }
         }
 
-        //public clsPassword_History(string password, int nr)
-        //{
-        //    using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-        //    {
-        //        data.passwordIPerdorur(password, nr);
-        //    }
-
-        //}
-
 
         #endregion
 

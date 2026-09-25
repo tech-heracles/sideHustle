@@ -47,7 +47,6 @@ namespace DbCore
         {
             loger.Error(Message);
             //TODO getson hiq varesine qe kane librarite qe do e perdorin kete nga nlog
-            //  ImbLogger.Log(LogLevel.Error, new StackFrame(1), Message);
         }
     }
 }

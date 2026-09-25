@@ -32,7 +32,6 @@ namespace DbCore.DbAdmin
         private String ndermarrjeEMail;
         private String ndermarrjeLicenca;
         private String ndermarrjeKodiFiskal;
-        //private byte[] ndermarrjeLogo;
         private System.Drawing.Image ndermarrjeLogoImage;
         private System.Drawing.Imaging.ImageFormat ndermarrjeLogoImageFormat;
         private int idPerdoruesi;
@@ -159,7 +158,6 @@ namespace DbCore.DbAdmin
         /// <param name="id">id e ndermarrjes</param>
         public clsNdermarrje(int id)
         {
-            //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Costructor");
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             mbushNdermarrja(data.merrNdermarrje(id));
             data.Dispose();
@@ -176,7 +174,6 @@ namespace DbCore.DbAdmin
         /// <param name="kodi">kdoi i ndermarrjes</param>
         public clsNdermarrje(string kodi)
         {
-            //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Costructor");
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             mbushNdermarrja(data.merrNdermarrje(kodi));
             data.Dispose();
@@ -196,7 +193,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         public clsNdermarrje()
         {
-            //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Costructor");
         }
 
         public clsNdermarrje(DataRow rreshti)
@@ -207,7 +203,6 @@ namespace DbCore.DbAdmin
 
         ~clsNdermarrje()
         {
-            //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Destructor");
             Dispose(false);
         }
 
@@ -223,12 +218,9 @@ namespace DbCore.DbAdmin
             // not been disposed of.
             if (!disposed)
             {
-                //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Resources not disposed");
                 if (disposeManagedResources)
                 {
-                    //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Closing connection");
 
-                    //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Disposing managed resources");
                     // dispose managed resources                                                                
                     if (ndermarrjeLogoImage != null)
                     {
@@ -237,12 +229,10 @@ namespace DbCore.DbAdmin
                     }
                 }
                 // dispose unmanaged resources
-                //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Disposing unmanaged resouces");
                 disposed = true;
             }
             else
             {
-                //System.Diagnostics.Trace.WriteLine("clsNdermarrje: Resources already disposed");
             }
         }
 
@@ -717,16 +707,8 @@ namespace DbCore.DbAdmin
             }
         }
         //public string KodiLicenca
-        //{
         //    get
-        //    {
-        //        return kodilicenca;
-        //    }
         //    set
-        //    {
-        //        kodilicenca = value;
-        //    }
-        //}
 
         #endregion
 
@@ -966,11 +948,6 @@ namespace DbCore.DbAdmin
             clsMesazh u_modifikua = modifikoNdermarrje(this);
             return u_modifikua;
         }
-        //public clsMesazh Ruajpath(int idnderm,string path)
-        //{
-        //    clsMesazh mesazh = RuajNdermPath(idnderm,path);
-        //    return mesazh;
-        //}
         /// <summary>
         ///  Sherben per fshirjen e objektit ndermarrje ne databaze. Thirret funksioni
         ///  <see cref="DbCore.DbAdmin.clsDatabaseAdmin.fshiNdermarrje"/> 
@@ -1037,11 +1014,6 @@ namespace DbCore.DbAdmin
                 clsMonedha monndernga = new clsMonedha();
                 //bool mbushMon = 
                 monndernga.mbushMonedhen(mon.KodiMonedha, idndermnga, dbAdmin);
-                //if (!mbushMon)
-                //{
-                //    dbAdmin.rollbackTransaksion();
-                //    return new clsMesazh(false, "Ndodhi nje gabim gjate mbushjes se monedhes se ndermarrjes default!");
-                //}
                 mesazh = dbAdmin.ruajMonedhe(out idM, mon.KodiMonedha, mon.PershkrimiMonedha, mon.AktivMonedha, mon.IdPerdoruesi, monndernga.IdLlogFitimi, monndernga.IdLlogHumbje, mon.IdNdermarje, 1, mon.IdFormatNrKursi);
                 if (!mesazh.Status)
                 {
@@ -1112,13 +1084,7 @@ namespace DbCore.DbAdmin
                     dbAdmin.rollbackTransaksion();
                     return new clsMesazh(false, mesazh.PershkrimMesazhi);
                 }
-                //mon.IdMonedha = idM;
-                // ndermarrje.NdermarrjeMonedha = mon.IdMonedha;
-                // modifikoNder(ndermarrje); 
 
-                //   colVitet vitet = new colVitet();
-                //   vitet.merrVitet(ndermarrje.IdViti);
-                //colVitet vitet = ktheVitPerNdermarrjenRe(ndermarrje.IdViti);
                 clsNdermarrjeViti nderviti = new clsNdermarrjeViti();
                 mesazh = dbAdmin.shtoDokumentaDefaultNdermarje(ndermarrje.IdNdermarrje, idndermnga);
                 if (!mesazh.Status)
@@ -1412,7 +1378,6 @@ namespace DbCore.DbAdmin
                     }
                 }
                 clsNdermarrjeViti nderviti = new clsNdermarrjeViti();
-                //nderviti.IdNderViti = dbAdmin.merrIdNdermarrjeVit(ndermarrje.idNdermarrje, vit.IdViti);
                 nderviti.IdNderViti = dbAdmin.merrIdNdermarrjeVitSipasNdermarjesDheVitit(ndermarrje.idNdermarrje, vit.IdViti);
                 nderviti.IdViti = vit.IdViti;
                 nderviti.NdermarrjeViti = int.Parse(vit.FillimiViti.Year.ToString());
@@ -1422,7 +1387,6 @@ namespace DbCore.DbAdmin
                 nderviti.NdermarrjeVitiFund = DateTime.Parse(vit.MbarimiViti.ToString());
                 nderviti.IdPerdoruesi = ndermarrje.IdPerdoruesi;
                 dbAdmin.modifikoNdermarrjeVit(nderviti.IdNderViti, nderviti.IdViti, nderviti.Viti, nderviti.IdNdermarrje, nderviti.NdermarrjeVitiMbyllur, nderviti.NdermarrjeVitiFillim, nderviti.NdermarrjeVitiFund, nderviti.IdPerdoruesi);// nderviti.modifiko();
-                //  mesazh = dbAdmin.ruajNdermarrjeReVit(out idNV, nderviti.IdViti, nderviti.Viti, nderviti.IdNdermarrje, nderviti.NdermarrjeVitiMbyllur, nderviti.NdermarrjeVitiFillim, nderviti.NdermarrjeVitiFund, nderviti.IdPerdoruesi);                
                 dbAdmin.commitTransaksion();
                 return mesazh;
             }
@@ -1520,7 +1484,6 @@ namespace DbCore.DbAdmin
                     pathname = dbDataRowNdermarrja["CERTIFIKATA"].ToString();
                     if (dbDataRowNdermarrja.Table.Columns.Contains("METVSH"))
                         bool.TryParse(dbDataRowNdermarrja["METVSH"].ToString(), out meTvsh);
-                    //  kodilicenca= dbDataRowNdermarrja["NDERMARJEKODIFISK"].ToString();
                     return true;
                 }
                 catch (InvalidCastException)
@@ -1726,9 +1689,6 @@ namespace DbCore.DbAdmin
             bool ukrijua = true;
             #region A
             //dtt = data.ktheDataTable("T_ACRNUMRAAUTOMATIKE","SELECT  * from T_ACRNUMRAAUTOMATIKE where IDNDERMARJE in ("+inidnderm+")");//nuk perdoret me
-            //if (dtt == null)
-            //    return null;
-            //ds.Tables.Add(dtt);
             ukrijua = krijodt("T_ADRESAKLIENTFURNITOR", "SELECT T_ADRESAKLIENTFURNITOR. * FROM T_ADRESAKLIENTFURNITOR INNER JOIN dbo.T_KLIENTFURNITOR ON  dbo.T_ADRESAKLIENTFURNITOR.IDKLIENTFURNITOR = dbo.T_KLIENTFURNITOR.IDKLIENTFURNITOR WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_AGJENTSHITJE", "SELECT * FROM  T_AGJENTSHITJE WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_AKTIVITETEKOKA", "SELECT * FROM  T_AKTIVITETEKOKA WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
@@ -2005,7 +1965,6 @@ namespace DbCore.DbAdmin
             ukrijua = krijodt("T_TAKSAT", "SELECT * FROM  T_TAKSAT WHERE IDNDERM in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TATIME", "SELECT * FROM  T_TATIME WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_THEMEUSER", "SELECT * FROM  T_THEMEUSER WHERE IDNDERMARRJE in (" + inidnderm + ")", ds, ukrijua);
-            //    ukrijua = krijodt("T_THEMESAMBJENTE", "SELECT * FROM  T_THEMESAMBJENTE WHERE IDNDERMARRJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TIPKONTRATE", "SELECT * FROM  T_TIPKONTRATE WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TRUPIFLETEKONTABEL", "SELECT T_TRUPIFLETEKONTABEL.* FROM dbo.T_TRUPIFLETEKONTABEL INNER JOIN dbo.T_KOKAFLETEKONTABEL ON dbo.T_TRUPIFLETEKONTABEL.IDKOKAFLETEKONTABEL = dbo.T_KOKAFLETEKONTABEL.IDKOKAFLETEKONTABEL WHERE IDNDERMARJE in (" + inidnderm + ") and IDKATEGORIA =5", ds, ukrijua);
             ukrijua = krijodt("T_TRUPIFLETEKONTABEL2", "SELECT T_TRUPIFLETEKONTABEL.* FROM dbo.T_TRUPIFLETEKONTABEL INNER JOIN dbo.T_KOKAFLETEKONTABEL ON dbo.T_TRUPIFLETEKONTABEL.IDKOKAFLETEKONTABEL = dbo.T_KOKAFLETEKONTABEL.IDKOKAFLETEKONTABEL WHERE IDNDERMARJE in (" + inidnderm + ") and IDKATEGORIA  in (1,2)", ds, ukrijua);

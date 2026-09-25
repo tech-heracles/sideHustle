@@ -824,7 +824,6 @@ namespace PlatinumWeb
             hfNrAutoShitje = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
 
-
             clsKonfigurimAmbjenti konflidhes = new clsKonfigurimAmbjenti();
             konflidhes.mbushKonfigAmbjSipasId(clsKonf.IdKonfigurimi, IdGjuha);
 
@@ -1084,7 +1083,6 @@ namespace PlatinumWeb
             }, Session, Komponente, GuidString, "IdNiveli");
             KonfigurimComboGride.ShtoKushtPagese(gridFaturat, IdNdermarrja, Session, Komponente, GuidString);
 
-            //funk.konfiguroGrideListeMadhe(grid_faturat, "IdDokumenti");
             GridUtil.konfigGrideListeEMadhePaTheme(gridFaturat, "IdDokumenti");
             GridViewDataTextColumn col3 = gridFaturat.Columns["Vlefta"] as GridViewDataTextColumn;
             col3.PropertiesEdit.DisplayFormatString = "0.00";

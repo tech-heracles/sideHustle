@@ -13,12 +13,6 @@ namespace DbCore.DbCRM
     }
 
    //public struct KonstanteCRM
-   //{
-   //    public const int Agjent = 1;
-   //    public const int Klient = 2;
      
-   //    public const int Ankete = 3;
-   //    public const int Detyre = 4;
-   //}
 
 }

@@ -34,23 +34,6 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor
                         System.Reflection.Assembly.Load("App_GlobalResources"));
            
 
-            //xrLabel17.Text = rm.GetString("RaportKartelaArtikullitTitulli", ci);
-            //FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);         
-            //xrLabel10.Text = rm.GetString("labelRaportKlienti", ci);
-            //xrLabel14.Text = rm.GetString("labelRaportiNrDok", ci);
-            //xrLabel22.Text = rm.GetString("labelRaportiDtDok", ci);
-            //xrLabel23.Text = rm.GetString("labelLlojDokumenti", ci);
-            //xrLabel24.Text = rm.GetString("labelNjesia", ci);
-            //xrLabel35.Text = rm.GetString("labelSasia", ci);
-            //xrLabel3.Text = rm.GetString("labelCmimi", ci);
-            //xrLabel4.Text = rm.GetString("labelVleraPaTVSH", ci);
-            //xrLabel5.Text = rm.GetString("labelTVSH", ci);
-            //xrLabel6.Text = rm.GetString("labelVleraMeTVSH", ci);
-            //xrLabel34.Text = rm.GetString("labelProgresiviSasi", ci);
-            //xrLabel31.Text = rm.GetString("labelRaportiTotali", ci) + ":";
-            //xrLabel38.Text = rm.GetString("labelTotaliArtikullit", ci);
-            //xrLabel69.Text = rm.GetString("labelLogoIMB", ci);
-
         }
     }
 }

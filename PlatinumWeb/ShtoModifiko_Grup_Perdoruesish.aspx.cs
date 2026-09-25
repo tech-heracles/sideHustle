@@ -348,20 +348,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = roletASPxGridView.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodRoli", roletASPxGridView);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = roletASPxGridView.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodRoli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -712,32 +700,8 @@ namespace PlatinumWeb
                 }
             }
 
-            //{
-            //    GridViewDataCheckColumn ndervit = new GridViewDataCheckColumn();
-            //    ndervit.DataItemTemplate = new MyCheckTemplate(false, true);
-            //    ndervit.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
-            //    if (ndermarje.Count > 0)
-            //    {
-            //        int id = Convert.ToInt32(ndermarje[0].IdNdermarrje);
 
-            //        foreach (clsViti vit in viteNdermarrje)
-            //        {
-            //            if (vit.KodiViti != v.KodiViti)
-            //                continue;
             //            else
-            //            {
-            //                bool check = false;
-            //                string[] arr = hfVitetSel.Value.Split(';');
-            //                for (int i = 0; i < arr.Length; i++)
-            //                    if (arr[i].Split(',')[0] == id.ToString() && arr[i].Split(',')[1] == v.KodiViti)
-            //                        check = bool.Parse(arr[i].Split(',')[2]);
-            //                ndervit.DataItemTemplate = new MyCheckTemplateGrid(0, v.KodiViti, check);
-            //            }
-            //        }
-            //    }
-            //    ndervit.FieldName = v.KodiViti;
-            //    lboxNdermarjetRol.Columns.Add(ndervit);
-            //}
 
 
             lboxNdermarjetRol.DataSource = ndermarje;
@@ -840,7 +804,6 @@ namespace PlatinumWeb
                     shtoRolNeGrid(roli.IdRoli, ci, rm);
                     konfiguroGride(idPerdoruesi);
                     tabetASPxPageControl.ActiveTabIndex = 3;
-                    //lboxNdermarjet.SelectedIndex = -1;
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgRuajtjaPerfundoiMeSuksesVendosniTeDrejtat", ci), pnlMesazhi);
                 }
 
@@ -867,7 +830,6 @@ namespace PlatinumWeb
                     object[] teDrejtat = new object[2];
                     try
                     {
-                        //eDrejtat = krijoTeDrejtat();
                         teDrejtat = krijoTeGjitheTeDrejtatNeNje();
                     }
                     catch (DbCore.MyException myExeption)
@@ -908,7 +870,6 @@ namespace PlatinumWeb
                             && arr[i].Split(',')[3] == tedrejta[j].ToString().Split(',')[3])
                         {
                             ekziston = true;
-                            //tedrejta.RemoveAt(j);
                             break;
                         }
                     }

@@ -462,20 +462,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_GISWorkspace.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("id_workspace", ASPxGridView_GISWorkspace);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_GISWorkspace.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "id_workspace";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();

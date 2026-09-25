@@ -57,7 +57,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
         }
 
    
-
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             
@@ -69,7 +68,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
             
             if (GetCurrentColumnValue("ArtProdhim") != null && GetCurrentColumnValue("ArtProdhim").ToString() == "1")
             {
-              //  llojiLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
                 kodiLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
                 pershkrimiLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
                 njesiaLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
@@ -100,7 +98,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
                         diferencaLabel.Text = String.Format("{0:#,#.00}", GetCurrentColumnValue("Diferenca"));
                         
                 }
-               // llojiLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
                 kodiLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
                 pershkrimiLabel.Font = new System.Drawing.Font("Times New Roman", 10);
                 njesiaLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
@@ -124,7 +121,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel36.Text = rm.GetString("labelRaportiNrDok", ci);
             xrLabel37.Text = rm.GetString("labelRaportiDtDok", ci);
-            //xrLabel5.Text = rm.GetString("labelRaportiLloji", ci);
             xrLabel40.Text = rm.GetString("labelKodi", ci);
             xrLabel1.Text = rm.GetString("labelNjesia", ci);
             xrLabel14.Text = rm.GetString("labelVlefta", ci);

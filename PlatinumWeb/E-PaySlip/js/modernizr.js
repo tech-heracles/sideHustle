@@ -558,7 +558,6 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
 
-
     // this will false positive in Opera Mini
     //   github.com/Modernizr/Modernizr/issues/396
 
@@ -707,7 +706,6 @@ window.Modernizr = (function( window, document, undefined ) {
 
         return bool;
     };
-
 
 
     // These tests evaluate support of the video/audio elements, as well as
@@ -937,7 +935,6 @@ window.Modernizr = (function( window, document, undefined ) {
     // -----------------------
 
 
-
     // Run through all tests and detect their support in the current UA.
     // todo: hypothetically we could be doing an array of tests and use a basic loop here.
     for ( var feature in tests ) {
@@ -980,8 +977,6 @@ window.Modernizr = (function( window, document, undefined ) {
          if ( Modernizr[feature] !== undefined ) {
            // we're going to quit if you're trying to overwrite an existing test
            // if we were to allow it, we'd do this:
-           //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
-           //   docElement.className = docElement.className.replace( re, '' );
            // but, no rly, stuff 'em.
            return Modernizr;
          }
@@ -1312,7 +1307,6 @@ window.Modernizr = (function( window, document, undefined ) {
     //   * If a browser does not support media queries at all (eg. oldIE) the mq() will always return false
     //   * A max-width or orientation query will be evaluated against the current state, which may change later.
     //   * You must specify values. Eg. If you are testing support for the min-width media query use:
-    //       Modernizr.mq('(min-width:0)')
     // usage:
     // Modernizr.mq('only screen and (max-width:768)')
     Modernizr.mq            = testMediaQuery;
@@ -1320,14 +1314,12 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /*>>hasevent*/
     // Modernizr.hasEvent() detects support for a given event, with an optional element to test on
-    // Modernizr.hasEvent('gesturestart', elem)
     Modernizr.hasEvent      = isEventSupported;
     /*>>hasevent*/
 
     /*>>testprop*/
     // Modernizr.testProp() investigates whether a given style property is recognized
     // Note that the property names must be provided in the camelCase variant.
-    // Modernizr.testProp('pointerEvents')
     Modernizr.testProp      = function(prop){
         return testProps([prop]);
     };
@@ -1337,14 +1329,12 @@ window.Modernizr = (function( window, document, undefined ) {
     // Modernizr.testAllProps() investigates whether a given style property,
     //   or any of its vendor-prefixed variants, is recognized
     // Note that the property names must be provided in the camelCase variant.
-    // Modernizr.testAllProps('boxSizing')
     Modernizr.testAllProps  = testPropsAll;
     /*>>testallprops*/
 
 
     /*>>teststyles*/
     // Modernizr.testStyles() allows you to add custom styles to the document and test an element afterwards
-    // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ ... })
     Modernizr.testStyles    = injectElementWithStyles;
     /*>>teststyles*/
 
@@ -1356,18 +1346,14 @@ window.Modernizr = (function( window, document, undefined ) {
     // Properties must be passed as dom-style camelcase, rather than `box-sizing` hypentated style.
     // Return values will also be the camelCase variant, if you need to translate that to hypenated style use:
     //
-    //     str.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
 
     // If you're trying to ascertain which transition end event to bind to, you might do something like...
     //
-    //     var transEndEventNames = {
     //       'WebkitTransition' : 'webkitTransitionEnd',
     //       'MozTransition'    : 'transitionend',
     //       'OTransition'      : 'oTransitionEnd',
     //       'msTransition'     : 'MSTransitionEnd',
     //       'transition'       : 'transitionend'
-    //     },
-    //     transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
     Modernizr.prefixed      = function(prop, obj, elem){
       if(!obj) {

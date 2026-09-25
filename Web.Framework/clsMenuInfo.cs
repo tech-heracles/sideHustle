@@ -31,10 +31,8 @@ namespace PlatinumWeb
             item.Template = itemTemplate as ITemplate;
             ASPxButton btnPo = ((UserControl)(item.Template)).FindControl("btnPo") as ASPxButton;
             btnPo.Click += poHandler;
-            //btnPo.ClientVisible = false;
             ASPxButton btnJo = ((UserControl)(item.Template)).FindControl("btnJo") as ASPxButton;
             btnJo.Click += joHandler;
-            // btnJo.ClientVisible = false;
         }
 
         public static void ShtoMenuItemInfo(Page page, ASPxMenu m)
@@ -112,8 +110,6 @@ namespace PlatinumWeb
         public static string MerrMesazhin(ASPxMenu m)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((UserControl)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //return hl.Text;
             ASPxComboBox combo = ((UserControl)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             return combo.SelectedItem.Text;
         }

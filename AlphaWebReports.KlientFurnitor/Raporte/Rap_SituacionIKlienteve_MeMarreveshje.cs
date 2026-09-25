@@ -31,22 +31,7 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //xrLabel12.Text = rm.GetString("RaportSituacioniKlientitTitulli", ci);
-            //FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel20.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel54.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel10.Text = rm.GetString("labelNrRendor", ci);
-            //xrLabel1.Text = rm.GetString("labelKodi", ci);
-            //xrLabel2.Text = rm.GetString("labelRaportEmertimiKlientit", ci);
-            //xrLabel3.Text = rm.GetString("labelRaportiNrLlogari", ci);
-            //xrLabel5.Text = rm.GetString("labelRaportShumaDebi", ci);
-            //xrLabel4.Text = rm.GetString("labelRaportShumaKredi", ci);
-            //xrLabel6.Text = rm.GetString("labelRaportDetyrimi", ci);
-            //xrLabel7.Text = rm.GetString("labelRaportLimiti", ci);
-            //xrLabel8.Text = rm.GetString("labelRaportPesha", ci);
-            //xrLabel33.Text = rm.GetString("lblRaportDetyrimIMeparshem", ci);
         }
-
 
 
     }

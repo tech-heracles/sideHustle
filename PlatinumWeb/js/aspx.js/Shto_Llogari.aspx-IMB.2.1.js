@@ -80,20 +80,9 @@ function OnGridDoubleClick(index) {
     //callWebservice();    te drejtat
 }
 //        //therrasin web service per te pare ne kete te drejta
-//        function callWebservice() {
-//            var emerPlusVeprim = 'Llogaria.aspx;Modifiko';
-//        }
 
 //        // This is the callback function that
 //        // processes the Web Service return value.
-//        function SucceededCallback(result) {
-//            if (result == "true") {
-//                mbushfusha();
-//            }
-//            else {
-//                alert("Nuk ke te drejta per te kryer kete veprim");
-//            }
-//        }
 /*
 Function: Poshte_click
 
@@ -154,7 +143,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, true);
     
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj') {
@@ -204,8 +192,6 @@ function OnGetRowValuesMod(values) {
     if (values[7] != null && values[7] != "")
         FSC_3_Debi_TextBox.SetText(values[7]);
     else FSC_3_Debi_TextBox.SetValue(null);
-//    qendraKostos_TextBox.SetText(values[4]);
-    //nivelTakse_ComboBox.SetText(values[8]);
     if (values[12] != 0)
         llogKonsoliduese_TextBox.SetValue(values[12]);
     if (values[13] != 0)
@@ -332,46 +318,20 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //                var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
-        //                Lupa(kontrollet);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblLlogaria', 'tblGrupimi'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, 'cmbModeli', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, 'cmbModeli', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, 'cmbModeli', arrTabela, "ASPxPageControl1_C");
     }
 
-   // $("#dvLlogari").show();//$("#dvLlogaria")[0].style.visibility = 'visible';
 }
-//        function SucceededCallbackKonfigurimi(result) {
-//            if (result != "") {
-//                resultkonf = result;
-//                var vlerat = '';
-//                vlerat = result.split('*');
-//                var kontrollet = vlerat[0].split(';');
-//                Lupa(kontrollet);
-//                var hf = $('#hfKontrollet')[0];
-//                var hfLidhur = $("#hfLidhur")[0];
-//                var hfMod = $('#hfShtimModifikim')[0];
-//                var arrTabela = ['tblLlogaria', 'tblGrupimi'];
-//                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, 'cmbModeli', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-//                grid_ListLlogarish.PerformCallback("107" + ";" + cmbKonfigurimi.GetText());
-//            } $("#dvLlogaria")[0].style.visibility = 'visible';
-//        }
 function LupaKontrollet(kontrollet, colAtrTrupi) {
     var hf1 = $("#hfLupaGrupi");
     var hf2 = $("#hfLupaNengrupi");
@@ -417,8 +377,6 @@ function LupaKontrollet(kontrollet, colAtrTrupi) {
 }
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //            var hfLidhur = $("#hfLidhur")[0];
-    //            myFaqeCelje.aktivizoFusha(vlerat, hfMod, hfLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 function ndryshoKonfigurimin() {
@@ -451,7 +409,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, grid_ListLlogarish, "107")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid_ListLlogarish, "107", pastrofusha, hfTeDrejta);
 }
 

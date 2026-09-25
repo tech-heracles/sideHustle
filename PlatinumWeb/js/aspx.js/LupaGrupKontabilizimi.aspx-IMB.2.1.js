@@ -63,7 +63,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaGrKont.GetSelectedFieldValues('NrGrupKontabilizimi', OnGridSelectionComplete);
     gvLupaGrKont.GetRowValues(gvLupaGrKont.GetFocusedRowIndex(), 'NrGrupKontabilizimi', OnGridSelectionComplete);
 }
 
@@ -71,7 +70,6 @@ function OnGridSelectionComplete(values) {
     window.parent.txtNrGrupKontabilizimi.SetText(values);window.parent.popupUniversal.Hide();
     if (window.parent.indentifikuesPerPopup == "FleteKontabel")
      window.parent.btnGrupo.DoClick();    
-
 
 
 }

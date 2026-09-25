@@ -51,20 +51,12 @@ namespace DbCore.DbAdmin
         private bool mbushKonfigurimKasash(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
 
-                //clsKonfigurimKase kasa = new clsKonfigurimKase();
-                //kasa.mbushKonfigurimKase(rreshti);
                 this.Add(new clsKonfigurimKase(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         #endregion

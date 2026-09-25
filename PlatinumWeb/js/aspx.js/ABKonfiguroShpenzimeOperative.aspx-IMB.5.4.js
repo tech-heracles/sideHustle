@@ -6,10 +6,8 @@ $(document).ready(function (e) {
 });
 
 function ndryshoAmbjentin() {
-    //lblAmbjenti.SetText(cmbAmbjenti.GetText());
     ////cmbAmbjenti.SetText(cmbAmbjenti.GetText().split(';')[0]);
 
-    //gvKonfiguroShpenzimeOperative.PerformCallback(3001 + ";" + cmbAmbjenti.GetText());
 }
 
 function _getKeyCode(evt) {
@@ -21,12 +19,8 @@ function changeName() {
     var hf = $("#hfKonffillestar")[0];
     if (hf !== null) {
      
-    //    cmbAmbjenti.SetText(hf.value.split(';')[0]);
-        //cmbAmbjenti.SetValue(hfKonffillestar.value);
-        //lblAmbjenti.SetText(cmbAmbjenti.GetText());
     }
     var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(EndRequestHandler);
     prm.add_endRequest(myMesazh.EndRequestTimer);
     myFaqeCelje.changeName("ABKonfiguroShpenzimeOperative.aspx", 0, hf);
 }
@@ -37,7 +31,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {
@@ -63,11 +56,9 @@ function StartEditing(s, e) {
 }
 
 function EndEditing(s, e) {
-    //gvKonfiguroShpenzimeOperative = new ASPxClientGridView();
 
     if (focusedColumn == "IdPrindi") {
 
-        //  var originalValue = s.batchEditApi.GetCellValue(e.visibleIndex, focusedColumn);
         var idPrindi = e.rowValues[(s.GetColumnByField(focusedColumn).index)].value;
         $.ajax({
 
@@ -101,11 +92,9 @@ function menu_click(s, e) {
         $.map(keys, function (key) {
             KontrolloRreshtin(key);
         });
-       // gvKonfiguroShpenzimeOperative.UpdateEdit();
     }
 
     else if (e.item.name == "Ruaj") {
-       // Utils.shfaqLoadingGif();;
         gvKonfiguroShpenzimeOperative.UpdateEdit();
     }
     else if (e.item.name == "AnulloNdryshimet") {

@@ -162,7 +162,6 @@ xrTableCell41.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
         }
 
 
-
         private void GroupHeader7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             string catid = "";
@@ -338,10 +337,6 @@ xrTableCell41.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
         private void xrTableCell46_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             //xrLabel57_BeforePrint
-            //string niv = "";
-            //if (niveli1 > 0)
-            //    niv = romake[niveli1 - 1];
-            //else niv = "I";
             XRTableCell label = sender as XRTableCell;
             if (xrTableCell71.Text != "" && xrTableCell37.Text != "")
                 label.Text = xrTableCell71.Text + "." + xrTableCell37.Text;

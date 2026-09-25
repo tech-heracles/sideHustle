@@ -69,7 +69,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell30.Text = rm.GetString("labelVerejtjeShenime", ci);
 
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
         }
         
     }

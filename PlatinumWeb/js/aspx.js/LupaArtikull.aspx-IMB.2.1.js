@@ -39,9 +39,6 @@ $(window).bind('resize', function () {
     }
 }).trigger('resize');
 
-//$(window).on('unload', function () {
-
-//});
 
 function Init() {
     try {
@@ -388,7 +385,6 @@ function menu_click(s, e) {
             window.parent.myButtonClickLupa.LupaUniversal_Click(hfState.Get("JQgridShtoArtikull"), 'LupaArtikullShpejte.aspx?vjenNga=Shto_Planifikim&veprimi=shtim&llojiart=afatshkurter', 1100, 600);
 
 
-
         else {
             $.ajax({ url: Utils.getServerApiUrl("Autorizime", "ruajNeSessionURLART"), data: JSON.stringify({ url: window.location.href }) }).done(function () { Succeded(true) });
         }
@@ -454,12 +450,6 @@ function gup(name) {
         return results[1];
 }
 
-//function MerrGjendjeKosto() {
-//    var mag = -1;
-//    if (btneMagazina.GetText() !== '')
-//        mag = btneMagazina.GetValue();
-//    Utils.RaiseCustomCallbackFiltrimi(gvLupaArtikull);
-//}
 
 function krijoTable(rresht, kolone, emerTabele) {
     myFaqeCelje.krijoTable(rresht, kolone, emerTabele);

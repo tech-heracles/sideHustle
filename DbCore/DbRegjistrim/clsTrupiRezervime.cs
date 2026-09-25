@@ -444,12 +444,6 @@ namespace DbCore.DbRegjistrim
         /// Merr objektet e  trupit te dokumentit te rezervimit sipas kokes nga tabela perkatese ne databaze.Therret funksionin
         /// </summary>
         /// <returns > nje objekt  colTrupiRezervime me te gjithe trupat e nje dokumenti</returns>
-        //public colTrupiRezervime merriSipasKoka()
-        //{
-        //    colTrupiRezervime data = new colTrupiRezervime();
-        //    data.mbushGjitheTrupiRezervimiNgaKoka(this.IdKokaRezervime);
-        //    return data;
-        //}
 
 
         public static bool kaVeprimeRezPerArtikull(int idArt, int idNderm)
@@ -464,12 +458,7 @@ namespace DbCore.DbRegjistrim
         /// Merr objektin e  trupit te dokumentit te rezervimit sipas id nga tabela perkatese ne databaze.Therret funksionin
         /// </summary>
         ///// <returns > nje objekt clsTrupiRezervime me trupin e dokumentit te rezervimit te kerkuar</returns>
-        //public clsTrupiRezervime merriSipasID()
-        //{
-        //    clsTrupiRezervime data = new clsTrupiRezervime(this.IdTrupiRezervime);
-        //    return data;
 
-        //}
 
         public static double merrSasiNgaUB(clsArtikulli artikulli)
         {

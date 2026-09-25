@@ -295,7 +295,6 @@ namespace DbCore.DbInventari
             int id;
             clsMesazh u_ruajt = data.ruajSkemaKontabilitetiArtikulli(out id, this.KodiSkemaKontabilitetiArtikulli, this.PershkrimiSkemaKontabilitetiArtikulli, this.Klasa, this.IdLlogariInventari, this.IdLlogariBlerje, this.IdLlogariShitje, this.IdLlogariTekTeTretet, this.IdLlogariShpenzimi,idLlogariAmortizimi, this.idLlogariPakesimi, this.IdNdermarje, this.llojiArt);
             data.Dispose();
-            //clsMesazh u_ruajt = data.ruajSkemaKontabilitetiArtikulli(this);
             return u_ruajt;
         }
         /// <summary>
@@ -309,7 +308,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_modifikua = data.modifikoSkemaKontabilitetiArtikulli(this.IdSkemaKontabilitetiArtikulli, this.KodiSkemaKontabilitetiArtikulli, this.PershkrimiSkemaKontabilitetiArtikulli, this.Klasa, this.IdLlogariInventari, this.IdLlogariBlerje, this.IdLlogariShitje, this.IdLlogariTekTeTretet, this.IdLlogariShpenzimi,idLlogariAmortizimi,idLlogariPakesimi, this.IdNdermarje, this.llojiArt);
             data.Dispose();
-            //clsMesazh u_modifikua = data.modifikoSkemaKontabilitetiArtikulli(this);
             return u_modifikua;
         }
         /// <summary>
@@ -323,7 +321,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiSkemaKontabilitetiArtikulli(this.IdSkemaKontabilitetiArtikulli);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiSkemaKontabilitetiArtikulli(this);
             return u_fshi;
         }
         /// <summary>
@@ -336,7 +333,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.ktheSkemaKontabilitetiArtikulli(this.IdSkemaKontabilitetiArtikulli);
             data.Dispose();
-            //data.merrSkemaKontabilitetiArtikulli(this.IdSkemaKontabilitetiArtikulli );
         }
 
         /// <summary>
@@ -354,7 +350,6 @@ namespace DbCore.DbInventari
         }
 
        
-
         #endregion
 
         #region Metoda Internal

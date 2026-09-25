@@ -129,7 +129,6 @@ namespace DbCore.DbShare
             clsDatabaseShare data = new clsDatabaseShare();
             if (!this.mbushMenuItem(idgjuha, data.merrMenuItemSipasId(idMenuItem)))
                 return; //roli me id idroli nuk ekziston
-            //throw new Exception("ERROR: Gabim gjate leximit te rolit " + idRoli + "nga databaza");
             data.Dispose();
         }
 

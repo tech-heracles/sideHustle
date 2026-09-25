@@ -40,7 +40,6 @@ namespace PlatinumWeb
         /// </summary>
         private int idnderviti;
         private int idviti;
-        //private int idgjuha;
         string veprimi = "qendraKosto";
         /// <summary>
         /// vendos themen e faqes
@@ -303,7 +302,6 @@ namespace PlatinumWeb
                 gvRegjQK.SettingsBehavior.AllowSelectByRowClick = true;
                 gvRegjQK.SettingsBehavior.AllowFocusedRow = true;
             }
-            //SaveFilter();
         }
 
         /// <summary>
@@ -319,7 +317,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
 
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvRegjQK", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -327,7 +324,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = idperdoruesi;
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idndermarje, "gvRegjQK", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu((int)hfState["idGjuha"], ASPxMenu1, idviti, idperdoruesi, idndermarje);
                 if (mesazh.Status == true)
@@ -354,24 +350,11 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvRegjQK", komponente, idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvRegjQK.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvRegjQK);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvRegjQK.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivel";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idndermarje, "gvRegjQK", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
             percaktoTemplateMenu((int)hfState["idGjuha"], ASPxMenu1, idviti, idperdoruesi, idndermarje);
             if (mesazh.Status == true)
@@ -388,122 +371,25 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
         {
-            //int idGjuha = mySessionObjects.ktheGjuhePerdoruesi(Session);
-            //CultureInfo cultinf = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
-            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //if (e.Item.Name == "Rivleresim")
-            //    Riruaj(cultinf, rm, idGjuha);
 
         }
 
-        //private void Riruaj(CultureInfo cultinf, ResourceManager rm, int idGjuha)
-        //{
-        //    DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-        //    List<string> TeRuajtur = new List<string>(), Teparuajtur = new List<string>();
-        //    pergjigja.Text = "";
-        //    List<object> rreshtat = this.gvRegjQK.GetSelectedFieldValues("IdKoka");
-        //    pergjigja.Text = "";
-        //    DataTable err = new DataTable();
-        //    err.Columns.Add("Kodi");
-        //    err.Columns.Add("Gabimi");
-        //    err.Columns.Add("Rreshti");
-        //    int nrreshta = 0;
 
-        //    if (new DbCore.DbQendraKosto.colLlogariShperndarjeQK(idndermarje).Count != 0) 
-        //    foreach (object id in rreshtat)
-        //    {
         //        nrreshta++;
-        //        DbCore.DbQendraKosto.clsKokaQendraKosto clsKoka = new DbCore.DbQendraKosto.clsKokaQendraKosto(Convert.ToInt32(id));
-        //        if (clsKoka.IdStatusDok == 2)
-        //            continue;
-        //        string shfaqmesazhapolupe = "";
-        //        DbCore.DbKontabiliteti.clsKokaFleteKontabel kokafl = new DbCore.DbKontabiliteti.clsKokaFleteKontabel(clsKoka.IdGjenerues);
-        //        DbCore.DbKontabiliteti.colTrupatFletetKontabel coltrupfk = new DbCore.DbKontabiliteti.colTrupatFletetKontabel(kokafl.IdKokaFleteKontabel);
-        //        DbCore.DbQendraKosto.colTrupiQendraKosto coltrup = new DbCore.DbQendraKosto.colTrupiQendraKosto(clsKoka.IdKoka);
-        //        int iddegeadm = 0;
-        //        switch (kokafl.IdKategoria)
-        //        {
         //            case 1:
         //            case 2:
-        //                DbCore.DbRegjistrim.clsKokaShitje koksh = new clsKokaShitje();
-        //                koksh.mbushKokaShitjeSipasIDPaTrup(kokafl.IdGjenerues);
-        //                iddegeadm = koksh.IdDegeAdministrative;
-        //                break;
         //            case 6:
-        //                clsKokaMagazina kokam = new clsKokaMagazina();
-        //                kokam.mbushKokaMagazinaSipasID(kokafl.IdGjenerues);
-        //                iddegeadm = kokam.IdDegeAdministrative;
-        //                break;
 
         //            case 3:
         //            case 4:
-        //                DbCore.DbArkaBanka.clsVeprimBankaKoka kokab = new DbCore.DbArkaBanka.clsVeprimBankaKoka(kokafl.IdGjenerues);
-        //                iddegeadm = kokab.IdDegeAdministrative;
-        //                break;
         //            case 78:
-        //                clsKokaRezervime kokar = new clsKokaRezervime(kokafl.IdGjenerues);
-        //                iddegeadm = kokar.IdDegeAdministrative;
-        //                break;
         //            case 95:
-        //                clsKokaNdryshimCmimSasi kokanc = new clsKokaNdryshimCmimSasi();
-        //                kokanc.mbushKokaNdryshimCmimSasiSipasID(kokafl.IdGjenerues);
-        //                iddegeadm = kokanc.IdDegeAdministrative;
-        //                break;
 
         //            default:
-        //                iddegeadm = 0;
-        //                break;
 
-        //        }
-        //        DbCore.DbQendraKosto.colObjektivaKosto objektivat = new DbCore.DbQendraKosto.colObjektivaKosto();
-        //        List<double> vleratobjektiva = new List<double>();
-        //        List<double> vleratobjektivamonbaze = new List<double>();
-        //        List<int> idllogobj = new List<int>();
-        //        foreach (DbCore.DbKontabiliteti.clsTrupiFleteKontabel trup in coltrupfk)
-        //        {
-        //            DbCore.DbQendraKosto.clsObjektivaKosto objekt = new DbCore.DbQendraKosto.clsObjektivaKosto();
-        //            DbCore.DbKontabiliteti.clsLlogari llog = new DbCore.DbKontabiliteti.clsLlogari(trup.IdLlogari);
-        //            if (llog.IdObjektivaKosto != 0 && llog.IdObjektivaKosto != -1)
-        //            {
-        //                objekt = new DbCore.DbQendraKosto.clsObjektivaKosto(llog.IdObjektivaKosto);
 
-        //            }
-        //            if (objekt.Id != 0 && objekt.Id != -1)
-        //            {
-        //                DbCore.DbKontabiliteti.clsKokaFleteKontabel.shtoTeDhenaPeObjektivat(clsKoka.DtDok, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, llog, trup, objekt);
-        //            }
-        //        }
-        //        clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(clsKoka.IdKonfigAmbjente);
-        //        DbCore.DbQendraKosto.clsKokaQendraKosto kokaqender = DbCore.DbQendraKosto.clsKokaQendraKosto.krijoQKShitjeQuick(konfig.IdNivel, konfig.IdKonfigAmbjente, clsKoka.NrRef, clsKoka.DtDok, clsKoka.NrDok, clsKoka.IdKoka, 1, clsKoka.IdNdermarrje, clsKoka.IdNdermarrjeVit, idperdoruesi, clsKoka.DtRegj, clsKoka.Pershkrimi, kokafl.IdNivel, kokafl.IdKonfigAmbjente, kokafl.IdKokaFleteKontabel, coltrupfk, iddegeadm, 0, 0, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out  shfaqmesazhapolupe, coltrup);
-        //        kokaqender.IdKoka = clsKoka.IdKoka;
-        //        mesazh = kokaqender.modifiko(false);
-        //        if (!mesazh.Status)
-        //        {
-        //            object[] arr = { konfig.KodKonfigAmbjente + " " + clsKoka.NrDok + " " + clsKoka.DtDok.ToShortDateString(), mesazh.PershkrimMesazhi, nrreshta };
-        //            err.Rows.Add(arr);
-        //            continue;
-        //        }
-        //    }
         //    else
-        //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Nuk u rillogarit asnje rresht!", pnlMesazhi);
-        //    DbCore.mySessionObjects.ruajTabeleGabimeshImporti(Session, err);
-        //    if (err.Rows.Count > 0)
-        //    {
-        //        clsKokaErrorImporti koka = new clsKokaErrorImporti(0, "Nga rillogaritja e qendrave te kostos", 75, idndermarje, idperdoruesi);
-        //        koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-        //        mesazh = koka.ruajErrorImporti();
-        //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "U rillogariten " + (rreshtat.Count - err.Rows.Count) + " rreshta dhe deshtuan " + err.Rows.Count + " rreshta! ", pnlMesazhi);
-        //        Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=104&printo=false&db=jo";
-        //    }
         //    else
-        //        clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "U rillogariten te gjitha rreshtat!", pnlMesazhi);
-        //    this.gvRegjQK.Selection.UnselectAll();
-        //    bool teDrejtaGjitheDok = hfTeDrejtaGjitheDok.Value.ToString() == "True" || hfTeDrejtaGjitheDok.Value.ToString() == "true";
-        //    mbushGridNgaDB(teDrejtaGjitheDok, idndermarje, idperdoruesi, idnderviti);
-        //    konfiguroGride(rm, cultinf, idndermarje, idperdoruesi, idGjuha);
-        //    if (rreshtat.Count == 0)
-        //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("regjMagMesazhZgjidhniNje", cultinf), pnlMesazhi);
-        //}
 
         /// <summary>
         /// fshin rreshtat e selektuar
@@ -519,7 +405,6 @@ namespace PlatinumWeb
             DbCore.DbRegjistrim.colTrupiMagazina trupat = new DbCore.DbRegjistrim.colTrupiMagazina();
             List<object> rreshtat = gvRegjQK.GetSelectedFieldValues("IdKoka");
             pergjigja.Text = "";
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha;
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
@@ -535,8 +420,6 @@ namespace PlatinumWeb
 
                 if (clsKoka.IdStatusDok == 2)
                     continue;
-                //periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DtDok, idndermarje);
-               // DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
               
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(clsKoka.DtDok, idndermarje);
                 if (ekycur)
@@ -642,7 +525,6 @@ namespace PlatinumWeb
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             GridUtil.ToolTipButonaveMbiGride(gvRegjQK, cultinf, rm);
-            // konfiguroGride();
         }
 
         /// <summary>
@@ -801,11 +683,9 @@ namespace PlatinumWeb
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "U rillogariten te gjitha rreshtat!", pnlMesazhi);
 
                 }
-               // this.gvRegjQK.Selection.UnselectAll();
                 if (hfTeDrejtaGjitheDok.Value.ToString() == "True" || hfTeDrejtaGjitheDok.Value.ToString() == "true")
                     mbushGridNgaDB(true, idndermarje, idperdoruesi, idnderviti);
                 else mbushGridNgaDB(false, idndermarje, idperdoruesi, idnderviti);
-              //  konfiguroGride(rm, cultinf, idndermarje, idperdoruesi, idGjuha);
             }
             catch (Exception err)
             {

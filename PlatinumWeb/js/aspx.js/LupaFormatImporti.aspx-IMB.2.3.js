@@ -21,7 +21,6 @@ $(window).on('unload',function () {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        //window.parent.popupUniversal.AdjustSize();
         gvLupaFormatImport.SetFocusedRowIndex(0);
         gvLupaFormatImport.SelectRowOnPage(0, true);
         btnOk.Focus();

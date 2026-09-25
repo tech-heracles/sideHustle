@@ -46,21 +46,13 @@ namespace DbCore.DbAdmin
         private bool mbushAmbjente(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAmbjent llojBuxheti = new clsAmbjent();
-                    //llojBuxheti.mbushAmbjent(rreshti);
                     Add(new clsAmbjent(rreshti)); 
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

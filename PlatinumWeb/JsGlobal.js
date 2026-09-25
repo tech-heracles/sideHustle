@@ -127,9 +127,6 @@ function shumezo(nr1, nr2) {
     return (r1/r2) * Math.pow(10, t2-t1); 
 }  
 
-//Number.prototype.div = function (arg) { 
-//return accDiv (this, arg); 
-//}
 
 function mbledhje (arg1, arg2) {
     var r1, r2, m; 
@@ -139,9 +136,6 @@ function mbledhje (arg1, arg2) {
     return parseFloat((arg1 * m + arg2 * m) / m  );
 } 
 
-//Number.prototype.add = function (arg) { 
-//return accAdd (arg, this); 
-//} 
 
 function roundDecimal(nNumber, nDecimals) {
     var tenToPower;

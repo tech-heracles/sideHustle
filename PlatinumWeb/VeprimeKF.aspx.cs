@@ -77,8 +77,6 @@ namespace PlatinumWeb
             }
             else
             {
-                //grid_VeprimeKF.Columns.Clear();
-                //grid_VeprimeKF.AutoGenerateColumns = true;
                 grid_VeprimeKF.PercaktoTitlePanelMePeriudheDheTopRows(this, MenuInfo, pnlMesazhi, hfState, IdPerdoruesi, IdNdermarrja, IdViti, IdGjuha, int.Parse(cmbKonfigurimi.Value.ToString()), Komponente, 652, "IdVeprimeKFKoka", rm, ci, false);
                 MbushGridNgaSession();
                 KonfiguroGride();
@@ -145,7 +143,6 @@ namespace PlatinumWeb
                 MbushGridNgaDb(true);
             else
             {
-                //grid_VeprimeKF.Columns.Clear();
                 grid_VeprimeKF.DataSource = tmpObject;
                 grid_VeprimeKF.DataBind();
                 tmpObject.Dispose();
@@ -286,17 +283,7 @@ namespace PlatinumWeb
                 IdStatusDok = 1
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_VeprimeKF);
-            //var kolona = grid_VeprimeKF.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "grid_VeprimeKF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);

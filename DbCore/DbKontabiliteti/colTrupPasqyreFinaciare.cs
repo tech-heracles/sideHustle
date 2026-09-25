@@ -68,21 +68,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushTrupPasqyratFinanciare(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupPasqyreFinanciare trupi = new clsTrupPasqyreFinanciare();
-                    //trupi.mbushTrupPasqyreFinanciare(rreshti);
                     Add(new clsTrupPasqyreFinanciare(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

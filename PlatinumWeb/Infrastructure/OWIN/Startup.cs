@@ -25,11 +25,7 @@ namespace PlatinumWeb
 
         public void Configuration(IAppBuilder app)
         {
-            //var httpConfig = new HttpConfiguration();
             ConfigureOAuth(app);
-            //  WebApiConfig.Register(httpConfig);
-            // app.UseCors(CorsOptions.AllowAll);
-            //app.UseWebApi(httpConfig);
             app.MapSignalR();
         }
 

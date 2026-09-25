@@ -305,13 +305,9 @@ namespace DbCore.DbInventari
                         return new clsMesazh(false, MessagesResource.Messages["msgEkzistonAutoTarge"]);
                 }
             }
-            //if (pershkrimModeli == "")
-            //    return new clsMesazh(false, "Plotesoni modelin e automjetit!");
             if (pershkrimModeli != "" && (idModelAutomjeti == 0 || idModelAutomjeti == -1))
                 return new clsMesazh(false, "Modeli nuk ekziston!");
 
-            //if (klienti == "")
-            //    return new clsMesazh(false, "Plotesoni klientin!");
             if (klienti != "" && (idKlienti == 0 || idKlienti == -1))
                 return new clsMesazh(false, "Klienti nuk ekziston!");
             return new clsMesazh(true, "Kontrollet e artikullit u kaluan me sukses");

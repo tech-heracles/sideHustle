@@ -36,21 +36,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushNenLlojLlog(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNenLlojLlogarish nenlloji = new clsNenLlojLlogarish();
-                    //nenlloji.mbushNenLlojLlogarish(rreshti);
                     Add(new clsNenLlojLlogarish(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

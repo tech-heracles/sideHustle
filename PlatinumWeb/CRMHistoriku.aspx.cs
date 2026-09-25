@@ -157,7 +157,6 @@ namespace PlatinumWeb
         /// <param name="e">      argumentat </param>
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
         {
-            //percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1);
         }
 
         /// <summary>
@@ -184,20 +183,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvHistoriku.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiAgjenti", gvHistoriku);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvHistoriku.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodiAgjenti";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = IdPerdoruesi;
             filtri.IdNdermarje = IdNdermarrja;

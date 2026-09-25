@@ -290,7 +290,6 @@ function SucceededCallbackLlojeBuxheti(result) {
 
 function bejGatiCmbBuxheti() {
     var options = JSON.parse(hfState.Get("colBuxheti"));
-    //hfState.Remove("colBuxheti");
     cmbBuxheti = new MultiSelect({
         container: "tblInformacion",
         valueField: "IdLlojBuxheti",

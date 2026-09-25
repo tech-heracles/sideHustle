@@ -41,8 +41,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             parameter9.Value = raport.Parameters[8].Value;
      
 
-          
-            
         }
 
 
@@ -61,13 +59,10 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
                        System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-          
         }
 
         private void xrLabel19_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (parameter7.Value.Equals("Standarti Shqiptar")) xrLabel19.Text = "0.00";
-            //else xrLabel19.Text = String.Format("{0:#,#.00}", GetCurrentColumnValue("init").ToString());
         }
 
         private void xrLabel44_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

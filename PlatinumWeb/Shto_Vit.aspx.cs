@@ -378,7 +378,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqVitNgaGrida(clsVitet.IdViti, rm, ci);
                     #endregion
                     TeFshire.Add(clsVitet.KodiViti);
@@ -1127,7 +1126,6 @@ namespace PlatinumWeb
                 DbCore.DbAdmin.colPeriudhaKontabel periudhat = new DbCore.DbAdmin.colPeriudhaKontabel();
                 int.TryParse(this.ASPxGridView_Vitet.GetRowValues(int.Parse(argumenta[0]), "IdViti").ToString(), out id);
                 periudhat.merrSipasVitiDheGjuhes(id, idgjuha);
-                    //periudhat = new DbCore.DbAdmin.clsDatabaseAdmin().merrPeriudhaSipasViti(id);
                 if (cbPeriudhaHapjes.Checked)
                 {
                     if (periudhat[0].NrPeriudha != 0)

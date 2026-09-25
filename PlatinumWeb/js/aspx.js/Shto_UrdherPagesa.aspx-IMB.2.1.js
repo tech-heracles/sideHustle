@@ -67,7 +67,6 @@ ekzekutohet sa here i behet resize faqes, dhe ben resize te grides
 });
 
 
-
 function Init() {
 
     if (typeof (isPostBack) === "undefined") {
@@ -315,7 +314,6 @@ function myElemShuma(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, arrayReadOnlyKolonaGrides[6], idRresht, 'txtShuma', vendosTotalet);
-    //return myJQGrid.myElemTextBoxVlefte(value, options, arrayReadOnlyKolonaGrides[6], lastsel2, 'txtShuma', vendosTotalet, '0.00');
 }
 
 
@@ -395,12 +393,8 @@ Function: ndryshoKonfigurimin
 Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te ri.
 */
 function ndryshoKonfigurimin() {//po
-    //if (cmbKonfigurimi.GetText().split(';').length > 1)
-    //    lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
-    //cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     if (cmbKonfigurimi.GetSelectedItem().texts != null && cmbKonfigurimi.GetSelectedItem().texts.length > 1)
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") + ': ' +cmbKonfigurimi.GetSelectedItem().texts[1] );
-       // lblKonfigurimi.SetText(cmbKonfigurimi.GetSelectedItem().texts[1]);
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetSelectedItem().texts[0]);
     callWebserviceKonfigurimi(313, cmbKonfigurimi.GetText());
 }
@@ -475,9 +469,7 @@ function SucceededCallbackKonfig(result) {
     myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, undefined, hf, '', arrTabela, undefined, undefined, hfLidhur, arrPrind);
     $("#divgride1").show();//$("#divgride1")[0].style.visibility = 'visible';
     $("#dvFillim").show();//$("#dvFillim")[0].style.visibility = 'visible';
-    //$("#dvFillim")[0].style.display = '';
     $("#dvFundi").show();//$("#dvFundi")[0].style.visibility = 'visible';
-    //$("#dvFundi")[0].style.display = '';
     var colKontrollet = result.colKontroll; //[0];
     var colAtrTrupi = result.colAtrTrupi;  //[1];
     colGrida = result.colGrida;  //[2];
@@ -1074,7 +1066,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            //myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     else if (e.item.name === 'Draft') {
@@ -1170,8 +1161,6 @@ function PastroClick() {
     }
 
     ndryshoKonfigurimin(); //duhet kur klijkojme butonin shto ne rastin kur kemi hap nje dok. per modifikim
-    //            jQuery("#rowed5").GridUnload("rowed5");
-    //            inicializoGride();
     mbushGrideNgaHiddenFieldet();
     $('#ASPxSplitter1_hl').empty(); click = false;
 }

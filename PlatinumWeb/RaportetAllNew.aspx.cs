@@ -17,8 +17,6 @@ namespace PlatinumWeb
     {
 
 
-   
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -73,11 +71,6 @@ namespace PlatinumWeb
         private SiteMapNode CreateSiteMapNode(DataRow dataRow, UnboundSiteMapProvider provider)
         {
 
-
-          //  System.Collections.Specialized.NameValueCollection attributes = new System.Collections.Specialized.NameValueCollection();
-           
-          //  attributes.Add("FilterUrl", "javascript:filtroButtonClick(" + dataRow["IDRAP"].ToString() + ");");
-            //return provider.CreateNode(dataRow["NavigateURL"].ToString(), dataRow["Text"].ToString(), dataRow["Text"].ToString(), null, attributes);
 
             return provider.CreateNode(dataRow["NavigateURL"].ToString(), dataRow["Text"].ToString(), "", null, new NameValueCollection());
         }

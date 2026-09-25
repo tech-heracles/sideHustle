@@ -99,10 +99,7 @@ namespace DbCore.DbRegjistrim
             if (printoServer)
                 return (printimKase.printoNeKase(true, true, shitje.IdShitjeKoka,false), null, mesazhInfo);
 
-            //string mesazhi = string.Empty;
-            //if (plu > 9000)
 
-            //    mesazhi =  new MesazhInformimi(MessagesResource.Messages["df"]);
             return (new clsMesazh(true, "ok"), Newtonsoft.Json.JsonConvert.SerializeObject(printimKase), mesazhInfo);
         }
 
@@ -116,7 +113,6 @@ namespace DbCore.DbRegjistrim
             double perqindje;
             if (!double.TryParse(perqindjeText, out perqindje))
                 perqindje = 0;
-            //if (_kasa != null)
             string llojkase = _kasa.Pershkrimi.Substring(0, _kasa.Pershkrimi.Length - ndermarrja.IdNdermarrje.ToString().Length);
             printimKase = new clsKasaKokaDLL("DITRONZIP", "AlphaWEB", per.PerdoruesUsername + "_" + DateTime.Now.ToString("yyyyMMddhhmmss"),
                     arkaBanka.IdDegeAdministrative, "www.vodafone.al", arkaBanka.NrSerial, MenyrePagese.Pagese.ToString(), false, perqindje, "admin", "admin", ip, 80, 1, 1,

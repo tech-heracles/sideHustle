@@ -58,21 +58,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushFletaDoganoreTaksat(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFleteDoganoreTaksa taksa = new clsFleteDoganoreTaksa();
-                    //taksa.mbushFleteDoganoreTaksa(rreshti);
                     Add(new clsFleteDoganoreTaksa(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

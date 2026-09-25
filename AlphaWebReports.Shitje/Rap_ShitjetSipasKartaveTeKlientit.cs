@@ -41,17 +41,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           
-          //  FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);           
-          //  xrLabel18.Text = rm.GetString("labelRaportiPershkrimi", ci);
-          //  xrLabel19.Text = rm.GetString("labelNjesia", ci);
-          //  xrLabel20.Text = rm.GetString("labelSasia", ci);
-          // xrLabel22.Text = rm.GetString("labelRaportVlefta", ci);
-          //  xrLabel12.Text = rm.GetString("labelLogoIMB", ci);
-          //  xrLabel17.Text = rm.GetString("labelRaportKlienti", ci);
           ////  xrLabel13.Text = rm.GetString("labelRaportShitjetSipasKlienteve", ci);
-          //  xrLabel21.Text = rm.GetString("cmbCmimeArtikulliCaptionKodi", ci);
-          // // xrLabel76.Text = rm.GetString("labelRaportTotalKliente", ci);
 
         }
 

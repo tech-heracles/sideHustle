@@ -112,20 +112,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDetArtRegj.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvLupaDetArtRegj);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaDetArtRegj.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDetajimArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -134,7 +122,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDetArtRegj", 1, "LupaDetajimArtikulliRegjistrim.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -158,7 +145,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDetArtRegj", 1, "LupaDetajimArtikulliRegjistrim.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -226,9 +212,7 @@ namespace PlatinumWeb
         private void konfiguroPopupGride(int idKonfigambjenti, bool visibleIndex, bool kerkosaposhkruar, CultureInfo ci, bool endlessScroll)
         {
             shto_Lloj();
-            //shto_Autorizim();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaDetArtRegj, "gvLupaDetArtRegj", "LupaDetajimArtikulliRegjistrim.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaDetArtRegj, "IdDetajimArtikulli");
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaDetArtRegj, "IdDetajimArtikulli", kerkosaposhkruar, endlessScroll);
         }
 
@@ -256,7 +240,6 @@ namespace PlatinumWeb
     
         private void shto_Lloj()
         {//shtohen komboja me Autorizimeve tek grida 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaDetArtRegj.Columns["LlojDetajimArtikulli"].VisibleIndex;
             gvLupaDetArtRegj.Columns.Remove(gvLupaDetArtRegj.Columns["LlojDetajimArtikulli"]);
 
@@ -270,11 +253,6 @@ namespace PlatinumWeb
         }
 
         //private void shtoKoloneTeRe(String emri)
-        //{
-        //    GridViewDataTextColumn colnew = new GridViewDataTextColumn();
-        //    gvLupaDetArtRegj.Columns.Add(colnew);
-        //    colnew.Caption = emri;
-        //}   
 
         protected void gvLupaDetArtRegj_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {

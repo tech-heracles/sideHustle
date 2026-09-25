@@ -216,7 +216,6 @@ namespace PlatinumWeb
         }
 
       
-
         /// <summary>
         /// perdoret ne rastet kur grida ben callback per ta rimbushur griden
         /// </summary>
@@ -233,8 +232,6 @@ namespace PlatinumWeb
                 cmbFiltra.Text = "";
 
             }
-            // konfiguroVleraFillestare(); 
-            //  konfiguroGride(idNdermarrje, cmbKonfigurimi.Text.Split(';')[0], 802);
 
         }
 
@@ -283,7 +280,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNdermarrje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvSkema", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -321,22 +317,9 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvSkema.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvSkema);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvSkema.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -372,14 +355,12 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-            //List<object> rreshtat = gvSkema.GetSelectedFieldValues("IdKoka");
             if (rreshtat.Count == 0)
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, MessagesResource.Messages["msgSkemaQKZgjidhniTePAkten1Skeme"], pnlMesazhi);
                 return;
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
@@ -634,7 +615,6 @@ namespace PlatinumWeb
             ASPxPageControl1.ActiveTabIndex = 0;
             
 
-
         }
 
         /// <summary>
@@ -687,7 +667,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvSkema", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)
@@ -749,7 +728,6 @@ namespace PlatinumWeb
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvTrupi, "gvTrupi", komponente);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvTrupi, "IdTrupi", false);
             gvTrupi.Settings.UseFixedTableLayout = false;
-            // gvSkema.Columns["Fshi"].VisibleIndex = 14;
         }
 
         /// <summary>
@@ -789,7 +767,6 @@ namespace PlatinumWeb
         {//percaktohen templatet per fushat e grides
 
             GridViewDataTextColumn col0 = gvTrupi.Columns["Fshi"] as GridViewDataTextColumn;
- // if (DbCore.mySessionObjects.ktheGjuhe(Session) == 1) col0.Caption = "Delete";
             col0.DataItemTemplate = new MyButtonTemplate("");
           
             col0.VisibleIndex = 16;
@@ -1217,7 +1194,6 @@ namespace PlatinumWeb
                     txt5.DropDownButton.Visible = false;
                     txt5.Buttons.Add();
                     txt5.AutoPostBack = false;
-                    //txt5.EnableCallbackMode = false;
                     txt5.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                     txt5.TextFormatString = "{0}";
                     txt5.Columns.Add(new ListBoxColumn("PerdoruesUsername"));

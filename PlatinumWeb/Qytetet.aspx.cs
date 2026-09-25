@@ -18,14 +18,11 @@ namespace PlatinumWeb
     {
         ArrayList vlerat = new ArrayList();
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-        //private const string mesazhZgjidhniNje = "Ju lutem zgjidhni te pakten nje qytet!";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             // Prevent caching, so can't be viewed offline
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -33,7 +30,6 @@ namespace PlatinumWeb
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
@@ -44,13 +40,10 @@ namespace PlatinumWeb
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ListQytetet", 1, "Qytetet.aspx");
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             if (!IsPostBack)
             {
-                //Session.Add("mesazh", ":Green");
                 
                 mbushHiddenFieldMePerkthime(ci, rm);
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
@@ -59,9 +52,6 @@ namespace PlatinumWeb
 
                 konfiguroVleraFillestare();
                 konfiguroGride();
-                // new DbCore.clsFunksione().konfiguroMenu(ASPxMenu1);
-                // ASPxMenu1.AutoPostBack = false;
-                // new DbCore.clsFunksione().percaktoTedrejtatPerKeteFaqe("Qytetet.aspx", ASPxMenu1);
 
                 if (Request.QueryString["indexrow"] != null)
                 {
@@ -114,10 +104,8 @@ namespace PlatinumWeb
 
         private void konfiguroVleraFillestare()
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.colQytetet colQyt = new DbCore.DbAdmin.colQytetet();
             colQyt.mbushQytetetNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbAdmin.colQytetet colQyt = dbAdmin.merrQytetetNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             grid_ListQytetet.DataSource = colQyt;
             grid_ListQytetet.DataBind();
         }
@@ -132,7 +120,6 @@ namespace PlatinumWeb
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 grid_ListQytetet.Columns.Add(check);
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //check.SetColVisibleIndex(0);
 
                 grid_ListQytetet.SettingsText.CommandUpdate = rm.GetString("buttonRuaj", ci);
                 grid_ListQytetet.SettingsText.CommandCancel = rm.GetString("labelAnullo",ci);
@@ -167,18 +154,14 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ListQytetet", "Qytetet.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ListQytetet", 1, "Qytetet.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -205,32 +188,17 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("grid_ListQytetet", "NjesiArtikulli.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ListQytetet", "Qytetet.aspx", idNdermarrje);
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_ListQytetet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiQyteti", grid_ListQytetet);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_ListQytetet.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodiQyteti";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
             filtri.IdNdermarje = idNdermarrje;
@@ -238,7 +206,6 @@ namespace PlatinumWeb
 
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ListQytetet", 1, "Qytetet.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -326,12 +293,10 @@ namespace PlatinumWeb
                 DbCore.clsMesazh m = qyteti.modifiko();
                 if (m.Status)
                 {
-                    //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = m.PershkrimMesazhi + ":Green";
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, rm.GetString("msgModifikimiMeSuksesGreen", ci));
                 }
                 else
                 {
-                    //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = m.PershkrimMesazhi + ":Red";
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, rm.GetString("msgModifikimiMeGabimeRed", ci));
                 }
                 grid_ListQytetet.CancelEdit();
@@ -353,7 +318,6 @@ namespace PlatinumWeb
             string[] qytetetLidhura = new string[rreshtat.Count];
             int i = 0;
             bool done = false;
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (int id in rreshtat)
             {
 
@@ -387,17 +351,8 @@ namespace PlatinumWeb
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Modifiko")
-            //{
-            //    int indeksi = grid_ListQytetet.FocusedRowIndex;
-            //    grid_ListQytetet.StartEdit(indeksi);
-            //}
 
             //else
-            //    if (e.Item.Name == "Shto")
-            //    {
-            //        Response.Redirect("Shto_Qytet.aspx");
-            //    }
         }
 
         protected void grid_ListQytetet_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
@@ -493,12 +448,9 @@ namespace PlatinumWeb
                 else
                 {
 
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ListQytetet", "Qytetet.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         grid_ListQytetet.FilterExpression = filtra.FiltraVlera;

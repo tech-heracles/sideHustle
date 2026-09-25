@@ -202,7 +202,6 @@ namespace DbCore.DbAdmin
                 return; //roli me id idroli nuk ekziston
             }
             data.Dispose();
-            //throw new Exception("ERROR: Gabim gjate leximit te rolit " + idRoli + "nga databaza");
         }
 
         /// <summary>

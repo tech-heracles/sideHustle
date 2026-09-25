@@ -24,8 +24,6 @@ function Init() {
         var prm = Sys.WebForms.PageRequestManager.getInstance();
         prm.add_endRequest(EndRequestHandler);
         myFaqeCelje.shtoHandlerSession();
-        //gvLupaNdermarje.SelectRowOnPage(0, true);
-        //gvLupaNdermarje.SetFocusedRowIndex(0);
         btnOk.Focus();
 
     }
@@ -108,11 +106,9 @@ function OnGridSelectionChanged() {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     if (Utils.getUrlVar('vjenNga') == "Shto_KF") {
-        //window.parent.btneNiveli.SetText(vl[2]);
         var id = vl[0];
         var kodi = vl[1];
 

@@ -76,7 +76,6 @@ function changeName() {
     menuSipasTeDrejta(modifiko, hfTeDrejta);
 }
 
-//document.onkeydown = ProcessKeyPress;
 var modifiko = false;
 //kur kthehet nje veprim postback nga serveri
 function EndRequestHandler(sender, args) {
@@ -89,28 +88,6 @@ function EndRequestHandler(sender, args) {
 }
 
 //kthimi i fokusit ne faqe te pare
-//function ProcessKeyPress() {
-//    var currentIndex = gvSeriale.GetFocusedRowIndex();
-//    if (event.keyCode == 40) {
-//        if (currentIndex == gvSeriale.GetVisibleRowsOnPage() - 1) {
-//            gvSeriale.SetFocusedRowIndex(0);
-//        }
-//        else {
-//            gvSeriale.SetFocusedRowIndex(currentIndex + 1);
-//        }
-//    }
-//    if (event.keyCode == 38) {
-//        if (currentIndex == 0) {
-//            return;
-//        }
-//        else {
-//            gvSeriale.SetFocusedRowIndex(currentIndex - 1);
-//        }
-//    }
-//    if (event.keyCode == 13) {
-//        OnGridSelectionChanged();
-//    }
-//}
 
 function onNdryshimFokusi() {
     try {
@@ -134,7 +111,6 @@ function enter() {
 
 // kur ndryshon select 
 function OnGridSelectionChanged() {
-    //gvSeriale.GetSelectedFieldValues('NrGrupBanke', OnGridSelectionComplete);
   if(Utils.getUrlVar('idartikulli')==0)
       gvSeriale.GetSelectedFieldValues('AqtSerialKod;AqtSerialPershkrim', OnGridSelectionComplete);
 }
@@ -183,22 +159,6 @@ function menuSipasTeDrejta(modifiko, hfTeDrejta) {
 
 function switchEditMode(index) {//kalon ne edit grida
 
-    //menuSipasTeDrejta(modifiko, hfTeDrejta);
-    //if (editmode) {
-    //    if (index == indexEdit) {
-    //        gvSeriale.CancelEdit();
-    //        editmode = !editmode;
-    //    }
-    //    else {
-    //        gvSeriale.StartEditRow(index);
-    //        indexEdit = index;
-    //    }
-    //}
-    //else {
-    //    gvSeriale.StartEditRow(index);
-    //    indexEdit = index;
-    //    editmode = !editmode;
-    //}
 }
 
 function EndCallbackGrida(s, e) {
@@ -231,30 +191,7 @@ function BeginCallback(s, e) {
         btnFiltrat.SetText('');
 }
 
-//function menu_click(s, e) {
-//    if (e.item.name == 'Fshi') {
-//        popFshi.Show();
-//        e.processOnServer = false;
-//    }
-//    if (e.item.name == 'OK') {
-//        e.processOnServer = false;
-//        OnGridSelectionChanged();
-//    }
-//    else if (e.item.name == 'Anullo') {
-//        window.parent.popupUniversal.Hide();
-//    }
-//    if (e.item.name == 'Ruaj') {
-//        gvSeriale.UpdateEdit();
-//        e.processOnServer = false;
-//        modifiko = false;
-//    }
-//    else if (e.item.name == 'Modifiko') {
-//        modifiko = true;
-//    }
 //    else
-//        modifiko = false;
-//    menuSipasTeDrejta(modifiko, hfTeDrejta);
-//}
 
 function menu_click(s, e) {
 
@@ -273,7 +210,6 @@ function menu_click(s, e) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("regjisDokNukKeniAsnjeDokTeZgjedhur"));
         } else
             ButtonClickArkiva();
-        // myFaqeCelje.kontrolloTeDrejta('LupaArkiva.aspx?veprimi=' + Utils.getUrlVar('shitje_blerje') + '&idDok=' + grid_RegDok.GetRowKey(grid_RegDok.GetFocusedRowIndex()) + '&shtim_modifikim=modifikim');
         e.processOnServer = false;
     }
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
@@ -282,7 +218,6 @@ function menu_click(s, e) {
 function ButtonClickArkiva() {//po
     popupUniversal.SetHeaderText(hfState.Get("regjisDokZgjidhDokPerTeBashkengjitur"));
     popupUniversal.SetSize(738, 548);
-    //popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=seriale&idDok=' + gvSeriale.GetRowKey(gvSeriale.GetFocusedRowIndex()) + '&shtim_modifikim=modifikim');
     popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=seriale&idDok=' + gvSeriale.GetRowKey(gvSeriale.GetFocusedRowIndex())
         //+ '&shtim_modifikim=modifikim'
         + "&tmpfolder=" + hfArkiva.Get("rootFolder"));

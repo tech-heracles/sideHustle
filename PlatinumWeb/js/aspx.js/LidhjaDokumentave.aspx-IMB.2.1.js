@@ -338,7 +338,6 @@ function PastroClick() {
     klientFurnitor_ButtonEdit.SetValue(null);
     var hf = $("input[id$='hfShtimModifikim']");
     hf.val("shtim");
-    //grid_dokKryesor.UnselectAllRowsOnPage();
     grid_dokKryesor.PerformCallback('unselect;shtim');
     grid_dokLidhes.PerformCallback('unselect');
     ASPxMenu1.GetItemByName('FletaKontabel').SetVisible(false);
@@ -423,7 +422,6 @@ function OnGridSelectionChanged(s, e) {
         for (var i = 0; i < grid_dokKryesor.cpNoRows; i++) {          //gjendet shuma e dokumentave te tjere kryesore
             if (grid_dokKryesor._isRowSelected(i) && i !== e.visibleIndex) {
                 editorVlefta = Utils.ktheKontroll('txtVlefta' + i);
-                //shumadokkryesor += parseFloat(editorVlefta.GetText());
                 shumadokkryesor = shumadokkryesor + parseFloat(editorVlefta.GetText());
             }
         }
@@ -435,7 +433,6 @@ function OnGridSelectionChanged(s, e) {
                 shumadoklidhesfatura = shumadoklidhesfatura + parseFloat(editorVleftaMonDok.GetText());
                 for (var k = 0; k < countkvkmk; k++)   //kv pjestim kmk qe ruhet ne nje vektor kur selektojme nje rresht te dokumentave lidhes
                     if (kvkmk[k][0] == j) {
-                        //shumadoklidhesmbetur += parseFloat(editorvleftaPalikuiduarlid.GetText() * kvkmk[k][1]);
                         shumadoklidhesmbetur = shumadoklidhesmbetur + parseFloat(editorvleftaPalikuiduarlid.GetText() * kvkmk[k][1]);
                         break;
                     }
@@ -606,16 +603,13 @@ function SucceededCallbackSelLidhes(result) {
         if (grid_dokKryesor._isRowSelected(i)) {
             editorVlefta = Utils.ktheKontroll('txtVlefta' + i);
             editorVleftaPaLikujduar = Utils.ktheKontroll('lblVleftaPaLikujduar' + i);
-            //shumadokkryesor += parseFloat(editorVlefta.GetText());
             shumadokkryesor = shumadokkryesor + parseFloat(editorVlefta.GetText());
-            //shumadokmbetur += parseFloat(editorVleftaPaLikujduar.GetText());
             shumadokmbetur = shumadokmbetur + parseFloat(editorVleftaPaLikujduar.GetText());
         }
     }
     for (var j = 0; j < grid_dokLidhes.cpNoRows; j++) {    // shuma e dokumentave lidhes
         if (grid_dokLidhes._isRowSelected(j) && j !== index) {
             editorVleftaMonDok = Utils.ktheKontroll('txtVleftaMonBazeLidhes' + j);
-            //shumadoklidhesfatura += parseFloat(editorVleftaMonDok.GetText());
             shumadoklidhesfatura = shumadoklidhesfatura + parseFloat(editorVleftaMonDok.GetText());
         }
     }
@@ -683,7 +677,6 @@ function TextChangedVlefta(editor, key) {
     for (var i = 0; i < grid_dokKryesor.cpNoRows; i++) {    //shuma e dok kryesor
         if (grid_dokKryesor._isRowSelected(i)) {
             editorVlefta = Utils.ktheKontroll('txtVlefta' + i);
-            //shumadokkryesor += parseFloat(editorVlefta.GetText());
             shumadokkryesor = shumadokkryesor + parseFloat(editorVlefta.GetText());
         }
     }
@@ -771,7 +764,6 @@ function SucceededCallbackVleftaMonDokKryesor(result) {
     for (var j = 0; j < grid_dokLidhes.cpNoRows; j++) {     //shuma e dokumentave lidhes
         if (grid_dokLidhes._isRowSelected(j)) {
             editorVleftaMonDok = Utils.ktheKontroll('txtVleftaMonBazeLidhes' + j);
-            //shumadoklidhesfatura += parseFloat(editorVleftaMonDok.GetText());
             shumadoklidhesfatura = shumadoklidhesfatura + parseFloat(editorVleftaMonDok.GetText());
         }
     }
@@ -840,7 +832,6 @@ function vendosTotalet() {//  llogarit totalet ne monedhe baze dhe nxjerr difere
             editorKursi = Utils.ktheKontroll('lblKursi' + k);
 
             if (Date.parseLocale(editorDtAzhornimi.GetText(), "dd/MM/yyyy") < Date.parseLocale(editorDtDokumenti.GetText(), "dd/MM/yyyy"))
-                //tot1 += parseFloat(editorVlefta.GetText() * editorKursi.GetText());
                 tot1 = tot1 + parseFloat(editorVlefta.GetText() * editorKursi.GetText());
             else //tot1 += parseFloat(editorVlefta.GetText() * editorKursAzhornimi.GetText());
                 tot1 = tot1 + parseFloat(editorVlefta.GetText() * editorKursAzhornimi.GetText());
@@ -852,7 +843,6 @@ function vendosTotalet() {//  llogarit totalet ne monedhe baze dhe nxjerr difere
         if (grid_dokLidhes._isRowSelected(l)) {
             editorVlefta1 = Utils.ktheKontroll('txtVleftaLidhes' + l);
             editorKursi1 = Utils.ktheKontroll('lblKursiLidhes' + l);
-            //tot2 += parseFloat(editorVlefta1.GetText() * editorKursi1.GetText());
             tot2 = tot2 + parseFloat(editorVlefta1.GetText() * editorKursi1.GetText());
         }
     }
@@ -899,11 +889,9 @@ function merrTeDhena() {
                 arrKursi[counter] = editorKursi.GetText();
 
             totaliKryesor = mbledhje(totaliKryesor, parseFloat(editorVlefta.GetText()));
-            //counter += 1;
             counter = counter + 1;
         }
     }
-    //grid_dokKryesor.GetSelectedFieldValues('IdDokumenti', OnGridSelectionCompletedok);
     hidFieldIdDok.val(JSON.stringify(arrIdDok));
     hidField1.val(JSON.stringify(arrNiveli));
     hidField2.val(JSON.stringify(arrNrDokumenti));
@@ -914,9 +902,6 @@ function merrTeDhena() {
     unformatoFushaDevi();
 }
 
-//function OnGridSelectionCompletedok(values) {
-//    $('#hfIdDokKryesor').val(JSON.stringify(values));
-//}
 
 function OnGridSelectionCompletelidh(values) {
     $('#hfIdDokLidhes').val(JSON.stringify(values));

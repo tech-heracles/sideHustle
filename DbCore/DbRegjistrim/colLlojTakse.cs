@@ -124,21 +124,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushLlojTaksash(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojTakse llojTakse = new clsLlojTakse();
-                    //llojTakse.mbushLlojTakse(rreshti);
                     Add(new clsLlojTakse(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

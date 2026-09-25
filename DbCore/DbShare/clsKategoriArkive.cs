@@ -154,7 +154,6 @@ namespace DbCore.DbShare
 
             int id = 0;
             clsMesazh mesazh = db.ruajKategoriArkive(out id, idNivel, kategoria, idNdermarrje, idKrijues);
-            //this.idKategoriArkive = id;
 
             if (!mesazh.Status)
             {

@@ -110,7 +110,6 @@ function menu_click(s, e) {
 
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 }
 //merr te dhenat e rreshtit te selektuar
@@ -221,45 +220,19 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //            var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblData', 'tblTatime'];
-        //            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 0);
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 0);
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 0);
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C", 0);
     }
 
-    //$("#dvTatime").show();//$("#dvTatime")[0].style.visibility = 'visible'; $("#dvTatime")[0].style.display = '';
 }
-//    function SucceededCallbackKonfigurimi(result) {
-//        if (result !== "") {
-//            resultkonf = result;
-//            var vlerat = '';
-//            vlerat = result.split('*');
-//            var kontrollet = vlerat[0].split(';');
-//            niveli = vlerat[3];
-//            var hf = $('#hfKontrollet')[0];
-//            var hfLidhur = $("#hfLidhur")[0];
-//            var hfMod = $('#hfShtimModifikim')[0];
-//            var arrTabela = ['tblData','tblTatime'];
-//            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 0);
-//            gvTatimet.PerformCallback("706" + ";" + cmbKonfigurimi.GetText());
-//        } $("#dvTatime")[0].style.visibility = 'visible'; $("#dvTatime")[0].style.display = '';
-//    }
 
 // aktivizon fushat
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
@@ -298,7 +271,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvTatimet, "706")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvTatimet, "706", pastrofusha, hfTeDrejta);
     $('#hfModel').val(2);
 }

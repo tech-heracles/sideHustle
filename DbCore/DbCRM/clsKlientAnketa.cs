@@ -228,9 +228,7 @@ namespace DbCore.DbCRM
 
         public static bool ekzistonKlientAnketa(int idKlient, int idKokaAnketa, clsDatabaseCRM db)
         {
-            //clsDatabaseCRM db = new clsDatabaseCRM();
             bool ekziston = db.ekzistonKlientAnketa(idKlient, idKokaAnketa);
-            //db.Dispose();
             return ekziston;
         }
         public static bool eshteLidhur(int idKokaAnkete)
@@ -266,7 +264,6 @@ namespace DbCore.DbCRM
                     DateTime.TryParse(dbDataRowKlientAnketa["DTKRIJIMI"].ToString(), out dtKrijimi);
                     DateTime.TryParse(dbDataRowKlientAnketa["DTMODIFIKIMI"].ToString(), out dtModifikimi);
                     int.TryParse(dbDataRowKlientAnketa["IDNDERMARRJE"].ToString(), out idNdermarrje);
-                    //int.TryParse(dbDataRowKlientAnketa["LLOJI"].ToString(), out lloji);
                     return true;
                 }
                 catch (InvalidCastException)

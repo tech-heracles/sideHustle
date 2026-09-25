@@ -56,12 +56,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrTableCell10.Text = rm.GetString("lblRaportCmimiPerNjesiPaTvsh", ci);
             xrTableCell8.Text = rm.GetString("labelVLERA_ME_TVSH", ci);
           
-             //xrLabel24.Text = rm.GetString("lblRaportTotaliNe", ci);
-             //xrLabel28.Text = rm.GetString("lblRaportTotali", ci);
-             // xrLabel35.Text = rm.GetString("labelKursi", ci) + ":";
-             // xrLabel9.Text = rm.GetString("lblNgaTeCilat", ci);
-             // xrLabel27.Text = rm.GetString("lblFurnizimeTatueshme", ci);
-             // xrLabel29.Text = rm.GetString("lblFurnizimePatueshme", ci);
 
             xrLabel22.Text = rm.GetString("labelBleresi", ci);
             xrLabel23.Text = rm.GetString("labelTransportuesi", ci);
@@ -73,7 +67,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel34.Text = rm.GetString("lblLlogariLek", ci);
             xrLabel52.Text = rm.GetString("lblLlogariEuro", ci);
             xrLabel28.Text = rm.GetString("lblShenim",ci);
-           // xrLabel73.Text = rm.GetString("footerRaportPerdorimiFaturesLejuarNgaDPTatimeveMeShkreseNrDateSinani", ci);
             xrLabel48.Text = rm.GetString("lblRaportEmerMbiemerNensh", ci);
             xrLabel53.Text = rm.GetString("lblRaportEmerMbiemerNensh", ci);
             xrLabel55.Text = rm.GetString("lblRaportEmerMbiemerNenshkrimiVule", ci);

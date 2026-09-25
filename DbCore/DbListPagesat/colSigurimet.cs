@@ -135,18 +135,10 @@ namespace DbCore.DbListPagesat
         private bool mbushSigurime(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSigurimet sig = new clsSigurimet();
-                    //sig.mbushSigurime(rreshti);
                     Add(new clsSigurimet(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

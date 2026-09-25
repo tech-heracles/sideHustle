@@ -192,20 +192,12 @@ namespace DbCore.DbQendraKosto
         private bool mbushQendraKosto(DataTable dt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsQendraKosto qendra = new clsQendraKosto();
-                //qendra.mbushQendraKosto(rreshti);
                 Add(new clsQendraKosto(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

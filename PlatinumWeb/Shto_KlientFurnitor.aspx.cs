@@ -100,7 +100,6 @@ namespace PlatinumWeb
             GridUtil.konfigGrideListeEMadhePaTheme(ASPxGridView_KF, "IdKlientFurnitor");
             AspxWebControlUtils.perkthePopUp(popFshi, rm.GetString("labelKujdes", ci), lblMsgbox, rm.GetString("msgnumRreshtashSelektuar", ci), ButtonCancel, rm.GetString("labelAnullo", ci));
             popupUniversal.HeaderText = rm.GetString("popupAdministrimiUniversal", ci);
-            //GridUtil.konfigGrideListeEMadhePaTheme(ASPxGridView_KF, "IdKlientFurnitor");
             PercaktoTamplate();
             ucFushatShtese.percaktoTemplateFushash();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "ASPxGridView_KF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);
@@ -212,8 +211,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.ShtoKolonaPerNivelCmimesh(btneNivelCmimi);
             ConfigureAspxComboBox.KonfiguroComboBoxObjektivaKosto(cmbObjektiva, IdNdermarrja);
             ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(IdNdermarrja, IdPerdoruesi, cmbAgjentShitjesh, btnAgjenti2, btnAgjenti3);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti2, IdNdermarrja, IdPerdoruesi);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti3, IdNdermarrja, IdPerdoruesi);
             ConfigureAspxComboBox.KonfiguroComboBoxGrupKf(IdNdermarrja, btneGrupimi1, 1, Request.QueryString["kf"] == "furnitor");
             ConfigureAspxComboBox.KonfiguroComboBoxGrupKf(IdNdermarrja, btneGrupimi2, 2, Request.QueryString["kf"] == "furnitor");
             ConfigureAspxComboBox.KonfiguroComboBoxGrupKf(IdNdermarrja, btneGrupimi3, 3, Request.QueryString["kf"] == "furnitor");
@@ -1306,11 +1303,6 @@ namespace PlatinumWeb
                 KonfiguroGride();
             }
 
-            //ASPxGridView_KF.Selection.UnselectAll();
-            //var itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
-            //var cmbFiltra = ((MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            //if (cmbFiltra.Text == "")
-            //    ASPxGridView_KF.FilterExpression = filterDefault;
         }       
 
         protected void txtNr2_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
@@ -1493,17 +1485,7 @@ namespace PlatinumWeb
                 FiltraVlera = ASPxGridView_KF.FilterExpression
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKlientFurnitor", ASPxGridView_KF);
-            //var kolona = ASPxGridView_KF.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodKlientFurnitor";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "ASPxGridView_KF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);
@@ -1780,10 +1762,6 @@ namespace PlatinumWeb
             if (string.IsNullOrEmpty(sortHfString))
                 return;
             GridUtil.renditGriden(sortHfString, ASPxGridView_KF);
-            //var sortColumn = sortHfString.Split(';');
-            //var fieldName = sortColumn[0];
-            //var sortOrder = sortColumn[1] == "Descending" ? DevExpress.Data.ColumnSortOrder.Descending : DevExpress.Data.ColumnSortOrder.Ascending;
-            //ASPxGridView_KF.DataColumns[fieldName].SortOrder = sortOrder;
         }
 
         private string GetSortedColumns()

@@ -13,10 +13,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
     public partial class Rap_ArtikujShiturDegeAdministrative : DevExpress.XtraReports.UI.XtraReport, IUpdateDetail
     {
 		public Rap_ArtikujShiturDegeAdministrative(){InitializeComponent();} 
-        //public Rap_Artikujteshitur()
-        //{
-        //    InitializeComponent();
-        //}
         Dictionary<string, bool> skippedDetailBands = new Dictionary<string, bool>();
         bool hapurgjitha = false;
         public Dictionary<string, bool> SkippedDetailBands
@@ -123,7 +119,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                 }
             }
         }
-
 
 
         public void UpdateDetail(string dega)

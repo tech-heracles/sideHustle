@@ -429,7 +429,6 @@ namespace DbCore.DbProdhimi
         public colTrupiPlanifikim merriSipasKoka(int idndermarje)
         {
             colTrupiPlanifikim data = new colTrupiPlanifikim();
-            //data.mbushTrupiPlanifikimi(IdKokaPlanifikim,idndermarje, null);
             data.mbushTrupiPlanifikimi(IdKokaPlanifikim, idndermarje);
             return data;
         }

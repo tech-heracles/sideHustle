@@ -78,7 +78,6 @@ public partial class AppointmentFormEx : SchedulerFormControl {
         base.OnLoad(e);
         Localize();
 		RenderRecurrenceControl(false);
-		//PrepareChildControls();
 		tbSubject.Focus();
 	}
     void Localize() {
@@ -119,7 +118,6 @@ public partial class AppointmentFormEx : SchedulerFormControl {
         PopulateResourceEditors(apt, container);
 
 		chkRecurrence.Visible = container.ShouldShowRecurrence;
-		//AppointmentRecurrenceForm1.Visible = container.ShouldShowRecurrence;
 
 		if(container.Appointment.HasReminder) {
 			cbReminder.Value = container.Appointment.Reminder.TimeBeforeStart.ToString();

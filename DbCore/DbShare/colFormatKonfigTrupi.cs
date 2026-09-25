@@ -73,18 +73,10 @@ namespace DbCore.DbShare
         private bool mbushKonfigurimFormateshTrupi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFormatKonfigTrup konfig = new clsFormatKonfigTrup();
-                    //konfig.mbushFormatKonfigTrupi(rreshti);
                     Add(new clsFormatKonfigTrup(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

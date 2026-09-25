@@ -235,7 +235,6 @@ namespace PlatinumWeb
             if ((konvertim || klonim) && Request.QueryString["niveli"] != null)
                 cmbLloji.Value = Request.QueryString["niveli"];
             else {
-                //cmbLloji.Value = koka.IdNivel;
                 cmbLloji.SelectedItem = cmbLloji.Items.FindByValue(koka.IdNivel.ToString());
             }
             mbushComboKonfigurimet(true, rm, ci, idGjuha, idNdermarrje, idPerdoruesi);
@@ -695,7 +694,6 @@ namespace PlatinumWeb
             }
             foreach (clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today, clsArtikulli.ktheKontrollCmimiPerDetajim(t.IdArtikulli), log, cultinf, rm, (int)hfState["idNdermarrje"], (int)hfState["idPerdoruesi"]);
                 if (!mesazh.Status)
                     if (pergjigja.Text == "fshi")
@@ -799,7 +797,6 @@ namespace PlatinumWeb
                             aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
                     }
                     else aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
-
 
 
                 if (m.Name == "Serialet")
@@ -1071,10 +1068,8 @@ namespace PlatinumWeb
             {
                 HfColTrupMag.Value = JsonConvert.SerializeObject(col);
                 var colart = col.ktheColArtikuj();
-                //var colart = col.ktheColArtikujPaLoop(idNdermarrje, IdPerdoruesi);
                 HfColArt.Value = JsonConvert.SerializeObject(colart);
                 var colartset = col.ktheColArtikujSet();
-                //var colartset = col.ktheColArtikujSetPaLoop(idNdermarrje, idPerdoruesi);
                 HfColArtSet.Value = JsonConvert.SerializeObject(colartset);
                  var colKodbari = DbCore.DbInventari.colKodbare.merrKodbarArtikulliNeTrupDokMagazine(idkokamagazina);
                 HfColKodbare.Value = JsonConvert.SerializeObject(colKodbari);
@@ -1320,10 +1315,6 @@ namespace PlatinumWeb
                         if (hfShtimModifikim.Value == "modifikim")
                         {
                             var id = Request.QueryString["id"];
-                            //var clsKoka = new clsKokaMagazina();
-                            //clsKoka.mbushKokaMagazinaSipasID(int.Parse(id));
-                            //var konf = new clsKonfigurimAmbjenti();
-                            //konf.mbushKonfiguriminMeID(clsKoka.IdKonfigAmbjente);
                             Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=Rap_Format_Printimi_Magazina&idDokumenti=" + id + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;//clsKoka.IdKokaMagazina
                         }
                         else
@@ -1771,13 +1762,10 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
             hfNrAutoShitje = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrProjekti", "NrProjekt");
             hfNrAutoShitje = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrSerial", "NrSerial");
-            //NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrProjekti", "NrProjekt");
 
             var koka = new clsKokaMagazina();
             clsNdermarrje nderm = new clsNdermarrje(IdNdermarrja);

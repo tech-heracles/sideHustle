@@ -81,7 +81,6 @@ namespace DbCore.DbListPagesat
         public clsKomponenteListPagesePunonjesi(DataRow rreshti)
         {
 
-            // mbushKomponenteListPagesePunonjesi(rreshti);
         }
 
         public clsKomponenteListPagesePunonjesi(IDataRecord record)
@@ -253,14 +252,10 @@ namespace DbCore.DbListPagesat
                 if (mbiemer != "" && pun.Mbiemer != mbiemer)
                     throw new Exception("Mbiemri i punonjesit nuk eshte i sakte!");
 
-                //if (data.Year != vitinderm)
-                //    throw new Exception("Viti i pages dhe shtesa duhet ti perkase vitit ushtrimor!");
                 clsKomponentePage komp = new clsKomponentePage(komponente, idndermarje, data);
                 if (komp.IdKomponentePage <= 0)
                     throw new Exception("Komponentja nuk ekziston!");
 
-                //if (ekzistonListOrari(data, idPunonjesi, dblist))
-                //    throw new Exception("Ekziston nje list orari per punonjesin " + pun.NrPersonal + " per daten " + data.ToShortDateString());
                 return new clsKomponenteListPagesePunonjesi(0, idPunonjes, komp.IdKomponentePage, data, komp.ShfaqDefault, komp.ShfaqDefault, idperdoruesi, totali)
                 {
                     kodKomponente = komp.Kodi,

@@ -43,19 +43,11 @@ namespace DbCore.DbListPagesat
         private bool mbushTrupiKonfigListOrari(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiKonfigListOrari konvertim = new clsTrupiKonfigListOrari();
-                    //konvertim.mbushTrupiKonfigListOrari(rreshti);
                     Add(new clsTrupiKonfigListOrari(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

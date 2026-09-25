@@ -17,7 +17,6 @@ namespace DbCore.DbAdmin
 
         #region Atributet
 
-        //private int idLogRivleresimInventari;
         private int idPerdoruesi;
         private int idNdermarje;
         private DateTime startTime;
@@ -231,30 +230,11 @@ nrArtikujve, nrMagazinave, periudhaNga.Date.ToLongDateString(), periudhaDeri.Dat
 
         #region Funksioni i vjeter qe shkruan loget e rivleresimit
         //private void writeOnLogFile(string stringToWrite) {
-        //    var maxRetry = 3;
-        //    for (int retry = 0; retry < maxRetry; retry++)
-        //    {
         //        try
-        //        {
-        //            using (StreamWriter sw = new StreamWriter(fileLogPath, true))
-        //            {
-        //                sw.WriteLine(stringToWrite);
         //                break; // you were successfull so leave the retry loop
-        //            }
-        //        }
-        //        catch (IOException)
-        //        {
-        //            if (retry < maxRetry - 1)
-        //            {
         //                System.Threading.Thread.Sleep(1435); // Wait some time before retry (2 secs)
-        //            }
         //            else
-        //            {
         //                // handle unsuccessfull write attempts or just ignore.
-        //            }
-        //        }
-        //    }
-        //}
         #endregion
 
         #endregion

@@ -25,7 +25,6 @@ namespace DbCore.DbProdhimi
         }
 
 
-
         /// <summary>
         /// konstruktori qe implementon klasen baze
         /// </summary>
@@ -128,18 +127,11 @@ namespace DbCore.DbProdhimi
             try
             {
 
-                //foreach (DataRow rreshti in dt.Rows)
-                //{
-                //    clsProjektProdhimi trupi = new clsProjektProdhimi();
-                //    trupi.(rreshti);
-                //    Add(trupi);
-                //}
 
             }
             catch (Exception)
             {
                 return false;
-                //throw;
             }
             return true;
         }

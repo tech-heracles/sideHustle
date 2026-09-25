@@ -160,19 +160,11 @@ namespace DbCore.DbAdmin
         private bool mbushAutorizimeKoka(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAutorizimKoka autorizim = new clsAutorizimKoka();
-                    //autorizim.mbushAutorizimKoka(rreshti);
                     Add(new clsAutorizimKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

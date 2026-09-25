@@ -45,7 +45,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrLabel16.Text = rm.GetString("labelFilterAvancuarGjendja", ci);
             xrLabel15.Text = rm.GetString("labelRaportKosto", ci);
             xrLabel31.Text = rm.GetString("labelRaportiTotali", ci);
-            //TotaliGjithMAgazinave.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel34.Text = rm.GetString("filterMagazina", ci);
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);

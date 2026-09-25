@@ -74,7 +74,6 @@ namespace PlatinumWeb
 
             if (!IsCallback)
                 if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                    //FormsAuthentication.RedirectToLoginPage();
                     DbCore.clsFunksione.logout(Session, false, "", false);
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
@@ -208,7 +207,6 @@ namespace PlatinumWeb
 
         private void shtokolona(int idNdermarrje, int idPerdorues)
         {
-            //shtoModelAutomjeti(idNdermarrje, visibleIndex);
             GridUtil.shtoModelAutomjeti(this.ASPxGridView_Automjete, idNdermarrje, Session);
             KonfigurimComboGride.shtoKlientLinear(ASPxGridView_Automjete, idNdermarrje, idPerdorues, Session, komponente, guidString, "IdKlienti");
         }
@@ -220,8 +218,6 @@ namespace PlatinumWeb
         private void shtoModelAutomjeti(int idNdermarrje, bool visibleIndex)
         {
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-            //if (typeof(GridViewDataComboBoxColumn) != ASPxGridView_Automjete.Columns["ModelAutomjeti"].GetType())
-            //{
             int indexi = ASPxGridView_Automjete.Columns["ModelAutomjeti"].VisibleIndex;
             ASPxGridView_Automjete.Columns.Remove(ASPxGridView_Automjete.Columns["ModelAutomjeti"]);
             ASPxGridView_Automjete.Columns.Add(colnew);
@@ -236,16 +232,7 @@ namespace PlatinumWeb
             colnew.FieldName = "ModelAutomjeti";
 
             colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            //DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, modelet, "colModelet");
-            //}
             //else
-            //{
-            //    colnew = (GridViewDataComboBoxColumn)ASPxGridView_Automjete.Columns["ModelAutomjeti"];
-            //    if (colnew.PropertiesComboBox.Items.Count == 0)
-            //    {
-            //        colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "colModelet");
-            //    }
-            //}
         }
 
         /// <summary>
@@ -253,31 +240,7 @@ namespace PlatinumWeb
         /// </summary>        
         /// <param name="idNdermarrje"></param>
         //private void shtoKlient(int idNdermarrje, int idPerdorues)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != ASPxGridView_Automjete.Columns["IdKlienti"].GetType())
-        //    {
-        //        ASPxGridView_Automjete.Columns.Remove(ASPxGridView_Automjete.Columns["IdKlienti"]);
-        //        ASPxGridView_Automjete.Columns.Add(colnew);
-        //        DbCore.DbKontabiliteti.colKlienteFurnitore klientet = new DbCore.DbKontabiliteti.colKlienteFurnitore();
-        //        klientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor(0, "", 0, false, 0, "", "", "", "", 0, "", "", "", "", "", "", "", "", false, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", 0, "", 0, 0, 0, "", 0, 0, 0, 0, false, "", 0, false, false, false, false, 0, 0, false, "", "", new DbCore.DbKontabiliteti.colMarreveshjetPerKlient(),0));
-        //        klientet.mbushKlienteFurnitoreNdermarrjes(idNdermarrje);
-        //        colnew.PropertiesComboBox.DataSource = klientet;
-        //        colnew.PropertiesComboBox.TextField = "KodKlientFurnitor";
-        //        colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-        //        colnew.FieldName = "IdKlienti";
-        //        colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, klientet, "colKlient");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)ASPxGridView_Automjete.Columns["IdKlienti"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, "colKlient");
-        //        }
-        //    }
-        //}
         
         /// <summary>
         /// ndodh kur menuja ben bound
@@ -327,20 +290,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Automjete.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Targa", ASPxGridView_Automjete);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_Automjete.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Targa";
-            //    filtri.DrejtimRenditje = true;
-            //}
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -481,10 +432,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPageControl1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, this.ASPxPageControl1, null, null);
 
             hfNrAutoKF = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrShasie", "NrShasie");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrShasie", "NrShasie");
 
             int idAuto;
             if (shtim == true)
@@ -596,7 +545,6 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-           // List<object> rreshtat = ASPxGridView_Automjete.GetSelectedFieldValues("IdAutomjeti");
             if (rreshtat.Count == 0)
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhZgjidhniNje, pnlMesazhi);
@@ -614,7 +562,6 @@ namespace PlatinumWeb
                 if (auto.IdAutomjeti == 0)
                     continue;
 
-                //konf.mbushKonfigAmbjSipasId(auto.IdAutomjeti);
                 konf.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, idNdermarrje);
                 bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(auto.IdAutomjeti.ToString(), konf.IdNivel.ToString());
                 if (lidhur)

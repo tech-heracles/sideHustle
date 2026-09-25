@@ -142,7 +142,6 @@ namespace DbCore.DbCRM
                 foreach (DataRow rreshti in dt.Rows)
                 { 
                     clsOpsioneAnkete opsioneAnkete = new clsOpsioneAnkete();
-                  //  opsioneAnkete.mbushOpsioneAnkete(rreshti);
                     Add(opsioneAnkete);
                 }
             }
@@ -165,9 +164,7 @@ namespace DbCore.DbCRM
         ///// kthen objektin <see cref="DbCore.DbCRM.clsOpsioneAnkete"/>  qe ndodhet ne nje index te caktuar te arraylist-es
         ///// </summary>
         //public new clsOpsioneAnkete this[int index]
-        //{
         //    get { return ((clsOpsioneAnkete)base[index]); }
-        //}
 
        
         //#endregion
@@ -175,23 +172,8 @@ namespace DbCore.DbCRM
         //#region Metoda Private
 
         //private bool mbushColOpsioneAnketa(DataTable dt)
-        //{
         //    try
-        //    {
-        //        foreach (DataRow rreshti in dt.Rows)
-        //        {
-        //            clsOpsioneAnkete opsione = new clsOpsioneAnkete();
-        //            opsione.mbushOpsioneAnkete(rreshti);
-        //            Add(opsione);
-        //        }
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
 
         //#endregion
 

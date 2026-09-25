@@ -152,13 +152,6 @@ namespace DbCore.DbInventari
         /// <param name="idperdorues">id e perdoruesit</param>
         /// <param name="idndermarje">id e ndermarrjes</param>
         /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
-        //public static DataTable mbushCmimArtikulliSipasFiltrit(string kodartikulli, string kodbar, string pershkrimi1, string pershkrimi2, string kodifikimi1, string kodifikimi2, string furnitori, string njesia, string datafillimit, string datambarimit, int idnivelcmimi, int idperdorues, int idndermarje, int shitjeblerje, string llogaritkosto)
-        //{
-        //    clsDatabaseInventari dbCmimArtikulli = new clsDatabaseInventari();
-        //    DataTable tabela = dbCmimArtikulli.ktheCmimArtikulliSipasFiltritAll(kodartikulli, kodbar, pershkrimi1, pershkrimi2, kodifikimi1, kodifikimi2, furnitori, njesia, datafillimit, datambarimit, idnivelcmimi, idperdorues, idndermarje, shitjeblerje, llogaritkosto);
-        //    dbCmimArtikulli.Dispose();
-        //    return tabela;
-        //}
 
 
         /// <summary>
@@ -273,8 +266,6 @@ namespace DbCore.DbInventari
         {
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsCmimArtikulli cmimArtikullit = new clsCmimArtikulli();
-                //cmimArtikullit.mbushCmimArtikulli(rreshti);
                 this.Add(new clsCmimArtikulli(rreshti));
             }
             return true;

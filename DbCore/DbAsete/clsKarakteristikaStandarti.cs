@@ -562,14 +562,7 @@ namespace DbCore.DbAsete
         ///// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
         ///// <returns>Kthen objektin clsKarakteristikaStandarti te mbushur.</returns>
         //public static clsKarakteristikaStandarti merrKonfigurimStandartiNgaIdArtikulli(int idArtikulli, int idStandarti, int idNdermarrje, clsDatabazeAsete dbasete)
-        //{
-        //    DbInventari.clsArtikulli artikulli = new DbInventari.clsArtikulli();
-        //    DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbasete );
 
-        //    if (!artikulli.mbushArtikull(idArtikulli, dbinv))
-        //        return null;
-        //    return merrKonfigurimStandarti(DbInventari.clsKodifikimArtikulli.ktheIdPrindiFillestar(artikulli.Kodifikimi1Artikulli,dbinv), idStandarti, idNdermarrje, dbasete);
-        //}
 
         /// <summary>
         /// MODULI ASETE:

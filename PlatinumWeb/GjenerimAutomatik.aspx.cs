@@ -182,58 +182,11 @@ namespace PlatinumWeb
         }
 
         //private void shtoNivel(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdNivel"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdNivel"]);
-        //        grida.Columns.Add(colnew);
 
-        //        DataView nivele = colNivelRegjistrimi.ktheGjitheNivelRegjistrimiSipasKategoriDtCombo(1, idNdermarrje, idPerdoruesi, true);
-        //        DataView nivele1 = colNivelRegjistrimi.ktheGjitheNivelRegjistrimiSipasKategoriDtCombo(2, idNdermarrje, idPerdoruesi, true);
-        //        nivele.Table.Merge(nivele1.Table);
-        //        colnew.PropertiesComboBox.DataSource = nivele;
-        //        colnew.PropertiesComboBox.TextField = "Pershkrimi";
-        //        colnew.PropertiesComboBox.ValueField = "IdNivel";
-        //        colnew.FieldName = "IdNivel";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, nivele, komponente + "nivele" + idNdermarrje);
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdNivel"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdNivel"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "nivele" + idNdermarrje);
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //}
         
         //private void shtoTransportues(string komponente, int idNdermarrje, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdTransportues"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdTransportues"]);
-        //        grida.Columns.Add(colnew);
-        //        DataTable dt = DbCore.DbInventari.colTransportues.merrTransportuesSipasNdermarrjesDtSmall(idNdermarrje);
-        //        dt.Rows.InsertAt(dt.NewRow(), 0);
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "Emertimi";
-        //        colnew.PropertiesComboBox.ValueField = "IdTransportues";
-        //        colnew.FieldName = "IdTransportues";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colTransportues");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdTransportues"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colTransportues");
-        //        }
-        //    }
-        //}
 
         private void shtoColor()
         {
@@ -246,157 +199,29 @@ namespace PlatinumWeb
         }
 
         //private void shtoModel(string komponente, int idNdermarrje, int idPerdoruesi, int idGjuha, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdKonfigAmbjente"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdKonfigAmbjente"]);
-        //        grida.Columns.Add(colnew);
 
 
-        //        DataTable dt = DbCore.DbShare.colKonfigurimAmbjenti.ktheKonfigAmbjSipasIdKategoriDTSmall(1, idNdermarrje, idPerdoruesi, idGjuha);
-        //        DataTable dt2 = DbCore.DbShare.colKonfigurimAmbjenti.ktheKonfigAmbjSipasIdKategoriDTSmall(2, idNdermarrje, idPerdoruesi, idGjuha);
-        //        dt.Merge(dt2);
-        //        DataRow dr = dt.NewRow();
-        //        //  dr["IdKonfigAmbjente"] = 0;
-        //        dt.Rows.InsertAt(dr, 0);
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "KodKonfigAmbjente";
-        //        colnew.PropertiesComboBox.ValueField = "IdKonfigAmbjente";
-        //        colnew.FieldName = "IdKonfigAmbjente";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colKonfig");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdKonfigAmbjente"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdKonfigAmbjente"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colKonfig");
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //}
 
 
         //private void shtoMonedhe(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdMonedha"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdMonedha"]);
-        //        grida.Columns.Add(colnew);
 
-        //        DataTable dt = DbCore.DbAdmin.colMonedhat.ktheGjitheMonedhatAktiveDtSmall(idNdermarrje, idPerdoruesi);
-        //        dt.Rows.InsertAt(dt.NewRow(), 0);
 
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "MONEDHAKOD";
-        //        colnew.PropertiesComboBox.ValueField = "IDMONEDHA";
-        //        colnew.FieldName = "IdMonedha";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colMonedhat");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdMonedha"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdMonedha"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colMonedhat");
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //}
 
 
         //private void shtoDegeAdm(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdDegeAdministrative"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdDegeAdministrative"]);
-        //        grida.Columns.Add(colnew);
-        //        DataTable dt = DbCore.DbRegjistrim.colDegeAdministrative.ktheGjitheDegeAdministrativeDtSmall(idNdermarrje);
-        //        dt.Rows.InsertAt(dt.NewRow(), 0);
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "Kodi";
-        //        colnew.PropertiesComboBox.ValueField = "IdDegeAdministrative";
-        //        colnew.FieldName = "IdDegeAdministrative";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colDege");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdDegeAdministrative"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdMonedha"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colDege");
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //}
         
         //private void shtoGrup1(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdGrup1"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdGrup1"]);
-        //        grida.Columns.Add(colnew);
-        //        DataTable dt = colGrupimDokumentiKoka.merrGrupeSipasGrupitDtSmall(1, idNdermarrje, idPerdoruesi);
-        //        dt.Rows.InsertAt(dt.NewRow(), 0);
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "Kodi";
-        //        colnew.PropertiesComboBox.ValueField = "IdGrupimKoka";
-        //        colnew.FieldName = "IdGrup1";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colGrup1");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdGrup1"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdMonedha"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colGrup1");
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //}
 
 
         //private void shtoPikeShitjeFurnizim(string komponente, int idNdermarrje, ASPxGridView grida)
-        //{
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    if (typeof(GridViewDataComboBoxColumn) != grida.Columns["IdPikeShitjeFurnizimi"].GetType())
-        //    {
-        //        grida.Columns.Remove(grida.Columns["IdPikeShitjeFurnizimi"]);
-        //        grida.Columns.Add(colnew);
-        //        DataTable dt;
 
 
-        //        dt = colPikaShitjeFurnizimi.mbushGjithePikeShitjeFurnizimiDtSmall(idNdermarrje);
-        //        dt.Rows.InsertAt(dt.NewRow(), 0);
-        //        colnew.PropertiesComboBox.DataSource = dt;
-        //        colnew.PropertiesComboBox.TextField = "Kodi";
-        //        colnew.PropertiesComboBox.ValueField = "IdPikeShitjeFurnizimi";
-        //        colnew.FieldName = "IdPikeShitjeFurnizimi";
-        //        colnew.Caption = "Pike Shitje/Furnizimi";
-        //        DbCore.mySessionObjects.ruajDsComboGrideNeSession(Session, dt, komponente + "colPikat");
-        //    }
         //    else
-        //    {
-        //        colnew = (GridViewDataComboBoxColumn)grida.Columns["IdPikeShitjeFurnizimi"];
-        //        if (colnew.PropertiesComboBox.Items.Count == 0)
-        //        {
-        //            //gvGjenerimi.Columns.Remove(gvGjenerimi.Columns["IdPikeShitjeFurnizimi"]);
-        //            colnew.PropertiesComboBox.DataSource = DbCore.mySessionObjects.merrDsComboGrideNeSession(Session, komponente + "colPikat");
-        //            //gvGjenerimi.Columns.Add(colnew);
-        //        }
-        //    }
-        //    //int visibleIndex = gvGjenerimi.Columns["IdPikeShitjeFurnizimi"].VisibleIndex;
 
-        //    //colnew.VisibleIndex = visibleIndex;            
-        //}
 
         /// <summary>
         /// mbush combon e kolones LlojiKf
@@ -404,7 +229,6 @@ namespace PlatinumWeb
         /// <param name="komponente"></param>
         
 
-        
         /// <summary>
         /// mbush combon e kolones Prodhuar
         /// </summary>
@@ -486,8 +310,6 @@ namespace PlatinumWeb
             KonfigurimComboGride.ShtoPikeShitjeFurnizim(gvGjenerimi2, idNdermarrje, Session, komponente, guidString, "IdPikeShitjeFurnizimi", "default");
             shtoColor();
             //// shtoAutomjet(idNdermarrje);
-           //  DbCore.clsFunksione.percaktoVisibleColumnsSipasKonfigurimit(gvGjenerimi, "gvGjenerimi", komponente, int.Parse(cmbKonfigurimi.Value.ToString()), true, idGjuha);
-           // DbCore.clsFunksione.percaktoVisibleColumnsSipasKonfigurimit(gvGjenerimi2, "gvGjenerimi", komponente, int.Parse(cmbKonfigurimi.Value.ToString()), true, idGjuha);
 
             GridUtil.konfigGrideListeEMadhePaTheme(gvGjenerimi, "IdShitjeKoka");
             gvGjenerimi.SettingsPager.PageSize = 10;
@@ -574,7 +396,6 @@ namespace PlatinumWeb
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
                      DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvGjenerimi", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
-                    //DbCore.DbAdmin.clsGridaKoka koka2 = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvGjenerimi2", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], idNdermarrje, koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)
                     {
@@ -699,7 +520,6 @@ namespace PlatinumWeb
                     kokam.mbushKokaMagazinaSipasIDGjenerues(k.IdShitjeKoka, 2, k.IdKonfigAmbjente);
                 else
                     kokam.mbushKokaMagazinaSipasIDGjenerues(k.IdShitjeKoka, 1, k.IdKonfigAmbjente);
-                //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(k.DtDok, idNdermarrje);
                 int idPeriudhaKontabel = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(k.DtDok, idNdermarrje);
                 DbCore.DbInventari.colArtikujt colart = new colArtikujt(k.IdShitjeKoka);
                 DbCore.DbKontabiliteti.colLlogarite colllog = new colLlogarite(k.IdShitjeKoka);
@@ -771,7 +591,6 @@ namespace PlatinumWeb
                 string kodmonedhe = "", kodmenyretras = "", kodkushtderg = "", kodagjenti1 = "", kodkushtepages = "", koddege = "", kodpike = "", kodmagazina = "", kodgrup1 = "", kodagjenti2 = "", kodagjenti3 = "", kodtrasportuesi = "";
                 if (k.IdMonedha != 0)
                 {
-                    //DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha(k.IdMonedha);
                     kodmonedhe = clsMonedha.ktheKodMonedheSipasId(k.IdMonedha); //mon.KodiMonedha;
                 }
                 if (k.IdMenyreTransporti != 0)

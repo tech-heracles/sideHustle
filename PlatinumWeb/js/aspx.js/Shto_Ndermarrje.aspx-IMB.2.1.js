@@ -91,7 +91,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     if (e.item.name === 'Ruaj') {
         myMesazh.vendosClient();
@@ -107,12 +106,10 @@ function menu_click(s, e) {
 
 function PoClick(s, e) {//po
     popLlojLicence.Show();
-    //e.processOnServer = false;
     ButtonOk3.SetVisible(false);
 }
 
 function JoClick(s, e) {    
-    //e.processOnServer = true;
     Utils.shfaqLoadingGif();;
     btnVazhdoRuajtje.DoClick();
 }
@@ -218,7 +215,6 @@ function SucceededCallbackQyteteDefault(result) {
 function SucceededCallbackImazhi(result) {
     if (!ASPxGridView_Ndermarrjet.InCallback())
         btnShfaqImazh.DoClick();
-    // ppp.SetValue(result);            
 }
 
 //therret funksionin qe ben enabled dhe disabled fushat sipas lidhjes
@@ -328,27 +324,16 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //                var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblNdermarja', 'tblKontakti', 'tblModel'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
-        //                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //                ASPxGridView_Ndermarrjet.PerformCallback("129" + ";" + cmbKonfigurimi.GetText());
         if ($('#hfShtimModifikim').val() == "shtim" ){
             ucEmerSkedari.SetVisible(false);
             lblCertifikata.SetVisible(false);
@@ -358,27 +343,11 @@ function SucceededCallbackKonfig(result) {
 
     }
 
-  //  $("#dvNdermarja").show();//$("#dvNdermarja")[0].style.visibility = 'visible';
 }
-//        function SucceededCallbackKonfigurimi(result) {
-//            if (result != "") {
-//                var vlerat = '';
-//                resultkonf = result;
-//                vlerat = result.split('*');
-//                var kontrollet = vlerat[0].split(';');
-//                var hf = $('#hfKontrollet')[0];
-//                var hfLidhur = $("#hfLidhur")[0];
-//                var hfMod = $('#hfShtimModifikim')[0];
-//                var arrTabela = ['tblNdermarja', 'tblKontakti'];
-//                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
 ////                ASPxGridView_Ndermarrjet.PerformCallback("129" + ";" + cmbKonfigurimi.GetText());
-//            } $("#dvNdermarja")[0].style.visibility = 'visible';
-//        }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //            var hfLidhur = $("#hfLidhur")[0];
-    //            myFaqeCelje.aktivizoFusha(vlerat, hfMod, isLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 function ndryshoKonfigurimin() {
@@ -415,7 +384,6 @@ $(document).ready(function () {
 });
 
 function changeName() {
-    //   aspxPreviewImgSrc = previewImage.ImageUrl;
     var hf = $("#hfKonffillestar")[0];
     myFaqeCelje.changeName('Shto_Ndermarrje.aspx', 0, hf);
     myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $('#hfShtimModifikim'));
@@ -432,7 +400,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, ASPxGridView_Ndermarrjet, "129")
     if (cmbRaportuesi.IsVisible() && (hfState.Contains('idNdermERe') && hfState.Contains('kodNdermERe')) && (hfState.Get("idNdermERe") !== "" && hfState.Get("kodNdermERe") !== "")) {
         var idNdermRe = hfState.Get("idNdermERe");
         var ndermKodi = hfState.Get("kodNdermERe");
@@ -484,7 +451,6 @@ function enter() {
         event.cancel = true;
     }
 }
-//        var aspxPreviewImgSrc = getPreviewImageElement().src;
 var aspxPreviewImgSrc;
 
 function Ngarkuesi_NeNgarkimFillim() {
@@ -496,8 +462,6 @@ function Ngarkuesi_NeFileNgarkimPlotesuar(args) {
         var date = new Date();
         imgSrc = "images/" + args.callbackData + "?dx=" + date.getTime();
     }
-    //   previewImage.SetImageUrl(imgSrc);
-    //            getPreviewImageElement().src = imgSrc;
 }
 
 function Ngarkuesi_NeFiletNgarkimPlotesuar(args) {

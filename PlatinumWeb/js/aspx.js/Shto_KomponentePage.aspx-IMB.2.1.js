@@ -120,7 +120,6 @@ function menu_click(s, e) {
 
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     switch (e.item.name) {
         case "RuajList":
@@ -316,7 +315,6 @@ function LupaKontrollet(kontrollet, colAtrTrupi) {
 // aktivizon fushat
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //        myFaqeCelje.aktivizoFusha(vlerat, hfMod, hfLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
     aktivizofushaNjesia();
 }
@@ -352,7 +350,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKomponentePage, "703")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKomponentePage, "703", pastrofusha, hfTeDrejta);
     aktivizofushaNjesia();
     //ne rastin qe nuk ka ndryshime te paruajtura ndryshojem dt

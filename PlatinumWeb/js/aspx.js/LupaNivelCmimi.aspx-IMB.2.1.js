@@ -24,7 +24,6 @@ function Init() {
         myFaqeCelje.shtoHandlerSession();
         gvLupaNivCm.SetFocusedRowIndex(0);
         gvLupaNivCm.SelectRowOnPage(0, true);
-        //btnOk.Focus();
     }
     catch (err) {
         ///alert('gabim');    
@@ -122,8 +121,6 @@ function gup(name) {
 $(window).load(function () {
     try {
         $("#div").show();//$("#div")[0].style.visibility = 'visible';
-        //panel.SetWidth(document.documentElement.clientWidth - 30);
-        //gvLupaNivCm.SetWidth(document.documentElement.clientWidth - 30);
         Init();
     }
     catch (e) {
@@ -132,8 +129,6 @@ $(window).load(function () {
 
 $(window).bind('resize', function () {//po
     try {
-        //panel.SetWidth(document.documentElement.clientWidth - 30);
-        //gvLupaNivCm.SetWidth(document.documentElement.clientWidth - 30);
     }
     catch (e) {
     }

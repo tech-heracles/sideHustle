@@ -23,9 +23,6 @@ function changeName() {//po
 }
 
 jQuery(document).ready(function () {//po   
-    //formGridColsArray();
-    //inicializoGride();
-    //mbushGrideNgaHiddenFieldet();
     
     $(window).on('resize', function () {//po
         try {
@@ -65,11 +62,7 @@ jQuery(document).ready(function () {//po
 function Init() {//po
     if (typeof (isPostBack) == "undefined") {
         var HfPeriudheObj = window.parent.lexoHfPeriudhe();
-        //alert(HfPeriudheObj.fillimiPeriudha);
         dteDtNga.SetDate(new Date(HfPeriudheObj.FillimiPeriudha));
-        //    callWebserviceKonfigurimi("807"); //807 = id komponente (Shto_Ekzekutim.aspx)
-        //var hf = document.getElementById("hfKonffillestar");
-        //cmbKonfigurimi.SetText(hf.value);
         ndryshoKonfigurimin();
         identifikuesPerPopupKodifikimin = "GjeneroProjekt";
         identifikuesPerPopupDokumentat = "GjeneroProjekt";
@@ -208,7 +201,6 @@ function ButtonClickKerko(listUrl) {//po
 }
 
 
-
 function kerko() {
     grid_faturat.PerformCallback();
     nvFatura.ExpandAll();
@@ -271,9 +263,7 @@ function SucceededCallbackKonfig(result) {//po
       var vlerat = myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, undefined, hf, '', arrTabela, undefined, undefined, hfLidhur, arrPrind);
       $("#divgride1").show();//$("#divgride1")[0].style.visibility = 'visible';
       $("#dvFillim").show();//$("#dvFillim")[0].style.visibility = 'visible';
-    //$("#dvFillim")[0].style.display = '';
       $("#dvFundi").show();//$("#dvFundi")[0].style.visibility = 'visible';
-    //$("#dvFundi")[0].style.display = '';
       $("#dvbtnKerko").show();//$("#dvbtnKerko")[0].style.visibility = 'visible';
 
     $("#dvgvFaturat").show()//$("#dvgvFaturat")[0].style.visibility = 'visible'; $("#dvgvFaturat")[0].style.display = '';
@@ -476,11 +466,9 @@ function RuajClick(s, e) {
     }
     click = true;
     if (isValidKoka()) {
-        // $('#hfPlanifikime').val(JSON.stringify(arrPlanifikime));
         grida.jqGrid('saveRow', idRresht, false, 'clientArray');
         grida.setLastSel2(0);
         merrTeDhenaArt();
-        //  $('#gridDataObject').val(JSON.stringify(coliArtPerb));
     }
     else {
         e.processOnServer = false;
@@ -557,7 +545,6 @@ function OnGridFaturatSelectionComplete(values) { //po
             url: Utils.getServerApiUrl("Rregjistrime", "MerrProjekteTeGjeneruara"),
             data: JSON.stringify({ id: values })
         }).done(SucceededCallbackMbushGride);
-        // gvGjenerimi.PerformCallback(-1 + ';shtoReshta;' + values);
     }
 }
 function SucceededCallbackMbushGride(result) { //pati 
@@ -567,7 +554,6 @@ function SucceededCallbackMbushGride(result) { //pati
     var index;
     if (gridIds.length > 0) index = parseFloat(gridIds[gridIds.length - 1]) + 1;
     else index = 1;
-    //   jQuery("#rowed5").jqGrid('saveRow', lastsel2, false, 'clientArray');
     var idkoka, nrprojekti, kodart, pershkart, sasiakt, data, gjeresi, gjatesi, sasipor, sasipermase, kodklienti, emerklienti, nrurdhershitje, idmag, idnjesi, idart, idklienti, shenime, idtrupi, detajim1, detajim2;
     for (var i = 0; i < colTrup.length; i++) {
         if (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides - 1] == 'True' || lidhur)
@@ -576,7 +562,6 @@ function SucceededCallbackMbushGride(result) { //pati
             be = myJQGrid.myValueButtonFshi(false, index, "#rowed5");
         //onChange='ruajCheck(&quot;" + grida + "&quot;," + lastsel2 + ")'  onChange='ruajCheck(&quot;" + grida + "&quot;," + lastsel2 + ")' 
         var el3check = "<input  id ='cbGjenero" + index + "'  type ='checkbox'   checked='checked' style='width: 100%'  />   ";
-        //   var el3check2 = "<input  id ='cbGjenero" + lastsel2 + "'  type ='checkbox'   style='width: 100%'  />   ";
         idkoka = colTrup[i].IdKoka;
         nrprojekti = colTrup[i].NrProjekti;
         kodart = colTrup[i].KodArtikulli;
@@ -613,8 +598,6 @@ function SucceededCallbackMbushGride(result) { //pati
         grida.setTekstQelize('txtSasiPermase', index, sasipermase);
         index = index + 1;
     }
-
-
 
 
 }

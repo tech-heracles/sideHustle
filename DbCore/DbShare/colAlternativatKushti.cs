@@ -53,21 +53,13 @@ namespace DbCore.DbShare
         {
 
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAlternativaKushti trupi = new clsAlternativaKushti();
-                    //trupi.mbushAlternativKusht(rreshti);
                     this.Add(new clsAlternativaKushti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
 
         }

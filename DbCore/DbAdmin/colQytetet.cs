@@ -87,7 +87,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         public bool mbushQytetetNdermarrjes(int idNdermarje)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
@@ -103,19 +102,11 @@ namespace DbCore.DbAdmin
         private bool mbushQytetet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsQyteti qyteti = new clsQyteti();
-                    //qyteti.mbushQyteti(rreshti);
                     Add(new clsQyteti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

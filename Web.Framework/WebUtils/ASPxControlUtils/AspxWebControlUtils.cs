@@ -52,16 +52,12 @@ namespace PlatinumWeb.ApplicationUtils
         /// <param name="menu">kontrollin e menuse</param>
         public static void konfiguroMenuPaTheme(ASPxMenu menu)
         {//konfigurimi i menu si toolbar
-            //menu.CssFilePath = "~/App_Themes/Aqua/{0}/styles.css";
-            //menu.CssPostfix = "Aqua";
-            //menu.ImageFolder = "~/App_Themes/Aqua/{0}/";
             menu.ItemSpacing = 0;
 
             menu.SeparatorHeight = 40;
             menu.SeparatorWidth = 1;
             menu.TextIndent = 5;
 
-            // menu.ImageSpacing = 5;
             menu.Height = 5;
             for (int i = 0; i < 11; i++)
             {
@@ -261,7 +257,6 @@ namespace PlatinumWeb.ApplicationUtils
                             break;
 
                         case "dlidhesbanka":/// kur dokumenti perdoret tek veprimet e bankes
-                            //clsKonfigurimAmbjenti konfgjenerues = new clsKonfigurimAmbjenti(int.Parse(dr["idkonfigambjente"].ToString()));
 
                             if (clsKonfigurimAmbjenti.ktheIdKategori(Int32.Parse(dr["idkonfigambjente"].ToString())) != 20)
                             {
@@ -283,7 +278,6 @@ namespace PlatinumWeb.ApplicationUtils
                             break;
 
                         case "dlidheskthim":/// kur dokumenti perdoret tek khtimet
-                            //clsKonfigurimAmbjenti konfgjenerues = new clsKonfigurimAmbjenti(int.Parse(dr["idkonfigambjente"].ToString()));
 
                             if (clsKonfigurimAmbjenti.ktheIdKategori(Int32.Parse(dr["idkonfigambjente"].ToString())) == 1)
                             {

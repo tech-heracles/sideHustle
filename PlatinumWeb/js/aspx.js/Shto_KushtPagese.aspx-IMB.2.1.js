@@ -402,7 +402,6 @@ function ButtonClickKushtPagese(editor, key) {
     editorKushtPagese = document.getElementById(editor);
     keyGlobal = key;
     popupUniversal.SetHeaderText('Zgjidh kushtet e pageses');
-    // document.getElementById.src = 'LupaKushtePagese.aspx';
     popupUniversal.Show();
 }
 
@@ -427,7 +426,6 @@ function KeyPress(editor, key) {
         editorKushtPagese = document.getElementById(editor);
         keyGlobal = key;
         popupUniversal.SetHeaderText('Zgjidh kushtet e pageses');
-        //  document.getElementById.src = 'LupaKushtePagese.aspx';
         popupUniversal.Show();
         event.returnValue = false;
         event.cancel = true;
@@ -571,7 +569,6 @@ function RuajOverview_Click(s, e) {
         hfTrupi.value = 'Gabim';
         alert('Plotesoni trupin');
         e.processOnServer = false;
-        //PageControl.SetActiveTab(PageControl.GetTab(2))
     }
 }
 function TextChanged_kodi_TextBox(s, e) {

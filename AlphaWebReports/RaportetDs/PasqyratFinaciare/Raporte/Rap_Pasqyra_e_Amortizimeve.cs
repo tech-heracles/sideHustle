@@ -34,7 +34,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
            
 
-           // xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             EmrateLabelave(ci);
 
         }
@@ -42,8 +41,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
         private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
@@ -71,31 +68,26 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
             //    niv++;
         }
 
         private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
             //   niv++;
         }
 
         private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
             //  niv++;
         }
 
         private void xrLabel56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
             //   niv++;
         }
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
             niv++;
         }
 
@@ -410,12 +402,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         }
 
-        //private void xrLabel79_SummaryReset(object sender, EventArgs e)
-        //{
-        //    niv = 0;
-        //    niv2 = 0;
-        //    niv3 = 0;
-        //}
 
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -808,22 +794,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-            //xrLabel12.Text = rm.GetString("RaportiPASQYRALEVIZJESFONDEVETitulli", ci);
-            //FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel9.Text = rm.GetString("labelRaportiEmertimi", ci);
-            //xrLabel7.Text = rm.GetString("labelLogoIMB", ci);  
-            //xrLabel1.Text = rm.GetString("labelRaportiNr", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha", ci);         
-            //xrLabel107.Text = rm.GetString("lblRaportNrLlog", ci);
-            //xrLabel19.Text = rm.GetString("labelRaportiEmertimi", ci);
-            //xrLabel20.Text = rm.GetString("lblRaportTepricaCelje", ci);
-            //xrLabel23.Text = rm.GetString("lblRaportLevizjetPerPeriudhen", ci);
-            //xrLabel21.Text = rm.GetString("labelRaportiDebi", ci);
-            //xrLabel22.Text = rm.GetString("labelRaportiKredi", ci);
-            //xrLabel16.Text = rm.GetString("lblRaportTepricaMbyllje", ci);
-            //xrLabel2.Text = rm.GetString("labelRaportiKredi", ci);
-            //xrLabel44.Text = rm.GetString("labelRaportiKredi", ci);
-          
         }
 
         private void xrLabel35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -2710,9 +2680,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //if (niv != 12)
             //    niv++;
-            //else niv += 3;
         }
 
         private void xrTableCell15_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -3771,9 +3739,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell147_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //if (niv != 12)
             //    niv++;
-            //else niv += 3;
         }
 
         private void xrTableCell150_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -3901,8 +3867,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell162_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //e.Result = niv;
-            //e.Handled = true;
         }
 
         private void xrTableCell165_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

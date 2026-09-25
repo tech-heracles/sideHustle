@@ -44,13 +44,8 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             adresaFaturimit.Value = raport.Parameters[27].Value;
             parameter20.Value = raport.Parameters["filterAktivitetiKlient"].Value;
             Monedha.Value = raport.Parameters["monedhaKF"].Value;
-           // if (Monedha.Value.ToString() == "False")
-              //  xrLabel66.Text = rm.GetString("labelRaportJo", ci);
-           // else xrLabel66.Text = rm.GetString("labelRaportPo", ci);
-        //    xrLabel65.Text = rm.GetString("labelFilterAvancuarMonedheKF", ci);
 
         
-
         }
 
 
@@ -64,7 +59,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);           
             xrLabel18.Text = rm.GetString("labelRaportiPershkrimi", ci);
             xrLabel19.Text = rm.GetString("labelNjesia", ci);

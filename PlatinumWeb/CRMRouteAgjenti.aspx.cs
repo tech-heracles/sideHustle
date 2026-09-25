@@ -37,7 +37,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -175,7 +174,6 @@ namespace PlatinumWeb
             DateTime endDate = Convert.ToDateTime(e.NewValues["ENDTIME"]);
 
 
-
             DbCore.DbCRM.clsSkeduler ske = new DbCore.DbCRM.clsSkeduler(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), agjent.IdPerdoruesMobile, int.Parse(hfklienti.Value), (DateTime)e.NewValues["STARTDATE"], mySessionObjects.ktheIdPerdoruesi(Session), DateTime.Now, mySessionObjects.ktheIdPerdoruesi(Session), DateTime.Now, 1, (DateTime)e.NewValues["STARTDATE"], (DateTime)e.NewValues["ENDTIME"], (Boolean)e.NewValues["ALLDAY"], e.NewValues["DESCRIPTION"].ToString(), mySessionObjects.merrIdNdermarrjeSesioni(Session),-1, null, null, 0);
 
             ske.IdAuto = idTakimi;
@@ -235,7 +233,6 @@ namespace PlatinumWeb
                 {
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Takimi u shtua me sukses!:Green");
                     e.Cancel = true;
-                   // mbushgride();
                     ASPxScheduler1.JSProperties["cpUShtuaTakim"] = true;
                 }
                 else
@@ -278,8 +275,6 @@ namespace PlatinumWeb
                 e.Menu.Items.Clear();
                 e.Menu.Items.Add("Shto Klient", "Klient");                
                 e.Menu.Items.Add("Shto Detyre", "Detyre");
-                //e.Menu.Items.RemoveAt(1);
-                //e.Menu.Items.RemoveAt(1);
             }
             else
             {
@@ -334,7 +329,6 @@ namespace PlatinumWeb
                     {
                         //per te mbyllur popupin
                         popupDateRanges.JSProperties["cpKlonimMeSukses"] = true;
-                        // mySessionObjects.ruajMesazhNeSesion(Session, "Klonimi u krye me sukses!:Green"); 
                         clsMenuInfo.ShtoMesazh(MenuInfo, mesazh, pnlMesazhi);
                         return;
                     }
@@ -398,11 +392,8 @@ namespace PlatinumWeb
                         storage.Appointments.CustomFieldMappings.Add(new ASPxAppointmentCustomFieldMapping("TeKlienti", "TEKLIENTI"));
                     //appMappings.Location = "LOCATION";  gisjana
                     appMappings.AllDay = "ALLDAY";
-                    // appMappings.Type = "TYPE"; appMappings.RecurrenceInfo = "RECURRENCEINFO";
-                    // appMappings.ReminderInfo = "REMINDERINFO";
                     appMappings.Label = "LABEL";
                     appMappings.Status = "STATUS";
-                    // appMappings.ResourceId = "RESOURCESIDS"; 
                 }
                 finally
                 {
@@ -472,7 +463,6 @@ namespace PlatinumWeb
         private void percaktoTemplateMenu(int idGjuha, int idViti, int idPerdorues, int idNdermarrje, ASPxMenu aSPxMenu1)
         {
             clsMenuInfo.ShtoMenuItemInfo(this, MenuInfo);
-            //clsMenuInfo.ShtoMenuItemInfo(this, MenuInfoPopup);
             clsToolbarConfig.percaktoTemplateMenu(idGjuha, idViti, idPerdorues, idNdermarrje, aSPxMenu1, "CRMRouteAgjenti.aspx", this, MenuInfo, null, null, null, null, true, true, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session), false, true);
         }
 
@@ -495,7 +485,6 @@ namespace PlatinumWeb
 
             return new clsMesazh(true);
         }
-
 
 
         protected void btnAgjenti_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
@@ -521,8 +510,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         protected void btnAgjenti_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {
             if (!IsCallback || !Request.Params["__CALLBACKID"].ToString().Contains("btnAgjenti"))
@@ -535,12 +522,7 @@ namespace PlatinumWeb
 
         protected void ASPxScheduler1_InitAppointmentDisplayText(object sender, DevExpress.XtraScheduler.AppointmentDisplayTextEventArgs e)
         {
-            //Appointment apt = e.Appointment;
-            //e.Text = String.Format("[{0}] {1}", apt.Location, apt.Subject);
-            //e.Description = String.Format("Details: {0}", apt.Description);
         }
-
-      
 
       
     }

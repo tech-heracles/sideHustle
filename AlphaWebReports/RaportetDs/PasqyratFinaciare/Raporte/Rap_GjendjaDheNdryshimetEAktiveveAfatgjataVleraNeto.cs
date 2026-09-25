@@ -179,10 +179,8 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 else
                     shuma += double.Parse(e.CalculatedValues[i].ToString());
             }
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
             //else
-            //    e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 

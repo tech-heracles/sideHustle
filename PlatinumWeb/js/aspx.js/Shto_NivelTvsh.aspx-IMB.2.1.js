@@ -263,34 +263,23 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
         var kodniveli = result.kodniveli;
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblTaksa'];
-        //            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
 
-   // $("#dvNiveli").show();//$("#dvNiveli")[0].style.visibility = 'visible';
 }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //        var hfLidhur = $("#hfLidhur")[0];
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
     enableAplikoTVSHNeFleteDoganoreSipasLlojTakse();
 }
@@ -326,7 +315,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvShtoNivelTvsh, "520")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvShtoNivelTvsh, "520", pastrofusha, hfTeDrejta);
 }
 function valido(s, e) {

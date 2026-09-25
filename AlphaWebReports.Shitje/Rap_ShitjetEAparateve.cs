@@ -56,44 +56,16 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("SHFAQ_ROLE") != null)
-            //{
-            //    if (GetCurrentColumnValue("SHFAQ_ROLE").ToString() == "JO")
-            //    {
-            //        xrLabel4.Visible = false;
-            //        xrLabel5.Visible = false;
-            //        xrLabel69.Visible = false;
-            //        xrLabel15.Visible = false;
                     
-            //    }
-            //}
             //else
-            //{
-            //    xrLabel4.Visible = false;
-            //    xrLabel5.Visible = false;
-            //    xrLabel69.Visible = false;
-            //    xrLabel15.Visible = false;
                 
-            //}
         }
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("SHFAQ_ROLE") != null)
-            //{
-            //    if (GetCurrentColumnValue("SHFAQ_ROLE").ToString() == "JO")
-            //    {
                      
-            //        xrTableCell13.Visible = false;
-            //        xrTableCell17.Visible = false;
-            //    }
-            //}
             //else
-            //{
                
-            //    xrTableCell13.Visible = false;
-            //    xrTableCell17.Visible = false;
-            //}
         }
 
         private void Rap_ShitjetEAparateve_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

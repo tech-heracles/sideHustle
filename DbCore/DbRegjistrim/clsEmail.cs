@@ -17,7 +17,6 @@ namespace DbCore.DbRegjistrim
         private DateTime dateKujtese;
         private string pathi;
         private int idPerdoruesi;
-        //private bool perWF;
 
         #region
         public string Pathi
@@ -229,7 +228,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         internal bool mbushEmail(DataRow dbRow)
         {
             if (dbRow != null)
@@ -275,5 +273,4 @@ namespace DbCore.DbRegjistrim
 
     }
 }
-
 

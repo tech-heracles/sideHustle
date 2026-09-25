@@ -73,7 +73,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// mbush te gjitha shtesate sipas ndermarrjes  dhe tipit
         /// </summary>
@@ -101,18 +100,10 @@ namespace DbCore.DbListPagesat
         private bool mbushShtesa(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsShtesaPage kat = new clsShtesaPage();
-                    //kat.mbushShtesa(rreshti);
                     Add(new clsShtesaPage(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

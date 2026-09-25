@@ -89,7 +89,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrLabel23.Text = rm.GetString("lblRaportTedhenaInventar", ci);
             xrLabel25.Text = rm.GetString("labelSasia", ci);
             xrLabel26.Text = rm.GetString("labelKategoria", ci);
-            //TotaliGjithMAgazinave.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel24.Text = rm.GetString("lblRaportVleftaLeke", ci);
             xrLabel29.Text = rm.GetString("lblRaportRezultatet", ci);
             xrLabel43.Text = rm.GetString("lblMungesat", ci);
@@ -99,7 +98,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrLabel74.Text = rm.GetString("lblRaportVerejtje", ci);
 
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
         }
 
         private void Rap_FleteInventarizimiMeMagazine_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

@@ -18,7 +18,6 @@ namespace PlatinumWeb.E_PaySlip
     public partial class MenuFilter : System.Web.UI.UserControl, ITemplate
     {
         
-        //private string filtervlera;
         public static string emergrida = "";
         public static string emerfaqe = "";
 
@@ -52,7 +51,6 @@ namespace PlatinumWeb.E_PaySlip
             {
                 if (Request.Params["__CALLBACKID"].ToString().Contains("btnFiltra"))
                  {
-                 //new DbCore.clsFunksione().mbushComboFiltra(btnFiltra, emergrida, emerfaqe);   
                  ConfigureAspxComboBox.mbushComboFiltra(btnFiltra,colekstioni,ValueField,TextField);   
                  }
             }

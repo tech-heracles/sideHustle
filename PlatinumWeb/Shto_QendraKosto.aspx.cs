@@ -34,7 +34,6 @@ namespace PlatinumWeb
         /// <param name="e"> argumenti</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -211,7 +210,6 @@ namespace PlatinumWeb
                 return;
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
@@ -232,7 +230,6 @@ namespace PlatinumWeb
                     continue;
                 }
                 qendra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                //mesazh = burim.fshi(null);
                 mesazh = qendra.fshi();
                 if (qendra.Id == 0)
                     continue;
@@ -359,7 +356,6 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestare(int idNdermarrje, ResourceManager rm, CultureInfo cultinf, int idGjuha)
         { //mbush komboboxet dhe gridat e faqes
             ASPxPageControl1.ActiveTabIndex = 0;
-            //DbCore.clsFunksione.mbushComboQendraKostoPrindKolona(cmbPrindi, rm, cultinf);
             ConfigureAspxComboBox.mbushComboMonedha(idPerdoruesi, idNdermarrje, false, cmbMonedha);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbPrindi);
             ConfigureAspxComboBox.mbushComboQendraKostoPrind(idNdermarrje, cmbPrindi);
@@ -375,7 +371,6 @@ namespace PlatinumWeb
                 if (idKonfigAmbjenti == 0)
                     idKonfigAmbjenti = DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod(kodKonfi, idNdermarrje);
                 ConfigureAspxComboBox.mbushComboKonfigurimeshSipasIdKonfigurimi(cmbKonfigurimi, idKonfigAmbjenti);
-                //cmbKonfigurimi.ClientVisible = false;
             }
             else
                 ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorise(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 72, rm, cultinf, idGjuha);
@@ -501,7 +496,6 @@ namespace PlatinumWeb
                         hfStatusi.Value = "false";
                         return;
                     }
-                    //mesazh = burime.ruaj(null);
                     mesazh = qender.ruajQenderKosto(idNderViti,pergjigje);
                     eshteShtim = true;
                 }

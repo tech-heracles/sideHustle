@@ -45,7 +45,6 @@ namespace AlphaWebReports.RaportetDs
             Azhornim.Value = raport.Parameters[8].Value;
             xrLabel25.Text = raport.Parameters[10].Description;
             parameter9.Value = raport.Parameters[10].Value;
-            //xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             windowWidth = Convert.ToString((object) raport.Parameters[9].Value);
             EmrateLabelave(ci);
         }

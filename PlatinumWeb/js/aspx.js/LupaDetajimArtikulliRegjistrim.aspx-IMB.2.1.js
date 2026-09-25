@@ -21,14 +21,9 @@ function BeginCallback(s, e) {
 function Init() {
     window.parent.window.parent.SessionTimeout.sendKeepAlive();
     window.parent.myFaqeCelje.shtoHandlerSession();
-    //btnOk.Focus();
 }
 
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

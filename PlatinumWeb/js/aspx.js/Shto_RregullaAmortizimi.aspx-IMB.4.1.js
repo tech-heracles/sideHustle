@@ -142,21 +142,12 @@ function OnGetRowValuesMod(values) {
     if ($('#hfShtimModifikim').val() == "shtim")
         return;
     $('#hfId')[0].value = values[0];
-    //myWS.callWsGetAutorizimeSipasLlojitDheIdLidhese(values[0], 'Magazina', SucceededCallbackKtheAutorizime);
     cmbStandarti.SetValue(values[1]);
     cmbGrupi.SetValue(values[2]);
     cbKontabilizim.SetChecked(values[6]);
     cmbDtFillimi.SetValue(values[3]);
     cmbDtMbarimi.SetValue(values[4]);
     cbPerfshiDite.SetChecked(values[5]);
-    //cbAktive.SetChecked(values[7]);
-    //txtAktivePas.SetText(values[8]);
-    //cbInaktive.SetChecked(values[7]);
-    //txtInaktivePas.SetText(values[8]);
-    //cbRiparim.SetChecked(values[7]);
-    //txtRiparimPas.SetText(values[8]);
-    //cbDeinstalim.SetChecked(values[7]);
-    //txtDeinstalimPas.SetText(values[8]);
     //therret web service per te kontrolluar nese kjo llogari standarte eshte e lidhur apo jo  
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "merrTrupKarakteristikaAmortizimi"),
@@ -207,7 +198,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
     var hf = $('#hfKontrollet')[0]; //mban te dhenat mbi kontrollet
     var hfLidhur = $("#hfLidhur")[0];
     hfLidhur.value = result;
-    //        aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result.toLowerCase()));
 }
 //pastron fushat per shtim dhe ben aktive fushat
@@ -278,8 +268,6 @@ function SucceededCallbackKonfig(result) {
 }
 
 
-
-
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
@@ -336,5 +324,4 @@ function BeginCallback(s, e) {
     if (e.command == 'APPLYFILTER' && btnFiltrat != undefined)
         btnFiltrat.SetText('');
 }
-
 

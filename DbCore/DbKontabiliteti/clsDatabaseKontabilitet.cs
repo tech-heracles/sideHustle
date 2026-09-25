@@ -486,7 +486,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.Open();
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@IDNDERVITI", idNdermarrjeVit, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDMONEDHA", idMonedha, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDLLOGARI", idLlogKlienti, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOGARI_merrLlogFitimHumbjeKlientit");
@@ -834,32 +833,9 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: clsMesazh ruajGrupLlogaria(int idgrupiLlogaria, int nrgrupiLlogaria, String pershkrimigrupiLlogaria, int idndermarje)", true)]
-        //public clsMesazh ruajGrupLlogaria(clsGrupiLlogaria grupiLlogaria)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", grupiLlogaria.IdGrupiLlogaria, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@NRGRUPILLOGARIA", grupiLlogaria.NrGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKGRUPILLOGARIA", grupiLlogaria.PershkrimiGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", grupiLlogaria.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_upd per te modifikuar nje objekt clsGrupiLlogaria ne DB.
@@ -882,31 +858,8 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: clsMesazh modifikoGrupLlogaria(int idgrupiLlogaria, int nrgrupiLlogaria, String pershkrimigrupiLlogaria, int idndermarje)", true)]
-        //public clsMesazh modifikoGrupLlogaria(clsGrupiLlogaria grupiLlogaria)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", grupiLlogaria.IdGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@NRGRUPILLOGARIA", grupiLlogaria.NrGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKGRUPILLOGARIA", grupiLlogaria.PershkrimiGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", grupiLlogaria.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_del per te fshire nje objekt clsGrupiLlogaria ne DB.
@@ -923,29 +876,9 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: clsMesazh fshiGrupLlogaria(int idgrupiLlogaria)", true)]
-        //public clsMesazh fshiGrupLlogaria(clsGrupiLlogaria grupiLlogaria)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", grupiLlogaria.IdGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_sel per te marre nje objekt datarow nga DB.
@@ -965,28 +898,8 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow merrGrupLlogaria(int idgrupi)", true)]
-        //public colGrupetLlogaria merrGrupLlogaria(int idgrupi)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", idgrupi, ParameterDirection.Input);
-        //        DataSet ds =  dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_sel");
-        //        colGrupetLlogaria grupet = new colGrupetLlogaria();
-        //        return grupet.mbushArrayListGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_sel per te marre nje objekt clsGrupiLlogaria nga DB.
@@ -1030,29 +943,8 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow ktheGrupLlogaria(string kodi, int idnderm) ose int ktheIDGrupLlogaria(string kodi, int idnderm)", true)]
-        //public colGrupetLlogaria merrGrupLlogaria(string kodi, int idnderm)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@PERSHKGRUPILLOGARIA", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_selKod");
-        //        colGrupetLlogaria grupet = new colGrupetLlogaria();
-        //        return grupet.mbushArrayListGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_merrGjitheGrupetLlogaria per te marre nje collection me objekte clsGrupiLlogaria ne DB.
@@ -1066,27 +958,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable merrGjitheGrupetLlogaria()", true)]
-        //public colGrupetLlogaria merrGjitheGrupetLlogaria()
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_merrGjitheGrupetLlogaria");
-        //        colGrupetLlogaria grupetLlogaria = new colGrupetLlogaria();
-        //        return grupetLlogaria.mbushArrayListGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    { 
-        //        return new colGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPILLOGARIA_merrGjitheGrupetLlogariapozitive per te marre nje collection me objekte clsGrupiLlogaria ne DB duke filtruar sipas ID-se se ndermarrjes.
@@ -1104,28 +979,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable merrGjitheGrupetLlogariapozitive(int idNdermarje)", true)]
-        //public colGrupetLlogaria merrGjitheGrupetLlogariapozitive(int idNdermarje)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPILLOGARIA_merrGjitheGrupetLlogariapozitive");
-        //        colGrupetLlogaria grupetLlogaria = new colGrupetLlogaria();
-        //        return grupetLlogaria.mbushArrayListGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -1156,33 +1012,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataRow ktheNenGrupLlogaria(int idndengrupi)", true)]
-        //public clsMesazh ruajNenGrupLlogaria(clsNenGrupiLlogaria nengrupiLlogaria)
         //{ //metoda per ruajtjen e nengrupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDNENGRUPILLOGARIA", nengrupiLlogaria.IdNenGrupiLlogaria, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@NRNENGRUPILLOGARIA", nengrupiLlogaria.NrNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKNENGRUPILLOGARIA", nengrupiLlogaria.PershkrimiNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDGRUPILLOGARIA", nengrupiLlogaria.IdGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERMARJE", nengrupiLlogaria.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_upd per te modifikuar nje objekt clsNenGrupiLlogaria ne DB.
@@ -1205,33 +1038,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataRow ktheNenGrupLlogaria(int idndengrupi)", true)]
-        //public clsMesazh modifikoNenGrupLlogaria(clsNenGrupiLlogaria nengrupiLlogaria)
         //{//metoda per modifikimin e nengrupeve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDNENGRUPILLOGARIA", nengrupiLlogaria.IdNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@NRNENGRUPILLOGARIA", nengrupiLlogaria.NrNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKNENGRUPILLOGARIA", nengrupiLlogaria.PershkrimiNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDGRUPILLOGARIA", nengrupiLlogaria.IdGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERMARJE", nengrupiLlogaria.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_del per te fshire nje objekt clsNenGrupiLlogaria ne DB.
@@ -1249,29 +1059,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataRow ktheNenGrupLlogaria(int idndengrupi)", true)]
-        //public clsMesazh fshiNenGrupLlogaria(clsNenGrupiLlogaria nengrupiLlogaria)
         //{//metoda per fshirjen e nengrupeve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNENGRUPILLOGARIA", nengrupiLlogaria.IdNenGrupiLlogaria, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_sel per te marre nje datarow ne DB.
@@ -1291,28 +1082,8 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow ktheNenGrupLlogaria(int idndengrupi)", true)]
-        //public colNenGrupetLlogaria merrNenGrupLlogaria(int idndengrupi)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNENGRUPILLOGARIA", idndengrupi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_sel");
-        //        colNenGrupetLlogaria nengrupet = new colNenGrupetLlogaria();
-        //        return nengrupet.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_sel per te marre id e nengrupit te llogarise ne DB.
@@ -1336,29 +1107,8 @@ namespace DbCore.DbKontabiliteti
             return idNenGrupLlogaria;
         }
         //[Obsolete("Perdor: int ktheNenGrupLlogaria(string kodi, int idnder)", true)]
-        //public colNenGrupetLlogaria merrNenGrupLlogaria(string kodi, int idnder)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@PERSHKNENGRUPILLOGARIA", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_selKod");
-        //        colNenGrupetLlogaria nengrupet = new colNenGrupetLlogaria();
-        //        return nengrupet.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_merrGjitheNenGrupetLlogaria per te marre nje datatable ne DB duke filtruar sipas ID-se se ndermarrjes.
@@ -1375,29 +1125,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheNenGrupetLlogaria(int idnderm)", true)]
-        //public colNenGrupetLlogaria merrGjitheNenGrupetLlogaria(int idnderm)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_merrGjitheNenGrupetLlogaria");
-        //        colNenGrupetLlogaria nengrupetLlogaria = new colNenGrupetLlogaria();
-        //        return nengrupetLlogaria.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {  
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_merrNenGrupetLlogariaSipasGrupit per te marre nje datatable ne DB duke filtruar sipas ID-se se grupit te llogarise.
@@ -1414,28 +1145,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheNenGrupetLlogariaSipasGrupit(int idGrupiLlogaria)", true)]
-        //public colNenGrupetLlogaria merrNenGrupetLlogariaSipasGrupit(int idGrupiLlogaria)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", idGrupiLlogaria, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_merrNenGrupetLlogariaSipasGrupit");
-        //        colNenGrupetLlogaria nengrupetLlogaria = new colNenGrupetLlogaria();
-        //        return nengrupetLlogaria.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {  
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_merrNenGrupetLlogariaSipasGrupitPozitive per te marre nje datatable ne DB duke filtruar sipas ID-se se grupit te llogarise (ku kjo e fundit eshte >0).
@@ -1453,28 +1165,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheNenGrupetLlogariaSipasGrupitPozitive(int idGrupiLlogaria)", true)]
-        //public colNenGrupetLlogaria merrNenGrupetLlogariaSipasGrupitPozitive(int idGrupiLlogaria)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPILLOGARIA", idGrupiLlogaria, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_merrNenGrupetLlogariaSipasGrupitPozitive");
-        //        colNenGrupetLlogaria nengrupetLlogaria = new colNenGrupetLlogaria();
-        //        return nengrupetLlogaria.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_NENGRUPILLOGARIA_merrGjitheNenGrupetLlogariaPozitive per te marre nje datatable ne DB duke filtruar sipas ID-se se ndermarrjes (ku Id e ndegrupit eshte >0).
@@ -1490,29 +1183,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheNenGrupetLlogariaPozitive(int idnder)", true)]
-        //public colNenGrupetLlogaria merrGjitheNenGrupetLlogariaPozitive(int idnder)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NENGRUPILLOGARIA_merrGjitheNenGrupetLlogariaPozitive");
-        //        colNenGrupetLlogaria nengrupetLlogaria = new colNenGrupetLlogaria();
-        //        return nengrupetLlogaria.mbushArrayListNenGrupetLlogaria(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNenGrupetLlogaria();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -1540,31 +1214,11 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
-        //public clsMesazh ruajLlojBuxheti(clsLlojBuxheti llojBuxheti)
         //{ //metoda per ruajtjen e LLOJIT TE BUXHETIT
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDLLOJBUXHETI", llojBuxheti.IdLlojBuxheti, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODBUXHETI", llojBuxheti.KodLlojBuxheti, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_ins");
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_LLOJBUXHETI_upd per te modifikuar nje objekt clsLlojBuxheti ne DB.
@@ -1585,30 +1239,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
-        //public clsMesazh modifikoLlojBuxheti(clsLlojBuxheti llojBuxheti)
         //{//metoda per modifikimin e llojit te buxhetit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDLLOJBUXHETI", llojBuxheti.IdLlojBuxheti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODLLOJBUXHETI", llojBuxheti.KodLlojBuxheti, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_upd");
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //            return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_LLOJBUXHETI_upd per te fshire nje objekt clsLlojBuxheti ne DB.
@@ -1627,29 +1261,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
-        //public clsMesazh fshiLlojBuxheti(clsLlojBuxheti llojBuxheti)
         //{//metoda per fshirjen e llojit te buxhetit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLLOJBUXHETI", llojBuxheti.IdLlojBuxheti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_LLOJBUXHETI_sel per te marre nje objekt clsLlojBuxheti ne DB.
@@ -1667,24 +1282,9 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
         //public void merrLlojBuxheti(clsLlojBuxheti llojBuxheti)
         //{// metoda per te marre nje LLOJ BUXHETI NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLLOJBUXHETI", llojBuxheti.IdLlojBuxheti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_LLOJBUXHETI_merrGjitheLlojeBuxhetesh per te marre nje datatable ne DB.
@@ -1711,26 +1311,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
-        //public colLlojeBuxhetesh merrGjitheLlojeBuxhetesh()
         //{//metoda per te marre te gjithe llojet e buxheteve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_merrGjitheLlojeBuxhetesh");
-        //        colLlojeBuxhetesh llojeBuxhetesh = new colLlojeBuxhetesh();
-        //        return llojeBuxhetesh.mbushArrayListLlojeBuxhetesh(ds);
-        //    }
-        //    catch (Exception)
-        //    { 
-        //        return new colLlojeBuxhetesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_LLOJBUXHETI_merrLlojBuxhetiSipasKodit per te marre id e llojit te buxhetit ne DB duke filtruar sipas kodit.
@@ -1748,28 +1331,9 @@ namespace DbCore.DbKontabiliteti
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_merrLlojBuxhetiSipasKodit"));
         }
         //[Obsolete("Perdor: int ktheLlojBuxhetiSipasKodit(String kodi)", true)]
-        //public colLlojeBuxhetesh merrLlojBuxhetiSipasKodit(String kodi)
         //{//metoda per te marre te llojin e buxhetit sipas kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KODLLOJBUXHETI", kodi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_merrLlojBuxhetiSipasKodit");
-        //        colLlojeBuxhetesh llojeBuxhetesh = new colLlojeBuxhetesh();
-        //        return llojeBuxhetesh.mbushArrayListLlojeBuxhetesh(ds);
-        //    }
-        //    catch (Exception)
-        //    { 
-        //        return new colLlojeBuxhetesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -1777,7 +1341,6 @@ namespace DbCore.DbKontabiliteti
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsBuxheti dhe colBuxhetet
         /// </summary>
         #region BUXHETI
-
 
 
         /// <summary>
@@ -1910,26 +1473,8 @@ namespace DbCore.DbKontabiliteti
         }
 
         //[Obsolete("Perdor: clsMesazh modifikoBuxhet(int idbuxheti, int idllojbuxheti, int idlidhese, String muaji, decimal buxh_1, decimal buxh_2)", true)]
-        //public clsMesazh modifikoBuxhet(clsBuxheti buxheti)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDBUXHETI", buxheti.IdBuxheti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDLLOJBUXHETI", buxheti.IdLlojBuxheti, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLIDHESE", buxheti.IdLidhese, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@MUAJ", buxheti.Muaj, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@BUXHETI_1", buxheti.Buxheti_1, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@BUXHETI_2", buxheti.Buxheti_2, ParameterDirection.Input);
 
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_BUXHETI_upd");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(true, "Ndodhi nje gabim. Ruajtja nuk u krye!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_BUXHETI_del per te fshire nje objekt clsBuxheti ne DB.
@@ -1969,20 +1514,7 @@ namespace DbCore.DbKontabiliteti
         }
 
         //[Obsolete("Perdor: clsMesazh fshiBuxhet(int idlidhese)", true)]
-        //public clsMesazh fshiBuxhet(clsBuxheti buxheti)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHESE", buxheti.IdLidhese, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_BUXHETI_del");
-        //        return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(true, "Fshirja perfundoi me gabime!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_BUXHETI_sel per te marre nje objekt clsBuxheti ne DB duke filtruar sipas ID-se lidhese
@@ -2000,24 +1532,9 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor: void merrBuxhet(int idlidhese)", true)]
         //public void merrBuxhet(clsBuxheti buxheti)
         //{// metoda per te marre nje BUXHET NE BAZE TE IDLIDHESE
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHESE", buxheti.IdLidhese, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_BUXHETI_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_BUXHETI_merrGjitheBuxhetet per te marre nje datatable ne DB.
@@ -2156,31 +1673,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheBuxhetetSipasIdLidheseIdLlojBuxheti(int id, int idlloj)", true)]
-        //public colBuxhetet merrBuxhetetSipasIdLidheseIdLlojBuxheti(int id, int idlloj)
         //{//metoda per te marre te gjithe  buxhetet sipas id lidhese dhe llojit te buxhetit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.Command.CommandTimeout = 0;
-        //        dbManager.AddParameters(0, "@IDLIDHESE", id, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDLLOJBUXHETI", idlloj, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_BUXHETI_merrBuxhetetSipasIdLidheseIdLlojBuxheti");
-        //        colBuxhetet buxhetete = new colBuxhetet();
-        //        return buxhetete.mbushArrayListBuxhetet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colBuxhetet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -2318,24 +1814,9 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor: void merrKPF(string kodikpf)", true)]
         //public void merrKPF(clsKPF KPF)
         //{// metoda per te marre nje kpf
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KODKPF", KPF.KodiKPF, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KPF_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton nje transaksion per te fshire nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -2345,67 +1826,13 @@ namespace DbCore.DbKontabiliteti
         /// <returns> Kthen statusin e perfundimit te ekzekutimit te transaksionit (nje objekt clsMesazh qe tregon nese veprimi eshte kryer me sukses apo jo.<seealso cref="DbCore.clsMesazh"/>)</returns>
         /// </summary>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh fshiKPFAndBuxhete(int idkpf)", true)]
-        //public clsMesazh fshiKPFAndBuxhete(clsKPF KPF)
         //{//fshin KPFne dhe buxhetet perkatese
-        //    //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("KPF");
-        //    DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(KPF.IdKPF, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF"));
-        //    //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(KPF.IdKPF, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF"));
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
 
-        //        foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
-        //        {
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazhAdmin.Status)
-        //        {
-        //            mesazh= fshiKPF(KPF.IdKPF);
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            mesazh.Status = false;
-        //            mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         ///// <summary>
         /// Ekzekuton nje transaksion per te ruajtur nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -2416,107 +1843,13 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder, int idndervit, " +
         //    "int idperdoruesi, int idkonfig, int idndermarje)", true)]
-        //public clsMesazh ruajKPFAndBuxhete(clsKPF KPF, int idndermarje)
         //{//ruan KPFne dhe buxhetet perkatese
-        //    //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("KPF");
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
-        //        int idK;
-        //        mesazh = ruajKPF(out idK, KPF.KodiKPF, KPF.NiveliKPF, KPF.EmertimiKPF, KPF.Inaktiv, KPF.ShenimeKPF, KPF.GrupiKPF, KPF.IdNdermarje, KPF.IdNderViti, KPF.IdPerdoruesi, KPF.IdKonfig);
-        //        if (mesazh.Status)
-        //        {
-        //            KPF.IdKPF = idK;
-        //            DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin();
-        //            int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CKPF");
-        //            //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CKPF")[0].IdCR;
-        //            int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod");
-        //            //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
-        //            if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje).IdLidhjeNrAuto != 0)
-        //            {
-        //                DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje);
-        //                DbAdmin.clsNrAutom NrAutom = new DbAdmin.clsNrAutom(ACR.IdNumraAutoLidhje);
-        //                //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-        //                int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-        //                int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-        //                string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-        //                string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-        //                ACR.VleraFunditLidhje = vlera;
-        //                mesazhAdmin=  ACR.modifiko();
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                if (KPF.IdAutorizimi != "")
-        //                {
-        //                    DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //                    string[] pars1 = KPF.IdAutorizimi.Split(',');
-        //                    for (int i = 0; i < pars1.Length; i++)
-        //                    {
-        //                        DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                        lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                        //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                        colLidhjet.Add(lidhje);
-        //                    }
-        //                    foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
-        //                    {
-        //                        if (mesazhAdmin.Status)
-        //                        {
-        //                            o.IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF");
-        //                            o.IdLidhese = KPF.IdKPF;
-        //                            mesazhAdmin = dbAdmin.ruajLidhjeAutorizim(o.IdLidhjeAutorizim, o.IdLidhese, o.IdLloji, o.IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            mesazh.Status = false;
-        //                            mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                }
-        //                if (mesazhAdmin.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton nje transaksion per te modifikuar nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -2529,123 +1862,22 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder, int idndervit, " +
         //    "int idperdoruesi, int idkonfig)", true)]
-        //public clsMesazh modifikoKPFAndBuxhete(clsKPF KPF)
-        //{
-        //    //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("KPF");
-        //    //DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(KPF.IdKPF, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF"));
-        //    DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(KPF.IdKPF, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF"));
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    //modifikon llogarine dhe buxhetet perkatese
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
-        //        mesazh = modifikoKPF(KPF.IdKPF, KPF.KodiKPF, KPF.NiveliKPF, KPF.EmertimiKPF, KPF.Inaktiv, KPF.ShenimeKPF, KPF.GrupiKPF, KPF.IdNdermarje, KPF.IdNderViti, KPF.IdPerdoruesi, KPF.IdKonfig);
-        //        if (mesazh.Status)
-        //        {
-        //            DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //            if (KPF.IdAutorizimi != "")
-        //            {
 
-        //                string[] pars1 = KPF.IdAutorizimi.Split(',');
-        //                for (int i = 0; i < pars1.Length; i++)
-        //                {
-        //                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                    colLidhjet.Add(lidhje);
-        //                }
 
-        //            }
         //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-        //            {
-        //                for (int i = 0; i < colLidhjet.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF");
-        //                        colLidhjet[i].IdLidhese = KPF.IdKPF;
-        //                        if (i < colLidhjetAutorizim.Count)
-        //                        {
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
         //            else//rasti kur jane fshire rreshta
-        //            {
-        //                int count = 0;
-        //                for (int i = 0; i < colLidhjetAutorizim.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        if (count < colLidhjet.Count)
-        //                        {
-        //                            colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("KPF");
-        //                            colLidhjet[i].IdLidhese = KPF.IdKPF;
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                        {
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(colLidhjetAutorizim[i].IdLidhjeAutorizim);
-        //                        }
         //                        count++;
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_merrGjitheKPFteSipasGrupit per te marre nje datatable duke filtruar sipas gripitKPF dhe id-se lidhese ndermarrje-vit.
@@ -2664,29 +1896,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKPFteSipasGrupit(int grupiKpf, int idNdermVit)", true)]
-        //public colKPFte merrGjitheKPFteSipasGrupit(int grupiKpf, int idNdermVit)
         //{//metoda per te marre te gjithe  kpf sipas grupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@GRUPIKPF", grupiKpf, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_merrGjitheKPFteSipasGrupit");
-        //        colKPFte KPFte = new colKPFte();
-        //        return KPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_ktheKPF per te marre nje datarow duke filtruar sipas id-se se KPF.
@@ -2707,28 +1919,9 @@ namespace DbCore.DbKontabiliteti
 
         }
         //[Obsolete("Perdor: DataRow merrKPF(int id)", true)]
-        //public colKPFte ktheKPF(int id)
         //{//kthen kpf me kete id
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKPF", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_ktheKPF");
-        //        colKPFte colKPFte = new colKPFte();
-        //        return colKPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_ktheKPFSipasKodit per te marre id e kpf-se duke filtruar sipas kodit te KPF dhe ID-se se ndermarrjes.
@@ -2769,29 +1962,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: int merrKPF(string kodi, int idnderm)", true)]
-        //public colKPFte ktheKPF(string kodi, int idnderm)
         //{//kthen kpf me kete kod
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODIKPF", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_ktheKPFSipasKodit");
-        //        colKPFte colKPFte = new colKPFte();
-        //        return colKPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_ekzistonKPF per te kontrolluar nese ekziston ne DB nje objekt clsKPF duke filtruar sipas kodit te KPF dhe ID-se se ndermarrjes.
@@ -2836,31 +2009,8 @@ namespace DbCore.DbKontabiliteti
         ///// <returns> Kthen true nese ekziston nje objekt clsKPF qe ploteson kushtin</returns>
         ///////// </summary>
         //public bool fitimhumbje(int grupi, int idnderm)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@GRUPIKPF", grupi , ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_fitimhumje");
-        //        if (ds.Tables[0].Rows.Count == 1)
-        //            return true;
-        //        else if (ds.Tables[0].Rows.Count == 0)
-        //            return false;
-        //        else return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return true;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_merrGjitheKPFteSipasGrupitPozitive per te marre nje datatable duke filtruar sipas grupit te KPF dhe ID-se lidhese te ndermarrjes me vitin.
@@ -2879,29 +2029,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKPFteSipasGrupitPozitive(int grupiKpf, int idNdermVit)", true)]
-        //public colKPFte merrGjitheKPFteSipasGrupitPozitive(int grupiKpf, int idNdermVit)
         //{//metoda per te marre te gjithe  kpf sipas grupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@GRUPIKPF", grupiKpf, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_merrGjitheKPFteSipasGrupitPozitive");
-        //        colKPFte KPFte = new colKPFte();
-        //        return KPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_merrGjitheKPFteSipasGrupitPozitiveAndAutorizime per te marre nje datatable duke filtruar sipas grupit te KPF, ID-se lidhese te ndermarrjes me vitin dhe ID-se se perdoruesit.
@@ -2994,30 +2124,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKPFteSipasGrupitPozitiveAndAutorizimeAktive(int grupiKpf, int idNdermVit, int idperdoruesi)", true)]
-        //public colKPFte merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeAktive(int grupiKpf, int idNdermVit, int idperdoruesi)
         //{//metoda per te marre te gjithe  kpf sipas grupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@GRUPIKPF", grupiKpf, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPERDORUES", idperdoruesi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeAktiv");
-        //        colKPFte KPFte = new colKPFte();
-        //        return KPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeLike per te marre nje datarow duke filtruar sipas grupit te KPF, ID-se lidhese te ndermarrjes me vitin dhe ID-se se perdoruesit aktive
@@ -3043,31 +2152,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow ktheGjitheKPFteSipasGrupitPozitiveAndAutorizimeLike(int grupiKpf, int idNdermVit, int idperdoruesi, string kodi)", true)]
-        //public colKPFte merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeLike(int grupiKpf, int idNdermVit, int idperdoruesi, string kodi)
         //{//metoda per te marre te gjithe  kpf sipas grupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@GRUPIKPF", grupiKpf, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPERDORUES", idperdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KODIKPF", kodi + "%", ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KPF_merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeLike");
-        //        colKPFte KPFte = new colKPFte();
-        //        return KPFte.mbushArrayListKPFte(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKPFte();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow ktheKPFNdermarrjesAndAutorizimeDR(int idnderm, int idperdorues, int idkpf)
         {
@@ -3128,27 +2215,8 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idNderm">Id e ndermarrjes</param>
         ///// <returns> Kthen nje datatable qe plotesojne kushtin</returns>
         ///// </summary>
-        //internal DataTable ktheGjitheSkematKontabel(int idNderm)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_merrGjitheSkematKontabel");
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataTable ktheGjitheSkematKontabel(int idNderm)", true)]
         ////public colSkemaKontabelKoka merrGjitheSkematKontabel(int idNderm)
         ////{
@@ -3180,28 +2248,8 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="perdorues">Id e perdoruesit</param>
         ///// <returns> Kthen nje datatable qe plotesojne kushtin</returns>
         ///// </summary>
-        //internal DataTable ktheGjitheSkematKontabelAndAutorizim(int idNderm, int perdorues)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", perdorues, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_merrGjitheSkematKontabelAndAutorizime");
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataTable ktheGjitheSkematKontabelAndAutorizim(int idNderm, int perdorues)", true)]
         ////public colSkemaKontabelKoka merrGjitheSkematKontabelAndAutorizim(int idNderm, int perdorues)
         ////{
@@ -3233,27 +2281,8 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idNderm">Id e ndermarrjes</param>
         ///// <returns> Kthen nje datatable qe plotesojne kushtin</returns>
         ///// </summary>
-        //internal DataTable ktheGjitheSkematKontabelDefault(int idNderm)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_merrGjitheSkematKontabelDefault");
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataTable ktheGjitheSkematKontabelDefault(int idNderm)", true)]
         ////public colSkemaKontabelKoka merrGjitheSkematKontabelDefault(int idNderm)
         ////{
@@ -3309,30 +2338,8 @@ namespace DbCore.DbKontabiliteti
         /////<param name="kodiSkemaKontabelKoka">kodi i kokes se skemes kontabel</param>
         ///// <returns> Kthen nje datarow qe ploteson kushtin</returns>
         ///// </summary>
-        //internal DataRow ktheSkemeKontabelSipasKodit(String kodiSkemaKontabelKoka)
         //{//merrSkemeKontabelSipasKodit
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABKODI", kodiSkemaKontabelKoka, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_merrSkemeKontabelSipasKodit");
-        //        if (ds == null)
-        //            return null;
-        //        if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-        //            return null;
-        //        return ds.Tables[0].Rows[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataRow ktheSkemeKontabelSipasKodit(String kodiSkemaKontabelKoka)", true)]
         ////public clsSkemaKontabelKoka merrSkemeKontabelSipasKodit(clsSkemaKontabelKoka o)
         ////{//merrSkemeKontabelSipasKodit
@@ -3366,30 +2373,8 @@ namespace DbCore.DbKontabiliteti
         /////<param name="id">Id e kokes se skemes</param>
         ///// <returns> Kthen nje datarow qe ploteson kushtin</returns>
         ///// </summary>
-        //internal DataRow ktheSkemeKontabelSipasId(int id)
         //{//merrSkemeKontabelSipasKodit
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_merrSkemeKontabelSipasId");
-        //        if (ds == null)
-        //            return null;
-        //        if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-        //            return null;
-        //        return ds.Tables[0].Rows[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataRow ktheSkemeKontabelSipasId(int id)", true)]
         ////public clsSkemaKontabelKoka merrSkemeKontabelSipasId(int id)
         ////{//merrSkemeKontabelSipasKodit
@@ -3423,27 +2408,8 @@ namespace DbCore.DbKontabiliteti
         /////<param name="id">Id e kokes se skemes</param>
         ///// <returns> Kthen nje datatable qe plotesojne kushtin</returns>
         ///// </summary>
-        //internal DataTable ktheSkemeTrupiSipasIdKoka(string id)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISKEMAKONTAB_merrSkemeTrupiSipasIdKoka");
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         ////[Obsolete("Perdor: DataTable ktheSkemeTrupiSipasIdKoka(string id)", true)]
         ////public colSkemaKontabelTrupi merrSkemeTrupiSipasIdKoka(string id)
         ////{
@@ -3605,38 +2571,9 @@ namespace DbCore.DbKontabiliteti
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
         //internal int ruajKoken(out int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka,
-        //    int idndermvit, int idperdoruesi, int idnderm)
-        //{
-        //    idskemakontabelkoka = -1;
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(9);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", idskemakontabelkoka, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KOKASKEMAKONTABKODI", kodiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KOKASKEMAKONTABPERSHK", pershkrimiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KOKASKEMAKONTABAKTIV", aktivskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@KOKASKEMAKONTABIDKURSI", idkursiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@KOKASKEMAKONTABNRAUTO", nrautoskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", idndermvit, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_ins");
 
-        //        idskemakontabelkoka = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        return idskemakontabelkoka;
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        return idskemakontabelkoka;
-        //    }
-        //}
         ////[Obsolete("Perdor: clsMesazh ruajKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka, " +
         ////    "int idndermvit, int idperdoruesi, int idnderm)", true)]
         ////public clsMesazh ruajKoken(clsSkemaKontabelKoka koka)
@@ -3675,31 +2612,8 @@ namespace DbCore.DbKontabiliteti
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
         //internal clsMesazh ruajTrupin(out int idskemakontabeltrupi, String debikrediskemakontabeltrupi, int idkoka, int idskemamodel, int idllogariskemakontabeltrupi)
-        //{
-        //    idskemakontabeltrupi = -1;
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@TRUPISKEMAKONTABID", idskemakontabeltrupi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KOKASKEMAKONTABID", idkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDSKEMAMODEL", idskemamodel, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@TRUPISKEMAKONTABDEBIKREDI", debikrediskemakontabeltrupi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@TRUPISKEMAKONTABLLOGARI", idllogariskemakontabeltrupi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPISKEMAKONTAB_ins");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception ce)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         ////[Obsolete("Perdor: ruajTrupin(int idskemakontabeltrupi, String debikrediskemakontabeltrupi, int idkoka, int idskemamodel, int idllogariskemakontabeltrupi)", true)]
         ////public clsMesazh ruajTrupin(clsSkemaKontabelTrupi trupi)
         ////{
@@ -3726,27 +2640,8 @@ namespace DbCore.DbKontabiliteti
         /////<param name="id">Id e kokes se skemes</param>
         ///// <returns> Kthen nje datatable qe plotesojne kushtin</returns>
         ///// </summary>
-        //internal DataTable merrTrupinESkemes(int id)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISKEMAKONTAB_ktheTrupinESkemes");
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
 
-        //}
         ////[Obsolete("Perdor: DataTable merrTrupinESkemes(int id)", true)]
         ////public colSkemaKontabelTrupi ktheTrupinESkemes(int id)
         ////{
@@ -3945,36 +2840,8 @@ namespace DbCore.DbKontabiliteti
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
         //internal clsMesazh modifikoKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka,
-        //    int idperdoruesi, int idnderm)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", idskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KOKASKEMAKONTABKODI", kodiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KOKASKEMAKONTABPERSHK", pershkrimiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KOKASKEMAKONTABAKTIV", aktivskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@KOKASKEMAKONTABIDKURSI", idkursiskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@KOKASKEMAKONTABNRAUTO", nrautoskemakontabelkoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_upd");
-        //        idskemakontabelkoka = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception ce)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         ////[Obsolete("Perdor: clsMesazh modifikoKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka, " +
         ////    "int idperdoruesi, int idnderm)", true)]
         ////public clsMesazh modifikoKoken(clsSkemaKontabelKoka koka)
@@ -4007,28 +2874,8 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idskemakontabelkoka">id e kokes se skemes kontabel</param>
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
-        //internal clsMesazh fshiTrupinEKokes(int idskemakontabelkoka)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", idskemakontabelkoka, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPISKEMAKONTAB_fshiTrupinEKokes");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception ce)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         ////[Obsolete("Perdor: clsMesazh fshiTrupinEKokes(int idskemakontabelkoka)", true)]
         ////public clsMesazh fshiTrupinEKokes(clsSkemaKontabelKoka koka)
         ////{
@@ -4052,28 +2899,8 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idskemakontabelkoka">id e kokes se skemes kontabel</param>
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
-        //internal clsMesazh fshiKoken(int idskemakontabelkoka)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOKASKEMAKONTABID", idskemakontabelkoka, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASKEMAKONTAB_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception ce)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         ////[Obsolete("Perdor: clsMesazh fshiKoken(int idskemakontabelkoka)", true)]
         ////public clsMesazh fshiKoken(clsSkemaKontabelKoka koka)
         ////{
@@ -4189,101 +3016,17 @@ namespace DbCore.DbKontabiliteti
         /////<param name="bilanc">bilanci qe do te ruhet</param>
         /////  <returns> kthen nje obj clsMesazh per te identifikuar statusin e ruajtjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajBilanc(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idndermarja, int vit, int idndermvit, int idperdoruesi, colTrupPasqyreFinaciare ocoltrupibilancit)", true)]
-        //public clsMesazh ruajBilanc(clsBilanc bilanc)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
         //    try
-        //    {
-        //        int idP;
-        //        mesazh = ruajPasqyraFinanciareKoka(out idP, bilanc.KodiPasqyresFin, bilanc.EmertimiPasqyresFin, bilanc.TipiPasqyresFin, bilanc.Metoda, bilanc.IdNdermarja, bilanc.Viti, bilanc.IdNdermVit, bilanc.IdPerdoruesi);
-        //        if (mesazh.Status)
-        //        {
-        //            bilanc.IdPasqyresFin = idP;
-        //            foreach (clsTrupPasqyreFinanciare trupi in bilanc.OColTrupiBilancit)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    trupi.IdKoka = bilanc.IdPasqyresFin;
-        //                    int idT;
-        //                    mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
-        //                    if (mesazh.Status)
-        //                    {
-        //                        foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                        {
-        //                            if (mesazh.Status)
-        //                            {
-        //                                trupi.IdTrupi = idT;
-        //                                llog.IdTrupi = trupi.IdTrupi;
-        //                                mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                            }
 
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
 
-        //                        foreach (clsBuxheti buxheti in trupi.OColBuxhetet)
-        //                        {
-        //                            if (mesazh.Status)
-        //                            {
-        //                                buxheti.IdLidhese = trupi.IdTrupi;
-        //                                int idB;
-        //                                mesazh = ruajBuxhet(out idB, buxheti.IdLlojBuxheti, buxheti.IdLidhese, buxheti.Muaj, buxheti.Buxheti_1, buxheti.Buxheti_2);
-        //                            }
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                    return mesazh;
-        //                            }
-        //                        }
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
 
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_PASQYRAFINANCIAREKOKA_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4312,7 +3055,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(4, "@METODAPASQFINKOKA", metodapasq, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDNDERMARJE", idndermarja, ParameterDirection.Input);
             dbManager.AddParameters(6, "@VITI", vit, ParameterDirection.Input);
-            //dbManager.AddParameters(7, "@IDNDERVITI", idndermvit, ParameterDirection.Input);
             dbManager.AddParameters(7, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.AddParameters(9, "@MODEL", model, ParameterDirection.Input);
@@ -4322,31 +3064,8 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh ruajPasqyraFinanciareKoka(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metodapasq, int idndermarja, int vit, int idndermvit, int idperdoruesi)", true)]
-        //public clsMesazh ruajPasqyraFinanciareKoka(clsPasqyreFinanciare koka)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(9);
-        //        dbManager.AddParameters(0, "@IDPASQFINKOKA", koka.IdPasqyresFin, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODIPASQFINKOKA", koka.KodiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@EMERTIMIPASQFINKOKA", koka.EmertimiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@TIPIPASQFINKOKA", koka.TipiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@METODAPASQFINKOKA", koka.Metoda, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERMARJE", koka.IdNdermarja, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@VITI", koka.Viti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERVITI", koka.IdNdermVit, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", koka.IdPerdoruesi , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PASQYRAFINANCIAREKOKA_ins");
 
-        //        koka.IdPasqyresFin = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_PASQYRAFINANCIAREKOKA_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4376,28 +3095,8 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh modifikoPasqyraFinanciareKoka(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metodapasq, int idperdoruesi)", true)]
-        //public clsMesazh modifikoPasqyraFinanciareKoka(clsPasqyreFinanciare koka)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDPASQFINKOKA", koka.IdPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODIPASQFINKOKA", koka.KodiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@EMERTIMIPASQFINKOKA", koka.EmertimiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@TIPIPASQFINKOKA", koka.TipiPasqyresFin, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@METODAPASQFINKOKA", koka.Metoda, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", koka.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PASQYRAFINANCIAREKOKA_upd");
 
-        //        koka.IdPasqyresFin = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_PASQYRAFINANCIARETRUPI_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4432,29 +3131,8 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh ruajTrupinPasqyresFinanciare(int idtrupi, int idkoka, String pershkrimizerit, String prindizerit, int nivelizerit, String llojizerit, Boolean gjenerotot)", true)]
-        //public clsMesazh ruajTrupinPasqyresFinanciare(clsTrupPasqyreFinanciare trupi)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(7);
-        //        dbManager.AddParameters(0, "@IDPASQFINTRUPI", trupi.IdTrupi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDPASQFINKOKA", trupi.IdKoka, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMIZERIT", trupi.PershkrimiZerit, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PRINDI", trupi.PrindiZerit, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@NIVELI", trupi.NiveliZerit, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@LLOJIZERIT", trupi.LlojiZerit, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@GJENEROTOTAL", trupi.GjeneroTotal, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PASQYRAFINANCIARETRUPI_ins");
 
-        //        trupi.IdTrupi = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_LLOGARIATRUPIPASQ_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4469,24 +3147,7 @@ namespace DbCore.DbKontabiliteti
         /// <param name="lloji">lloji i perdoruesit</param>
         /// <returns> nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo.</returns>
         /// </summary>
-        //internal clsMesazh ruajLlogariTrupiPasqyres(int idllogariatrupi, int idtrupi, int idllogaria, String emertimillog, String gjendjallog, String shenjallog, int idperdoruesi, string lloji, bool shfaqbij)
-        //{
-        //    idllogariatrupi = -1;
 
-        //    dbManager.Open();
-        //    dbManager.CreateParameters(9);
-        //    dbManager.AddParameters(0, "@IDLLOGARIATRUPIPASQ", idllogariatrupi, ParameterDirection.Output);
-        //    dbManager.AddParameters(1, "@IDTRUPIPASQFIN", idtrupi, ParameterDirection.Input);
-        //    dbManager.AddParameters(2, "@IDLLOGARI", idllogaria, ParameterDirection.Input);
-        //    dbManager.AddParameters(3, "@EMERTIMI", emertimillog, ParameterDirection.Input);
-        //    dbManager.AddParameters(4, "@GJENDJA", gjendjallog, ParameterDirection.Input);
-        //    dbManager.AddParameters(5, "@SHENJA", shenjallog, ParameterDirection.Input);
-        //    dbManager.AddParameters(6, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-        //    dbManager.AddParameters(7, "@LLOJI", lloji, ParameterDirection.Input);
-        //    dbManager.AddParameters(8, "@SHFAQBIJ", shfaqbij, ParameterDirection.Input);
-        //    dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOGARIATRUPIPASQ_ins");
-        //    return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_LLOGARIATRUPIPASQ_MERGEDT ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4502,28 +3163,8 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh ruajLlogariTrupiPasqyres(int idllogariatrupi, int idtrupi, int idllogaria, String emertimillog, String gjendjallog, String shenjallog, int idperdoruesi, string lloji)", true)]
-        //public clsMesazh ruajLlogariTrupiPasqyres(clsLlogariaTrupiPasqyres llogari)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDLLOGARIATRUPIPASQ", llogari.IdLlogariaTrupi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDTRUPIPASQFIN", llogari.IdTrupi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLLOGARI", llogari.IdLlogaria, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@EMERTIMI", llogari.Emertimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@GJENDJA", llogari.Gjendja, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@SHENJA", llogari.Shenja, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDPERDORUESI", llogari.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@LLOJI", llogari.Lloji, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOGARIATRUPIPASQ_ins");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         ///// <summary>
         ///// Ruan nje objekt pash sebashku me trupin , llogarite dhe buxhetet
@@ -4535,92 +3176,15 @@ namespace DbCore.DbKontabiliteti
         /////<param name="pash">pash qe do te ruhet</param>
         /////  <returns> kthen nje obj clsMesazh per te identifikuar statusin e ruajtjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajPASH(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idndermarja, int vit, int idndermvit, int idperdoruesi, colTrupPasqyreFinaciare ocoltrupipash)", true)]
-        //public clsMesazh ruajPASH(clsPASH pash)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
         //    try
-        //    {
-        //        int idP;
-        //        mesazh = ruajPasqyraFinanciareKoka(out idP, pash.KodiPasqyresFin, pash.EmertimiPasqyresFin, pash.TipiPasqyresFin, pash.Metoda, pash.IdNdermarja, pash.Viti, pash.IdNdermVit, pash.IdPerdoruesi);
-        //        if (mesazh.Status)
-        //        {
-        //            pash.IdPasqyresFin = idP;
-        //            foreach (clsTrupPasqyreFinanciare trupi in pash.OColTrupiPASH)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    trupi.IdKoka = pash.IdPasqyresFin;
-        //                    int idT;
-        //                    mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
-        //                    foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            trupi.IdTrupi = idT;
-        //                            llog.IdTrupi = trupi.IdTrupi;
-        //                            mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
 
-        //                    foreach (clsBuxheti buxheti in trupi.OColBuxhetet)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            buxheti.IdLidhese = trupi.IdTrupi;
-        //                            int idB;
-        //                            mesazh = ruajBuxhet(out idB, buxheti.IdLlojBuxheti, buxheti.IdLidhese, buxheti.Muaj, buxheti.Buxheti_1, buxheti.Buxheti_2);
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                        }
-        //                    }
-        //                }
 
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //                }
-        //            }
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //        return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         ///// <summary>
         ///// Ruan nje objekt cash flow sebashku me trupin , llogarite 
@@ -4632,86 +3196,15 @@ namespace DbCore.DbKontabiliteti
         /////<param name="cashFlow">cash flow qe do te ruhet</param>
         /////  <returns> kthen nje obj clsMesazh per te identifikuar statusin e ruajtjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajCashFlow(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idndermarja, int vit, int idndermvit, int idperdoruesi, colTrupPasqyreFinaciare oColTrupiCashFlow)", true)]
-        //public clsMesazh ruajCashFlow(clsCashFlow cashFlow)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
         //    try
-        //    {
-        //        int idC;
-        //        mesazh = ruajPasqyraFinanciareKoka(out idC, cashFlow.KodiPasqyresFin, cashFlow.EmertimiPasqyresFin, cashFlow.TipiPasqyresFin, cashFlow.Metoda, cashFlow.IdNdermarja, cashFlow.Viti, cashFlow.IdNdermVit, cashFlow.IdPerdoruesi);
-        //        if (mesazh.Status)
-        //        {
-        //            cashFlow.IdPasqyresFin = idC;
-        //            foreach (clsTrupPasqyreFinanciare trupi in cashFlow.OColTrupiCashFlow)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    trupi.IdKoka = cashFlow.IdPasqyresFin;
-        //                    int idT;
-        //                    mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
-        //                    if (mesazh.Status)
-        //                    {
-        //                        trupi.IdTrupi = idT;
-        //                        foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                        {
-        //                            if (mesazh.Status)
-        //                            {
-        //                                llog.IdTrupi = trupi.IdTrupi;
-        //                                mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                            }
 
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
 
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable pasqyra finaciare sipas tipi dhe ndermarjes
@@ -4728,8 +3221,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(0, "@TIPIPASQFINKOKA", tipi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDRAPORTI", idraporti, ParameterDirection.Input);
-            //dbManager.AddParameters(2, "@IDNDERVITI", idndermarjeviti, ParameterDirection.Input);
-            //dbManager.AddParameters(2, "@IDNDERVITI", idndermarjeviti, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PASQYRAFINANCIAREKOKA_MerrPasqyrafinaciareSipasTipitDheRaportit");
             return ds.Tables[0];
         }
@@ -4752,31 +3243,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable kthePasqyraFinaciareSipasTipit(string tipi, int idndermarje, int idndermarjeviti)", true)]
-        //public colPasqyratFinaciare merrPasqyraFinaciareSipasTipit(string tipi, int idndermarje, int idndermarjeviti)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@TIPIPASQFINKOKA", tipi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDNDERVITI", idndermarjeviti , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PASQYRAFINANCIAREKOKA_MerrPasqyrafinaciareSipasTipit");
-        //        colPasqyratFinaciare pas = new colPasqyratFinaciare();
-        //        return pas.mbushArrayListPasqyrat(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colPasqyratFinaciare();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow pasqyra finaciare sipas id
@@ -4893,158 +3362,24 @@ namespace DbCore.DbKontabiliteti
         /////<param name="pas"> bilanci qe do modifikohet</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoBilancAndBuxhete(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idperdoruesi, colTrupPasqyreFinaciare ocoltrupibilancit)", true)]
-        //public clsMesazh modifikoBilancAndBuxhete(clsBilanc pas)
-        //{
-        //    //clsPasqyreFinanciare paseksistuese=merrPasqyraFinaciareSipasId (pas.IdPasqyresFin )[0];
-        //    //colTrupPasqyreFinaciare colTrupi = merrPasqyraFinaciareTrupiSipasIdKoka(pas.IdPasqyresFin);
-        //    colTrupPasqyreFinaciare colTrupi = new colTrupPasqyreFinaciare(pas.IdPasqyresFin);
-        //    colBuxhetet colBuxh = new colBuxhetet();
-        //    colLlogariaTrupiPasqyres colLlog = new colLlogariaTrupiPasqyres();
-        //    foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //    {
-        //        //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("PasqyreFinanciare");
-        //        colBuxh.AddRange(new colBuxhetet(t.IdTrupi, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("PasqyreFinanciare")));
-        //        //colLlog.AddRange(merrLlogariPasqyraFinaciareTrupiSipasIdTrupi(t.IdTrupi));
-        //        colLlog.AddRange(new colLlogariaTrupiPasqyres(t.IdTrupi));
-        //    } 
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
 
-
-        //        foreach (clsBuxheti o in colBuxh)
-        //        {
-        //            if (mesazh.Status)
-
-        //                mesazh = fshiBuxhet(o.IdLidhese);
 
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //            foreach (clsLlogariaTrupiPasqyres l in colLlog)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    mesazh = fshiLlogariPasqyreTrupi(l.IdTrupi);
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
-        //            foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    mesazh= fshiPasqyreTrupi(t.IdTrupi);
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
-
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh= modifikoPasqyraFinanciareKoka(pas.IdPasqyresFin, pas.KodiPasqyresFin, pas.EmertimiPasqyresFin, pas.TipiPasqyresFin, pas.Metoda, pas.IdPerdoruesi);
-        //                if (mesazh.Status)
-        //                {
-        //                    foreach (clsTrupPasqyreFinanciare trupi in pas.OColTrupiBilancit)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            trupi.IdKoka = pas.IdPasqyresFin;
-        //                            int idT;
-        //                            mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
-        //                            if (mesazh.Status)
-        //                            {
-        //                                trupi.IdTrupi = idT;
-        //                                foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                                {
-        //                                    if (mesazh.Status)
-        //                                    {
-        //                                        llog.IdTrupi = trupi.IdTrupi;
-        //                                        mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                                    }
-        //                                    else
-        //                                    {
-        //                                        dbManager.Transaction.Rollback();
-        //                                        return mesazh;
-        //                                    }
-        //                                }
-
-        //                                foreach (clsBuxheti buxheti in trupi.OColBuxhetet)
-        //                                {
-        //                                    if (mesazh.Status)
-        //                                    {
-        //                                        buxheti.IdLidhese = trupi.IdTrupi;
-        //                                        int idB;
-        //                                        mesazh = ruajBuxhet(out idB, buxheti.IdLlojBuxheti, buxheti.IdLidhese, buxheti.Muaj, buxheti.Buxheti_1, buxheti.Buxheti_2);
-        //                                    }
 
         //                                    else
-        //                                    {
-        //                                        dbManager.Transaction.Rollback();
-        //                                        return mesazh;
-        //                                    }
-        //                                }
-        //                            }
+
+
+        //                                    else
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                    if (mesazh.Status)
-        //                    {
-        //                        dbManager.CommitTransaction();
-        //                        mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                        return mesazh;
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         ///// <summary>
         ///// Modifikon nje objekt pash sebashku me te trupin,llogarite dhe buxhetet
@@ -5060,151 +3395,23 @@ namespace DbCore.DbKontabiliteti
         /////<param name="pas"> pash qe do modifikohet</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoPASHAndBuxhete(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idperdoruesi, colTrupPasqyreFinaciare ocoltrupipash)", true)]
-        //public clsMesazh modifikoPASHAndBuxhete(clsPASH  pas)
-        //{
-        //    //clsPasqyreFinanciare paseksistuese = merrPasqyraFinaciareSipasId(pas.IdPasqyresFin)[0];
-        //    //colTrupPasqyreFinaciare colTrupi = merrPasqyraFinaciareTrupiSipasIdKoka(pas.IdPasqyresFin);
-        //    colTrupPasqyreFinaciare colTrupi = new colTrupPasqyreFinaciare(pas.IdPasqyresFin);
-        //    colBuxhetet colBuxh = new colBuxhetet();
-        //    colLlogariaTrupiPasqyres colLlog = new colLlogariaTrupiPasqyres();
-        //    foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //    {
-        //        //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("PasqyreFinanciare");
-        //        //colBuxh.AddRange(merrBuxhetetSipasIdLidheseIdLlojBuxheti(t.IdTrupi, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("PasqyreFinanciare")));
-        //        colBuxh.AddRange(new colBuxhetet(t.IdTrupi, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("PasqyreFinanciare")));
-        //        //colLlog.AddRange(merrLlogariPasqyraFinaciareTrupiSipasIdTrupi(t.IdTrupi));
-        //        colLlog.AddRange(new colLlogariaTrupiPasqyres(t.IdTrupi));
-        //    }
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
 
 
-        //        foreach (clsBuxheti o in colBuxh)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiBuxhet(o.IdLidhese);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        foreach (clsLlogariaTrupiPasqyres l in colLlog)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiLlogariPasqyreTrupi(l.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiPasqyreTrupi(t.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
 
-        //            mesazh = modifikoPasqyraFinanciareKoka(pas.IdPasqyresFin, pas.KodiPasqyresFin, pas.EmertimiPasqyresFin, pas.TipiPasqyresFin, pas.Metoda, pas.IdPerdoruesi);
-        //            if (mesazh.Status)
-        //            {
-        //                foreach (clsTrupPasqyreFinanciare trupi in pas.OColTrupiPASH)
-        //                {
-        //                    if (mesazh.Status)
-        //                    {
-        //                        trupi.IdKoka = pas.IdPasqyresFin;
-        //                        int idT;
-        //                        mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
 
-        //                        foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                        {
-        //                            if (mesazh.Status)
-        //                            {
-        //                                trupi.IdTrupi = idT;
-        //                                llog.IdTrupi = trupi.IdTrupi;
-        //                                mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                            }
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
 
-        //                        foreach (clsBuxheti buxheti in trupi.OColBuxhetet)
-        //                        {
-        //                            if (mesazh.Status)
-        //                            {
-        //                                buxheti.IdLidhese = trupi.IdTrupi;
-        //                                int idB;
-        //                                mesazh = ruajBuxhet(out idB, buxheti.IdLlojBuxheti, buxheti.IdLidhese, buxheti.Muaj, buxheti.Buxheti_1, buxheti.Buxheti_2);
-        //                            }
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         ///// <summary>
         ///// Modifikon nje objekt cash flow sebashku me te trupin,llogarite 
@@ -5220,122 +3427,21 @@ namespace DbCore.DbKontabiliteti
         /////<param name="pas"> cash flow qe do modifikohet</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoCashFlowAndBuxhete(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idperdoruesi, colTrupPasqyreFinaciare oColTrupiCashFlow)", true)]
-        //public clsMesazh modifikoCashFlowAndBuxhete(clsCashFlow pas)
-        //{
-        //    //clsPasqyreFinanciare paseksistuese = merrPasqyraFinaciareSipasId(pas.IdPasqyresFin)[0];
-        //    //colTrupPasqyreFinaciare colTrupi = merrPasqyraFinaciareTrupiSipasIdKoka(pas.IdPasqyresFin);
-        //    colTrupPasqyreFinaciare colTrupi = new colTrupPasqyreFinaciare(pas.IdPasqyresFin);
-        //    colLlogariaTrupiPasqyres colLlog = new colLlogariaTrupiPasqyres();
-        //    foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //    {
-        //        colLlog.AddRange(new colLlogariaTrupiPasqyres(t.IdTrupi));
-        //        //colLlog.AddRange(merrLlogariPasqyraFinaciareTrupiSipasIdTrupi(t.IdTrupi));
-        //    }
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
 
 
-
-        //        foreach (clsLlogariaTrupiPasqyres l in colLlog)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiLlogariPasqyreTrupi(l.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiPasqyreTrupi(t.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
 
-        //        if (mesazh.Status)
-        //        {
-        //            mesazh = modifikoPasqyraFinanciareKoka(pas.IdPasqyresFin, pas.KodiPasqyresFin, pas.EmertimiPasqyresFin, pas.TipiPasqyresFin, pas.Metoda, pas.IdPerdoruesi);
-        //            if (mesazh.Status)
-        //            {
-        //                foreach (clsTrupPasqyreFinanciare trupi in pas.OColTrupiCashFlow)
-        //                {
-        //                    if (mesazh.Status)
-        //                    {
-        //                        trupi.IdKoka = pas.IdPasqyresFin;
-        //                        int idT;
-        //                        mesazh = ruajTrupinPasqyresFinanciare(out idT, trupi.IdKoka, trupi.PershkrimiZerit, trupi.PrindiZerit, trupi.NiveliZerit, trupi.LlojiZerit, trupi.GjeneroTotal);
-        //                        foreach (clsLlogariaTrupiPasqyres llog in trupi.OColLlogarite)
-        //                        {
-        //                            trupi.IdTrupi = idT;
-        //                            if (mesazh.Status)
-        //                            {
-        //                                llog.IdTrupi = trupi.IdTrupi;
-        //                                mesazh = ruajLlogariTrupiPasqyres(llog.IdLlogariaTrupi, llog.IdTrupi, llog.IdLlogaria, llog.Emertimi, llog.Gjendja, llog.Shenja, llog.IdPerdoruesi, llog.Lloji);
-        //                            }
         //                            else
-        //                            {
-        //                                dbManager.Transaction.Rollback();
-        //                                return mesazh;
-        //                            }
-        //                        }
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
 
 
-        //                }
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         ///// <summary>
         ///// fshin nje objekt pasqyra financiare sebashku me  trupin,llogarite dhe buxhetet perkates
@@ -5348,97 +3454,16 @@ namespace DbCore.DbKontabiliteti
         /////<param name="pas"> pasqyra finaciare qe do te fshihet</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e fshirjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh fshiPasqyraAndBuxhete(int idPasqyresFin)", true)]
-        //public clsMesazh fshiPasqyraAndBuxhete(clsPasqyreFinanciare pas)
         //{//fshin pasqyren dhe buxhetet perkatese
-        //    //colTrupPasqyreFinaciare colTrupi = merrPasqyraFinaciareTrupiSipasIdKoka(pas.IdPasqyresFin);
-        //    colTrupPasqyreFinaciare colTrupi = new colTrupPasqyreFinaciare(pas.IdPasqyresFin);
-        //    colBuxhetet colBuxh = new colBuxhetet();
-        //    colLlogariaTrupiPasqyres colLlog = new colLlogariaTrupiPasqyres();
-        //    foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //    {
-        //        //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("PasqyreFinanciare");
-        //        //colBuxh.AddRange(merrBuxhetetSipasIdLidheseIdLlojBuxheti(t.IdTrupi, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("PasqyreFinanciare")));
-        //        colBuxh.AddRange(new colBuxhetet(t.IdTrupi, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("PasqyreFinanciare")));
-        //        //colLlog.AddRange(merrLlogariPasqyraFinaciareTrupiSipasIdTrupi(t.IdTrupi));
-        //        colLlog.AddRange(new colLlogariaTrupiPasqyres(t.IdTrupi));
-        //    } 
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
 
 
-
-        //        foreach (clsBuxheti o in colBuxh)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiBuxhet(o.IdLidhese);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //            }
-        //        }
-        //        foreach (clsLlogariaTrupiPasqyres l in colLlog)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiLlogariPasqyreTrupi(l.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //            }
-        //        }
-        //        foreach (clsTrupPasqyreFinanciare t in colTrupi)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiPasqyreTrupi(t.IdTrupi);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            mesazh=  fshiPasqyreKoka(pas.IdPasqyresFin);
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -5472,33 +3497,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: ruajGrupKontabilizimi(int idgrupkontablizimi, string nrgrupkontabilizimi, string pershkrimgrupkontabilizimi, int idperdoruesi, int idnderm)", true)]
-        //public clsMesazh ruajGrupKontabilizimi(clsGrupKontabilizimi grupKontabilizimi)
         //{//ruan nje grup kontabilizimi
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDGRUPKONTABILIZIMI", grupKontabilizimi.IdGrupKontabilizimi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@NRGRUPKONTABILIZIMI", grupKontabilizimi.NrGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMGRUPKONTABILIZIMI", grupKontabilizimi.PershkrimGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", grupKontabilizimi.IdPerdoruesi , ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERMARJE", grupKontabilizimi.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_upd per te modifikuar nje objekt clsGrupKontabilizimi ne DB.
@@ -5524,32 +3526,9 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: modifikoGrupKontabilizimi(int idgrupkontablizimi, string nrgrupkontabilizimi, string pershkrimgrupkontabilizimi, int idperdoruesi, int idnderm)", true)]
-        //public clsMesazh modifikoGrupKontabilizimi(clsGrupKontabilizimi grupKontabilizimi)
         //{//modifikon nje grupkontabilizimi
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDGRUPKONTABILIZIMI", grupKontabilizimi.IdGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@NRGRUPKONTABILIZIMI", grupKontabilizimi.NrGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMGRUPKONTABILIZIMI", grupKontabilizimi.PershkrimGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", grupKontabilizimi.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERMARJE", grupKontabilizimi.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_del per te fshire nje objekt clsGrupKontabilizimi ne DB.
@@ -5576,29 +3555,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: fshiGrupKontabilizimi(int idgrupkontablizimi)", true)]
-        //public clsMesazh fshiGrupKontabilizimi(clsGrupKontabilizimi grupKontabilizimi)
         //{//fshin nje grup kontabilizimi
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPKONTABILIZIMI", grupKontabilizimi.IdGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_ktheGrupKontabilizimiSipasId per te marre nje objekt clsGrupKontabilizimi ne DB duke filtruar sipas ID-se se grupit te kontabilizimit.
@@ -5615,23 +3575,8 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor: merrGrupKontabilizimi(int idgrupkontablizimi)", true)]
         //public void merrGrupKontabilizimi(clsGrupKontabilizimi grupKontabilizimi)
         //{//merr nje grup kontabilizimi
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPKONTABILIZIMI", grupKontabilizimi.IdGrupKontabilizimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_ktheGrupKontabilizimiSipasId");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_merrGjitheGrupetKontabilizimi per te marre nje collection me objekte clsGrupKontabilizimi ne DB duke filtruar sipas ID-se se ndermarrjes.
@@ -5649,30 +3594,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheGrupetKontabilizimi(int idndermarje)", true)]
-        //public colGrupeKontabilizimi merrGjitheGrupetKontabilizimi(int idndermarje)
         //{//metoda per te marre te gjithe grupet
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_merrGjitheGrupetKontabilizimi");
-        //        colGrupeKontabilizimi grupetKontabilizimi = new colGrupeKontabilizimi();
-        //        return grupetKontabilizimi.mbushArrayListGrupeKontabilizimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupeKontabilizimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
 
-        //    }
-
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_merrGrupKontabilizimiSipasKodit per te marre nje collection me objekte clsGrupKontabilizimi ne DB duke filtruar sipas numrit te grupit te kontabilizimit dhe ID-se se ndermarrjes.
@@ -5697,30 +3622,10 @@ namespace DbCore.DbKontabiliteti
             return idGrupKontabilizim;
         }
         //[Obsolete("Perdor: int ktheGrupKontabilizimiSipasKodit(string kodi, int idnderm)", true)]
-        //public colGrupeKontabilizimi merrGrupKontabilizimiSipasKodit(string kodi, int idnderm)
         //{//metoda per te marre te grupin sipas kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@NRGRUPKONTABILIZIMI", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_merrGrupKontabilizimiSipasKodit");
-        //        colGrupeKontabilizimi grupetKontabilizimi = new colGrupeKontabilizimi();
-        //        return grupetKontabilizimi.mbushArrayListGrupeKontabilizimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupeKontabilizimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_ktheGrupKontabilizimiSipasId per te marre nje collection me objekte clsGrupKontabilizimi ne DB duke filtruar sipas ID-se se grupit te kontabilizimit.
@@ -5741,29 +3646,10 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow merrGrupKontabilizimiSipasId(int id)", true)]
-        //public colGrupeKontabilizimi ktheGrupKontabilizimiSipasId(int id)
         //{//metoda per te marre grupin sipas id
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPKONTABILIZIMI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_ktheGrupKontabilizimiSipasId");
-        //        colGrupeKontabilizimi grupetKontabilizimi = new colGrupeKontabilizimi();
-        //        return grupetKontabilizimi.mbushArrayListGrupeKontabilizimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupeKontabilizimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_GRUPKONTABILIZIMI_merrGrupKontabilizimiSipasKodit per te kontrolluar ne ekziston nje objekt clsGrupKontabilizimi ne DB duke filtruar sipas numrit te grupit te kontabilizimit dhe ID-se se ndermarrjes.
@@ -5816,14 +3702,12 @@ namespace DbCore.DbKontabiliteti
         //    string pershkrimfletekontabel, int idgrupkontabilizimi,
         //    //int idskemakontabel, 
         //    int idnderviti, bool kont, double vleftafletekontabel, int idperdoruesi,
-        //    int idllojdok, int iddoknga, int idstatusdok, int idkonfigambjente, int idkonfiggjenerues, int idkategoria, int idnivel, int idnivelgjenerues, int idgjenerues,int idPeriudha , int idndermarje)
         //{ //metoda per ruajtjen e  koken e fletes kontabel
         //    return ruajKokaFleteKontabel(idkokafletekontabel,nrdokumentikokafletekontabel,datedokumentifletekontabel,dateregjistrimifletekontabel,pershkrimfletekontabel
         //        ,idgrupkontabilizimi,
         //        //idskemakontabel,
         //        idnderviti,kont,vleftafletekontabel,idperdoruesi,idllojdok,iddoknga,idstatusdok,idkonfigambjente
         //        ,idkonfiggjenerues,idkategoria,idnivel,idnivelgjenerues,idgjenerues, idPeriudha, idndermarje);   
-        //}
         /// <summary>
         /// Ekzekuton prc_T_KOKAFLETEKONTABEL_ins per te ruajtur nje objekt clsKokaFleteKontabel ne DB.
         /// <param name="idkokafletekontabel">Id qe gjenerohet automatikisht</param>
@@ -5863,9 +3747,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(5, "@PERSHKRIMKOKAFLETEKONTABEL", pershkrimfletekontabel, ParameterDirection.Input);
             if (idgrupkontabilizimi < 1) dbManager.AddParameters(6, "@IDGRUPKONTABILIZIMI", DBNull.Value, ParameterDirection.Input);
             else dbManager.AddParameters(6, "@IDGRUPKONTABILIZIMI", idgrupkontabilizimi, ParameterDirection.Input);
-            //if(idskemakontabel==0)        
             dbManager.AddParameters(7, "@IDSKEMAKONTABEL", DBNull.Value, ParameterDirection.Input);
-            //else dbManager.AddParameters(7, "@IDSKEMAKONTABEL", idskemakontabel, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDNDERVITI", idnderviti, ParameterDirection.Input);
             dbManager.AddParameters(9, "@KONTABILIZUAR", kont, ParameterDirection.Input);
             dbManager.AddParameters(10, "@VLEFTAFLETEKONTABEL", vleftafletekontabel, ParameterDirection.Input);
@@ -6395,34 +4277,11 @@ namespace DbCore.DbKontabiliteti
         }
         //[Obsolete("Perdor: clsMesazh ruajTrupiFleteKontabel(int idtrupifletekontabel, int idkokafletekontabel, int idllogari, string pershkrimtrupifletekontabel, int idmonedha, double kurs, double vleftadebitrupifletekontabel, " +
         //    "double vleftakreditrupifletekontabel, string kodmonedha, string kodiskemakontabel, double vleftadebimonbazetrupifletakontabel, double vleftakredimonbazetrupifletakontabel)", true)]
-        //public clsMesazh ruajTrupiFleteKontabel(clsTrupiFleteKontabel trupiFleteKontabel)
         //{ //metoda per ruajtjen e  trupit flete kontabel
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(10);
-        //        dbManager.AddParameters(0, "@IDTRUPIFLETEKONTABEL", trupiFleteKontabel.IdTrupiFleteKontabel, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDKOKAFLETEKONTABEL", trupiFleteKontabel.IdKokaFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLLOGARI", trupiFleteKontabel.IdLlogari, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PERSHKRIMiTRUPIFLETEKONTABEL", trupiFleteKontabel.PershkrimTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDMONEDHA", trupiFleteKontabel.IdMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@KURSI", trupiFleteKontabel.Kursi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@VLEFTADEBITRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaDebiTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@VLEFTAKREDITRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaKrediTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@VLEFTADEBIMONBAZETRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaDebiMonBazeTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@VLEFTAKREDIMONBAZETRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaKrediMonBazeTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_ins");
-        //        trupiFleteKontabel.IdTrupiFleteKontabel = int.Parse(dbManager.Parameters[0].Value.ToString());
 
-        //        clsMesazh mesazh = new clsMesazh(true, "Shtimi perfundoi me sukses!");
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
         //        
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_upd per te modifikuar nje objekt clsTrupiFleteKontabel ne DB.
@@ -6463,34 +4322,9 @@ namespace DbCore.DbKontabiliteti
         }
         //[Obsolete("Perdor: clsMesazh modifikoTrupiFleteKontabel(int idtrupifletekontabel, int idkokafletekontabel, int idllogari, string pershkrimtrupifletekontabel, int idmonedha, double kurs, double vleftadebitrupifletekontabel, " +
         //    "double vleftakreditrupifletekontabel, double vleftadebimonbazetrupifletakontabel, double vleftakredimonbazetrupifletakontabel)", true)]
-        //public clsMesazh modifikoTrupiFleteKontabel(clsTrupiFleteKontabel trupiFleteKontabel)
         //{//metoda per modifikimin e  trupi fleta kontabel
         //    try
-        //    {
-        //        dbManager.CreateParameters(10);
-        //        dbManager.AddParameters(0, "@IDTRUPIFLETEKONTABEL", trupiFleteKontabel.IdTrupiFleteKontabel, ParameterDirection.Input );
-        //        dbManager.AddParameters(1, "@IDKOKAFLETEKONTABEL", trupiFleteKontabel.IdKokaFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLLOGARI", trupiFleteKontabel.IdLlogari, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PERSHKRIMiTRUPIFLETEKONTABEL", trupiFleteKontabel.PershkrimTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDMONEDHA", trupiFleteKontabel.IdMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@KURSI", trupiFleteKontabel.Kursi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@VLEFTADEBITRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaDebiTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@VLEFTAKREDITRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaKrediTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@VLEFTADEBIMONBAZETRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaDebiMonBazeTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@VLEFTAKREDIMONBAZETRUPIFLETEKONTABEL", trupiFleteKontabel.VleftaKrediMonBazeTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_upd");
-        //        trupiFleteKontabel.IdTrupiFleteKontabel = int.Parse(dbManager.Parameters[0].Value.ToString());
 
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_del per te fshire nje objekt clsTrupiFleteKontabel ne DB.
@@ -6509,24 +4343,10 @@ namespace DbCore.DbKontabiliteti
             return mesazh;
         }
         //[Obsolete("Perdor: clsMesazh fshiTrupiFleteKontabel(int idtrupifletekontabel)", true)]
-        //public clsMesazh fshiTrupiFleteKontabel(clsTrupiFleteKontabel trupiFleteKontabel)
         //{//metoda per fshirjen e trupi fleta kontabel
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIFLETEKONTABEL", trupiFleteKontabel.IdTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_sel per te marre nje objekt clsTrupiFleteKontabel ne DB duke filtruar sipas ID-se se trupit te fletes kontabel.
@@ -6545,24 +4365,9 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor: void merrTrupiFleteKontabel(int idtrupifletekontabel)", true)]
         //public void merrTrupiFleteKontabel(clsTrupiFleteKontabel trupiFleteKontabel)
         //{// metoda per te marre nje  trupi flete kontabel NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIFLETEKONTABEL", trupiFleteKontabel.IdTrupiFleteKontabel, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_merrGjitheTrupatFletetKontabel per te marre nje collection me gjithe objektet clsTrupiFleteKontabel ne DB.
@@ -6576,26 +4381,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheGjitheTrupatFletetKontabel()", true)]
-        //public colTrupatFletetKontabel merrGjitheTrupatFletetKontabel()
         //{//metoda per te marre te gjithe trupat e fleteve kontabel
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_merrGjitheTrupatFletetKontabel");
-        //        colTrupatFletetKontabel trupatfletekontabel = new colTrupatFletetKontabel();
-        //        return trupatfletekontabel.mbushArrayListTrupiFleteveKontabel(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatFletetKontabel();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_merrTrupatFleteveKontabelSipasIdTrupit per te marre nje collection me objekte clsTrupiFleteKontabel ne DB duke filtruar sipas ID-se se trupit te fletes kontabel.
@@ -6616,28 +4404,9 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataRow ktheTrupatFleteveKontabelSipasIdTrupit(int id)", true)]
-        //public colTrupatFletetKontabel merrTrupatFleteveKontabelSipasIdTrupit(int  id)
         //{//metoda per te marre trupat e fleteve kontabel sipas id se trupit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIFLETEKONTABEL", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_merrTrupatFleteveKontabelSipasIdTrupit");
-        //        colTrupatFletetKontabel trupatfletekontabel = new colTrupatFletetKontabel();
-        //        return trupatfletekontabel.mbushArrayListTrupiFleteveKontabel(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatFletetKontabel();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_TRUPIFLETEKONTABEL_merrTrupatFleteKontabelSipasKokes per te marre nje collection me objekte clsTrupiFleteKontabel ne DB duke filtruar sipas ID-se se kokes se fletes kontabel.
@@ -6679,38 +4448,14 @@ namespace DbCore.DbKontabiliteti
             return ds.Tables[0].Rows[0];
         }
         //[Obsolete("Perdor: DataTable ktheTrupatFleteKontabelSipasKokes(int idKoka)", true)]
-        //public colTrupatFletetKontabel merrTrupatFleteKontabelSipasKokes(int idKoka)
         //{//metoda per te marre trupin flete kontabel sipas id se kokes
-        //    bool connectionIRi = false;
-        //    if (dbManager == null || dbManager.Command == null)
-        //    {
 
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //        dbManager.Open();
-        //        connectionIRi = true;
-        //    }
         //    try
-        //    {
 
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAFLETEKONTABEL", idKoka, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIFLETEKONTABEL_merrTrupatFleteKontabelSipasKokes");
-        //        colTrupatFletetKontabel trupatfletekontabel = new colTrupatFletetKontabel();
-        //        return trupatfletekontabel.mbushArrayListTrupiFleteveKontabel(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatFletetKontabel();
-        //    }
         //    finally
         //    {if(connectionIRi )
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
-
 
 
         /// <summary>
@@ -6881,25 +4626,9 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh modifikoAdrese(int idadresaklientfurnitor, int idklientfurnitor, int idtipadrese, String adr)", true)]
-        //public clsMesazh modifikoAdrese(clsAdresaKlientFurnitor adrese)
         //{//modifikimi i adreses se klient furnitorit
         //    try
-        //    {
 
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDADRESAKLIENTFURNITOR", adrese.IdAdresaKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDKLIENTFURNITOR", adrese.IdKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDTIPADRESE", adrese.IdTipAdrese, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@ADRESA", adrese.Adresa, ParameterDirection.Input);
-
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ADRESAKLIENTFURNITOR_upd");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, "Ndodhi nje gabim. Ruajtja nuk u krye!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_ADRESAKLIENTFURNITOR_del per te fshire nje objekt clsAdresaKlientFurnitor ne DB.
@@ -6916,20 +4645,8 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh fshiAdrese(int idadresaklientfurnitor)", true)]
-        //public clsMesazh fshiAdrese(clsAdresaKlientFurnitor adrese)
         //{//fshirja e adreses se klient furnitorit
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDADRESAKLIENTFURNITOR", adrese.IdAdresaKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ADRESAKLIENTFURNITOR_del");
-        //        return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, "Fshirja perfundoi me gabime!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_ADRESAKLIENTFURNITOR_sel per te marre nje objekt clsAdresaKlientFurnitor ne DB.
@@ -7005,28 +4722,9 @@ namespace DbCore.DbKontabiliteti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         //[Obsolete("Perdor: clsMesazh ruajKontakt(int idkontaktiklientfurnitor, int idklientfurnitor, string emerkontakti, String mbiemerkontakti, string telkontakti, string faxkontakti, string celkontakti, string emailkontakti)", true)]
-        //public clsMesazh ruajKontakt(clsKontaktiKlientFurnitor kontakt)
         //{//ruajtja e kontaktit per klient furnitorin 
         //    try
-        //    {
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDKONTAKTIKLIENTFURNITOR", kontakt.IdKontaktiKlientFurnitor, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDKLIENTFURNITOR", kontakt.IdKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@EMERKONTAKTI", kontakt.EmerKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@MBIEMERKONTAKTI", kontakt.MbiemerKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@TELKONTAKTI", kontakt.TelKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@FAXKONTAKTI", kontakt.FaxKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@CELKONTAKTI", kontakt.CelKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@EMAILKONTAKTI", kontakt.EmailKontakti, ParameterDirection.Input);
 
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KONTAKTIKLIENTFURNITOR_ins");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, "Ndodhi nje gabim. Ruajtja nuk u krye!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KONTAKTIKLIENTFURNITOR_upd per te modifikuar nje objekt clsKontaktiKlientFurnitor ne DB.
@@ -7053,29 +4751,9 @@ namespace DbCore.DbKontabiliteti
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoKontakt(int idkontaktiklientfurnitor, int idklientfurnitor, string emerkontakti, String mbiemerkontakti, string telkontakti, string faxkontakti, string celkontakti, string emailkontakti)", true)]
-        //public clsMesazh modifikoKontakt(clsKontaktiKlientFurnitor kontakt)
         //{//modifikimi e kontaktit per klient furnitorin
         //    try
-        //    {
 
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDKONTAKTIKLIENTFURNITOR", kontakt.IdKontaktiKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDKLIENTFURNITOR", kontakt.IdKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@EMERKONTAKTI", kontakt.EmerKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@MBIEMERKONTAKTI", kontakt.MbiemerKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@TELKONTAKTI", kontakt.TelKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@FAXKONTAKTI", kontakt.FaxKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@CELKONTAKTI", kontakt.CelKontakti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@EMAILKONTAKTI", kontakt.EmailKontakti, ParameterDirection.Input);
-
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KONTAKTIKLIENTFURNITOR_upd");
-        //        return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, "Ndodhi nje gabim. Ruajtja nuk u krye!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KONTAKTIKLIENTFURNITOR_del per te fshire nje objekt clsKontaktiKlientFurnitor ne DB.
@@ -7093,20 +4771,8 @@ namespace DbCore.DbKontabiliteti
 
         }
         //[Obsolete("Perdor: ", true)]
-        //public clsMesazh fshiKontakt(clsKontaktiKlientFurnitor kontakt)
         //{//fshirja e kontaktit per klient furnitorin
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKONTAKTIKLIENTFURNITOR", kontakt.IdKontaktiKlientFurnitor, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KONTAKTIKLIENTFURNITOR_del");
-        //        return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, "Fshirja perfundoi me gabime!");
-        //    }
-        //}
 
         /// <summary>
         /// Ekzekuton prc_T_KONTAKTIKLIENTFURNITOR_sel per te marre nje objekt clsKontaktiKlientFurnitor ne DB duke filtruar sipas ID-se se kontaktit.
@@ -7281,7 +4947,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(39, "@ZBRITJETOTAL", zbritjeTotal, ParameterDirection.Input);
             dbManager.AddParameters(40, "@IDNDERMARJE", idndermarja, ParameterDirection.Input);
             dbManager.AddParameters(41, "@VITI", vit, ParameterDirection.Input);
-            //dbManager.AddParameters(42, "@IDNDERVITI", idndermvit, ParameterDirection.Input);
             dbManager.AddParameters(42, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(43, "@IDKONFIG", idKonfig, ParameterDirection.Input);
             dbManager.AddParameters(44, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -7347,7 +5012,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ins");
             
             idKlientFurnitor = int.Parse(dbManager.Parameters[0].Value.ToString());
-            //clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
             return idKlientFurnitor;
         }
 
@@ -7724,7 +5388,6 @@ namespace DbCore.DbKontabiliteti
         }
 
 
-
         /// <summary>
         /// Ekzekuton prc_T_KLIENTFURNITOR_merrKlienteFurnitoreNdermarrjes per te marre nje datatable ne DB duke filtruar sipas id-se se ndermarrjes dhe aktive.
         /// <param name="idnderm">Id e ndermarrjes</param>
@@ -8028,8 +5691,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(1, "@DTDOKUMENTI", data, ParameterDirection.Input);
             dbManager.AddParameters(2, "@GJENDJA", detyrimi, ParameterDirection.Output);
             return Convert.ToDecimal(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheGjendjenkf"));
-            //detyrimi = decimal.Parse(dbManager.Parameters[2].Value.ToString());
-            //return detyrimi;
         }
 
         internal DataRow merrDetyrimKFMeparshem(int idkf, int idKokaShitje, DateTime data)
@@ -8048,8 +5709,6 @@ namespace DbCore.DbKontabiliteti
                 return null;
             return ds.Tables[0].Rows[0];
 
-            //detyrimi = decimal.Parse(dbManager.Parameters[2].Value.ToString());
-            //return detyrimi;
         }
 
         internal decimal merrDetyrimKFMonBaze(int idkf, DateTime data)
@@ -8103,10 +5762,6 @@ namespace DbCore.DbKontabiliteti
         }
 
 
-
-
-
-
         internal DataTable merrKlientFurnitorSipasIDPaAutorizim(int idKlientFurnitor)
         {//kthen klient furnitorin sipas nr
 
@@ -8126,10 +5781,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorIDMeAutorizim");
-            //if (ds == null)
-            //    return null;
-            //if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-            //    return null;
             return ds.Tables[0];
         }
 
@@ -8142,10 +5793,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(2, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorKodNdermarje");
-            //if (ds == null)
-            //    return null;
-            //if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-            //    return null;
             if (ds == null)
                 return null;
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
@@ -8359,7 +6006,6 @@ namespace DbCore.DbKontabiliteti
         }
 
      
-
         internal DataRow merrKodifikimKFSipasKodLloj(string kodgrupi, int idndermarje, int llojkodifikimi, int llojkf)
         {
 
@@ -8887,8 +6533,6 @@ namespace DbCore.DbKontabiliteti
         internal DataTable ktheGjitheSkemaKontabelRegjistrim()
         {
             dbManager.Open();
-            //  dbManager.CreateParameters(1);
-            // dbManager.AddParameters(0, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMEKONTABILITETI_merrAll");
             return ds.Tables[0];
         }
@@ -8903,7 +6547,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDSKEMKONT", id, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@IDNDERVITI", idnderviti, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMEKONTABILITETI_merrSkemeKontSipasID");
             if (ds == null)
                 return null;
@@ -8925,7 +6568,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@KODSKEMKONT", kodi, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@IDNDERVITI", idnderviti, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMEKONTABILITETI_merrSkemeKontSipasKodit");
             if (ds == null)
                 return -1;

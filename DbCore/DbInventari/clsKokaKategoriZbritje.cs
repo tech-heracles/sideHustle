@@ -19,7 +19,6 @@ namespace DbCore.DbInventari
         private string kodKategoriZbritje;
         private string pershkrimKategoriZbritje;
         private int idPerdoruesi;
-        //private int idNderViti;
         private decimal zbritja;
         private int idNdermarje;
         private int idStatusDok;
@@ -53,10 +52,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne e ndermarjes vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos kodin kategori zbritje.
         /// </summary>
@@ -171,7 +168,6 @@ namespace DbCore.DbInventari
             this.kodKategoriZbritje = kodKategoriZbritje;
             this.pershkrimKategoriZbritje = pershkrimKategoriZbritje;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.zbritja = zbritja;
             this.idNdermarje = idnderm;
             this.idStatusDok = idstatusdok;
@@ -193,7 +189,6 @@ namespace DbCore.DbInventari
             this.kodKategoriZbritje = kodKategoriZbritje;
             this.pershkrimKategoriZbritje = pershkrimKategoriZbritje;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.zbritja = zbritja;
             this.idNdermarje = idnderm;
             this.idStatusDok = idstatusdok;
@@ -244,9 +239,7 @@ namespace DbCore.DbInventari
         public clsMesazh ruajKategoriZbritje(int idKokaKategoriZbritje, string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, decimal zbritja, int idnderm, colTrupatKategoriteZbritjes oColTrupat, int idstatusdok, int idmonedha)
         {//ruan kategoriZbritje
             clsDatabaseInventari db = new clsDatabaseInventari();
-            //clsKokaKategoriZbritje kategoriZbritje = new clsKokaKategoriZbritje(idKokaKategoriZbritje, kodKategoriZbritje, pershkrimKategoriZbritje, idPerdoruesi, idNderViti, zbritja, idnderm);
             bool statusVeprimi;
-
 
 
             clsMesazh mesazh = new clsMesazh();
@@ -269,7 +262,6 @@ namespace DbCore.DbInventari
                             int idT;
                             mesazh = db.ruajTrupiKategoriZbritje(out idT, o.IdKokaKategoriZbritje, o.DateFillimi, o.DateMbarimi, o.VleraMin, o.VleraMax, o.Lloji,
                                 o.Zbritja, o.IdPerdoruesi, o.Prioriteti);
-                            //mesazh= ruajTrupiKategoriZbritje(o);
                         }
                         else
                         {
@@ -312,13 +304,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajKategoriZbritje(int idKokaKategoriZbritje, string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, int idNderViti, decimal zbritja, int idnderm)", true)]
-        //public clsMesazh ruaj()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_ruajt = data.ruajKategoriZbritje(this.IdKokaKategoriZbritje, this.KodKategoriZbritje, this.PershkrimKategoriZbritje, this.IdPerdoruesi, this.IdNderViti, this.Zbritja, this.IdNdermarje);
-        //    //clsMesazh u_ruajt = data.ruajKategoriZbritje(this);
-        //    return u_ruajt;
-        //}
 
         /// <summary>
         /// Modifikon nje objekt kategori zbritje sebashku me trupin
@@ -338,9 +323,7 @@ namespace DbCore.DbInventari
         public clsMesazh modifikoKategoriZbritje(int idKokaKategoriZbritje, string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, decimal zbritja, int idnderm, colTrupatKategoriteZbritjes oColTrupat, int idstatusdok, int idmonedha)
         {
             //modifikon KategoriZbritje
-            //colTrupatKategoriteZbritjes trupat = merrTrupatKategoriZbritjeSipasKokes(kategoriZbritje.IdKokaKategoriZbritje);
             colTrupatKategoriteZbritjes trupat = new colTrupatKategoriteZbritjes();
-            //clsKokaKategoriZbritje kategoriZbritje = new clsKokaKategoriZbritje(idKokaKategoriZbritje, kodKategoriZbritje, pershkrimKategoriZbritje, idPerdoruesi, idNderViti, zbritja, idnderm);
             clsDatabaseInventari db = new clsDatabaseInventari();
 
 
@@ -350,7 +333,6 @@ namespace DbCore.DbInventari
             {
                 db.beginTransaksion();
                 mesazh = db.modifikoKokaKategoriZbritje(idKokaKategoriZbritje, kodKategoriZbritje, pershkrimKategoriZbritje, idPerdoruesi, zbritja, idNdermarje, idstatusdok, idmonedha);
-                //mesazh=  modifikoKokaKategoriZbritje(kategoriZbritje);
 
                 if (mesazh.Status)
                 {
@@ -368,7 +350,6 @@ namespace DbCore.DbInventari
                                     mesazh = db.modifikoTrupiKategoriZbritje(oColTrupat[i].IdTrupiKategoriZbritje, oColTrupat[i].IdKokaKategoriZbritje, oColTrupat[i].DateFillimi,
                                         oColTrupat[i].DateMbarimi, oColTrupat[i].VleraMin, oColTrupat[i].VleraMax, oColTrupat[i].Lloji, oColTrupat[i].Zbritja,
                                         oColTrupat[i].IdPerdoruesi, oColTrupat[i].Prioriteti);
-                                    //mesazh=  modifikoTrupiKategoriZbritje(kategoriZbritje.OColTrupat[i]);
                                 }
                                 else
                                 {
@@ -377,7 +358,6 @@ namespace DbCore.DbInventari
                                         oColTrupat[i].DateMbarimi, oColTrupat[i].VleraMin, oColTrupat[i].VleraMax, oColTrupat[i].Lloji, oColTrupat[i].Zbritja,
                                         oColTrupat[i].IdPerdoruesi, oColTrupat[i].Prioriteti);
                                 }
-                                //mesazh= ruajTrupiKategoriZbritje(kategoriZbritje.OColTrupat[i]);
                             }
                             else
                             {
@@ -403,11 +383,9 @@ namespace DbCore.DbInventari
                                     mesazh = db.modifikoTrupiKategoriZbritje(oColTrupat[i].IdTrupiKategoriZbritje, oColTrupat[i].IdKokaKategoriZbritje, oColTrupat[i].DateFillimi,
                                         oColTrupat[i].DateMbarimi, oColTrupat[i].VleraMin, oColTrupat[i].VleraMax, oColTrupat[i].Lloji, oColTrupat[i].Zbritja,
                                         oColTrupat[i].IdPerdoruesi, oColTrupat[i].Prioriteti);
-                                    //mesazh= modifikoTrupiKategoriZbritje(kategoriZbritje.OColTrupat[i]);
                                 }
                                 else
                                 {
-                                    //mesazh=  fshiTrupiKategoriZbritje(trupat[i]);
                                     mesazh = db.fshiTrupiKategoriZbritje(trupat[i].IdTrupiKategoriZbritje);
                                 }
                                 count++;
@@ -455,13 +433,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoKategoriZbritje(int idKokaKategoriZbritje, string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, int idNderViti, decimal zbritja, int idnderm)", true)]
-        //public clsMesazh modifiko()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_modifikua = data.modifikoKategoriZbritje(this.IdKokaKategoriZbritje, this.KodKategoriZbritje, this.PershkrimKategoriZbritje, this.IdPerdoruesi, this.IdNderViti, this.Zbritja, this.IdNdermarje);
-        //    //clsMesazh u_modifikua = data.modifikoKategoriZbritje(this);
-        //    return u_modifikua;
-        //}
         public bool KaVeprime()
         {
             using (var dbInventari = new clsDatabaseInventari())
@@ -470,7 +441,6 @@ namespace DbCore.DbInventari
         public clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje)
         {//fshin kategorizbritje
 
-            //colTrupatKategoriteZbritjes  trupat = merrTrupatKategoriZbritjeSipasKokes(kategorizbritje.IdKokaKategoriZbritje);
             colTrupatKategoriteZbritjes trupat = new colTrupatKategoriteZbritjes();
             trupat.mbushTrupatKategoriZbritjeSipasKokes(idKokaKategoriZbritje);
             clsDatabaseInventari db = new clsDatabaseInventari();
@@ -485,7 +455,6 @@ namespace DbCore.DbInventari
                     if (mesazh.Status)
                     {
                         mesazh = db.fshiTrupiKategoriZbritje(o.IdTrupiKategoriZbritje);
-                        //mesazh = fshiTrupiKategoriZbritje(o);
                     }
                     else
                     {
@@ -497,7 +466,6 @@ namespace DbCore.DbInventari
                 if (mesazh.Status)
                 {
                     mesazh = db.fshiKokaKategoriZbritje(idKokaKategoriZbritje);
-                    //mesazh =  fshiKokaKategoriZbritje(kategorizbritje);
                     if (mesazh.Status)
                     {
                         db.commitTransaksion();
@@ -532,13 +500,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje)", true)]
-        //public clsMesazh fshi()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_fshi = data.fshiKategoriZbritje(this.IdKokaKategoriZbritje);
-        //    //clsMesazh u_fshi = data.fshiKategoriZbritje(this);
-        //    return u_fshi;
-        //}
         /// <summary>
         /// Merr objektin kategorine e zbritjes nga tabela perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbInventari.clsDatabaseInventari.merrKokaKategoriZbritje"/> 
@@ -555,7 +516,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.merrKokaKategoriZbritjePaKthim(this.IdKokaKategoriZbritje);
             data.Dispose();
-            //data.merrKokaKategoriZbritje(this);
         }
 
         /// <summary>
@@ -599,7 +559,6 @@ namespace DbCore.DbInventari
                     kodKategoriZbritje = dbDataRowKokaKategoriZbritje["KODKATEGORIZBRITJE"].ToString();
                     pershkrimKategoriZbritje = dbDataRowKokaKategoriZbritje["PERSHKRIMKATEGORIZBRITJE"].ToString();
                     int.TryParse(dbDataRowKokaKategoriZbritje["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowKokaKategoriZbritje["IDNDERVITI"].ToString(), out idNderViti);
                     decimal.TryParse(dbDataRowKokaKategoriZbritje["ZBRITJA"].ToString(), out zbritja);
                     int.TryParse(dbDataRowKokaKategoriZbritje["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowKokaKategoriZbritje["IDSTATUSDOK"].ToString(), out idStatusDok);

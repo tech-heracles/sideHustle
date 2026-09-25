@@ -77,21 +77,13 @@ namespace DbCore.DbListPagesat
         private bool mbushQendraPunonjes(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsQendraKostoPunesimi skema = new clsQendraKostoPunesimi();
-                    //skema.mbushQendraKosto(rreshti);
                     Add(new clsQendraKostoPunonjes(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         #endregion

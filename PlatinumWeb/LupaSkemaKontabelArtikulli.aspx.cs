@@ -35,7 +35,6 @@ namespace PlatinumWeb
             
             if (!IsPostBack)
             {
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvLupaSkemaKontArt, idKonfigambjenti);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaSkemaKontArt", idKonfigambjenti, "LupaSkemaKontabelArtikulli.aspx");
@@ -52,9 +51,6 @@ namespace PlatinumWeb
             else
                 konfiguroPopupGride(idKonfigambjenti, false, kerkosaposhkruar);
             
-            //Container.Attributes["width"] = "350px";
-            //Container.Attributes["height"] = "400px";
-            //Container.Attributes["src"] = "LupaFiltra.aspx?grida=gvLupaSkemaKontArt&page=LupaSkemaKontabelArtikulli.aspx";
         }
         private void mbushPopUpListeSkemash()
         {//mbush griden e popupit me te dhena            
@@ -71,26 +67,17 @@ namespace PlatinumWeb
         {//konfiguron popupgriden
             shtoLloji();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaSkemaKontArt, "gvLupaSkemaKontArt", "LupaSkemaKontabelArtikulli.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaSkemaKontArt, "IdSkemaKontabilitetiArtikulli");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             var endlessScroll = clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaSkemaKontArt, "IdSkemaKontabilitetiArtikulli", kerkosaposhkruar, endlessScroll);
             string llojiartikull = Request.QueryString["llojiart"];
             //komentuar per arsye qe te ruhej filtri edhe kur ndryshoje faqe ne gride
             
-            //if (llojiartikull != null)
-            //{
-            //    if (llojiartikull == "afatshkurter")
-            //        gvLupaSkemaKontArt.FilterExpression = "[LlojiArt]=false";
-            //    else if (llojiartikull == "aqt")
-            //        gvLupaSkemaKontArt.FilterExpression = "[LlojiArt]=true";
-            //}
             ASPxLabel1.Text = "";
         }
 
         private void shtoLloji()
         {//shton comboboxin e llojit
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaSkemaKontArt.Columns["LlojiArt"].VisibleIndex;
             gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["LlojiArt"]);
 
@@ -107,7 +94,6 @@ namespace PlatinumWeb
 
         private void shtoLlogariInventar(int idGjuha)
         {// shton kombobox tek grida per llogarine
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariInventari"].VisibleIndex;
             gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariInventari"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
@@ -124,70 +110,18 @@ namespace PlatinumWeb
         #region metodaShtimi komentuar
         //private void shtoLlogariBlerje()
         //{// shton kombobox tek grida per llogarine
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariBlerje"].VisibleIndex;
-        //    gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariBlerje"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataTable dt = DbCore.DbKontabiliteti.colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeDT(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-        //    colnew.PropertiesComboBox.DataSource = dt;// colLlog;
-        //    colnew.PropertiesComboBox.TextField = "NrLlogari";
-        //    colnew.PropertiesComboBox.ValueField = "IdLlogari";
-        //    colnew.FieldName = "NLlogariBlerje";
-        //    gvLupaSkemaKontArt.Columns.Add(colnew);
-        //    colnew.VisibleIndex = visibleindex;
-        //    dt.Dispose();
-        //}
 
 
         //private void shtoLlogariShitje()
         //{// shton kombobox tek grida per llogarine
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariShitje"].VisibleIndex;
-        //    gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariShitje"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataTable dt = DbCore.DbKontabiliteti.colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeDT(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
 
-        //    colnew.PropertiesComboBox.DataSource = dt;// colLlog;
-        //    colnew.PropertiesComboBox.TextField = "NrLlogari";
-        //    colnew.PropertiesComboBox.ValueField = "IdLlogari";
-        //    colnew.FieldName = "IdLlogariShitje";
-        //    gvLupaSkemaKontArt.Columns.Add(colnew);
-        //    colnew.VisibleIndex = visibleindex;
-        //    dt.Dispose();
-        //}
 
         //private void shtoLlogariTretet()
         //{// shton kombobox tek grida per llogarine
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariTekTeTretet"].VisibleIndex;
-        //    gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariTekTeTretet"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataTable dt = DbCore.DbKontabiliteti.colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeDT(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
 
-        //    colnew.PropertiesComboBox.DataSource = dt;// colLlog;
-        //    colnew.PropertiesComboBox.TextField = "NrLlogari";
-        //    colnew.PropertiesComboBox.ValueField = "IdLlogari";
-        //    colnew.FieldName = "IdLlogariTekTeTretet";
-        //    gvLupaSkemaKontArt.Columns.Add(colnew);
-        //    colnew.VisibleIndex = visibleindex;
-        //    dt.Dispose();
-        //}
 
         //private void shtoLlogariShpenzime()
         //{// shton kombobox tek grida per llogarine
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    int visibleindex = gvLupaSkemaKontArt.Columns["IdLlogariShpenzimi"].VisibleIndex;
-        //    gvLupaSkemaKontArt.Columns.Remove(gvLupaSkemaKontArt.Columns["IdLlogariShpenzimi"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataTable dt = DbCore.DbKontabiliteti.colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeDT(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-        //    colnew.PropertiesComboBox.DataSource = dt;// colLlog;
-        //    colnew.PropertiesComboBox.TextField = "NrLlogari";
-        //    colnew.PropertiesComboBox.ValueField = "IdLlogari";
-        //    colnew.FieldName = "IdLlogariShpenzimi";
-        //    gvLupaSkemaKontArt.Columns.Add(colnew);
-        //    colnew.VisibleIndex = visibleindex;
-        //    dt.Dispose();
-        //}
         #endregion metodaShtimi komentuar
 
         protected void gvLupaSkemaKontArt_DataBound(object sender, EventArgs e)
@@ -202,8 +136,6 @@ namespace PlatinumWeb
         protected void gvLupaSkemaKontArt_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
             //kur popupgrida ben callback
-            //  mbushPopUpListeLlogarish();
-            //  konfiguroPopupGride();
             gvLupaSkemaKontArt.Selection.UnselectAll();
         }
 
@@ -292,20 +224,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaSkemaKontArt.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdSkemaKontabilitetiArtikulli", gvLupaSkemaKontArt);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaSkemaKontArt.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdSkemaKontabilitetiArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -314,7 +234,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaSkemaKontArt", Convert.ToInt32(cmbKonfigurimi.Value), "LupaSkemaKontabelArtikulli.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -338,7 +257,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaSkemaKontArt", Convert.ToInt32(cmbKonfigurimi.Value), "LupaSkemaKontabelArtikulli.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -351,13 +269,5 @@ namespace PlatinumWeb
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaSkemaKontArt", "LupaSkemaKontabelArtikulli.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
     }
 }

@@ -23,7 +23,6 @@ namespace DbCore.DbInventari
         private int lloji;
         private decimal zbritja;
         private int idPerdoruesi;
-        //private int idNderViti;
         private int prioriteti;
         private DataRow rreshti;
   
@@ -59,10 +58,8 @@ namespace DbCore.DbInventari
             /// Kthen/Vendos ID-ne e ndermarje vitit.
             /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos  prioriteti.
         /// </summary>
@@ -176,7 +173,6 @@ namespace DbCore.DbInventari
             this.lloji = lloji;
             this.zbritja = zbritja;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.prioriteti = prioriteti;
         }
         /// <summary>
@@ -204,7 +200,6 @@ namespace DbCore.DbInventari
             this.lloji = lloji;
             this.zbritja = zbritja;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.prioriteti = prioriteti;
         }
         /// <summary>
@@ -255,7 +250,6 @@ namespace DbCore.DbInventari
                     int.TryParse(dbDataRowTrupiKategoriZbritje["LLOJI"].ToString(), out lloji);
                     decimal.TryParse(dbDataRowTrupiKategoriZbritje["ZBRITJA"].ToString(), out zbritja);
                     int.TryParse(dbDataRowTrupiKategoriZbritje["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowTrupiKategoriZbritje["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowTrupiKategoriZbritje["PRIORITETI"].ToString(), out prioriteti);
 
                     return true;

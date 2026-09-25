@@ -20,7 +20,6 @@ namespace DbCore.DbProdhimi
         }
 
 
-
         public clsDatabazeProdhimi(DbData db) : base(db) { }
         public clsDatabazeProdhimi(string connectionName) : base(connectionName)
         {
@@ -1396,7 +1395,6 @@ namespace DbCore.DbProdhimi
 
                 dbManager.Open();
                 dbManager.CreateParameters(17);
-                //  dbManager.CreateParameters(20);
                 dbManager.AddParameters(0, "@IDKOKA", idkoka, ParameterDirection.Input);
                 dbManager.AddParameters(1, "@IDNIVEL", idNiv, ParameterDirection.Input);
                 dbManager.AddParameters(2, "@IDKONFIGAMBJENTE", idKonf, ParameterDirection.Input);

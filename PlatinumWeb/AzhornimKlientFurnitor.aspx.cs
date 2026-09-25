@@ -226,7 +226,6 @@ namespace PlatinumWeb
             var itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             var cmbFiltra = ((MenuFilter)itemButton.Template).FindControl("btnFiltra") as ASPxComboBox;
             var koka = new DbCore.DbAdmin.clsGridaKoka(IdGjuha, "grid_AzhornimKF", clsFunksione.GetKomponente(Page.Request), IdNdermarrja, int.Parse(cmbKonfigurimi.Value.ToString()));
-            //var kolona = grid_AzhornimKF.GetSortedColumns();
 
             var filtri = new DbCore.DbAdmin.clsFiltraGrida
             {
@@ -239,16 +238,7 @@ namespace PlatinumWeb
                 IdNdermarje = IdNdermarrja,
                 IdStatusDok = 1
             };
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_AzhornimKF);
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "grid_AzhornimKF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);

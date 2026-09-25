@@ -1041,8 +1041,6 @@ namespace DbCore.DbProdhimi
                 {
                     clsDatabaseShare dbshare = new clsDatabaseShare(db);
                     bool gjithmone = false;
-                    //clsKusht kushtgj = new clsKusht(magdalje.IdKonfigAmbjente, "GJKGJ", dbshare);
-                    //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                     if (clsAlternativaKushti.getAlternativa(magdalje.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po") gjithmone = true;
                     magdalje.NrDok = nrDk;
                     magdalje.IdGjenerues = idkoka;
@@ -1136,7 +1134,6 @@ namespace DbCore.DbProdhimi
                 }
 
 
-
                 if (maghyrje.NrDok != null)
                 {
 
@@ -1193,7 +1190,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh ruaj(IDictionary<string, object> hfNrAutoregjistrime, colPlanifikimEkzekutim colpan, int idperiudha, bool mekontabilizim, DbShare.clsKonfigurimAmbjenti konfmagdalje, DbShare.clsKonfigurimAmbjenti konfmaghyrje, out string shfaqmesazhapolupe, bool eshteOwn, int idGjuha, ResourceManager rm, CultureInfo ci, bool vjenNgaImportSQL, string idDokImport, string emerTabKoka, string primaryKeyEmerFushe, string emerFusheNdermarrje, bool modifikim)
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
-            //db.krijoManager();
             db.beginTransaksion(0);
             try
             {
@@ -1325,7 +1321,6 @@ namespace DbCore.DbProdhimi
             shfaqmesazhapolupe = "jo";
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh);
-            //db.vendosManager(dbProdh );
             clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh);
             DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh);
             try
@@ -1464,7 +1459,6 @@ namespace DbCore.DbProdhimi
             shfaqmesazhapolupe = "jo";
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim(dbProdh);
-            //db.vendosManager(dbProdh );
             clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbProdh);
             DbInventari.clsDatabaseInventari dbinv = new DbInventari.clsDatabaseInventari(dbProdh);
             try
@@ -1578,7 +1572,6 @@ namespace DbCore.DbProdhimi
             clsDatabazeProdhimi data = new clsDatabazeProdhimi();
             if (lidhur == false)
             {
-                //data.krijoManager();
                 data.beginTransaksion(0);
                 int idkokare = 0;
                 clsKokaEkzekutim kokaEkzistuese = new clsKokaEkzekutim();
@@ -1647,7 +1640,6 @@ namespace DbCore.DbProdhimi
                 clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(dbProdh);
                 clsDatabaseRegjistrim dbRegjistrim = new clsDatabaseRegjistrim(dbProdh);
                 DbQendraKosto.clsDatabaseQendraKosto dbqendra = new DbQendraKosto.clsDatabaseQendraKosto(dbProdh);
-                //dbRegjistrim.vendosManager(dbProdh );
                 clsKokaEkzekutim kokaEkzistuese = new clsKokaEkzekutim();
                 kokaEkzistuese.mbushKokaEkzekutimSipasID(idkokaekzekutim, dbProdh);
                 kokaEkzistuese.IdStatusDok = 2;  //duhet vendosur nje status i pershtatshem per kete modifikim
@@ -1726,7 +1718,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh fshi()
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_fshi = fshiEkzekutim(IdKokaEkzekutim, idPerdoruesi, db);
             if (u_fshi.Status)
@@ -1743,7 +1734,6 @@ namespace DbCore.DbProdhimi
         public static clsKokaEkzekutim merrSipasId(int id)
         {
             clsKokaEkzekutim data = new clsKokaEkzekutim();
-            //data.mbushKokaEkzekutimSipasID(id, null);
             data.mbushKokaEkzekutimSipasID(id);
             return data;
         }
@@ -1854,8 +1844,6 @@ namespace DbCore.DbProdhimi
         /// <param name="db">clsDatabazeProdhimi ne rast transaksioni</param>
         public bool mbushKokaEkzekutimSipasID(int idKokaEkzekutim, clsDatabazeProdhimi db)
         {
-            //if (db == null) 
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushKokaEkzekutim(db.ktheKokaEkzekutimSipasID(idKokaEkzekutim), db);
             return mbush;
         }

@@ -57,7 +57,6 @@ namespace AlphaWebReports.RaportetDs.Arka.Raporte
             xrTableCell1.Text = rm.GetString("labelRaportiLloji", ci);
             xrTableCell12.Text = rm.GetString("labelRaportData", ci);
             xrTableCell2.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrTableCell21.Text = rm.GetString("labelRaportVlera", ci);
             xrTableCell17.Text = rm.GetString("labelRaportVlArketuar", ci);
             xrTableCell22.Text = rm.GetString("labelRaportVlPaguar", ci);
             xrTableCell24.Text = rm.GetString("labelRaportiProgresivi", ci);

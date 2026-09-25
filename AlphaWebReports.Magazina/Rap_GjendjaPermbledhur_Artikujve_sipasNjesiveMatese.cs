@@ -46,7 +46,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell12.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell5.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell1.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell8.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel10.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
 
             xrTableCell6.XlsxFormatString =
@@ -71,20 +70,7 @@ namespace AlphaWebReports.RaportetDs.Magazina
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-           // xrLabel17.Text = rm.GetString("RaportGjendjaPermbledhurArtikujveTitulli", ci);
-           // FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-           // xrLabel1.Text = rm.GetString("labelKartela", ci);
-           // xrLabel26.Text = rm.GetString("labelFilterAvancuarKodbari", ci);
-           // xrLabel2.Text = rm.GetString("labelRaportiPershkrimi", ci);
-           // xrLabel3.Text = rm.GetString("labelNjesia", ci);
-           // xrLabel4.Text = rm.GetString("labelRaportGjendjaeMbartur", ci);
-           // xrLabel5.Text = rm.GetString("labelRaportHyrje", ci);
-           // xrLabel6.Text = rm.GetString("labelRaportDalje", ci);
-           // xrLabel7.Text = rm.GetString("labelRaportGjendje", ci);
-           // xrLabel8.Text = rm.GetString("labelRaportKosto", ci);
-           // xrLabel9.Text = rm.GetString("labelVlefta", ci);
            //// xrLabel23.Text = rm.GetString("labelRaportiShuma", ci);
-           // xrLabel32.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel11.Text = rm.GetString("lblRaportTotali", ci);
         }
     }

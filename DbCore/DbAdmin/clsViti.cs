@@ -316,9 +316,7 @@ namespace DbCore.DbAdmin
         {
             clsMesazh mesazh = new clsMesazh();       
             string sqlstr = "";
-            //bool postoE,postoM,postoA = false;
 
-            //if (periudhat[i].PostoEpayslip == null) postoE = false;
 
             sqlstr += "insert into T_PERIUDHAT (IDVITI,NUMRIPERIUDHA,DATAFILLIMIT, DATAMBARIMIT,EKYCUR, EMERPERIUDHA,POSTOEPAYSLIP,POSTOMEMOBONUS,POSTOANNUALDECLARATION) values";
             for (int i = 0; i < periudhat.Count; i++)
@@ -478,11 +476,6 @@ namespace DbCore.DbAdmin
                         return mesazh;
                     }
                     //mesazh = dbAdmin.fshiPeriudhatVitit(viti.IdViti);//fshirja na prish pune tek idperiudha qe ruhet tek kokafletes kontabel
-                    //if (!mesazh.Status)
-                    //{
-                    //    dbAdmin.rollbackTransaksion();
-                    //    return mesazh;
-                    //}
                     mesazh = modifikoPeriudhat(periudhat, dbAdmin);
                    
                         if (!mesazh.Status)
@@ -492,12 +485,6 @@ namespace DbCore.DbAdmin
                         }
                   
                     ////shtohen periudhat e percaktuara mbi te dhenat e reja te vitit
-                    //mesazh = viti.shtoPeriudhString(viti.IdViti, periudhat, dbAdmin);
-                    //if (!mesazh.Status)
-                    //{
-                    //    dbAdmin.rollbackTransaksion();
-                    //    return mesazh;
-                    //}
                     dbAdmin.commitTransaksion();
                      clsPeriudhaKontabel periudhaakt=     mySessionObjects.merrPeriudheKontabel(Session);
                     if(periudhaakt.IdViti==viti.IdViti)

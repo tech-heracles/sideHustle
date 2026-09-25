@@ -57,21 +57,13 @@ namespace DbCore.DbAdmin
         private bool mbushListGrupe(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupeKFPerWorkFlow kontakt = new clsGrupeKFPerWorkFlow();
-                    //kontakt.mbushGrupekfPerWorkFlow(rreshti);
                     Add(new clsGrupeKFPerWorkFlow(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -79,5 +71,4 @@ namespace DbCore.DbAdmin
       
     }
 }
-
 

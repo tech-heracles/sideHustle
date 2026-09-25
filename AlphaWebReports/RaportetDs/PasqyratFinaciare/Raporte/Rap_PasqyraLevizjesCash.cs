@@ -39,7 +39,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
            
 
-           // xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             EmrateLabelave(ci);
 
         }
@@ -47,146 +46,35 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
-        //private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel8_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel23_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
         //    //    niv++;
-        //}
 
-        //private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
         //    //   niv++;
-        //}
 
-        //private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
         //    //  niv++;
-        //}
 
-        //private void xrLabel56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
         //    //   niv++;
-        //}
 
-        //private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
         //    niv++;
-        //}
 
-        //private void xrLabel79_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //     niv++;
-        //}
 
-        //private void xrLabel84_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
 
-        //}
-
-        //private void xrLabel32_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel4_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel8_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel16_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel23_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel73_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel66_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel61_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel56_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel47_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel79_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = "";
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel84_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
         //    //  niv++;
-        //    e.Result = niv + 1;
-        //    e.Handled = true;
-        //}
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -307,7 +195,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -356,7 +243,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
-            //string catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
             string catid = "";
             if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null)
                 catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
@@ -1204,7 +1090,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
         private void xrLabel85_SummaryGetResult_1(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = String.Format("{0:#,#.00}", debibanka - kredibanka); 

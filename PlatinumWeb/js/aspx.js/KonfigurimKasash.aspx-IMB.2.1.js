@@ -322,7 +322,6 @@ function OnGetRowValuesMod(values) {
     txtKodi.SetText(values[1]);
     cmbLlojObjekti.SetValue(values[3]);
     IndexChangedLlojiKasePeshore(values[3], values[2]);
-    //changeLlojKase(values[2]);
     txtSkema.SetText(values[4]);
     gvNiveleTVSHIVA.PerformCallback(values[0]);
      $.ajax({
@@ -527,7 +526,6 @@ function IndexChangedLlojiKasePeshore(lloj, llojKase) {
 function SucceededCallbackLlojeKasash(result) {
     if (result && result !== "") {
         cmbLlojiKases.ClearItems();
-        //var llojet = JSON.parse(result);
         for (var i = 0; i < result.length; i++) {
             var item = result[i];
             cmbLlojiKases.AddItem(item["Lloji"], item["Vlera"]);
@@ -618,7 +616,6 @@ function Click_btnPlu(s, e) {
 }
 
 function dergoNeKase(s, e) {
-    //var myKasaJson = JSON.parse(hfKasa.val());
     var hfKasa = $('#hfKasaNew');
     var urlKase = txtUrl.GetText();
     $.ajax({

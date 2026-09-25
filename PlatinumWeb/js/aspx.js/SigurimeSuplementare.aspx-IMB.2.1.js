@@ -166,11 +166,7 @@ function menu_click(s, e) {
     var hfRuaj = $('#hfRuaj');
     myMenu.menu_click_celjevogel(s, e, hfRuaj, gvSigurimeSuplementare, hfTeDrejta);
 
-//    if (e.item.name == 'Ruaj') {
-//        gvSigurimeSuplementare.UpdateEdit();
-//        e.processOnServer = false;
 
-//    }
 }
 
 function EndCallbackGrida(s, e) {

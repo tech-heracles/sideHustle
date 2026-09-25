@@ -453,7 +453,6 @@ namespace PlatinumWeb
 			if (Request.QueryString["idfatura"] == null && clsAlternativaKushti.getAlternativa(Convert.ToInt32(konfigurimi_ComboBox.Value), "ALF") == "Po")
 			{
 				InicializoGridFaturat(gridFaturat);
-				//KonfiguroGrideFaturat(gridFaturat);
 			}
 			VendosVlerenKursit();
 		}
@@ -522,7 +521,6 @@ namespace PlatinumWeb
 
 				if (monedha_Label.Text == "Monedha")
 				{
-					//clsNdermarrje nder = new clsNdermarrje(idNdermarrje);
 					idmonedhabanka = clsNdermarrje.ktheIdMonedheNdermSipasID(IdNdermarrja);
 				}
 				formatMonedhe = _formatNrKonfig.IdFormatKonfig > 0 ? _formatNrKonfig.KonfigTrupi.merrFormatSipasMonedhes(idmonedhabanka) : new clsFormatKonfigTrup(clsFormatKonfigTrup.defaultFormatSasia, clsFormatKonfigTrup.defaultFormatCmimi, clsFormatKonfigTrup.defaultFormatVlefta, clsFormatKonfigTrup.defaultFormatZbritja, clsFormatKonfigTrup.defaultFormatStringSasia, clsFormatKonfigTrup.defaultFormatStringCmimi, clsFormatKonfigTrup.defaultFormatStringVlefta, clsFormatKonfigTrup.defaultFormatStringZbritja);
@@ -602,7 +600,6 @@ namespace PlatinumWeb
 			if (clsAlternativaKushti.getAlternativa(Convert.ToInt32(konfigurimi_ComboBox.Value), "ALF") == "Po")
 			{
 				InicializoGridFaturat(gridFaturat);
-				//KonfiguroGrideFaturat( gridFaturat);
 			}
 		}
 
@@ -638,7 +635,6 @@ namespace PlatinumWeb
 			}
 			else
 				colKonfig.mbushKonfigAmbjSipasIdKategori(konf.IdKategori, konf.IdNdermarje, IdPerdoruesi, IdGjuha);
-			//colKonfig = share.merrKonfigAmbjSipasIdKategori(konf, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
 			konfigurimi_ComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 			var colprove = new ListBoxColumn
@@ -687,7 +683,6 @@ namespace PlatinumWeb
 			ConfigureAspxComboBox.percaktoTemplateComboJoListePaLupe(cmbDegeAdministrative, cmbFormatiPrintimit);
 			ConfigureAspxComboBox.mbushComboFormatPrintimi(cmbFormatiPrintimit, idKategori, IdNdermarrja);
 			ConfigureAspxComboBox.ShtoKolonaPerKf(furnitori_ComboBox);
-			//clsFunksione.mbushComboKlientFurnitori(IdPerdoruesi, idNdermarrje, furnitori_ComboBox, 0);
 			ConfigureAspxComboBox.percaktoTemplateComboMeLupe(banka_ComboBox);
 			ConfigureAspxComboBox.percaktoTemplateComboJoList(kursi_TextBox);
 			ConfigureAspxComboBox.percaktoTemplateComboMeLupe(furnitori_ComboBox);
@@ -710,7 +705,6 @@ namespace PlatinumWeb
 			if (mbushfatura)
 			{
 				InicializoGridFaturat(gridFaturat);
-				//KonfiguroGrideFaturat(gridFaturat);
 			}
 		}
 
@@ -1328,7 +1322,6 @@ namespace PlatinumWeb
 			object[] dokumenti = (object[])serializusi.DeserializeObject(gridDataObject.Value);
 			object[] nivele = (object[])serializusi.DeserializeObject(hfNivele.Value);
 			object[] id = (object[])serializusi.DeserializeObject(hfId.Value);
-			//object[] kmk = (object[])serializusi.DeserializeObject(hfKMK.Value);
 
 			for (int i = 0; i < dokumenti.Length; i++)
 			{
@@ -1899,8 +1892,6 @@ namespace PlatinumWeb
 			if (e.Parameters == "mbush" || e.Parameters == "kushtDokPerLikujdim")
 			{
 				dt = mySessionObjects.merrGridFaturatNgaSessioni(komponente + IdNdermarrja + idKatDokShitje, Session);
-				//dt = colDokumentat.mbushKokaShitjePaLikuiduar(IdNdermarrja, idKatDokShitje, Convert.ToString(hfTeDrejtaGjitheDokPerTuLikujduar.Get("kushtDokPerLikujdim")), IdPerdoruesi, Int32.Parse(konfigurimi_ComboBox.Value.ToString()));
-				//mySessionObjects.ruajGridFaturatNeSession(komponente + IdNdermarrja + idKatDokShitje, Session, dt);
 			}
 			else if (e.Parameters == "pastro")
 			{
@@ -1934,7 +1925,6 @@ namespace PlatinumWeb
 
 			if (dt != null)
 			{
-				//KonfiguroGrideFaturat(gridFaturat);
 				dt.Dispose();
 			}
 		}

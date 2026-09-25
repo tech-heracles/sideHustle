@@ -24,10 +24,8 @@ $.noty.defaults = {
     callback: {
         onShow: function (e) {
 
-            //            this.options.text = myTimestamp() + " - " + this.options.text;
         },
         afterShow: function () {
-            //$(this.$message).find(".noty_text").text(myTimeStamp() + " - " + $(this.$message).find(".noty_text").text());
         },
         onClose: function () { },
         afterClose: function () { },

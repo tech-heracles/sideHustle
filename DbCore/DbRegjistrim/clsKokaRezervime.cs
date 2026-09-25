@@ -512,7 +512,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         public clsMesazh ruajRezervime(out int idKoka, int idNiv, int idKonf, int idKlFurn, int idMag, DateTime dtDk, string nrDk, int idlloj, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, int iddegeadministrative, colTrupiRezervime ocolTrupiRezervime, bool modifikim, int idPeriudha, clsDatabaseRegjistrim dbRegj, int prioriteti, int stat, int lidhje, colTrupiRezervime ocoltrupigjeneruar, int idkrijuesi)
         {
             clsMesazh mesazh;
@@ -674,11 +673,6 @@ namespace DbCore.DbRegjistrim
                 int idvjeter = trup == null?0: trup.IdTrupiRezervime;
              
                 // ketu duhet koka e re jo e vjetra qe te behet update ne rregull
-                //mesazh = dbRegj.ruajTrupiRezervime(out idM, o.IdKokaRezervime, o.IdArtikulli, o.IdNjesia, o.Sasia, o.Koeficenti, o.IdMag, o.Data, o.IdStatusDok, o.Shenja, o.IdTrupiNgaVjen, o.IdTrupiHyrje);
-                //if (!mesazh.Status)
-                //{
-                //    return mesazh;
-                //}
                 mesazh = dbRegj.modifikoTrupiRezervimeIdHyrje(idvjeter, idM);
                 if (!mesazh.Status)
                 {
@@ -884,8 +878,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifikoRezervim(bool eshtetransferim, int idRezKoka, int idNiv, int idKonf, int idKlFurn, int idMag, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, int iddegeadministrative, int prioritet, int stat, colTrupiRezervime ocolTrupiRezervime, clsKokaRezervime oRezervimGjeneruar, clsDatabaseRegjistrim dbRegj, out int idkokare)
         {
             idkokare = 0;
-            //colTrupiRezervime trupat = new colTrupiRezervime();
-            //trupat.mbushTrupiRezervimi(idRezKoka, dbRegj);
             int idLidhesgjenerues = 0;
             clsMesazh mesazh;
             try
@@ -964,8 +956,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifikoStatusRezervim(bool eshtetransferim, int idRezKoka, int idNiv, int idKonf, int idKlFurn, int idMag, DateTime dtDk, string nrDk, int idLidhes, int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj, string shenim, int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues, int iddegeadministrative, int prioritet, int stat, colTrupiRezervime ocolTrupiRezervime, clsKokaRezervime oRezervimGjeneruar, clsDatabaseRegjistrim dbRegj, out int idkokare)
         {
             idkokare = 0;
-            //colTrupiRezervime trupat = new colTrupiRezervime();
-            //trupat.mbushTrupiRezervimi(idRezKoka, dbRegj);
             int idLidhesgjenerues = 0;
             clsMesazh mesazh;
             try
@@ -1133,7 +1123,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         public clsMesazh fshiRezervim(int idRezKoka, int idperdoruesi, clsDatabaseRegjistrim dbRegj, bool fshiAnullim)
         {
             clsMesazh mesazh;
@@ -1280,22 +1269,11 @@ namespace DbCore.DbRegjistrim
         /// </summary>
         /// <param name="idNdermVit">id e ndermarje vitit</param>
         /// <returns > nje object colKokaRezervime qe permban nje koleksion me gjithe kokat e dokumentave te rezervimeve te nje ndermarje ne nje vit te caktuar</returns>
-        //public colKokaRezervime merriTeGjithe(int idNdermVit)
-        //{
-        //    colKokaRezervime data = new colKokaRezervime(idNdermVit);
-        //    return data;            
-        //}
 
         ///// <summary>
         ///// Merr trupin  e  nje dokumenti te rezervimit nga tabela perkatese ne databaze.
         ///// </summary>
         ///// <returns > nje object colTrupiRezervime qe permban nje koleksion me trupin e dokumentit te rezervimit</returns>
-        //public colTrupiRezervime merrTrupiRezervime(clsDatabaseRegjistrim db)
-        //{
-        //    colTrupiRezervime trupi = new colTrupiRezervime();
-        //    trupi.mbushTrupiRezervimi(idKokaRezervime, db);
-        //    return trupi;
-        //}
         /// <summary>
         /// Merr trupin  e  nje dokumenti te rezervimt nga tabela perkatese ne databaze.Therret funksionin
         /// </summary>

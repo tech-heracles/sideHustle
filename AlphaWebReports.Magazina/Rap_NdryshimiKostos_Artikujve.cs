@@ -36,27 +36,14 @@ namespace AlphaWebReports.RaportetDs.Magazina
                        System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           // xrLabel17.Text = rm.GetString("lblRapHyrjetKosto", ci);
             xrLabel89.Text = rm.GetString("RapNdryshimiKostosArtikuj", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
 
-            //  xrLabel5.Text = rm.GetString("labelKartela", ci) + ":";
-            //   xrLabel11.Text = rm.GetString("labelRaportiPershkrimi", ci) + ":";
-            //  xrLabel7.Text = rm.GetString("filterKodbari", ci);
             ////  xrLabel13.Text = rm.GetString("filterArkaBankaEmer", ci);
-            // xrLabel9.Text = rm.GetString("labelRaportMetodaKostos", ci);
-            //  xrLabel15.Text = rm.GetString("labelFilterAvancuarGrupi", ci) + ":";
             xrTableCell6.Text = rm.GetString("labelKartela", ci);
 
-         //   xrLabel19.Text = rm.GetString("labelRaportiNrDok", ci);
             xrTableCell11.Text = rm.GetString("labelRaportiPershkrimi", ci);
             xrTableCell12.Text = rm.GetString("labelNjesia", ci);
-            //xrLabel5.Text = rm.GetString("labelRaportSasia", ci);
-            //xrLabel6.Text = rm.GetString("labelCmimi", ci);
-           // xrLabel7.Text = rm.GetString("cmbCmimeArtikulliVlere", ci);
-            //xrLabel9.Text = rm.GetString("labelRaportSasia", ci);
-          //  xrLabel10.Text = rm.GetString("cmbCmimeArtikulliKosto", ci);
-            //xrLabel11.Text = rm.GetString("cmbCmimeArtikulliVlere", ci);
             xrTableCell19.Text = rm.GetString("xrtableSasiPara", ci);
             xrTableCell20.Text = rm.GetString("xrtableCmimiPara", ci);
             xrTableCell21.Text = rm.GetString("xrtableHyrjeFundit", ci);
@@ -66,19 +53,10 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell25.Text = rm.GetString("xrtableDataFundit", ci);
 
             
-            //xrLabel21.Text = rm.GetString("labelCmimi", ci);
-            //xrLabel20.Text = rm.GetString("labelRaportVleraHyrje", ci);
-            //xrLabel26.Text = rm.GetString("labelRaportDalje", ci);
-            //xrLabel25.Text = rm.GetString("labelCmimi", ci);
-            //xrLabel27.Text = rm.GetString("labelRaportVleraDalje", ci);
-            //xrLabel28.Text = rm.GetString("labelFilterAvancuarGjendja", ci);
-            //xrLabel34.Text = rm.GetString("labelRaportVlera", ci);
             xrLabel69.Text = rm.GetString("labelLogoIMB", ci);
             
         }
 
       
-
-       
     }
 }

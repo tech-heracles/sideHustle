@@ -97,11 +97,9 @@ public partial class AppointmentForm : SchedulerFormControl {
             cbTimeZone.Enabled = apt.Type == AppointmentType.Normal || apt.Type == AppointmentType.Pattern;
         }
 
-        //btnOk.ClientSideEvents.Click = container.SaveHandler;
         btnCancel.ClientSideEvents.Click = container.CancelHandler;
         btnDelete.ClientSideEvents.Click = container.DeleteHandler;
         JSProperties.Add("cpHasExceptions", apt.HasExceptions);
-        //btnDelete.Enabled = !container.IsNewAppointment;
     }
     private void PopulateResourceEditors(Appointment apt, AppointmentFormTemplateContainer container) {
         if(ResourceSharing) {

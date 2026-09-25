@@ -688,7 +688,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "Emertimi" || e.Column.FieldName == "Nipt" || e.Column.FieldName == "Adresa" || e.Column.FieldName == "Tel" || e.Column.FieldName == "Targa")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue(TeGjithe, string.Empty, "true");
                 e.AddValue(nga + " A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue(nga + " D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");

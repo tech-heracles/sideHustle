@@ -76,9 +76,6 @@ namespace PlatinumWeb
 
             }
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idndermarje, "gvEkzistuese", 1, komponente);
-            //clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idndermarje, "gvEkzistuese", 1, komponente);
-            //clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idndermarje, "gvEkzistuese", 1, komponente);
-            //clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idndermarje, "gvEkzistuese", 1, komponente);
             DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
             mbushGridDokumentInventarizimNgaSession(komponente);
             gvEkzistuese.Columns["#"].VisibleIndex = 0;
@@ -363,7 +360,6 @@ namespace PlatinumWeb
         private void konfiguroGride(ASPxGridView grida)
         {
             KonfigurimComboGride.ShtoMagazinaNdermarrje(grida, Session, komponente, MerrIdentifikuesFaqje(), "Magazina");
-            //DbCore.clsFunksione.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(base.Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(base.Session), grida, grida.ID, komponente);
             GridViewDataTextColumn col1 = grida.Columns["SasiaInv"] as GridViewDataTextColumn;
             col1.PropertiesEdit.DisplayFormatString = "0.00";
             GridViewDataTextColumn col4 = grida.Columns["SasiaPrg"] as GridViewDataTextColumn;
@@ -385,7 +381,6 @@ namespace PlatinumWeb
             grida.Columns["#"].VisibleIndex = 0;
             GridUtil.konfigGrideListeEMadhePaTheme(grida, "Id", true);
             grida.Settings.ShowTitlePanel = true;
-            //    DbCore.clsFunksione.percaktoVisibleColumnsGridSipasKodKonfigurimi(idndermarje,grida.ID.ToString(),grida,cmbKonfigurimi.Value.ToString(),"552",IdGjuha,!IsPostBack);
 
         }
         /// <summary> 
@@ -431,20 +426,8 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(IdGjuha, "gvEkzistuese", komponente, idNdermarrje);
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = grida.FilterExpression, IdPerdoruesi = IdPerdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", grida);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grida.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idNdermarrje, "gvEkzistuese", 1, komponente);
@@ -472,7 +455,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idndermarje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(IdGjuha, "gvEkzistuese", komponente, idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -523,7 +505,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], idndermarje);
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(IdGjuha, "gvEkzistuese", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)

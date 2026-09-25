@@ -106,15 +106,6 @@ namespace PlatinumWeb
         /////      mbush combon e filtrave
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //{
-        //    int idNdermarrja = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("grid_ShperndarjeShpenzimesh", "ShperndarjeShpenzimesh.aspx", idNdermarrja);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrja);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida()); //colFiltra = dbAdmin.merrGjitheFiltratGridaByGridaKoka(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -159,18 +150,15 @@ namespace PlatinumWeb
         }
         public void btnJo_Click(object sender, EventArgs e)
         {
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             if (pergjigja.Text.Contains("lidhur") || pergjigja.Text.Contains("kycur"))
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, pergjigja.Text, pnlMesazhi);
             else clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, pergjigja.Text, pnlMesazhi);
-            //CacheLayer.GlobalCacheManager.MySessionCache["trupat"] = new DbCore.DbRegjistrim.colTrupiMagazina();
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, new DbCore.DbRegjistrim.colTrupiMagazina());
         }
         public void btnPo_Click(object sender, EventArgs e)
         {
             System.Globalization.CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //DbCore.DbRegjistrim.colTrupiMagazina     trupat = (DbCore.DbRegjistrim.colTrupiMagazina)CacheLayer.GlobalCacheManager.MySessionCache["trupat"];            
             DbCore.DbRegjistrim.colTrupiMagazina trupat = DbCore.mySessionObjects.merrTrupatNgaSesioni(Session);
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh(true, rm.GetString("regjisDokMesazhSuksesiRivleresim", cultinf));
             string fileLogPath = Server.MapPath("~/log/log.txt");
@@ -184,13 +172,8 @@ namespace PlatinumWeb
                 NLog.LogManager.GetCurrentClassLogger().Error(ex.Message);
                 throw new DbCore.MyException(rm.GetString("msgGabimGjateRuajtjesSeRivleresimitNeLog",cultinf));
             }
-            //db.krijoManager();
             foreach (DbCore.DbRegjistrim.clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli();
-                //art.mbushArtikull(t.IdArtikulli);
-                //mesazh = art.rivleresimCmimiMesatar(t.IdMag, t.Data, DateTime.Today);          
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, DbCore.DbInventari.clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today, DbCore.DbInventari.clsArtikulli.ktheKontrollCmimiPerDetajim(t.IdArtikulli),log,cultinf,rm, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                 if (!mesazh.Status)
                 {
@@ -198,7 +181,6 @@ namespace PlatinumWeb
                     return;
                 }
             }
-            //CacheLayer.GlobalCacheManager.MySessionCache["trupat"] = new DbCore.DbRegjistrim.colTrupiMagazina();
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, new DbCore.DbRegjistrim.colTrupiMagazina());
             if (mesazh.Status)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("regjisDokMesazhSuksesiRivleresim", cultinf), pnlMesazhi);
@@ -254,23 +236,6 @@ namespace PlatinumWeb
         }
 
         //private void shtoStatus()
-        //{
-        //    DbCore.DbArkaBanka.clsDatabaseArkaBanka data = new DbCore.DbArkaBanka.clsDatabaseArkaBanka();
-        //    grid_ShperndarjeShpenzimesh.Columns.Remove(grid_ShperndarjeShpenzimesh.Columns["IdStatusDok"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataSet ds = data.merrStatusinDokumentave();
-        //    data.Dispose();
-        //    DataRow dr = ds.Tables[0].NewRow();
-        //    object[] rowArray = new object[2]; rowArray[0] = null; rowArray[1] = "";
-        //    dr.ItemArray = rowArray;
-        //    ds.Tables[0].Rows.InsertAt(dr, 0);
-        //    colnew.PropertiesComboBox.DataSource = ds;
-        //    colnew.PropertiesComboBox.TextField = ds.Tables[0].Columns[1].ToString();
-        //    colnew.PropertiesComboBox.ValueField = ds.Tables[0].Columns[0].ToString();
-        //    colnew.FieldName = "IdStatusDok";
-        //    grid_ShperndarjeShpenzimesh.Columns.Add(colnew);
-        //    ds.Dispose();
-        //}
 
         protected void grid_ShperndarjeShpenzimesh_DataBound(object sender, EventArgs e)
         {
@@ -278,7 +243,6 @@ namespace PlatinumWeb
             {
                 DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                // check.SetColVisibleIndex(0);
                 grid_ShperndarjeShpenzimesh.Settings.ShowFilterRow = true;
                 grid_ShperndarjeShpenzimesh.Settings.ShowHeaderFilterButton = true;
                 grid_ShperndarjeShpenzimesh.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -303,16 +267,13 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ShperndarjeShpenzimesh", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ShperndarjeShpenzimesh", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu(DbCore.mySessionObjects.ktheGjuhe(Session), ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -321,7 +282,6 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //  konfiguroVleraFillestare();
                 grid_ShperndarjeShpenzimesh.FilterExpression = " [IdStatusDokumenti]=1 ";
 
 
@@ -347,22 +307,9 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_ShperndarjeShpenzimesh.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_ShperndarjeShpenzimesh);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_ShperndarjeShpenzimesh.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
             filtri.IdNdermarje = idNdermarrje;
@@ -370,7 +317,6 @@ namespace PlatinumWeb
 
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ShperndarjeShpenzimesh", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
             percaktoTemplateMenu(DbCore.mySessionObjects.ktheGjuhe(Session), ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -382,23 +328,9 @@ namespace PlatinumWeb
         }
 
 
-
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Shto")
-            //    {
-            //    Response.Redirect("Shto_ShperndarjeShpenzimesh.aspx?shtim_modifikim=shtim");
-            //    }
-            //else if (e.Item.Name == "Modifiko")
-            //    {
-            //    int indeksi = grid_ShperndarjeShpenzimesh.FocusedRowIndex;
-            //    string id;
 
-            //    if (grid_ShperndarjeShpenzimesh.GetRowValues(indeksi, "IdKokaShperndarjeShpenz") != null)
-            //        id = grid_ShperndarjeShpenzimesh.GetRowValues(indeksi, "IdKokaShperndarjeShpenz").ToString();
-            //    else id = null;
-            //    Response.Redirect("Shto_ShperndarjeShpenzimesh.aspx?id=" + id + "&indexrow=" + grid_ShperndarjeShpenzimesh.FocusedRowIndex + "&shtim_modifikim=modifikim");
-            //    }
         }
 
         //fshin rreshtat e selektuar
@@ -412,10 +344,8 @@ namespace PlatinumWeb
             bool rivleresim = false;
             List<string> TeFshire = new List<string>(), TeLidhur = new List<string>(), PeriudheKycur = new List<string>(), closedPeriod = new List<string>();
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<object> rreshtat = grid_ShperndarjeShpenzimesh.GetSelectedFieldValues("IdKokaShperndarjeShpenz");
             pergjigja.Text = "";
-           // DbCore.DbAdmin.clsPeriudhaKontabel periudha;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             foreach (object id in rreshtat)
             {
@@ -468,16 +398,12 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqSHSHNgaGrida(clsKoka.IdKokaShperndarjeShpenz, rm, ci);
                     #endregion
                     TeFshire.Add(clsKoka.NrDok);
                 }
-                //    }
-                //else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Dokumenti eshte i lidhur dhe nuk mund te fshihet", pnlMesazhi);
 
             }
-            //Session.Add("trupat", trupat);
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, trupat);
             dbAdmin.Dispose();
             string mesazhInfoGabimLidhur = "", mesazhInfoGabimPeridheKycur = "", mesazhInfoSukses = "", mesazhClosedPeriod = "";
@@ -574,10 +500,8 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ShperndarjeShpenzimesh", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         grid_ShperndarjeShpenzimesh.FilterExpression = filtra.FiltraVlera;

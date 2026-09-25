@@ -55,7 +55,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                         System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           // MarzhiShitjeveLabel.Text = rm.GetString("lblRaportTitulliMarzhiShitjeveSipasMag", ci) + " (Format 2)";
             xrLabel43.Text = rm.GetString("FiltratEmertimi", ci);
             xrTableCell7.Text = rm.GetString("labelKartela", ci);
             xrTableCell8.Text = rm.GetString("labelEmertimiArtikullit", ci);
@@ -69,7 +68,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrTableCell16.Text = rm.GetString("labelMarzhiBrutoPerqindje", ci);
             TotaliLabel.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel32.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel27.Text = rm.GetString("labelRaportMagazina", ci);
             
         }
     }

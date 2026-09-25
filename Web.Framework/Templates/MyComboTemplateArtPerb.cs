@@ -12,14 +12,12 @@ namespace PlatinumWeb.Templates
     {
         private ListEditItemRequestedByValueEventHandler requestByValueHandler;
         private ListEditItemsRequestedByFilterConditionEventHandler requestByFilterHandler;
-        //private DevExpress.Web.CallbackEventHandlerBase callBackHandler;
         public MyComboTemplateArtPerb(ListEditItemRequestedByValueEventHandler requestByValueHandler, ListEditItemsRequestedByFilterConditionEventHandler requestByFilterHandler
             //, DevExpress.Web.CallbackEventHandlerBase callBackHandler
             )
         {
             this.requestByValueHandler = requestByValueHandler;
             this.requestByFilterHandler = requestByFilterHandler;
-            //this.callBackHandler = callBackHandler;
         }
         public void InstantiateIn(Control Container)
         {
@@ -30,15 +28,12 @@ namespace PlatinumWeb.Templates
             cmb.IncrementalFilteringDelay = 500;
             cmb.ItemRequestedByValue += this.requestByValueHandler;
             cmb.ItemsRequestedByFilterCondition += this.requestByFilterHandler;
-            //cmb.Callback += callBackHandler;
             cmb.TextFormatString = "{0}";
             GridViewDataItemTemplateContainer gridContainer = (GridViewDataItemTemplateContainer)Container;
             cmb.DropDownButton.Visible = false;
             cmb.Buttons.Add();
-            //cmb.AutoPostBack = false;
             cmb.EnableCallbackMode = true;
             cmb.EnableClientSideAPI = true;
-            //cmb.IncrementalFilteringDelay = 300;
             cmb.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             cmb.CallbackPageSize = 10;
             cmb.EnableSynchronization = DevExpress.Utils.DefaultBoolean.True;
@@ -67,11 +62,7 @@ namespace PlatinumWeb.Templates
                 colArtikuj = new object[1];
                 colArtikuj[0] = new { IdLidhese = art.IdArtikulli, KodArtikulli = art.KodArtikulli, PershkrimArtikulli = art.PershkrimArtikulli };
 
-                //string text = "";
-                //text = gridContainer.Text;
 
-                //text = DbCore.clsFunksione.zevendesoKaraktere(text);
-                
                 cmb.DataSource = colArtikuj;
                 cmb.DataBind();
                 cmb.Value = value;

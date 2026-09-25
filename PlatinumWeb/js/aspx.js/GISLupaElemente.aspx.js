@@ -45,7 +45,6 @@ function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
 function ndryshoKonfigurimin() {
     //pa konfigurim p.s. kur te duhet le te shtohet
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
-    // cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     callWebserviceKonfigurimi("3049", cmbKonfigurimi.GetText());
     ndryshoKonfigurimFushaShtese(cmbKonfigurimi.GetValue());
 }

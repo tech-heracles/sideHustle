@@ -121,8 +121,6 @@ function switchEditMode(index) {
 ///mbush fushat sipas te dhenave te grides
 var orefillimi, orembarimi;
 function OnCallback(result) {
-    // $('#hfOreFillimi').val(result[1]);
-    //  $('#hfOreMbarimi').val(result[2]);
     orefillimi = result[0];
     orembarimi = result[1];
     
@@ -138,18 +136,10 @@ function OnCallback(result) {
 
 ///kur ndryshon data e fillimit
 function DateFillimiChanged(s, e) {
-    //if (txtOreFillimi.GetText() > txtOreMbarimi.GetText()) {
-    //    myMesazh.ShtoMesazhGabimi('Ora e fillimit duhet te jete me e vogel se ora e mbarimit');
-    //    txtOreFillimi.SetText(txtOreMbarimi.GetText());
-    //}
     $('#hfOreFillimi').val(txtOreFillimi.GetText()); orefillimi = txtOreFillimi.GetText();
 }
 //kur ndryshon data e mbarimit
 function DateMbarimiChanged(s, e) {
-    //if (txtOreFillimi.GetText() > txtOreMbarimi.GetText()) {
-    //    myMesazh.ShtoMesazhGabimi('Ora e fillimit duhet te jete me e vogel se ora e mbarimit');
-    //    txtOreMbarimi.SetText(txtOreFillimi.GetText());
-    //}
     $('#hfOreMbarimi').val(txtOreMbarimi.GetText()); orembarimi = txtOreMbarimi.GetText();
 }
 //kur inicializohet data e fillimit

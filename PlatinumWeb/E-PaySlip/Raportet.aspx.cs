@@ -23,10 +23,6 @@ namespace PlatinumWeb.E_PaySlip
 {
     public partial class Raportet : MyPageBase
     {
-        //colRaporti colrap = new colRaporti();
-        //clsRaporti clsrap = new clsRaporti();
-        //colModulet colmod = new colModulet();
-        //clsModuli clsmod = new clsModuli(DbCore.mySessionObjects.ktheGjuhePerdoruesi);
         ////clsDatabaseAdmin clsadm = new clsDatabaseAdmin();
 
      
@@ -47,24 +43,20 @@ namespace PlatinumWeb.E_PaySlip
                 idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
                 ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             }
-            //clsPeriudhaKontabel periudha = (clsPeriudhaKontabel)CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"];
             clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
             dtdoknga.Value = periudha.FillimiPeriudha;
             dtdokderi.Value = periudha.MbarimiPeriudha;
             if (!IsPostBack)
             {
 
-                //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                 EmrateLabelave(ci);
-                //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
                 {
                     Response.Redirect(DbCore.IMBUtils.Paths.loginPathEpaySlip);
                     return;
                 }
                 int idPerdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdorues);
@@ -72,7 +64,6 @@ namespace PlatinumWeb.E_PaySlip
                 }
                 if (Request.QueryString["idmod"] != null)
                 {
-                    //hdn1.Value = Request.QueryString["idmod"].ToString();
                 }
 
                 mbushComboBoxFiltra();
@@ -133,10 +124,8 @@ namespace PlatinumWeb.E_PaySlip
             }
             else
             {
-                //linkuFiltro.NavigateUrl = "javascript:filtroButtonClick(" + rreshti["IDRAPORTI"].ToString() + ")";
                 linkuFiltro.NavigateUrl = "javascript:filtroButtonClick(" + rreshti["IDRAPORTI"].ToString() + ",'" + rreshti["RAPEMRI"].ToString() + "')";
                 linkuHapRaport.ToolTip = filtroRaportTooltip;
-                //linkuHapRaport.NavigateUrl = rreshti["NAVIGATEURL"].ToString();
                 linkuHapRaport.NavigateUrl = "javascript:hapraportin(" + rreshti["IDRAPORTI"].ToString() + ",'" + rreshti["RAPEMRI"].ToString() + "')";
             }
         }
@@ -151,8 +140,6 @@ namespace PlatinumWeb.E_PaySlip
             sqldatasourcereports.SelectParameters.Add(tmpParam);
             tmpParam = new Parameter("idgjuha", TypeCode.Int32, idGjuha.ToString()) { Direction = ParameterDirection.Input };
             sqldatasourcereports.SelectParameters.Add(tmpParam);
-            //ControlParameter IDMODULI = new ControlParameter("IDMODULI", TypeCode.Int32, "hdn1", "Value");
-            //sqldatasourcereports.SelectParameters.Add(IDMODULI);
 
             tmpParam = new Parameter("IDMODULI", TypeCode.Int32, Request.QueryString["idmod"]) { Direction = ParameterDirection.Input };
             sqldatasourcereports.SelectParameters.Add(tmpParam);
@@ -175,7 +162,6 @@ namespace PlatinumWeb.E_PaySlip
 
                 sqldatasourcereports.SelectCommand = "prc_Moduli_RaportetSipasTeDrejtave";
 
-                //sqldatasourcereports.SelectParameters.Add(new SessionParameter("idgjuha", "IdGjuha"));
             }
 
         }

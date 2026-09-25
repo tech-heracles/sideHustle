@@ -21,9 +21,7 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -31,7 +29,6 @@ namespace PlatinumWeb
             }
             idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idperdoruesi);
@@ -42,14 +39,12 @@ namespace PlatinumWeb
             idnderviti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "trlStruktura", 1, "StrukturaAdministrative.aspx");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (!IsPostBack)
             {
                 CacheDataProvider.ClearSessionCache("StrukturaAdministrative", "colStrukturatAdministrative");
-                //Session.Add("mesazh", ":Green");
                 mbushHiddenFieldMePerkthime(ci, rm);
                 EmratELabelave(rm, ci);
                 AspxWebControlUtils.perkthePopUp(popFshi, rm.GetString("labelKujdes", ci), lblMsgbox, rm.GetString("msgStrukturaAdministrativePopFshiText", ci), ButtonCancel, rm.GetString("labelAnullo", ci));
@@ -141,8 +136,6 @@ namespace PlatinumWeb
             shtoPerson();
             shtoLloj(rm, ci);
             ShtoAktiv();
-
-
 
 
             if (!IsPostBack)
@@ -273,11 +266,6 @@ namespace PlatinumWeb
                 emri = e.NewValues["Emri"].ToString();
             else
                 emri = "";
-            //if (hfPersoni.Value != "")
-            //{
-            //    DbCore.DbListPagesat.clsPunonjes pun = new DbCore.DbListPagesat.clsPunonjes(hfPersoni.Value, idNdermarrje);
-            //    personi = pun.IdPunonjes;
-            //}
             ////if (e.NewValues["Personi"] != null)
             ////    personi = e.NewValues["Personi"].ToString();
             //else
@@ -354,12 +342,10 @@ namespace PlatinumWeb
             }
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAutoPerKod(hfNrAuto, e.NewValues["Kodi"].ToString());
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAutoPerKodi(hfNrAuto, e.NewValues["Kodi"].ToString());
 
             DbCore.DbListPagesat.clsStrukturaAdministrative strukt = new DbCore.DbListPagesat.clsStrukturaAdministrative(0, e.NewValues["Kodi"]?.ToString(), emri, personi, nrtel, shenime, idprindi, idNdermarrje, idperdoruesi, idstatusdok, qendra, skema, lloji,aktive);
 
             hfNrAutoKF = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "Kodi", "Kodi");
-            //NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "Kodi", "Kodi");
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             e.Cancel = true;
@@ -368,7 +354,6 @@ namespace PlatinumWeb
             mesazh = strukt.ruajStruktureAdm(hfNrAutoKF, hfArkiva);
             if (!mesazh.Status == true)
             {
-                //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = mesazh.PershkrimMesazhi + ":Red";
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazh.PershkrimMesazhi + ":Red");
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             }
@@ -473,7 +458,6 @@ namespace PlatinumWeb
                mesazh = strukt.Modifiko();
             if (!mesazh.Status == true)
             {
-                //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = mesazh.PershkrimMesazhi + ":Red";
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazh.PershkrimMesazhi + ":Red");
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             }
@@ -525,15 +509,7 @@ namespace PlatinumWeb
                     return;
                 }
 
-                //int kod = 0;
 
-                //int.TryParse(kodi, out kod);
-                //if (kod == 0 && kodi != "0")
-                //{
-                //    e.Errors["Kodi"] = rm.GetString("msgStrukturaAdministrativeKodiDuhetNumer", ci);
-                //    e.NodeError = rm.GetString("msgStrukturaAdministrativeKodiDuhetNumer", ci);
-                //    return;
-                //}
                 int idNdermarje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 if (hfQendra.Value != "")
                 {
@@ -743,9 +719,7 @@ namespace PlatinumWeb
                     cmb2.ClientSideEvents.Init = "function(s, e) { Personi_Changed(); }";
                     cmb2.ClientSideEvents.ButtonClick = "function(s, e) {Personi_Click();}";
                     cmb2.ClientSideEvents.TextChanged = "function(s, e) { Personi_Changed(); }";
-                    //cmb2.ClientSideEvents.LostFocus = "function(s, e) { Personi_Changed(); }";
                     cmb2.ClientSideEvents.SelectedIndexChanged = "function(s, e) { Personi_Changed(); }";
-                    //cmb2.ClientSideEvents.ValueChanged = "function(s, e) { Personi_Changed(); }";
                     ConfigureAspxComboBox.mbushComboPunonjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), cmb2);
 
                 }

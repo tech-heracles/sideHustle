@@ -102,18 +102,10 @@ namespace DbCore.DbListPagesat
         private bool mbushOreShtese(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsOreShtese grupKF = new clsOreShtese();
-                //grupKF.mbushOreShtese(rreshti);
                 this.Add(new clsOreShtese(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -133,7 +125,6 @@ namespace DbCore.DbListPagesat
                 }
             }
             
-
 
         }
 

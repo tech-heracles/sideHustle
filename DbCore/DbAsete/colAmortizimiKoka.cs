@@ -720,18 +720,10 @@ namespace DbCore.DbAsete
         private bool mbushAmortizimiKokaList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAmortizimiKoka amortizimiKoka = new clsAmortizimiKoka();
-                    //amortizimiKoka.mbushAmortizimKokaObjekt(rreshti);
                     Add(new clsAmortizimiKoka(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

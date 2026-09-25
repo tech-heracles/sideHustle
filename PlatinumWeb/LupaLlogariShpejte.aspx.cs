@@ -102,7 +102,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()));
             hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
-            //cmbKonfigurimi.SelectedIndex = -1;
         }
 
         /// <summary>

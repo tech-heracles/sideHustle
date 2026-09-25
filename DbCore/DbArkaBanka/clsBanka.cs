@@ -872,7 +872,6 @@ namespace DbCore.DbArkaBanka
         /// </summary>
         public clsMesazh ruaj()
         {
-            //clsDatabaseArkaBanka data = new clsDatabaseArkaBanka();
             clsMesazh u_ruajt = ruajBankeAndAutorizime(this);
             return u_ruajt;
         }
@@ -883,7 +882,6 @@ namespace DbCore.DbArkaBanka
         /// </summary>
         public clsMesazh modifiko()
         {
-            //clsDatabaseArkaBanka data = new clsDatabaseArkaBanka();
             clsMesazh u_modifikua = modifikoBankeAndAutorizime(this);
             return u_modifikua;
         }

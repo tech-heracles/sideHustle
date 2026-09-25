@@ -19,7 +19,6 @@ namespace DbCore.DbRegjistrim
         private decimal vlTaksa;
         private int rreshti;
         private DataRow rreshti1;
-        // private colFleteDoganoreTrupi oColTrupi;       
 
         #endregion
 
@@ -45,7 +44,6 @@ namespace DbCore.DbRegjistrim
             vlDoganim= vlDog;
             vlTaksa = vlTak;  
             this.rreshti=rreshti;
-           // oColTrupi = new colFleteDoganoreTrupi();
         }
         public clsFleteDoganoreDetajimSub(Dictionary<string, object> rreshtDokuKlient, int  rreshti)
         {

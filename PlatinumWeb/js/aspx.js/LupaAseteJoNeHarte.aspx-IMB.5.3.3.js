@@ -26,9 +26,6 @@ $(window).on('unload', function () {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        //gvLupaAsete.SelectRowOnPage(0, true);
-        //gvLupaAsete.SetFocusedRowIndex(0);
-        //btnOk.Focus();
     }
     catch (err) {
         console.log(err);
@@ -120,8 +117,6 @@ function menu_click(s, e) {
 
 //metoda per te shfaqur popupin e filtrave
 function Filtra_Click() {
-    //document.getElementById('<%= Container.ClientID %>').src = 'LupaFiltra.aspx?grida=gvLupaAsete&page=LupaMagazina.aspx&idKonfigAmbjente=577';
-    //popFiltra.Show();
 }
 
 function gup(name) {

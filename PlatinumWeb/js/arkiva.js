@@ -47,11 +47,8 @@
                 myMesazh.ShtoMesazhInformues("Lloji i tipit te skedarit nuk eshte ne listen e tipeve te lejuar!");
                 break;
             case 'openImages':
-                //if (isImage(fileExt)) {
                 openImageSlider(s);
-                //}
                 //else
-                //    console.warn("nuk eshte lloj imazhi i njohur, nese eshte imazh duhet shtuar tek lista e llojeve te pranuara");
                 break;
             case "setThumbnail":
                 selectedFile = s.GetSelectedFile();
@@ -86,7 +83,6 @@
         var selected = s.GetSelectedFile();
         removeCssItem();
         setCssItem(selected.elementID);
-        //alert("TADAA");
         
     }
     var setCssItem=function (itemId)

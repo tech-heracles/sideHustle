@@ -22,10 +22,7 @@ namespace PlatinumWeb
             else
                 vleraQueryString = "";
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "LBUR"; //eshte kodi i lupes, mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             int idNivel = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("LKP", idNdermarrje);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (vleraQueryString != "")
@@ -62,8 +59,6 @@ namespace PlatinumWeb
             {
                 merrKonfiguriminDefaultTeLupes(idNivel);
             }
-            //DbCore.DbShare.clsKusht kushtkss = new DbCore.DbShare.clsKusht(idKonfigAmbjenti, "KSSH");
-            //DbCore.DbShare.clsAlternativaKushti alterkss = new DbCore.DbShare.clsAlternativaKushti(kushtkss.Vlera);
             bool kerkosaposhkruar = true;
             if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigAmbjenti, "KSSH") == "Po")
                 kerkosaposhkruar = true;
@@ -73,8 +68,6 @@ namespace PlatinumWeb
                 endlessScroll = true;
             if (!IsPostBack)
             {
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
-                //AplikoFilterDefault();
                 cmbKonfigurimi.Value = idKonfigAmbjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvProfesione, idKonfigAmbjenti);
                 mbushPopUpListeNgaDB();
@@ -86,7 +79,6 @@ namespace PlatinumWeb
                 mbushPopUpListeNgaSession();
                 konfiguroPopupGride(false, kerkosaposhkruar, endlessScroll);
             }
-            //mbushComboBoxFiltra(idNdermarrje);
         }
 
         private void merrKonfiguriminDefaultTeLupes(int idNivel)
@@ -217,20 +209,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvProfesione.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Id", gvProfesione);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvProfesione.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Id";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -239,7 +219,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvProfesione", Convert.ToInt32(cmbKonfigurimi.Value), "LupaKodeProfesione.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -263,7 +242,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvProfesione", Convert.ToInt32(cmbKonfigurimi.Value), "LupaKodeProfesione.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)

@@ -69,12 +69,10 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             XRPivotGridField fieldVleraCmimi = new XRPivotGridField("Cmimet", PivotArea.DataArea);
             if (Grupim2.Value.ToString() == "Çmimi dytë")
             {
-                //CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiD", ci); 
                 fieldVleraCmimi.FieldName = "CMIMI2";
             }
             else
             {
-                //  CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiP", ci); 
                 fieldVleraCmimi.FieldName = "CMIMI";
             }
             fieldVleraCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);

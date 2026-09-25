@@ -117,7 +117,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-   // myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, true, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj') {
         pastro();
@@ -152,7 +151,6 @@ function OnGetRowValuesMod(values) {
         txtKodi.SetEnabled(true);
     else
         txtKodi.SetEnabled(false);
-    //  gvBuxheti.PerformCallback(indexModifiko);
     btneKapitulli.SetValue(null);
     merrBuxhete();
     if (kaloTab) {
@@ -268,7 +266,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-   // indexModifiko = myFaqeCelje.EndRequestHandlerPas(sender, args, hf, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKategoria, "230", hfTeDrejta)
       indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKategoria, "230", pastrofusha, hfTeDrejta);
 }
 

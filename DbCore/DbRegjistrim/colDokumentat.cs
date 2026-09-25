@@ -231,13 +231,6 @@ namespace DbCore.DbRegjistrim
         ///// <param name="datanga">data nga</param>
         ///// <param name="dataderi">data deri ne</param>
         ///// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
-        //public static DataTable ktheGjitheDokumentatRegjistrimDokumentashSipasFiltrave(int idndermarje, string datanga, string dataderi, int idperdorues, string kodkonfigurimi, string kodartikulli, string grupi, string nengrupi, string klienti, string nrdok)
-        //{
-        //    clsDatabaseRegjistrim dbDokumenti = new clsDatabaseRegjistrim();
-        //    DataTable dt = dbDokumenti.ktheGjitheDokumentatRegjistrimDokumentashSipasFiltrave(idndermarje, datanga, dataderi, idperdorues, kodkonfigurimi,kodartikulli,grupi,nengrupi,klienti,nrdok);
-        //    dbDokumenti.Dispose();
-        //    return dt;
-        //}
 
         /// <summary>
         /// mbush gjithe dokumentat qe bejne regjistrime dokumentash sipas filtrave
@@ -579,21 +572,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushDokumenta(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDokumenti doc = new clsDokumenti();
-                    //doc.mbushDokument(rreshti);
                     Add(new clsDokumenti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         private bool mbushDokumentaNgaBanka(DataTable dt)
@@ -621,7 +606,6 @@ namespace DbCore.DbRegjistrim
         private bool mbushDokumentaKerkimi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
@@ -630,12 +614,7 @@ namespace DbCore.DbRegjistrim
                     Add(doc);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

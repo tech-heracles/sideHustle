@@ -23,7 +23,6 @@ function Init() {
         $('#hfKontrollet').val(window.parent.$('#hfKontrollet').val());
         var prm = Sys.WebForms.PageRequestManager.getInstance();
         prm.add_endRequest(EndRequestHandler);
-        // gvLupaAnketa.SetFocusedRowIndex(0);
      
     }
     catch (err) {
@@ -99,8 +98,6 @@ function gup(name) {
 $(window).load(function () {
     try {
         $("#div").show();//$("#div")[0].style.visibility = 'visible';
-     //   panel.SetWidth(document.documentElement.clientWidth - 20);
-      //  gvLupaAnketa.SetWidth(document.documentElement.clientWidth - 50);
     }
     catch (e) {
     }
@@ -108,8 +105,6 @@ $(window).load(function () {
 $(window).bind('resize', function () {//po
 
     try {
-      //  panel.SetWidth(document.documentElement.clientWidth - 20);
-       // gvLupaAnketa.SetWidth(document.documentElement.clientWidth - 50);
     }
     catch (e) {
     }

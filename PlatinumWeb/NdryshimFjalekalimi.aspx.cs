@@ -22,7 +22,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (Request.QueryString["em"] == null && !DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");

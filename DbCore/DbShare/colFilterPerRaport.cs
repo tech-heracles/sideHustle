@@ -42,19 +42,11 @@ namespace DbCore.DbShare
         private bool mbushColFilterPerRaport(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFilterPerRaport filtri = new clsFilterPerRaport();
-                    //filtri.mbushFilterPerRaport(rreshti);
                     Add(new clsFilterPerRaport(rreshti));
                 }
                 return true;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;                
-            //}
         }
 
     }

@@ -287,17 +287,7 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = grida.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodGrupi", grida);
-            //var kolona = grida.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodGrupi";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = IdPerdoruesi;
             filtri.IdNdermarje = IdNdermarrja;
@@ -560,11 +550,6 @@ namespace PlatinumWeb
 
         protected void startRowEditing(object sender, ASPxStartRowEditingEventArgs e)
         {//kur fillon editimi te behet validimi
-            //ASPxGridView grida = sender as ASPxGridView;
-            //if (!grida.IsNewRowEditing)
-            //{
-            //    grida.DoRowValidation();
-            //}
         }
 
         protected void gridat_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)

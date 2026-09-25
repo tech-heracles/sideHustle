@@ -129,18 +129,8 @@ namespace DbCore.DbAdmin
         }
 
         //public bool modifiko()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    bool u_modifikua = data.modifikoGrupAuditimi(this);
-        //    return u_modifikua;
-        //}
 
         //public bool fshi()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    bool u_fshi = data.fshiGrupAuditimi(this);
-        //    return u_fshi;
-        //}
 
         public clsMesazh ruajGrupAuditimiDheTrupin(clsGrupAuditimi gr)
         {

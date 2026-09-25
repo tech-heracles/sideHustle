@@ -55,8 +55,6 @@ function EndRequesHandler(sender, args) {
 
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, hfKontrollet, undefined, hfShtimModifikim, hfId, indexModifiko, undefined, gvFushaAnkete, "2004", undefined, hfTeDrejta)
 
-    // var isLidhur = ($("#hfLidhur").val().toLowerCase() === 'true');
-    // enable(false, isLidhur);
 }
 function callWebservice() {
     var emer = 'CRMFushaAnkete.aspx';
@@ -100,7 +98,6 @@ function switchEditMode(index)
     gvFushaAnkete.StartEditRow(index);
     indexEdit = index;
 }
-
 
 
 function EndCallbackGrida(s, e) {

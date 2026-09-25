@@ -32,7 +32,6 @@ namespace PlatinumWeb
             {
                 txtOutgoingSmtp.Text = konf.OutgoingSmtp;
                 txtDergoEmailNga.Text = konf.DergoEmailNga;
-                //txtPassword.Text = StringCipher.Decrypt(konf.Password, celesi);
                 txtPortaSmtp.Text = konf.PortaSmtp.ToString();
                 cbEnableSsl.Checked = konf.EnableSsl;
             }

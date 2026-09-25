@@ -85,11 +85,6 @@ namespace PlatinumWeb
                 {
                     br.Close();
                     myFile.Close();
-                    //if (_fileName.EndsWith(".txt") || _fileName.EndsWith(".xls"))
-                    //{
-                    //    _Response.Flush();
-                    //    System.IO.File.Delete(_fullPath);
-                    //}
                 }
             }
             catch (Exception err)

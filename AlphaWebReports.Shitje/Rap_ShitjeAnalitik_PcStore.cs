@@ -62,7 +62,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         {
             xrLabel27.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel28.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel38.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel32.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel36.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrLabel33.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";

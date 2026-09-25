@@ -105,11 +105,6 @@ namespace DbCore.DbRegjistrim
             return data;
         }
 
-        //public colInventarizim merriTeGjithe()
-        //{
-        //    clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-        //    return data.merrGjitheInventarizime();
-        //}
 
         #endregion
 

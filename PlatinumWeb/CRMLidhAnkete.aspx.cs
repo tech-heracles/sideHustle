@@ -158,17 +158,7 @@ namespace PlatinumWeb
         }
         protected void gvKlienti_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
         {
-            //if (e.RowType == GridViewRowType.Data)
-            //{
-            //    GridViewDataTextColumn col0 = ((ASPxGridView)sender).Columns["Konfiguro"] as GridViewDataTextColumn;
-            //    ASPxButton btn0 = ((ASPxGridView)sender).FindRowCellTemplateControl(e.VisibleIndex, col0, "btn") as ASPxButton;
 
-            //    if (btn0 != null)
-            //    {
-            //        btn0.ClientInstanceName = "btnKonfiguro" + e.VisibleIndex;
-            //        btn0.ClientSideEvents.Click = String.Format("function(s,e){{ClickKonfiguro({0});}}", e.KeyValue);
-            //    }
-            //}
         }
 
         /// <summary>
@@ -180,16 +170,6 @@ namespace PlatinumWeb
         {
             ///e tepert ketu
 
-            //idGjuha =(int)hfState["idGjuha"];
-            //if (e.CallbackName == "APPLYFILTER" && e.Args[0] == "")
-            //{
-            //    DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
-            //    ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            //    cmbFiltra.Text = "";
-            //}
-            //ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
-            //rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //DbCore.clsFunksione.ToolTipButonaveMbiGride(gvKlienti, ci, rm);
         }
 
         /// <summary>
@@ -223,9 +203,6 @@ namespace PlatinumWeb
         protected void gvKlienti_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
         {
             //NUK jane te nevojshme sepse tashme gridat kane suport per keyboard
-            //e.Properties["cpPageIndex"] = gvKlienti.PageIndex;
-            //e.Properties["cpPageRow"] = gvKlienti.SettingsPager.PageSize;
-            //e.Properties["cpRowCount"] = gvKlienti.VisibleRowCount;
         }
 
         /// <summary>
@@ -279,20 +256,9 @@ namespace PlatinumWeb
                 {
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvKlienti, arr[2], "gvKlienti", "CRMLidhAnkete.aspx", 1);
 
-                    //clsFiltraGrida filtra = new clsFiltraGrida();
                     ////filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), "gvKlienti", "CRMLidhAnkete.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     ////DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //if (filtra.FiltraKodi != null)
-                    //{
-                    //    gvKlienti.FilterExpression = filtra.FiltraVlera;
-                    //    if (filtra.DrejtimRenditje == true)
-                    //        gvKlienti.SortBy(gvKlienti.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
                     //    else
-                    //        gvKlienti.SortBy(gvKlienti.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);                        
-                    //    //hfStatusi.Value = "true";
-                    //}
                     ////else hfStatusi.Value = "false";
                 }
             }
@@ -400,7 +366,6 @@ namespace PlatinumWeb
         /// <param name="idKomponente">   Id e komponentes </param>
         private void konfiguroGridenEKlienteve()
         {
-            // shtoButtonKonfiguro(); 
           if(!IsPostBack) GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvKlienti", gvKlienti,"",komponente.IdKomponente.ToString(),idGjuha,true);
             gvKlienti.EnableRowsCache = true;//meqe ne kete rast nuk ndryshojne te dhenat
             GridUtil.konfigGrideListeEMadhePaTheme(gvKlienti, "IdKlientFurnitor", false);

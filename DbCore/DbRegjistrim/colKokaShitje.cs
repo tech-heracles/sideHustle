@@ -27,10 +27,6 @@ namespace DbCore.DbRegjistrim
         }
         public colKokaShitje(IEnumerable<clsKokaShitje> colleciceron) : base(colleciceron)
         {
-            //colKokaShitje col = new colKokaShitje { Capacity = 1000000 };
-            //Parallel.ForEach(colleciceron,new ParallelOptions { MaxDegreeOfParallelism=4}, x => {
-            //    Add(x);
-            //});
 
         }
 

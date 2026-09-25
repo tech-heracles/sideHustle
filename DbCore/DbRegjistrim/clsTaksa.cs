@@ -64,7 +64,6 @@ namespace DbCore.DbRegjistrim
         public clsTaksa(string kodi, int idNderm, clsDatabaseRegjistrim dbTaksa)
         {
             mbushTaksa(dbTaksa.TransCache.getTakse(kodi, idNderm, dbTaksa));
-            //mbushTaksa(dbTaksa.ktheTaksaSipasKodi(kodi, idNderm));
         }
 
         /// <summary>
@@ -321,7 +320,6 @@ namespace DbCore.DbRegjistrim
             get { return tipiIPerjashtimit; }
             set { tipiIPerjashtimit = value; }
         }
-
 
 
         #endregion
@@ -623,7 +621,6 @@ namespace DbCore.DbRegjistrim
                 {
                     DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                     lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i], dataAdmin);
-                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                     colLidhjet.Add(lidhje);
                 }
                 foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
@@ -666,8 +663,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifikoTaksa(int id, string kod, string pershk, decimal nrm, int nderm, string llogdeb, string llogkred, int idlloj, string njes, int idperdoruesi, string nivelAutorizim, int idkonfig, int idstatusdok, bool aktiv, bool taksendermarje, string llogaridogane, bool ePerjashtuar, bool aplikoTvshNeFleteDoganore, clsDatabaseRegjistrim dbRegj, bool furnizimezero, bool ShitjePaTvshTaksa, string tipiIPerjashtimit)
         {
 
-            //clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
-            //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Taksa");
             clsDatabaseAdmin data = new clsDatabaseAdmin(dbRegj);
             clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbRegj);
             DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(id, "Taksa", data);
@@ -704,7 +699,6 @@ namespace DbCore.DbRegjistrim
                         {
                             DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                             lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i], data);
-                            //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                             colLidhjet.Add(lidhje);
                         }
                     }

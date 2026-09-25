@@ -33,7 +33,6 @@ namespace CacheLayer
                          .EnableStatistics()
                          .Build();
             var myAppCache = CacheFactory.FromConfiguration<object>(configuration);
-            //var myAppCache = new CacheManagerFake(configs);
             GlobalCacheManager.Initialize(myAppCache,configs);
         }
 

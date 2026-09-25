@@ -20,7 +20,6 @@ namespace AlphaWebReports
         private static Func<int, int, List<(string EmerBanka, string NrLlogariBanka)>> _getBanka;
 
 
-
         public static void Initialize(Func<int, int, List<(string EmerBanka, string NrLlogariBanka)>> getBanka)
         {
             _getBanka = getBanka;
@@ -163,13 +162,6 @@ namespace AlphaWebReports
                     xrReport = (XtraReport)reportDetail1;
                     break;
                 //case "buxhetimeSipasUrdherPagesave":
-                //    if (e.Parameter.Split(';')[1] == "UpdateDetail")
-                //    {
-                //        IUpdateDetailMeDyId reportDetailMeDyId = (IUpdateDetailMeDyId)raporti;
-                //        reportDetailMeDyId.UpdateDetail(e.Parameter.Split(';')[0], e.Parameter.Split(';')[1]);
-                //        xrReport = (XtraReport)reportDetailMeDyId;
-                //    }
-                //    break;
                 case "bilanciEnergjitikPermbledhes":
                 case "RapEvidenceBuxheti":
                     if (e.Parameter.Split(';')[1] == "Detail")

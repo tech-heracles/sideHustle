@@ -103,7 +103,6 @@ namespace PlatinumWeb
         }
 
 
-
         protected void gvLupaTransportues_DataBound(object sender, EventArgs e)
         {
             gvLupaTransportues.Settings.ShowFilterRow = true;
@@ -158,29 +157,15 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaTransportues.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdTransportues", gvLupaTransportues);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaTransportues.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdTransportues";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
             percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvLupaTransportues", Convert.ToInt32(cmbKonfigurimi.Value), "LupaTransportues.aspx");
-            //percaktoTemplateMenu(ASPxMenu1);
             if (mesazh.Status == true)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -206,7 +191,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
                 percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvLupaTransportues", Convert.ToInt32(cmbKonfigurimi.Value), "LupaTransportues.aspx");
                 if (mesazh.Status == true)
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);

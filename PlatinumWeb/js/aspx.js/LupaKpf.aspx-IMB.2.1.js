@@ -82,7 +82,6 @@ function zgjidhElement() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaKpf.GetSelectedFieldValues('KodiKPF', OnGridSelectionComplete);
     gvLupaKpf.GetRowValues(gvLupaKpf.GetFocusedRowIndex(), 'KodiKPF;NiveliKPF;EmertimiKPF', OnGridSelectionComplete);
 }
 
@@ -108,8 +107,6 @@ function OnGridSelectionComplete(values) {
             if (window.parent.arrLL != null) {
                 window.parent.editorGlobal.val(values[0]);
                 window.parent.editorPershkrimillogaria.val(values[2]);
-                //  window.parent.editorGjendja.SetValue("Gjithmone");
-                //  window.parent.editorShenja.SetValue("Pozitive");
                 window.parent.editorGlobal.focus();
             }
             else if (window.parent.txtLlog == "kpf") {
@@ -151,10 +148,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

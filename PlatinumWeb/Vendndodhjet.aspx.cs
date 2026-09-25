@@ -115,7 +115,6 @@ namespace PlatinumWeb
         /// <param name="grida">grida</param>
         private void konfiguroGride(ASPxGridView grida)
         {
-            // shtoPage(grida);
 
             GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), "gvVendndodhjet", grida, cmbKonfigurimi.Text.Split(';')[0], "720", DbCore.mySessionObjects.ktheGjuhe(Session));
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -192,23 +191,10 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvVendndodhjet", "Vendndodhjet.aspx", idNdermarrje);
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = grida.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", grida);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grida.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvVendndodhjet", int.Parse(cmbKonfigurimi.Value.ToString()), "Vendndodhjet.aspx");
             percaktoTemplateMenu(ASPxMenu1, idviti, idperdoruesi, idndermarje);
             if (mesazh.Status == true)
@@ -230,7 +216,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idndermarje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvVendndodhjet", "Vendndodhjet.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -238,7 +223,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvVendndodhjet", int.Parse(cmbKonfigurimi.Value.ToString()), "Vendndodhjet.aspx");
                 percaktoTemplateMenu(ASPxMenu1, idviti, idperdoruesi, idndermarje);
                 if (mesazh.Status == true)
@@ -287,13 +271,11 @@ namespace PlatinumWeb
                 mesazh = kategori.ruaj(hfNrAutoKF);
                 if (!mesazh.Status == true)
                 {
-                    //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = "Ndodhi nje gabim. Ruajtja nuk u krye!:Red";
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Ndodhi nje gabim. Ruajtja nuk u krye!:Red");
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim. Ruajtja nuk u krye!", pnlMesazhi);
                 }
                 else
                 {
-                    //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = "Ruajtja perfundoi me sukses!:Green";
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Ruajtja perfundoi me sukses!:Green");
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["mesazhRuajtjeMeSukses"], pnlMesazhi);
                 }
@@ -301,7 +283,6 @@ namespace PlatinumWeb
             }
             else
             {
-                //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = "Ekziston nje kategori me kete kod! Ju lutem zgjidhni nje kod tjeter:Red";
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Ekziston nje vendndodhje me kete kod! Ju lutem zgjidhni nje kod tjeter:Red");
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ekziston nje vendndodhje me kete kod! Ju lutem zgjidhni nje kod tjeter", pnlMesazhi);
                 gride.AddNewRow();
@@ -332,12 +313,10 @@ namespace PlatinumWeb
             m = kategori.modifiko();
             if (m.Status)
             {
-                //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = m.PershkrimMesazhi + ":Green";
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, m.PershkrimMesazhi + ":Green");
             }
             else
             {
-                //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = m.PershkrimMesazhi + ":Red";
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, m.PershkrimMesazhi + ":Red");
             }
             gride.CancelEdit();
@@ -451,7 +430,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], idndermarje);
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvVendndodhjet", "Vendndodhjet.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)

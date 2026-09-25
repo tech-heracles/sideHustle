@@ -152,7 +152,6 @@ namespace PlatinumWeb
         }
 
 
-
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -194,7 +193,6 @@ namespace PlatinumWeb
             }
             foreach (DbCore.DbRegjistrim.clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, DbCore.DbInventari.clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today,log,cultinf,rm, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                 if (!mesazh.Status)
                 {
@@ -253,7 +251,6 @@ namespace PlatinumWeb
         }
     
  
-
         protected void grid_RegMag_DataBound(object sender, EventArgs e)
         {
             if (this.grid_RegMag.Columns["#"] == null)
@@ -323,20 +320,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_RegMag.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", grid_RegMag);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_RegMag.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivel";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -361,22 +346,8 @@ namespace PlatinumWeb
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (e.Item.Name == "PrintPreview")
             {
-                //if (grid_RegMag.FocusedRowIndex == -1)
-                //{
-                //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("regjMagMesazhZgjidhniFaturePerPrintim", cultinf), pnlMesazhi);
-                //    Container.Attributes["src"] = "";
-                //}
                 //else
-                //{
-                //    string id = grid_RegMag.GetRowValues(grid_RegMag.FocusedRowIndex, "IdKoka").ToString();
-                //    DbCore.DbRegjistrim.clsKokaNdryshimCmimSasi clsKoka = new clsKokaNdryshimCmimSasi ();
-                //    clsKoka.mbushKokaNdryshimCmimSasiSipasID(int.Parse(id));
-                //    DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
-                //    konf.mbushKonfiguriminMeID(clsKoka.IdKonfigAmbjente);
 
-                //    Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=38&idDokumenti=" + clsKoka.IdKoka + "&printo=false";
-
-                //}
 
             }
             else if (e.Item.Name == "Riruaj")
@@ -432,15 +403,12 @@ namespace PlatinumWeb
                 col.mbushGjitheTrupiNdryshimCmimSasiNgaKoka(clsKoka.IdKoka);
                 clsKokaMagazina kokam = new clsKokaMagazina();
                 kokam.mbushKokaMagazinaSipasIDGjenerues(clsKoka.IdKoka, 1, clsKoka.IdKonfigAmbjente);
-                //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DtDok, idNdermarrje); ;
 
                 bool lidhur = clsKoka.eshteILidhur();
                 bool autorizimet = DbCore.DbRegjistrim.clsKokaNdryshimCmimSasi.kaAutorizime(clsKoka.IdKoka, idPerdoruesi);
                 if (!autorizimet)
                     lidhur = true;
 
-                //DbCore.DbShare.clsKusht kushtvartes = new DbCore.DbShare.clsKusht(clsKoka.IdKonfigAmbjente, "V");
-                //DbCore.DbShare.clsAlternativaKushti alternativavartes = new DbCore.DbShare.clsAlternativaKushti(kushtvartes.Vlera);
                 if (clsAlternativaKushti.getAlternativa(clsKoka.IdKonfigAmbjente, "V") == "Po")
                 {
                     object[] arr = { konfig.KodKonfigAmbjente + " " + clsKoka.NrDok + " " + clsKoka.DtDok.ToShortDateString(), "Ky dokument eshte dokument vartes dhe nuk mund te riruhet!", nrreshta };
@@ -616,7 +584,6 @@ namespace PlatinumWeb
                     pershkrimFK = "Nga ndryshim sasi/cmim";
 
 
-
                 if (lidhur == true)
                     mesazh = kokare.modifiko(meKontabilizim, true, pershkrimFK, out shfaqmesazhapolupe, eshteOwn, qend.ColTrupi, out shfaqmesazhapolupemag, gjenerodokmag, rm, ci);
                 else
@@ -629,13 +596,6 @@ namespace PlatinumWeb
 
                 }
                 //else
-                //{
-                //    object[] arr = { konfig.KodKonfigAmbjente + " " + clsKoka.NrDok + " " + clsKoka.DtDok.ToShortDateString(), mesazh.PershkrimMesazhi, nrreshta };
-                //    err.Rows.Add(arr);
-                //    continue;
-                //}
-
-
 
 
             }
@@ -661,7 +621,6 @@ namespace PlatinumWeb
         }
 
 
-
         //fshin rreshtat e selektuar
         protected void ButtonOk_Click2(object sender, EventArgs e)
         {
@@ -679,7 +638,6 @@ namespace PlatinumWeb
             DbCore.DbRegjistrim.colTrupiMagazina tr = new DbCore.DbRegjistrim.colTrupiMagazina();
             DbCore.DbRegjistrim.colTrupiMagazina trupat = new DbCore.DbRegjistrim.colTrupiMagazina();
             bool rivleresim = false;
-           // DbCore.DbAdmin.clsPeriudhaKontabel periudha;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             foreach (object id in rreshtat)
             {
@@ -698,8 +656,6 @@ namespace PlatinumWeb
                 }
                 if (kok.IdStatusDok == 2)
                     continue;
-                //periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kok.DtDok, idNdermarrje);
-                //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
                
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kok.DtDok, idNdermarrje);
                 if (ekycur)

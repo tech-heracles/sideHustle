@@ -41,7 +41,6 @@ function merrTeDhena() {//merren te dhenat qe ka grida
         arrEmertimiA[cou1] = i.toString() + ":" + editorEmertimiA.GetText();
         arrPrioritetiA[cou1] = i.toString() + ":" + editorPrioritetiA.GetText();
 
-        //cou1 += 1;
         cou1 =cou1 + 1;
     }
 
@@ -125,10 +124,6 @@ function FshiClicked(key) {
     merrTeDhena();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

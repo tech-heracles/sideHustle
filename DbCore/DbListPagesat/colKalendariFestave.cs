@@ -40,18 +40,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKalendarFestash(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKalendariFestave grupKF = new clsKalendariFestave();
-                    //grupKF.mbushKalendarFestash(rreshti);
                     this.Add(new clsKalendariFestave(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

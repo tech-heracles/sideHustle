@@ -81,11 +81,6 @@ namespace PlatinumWeb
             GridUtil.konfigGrideListeEMadhePaTheme(gvAsistenti, "Id");
             gvAsistenti.Columns["Id"].Visible = false;
             gvAsistenti.Columns["Mesazh Gabimi"].Width = Unit.Percentage(10);
-            //if (gvAsistenti.Columns["Rregullo"] != null)
-            //{
-            //    GridViewDataTextColumn col = gvAsistenti.Columns["Rregullo"] as GridViewDataTextColumn;
-            //    col.DataItemTemplate = new MyButtonTemplate("Rregullo");
-            //}
         }
 
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
@@ -137,23 +132,11 @@ namespace PlatinumWeb
 
         protected void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Rifresko")
-            //    merrGrideAsistentiNgaDb();
         }
 
         protected void gvAsistenti_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
         {
-            //if (e.RowType == DevExpress.Web.GridViewRowType.Data)
-            //{
-            //    GridViewDataColumn col = ((ASPxGridView)sender).Columns["Rregullo"] as GridViewDataColumn;
-            //    ASPxButton btn = ((ASPxGridView)sender).FindRowCellTemplateControl(e.VisibleIndex, col, "btn") as ASPxButton;
 
-            //    if (btn != null)
-            //    {
-            //        btn.ClientInstanceName = "RregulloBtn" + e.VisibleIndex;
-            //        btn.ClientSideEvents.Click = "function(s,e){ClickRregulloBtn(s,e," + e.VisibleIndex + ");}";
-            //    }
-            //}
         }
 
         protected void gvAsistenti_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
@@ -176,16 +159,6 @@ namespace PlatinumWeb
                 gvAsistenti.Columns.Add(check);
             }
 
-            //if (gvAsistenti.Columns["Rregullo"] == null)
-            //{
-            //    GridViewDataTextColumn update = new GridViewDataTextColumn();
-            //    update.Caption = "Rregullo";
-            //    update.Width = Unit.Percentage(10);
-            //    update.Name = "Rregullo";
-            //    gvAsistenti.Columns.Add(update);
-            //    GridViewDataTextColumn col = gvAsistenti.Columns["Rregullo"] as GridViewDataTextColumn;
-            //    col.DataItemTemplate = new MyButtonTemplate("Rregullo");
-            //}
 
             gvAsistenti.Settings.ShowFilterRow = true;
             gvAsistenti.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;

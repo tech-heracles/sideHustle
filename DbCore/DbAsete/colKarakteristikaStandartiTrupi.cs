@@ -54,18 +54,10 @@ namespace DbCore.DbAsete
         private bool mbushKarakteristikaTrupiList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKarakteristikaStandartiTrupi karakteristikaTrupi = new clsKarakteristikaStandartiTrupi();
-                    //karakteristikaTrupi.mbushKarakteristikaTrupiObjekt(rreshti);
                     Add(new clsKarakteristikaStandartiTrupi(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -74,7 +74,6 @@ namespace DbCore.DbListPagesat
         }
 
       
-       
         /// <summary>
         /// mbush te gjitha kategorite sipas ndermarrjes  dhe tipit
         /// </summary>
@@ -102,18 +101,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKategori(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKategoriPage kat = new clsKategoriPage();
-                    //kat.mbushKategori(rreshti);
                     Add(new clsKategoriPage(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

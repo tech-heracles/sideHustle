@@ -67,7 +67,6 @@ function menuClick(s, e) {
             ProgressBar1.stopTask();
             break;
     }
-    //    }
 }
 function menuInit(s, e) {
     s.GetItemByName('Stop').SetVisible(false);
@@ -86,7 +85,6 @@ function onTaskDone() {
             myMesazh.ShtoMesazhInformues(hfState.Get("msgRillogaritjaUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' % ' + extraData.PershkrimMesazhi);
         else
             myMesazh.ShtoMesazhInformues(hfState.Get("msgRillogaritjaUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' % ');
-        //myMesazh.ShtoMesazhInformues(hfState.Get("msgRillogaritjaUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' %');
     }
     ASPxMenu1.GetItemByName('Stop').SetVisible(false);
 }
@@ -105,9 +103,6 @@ function changeName() {
     myCookies.createCookie('adresa', window.location.href, 1);
 }
 function EndRequestHandler(sender, args) {
-    //    if (status)
-    //        tmRivleresim.SetEnabled(false);
-    //    pastro();
 }
 var arrSel = new Array();
 var arrUnSel = new Array();

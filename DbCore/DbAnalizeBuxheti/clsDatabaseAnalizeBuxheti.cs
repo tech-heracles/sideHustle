@@ -101,8 +101,6 @@ namespace DbCore.DbAnalizeBuxheti
         }
 
     
-
-
         /// <summary>
         /// thirret ne krijim te ndermarrjes per krijimin e projektbuxhetit
         /// </summary>
@@ -116,7 +114,6 @@ namespace DbCore.DbAnalizeBuxheti
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AB_PBUXHET_PERMBLEDHES_insertAllDefault");
             return new clsMesazh(true, "Regjistrimi default i projektbuxhetit permbledhes u krye me sukses!");
         }
-
 
 
         internal clsMesazh fshiRreshtNgaPbPermbledhes(int rreshtiID)
@@ -145,7 +142,6 @@ namespace DbCore.DbAnalizeBuxheti
             dbManager.AddParameters(1, "@IDNDERMVIT", idNdermVit, ParameterDirection.Input);
             return dbManager.GetIEnumerbale("prc_T_AB_PARASHIKIMI_TE_ARDHURA_merrSipasNdermarrjes", clsParashikimiTeArdhura.Krijo);
         }
-
 
 
         /// <summary>
@@ -1239,7 +1235,6 @@ namespace DbCore.DbAnalizeBuxheti
         }
 
       
-
         #endregion RAPORTET
 
         #region INVENTARI SIPAS PERDORUESVE
@@ -1349,7 +1344,6 @@ namespace DbCore.DbAnalizeBuxheti
             return new colTrupiPasqyraOrganike(dbManager.GetIEnumerbale("prc_T_AB_TRUPI_PASQYRAORGANIKE_UpdateTrupin", clsTrupiPasqyraOrganike.Krijo));
 
         }
-
 
 
         internal clsMesazh RuajKokenPasqyraOrganike(out int IdKokaDok, string NrDok, DateTime? DtDok, int Muaji, int TotaliFemra, int TotaliMeshkuj, int IdKrijuesi, int IdModifikuesi, int IdNdermarrje, DateTime? DtKrijimi, DateTime? DtModifikimi,int idStatusDok, int idNdermvit)
@@ -1476,7 +1470,6 @@ namespace DbCore.DbAnalizeBuxheti
             return new colTrupiEvidencaStatistikore(dbManager.GetIEnumerbale("prc_T_AB_TRUPI_EVIDENCASTATISTIKORE_UpdateTrupin", clsTrupiEvidencaStatistikore.Krijo));
 
         }
-
 
 
         internal clsMesazh RuajKokenEvidencaStatistikore(out int IdKokaDok, int TreMujori, int GjyqtarPlan, int IdModifikuesi, int IdNdermarrje, int IdNdermVit)
@@ -1686,7 +1679,6 @@ namespace DbCore.DbAnalizeBuxheti
 
         internal clsMesazh RuajShpenzimeOperativeCeshtje(int kokaID, DateTime? DtDok, int idNdermarrje, int NrCeshtjeParaardhes, int NrCeshtjeVitiAktual, int NrCeshtjeVitiPasardhes)
         {
-           // kokaID = -1;
             dbManager.Open();
             dbManager.CreateParameters(6);
             dbManager.AddParameters(0, "@KOKAID", kokaID, ParameterDirection.Input);
@@ -1696,7 +1688,6 @@ namespace DbCore.DbAnalizeBuxheti
             dbManager.AddParameters(4, "@NRCESHTJEVITIAKTUAL", NrCeshtjeVitiAktual, ParameterDirection.Input);
             dbManager.AddParameters(5, "@NRCESHTJEVITIPASARDHES", NrCeshtjeVitiPasardhes, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AB_SHPENZIME_OPERATIVE_CESHTJE_upd");
-           // kokaID = Convert.ToInt32(dbManager.Parameters[0].Value);
             return new clsMesazh(true, "Ruajtja u krye me sukses!");
         }
 
@@ -1742,11 +1733,9 @@ namespace DbCore.DbAnalizeBuxheti
             dbManager.AddParameters(0, "@ID", idPrindi, ParameterDirection.Input);
 
 
-
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_AB_SHPENZIME_OPERATIVE_KONFIG_merrNivelSipasID"));
 
         }
-
 
 
         #region konfigurimi i zerave te prokurimeve publike
@@ -1769,7 +1758,6 @@ namespace DbCore.DbAnalizeBuxheti
             pergjigja = Convert.ToInt16(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_AB_REALIZIM_PROKURIMESH_KONFIG_eshtePerdorurNeRregjistrim"));
             return pergjigja == 1;
         }
-
 
 
         internal clsMesazh RuajRealizimProkurimeshKonfig(out int rpkId, string Kodi, string Pershkrimi, int IdPrindi, int IdKrijuesi, int IdNdermarrje, int niveli, int IdNdermVit)
@@ -1836,7 +1824,6 @@ namespace DbCore.DbAnalizeBuxheti
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@ID", idPrindi, ParameterDirection.Input);
-
 
 
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_AB_REALIZIM_PROKURIMESH_KONFIG_merrNivelSipasID"));

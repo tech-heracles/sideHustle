@@ -20,25 +20,20 @@ namespace PlatinumWeb
     {
 
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-                //System.Threading.Thread.CurrentThread.CurrentCulture = ci;
-                //System.Threading.Thread.CurrentThread.CurrentUICulture = ci;
 
                 mbushSqlDatasource1();
                 mbushSqlDataSourceRaportet();
                 mbushSqlDataSourceModulet();
                 EmratLabelave(ci);
                 // Prevent caching, so can't be viewed offline
-                //Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 DbCore.DbAdmin.clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
                 dtdoknga.Value = periudha.FillimiPeriudha;
                 dtdokderi.Value = periudha.MbarimiPeriudha;
-                //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
                 if (!DbCore.mySessionObjects.isLogedIn(Session))
                 {
                     Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -46,7 +41,6 @@ namespace PlatinumWeb
                 }
 
                 int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
                 if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
                 {
                     Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
@@ -106,10 +100,6 @@ namespace PlatinumWeb
         private SiteMapNode CreateSiteMapNode(DataRow dataRow, UnboundSiteMapProvider provider)
         {
             System.Collections.Specialized.NameValueCollection attributes = new System.Collections.Specialized.NameValueCollection();
-            //stmapmodules.NodeTemplate = new MySiteMapLevelTemplate(dataRow["NavigateURL"].ToString(), dataRow["Text"].ToString(), "javascript:filtroButtonClick(" + dataRow["IDRAP"].ToString() + ");");
-            //attributes.Add("ImageURL", "~/images/filter2.png");
-            //attributes.Add("ImageHeight", "22");
-            //attributes.Add("ImageWidth", "22");
             attributes.Add("FilterUrl", "javascript:filtroButtonClick(" + dataRow["IDRAP"].ToString() + ");");
             return provider.CreateNode(dataRow["NavigateURL"].ToString(), dataRow["Text"].ToString(), dataRow["Text"].ToString(), null, attributes);
         }

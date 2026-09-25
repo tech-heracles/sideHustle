@@ -1424,7 +1424,6 @@ namespace PlatinumWeb
 		public static clsMesazh eksportoGriden(string sheetName, string emerFile, ASPxGridViewExporter ASPxGridViewExporter1, HttpSessionState Session, HttpResponse Response, ASPxGridView gvExport)
 		{
 			//@"c:\" + emerFile + DateTime.Now.ToFileTime() + ".xlsx"
-			//string pathDir = @"C:\AlphaWebExport\";
 			String filePathToOpen = "";
 			DataTable dt = null;
 			try

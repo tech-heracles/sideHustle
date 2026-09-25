@@ -181,19 +181,11 @@ namespace DbCore.DbAdmin
         private bool mbushTeDrejtat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTeDrejtat eDrejta = new clsTeDrejtat();
-                    //eDrejta.mbushTeDrejten(rreshti);
                     Add(new clsTeDrejtat(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -214,8 +206,6 @@ namespace DbCore.DbAdmin
                 eDrejta.IdDrejtaVeprim = int.Parse(rreshti[5].ToString());
                 eDrejta.IdAmbjentiModuli = int.Parse(rreshti[6].ToString());
                 eDrejta.PerdoruesApoGrup = int.Parse(rreshti[7].ToString());
-                //eDrejta.AmbjentiModuli = rreshti[7].ToString();
-                //eDrejta.Komponente = rreshti[8].ToString();
 
                 teDrejtat.Add(eDrejta);
             }

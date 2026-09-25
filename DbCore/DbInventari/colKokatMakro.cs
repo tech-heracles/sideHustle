@@ -141,20 +141,12 @@ namespace DbCore.DbInventari
         private bool mbushKokaMakrosh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaMakro kokaMakro = new clsKokaMakro();
-                    //kokaMakro.mbushKokaMakro(rreshti);
                     this.Add(new clsKokaMakro(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

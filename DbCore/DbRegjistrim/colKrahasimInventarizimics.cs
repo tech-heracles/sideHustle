@@ -20,10 +20,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
-
-
-
         #endregion
 
         #region Metoda Publike
@@ -46,16 +42,9 @@ namespace DbCore.DbRegjistrim
         /////  <see cref="DbCore.DbRegjistrim.clsKokaInventarizim"/> 
         ///// </summary>
         //private bool mbushKokaInventarizm(DataTable dt)
-        //{
         //    //try
         //    //{
 
-        //        foreach (DataRow rreshti in dt.Rows)
-        //        {
-        //            //clsKokaInventarizim koka = new clsKokaInventarizim();
-        //            //koka.mbushKokaMagazina(rreshti, db);
-        //            Add(new clsKokaInventarizim(rreshti));
-        //        }
 
         //    //}
         //    //catch (Exception)
@@ -63,8 +52,6 @@ namespace DbCore.DbRegjistrim
         //    //    return false;
         //    //    //throw;
         //    //}
-        //    return true;
-        //}
 
         #endregion
 

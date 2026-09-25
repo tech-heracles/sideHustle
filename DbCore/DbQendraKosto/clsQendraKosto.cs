@@ -395,8 +395,6 @@ namespace DbCore.DbQendraKosto
                 {
                     o.IdLidhese = id;
                     int idB;
-                    //decimal buxhet_1max=  colBuxhetet.ktheBuxhet_1Max(id, idNderVit);
-                    //  decimal buxhet_2max = colBuxhetet.ktheBuxhet_1Max(id, idNderVit);
                
                         mesazh = dbKont.ruajBuxhet(out idB, idLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi,o.IdKonfigUrdherPagese,o.Shenime);
                     if (!mesazh.Status)
@@ -480,7 +478,6 @@ namespace DbCore.DbQendraKosto
             }
             if (idPrindi == 0)
             {
-                //clsDatabaseQendraKosto.kaBijQendraKostoje(id) 
                 DataTable dt = db.ktheQendraKostoSipasPrindit(id);
 
                 //Ndryshimi Fillon Ketu
@@ -491,7 +488,6 @@ namespace DbCore.DbQendraKosto
                     while (fillimi != fundi)
                     {
                         DataRow r = dt.Rows[fillimi];
-                        //.Rows(fillimi);
                         clsQendraKosto qk = new clsQendraKosto();
                         qk.mbushQendraKosto(r);
                         DataTable dtTemp = db.ktheQendraKostoSipasPrindit(qk.id);
@@ -598,7 +594,6 @@ namespace DbCore.DbQendraKosto
         }
 
 
-
         /// <summary>
         /// Fshin objektin qendren ne tabelen perkatese ne databaze.Therret funksionin
         /// </summary>
@@ -698,7 +693,6 @@ namespace DbCore.DbQendraKosto
             dtKrijimi = qk.dtKrijimi;
             dtModifikimi = qk.dtModifikimi;
                     
-
 
         }
         #endregion

@@ -57,13 +57,10 @@ namespace PlatinumWeb
 
         private void konfiguroPopupGride()
         {
-            //DbCore.clsFunksione funk = new DbCore.clsFunksione( DbCore.mySessionObjects.ktheCultureInfo(Session));
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaPasqFin, "IdTrupi");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             var endlessScroll = clsAlternativaKushti.getAlternativa(clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("LP/PasqFin", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)), "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaPasqFin, "IdTrupi", true, endlessScroll);
         }
-
 
 
         protected void gvLupaPasqFin_DataBound(object sender, EventArgs e)

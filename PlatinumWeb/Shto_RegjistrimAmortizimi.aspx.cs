@@ -324,7 +324,6 @@ namespace PlatinumWeb
             txtVlefta.Text = l.AmortizimiShteseTotal.ToString();
 
 
-
             if (hfShtimModifikim.Value == "modifikim")
             {
                 var dtlidhur = l.merrIdsDokLidhur();
@@ -376,7 +375,6 @@ namespace PlatinumWeb
             }
             dteDtRegjistrimi.Value = DateTime.Today;
         }
-
 
 
         private bool pastroPanelLidhur()
@@ -453,8 +451,6 @@ namespace PlatinumWeb
             if (lidhur == false)
             {
                 var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-                //var periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DateDokumenti, idNdermarrje);
-                //var mesazh = periudha.isPeriudheKycur();
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(clsKoka.DateDokumenti, idNdermarrje);
                 if (ekycur)
                 {
@@ -606,10 +602,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             var koka = (DbCore.DbAsete.clsAmortizimiKoka)mySessionObjects.merrObjectModNgaSesioni(Session);
             if (koka.ColTrupi.Count > 0)
@@ -741,8 +735,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         /// <summary>
         /// kur grida ben callback
         /// </summary>
@@ -752,7 +744,6 @@ namespace PlatinumWeb
         {
             gvAsete.DataBind();
         }
-
 
 
         /// <summary>
@@ -832,7 +823,6 @@ namespace PlatinumWeb
         }
 
 
-
         private void inicializoGridFaturat()
         {
             var koka = new DbCore.DbAsete.clsAmortizimiKoka();
@@ -867,7 +857,6 @@ namespace PlatinumWeb
             var col0 = grid_faturat.Columns[MessagesResource.Messages["labelBlerjeShitjeFshi"]] as GridViewDataTextColumn;
             col0.DataItemTemplate = new MyButtonTemplate(string.Empty);
         }
-
 
 
         private void shtoSerial(int idNdermarrje)
@@ -1166,7 +1155,6 @@ namespace PlatinumWeb
                 }
             }
         }
-
 
 
         protected void grid_faturat_DataBound(object sender, EventArgs e)

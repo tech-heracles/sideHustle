@@ -52,8 +52,6 @@ namespace PlatinumWeb
                 clsNjesiAdministrative njesi = new clsNjesiAdministrative(koka.IdNjesiAdministrative);
                 string kodiMag = njesi.Kodi + " (" + njesi.Pershkrimi + ")";
                 btneMagazina.SelectedItem = btneMagazina.Items.FindByText(kodiMag);
-                //btneMagazina.Value = njesi.IdNjesiAdministrative.ToString();
-                //btneMagazina.Text = njesi.Kodi;
                 cmbDegeAdministrative.Value = njesi.IdDegeAdministrative.ToString();
             }
             txtNrDok.Text = koka.NrDok;
@@ -152,7 +150,6 @@ namespace PlatinumWeb
                 hfTeDrejta.Add("ModifikimDraft", tedrejtaInfo.DModifikimDraft);
             }
             AspxWebControlUtils.perkthePopUp(popFshi, rm.GetString("labelKujdes", cultinf), lblMsgbox, rm.GetString("labelAdministrimiMsgJeniSigurt", cultinf), ButtonCancel, rm.GetString("labelAnullo", cultinf));
-            //DbCore.clsFunksione.perkthePopUp(popMesazhQK, rm.GetString("labelKujdes", cultinf), lblMsgbox4, rm.GetString("msgDeshironiTeBeniShperndarjenNeQendratEKostos", cultinf), ButtonCancelQK, rm.GetString("cmbboxItemFilterAvancJo", cultinf), ButtonOkQK, rm.GetString("cmbboxItemFilterAvancPo", cultinf));
             Container.Attributes["src"] = "";
         }
 
@@ -228,7 +225,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
 
@@ -345,11 +341,8 @@ namespace PlatinumWeb
             mbushComboNivelesh(idNdermarrje, cmbLloji);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogariKunderParti);
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(cmbLlogariKunderParti);
-            //DbCore.clsFunksione.mbushComboLlogariaPaKolona(idPerdoruesi, idNdermarrje, cmbLlogariKunderParti);
-            //if (Request.QueryString["lloj"] == "amortizim")
                 cmbLloji.SelectedIndex = 0;
             //else
-            //    cmbLloji.SelectedIndex = 1;
             mbushComboKonfigurimet(false, idGjuha, rm, cultinf);
             ConfigureAspxComboBox.mbushComboStandartAmortizimi(cmbStandarti, idNdermarrje);
             cmbStandarti.SelectedIndex = 0;
@@ -396,9 +389,7 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.shtoKolonaPerMagazina(btneMagazina);
             ConfigureAspxComboBox.KonfiguroComboBoxDegeAdministrative(idNdermarrje, cmbDegeAdministrative, false);
             ConfigureAspxComboBox.mbushComboMagazinat(idNdermarrje, btneMagazina, idPerdoruesi, false, 2, true);
-            //DbCore.clsFunksione.shtoKolonaPerLlogarine(cmbLlogariKunderParti);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogariKunderParti);
-            //DbCore.clsFunksione.mbushComboLlogariaPaKolona(idPerdoruesi, idNdermarrje, cmbLlogariKunderParti,);
             cmbLloji.ClientSideEvents.Init = "function(s,e){TextChangedLloji();}";
 
             int id = int.Parse(Request.QueryString["id"]);
@@ -416,8 +407,6 @@ namespace PlatinumWeb
         /// </summary>
         private void mbushListeRegjistrimAmortizimTrupiModifiko(DbCore.DbAsete.clsAmortizimiKoka koka)
         {//mbush griden me te dhenat
-            //clsKusht kusht = new clsKusht(koka.IdKonfigurimAmbjenti, "FAAP");
-            //clsAlternativaKushti alternativa = new clsAlternativaKushti(kusht.Vlera);
             if (clsAlternativaKushti.getAlternativa(koka.IdKonfigurimAmbjenti, "FAAP") == "Analitike")
                 koka.ColTrupi.merrAmortizimTrupiSipasIdKokaAmortizimi(koka.IdAmortizimi);
             else
@@ -532,8 +521,6 @@ namespace PlatinumWeb
             if (lidhur == false)
             {
                 int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-                //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DateDokumenti, idNdermarrje);
-                //DbCore.clsMesazh mesazh = periudha.isPeriudheKycur();
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(clsKoka.DateDokumenti, idNdermarrje);
                 if (ekycur)
                 {
@@ -635,7 +622,6 @@ namespace PlatinumWeb
                 if (hfShtimModifikim.Value == "shtim" || hfShtimModifikim.Value == "klonim")
                 {
                     if ((statusDokumenti == 1 && !tedrejtaInfo.DShtim) || (statusDokumenti == 0 && !tedrejtaInfo.DShtimDraft))
-                    //if (!tedrejtaInfo.DShtim)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
                         status1.Value = "false";
@@ -646,7 +632,6 @@ namespace PlatinumWeb
                 else if (hfShtimModifikim.Value == "modifikim")
                 {
                     if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                    //if (!tedrejtaInfo.DMod)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
                         status1.Value = "false";
@@ -738,7 +723,6 @@ namespace PlatinumWeb
             ///DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             DbCore.DbAsete.colAmortizimiKoka koka = new DbCore.DbAsete.colAmortizimiKoka();
 
@@ -776,7 +760,6 @@ namespace PlatinumWeb
             if (cmbDegeAdministrative.Text != "")
                 iddege = int.Parse(cmbDegeAdministrative.Value.ToString());
             clsLlogari llog = new clsLlogari(cmbLlogariKunderParti.Text, idNdermarrje);
-            //  if (krijoseriale) krijoSeriale(colserialemag, coltrupi, statusDokumenti, idNdermarrje, idperdoruesi, idperdoruesi, clsKonf, kontrollosasi);
             konfmag.mbushKonfigAmbjSipasId(clsKonf.IdKonfigurimi, DbCore.mySessionObjects.ktheGjuhe(Session));
             DbCore.clsMesazh mesazh;
             if (Request.QueryString["lloj"] == "amortizim")
@@ -841,48 +824,29 @@ namespace PlatinumWeb
             {
                 clsNjesiAdministrative magazinaPerbashket = new clsNjesiAdministrative(trupat[0].IdNjesiAdministrative, idPerdorues);
                 btneMagazina.SelectedItem = btneMagazina.Items.Add(magazinaPerbashket.Kodi + " (" + magazinaPerbashket.Pershkrimi + ")", trupat[0].IdNjesiAdministrative.ToString());
-                //string kodMag = clsNjesiAdministrative.kthePershkrimMagazineSipasKodit.ktheKodiNjesiAdministrativeSipasiD(trupat[0].IdNjesiAdministrative, idPerdorues);
-                // btneMagazina.Value = trupat[0].IdNjesiAdministrative.ToString();
             }
             return trupat;
         }
         //private void krijoSeriale(DbCore.DbAsete.colSerialetMagazine colserialemag, DbCore.DbAsete.colAmortizimiTrupi trupi, int idstatusdok, int idNdermarrje, int idPerdoruesi, int idKrijuesi, DbCore.DbShare.clsKonfigurimAmbjenti konf, bool kontrollosasi)
-        //{
-        //    //JavaScriptSerializer serializusi = new JavaScriptSerializer();
-        //    //int rreshti = 0;
 
-        //    //DbCore.DbAsete.colSerialetMagazine serialetekzistuese = new DbCore.DbAsete.colSerialetMagazine();
         //    //if (hfShtimModifikim.Value == "modifikim")
         //    //{
 
-        //    //    int id = int.Parse(Request.QueryString["id"]);
-        //    //    clsKokaMagazina kok = new clsKokaMagazina();
-        //    //    kok.mbushKokaMagazinaSipasID(id);
-        //    //    serialetekzistuese.merrSerialetMagazineSipasIDDokumenti(id, idNdermarrje, kok.IdKonfigAmbjente);
         //    //}
         //    //foreach (clsTrupiMagazina trup in trupi)
         //    //{
-        //    //    DbCore.DbAsete.colAQTSeriale col = new DbCore.DbAsete.colAQTSeriale();
         //    //    if (trup.IdLlojVeprimi == 1)//rasti artikull
         //    //    {
-        //    //        clsArtikulli art = new clsArtikulli(trup.IdArtikulli);
         //    //        if (hfSeriale.Contains(trup.IdArtikulli + "_" + hfIdGride.Get(rreshti.ToString())))
         //    //        {
 
-        //    //            object[] dokumenti = (object[])serializusi.DeserializeObject(hfSeriale.Get(trup.IdArtikulli + "_" + hfIdGride.Get(rreshti.ToString())).ToString());
         //    //            for (int i = 0; i < dokumenti.Length; i++)
         //    //            {
-        //    //                DbCore.DbAsete.clsAQTSeriale serial = new DbCore.DbAsete.clsAQTSeriale((Dictionary<string, object>)dokumenti[i]);
-        //    //                col.Add(serial);
         //    //                if (serialetekzistuese.Find(x => x.IdAQTSeriali == serial.IdAQTSerial && x.IdNjesiAdministrative == trup.IdMag) == null)
 
         //    //                    if (serial.IdNjesiAdministrativeAktuale != trup.IdMag)
         //    //                    {
-        //    //                        clsNjesiAdministrative mag = new clsNjesiAdministrative(trup.IdMag);
-        //    //                        throw new Exception("Seriali " + serial.AqtSerialKod + " nuk ndodhet ne magazinen " + mag.Kodi);
         //    //                    }
-        //    //                DbCore.DbAsete.clsSerialetMagazine serialmag = new DbCore.DbAsete.clsSerialetMagazine(0, 0, rreshti, trup.IdArtikulli, serial.IdAQTSerial, konf.IdNivel, konf.IdKonfigAmbjente, trup.IdMag, art.MeSerial ? 1 : (float)(trup.Sasia * trup.Koeficenti), float.Parse((trup.Cmimi).ToString()), float.Parse((trup.Cmimi).ToString()) * (art.MeSerial ? 1 : (float)(trup.Sasia * trup.Koeficenti)), idstatusdok, idNdermarrje, idPerdoruesi, idKrijuesi);
-        //    //                colserialemag.Add(serialmag);
 
         //    //            }
 
@@ -890,11 +854,9 @@ namespace PlatinumWeb
 
         //    //        if (art.LlojiArt)
         //    //            if (kontrollosasi && ((trup.Sasia * trup.Koeficenti != col.Count && art.MeSerial) || (!art.MeSerial && col.Count == 0)))
-        //    //                throw new Exception("Sasia e artikullit " + trup.KodiArtikull + " eshte e ndryshme nga sasia e serialeve te tij! Doni te vazhdoni me gjenerimin automatik te tyre?");
         //    //    }
         //    //    rreshti++;
         //    //}
-        //}
 
 
         /// <summary>
@@ -942,7 +904,6 @@ namespace PlatinumWeb
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgKjoLlogariNukEshteAktive", ci), pnlMesazhi);
                     return false;
                 }
-                // return true;
             }
 
             if (btneMagazina.Text != "")

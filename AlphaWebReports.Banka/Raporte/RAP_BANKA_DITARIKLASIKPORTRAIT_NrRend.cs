@@ -13,8 +13,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
 		public RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend(){InitializeComponent();} 
   
 
-  
-
         public RAP_BANKA_DITARIKLASIKPORTRAIT_NrRend(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdViti, param.IdPerdoruesi, report)
         {
@@ -56,7 +54,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             xrTableCell1.Text = rm.GetString("labelRaportiLloji", ci);
             xrTableCell12.Text = rm.GetString("labelRaportData", ci);
             xrTableCell2.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrTableCell21.Text = rm.GetString("labelRaportVlera", ci);
             xrTableCell3.Text = rm.GetString("labelRaportKomision", ci);
             xrTableCell17.Text = rm.GetString("labelRaportVlArketuar", ci);
             xrTableCell22.Text = rm.GetString("labelRaportVlPaguar", ci);

@@ -31,7 +31,6 @@ function Init() {
 
         myFaqeCelje.shtoHandlerSession();
         $('#hfKontrollet').val(window.parent.$('#hfKontrollet').val());
-        // gvCRMListaAnketa.SetFocusedRowIndex(0);
 
     }
     catch (err) {

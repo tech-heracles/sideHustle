@@ -18,7 +18,6 @@ namespace DbCore.DbInventari
         #region Konstruktoret
 
     
-
         /// <summary>
         /// konstruktori pa parametra
         /// </summary>
@@ -127,20 +126,12 @@ namespace DbCore.DbInventari
         private bool mbushKlasaArtikulli(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKlasaArtikulli klasa = new clsKlasaArtikulli();
-                    //klasa.mbushKlasaArtikull(rreshti);
                     this.Add(new clsKlasaArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

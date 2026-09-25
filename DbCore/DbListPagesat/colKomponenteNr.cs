@@ -78,7 +78,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         public static void Import(DataTable dt, colTrupiFormatImporti col, DataTable gabime, DataTable tePaImportuara, int pozicionkodi, int idPerdoruesi, int idNdermarrje, int VitNdermarrje,bool mbishkruajVleratEMeparshme, ref int kodMesazhi, bool importo)
         {
             if (!importo)
@@ -106,7 +105,6 @@ namespace DbCore.DbListPagesat
                 string kodi = "", emer = "", mbiemer = "", komponente = "", muaji = "", muajilp = "";
                 decimal totali = 0;
                 int viti = 0, vitilp = 0;
-
 
 
                 foreach (clsTrupiFormatImporti trup in col)
@@ -162,7 +160,6 @@ namespace DbCore.DbListPagesat
                 {
 
 
-
                     list = list.krijoPerImport(clsFunksione.ktheStringunPaHapesira(kodi, true), DbCore.clsFunksione.ktheStringunPaHapesira(emer, false), mbiemer, totali, idPerdoruesi, idNdermarrje, 1, komponente, muaji, viti, muajilp, vitilp, VitNdermarrje, !mbishkruajVleratEMeparshme);
 
 
@@ -216,18 +213,9 @@ namespace DbCore.DbListPagesat
         private bool mbushKomponenteNr(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsKomponenteNr grupKF = new clsKomponenteNr();
-                //grupKF.mbushKomponenteNr(rreshti);
-                //             this.Add(new clsKomponenteNr(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

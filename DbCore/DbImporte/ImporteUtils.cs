@@ -1193,7 +1193,6 @@ namespace DbCore.DbImporte
                         mesazh = new clsMesazh(false, String.Format("Klienti me kod {0} ekziston njehere ne gride! !", kodKlientFurn));
 
 
-
                     index++;
                     if (mesazh.Status)
                     {
@@ -1442,7 +1441,6 @@ namespace DbCore.DbImporte
                         if (importo)
                         {
                             tePaImportuara.ImportRow(dr);
-                            //gabime.Rows[gabime.Rows.Count - 1][2] = tePaImportuara.Rows.Count;
                         }
                         break;
                     }
@@ -1832,7 +1830,6 @@ namespace DbCore.DbImporte
                     bool aktiv = false;
 
                     DateTime dateregjistrimi = DateTime.Today;
-                    //      DateTime dateregjistrimi = DateTime.Today;
                     foreach (clsTrupiFormatImporti trup in col)
                     {
                         error = "";
@@ -2630,7 +2627,6 @@ namespace DbCore.DbImporte
                     DateTime dtmbarimi = new DateTime();
 
 
-
                     foreach (clsTrupiFormatImporti trup in col)
                     {
                         error = "";
@@ -2674,7 +2670,6 @@ namespace DbCore.DbImporte
 
                     try
                     {
-
 
 
                         list = list.krijoPerImport(kodi.RemoveSpaces(), emer.RemoveSpaces(), mbiemer, dtfillimi, dtmbarimi, totali, IdPerdoruesi, IdPerdoruesi, IdNdermarrja, 1, mySessionObjects.ktheVitiNdermarrjes(Session));
@@ -2745,7 +2740,6 @@ namespace DbCore.DbImporte
                     DateTime data = new DateTime();
 
 
-
                     foreach (clsTrupiFormatImporti trup in col)
                     {
                         error = "";
@@ -2783,7 +2777,6 @@ namespace DbCore.DbImporte
 
                     try
                     {
-
 
 
                         list = list.krijoPerImport(kodi.RemoveSpaces(), emer.RemoveSpaces(), mbiemer, data, IdPerdoruesi, IdPerdoruesi, IdNdermarrja, 1, mySessionObjects.ktheVitiNdermarrjes(Session));
@@ -2899,7 +2892,6 @@ namespace DbCore.DbImporte
                     {
 
 
-
                         list = list.krijoPerImport(kodi.RemoveSpaces(), emer.RemoveSpaces(), mbiemer, data, totali, IdPerdoruesi, IdNdermarrja, komponente, mySessionObjects.ktheVitiNdermarrjes(Session));
 
 
@@ -3011,7 +3003,6 @@ namespace DbCore.DbImporte
 
                     try
                     {
-
 
 
                         list = list.krijoPerImport(kodi.RemoveSpaces(), emer.RemoveSpaces(), mbiemer, data, totali, IdPerdoruesi, IdNdermarrja, komponente, mySessionObjects.ktheVitiNdermarrjes(Session));

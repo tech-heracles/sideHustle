@@ -25,11 +25,6 @@ function onloadNdryshimFjalekalimi() {
 
     }
 function changeName() {
-    //myFaqeCelje.shtoHandlerSession();
-    //window.parent.callWebServiceKtheInfoLart('NdryshimFjalekalimi.aspx');
-    //window.parent.createCookie('adresa', 'NdryshimFjalekalimi.aspx', 1);
-    //var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(myFaqeCelje.EndRequestTimer);
     myFaqeCelje.changeName('NdryshimFjalekalimi.aspx', 0, null);
 }
 
@@ -39,8 +34,6 @@ function capitaliseFirstLetter() {
 }
 
 function kontrolloPassword(s, e) {
-    // var valid = password_TextBox.GetIsValid();
-    //if (!valid) {
     var gjatesiPass = s.GetValue();
     if (hfGjatesiMinPassword !== 'undefined') {
         if (hfGjatesiMinPassword.Contains('GjatesiMinPass')) {

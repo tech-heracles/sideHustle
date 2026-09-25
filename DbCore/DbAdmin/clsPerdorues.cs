@@ -33,7 +33,6 @@ namespace DbCore.DbAdmin
         private string perdoruesEmail;
         private string perdoruesAdresa;
         private int idPerdoruesi;
-        //private string backPath;
         private int idStatusDok;
         private DateTime dtKrijimi;
         private DateTime dtModifikimi;
@@ -122,13 +121,6 @@ namespace DbCore.DbAdmin
             }
         }
 
-        //public clsPerdorues(int idperdorues, bool meRole)
-        //{
-        //    using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-        //    {
-        //        mbushPerdorues(data.merrPerdorues(idperdorues), meRole);
-        //    }
-        //}
 
         public clsPerdorues(int idperdorues, clsDatabaseAdmin data)
         {
@@ -307,10 +299,8 @@ namespace DbCore.DbAdmin
         ///// Kthen/Vendos ID-ne e theme default te ketij perdoruesi
         ///// </summary>
         //public int IdTheme
-        //{
         //    get { return idTheme; }
         //    set { idTheme = value; }
-        //}
 
         /// <summary>
         /// Kthen/Vendos vleren e Id-se se stilit default te raporteve per kete perdorues
@@ -762,7 +752,6 @@ namespace DbCore.DbAdmin
 
         public clsMesazh ruaj(int idndermarje, int idNdermarjeVit, string idDokImporti = "", bool ngaImporti = false, string emerTabKoka = "", string ndermarrjeKey = "", string primarykey = "", string PassIRi = "true", string passwordiGjeneruar = "", bool kushtiSHTR = true)
         {
-            //clsDatabaseAdmin data = new clsDatabaseAdmin();
             clsMesazh u_ruajt = ruajPerdoruesTeDrejta(this, idndermarje, idNdermarjeVit, idDokImporti, ngaImporti, emerTabKoka, ndermarrjeKey, primarykey, PassIRi, passwordiGjeneruar, kushtiSHTR);
             return u_ruajt;
         }
@@ -1034,8 +1023,6 @@ namespace DbCore.DbAdmin
         /// <returns>kthen statusin e e ekzekutimit te SP-se nepermjet objektit clsMesazh</returns>
         public clsMesazh modifikoPerdoruesTeDrejta(clsPerdorues perdorues, string PassIRi = "true", string passwordiGjeneruar = "", int idNdermarje = 0, bool kushtiMA = false, int idNdermarjeVit = 0, bool kushtiSHTR = true, string idDokImporti = "", bool ngaImporti = false, string emerTabKoka = "", string ndermarrjeKey = "", string primarykey = "")
         {
-            //dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //dbManager.ConnectionString = dbManager.GetConnectionString();
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
             clsMesazh mesazh;
             using (var scope = new MyTransactionScope(dbAdmin))
@@ -1415,7 +1402,6 @@ namespace DbCore.DbAdmin
                 }
                 if (qyteti != "")
                 {
-                    //int idQyteti =  clsQyteti.ktheIdQytetiSipasEmritDheNdermarrjes(qyteti, idndermarje);
                     int idQyteti = clsQyteti.ktheIdQytetiSipasEmritDheNdermarrjes(qyteti, -1);
                     if (idQyteti == -1) { error = $"Qyteti {qyteti} nuk ekziston!"; throw new Exception(error); }
                     perdorues.idQyteti = idQyteti;
@@ -1494,8 +1480,6 @@ namespace DbCore.DbAdmin
         }
 
 
-        
-
         public static int ktheIdPerdoruesSipasUsernamePateDrejta(string perdoruesUsername, int idNdermarrje)
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin())
@@ -1510,8 +1494,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
-
         public static int ktheGjuhePerdoruesi(int idPerdorues)
         {
             using (clsDatabaseAdmin data = new clsDatabaseAdmin())
@@ -1519,9 +1501,6 @@ namespace DbCore.DbAdmin
                 return data.merrIdGjuhaSipasIdPerdorues(idPerdorues);
             }
         }
-
-
-
 
 
         public static string merrEmailPerRoletRASipasPerdoruesDheKodRol(int idPerdorues, string kodRoli) {
@@ -1578,9 +1557,7 @@ namespace DbCore.DbAdmin
                     perdoruesEmail = dbDataRowPerdorues["PERDORUESEMAIL"].ToString();
                     perdoruesAdresa = dbDataRowPerdorues["PERDORUESADRESA"].ToString();
                     int.TryParse(dbDataRowPerdorues["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowPerdorues["IDTHEME"].ToString(), out idTheme);
                     int.TryParse(dbDataRowPerdorues["IDSTILRAPORTI"].ToString(), out idStilRaporti);
-                    //backPath = dbDataRowPerdorues["PATH"].ToString();
                     int.TryParse(dbDataRowPerdorues["IDSTATUSDOK"].ToString(), out idStatusDok);
                     int.TryParse(dbDataRowPerdorues["IDAMBJENT"].ToString(), out idAmbjent);
                     DateTime.TryParse(dbDataRowPerdorues["DTKRIJIMI"].ToString(), out dtKrijimi);

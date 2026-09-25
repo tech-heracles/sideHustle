@@ -46,21 +46,13 @@ namespace DbCore.DbInventari
       private bool mbushArtikujPerberes(DataTable dt)
       {
           //try
-          //{
 
               foreach (DataRow rreshti in dt.Rows)
               {
-                  //clsArtikullPerberesTemplateKoka art = new clsArtikullPerberesTemplateKoka();
-                  //art.mbushArtikullPerberesTemplateKoka(rreshti);
                   this.Add(new clsArtikullPerberesTemplateKoka(rreshti));
               }
 
-          //}
-          //catch (Exception)
-          //{
-          //    return false;
           //    //throw;
-          //}
           return true;
 
       }

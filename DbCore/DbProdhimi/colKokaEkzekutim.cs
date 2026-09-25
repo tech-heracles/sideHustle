@@ -102,7 +102,6 @@ namespace DbCore.DbProdhimi
         }
 
 
-
         #endregion
 
         #region Metoda Private
@@ -116,21 +115,13 @@ namespace DbCore.DbProdhimi
         private bool mbushKokaEkzekutim(DataTable dt, clsDatabazeProdhimi db)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaEkzekutim koka = new clsKokaEkzekutim();
-                    //koka.mbushKokaEkzekutim(rreshti, db);
                     Add(new clsKokaEkzekutim(rreshti, db));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

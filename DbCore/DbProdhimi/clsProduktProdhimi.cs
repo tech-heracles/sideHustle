@@ -542,7 +542,6 @@ namespace DbCore.DbProdhimi
         public colProduktProdhimi merrSipasKokes()
         {
             colProduktProdhimi data = new colProduktProdhimi();
-            //data.mbushProduktSipasIdkoka(IdKoka, null);
             data.mbushProduktSipasIdkoka(IdKoka);
             return data;
         }

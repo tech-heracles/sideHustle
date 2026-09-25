@@ -490,8 +490,6 @@ namespace DbCore.DbListPagesat
         public clsMesazh ruaj(clsDatabazeListPagesa db)
         {
             clsMesazh mesazh = new clsMesazh();
-            //if (db == null)
-            //    db = new clsDatabazeListPagesa();
             int id = 0;
             mesazh = db.ruajProfesioneTitujPune(out id, kodi, pershkrimi, lloji, pershkrimiAng, idKrijuesi, aktiv, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
             this.id = id;
@@ -534,8 +532,6 @@ namespace DbCore.DbListPagesat
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi(clsDatabazeListPagesa db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeListPagesa();
             clsMesazh u_fshi = db.fshiProfesioneTitujPuneStatus(id, idPerdoruesi);
             return u_fshi;
         }

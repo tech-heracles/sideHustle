@@ -159,7 +159,6 @@ namespace DbCore.DbRegjistrim
             }
 
             
-
         }
 
         private void ShtoTrupRezervimi(clsTrupiShitje trup, int idkonfig, int idMagazina, clsArtikulli art, int idKodi, DateTime dt, int idstatusdok, string kodi, string pershkrimi, int idnjesia, double sasirez,int idshitjetrupi, clsArtikulli perberes)
@@ -196,7 +195,6 @@ namespace DbCore.DbRegjistrim
         /// <returns></returns>
         public double ktheSasiDaljeRezervimi(int idKodi, int idMagazina)
         {
-            //colTrupiRezervime trupiRezervimit = oKokaRezervime.OcolTrupiRezervime;
             double totali = 0;
             foreach (clsTrupiRezervime o in this)
                 if (o.IdArtikulli == idKodi && o.IdMag == idMagazina)
@@ -205,7 +203,6 @@ namespace DbCore.DbRegjistrim
         }
         public double ktheSasiDaljeRezervimi(int idKodi)
         {
-            //colTrupiRezervime trupiRezervimit = oKokaRezervime.OcolTrupiRezervime;
             double totali = 0;
             foreach (clsTrupiRezervime o in this)
                 if (o.IdArtikulli == idKodi)
@@ -232,21 +229,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushTrupatRezervim(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiRezervime trupi = new clsTrupiRezervime();
-                    //trupi.mbushTrupRezervimi(rreshti);
                     Add(new clsTrupiRezervime(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

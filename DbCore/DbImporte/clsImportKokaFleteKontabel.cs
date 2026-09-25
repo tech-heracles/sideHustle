@@ -229,7 +229,6 @@ namespace DbCore.DbImporte
             {
                 idKokaDokumentit = merrIdKokaImportKokaFleteKontabelTeFundit() + 1;
                 //Mund te behet me nje numer automatik
-                //nrKokaFleteKontabel = "ASI" + (merrIdKokaImportKokaFleteKontabelTeFundit() + 1);
                 
                 DateTime.TryParse(rreshtatPerImportTrupi.Rows[0]["DATA_DOKUMENTIT"].ToString(), out dateDokumentiFleteKontabel);
                 string data =  dateDokumentiFleteKontabel.Day + "/" + dateDokumentiFleteKontabel.Month + "/" + dateDokumentiFleteKontabel.Year;

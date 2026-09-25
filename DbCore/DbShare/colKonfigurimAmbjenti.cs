@@ -220,7 +220,6 @@ namespace DbCore.DbShare
         private bool mbushcolKonfigurimAmbjentiMePershkrimEng(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsKonfigurimAmbjenti trupi = new clsKonfigurimAmbjenti();
@@ -228,11 +227,6 @@ namespace DbCore.DbShare
                     Add(trupi);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

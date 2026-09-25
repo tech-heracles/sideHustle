@@ -15,7 +15,6 @@ function changeName() {
     if (hf !== null) {
     }
     var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(EndRequestHandler);
     prm.add_endRequest(myMesazh.EndRequestTimer);
     myFaqeCelje.changeName(hfState.Get('komponenteRaporti'), 0, hf);
 }

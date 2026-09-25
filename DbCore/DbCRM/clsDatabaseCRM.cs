@@ -186,7 +186,6 @@ namespace DbCore.DbCRM
         }
 
        
-
         internal clsMesazh modifikoOpsionAnkete(int idOpsion, string emertimi, int idstatudsok, int idModifikues, int idnderm)
         {
             dbManager.Open();
@@ -380,7 +379,6 @@ namespace DbCore.DbCRM
             dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(2, "@dtfillimi", dtfillimi, ParameterDirection.Input);
             dbManager.AddParameters(3, "@dtmbarimi", dtmbarimi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@idKokaAnketa", idKokaAnketa, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_CRM_KOKAANKETA_kaPrerjeAnketashSipasKlientit");
             if (ds.Tables[0].Rows.Count >= 1)
                 return true;

@@ -14,12 +14,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.Fastech
     {
 		public Rap_FatureBlerjeFastech(){InitializeComponent();}
         
-        //double totalipatvsh = 0;
-        //double totalitvsh = 0;
-        //double totalimetvsh = 0;
-        //double totalipatvshkursi = 0;
-        //double totalitvshkursi = 0;
-        //double totalimetvshkursi = 0;
         public Rap_FatureBlerjeFastech(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdPerdoruesi)
         {
@@ -31,104 +25,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.Fastech
             EmrateLabelave(ci);
         }
 
-
-        //private void xrLabel37_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = totalipatvsh - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) - Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL")); ;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel37_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalipatvsh = 0;
-        //}
-
-        //private void xrLabel37_SummaryRowChanged(object sender, EventArgs e)
-        //{
-        //    totalipatvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
-        //}
-
-        //private void xrLabel38_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"));
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel38_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalitvsh = 0;
-        //}
-
-        //private void xrLabel39_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = totalimetvsh - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")); ;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel39_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalimetvsh = 0;
-        //}
-
-        //private void xrLabel39_SummaryRowChanged(object sender, EventArgs e)
-        //{
-        //    totalimetvsh += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
-
-        //}
-
-        //private void xrLabel41_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = (totalipatvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE")) - Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel41_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalipatvshkursi = 0;
-        //}
-
-        //private void xrLabel41_SummaryRowChanged(object sender, EventArgs e)
-        //{
-        //    totalipatvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
-
-        //}
-
-        //private void xrLabel42_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = Convert.ToDouble(GetCurrentColumnValue("TVSHTOTAL")) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel42_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalitvshkursi = 0;
-        //}
-
-        //private void xrLabel42_SummaryRowChanged(object sender, EventArgs e)
-        //{
-        //}
-
-        //private void xrLabel43_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = (totalimetvshkursi - Convert.ToDouble(GetCurrentColumnValue("ZBRITJE"))) * Convert.ToDouble(GetCurrentColumnValue("KURSI"));
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel43_SummaryReset(object sender, EventArgs e)
-        //{
-        //    totalimetvshkursi = 0;
-        //}
-
-        //private void xrLabel43_SummaryRowChanged(object sender, EventArgs e)
-        //{
-        //    totalimetvshkursi += Convert.ToDouble(GetCurrentColumnValue("VLEFTAMETVSH"));
-
-        //}
-
-        //private void xrLabel38_SummaryRowChanged(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {

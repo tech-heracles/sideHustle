@@ -79,25 +79,10 @@ namespace DbCore.DbAdmin
         }
 
         //public bool ruaj()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    bool u_ruajt = data.ruajGrupAuditimi(this);
-        //    return u_ruajt;
-        //}
 
         //public bool modifiko()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    bool u_modifikua = data.modifikoGrupAuditimi(this);
-        //    return u_modifikua;
-        //}
 
         //public bool fshi()
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    bool u_fshi = data.fshiGrupAuditimi(this);
-        //    return u_fshi;
-        //}
 
         #endregion
 

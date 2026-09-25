@@ -61,18 +61,10 @@ namespace DbCore.DbAsete
         private bool mbushAmortizimFillestar(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAmortizimiFillestar aqtSeriale = new clsAmortizimiFillestar();
-                    //aqtSeriale.mbushAmortizimFillestar(rreshti);
                     Add(new clsAmortizimiFillestar(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

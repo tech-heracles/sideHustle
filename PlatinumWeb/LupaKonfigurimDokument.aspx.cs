@@ -14,7 +14,6 @@ namespace PlatinumWeb
     public partial class LupaKonfigurimDokument : MyPageBase
     {
 
-        //private String veprimi;
         protected void Page_Load(object sender, EventArgs e)
         {
             mbushPopUpListe();
@@ -25,8 +24,6 @@ namespace PlatinumWeb
         {
             DbCore.DbShare.colKonfigurimAmbjenti col = new DbCore.DbShare.colKonfigurimAmbjenti();
             //idkatdok per Kategorine Lupa eshte 9
-         //   col.mbushKonfigurimKategori(9, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //col = dbShare.ktheKonfigurimKategori(9, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session),DbCore.mySessionObjects.ktheIdPerdoruesi(Session));                
             col.mbushKonfigurimSuperKategori(3, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             gvLupaKonfigDok.DataSource = col;
             gvLupaKonfigDok.DataBind();
@@ -36,7 +33,6 @@ namespace PlatinumWeb
         private void konfiguroPopupGride()
         {
             GridUtil.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaKonfigDok, "gvLupaKonfigDok", "LupaKonfigurimDokument.aspx");
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaKonfigDok, "IdKonfigAmbjente");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaKonfigDok, "IdKonfigAmbjente", true, false);
         }
@@ -58,7 +54,6 @@ namespace PlatinumWeb
 
         protected void gvLupaKonfigDok_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            // gvLupaKonfigDok.Selection.UnselectAll();
         }
     }
 }

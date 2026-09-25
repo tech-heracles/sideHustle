@@ -182,7 +182,6 @@ namespace PlatinumWeb
              GridViewCommandColumn check = new GridViewCommandColumn("#");
              check.ShowSelectCheckbox = true;
              check.Width = Unit.Percentage(2);
-             //   check.SetColVisibleIndex(0);
              //behet per te afishuar rreshtin qe do sherbej per filtrim
              grid_ListLlogarish.Settings.ShowFilterRow = true;
              grid_ListLlogarish.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -269,20 +268,16 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, grid_ListLlogarish.ID, "Shto_Llogari.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 filtra.IdPerdoruesi = idPerdoruesi;
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, grid_ListLlogarish.ID, int.Parse(cmbKonfigurimi.Value.ToString()), "Shto_Llogari.aspx");
                 percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
 
@@ -291,11 +286,7 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-                //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-                //  btnRuaj.ClientEnabled = false;
-                //  btnFshiFilter.ClientEnabled = false;
                 System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
                 konfiguroVleraFillestare(idPerdoruesi, rm, ci, idGjuha);
@@ -359,7 +350,6 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-            //List<object> rreshtat = grid_ListLlogarish.GetSelectedFieldValues("IdLlogari");
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (rreshtat.Count == 0)
@@ -368,7 +358,6 @@ namespace PlatinumWeb
                 return;
             }
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
             foreach (object id in rreshtat)
             {
@@ -394,7 +383,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqLlogariNgaGrida(oLlogari.IdLlogari, rm, ci);
                     #endregion
                     TeFshire.Add(oLlogari.NrLlogari);
@@ -526,7 +514,6 @@ namespace PlatinumWeb
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             inicializoObjekte();
 
-            //  funk.percaktoTemplateComboMeEnableCallbackPaButon(cmbMonedha);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbObjektiva, cmbGrupi, FSC_1_Debi_TextBox, FSC_2_Debi_TextBox, FSC_3_Debi_TextBox, cmbKategori);
             ConfigureAspxComboBox.mbushComboGrupeLlogarish(idNdermarrje, cmbGrupi, idGjuha);
             ConfigureAspxComboBox.KonfiguroComboBoxObjektivaKosto(cmbObjektiva, IdNdermarrja);
@@ -687,13 +674,10 @@ namespace PlatinumWeb
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgGabimiNeRuajtje", ci), pnlMesazhi);
                         hfStatusi.Value = "false";
                     }
-                    //ASPxPageControl1.ActiveTabIndex = 0;
 
-                    //mbushListeLlogarish();
                 }
                 else
                 {
-                    //mbushListeLlogarish();
                 }
             }
             pnlMesazhi.Update();
@@ -704,7 +688,6 @@ namespace PlatinumWeb
         /// </summary>
         private void pastroFusha()
         {//pastron fushat
-            // pergjigja.Text = "";
             this.emer_TextBox.Text = "";
             this.FSC_1_Debi_TextBox.Text = "";
             this.FSC_2_Debi_TextBox.Text = "";
@@ -714,15 +697,12 @@ namespace PlatinumWeb
             this.cmbAutorizimiHf.Value = "";
             this.nivelTakse_ComboBox.SelectedIndex = -1;
             this.numri_TextBox.Text = "";
-            //this.qendraKostos_TextBox.Text = "";
             this.txtEmerLlogarie1.Text = "";
             this.txtEmerLlogarie2.Text = "";
             this.txtNr.Text = "";
             this.cmbGrupi.SelectedIndex = -1;
             this.cmbMonedha.SelectedIndex = -1;
             this.cmbNengrupi.SelectedIndex = -1;
-            //this.ASPxGridView_Llogarite.CancelEdit();
-            //this.ASPxGridView_Llogarite.AddNewRow();
             HiddenField1.Value = "";
 
             txtNr6.Text = "";
@@ -1061,13 +1041,6 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         protected void cmbModeli_SelectedIndexChanged(object sender, EventArgs e)
         {//ndryshohen te dhenat e grides sipas modelit te zgjedhur
-            //if (new DbCore.DbAdmin.clsDatabaseAdmin().merrModelinFushaShteseSipasKodit(cmbModeli.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)).Count > 0)
-            //{
-            //    CacheLayer.GlobalCacheManager.MySessionCache["idmod"] = new DbCore.DbAdmin.clsDatabaseAdmin().merrModelinFushaShteseSipasKodit(cmbModeli.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session))[0].IdModeliFushaShtese;
-            //    mbushListeFushashShtese();
-            //    percaktoTemplateFushash();
-            //}
-            //else CacheLayer.GlobalCacheManager.MySessionCache["idmod"] = "0";
         }
         /// <summary>
         /// perdoret per te rikonfiguruar griden kur ndryshohet konfigurimi
@@ -1088,13 +1061,10 @@ namespace PlatinumWeb
                     grid_ListLlogarish.FilterExpression = "";
                 else
                 {
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, grid_ListLlogarish.ID, "Shto_Llogari.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         grid_ListLlogarish.FilterExpression = filtra.FiltraVlera;
@@ -1124,14 +1094,8 @@ namespace PlatinumWeb
 
         protected void cmbNengrupi_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
-            //if (e.Parameter != "null")
-            //{
-            //    int idGrupiLlogari = int.Parse(e.Parameter.ToString());
-
-            //    new DbCore.clsFunksione().mbushComboNenGrupe(cmbNengrupi, idGrupiLlogari);
 
 
-            //}
         }
         /// <summary>
         /// perdoret per te mbushur combon e monedhes ne momentin qe perdoruesi fillon te shkruaj
@@ -1193,7 +1157,6 @@ namespace PlatinumWeb
                     DbCore.DbKontabiliteti.colNenGrupetLlogaria col = new DbCore.DbKontabiliteti.colNenGrupetLlogaria();
 
                     if (cmbGrupi.Value != null)
-
 
 
                         col.mbushNenGrupetLlogariaSipasGrupitPozitive(int.Parse(cmbGrupi.Value.ToString()), DbCore.mySessionObjects.ktheGjuhe(Session));

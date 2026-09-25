@@ -20,7 +20,6 @@ namespace DbCore.DbInventari
         private string kodiKokaMakro;
         private string pershkrimiKokaMakro;
         private string idNivelAutorizimi;
-        //private int idNderViti;
         private int idPerdoruesi;
         private int idNdermarje;
         private int idStatusDok;
@@ -47,7 +46,6 @@ namespace DbCore.DbInventari
             this.idKokaMakro = idKokaMakro;
             this.kodiKokaMakro = kodKokaMakro;
             this.pershkrimiKokaMakro = pershkrimKokaMakro;
-            //this.idNderViti = idNderViti;
             this.idPerdoruesi = idPerdoruesi;
             this.idNdermarje = idNdermarje;
             this.idStatusDok = idstatusdok;
@@ -146,10 +144,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos ID-ne  e ndermarjes.
         /// </summary>
@@ -222,13 +218,10 @@ namespace DbCore.DbInventari
         /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e ruajtjes se te dhenave ne DB</returns>     
         public clsMesazh ruajMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idPerdoruesi, int idNdermarje, colTrupatMakro oColTrupatMakro, int idstatusdok)
         {//ruan makro
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
             clsDatabaseInventari dbInv = new clsDatabaseInventari();
 
 
-
-            //DbCore.DbKontabiliteti.colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
             clsKokaMakro makro = new clsKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idPerdoruesi, idNdermarje, idstatusdok);
             clsMesazh mesazh = new clsMesazh();
             try
@@ -249,7 +242,6 @@ namespace DbCore.DbInventari
                     {
                         DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                         lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                        //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                         colLidhjet.Add(lidhje);
                     }
                     DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin(dbInv);
@@ -305,19 +297,15 @@ namespace DbCore.DbInventari
         public clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idPerdoruesi, int idNdermarje, colTrupatMakro oColTrupatMakro, int idstatusdok)
         {
             //modifikon Makro
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
             clsDatabaseInventari dbInv = new clsDatabaseInventari();
             try
             {
                 dbInv.beginTransaksion();
 
-                //DbCore.DbKontabiliteti.colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-                //DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
                 DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(idKokaMakro, "Makro");
                 colTrupatMakro trupat = new colTrupatMakro(idKokaMakro);
                 clsKokaMakro makro = new clsKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idPerdoruesi, idNdermarje, idstatusdok);
-                //colTrupatMakro trupat = merrTrupatMakroSipasKokes(makro.IdKokaMakro);
                 clsMesazh mesazh = new clsMesazh();
                 DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
 
@@ -333,7 +321,6 @@ namespace DbCore.DbInventari
                         {
                             DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                             lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                            //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                             colLidhjet.Add(lidhje);
                         }
 
@@ -395,13 +382,11 @@ namespace DbCore.DbInventari
 
                                         oColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
                                         mesazh = dbInv.modifikoTrupiMakro(oColTrupatMakro[i].IdTrupiMakro, oColTrupatMakro[i].IdKokaMakro, oColTrupatMakro[i].IdLlojMakro, oColTrupatMakro[i].IdProdukti, oColTrupatMakro[i].Pershkrimi, oColTrupatMakro[i].IdFunksionMakro, oColTrupatMakro[i].Vlera, oColTrupatMakro[i].Renditja);
-                                        //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
                                     }
                                     else
                                     {
                                         int idoC;
                                         mesazh = dbInv.ruajTrupiMakro(out idoC, oColTrupatMakro[i].IdKokaMakro, oColTrupatMakro[i].IdLlojMakro, oColTrupatMakro[i].IdProdukti, oColTrupatMakro[i].Pershkrimi, oColTrupatMakro[i].IdFunksionMakro, oColTrupatMakro[i].Vlera, oColTrupatMakro[i].Renditja);
-                                        //mesazh=  ruajTrupiMakro(makro.OColTrupatMakro[i]);
                                     }
                                 }
                                 else
@@ -426,12 +411,10 @@ namespace DbCore.DbInventari
 
                                         oColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
                                         mesazh = dbInv.modifikoTrupiMakro(oColTrupatMakro[i].IdTrupiMakro, oColTrupatMakro[i].IdKokaMakro, oColTrupatMakro[i].IdLlojMakro, oColTrupatMakro[i].IdProdukti, oColTrupatMakro[i].Pershkrimi, oColTrupatMakro[i].IdFunksionMakro, oColTrupatMakro[i].Vlera, oColTrupatMakro[i].Renditja);
-                                        //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
                                     }
                                     else
                                     {
                                         mesazh = dbInv.fshiTrupiMakro(trupat[i].IdTrupiMakro);
-                                        //mesazh=  fshiTrupiMakro(trupat[i]);
                                     }
                                     count++;
                                 }
@@ -487,13 +470,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //public clsMesazh modifiko()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_modifikua = data.modifikoMakro(this.IdKokaMakro, this.KodiKokaMakro, this.PershkrimiKokaMakro, this.IdNderViti, this.IdPerdoruesi, this.IdNdermarje);
-        //    //clsMesazh u_modifikua = data.modifikoMakro(this);
-        //    return u_modifikua;
-        //}
 
         /// <summary>
         /// fshin nje objekt makro sebashku me trupin dhe autorizimet
@@ -506,16 +482,12 @@ namespace DbCore.DbInventari
         /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e fshirjes se te dhenave ne DB</returns>
         public clsMesazh fshiMakro(int idKokaMakro)
         {//fshin makro
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             clsDatabaseInventari dbInv = new clsDatabaseInventari();
             try
             {
                 dbInv.beginTransaksion();
-                //DbCore.DbKontabiliteti.colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
                 DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(idKokaMakro, "Makro");
-                //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
                 colTrupatMakro trupat = new colTrupatMakro(idKokaMakro);
-                //colTrupatMakro  trupat =merrTrupatMakroSipasKokes (makro.IdKokaMakro);
                 clsMesazh mesazh = new clsMesazh(true);
 
                 foreach (clsTrupiMakro o in trupat)
@@ -523,7 +495,6 @@ namespace DbCore.DbInventari
                     if (mesazh.Status)
                     {
                         mesazh = dbInv.fshiTrupiMakro(o.IdTrupiMakro);
-                        //mesazh = fshiTrupiMakro(o);
                     }
                     else
                     {
@@ -595,7 +566,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiKokaMakroStatus(this.IdKokaMakro, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiMakro(this);
             return u_fshi;
         }
 
@@ -612,7 +582,6 @@ namespace DbCore.DbInventari
             dbKokaMakro.Dispose();
             return idKoka;
         }
-
 
 
         #endregion
@@ -635,22 +604,10 @@ namespace DbCore.DbInventari
                     kodiKokaMakro = dbDataRowKokaMakro["KODIKOKAMAKRO"].ToString();
                     pershkrimiKokaMakro = dbDataRowKokaMakro["PERSHKRIMIKOKAMAKRO"].ToString();
 
-                    //DbCore.DbKontabiliteti.colLlojeBuxhetesh colLloj = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet().merrLlojBuxhetiSipasKodit("Makro");
-                    //DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.colLidhjetAutorizim(idKokaMakro, "Makro");
                     ////DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-                    //if (lidhje.Count != 0)
-                    //{
-                    //    idNivelAutorizimi = DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[0].IdAutorizimeKoka);
-                    //    //new DbAdmin.clsDatabaseAdmin().ktheAutorizim(lidhje[0].IdAutorizimeKoka)[0].KodiAutorizim;
-                    //    for (int i = 1; i < lidhje.Count; i++)
-                    //        idNivelAutorizimi += "," + DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[i].IdAutorizimeKoka);
-                    //        //idNivelAutorizimi += "," + new DbAdmin.clsDatabaseAdmin().ktheAutorizim(lidhje[i].IdAutorizimeKoka)[0].KodiAutorizim;
-                    //}
                     //else
-                    //    idNivelAutorizimi = "";
 
                     int.TryParse(dbDataRowKokaMakro["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowKokaMakro["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowKokaMakro["IDNDERMARJE"].ToString(), out idNdermarje);
                     DateTime.TryParse(dbDataRowKokaMakro["DTKRIJIMI"].ToString(), out dtKrijimi);
                     DateTime.TryParse(dbDataRowKokaMakro["DTMODIFIKIMI"].ToString(), out dtModifikimi);

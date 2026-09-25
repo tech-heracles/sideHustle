@@ -57,7 +57,6 @@ function ProcessKeyPress() {
         }
     }
     if (event.keyCode == 13) {
-       // OnGridSelectionChanged();
     }
 }
 
@@ -75,25 +74,6 @@ function SucceededCallbackKonfig(result) {
         hfLidhur.value = false;
         var arrTabela = ['tblInformacion'];
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPanel", undefined, hfLidhur);
-        //if (cbGjendje.GetVisible() || cbKosto.GetVisible()) {
-        //    lblMagazina.SetVisible(true);
-        //    btneMagazina.SetVisible(true);
-        //    if (Utils.getUrlVar('idMag') !== '' && Utils.getUrlVar('idMag') !== undefined && Utils.getUrlVar('idMag') != -1) {
-        //        var idMagazina = parseInt(Utils.getUrlVar('idMag'));
-        //        btneMagazina.SetValue(idMagazina);
-        //    }
-        //}
-        //else {
-        //    lblMagazina.SetVisible(false);
-        //    btneMagazina.SetVisible(false);
-        //}
-        //var hfMag = $("#hfLupaMagazina");
-        //for (var i = 0; i < colKontrollet.length; i++) {
-        //    if (colKontrollet[i].KodKontrolli == "btneMagazina") {
-        //        hfMag.val(colAtrTrupi[i].IdKonfigAmbjenteLupa);
-        //        continue;
-        //    }
-        //}
     }
 }
 
@@ -120,10 +100,6 @@ function gup(name) {
 }
 
 function MerrGjendjeKosto() {
-    //var mag = -1;
-    //if (btneMagazina.GetText() !== '')
-    //    mag = btneMagazina.GetValue();
-    //gvLupaGrupimPerberes.PerformCallback("kerko;610;LP/Art;" + mag);
 }
 
 function krijoTable(rresht, kolone, emerTabele) {
@@ -136,5 +112,4 @@ Function: ButtonClickMagazina
 Hap lupen e magazinave.
 */
 function ButtonClickMagazina() {//po
- //   myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhMagazinen"), 'LupaMagazina.aspx?idKonfigAmbjente=' + $('#hfLupaMagazina').val(), 600, 560);
 }

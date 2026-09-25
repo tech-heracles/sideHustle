@@ -154,40 +154,24 @@ function menu_click(s, e) {
             if (!myFaqeCelje.validim(s, e))
                 return;
             e.processOnServer = false;
-            //if (!teDrejtaNiveli.DShtimDraft) {
-            //    myMesazh.ShtoMesazhGabimi("Ju nuk keni te drejta per kete veprim per nenkategorine: " + cmbNiveli.GetText());
-            //    return;
-            //}
             RuajDokumentBuxheti(0, 3, idEtapa);
             break;
         case "Delego":
             if (!myFaqeCelje.validim(s, e))
                 return;
             e.processOnServer = false;
-            //if (!teDrejtaNiveli.DShtimDraft) {
-            //    myMesazh.ShtoMesazhGabimi("Ju nuk keni te drejta per kete veprim per nenkategorine: " + cmbNiveli.GetText());
-            //    return;
-            //}
             RuajDokumentBuxheti(0, 4, idEtapa);
             break;
         case "Modifiko":
             if (!myFaqeCelje.validim(s, e))
                 return;
             e.processOnServer = false;
-            //if (!teDrejtaNiveli.DShtimDraft) {
-            //    myMesazh.ShtoMesazhGabimi("Ju nuk keni te drejta per kete veprim per nenkategorine: " + cmbNiveli.GetText());
-            //    return;
-            //}
             RuajDokumentBuxheti(0, 0, idEtapa);
             break;
         case "Aprovo": 
             if (!myFaqeCelje.validim(s, e))
                 return;
             e.processOnServer = false;
-            //if (!teDrejtaNiveli.DShtimDraft) {
-            //    myMesazh.ShtoMesazhGabimi("Ju nuk keni te drejta per kete veprim per nenkategorine: " + cmbNiveli.GetText());
-            //    return;
-            //}
             RuajDokumentBuxheti(0, 1, idEtapa);
             break;
         default:
@@ -525,8 +509,6 @@ function onChangeValueLlojObjektiFunction(e) {
     var rowIndex = e.row && e.row.rowIndex;
     e.editorOptions.onValueChanged = function (e) {
         gridaTrupi.GetData()[rowIndex].IdLlojObjekti = e.value;
-        //gridaTrupi.VendosVleraNeDataSource(rowIndex, "Zeri", "IdObjekti", "Pershkrimi", null, "label", "value", "desc");
-        //gridaTrupi.VendosVleraNeDataSource(rowIndex, "Buxheti", "IdBuxheti", undefined, null, "label", "value", undefined);
         gridaTrupi.PastroFusha(rowIndex, defaultObject, ["Zeri", "IdObjekti", "Pershkrimi", "Vlera", "VleraPaTvsh", "TVSH", "Vlera", "Sasia", "Cmimi"]);
     }
 }
@@ -1002,12 +984,6 @@ function percaktoVisibleMenuBuxheti(eshteModifikim) {
 
 function bejVisibleMenuBuxheti(veprimi, visiblePosto, visibleKonverto, visibleGjenero, visibleFshi) {
     ASPxMenu1.GetItemByName('Fshi').SetVisible(visibleFshi);
-    //if (veprimi == 'planifikimEkzekutimi') {
-    //    ASPxMenu1.GetItemByName('Posto').SetVisible(visiblePosto);
-    //    ASPxMenu1.GetItemByName('Konverto').SetVisible(visibleKonverto);
-    //}
-    //if (veprimi == 'ekzekutim')
-    //    ASPxMenu1.GetItemByName('Gjenero').SetVisible(visibleGjenero);
 }
 
 function percaktoMenuItemsSipasSkemesWF(result)

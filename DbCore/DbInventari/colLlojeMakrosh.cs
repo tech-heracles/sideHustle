@@ -112,20 +112,12 @@ namespace DbCore.DbInventari
         private bool mbushLlojeMakrosh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojMakro llojMakro = new clsLlojMakro();
-                    //llojMakro.mbushLlojMakro(rreshti);
                     this.Add(new clsLlojMakro(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

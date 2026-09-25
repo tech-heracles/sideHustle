@@ -71,20 +71,12 @@ namespace DbCore.DbAdmin
         private bool mbushRolet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
 
-                    //clsRoli roli = new clsRoli();
-                    //roli.mbushRolin(rreshti);
                     this.Add(new clsRoli(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

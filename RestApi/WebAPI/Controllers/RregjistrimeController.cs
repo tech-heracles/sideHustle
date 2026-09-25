@@ -94,22 +94,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         //[HttpPost, HttpGet]
-        //public HttpResponseMessage kontrolloNrAutoDrejtFundit(JObject param)
-        //{
         //    try
-        //    {
-        //        //long countNrFundit = 0;
-        //        int idNrAuto = param["idNrAuto"].Value<int>();
-        //        string kodKontrolli = param["kodKontrolli"].Value<string>();
-        //        DateTime data = param["data"].Value<DateTime>();
-        //        //bool eshteNrDrejtFundit = DbCore.DbAdmin.clsNrAutom.kontrolloEshteNrAutoDrejtFundit(idNrAuto, data, ref countNrFundit);
-        //        return Request.KthePergjigje(RregjistrimeRepository.kontrolloNrAutoDrejtFundit(idNrAuto, data, kodKontrolli));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Request.KthePergjigjeGabim(param, ex);
-        //    }
-        //}
 
 
         [HttpPost, HttpGet]
@@ -140,46 +125,12 @@ namespace RestApi.WebAPI.Controllers
         }
 
         //[HttpPost, HttpGet]
-        //public HttpResponseMessage ktheRowVleraKodArtTvsh(JObject param)
-        //{
         //    try
-        //    {
-        //        string kodKodBarArt = param["kodKodbarArt"].Value<string>();
-        //        int rreshti = param["index"].Value<int>();
-        //        DateTime data = param["date"].Value<DateTime>();
-        //        int idDetajim = param["detajim"].Value<int>();
-        //        int idPerdoruesi = param["idPerdoruesi"].Value<int>();
-        //        KonfigurimTVSHGjateRregj llojTvsh = (KonfigurimTVSHGjateRregj)param["tvshkont"].Value<int>();
-        //        int idNdermarrje = param["idNdermarrje"].Value<int>();
 
-        //        return Request.KthePergjigje(RregjistrimeRepository.ktheRowVleraKodArtTvsh(kodKodBarArt, rreshti, data, idDetajim, idPerdoruesi, llojTvsh, idNdermarrje));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Request.KthePergjigjeGabim(param,ex);
-        //    }
-        //}
         //[HttpPost, HttpGet]
-        //public HttpResponseMessage ktheRowVleraKodArtDetajimTvsh(JObject param)
-        //{
         //    try
-        //    {
-        //        string kodKodBarArt = param["kodKodbarArt"].Value<string>();
-        //        int rreshti = param["index"].Value<int>();
-        //        DateTime data = param["date"].Value<DateTime>();
-        //        int idmag = param["magazine"].Value<int>();
-        //        int idPerdoruesi = param["idPerdoruesi"].Value<int>();
-        //        KonfigurimTVSHGjateRregj llojTvsh = (KonfigurimTVSHGjateRregj)param["tvshkont"].Value<int>();
-        //        int idNdermarrje = param["idNdermarrje"].Value<int>();
 
 
-        //        return Request.KthePergjigje(RregjistrimeRepository.ktheRowVleraKodArtDetajimTvsh(kodKodBarArt, rreshti, data, idmag, idPerdoruesi, llojTvsh, idNdermarrje));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Request.KthePergjigjeGabim(param,ex);
-        //    }
-        //}
         [HttpPost, HttpGet]
         public HttpResponseMessage KtheVleraLlogKodTvsh(JObject param)
         {
@@ -290,8 +241,6 @@ namespace RestApi.WebAPI.Controllers
         }
 
 
-
-
         [HttpPost, HttpGet]
         public HttpResponseMessage KtheVleraLlogShpenzimiID(JObject param)
         {
@@ -398,7 +347,6 @@ namespace RestApi.WebAPI.Controllers
                 int id = param["id"].Value<int>();
 
 
-
                 return Request.KthePergjigje(RregjistrimeRepository.ktheArtikullPerberes(id));
             }
             catch (Exception ex)
@@ -412,7 +360,6 @@ namespace RestApi.WebAPI.Controllers
             try
             {
                 int id = param["id"].Value<int>();
-
 
 
                 return Request.KthePergjigje(RregjistrimeRepository.kthePershkrimMagSipasId(id));
@@ -667,7 +614,6 @@ namespace RestApi.WebAPI.Controllers
                 bool artikujTeShitshem = param["artikujTeShitshem"].Value<bool>();
 
 
-
                 return Request.KthePergjigje(RregjistrimeRepository.ktheACListeArtikujshKodPershkKodbarEShpejtSet(infixText, pershk, grup, idNdermarrje, idPerdoruesi, artikujTeShitshem));
             }
             catch (Exception ex)
@@ -914,7 +860,6 @@ namespace RestApi.WebAPI.Controllers
                 int idNdermarrje = param["idNdermarrje"].Value<int>();
 
 
-
                 return Request.KthePergjigje(RregjistrimeRepository.ktheIdMonedheNdermarrje(idNdermarrje));
             }
             catch (Exception ex)
@@ -930,7 +875,6 @@ namespace RestApi.WebAPI.Controllers
             {
 
                 int idAutomjeti = param["idAutomjeti"].Value<int>();
-
 
 
                 return Request.KthePergjigje(RregjistrimeRepository.ktheTargeAutomjeti(idAutomjeti));
@@ -963,7 +907,6 @@ namespace RestApi.WebAPI.Controllers
                 int idtransportues = param["idTransportues"].Value<int>();
 
 
-
                 return Request.KthePergjigje(RregjistrimeRepository.ktheTargeTransportuesi(idtransportues));
             }
             catch (Exception ex)
@@ -979,7 +922,6 @@ namespace RestApi.WebAPI.Controllers
             {
 
                 int idAutomjeti = param["idAutomjeti"].Value<int>();
-
 
 
                 return Request.KthePergjigje(RregjistrimeRepository.ktheKlientAutomjeti(idAutomjeti));
@@ -999,7 +941,6 @@ namespace RestApi.WebAPI.Controllers
                 int idKlient = param["idKlient"].Value<int>();
 
 
-
                 return Request.KthePergjigje(RregjistrimeRepository.merrEmertimKlienti(idKlient));
             }
             catch (Exception ex)
@@ -1016,7 +957,6 @@ namespace RestApi.WebAPI.Controllers
             {
                 string idKlientFurnitor = param["idKlientFurnitor"].Value<string>();
                 DateTime date = param["date"].Value<DateTime>();
-                //bool mosPlotesoTeDhena = param["mosPlotesoTeDhena"].Value<bool>();
                 int idKonfigurimi = param["idKonfigurimi"].Value<int>();
                 int idNdermarrje = param["idNdermarrje"].Value<int>();
                 int idPerdorues = param["idPerdorues"].Value<int>();
@@ -1169,7 +1109,6 @@ namespace RestApi.WebAPI.Controllers
             {
                 string idmat = param["idmat"].Value<string>();
                 DateTime dataFat = param["dataFat"].Value<DateTime>();
-
 
 
                 return Request.KthePergjigje(RregjistrimeRepository.ktheMaturim(idmat, dataFat));
@@ -1690,17 +1629,7 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         //[HttpPost, HttpGet]
-        //public HttpResponseMessage ekzistonKodBar(JObject param)
-        //{
         //    try
-        //    {
-        //        return Request.KthePergjigje(RregjistrimeRepository.ekzistonKodBar(param["kodbar"].Value<string>(), param["idNdermarrje"].Value<int>() ));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Request.KthePergjigjeGabim(param, ex);
-        //    }
-        //}
         [HttpPost, HttpGet]
         public HttpResponseMessage ktheArtInfo(JObject param)
         {
@@ -2865,7 +2794,6 @@ namespace RestApi.WebAPI.Controllers
             {
                 string prefixText = param["prefixText"].Value<string>();
                 int klasa = param["klasa"].Value<int>();
-                //int idPerdoruesi = param["idPerdoruesi"].Value<int>();
                 return Request.KthePergjigje(RregjistrimeRepository.ktheArtikullPerProdhim(prefixText, klasa, Session));
 
             }
@@ -4477,16 +4405,12 @@ namespace RestApi.WebAPI.Controllers
         public HttpResponseMessage SaveFiles()
         {
             var content = Request.Content;
-            // var conn = Request.Content.ReadAsStreamAsync().Result;
-            //testc(content.ReadAsStringAsync().Result);
 
             var parma = System.Web.HttpContext.Current.Request.Params["qquuid"];
             var f = (System.Web.HttpContext.Current.Request.Files["qqfile"]);
 
 
-
             var vlerat = (new StreamReader((System.Web.HttpContext.Current.Request.Files["qqfile"]).InputStream)).ReadToEnd();
-            //string jsonContent = content.ReadAsStringAsync().Result;
             var response = new { success = true };
             return Request.CreateResponse(
             System.Net.HttpStatusCode.OK,
@@ -4957,7 +4881,6 @@ namespace RestApi.WebAPI.Controllers
                 return Request.KthePergjigjeGabim(param, e);
             }
         }
-
 
 
         [HttpGet, HttpPost]

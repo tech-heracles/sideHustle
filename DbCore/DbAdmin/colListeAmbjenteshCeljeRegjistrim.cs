@@ -84,19 +84,11 @@ namespace DbCore.DbAdmin
         private bool mbushListaAmbjenteshCeljeRegjistrimesh(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsListeAmbjenteCeljeRegjistrim listeAmbjenteCeljeRegjistrim = new clsListeAmbjenteCeljeRegjistrim();
-                    //listeAmbjenteCeljeRegjistrim.mbushListAmbjenteCeljeReg(rreshti);
                     Add(new clsListeAmbjenteCeljeRegjistrim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

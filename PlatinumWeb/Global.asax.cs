@@ -116,8 +116,6 @@ namespace PlatinumWeb
 				//ruajme ne cache te gjitha komponentet e aplikacionit
 				GlobalCacheManager.MyAppCache.Set("komponentet", colKomponentet.MerriTeGjitha(), TimeSpan.FromDays(30));
 				//meqe aplikacioni po startohet logjikish te gjithe perdoruesit duhet te jene offline
-				//var trackUsers = new clsTrackUser(MyConnectionsManager.GetPoolConnectionNames());
-				//trackUsers.modifikoAllOffline(DateTime.Now);
 				GlobalConfiguration.Configuration.EnsureInitialized();
 				Map();
 				clsFunksione.konfiguroNLog(MyConnectionsManager.ConnStringNameDefault);
@@ -225,7 +223,6 @@ namespace PlatinumWeb
 			HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.ReadOnly);
 			//perdoret qe te vendoset ne cookie data e serverit me qellim qe te perdoret si date e sugjeruar ne ambiente regjistrimi
 			var cookie = new HttpCookie("dateServeri", DateTime.Now.ToString("MM/dd/yyyy"));
-			//cookie.Secure = true;
 			HttpContext.Current.Response.Cookies.Set(cookie);
 		}
 
@@ -333,7 +330,6 @@ namespace PlatinumWeb
 		}
 
 
-
 		protected void Session_Start(object sender, EventArgs e)
 		{
 			GlobalCacheManager.CreateNewSessionCache(Session.SessionID);
@@ -348,7 +344,6 @@ namespace PlatinumWeb
 
 		protected void Application_Error(object sender, EventArgs e)
 		{
-			//GlobalCacheManager.MyAppCache.Clear();
 			if (Server.GetLastError() != null)
 			{
 				var ex = Server.GetLastError();
@@ -389,9 +384,6 @@ namespace PlatinumWeb
 
 		protected void Application_End(object sender, EventArgs e)
 		{
-			//GlobalCacheManager.MyAppCache.Clear();
-			//var trackUsers = new clsTrackUser(MyConnectionsManager.GetPoolConnectionNames());
-			//trackUsers.modifikoAllOffline(DateTime.Now);
 			ShkruajArsyenEMbylljes();
 		}
 

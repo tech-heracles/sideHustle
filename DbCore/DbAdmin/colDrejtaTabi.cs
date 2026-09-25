@@ -22,17 +22,6 @@ namespace DbCore.DbAdmin
 
         }
 
-        //public colDrejtaTabi(int roli, int idNdermarrje, int idviti)
-        //{
-        //    clsDatabaseAdmin db = new clsDatabaseAdmin();
-        //    DataTable dt = db.merrtedrejta.merrTeDrejtaTabesh(roli, idNdermarrje, idviti);
-        //    if (!mbushTeDrejtat(dt))
-        //    {
-        //        db.Dispose();
-        //        throw new Exception("ERROR: Gabim gjate mbushjes se collectionit nga db-ja");
-        //    }
-        //    db.Dispose();
-        //}
 
         #endregion
 
@@ -67,8 +56,6 @@ namespace DbCore.DbAdmin
                     return edrejte;
             return null; //not found
         }
-
-
 
 
     }

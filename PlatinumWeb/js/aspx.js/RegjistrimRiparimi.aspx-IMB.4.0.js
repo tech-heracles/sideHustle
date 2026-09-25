@@ -130,8 +130,6 @@ var focuschange = false;
 function mbushfusha(e) {
     editor = e;
     indexModifiko = grid_RegRip.GetFocusedRowIndex();
-    //         if (indexModifiko == -1)
-    //            myMesazh.ShtoMesazhGabimi('Duhet te zgjidhni nje fature shitje/blerje!');
     //        else
     grid_RegRip.GetRowValues(indexModifiko, 'IdKoka;NrKontakti', OnGetRowValues);
     focuschange = true;

@@ -15,8 +15,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         private ResourceManager rm = new ResourceManager("Resources.Strings",
                           System.Reflection.Assembly.Load("App_GlobalResources"));
         int cnt = 0;
-        //int nrmespunonjesish = 0;
-        //int nrpunonjeslarg = 0;
         public Rap_NrPunonjes_FondiPagave(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, report)
         {
@@ -31,7 +29,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         }
 
       
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -60,7 +57,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         }
 
        
-
         private void xrTableCell1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             if (GetCurrentColumnValue("NR") != null)
@@ -72,6 +68,5 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         }
 
 
-       
     }
 }

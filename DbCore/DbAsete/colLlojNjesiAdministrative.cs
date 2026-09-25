@@ -53,18 +53,10 @@ namespace DbCore.DbAsete
         private bool mbushLlojNjesiAdministrativeList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojNjesiAdministrative llojNjesiAdministrative = new clsLlojNjesiAdministrative();
-                    //llojNjesiAdministrative.mbushLlojNjesiAdministrativeObjekt(rreshti);
                     this.Add(new clsLlojNjesiAdministrative(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

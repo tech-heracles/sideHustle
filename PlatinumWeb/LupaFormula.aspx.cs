@@ -10,7 +10,6 @@ using System.Text.RegularExpressions;
 using System.Collections;
 
 
-
 using System.Reflection;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
@@ -269,12 +268,10 @@ namespace PlatinumWeb
             try
             {
                 double result = EvaluateExpression(expression);
-                //Console.WriteLine("'" + expression + "' = " + result);
                 return true;
             }
             catch (Exception err)
             {
-                //Console.WriteLine("Expression is invalid: '" + expression + "'");
                 NLog.LogManager.GetCurrentClassLogger().Error(err.Message);
                 return false;
             }
@@ -395,20 +392,8 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvFormula.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdFormula", gvFormula);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvFormula.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdFormula";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdNdermarje = idNderm;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -418,9 +403,6 @@ namespace PlatinumWeb
             clsToolbarConfig.mbushComboBoxFiltraMeValFieldTextField((int)hfState["idGjuhe"], idNderm, "gvFormula", "LupaFormula.aspx", "IdFiltra", "FiltraShenime", 1);
             clsToolbarConfig.mbushComboBoxFiltra((int)hfState["idGjuhe"], idNderm, "gvFormula", 1, "LupaFormula.aspx");
             percaktoTemplateMenu((int)hfState["idViti"], (int)hfState["idPerdoruesi"], idNderm, ASPxMenu1);
-            //if (mesazh.StatusMesazhi == true)
-            //    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
-            //else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             if (mesazh.Status)
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazh.PershkrimMesazhi + ":Green");
             else DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazh.PershkrimMesazhi + ":Red");

@@ -106,7 +106,6 @@ namespace DbCore.DbShare
             if (idKonfigAmbjente == 0)
                 return;
             mbushKonfigurimAmbjenti(data.TransCache.getKonfigAmbiente(idKonfigAmbjente, data));
-            //mbushKonfigurimAmbjenti(data.ktheKonfigAmbjSipasId(idKonfigAmbjente));
         }
         public clsKonfigurimAmbjenti(int idKonfigAmbjente, int idGjuha)
         {
@@ -119,7 +118,6 @@ namespace DbCore.DbShare
         {
 
             mbushKonfigurimAmbjenti(data.TransCache.getKonfigAmbiente(kodKonfigurim, idNdermarrje, data));
-            //mbushKonfigurimAmbjenti(data.ktheKonfigAmbjSipasKod(kodKonfigurim, idNdermarrje, true));
         }
 
         public clsKonfigurimAmbjenti(DataRow rreshti)
@@ -435,7 +433,6 @@ namespace DbCore.DbShare
                         o.VlereDefaultSipasGjuhes(idGjuha);
                     mesazh = dbshare.ruajAtribut(o.IdKontroll, o.IdKonfigAmbjente, o.VlereDefault, o.Visible, o.Enabled, o.IdKonfigAmbjenteLupa, o.Identifikues, o.Rreshti, o.Kolona, o.Detyrueshme, o.IdNrAutomatik, o.VlereDefaultEng, o.ShfaqMobile, o.RenditjaMobile, o.Unike, o.VlereDefault_fr);
                      
-                    //mesazh = dbshare.ruajAtributSqEng(o.IdKontroll, o.IdKonfigAmbjente, o.VlereDefault, o.Visible, o.Enabled, o.IdKonfigAmbjenteLupa, o.Identifikues, o.Rreshti, o.Kolona, o.Detyrueshme, o.IdNrAutomatik, o.VlereDefaultEng, o.ShfaqMobile, o.RenditjaMobile, o.Unike, o.VlereDefault_fr);
                     if (!mesazh.Status)
                     {
                         dbshare.rollbackTransaksion();
@@ -507,23 +504,6 @@ namespace DbCore.DbShare
                                 return mesazh;
                             }
                         }
-                        //if (k.Vlera != 0)
-                        //{
-                        //    char[] lloj = k.Vlera.ToString().ToCharArray();
-                        //    for (int i = 0; i < lloj.Length; i++)
-                        //    {
-                        //        clsKonfLlojRreshtiVlere konfllreshtvler = new clsKonfLlojRreshtiVlere();
-                        //        konfllreshtvler.IdKushTemplate = k.IdKushtTemplate;
-                        //        konfllreshtvler.IdLlojRreshti = Convert.ToInt32(lloj[i].ToString());
-                        //        konfllreshtvler.Rend = i + 1;
-                        //        mesazh = konfllreshtvler.ruaj();
-                        //        if (!mesazh.Status)
-                        //        {
-                        //            dbshare.rollbackTransaksion();
-                        //            return mesazh;
-                        //        }
-                        //    }
-                        //}
                     }
                 }
 
@@ -685,20 +665,6 @@ namespace DbCore.DbShare
                                 return mesazh;
                             }
                         }
-                        //char[] lloj = k.Vlera.ToString().ToCharArray();
-                        //for (int i = 0; i < lloj.Length; i++)
-                        //{
-                        //    clsKonfLlojRreshtiVlere konfllreshtvler = new clsKonfLlojRreshtiVlere();
-                        //    konfllreshtvler.IdKushTemplate = k.IdKushtTemplate;
-                        //    konfllreshtvler.IdLlojRreshti = Convert.ToInt32(lloj[i].ToString());
-                        //    konfllreshtvler.Rend = i + 1;
-                        //    mesazh = konfllreshtvler.ruaj();
-                        //    if (!mesazh.Status)
-                        //    {
-                        //        db.rollbackTransaksion();
-                        //        return mesazh;
-                        //    }
-                        //}
                         //j++;
                     }
                 }

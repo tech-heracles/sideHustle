@@ -143,19 +143,11 @@ namespace DbCore.DbAdmin
         {
 
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPeriudhaKontabel periudha = new clsPeriudhaKontabel();
-                    //periudha.mbushPeriudhaKontabel(rreshti);
                     this.Add(new clsPeriudhaKontabel(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
 
         }

@@ -28,15 +28,11 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         {
             InitializeComponent();
             MonNder.Value = raport.Parameters["Azhornim"].Value;
-            //xrLabel52.Text = raport.Parameters["filterDtDok"].Description;
             parameter1.Value = raport.Parameters["filterDtDok"].Value;
-            //xrLabel55.Text = raport.Parameters["IdRaport"].Description;
             parameter2.Value = raport.Parameters["IdRaport"].Value;
             parameter4.Value = raport.Parameters["filterDtDok2"].Value;
             parameter5.Value = raport.Parameters["filterDtDokKrahasuesMbarim"].Value;
-            //azhornimLabel.Text = raport.Parameters["idpasqyrafinaciarekoka"].Description;
             Azhornim.Value = raport.Parameters["idpasqyrafinaciarekoka"].Value;
-            //xrLabel18.Text = raport.Parameters["filterDtDokKrahasues"].Description;
             parameter3.Value = raport.Parameters["filterDtDokKrahasues"].Value;
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);           
             EmrateLabelave(ci);
@@ -146,20 +142,15 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            // xrLabel12.Text = rm.GetString("RaportTeArdhuratShpenzimetTitulli", ci);
-            //FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel3.Text = rm.GetString("labelRaportiEmertimi", ci);
-            //   xrLabel7.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel4.Text = rm.GetString("labelRaportiVitiRaportues", ci);
             xrLabel5.Text = rm.GetString("labelRaportiVitiParaardhes", ci);
             xrTableCell56.Text = rm.GetString("labelRaportiFitimiNetoVitFinanciar", ci);
             xrLabel1.Text = rm.GetString("labelRaportiNr", ci);
             xrTableCell61.Text = rm.GetString("labelElementeTePasqyraveTeKonsoliduara", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha", ci);
         }
 
        
-
         private void xrTableCell37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             //xrLabel32_BeforePrint_1

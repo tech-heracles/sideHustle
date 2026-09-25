@@ -137,21 +137,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushKokaSkematFletetKont(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaSkemaFleteKontabel kokaSkemaFK = new clsKokaSkemaFleteKontabel();
-                    //kokaSkemaFK.mbushKokaSkemaFleteKont(rreshti);
                     Add(new clsKokaSkemaFleteKontabel(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -168,7 +160,6 @@ namespace DbCore.DbKontabiliteti
                 kokaSkemaFK.KodiKokaSkemaFK = rreshti[1].ToString();
                 kokaSkemaFK.PershkrimiKokaSkemaFK = rreshti[2].ToString();
 
-                //colLlojeBuxhetesh colLloj = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet().merrLlojBuxhetiSipasKodit("SkematFleteKontabel");
                
                 kokaSkemaFK.IdPerdoruesi = int.Parse(rreshti[3].ToString());
                 kokaSkemaFK.IdNdermarje = int.Parse(rreshti[4].ToString());

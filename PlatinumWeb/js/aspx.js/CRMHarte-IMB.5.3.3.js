@@ -42,10 +42,8 @@ function MerrArrayKorinata(kords) {
 }
 function initialize() {
     var colVlerat = JSON.parse(hfState.Get('data'));//formati [Koka:{},Koordinata:[{},{}],TrupatInfo:[{},{}]]
-    //var mapOptions = {
     //    zoom: 4,
     //    center: new google.maps.LatLng(41.327972, 19.818418)
-    //}
 
     var map = new google.maps.Map(document.getElementById('map'));
     var lineSymbol = {
@@ -97,24 +95,15 @@ function initialize() {
     }
 }
 
-//google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
 
 function initNgaDok(s, e) {
-    //$(s.GetInputElement()).css('zIndex', 3000);
 }
 function ngaDokDateChanged(s, e) {
     if (txtDeriDok.GetDate() < txtNgaDok.GetDate())
         txtDeriDok.SetDate(txtNgaDok.GetDate());
 
-    //if (Utils.getUrlVar('idraporti') == 111 || Utils.getUrlVar('idraporti') == 138 || Utils.getUrlVar('idraporti') == 187) {
-    //    txtDeriDok.SetDate(txtNgaDok.GetDate());
-    //}
 }
 function deriDokDateChanged(s, e) {
-    //if (Utils.getUrlVar('idraporti') == 111 || Utils.getUrlVar('idraporti') == 138 || Utils.getUrlVar('idraporti') == 187) {
         txtNgaDok.SetDate(txtDeriDok.GetDate());
     }
 
@@ -188,7 +177,6 @@ function menu_click(s, e) {
             e.processOnServer = false;
             window.location = "Raportet.aspx?idmod=24";
             break;
-            //else if (e.item.name == "Eksporto") { return; }
 
         default:
             var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");

@@ -82,8 +82,6 @@ namespace PlatinumWeb
 				hfState.Set("chatLink", licenca.ChatLink);
 				hfState.Set("chatPortHttp", licenca.ChatPortHttp);
 				hfState.Set("chatPortHttps", licenca.ChatPortHttps);
-				//PageAsyncTask t = new PageAsyncTask(showPopUp);
-				//Page.RegisterAsyncTask(t);
 				Page.ExecuteRegisteredAsyncTasks();
 				hfState.Set("googleAnalytics", licenca.GoogleAnalytics);
 				hfState.Set("googleAnalyticsTrackingId", licenca.GoogleAnalyticsTrackingId);
@@ -99,18 +97,6 @@ namespace PlatinumWeb
 					popUpAzhornim.Text = mesazhiPerodruesit;
 				}
 				var rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-				//var msgSkadimLicence = DbCore.DbAdmin.clsLicenca.KontrolloSkadiminLicences(idPerdoruesi, rm, ci);
-				//if (!msgSkadimLicence.Status)
-				//{
-				//    if (msgSkadimLicence.PershkrimMesazhi == "Problem ne validimin e licences!")
-				//        DbCore.clsFunksione.logout(Session, true, "problemLicenca");
-				//    else DbCore.clsFunksione.logout(Session, true, "perfundoiLicenca");
-				//}
-				//if (!msgSkadimLicence.PershkrimMesazhi.Equals(string.Empty))
-				//{
-				//    popUpDiteTeMbeturaLicenca.ShowOnPageLoad = true;
-				//    lblDiteTeMbeturaTeLicenca.Text = msgSkadimLicence.PershkrimMesazhi;
-				//}
 				string urlImazhPerdoruesi = DbCore.DbShare.clsArkiva.ktheImazhPerdoruesi(idPerdoruesi);
 				if (String.IsNullOrEmpty(urlImazhPerdoruesi) || !System.IO.File.Exists(Server.MapPath(urlImazhPerdoruesi)))
 					urlImazhPerdoruesi = "images/new/perdorues.png";
@@ -162,7 +148,6 @@ namespace PlatinumWeb
 					komponente = "Dashboard.aspx";
 				if (komponente == string.Empty && (Request.QueryString["vjenNga"] != "CRM" || Request.QueryString["vjenNga"] != "GIS"))
 				{
-					//komponente = DbCore.DbAdmin.clsKomponente.merrKomponenteDefaultPerdoruesi(idPerdoruesi);
 					komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrje, "Default.aspx", KodViti);
 				}
 				if (komponente == string.Empty)
@@ -449,16 +434,11 @@ namespace PlatinumWeb
 					tmpGrup.ClientVisible = count != 0;
 
 				}
-				//   shfaqHelp();
 				DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
 				ikonaImazhPerdoruesMenuLart.Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("LupaPersonalizoPerdorues.aspx").Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("dalje").Visible = true;
-				//DevExpress.Web.MenuItem grupitHelpMenuLart = ASPxMenu1.Items.FindByName("settings");
-				//grupitHelpMenuLart.Visible = true;
-				//grupitHelpMenuLart.ClientVisible = true;
-				//ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").ClientVisible = true;
 				ASPxNavBar1.Groups.FindByName("settings").Visible = true;
 				ASPxNavBar1.Groups.FindByName("settings").ClientVisible = true;
 				if (ASPxNavBar1.Groups.FindByName("Mobile").ClientVisible)
@@ -489,7 +469,6 @@ namespace PlatinumWeb
 						|| (DbCore.mySessionObjects.merrObjectNgaSesioni(Session) != null && DbCore.mySessionObjects.merrObjectNgaSesioni(Session).ToString() == "shfaqdefault"))
 					{
 						int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
-						//string komponente = DbCore.DbAdmin.clsKomponente.merrKomponenteDefaultPerdoruesi(idPerdoruesi);
 						string komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrje, String.Empty, KodViti);
 						if (komponente != "")
 						{
@@ -502,7 +481,6 @@ namespace PlatinumWeb
 
 			}
 
-			//DbCore.clsFunksione.vendosPeriudhenKlientSide(Session, hfPeriudhKontabel);
 			TeDrejta();
 		}
 
@@ -559,7 +537,6 @@ namespace PlatinumWeb
 		{
 			var rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
-			//ASPxHyperLink2.Text = " | " + rm.GetString("labelLogOut", ci);
 			Menu("administrimi", "Webhooks.aspx").Visible = true;
 
 			Menu("administrimi").Text = rm.GetString("MenuItemAdminstrimi", ci);
@@ -741,8 +718,6 @@ namespace PlatinumWeb
 			Menu("celje", "Shto_Transportues.aspx").Text = rm.GetString("MenuItemTransportues", ci);
 
 
-
-
 			Menu("regjistrime").Text = rm.GetString("MenuItemRegjistrime", ci);
 
 			Menu("regjistrime", "amortizimi").Text = rm.GetString("MenuItemAmortizimi", ci);
@@ -870,7 +845,6 @@ namespace PlatinumWeb
 			Menu("regjistrime", "fatura-shitjesh", "GjenerimAutomatik.aspx").Text = rm.GetString("menuItemFaturaShitjeRuajteAutomatikeDokumentave", ci);
 
 
-
 			Menu("regjistrime", "shperndarja-shpenzimeve").Text = rm.GetString("MenuItemShperndarjaShpenzimeve", ci);
 			Menu("regjistrime", "shperndarja-shpenzimeve", "ShperndarjeShpenzimesh.aspx").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "shperndarja-shpenzimeve", "Shto_ShperndarjeShpenzimesh.aspx").Text = rm.GetString("MenuItemERe", ci);
@@ -902,8 +876,6 @@ namespace PlatinumWeb
 			Menu("regjistrime", "veprime-kf", "mbyllje-kf").Text = rm.GetString("MenuItemMbylljeKlientFurnitor", ci);
 			Menu("regjistrime", "veprime-kf", "mbyllje-kf", "AzhornimKlientFurnitor.aspx?vep=mbyllje").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "veprime-kf", "mbyllje-kf", "Shto_AzhornimKlientFurnitor.aspx?vep=mbyllje").Text = rm.GetString("MenuItemERe", ci);
-
-
 
 
 			Menu("raportet").Text = rm.GetString("MenuItemRaportet", ci);
@@ -945,16 +917,8 @@ namespace PlatinumWeb
 			daljeItem.Visible = true;
 			daljeItem.Text = rm.GetString("labelLogOut", ci);
 			daljeItem.NavigateUrl = $"{DbCore.IMBUtils.Paths.defaultLoginPath}?arsye=logout&google=true";
-			//ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").ClientVisible = true;
 			var fjalekalimItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("NdryshimFjalekalimi.aspx");
 			fjalekalimItem.Text = rm.GetString("labelEmailFjalekalimi", ci);
-
-
-
-
-
-
-
 
 
 			ASPxNavBar1.Groups.FindByName("settings").Visible = true;
@@ -1000,8 +964,6 @@ namespace PlatinumWeb
 			NavElement("arkaBanka", "ShtoVeprimBanka.aspx?lloji=pagese&shtim_modifikim=shtim").Text = rm.GetString("NavBarItemRegjistrimiPagesave", ci);
 
 
-
-
 			NavGrup("hr").Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
 			NavElement("hr", "StrukturaAdministrative.aspx").Text = rm.GetString("MenuItemDepartamentet", ci);
 			NavElement("hr", "Shto_KomponentePage.aspx?lloji=true").Text = rm.GetString("MenuItemKomponenteListepagese", ci);
@@ -1014,7 +976,6 @@ namespace PlatinumWeb
 			NavElement("pagesa", "KonfigUrdherPagese.aspx?lloji=Kapitull").Text = rm.GetString("MenuItemKapituj", ci);
 			NavElement("pagesa", "Shto_UrdherPagesa.aspx").Text = rm.GetString("NavBarItemRegjUrdherpagesave", ci);
 			NavElement("pagesa", "UrdherPagesa.aspx").Text = rm.GetString("NavBarItemUrdherpagesat", ci);
-
 
 
 			NavGrup("prodhimi").Text = rm.GetString("MenuItemRaportProdhimi", ci);
@@ -1032,15 +993,12 @@ namespace PlatinumWeb
 			NavElement("qk", "RegjistrimQendraKosto.aspx").Text = rm.GetString("MenuItemRegjistrimQKRe", ci);
 
 
-
 			NavGrup("amortizimi").Text = rm.GetString("MenuItemAmortizimi", ci);
 			NavElement("amortizimi", "Shto_Artikull.aspx?llojiart=aqt").Text = rm.GetString("MenuItemArtikujtAfatgjate", ci);
 			NavElement("amortizimi", "RivleresimeAmortizimi.aspx?lloj=amortizim").Text = rm.GetString("MenuItemAmortizimiFillestar", ci);
 			NavElement("amortizimi", "Shto_RivleresimeAmortizimi.aspx?lloj=amortizim&shtim_modifikim=shtim").Text = rm.GetString("MenuItemAmortizimiFillestarRi", ci);
 			NavElement("amortizimi", "RegjistrimAmortizimi.aspx").Text = rm.GetString("MenuItemRegjistrimAmortizimi", ci);
 			NavElement("amortizimi", "Shto_RegjistrimAmortizimi.aspx").Text = rm.GetString("MenuItemRegjistrimAmortizimiRi", ci);
-
-
 
 
 			NavGrup("aprovime-dokumentash").Text = rm.GetString("MenuItemAprovimetDok", ci);
@@ -1071,10 +1029,6 @@ namespace PlatinumWeb
 			NavElement("rap", "Raportet.aspx?idmod=57").Text = rm.GetString("MenuItemRaportBuxheti", ci);
 
 
-
-
-
-
 			NavGrup("bi").Text = rm.GetString("MenuItemGroupBusinessIntelligence", ci); //"Business Intelligence";
 			NavElement("bi", "Raport_PivotGrid.aspx?idModuli=12").Text = rm.GetString("labelShitje", ci);
 			NavElement("bi", "Raport_PivotGrid.aspx?idModuli=16").Text = rm.GetString("lblRaportMagazina", ci);
@@ -1091,7 +1045,6 @@ namespace PlatinumWeb
 			NavElement("map", "GoogleHarte.aspx?lloji=maggjendje").Text = rm.GetString("MenuItem_6_Harta", ci);   //  Harta e gjendjes se magazinave
 			NavElement("map", "GoogleHarte.aspx?lloji=amortizimShqiptar").Text = rm.GetString("MenuItem_7_Harta", ci);    // Harta e amortizimit te aseteve ne perqindje  
 			NavElement("map", "GoogleHarte.aspx?lloji=klientKoordinata").Text = rm.GetString("MenuItem_HartaEKlienteve", ci);    //Harta e klienteve
-
 
 
 			NavGrup("crm").Text = rm.GetString("MenuItemGrupCRM", ci); //"CRM";
@@ -1152,8 +1105,6 @@ namespace PlatinumWeb
 			NavElement("buxheti", "B_RegjistrimBuxheti.aspx?lloji=perfitim").Text = rm.GetString("MenuItem_PerfitimBuxheti", ci);
 			NavElement("buxheti", "B_RegjistrimBuxheti.aspx?lloji=planifikimEkzekutimi").Text = rm.GetString("MenuItem_PlanifikimEkzekutimBuxheti", ci);
 			NavElement("buxheti", "B_RegjistrimBuxheti.aspx?lloji=ekzekutim").Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
-
-
 
 
 			NavGrup("Mobile").Text = rm.GetString("MobileMenu", ci);

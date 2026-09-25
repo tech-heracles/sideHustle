@@ -47,9 +47,6 @@ namespace DbCore.DbAdmin
         }
 
       
-
-       
-
         /// <summary>
         /// Konstruktori default i klases
         /// </summary>
@@ -221,12 +218,6 @@ namespace DbCore.DbAdmin
             return ekziston;
         } 
         //public static bool kaVeprime(int id)
-        //{
-        //    clsDatabaseAdmin db = new clsDatabaseAdmin();
-        //    bool ekziston = db.kaVeprimeFilterExporti(id);
-        //    db.Dispose();
-        //    return ekziston;
-        //}
 
         public static string ktheFilterPerDataSet(int id)
         {

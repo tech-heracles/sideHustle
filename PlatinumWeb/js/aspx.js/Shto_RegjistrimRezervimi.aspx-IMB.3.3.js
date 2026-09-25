@@ -30,14 +30,12 @@ var widthLupaDetajim = 600;
 var heightLupaDetajim = 600;
 var editorData;
 
-//var STR_sasiaNumer = 'Sasia duhet të jetë numer!';
 
 var varKonfig = {
     identifikuesPerLocalStorageKey: 'RegjistrimRezervimi'
 };
 
 jQuery(document).ready(function () {
-    //formoArrayKolonaGrides();
     ////var isLidhur = ($("input[id$='hfLidhur']").val().toLowerCase() === 'true' || cmbStatusi.GetSelectedIndex() == 1 || cmbStatusi.GetSelectedIndex() == 2);
     ////formGridColsArray(isLidhur);
     ////inicializoGride(isLidhur);
@@ -52,7 +50,6 @@ jQuery(document).ready(function () {
         }
         var grida = $('#rowed5');
         if ($('#divgride2').width() != null) {
-            //                $("#rowed5").setGridWidth($('#divgride2').width() - 5, true);
             myJQGrid.fixGridWidth(grida, $('#divgride2'));
         }
     }).trigger('resize');
@@ -84,10 +81,7 @@ function Init() {
     if (typeof (isPostBack) == "undefined") {
         editorData = dteDtDok;
         ////    callWebserviceKonfigurimi("510"); //510 = id komponente (Shto_RegjistrimMagazine.aspx)
-        //var hf = document.getElementById("hfKonffillestar");
 
-        //cmbKonfigurimi.SetText(hf.value);
-        //ndryshoKonfigurimin();
         document.getElementById("kokeKonfigurimi").innerHTML = hfState.Get("MenuKokeDokumenti");
         document.getElementById("trupKonfigurimi").innerHTML = hfState.Get("MenuTrupDokumenti");
         document.getElementById("fundKonfigurimi").innerHTML = hfState.Get("MenuFundDokumenti");
@@ -102,7 +96,6 @@ function Init() {
         prm.add_endRequest(EndRequestHandler);
     }
 }
-
 
 
 /*
@@ -255,17 +248,12 @@ function selectFunc(event, ui, emerfushe, idArt, kodArt) {
 
 function changeFunc(event, ui, emerKodi, index) {
     var detajim = -1;
-    //var index = -1;
-    //var idKod = 'txtKodi';
     var lloj = Utils.getUrlVar('lloj');
     var magazine = 0;
     var myDate = dteDtDok.GetDate();
     myDate.setDate(myDate.getDate() + 365 * 2);
 
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
     var idNdermarrje = hfState.Get("idNdermarrje");
     var idPerdorues = hfState.Get("idPerdoruesi");
     var grida = $('#rowed5');
@@ -376,11 +364,6 @@ function vendosArt(result) {
             resetRreshtKorent(idRreshti);
             return;
         }
-        //if ((artikulli.Klasa === 5 || artikulli.Klasa === 6) && Utils.getUrlVar("lloj") == 'hyrje') {
-        //    myMesazh.ShtoMesazhGabimi(hfState.Get("NukKryhenVeprimeMeArtikujProdhimOseProdhimNeProces"));
-        //    resetRreshtKorent(idRreshti);
-        //    return;
-        //}
         if (artikulli.Klasa === 4) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukMundTeKryeniVeprimeMeArtikujTePerbere"));
             resetRreshtKorent(idRreshti);
@@ -417,7 +400,6 @@ function vendosArt(result) {
                     grida.setTekstQelize('txtEmertimi', idRreshti, artikulli.PershkrimiAngArtikulli)
                 else
                     grida.setTekstQelize('txtEmertimi', idRreshti, artikulli.PershkrimArtikulli)
-
 
 
             var comboNjesia = $('#' + arrayIdKolonaGrides[4] + idRreshti);
@@ -568,7 +550,6 @@ Function: myElemButon
 Nderton nje buton per te fshire nje rresht te grides
 */
 function myElemButtonFshi() {
-    //  callWebServiceInfoArt();
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     if (arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1] == 'True')
@@ -659,7 +640,6 @@ function kontrolloRow(rowid) {//po
                         $('#txtSasia' + idRresht).focus();
                     }
 
-                    //  alert(fokusi);
                     break;
                 }
                 if (konfirmimArt == 1) {
@@ -877,7 +857,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
     if (arrayPershkrimiKolonaGrides.length == 0)
         return;
     if ($('#hfShtimModifikim').val() == "shtim") {
-        //myJQGrid.keyPressKodi("#rowed5", window.lastsel2, arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1]);
         return;
     }
     if ($('#hfShtimModifikim').val() == "modifikim") {
@@ -885,7 +864,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
         var colArt = JSON.parse($('#HfColArt').val());
         var colNjesAdminis = JSON.parse($('#HfColNjesAdminis').val());
         var colNjesiArt = JSON.parse($('#HfColNjesiArt').val());
-        //        var colTvshArt = JSON.parse($('#HfColTvshArt').val());
         var konfAmb = JSON.parse($('#HfKonfAmb').val());
         grida.setLastSel2(1);
         idRresht = 1;
@@ -1024,9 +1002,7 @@ function SucceededCallbackKonfig(result) {
     var vlerat = myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, undefined, hf, '', arrTabela, undefined, undefined, hfLidhur, arrPrind);
     $("#divgride1").show();//$("#divgride1")[0].style.visibility = 'visible';
     $("#dvFillim").show();//$("#dvFillim")[0].style.visibility = 'visible';
-    //$("#dvFillim")[0].style.display = '';
     $("#dvFundi").show();//$("#dvFundi")[0].style.visibility = 'visible';
-    //$("#dvFundi")[0].style.display = '';
     cmbKonfigurimi.ShowDropDown();
     cmbKonfigurimi.HideDropDown();
     vendosDateDefault();
@@ -1145,7 +1121,6 @@ function ndryshoKonfigurimin() {
     var lloji = Utils.getUrlVar('lloj');
     var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     if (pershkKonfigAmb != undefined)
-       // lblKonfigurimi.SetText(pershkKonfigAmb)
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") + ': ' + pershkKonfigAmb);
     if (lloji == 'hyrje') callWebserviceKonfigurimi(539, cmbKonfigurimi.GetText());
     else callWebserviceKonfigurimi(540, cmbKonfigurimi.GetText());
@@ -1400,7 +1375,6 @@ function pastro() {
     arrSasia = new Array();
     arrCmimi = new Array();
     arrVlefta = new Array();
-    // arrMagazina2 = new Array();
     resetCountera();
     var hidField1 = document.getElementById("hfKategoria");
     var hidField2 = document.getElementById("hfKodi");
@@ -1529,14 +1503,12 @@ function changedSasia() {//po
     if (editorSasia == "" || isNaN(editorSasia)) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaNumer"));
         sasia = grida.getVlereDefault('txtSasia');
-        //grida.setTekstQelize('txtSasia', lastsel2, sasia);
         $('#txtSasia' + idRresht).focus();
     }
     else
         if (editorSasia == "0") {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaNukMundTeJeteZero"));
             sasia = grida.getVlereDefault('txtSasia');
-            //grida.setTekstQelize('txtSasia', lastsel2, sasia);
             $('#txtSasia' + idRresht).focus();
         }
 
@@ -1593,7 +1565,6 @@ function merrSasite(index) {
     myDate.setDate(myDate.getDate() + 365 * 2);
 
 
-    // magazine = grida.getTekstQelize('txtMagazina', index);
     magazine = $('#txtMagazina' + index).val();
     var kategoria = grida.getTekstQelize('txtKategoria', index);
     var emerfushe = grida.getTekstQelize('txtKodi', index);
@@ -1778,7 +1749,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            // myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     else if (e.item.name == 'Draft') {
@@ -1795,7 +1765,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            //myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     else if (e.item.name == 'Kerko') {
@@ -1915,9 +1884,6 @@ function ShfaqPeriudhen() {
 }
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
 function valueChangedPeriudha() {
@@ -1930,7 +1896,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))

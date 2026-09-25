@@ -67,19 +67,11 @@ namespace DbCore.DbListPagesat
         private bool mbushGrupePunonjesish(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupPunonjesish grupPunonjesish = new clsGrupPunonjesish();
-                    //grupPunonjesish.mbushGrupPunonjesish(rreshti);
                     Add(new clsGrupPunonjesish(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

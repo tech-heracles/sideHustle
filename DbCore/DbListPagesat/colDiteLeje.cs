@@ -70,18 +70,10 @@ namespace DbCore.DbListPagesat
         private bool mbushDiteLeje(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsDiteLeje grupKF = new clsDiteLeje();
-                //grupKF.mbushDiteLeje(rreshti);
                 this.Add(new clsDiteLeje(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -129,7 +129,6 @@ function ButtonClickedBanka(editor, key) {
     identifikuesPerPopupBanka = "KonfigurimDokumentash";
     if (KF == "Arka" || KF == "Veprime Arke")
         url = 'LupaBanka.aspx?arkabanka=3&arka=false';
-    // url = 'LupaBanka.aspx?arkabanka=3';
     else if (KF == "Banka" || KF == "Veprime Banke")
         url = 'LupaBanka.aspx?arkabanka=4&arka=true';
 
@@ -206,7 +205,6 @@ function ButtonClickedArka(editor, key) {
     editorKF = editor;
     identifikuesPerPopupBanka = "KonfigurimDokumentash";
     myButtonClickLupa.LupaUniversal_Click('Zgjidh banken/arken', 'LupaBanka.aspx', 700, 560);
-    //  myButtonClickLupa.LupaUniversal_Click('Zgjidh banken/arken', 'LupaBanka.aspx?arka=true', 700, 560);
 }
 
 var keySK;
@@ -524,7 +522,6 @@ function TextChangedEnabled(editor, field, key, idTipKontrolli) {
             editorNrAutomatik.SetEnabled(true);
         }
         else {
-            //  editorNrAutomatik.SetText('');
             editorNrAutomatik.SetEnabled(false);
         }
     }
@@ -1341,8 +1338,6 @@ function LostFocusPer(editor, key) {
 
 }
 function LostFocusSkemaWF(editor, key) {
-    //var hf = $("input[id$='hfMagazina']");
-    //hf.val(editor.GetValue());
 }
 
 function LostFocusDL(editor, key) {

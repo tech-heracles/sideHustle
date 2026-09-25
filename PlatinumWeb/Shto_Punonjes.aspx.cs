@@ -99,7 +99,6 @@ namespace PlatinumWeb
                 konfiguroVleraFillestare(idNdermarrje, idgjuha);
                 int.Parse(cmbKonfigurimi.Value.ToString());
 
-                //mbushComboBoxFiltra(idgjuha, idNdermarrje, idKonfig);
                 mbushGrIdPunonjesNgaDB(idNdermarrje, idgjuha);
                 konfiguroGridePunonjesit(idNdermarrje, cmbKonfigurimi.Text.Split(';')[0], 708, rm, cultinf);
                 GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvPunonjesit", gvPunonjesit, cmbKonfigurimi.Text.Split(';')[0], 708.ToString(), mySessionObjects.ktheGjuhe(Session));
@@ -116,7 +115,6 @@ namespace PlatinumWeb
                 
                 hfLejoNrLlogBank.Value = (clsAlternativaKushti.getAlternativa(Convert.ToInt32(cmbKonfigurimi.Value), "LSHNRB") == "Po").ToString();
 
-                //Session.Add("idshtimi", 0);
                 mySessionObjects.ruajIdShtimiNeSesion(Session, 0);
                 clsTeDrejtaRoli tedrejtaInfo = new clsTeDrejtaRoli();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idperdoruesi, idNdermarrje, idviti, "Konfigurime Gride");
@@ -153,7 +151,6 @@ namespace PlatinumWeb
                 mbushBandaSession();
                 mbushGridKomponenteshNgaSessioni();
                 konfiguroGridePunesim(idNdermarrje);
-                // mbushComboBoxFiltra(idgjuha, idNdermarrje, idKonfig);
             }
             percaktoTemplateMenu(idgjuha, idviti, idperdoruesi, idNdermarrje, ASPxMenu1);
             konfiguroGrideKomponenteListPagese(idNdermarrje);
@@ -393,7 +390,6 @@ namespace PlatinumWeb
 
             clsFiltraGrida filtra = new clsFiltraGrida();
             int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNdermarrje);
             clsGridaKoka koka = new clsGridaKoka(mySessionObjects.ktheGjuhe(Session), "gvPunonjesit", komponente, mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -465,7 +461,6 @@ namespace PlatinumWeb
                 string[] rreshti = { hfId.Value, txtNrPersonal.Text };
                 rreshtat.Add(rreshti);
             }
-            // List<object> rreshtat = gvPunonjesit.GetSelectedFieldValues("IdPunonjes", "NrPersonal");
             CultureInfo ci = mySessionObjects.ktheCultureInfo(Session);
 
             if (rreshtat.Count == 0)
@@ -473,7 +468,6 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, MessagesResource.Messages["msgPunonjesZgjidhniTePakten1Punonjes"], pnlMesazhi);
                 return;
             }
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             clsMesazh mesazh = new clsMesazh();
             int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -496,7 +490,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqNgaGrida(idNdermarrje, punonjes.IdPunonjes, rm, ci);
 
                     #endregion Heq llogarite nga grida
@@ -585,8 +578,6 @@ namespace PlatinumWeb
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = colPunonjes.merrPunonjesitDR(id);
-                //  dt.Rows.Remove(dr);
-                // dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -626,7 +617,6 @@ namespace PlatinumWeb
             gvPunonjesit.KonfiguroCombo("Kombesia", "Id", txtField, () => clsPunonjes.merrKombesiaDT()
             , Session, komponente, guidString);
         }
-
 
 
         /// <summary>
@@ -759,7 +749,6 @@ namespace PlatinumWeb
             clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idgjuha);
             hfKonffillestar.Value = String.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
-            // cmbKonfigurimi.SelectedIndex = -1;
             idKonfig = konf.IdKonfigAmbjente;
         }
 
@@ -904,10 +893,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPageControl1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //NrAuto.vendosVleratNrAuto(hfNrAuto, this, ASPxPageControl1, null, null);
 
             hfNrAutoKF = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrPersonal", "NrPersonal");
-            //NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrPersonal", "NrPersonal");
 
             colPunesim col = new colPunesim();
 
@@ -1046,7 +1033,6 @@ namespace PlatinumWeb
                 else
                 {
                     clsFiltraGrida filtra = new clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     clsGridaKoka koka = new clsGridaKoka(mySessionObjects.ktheGjuhe(Session), "gvPunonjesit", komponente, mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)
@@ -1129,19 +1115,8 @@ namespace PlatinumWeb
             }
             else if (e.Column.FieldName == "IdNenDepartament")
             {
-                //ASPxComboBox cmb = e.Editor as ASPxComboBox;
-                //cmb.ClientInstanceName = "cmbf2";
-                //cmb.Callback += new DevExpress.Web.CallbackEventHandlerBase(cmb_Callback);
 
-                // cmb.DataSourceID = "cityads";
             }
-            //else if (e.Column.FieldName == "IdDepartament")
-            //{
-            //    ASPxComboBox cmb = e.Editor as ASPxComboBox;
-            //    cmb.ClientInstanceName = "cmbf1";
-            //    cmb.ClientSideEvents.SelectedIndexChanged = "function (s, e) { cmbf2.PerformCallback(s.GetValue()); }";
-            //    cmb.ClientSideEvents.Init = "function (s, e) { cmbf2.PerformCallback(s.GetValue()); }";
-            //}
         }
 
         protected void gvPunonjesit_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
@@ -1157,7 +1132,6 @@ namespace PlatinumWeb
                 ASPxComboBox cmb = e.Editor as ASPxComboBox;
                 cmb.ClientInstanceName = "cmbIdDepartament";
                 cmb.ClientSideEvents.SelectedIndexChanged = "function (s, e) { cmbIdNenDepartament.PerformCallback(s.GetValue()); }";
-                //cmb.ClientSideEvents.Init = "function (s, e) { cmbIdNenDepartament.PerformCallback(s.GetValue()); }";
             }
         }
 
@@ -1190,7 +1164,6 @@ namespace PlatinumWeb
             if (hfShtimModifikim.Value == "klonim")
                 col = colPunesim.KthePunesimSipasIdPuneonjesiDt(0, idgjuha);
             else col = colPunesim.KthePunesimSipasIdPuneonjesiDt(id, idgjuha);
-            //Session.Add("Punesim", col);
             mySessionObjects.ruajPunesimNeSesion(Session, col);
             gvPunesim.DataSource = col;
             gvPunesim.DataBind();
@@ -1204,31 +1177,9 @@ namespace PlatinumWeb
         }
 
         //private void shtoStatus()
-        //{
-        //    gvPunesim.Columns.Remove(gvPunesim.Columns["Statusi"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    colnew.PropertiesComboBox.Items.Add("", 0);
-        //    colnew.PropertiesComboBox.Items.Add(MessagesResource.Messages["Shef_departamenti"], 1);
-        //    colnew.PropertiesComboBox.Items.Add(MessagesResource.Messages["Punonjes"], 2);
-        //    colnew.FieldName = "Statusi";
-        //    colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-        //    gvPunesim.Columns.Add(colnew);
-        //}
 
         //private void shtoNdryshimPozicioni()
-        //{
-        //    gvPunesim.Columns.Remove(gvPunesim.Columns["NdryshimPozicioni"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DataTable dt = clsPunonjes.merrNdryshimPozicioniDT(idgjuha);
 
-        //    colnew.PropertiesComboBox.DataSource = dt;
-        //    colnew.PropertiesComboBox.TextField = "Pershkrimi";
-        //    colnew.PropertiesComboBox.ValueField = "Id";
-
-        //    colnew.FieldName = "NdryshimPozicioni";
-        //    colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-        //    gvPunesim.Columns.Add(colnew);
-        //}
 
         /// <summary>
         /// perdoret per te konfiguruar griden. Per te dhenat mbi kolonat qe do te shfaqen nga databaza si dhe percakton disa karakteristika te grides
@@ -1241,7 +1192,6 @@ namespace PlatinumWeb
 
             KonfigurimComboGride.shtoStatusPunesimi(gvPunesim, rm, cultinf);
             KonfigurimComboGride.shtoNdryshimPozicioni(gvPunesim, idNdermarrje, idgjuha, Session, komponente, guidString);
-            //"275543" = mySessionObjects.ktheCultureInfo(Session);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvPunesim, "IdPunesim", false);
             gvPunesim.SettingsBehavior.AllowSort = true;
             gvPunesim.Columns["#"].VisibleIndex = 0;
@@ -1272,7 +1222,6 @@ namespace PlatinumWeb
             }
             else
             {
-                //DbCore.DbListPagesat.colPunesim col = (DbCore.DbListPagesat.colPunesim)CacheLayer.GlobalCacheManager.MySessionCache["Punesim"];
                 colPunesim col = mySessionObjects.merrPunesimNgaSesioni(Session);
                 gvPunesim.DataSource = col;
                 gvPunesim.DataBind();
@@ -1337,10 +1286,8 @@ namespace PlatinumWeb
                     controls.AddRange(ASPxPageControl1.GetAsPxTextEditIdValue());
 
                     hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-                    //NrAuto.vendosVleratNrAuto(hfNrAuto, this, ASPxPageControl1, null, null);
 
                     hfNrAutoKF = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrKontrate", "NrKontrate");
-                    //NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrKontrate", "NrKontrate");
 
                     mySessionObjects.ruajIdShtimiNeSesion(Session, id - 1);
                     col.Add(punesim);
@@ -1482,7 +1429,6 @@ namespace PlatinumWeb
                 col = colQendraKostoPunonjes.ktheQendraPunonjesi(0);
             else
                 col = colQendraKostoPunonjes.ktheQendraPunonjesi(id);
-            //Session.Add("Punesim", col);
             mySessionObjects.ruajObjectNeSesion(Session, col, qendraKostoSessionKey);
             gvQendra.DataSource = col;
             gvQendra.DataBind();
@@ -1496,7 +1442,6 @@ namespace PlatinumWeb
         }
 
     
-
         /// <summary>
         /// perdoret per te konfiguruar griden. Per te dhenat mbi kolonat qe do te shfaqen nga databaza si dhe percakton disa karakteristika te grides
         /// </summary>
@@ -1508,7 +1453,6 @@ namespace PlatinumWeb
             KonfigurimComboGride.shtoQK(gvQendra, idNdermarrje, Session, komponente, guidString, "IdQenderKosto1");
             KonfigurimComboGride.shtoQK(gvQendra, idNdermarrje, Session, komponente, guidString, "IdQenderKosto2");
            
-            //"275543" = mySessionObjects.ktheCultureInfo(Session);
             GridUtil.percaktoVisibleColumns(mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvQendra, "gvQendra", komponente);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvQendra, "Id", false);
 
@@ -1523,10 +1467,6 @@ namespace PlatinumWeb
         protected void gvQendra_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
             ////DbCore.DbListPagesat.colPunesim col = (DbCore.DbListPagesat.colPunesim)CacheLayer.GlobalCacheManager.MySessionCache["Punesim"];
-            //DataTable col = (DataTable)mySessionObjects.merrObjectNgaSesioni(Session);
-            //gvQendra.DataSource = col;
-            //gvQendra.DataBind();
-            //gvQendra.JSProperties["cpCallbackCompleted"] = true;
         }
 
         /// <summary>
@@ -1541,9 +1481,6 @@ namespace PlatinumWeb
             else
             {
                 ////DbCore.DbListPagesat.colPunesim col = (DbCore.DbListPagesat.colPunesim)CacheLayer.GlobalCacheManager.MySessionCache["Punesim"];
-                //DataTable col = (DataTable)mySessionObjects.merrObjectNgaSesioni(Session, qendraKostoSessionKey);
-                //gvQendra.DataSource = col;
-                //gvQendra.DataBind();
             }
         }
 
@@ -1619,7 +1556,6 @@ namespace PlatinumWeb
                 col = colBandaPunonjes.ktheBandaPunonjesi(0);
             else
                 col = colBandaPunonjes.ktheBandaPunonjesi(id);
-            //Session.Add("Punesim", col);
             mySessionObjects.ruajObjectNeSesion(Session, col, bandSessionKey);
             gvBanda.DataSource = col;
             gvBanda.DataBind();
@@ -1633,7 +1569,6 @@ namespace PlatinumWeb
         }
 
         
-
         /// <summary>
         /// perdoret per te konfiguruar griden. Per te dhenat mbi kolonat qe do te shfaqen nga databaza si dhe percakton disa karakteristika te grides
         /// </summary>
@@ -1645,7 +1580,6 @@ namespace PlatinumWeb
           
             KonfigurimComboGride.shtoGlobalLocal(gvBanda, idNdermarrje, Session, komponente, guidString, "IdGrupimGlobal");
             KonfigurimComboGride.shtoGlobalLocal(gvBanda, idNdermarrje, Session, komponente, guidString, "IdGrupimLokal");
-            //"275543" = mySessionObjects.ktheCultureInfo(Session);
             GridUtil.percaktoVisibleColumns(mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvBanda, "gvBanda", komponente);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvBanda, "Id", false);
 
@@ -1786,7 +1720,6 @@ namespace PlatinumWeb
         {
             KonfigurimComboGride.shtoNjesiKomponenteLP(gvPagaShtesa, rm, cultinf);
             percaktoTemplatePagaShtesa(idNdermarrje);
-            //"275543" = mySessionObjects.ktheCultureInfo(Session);
             GridUtil.percaktoVisibleColumnsMeWidth(mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvPagaShtesa, "gvPagaShtesa", komponente);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvPagaShtesa, "IdPagaShtesa", false);
             gvPagaShtesa.SettingsBehavior.AllowSort = false;
@@ -1831,7 +1764,6 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         protected void gvPagaShtesa_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
         {
-            //DbCore.DbListPagesat.colPagaShtesa colpaga = (DbCore.DbListPagesat.colPagaShtesa)CacheLayer.GlobalCacheManager.MySessionCache["PagaShtesa"];
             colPagaShtesa colpaga = mySessionObjects.merrPageShteseNgaSesioni(Session);
             if (e.RowType == GridViewRowType.Data)
             {
@@ -2074,7 +2006,6 @@ namespace PlatinumWeb
         }
 
 
-
         #endregion PagaShtesa
 
         #region KomponenteListPagese
@@ -2092,7 +2023,6 @@ namespace PlatinumWeb
                 string[] kompselect = { "DM", "PP", "PT", "PPS", "SP" };
                 foreach (clsKomponenteListPagesePunonjesi kom in col.Where(x => kompselect.Contains(x.KodKomponente)))
                 {
-                    // kom.Edukshme = true;
                     kom.Edetyrueshme = true;
                 }
 
@@ -2113,7 +2043,6 @@ namespace PlatinumWeb
                 hfKodeKomp.Add(i.ToString(), cls.KodKomponente);
                 i++;
             }
-            //Session.Add("KomponenteListPagesePunonjes", col);
             mySessionObjects.ruajKompListPagesPunonjesiNeSesion(Session, col);
 
             gvKomponenteListPagese.DataSource = col;
@@ -2157,18 +2086,7 @@ namespace PlatinumWeb
         /// perdoret per te shfaqur llojin ne vend te true/false si dhe filtri i llojit te shfaqet ne forme komboje
         /// </summary>
         //private static void shtoNjesi(ASPxGridView grida)
-        //{
-        //    grida.Columns.Remove(grida.Columns["Njesia"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    colnew.PropertiesComboBox.Items.Add("", Convert.ToInt32(NjesiPagese.Undefined));
-        //    colnew.PropertiesComboBox.Items.Add(NjesiPagese.Nr.ToString(), Convert.ToInt32(NjesiPagese.Nr));
-        //    colnew.PropertiesComboBox.Items.Add(NjesiPagese.Tab.ToString(), Convert.ToInt32(NjesiPagese.Tab));
-        //    colnew.PropertiesComboBox.Items.Add(NjesiPagese.For.ToString(), Convert.ToInt32(NjesiPagese.For));
-        //    colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-        //    colnew.FieldName = "Njesia";
 
-        //    grida.Columns.Add(colnew);
-        //}
 
         /// <summary>
         /// perdoret per te konfiguruar griden. Per te dhenat mbi kolonat qe do te shfaqen nga databaza si dhe percakton disa karakteristika te grides
@@ -2180,16 +2098,13 @@ namespace PlatinumWeb
         {
             KonfigurimComboGride.shtoNjesiKomponenteLP(gvKomponenteListPagese, rm, cultinf);
             percaktoTemplateKomponente();
-            //"275543" = mySessionObjects.ktheCultureInfo(Session);
             GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvKomponenteListPagese", gvKomponenteListPagese, cmbKonfigurimiKomp.Text.Split(';')[0], "708", mySessionObjects.ktheGjuhe(Session), true, 118);
-            //DbCore.clsFunksione.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), idNdermarrje, gvKomponenteListPagese, "gvKomponenteListPagese", "Shto_Punonjes.aspx");
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvKomponenteListPagese, "IdKomponenteListPagesePunonjes", false);
             gvKomponenteListPagese.SettingsBehavior.AllowSort = false;
             gvKomponenteListPagese.SettingsBehavior.AllowGroup = true;
             gvKomponenteListPagese.Settings.ShowFilterBar = GridViewStatusBarMode.Auto;
             gvKomponenteListPagese.Settings.ShowFilterRow = true;
             gvKomponenteListPagese.GroupBy(gvKomponenteListPagese.Columns["Grup"]);
-            // gvKomponenteListPagese.SettingsBehavior.AutoExpandAllGroups = true;
         }
 
         /// <summary>
@@ -2309,7 +2224,6 @@ namespace PlatinumWeb
         }
 
 
-
         #endregion KomponenteListPagese
 
         private clsBankaPunonjes krijoBanka(int idNdermarrje)
@@ -2373,7 +2287,6 @@ namespace PlatinumWeb
                     cmbNenDepartamenti.TextField = "Emri";
                     cmbNenDepartamenti.ValueField = "IdStrukturaAdm";
 
-                    //clsFunksione.mbushComboStrukturaAdm(cmbNenDepartamenti, id, mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 }
             }
         }
@@ -2472,7 +2385,6 @@ namespace PlatinumWeb
             {
                 if (Request.Params["__CALLBACKID"].Contains("cmbProfesioni"))
                 {
-                    //clsFunksione.mbushComboProfesioneTituj(cmbProfesioni, mySessionObjects.merrIdNdermarrjeSesioni(Session), 1);
                     if (e.Value == null) return;
                     idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                     var lloji = 1;
@@ -2505,7 +2417,6 @@ namespace PlatinumWeb
                 }
             }
         }
-
 
 
         protected void cmbKodeProfesione_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
@@ -2709,7 +2620,6 @@ namespace PlatinumWeb
             }).FirstOrDefault();
             return JsonConvert.SerializeObject(rowPerTuKthyer);
             return rowPerTuKthyer;
-            //  return JsonConvert.SerializeObject(row);
         }
 
         [WebMethod(EnableSession = true)]
@@ -2773,8 +2683,6 @@ namespace PlatinumWeb
             }).FirstOrDefault();
             return JsonConvert.SerializeObject(perTuKthyer);
         }
-
-
 
 
         #endregion WEBMETHODS

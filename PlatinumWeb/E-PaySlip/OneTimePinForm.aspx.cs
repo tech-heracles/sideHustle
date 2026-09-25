@@ -23,7 +23,6 @@ namespace PlatinumWeb.E_PaySlip
         {
 
 
-
             if (!IsPostBack)
             {
 
@@ -51,7 +50,6 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-
         protected void Start()
         {
             string key = $"{Session.SessionID}_{ONETIMEPINFORM_TIMER_START_DATE}";
@@ -70,7 +68,6 @@ namespace PlatinumWeb.E_PaySlip
                 milisekonda = 180000 - Convert.ToInt32((DateTime.Now - (DateTime)date).TotalMilliseconds);
                 if (milisekonda <= 0)
                 {
-                    //              var ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
                     var gjuha = ci.Name == "sq-AL" ? "AL" : "EN";
                     Response.Redirect($"{DbCore.IMBUtils.Paths.loginPathEpaySlip}?arsye=skaduarPin&gjuha={gjuha}");
                     return;
@@ -84,7 +81,6 @@ namespace PlatinumWeb.E_PaySlip
         protected void vendosEmraLabela()
         {
 
-            //  dalje.Text = "Log out";
             dalje.InnerText = rm.GetString("lblDalje", ci);
             DevExpress.Web.ASPxButton LoginButton = (DevExpress.Web.ASPxButton)KodHyresForm.FindControl("butonPerTeHyre");
             LoginButton.Text = rm.GetString("lblHyrje", ci);
@@ -97,7 +93,6 @@ namespace PlatinumWeb.E_PaySlip
             var dergoPinMeSMS = DbCore.DbAdmin.clsServerConfiguration.LexoKonfigurimSipasKey<int>(DbCore.DbAdmin.ServerKonfigKey.DERGO_PIN_SMS);
             if (dergoPinMeSMS != 1 || DbCore.DbAdmin.clsGjenerimPIN.eshteIVlefshemPIN(txtPin.Text, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DateTime.Now))
             {
-                //e.Authenticated = true;
                 DbCore.clsFunksione.krijoTicket(Session, DbCore.mySessionObjects.ktheEmerPerdorues(Session));
                 string key = $"{Session.SessionID}_{ONETIMEPINFORM_TIMER_START_DATE}";
                 HttpRuntime.Cache.Remove(key);
@@ -108,7 +103,6 @@ namespace PlatinumWeb.E_PaySlip
             else
             {
                 NLog.LogManager.GetCurrentClassLogger().Error("DbCore.DbAdmin.clsGjenerimPIN.eshteIVlefshemPIN(...) == false! Nuk eshte i vleshem autentifimi i PIN-it ");
-                //e.Authenticated = false;
             }
         }
 

@@ -167,7 +167,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
-            //string catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
             string catid = "";
             if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null)
                 catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
@@ -240,7 +239,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                     label.Text = "+";
             }
         }
-
 
 
         private void xrTableCell24_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -323,7 +321,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
 
-
         private void xrTableCell27_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -402,7 +399,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
 
-        
         private void xrTableCell33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -416,7 +412,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
    
-
         private void xrTableCell54_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -430,8 +425,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
     
-
-
         private void xrTableCell55_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -445,7 +438,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
     
-
         private void xrTableCell64_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -485,7 +477,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
       
-
         private void xrTableCell85_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -499,7 +490,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
    
-
         private void xrTableCell95_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             count++;
@@ -511,7 +501,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Result = count;
             e.Handled = true;
         }
-
 
 
         private void xrTableCell87_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -547,7 +536,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell100_SummaryReset(object sender, System.EventArgs e)
         {
-           // nivkodi = 0;
 
         }
 

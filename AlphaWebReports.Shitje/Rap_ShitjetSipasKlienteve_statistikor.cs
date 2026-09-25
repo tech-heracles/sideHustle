@@ -54,7 +54,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             ResourceManager rm = new ResourceManager("Resources.Strings",
             System.Reflection.Assembly.Load("App_GlobalResources"));          
             xrLabel70.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel20.Text = rm.GetString("lblTitulliRap", ci);
             NrRendKoka.Text = rm.GetString("lblNrrend", ci);
             KodiKoka.Text = rm.GetString("lblKodi", ci);
             EmertimiKoka.Text = rm.GetString("labelRaportiEmertimi", ci);
@@ -70,20 +69,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel42.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel40.Text = "-";
 
-            //xrLabel109.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel120.Text = rm.GetString("lblTitulliRap", ci);
-            //xrLabel109.Text = rm.GetString("lblNrrend", ci);
-            //xrLabel117.Text = rm.GetString("lblKodi", ci);
-            //xrLabel119.Text = rm.GetString("labelRaportiEmertimi", ci);
-            //xrLabel118.Text = rm.GetString("labelQyteti", ci);
-            //xrLabel116.Text = rm.GetString("labelRaportAdresa", ci);
-            //xrLabel115.Text = rm.GetString("lblVlerashiturNeto", ci);
-            //xrLabel114.Text = rm.GetString("lblNrFaturash", ci);
-            //xrLabel113.Text = rm.GetString("lblVlMesFature", ci);
-            //xrLabel112.Text = rm.GetString("lblNrTotRreshtash", ci);
-            //xrLabel111.Text = rm.GetString("lblNrGrupeArt", ci);
-            //xrLabel110.Text = rm.GetString("lblNrMesRreshtashFat", ci);
-            //xrLabel17.Text = rm.GetString("lblPeshaKlientit", ci);
            
         }
 

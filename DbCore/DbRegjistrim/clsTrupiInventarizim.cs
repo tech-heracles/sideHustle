@@ -273,7 +273,6 @@ namespace DbCore.DbRegjistrim
         public colTrupiInventarizim merriSipasKoka()
         {
             colTrupiInventarizim data = new colTrupiInventarizim();
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             data.mbushGjitheTrupiInventarizimNgaKoka(this.idKoka);
             return data;
         }

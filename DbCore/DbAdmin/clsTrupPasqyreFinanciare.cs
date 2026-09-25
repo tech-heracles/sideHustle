@@ -122,24 +122,9 @@ namespace DbCore.DbAdmin
         }
 
         //public bool ruaj()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_ruajt = data.ruajTrupPasqyreFinaciare(this);
-        //    return true;
-        //}
 
         //public bool modifiko()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_modifikua = data.modifikoTrupPasqyreFinaciare(this);
-        //    return u_modifikua;
-        //}
 
         //public bool fshi()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_fshi = data.fshiTrupPasqyreFinaciare(this);
-        //    return u_fshi;
-        //}
     }
 }

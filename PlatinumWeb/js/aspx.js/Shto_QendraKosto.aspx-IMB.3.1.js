@@ -364,7 +364,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
     var hf = $('#hfKontrollet')[0]; //mban te dhenat mbi kontrollet
     var hfLidhur = $("#hfLidhur");
     hfLidhur.val(result);
-    //        aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result.toLowerCase()));
 }
 var arr = new Array();
@@ -442,7 +441,6 @@ function SucceededCallbackKonfig(result) {
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
 
-   // $("#dvBurimi").show();//$("#dvBurimi")[0].style.visibility = 'visible';
 }
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
@@ -470,7 +468,6 @@ function _getKeyCode(evt) {
 }
 
 function changeName() {
-   // trlQendra.PerformCallback();
     var hf = $("#hfKonffillestar")[0];
     if (Utils.getUrlVar('id') == undefined)
         myFaqeCelje.changeName('Shto_QendraKosto.aspx', 0, hf);

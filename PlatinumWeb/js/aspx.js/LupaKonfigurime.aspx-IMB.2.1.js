@@ -55,9 +55,7 @@ function OnGridSelectionChanged() {
 function OnGridSelectionComplete(values) {
     var s = new String();
     var sK = new String();
-    //s += values[0];
     s = s + values[0][1];
-    //sK += values[1];
     sK = sK + values[0][1];
     var vl = s.split(",");
     var vlSK = sK.split(",");
@@ -73,22 +71,15 @@ function OnGridSelectionComplete(values) {
     else {
 
 
-
         window.parent.editorGlobal.SetText(vlSK[0]);
         window.parent.editorGlobal.SetFocus(true);
     }
-    //window.parent.getElementById('hfSkemaKontabelRegjistrime').Value = vl[0];
-
 
 
     window.parent.popupUniversal.Hide();
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

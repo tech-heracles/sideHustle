@@ -210,8 +210,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
-
         /// <summary>
         /// Kthen/Vendos ID-ne e ndermarjes
         /// </summary>
@@ -389,7 +387,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// Ruan objektin e  njesise administrative ne tabelen perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbRegjistrim.clsDatabaseRegjistrim.ruajNjesiAdministrative"/> 
@@ -457,7 +454,6 @@ namespace DbCore.DbRegjistrim
         {
             colDegeAdministrative data = new colDegeAdministrative();
             data.mbushGjitheDegeAdministrative(this.IdNdermarje);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
@@ -470,8 +466,6 @@ namespace DbCore.DbRegjistrim
         public clsDegeAdministrative merrDegeSipasKodit()
         {
             clsDegeAdministrative data = new clsDegeAdministrative(this.Kodi, this.IdNdermarje);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrNjesiAdministrativeSipasKodit(this);
             return data;
         }
 

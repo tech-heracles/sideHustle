@@ -20,7 +20,6 @@ namespace DbCore.DbShare
         private bool localRaprot;
         private bool localPerdorues;
         private bool localNdermarrje;
-        //private colFilterTrupi oColFilterTrupi;
         private int idStatusDok;
         private DateTime dtKrijimi;
         private DateTime dtModifikimi;
@@ -73,10 +72,8 @@ namespace DbCore.DbShare
 
             }
         //public colFilterTrupi OColFilterTrupi
-        //{
         //    get { return oColFilterTrupi; }
         //    set { oColFilterTrupi = value; }
-        //}
         /// <summary>
         /// kam pershtypjen qe set-i nuk duhet lene
         /// </summary>
@@ -112,7 +109,6 @@ namespace DbCore.DbShare
         {            
             kokaKodi = kodi;
             kokaPershkrimi = pershkrimi;
-            //filterDefault = def;
             idPerdoruesi = idperdoruesi;
             idNdermarrje = idndermarrje;
             this.idRaport = idRaport;
@@ -120,7 +116,6 @@ namespace DbCore.DbShare
             this.localPerdorues = localPerdorues;
             this.localNdermarrje = localNdermarrje;
             this.idStatusDok = idstatusdok;
-            //oColFilterTrupi = new colFilterTrupi();            
         }
 
         public clsFilterKoka(String kodi)
@@ -148,10 +143,8 @@ namespace DbCore.DbShare
 
         public clsMesazh ruajFiltrin(int idKokaFilter, String kodi, String pershkrimi, int idperdoruesi, int idndermarrje, int idRaport, colFilterTrupi filterTrupi, int idstatusdok)
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             clsMesazh mesazh;
             DbCore.DbShare.clsDatabaseShare dbshare= new clsDatabaseShare();
-            //dbshare.krijoManager();
             dbshare.beginTransaksion();
           
             try
@@ -272,7 +265,6 @@ namespace DbCore.DbShare
         public clsMesazh fshi()
         {
             clsDatabaseShare data = new clsDatabaseShare();
-            //data.krijoManager();
             data.beginTransaksion();
             colFilterTrupi filtratrupi = new colFilterTrupi(idKokaFilter);
             bool uFshiTrupi = filtratrupi.fshi(data);
@@ -287,17 +279,8 @@ namespace DbCore.DbShare
         }
 
         //duhet pare metoda merrTrupinFiltri
-        //public colFilterTrupi merrFilterTrupin()
-        //{
-        //    clsDatabaseShare data = new clsDatabaseShare();
-        //    return mbushFilterKoka(data.merrTrupinFiltri(idKokaFilter));
-        //}
         //[Obsolete("Nuk perdoret:",true)]
         //public void merr(int idRaporti)
-        //{
-        //    clsDatabaseShare data = new clsDatabaseShare();
-        //    data.merrFilterKokaDefaultRap(idRaporti);
-        //}
 
         public colFilterKoka merriTeGjitheNgaModuli(int idModuli)
         {
@@ -324,7 +307,6 @@ namespace DbCore.DbShare
             int.TryParse(rreshti["IDSTATUSDOK"].ToString(), out idStatusDok);
             DateTime.TryParse(rreshti["DTKRIJIMI"].ToString(), out dtKrijimi);
             DateTime.TryParse(rreshti["DTMODIFIKIMI"].ToString(), out dtModifikimi);
-            // oColFilterTrupi = oTrupi.merrFilterTrupin(koka);
             return true;
         }
 

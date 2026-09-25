@@ -41,8 +41,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private double ndrAbs12;
         private double gjenVitPara12;
         private int niv;
-        //int niv2 = 0;
-        //int niv3 = 0;
         private int nivTemp;
         private double sh1;
         private double sh2;
@@ -75,7 +73,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         public Rap_Analiza_Aktiveve_Qarkulluese(CultureInfo ci, XtraReport raport)
         {
             InitializeComponent();
-            //  EmrateLabelave(ci);
             this.ci = ci;
             MonNder.Value = raport.Parameters[4].Value;
             xrLabel52.Text = raport.Parameters[0].Description;
@@ -162,28 +159,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void lblKPF_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("kodikpf") != null) catid = GetCurrentColumnValue("kodikpf").ToString();
 
-
-            //if (GetCurrentColumnValue("NRLLOGARI") == null || GetCurrentColumnValue("NRLLOGARI").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJLLOG") != null && GetCurrentColumnValue("SHFAQBIJLLOG").ToString() == "False"))
-            //{
-            //    label.Text = "";
-            //}
 
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";Detail;235;buxhetor')";
-            //    if (!SkippedDetailBands.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailBands[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void GroupHeader7_BeforePrint(object sender, PrintEventArgs e)
@@ -203,124 +182,37 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void lblprindi5_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null) catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //label.NavigateUrl = "";
-            //if (GetCurrentColumnValue("lloji") == null || GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ5") != null && GetCurrentColumnValue("SHFAQBIJ5").ToString() == "False"))
-            //    label.Text = "";
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";KPF;235;buxhetor')";
 
-            //    if (!SkippedDetailKPF.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailKPF[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void lblPrindi4_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null) catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //label.NavigateUrl = "";
-            //if (GetCurrentColumnValue("lloji") == null || GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ4") != null && GetCurrentColumnValue("SHFAQBIJ4").ToString() == "False"))
-            //    label.Text = "";
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";KPF;235;buxhetor')";
-            //    if (!SkippedDetailKPF.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailKPF[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void lblPrindi3_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null) catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //label.NavigateUrl = "";
-            //if (GetCurrentColumnValue("lloji") == null || GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ3") != null && GetCurrentColumnValue("SHFAQBIJ3").ToString() == "False"))
-            //    label.Text = "";
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";KPF;235;buxhetor')";
-            //    if (!SkippedDetailKPF.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailKPF[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void lblPrindi2_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null) catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //label.NavigateUrl = "";
-            //if (GetCurrentColumnValue("lloji") == null || GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ2") != null && GetCurrentColumnValue("SHFAQBIJ2").ToString() == "False"))
-            //    label.Text = "";
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";KPF;235;buxhetor')";
-            //    if (!SkippedDetailKPF.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailKPF[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void lblPrindi1_BeforePrint(object sender, PrintEventArgs e)
         {
-            //XRLabel label = sender as XRLabel;
-            //string catid = "";
-            //if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null)
-            //    catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
-            //label.NavigateUrl = "";
-            //if (GetCurrentColumnValue("lloji") == null || GetCurrentColumnValue("lloji").ToString() == "" || (GetCurrentColumnValue("SHFAQBIJ1") != null && GetCurrentColumnValue("SHFAQBIJ1").ToString() == "False"))
-            //    label.Text = "";
             //else
-            //{
-            //    label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + catid + ";KPF;235;buxhetor')";
-            //    if (!SkippedDetailKPF.Contains(catid))
-            //        if (hapurgjitha)
-            //            label.Text = "-";
-            //        else label.Text = "+";
-            //    else if ((bool)SkippedDetailKPF[catid] == false)
-            //        label.Text = "-";
             //    else
-            //        label.Text = "+";
-            //}
         }
 
         private void xrLabel57_BeforePrint(object sender, PrintEventArgs e)
         {
-            //string niv = "";
-            //if (niveli1 > 0)
-            //    niv = romake[niveli1 - 1];
-            //else niv = "I";
-            //XRLabel label = sender as XRLabel;
-            //label.Text = xrLabel32.Text + "." + xrLabel23.Text;
         }
 
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -403,7 +295,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel50_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //niv = 0;
             double shuma = 0;
             for (var i = 0; i < e.CalculatedValues.Count; i++)
                 if (e.CalculatedValues[i].ToString().Contains("("))
@@ -514,41 +405,23 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel20.Text = rm.GetString("labelRaportiShenime", ci);
             xrLabel21.Text = rm.GetString("labelRaportiUshtrimiMbyllur", ci);
             xrLabel22.Text = rm.GetString("labelRaportiUshtrimiParaardhes", ci);
-            // xrLabel56.Text = rm.GetString("labelRaportiShuma", ci);
-            //  xrLabel58.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel63.Text = rm.GetString("labelRaportiTotali", ci);
-            //  xrLabel74.Text = rm.GetString("lblRaportAktivetNeto", ci);
             xrLabel70.Text = rm.GetString("filterMonedha", ci);
             xrLabel14.Text = rm.GetString("labelRaportiNrLlog", ci);
             xrLabel20.Text = rm.GetString("labelRaportiNrLower", ci);
-            //  xrLabel30.Text = rm.GetString("lblRaportRezMbartura", ci);
-            // xrLabel68.Text = rm.GetString("lblRaportPerfaqesuarFondiKonsoliduar", ci);
         }
 
         private void xrLabel2_BeforePrint(object sender, PrintEventArgs e)
         {
             niv = 0;
-            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //if (xrLabel2.Text == "Aktivet")
-            //    xrLabel2.Text = rm.GetString("labelRaportiAktive", ci);
-            //else xrLabel2.Text = rm.GetString("labelRaportiKapitali", ci);
         }
 
         private void xrLabel64_BeforePrint(object sender, PrintEventArgs e)
         {
-            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //if (xrLabel64.Text == "Aktivet")
-            //    xrLabel64.Text = "Totali " + rm.GetString("labelRaportiAktive", ci);
-            //else xrLabel64.Text = "Totali " + rm.GetString("labelRaportiPasivetTotal", ci);
         }
 
         private void xrLabel59_BeforePrint(object sender, PrintEventArgs e)
         {
             //ResourceManager rm = new ResourceManager("Resources.Strings",
-            //              System.Reflection.Assembly.Load("App_GlobalResources"));
-            //if (xrLabel59.Text == "Aktive te pacaktuara")
-            //    xrLabel59.Text = rm.GetString("labelRaportiAktiveTePacaktuara", ci);
-            //else if (xrLabel59.Text == "Pasive te pacaktuara") xrLabel59.Text = rm.GetString("labelRaportiKapitaliTePacaktuara", ci);
         }
 
         private void xrLabel6_BeforePrint(object sender, PrintEventArgs e)
@@ -559,13 +432,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 xrLabel6.Text = rm.GetString("labelRaportiAktiveTePacaktuara", ci);
             else if (xrLabel6.Text == "Pasive te pacaktuara")
                 xrLabel6.Text = rm.GetString("labelRaportiKapitaliTePacaktuara", ci);
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    xrLabel16.Text = "";
-            //    xrLabel69.Text = "";
-            //    xrLabel37.Text = "";
 
-            //}
         }
 
         private void xrLabel44_BeforePrint(object sender, PrintEventArgs e)
@@ -663,31 +530,11 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //private void xrLabel66_SummaryReset(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //    niv2 = 0;
-        //    niv3 = 0;
-        //}
-
-        //private void xrLabel63_SummaryReset(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //}
 
         private void xrLabel49_SummaryReset(object sender, EventArgs e)
         {
         }
 
-        //private void xrLabel63_AfterPrint(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //}
-
-        //private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
 
         private void xrLabel33_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -697,7 +544,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel33_SummaryReset(object sender, EventArgs e)
         {
-            //niv = 0;
         }
 
         private void xrLabel33_AfterPrint(object sender, EventArgs e)
@@ -750,14 +596,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_BeforePrint(object sender, PrintEventArgs e)
         {
-            // xrLabel34.Text = vlera;
         }
 
         private void xrLabel69_AfterPrint(object sender, EventArgs e)
         {
-            // double vlera= Convert.ToDouble(xrLabel69.Summary.GetResult());
-            //  double vlera = shuma1 - shuma2;
-            // xrLabel9.Text = String.Format("{0:#,#.00}", vlera);
         }
 
         private void xrLabel69_BeforePrint(object sender, PrintEventArgs e)
@@ -766,18 +608,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel89_AfterPrint(object sender, EventArgs e)
         {
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    vlera = xrLabel69.Text;
-            //}
         }
 
         private void xrLabel89_BeforePrint(object sender, PrintEventArgs e)
         {
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    vlera = xrLabel69.Text;
-            //}
         }
 
         private void xrLabel67_AfterPrint(object sender, EventArgs e)
@@ -786,9 +620,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_AfterPrint(object sender, EventArgs e)
         {
-            //vlera1 = xrLabel34.Text;
             //float diferenca=Co
-            //xrLabel72.Text = String.Format("{0:#,#.00}", shuma);
         }
 
         private void ReportFooter_BeforePrint(object sender, PrintEventArgs e)
@@ -821,14 +653,12 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel76_BeforePrint(object sender, PrintEventArgs e)
         {
             //niv++;
-            //xrLabel76.Text = niv.ToString();
         }
 
 
         private void xrLabel66_BeforePrint(object sender, PrintEventArgs e)
         {
             //niv++;
-            //xrLabel66.Text = niv.ToString();
         }
 
         private void xrLabel76_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -859,7 +689,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void GroupHeader6_BeforePrint(object sender, PrintEventArgs e)
         {
-            //shuma2 = 0; shuma1 = 0;
         }
 
         private void xrLabel66_SummaryGetResult_1(object sender, SummaryGetResultEventArgs e)
@@ -921,27 +750,14 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void GroupHeader6_AfterPrint(object sender, EventArgs e)
         {
-            // double shuma = shuma1 - shuma2;
-            //  xrLabel9.Text = shuma.ToString();
             shuma1 = 0;
             shuma2 = 0;
         }
 
         private void xrLabel100_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //double shuma = shuma1 - shuma2;
-            //if (shuma >= 0)
-            //{
-            //    e.Result = String.Format("{0:#,#.00}", shuma);
-            //    xrLabel100.Text = String.Format("{0:#,#.00}", shuma);
-            //}
             //else
-            //{
-            //    e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
-            //    xrLabel100.Text = "(" + String.Format("{0:#,#.00}", shuma) + ")";
-            //}
 
-            //e.Handled = true;
             double shuma = 0;
             for (var i = 0; i < e.CalculatedValues.Count; i++)
                 if (e.CalculatedValues[i].ToString().Contains("("))
@@ -1055,14 +871,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel11_SummaryCalculated(object sender, TextFormatEventArgs e)
         {
-            //if (e.Value.ToString().Contains("(")) shuma1 = -double.Parse(e.Value.ToString().Replace('(', ' ').Replace(')', ' '));
-            //else shuma1 = double.Parse(e.Value.ToString());
         }
 
         private void xrLabel82_SummaryCalculated(object sender, TextFormatEventArgs e)
         {
-            //if (e.Value.ToString().Contains("(")) shuma2 = -double.Parse(e.Value.ToString().Replace('(', ' ').Replace(')', ' '));
-            //else shuma2 = double.Parse(e.Value.ToString());
         }
 
 
@@ -1114,18 +926,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel106_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //double shuma = shuma1 - shuma2;
-            //if (shuma >= 0)
-            //{
-            //    e.Result = String.Format("{0:#,#.00}", shuma);
-            //    xrLabel106.Text = String.Format("{0:#,#.00}", shuma);
-            //}
             //else
-            //{
-            //    e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
-            //    xrLabel106.Text = "(" + String.Format("{0:#,#.00}", shuma) + ")";
-            //}
-            //e.Handled = true;
         }
 
 
@@ -1376,7 +1177,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         {
             var perqindjetotal = total/total2;
             e.Result = string.Format("{0:#,#.00}", perqindjetotal*100) + " %";
-            //  String.Format("{0:P}", perqindjetotal);
             xrLabel57.Text = string.Format("{0:#,#.00}", perqindjetotal*100) + " %";
             e.Handled = true;
         }

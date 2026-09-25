@@ -31,8 +31,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         }
 
 
-      
-      
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -73,27 +71,8 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel43.Text = rm.GetString("labelLogoIMB", ci);
             
             //report header
-            //xrLabel109.Text = rm.GetString("RaportRegjistriAnalitikShitjeveTitulli", ci);
-            //xrLabel123.Text = rm.GetString("labelDokumentArtikulli", ci);
-            //xrLabel120.Text = rm.GetString("labelKodi", ci);
-            //xrLabel121.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrLabel110.Text = rm.GetString("labelNjesia", ci);
-            //xrLabel111.Text = rm.GetString("labelSasia", ci);
-            //xrLabel117.Text = rm.GetString("labelVlefta", ci);
-            //xrLabel113.Text = rm.GetString("labelCmimi", ci);
-            //xrLabel122.Text = rm.GetString("labelGjithsej", ci);
-            //xrLabel116.Text = rm.GetString("labelZbritjeAnalitike", ci);
-            //xrLabel118.Text = rm.GetString("labelVleftapaTVSH", ci);
-            //xrLabel112.Text = rm.GetString("labelZbritjaTotale", ci);
-            //xrLabel119.Text = rm.GetString("labelVleftameZbritje", ci);
-            //xrLabel114.Text = rm.GetString("labelMonLlogari", ci);
-            //xrLabel115.Text = rm.GetString("labelMonBaze", ci);
-            //xrLabel124.Text = rm.GetString("labelFilterAvancuarPerdorues", ci);
-            //xrLabel125.Text = rm.GetString("filterRaportPershkrimFature", ci);
-            //xrLabel128.Text = rm.GetString("labelRaportiCmimiBaze", ci);
         }
 
        
-      
     }
 }

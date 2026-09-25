@@ -19,21 +19,13 @@ namespace AlphaWebReports.RaportetDs.Blerje
             InitializeComponent();
             EmrateLabelave(ci);
 
-         //   Param1Desc.Text = raport.Parameters[0].Description;
             parameter1.Value = raport.Parameters[0].Value;
-        //    Param2Desc.Text = raport.Parameters[1].Description;
             parameter2.Value = raport.Parameters[1].Value;
-        //    Param3Desc.Text = raport.Parameters[2].Description;
             parameter3.Value = raport.Parameters[2].Value;
-         //   Param4Desc.Text = raport.Parameters[3].Description;
             parameter4.Value = raport.Parameters[3].Value;
-          //  Param5Desc.Text = raport.Parameters[4].Description;
             parameter5.Value = raport.Parameters[4].Value;
-         //   Param6Desc.Text = raport.Parameters[5].Description;
             parameter6.Value = raport.Parameters[5].Value;
-          //  Param7Desc.Text = raport.Parameters[6].Description;
             parameter7.Value = raport.Parameters[6].Value;
-            //degaAdminLabel.Text = raport.Parameters[7].Description;
             DegaAdministrative.Value = raport.Parameters[7].Value;
         }
 

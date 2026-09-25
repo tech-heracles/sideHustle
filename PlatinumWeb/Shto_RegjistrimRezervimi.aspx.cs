@@ -23,9 +23,6 @@ namespace PlatinumWeb
 {
     public partial class Shto_RegjistrimRezervimi : MyPageBase
     {
-        //private static string pershkrimDaljeFK = "Nga daljet e magazinës";
-        //private static string pershkrimHyrjeFK = "Nga hyrjet e magazinës";
-        //private static string STR_zgjidhniDtRegj = "Zgjidhni nje datë regjistrimi!";
         private enum Statusi
         {
             neproces = 0,
@@ -36,8 +33,6 @@ namespace PlatinumWeb
         private colTrupiRezervime trupat = new colTrupiRezervime();
         public void MerrTedhenat(int idGjuha, int idPerdoruesi, int idViti, int idNdermarrje, clsKokaRezervime koka, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
         {
-            //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new clsNivelRegjistrimi();
-            //niv.IdNivel = koka.IdNivel;
             string kodNiveli = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheKodNivelRegjistrimi(koka.IdNivel);
             cmbLloji.Text = kodNiveli;// niv.merrNivelRegjSipasId().Kodi;
             mbushComboKonfigurimet(true, rm, ci, idGjuha, idNdermarrje, idPerdoruesi); 
@@ -79,7 +74,6 @@ namespace PlatinumWeb
         }
 
    
-
         protected void Page_Load(object sender, EventArgs e)
         {
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -236,29 +230,9 @@ namespace PlatinumWeb
 
         public void btnPo_Click(object sender, EventArgs e)
         {
-            //trupat = DbCore.mySessionObjects.merrTrupatRezNgaSesioni(Session);
-            //DbCore.clsMesazh mesazh = new DbCore.clsMesazh(true, "Rivleresimi përfundoi me sukses!");
-
-            //foreach (DbCore.DbRegjistrim.clsTrupiRezervime t in trupat)
-            //{
-
-            //    DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
-            //    mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, art.MetodeKostojeArtikulli, t.IdMag, t.Data, DateTime.Today); 
-            //    if (!mesazh.StatusMesazhi)
-            //    {
-            //        if (pergjigja.Text == "fshi")
-            //        Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimjo");
-            //        else Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajjo");
-            //    }
-            //}
 
 
-            //mySessionObjects.ruajTrupatNeSession(Session, new DbCore.DbRegjistrim.colTrupiMagazina());
-            //if (mesazh.StatusMesazhi)
             //{   if (pergjigja.Text == "fshi")
-            //    Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimpo");
-            //    else Response.Redirect("RegjistrimMagazine.aspx?lloj=" + Request.QueryString["lloj"] + "&fshi=rivleresimruajpo");
-            //}
         }
 
         /// <summary>
@@ -282,7 +256,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
 
@@ -305,10 +278,6 @@ namespace PlatinumWeb
 
                 if (m.Name == "RuajPrint")
                 {
-                    //if (cmbKonfigurimi.Text == "FHTK" && kokmag.IdStatusDok == 4 && (hfShtimModifikim.Value == "modifikim"))
-                    //    aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
-                    //if (cmbKonfigurimi.Text == "FHTK" && kokmag.IdStatusDok == 0 && (hfShtimModifikim.Value == "modifikim"))
-                    //    aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].Text = "Konfirmo dhe printo";
                 }
                 if (m.Name == "ItemFrame")
                     clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1);
@@ -380,8 +349,6 @@ namespace PlatinumWeb
 
         private void mbushComboNivelesh(int idNdermarrje, ASPxComboBox cmblloji)
         {
-            //colNivelRegjistrimi col = new colNivelRegjistrimi();
-            //col.mbushGjitheNivelRegjistrimiSipasKategoriMeKonvertime(78, idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             cmblloji.DataSource = DbCore.DbRegjistrim.colNivelRegjistrimi.ktheGjitheNivelRegjistrimiSipasKategoriDtCombo(78, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), false); ;
             cmblloji.TextField = "Kodi";
             cmblloji.ValueField = "IdNivel";
@@ -398,8 +365,6 @@ namespace PlatinumWeb
             cmbstatusi.Items.Add(rm.GetString("cmbAnulluar", cultinf));
             cmbStatusi.SelectedIndex = index;
             cmbstatusi.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            //if ((hfShtimModifikim.Value == "modifikim")) cmbstatusi.ClientEnabled = true;
-            //else cmbstatusi.ClientEnabled = false;
         }
 
         /// <summary>
@@ -411,7 +376,6 @@ namespace PlatinumWeb
         /// <param name="idNdermarrje"></param>
         private void konfiguroVleraFillestareModifiko(int idGjuha, int idPerdoruesi, int idViti, int idNdermarrje, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
         {//mbush kombot dhe gridat
-            // txtNrDok.Enabled = false;
 
             AspxWebControlUtils.vendosDateEditMask(dteDtDok);
             AspxWebControlUtils.vendosDateEditMask(dteDtRegjistrimi);
@@ -489,20 +453,7 @@ namespace PlatinumWeb
                 colKonfig.mbushKonfigAmbjSipasIdKategori(idKategori, idNdermarje, idPerdoruesi, idGjuha);
             cmbKonfigurimi.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
             DbCore.DbShare.colKonfigurimAmbjenti konfVarura = new DbCore.DbShare.colKonfigurimAmbjenti();
-            //foreach (DbCore.DbShare.clsKonfigurimAmbjenti konfi in colKonfig)
-            //{
-            //    DbCore.DbShare.colKusht kushte = new DbCore.DbShare.colKusht();
-            //    DbCore.DbShare.clsKusht kusht = new DbCore.DbShare.clsKusht();
-            //    kusht.IdKonfigurimAmbjente = konfi.IdKonfigAmbjente;
-            //    kushte.mbushGjitheKushteKonfigurimi(kusht.IdKonfigurimAmbjente);
-            //    foreach (DbCore.DbShare.clsKusht k in kushte)
-            //    {
-            //       if (k.Kodi == "V")
-            //       if (k.Vlera == 43 && !mod)
-            //        konfVarura.Add(konfi);
 
-            //    }
-            //}
             foreach (DbCore.DbShare.clsKonfigurimAmbjenti konfi in konfVarura)
             {
                 colKonfig.Remove(konfi);
@@ -599,8 +550,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -608,12 +557,6 @@ namespace PlatinumWeb
                 return;
             }
             kokam.mbushTrupRezervime();
-            //mesazh = kokam.kontrolloGjendjeNeFshirje(new DbCore.DbRegjistrim.colTrupiRezervime(), 0);
-            //if (!mesazh.StatusMesazhi)
-            //{
-            //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
-            //    return;
-            //}
             kokam.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             mesazh = kokam.fshi();
             DbCore.mySessionObjects.ruajTrupatRezNeSession(Session, trupat);
@@ -729,7 +672,6 @@ namespace PlatinumWeb
                     if (hfShtimModifikim.Value == "shtim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DShtim) || (statusDokumenti == 0 && !tedrejtaInfo.DShtimDraft))
-                        //if (!tedrejtaInfo.DShtim)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta"), pnlMesazhi);
                             status1.Value = "false";
@@ -740,7 +682,6 @@ namespace PlatinumWeb
                     else if (hfShtimModifikim.Value == "modifikim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                        //if (!tedrejtaInfo.DMod)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta"), pnlMesazhi);
                             status1.Value = "false";
@@ -812,10 +753,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             int idnivel = int.Parse(cmbLloji.Value.ToString());
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -842,8 +781,6 @@ namespace PlatinumWeb
             }
             else if (koka.Lloji == 1 && hfShtimModifikim.Value == "modifikim" && cmbStatusi.SelectedIndex == Convert.ToInt16(Statusi.ekzekutuar))
             { //gjenerohet RD
-                //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new clsNivelRegjistrimi() { Kodi = "RD", IdNdermarje = idNdermarrje };
-                //niv.merrNivelRegjSipasKodi();
                 int idNivelGjen = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("RD", idNdermarrje);
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                 konf.mbushKonfigAmbjSipasKod("RD", idNdermarrje);
@@ -854,8 +791,6 @@ namespace PlatinumWeb
             else if (koka.Lloji == 1 && hfShtimModifikim.Value == "modifikim" && cmbStatusi.SelectedIndex == Convert.ToInt16(Statusi.anulluar))
             {
                 //gjenerohet RA
-                //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new clsNivelRegjistrimi() { Kodi = "RA", IdNdermarje = idNdermarrje };
-                //niv.merrNivelRegjSipasKodi();
                 int idNivelGjen = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("RA", idNdermarrje);
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                 konf.mbushKonfigAmbjSipasKod("RA", idNdermarrje);
@@ -948,7 +883,6 @@ namespace PlatinumWeb
 
             if (isMagENjejte && trupat.Count > 0)
             {
-                //clsNjesiAdministrative magazinaPerbashket = new clsNjesiAdministrative(trupat[0].IdMag, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));                
                 btneMagazina.Text = clsNjesiAdministrative.ktheKodiNjesiAdministrativeSipasiD(trupat[0].IdMag, idPerdoruesi);
             }
             return trupat;
@@ -1033,7 +967,6 @@ namespace PlatinumWeb
 
             return isValid;
         }
-
 
 
         /// <summary>

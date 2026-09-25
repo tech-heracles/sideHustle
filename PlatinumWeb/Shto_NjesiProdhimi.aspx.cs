@@ -360,20 +360,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_NjProdhimi.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_NjProdhimi);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_NjProdhimi.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -420,7 +408,6 @@ namespace PlatinumWeb
                 cmbFiltra.Text = "";
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuhePerdoruesi, idNdermarrje, "ASPxGridView_NjProdhimi", int.Parse(cmbKonfigurimi.Value.ToString()), "Shto_NjesiProdhimi.aspx");
                 percaktoTemplateMenu(idGjuhePerdoruesi, idViti, idPerdorues, idNdermarrje, ASPxMenu1);
-                //konfiguroVleraFillestare(idNdermarrje, idGjuhePerdoruesi);
                 hfStatusi.Value = "true";
                 this.ASPxGridView_NjProdhimi.FilterExpression = String.Empty;
             }
@@ -459,7 +446,6 @@ namespace PlatinumWeb
                 if (njesiProdhimi.IdNjesiProdhimi == 0)
                     continue;
 
-                //konf.mbushKonfigAmbjSipasId(auto.IdAutomjeti);
                 konf.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, idNdermarrje);
                 bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(njesiProdhimi.IdNjesiProdhimi.ToString(), konf.IdNivel.ToString());
                 if (lidhur)

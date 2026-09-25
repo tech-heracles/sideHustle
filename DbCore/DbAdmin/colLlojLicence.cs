@@ -40,21 +40,13 @@ namespace DbCore.DbAdmin
         private bool mbushLlojLicence(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojLicence llojlicence = new  clsLlojLicence ();
-                    //llojlicence.mbushLlojLicence(rreshti);
                     Add(new clsLlojLicence(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

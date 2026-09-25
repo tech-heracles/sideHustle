@@ -69,7 +69,6 @@ namespace DbCore.DbInventari
         private int llogaritjaKMSHArtikulli;
         private int zevendesimAutomatikArtikulli;
         private int idPerdoruesi;
-        //private int idNderViti;
         private int idNdermarje;
         private string kodKodifikimi1;
         private string kodKodifikimi2;
@@ -98,7 +97,6 @@ namespace DbCore.DbInventari
         private colArtikujtZevendesues oColArtikujtZevendesues;
         private colVleraFushaShtese oColVleratFushaShtese;
         private colBuxhetet oColBuxhetet;
-        //private DbAdmin.colLidhjetAutorizim oColLidhjetAutorizim;
         private colDetajimePerArt oColDetajime;
         private colDetajimePerArt oColDetajime2;
         private colArtikulliPerberes colArtikujPerberes;
@@ -137,7 +135,6 @@ namespace DbCore.DbInventari
         private int idmagazina;
         private bool iRezervueshem;
         private bool perTransferim;
-        //private colKodbare colKodbaret;
         private DbCore.DbShare.colArkiva oArkiva;
         private bool loan;
         private bool dhurate;
@@ -169,7 +166,6 @@ namespace DbCore.DbInventari
         private string kodOferte;
         private bool artikullIVjeter;
         private int idFormatSeriali;
-        //private int v;
         private int idNdermarrje;
         private int idLlogRez;
         private int idLlogPakRez;
@@ -362,7 +358,6 @@ namespace DbCore.DbInventari
             get { return pershkrimFurnitori; }
             set { pershkrimFurnitori = value; }
         }
-
 
 
         /// <summary>
@@ -616,7 +611,6 @@ namespace DbCore.DbInventari
         }
 
 
-
         /// <summary>
         /// Kthen/Vendos sasine min te artikullit.
         /// </summary>
@@ -688,10 +682,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
 
         /// <summary>
         /// Kthen/Vendos ID-ne  e ndermarjes.
@@ -1651,7 +1643,6 @@ namespace DbCore.DbInventari
         public clsArtikulli(string kodArt, int idNdermarrje, clsDatabaseInventari dbInventari)
         {
             mbushArtikull(dbInventari.TransCache.getArtikull(kodArt, idNdermarrje, dbInventari));
-            //mbushArtikull(dbInventari.merrArtikull(kodArt, idNdermarrje));
         }
         /// <summary>
         ///
@@ -1830,8 +1821,6 @@ namespace DbCore.DbInventari
                 this.idFormatSeriali = idformatseriali;
                 this.colArtikujVfone = colArtikujVfone;
                 this.colNormaRezerva = colNormaRezerva;
-                //if (hfArkiva != null)
-                //    this.oArkiva = DbCore.DbShare.clsArkiva.krijoArkiva(idArtikulli, 1, 13, DateTime.Now, idPerdoruesi, hfArkiva);
                 this.HfArkiva = hfArkiva;
                 this.merezerverivleresimi = merezerveriv;
                 this.nrKaraktereTAC = nrKaraktereTAC;
@@ -1985,7 +1974,6 @@ namespace DbCore.DbInventari
         {
             Dictionary<string, object> sasiteArtikullit = new Dictionary<string, object>();
             double sasi = 0;
-            //double sasitot = 0;
             DateTime dtSeria = new DateTime();
             double sasiaDet = 0;
 
@@ -2023,7 +2011,6 @@ namespace DbCore.DbInventari
             }
 
             sasiteArtikullit.Add("sasi", sasi);
-            //sasiteArtikullit.Add("sasitot", sasitot);
             sasiteArtikullit.Add("dtSeria", dtSeria);
             sasiteArtikullit.Add("sasiaDet", sasiaDet);
 
@@ -2031,7 +2018,6 @@ namespace DbCore.DbInventari
         }
         private static object[] merrSasiPerArtPerDateSkadenceOseSeriDetajime(int lloji, int idDetajim1, int idMag, DateTime data, clsArtikulli artikulli, clsDetajimArtikulli det, string shtimModifikim, bool dokShitje, int idDok, List<Dictionary<string, string>> detSasiteList, int idKategoriDetajimi, clsDatabaseRegjistrim dbRegj, string detajime)
         {
-            //double sasitot = 0;
             DateTime dtSeria = new DateTime();
             double sasiaDet = 0;
 
@@ -2055,7 +2041,6 @@ namespace DbCore.DbInventari
         }
         private static object[] merrSasiPerArtPerDateSkadenceOseSeriDetajime2(int lloji, int idDetajim1, int idMag, DateTime data, clsArtikulli artikulli, clsDetajimArtikulli det, string shtimModifikim, bool dokShitje, int idDok, List<Dictionary<string, string>> detSasiteList, int idKategoriDetajimi, clsDatabaseRegjistrim dbRegj, string detajime)
         {
-            //double sasitot = 0;
             DateTime dtSeria = new DateTime();
             double sasiaDet = 0;
 
@@ -2139,7 +2124,6 @@ namespace DbCore.DbInventari
                                 sasiteArtikullitTest = merrSasiPerArtPerDateSkadenceOseSeriDetajime2(lloji, idDetajim1, idMag, data, artikulli, new clsDetajimArtikulli(idDetajim1), shtimModifikim, dokShitje, idDok, detSasiteList, idKategoriDetajimi, dbRegj, detajime); //kthen nje objekt me sasite per kete artikull
 
 
-
                             foreach (clsDetajimArtikulli det in colDet)
                             {
                                 if (artikulli.Klasa == 4)
@@ -2174,10 +2158,8 @@ namespace DbCore.DbInventari
                                     foreach (var value in sasiTest)
                                     {
                                         sasi = Double.Parse(value.GetType().GetProperty("sasis").GetValue(value, null).ToString());
-                                        //dtSeria = DateTime.Parse(value.GetType().GetProperty("DtKrijimi").GetValue(value, null).ToString());
                                     }
 
-                                    //sasitot = (double)sasiteArtikullit["sasitot"];
                                     Dictionary<string, string> sasiaDetObj = detSasiteList.FirstOrDefault(d => d.Values.Contains(det.KodDetajimArtikulli));
                                     if (sasiaDetObj != null)
                                         sasiaDet = double.Parse(sasiaDetObj["Sasi"]);
@@ -2217,7 +2199,6 @@ namespace DbCore.DbInventari
                                         sasi = Double.Parse(value.GetType().GetProperty("sasis").GetValue(value, null).ToString());
                                         dtSeria = DateTime.Parse(value.GetType().GetProperty("DtKrijimi").GetValue(value, null).ToString());
                                     }
-                                    //sasitot = (double)sasiteArtikullit["sasitot"];
                                     Dictionary<string, string> sasiaDetObj = detSasiteList.FirstOrDefault(d => d.Values.Contains(det.KodDetajimArtikulli));
                                     if (sasiaDetObj != null)
                                         sasiaDet = double.Parse(sasiaDetObj["Sasi"]);
@@ -2349,7 +2330,6 @@ namespace DbCore.DbInventari
                                     Dictionary<string, object> sasiteArtikullit = merrSasiPerArtPerDateSkadenceOseSeri(lloji, idDetajim1, idMag, data, artikulli, det, shtimModifikim, dokShitje, idDok, detSasiteList, idKategoriDetajimi, dbRegj); //kthen nje objekt me sasite per kete artikull
 
                                     sasi = (double)sasiteArtikullit["sasi"];
-                                    //sasitot = (double)sasiteArtikullit["sasitot"];
                                     sasiaDet = (double)sasiteArtikullit["sasiaDet"]; // sasia ne gride e art per kete detajim
 
                                     if (sasi > 0 && sasiaDet < sasi)
@@ -2374,7 +2354,6 @@ namespace DbCore.DbInventari
                                     Dictionary<string, object> sasiteArtikullit = merrSasiPerArtPerDateSkadenceOseSeri(lloji, idDetajim1, idMag, data, artikulli, det, shtimModifikim, dokShitje, idDok, detSasiteList, idKategoriDetajimi, dbRegj);
                                     dtSeria = Convert.ToDateTime(sasiteArtikullit["dtSeria"]);
                                     sasi = (double)sasiteArtikullit["sasi"];
-                                    //sasitot = (double)sasiteArtikullit["sasitot"];
                                     sasiaDet = (double)sasiteArtikullit["sasiaDet"];
 
                                     if (sasi > 0 && sasiaDet < sasi)
@@ -2452,7 +2431,6 @@ namespace DbCore.DbInventari
             if (IdArtikulli > 0 && IdTvsh > 0)
             {
                 clsTaksa taksa = colTaksa.Where(x => x.IdTaksa == idTvsh).FirstOrDefault();
-                //var taksa = new clsTaksa(IdTvsh);
                 if (taksa.Aktiv == true)
                     return clsTaksa.MerrComboItemTaksa(taksa, "art");
             }
@@ -3400,11 +3378,9 @@ namespace DbCore.DbInventari
             {
                 clsDatabaseInventari db = new clsDatabaseInventari();
 
-                //db.beginTransaksion();
                 clsMesazh mesazhKontrolli = kontrolloArtikull(out kaNdryshimNumri, db, hfNrAutoKF, false);
                 if (!mesazhKontrolli.Status)
                 {
-                    //db.rollbackTransaksion();
                     return mesazhKontrolli;
                 }
                 clsMesazh u_ruajt = ruajArtikull(out idart, this.KodArtikulli, this.PershkrimArtikulli, this.PershkrimiAngArtikulli, this.KodiDoganorArtikulli, this.VendodhjeArtikulli, this.Kodifikimi1Artikulli, this.Kodifikimi2Artikulli, this.OrigjineArtikulli, this.Njesi1Artikulli, this.Njesi2Artikulli, this.KoeficientArtikulli, this.IdFurnitoriKryesor, this.PeshaBrutoArtikulli, this.PeshaNetoArtikulli, this.DetajimArtikulli, this.Klasa, this.IdSkemaKontabilitetiArtikulli, this.IdLlogariInventari, this.IdLlogariBlerje, this.IdLlogariShitje, this.IdLlogariTeTrete, this.idLlogariPakesim, this.IdLlogariShpenzime, this.IdLlogariAmortizimi, this.IdLlogRez, this.IdLlogPakRez, this.MinimumArtikulli, this.MaximumArtikulli, this.MetodeKostojeArtikulli, this.LlogaritjaKMSHArtikulli, this.ZevendesimAutomatikArtikulli, this.IdPerdoruesi, this.Aktiv, this.ColArtikujPerberes, this.colGjendjeArtikulliMag, template.IdKoka, template.Kodi, template.Pershkrimi, this.OColFurnitoreArtikujsh, this.OColArtikujtZevendesues, this.OColVleraFushaShtese, this.OColBuxhetet, this.OColDetajime, this.IdStatusDok, this.LlojiArt, colCmime, this.SasiNjesi, this.Scrap, this.ProdhimMePorosi, this.IdKategoriDetajimi, this.idKonfig, this.idTvsh, this.KontrollGjendje, this.KontrollCmimi, this.kontrollGjendjeArtikulli, this.idNdermarje, this.idPerdoruesi, this.IdKategoriDetajimi2, this.OColDetajime2, this.KontrollGjendjeDetajim2, this.idObjektivaKosto, this.idllojGarancie, this.garancia, db, idmagazina, this.iRezervueshem, this.perTransferim, this.loan, this.Dhurate, this.AplikimDhurate, this.Pike, this.Vlere, this.kodVFOne, this.meSerial, this.colNorma, this.iShitshem, this.mbetjeShitshme, this.oColKodbare, this.idArtRaportuesi, this.perPeshore, this.PershkrimFurnitori, this.SiperfaqjaM2, this.NrKontrate, this.NrPasurie, this.ZonaKadastrale, this.Shasia, this.Marka, this.Modeli, this.VitProdhimi, this.TeDhenaTeknika, this.MeBarkodLogjik, this.SkemaBarkodit, this.kodifikimi3Artikulli, aparatBazaar, kodOferte, this.artikullIVjeter, this.idFormatSeriali, this.colArtikujVfone, this.MeRezerveRivleresimi, this.colNormaRezerva, this.nrKaraktereTAC, this.idNdermarje, this.llogaritKomision, this.idLlogariKomision, this.stokuMaxVfOne, this.kodiiBarit, this.iRimbursueshem);
@@ -3412,7 +3388,6 @@ namespace DbCore.DbInventari
                 this.idArtikulli = idart;
                 if (!u_ruajt.Status)
                 {
-                    //db.rollbackTransaksion();
                     return u_ruajt;
                 }
 
@@ -3425,12 +3400,10 @@ namespace DbCore.DbInventari
 
                     if (!u_ruajt.Status)
                     {
-                        //db.rollbackTransaksion();
                         return u_ruajt;
                     }
                 }
 
-                //db.commitTransaksion();
                 scope.Complete();
                 if (kaNdryshimNumri)
                     return mesazhKontrolli;
@@ -3563,7 +3536,6 @@ namespace DbCore.DbInventari
                     {
                         clsLidhjeAutorizim lidhje = new clsLidhjeAutorizim();
                         lidhje.IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-                        //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                         colLidhjet.Add(lidhje);
                     }
                     foreach (clsLidhjeAutorizim o in colLidhjet)
@@ -3576,21 +3548,10 @@ namespace DbCore.DbInventari
                         mesazh = dbAdmin.ruajLidhjeAutorizim(o.IdLidhjeAutorizim, o.IdLidhese, o.IdLloji, o.IdAutorizimeKoka, 1);
                         if (!mesazh.Status)
                         {
-                            //dbInv.rollbackTransaksion();
                             return mesazh;
                         }
                     }
                 }
-                //if (kodbari != "")
-                //{
-                //    colKodbare colKodbare = new colKodbare();
-                //    string[] pars1 = kodbari.Split(',');
-                //    for (int i = 0; i < pars1.Length; i++)
-                //    {
-                //        clsKodbari kodbar = new clsKodbari();
-                //        kodbar.Pershkrimi = pars1[i];
-                //        colKodbare.Add(kodbar);
-                //    }
                 foreach (clsKodbari o in oColKodbare)
                 {
                     o.IdArtikulli = idArtikulli;
@@ -3609,7 +3570,6 @@ namespace DbCore.DbInventari
                         mesazh = dbInv.ruajFurnitoreArtikulli(out idF, o.IdArtikulli, o.IdFurnitori, o.Prioriteti);
                         if (!mesazh.Status)
                         {
-                            //dbInv.rollbackTransaksion();
                             return mesazh;
                         }
                     }
@@ -3685,7 +3645,6 @@ namespace DbCore.DbInventari
                             mesazh = dbInv.ruajArtikullPerbere(out idA, o.Lloji, o.IdArtikulliKryesor, o.IdLidheseArt, o.Koeficienti, o.Scrap, o.IdLidheseAkt, o.GjithmoneNgaStoku, o.DtNdryshimi);
                             if (!mesazh.Status)
                             {
-                                //dbInv.rollbackTransaksion();
                                 return mesazh;
                             }
                         }
@@ -3699,7 +3658,6 @@ namespace DbCore.DbInventari
                         mesazh = dbInv.ruajArtikullVfone(out idA, o.IdArtikulli, o.KodVfone, o.Pike, o.Vlere);
                         if (!mesazh.Status)
                         {
-                            //dbInv.rollbackTransaksion();
                             return mesazh;
                         }
 
@@ -3709,15 +3667,11 @@ namespace DbCore.DbInventari
                     {
                         int idA;
                         o.IdArtikulli = idArtikulli;
-                        //if (o.Lloji != 0)
-                        //{
                         mesazh = dbInv.ruajGjendjeArtikulli(out idA, o.IdArtikulli, o.IdMagazina, o.GjendjaMin, o.GjendjaMax);
                         if (!mesazh.Status)
                         {
-                            //dbInv.rollbackTransaksion();
                             return mesazh;
                         }
-                        // }
                     }
                 colNorma.ForEach(x => x.IdArtikulli = this.idArtikulli);
                 ColNormaRezerva.ForEach(x => x.IdArtikulli = this.idArtikulli);
@@ -3731,51 +3685,27 @@ namespace DbCore.DbInventari
                     mesazh = dbInv.ruajTemplateArtikullPerberesKoka(out idTempKoka, kodTempKoka, pershkrimTempKoka, idNdermarje);
                     if (!mesazh.Status)
                     {
-                        //dbInv.rollbackTransaksion();
                         return mesazh;
                     }
-                    //ruajTemplateArtikullPerberesKoka(templateKoka);
                     foreach (DbCore.DbInventari.clsArtikulliPerberesTemplateTrupi o in templateKoka.oColTrupi)
                     {
                         o.IdKoka = templateKoka.IdKoka;
                         int idT;
                         mesazh = dbInv.ruajTemplateArtikullPerberesTrupi(out idT, o.IdKoka, o.Lloji, o.IdLidheseArt, o.Koeficienti, o.Vlera, o.IdLidheseLlog);
-                        //mesazh=  ruajTemplateArtikullPerberesTrupi(o);
                         if (!mesazh.Status)
                         {
-                            //dbInv.rollbackTransaksion();
                             return mesazh;
                         }
                     }
                 }
 
                 //ruajtja e Arkives
-                //if (oArkiva != null)
-                //{
-                //    foreach (DbShare.clsArkiva ar in oArkiva)
-                //    {
-                //        ar.IDDok = idArtikulli;
-
-                //        mesazh = ar.update();
 
 
-                //        if (!mesazh.Status)
-                //        {
-
-                //            return mesazh;
-                //        }
-                //    }
-
-                //}
-
-
-
-                //dbInv.commitTransaksion();
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
             catch (Exception ce)
             {
-                //dbInv.rollbackTransaksion();
                 return new clsMesazh(false, ce.Message);
             }
         }
@@ -3891,7 +3821,6 @@ namespace DbCore.DbInventari
                     return mesazh;
                 }
 
-                //mesazh= fshiArtikujPerberes(artikulli);
                 if (ocolArtikujVfone != null)
                     foreach (DbCore.DbInventari.clsArtikullVfone o in ocolArtikujVfone)
                     {
@@ -3964,13 +3893,11 @@ namespace DbCore.DbInventari
 
                             OColFurnitoreArtikujsh[i].IdFurnitoreArtikulli = colFurnitoret[i].IdFurnitoreArtikulli;
                             mesazh = dbInv.modifikoFurnitoreArtikulli(OColFurnitoreArtikujsh[i].IdFurnitoreArtikulli, OColFurnitoreArtikujsh[i].IdArtikulli, OColFurnitoreArtikujsh[i].IdFurnitori, OColFurnitoreArtikujsh[i].Prioriteti);
-                            //mesazh =   modifikoFurnitoreArtikulli(artikulli.OColFurnitoreArtikujsh[i]);
                         }
                         else
                         {
                             int idoC;
                             mesazh = dbInv.ruajFurnitoreArtikulli(out idoC, OColFurnitoreArtikujsh[i].IdArtikulli, OColFurnitoreArtikujsh[i].IdFurnitori, OColFurnitoreArtikujsh[i].Prioriteti);
-                            //mesazh=   ruajFurnitoreArtikulli(artikulli.OColFurnitoreArtikujsh[i]);
                         }
                         if (!mesazh.Status)
                         {
@@ -3990,12 +3917,10 @@ namespace DbCore.DbInventari
                             OColFurnitoreArtikujsh[i].IdArtikulli = idArtikulli;
                             OColFurnitoreArtikujsh[i].IdFurnitoreArtikulli = colFurnitoret[i].IdFurnitoreArtikulli;
                             mesazh = dbInv.modifikoFurnitoreArtikulli(OColFurnitoreArtikujsh[i].IdFurnitoreArtikulli, OColFurnitoreArtikujsh[i].IdArtikulli, OColFurnitoreArtikujsh[i].IdFurnitori, OColFurnitoreArtikujsh[i].Prioriteti);
-                            //mesazh=  modifikoFurnitoreArtikulli(artikulli.OColFurnitoreArtikujsh[i]);
                         }
                         else
                         {
                             mesazh = dbInv.fshiFurnitoreArtikulli(colFurnitoret[i].IdFurnitoreArtikulli);
-                            //mesazh= fshiFurnitoreArtikulli(colFurnitoret[i]);
                         }
                         count++;
                         if (!mesazh.Status)
@@ -4016,13 +3941,11 @@ namespace DbCore.DbInventari
 
                             OColArtikujtZevendesues[i].IdArtikulliZevendesues = colArtikujtZevend[i].IdArtikulliZevendesues;
                             mesazh = dbInv.modifikoArtikulliZevendesues(OColArtikujtZevendesues[i].IdArtikulliZevendesues, OColArtikujtZevendesues[i].IdArtikulliKryesor, OColArtikujtZevendesues[i].IdArtikulliZevend, OColArtikujtZevendesues[i].Prioriteti);
-                            //mesazh=  modifikoArtikulliZevendesues(artikulli.OColArtikujtZevendesues[i]);
                         }
                         else
                         {
                             int idoC;
                             mesazh = dbInv.ruajArtikulliZevendesues(out idoC, OColArtikujtZevendesues[i].IdArtikulliKryesor, OColArtikujtZevendesues[i].IdArtikulliZevend, OColArtikujtZevendesues[i].Prioriteti);
-                            //mesazh=    ruajArtikulliZevendesues(artikulli.OColArtikujtZevendesues[i]);
                         }
                         if (!mesazh.Status)
                         {
@@ -4044,12 +3967,10 @@ namespace DbCore.DbInventari
 
                             OColArtikujtZevendesues[i].IdArtikulliZevendesues = colArtikujtZevend[i].IdArtikulliZevendesues;
                             mesazh = dbInv.modifikoArtikulliZevendesues(OColArtikujtZevendesues[i].IdArtikulliZevendesues, OColArtikujtZevendesues[i].IdArtikulliKryesor, OColArtikujtZevendesues[i].IdArtikulliZevend, OColArtikujtZevendesues[i].Prioriteti);
-                            //mesazh=    modifikoArtikulliZevendesues(artikulli.OColArtikujtZevendesues[i]);
                         }
                         else
                         {
                             mesazh = dbInv.fshiArtikulliZevendesues(colArtikujtZevend[i].IdArtikulliZevendesues);
-                            //mesazh=   fshiArtikulliZevendesues(colArtikujtZevend[i]);
                         }
                         count++;
                         if (!mesazh.Status)
@@ -4078,14 +3999,10 @@ namespace DbCore.DbInventari
                         return mesazh;
                     }
                 }
-                //mesazh= fshiArtikujPerberes(artikulli);
                 if (oColArtikujPerberes != null)
                     foreach (DbCore.DbInventari.clsArtikulliPerberes o in oColArtikujPerberes)
                     {
                         int idP;
-                        //dr[2] = idArtikulli;
-                        //if (int.Parse(dr[1].ToString()) != 0)
-                        //    mesazh = dbInv.ruajArtikullPerbere(out idP, int.Parse(dr[1].ToString()), int.Parse(dr[2].ToString()), int.Parse(dr[3].ToString()), int.Parse(dr[4].ToString()), decimal.Parse(dr[5].ToString()));
                         o.IdArtikulliKryesor = idArtikulli;
                         if (o.Lloji != 0)
                         {
@@ -4127,13 +4044,11 @@ namespace DbCore.DbInventari
 
                         return mesazh;
                     }
-                    //mesazh=  ruajTemplateArtikullPerberesKoka(templateKoka);
                     foreach (DbCore.DbInventari.clsArtikulliPerberesTemplateTrupi o in templateKoka.oColTrupi)
                     {
                         o.IdKoka = templateKoka.IdKoka;
                         int idT;
                         mesazh = dbInv.ruajTemplateArtikullPerberesTrupi(out idT, o.IdKoka, o.Lloji, o.IdLidheseArt, o.Koeficienti, o.Vlera, o.IdLidheseLlog);
-                        //mesazh=  ruajTemplateArtikullPerberesTrupi(o);
                         if (!mesazh.Status)
                         {
 
@@ -4484,16 +4399,7 @@ namespace DbCore.DbInventari
                     clsArtikulli artper = new clsArtikulli(per.IdLidheseArt, db);
                     colCmimeArtikujsh cmimeartper = new colCmimeArtikujsh();
                     cmimeartper.mbushCmimArtikulliSipasArtikullit(artper.idArtikulli, idndermarje, db);
-                    //colKodbare kodbareper = new colKodbare();
-                    //kodbareper.mbushKodbarinSipasIdArtikulli(artper.idArtikulli, db);
-                    //artper.kodbari = "";
-                    //foreach (clsKodbari k in kodbareper)
-                    //{
-                    //    artper.kodbari += k.Pershkrimi + ",";
 
-                    //}
-                    //if (artper.kodbari.Length > 0)
-                    //    artper.kodbari = artper.kodbari.Substring(0, artper.kodbari.Length - 1);
 
                     artper.oColKodbare = artper.mbushKodBare(db);
                     artper.colArtikujPerberes = new colArtikulliPerberes();
@@ -4742,7 +4648,6 @@ namespace DbCore.DbInventari
                     throw new MyException("Lloj i panjohur kodNenLlojLlogarie: " + kodNenLlojLlogarie);
             }
             return new clsLlogari(idLlogari, db);
-            //return transactionCache.getLlogariFromCache(myColLlogari, idLlogari, db);
         }
 
         /// <summary>
@@ -5129,15 +5034,11 @@ namespace DbCore.DbInventari
                                     artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                 foreach (clsArtikulliPerberes art in artPerberes)
                                 {
-                                    //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
-                                    //decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt); 
-                                    //cmmagzgjedhur += tr.llogaritCmimMesatarDetajimPare(art.IdLidheseArt, tmpMetodeKostoje, koef, Magzgjedhur, data, -1, 1) * (double)art.Koeficienti;
                                     clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
                                     cmmagzgjedhur += tr.llogaritCmimMesatar(receptura, Magzgjedhur, data, -1, 1, idPerdoruesi) * (double)art.Koeficienti;
                                 }
                             }
                             else
-                                //cmmagzgjedhur = tr.llogaritCmimMesatar(this, Magzgjedhur, data, -1, 1);
                                 cmmagzgjedhur = tr.llogaritCmimMesatar(this, Magzgjedhur, data, -1, 1, idPerdoruesi);
                             if (cmmagzgjedhur != 0)
                                 vlerat.Add(cmmagzgjedhur.ToString("F" + shifraPasPresjes));
@@ -5162,13 +5063,11 @@ namespace DbCore.DbInventari
                                     artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                 foreach (clsArtikulliPerberes art in per)
                                 {
-                                    //cmtot += tr.llogaritCmimMesatarGjitheMag(new clsArtikulli(art.IdLidheseArt), data, -1, 1) * (double)art.Koeficienti;
                                     cmtot += tr.llogaritCmimMesatar(new clsArtikulli(art.IdLidheseArt), 0, data, -1, 1, idPerdoruesi) * (double)art.Koeficienti;
                                 }
                             }
                             else
                             {
-                                //cmtot = tr.llogaritCmimMesatarGjitheMag(this, data, -1, 1);
                                 cmtot = tr.llogaritCmimMesatar(this, 0, data, -1, 1, idPerdoruesi);
                             }
                             if (cmtot != 0)
@@ -5184,13 +5083,11 @@ namespace DbCore.DbInventari
                                     artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                 foreach (clsArtikulliPerberes art in per)
                                 {
-                                    //cmtotnjesi2 += tr.llogaritCmimMesatarGjitheMag(new clsArtikulli(art.IdLidheseArt), data, -1, 1) * (double)art.Koeficienti;
                                     cmtotnjesi2 += tr.llogaritCmimMesatar(new clsArtikulli(art.IdLidheseArt), 0, data, -1, 1, idPerdoruesi, true) * (double)art.Koeficienti;
                                 }
                             }
                             else
                             {
-                                //cmtotnjesi2 = tr.llogaritCmimMesatarGjitheMag(this, data, -1, 1);
                                 cmtotnjesi2 = tr.llogaritCmimMesatar(this, 0, data, -1, 1, idPerdoruesi, true);
                             }
                             if (cmtotnjesi2 != 0)
@@ -5385,15 +5282,11 @@ namespace DbCore.DbInventari
                                             artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                         foreach (clsArtikulliPerberes art in artPerberes)
                                         {
-                                            //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
-                                            //decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt);
-                                            //cmmagDet1 += tr.llogaritCmimMesatarDetajimPare(art.IdLidheseArt, tmpMetodeKostoje, koef, idMag, data, iddetajim, 1) * (double)art.Koeficienti;
                                             clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
                                             cmmagDet1 += tr.llogaritCmimMesatar(receptura, idMag, data, iddetajim, 1, idPerdoruesi) * (double)art.Koeficienti;
                                         }
                                     }
                                     else
-                                        //cmmagDet1 = tr.llogaritCmimMesatar(this, idMag, data, iddetajim, 1);
                                         cmmagDet1 = tr.llogaritCmimMesatar(this, idMag, data, iddetajim, 1, idPerdoruesi);
                                     if (cmmagDet1 != 0)
                                         vlerat.Add(cmmagDet1.ToString("F" + shifraPasPresjes));
@@ -5417,14 +5310,11 @@ namespace DbCore.DbInventari
                                         foreach (clsArtikulliPerberes art in artPerberes)
                                         {
                                             clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
-                                            //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
                                             decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt);
-                                            //cmmagDet2 += tr.llogaritCmimMesatarDetajimDyte(art.IdLidheseArt, tmpMetodeKostoje, koef, idMag, data, idDetajim2, 1) * (double)art.Koeficienti;
                                             cmmagDet2 += tr.llogaritCmimMesatarDetajimDyte(receptura, koef, idMag, data, idDetajim2, 1, idPerdoruesi) * (double)art.Koeficienti;
                                         }
                                     }
                                     else
-                                        //cmmagDet2 = tr.llogaritCmimMesatarDetajimDyte(this.IdArtikulli, this.MetodeKostojeArtikulli, this.KoeficientArtikulli, idMag, data, idDetajim2, 1);
                                         cmmagDet2 = tr.llogaritCmimMesatarDetajimDyte(this, this.KoeficientArtikulli, idMag, data, idDetajim2, 1, idPerdoruesi);
                                     if (cmmagDet2 != 0)
                                         vlerat.Add(cmmagDet2.ToString("F" + shifraPasPresjes));
@@ -5439,15 +5329,11 @@ namespace DbCore.DbInventari
                                             artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                         foreach (clsArtikulliPerberes art in artPerberes)
                                         {
-                                            //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
-                                            //decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt);
-                                            //cmmag += tr.llogaritCmimMesatarDetajimPare(art.IdLidheseArt, tmpMetodeKostoje, koef, idMag, data, -1, 1) * (double)art.Koeficienti;
                                             clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
                                             cmmag += tr.llogaritCmimMesatar(receptura, idMag, data, -1, 1, idPerdoruesi, true) * (double)art.Koeficienti;
                                         }
                                     }
                                     else
-                                        //cmmag = tr.llogaritCmimMesatar(this, idMag, data, -1, 1);
                                         cmmag = tr.llogaritCmimMesatar(this, idMag, data, -1, 1, idPerdoruesi, true);
                                     if (cmmag != 0)
                                         vlerat.Add((cmmag * Convert.ToDouble(KoeficientArtikulli)).ToString("F" + shifraPasPresjes));
@@ -5461,15 +5347,11 @@ namespace DbCore.DbInventari
                                         artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(this.IdArtikulli, data);
                                     foreach (clsArtikulliPerberes art in artPerberes)
                                     {
-                                        //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
-                                        //decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt);
-                                        //cmmag += tr.llogaritCmimMesatarDetajimPare(art.IdLidheseArt, tmpMetodeKostoje, koef, idMag, data, -1, 1) * (double)art.Koeficienti;
                                         clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
                                         cmmag += tr.llogaritCmimMesatar(receptura, idMag, data, -1, 1, idPerdoruesi) * (double)art.Koeficienti;
                                     }
                                 }
                                 else
-                                    //cmmag = tr.llogaritCmimMesatar(this, idMag, data, -1, 1);
                                     cmmag = tr.llogaritCmimMesatar(this, idMag, data, -1, 1, idPerdoruesi);
                                 if (cmmag != 0)
                                     vlerat.Add(cmmag.ToString("F" + shifraPasPresjes));

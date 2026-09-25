@@ -1009,7 +1009,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             foreach (ASPxComboBox combo in combot)
             {
-                //ASPxComboBox comboKodTemplate = combo as ASPxComboBox;
                 combo.DropDownButton.Visible = false;
                 combo.Buttons.Add();
                 combo.EnableCallbackMode = true;
@@ -1029,8 +1028,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             ASPxComboBox comboKodTemplate = combo as ASPxComboBox;
 
-            //     combo.EnableCallbackMode = true;
-            //combo.CallbackPageSize = 20;
             combo.SettingsLoadingPanel.Enabled = false;
             combo.SettingsLoadingPanel.ShowImage = false;
             comboKodTemplate.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
@@ -1061,7 +1058,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
 
             clsDatabaseRegjistrim regj = new clsDatabaseRegjistrim();
-            //DbCore.DbAdmin.colAgjenteShitje colAgjentet = dbAdmin.merrGjitheAgjentetShitjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = regj.merrLlojElementesh(idndermarje, idgjuha);
             combo.ValueField = "LLOJIGLOBALELEMENT";
             combo.TextField = "LLOJI";
@@ -1074,7 +1070,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
 
             clsDatabaseRegjistrim regj = new clsDatabaseRegjistrim();
-            //DbCore.DbAdmin.colAgjenteShitje colAgjentet = dbAdmin.merrGjitheAgjentetShitjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = regj.merrstatusElementesh(idndermarje, idgjuha);
             combo.ValueField = "LLOJIGLOBALELEMENT";
             combo.TextField = "LLOJI";
@@ -1113,7 +1108,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             cmbLicenca.Columns.Add(colmonedha);
             cmbLicenca.Columns.Add(colemer);
-            //cmbLicenca.TextField = "KODLICENCA";
             cmbLicenca.ValueField = "IDLICENCA";
             cmbLicenca.DataBind();
             if (selektoteparen)
@@ -1183,7 +1177,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             colBankat colBankat = new colBankat();
             DataTable dt = colBankat.ktheGjitheBankatSipasAutorizimeveSipasLlojit(idNdermarrje, idPerdoruesi, plotesodefault, false);
-            //colBankat = dbArkaBanka.merrGjitheBankatSipasAutorizimeveSipasLlojit(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session), true);
             combo.DataSource = dt;
             combo.ValueField = "IdBanka";
             combo.TextField = "KodiBanka";
@@ -1243,13 +1236,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboArtikulliEmertimi(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, string postStringTvsh)
         {// shton kombobox tek grida per artikullin
-            //   DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
-            //   DbCore.DbInventari.colArtikujt colArtikujt = new DbCore.DbInventari.colArtikujt();
-            //   DbCore.DbAdmin.clsPerdorues oPerdorues = (DbCore.DbAdmin.clsPerdorues)(Session["oClsPerdoruesi"]);
             ////   colArtikujt.merrSipasArtikujAktivNdermarrjesAndAutorizime(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), oPerdorues.IdPerdorues);
-            //   //colArtikujt = dbInventari.merrArtikujAktivNdermarrjesAndAutorizime(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), oPerdorues.IdPerdorues);
-            //   DataTable dt = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimePerLupeArtikulli(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session));
-            //   combo.DataSource = dt;// colArtikujt;
             DataTable dt = colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDT(idNdermarrje, idPerdoruesi, false, false, postStringTvsh);
             combo.DataSource = dt;
             combo.TextField = "PershkrimArtikulli";
@@ -1396,7 +1383,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             colBankat colBankat = new colBankat();
             DataTable dt = colBankat.ktheGjitheBankatSipasAutorizimeveSipasLlojit(idNdermarrje, idPerdoruesi, true, false);
-            //colBankat = dbArkaBanka.merrGjitheBankatSipasAutorizimeveSipasLlojit(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session), true);
             combo.DataSource = dt;
             combo.ValueField = "IdBanka";
             combo.TextField = "KodiBanka";
@@ -1436,9 +1422,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboBankatJoSipasLlojit(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int idmonedhaklienti, bool plotesodefault)
         {
-            //clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
-            //clsMonedha monnderm = new clsMonedha(nderm.NdermarrjeMonedha);
-            //clsMonedha mon = new clsMonedha();
 
             //mon.mbushMonedhen(monnderm.KodiMonedha, idNdermarrje); //TOCHECK Nestila - seriozisht e mbushin 2 here kot monedhen se ne fund i duhet id-ja qe e ka qe tek ndermarrja?!?!?!?!?!
             colBankat colBankat = new colBankat();
@@ -1448,7 +1431,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                 dt = colBankat.merrSipasABNdermarrjesAndAutorizimeDTLupa(idNdermarrje, idPerdoruesi, false, false);
             else dt = colBankat.merrSipasABNdermarrjesAndAutorizimeDTSipaMonedhes(idNdermarrje, idPerdoruesi, clsNdermarrje.ktheIdMonedheNdermSipasID(idNdermarrje), idmonedhaklienti);
 
-            //colBankat = dbArkaBanka.merrGjitheBankatSipasAutorizimeveSipasLlojit(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session), true);
             combo.DataSource = dt;
             combo.ValueField = "IdBanka";
             combo.TextField = "EmerBanka";
@@ -1528,7 +1510,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             combo.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
             combo.DataBind();
 
-            // combo.SelectedIndex = 0;
         }
 
         public static void mbushComboStatusMagazine(int idNdermarrje, ASPxComboBox combo)
@@ -1613,7 +1594,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboStatusMagazine(ASPxComboBox combo, int idndermarje)
         {
             colStatusMagazine_Asete statusMag = new colStatusMagazine_Asete();
-            //statusMag.Add(new DbCore.DbAsete.clsStatusMagazine_Asete());
             statusMag.merrStatusMagazineTePerdorshmeTeNdermarrjes(idndermarje);
             statusMag.Insert(0, new clsStatusMagazine_Asete());
             combo.DataSource = statusMag;
@@ -1658,7 +1638,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             clsNdermarrjeViti nder = new clsNdermarrjeViti(idNderViti);
             DataTable dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatRegjistrimDokumentashShperndarjeShpenzimesh(idNdermarrje, new DateTime().ToShortDateString(), nder.NdermarrjeVitiFund.ToShortDateString());
 
-            //DbCore.DbRegjistrim.colKokaShitje col = regj.merrGjitheKokaShitje(new DbCore.clsFunksione().ktheNdermarrjeVit(), kat);
             combo.DataSource = dt;
             combo.ValueField = "IdDokumenti";
             combo.TextField = "NrDokumenti";
@@ -1772,8 +1751,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboGrupeLlogarish(int idNdermarrje, ASPxComboBox combo, int idGjuha)
         {//mbush combon e grupeve me te dhena nga databasa
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colGrupetLlogaria colGrupetLlogaria = dbKontabiliteti.merrGjitheGrupetLlogariapozitive(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             colGrupetLlogaria colGrupetLlogaria = new colGrupetLlogaria(idNdermarrje, idGjuha);
             combo.DataSource = colGrupetLlogaria;
             combo.TextField = "PershkrimiGrupiLlogaria";
@@ -1790,7 +1767,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboGrupeBankash(int idNdermarrje, ASPxComboBox combo, bool lloji)
         {//mbush combon e grupeve me te dhena nga databasa
             colGrupeBanke col = new colGrupeBanke(lloji, idNdermarrje);
-            //DbCore.DbArkaBanka.colGrupeBanke col = db.merrGjitheGrupetBankeSipasLlojit(lloji, ktheIdNdermarrje());
             combo.DataSource = col;
             combo.TextField = "NrGrupBanke";
             combo.ValueField = "IdGrupBanke";
@@ -1850,7 +1826,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboGrupeDokumentashSipasKonfigurimit(ASPxComboBox combo, int idndermarje, int grupi, int idkonfig, int idPerdoruesi)
         {//mbush combon e grupeve me te dhena nga databasa
             DbCore.DbRegjistrim.colGrupimDokumentiKoka col = new DbCore.DbRegjistrim.colGrupimDokumentiKoka();
-            // col.Add(new DbRegjistrim.clsGrupimDokumentiKoka());
             col.merrGrupeSipasKonfigurimit(grupi, idndermarje, idkonfig, idPerdoruesi);
             combo.DataSource = col;
             combo.TextField = "Kodi";
@@ -1883,7 +1858,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboGrupeDokumentashSipasKategorise(ASPxComboBox combo, int idndermarje, int grupi, string idKatDok, int idPerdoruesi)
         {//mbush combon e grupeve me te dhena nga databasa
             DbCore.DbRegjistrim.colGrupimDokumentiKoka col = new DbCore.DbRegjistrim.colGrupimDokumentiKoka();
-            // col.Add(new DbRegjistrim.clsGrupimDokumentiKoka());
             col.merrGrupeSipasKategorise(grupi, idndermarje, idKatDok, idPerdoruesi);
             combo.DataSource = col;
             combo.TextField = "Kodi";
@@ -1900,10 +1874,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboGrupKontabilizimi(int idNdermarrje, ASPxComboBox combo)
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
-            //dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colGrupeKontabilizimi colGrupe = dbKontabiliteti.merrGjitheGrupetKontabilizimi(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             colGrupeKontabilizimi colGrupe = new colGrupeKontabilizimi(idNdermarrje);
             colGrupe.Insert(0, new clsGrupKontabilizimi(0, "", "", 0, 0));
             combo.DataSource = colGrupe;
@@ -2036,7 +2007,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             colKlasaArtikulli klasaArt = new colKlasaArtikulli();
             klasaArt.mbushGjitheKlasaArtikulli();
             combo.DataSource = klasaArt;
-            //combo.DataSource = new DbCore.DbInventari.clsDatabaseInventari().merrGjitheKlasaArtikulli();
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             combo.DataBind();
@@ -2056,7 +2026,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             clsKlasaArtikulli klasaBosh = new clsKlasaArtikulli(0, "");
             klasaArt.Insert(0, klasaBosh);
             combo.DataSource = klasaArt;
-            //combo.DataSource = new DbCore.DbInventari.clsDatabaseInventari().merrGjitheKlasaArtikulli();
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             combo.DataBind();
@@ -2402,14 +2371,11 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboKodifikim(int idNdermarrje, ASPxComboBox combo, int grupi, bool llojartikulli, bool shtoRreshtBosh)
         {
-            //clsFunksione funk = new DbCore.clsFunksione();
-            //DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
 
             colKodifikimeArtikulli kodifikimet = new colKodifikimeArtikulli();
             if (shtoRreshtBosh)
                 kodifikimet.Add(new clsKodifikimArtikulli());
             kodifikimet.mbushGjitheKodifikimetArtikulliSipasNdermarrjesJoPrindDheLlojit(idNdermarrje, grupi, llojartikulli);
-            //kodifikimet = dbInventari.merrGjitheKodifikimetArtikulliSipasNdermarrjesJoPrind(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
 
             combo.DataSource = kodifikimet;
             combo.TextField = "KodKodifikimi";
@@ -2433,12 +2399,9 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
         public static void mbushComboKodifikimNiveli1(int idNdermarrje, ASPxComboBox combo, int grupi, bool llojartikulli)
         {
-            //clsFunksione funk = new DbCore.clsFunksione();
-            //DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
 
             colKodifikimeArtikulli kodifikimet = new colKodifikimeArtikulli();
             kodifikimet.mbushGjitheKodifikimetArtikulliSipasNdermarrjesLlojitNiveli1(idNdermarrje, grupi, llojartikulli);
-            //kodifikimet = dbInventari.merrGjitheKodifikimetArtikulliSipasNdermarrjesJoPrind(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
 
             combo.DataSource = kodifikimet;
             combo.TextField = "KodKodifikimi";
@@ -2481,13 +2444,10 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
         public static void mbushComboKodifikimGjitha(int idNdermarrje, ASPxComboBox combo, int grupi, bool llojartikulli)
         {
-            //clsFunksione funk = new DbCore.clsFunksione();
-            //DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
 
             colKodifikimeArtikulli kodifikimet = new colKodifikimeArtikulli();
             kodifikimet.Add(new clsKodifikimArtikulli());
             kodifikimet.merrKodifikimArtikulliSipasLlojit(grupi, idNdermarrje, llojartikulli);
-            //kodifikimet = dbInventari.merrGjitheKodifikimetArtikulliSipasNdermarrjesJoPrind(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = kodifikimet;
             //combo.DropDownStyle = DropDownStyle.DropDownLis
             combo.TextField = "PershkrimKodifikimi";
@@ -2557,7 +2517,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         }
 
 
-
         public static void mbushComboKonfigurimeshSipasKategorise(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int kat, string kodNiveli, ResourceManager rm, CultureInfo ci, int idGjuha)
         {//mbush griden e popupit me te dhena
             int idNiveli = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(kodNiveli, idNdermarrje);
@@ -2591,20 +2550,16 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboKonfigurimeshSipasKategorisePaKolona(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int kat, int idsuperkat, int idGjuha)
         {//mbush griden e popupit me te dhena
             colKonfigurimAmbjenti col = new colKonfigurimAmbjenti();
-            //if (Request.QueryString.ToString() == "")
-            //{
             clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
             if (kat != 0)
             {
                 konf.IdKategori = kat;
                 konf.IdNdermarje = idNdermarrje;
                 col.mbushKonfigAmbjSipasIdKategori(konf.IdKategori, konf.IdNdermarje, idPerdoruesi, idGjuha);
-                //col = dbShare.merrKonfigAmbjSipasIdKategori(konf, DbCore.clsFunksione.ktheIdPerdoruesi(Session));
             }
             else
             {
                 col.mbushGjitheKonfigurimeAmbjentesh(idNdermarrje, idPerdoruesi, idsuperkat, idGjuha);
-                //col = dbShare.merrGjitheKonfigurimeAmbjentesh(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session));
             }
 
             combo.DataSource = col;
@@ -2755,10 +2710,8 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <example> 1,2,3</example>
         public static void mbushComboKPFBij(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int grup)
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabilitet = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
             colKPFte colKPF = new colKPFte();
-            //colKPF = dbKontabilitet.merrGjitheKPFteSipasGrupitPozitiveAndAutorizimeAktive(grup, funk.ktheNdermarrjeVit(), DbCore.clsFunksione.ktheIdPerdoruesi(Session));
             DataTable dt = colKPFte.mbushGjitheKPFteSipasGrupitPozitiveAndAutorizimeAktiveBij(grup, idNdermarrje, idPerdoruesi);
             combo.DataSource = dt;
             combo.TextField = "KodiKPF";
@@ -2797,12 +2750,8 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboLlogaria(int idNdermarrje, int idPerdoruesi, ASPxComboBox combo, bool vetemNr = false)
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabilitet = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
             DataTable dt = colLlogarite.merrSipasLlogariteNdermarrjesAndAutorizimeAktivDT(idNdermarrje, idPerdoruesi);
-            // DbCore.DbKontabiliteti.colLlogarite colLlogarite = new DbCore.DbKontabiliteti.colLlogarite();
-            //  colLlogarite.mbushLLogariteNdermarrjesAndAutorizime(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session));
-            //colLlogarite = dbKontabilitet.merrLLogariteNdermarrjesAndAutorizime(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session), DbCore.clsFunksione.ktheIdPerdoruesi(Session));
             combo.DataSource = dt;// colLlogarite;
             combo.TextFormatString = vetemNr ? "{0}" : "{0};{1};{2}";
 
@@ -2950,7 +2899,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             if (meItemBosh)
                 colLloji.Add(new clsLlojModeliFushaShtese());
             colLloji.mbushGjitheLlojModeleshFushaShtesePozitive();
-            //DbCore.DbAdmin.colLlojModeleshFushaShtese colLloji = dbAdmin.merrGjitheLlojModeleshFushaShtesePozitive();
             combo.DataSource = colLloji;
             combo.TextField = "PershkrimiLlojModeliFushaShtese";
             combo.ValueField = "IdLlojModeliFushaShtese";
@@ -3238,7 +3186,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboMetodeKostoje(ASPxComboBox combo, bool select)
         {//mbush combon e metodeKostos
-            //DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
             colMetodeKostoje metode = new colMetodeKostoje();
             metode.mbushGjitheMetodeKostoje();
             combo.TextFormatString = "{0}";
@@ -3326,12 +3273,8 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboMonedhatNdermarje(ASPxComboBox combo)
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
 
-            //clsFunksione funk = new DbCore.clsFunksione();
-            //DbCore.DbAdmin.colMonedhat colMonedhat = new DbCore.DbAdmin.colMonedhat();
             DataTable dt = colMonedhat.merrMonedhaNdermarjeDTAktiv(-1, 0);
-            //DbCore.DbAdmin.colMonedhat colMonedhat = dbAdmin.merrGjitheMonedhatAktive(-1, 0);
             combo.DataSource = dt;// colMonedhat;
             combo.TextField = "PershkrimiMonedha";
             combo.ValueField = "IdMonedha";
@@ -3352,7 +3295,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             colNdermarrjet nderm = new colNdermarrjet();
             if (lloji == 0)
                 nderm.mbushNdermarrjeDefault();
-            //nderm = dbAdmin.ktheNdermarrjeDefault();
             else
             {
                 using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
@@ -3360,7 +3302,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                     nderm.mbushNdermarrjeList(dbAdmin.merrNdermarrjetEPerdoruesitDataTable(idPerdoruesi, merrVitet));
                 }
             }
-            //nderm = nderm.mbushArrayListNdermarrjetList(dbAdmin.merrNdermarrjetPerdoruesit(ktheIdPerdoruesi().ToString()));
             combo.DataSource = nderm;
             combo.TextFormatString = "{0}";
 
@@ -3389,10 +3330,8 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="idGrupiLlogari"> id e grupit te llogarive</param>
         public static void mbushComboNenGrupe(ASPxComboBox combo, int idGrupiLlogari, int idGjuha)
         {//mbush combon e nengrupeve me te dhena nga databasa
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             colNenGrupetLlogaria colNenGrupetLlogaria = new colNenGrupetLlogaria();
             colNenGrupetLlogaria.mbushNenGrupetLlogariaSipasGrupitPozitive(idGrupiLlogari, idGjuha);
-            //colNenGrupetLlogaria = dbKontabiliteti.merrNenGrupetLlogariaSipasGrupitPozitive(idGrupiLlogari);
             combo.DataSource = colNenGrupetLlogaria;
             combo.TextField = "PershkrimiNenGrupiLlogaria";
             combo.ValueField = "IdNenGrupiLlogaria";
@@ -3409,9 +3348,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboNiveleCmimesh(int idNdermarrje, int idperd, ASPxComboBox combo)
         {//mbush griden e popupit me te dhena
             colNiveleCmimesh colNiveleZbritjesh = new colNiveleCmimesh();
-            //  colNiveleZbritjesh.mbushGjitheNiveleCmimeshSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             DataTable dt = colNiveleCmimesh.merrNiveleNdermarjeDT(idNdermarrje, idperd);
-            //DbCore.DbInventari.colNiveleCmimesh colNiveleZbritjesh = dbInventari.merrGjitheNiveleCmimeshSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = dt;// colNiveleZbritjesh;
             combo.ValueField = "IdNivelCmimi";
             combo.TextField = "PershkrimNivelCmimi";
@@ -3429,9 +3366,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboNiveleCmimeshSipasLlojit(int idNdermarrje, ASPxComboBox combo, int lloj, int idperd)
         {//mbush griden e popupit me te dhena
             colNiveleCmimesh colNiveleZbritjesh = new colNiveleCmimesh();
-            //  colNiveleZbritjesh.mbushGjitheNiveleCmimeshSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             DataTable dt = colNiveleCmimesh.merrNiveleNdermarjeDTBlerjeShitje(idNdermarrje, lloj, idperd);
-            //DbCore.DbInventari.colNiveleCmimesh colNiveleZbritjesh = dbInventari.merrGjitheNiveleCmimeshSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = dt;// colNiveleZbritjesh;
             combo.ValueField = "IdNivelCmimi";
             combo.TextField = "PershkrimNivelCmimi";
@@ -3542,8 +3477,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboNjesi(int idNdermarrje, ASPxComboBox combo)
         {
             colNjesiteArtikulli col = new colNjesiteArtikulli(idNdermarrje);
-            //DbCore.DbInventari.colNjesiteArtikulli col = new DbCore.DbInventari.colNjesiteArtikulli();
-            //col = dbInventari.merrGjitheNjesiteArtikulliSipasNdermarrjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = col;
             combo.ValueField = "IdNjesia";
             combo.TextField = "KodNjesia";
@@ -3621,7 +3554,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboPeriudhatAktuale(int idViti, ASPxComboBox combo)
         {
-            // int idViti = KtheNeObjektPeriudha(Session["oPeriudhaAktuale"].ToString()).IdViti;
 
             colPeriudhaKontabel colPeriudha = new colPeriudhaKontabel();
             colPeriudha.merrSipasViti(idViti);
@@ -3773,7 +3705,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             colQytetet colQyt = new colQytetet();
             colQyt.mbushGjitheQytetetPozitive(-1);
-            //DbCore.DbAdmin.colQytetet colQyt = dbAdmin.merrGjitheQytetetPozitive(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = colQyt;
             combo.TextField = "EmriQyteti";
             combo.ValueField = "IdQyteti";
@@ -3800,7 +3731,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         public static void mbushComboPajisje(ASPxComboBox combo, int idNdermarrje)
         {
             colPajisjet colPaj = new colPajisjet(idNdermarrje, true);
-            //    colPaj.mbushGjithePajisjet();
             colPaj.Insert(0, new clsPajisje("", "", "", 0, false, false, 0, 0, 0, 0, 0));
             combo.DataSource = colPaj;
             combo.TextField = "kodi";
@@ -3825,7 +3755,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             var indeksi = 0;
             //shtojme muajin bosh
-            //combo.Items.Add("", 0);
             foreach (var item in muaj)
                 combo.Items.Add(item, ++indeksi);
 
@@ -3867,7 +3796,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             DataTable dt = clsPunesim.merrArsye();
 
-            //DbCore.DbAdmin.colQytetet colQyt = dbAdmin.merrGjitheQytetetPozitive(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = dt;
             combo.TextField = "Pershkrimi";
             combo.ValueField = "Id";
@@ -3881,10 +3809,8 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             colQyt.ktheGjitheVendndodhjetSipasNdermarjesAktiv(idNdermarrje);
 
             colQyt.Insert(0, new clsVendndodhjet(0, "", "", 0, true, 0, 0, 0, 0));
-            //DbCore.DbAdmin.colQytetet colQyt = dbAdmin.merrGjitheQytetetPozitive(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = colQyt;
 
-            //   combo.TextField = "Pershkrimi";
             combo.ValueField = "Id";
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             combo.DataBind();
@@ -4023,7 +3949,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             combo.Columns.Add(colEmer);
 
             combo.TextFormatString = "{0} {1}";
-            //  combo.TextField = "NrPersonal";
             combo.ValueField = "NrPersonal";
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             combo.DataBind();
@@ -4058,8 +3983,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             colSkematKontabilitetiArtikulli col = new colSkematKontabilitetiArtikulli(idNdermarrje, lloji, idklasa);
 
-            //DbCore.DbInventari.colSkematKontabilitetiArtikulli col = new DbCore.DbInventari.colSkematKontabilitetiArtikulli();
-            //col = dbInventari.merrSkemaKontabilitetiArtikulliTeGjithaSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = col.Where(x => x.KodiSkemaKontabilitetiArtikulli.IndexOf(filter, StringComparison.InvariantCultureIgnoreCase) > -1);
 
             foreach (clsSkemaKontabilitetiArtikulli s in col)
@@ -4085,8 +4008,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             colSkematKontabilitetiArtikulli col = new colSkematKontabilitetiArtikulli(idNdermarrje, lloji, idklasa);
 
-            //DbCore.DbInventari.colSkematKontabilitetiArtikulli col = new DbCore.DbInventari.colSkematKontabilitetiArtikulli();
-            //col = dbInventari.merrSkemaKontabilitetiArtikulliTeGjithaSipasNdermarjes(DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
             combo.DataSource = col.Where(x => x.IdSkemaKontabilitetiArtikulli == Convert.ToInt32(vlera));
 
             foreach (clsSkemaKontabilitetiArtikulli s in col)
@@ -4111,7 +4032,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             clsNdermarrje nderm = new clsNdermarrje(idndermarje);
 
-            //combo.TextFormatString = "{0},{2},{3},{4},{5},{6}";
             combo.TextFormatString = "{0}";
             ListBoxColumn colprove = new ListBoxColumn() { FieldName = "KodiSkemaKontabilitetiArtikulli", Caption = "Kodi" };
             ListBoxColumn colemer = new ListBoxColumn() { FieldName = "PershkrimiSkemaKontabilitetiArtikulli", Caption = "Pershkrimi" };
@@ -4222,7 +4142,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboFormulat(int idNdermarrje, ASPxComboBox combo)
         {//mbush griden e popupit me te dhena
-            //colSkemaKontabelNew colSkema = new colSkemaKontabelNew(idNderViti);
             DataTable dt = colFormulat.merrFormulatSipasNdermarrjes(idNdermarrje);
             combo.DataSource = dt;
             combo.ValueField = "IdFormula";
@@ -4406,12 +4325,10 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         /// <param name="combo"> comboboxi qe do te mbushet me te dhena</param>
         public static void mbushComboVitet(ASPxComboBox combo, int idNdermarje = -1, bool shtoVitBosh = false)
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             colVitet col = new colVitet();
             col.merrGjitheVitetENdermarjes(idNdermarje);
             if (shtoVitBosh)
                 col.Insert(0, new clsViti());
-            //col = dbAdmin.merrGjitheVitet();
             combo.DataSource = col;
             combo.TextField = "KodiViti";
             combo.ValueField = "IdViti";
@@ -4497,7 +4414,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             colLlojKodi colLlojiKodi = new colLlojKodi();
             colLlojiKodi.mbushGjithellojKodiPozitive();
-            //colLlojiKodi = dbAdmin.merrGjithellojKodiPozitive();
 
             combo.DataSource = colLlojiKodi;
             combo.TextField = "LlojKodiPershkrimi";

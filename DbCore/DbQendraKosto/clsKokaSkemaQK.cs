@@ -386,7 +386,6 @@ namespace DbCore.DbQendraKosto
         {
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
-            //db.krijoManager();
             db.beginTransaksion();
             int idKoka = 0;
             
@@ -422,7 +421,6 @@ namespace DbCore.DbQendraKosto
         {
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
-            //db.krijoManager();
             db.beginTransaksion();
             mesazh = db.modifikoKokaSkemaQK(idKoka, kodi,  pershkrimi, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
             if (!mesazh.Status)

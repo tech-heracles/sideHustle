@@ -32,19 +32,11 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             xrLabel35.Text = $"Telefon {ndermarrja.NdermarrjeTel}            Fax {ndermarrja.NdermarrjeFax}";
          
 
-            //DateTime moment = DateTime.ParseExact(report.Parameters["filterDtDok2"].Value.ToString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);
-            //   // Convert.ToDateTime(DateTime.ParseExact(report.Parameters["filterDtDok2"].Value.ToString(), "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture));
-           
-            //int viti = moment.Year;
-            //xrLabel33.Text = viti.ToString();
-    
         }
 
      
                  private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-             //DateTime Viti= DateTime.ParseExact(GetCurrentColumnValue("Viti1").ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
-             //xrLabel33.Text = Viti.ToString("dd/MM/yyyy");
         }
         private void xrTableCell162_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {

@@ -135,8 +135,6 @@ function inicializoGride() {
 //    myJQGrid.inicializoGride("#rowed5", arrayPershkrime, arrayModel, lidhur, lastsel2,
 //        '#txtKodi', null, null, null, null, null, $('#divgride2').width() - 5, false, null, null, null,
 //        '#txtLlogKunderparti', undefined, undefined, undefined, $('#hfTeDrejtaKonfGride').val(), undefined,
-//        $("#hfMeFatura").val() == 'true' ? false : $('#hfTeDrejtaKFRi').val());
-//}
 
 /*
 Vendos formatet e numrave ne gride ne baze te emrit te kolones
@@ -256,9 +254,6 @@ Function: renditKolonatGrides
 
 Therret metoden remapColumns te jqGrid per te renditur kolonat e grides sipas vlerave te array-t qe i kalohet kesaj metode si parameter
 */
-//function renditKolonatGrides() {
-//    myJQGrid.renditKolonatGrides("#rowed5", arrayRenditjeKolonaGrides);
-//}
 
 function myelemIdKodi(value, options) {//po
     var grida = $('#rowed5');
@@ -465,8 +460,6 @@ function SucceededCallbackKursi(result) {
 }
 
 
-
-
 /*
 Function: myelemComboDebiKredi
 
@@ -508,7 +501,6 @@ Nderton nje textbox per te vendosur vleften.
 function myElemVlefta(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();    
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, arrayReadOnlyKolonaGrides[11], idRresht, 'txtVlefta', vendosVleftat, hfFormatNumri);
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: arrayReadOnlyKolonaGrides[11] == 'True' ? "True" : "False", indexRow: idRresht, id: "txtVlefta", onKeyDown: vendosVleftat });
 }
 /*
@@ -520,7 +512,6 @@ function myElemVleftaFatura(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, arrayReadOnlyKolonaGrides[8], idRresht, 'txtVlefteFature', '', hfFormatNumri);
-    // return myJQGrid.myElemVleftaFat(grida,value, options, arrayReadOnlyKolonaGrides[7], lastsel2, 'txtVlefteFature', '');
 
 }
 /*
@@ -634,7 +625,6 @@ Nderton nje textbox per te vendosur vleften.
 function myElemVleftaMonBaze(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
-   // return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, arrayReadOnlyKolonaGrides[13], idRresht, 'txtVleftaMon', vendosVleftatMon, hfFormatNumri);
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: arrayReadOnlyKolonaGrides[13] == 'True' ? "True" : "False", indexRow: idRresht, id: "txtVleftaMon", onKeyDown: vendosVleftatMon });
 }
 
@@ -647,7 +637,6 @@ function myElemVleftaFaturaMonBaze(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, arrayReadOnlyKolonaGrides[9], idRresht, 'txtVlefteMonFature', '', hfFormatNumri);
-    // return myJQGrid.myElemVleftaFat(value, options, arrayReadOnlyKolonaGrides[8], lastsel2, 'txtVlefteMonFature', '');
 }
 function selectFunc(event, ui, emerfushe, idArt, kodArt) {
     var grida = $('#rowed5');
@@ -832,12 +821,7 @@ function changeFunc(event, ui, emerKodi, index) {
     var hidField3 = $("#hfMeKF");
     var grida = $('#rowed5');
     var idRow = grida.getLastSel2();
-    //var index = -1;
-    //var idKod = 'txtKodi';
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
     if (index == idRow && $('#txtKodi' + idRow).val() != undefined) {
         if (ui == null || ui.item == null) {
             var emerfushe = '#' + emerKodi + idRow;
@@ -1079,9 +1063,7 @@ function vendosKf(kfMonKurs) {
             return;
         }
         $(idKodi).val(clsKlientFurnitor.IdKlientFurnitor);
-        //$("#cmbDebiKredi" + lastsel2 + " option:contains('" + debiKredi + "')").attr('selected', 'selected');
         var debiKredi;
-        //if ($('#hfShtimModifikim').val() != "modifikim") {
         if (hffat.val() == 'true') {
             if (clsKlientFurnitor.LlojiKF == false)
                 debiKredi = "Debi";
@@ -1093,8 +1075,6 @@ function vendosKf(kfMonKurs) {
             else
                 debiKredi = "Debi";
 
-        //}
-        //$("#cmbDebiKredi" + idRreshti + " option:contains('" + debiKredi + "')").attr('selected', 'selected');
         grida.setTekstQelize('cmbDebiKredi', idRreshti, debiKredi, null, null, myelemComboDebiKredi);
         $('#txtKodi' + idRreshti).val(clsKlientFurnitor.KodKlientFurnitor);
         $('#txtEmertimi' + idRreshti).val(clsKlientFurnitor.EmertimiKF);
@@ -1217,18 +1197,15 @@ function SucceededCallbackVleraKodi2(result, idRreshti) {
     var rreshtaTeGrides = grida.getRowData();
     var index = idRreshti;
     for (i = parseInt(index) ; i < parseInt(index) + parseInt(kfTeshtuar) ; i++) {
-        //if (i != lastsel2 - 1) {
             var kodi = rreshtaTeGrides[i].txtKodi;
             if (kodi == clsKlientFurnitor.KodKlientFurnitor) {
                 grida.setCell(i + 1, 'txtEmertimi', clsKlientFurnitor.EmertimiKF, 'clientArray', '');
                 grida.setCell(i + 1, 'cmbDebiKredi', debiKredi, 'clientArray', '');
                 grida.setCell(i + 1, 'txtMonedha', clsMonedha.KodiMonedha, 'clientArray', '');
                 grida.setCell(i + 1, 'txtKursi', kursi, 'clientArray', '');
-            //}
         }
     }
     if ($('#txtKodi' + idRreshti).val() == clsKlientFurnitor.KodKlientFurnitor) {
-        //$("#cmbDebiKredi" + idRreshti + " option:contains('" + debiKredi + "')").attr('selected', 'selected');
         grida.setTekstQelize('cmbDebiKredi', idRreshti, debiKredi, null, null, myelemComboDebiKredi);
 
         $('#txtKodi' + idRreshti).val(clsKlientFurnitor.KodKlientFurnitor);
@@ -1262,7 +1239,6 @@ function lostFocusKoloneFundit() {
     var idRresht = grida.getLastSel2();
     idRresht = grida.lostFocusKoloneFundit();
 }
-
 
 
 /*
@@ -1358,7 +1334,6 @@ function mbushGrideNgaHiddenFieldi() {
                 grida.setTekstQelize('txtVleftaMon', idRow, vleftamon);
                 grida.setTekstQelize('txtVlefteFature', idRow, vlerafatura);
                 grida.setTekstQelize('txtVlefteMonFature', idRow, vleramonfatura);
-                // faturanivel[lastsel2] = nivele[i].split(':')[1] + ";" + nivele[i].split(':')[2];
                 idRow = idRow + 1;
                 grida.setLastSel2(idRow);
             }
@@ -1468,12 +1443,7 @@ function ButtonClickLlogaria() {
     myButtonClickLupa.ButtonClickLlogaria(hfState.Get("popupAdministrimiUniversal"), queryStr, widthLupaLlogari, heightLupaLlogari);
 
 }
-//function ButtonClickKF() {
-//    var hfLlog = document.getElementById("hfKF");
-//    var queryStr = hfLlog.value; identikuesPerPopupLlogari = "VeprimeKF";
-//    myButtonClickLupa.ButtonClickLlogaria(hfState.Get("popupAdministrimiUniversal"), queryStr, widthLupaLlogari, heightLupaLlogari);
 
-//}
 
 function Init() {
     if (typeof (isPostBack) == "undefined") {
@@ -1482,8 +1452,6 @@ function Init() {
         document.getElementById("fundKonfigurimi").innerHTML = hfState.Get("MenuFundDokumenti");
         var hf = document.getElementById("hfKonffillestar");
         llogariezgjedhur.EmerLlogari1 = '';
-        //   cmbKonfigurimi.SetText(hf.value);
-        //  ndryshoKonfigurimin();
 
         identikuesPerPopupLlogari = "VeprimeKF";
         identifikuesPerPopupDokumentat = "Shto_VeprimeKF.aspx";
@@ -1504,7 +1472,6 @@ Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te
 function ndryshoKonfigurimin() {
     var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     if (pershkKonfigAmb != undefined)
-       // lblKonfigurimi.SetText(pershkKonfigAmb);
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") + ': ' + pershkKonfigAmb);
     callWebserviceKonfigurimi(653, cmbKonfigurimi.GetText());
 }
@@ -1531,8 +1498,6 @@ Function: callWebserviceNiveli
 Therret funksionin <ktheTemplatetNivelit> per te marre temlaten e nivelit.
 Shiko funksionin <SucceededCallbackNiveli>.
 */
-//function callWebserviceNiveli(name) {
-//}
 function callWebserviceNiveliNew(lloji, tipi, mod) {
     try {
         $.ajax({
@@ -1682,8 +1647,6 @@ function SucceededCallbackKonfig(result) {
             if (colKushte[j].Vlera != "0") {
                 infoKf = true;
                 idInfoKf = colKushte[j].Vlera;
-                //hapMbyllInfo($('#hfHapurMbyllur').val() == 'True');
-                //callWebServiceInfoKF();
             }
             else
                 infoKf = false;
@@ -1934,8 +1897,6 @@ function merrTeDhena() {
         if (!eshteRreshtBosh) {
             arrKodi[counter2] = i.toString() + ":" + editorKodi;
             if (editorKodi != "") trupiBosh = false;
-            //if (editorMonedha == "")
-            //    dataJoNeRregull = true;
             arrEmertimi[counter2] = i.toString() + ":" + editorEmertimi;
         }
         if (arrNiv[idTe[i]] != undefined) {
@@ -2135,7 +2096,6 @@ function vendosVleftat(kontroll, idRreshti) {
     }
 
     else if (vlfat != "1" && parseFloat(vlf) > parseFloat(vlfat)) {
-        // else if (rreshti.txtVlefteFature != "0.00" && parseFloat(rreshti.txtVlefta) > parseFloat(rreshti.txtVlefteFature)) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgShtoVeprimNdryshimiNukDuhetTeKalojeVleftenEFatures"));
         grida.setVlereDefault('txtVlefta');
     }
@@ -2215,7 +2175,6 @@ function pastroFushatKokes() {
     txtPershkrimi.SetText('');
     var hf = document.getElementById("status1");
     hf.value = "false";
-    //ndryshoKonfigurimin();
     nvFatura.CollapseAll();
     grid_faturat.UnselectAllRowsOnPage();
     grid_faturat.PerformCallback('pastro');
@@ -2254,10 +2213,6 @@ function isValidKoka() {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgShenoniNumrinEDokumentit"));
         return false;
     }
-        //else if (cmbLlogariKunderParti.GetText() == "") {
-        //    myMesazh.ShtoMesazhGabimi( hfState.Get("msgShtoVeprimShenoniLlogarineKundraparti"));
-        //    return false;
-        //}
     else if (dteDtDok.GetDate() == null) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhniNjeDateDokumenti"));
         return false;
@@ -2279,14 +2234,11 @@ function EndRequestHandler(sender, args) {
     formatoFushaDevi();
     var hf = document.getElementById("status1");
     if ($('#hfqkmesazhi').val() == 'shfaqmesazh' || $('#hfqkmesazhiVDK').val() == 'shfaqmesazh') {
-        //popMesazhQK.Show();
         if ($('#hfqkmesazhi').val() == 'shfaqmesazh') {
             $('#hfqkmesazhi').val('jo');
-            //lblmesazhqendra.SetText(hfState.Get("msgShtoVeprimDoniTeBeniShperdrjenNeQKSeDokTeVeprimeveKF"));
             myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgShtoVeprimDoniTeBeniShperdrjenNeQKSeDokTeVeprimeveKF"), cancelClick: JopopupClick, okClick: hapPopUp });
         }
         else if ($('#hfqkmesazhiVDK').val() == 'shfaqmesazh') {
-            //lblmesazhqendra.SetText(hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"));
             myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"), cancelClick: JopopupClick, okClick: hapPopUp });
         }
     }
@@ -2308,8 +2260,6 @@ function JopopupClick(s, e) {
     else if ($('#hfUrlVDK').val() != '')
         $('#hfUrlVDK').val($('#hfUrlVDK').val().replace($('#hfUrlVDK').val().split(';')[0] + ";", ""));
     if ($('#hfqkmesazhiVDK').val() == 'shfaqmesazh' && $('#hfUrlVDK').val() != '') {
-        //popMesazhQK.Show();
-        //lblmesazhqendra.SetText(hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"));
         myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"), cancelClick: JopopupClick, okClick: hapPopUp });
     }
     else if ($('#hfqkmesazhiVDK').val() == 'shfaqlupe') {
@@ -2325,8 +2275,6 @@ function JopopupClick(s, e) {
 function closePopup(s, e) {
     popupUniversal.SetContentUrl('');
     if ($('#hfqkmesazhiVDK').val() == 'shfaqmesazh' && $('#hfUrlVDK').val() != '') {
-        //popMesazhQK.Show();
-        //lblmesazhqendra.SetText(hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"));
         myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDoTeBeshShperndarjenNeQKostoTeDifTeKursit"), cancelClick: JopopupClick, okClick: hapPopUp });
     }
     else if ($('#hfqkmesazhiVDK').val() == 'shfaqlupe') {
@@ -2425,8 +2373,6 @@ function PastroClick() {
     myMenu.menuSipasTeDrejtaRegjistrim(hf, hfTeDrejta);
 
     click = false;
-    //    jQuery("#rowed5").GridUnload("rowed5");
-    //    inicializoGride();
 }
 
 function ndryshoImazhin(nr, index) {
@@ -2444,7 +2390,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -2538,7 +2483,6 @@ function OnGridFaturatSelectionComplete(values,rowind) {
         for (i = 0; i < ids.length; i++) {
             max = Math.max(max, ids[i]);
         }
-        // if (!eshteShtuarFatura(values[0], values[7])) {
         var formatNumri = gjejFormatSipasMonedhes(idMonedha);
         var formatKursi = gjejFormatKursiSipasMonedhes(idMonedha);
 
@@ -2586,8 +2530,6 @@ function OnGridFaturatSelectionComplete(values,rowind) {
         grida.setTekstQelize('txtVlefteFature', idx, parseFloat(vlera));
         grida.setTekstQelize('txtVlefteMonFature', idx, parseFloat(vlera * kursi));
         grida.setTekstQelize('txtNrFature', idx, fatura);
-       // var selektori = '#' + 'ASPxSplitter1_dteDtDok_I';
-       // grida.setTekstQelize('dteData', idx, $(selektori).val());
         grida.setTekstQelize('dteData', idx, dteDtDok.GetText());
         if (llogariezgjedhur.NrLlogari != undefined) {
             grida.setTekstQelize('txtLlogKunderparti', idx, llogariezgjedhur.NrLlogari);
@@ -2598,7 +2540,6 @@ function OnGridFaturatSelectionComplete(values,rowind) {
             debiKredi1 = 'Kredi';
         else
             debiKredi1 = 'Debi';
-        //$("#cmbDebiKredi" + idx + " option:contains('" + debiKredi1 + "')").attr('selected', 'selected');
         grida.setTekstQelize('cmbDebiKredi', idx, debiKredi1, null, null, myelemComboDebiKredi);
         grida.setTekstQelize('txtVlefta', idx);
         arrNiv[idx] = values[7];
@@ -2615,7 +2556,6 @@ function OnGridFaturatSelectionComplete(values,rowind) {
             var su = grida.addRowData(id, datarow);
         }
         vendosVleftat("", idx);
-        //  }
     }
 }
 

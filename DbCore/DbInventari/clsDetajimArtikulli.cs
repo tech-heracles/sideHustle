@@ -27,7 +27,6 @@ namespace DbCore.DbInventari
         private int llojDetajimArtikulli;
         private string pershkrimDetajimArtikulli;
         private string idNivelAutorizimi;
-        //private int idNderViti;
         private int idPerdoruesi;
         private int kategoriDetajimi;
         private int idNdermarje;
@@ -98,10 +97,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos ID-ne e perdoruesit.
         /// </summary>
@@ -162,7 +159,6 @@ namespace DbCore.DbInventari
             this.kodDetajimArtikulli = kodDetajimArtikulli;
             this.llojDetajimArtikulli = llojDetajimArtikulli;
             this.pershkrimDetajimArtikulli = pershkrimDetajimArtikulli;
-            //this.idNderViti = idNderViti;
             this.idPerdoruesi = idPerdoruesi;
             this.kategoriDetajimi = kategoriDetajimi;
             this.idNdermarje = idndermrje;
@@ -240,7 +236,6 @@ namespace DbCore.DbInventari
             
             mbushDetajimArtikulli(rreshti);
         }
-
 
 
         public static object[] ktheRowVleraDetajimMeKod(string kodi, int rreshti, int lloji, clsArtikulli artikulli, int idkokamagazina, int idNdermarrje, int idPerdorues, string magazina, DateTime dateDok, bool kontrolloImeiFifo, string[] listeIMEI, bool promocione, bool DokumentTransferimiOwn, bool date, bool merrDetajimPerSet)
@@ -493,7 +488,6 @@ namespace DbCore.DbInventari
         #region Metoda Publike
 
 
-
         /// <summary>
         /// mbush detajimet e artikjullit sipas kodit dhe ndermarrjes
         /// </summary>
@@ -518,9 +512,6 @@ namespace DbCore.DbInventari
             clsMesazh mesazh = new clsMesazh(true, "Transferimi mbaroi me sukses!");
             if (!db.ekzistonDetajim(kod.KodDetajimArtikulli, idndermarje))
             {
-                //mesazh = kod.kontrolloVetemDateSkadence();
-                // if (!mesazh.Status)
-                //    return mesazh;
                 kod.idPerdoruesi = idperdoruesi;
                 kod.idNdermarje = idndermarje;
                 mesazh = kod.ruaj(db);
@@ -707,11 +698,6 @@ namespace DbCore.DbInventari
                     return new clsMesazh(false, "Kategoria Date skadence mund te kete vetem lloj Date!");
             }
 
-            //if (kategoriDetajimi == (int)DbInventari.KategoriDetajimi.Seri)
-            //{
-            //    if (llojDetajimArtikulli != (int)LlojDetajimi.Numerik)
-            //        return new clsMesazh(false, "Kategoria Seri mund te kete vetem lloj Numerik!");
-            //}
 
             if (llojDetajimArtikulli == (int)LlojDetajimi.Numerik)
             {
@@ -864,7 +850,6 @@ namespace DbCore.DbInventari
                 clsMesazh mesazh;
 
                 mesazh = dbInv.modifikoDetajimArtikulli(idDetajimArtikulli, kodDetajimArtikulli, llojDetajimArtikulli, pershkrimDetajimArtikulli, idPerdoruesi, kategoriDetajimi, idndermrje, idstatusdok, loan);
-                //mesazh = modifikoDetajimArtikulli(detajimArtikulli);
                 if (!mesazh.Status)
                 {
                     return mesazh;
@@ -877,7 +862,6 @@ namespace DbCore.DbInventari
                     {
                         DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
                         lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i],dbAdmin);
-                        //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
                         colLidhjet.Add(lidhje);
                     }
                 }
@@ -967,9 +951,7 @@ namespace DbCore.DbInventari
                     detArtikulli.rollbackTransaksion();
                     return mesazh;
                 }
-                //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("DetajimArtikulli");
                 DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(idDetajimArtikulli, "DetajimArtikulli");
-                //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
                 DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin(detArtikulli);
                 foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
                 {
@@ -1005,7 +987,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiDetajimArtikulliStatus(this.IdDetajimArtikulli, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return u_fshi;
         }
         public clsMesazh modifikoLoan(int iddetajim, int idperdorues, int loan)
@@ -1023,7 +1004,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             bool ekziston = data.ekzistonDetajim(kodi, idndermarje);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return ekziston;
         }
         
@@ -1033,7 +1013,6 @@ namespace DbCore.DbInventari
                 return false;
             bool ekziston = data.ekzistonDetajim(kodi, idndermarje);
 
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return ekziston;
         }
 
@@ -1050,7 +1029,6 @@ namespace DbCore.DbInventari
             using (clsDatabaseInventari data = new clsDatabaseInventari())
             {   if(kodi!=null && kodi!="")
                 return  data.ekzistonDetajimLidhurMeArtikullin(kodi, idndermarje, kodArt, lloji);
-                //clsMesazh u_fshi = data.fshiDetajim(this);
                 return false;
             }
         }
@@ -1059,7 +1037,6 @@ namespace DbCore.DbInventari
             if(kodi!=null && kodi!="")
             return data.ekzistonDetajimLidhurMeArtikullin(kodi, idndermarje, kodArt, lloji);
 
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return false;
         }
 
@@ -1068,7 +1045,6 @@ namespace DbCore.DbInventari
             if (id > 0)
                 return data.ekzistonDetajimLidhurMeArtikullinSipasId(id, idndermarje, kodArt, lloji);
 
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return false;
         }
 
@@ -1083,7 +1059,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             bool lidhur = data.eshteDetajimLidhurMeArtikull(kodi, idndermarje);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiDetajim(this);
             return lidhur;
         }
         public static int ktheIdDetajimi(string kodi, int idNdermarrje)
@@ -1220,14 +1195,11 @@ namespace DbCore.DbInventari
         #region Metoda Internal
         public bool mbushAutorizime() {
             DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.colLidhjetAutorizim(idDetajimArtikulli, "DetajimArtikulli");
-            //DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
             if (lidhje.Count != 0)
             {
                 idNivelAutorizimi = DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[0].IdAutorizimeKoka);
-                //idNivelAutorizimi = new DbAdmin.clsDatabaseAdmin().ktheAutorizim()[0].KodiAutorizim;
                 for (int i = 1; i < lidhje.Count; i++)
                     idNivelAutorizimi += "," + DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[i].IdAutorizimeKoka);
-                //idNivelAutorizimi += "," + new DbAdmin.clsDatabaseAdmin().ktheAutorizim(lidhje[i].IdAutorizimeKoka)[0].KodiAutorizim;
             }
             else
                 idNivelAutorizimi = "";

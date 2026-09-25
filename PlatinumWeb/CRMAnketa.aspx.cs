@@ -59,7 +59,6 @@ namespace PlatinumWeb
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -214,7 +213,6 @@ namespace PlatinumWeb
             }
             kokam.fshi();
 
-            //mesazh = DbCore.DbCRM.clsKokaAnketa.fshi(kokam.IdKokaAnketa, kokam.IdModifikues);
             if (mesazh.Status)
             {
                 Response.Redirect("CRMListaAnketa.aspx?fshi=po");
@@ -329,51 +327,9 @@ namespace PlatinumWeb
                     if (dteDtMbarimi.Date >= DateTime.Today && dteDtMbarimi.Date < kok.DtMbarimi)
                         return true;
                 }
-                //if (kok.DtFillimi <= DateTime.Today)
-                //{
-                //    if (dteDtMbarimi.Date > DateTime.Today && dteDtMbarimi.Date < kok.DtMbarimi)
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Data e Fillimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
                 //    else
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Data e Fillimit dhe e Mbarimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtMbarimi.Date = kok.DtMbarimi;
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
-                //    return false;
-                //}
-                //else if (dteDtFillimi.Date <= DateTime.Today)
-                //{
-                //    if (dteDtMbarimi.Date > DateTime.Today && dteDtMbarimi.Date < kok.DtMbarimi)
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Data e Fillimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
                 //    else
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Data e Fillimit dhe e Mbarimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtMbarimi.Date = kok.DtMbarimi;
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
-                //    return false;
-                //}
-                //else if (AnketaLidhur(id))
-                //{
-                //    if (dteDtMbarimi.Date > DateTime.Today && dteDtMbarimi.Date < kok.DtMbarimi)
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Anketa eshte e lidhur! Data e Fillimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
                 //    else
-                //    {
-                //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Anketa eshte e lidhur! Data e Fillimit dhe e Mbarimit te kesaj ankete nuk mund te ndryshohet!", pnlMesazhi);
-                //        dteDtMbarimi.Date = kok.DtMbarimi;
-                //        dteDtFillimi.Date = kok.DtFillimi;
-                //    }
-                //    return false;
-                //}
             }
             return true;
         }
@@ -495,7 +451,6 @@ namespace PlatinumWeb
 
         protected void gvZgjedhur_HtmlRowCreated(object sender, DevExpress.Web.ASPxGridViewTableRowEventArgs e)
         {
-            //bool ugjet;
             if (e.RowType == GridViewRowType.Data)
             {
                 DbCore.DbCRM.colTrupiAnketa trupavis = DbCore.mySessionObjects.merrAnketaVisibleNgaSesioni(Session);
@@ -519,7 +474,6 @@ namespace PlatinumWeb
                     txt2.ClientSideEvents.CheckedChanged = String.Format("function(s,e){{CheckedChanged(cbDetyrueshem{0},'cbDetyrueshem', {0});}}", e.VisibleIndex);
 
                 }
-
 
 
             }
@@ -715,30 +669,17 @@ namespace PlatinumWeb
         {
             DbCore.DbCRM.colTrupiAnketa trupi = new DbCore.DbCRM.colTrupiAnketa();
             DbCore.DbCRM.colTrupiAnketa trupavis = DbCore.mySessionObjects.merrAnketaVisibleNgaSesioni(Session);
-            //    DbCore.DbCRM.colTrupiAnketa trupainvis = DbCore.mySessionObjects.merrAnketaInVisibleNgaSesioni(Session);
             int i = 0;
             foreach (DbCore.DbCRM.clsTrupiAnketa tru in trupavis)
             {
                 trupi.Add(tru);
                 i++;
             }
-            //foreach (DbCore.DbCRM.clsTrupiAnketa tru in trupainvis)
-            //{
-            //    trupi.Add(tru);
             //    i++;
-            //}
 
             return trupi;
         }
 
 
-        //private bool AnketaLidhur(int idKokaAnketa)
-        //{
-        //    DbCore.DbCRM.clsDatabaseCRM dbCRM = new DbCore.DbCRM.clsDatabaseCRM();
-        //    bool lidhur = dbCRM.kaVeprimeCRMListaAnketa(idKokaAnketa);
-        //    return lidhur;
-        //}
-
-       
     }
 }

@@ -71,20 +71,12 @@ namespace DbCore.DbRegjistrim
         private bool mbushFurnitoreArtikujsh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKomenteAprovimi koment = new clsKomenteAprovimi();
-                    //koment.mbushKomenteAprovimi(rreshti);
                     this.Add(new clsKomenteAprovimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

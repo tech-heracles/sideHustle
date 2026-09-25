@@ -333,8 +333,6 @@ namespace DbCore.DbInventari
                 return new MesazhGabimi(MessagesResource.Messages["serialiNdodhetNeDokument"].Replace("XXX", ringarkuesdyfish.FirstOrDefault().Seriali));
 
 
-
-
             return new MesazhSuksesi();
         }
 
@@ -350,8 +348,6 @@ namespace DbCore.DbInventari
                 clsArtikujMeSasi art;
                 if (ngaImportSerialesh)
                     art = artikuj.Find(x => x.IdArtikulli == serial.IdArtikulli && serial.IdSeti == 0);
-                //else if (merrSete)
-                //    art = artikuj.Find(x => x.IdArtikulli == serial.IdArtikulli && x.Mag == col.Find(m => m.IdNjesiAdministrative == serial.IdMag)?.Kodi);
                 else
                     art = artikuj.Find(x => x.IdArtikulli == serial.IdArtikulli && x.Mag == col.Find(m => m.IdNjesiAdministrative == serial.IdMag)?.Kodi && serial.IdSeti == 0);
                 if (art == null)

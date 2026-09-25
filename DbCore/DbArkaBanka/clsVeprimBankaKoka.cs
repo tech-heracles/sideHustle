@@ -376,7 +376,6 @@ namespace DbCore.DbArkaBanka
         }
 
 
-
         public int IdKrijuesi {
             get { return idKrijuesi; }
             set { idKrijuesi = value; }
@@ -643,7 +642,6 @@ namespace DbCore.DbArkaBanka
             var dbregj = new clsDatabaseRegjistrim(db);
             var dbshare = new clsDatabaseShare(db);
             var dbkont = new clsDatabaseKontabilitet(db);
-            //dbshare.vendosManager(db );
             idBanka = idbanka;
             kodBanka = kodbanka;
             kursi = kurs;
@@ -799,7 +797,6 @@ namespace DbCore.DbArkaBanka
                 oKkokaFleteKontabel = new clsKokaFleteKontabel();
                 oGjendjeKF = new colGjendjeKlientFurnitor();
             }
-            //   kontrollo(nrkredite,db);
             return new clsMesazh(true, "Dokumenti u krijua me sukses!");
         }
 
@@ -891,7 +888,6 @@ namespace DbCore.DbArkaBanka
         }
 
    
-
         public clsMesazh krijoVeprimeBankePerImport(string kodbanka, double kurs, DateTime datedokumenti, DateTime dateregjistrimi, string nrdokumenti, int nrreference, string nrserial, string pershkrimikoka, string kodmenyrepagese, double vlerakoka, double vleramonedhabaze, double komisionibankar, double komisionimonedhabaze, string nenkategoria, int idperdoruesi, int idllojdokumenti, int idstatusdokumenti, int idnderviti, int idnivelgjenerues, int idkonfiggjenerues, int idgjenerues, int iddoknga, string kodDegeAdministrative, int idndermarje, colVeprimBankaTrupi trupi, bool mekontabilizim, int idMonArkaBanka, string nrkredite, string grup1, string grup2, string grup3, clsKonfigurimAmbjenti konfigdokLidhes, object[] nivele, string shoqeria, string customernumber, int idAutomjet, string targa, int idrap, int idGjuha, ResourceManager rm, CultureInfo ci, clsPeriudhaKontabel periudha, int idStatusDok, int llojKursi, clsKonfigurimAmbjenti konfigAmbjenti, clsMonedha monedhaNderm, int idkategori, int idPerdoruesPerKontroll,
             int idkrijuesi, DbData dbData)
         {
@@ -903,7 +899,6 @@ namespace DbCore.DbArkaBanka
             if (nenkategoria == "")
                 return new clsMesazh(false, "Plotesoni nivelin e regjistrimit!");
 
-            //int idNivel = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(nenkategoria, idndermarje);
             var nivel = new clsNivelRegjistrimi();
             nivel.mbushNivelRegjistrimiSipasKodit(nenkategoria, idndermarje.ToString());
             if (nivel.IdNivel == 0)
@@ -997,8 +992,6 @@ namespace DbCore.DbArkaBanka
 
             var shfaqmesazhapolupe = "jo"; var shfaqmesazhapolupeVDK = "jo";
             return krijoVeprimeBanke(banka.IdBanka, banka.KodiBanka, kurs, datedokumenti, dateregjistrimi, nrdokumenti, nrreference, nrserial, pershkrimikoka, idMenyrePagese, kodmenyrepagese, vlerakoka, vleramonedhabaze, komisioniBankar, komisioniMonedhaBaze, nenkategoria, idperdoruesi, idllojdokumenti, idstatusdokumenti, idnderviti, konfigAmbjenti.IdKonfigAmbjente, idnivelgjenerues, idkonfiggjenerues, idgjenerues, nivel.IdNivel, iddoknga, idDegeAdministrative, kodDegeAdministrative, idndermarje, idLlogKredite, trupi, mekontabilizim, periudha.IdPeriudha, idMonArkaBanka, nrkredite, idGrup1, idGrup2, idGrup3, konfigdokLidhes, nivele, new clsDatabaseArkaBanka(), null, out shfaqmesazhapolupe, out shfaqmesazhapolupeVDK, new colTrupiQendraKosto(), 0, shoqeria, customernumber, idAutomjet, targa, idrap, "", "", "", false, StatusAprovimi.Undefined, "", 0, "",null, idkategori, idPerdoruesPerKontroll,false, idperdoruesi);
-
-
 
 
         }
@@ -1309,7 +1302,6 @@ namespace DbCore.DbArkaBanka
             {
                 try
                 {
-                    //dbArkaBanka.beginTransaksion();
                     clsMesazh mesazh;
                     var dbkontab = new clsDatabaseKontabilitet(dbArkaBanka);
                     var dbregj = new clsDatabaseRegjistrim(dbArkaBanka);
@@ -1318,14 +1310,9 @@ namespace DbCore.DbArkaBanka
                         OKokaFleteKontabel = new clsKokaFleteKontabel()
 
                     };
-                    //clsVeprimBankaKoka kokaEkzistuese = this.ktheVeprimBanke(koka.IdKoka)[0];
                     kokaEkzistuese.OGjendjeKF = new colGjendjeKlientFurnitor(kokaEkzistuese.IdKoka, kokaEkzistuese.IdNivel, dbregj);
-                    //DbCore.DbRegjistrim.clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
-                    //nivel.mbushNivelRegjistrimiSipasID(kokaEkzistuese.IdNivel);
                     var idKategori = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(kokaEkzistuese.IdNivel);
-                    //koka.oArkiva = new DbShare.colArkiva(koka.idKoka, idKategori);
                     var dbRegjistrim = new clsDatabaseRegjistrim(dbArkaBanka);
-                    //dbRegjistrim.vendosManager(dbArkaBanka );
                     var cls = new colDokumentLidhesKoka(kokaEkzistuese.IdKoka, 4, dbRegjistrim);
                     if (cls.Count == 0)
                     {
@@ -1338,7 +1325,6 @@ namespace DbCore.DbArkaBanka
                         {
                             var lidhja = k;
                             //DbCore.DbRegjistrim.clsDokumentLidhesKoka lidhja = dbRegjistrim.ktheLidhjenDokSipasIdLidheseDheLlojit(kokaEkzistuese.IdKoka, 4)[0];//merr lidhjen ekzistuese (qe ishte bere para se te modifikohej vep i bankes)
-                            // koka.ODokumentLidhes.IdDokNga = lidhja.IdKoka;
                             mesazh = lidhja.fshiDokumentDheKontabilitet(dbRegjistrim);//Tani per tani kur modifikohet nje veprim banke fshihet lidhja e meparsheme e dok dhe ruhet lidhja e re. Kjo do ndryshohet me vone dhe lidhjes se vjeter do i vihet nje status dallues.
                             if (!mesazh.Status)
                             {
@@ -1354,7 +1340,6 @@ namespace DbCore.DbArkaBanka
                             mesazh = gj.Modifiko(dbArkaBanka);
                             if (!mesazh.Status)
                             {
-                                //      dbArkaBanka.rollbackTransaksion();
                                 return mesazh;
                             }
                         }
@@ -1364,7 +1349,6 @@ namespace DbCore.DbArkaBanka
                     mesazh = colArkiva.UpdateStatusDokFshi(koka.IdKoka, idKategori, idPerdoruesi);
                     if (!mesazh.Status)
                     {
-                        //  dbArkaBanka.rollbackTransaksion();
                         return mesazh;
                     }
                     var newclsKokaFleteKontabel = new clsKokaFleteKontabel(kokaEkzistuese.IdKoka, 3, dbkontab);

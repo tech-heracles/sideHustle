@@ -16,10 +16,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         public Rap_Analiza_Ardhurave_Shpenzimeve(){InitializeComponent();} 
         bool hapurgjitha = false;
         private int rritshuma = 0;
-        //public Rap_PASH()
-        //    {
-        //    InitializeComponent();
-        //    }
         public Rap_Analiza_Ardhurave_Shpenzimeve(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdViti, report)
         {
@@ -40,7 +36,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             parameter3.Value = raport.Parameters[4].Value;
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
 
-            //xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             EmrateLabelave(ci);
         }
         string[] shkronjevogel = { "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" };
@@ -48,7 +43,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         int niv = 0;
      
 
-      
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -256,7 +250,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
    
-
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -463,7 +456,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -473,43 +465,13 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             xrLabel12.Text = rm.GetString("lblTitulliAnalizaETeArdhuraveShpenzimeve", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrTableCell81.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel7.Text = rm.GetString("labelLogoIMB", ci);
             xrTableCell81.Text = rm.GetString("lblTreguesit", ci);
-            //xrTableCell84.Text = rm.GetString("labelRaportiVitiRaportues", ci);
-            //xrTableCell83.Text = rm.GetString("labelRaportiVitiParaardhes", ci);
-            //xrTableCell56.Text = rm.GetString("labelbuxhetorardhura", ci);
             xrTableCell85.Text = rm.GetString("labelRaportiNr", ci);
             xrTableCell42.Text = rm.GetString("labelbuxhetorrezultatfunksionimit", ci);
-            //xrTableCell77.Text = rm.GetString("labelbuxhetorgrante", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha", ci);
         }
 
        
-
-        //private void xrLabel79_AfterPrint(object sender, EventArgs e)
-        //{
-        //    if (xrLabel79.Text != "")
-        //        xrLabel79.Text = (Convert.ToInt16(xrLabel79.Text) + 1+rritshuma).ToString();
-        //}
-
-        //private void xrLabel84_AfterPrint(object sender, EventArgs e)
-        //{
-        //    if (xrLabel84.Text != "")
-        //        xrLabel84.Text = (Convert.ToInt16(xrLabel84.Text) + 2+rritshuma).ToString();
-        //}
-
-      
-
-        //private void xrLabel32_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    if (xrLabel32.Text != "" && xrTableCell38.Text == " Te pacaktuara")
-        //    {
-        //        xrLabel32.Text = (Convert.ToInt16(xrLabel32.Text) + 1).ToString();
-        //        rritshuma = 1;
-        //    }
-        //}
-
         private void xrTableCell40_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             //xrLabel45_SummaryGetResult
@@ -779,14 +741,8 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell55_AfterPrint(object sender, EventArgs e)
         {
-            //int nr = 0;
             ////xrLabel79_AfterPrint
-            //if (xrTableCell55.Text != "")
-            //{
-            //    int.TryParse(xrTableCell55.Text, out nr);
 
-            //}
-            //    xrTableCell55.Text = (nr+ 1 + rritshuma).ToString();
         }
 
 
@@ -802,9 +758,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
      
-
-     
-
         private void xrTableCell68_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -961,26 +914,13 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //private void xrTableCell25_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //    xrTableCell25.Text = niv.ToString();
-        //}
 
-        //private void xrTableCell57_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //    xrTableCell57.Text = niv.ToString();
-        //}
 
-        //private void xrTableCell67_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //    xrTableCell67.Text = niv.ToString();
-        //}
 
         
-
         private void xrTableCell49_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -1195,16 +1135,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell63_SummaryCalculated(object sender, TextFormatEventArgs e)
         {
-            //if (e.Value.ToString().Contains("("))
-            //    gjend1 = -double.Parse(e.Value.ToString().Replace('(', ' ').Replace(')', ' '));
-            //else gjend1 = Convert.ToDouble(e.Value);
         }
 
         private void xrTableCell64_SummaryCalculated(object sender, TextFormatEventArgs e)
         {
-            //if (e.Value.ToString().Contains("("))
-            //    gjendVitiPara1 = -double.Parse(e.Value.ToString().Replace('(', ' ').Replace(')', ' '));
-            //else gjendVitiPara1 = Convert.ToDouble(e.Value);
         }
 
         private void xrTableCell89_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1221,16 +1155,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 e.Result = String.Format("{0:#,#.00}", shuma);
             else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
-            //XRTableCell label = sender as XRTableCell;
-            //label.Text = Convert.ToString(ndryshimAbsolut1 = gjend1 - gjendVitiPara1);
-            //xrTableCell89.Text = Convert.ToString(Convert.ToDouble(xrTableCell63.Summary.GetResult()) - Convert.ToDouble(xrTableCell64.Summary.GetResult()));
-        //e.Handled = true;
         }
 
         private void xrTableCell90_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //XRTableCell label = sender as XRTableCell;
-            //label.Text = Convert.ToString(gjendVitiPara1 == 0 ? 0 : ndryshimAbsolut1 /gjendVitiPara1);
             String vlera1, vlera2;
             double ndryshAbs1, gjendPara;
             vlera1 = Convert.ToString(xrTableCell89.Summary.GetResult());
@@ -1455,7 +1383,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell89_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-           // xrTableCell89.Text = Convert.ToString(Convert.ToDouble(xrTableCell63.Summary.GetResult()) - Convert.ToDouble(xrTableCell64.Summary.GetResult()));
         }
 
         private void xrTableCell91_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1472,31 +1399,9 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 e.Result = String.Format("{0:#,#.00}", shuma);
             else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
-            //object ndryshimiAbs = GetCurrentColumnValue("ndryshimiAbsolut");
-            //if (ndryshimiAbs != null && ndryshimiAbs != DBNull.Value)
-            //{
-            //    if (Convert.ToDouble(ndryshimiAbs) >= 0)
-            //        xrTableCell91.Text = String.Format("{0:#,#.00}", ndryshimiAbs);
             //    else
-            //        xrTableCell91.Text = "(" + String.Format("{0:#,#.00}", -Convert.ToDouble(ndryshimiAbs)) + ")";
-            //}
             //String vlera1, vlera2;
-            //double shuma1, shuma2;
-            //vlera1 = Convert.ToString(xrTableCell40.Summary.GetResult());
-            //vlera2 = Convert.ToString(xrTableCell41.Summary.GetResult());
-            //if (vlera1.Contains("(")) 
-            //    shuma1 = -double.Parse(vlera1.Replace('(', ' ').Replace(')', ' '));
-            //else shuma1 = double.Parse(vlera1);
-            //if (vlera2.Contains("("))
-            //    shuma2 = -double.Parse(vlera2.Replace('(', ' ').Replace(')', ' '));
-            //else shuma2 = double.Parse(vlera2);
-            //double ndryshimeAbsolut = shuma1 - shuma2;
-            //if (ndryshimeAbsolut >= 0)
-            //    e.Result = String.Format("{0:#,#.00}", ndryshimeAbsolut);
             //else
-            //    e.Result = "(" + String.Format("{0:#,#.00}", -ndryshimeAbsolut) + ")";
-            //e.Handled = true;
-            //e.Result = Convert.ToDouble(xrTableCell40.Summary.GetResult()) - Convert.ToDouble(xrTableCell41.Summary.GetResult());
         }
 
         private void xrTableCell93_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1518,23 +1423,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 e.Result = String.Format("{0:#,#.00}", shuma);
             else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
-            //object ndryshimiAbs = GetCurrentColumnValue("ndryshimiAbsolut");
-            //if (ndryshimiAbs != null && ndryshimiAbs != DBNull.Value)
-            //{
-            //    if (Convert.ToDouble(ndryshimiAbs) >= 0)
-            //        xrTableCell93.Text = String.Format("{0:#,#.00}", ndryshimiAbs);
             //    else
-            //        xrTableCell93.Text = "(" + String.Format("{0:#,#.00}", -Convert.ToDouble(ndryshimiAbs)) + ")";
-            //}
-            //double shuma = 0;
-            //for (int i = 0; i < e.CalculatedValues.Count; i++)
-            //    if (e.CalculatedValues[i].ToString().Contains("("))
-            //        shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
-            //    else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
-            //    e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
-            //e.Handled = true;
         }
 
         private void xrTableCell94_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1579,36 +1468,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             ndrAbs1 = 0;
             gjenVitPara1 = 0;
         }
-   //if (GetCurrentColumnValue("ndryshimiAbsolut") != null && GetCurrentColumnValue("gjendVitiParaardhes") != null)
-            //{
-                //vlera1 = Convert.ToString(xrTableCell41.Summary.GetResult());
-                //vlera2 = Convert.ToString(xrTableCell91.Summary.GetResult());
-                //if (vlera1.Contains("("))
-                //    gjenVitPara1 = -double.Parse(vlera1.Replace('(', ' ').Replace(')', ' '));
-                //else gjenVitPara1 = double.Parse(vlera1);
-                //if (vlera2.Contains("("))
-                //    ndrAbs = -double.Parse(vlera2.Replace('(', ' ').Replace(')', ' '));
-                //else ndrAbs = double.Parse(vlera2);
-                //shumandrAbs1 += ndrAbs;
-                //shumagjenVitiPara1 += gjenVitPara1;
-           // }
 //            Iif([shenja] == 'Pozitive',
 //Iif([gjendVitiParaardhes] >= 0,[gjendVitiParaardhes]  ,'('+ -[gjendVitiParaardhes]+')' ),
-// Iif([gjendVitiParaardhes] > 0,'('+[gjendVitiParaardhes]+')'  , -[gjendVitiParaardhes] ))
-        //if (GetCurrentColumnValue("ndryshimiAbsolut") != null && GetCurrentColumnValue("gjendVitiParaardhesMeShenje") != null)
-        //    {
-        //        object shenja = GetCurrentColumnValue("shenja");
-        //        double gjendja = Convert.ToDouble(GetCurrentColumnValue("gjendVitiParaardhesMeShenje"));
-        //        double ndryshimiAbs = Convert.ToDouble(GetCurrentColumnValue("ndryshimiAbsolut"));
-        //        if (shenja != null && shenja != DBNull.Value && shenja.ToString() == "Pozitive")
-        //            gjenVitPara1 += gjendja;
         //        else
-        //            gjenVitPara1 += -gjendja;
-        //        if (shenja != null && shenja != DBNull.Value && shenja.ToString() == "Pozitive")
-        //            ndrAbs += ndryshimiAbs;
         //        else
-        //            ndrAbs += -ndryshimiAbs;
-        //    }
         private void xrTableCell92_SummaryRowChanged(object sender, EventArgs e)
         {
             if (GetCurrentColumnValue("ndryshimiAbsolut") != null && GetCurrentColumnValue("gjendVitiParaardhesMeShenje") != null)

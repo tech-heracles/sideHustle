@@ -262,10 +262,8 @@ function mbushfusha() {
             pritPergjigje: true
         }).done(function (result) {
             var teDhena = JSON.parse(result.d);
-            //var values = Object.keys(teDhena).map(function (key) { return teDhena[key] });
             $('#hfId').val(teDhena.IdPunonjes);
             Utils.hiqLoadingGif();;
-            //return;
             if (!Klonim)
                 txtNrPersonal.SetText(teDhena.NrPersonal);
 
@@ -286,7 +284,6 @@ function mbushfusha() {
 
             txtNrSig.SetText(teDhena.NrSig);
             Utils.SelectComboItem(cmbQyteti, teDhena.IdQyteti, teDhena.Qyteti);
-            //cmbQyteti.SetSelectedIndex(cmbQyteti.AddItem(values[21], values[7]));
             txtAdresa.SetText(teDhena.Adresa);
             cbAktiv.SetChecked(teDhena.Aktiv);
             cbLlogaritNgaListorare.SetChecked(teDhena.LlogaritNgaListorare);
@@ -378,7 +375,6 @@ function mbushFushaPunesim() {
     }).done(function (result) {
         var punesim = JSON.parse(result.d);
         $('#hfIdPunesim').val(punesim.IdPunesim);
-        //cmbDepartamenti.SetSelectedIndex(cmbDepartamenti.AddItem(values[14], values[1]));
         if (punesim.IdDepartament > 0)
             Utils.SelectComboItem(cmbDepartamenti, punesim.IdDepartament, punesim.Departament);
         else cmbDepartamenti.SetSelectedIndex(-1);
@@ -386,13 +382,11 @@ function mbushFushaPunesim() {
             cmbNenDepartamenti.SetEnabled(false);
         else cmbNenDepartamenti.SetEnabled(true);
         Utils.SelectComboItem(cmbNenDepartamenti, punesim.IdNenDepartament, punesim.NenDepartament);
-        //  cmbNenDepartamenti.SetSelectedIndex(cmbNenDepartamenti.AddItem(values[15], values[2]));
         txtDetyra.SetText(punesim.Detyra);
         txtNrKontrate.SetText(punesim.NrKontrate);
         if (punesim.IdTipKontrate > 0)
             Utils.SelectComboItem(cmbTipKontrate, punesim.IdTipKontrate, punesim.TipKontrate);
         else cmbTipKontrate.SetSelectedIndex(-1);
-        //cmbTipKontrate.SetSelectedIndex(cmbTipKontrate.AddItem(values[16], values[5]));
 
 
         var dtPerfundimi = Utils.KtheDateOseBosh(punesim.DtPerfundimi);
@@ -401,9 +395,6 @@ function mbushFushaPunesim() {
         var dtFillimi = Utils.KtheDateOseBosh(punesim.DtFillimi);
         if (dtFillimi == "") dteDtFillimi.SetDate(null);
         else dteDtFillimi.SetDate(dtFillimi);
-        //txtLlogBankare.SetText(values[8]);
-        //cmbBanka.SetSelectedIndex(cmbBanka.AddItem(values[19], values[9]));
-        // cmbGrupi.SetSelectedIndex(cmbGrupi.AddItem(values[29], values[28]));
         Utils.SelectComboItem(cmbGrupi, punesim.IdGrupPunonjesish, punesim.GrupPunonjesish);
         cbLarguar.SetChecked(punesim.Larguar);
         var dtLargimi = Utils.KtheDateOseBosh(punesim.DtLargimi);
@@ -421,12 +412,8 @@ function mbushFushaPunesim() {
         if (punesim.IdKodeProfesione > 0)
             Utils.SelectComboItem(cmbKodeProfesione, punesim.IdKodeProfesione, punesim.KodeProfesione);
         else cmbKodeProfesione.SetSelectedIndex(-1);
-        // cmbKodeProfesione.SetSelectedIndex(cmbKodeProfesione.AddItem(values[30], values[31]));
-        // cmbProfesioni.SetSelectedIndex(cmbProfesioni.AddItem(values[26], values[17]));// SetValue(values[17]);
         Utils.SelectComboItem(cmbProfesioni, punesim.IdProfesioni, punesim.Profesioni);
         Utils.SelectComboItem(cmbTitull, punesim.IdTitullPune, punesim.TitullPune);
-        //  cmbTitull.SetSelectedIndex(cmbTitull.AddItem(values[27], values[18]));
-        //cmbTitull.SetValue(values[18]);
 
         cbShifte.SetChecked(punesim.PunonjesTurne);
         cbKomisione.SetChecked(punesim.MeKomisione);
@@ -463,10 +450,8 @@ function mbushFushaQendra() {
     }).done(function (result) {
         var qendra = JSON.parse(result.d);
         $('#hfIdQendra').val(qendra.Id);
-        //  cmbDepartamenti.SetSelectedIndex(cmbDepartamenti.AddItem(values[14], values[1]));
 
         Utils.SelectComboItem(cmbQK1, qendra.IdQenderKosto1, qendra.Qendra1);
-        //cmbQK1.SetSelectedIndex(cmbQK1.AddItem(values[7], values[2]));
         Utils.SelectComboItem(cmbQK2, qendra.IdQenderKosto2, qendra.Qendra2);
 
         dteDateAktQK.SetDate(new Date(qendra.DtAktivizimi));
@@ -485,13 +470,10 @@ function mbushFushaBanda() {
     }).done(function (result) {
         var banda = JSON.parse(result.d);
         $('#hfIdBanda').val(banda.Id);
-        //  cmbDepartamenti.SetSelectedIndex(cmbDepartamenti.AddItem(values[14], values[1]));
 
 
         Utils.SelectComboItem(cmbGlobal, banda.IdGrupimGlobal, banda.Global);
-        //cmbGlobal.SetSelectedIndex(cmbGlobal.AddItem(values[9], values[4]));
         Utils.SelectComboItem(cmbLocal, banda.IdGrupimLokal, banda.Local);
-        // cmbLocal.SetSelectedIndex(cmbLocal.AddItem(values[10], values[5]));
         dteDateAktBanda.SetDate(new Date(banda.DtAktivizimi));
         $('#hfShtimModifikimBanda').val('modifikim');
 
@@ -532,7 +514,6 @@ function pastrofusha() {
         console.log(err);
 
     });
-    //gvKomponenteListPagese.ClearFilter();
     $('#hfStatusiPunesim').val('');
     cmbIdLlogari.SetSelectedIndex(-1);
     cmbIdLlogari.SetText('');
@@ -641,7 +622,6 @@ function shtoPunesim(nrkont) {
     departamentiChanged();
     txtDetyra.SetText('');
     cmbTipKontrate.SetSelectedIndex(-1);
-    //alert(1);
     if (!($('#hfShtimModifikim').val() == 'shtim'))
         txtNrKontrate.SetText('');
     dteDtFillimi.SetDate(new Date());
@@ -728,7 +708,6 @@ function SucceededCallbackPagaShtesa(result) {
         cmbBanka.SetValue(null);
     } else {
         Utils.SelectComboItem(cmbBanka, result[2].IdBanka, result[2].Banka);
-        //cmbBanka.SetSelectedIndex(cmbBanka.AddItem(result[2].Banka, result[2].IdBanka));
     }//TODO getson,duhet eleminuar kjo pjese
     pnlcallback.PerformCallback();
     gvPagaShtesa.PerformCallback();
@@ -759,8 +738,6 @@ e-eventi
 function OnGridSelectionChanged(e) {
     indexSel = myMenu.JSlevizNeGride.OnGridSelectionChanged(e, indexSel);
     if (mbush) {
-        // gvKomponenteListPagese.ClearFilter();
-        // gvKomponenteListPagese.CollapseAll();
     }
 }
 
@@ -822,7 +799,6 @@ function mbushEmailPunonjesi(s, e) {
 }
 //thiret konfigurimi kur e ndryshojme ate
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
-    // var idGjuha = hfState.Get('idGjuha');
     try {
         var idNdermarrje = hfState.Get('idNdermarrje');
         var idGjuha = hfState.Get('idGjuha');
@@ -864,28 +840,18 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 }
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
        
         colKontrollet = result.colKontroll;
         colAtrTrupi = result.colAtrTrupi;
         colKushte = result.colKushte;
-        // colAlterKusht = result[4];
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //            var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblPunonjes', 'tblKontakti', 'tblPunesim', 'tblHistoriku', 'tblQendra',  'tblBanda','tblPagaShtesa', 'tblKomponente'];
         var arrdrejta = [hftabe.Get("1"), hftabe.Get("2"), hftabe.Get("3Mod"), hftabe.Get("4Mod"), hftabe.Get("5"), hftabe.Get("6"), hftabe.Get("7"), hftabe.Get("8")];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 1);
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C", 1);
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C", undefined, undefined, undefined, undefined, arrdrejta);
         if (hfMod.val() == "shtim" || hfMod.val() == "klonim") {
             hfNrAuto.Clear();
@@ -906,9 +872,6 @@ function SucceededCallbackKonfig(result) {
         }
     }
 
-
-
-    // $("#dvPunonjes").show();//$("#dvPunonjes")[0].style.visibility = 'visible'; $("#dvPunonjes")[0].style.display = '';
 
 }
 function vendosNrAutomatik(colAtrTrupi, colKontrollet) {
@@ -1511,7 +1474,6 @@ function MerrSkemaSigurimi() {
 
     });
 } 
-
 
 
 function OnChange(s, e) {

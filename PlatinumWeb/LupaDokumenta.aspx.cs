@@ -22,7 +22,6 @@ namespace PlatinumWeb
 {
     public partial class LupaDokumenta : MyPageBase
     {
-        //private DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim;
         private String veprimi;
         private int niveli;
         protected void Page_Load(object sender, EventArgs e)
@@ -50,7 +49,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 EmrateLabelave(ci, rm);
-                //Session.Add("Periudha", "1");
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 1);
                 dteNga.Date = DateTime.Today;
@@ -66,11 +64,9 @@ namespace PlatinumWeb
                     this.dteNga.Date = new DateTime(2000, 01, 01);
                     this.dteDeri.Date = new DateTime(9999, 12, 31);
                 }
-                //  mbushPopUpListe();  
                 mbushPopUpListeDokumentashNgaDB();
                 konfiguroPopupGride(idKonfigambjenti, true, idGjuha, kerkosaposhkruar, rm, ci, endlessScroll);
 
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
                 GridUtil.AplikoFilterDefault(gvLupaDok, idKonfigambjenti);
                 mbushFilterDefaultNgaQueryString();
 
@@ -121,32 +117,23 @@ namespace PlatinumWeb
         private void mbushPopUpListeDokumentashNgaDB()
         {//mbush griden e popupit me te dhena            
             if (rbAktuale.Checked)
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 1;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 1);
             else if (rbVitiUshtrimor.Checked)
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 2;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 2);
             else
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 3;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 3);
 
-            //merrSipasPeriudhes(CacheLayer.GlobalCacheManager.MySessionCache["Periudha"].ToString());
             merrSipasPeriudhes(DbCore.mySessionObjects.merrPeriudheNgaSesioni(Session).ToString());
         }
 
         private void mbushPopUpListe()
         {
-            // merrSipasPeriudhes(CacheLayer.GlobalCacheManager.MySessionCache["Periudha"].ToString());
             if (rbAktuale.Checked)
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 1;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 1);
             else if (rbVitiUshtrimor.Checked)
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 2;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 2);
             else
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = 3;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, 3);
-            //merrSipasPeriudhes(CacheLayer.GlobalCacheManager.MySessionCache["Periudha"].ToString());
             merrSipasPeriudhes(DbCore.mySessionObjects.merrPeriudheNgaSesioni(Session).ToString());
         }
 
@@ -414,13 +401,11 @@ namespace PlatinumWeb
 
         private void shtoKlientFurnitor()
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             int visibleindex = gvLupaDok.Columns["IdKlientFurnitori"].VisibleIndex;
             gvLupaDok.Columns.Remove(gvLupaDok.Columns["IdKlientFurnitori"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbKontabiliteti.colKlienteFurnitore col = new DbCore.DbKontabiliteti.colKlienteFurnitore();
             col.mbushKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //col = dbKontabiliteti.merrKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbKontabiliteti.clsKlientFurnitor kf = new DbCore.DbKontabiliteti.clsKlientFurnitor();
             kf.IdKlientFurnitor = 0;
             kf.KodKlientFurnitor = "";
@@ -432,15 +417,12 @@ namespace PlatinumWeb
             colnew.PropertiesComboBox.ClientSideEvents.LostFocus = "function(s,e){LostFocusKF(0);}";
             colnew.PropertiesComboBox.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedKF(IdKlientFurnitori, 0) }";
             colnew.PropertiesComboBox.DropDownButton.Visible = false;
-            // cmb.ClientSideEvents.Init = "function(s,e){InitKPF()}";
             EditButton b1 = new EditButton();
 
             colnew.PropertiesComboBox.Buttons.Add(b1);
             colnew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             colnew.PropertiesComboBox.DropDownStyle = DropDownStyle.DropDownList;
             colnew.PropertiesComboBox.TextFormatString = "{0}";
-            // GridViewDataItemHorizontalAppointmentTemplateContainer gridContainer = (GridViewDataItemHorizontalAppointmentTemplateContainer)Container;
-            //   colnew.PropertiesComboBox. = "cmbBox";
             colnew.VisibleIndex = visibleindex;
             colnew.PropertiesComboBox.TextField = "KodKlientFurnitor";
             colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
@@ -456,7 +438,6 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbAdmin.colMonedhat col = new DbCore.DbAdmin.colMonedhat();
             col.mbushGjitheMonedhatAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //col = dbAdmin.merrGjitheMonedhatAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha();
             mon.IdMonedha = 0;
             mon.KodiMonedha = "";
@@ -498,7 +479,6 @@ namespace PlatinumWeb
                 {
                     DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
                     check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                    //  check.SetColVisibleIndex(0);
                     gvLupaDok.Columns.Add(check);
                     gvLupaDok.SettingsBehavior.AllowSelectByRowClick = true;
                 }
@@ -507,7 +487,6 @@ namespace PlatinumWeb
             gvLupaDok.Settings.ShowFilterRow = true;
             gvLupaDok.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
             gvLupaDok.Settings.ShowFilterRowMenu = true;
-            //gvLupaDok.SettingsBehavior.AllowFocusedRow = true;
             gvLupaDok.SettingsBehavior.AllowSelectByRowClick = true;
 
         }
@@ -523,8 +502,6 @@ namespace PlatinumWeb
             string[] arr = e.Parameters.Split(';');
             if (arr.Length == 1)
             {
-                //string arr = e.Parameters.ToString();
-                //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = arr;
                 DbCore.mySessionObjects.ruajPeriudheNeSesion(Session, int.Parse(e.Parameters.ToString()));
                 merrSipasPeriudhes(e.Parameters.ToString());
                 return;
@@ -560,19 +537,11 @@ namespace PlatinumWeb
         }
 
         //public void mbushDokTePeriudhes(object sender, ASPxRadioButton e)
-        //{
-        //    //string arr = aspxg.Parameters.ToString();
-        //    //CacheLayer.GlobalCacheManager.MySessionCache["Periudha"] = arr;
-        //    //merrSipasPeriudhes(arr);
-        //}
 
         public void merrSipasPeriudhes(string arr)
         {
-            //  DbCore.DbRegjistrim.colDokumentat col = new colDokumentat();
-            //dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
             DbCore.DbAdmin.clsPeriudhaKontabel oPeriudha = new DbCore.DbAdmin.clsPeriudhaKontabel();
             int idperdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //oPeriudha = (DbCore.DbAdmin.clsPeriudhaKontabel)CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"];
             oPeriudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
             DataTable dt = new DataTable();
             string kodNivel = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheKodNivelRegjistrimi(niveli);
@@ -600,8 +569,6 @@ namespace PlatinumWeb
 
             if (veprimi == "VeprimeBanka")
             {
-                //clsNivelRegjistrimi nive = new clsNivelRegjistrimi();
-                //nive.mbushNivelRegjistrimiSipasIdMeKonvertime(niveli);
                 int idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(niveli);
                 dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatVeprimeBanka(idndermarje, datanga, dataderi, idKategoria, idperdorues, niveli);
 
@@ -609,11 +576,8 @@ namespace PlatinumWeb
             }
             if (veprimi == "VeprimeBankaPaprintuar")
             {
-                //clsNivelRegjistrimi nive = new clsNivelRegjistrimi();
-                //nive.mbushNivelRegjistrimiSipasIdMeKonvertime(niveli);
                 int idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(niveli);
                 dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatVeprimeBankaPaPrintuar(idndermarje, datanga, dataderi, idperdorues, false, int.Parse(Request.QueryString["idshop"]), idKategoria);
-                //col = dbRegjistrim.merrGjitheDokumentatVeprimeBanka(funk.ktheNdermarrjeVit(), datanga, dataderi);
                 gvLupaDok.DataSource = dt;
             }
             if (veprimi == "RegjistrimDokumentash")
@@ -624,25 +588,21 @@ namespace PlatinumWeb
             if (veprimi == "RegjistrimDokumentashPaprintuar")
             {
                 dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatRegjistrimDokumentashPaPrintuar(idndermarje, datanga, dataderi, idperdorues, false, int.Parse(Request.QueryString["idshop"]));
-                //col = dbRegjistrim.merrGjitheDokumentatRegjistrimDokumentash(funk.ktheNdermarrjeVit(), datanga, dataderi);
                 gvLupaDok.DataSource = dt;
             }
             if (veprimi == "GjeneroProjekt")
             {
                 dt = DbCore.DbRegjistrim.colDokumentat.ktheGjitheDokumentatRegjistrimDokumentashMeKushtUPPDheIntervalDate(idndermarje, datanga, dataderi, idperdorues);
-                //col = dbRegjistrim.merrGjitheDokumentatRegjistrimDokumentash(funk.ktheNdermarrjeVit(), datanga, dataderi);
                 gvLupaDok.DataSource = dt;
             }
             if (veprimi == "AzhornimKF")
             {
                 dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatAzhornimDokumentash(idndermarje, datanga, dataderi, idperdorues);
-                //col = dbRegjistrim.merrGjitheDokumentatRegjistrimDokumentash(funk.ktheNdermarrjeVit(), datanga, dataderi);
                 gvLupaDok.DataSource = dt;
             }
             if (veprimi == "MbylljeKF")
             {
                 dt = DbCore.DbRegjistrim.colDokumentat.mbushGjitheDokumentatMbylljeDokumentash(idndermarje, datanga, dataderi, idperdorues);
-                //col = dbRegjistrim.merrGjitheDokumentatRegjistrimDokumentash(funk.ktheNdermarrjeVit(), datanga, dataderi);
                 gvLupaDok.DataSource = dt;
             }
             if (veprimi == "QendraKosto")
@@ -821,20 +781,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDok.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDokumenti", gvLupaDok);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaDok.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDokumenti";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -843,7 +791,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDok", Convert.ToInt32(cmbKonfigurimi.Value), "LupaDokumenta.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -867,7 +814,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDok", Convert.ToInt32(cmbKonfigurimi.Value), "LupaDokumenta.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)

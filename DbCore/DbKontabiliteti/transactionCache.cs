@@ -238,10 +238,8 @@ namespace DbCore
         }
 
 
-
         public int getFromCacheTotal()
         {
-            //return llogFromCache + kfFromCache + nenLlojLlogFromCache + llojLlogFromCache + konfigAmbientiFromCache + artFromCache + taksaFromCache + njesiAdministrativeFromCache + njesiArtFromCache + monedhaFromCache + colQendraNgaCache + statusMagazineCache + karakteristikaNgaCache + objektivaNgaCache + konfigQkCache + degaCache + strukturaCache + monedhaNdermCache + trupiskemaqkCache;
             return llogFromCache + kfFromCache + nenLlojLlogFromCache + llojLlogFromCache + konfigAmbientiFromCache + artFromCache + taksaFromCache + njesiAdministrativeFromCache + statusMagazineCache + monedhaFromCache + colQendraNgaCache + karakteristikaNgaCache + objektivaNgaCache + llogariTeMundshmeQkCache + konfigQkCache + degaCache + strukturaCache + monedhaNdermCache + trupiskemaqkCache + nivelRegjFromCache + pikeShitjeFromCache + kushteFromCache + kartatFromCache + perdoruesiFromCache + ndermarrjeVitiFromCache + periudhaKonabelFromCache + vitiFromCache + formatKonfigFromCache + agjentShitjeFromCache + automjeteFromCache + bankaFromCache + grupimDokumentiKokaFromCache + grupimeKFFromCache + alternativaCache + konfigAutorizimeCache + colArtikulliPerberesFromCache + ndermarrjaNgaCache + kodifikimArtikulliCache + karakteristikaStandartiTrupiCache + kursFromCache + skemaKontabelFromCache + monedhaNdermarrjesFromCache + kaLlogariQkNdermarrja + eshtePrindQk + nivelCmimiFromCache;
         }
 
@@ -1438,10 +1436,6 @@ namespace DbCore
             }
             return ndermarrja;
         }
-
-
-
-
 
 
         internal clsKarakteristikaStandarti getKarakteristikaStandarti(int idStandarti, int idKodifikimArtikulli, int idNdermarrje, bool merrNgaDb, clsDatabazeAsete data)

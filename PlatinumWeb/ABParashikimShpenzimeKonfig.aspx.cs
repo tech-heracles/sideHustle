@@ -24,7 +24,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -129,17 +128,7 @@ namespace PlatinumWeb
         protected void gvKonfigParashikimShpenz_CustomCallback(object sender, DevExpress.Web.ASPxGridViewCustomCallbackEventArgs e)
         {
             //if (e.Parameters.Contains("3006"))//per te kontrolluar nese eshte callback konfigurimi
-            //{
-            //    konfiguroGride(e.Parameters.Split(';')[1]);
-            //}
-            //if (e.Parameters.Contains("Riruaj"))
-            //{
-            //   // clsMesazh mesazhi = AnalizeBuxheti.RuajKonfigurimPerShpenzimePersoneli(mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //    if (mesazhi.Status)
-            //        DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Ruajtja u krye me sukses!:Green");
             //    else
-            //        DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
-            //}
         }
 
         protected void gvKonfigParashikimShpenz_BatchUpdate(object sender, DevExpress.Web.Data.ASPxDataBatchUpdateEventArgs e)
@@ -159,7 +148,6 @@ namespace PlatinumWeb
                 {
                     for (int i = 0, teUpdatetuara = e.UpdateValues.Count; i < teUpdatetuara; i++)
                     {
-                        //string key = e.UpdateValues[i].Keys[0].ToString();
                         clsParashikimShpenzPersoneliConfig konfigVjeter = col.Where(x => x.RreshtiId == e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
 
                         clsParashikimShpenzPersoneliConfig konfigUpdated = e.UpdateValues[i].MerrCustomUpdatedObject(konfigVjeter);

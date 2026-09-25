@@ -55,7 +55,6 @@ function ProcessKeyPress() {
 
 function OnGridSelectionChanged() {
     gvDetajimArtikulli.GetSelectedFieldValues('KodDetajimArtikulli;KategoriDetajimi;PershkrimDetajimArtikulli', OnGridSelectionComplete);
-    //gvDetajimArtikulli.GetRowValues(gvDetajimArtikulli.GetFocusedRowIndex(), 'KodDetajimArtikulli;PershkrimDetajimArtikulli', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {
@@ -67,7 +66,6 @@ function OnGridSelectionComplete(values) {
         else
             kodi = kodi + ',' + values[i][0];
     }
-
 
 
     var pershkrimi = '';
@@ -99,10 +97,8 @@ function OnGridSelectionComplete(values) {
         window.parent.editordetajimi.SetText(kodi);
         window.parent.editordetajimi.Focus();
         window.parent.popupUniversal.Hide();
-        //$.ajax({
         //    url: Utils.getServerApiUrl("Konfigurime", "kontrolloDetajimePerVeprime"),
         //    data: JSON.stringify({ detajimereja: kodi, detajimevjetra: Utils.getUrlVar('detajime'), kodartikulli: Utils.getUrlVar('kodArtikulli') })
-        //}).done(SuccededDetajime);
     }
     else {//kur thirret nga Shto_Artikull dhe Modifiko_Artikull
         window.parent.editordetajimi.SetText(kodi);
@@ -125,10 +121,6 @@ function SuccededDetajime(result) {
 
 var queryStr;
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;
@@ -149,7 +141,6 @@ function menu_click(s, e) {
                 window.parent.myButtonClickLupa.LupaUniversal_Click('Shto Detajim', 'LupaDetajimShpejte.aspx?' + queryStr, 900, 600);
             }
             else {
-                //window.parent.myButtonClickLupa.LupaUniversal_Click('Shto Detajim', 'LupaDetajimShpejte.aspx?kodArtikulli=' + Utils.getUrlVar('kodArtikulli') + '&veprimi=' + Utils.getUrlVar('veprimi'),900,600);
                 $.ajax({
                     url: Utils.getServerApiUrl("Rregjistrime", "ruajNeSessionURL"),
                     data: JSON.stringify({ url: window.location.href })

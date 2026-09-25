@@ -27,7 +27,6 @@ namespace PlatinumWeb
     public partial class LupaArtikullShpejte : MyPageBase
     {
 
-        //private string koloneFocus;
         ASPxTextBox temptxt = null;
         ASPxComboBox tempcombo = null;
         private DbCore.DbShare.clsFormatiKonfig formatNrPerKonfigCmimi = new DbCore.DbShare.clsFormatiKonfig();
@@ -287,8 +286,6 @@ namespace PlatinumWeb
             {
                 konf.IdKategori = kat;
                 konf.IdNdermarje = idNdermarrje;
-                //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                //niv.mbushNivelRegjistrimiSipasKodiMeKonvertime(nivel, idNdermarrje);
                 int idNivel = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(nivel, idNdermarrje);
                 col.mbushKonfigAmbjSipasIdKategoriIdNivelMeLloj(konf.IdKategori, idNivel, idPerdoruesi);
 
@@ -323,8 +320,6 @@ namespace PlatinumWeb
             KonfigurimComboGride.ShtoDetajimet(gvCmimet, idNdermarrje, idPerdoruesi, Session, komponente, guidString, "IdDetajim");
 
 
-            // DbCore.clsFunksione.percaktoVisibleColumnsMeWidth((int)hfState["idGjuha"], idNdermarrje, gvCmimet, "gvCmimet", "Shto_Artikull.aspx");
-            //DbCore.clsFunksione.percaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvCmimet", gvCmimet, cmbKonfigurimi.Text, "441", (int)hfState["idGjuha"], !Page.IsPostBack,);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvCmimet, "IdCmimArtikulli", false);
             
             gvCmimet.SettingsPager.Mode = GridViewPagerMode.ShowPager;
@@ -335,7 +330,6 @@ namespace PlatinumWeb
         }
 
        
-
         private void mbushListeCmimesh(int idPerdoruesi, int idNdermarrje)
         {//mbushet grida me te dhena    
             DbCore.DbInventari.colCmimeArtikujsh col = new DbCore.DbInventari.colCmimeArtikujsh();
@@ -543,7 +537,6 @@ namespace PlatinumWeb
                 }
                 else
                 {
-                    //  DbCore.DbInventari.clsArtikulli artvjete = new DbCore.DbInventari.clsArtikulli(artikulli.IdArtikulli);
                     string artvjete = clsArtikulli.ktheKodArtikulliSipasId(artikulli.IdArtikulli);
                     if (artikulli.KodArtikulli != artvjete)
                     {
@@ -553,7 +546,6 @@ namespace PlatinumWeb
                     else { mesazh = artikulli.modifiko(template, colCmime, false, "0", string.Empty, string.Empty, string.Empty); }
                 }
                 eshteShtim = false;
-                //mesazh = artikulli.modifiko(colArtikujtPerberes, template);
             }
 
             if (!mesazh.Status)
@@ -604,7 +596,6 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPanel1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, null, ASPxPanel1);
 
             int idNjesi1Artikulli = 0, idNjesi2Artikulli = 0, kodifikim1 = 0, kodifikim2 = 0, kodifikim3 = 0, idskema = 0, idfurnitori = 0, idlloginv = 0, idllogble = 0, idllogshit = 0,
                 idllogpakesim = 0, idllogshpe = 0, idllogtret = 0, idllogamor = 0, idllogrez = 0, idllogpakrez = 0, idkategoridet1 = 0, idkategoridet2 = 0;
@@ -789,7 +780,6 @@ namespace PlatinumWeb
                 DbCore.DbInventari.colCmimeArtikujsh col = new DbCore.DbInventari.colCmimeArtikujsh();
                 JavaScriptSerializer serializusi = new JavaScriptSerializer();
                 serializusi.MaxJsonLength = 500000000;
-                // col = (DbCore.DbInventari.colCmimeArtikujsh)
                 if (hfArtikuj.Value != "")
                 {
                     object[] o = (object[])serializusi.DeserializeObject(hfArtikuj.Value);
@@ -1098,10 +1088,6 @@ namespace PlatinumWeb
                                 temptxtNormal = txt9;
                                 ugjet = false;
                             }
-                            //else if (koloneFocus == "Formula")
-                            //{
-                            //    ugjet = true;
-                            //}
                         }
                     }
                 }
@@ -1123,7 +1109,6 @@ namespace PlatinumWeb
         }
 
   
-
         protected void cmbNjesia1_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {
             if (IsCallback)
@@ -1480,10 +1465,8 @@ namespace PlatinumWeb
 
         protected void cmbNivelTvsh_PreRender(object sender, EventArgs e)
         {
-           // cmbNivelTvsh.Items[0].Text = "";
         }
         
-
 
         private bool nivelTVShIPranueshem()
         {

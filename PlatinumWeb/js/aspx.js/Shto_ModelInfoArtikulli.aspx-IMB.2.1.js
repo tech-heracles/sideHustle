@@ -100,7 +100,6 @@ function callWebservice(s,e) {
     var emer = 'Shto_ModelInfoArtikulli.aspx';
     var veprim = 'Modifiko';
     indexModifiko = e.visibleIndex;
-    //e.processOnServer = false;
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "eshteVeprimILejuar"),
         data: JSON.stringify({ emerKomponente: emer, veprimi: veprim })
@@ -125,7 +124,6 @@ function switchEditMode(index) {
     ASPxMenu1.GetItemByName('Ruaj').SetVisible(true);
     myMenu.menuSipasTeDrejtaCeljeVogel($("#hfRuaj"), hfTeDrejta);
     ASPxGridView_InfoArtikulli.StartEditRow(index);
-    //indexModifiko = index;
 }
 function Init() {
     changeName();

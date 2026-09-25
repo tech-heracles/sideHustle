@@ -20,7 +20,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
         }
 
 
-
         public Rap_FleteInventarizimi(int idRaporti, CultureInfo ci, int idNdermarrje, int idViti, int idPerdoruesi, int idGjuha, DevExpress.XtraReports.UI.XtraReport raport)
         {
 
@@ -47,7 +46,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell27.Text = rm.GetString("lblRaportTedhenaInventar", ci);
             xrTableCell14.Text = rm.GetString("labelSasia", ci);
             xrTableCell70.Text = rm.GetString("labelKategoria", ci);
-            //TotaliGjithMAgazinave.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell15.Text = rm.GetString("lblRaportVleftaLeke", ci);
             xrTableCell29.Text = rm.GetString("lblRaportRezultatet", ci);
             xrTableCell39.Text = rm.GetString("lblMungesat", ci);
@@ -57,7 +55,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell30.Text = rm.GetString("lblRaportVerejtje", ci);
 
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
         }
         
     }

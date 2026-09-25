@@ -72,21 +72,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushPasqyrat(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPasqyreFinanciare pasqyra = new clsPasqyreFinanciare();
-                    //pasqyra.mbushPasqyraFinanciare(rreshti);
                     Add(new clsPasqyreFinanciare(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -105,7 +97,6 @@ namespace DbCore.DbKontabiliteti
                 pasqyra.Metoda = rreshti[4].ToString();
                     pasqyra.IdNdermarja = int.Parse(rreshti[5].ToString());
                 pasqyra.Viti = int.Parse(rreshti[6].ToString());
-                //pasqyra.IdNdermVit = int.Parse(rreshti[7].ToString());
                 pasqyra.IdPerdoruesi = int.Parse(rreshti[7].ToString());
                 pasqyrat.Add(pasqyra);
             }

@@ -39,7 +39,6 @@ namespace DbCore.IMBUtils.Extensions
 
             foreach (var item in childList)
                 parentList.Remove(item);
-            //  parent.RemoveAll(x => lista.Contains(x));
         }
 
         /// <summary>

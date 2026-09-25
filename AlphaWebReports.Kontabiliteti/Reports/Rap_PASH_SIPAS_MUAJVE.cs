@@ -19,8 +19,6 @@ namespace AlphaWebReports.RaportetDs.Raporte
         private int viti;
     
 
-        
-
         public Rap_PASH_SIPAS_MUAJVE()
         {
             InitializeComponent();
@@ -133,13 +131,10 @@ namespace AlphaWebReports.RaportetDs.Raporte
         }
 
 
-
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
         }
-
-
 
 
         private void xrTableCell37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -312,10 +307,8 @@ namespace AlphaWebReports.RaportetDs.Raporte
         {
             //xrLabel79_SummaryGetResult
             e.Result = xrTableCell55.Text;
-            //e.Result = niv;
             e.Handled = true;
         }
-
 
 
         private void xrTableCell60_AfterPrint(object sender, EventArgs e)
@@ -335,11 +328,8 @@ namespace AlphaWebReports.RaportetDs.Raporte
         {
             //xrLabel84_SummaryGetResult
             e.Result = xrTableCell60.Text;
-            //e.Result = niv;
             e.Handled = true;
             //  niv++;
-            //e.Result = niv + 1;
-            //e.Handled = true;
         }
 
         /// <summary>

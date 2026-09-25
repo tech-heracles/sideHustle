@@ -58,11 +58,6 @@ namespace DbCore.DbInventari
         /// <param name="idnivelzbritje"> id e nivelit te zbritjes</param>
         /// <param name="idperdorues"> id e perdoruesit</param>
         /// <param name="idndermarje"> id e ndermarjes</param>
-        //public colZbritjetAnalitike(string kodartikulli, string kodbar, string pershkrimi1, string pershkrimi2, string kodifikimi1, string kodifikimi2, string furnitori, string njesia, string datafillimit, string datambarimit, int idndervit, string idnivelzbritje, int idperdorues, int idndermarje)
-        //{
-        //    clsDatabaseInventari dbZbritjeAnalitike = new clsDatabaseInventari();
-        //    mbushZbritjeAnalitike(dbZbritjeAnalitike.ktheZbritjeAnalitikeSipasFiltrit(kodartikulli, kodbar, pershkrimi1, pershkrimi2, kodifikimi1, kodifikimi2, furnitori, njesia, datafillimit, datambarimit, idndervit, idnivelzbritje, idperdorues, idndermarje));
-        //}
         public static DataTable merrZbritjeAnalitikeSipasFiltrit(string kodartikulli, string kodbar, string pershkrimi1, string pershkrimi2, string kodifikimi1, string kodifikimi2, string furnitori, string njesia, string datafillimit, string datambarimit, string idnivelcmimi, int idperdorues, int idndermarje)
             {
             clsDatabaseInventari dbCmimArtikulli = new clsDatabaseInventari();
@@ -220,20 +215,12 @@ namespace DbCore.DbInventari
         private bool mbushZbritjeAnalitike(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsZbritjeAnalitike zbritjeAnalitike = new clsZbritjeAnalitike();
-                    //zbritjeAnalitike.mbushZbritjeAnalitike(rreshti);
                     this.Add(new clsZbritjeAnalitike(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -261,7 +248,6 @@ namespace DbCore.DbInventari
 
               
                 zbritjeAnalitike.IdPerdoruesi = int.Parse(rreshti[12].ToString());
-                //zbritjeAnalitike.IdNderViti = int.Parse(rreshti[13].ToString());
                 zbritjeAnalitike.IdNdermarje = int.Parse(rreshti[13].ToString());
                 zbritjeAnalitike.IdKonfig = int.Parse(rreshti[14].ToString());
                 zbritjeAnalitike.KodbarArtikulli = rreshti[15].ToString();

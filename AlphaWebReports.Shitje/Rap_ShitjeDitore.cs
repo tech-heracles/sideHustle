@@ -48,7 +48,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             xrLabel1.Text = rm.GetString("RaportShitjetDitoreTitulli", ci);
-           // xrLabel12.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel40.Text = rm.GetString("labelRaportData", ci);
             xrLabel42.Text = rm.GetString("labelRaportKlienti", ci);
             xrLabel43.Text = rm.GetString("labelRaportiVleraTotale", ci);

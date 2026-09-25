@@ -172,11 +172,8 @@ namespace DbCore.DbInventari
                 for (int i = 1; i < nrKol; i++)
                 {
                     string fusha = row[i]?.ToString();
-                    //if (!String.IsNullOrEmpty(fusha))
                     line += (i == nrKol - 1) ? $"{fusha}" : $"{fusha}|";
-                        //line += $"{fusha}|";
                 }
-                //lines.AppendLine(line.TrimEnd('|'));
                 lines.Append(line + '\n');
             }
             ImbLogger.Info("U krijuan rreshtat e permbajtjes se filet te transferimit te serialeve unike.");

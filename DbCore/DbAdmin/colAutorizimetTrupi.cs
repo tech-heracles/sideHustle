@@ -90,19 +90,11 @@ namespace DbCore.DbAdmin
         private bool mbushAutorizimetTrupi(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsAutorizimTrupi autorizim = new clsAutorizimTrupi();
-                //autorizim.mbushAutorizimTrupi(rreshti);
                 Add(new clsAutorizimTrupi(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -37,7 +37,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {

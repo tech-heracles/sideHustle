@@ -59,7 +59,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
 
 
-
         }
 
         private decimal shuma;
@@ -80,13 +79,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel17.Text = rm.GetString("labelKodi", ci);
             xrLabel18.Text = rm.GetString("labelRaportiPershkrimi", ci);
-           // xrLabel19.Text = rm.GetString("labelNjesia", ci);
             xrLabel20.Text = rm.GetString("labelSasia", ci);
-           // xrLabel21.Text = rm.GetString("labelCmimi", ci);
-           // xrLabel22.Text = rm.GetString("labelZbritjeAnalitike", ci);
-           // xrLabel23.Text = rm.GetString("labelVleftapaTVSH", ci);
-           // xrLabel32.Text = rm.GetString("labelZbritjaTotale", ci);
-           // xrLabel24.Text = rm.GetString("labelTVSH", ci);
             xrLabel25.Text = rm.GetString("labelVleftameTVSH", ci);
             xrLabel16.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel12.Text = rm.GetString("labelLogoIMB", ci);

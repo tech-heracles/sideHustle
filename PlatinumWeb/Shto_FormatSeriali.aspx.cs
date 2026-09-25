@@ -51,7 +51,6 @@ namespace PlatinumWeb
         /// <param name="e"> argumenti</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -250,7 +249,6 @@ namespace PlatinumWeb
         }
 
 
-
         /// <summary>
         /// perdoret per te vendosur filtrat tek headeri i grides
         /// </summary>
@@ -325,20 +323,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_FormatSeriali.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kategori", ASPxGridView_FormatSeriali);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_FormatSeriali.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kategori";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -380,7 +366,6 @@ namespace PlatinumWeb
                 return;
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
@@ -745,7 +730,6 @@ namespace PlatinumWeb
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvSeriali, "gvSeriali", komponente);
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvSeriali, "ID", false);
             gvSeriali.Settings.UseFixedTableLayout = false;
-            // gvAktivitetet.Columns["Fshi"].VisibleIndex = 14;
         }
 
         /// <summary>
@@ -922,8 +906,6 @@ namespace PlatinumWeb
                 }
                 if (cmb1 != null)
                 {
-                    // cmb1.DropDownButton.Visible = false;
-                    //cmb1.Buttons.Add();
                     cmb1.DropDownStyle = DropDownStyle.DropDownList;
                     cmb1.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                     DbCore.DbInventari.colSerialeUnike col = new DbCore.DbInventari.colSerialeUnike((int)hfState["idNdermarrje"]);
@@ -965,7 +947,6 @@ namespace PlatinumWeb
                     trupi.Add(burim);
 
                 }
-
 
 
             }

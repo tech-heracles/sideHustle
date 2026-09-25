@@ -29,9 +29,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
             xrLabel1.Text = rm.GetString("lblRapTitArtShiturAgjenteve", ci);
-          //  xrLabel13.Text = rm.GetString("RaportArtikujTeShiturTitulli", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-           // xrLabel16.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel12.Text = rm.GetString("labelLogoIMB", ci);
 
             //Report header

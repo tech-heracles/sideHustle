@@ -29,9 +29,6 @@ namespace PlatinumWeb.Templates
 
             ASPxComboBox cmb = new ASPxComboBox();
             cmb.ClientInstanceName = "IdMonedha";
-            //cmb.ClientSideEvents.TextChanged = "function(s,e){TextChangedMonedha(s, e); }";
-            //cmb.ClientSideEvents.ButtonClick = "function(s,e){ButtonClickedMonedha(s, e); }";
-            //cmb.ClientSideEvents.Init = "function(s,e){InitMonedha(s, e);}";
             cmb.DropDownButton.Visible = false;
             EditButton b1 = new EditButton();
 
@@ -76,7 +73,6 @@ namespace PlatinumWeb.Templates
                     {
                         string text = "";
                         text = gridContainer.Text;
-                        //DbCore.clsFunksione funksion = new DbCore.clsFunksione(ci);
                         text = DbCore.clsFunksione.zevendesoKaraktere(text);
                         cmb.Text = text;
                         cmb.Width = Unit.Percentage(100);
@@ -93,7 +89,6 @@ namespace PlatinumWeb.Templates
                 {
                     string text = "";
                     text = gridContainer.Text;
-                    // DbCore.clsFunksione funksion = new DbCore.clsFunksione(ci);
                     text = DbCore.clsFunksione.zevendesoKaraktere(text);
                     cmb.Text = text;
                     cmb.Width = Unit.Percentage(100);

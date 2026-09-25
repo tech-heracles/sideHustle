@@ -60,21 +60,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushLlojeBuxhetesh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojBuxheti llojBuxheti = new clsLlojBuxheti();
-                    //llojBuxheti.mbushLlojBuxheti(rreshti);
                     Add(new clsLlojBuxheti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

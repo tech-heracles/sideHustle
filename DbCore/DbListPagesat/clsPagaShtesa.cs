@@ -74,11 +74,7 @@ namespace DbCore.DbListPagesat
             db.Dispose();
         }
 
-        //public clsPagaShtesa(DataRow rreshti)
-        //{
         //    
-        //    mbushPagaShtesa(rreshti);
-        //}
         #endregion
 
         #region Properties
@@ -366,8 +362,6 @@ namespace DbCore.DbListPagesat
                 if (mbiemer != "" && pun.Mbiemer != mbiemer)
                     throw new Exception("Mbiemri i punonjesit nuk eshte i sakte!");
 
-                //if (data.Year != vitinderm)
-                //    throw new Exception("Viti i pages dhe shtesa duhet ti perkase vitit ushtrimor!");
                 clsKomponentePage komp = new clsKomponentePage(komponente, idndermarje, data);
                 if (komp.IdKomponentePage <= 0)
                     throw new Exception("Komponentja nuk ekziston!");
@@ -446,7 +440,6 @@ namespace DbCore.DbListPagesat
         #endregion
 
         #region Metoda Internal
-
 
 
         internal void mbushPagaShtesa(IDataRecord dbDataRowPagaShtesa)

@@ -17,7 +17,6 @@ namespace AlphaWebReports.RaportetDs
         double shumakredi = 0;
         double shumadebimonllog = 0;
         double shumakredimonllog = 0;
-        //double gjendjameparemonllog = 0;
         double shumadebigjithsej = 0;
         double shumakredigjithsej = 0;
         double shumadebimonlloggjithsej = 0;
@@ -57,7 +56,6 @@ namespace AlphaWebReports.RaportetDs
             }
 
 
-
         private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
             {
                 if (GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI") != null && GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString() != "")
@@ -81,8 +79,6 @@ namespace AlphaWebReports.RaportetDs
             }
 
 
-
- 
         private void xrLabel37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             vleraProgresivGjithsej += vleraProgresive;
@@ -133,7 +129,6 @@ namespace AlphaWebReports.RaportetDs
             }
 
      
-
         private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
             {
                 if (vleraProgresivGjithsej > 0)
@@ -154,9 +149,6 @@ namespace AlphaWebReports.RaportetDs
         }
 
  
-
-
-       
         private void xrLabel39_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
             {
             double sum = 0;
@@ -262,7 +254,6 @@ namespace AlphaWebReports.RaportetDs
                     }
                 }
                
-
 
             }
 

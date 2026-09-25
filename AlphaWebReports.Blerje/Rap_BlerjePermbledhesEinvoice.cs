@@ -51,18 +51,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
             parameter1.Value = raport.Parameters[0].Value;
             parameter2.Value = raport.Parameters[1].Value;
             parameter3.Value = raport.Parameters[2].Value;
-            //parameter4.Value = raport.Parameters[3].Value;
-            //parameter5.Value = raport.Parameters[4].Value;
-            //parameter6.Value = raport.Parameters[5].Value;
-            //parameter7.Value = raport.Parameters[6].Value;
-            //parameter8.Value = raport.Parameters[7].Value;
-            //parameter9.Value = raport.Parameters[8].Value;
-            //parameter10.Value = raport.Parameters[9].Value;
-            //parameter11.Value = raport.Parameters[10].Value;
-            //parameter12.Value = raport.Parameters[12].Value;
-            //parameter13.Value = raport.Parameters[13].Value;
-            //parameter14.Value = raport.Parameters[14].Value;
-            //DegaAdministrative.Value = raport.Parameters[11].Value;
 
 
         }
@@ -77,7 +65,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-            
         }
 
     }

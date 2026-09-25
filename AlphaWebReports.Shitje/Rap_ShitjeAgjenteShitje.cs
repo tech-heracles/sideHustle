@@ -78,20 +78,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
              //report header
             xrLabel109.Text = rm.GetString("TitullRaportiShitjeAgjenteShitje", ci);
 
-            //xrLabel54.Text = rm.GetString("labelFooterNdermarrja", ci);
-            //xrLabel57.Text = rm.GetString("filterDtDok", ci);
-            //xrLabel60.Text = rm.GetString("filterDtRegj", ci);
-            //xrLabel74.Text = rm.GetString("filterRaportiAgjentetShitjes", ci);
-            //degaAdminLabel.Text = rm.GetString("filterFurnitor", ci);
-            //xrLabel85.Text = rm.GetString("filterQyteti", ci);
-            //xrLabel76.Text = rm.GetString("filterGrupimPare", ci);
-            //xrLabel80.Text = rm.GetString("filterGrupimDyte", ci);
-            //xrLabel87.Text = rm.GetString("filterGrupimDokP", ci);
-            //xrLabel92.Text = rm.GetString("filterGrupimDokD", ci);
-            //xrLabel103.Text = rm.GetString("filterGrupimDokt", ci);
            
-            //xrLabel24.Text = rm.GetString("filterDegeAdministrative", ci);
-
         }
     }
 }

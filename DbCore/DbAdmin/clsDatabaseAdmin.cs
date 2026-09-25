@@ -59,7 +59,6 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
 
 
-
         internal object LexoKonfigurimSipasKeyNgaDb(string key)
         {
             dbManager.Open();
@@ -67,7 +66,6 @@ namespace DbCore.DbAdmin
             dbManager.AddInputParameters("@key", key);
             return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_SERVER_CONFIGURATION_selSipasKey");
         }
-
 
 
         internal Dictionary<string, object> LexoGjitheKonfigurimetNgaDb()
@@ -280,7 +278,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(10, "@PERDORUESEMAIL", perdoruesemail, ParameterDirection.Input);
             dbManager.AddParameters(11, "@PERDORUESADRESA", perdoruesadresa, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(13, "@IDTHEME", idTheme, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IDSTILRAPORTI", idStilRaporti, ParameterDirection.Input);
             dbManager.AddParameters(14, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.AddParameters(15, "@ZOOMFACTOR", zoomFactor, ParameterDirection.Input);
@@ -690,21 +687,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiPerdorues(int idperdorues)", true)]
-        //public clsMesazh fshiPerdorues(clsPerdorues perdorues)
-        //{
         //    try
-        //    {              
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPERDORUES", perdorues.IdPerdorues, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PERDORUESI_del");
-        //        return new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektin perdorues sipas username, mqs presupozohet qe username edhe unik ne bashkesine e perdorueve te programit
@@ -763,10 +747,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh fshiTeDrejtaPerdorues(int idperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             string sqlstr = "delete from  T_DREJTAT" +
                               " where IDPERDORUES =" + idperdorues +
                               " and PERDORUESAPOGRUP = 0";
@@ -791,8 +771,6 @@ namespace DbCore.DbAdmin
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_kthePerdorues");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, idnermarrjeviti);
             if (ds == null)
                 return null;
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
@@ -830,10 +808,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrPerdoruesGjitheNdermarrjet(int idperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
@@ -846,17 +820,11 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjithePerdoruesit(int idperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open(); dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrGjithePerdoruesitE_Licences");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
@@ -869,8 +837,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
             dbManager.AddParameters(1, "@idautorizimi", idautorizimi, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrGjithePerdoruesitE_LicencesSipasAutorizimit");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
@@ -883,8 +849,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(1, "@IDLICENCA", idlicenca, ParameterDirection.Input);
             dbManager.AddParameters(2, "@text", text, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrGjithePerdoruesitLike");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
@@ -989,10 +953,6 @@ namespace DbCore.DbAdmin
         internal DataRow merrPerdoruesSipasUsernameTePrindi(string perdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -1018,10 +978,6 @@ namespace DbCore.DbAdmin
         internal int merrPerdoruesIdSipasUsername(string perdoruesi, int idNdermarrje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdoruesi, ParameterDirection.Input);
@@ -1074,7 +1030,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         /// <summary>
         /// Metode qe kthen gjuhen e perdoruesit sipas username dhe ne varesi te te drejtave qe ka ky user per ndermarrjen. 
         /// Ne qofte se ekziston dhe ka te drejta atehere kthen id e perdoruesit, perndryshe kthen 0.
@@ -1085,10 +1040,6 @@ namespace DbCore.DbAdmin
         internal int merrIdGjuhaSipasIdPerdorues(int idPerdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -1167,27 +1118,8 @@ namespace DbCore.DbAdmin
 
         //[Obsolete("Perdor: bool ekzistonPerdoruesMeKeteKod(String perdoruesusername)", true)]
         //private bool ekzistonPerdoruesMeKeteKod(clsPerdorues perdoruesi)
-        //{
-        //    int nrPerdoruesish;
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdoruesi.PerdoruesUsername, ParameterDirection.Input);
-        //        nrPerdoruesish = (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_PerdoruesMeKeteKod");
-        //        if (nrPerdoruesish > 0)
-        //        {
-        //            return true;
-        //        }
         //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return true;
-        //    }
-        //}
 
         /// <summary>
         /// //metoda per te marre te dhenat per te mbushur pemen e perdoruesve
@@ -1196,10 +1128,6 @@ namespace DbCore.DbAdmin
         internal DataTable kthePemenEPerdoruesve()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrPemenEPerdoruesve");
@@ -1214,18 +1142,12 @@ namespace DbCore.DbAdmin
         internal DataTable merrPerdoruesitSipasLicencesDT(int idperdorues, int idlicenca)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open(); dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDLICENCA", idlicenca, ParameterDirection.Input);
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrPerdoruesitSipasLicencesDT");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
@@ -1233,10 +1155,6 @@ namespace DbCore.DbAdmin
         internal int merrNrPerdoruesishSipasLicences(int idperdorues, int idlicenca)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -1251,40 +1169,26 @@ namespace DbCore.DbAdmin
         internal DataTable merrPerdoruesitSipasLicencesDTJoSuper(int idperdorues, int idlicenca)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open(); dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDLICENCA", idlicenca, ParameterDirection.Input);
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrPerdoruesitSipasLicencesDTJoSuper");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
 
 
-
-
         internal DataTable merrPerdoruesitSipasLicencesDTPerNdermaje(int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open(); dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrPerdoruesitSipasLicencesDTPerNdermarje");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
@@ -1307,17 +1211,11 @@ namespace DbCore.DbAdmin
         internal DataRow merrPerdoruesDR(int idperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_merrPerdoruesDR");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, idnermarrjeviti);
             if (ds == null)
                 return null;
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
@@ -1493,11 +1391,6 @@ namespace DbCore.DbAdmin
             if (ekzistonRolPerdorues(idRoli, idPerdorues) > 0) //ekziston rolperdoruesi me kete rol dhe perdorues
                 return idRolPerdorues;
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDROLPERDORUES", idRolPerdorues, ParameterDirection.Output);
@@ -1519,11 +1412,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         public clsMesazh modifikoRolPerdorues(int idRolPerdorues, int idRoli, int idPerdorues)
         {//metoda per modifikimin e artikullZevendesues
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDROLPERDORUES", idRolPerdorues, ParameterDirection.Output);
@@ -1542,11 +1430,6 @@ namespace DbCore.DbAdmin
         public clsMesazh fshiRolPerdorues(int idRolPerdorues)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDROLPERDORUES", idRolPerdorues, ParameterDirection.Input);
@@ -1563,11 +1446,6 @@ namespace DbCore.DbAdmin
         ///<param name="idRolPerdorues"> id e rolit te perdoruesit</param>
         public DataRow merrRolPerdorues(int idRolPerdorues)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(1);
             this.dbManager.AddParameters(0, "@IDROLPERDORUES", idRolPerdorues, ParameterDirection.Input);
@@ -1621,10 +1499,6 @@ namespace DbCore.DbAdmin
         public int merrIdLicencePerdoruesi(int idPerdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
@@ -1661,10 +1535,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@USERNAMEPERDORUES", usernamePerdoruesi, ParameterDirection.Input);
@@ -1679,17 +1549,11 @@ namespace DbCore.DbAdmin
         {
 
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@ROLI", roli, ParameterDirection.Input);
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ROLPERDORUES_merrNrRol"));
-
 
 
         }
@@ -1723,11 +1587,6 @@ namespace DbCore.DbAdmin
         {
             int idRolPerdoruesi = -1;
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDROLI", idRoli, ParameterDirection.Input);
@@ -1750,11 +1609,6 @@ namespace DbCore.DbAdmin
         public bool eshteRoliLidhurMePerdorues(int idRoli)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDROLI", idRoli, ParameterDirection.Input);
@@ -1773,24 +1627,11 @@ namespace DbCore.DbAdmin
         /// <param name="kodRoli">kodi me te cilin do kerkohet</param>
         /// <returns>kthen id-ne e rolit nese gjendet, perndryshe kthen numer <= 0</returns>
         //internal int ekzistonRol(String kodRoli, int idlicenca)
-        //{
-        //    int idRoli = -1;
 
         //    //if (this.dbManager == null)
         //    //{
-        //    //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
         //    //}
-        //    this.dbManager.Open();
-        //    dbManager.CreateParameters(2);
-        //    dbManager.AddParameters(0, "@KODIROLI", kodRoli, ParameterDirection.Input);
-        //    dbManager.AddParameters(1, "@IDLICENCA", idlicenca, ParameterDirection.Input);
-        //    Object idRoliObject = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ROLI_ktheIdMeKod");
-        //    if (idRoliObject != null)
-        //        idRoli = Convert.ToInt32(idRoliObject);
-        //    return idRoli;
 
-        //}
         internal int ekzistonRol(String kodRoli, int idlicenca)
         {
             int idRoli = -1;
@@ -1900,11 +1741,6 @@ namespace DbCore.DbAdmin
         /// <returns>kthen nje DataRow roli</returns>
         public bool ruajRoleDefault(int idndermarje, int idviti, int idperdoruesi, int idllojlicence)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(4);
             this.dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
@@ -2005,76 +1841,18 @@ namespace DbCore.DbAdmin
         /// <param name="grup"></param>
         /// <returns></returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajGrupPerdoruesishTeDrejta(clsGrupiPerdorues grup)", true)]
-        //public clsMesazh ruajGrupPerdoruesishTeDrejta(clsGrupiPerdorues grup)
-        //{
-        //    clsMesazh mesazh;
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
 
         //    try
-        //    {
-        //        if (!ekzistonGrupPerdoruesiMeKeteKod(grup.GrupiPerdoruesKodi))
-        //        {
-        //            int idG;
-        //            dbManager.BeginTransaction();
-        //            mesazh = ruajGrupPerdoruesish(out idG, grup.GrupiPerdoruesKodi, grup.GrupiPerdoruesPershkrimi, grup.GrupiAktivPerdorues, grup.GrupiPerdoruesData, grup.IdPerdoruesi);
-        //            if (mesazh.Status)
-        //            {
-        //                grup.IdGrupiPerdorues = idG;
-        //                foreach (clsTeDrejtat o in grup.OColTeDrejtat)
-        //                {
-        //                    if (mesazh.Status)
-        //                    {
-        //                        o.IdPerdorues = grup.IdGrupiPerdorues;
-        //                        if (!ekzistonEDrejta(o.IdNderViti, o.IdKomponente, o.IdAmbjentiModuli, o.IdModul, o.IdDrejtaVeprim, o.IdPerdorues))
-        //                            mesazh = ruajTeDrejte(o.IdDrejta, o.IdNderViti, o.IdKomponente, o.IdModul, o.IdPerdorues, o.IdDrejtaVeprim, o.PerdoruesApoGrup);
-        //                    }
-        //                    else { dbManager.Transaction.Rollback(); return mesazh; }
-        //                }
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                mesazh = new clsMesazh(false, mesazh.PershkrimMesazhi);
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            return new clsMesazh(false, "Ekziston nje grup me te njejtin kod!");
-        //        }
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh ruajGrupPerdoruesish(out int idgrupiperdorues, String grupiperdorueskodi, String grupiperdoruespershkrimi, bool grupiaktivperdorues, DateTime grupiperdoruesdata, int idperdoruesi)
         {
             idgrupiperdorues = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(6);
@@ -2092,99 +1870,24 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajGrupPerdoruesish(out int idgrupiperdorues, String grupiperdorueskodi, String grupiperdoruespershkrimi, bool grupiaktivperdorues, DateTime grupiperdoruesdata, int idperdoruesi)", true)]
-        //public clsMesazh ruajGrupPerdoruesish(clsGrupiPerdorues grupi)
-        //{
         //    try
-        //    {
 
-        //            dbManager.CreateParameters(6);
-        //            dbManager.AddParameters(0, "@IDGRUPIPERD", grupi.IdGrupiPerdorues, ParameterDirection.Output);
-        //            dbManager.AddParameters(1, "@GRUPIKODI", grupi.GrupiPerdoruesKodi, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@GRUPIPERDPERSHK", grupi.GrupiPerdoruesPershkrimi, ParameterDirection.Input);
-        //            dbManager.AddParameters(3, "@GRUPIPERDAKTIV", grupi.GrupiAktivPerdorues, ParameterDirection.Input);
-        //            dbManager.AddParameters(4, "@GRUPIPERDDATA", grupi.GrupiPerdoruesData, ParameterDirection.Input);
-        //            dbManager.AddParameters(5, "@IDPERDORUESI", grupi.IdPerdoruesi, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPIPERDORUES_ins");
-        //            grupi.IdGrupiPerdorues = int.Parse(dbManager.Parameters[0].Value.ToString());
-
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoGrupTeDrejta(clsGrupiPerdorues grup)", true)]
-        //public clsMesazh modifikoGrupTeDrejta(clsGrupiPerdorues grup)
-        //{
-        //    clsMesazh mesazh = new clsMesazh();
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
-        //        mesazh = modifikoGrupPerdoruesish(grup.IdGrupiPerdorues, grup.GrupiPerdoruesKodi, grup.GrupiPerdoruesPershkrimi, grup.GrupiAktivPerdorues, grup.GrupiPerdoruesData, grup.IdPerdoruesi);
-        //       if (mesazh.Status)
-        //       {
-        //           mesazh = fshiTeDrejtaGrupPerdorues(grup.IdGrupiPerdorues);
 
 
-        //           foreach (clsTeDrejtat o in grup.OColTeDrejtat)
-        //           {
-        //               if (mesazh.Status)
-        //               {
-        //                   o.IdPerdorues = grup.IdGrupiPerdorues;
-        //                   if (!ekzistonEDrejta(o.IdNderViti, o.IdKomponente, o.IdAmbjentiModuli, o.IdModul, o.IdDrejtaVeprim, o.IdPerdorues))
-        //                       mesazh = ruajTeDrejte(o.IdDrejta, o.IdNderViti, o.IdKomponente, o.IdModul, o.IdPerdorues, o.IdDrejtaVeprim, o.PerdoruesApoGrup);
-        //               }
         //               else
-        //               {
-        //                   dbManager.Transaction.Rollback();
 
-        //                   return mesazh;
-        //               }
-        //           }
-        //           if (mesazh.Status)
-        //           {
-        //               dbManager.CommitTransaction();
-        //               mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //               return mesazh;
-        //           }
         //           else
-        //           {
-        //               dbManager.Transaction.Rollback();
 
-        //               return mesazh;
-        //           }
-        //       }
         //       else
-        //       {
-        //           dbManager.Transaction.Rollback();
-        //           return mesazh;
-        //       }
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoGrupPerdoruesish(int idgrupiperdorues, String grupiperdorueskodi, String grupiperdoruespershkrimi, bool grupiaktivperdorues, DateTime grupiperdoruesdata, int idperdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(6);
@@ -2201,61 +1904,19 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoGrupPerdoruesish(int idgrupiperdorues, String grupiperdorueskodi, String grupiperdoruespershkrimi, bool grupiaktivperdorues, DateTime grupiperdoruesdata, int idperdoruesi)", true)]
-        //public clsMesazh modifikoGrupPerdoruesish(clsGrupiPerdorues grupi)
-        //{
         //    try
-        //    {
         //        //komentoi edi, sepse nuk do lejohet modifikimi i kodi te grupit te perdoruesit
         //        ////if (!ekzistonGrupPerdoruesiMeKeteKod(grupi))
         //        ////{
-        //            dbManager.CreateParameters(6);
-        //            dbManager.AddParameters(0, "@IDGRUPIPERD", grupi.IdGrupiPerdorues, ParameterDirection.Input);
-        //            dbManager.AddParameters(1, "@GRUPIKODI", grupi.GrupiPerdoruesKodi, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@GRUPIPERDPERSHK", grupi.GrupiPerdoruesPershkrimi, ParameterDirection.Input);
-        //            dbManager.AddParameters(3, "@GRUPIPERDAKTIV", grupi.GrupiAktivPerdorues, ParameterDirection.Input);
-        //            dbManager.AddParameters(4, "@GRUPIPERDDATA", grupi.GrupiPerdoruesData, ParameterDirection.Input);
-        //            dbManager.AddParameters(5, "@IDPERDORUESI", grupi.IdPerdoruesi, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPIPERDORUES_upd");
-        //            grupi.IdGrupiPerdorues = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
-
-        //internal clsMesazh fshiTeDrejtaGrupPerdorues(int idgrupiperdorues)
-        //{
-        //    string sqlstr = "";
 
         //    sqlstr = "delete from  T_DREJTAT" +
         //                      " where IDPERDORUES =" + idgrupiperdorues +
-        //                      " and PERDORUESAPOGRUP = 1";
 
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-
-        //    dbManager.Open();
-        //    DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //    clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //    return mesazh;
-
-        //}
 
         internal clsMesazh fshiGrupPerdoruesish(int idgrupiperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             if (!ekzistonPerdoruesPerKeteGrup(idgrupiperdorues))
@@ -2293,10 +1954,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrGrupPerdoruesGjitheNdermarrjet(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -2309,10 +1966,6 @@ namespace DbCore.DbAdmin
         internal DataRow merrGrupPerdorues(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -2329,10 +1982,6 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjitheGrupetPerdoruesve()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIPERDORUES_merrGjitheGrupetPerdoruesve");
@@ -2343,10 +1992,6 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjitheGrupetPerdoruesvePozitive()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIPERDORUES_merrGjitheGrupetPerdoruesvePozitive");
@@ -2357,10 +2002,6 @@ namespace DbCore.DbAdmin
         {
             int nrPerdoruesish;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -2381,10 +2022,6 @@ namespace DbCore.DbAdmin
         {
             int nrGrupPerdoruesish;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -2417,11 +2054,6 @@ namespace DbCore.DbAdmin
         public DataTable merrRoletDTJoSuper(int idlicenca, int idperdorues)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(2);
             this.dbManager.AddParameters(0, "@IDLICENCA", idlicenca, ParameterDirection.Input);
@@ -2479,10 +2111,6 @@ namespace DbCore.DbAdmin
         public bool ruajUserTrack(string SESSIONID, int userId, string inUser, string ipAdr, bool aktiv, string username, string arsyeLoginFail)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(7);
@@ -2518,7 +2146,6 @@ namespace DbCore.DbAdmin
             if (ds.Tables[0].Rows.Count > 1)
                 throw new MyException("Nuk duhet te kete me shume se nje perdorues");
             return ds.Tables[0].Rows[0];
-            //return ds.Tables[0];
 
         }
 
@@ -2564,16 +2191,10 @@ namespace DbCore.DbAdmin
         internal bool modifikoOnlineUser(String S)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@SESSIONID", S, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@LOGOUTDATETIME", Convert.ToDateTime(outUser), ParameterDirection.Input);
-            //dbManager.AddParameters(2, "@IP", objOnlineUser.IpAdress, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_USERTRACK_upd");
             return true;
 
@@ -2581,37 +2202,13 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: bool modifikoOnlineUser(String S, DateTime outUser)", true)]
         //public bool modifikoOnlineUser(clsTrackUser objOnlineUser)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@SESSIONID", objOnlineUser.SessionID, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@LOGOUTDATETIME", objOnlineUser.LogoutDatetime, ParameterDirection.Input);
-        //        //dbManager.AddParameters(2, "@IP", objOnlineUser.IpAdress, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_USERTRACK_upd");
-        //        return true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal bool modifikoOnlineUserAllOffline(String outUser)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -2623,35 +2220,13 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: bool modifikoOnlineUserAllOffline(DateTime outUser)", true)]
         //public bool modifikoOnlineUserAllOffline(clsTrackUser objOnlineUser)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.CreateParameters(1);
-        //    dbManager.AddParameters(0, "@LOGOUTDATETIME", Convert.ToDateTime(objOnlineUser.LogoutDatetime), ParameterDirection.Input);
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_USERTRACK_updAllOffline");
-        //        return true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal int Gjendet(String perdoruesUsername, String perdoruesPassword)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -2661,43 +2236,17 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: Gjendet(String perdoruesUsername, String perdoruesPassword)", true)]
-        //public int Gjendet(clsPerdorues perdorues)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdorues.PerdoruesUsername, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@PERDORUESPASSWORD", perdorues.PerdoruesPassword, ParameterDirection.Input);
-        //        return (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_selCount");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return -1;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheUserNgaLogin(string perdoruesUsername)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdoruesUsername, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@PERDORUESPASSWORD", perdorues.PerdoruesPassword, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_sel");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
 
             return ds.Tables[0];
 
@@ -2798,46 +2347,17 @@ namespace DbCore.DbAdmin
         internal DataTable ktheUserNgaLoginAll(string perdoruesUsername)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdoruesUsername, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@PERDORUESPASSWORD", perdorues.PerdoruesPassword, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_selAll");
-            //colPerdoruesit perdoruesit = new colPerdoruesit();
-            //return perdoruesit.mbushArrayListPerdoruesit(ds, -1);
             return ds.Tables[0];
 
         }
         //[Obsolete("Perdor: DataTable ktheUserNgaLogin(clsPerdorues perdorues)", true)]
-        //public colPerdoruesit merrUserNgaLogin(clsPerdorues perdorues)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdorues.PerdoruesUsername, ParameterDirection.Input);
-        //        //dbManager.AddParameters(1, "@PERDORUESPASSWORD", perdorues.PerdoruesPassword, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUESI_sel");
-        //        colPerdoruesit perdoruesit = new colPerdoruesit();
-        //        return perdoruesit.mbushArrayListPerdoruesit(ds,-1);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ce.Message + ce.StackTrace);
-        //        return new colPerdoruesit();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         public DataTable merrNdermarrjetEPerdoruesitDataTable(int id, bool merrVitet = false)
         {
@@ -2851,7 +2371,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         #endregion
 
         #region QYTETET
@@ -2860,10 +2379,6 @@ namespace DbCore.DbAdmin
         {
             idqyteti = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             if (ekzistonQytetMeKeteKod(kodiqyteti, idndermarja))
                 return new clsMesazh(false, "Ekziston nje qytet me kete kod!");
@@ -2871,8 +2386,6 @@ namespace DbCore.DbAdmin
 
             if (ekzistonQytetMeKeteEmer(emriqyteti, idndermarja))
                 return new clsMesazh(false, "Ekziston nje qytet me kete emer!");
-            //if (mesazh.Status)
-            //{
             dbManager.Open();
             dbManager.CreateParameters(6);
             dbManager.AddParameters(0, "@QYTETI_ID", idqyteti, ParameterDirection.Output);
@@ -2886,63 +2399,22 @@ namespace DbCore.DbAdmin
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
 
-
-            //       {
-            //         return new clsMesazh(false, mesazh.PershkrimMesazhi);
-            //}
-
         }
 
         //[Obsolete("Perdor: clsMesazh ruajQytet(out int idqyteti, String kodiqyteti, String emriqyteti, int idndermarja, int idndermvit, int idperdoruesi)", true)]
-        //public clsMesazh ruajQytet(clsQyteti qyteti)
-        //    {
 
 
-        //    {
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        clsMesazh mesazh = ekzistonQytetMeKeteKod(qyteti.KodiQyteti, qyteti.IdNdermarja);
-        //        if (!mesazh.Status)
-        //        {
-        //            dbManager.CreateParameters(6);
-        //            dbManager.AddParameters(0, "@QYTETI_ID", qyteti.IdQyteti, ParameterDirection.Output);
-        //            dbManager.AddParameters(1, "@QYTETI", qyteti.EmriQyteti, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@KODI", qyteti.KodiQyteti, ParameterDirection.Input);
-        //            dbManager.AddParameters(3, "@IDNDERMARJE ", qyteti.IdNdermarja, ParameterDirection.Input);
-        //            dbManager.AddParameters(4, "@IDNDERVITI", qyteti.IdNderViti, ParameterDirection.Input);
-        //            dbManager.AddParameters(5, "@IDPERDORUESI", qyteti.IdPerdoruesi, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_QYTETI_ins");
-        //            mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
 
-        //            return mesazh;
-        //        }
         //        else
-        //        {
-        //            return new clsMesazh(false, mesazh.PershkrimMesazhi);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    //finally
         //    //{
-        //    //    dbManager.Dispose();
         //    //}
-        //}
 
         internal clsMesazh modifikoQytet(int idqyteti, String kodiqyteti, String emriqyteti, int idndermarja, int idperdoruesi, int idstatusdok)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(6);
@@ -2967,42 +2439,13 @@ namespace DbCore.DbAdmin
             return (id == null) ? -1 : Convert.ToInt32(id);
         }
         //[Obsolete("Perdor: clsMesazh modifikoQytet(int idqyteti, String kodiqyteti, String emriqyteti, int idndermarja, int idndermvit, int idperdoruesi)", true)]
-        //public clsMesazh modifikoQytet(clsQyteti qyteti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@QYTETI_ID", qyteti.IdQyteti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@QYTETI", qyteti.EmriQyteti, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KODI", qyteti.KodiQyteti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE ", qyteti.IdNdermarja, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", qyteti.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", qyteti.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_QYTETI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiQytet(int idqyteti)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3016,10 +2459,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh fshiQytetStatus(int idqyteti, int idperdorues)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3032,38 +2471,14 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiQytet(int idqyteti)", true)]
-        //public clsMesazh fshiQytet(clsQyteti qyteti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@QYTETI_ID", qyteti.IdQyteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_QYTETI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal void merrQytetPakthim(int idqyteti)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3073,32 +2488,12 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: void merrQytet(int idqyteti)", true)]
         //public void merrQytet(clsQyteti qyteti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@QYTETI_ID", qyteti.IdQyteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_QYTETI_ktheQytet");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrQytet(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3114,10 +2509,6 @@ namespace DbCore.DbAdmin
         internal DataRow merrQytetSipasPershkrimit(string pershkrimqyteti, int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3132,60 +2523,17 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrQytet(int id)", true)]
-        //public colQytetet ktheQytet(int id)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDQYTETI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_QYTETI_ktheQytet");
-        //        colQytetet qytetet = new colQytetet();
-        //        return qytetet.mbushArrayListQytetet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colQytetet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
-        //public colQytetet merrGjitheQytetet()
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_QYTETI_merrGjitheQytetet");
-        //        colQytetet qytetet = new colQytetet();
-        //        return qytetet.mbushArrayListQytetet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colQytetet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         //sherben per te evituar qe te merret nga databaza rreshti qe perdoret tek filtri i kolonave
-        //si  (...)
         internal DataTable ktheGjitheQytetetPozitive(int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3210,52 +2558,22 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjithePajisjet()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
-            //dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PAJISJE_merrGjithePajisjet");
             return ds.Tables[0];
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheQytetetPozitive(int idndermarje)", true)]
-        //public colQytetet merrGjitheQytetetPozitive(int idndermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure , "prc_T_QYTETI_merrGjitheQytetetPozitive");
-        //        colQytetet qytetet = new colQytetet();
-        //        return qytetet.mbushArrayListQytetet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colQytetet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         internal DataTable ktheQytetetNdermarrjes(int idNdermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3265,28 +2583,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheQytetetNdermarrjes(int idNdermarje)", true)]
-        //public colQytetet merrQytetetNdermarrjes(int idNdermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_QYTETI_merrQytetetNdermarrjes");
-        //        colQytetet qytetet = new colQytetet();
-        //        return qytetet.mbushArrayListQytetet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colQytetet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal bool ekzistonQytetMeKeteKod(String kodiqyteti, int idndermarja)
         {
@@ -3311,10 +2609,6 @@ namespace DbCore.DbAdmin
         {
             int nrQytetesh;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3334,29 +2628,8 @@ namespace DbCore.DbAdmin
 
 
         //[Obsolete("Perdor: clsMesazh ekzistonQytetMeKeteKod(String kodiqyteti, int idndermarja)", true)]
-        //private clsMesazh ekzistonQytetMeKeteKod(clsQyteti qyteti)
-        //{
-        //    int nrQytetesh;
         //    try
-        //    {
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@QYTETIKODI", qyteti.KodiQyteti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", qyteti.IdNdermarja, ParameterDirection.Input);
-        //        nrQytetesh = (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_QYTETI_ekzistonQyteti");
-        //        if (nrQytetesh > 0)
-        //        {
-        //            return new clsMesazh(true, "Ekziston nje qytet me kete kod!");
-        //        }
         //        else
-        //        {
-        //            return new clsMesazh(false);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(true, ce.Message);
-        //    }
-        //}
 
 
         /// <summary>
@@ -3392,10 +2665,6 @@ namespace DbCore.DbAdmin
         public bool ekzistonQyteti(int idQyteti)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3436,7 +2705,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         #endregion
 
         #region MENYRAT E TRANSPORTIT
@@ -3444,10 +2712,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh ruajMenyreTransporti(int id, String kodi, String pershkrimi, int idnderm, int idperdoruesi, int idstatusdok)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             if (!ekzistonMenyreTransportiMeKeteKod(kodi, idnderm))
@@ -3467,43 +2731,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajMenyreTransporti(int id, String kodi, String pershkrimi, int idnderm)", true)]
-        //public clsMesazh ruajMenyreTransporti(clsMenyreTransporti transporti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        if (!ekzistonMenyreTransportiMeKeteKod(transporti.KodiMenyreTransporti, transporti.IdNdermarje))
-        //        {                    
-        //            dbManager.CreateParameters(4);
-        //            dbManager.AddParameters(0, "@IDMENYRETRANSPORTI", transporti.IdMenyreTransporti, ParameterDirection.Output);
-        //            dbManager.AddParameters(1, "@KODIMENYRETRANSPORTI", transporti.KodiMenyreTransporti, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@PERSHKRIMIMENYRETRANSPORTI", transporti.PershkrimiMenyreTransporti, ParameterDirection.Input);
-        //            dbManager.AddParameters(3, "@IDNDERMARJE", transporti.IdNdermarje, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_ins");
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            return mesazh;
-        //        }
-        //        else return new clsMesazh(false, "Ekziston nje menyre transporti me kete kod");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoMenyreTransporti(int id, String kodi, String pershkrimi, int idnderm, int idperdoruesi, int idstatusdok)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(6);
@@ -3519,40 +2752,13 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoMenyreTransporti(int id, String kodi, String pershkrimi, int idnderm)", true)]
-        //public clsMesazh modifikoMenyreTransporti(clsMenyreTransporti transporti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDMENYRETRANSPORTI", transporti.IdMenyreTransporti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODIMENYRETRANSPORTI", transporti.KodiMenyreTransporti, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMIMENYRETRANSPORTI", transporti.PershkrimiMenyreTransporti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", transporti.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiMenyreTransporti(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3566,10 +2772,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh fshiMenyreTransportiStatus(int id, int idperdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3582,38 +2784,14 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiMenyreTransporti(int id)", true)]
-        //public clsMesazh fshiMenyreTransporti(clsMenyreTransporti transporti)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDMENYRETRANSPORTI", transporti.IdMenyreTransporti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheMenyratTransportit(int idNdermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3623,36 +2801,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheMenyratTransportit(int idNdermarje)", true)]
-        //public colMenyraTransporti merrMenyratTransportit(int idNdermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_merrGjitheMenyratTransportit");
-        //        colMenyraTransporti transporti = new colMenyraTransporti();
-        //        return transporti.mbushArrayListMenyraTransporti(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colMenyraTransporti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrMenyreTransporti(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             ImbLogger.LogTraceShitje($"Filloi metoda merr menyre Transporti me id: {id}");
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3668,36 +2822,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrMenyreTransporti(int id)", true)]
-        //public colMenyraTransporti ktheMenyreTransporti(int id)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDMENYRETRANSPORTI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_ktheMenyreTransporti");
-        //        colMenyraTransporti transporti = new colMenyraTransporti();
-        //        return transporti.mbushArrayListMenyraTransporti(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colMenyraTransporti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrMenyreTransportiSipasKodit(string kodi, int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3713,38 +2843,13 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrMenyreTransportiSipasKodit(string kodi, int idndermarje)", true)]
-        //public colMenyraTransporti ktheMenyreTransportiSipasKodit(string kodi, int idndermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODIMENYRETRANSPORTI", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE",idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_ktheMenyreTransportiSipasKodit");
-        //        colMenyraTransporti transporti = new colMenyraTransporti();
-        //        return transporti.mbushArrayListMenyraTransporti(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colMenyraTransporti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal bool ekzistonMenyreTransportiMeKeteKod(String kodi, int idnderm)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3760,31 +2865,8 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: bool ekzistonMenyreTransportiMeKeteKod(String kodi, int idnderm)", true)]
         //private bool ekzistonMenyreTransportiMeKeteKod(clsMenyreTransporti menyre)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODI", menyre.KodiMenyreTransporti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", menyre.IdNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENYRATRANSPORTI_ekzistonMenyreTransportiMeKeteKod");
-        //        if (ds.Tables[0].Rows.Count == 1)
-        //            return true;
-        //        else if (ds.Tables[0].Rows.Count == 0)
-        //            return false;
-        //        else return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return true;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -3793,10 +2875,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh ruajKushtDergimi(int id, String kodi, String pershkrimi, int idnderm, int idperdoruesi, int idstatusdok)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             if (!ekzistonKushtDergimiMeKeteKod(kodi, idnderm))
@@ -3816,43 +2894,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajKushtDergimi(int id, String kodi, String pershkrimi, int idnderm)", true)]
-        //public clsMesazh ruajKushtDergimi(clsKushtDergimi kusht)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        if (!ekzistonKushtDergimiMeKeteKod(kusht.KodiKushtDergimi, kusht.IdNdermarje))
-        //        {                    
-        //            dbManager.CreateParameters(4);
-        //            dbManager.AddParameters(0, "@IDKUSHTDERGIMI", kusht.IdKushtDergimi, ParameterDirection.Output);
-        //            dbManager.AddParameters(1, "@KODIKUSHTDERGIMI", kusht.KodiKushtDergimi, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@PERSHKRIMIKUSHTDERGIMI", kusht.PershkrimiKushtDergimi, ParameterDirection.Input);
-        //            dbManager.AddParameters(3, "@IDNDERMARJE", kusht.IdNdermarje, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_ins");
-        //            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            return mesazh;
-        //        }
-        //        else return new clsMesazh(false, "Ekziston nje kusht dergimi me kete kod!");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoKushtDergimi(int id, String kodi, String pershkrimi, int idnderm, int idperdoruesi, int idstatusdok)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(6);
@@ -3868,40 +2915,13 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoKushtDergimi(int id, String kodi, String pershkrimi, int idnderm)", true)]
-        //public clsMesazh modifikoKushtDergimi(clsKushtDergimi kusht)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDKUSHTDERGIMI", kusht.IdKushtDergimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODIKUSHTDERGIMI", kusht.KodiKushtDergimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMIKUSHTDERGIMI", kusht.PershkrimiKushtDergimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", kusht.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiKushtDergimi(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3915,10 +2935,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh fshiKushtDergimiStatus(int id, int idperdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -3931,38 +2947,14 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiKushtDergimi(int id)", true)]
-        //public clsMesazh fshiKushtDergimi(clsKushtDergimi kusht)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKUSHTDERGIMI", kusht.IdKushtDergimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheKushtetDergimit(int idNdermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -3972,36 +2964,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheKushtetDergimit(int idNdermarje)", true)]
-        //public colKushteDergimi merrKushtetDergimit(int idNdermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_merrGjitheKushtetDegimit");
-        //        colKushteDergimi kushte = new colKushteDergimi();
-        //        return kushte.mbushArrayListKushteDergimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKushteDergimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrKushtDergimi(int id)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             ImbLogger.LogTraceShitje($"Filloi metoda merr kusht dergimi me Id:{id}");
             dbManager.Open();
@@ -4017,36 +2985,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrKushtDergimi(int id)", true)]
-        //public colKushteDergimi ktheKushtDergimi(int id)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKUSHTDERGIMI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_ktheKushtDergimi");
-        //        colKushteDergimi kushte = new colKushteDergimi();
-        //        return kushte.mbushArrayListKushteDergimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKushteDergimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrKushtDergimiSipaKodit(string kodi, int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -4062,38 +3006,13 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrKushtDergimiSipaKodit(string kodi, int idndermarje)", true)]
-        //public colKushteDergimi ktheKushtDergimiSipaKodit(string kodi, int idndermarje)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODIKUSHTDERGIMI", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE",idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_ktheKushtDergimiSipasKodit");
-        //        colKushteDergimi kushte = new colKushteDergimi();
-        //        return kushte.mbushArrayListKushteDergimi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKushteDergimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal bool ekzistonKushtDergimiMeKeteKod(String kodi, int idnderm)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -4109,36 +3028,12 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: bool ekzistonKushtDergimiMeKeteKod(String kodi, int idnderm)", true)]
         //private bool ekzistonKushtDergimiMeKeteKod(clsKushtDergimi kusht)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODI", kusht.KodiKushtDergimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", kusht.IdNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEDERGIMI_ekzistonKushtDergimiMeKeteKod");
-        //        if (ds.Tables[0].Rows.Count == 1)
-        //            return true;
-        //        else if (ds.Tables[0].Rows.Count == 0)
-        //            return false;
-        //        else return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return true;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
         #region TE DREJTAT
-
 
 
         /// <summary>
@@ -4206,11 +3101,6 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         public DataRow merrTeDrejteSipasRolNdermVitKomp(int idRoli, int idNderm, int idViti, int idKomp)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(4);
@@ -4252,7 +3142,6 @@ namespace DbCore.DbAdmin
         {
             this.dbManager.Open();
             dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@type", "prc_T_ROLDREJTATRUPI_DATATABLE_upd", ParameterDirection.Input);
             dbManager.AddParameters(0, "@drejtaRolTrupi", dtTeDrejtatRolTrupi, ParameterDirection.Input);
             int sukses = dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ROLDREJTATRUPI_DATATABLE_upd");
             return (sukses > 0) ? new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]) : new clsMesazh(false, "Ndodhi një gabim gjatë ruajtjes!");
@@ -4549,11 +3438,6 @@ namespace DbCore.DbAdmin
         public DataTable merrTeDrejtaPerdoruesi(int idPerdoruesi, int idNdermarrje, int idViti)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
             this.dbManager.AddParameters(0, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
@@ -4563,9 +3447,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
             //finally
-            //{
-            //    dbManager.Dispose();
-            //}
         }
 
         public DataTable merrTeDrejtaPerdoruesiNiveleRegjistrimiPerKomponente(int idPerdoruesi, int idNdermarrje, int idViti, string komponente)
@@ -4581,11 +3462,6 @@ namespace DbCore.DbAdmin
         }
         public DataTable merrTeDrejta(int roli, int idNdermarrje, int idViti)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
@@ -4599,11 +3475,6 @@ namespace DbCore.DbAdmin
 
         public DataTable merrTeDrejtaMeRaporte(int roli, int idNdermarrje, int idViti, int idGjuha)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(4);
@@ -4619,11 +3490,6 @@ namespace DbCore.DbAdmin
         public DataTable merrTeDrejtaMeEmraKomponentesh(int idperdoruesi, int idNdermarrje, int idViti)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
             this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
@@ -4636,11 +3502,6 @@ namespace DbCore.DbAdmin
         public DataTable merrTeDrejtaRoliDheRaporteshMeEmraKomponentesh(int idperdoruesi, int idNdermarrje, int idViti)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
             this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
@@ -4653,11 +3514,6 @@ namespace DbCore.DbAdmin
         public DataTable merrVetemTeDrejtaAmbjete(int idperdoruesi, int idNdermarrje, int idViti)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer);
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
             this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
@@ -4693,11 +3549,6 @@ namespace DbCore.DbAdmin
         public DataRow merrTeDrejtaSipasKomponentes(int idperdoruesi, int idNdermarrje, int idViti, string komponente)
         {
 
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
             this.dbManager.Open();
             this.dbManager.CreateParameters(4);
             this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
@@ -4771,7 +3622,6 @@ namespace DbCore.DbAdmin
         }
         internal DataTable ktheTeDrejtePerdorues(int IdPerdorues, int idnermarrjeviti)
         {
-
 
 
             dbManager.Open();
@@ -4860,11 +3710,6 @@ namespace DbCore.DbAdmin
 
         public DataTable merrTeDrejtaRaportesh(int roli, int idNdermarrje, int idViti)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
@@ -4940,7 +3785,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
         #endregion
 
         #region TE DREJTA TABEVE
@@ -4990,7 +3834,6 @@ namespace DbCore.DbAdmin
             this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
             this.dbManager.AddParameters(3, "@TABI", tabi, ParameterDirection.Input);
             dbManager.FillObject("prc_T_ROLDREJTATABE_selectTeDrejtaTabiSipasIdRapDheIdPerd", idbObjekt);
-
 
 
         }
@@ -5115,11 +3958,6 @@ namespace DbCore.DbAdmin
         /* Denisa komentuar pasi ka kaluar ne sp gjate strukturimit dt:05/06/2015
         public clsMesazh klonoTeDrejtaTabeshPerVitinRi(int idNdermarrje, int idVitidest)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(3);
@@ -5138,11 +3976,6 @@ namespace DbCore.DbAdmin
 
         public clsMesazh klonoTeDrejtaTabesh(int idNdermarrjevjeter, int idVitivjeter, int idNdermarrjeRe, int idVitiRi, int idRoli)
         {
-            //if (this.dbManager == null)
-            //{
-            //    this.dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    this.dbManager.ConnectionString = this.dbManager.GetConnectionString();
-            //}
 
             this.dbManager.Open();
             this.dbManager.CreateParameters(6);
@@ -5179,31 +4012,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajTeDrejteVeprim(int iddrejtaveprim, String kodidrejtaveprim, String pershkrimidrejtaveprim)", true)]
-        //public clsMesazh ruajTeDrejteVeprim(clsTeDrejtaVeprim veprim)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDDREJTAVEPRIM", veprim.IdDrejtaVeprim, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@DREJTAVEPRIMKODI", veprim.KodiDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@DREJTAVEPRIMPERSH", veprim.PershkrimiDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoTeDrejteVeprim(int iddrejtaveprim, String kodidrejtaveprim, String pershkrimidrejtaveprim)
         {
@@ -5219,86 +4030,26 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoTeDrejteVeprim(int iddrejtaveprim, String kodidrejtaveprim, String pershkrimidrejtaveprim)", true)]
-        //public clsMesazh modifikoTeDrejteVeprim(clsTeDrejtaVeprim veprim)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDDREJTAVEPRIM", veprim.IdDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@DREJTAVEPRIMKODI", veprim.KodiDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@DREJTAVEPRIMPERSH", veprim.PershkrimiDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         //[Obsolete("Perdor: DataTable ktheAllTrackUser()", true)]
-        //public colTrackUser merrOnlineUser(clsTrackUser objOnlineUser)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_USERTRACK_sel_perGRID");
-        //        colTrackUser colTrack = new colTrackUser();
-        //        return colTrack.mbushArrayListTrackUser(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrackUser();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         public int merrOnlineUserCount()
         {
 
             dbManager.Open();
-            //dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@nr", 0, ParameterDirection.Output);
             return (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_USERTRACK_selNrOnline");
 
         }
 
         //public int merrNrUserOnlineIP(string ip, int idperdorues)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IP", ip, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
 
-        //        return (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_USERTRACK_kontrolloIP");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return 0;
-        //    }
-        //}
 
         internal DataTable ktheAllTrackUser(int idLicenca, int idperdorues)
         {
@@ -5314,26 +4065,8 @@ namespace DbCore.DbAdmin
 
 
         //[Obsolete("Perdor: DataTable ktheAllTrackUser()", true)]
-        //public colTrackUser merrAllTrackUser()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_USERTRACK_sel_perGRID");
-        //        colTrackUser colTrack = new colTrackUser();
-        //        return colTrack.mbushArrayListTrackUser(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrackUser();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiTeDrejteVeprim(int iddrejtaveprim)
         {
@@ -5347,29 +4080,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiTeDrejteVeprim(int iddrejtaveprim)", true)]
-        //public clsMesazh fshiTeDrejteVeprim(clsTeDrejtaVeprim veprim)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDDREJTAVEPRIM", veprim.IdDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal void merrTeDrejteVeprim(int iddrejtaveprim)
         {
@@ -5382,24 +4095,8 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: void merrTeDrejteVeprim(int iddrejtaveprim)", true)]
         //public void merrTeDrejteVeprim(clsTeDrejtaVeprim veprim)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDDREJTAVEPRIM", veprim.IdDrejtaVeprim, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheTeDrejtatVeprimet()
         {
@@ -5410,26 +4107,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheTeDrejtatVeprimet()", true)]
-        //public colTeDrejtatVeprimet merrGjitheTeDrejtatVeprimet()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_merrGjitheTeDrejtatVeprimet");
-        //        colTeDrejtatVeprimet veprimet = new colTeDrejtatVeprimet();
-        //        return veprimet.mbushArrayListVeprimet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTeDrejtatVeprimet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -5437,10 +4116,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh fshiKonfigurimKase(int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -5448,7 +4123,6 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KONFIGURIMKASA_del");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
-
 
 
         }
@@ -5465,10 +4139,6 @@ namespace DbCore.DbAdmin
         public bool ekzistonKonfigurimKaseMeKeteKodPerKeteNdermarje(int idNdermarrja, String kodi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -5476,14 +4146,7 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(1, "@KODI", kodi, ParameterDirection.Input);
             int nrRreshtash = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KONFIGURIMKASA_ekzistonKonfigurimPerKeteNdermarje"));
             return (nrRreshtash == 0 ? false : true);
-            //if (nrRreshtash == 0)
-            //{
-            //    return false;
-            //}
             //else
-            //{
-            //    return true;
-            //}
         }
 
         internal string ktheSkemeBarkodiPershoreje(int idNdermarrja)
@@ -5598,10 +4261,6 @@ namespace DbCore.DbAdmin
         internal int merrIdOpsioni(string pershkrimi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -5613,10 +4272,6 @@ namespace DbCore.DbAdmin
         internal string merrVlereOpsioni(string pershkrimi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6287,10 +4942,6 @@ namespace DbCore.DbAdmin
         {
             idNderViti = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(8);
@@ -6310,45 +4961,13 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: ", true)]
-        //public clsMesazh ruajNdermarrjeVit(clsNdermarrjeViti viti)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDNDERVITI", viti.IdNderViti, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDVITI", viti.IdViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@VITI", viti.NdermarrjeViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", viti.IdNdermarrje, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@NDERMVITMBYLLUR", viti.NdermarrjeVitiMbyllur, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@NDERMVITFILLIM", viti.NdermarrjeVitiFillim, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@NDERMVITFUND", viti.NdermarrjeVitiFund, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDPERDORUESI", viti.IdPerdoruesi , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_ins");
 
-        //        viti.IdNderViti = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoNdermarrjeVit(int idNderViti, int idViti, int viti, int idNdermarrje, bool ndermarrjeVitiMbyllur, DateTime ndermarrjeVitiFillim, DateTime ndermarrjeVitiFund, int idPerdoruesi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(8);
@@ -6366,43 +4985,12 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: ", true)]
-        //public clsMesazh modifikoNdermarrjeVit(clsNdermarrjeViti viti)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDNDERVITI", viti.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDVITI", viti.IdViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@VITI", viti.NdermarrjeViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", viti.IdNdermarrje, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@NDERMVITMBYLLUR", viti.NdermarrjeVitiMbyllur, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@NDERMVITFILLIM", viti.NdermarrjeVitiFillim, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@NDERMVITFUND", viti.NdermarrjeVitiFund, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDPERDORUESI", viti.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiNdermarrjeVit(int idNderViti)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6413,80 +5001,19 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: ", true)]
-        //public clsMesazh fshiNdermarrjeVit(clsNdermarrjeViti viti)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERVITI", viti.IdNderViti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         //[Obsolete("Nuk perdoret me!",true)]
-        //public colNdermarrjeVitet merrNdermarrjeVit(ArrayList ndermarrjet, ArrayList vitet)
-        //{
-        //    if (ndermarrjet.Count > 0 && vitet.Count > 0)
-        //    {
-        //        IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
 
-        //        String nderm = "(";
-        //        foreach (Object i in ndermarrjet)
-        //        {
-        //            nderm += i + ",";
-        //        }
-        //        nderm = nderm.Remove(nderm.Length - 1);
-        //        nderm += ")";
 
-        //        String vt = "(";
-        //        foreach (Object i in vitet)
-        //        {
-        //            vt += i + ",";
-        //        }
-        //        vt = vt.Remove(vt.Length - 1);
-        //        vt += ")";
-        //        String sqlstr = "select IDNDERVITI,IDVITI, VITI, IDNDERMARJE, NDERMVITMBYLLUR, NDERMVITFILLIM, NDERMVITFUND from T_NDERMARJEVITI where IDNDERMARJE in " + nderm + " and VITI in " + vt;
         //        try
-        //        {
-        //            dbManager.Open();
-        //            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //            colNdermarrjeVitet ndermarrjeVitet = new colNdermarrjeVitet();
-        //            return ndermarrjeVitet.mbushArrayListNdermarrjeVitet(ds);
-        //        }
-        //        catch (Exception)
-        //        {
-        //            return new colNdermarrjeVitet();
-        //        }
         //        finally
-        //        {
-        //            dbManager.Dispose();
-        //        }
-        //    }
-        //    else return new colNdermarrjeVitet();
-        //}
 
         public byte[] merrLogoNderm(int idNdermarrje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6551,10 +5078,6 @@ namespace DbCore.DbAdmin
         {
             int idndermarrje = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6629,10 +5152,6 @@ namespace DbCore.DbAdmin
         {
             int idndermarrje = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(0);
@@ -6647,10 +5166,6 @@ namespace DbCore.DbAdmin
         {
             int idndermarrjevit = -1;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             String sqlstr = "select nv.IDNDERVITI from T_NDERMARJEVITI nv where nv.IDNDERMARJE = " + idndermarje + " and IdVITI =" + viti;
 
             dbManager.Open();
@@ -6662,44 +5177,14 @@ namespace DbCore.DbAdmin
         }
 
         //[Obsolete("Nuk perdoret me!", true)]
-        //public colNdermarrjeVitet ktheNdermarrjetVitet(ArrayList vitet)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
 
-        //    String vt = "(";
-        //    foreach (Object i in vitet)
-        //    {
-        //        vt += i + ",";
-        //    }
-        //    vt = vt.Remove(vt.Length - 1);
-        //    vt += ")";
 
-        //    String sqlstr = "select * from T_NDERMARJEVITI where IDNDERVITI in " + vt;
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //        colNdermarrjeVitet ndermarrjeVitet = new colNdermarrjeVitet();
-        //        return ndermarrjeVitet.mbushArrayListNdermarrjeVitet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNdermarrjeVitet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataSet ktheVitetNdermarrjes(String kodiNdermarrjes)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             String sqlstr = "select IDNDERVITI, viti from T_NDERMARJEVITI nv, T_NDERMARJE n where nv.IDNDERMARJE = n.IDNDERMARJE and NDERMARJEKODI='" + kodiNdermarrjes + "'";
 
@@ -6710,23 +5195,11 @@ namespace DbCore.DbAdmin
         }
 
         //internal string merrKodNdermarrje(int idndermarrjevit)
-        //{
-        //    string kodNdermarrje;
         //   
         //    //{
-        //    //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    //}
         //    String sqlstr = "select NDERMARJEKODI  from T_NDERMARJE n inner join T_NDERMARJEVITI nv " +
-        //                    " on n.IDNDERMARJE = nv.IDNDERMARJE  where IDNDERVITI = " + idndermarrjevit;
 
-        //    dbManager.Open();
-        //    DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //    DataRow rreshti = ds.Tables[0].Rows[0];
-        //    kodNdermarrje = rreshti[0].ToString();
-        //    return kodNdermarrje;
-
-        //}
 
         /// <summary>
         /// kthen pershkrimin e ndermarrjes
@@ -6737,10 +5210,6 @@ namespace DbCore.DbAdmin
         {
             string pershkrimi;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             String sqlstr = "SELECT NDERMARJEPERSHK FROM dbo.T_NDERMARJE WHERE IDSTATUSDOK<>2 AND AKTIV = 'True' AND IDNDERMARJE = " + idndermarrje;
 
             dbManager.Open();
@@ -6755,10 +5224,6 @@ namespace DbCore.DbAdmin
         {
             int kodviti;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             String sqlstr = "select viti  from T_NDERMARJEVITI where  IDNDERVITI =" + idndermarrjevit;
 
             dbManager.Open();
@@ -6776,12 +5241,7 @@ namespace DbCore.DbAdmin
         /// <returns>Kthen DataRow te tipit NdermarrjeVit, null nese nuk ekziston</returns>
         internal DataRow merrNdermarrjeVit(int idNdermarrjeVit)
         {
-            //string datefill;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6801,12 +5261,7 @@ namespace DbCore.DbAdmin
         /// <returns>Kthen DataRow te tipit NdermarrjeVit, null nese nuk ekziston</returns>
         internal DataRow merrNdermarrjeVitSipasNdermarjesDheVitit(int idNdermarrje, int idviti)
         {
-            //string datefill;
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -6880,7 +5335,6 @@ namespace DbCore.DbAdmin
 
         internal DataRow merrNdermarrjeVitSipasNdermarjesDheDatesAktuale(int idNdermarrje)
         {
-            //string datefill;
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6895,39 +5349,14 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Nuk perdoret me!", true)]
-        //public colNdermarrjeVitet merrndermvitet(int idndermarrjevit)
-        //{
         //    //string datefill;
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    String sqlstr = "select *  from T_NDERMARJEVITI where  IDNDERVITI =" + idndermarrjevit;
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //        colNdermarrjeVitet vitet = new colNdermarrjeVitet();
-        //        return vitet.mbushArrayListNdermarrjeVitet(ds);
-        //        //DataRow rreshti = ds.Tables[0].Rows[0];
-        //        //datefill = rreshti[0].ToString();
         //        //return datefill;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNdermarrjeVitet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheNdermarrjeVitet()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_merrGjitheNdermarrjeVitet");
@@ -6935,27 +5364,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheNdermarrjeVitet()", true)]
-        //public colNdermarrjeVitet merrGjitheNdermarrjeVitet()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_merrGjitheNdermarrjeVitet");
-        //        colNdermarrjeVitet vitet = new colNdermarrjeVitet();
-        //        return vitet.mbushArrayListNdermarrjeVitet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNdermarrjeVitet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// 
@@ -6964,10 +5375,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrVitetENdermarrjes(int ndermarrja)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -6989,10 +5396,6 @@ namespace DbCore.DbAdmin
         internal DataSet merrVitetEMundshme()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_VITET_merrGjitheVitetEMundshme");
@@ -7003,10 +5406,6 @@ namespace DbCore.DbAdmin
         internal DataTable ktheVitetENdermarrjeve(ArrayList ndermarrjet)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             String nderm = "(";
             foreach (Object i in ndermarrjet)
             {
@@ -7022,37 +5421,11 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheVitetENdermarrjeve(ArrayList ndermarrjet)", true)]
-        //public colNdermarrjeVitet merrVitetENdermarrjeve(ArrayList ndermarrjet)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    String nderm = "(";
-        //    foreach (Object i in ndermarrjet)
-        //    {
-        //        nderm += i + ",";
-        //    }
-        //    nderm = nderm.Remove(nderm.Length - 1);
-        //    nderm += ")";
 
 
-        //    String sqlstr = "select distinct 1 as  IDNDERVITI,IDVITI, VITI, 1 as IDNDERMARJE, NDERMVITMBYLLUR,'01/01/2009' as NDERMVITFILLIM,'01/01/2009' as NDERMVITFUND,1 as IDPERDORUESI from T_NDERMARJEVITI where IDNDERMARJE in " + nderm;
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //        colNdermarrjeVitet vitet = new colNdermarrjeVitet();
-        //        return vitet.mbushArrayListNdermarrjeVitet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNdermarrjeVitet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -7591,10 +5964,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh ruajDefaultKomponentePageKlono(bool lloji, int idPerdoruesi, int idnderm, int idndermnga)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
             dbManager.Open();
             dbManager.CreateParameters(4);
             dbManager.AddParameters(0, "@LLOJI", lloji, ParameterDirection.Input);
@@ -7807,7 +6176,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(16);
             dbManager.AddParameters(0, "@IDAGJENTSHITJE", id, ParameterDirection.Input);
@@ -7851,7 +6219,6 @@ namespace DbCore.DbAdmin
         }
         internal clsMesazh fshiAgjentShitjestatus(int id, int idperdorues)
         {
-
 
 
             dbManager.Open();
@@ -7904,7 +6271,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
@@ -7920,7 +6286,6 @@ namespace DbCore.DbAdmin
 
         internal DataTable ktheGjitheAgjentetShitjesNdermarrjeAutorizimDT(int idndermarje, int idperdorues)
         {
-
 
 
             dbManager.Open();
@@ -7950,8 +6315,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
-
             dbManager.Open();
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
@@ -7970,10 +6333,6 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjitheAgjentetShitjes(int idndermarje)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -8051,31 +6410,8 @@ namespace DbCore.DbAdmin
         }
         //[Obsolete("Perdor: bool ekzistonAgjentShitjeMeKeteKod(string kodi, int idnderm)", true)]
         //private bool ekzistonAgjentShitjeMeKeteKod(clsAgjentShitje agjent)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODIAGJENTSHITJE", agjent.KodiAgjentShitje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", agjent.IdNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AGJENTSHITJE_EkzistonAgjentShitjeMeKeteKod");
-        //        if (ds.Tables[0].Rows.Count == 1)
-        //            return true;
-        //        else if (ds.Tables[0].Rows.Count == 0)
-        //            return false;
-        //        else return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return true;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheKonfigurimetFtpSipasNdermarrje(int idndermarje)
         {
@@ -8139,10 +6475,6 @@ namespace DbCore.DbAdmin
         public clsMesazh fshiTrupin(int idGrida)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -8222,7 +6554,6 @@ namespace DbCore.DbAdmin
 
         internal clsMesazh ruajLupaMultiple(int idTrupi, int idKonfAmbLupa, int idKonfig)
         { //metoda per ruajtjen e filtrit
-
 
 
             dbManager.Open();
@@ -8390,7 +6721,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AMBJENTIMODULI_merrAmbjentModul");
             return ds.Tables[0];
@@ -8432,7 +6762,6 @@ namespace DbCore.DbAdmin
             dbManager.Open();
             dbManager.CreateParameters(0);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODULI_merrGjitheModulet");
-            //colModulet modulet = new colModulet();
             return ds.Tables[0];
 
         }
@@ -8447,26 +6776,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheModulet()", true)]
-        //public colModulet merrGjitheModulet()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODULI_merrGjitheModulet");
-        //        colModulet modulet = new colModulet();
-        //        return modulet.mbushArrayListModulet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colModulet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheModuleteRaporteve()
         {
@@ -8478,26 +6789,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheModuleteRaporteve()", true)]
-        //public colModulet merrGjitheModuleteRaporteve()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODULI_merrGjitheModuleteRaporteve");
-        //        colModulet modulet = new colModulet();
-        //        return modulet.mbushArrayListModulet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colModulet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable kthePemen()
         {
@@ -8509,26 +6802,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable kthePemen()", true)]
-        //public colPeme merrPemen()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODULI_merrPemen");
-        //        colPeme peme = new colPeme();
-        //        return peme.mbushArrayListPeme(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colPeme();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow kthePemenEModulit(int id)
         {
@@ -8566,28 +6841,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow kthePemenEModulit(int id)", true)]
-        //public colPeme merrPemenEModulit(int id)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDMODULI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODULI_merrPemenEModulit");
-        //        colPeme peme = new colPeme();
-        //        return peme.mbushArrayListPeme(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colPeme();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal int merrAmbjentinKomponentes(int IdKomponente)
         {
@@ -8657,8 +6912,6 @@ namespace DbCore.DbAdmin
             string sql = "select IDMODULI from T_AMBJENTIMODULI where IDAMBJMODULI=" + IdAmbjentiModuli;
 
             dbManager.Open();
-            //dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@IDKOMPON", IdKomponente, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
             DataRow dr = ds.Tables[0].Rows[0];
             return int.Parse(dr[0].ToString());
@@ -8672,37 +6925,13 @@ namespace DbCore.DbAdmin
 
             ArrayList arr = new ArrayList();
             dbManager.Open();
-            //dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@IDKOMPON", IdKomponente, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
             return ds.Tables[0];
 
         }
         //[Obsolete("Perdor: DataTable ktheKomponentetAmbjentit()", true)]
-        //public colKomponentet merrKomponentetAmbjentit()
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    string sql = " select * from T_KOMPONENTE ";
         //    try
-        //    {
-        //        ArrayList arr = new ArrayList();
-        //       dbManager.Open();
-        //        //dbManager.CreateParameters(1);
-        //        //dbManager.AddParameters(0, "@IDKOMPON", IdKomponente, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
-        //        colKomponentet komp = new colKomponentet();
 
-        //        return komp.mbushArrayListKomponentet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKomponentet();
-        //    }
-        //}
 
         internal DataTable ktheKomponentetAmbjentitSipasModulit(int idModuli, int idllojlicence)
         {
@@ -8711,37 +6940,13 @@ namespace DbCore.DbAdmin
 
             ArrayList arr = new ArrayList();
             dbManager.Open();
-            //dbManager.CreateParameters(1);
-            //dbManager.AddParameters(0, "@IDKOMPON", IdKomponente, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
             return ds.Tables[0];
 
         }
         //[Obsolete("Perdor: DataTable ktheKomponentetAmbjentitSipasModulit(int idModuli)", true)]
-        //public colKomponentet merrKomponentetAmbjentitSipasModulit(int idModuli)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    string sql = " select * from T_KOMPONENTE where idmoduli= " + idModuli;
         //    try
-        //    {
-        //        ArrayList arr = new ArrayList();
-        //        dbManager.Open();
-        //        //dbManager.CreateParameters(1);
-        //        //dbManager.AddParameters(0, "@IDKOMPON", IdKomponente, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
-        //        colKomponentet komp = new colKomponentet();
 
-        //        return komp.mbushArrayListKomponentet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKomponentet();
-        //    }
-        //}
 
         internal String merrAmbjenteDheKomponente(int idllojlicence)
         {
@@ -8756,7 +6961,6 @@ namespace DbCore.DbAdmin
                 DataRow dr = ds.Tables[0].Rows[i];
                 ambj += dr[0].ToString();
                 komp.mbushKomponentetAmbjentit(idllojlicence);
-                //komp = merrKomponentetAmbjentit();
                 for (int j = 0; j < komp.Count; j++)
                     ambj += "," + komp[j].IdKomponente;
                 ambj += ";";
@@ -9204,11 +7408,8 @@ namespace DbCore.DbAdmin
         }
 
 
-
         internal DataTable kthePeriudhaAll()
         {
-
-
 
 
             dbManager.Open();
@@ -9288,7 +7489,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDVITI", idviti, ParameterDirection.Input);
@@ -9299,7 +7499,6 @@ namespace DbCore.DbAdmin
         }
         internal clsMesazh fshiVitStatus(int idviti, int idperdoruesi)
         {
-
 
 
             dbManager.Open();
@@ -9374,7 +7573,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, slqString);
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
@@ -9443,7 +7641,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarrje, ParameterDirection.Input);
@@ -9474,7 +7671,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KodiNrAutom", kod, ParameterDirection.Input);
@@ -9492,10 +7688,8 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
-            // dbManager.AddParameters(0, "@IDNDERVITI", idNdermVit, ParameterDirection.Input);
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarrje, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NRAUTOM_ktheNrAutomTeNdermarrjes");
             return ds.Tables[0];
@@ -9528,7 +7722,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(13, "@GJATESIANRAUTOM ", gjatesianrautom, ParameterDirection.Input);
             dbManager.AddParameters(14, "@IDNDERMARJE ", idndermarja, ParameterDirection.Input);
             dbManager.AddParameters(15, "@VITI ", vit, ParameterDirection.Input);
-            //dbManager.AddParameters(16, "@IDNDERVITI", idndermvit, ParameterDirection.Input);
             dbManager.AddParameters(16, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(17, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.AddParameters(18, "@LAJMEROPARANRFUNDIT", LajmeroPerparaNrFundit, ParameterDirection.Input);
@@ -9544,7 +7737,6 @@ namespace DbCore.DbAdmin
             Int64 drejtiminrautom, DateTime ngadatanrautom, DateTime derimenrautom, String majtasnrautom, String djathtasnrautom,
             int kategorianrautom, int periudhanrautom, int gjatesianrautom, int idperdoruesi, int idstatusdok, int LajmeroPerparaNrFundit, Int64 interval)
         {
-
 
 
             dbManager.Open();
@@ -9577,7 +7769,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNRAUTOM", idnrautom, ParameterDirection.Input);
@@ -9588,7 +7779,6 @@ namespace DbCore.DbAdmin
         }
         internal clsMesazh fshiNrAutomStatus(int idnrautom, int idperdorues)
         {
-
 
 
             dbManager.Open();
@@ -9638,8 +7828,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(0, "@IDNRAUTO", idNrAutomatik, ParameterDirection.Input);
             return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NRAUTOM_ktheKodNrAutoSipasId").ToString();
         }
-
-
 
 
         #endregion
@@ -9699,27 +7887,7 @@ namespace DbCore.DbAdmin
 
         }
 
-        //internal clsMesazh fshiNumraAutomatikeFunditSipasID(int idNrFunditAutomatik)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNRAUTOFUNDIT", idNrFunditAutomatik, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NRAUTOMATIKFUNDIT_delSipasID");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
 
         internal clsMesazh fshiGjithNrAutoFunditSipasNrAuto(int idNrAutomatik)
@@ -9777,28 +7945,7 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        //internal DataTable merrNumraAutomatikeFunditSipasIDNrAuto(int idNrAutomatik)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNRAUTOM", idNrAutomatik, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NRAUTOMATIKFUNDIT_merrSipasIdNrAutom");
-        //        if (ds == null)
-        //            return null;
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
 
         internal DataRow merrNrAutomatikFunditIdDataPerdoruesiNdermarrja(int idNrAutom, DateTime data, int idNdermarrja)
         {
@@ -9863,32 +8010,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajAuditim(int idauditim, int idtabele, int idkolone, int idndermarrjevit, int idperdoruesi)", true)]
-        //public clsMesazh ruajAuditim(clsAuditim audit)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDAUDIT", audit.IdAuditim, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDTABELE", audit.IdTabele, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDKOLONE", audit.IdKolone, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERVITI", audit.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDPERDORUESI", audit.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AUDITIMI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheTabelat()
         {
@@ -9900,27 +8023,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheTabelat()", true)]
-        //public colTabelatEmerLogjik merrGjitheTabelat()
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_EMERLOGJIKTABELE_sel");
-        //        colTabelatEmerLogjik tabelat = new colTabelatEmerLogjik();
-        //        return tabelat.mbushArrayListTabelat(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTabelatEmerLogjik();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheGrupetAuditimit()
         {
@@ -9932,27 +8037,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheGrupetAuditimit()", true)]
-        //public colGrupeAuditimi merrGjitheGrupetAuditimit()
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMI_sel");
-        //        colGrupeAuditimi grupet = new colGrupeAuditimi();
-        //        return grupet.mbushArrayListGrupetAuditimit(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colGrupeAuditimi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable merrKolonat(int id)
         {
@@ -9966,29 +8053,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable merrKolonat(int id)", true)]
-        //public colKolonatEmerLogjik ktheKolonat(int id)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTABELE", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_EMERLOGJIKKOLONE_ktheKolonat");
-        //        colKolonatEmerLogjik kolonat = new colKolonatEmerLogjik();
-        //        return kolonat.mbushArrayListKolonat(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKolonatEmerLogjik();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// funksion qe kthen gjith kolonat qe do auditohen per nje tabele te caktuar.
@@ -9999,7 +8066,6 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         internal DataTable merrKolonatPerAuditim(string kodtabele, int idNdermarrjeViti)
         {
-
 
 
             dbManager.Open();
@@ -10013,30 +8079,9 @@ namespace DbCore.DbAdmin
         ////funksion qe kthen gjith kolonat qe do auditohen per nje tabele te caktuar.
         ////per nje ndermarrje te caktuar, per nje vit te caktuar
         //[Obsolete("Perdor: DataTable ktheKolonatPerAuditim(string kodtabele, int idNdermarrjeViti)", true)]
-        //public colAuditime ktheKolonatPerAuditim(string kodtabele, int indendermrrjeviti)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODTABELE", kodtabele, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@NDERMARRJEVITI", indendermrrjeviti, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUDITIMI_ktheKolonatPerAuditim");
-        //        colAuditime kolonat = new colAuditime();
-        //        return kolonat.mbushArrayListAuditime(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAuditime();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         public bool ekzistonAuditimi(int idTabela, int IdKolona)
         {
@@ -10086,91 +8131,21 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheTrupinGrupitAuditimit(int idgrupi)", true)]
-        //public colGrupAuditimiTrupi merrTrupinGrupitAuditimit(clsGrupAuditimi grup)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDGRUPAUDIT", grup.IdGrupi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMITRUPI_merrTrupinGrupitAuditimit");
-        //        colGrupAuditimiTrupi trupi = new colGrupAuditimiTrupi();
-        //        return trupi.mbushArrayListGrupetAuditimit(ds);
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new colGrupAuditimiTrupi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
         #region  GRUP AUDITIMI
 
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajGrupAuditimiDheTrupin(clsGrupAuditimi gr)", true)]
-        //public clsMesazh ruajGrupAuditimiDheTrupin(clsGrupAuditimi gr)
-        //{
-        //    clsMesazh mesazh = new clsMesazh();
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
-        //      int idGA;
-        //      mesazh = ruajGrupAuditimi(out idGA, gr.NrGrupi,gr.PershkrimiGrupi, gr.IdPerdoruesi);
-        //      if (mesazh.Status)
-        //      {
-        //          gr.IdGrupi = idGA;
-        //          foreach (clsGrupAuditimiTrupi o in gr.OColTrupi)
-        //          {
-        //              if (mesazh.Status)
-        //              {
-        //                  o.IdGrupi = gr.IdGrupi;
-        //                  mesazh = ruajTrupin(o.IdGrupi, o.IdTabele, o.IdKolone);
-        //              }
         //              else
-        //              {
-        //                  dbManager.Transaction.Rollback();
-        //                  return mesazh;
-        //              }
-        //          }
-        //          if (mesazh.Status)
-        //          {
-        //              dbManager.CommitTransaction();
-        //              mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //              return mesazh;
-        //          }
         //          else
-        //          {
-        //              dbManager.Transaction.Rollback();
-        //              return mesazh;
-        //          }
-        //      }
         //      else
-        //      {
-        //          dbManager.Transaction.Rollback();
-        //          return mesazh;
-        //      }
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh ruajGrupAuditimi(out int idgrupi, int nrgrupi, String pershkrimigrupi, int idperdoruesi)
         {
@@ -10191,26 +8166,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajGrupAuditimi(out int idgrupi, int nrgrupi, String pershkrimigrupi, int idperdoruesi)", true)]
-        //public clsMesazh ruajGrupAuditimi(clsGrupAuditimi gr)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDGRUPAUDIT", gr.IdGrupi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@NRGRUPAUDIT", gr.NrGrupi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKGRUPAUDIT", gr.PershkrimiGrupi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", gr.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMI_ins");
 
-        //        gr.IdGrupi = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         internal clsMesazh ruajTrupin(int idgrupi, int idtabele, int idkolone)
         {
@@ -10227,23 +8184,7 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajTrupin(int idgrupi, int idtabele, int idkolone)", true)]
-        //public clsMesazh ruajTrupin(clsGrupAuditimiTrupi trupi)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDGRUPAUDIT", trupi.IdGrupi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDTABELE", trupi.IdTabele, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDKOLONE", trupi.IdKolone, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMITRUPI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         #endregion
 
@@ -10381,23 +8322,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiAutorizimTrupi(int idAutorizimTrupi)", true)]
-        //public clsMesazh fshiAutorizimTrupi(clsAutorizimTrupi autorizimTrupi)
         //{//ben fshirjen e nje autorizim trupi
         //    try
-        //    {
 
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDAUTORIZIMTrupi", autorizimTrupi.IdAutorizimTrupi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AUTORIZIMTRUPI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-        //}
 
         internal clsMesazh fshiAutorizimSipasPerdorues(int idperdorues)
         {//ben fshirjen e nje autorizim trupi
@@ -10412,62 +8339,18 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiAutorizimSipasPerdorues(int idperdorues)", true)]
-        //public clsMesazh fshiAutorizimSipasPerdorues(clsPerdorues oPerdorues)
         //{//ben fshirjen e nje autorizim trupi
         //    try
-        //    {
 
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPERDORUES", oPerdorues.IdPerdorues, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AUTORIZIMTRUPI_delSipasIdPerdorues");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-        //}
 
         //internal void merrAutorizimKoka(int idAutorizimKoka)
         //{//merr nje autorizim koke 
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@idautorizimekoka", idAutorizimKoka, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizim");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
-        //}
         //[Obsolete("Perdor: void merrAutorizimKoka(int idAutorizimKoka)", true)]
         //public void merrAutorizimKoka(clsAutorizimKoka autorizimKoka)
         //{//merr nje autorizim koke 
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@idautorizimekoka", autorizimKoka.IdAutorizimKoka, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizim");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheAutorizimKokaPerPerdorues(int idperdoruesi)
         {//merr nje autorizim koke 
@@ -10481,83 +8364,18 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheAutorizimKokaPerPerdorues(int idperdoruesi)", true)]
-        //public colAutorizimetKoka  merrAutorizimKokaPerPerdorues(int idperdoruesi)
         //{//merr nje autorizim koke 
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPERDORUES", idperdoruesi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_merrAutorizimetPerPerdorues");
-        //        colAutorizimetKoka autorizimet = new colAutorizimetKoka();
-        //        return autorizimet.mbushArrayListAutorizimKoka(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAutorizimetKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh fshiAutorizimKokaAndTrupi(clsAutorizimKoka autorizimKoka)", true)]
-        //public clsMesazh fshiAutorizimKokaAndTrupi(clsAutorizimKoka autorizimKoka)
         //{//transaksioni per te fshire nje autorizim koke dhe trupat
-        //    colAutorizimetTrupi trupi = new colAutorizimetTrupi(autorizimKoka.IdAutorizimKoka);
-        //    //colAutorizimetTrupi trupi = merrAutorizimTrupiNgaIdAutorizimKoka(autorizimKoka.IdAutorizimKoka);
-        //    clsMesazh mesazh = new clsMesazh(true);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
         //    try
-        //    {
 
-        //        foreach (clsAutorizimTrupi o in trupi)
-        //        {
-        //            if (mesazh.Status)
-        //                mesazh = fshiAutorizimTrupi(o.IdAutorizimTrupi);
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            mesazh = fshiAutorizimKoka(autorizimKoka.IdAutorizimKoka);
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrAutorizim(int id)
         {//kthen nje autorizim koke sipas id
@@ -10607,28 +8425,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrAutorizim(int id) ose string merrKodAutorizim(int id)", true)]
-        //public colAutorizimetKoka ktheAutorizim(int id)
         //{//kthen nje autorizim koke sipas id
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@idautorizimekoka", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizim");
-        //        colAutorizimetKoka autorizimet = new colAutorizimetKoka();
-        //        return autorizimet.mbushArrayListAutorizimKoka(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAutorizimetKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrAutorizim(string kod)
         {//kthen nje autorizim koke sipas kodit
@@ -10673,28 +8472,9 @@ namespace DbCore.DbAdmin
         }
 
         //[Obsolete("Perdor: int merrIDAutorizim(string kod) ose DataRow merrAutorizim(string kod)", true)]
-        //public colAutorizimetKoka ktheAutorizim(string kod)
         //{//kthen nje autorizim koke sipas kodit
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KodAutorizime", kod, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizimKod");
-        //        colAutorizimetKoka autorizimet = new colAutorizimetKoka();
-        //        return autorizimet.mbushArrayListAutorizimKoka(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAutorizimetKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheAutorizimet(int idndermarje, int idperdoruesi)
         {//merr gjithe autorizim kokat ekzistuese
@@ -10724,26 +8504,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheAutorizimet()", true)]
-        //public colAutorizimetKoka merrGjitheAutorizimet()
         //{//merr gjithe autorizim kokat ekzistuese
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_merrGjitheAutorizimet");
-        //        colAutorizimetKoka autorizimet = new colAutorizimetKoka();
-        //        return autorizimet.mbushArrayListAutorizimKoka(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAutorizimetKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheAutorizimTrupiNgaIdAutorizimKoka(int id)
         {//merr gjithe trupat sipas id se kokes
@@ -10757,28 +8520,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheAutorizimTrupiNgaIdAutorizimKoka(int id)", true)]
-        //public colAutorizimetTrupi merrAutorizimTrupiNgaIdAutorizimKoka(int id)
         //{//merr gjithe trupat sipas id se kokes
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@idautorizimkoka", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMITRUPI_merrAutorizimTrupiNgaIdAutorizimKoka");
-        //        colAutorizimetTrupi autorizimet = new colAutorizimetTrupi();
-        //        return autorizimet.mbushArrayListAutorizimTrupi(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colAutorizimetTrupi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         public bool ekzistonAutorizim(String kodi)
         {//kontrollon nese ekziston nje autorizim me kete kod
@@ -10786,7 +8530,6 @@ namespace DbCore.DbAdmin
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@KODAUTORIZIME", kodi, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ekzistonAutorizim");
             if (ds.Tables[0].Rows.Count == 1)
                 return true;
@@ -11177,7 +8920,6 @@ namespace DbCore.DbAdmin
         {//kontrollon nese ekziston nje model me kete kod
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDMODELIFUSHASHTESE", id, ParameterDirection.Input);
@@ -11475,28 +9217,8 @@ namespace DbCore.DbAdmin
         }
 
         //[Obsolete("Perdor: DataRow merrKomponenteSipasEmrit(string emerKomponente)", true)]
-        //public colKomponentet merrKomponenteSipasKodit(clsKomponente oKomponente)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KOMPONEMRI", oKomponente.EmriKomponente, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOMPONENTE_merrKomponenteSipasKodit");
-        //        colKomponentet colKomponentet = new colKomponentet();
-        //        return colKomponentet.mbushArrayListKomponentet(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKomponentet();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -11562,18 +9284,9 @@ namespace DbCore.DbAdmin
                 return new DbCore.clsMesazh(true);
 
 
-                //}
                 //else
-                //{
-                //    SqlCommand SqlCmd = getAlphaMobileReport(param_array);
 
 
-                //    dataAdapter.SelectCommand = SqlCmd;
-                //    dataAdapter.SelectCommand.CommandTimeout = 900;
-                //    dataAdapter.Fill(ds);
-                //    SqlCmd.Parameters.Clear();
-                //    return new DbCore.clsMesazh(true);
-                //}
             }
             catch (SqlException sqlEx)
             {
@@ -11609,30 +9322,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajListeAmbjenteCeljeRegjistrim(int idCR, string kodiCR, string pershkrimCR)", true)]
-        //public clsMesazh ruajListeAmbjenteCeljeRegjistrim(clsListeAmbjenteCeljeRegjistrim listeAmbjenteCeljeRegjistrim)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDCR", listeAmbjenteCeljeRegjistrim.IdCR, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODICR", listeAmbjenteCeljeRegjistrim.KodiCR, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMICR", listeAmbjenteCeljeRegjistrim.PershkrimCR, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LISTEAMBJENTECELJEREGJSTRIMI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoListeAmbjenteCeljeRegjistrim(int idCR, string kodiCR, string pershkrimCR)
         {
@@ -11742,36 +9433,10 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh ruajACRNumraAutomatike(int idLidhjeNrAuto, int idLidhjeCR, int idLlojiLidhje, int idNumraAutoLidhje, string vleraFunditLidhje, int idperdoruesi, int idndermarje)", true)]
-        //public clsMesazh ruajACRNumraAutomatike(clsACRNumraAutomatike ACRNumraAutomatike)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(7);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", ACRNumraAutomatike.IdLidhjeNrAuto, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDLIDHJECR", ACRNumraAutomatike.IdLidhjeCR, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLLOJILIDHJE", ACRNumraAutomatike.IdLlojiLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNUMRAAUTOLIDHJE", ACRNumraAutomatike.IdNumraAutoLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERAFUNDITLIDHJE", ACRNumraAutomatike.VleraFunditLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", ACRNumraAutomatike.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERMARJE", ACRNumraAutomatike.IdNdermarje , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
 
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh modifikoACRNumraAutomatike(int idLidhjeNrAuto, int idLidhjeCR, int idLlojiLidhje, int idNumraAutoLidhje, string vleraFunditLidhje, int idperdoruesi, int idndermarje, int idstatusdok)
         {
@@ -11793,36 +9458,10 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoACRNumraAutomatike(int idLidhjeNrAuto, int idLidhjeCR, int idLlojiLidhje, int idNumraAutoLidhje, string vleraFunditLidhje, int idperdoruesi, int idndermarje)", true)]
-        //public clsMesazh modifikoACRNumraAutomatike(clsACRNumraAutomatike ACRNumraAutomatike)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(7);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", ACRNumraAutomatike.IdLidhjeNrAuto, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDLIDHJECR", ACRNumraAutomatike.IdLidhjeCR, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDLLOJILIDHJE", ACRNumraAutomatike.IdLlojiLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNUMRAAUTOLIDHJE", ACRNumraAutomatike.IdNumraAutoLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERAFUNDITLIDHJE", ACRNumraAutomatike.VleraFunditLidhje, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", ACRNumraAutomatike.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERMARJE", ACRNumraAutomatike.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
 
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal clsMesazh fshiACRNumraAutomatike(int idLidhjeNrAuto)
         {
@@ -11849,68 +9488,16 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: clsMesazh fshiACRNumraAutomatike(int idLidhjeNrAuto)", true)]
-        //public clsMesazh fshiACRNumraAutomatike(clsACRNumraAutomatike ACRNumraAutomatike)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
 
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", ACRNumraAutomatike.IdLidhjeNrAuto, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         //internal void merrACRNumraAutomatikeVoid(int idLidhjeNrAuto)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", idLidhjeNrAuto, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_ktheACRNumraAutomatike");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
-        //}
         //[Obsolete("Perdor: void merrACRNumraAutomatike(int idLidhjeNrAuto)", true)]
         //public void merrACRNumraAutomatike(clsACRNumraAutomatike ACRNumraAutomatike)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", ACRNumraAutomatike.IdLidhjeNrAuto, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_ktheACRNumraAutomatike");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrACRNumraAutomatike(int id)
         {
@@ -11928,28 +9515,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrACRNumraAutomatike(int id)", true)]
-        //public colACRNumratAutomatike ktheACRNumraAutomatike(int id)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLIDHJENRAUTO", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_ktheACRNumraAutomatike");
-        //        colACRNumratAutomatike colACRNumratAutomatike = new colACRNumratAutomatike();
-        //        return colACRNumratAutomatike.mbushArrayListeACRNumraAutomatike(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colACRNumratAutomatike();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheACRNumraAutomatike(int idndermarje)
         {
@@ -11963,29 +9530,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheACRNumraAutomatike(int idndermarje)", true)]
-        //public colACRNumratAutomatike merrGjitheACRNumraAutomatike(int idndermarje)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_merrGjitheACRNumraAutomatike");
-        //        colACRNumratAutomatike colACRNumratAutomatike = new colACRNumratAutomatike();
-        //        return colACRNumratAutomatike.mbushArrayListeACRNumraAutomatike(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colACRNumratAutomatike();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         public bool ekzistonACRNumraAutomatike(int IDLIDHJECR, int IDLLOJILIDHJE, int idndermarje)
         {//kontrollon nese ekziston nje ACRNumra automatik per kete ambjent dhe kete lloj lidhje
@@ -12041,34 +9588,11 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow ktheNrAutomatikPerKodin(int idcr, int idlloj, int idndermarje)", true)]
-        //public colACRNumratAutomatike  merrNrAutomatikPerKodin(int idcr, int idlloj, int idndermarje)
-        //{
 
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDLIDHJECR", idcr, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDLLOJILIDHJE", idlloj, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ACRNUMRAAUTOMATIKE_merrVlerenFundit");
-        //        DbCore.DbAdmin.colACRNumratAutomatike ACR = new DbCore.DbAdmin.colACRNumratAutomatike();
-        //        return ACR.mbushArrayListeACRNumraAutomatike(ds);
 
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colACRNumratAutomatike(); ;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -12360,28 +9884,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheDokumentat(int moduli)", true)]
-        //public colLlojDokumenti merrGjitheDokumentat(clsLlojDokumenti d)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDMODULI", d.IdModuli, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJDOKUMENTI_sel");
-        //        colLlojDokumenti colLlojDok = new colLlojDokumenti();
-        //        return colLlojDok.mbushArrayListLlojiDokumenta(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colLlojDokumenti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheGjitheDokumentatSipasKomponentes(string komponente)
         {
@@ -12395,28 +9899,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheDokumentatSipasKomponentes(string komponente)", true)]
-        //public colLlojDokumenti merrGjitheDokumentatSipasKomponentes(string komponente)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOMPONENTE",komponente, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJDOKUMENTI_merrSipasKomponente");
-        //        colLlojDokumenti colLlojDok = new colLlojDokumenti();
-        //        return colLlojDok.mbushArrayListLlojiDokumenta(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colLlojDokumenti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrDokumentin(int idLlojDok)
         {
@@ -12434,28 +9918,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrDokumentin(int idLlojDok)", true)]
-        //public colLlojDokumenti ktheDokumentin(int idLlojDok)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDLLOJDOK", idLlojDok, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJDOKUMENTI_ktheDokumentin");
-        //        colLlojDokumenti colLlojDok = new colLlojDokumenti();
-        //        return colLlojDok.mbushArrayListLlojiDokumenta(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colLlojDokumenti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         public String ktheIdLlojDokumenti(String kodiLlojDokumenti)
         {
@@ -12484,27 +9948,8 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojetDokumentave()", true)]
-        //public colLlojDokumenti merrGjitheLlojetDokumentave()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    String sql = "select IDLLOJDOK, KODI, PERSHKRIMI, MODULI,IDKOMPONENTE from T_LLOJDOKUMENTI";
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
-        //        colLlojDokumenti col = new colLlojDokumenti();
-        //        return col.mbushArrayListLlojiDokumenta(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colLlojDokumenti();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -12514,12 +9959,10 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@EMERRAPORTI", "ditari", ParameterDirection.Input);
             Byte[] ds = (Byte[])dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_RS_T_Catalog_sel");
-            //colLlojDokumenti colLlojDok = new colLlojDokumenti();
             return ds;
 
         }
@@ -12539,28 +9982,10 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable merrGjithetTipeFushashShtese()", true)]
-        //public colTipeFushaShtese  merrGjithetTipeFushashShtese()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TIPIFUSHASHTESE _merrGjitheTipet");
-        //        colTipeFushaShtese colTipeFushaShtese = new colTipeFushaShtese();
-        //        return colTipeFushaShtese.mbushArrayListTipeshFushaShtese(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTipeFushaShtese();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -12576,28 +10001,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable merrGjitheTheme()", true)]
-        //public colTheme ktheGjitheTheme(clsTheme theme)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_THEME_sel");
-        //        colTheme themes = new colTheme();
-        //        return themes.mbushArrayListTheme(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ce.Message + ce.StackTrace);
-        //        return new colTheme();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrSipasEmri(String emri)
         {
@@ -12647,30 +10053,9 @@ namespace DbCore.DbAdmin
         }
 
         //[Obsolete("Perdor: DataRow merrSipasEmri(String emri)", true)]
-        //public clsTheme ktheSipasEmri(clsTheme theme)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@EMRI", theme.EmriTheme, ParameterDirection.Input);               
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_THEME_selSipasEmri");
-        //        colTheme themes = new colTheme();
-        //        return themes.mbushArrayListTheme(ds)[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ce.Message + ce.StackTrace);
-        //        return new clsTheme();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataRow merrSipasId(int idTheme)
         {
@@ -12689,30 +10074,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataRow merrSipasId(int idTheme)", true)]
-        //public clsTheme ktheSipasId(clsTheme theme)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@ID", theme.IdTheme, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_THEME_selSipasId");
-        //        colTheme themes = new colTheme();
-        //        return themes.mbushArrayListTheme(ds)[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ce.Message + ce.StackTrace);
-        //        return new clsTheme();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -12740,7 +10104,6 @@ namespace DbCore.DbAdmin
             if (idBgImage == 0) dbManager.AddParameters(8, "@IDBGIMAGE", DBNull.Value, ParameterDirection.Input);
             else dbManager.AddParameters(8, "@IDBGIMAGE", idBgImage, ParameterDirection.Input);
             dbManager.AddParameters(9, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
-            //dbManager.AddParameters(10, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
             dbManager.AddParameters(10, "@IDSTATUSDOK", idStatusDok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_THEMESAMBJENTE_INSERT");
             id = int.Parse(dbManager.Parameters[0].Value.ToString());
@@ -12789,7 +10152,6 @@ namespace DbCore.DbAdmin
             if (idBgImage == 0) dbManager.AddParameters(8, "@IDBGIMAGE", DBNull.Value, ParameterDirection.Input);
             else dbManager.AddParameters(8, "@IDBGIMAGE", idBgImage, ParameterDirection.Input);
             dbManager.AddParameters(9, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
-            //dbManager.AddParameters(10, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
             dbManager.AddParameters(10, "@IDSTATUSDOK", idStatusDok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_THEMESAMBJENTE_UPDATE");
             return new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
@@ -12852,7 +10214,6 @@ namespace DbCore.DbAdmin
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODTHEME", kodTheme, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@IDNDERM", idPerd, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERD", idPerd, ParameterDirection.Input);
             dbManager.FillObject("prc_T_THEMESAMBJENTE_SelThemeSipasKodNdermPerd", objektiPerTuMbushur);
         }
@@ -12867,7 +10228,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(1, "@IDPERD", idperd, ParameterDirection.Input);
             int pergjigje = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_THEMESAMBJENTE_ekzistonThemeAmbjente"));
             return Convert.ToBoolean(pergjigje);
-
 
 
         }
@@ -13009,32 +10369,8 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, emerproc);
             return new clsMesazh(true, String.Format("Ezkekutimi i sp rregulluese {0} perfundoi me sukses!", emerproc));
         }
-        //public clsMesazh eshteThemeZgjedhurOseDefault(int idTheme)
-        //{
-        //    bool themedefault = false;
-        //    bool zgjedhur = false;
 
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDTHEME", idTheme, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@DEFAULTI", themedefault, ParameterDirection.Output);
-        //        dbManager.AddParameters(2, "@ZGJEDHUR", zgjedhur, ParameterDirection.Output);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_THEMESAMBJENTE_eshteDefaultOseZgjedhur");
-        //        themedefault = bool.Parse(dbManager.Parameters["DEFAULTI"].Value.ToString());
-        //        zgjedhur = bool.Parse(dbManager.Parameters["ZGJEDHUR"].Value.ToString());                
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
 
         #endregion
 
@@ -13121,28 +10457,9 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKonfigurimet()", true)]
-        //public colKonfigurime merrGjitheKonfigurimet()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    string sqlstr = "select * from T_KONFIGURIME";
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-        //        colKonfigurime konfigurimet = new colKonfigurime();
-        //        return konfigurimet.mbushArrayListKonfigurime(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKonfigurime();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
         /// <summary>
         /// merr te dhenat e licences qe i perket perdoruesi 
         /// </summary>
@@ -13299,7 +10616,6 @@ namespace DbCore.DbAdmin
         #endregion
 
         #region KonfigurimFtp
-
 
 
         internal void merrKonfigurimFtpSipasId(int idKonfigurimFtp, int idNdermarrje, IDataBase konfigurim)
@@ -13596,7 +10912,6 @@ namespace DbCore.DbAdmin
             dbManager.Parameters[4].Size = 250;
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "PRC_MERREMERSKEDARTRANSFERIMI");
             emerSkedari = dbManager.Parameters[4].Value.ToString();
-            //return dbManager.Parameters[3].Value.ToString();
             return emerSkedari;
         }
 
@@ -13785,7 +11100,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@idPerdorues", idPerdorues, ParameterDirection.Input);
@@ -13897,10 +11211,6 @@ namespace DbCore.DbAdmin
         public bool eshteDokumentiILidhurCelje(int iddok, int idnivel)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -13921,11 +11231,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarrje, ParameterDirection.Input);
@@ -13935,11 +11240,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrGjitheInfoKokaNdermarrjesSipasLlojit(int idndermarrje, int lloji)
         {
 
-
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -13953,11 +11253,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
@@ -13968,11 +11263,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrInfoKokaNdermarrjesPerGrideSipasLloji(int idNdermarje, int lloji)
         {
 
-
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(2);
@@ -14105,11 +11395,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDINFOTRUPI", idInfoTrupi, ParameterDirection.Input);
@@ -14125,10 +11410,6 @@ namespace DbCore.DbAdmin
 
         internal DataTable merrInfoTrupiSipasIdKoka(int idInfoKoka)
         {
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -14139,10 +11420,6 @@ namespace DbCore.DbAdmin
 
         internal DataTable merrInfoTrupiSipasIdKokaDheVisible(int idInfoKoka, bool visible, int idndermarje)
         {
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(3);
@@ -14158,11 +11435,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDINFOKOKA", idInfoKoka, ParameterDirection.Input);
@@ -14177,11 +11449,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDINFOTRUPI", idInfoTrupi, ParameterDirection.Input);
@@ -14195,11 +11462,6 @@ namespace DbCore.DbAdmin
         {
 
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDINFOKOKA", idInfoKoka, ParameterDirection.Input);
@@ -14212,10 +11474,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh ruajInfoTrupi(int idInfoKoka, String emerKolone, String pershkrimKolone, bool visibility, int rendi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
 
@@ -14234,10 +11492,6 @@ namespace DbCore.DbAdmin
         internal clsMesazh modifikoInfoTrupi(int idInfoTrupi, int idInfoKoka, String emerKolone, String pershkrimKolone, bool visibility, int rendi)
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
 
@@ -14265,10 +11519,6 @@ namespace DbCore.DbAdmin
         internal DataTable ktheGjitheLlojeLicence()
         {
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJLICENCE_merrGjitheLlojLicence");
@@ -14283,11 +11533,6 @@ namespace DbCore.DbAdmin
         internal DataTable merrGjitheFormatImportiNdermarrjes(int idndermarrje)
         {
 
-
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -14716,7 +11961,6 @@ namespace DbCore.DbAdmin
                             queue.Enqueue(reader["EMERTABELETRUPI_HISTORIK"].ToString());
                         if (reader["EMERTABELEREC_HISTORIK"].ToString() != "")
                             queue.Enqueue(reader["EMERTABELEREC_HISTORIK"].ToString());
-                        //return queue;
                     }
                 }
                 finally
@@ -14908,7 +12152,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
@@ -14924,7 +12167,6 @@ namespace DbCore.DbAdmin
 
         internal DataRow merrKonfigurimExportiSipasKodit(string kodi, int idNdermarrje)
         {
-
 
 
             dbManager.Open();
@@ -15109,10 +12351,6 @@ namespace DbCore.DbAdmin
         public clsMesazh fshiFiltraExportiStatus(int id, int idperdorues)
         {//metoda per fshirjen e filtrave
 
-            //{
-            //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //    dbManager.ConnectionString = dbManager.GetConnectionString();
-            //}
 
             dbManager.Open();
             //shtimi i parametrave
@@ -15128,11 +12366,6 @@ namespace DbCore.DbAdmin
         internal DataRow ktheFiltraExportiSipasId(int idFiltra)
         {
             //{//metoda per te marre te filtrin sipas kodit
-            //    if (dbManager == null)
-            //    {
-            //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //        dbManager.ConnectionString = dbManager.GetConnectionString();
-            //    }
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -15187,8 +12420,6 @@ namespace DbCore.DbAdmin
         /// <returns>True nese ekziston filter tjeter me kete kod; False ne rast te kundert</returns>
         internal bool ekzistonFilterExporti(String filtriKodi, int idnder, int formati)
         {
-            //dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //dbManager.ConnectionString = dbManager.GetConnectionString();
 
             dbManager.Open();
             dbManager.CreateParameters(3);
@@ -15201,8 +12432,6 @@ namespace DbCore.DbAdmin
         }
         internal bool kaVeprimeFilterExporti(int id)
         {
-            //dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //dbManager.ConnectionString = dbManager.GetConnectionString();
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
@@ -15213,8 +12442,6 @@ namespace DbCore.DbAdmin
 
         internal String ktheFilterPerDataSetSipasId(int id)
         {
-            //dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-            //dbManager.ConnectionString = dbManager.GetConnectionString();
 
             dbManager.Open();
             dbManager.CreateParameters(1);
@@ -15427,7 +12654,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(0, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(2, "@STARTTIME", startTime, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@STOPTIME", stopTime, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDSTARTTIME", idStartTime, ParameterDirection.Input);
             dbManager.AddParameters(4, "@NRARTIKUJVE", nrArtikujve, ParameterDirection.Input);
             dbManager.AddParameters(5, "@NRMAGAZINAVE", nrMagazinave, ParameterDirection.Input);
@@ -15571,8 +12797,6 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPISKEMAWORKFLOW_ins");
             idTrupi = int.Parse(dbManager.Parameters[0].Value.ToString());
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-
 
 
         }
@@ -15996,8 +13220,6 @@ namespace DbCore.DbAdmin
         {
 
 
-
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKOKA", idkoka, ParameterDirection.Input);
@@ -16012,8 +13234,6 @@ namespace DbCore.DbAdmin
         }
         internal DataTable merrKokaSkemaWorkFlowNdermarrjesDT(int idnderm)
         {
-
-
 
 
             dbManager.Open();
@@ -16187,7 +13407,6 @@ namespace DbCore.DbAdmin
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKFPERWORKFLOW_sel");
 
         }
-
 
 
         /// <summary>
@@ -16514,7 +13733,6 @@ namespace DbCore.DbAdmin
         /// <returns>Kthen DataRow, null nese nuk ekziston</returns>
         public DataRow merrDiteTembeturateLicencesSipasNdermarrjes(int idPerdorues)
         {
-            //string datefill;
 
 
             dbManager.Open();
@@ -16591,7 +13809,6 @@ namespace DbCore.DbAdmin
 
         internal DataTable ktheGjitheAmbjente(int idllojlicence, int idgjuha, bool ambjentpermobile)
         {
-
 
 
             dbManager.Open();
@@ -16944,7 +14161,6 @@ namespace DbCore.DbAdmin
         /// <returns>(bool) Kontrollon nese PIN-i eshte i vlefshem apo jo. Kthen true nese eshte i vlefshem dhe anasjelltas</returns>
         internal bool kontrolloVlefshmeriPin(string kodiPIN, int idPerdoruesi, int idNdermarrja, DateTime dataPerdorur)
         {
-
 
 
             dbManager.Open();

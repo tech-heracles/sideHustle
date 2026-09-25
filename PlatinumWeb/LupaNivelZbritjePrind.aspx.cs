@@ -19,7 +19,6 @@ namespace PlatinumWeb
     {
         public static int idNdermVit = -1;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-        //private DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabiliteti;
         protected void Page_Load(object sender, EventArgs e)
         {
             String array = Request.QueryString["array"];
@@ -28,16 +27,10 @@ namespace PlatinumWeb
             if (Request.QueryString["idKonfigAmbjente"] != null && Request.QueryString["idKonfigAmbjente"] != "")
                 vleraQueryString = Request.QueryString["idKonfigAmbjente"].ToString();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "NivZbPrind"; //mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             int idKonfigambjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "NivZbPrind");
             mbushPopUpListeNiveleZbritje();
-            //DbCore.DbShare.clsKusht kushtkss = new DbCore.DbShare.clsKusht(idKonfigambjenti, "KSSH");
-            //DbCore.DbShare.clsAlternativaKushti alterkss = new DbCore.DbShare.clsAlternativaKushti(kushtkss.Vlera);
             bool kerkosaposhkruar = true;
             if (clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
                 kerkosaposhkruar = true;
@@ -45,7 +38,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
                 GridUtil.AplikoFilterDefault(gvLupaNivZbPrind, idKonfigambjenti);
                 konfiguroPopupGride(idKonfigambjenti, true, kerkosaposhkruar);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNivZbPrind", idKonfigambjenti, "LupaNivelZbritjePrind.aspx");
@@ -59,12 +51,9 @@ namespace PlatinumWeb
         private void mbushPopUpListeNiveleZbritje()
         {//mbush griden e popupit me te dhena
 
-            //idNdermVit =  DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             DbCore.DbInventari.colNiveleZbritjesh colNiveleZbritjesh = new DbCore.DbInventari.colNiveleZbritjesh();
             colNiveleZbritjesh.mbushGjitheNiveleZbritjeshPrindiSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbInventari.colNiveleZbritjesh colNiveleZbritjesh = dbInventari.merrGjitheNiveleZbritjeshPrindiSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             this.gvLupaNivZbPrind.DataSource = colNiveleZbritjesh;
             gvLupaNivZbPrind.DataBind();
         }
@@ -73,7 +62,6 @@ namespace PlatinumWeb
         {//konfiguron popupgriden
             shtoPrioritet();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaNivZbPrind, "gvLupaNivZbPrind", "LupaNivelZbritjePrind.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhe(gvLupaNivZbPrind, "IdNivelZbritje");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             var endlessScroll = clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaNivZbPrind, "IdNivelZbritje", kerkosaposhkruar, endlessScroll);
@@ -124,8 +112,6 @@ namespace PlatinumWeb
         protected void gvLupaNivZbPrind_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
             //kur popupgrida ben callback
-            //  mbushPopUpListeLlogarish();
-            //  konfiguroPopupGride();
             gvLupaNivZbPrind.Selection.UnselectAll();
         }
 
@@ -190,20 +176,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNivZbPrind.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivelZbritje", gvLupaNivZbPrind);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNivZbPrind.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivelZbritje";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -212,7 +186,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNivZbPrind", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNivelZbritjePrind.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -236,7 +209,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNivZbPrind", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNivelZbritjePrind.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -249,14 +221,6 @@ namespace PlatinumWeb
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaNivZbPrind", "LupaNivelZbritjePrind.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
 
     }
 }

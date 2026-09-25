@@ -95,7 +95,6 @@ namespace DbCore.DbAnalizeBuxheti
             clsMesazh mesazhi = new clsMesazh();
             try
             {
-                // dbAbB.beginTransaksion();
 
                 int idKokaDok = -1;
                 foreach(clsTrupiPasqyraOrganike trup in ColTrupi)

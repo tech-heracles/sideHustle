@@ -23,8 +23,6 @@ namespace PlatinumWeb
             var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
 
 
-
-
             var idNivel = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("LDL", idNdermarrje);
             var idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, idNdermarrje);
@@ -203,77 +201,6 @@ namespace PlatinumWeb
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
         {
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
@@ -350,24 +277,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDetajime.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvLupaDetajime);
-            //var kolona = gvLupaDetajime.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //    {
-            //        filtri.DrejtimRenditje = true;
-            //    }
             //    else
-            //    {
-            //        filtri.DrejtimRenditje = false;
-            //    }
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDetajimArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             var oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);

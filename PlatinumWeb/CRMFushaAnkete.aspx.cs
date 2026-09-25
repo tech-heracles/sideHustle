@@ -41,7 +41,6 @@ namespace PlatinumWeb
 
             if (!IsPostBack)
             {
-                //Session.Add("mesazh", ":Green");
 
                  DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
                 if (Request.QueryString["ruaj"] == "ok")
@@ -94,7 +93,6 @@ namespace PlatinumWeb
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 gvFushaAnkete.Columns.Add(check);
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //check.SetColVisibleIndex(0);
 
                 gvFushaAnkete.SettingsText.CommandUpdate = rm.GetString("buttonRuaj", cultinf);
                 gvFushaAnkete.SettingsText.CommandCancel = rm.GetString("labelAnullo", cultinf);
@@ -164,13 +162,11 @@ namespace PlatinumWeb
             opsion.IdNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             opsion.IdStatusDok = 1;
             e.Cancel = true;
-           // gvFushaAnkete.CancelEdit();
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = opsion.ruaj();
             if (!mesazh.Status)
             {
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazh.PershkrimMesazhi + ":Red");
-              //  konfiguroGride();
             }
             else
             {
@@ -181,9 +177,6 @@ namespace PlatinumWeb
         }
 
               
-
-        
-
         private void konfiguroVleraFillestare()
         {
             DbCore.DbCRM.colOpsioneAnkete col = new DbCore.DbCRM.colOpsioneAnkete(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
@@ -191,8 +184,6 @@ namespace PlatinumWeb
             gvFushaAnkete.DataBind();
         }
 
-
-     
 
         protected void gvFushaAnkete_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
         {//validimi ne jane plotesuar gjithe fushat e detyruara
@@ -238,7 +229,6 @@ namespace PlatinumWeb
                     }             
                 
             }
-               // else e.RowError = "Ju lutemi, plotesoni te gjitha fushat";
             if (e.Errors.Count > 0)
             {
                 e.RowError = "Ju lutemi, plotesoni te gjitha fushat.";
@@ -289,7 +279,6 @@ namespace PlatinumWeb
                  DbCore.mySessionObjects.ruajMesazhNeSesion(Session, m.PershkrimMesazhi + ":Red");
             }
             gvFushaAnkete.CancelEdit();
-           // konfiguroVleraFillestare();
                
         }
 
@@ -317,7 +306,6 @@ namespace PlatinumWeb
         }
 
       
-
         protected void gvFushaAnkete_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {
         }
@@ -337,32 +325,15 @@ namespace PlatinumWeb
                 else
                 {
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvFushaAnkete, arr[2], "gvFushaAnkete", "CRMFushaAnkete.aspx", 1);
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
                     ////filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), "gvFushaAnkete", "CRMFushaAnkete.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     ////DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //if (filtra.FiltraKodi != null)
-                    //{
-                    //    gvFushaAnkete.FilterExpression = filtra.FiltraVlera;
-                    //    if (filtra.DrejtimRenditje == true)
-                    //        gvFushaAnkete.SortBy(gvFushaAnkete.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
                     //    else
-                    //        gvFushaAnkete.SortBy(gvFushaAnkete.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
 
-                    //    //  konfiguroVleraFillestare();
 
-                    //}
                 }
             }
             konfiguroGride();
         }
 
-        //protected void Modifiko_ASPxButton_Click(object sender, EventArgs e)
-        //{
-        //    int a = gvFushaAnkete.FocusedRowIndex;
-        //    gvFushaAnkete.StartEdit(a);
-        //} 
     }
 }

@@ -91,18 +91,10 @@ namespace DbCore.DbAsete
         private bool mbushHistorikAQTSerialeList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsHistorikAQTSeriale historikAQTSeriale = new clsHistorikAQTSeriale();
-                    //historikAQTSeriale.mbushHistorikAQTSerialObjekt(rreshti);
                     Add(new clsHistorikAQTSeriale(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

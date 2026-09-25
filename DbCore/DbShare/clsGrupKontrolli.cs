@@ -22,11 +22,6 @@ namespace DbCore.DbShare
                 return idGrupi;
             }
             //set
-            //{
-            //    if (idGrupi == value)
-            //        return;
-            //    idGrupi = value;
-            //}
         }
         public string EmerGrupi
         {
@@ -35,11 +30,6 @@ namespace DbCore.DbShare
                 return emerGrupi;
             }
             //set
-            //{
-            //    if (emerGrupi == value)
-            //        return;
-            //    emerGrupi = value;
-            //}
         }
         /// <summary>
         /// numer rendites sherben per shfaqen e filtrave

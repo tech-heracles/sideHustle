@@ -177,257 +177,51 @@ namespace PlatinumWeb
         }
         #region komentuar
         //public void lexoKonfigurimin(int idKonfigurimi)
-        //{
-        //    if (idKonfigurimi != 0)
-        //    {
-        //        colVleratKonfigurimiKasa OColVlerat = new colVleratKonfigurimiKasa(idKonfigurimi);
-        //        string llojkase = OColVlerat.ktheVlereOpsioni("KASEFISKALELLOJ");
-        //        string pathFile = hfFile.Value = OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
-        //        cmbLlojiKases.Value = llojkase;
-        //        string urlKase = OColVlerat.ktheVlereOpsioni("URL"); ;
-        //        txtUrl.Text = urlKase;
-        //        hfState.Set("pathFile", pathFile);
-        //        hfState.Set("URL", urlKase);
-        //        url = urlKase;
-        //        switch (llojkase)
-        //        {
         //            case "0":
-        //                //lblSkedariIVA.Text = pathFile;
-        //                ucIVA.Text = pathFile;
-        //                cbKasaMeShifraDhjetore.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                rbKase.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER"));
-        //                rbPrinter.Checked = !rbKase.Checked;
-        //                cbPrintoNrFature.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTONRFATURE"));
-        //                if (OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMon.Checked = true; cmbMonedha.ClientEnabled = true; }
         //                else
-        //                    this.cbPrintoTotalDheNeMon.Checked = false;
-        //                cmbMonedha.Value = OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE");
-        //                this.rbKuponTatimor.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("KUPONTATIMOR"));
-        //                this.rbFatureTatimore.Checked = !rbKuponTatimor.Checked;
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFature.Checked = true; txtNrKopje.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFature.Checked = false;
-        //                txtNrKopje.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESH");
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimeve.Checked = true; txtNrKopjeKthimesh.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimeve.Checked = false;
-        //                this.txtNrKopjeKthimesh.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI");
-        //                cbPrintoManualishtNgaKasa.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTOMANUALISHTNGAKASA"));
-        //                break;
         //            case "1":
-        //                //lblSkedariAED.Text = pathFile;
-        //                ucAED.Text = pathFile;
-        //                txtPorta.Text = OColVlerat.ktheVlereOpsioni("PORT");
-        //                if (OColVlerat.ktheVlereOpsioni("CHIUS") == "1")
-        //                    cbMbyllCdoFature.Checked = true;
-        //                else cbMbyllCdoFature.Checked = false;
-        //                this.cbPrintoBarkod.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTBARKOD"));
-        //                this.cbRuajKopje.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("RUAJKOPJE"));
-        //                cbKasaMeShifraDhjetoreAED.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
 
-        //                break;
         //            case "2":
-        //                //lblSkedariBTN.Text = pathFile;
-        //                ucBTN.Text = pathFile;
-        //                cbKasaMeShifraDhjetoreBTN.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                rbKaseBTN.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER"));
-        //                rbPrinterBTN.Checked = !rbKaseBTN.Checked;
-        //                cbPrintoNrFatureBTN.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTONRFATURE"));
-        //                if (OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonBTN.Checked = true; cmbMonedhaBTN.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonBTN.Checked = false;
-        //                cmbMonedhaBTN.Value = OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE");
-        //                this.rbKuponTatimorBTN.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("KUPONTATIMOR"));
-        //                this.rbFatureTatimoreBTN.Checked = !rbKuponTatimorBTN.Checked;
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFatureBTN.Checked = true; txtNrKopjeBTN.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFatureBTN.Checked = false;
-        //                txtNrKopjeBTN.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESH");
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimeveBTN.Checked = true; txtNrKopjeKthimeshBTN.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimeveBTN.Checked = false;
-        //                this.txtNrKopjeKthimeshBTN.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI");
-        //                break;
         //            case "3":
-        //                //lblSkedariCKVNOKI.Text = pathFile;
-        //                ucCKVNOKI.Text = pathFile;
-        //                txtPortaCom.Text = OColVlerat.ktheVlereOpsioni("COMPORT");
-        //                cbKasaMeShifraDhjetoreCKVNOKI.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                txtBoudRate.Text = OColVlerat.ktheVlereOpsioni("BOUDRATE");
 
-        //                cbPrintoNrFatureCKVNOKI.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTONRFATURE"));
-        //                if (OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonCKVNOKI.Checked = true; cmbMonedhaCKVNOKI.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonCKVNOKI.Checked = false;
-        //                cmbMonedhaCKVNOKI.Value = OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE");
 
-        //                break;
         //            case "4":
-        //                //lblSkedariPKP.Text = pathFile;
-        //                ucPKP.Text = pathFile;
-        //                cbKasaMeShifraDhjetorePKP.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                cbPrintoNrFaturePKP.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTONRFATURE"));
-        //                if (OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonPKP.Checked = true; cmbMonedhaPKP.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonPKP.Checked = false;
-        //                cmbMonedhaPKP.Value = OColVlerat.ktheVlereOpsioni("CMIMMONEDHEDYTE");
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFaturePKP.Checked = true; txtNrKopjePKP.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFaturePKP.Checked = false;
-        //                txtNrKopjePKP.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESH");
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimevePKP.Checked = true; txtNrKopjeKthimeshPKP.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimevePKP.Checked = false;
-        //                this.txtNrKopjeKthimeshPKP.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI");
-        //                break;
         //            case "5":
-        //                //lblSkedariGEKOS.Text = pathFile;
-        //                ucGEKOS.Text = pathFile;
-        //                this.txtPassOperator.Text = OColVlerat.ktheVlereOpsioni("OPERATORPASS");
-        //                cmbGjuha.Value = OColVlerat.ktheVlereOpsioni("GJUHA");
-        //                txtKodiTVSH.Text = OColVlerat.ktheVlereOpsioni("NIVELDEFAULTTVSH");
-        //                if (OColVlerat.ktheVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFatureGEKOS.Checked = true; txtNrKopjeGEKOS.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFatureGEKOS.Checked = false;
-        //                txtNrKopjeGEKOS.Text = OColVlerat.ktheVlereOpsioni("NRKOPJESH");
-        //                cbKasaMeShifraDhjetoreGEKOS.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                cbPrintoNrFatureGEKOS.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("PRINTONRFATURE"));
-        //                break;
         //            case "6":
-        //                ucBNTAClass.Text = pathFile;
-        //                txtPortaComBNTAClass.Text = OColVlerat.ktheVlereOpsioni("COMPORT");
-        //                cbKasaMeShifraDhjetoreBNTAClass.Checked = Convert.ToBoolean(OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE"));
-        //                txtBoudRateBNTAClass.Text = OColVlerat.ktheVlereOpsioni("BOUDRATE");
-        //                break;
-        //        }
-        //    }
 
-        //}
         //private void mbushkonfigurimin()
-        //{
-        //    DbCore.DbAdmin.clsKonfigurimKase konf = new DbCore.DbAdmin.clsKonfigurimKase();
-        //    konf.merrKonfiguriminSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    if (konf.IdKonfigurimi != 0)
-        //    {
-        //        konf.OColVlerat = new DbCore.DbAdmin.colVleratKonfigurimiKasa(konf.IdKonfigurimi);
-        //        DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //        string llojkase = vlera.merrVlereOpsioni("KASEFISKALELLOJ");
-        //        hfFile.Value = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //        cmbLlojiKases.Value = llojkase;
-        //        txtUrl.Text = vlera.merrVlereOpsioni("URL");
-        //        switch (llojkase)
-        //        {
         //            case "0":
-        //                //lblSkedariIVA.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucIVA.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                cbKasaMeShifraDhjetore.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                rbKase.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("KASEAPOPRINTER"));
-        //                rbPrinter.Checked = !rbKase.Checked;
-        //                cbPrintoNrFature.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTONRFATURE"));
-        //                if (vlera.merrVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMon.Checked = true; cmbMonedha.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMon.Checked = false;
-        //                cmbMonedha.Value = vlera.merrVlereOpsioni("CMIMMONEDHEDYTE");
-        //                this.rbKuponTatimor.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("KUPONTATIMOR"));
-        //                this.rbFatureTatimore.Checked = !rbKuponTatimor.Checked;
-        //                if (vlera.merrVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFature.Checked = true; txtNrKopje.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFature.Checked = false;
-        //                txtNrKopje.Text = vlera.merrVlereOpsioni("NRKOPJESH");
-        //                if (vlera.merrVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimeve.Checked = true; txtNrKopjeKthimesh.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimeve.Checked = false;
-        //                this.txtNrKopjeKthimesh.Text = vlera.merrVlereOpsioni("NRKOPJESHKTHIMI");
-        //                break;
         //            case "1":
-        //                //lblSkedariAED.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucAED.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                txtPorta.Text = vlera.merrVlereOpsioni("PORT");
-        //                if (vlera.merrVlereOpsioni("CHIUS") == "1")
-        //                    cbMbyllCdoFature.Checked = true;
-        //                else cbMbyllCdoFature.Checked = false;
-        //                this.cbPrintoBarkod.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTBARKOD"));
-        //                this.cbRuajKopje.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("RUAJKOPJE"));
-        //                cbKasaMeShifraDhjetoreAED.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
 
-        //                break;
         //            case "2":
-        //                //lblSkedariBTN.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucBTN.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                cbKasaMeShifraDhjetoreBTN.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                rbKaseBTN.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("KASEAPOPRINTER"));
-        //                rbPrinterBTN.Checked = !rbKaseBTN.Checked;
-        //                cbPrintoNrFatureBTN.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTONRFATURE"));
-        //                if (vlera.merrVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonBTN.Checked = true; cmbMonedhaBTN.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonBTN.Checked = false;
-        //                cmbMonedhaBTN.Value = vlera.merrVlereOpsioni("CMIMMONEDHEDYTE");
-        //                this.rbKuponTatimorBTN.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("KUPONTATIMOR"));
-        //                this.rbFatureTatimoreBTN.Checked = !rbKuponTatimorBTN.Checked;
-        //                if (vlera.merrVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFatureBTN.Checked = true; txtNrKopjeBTN.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFatureBTN.Checked = false;
-        //                txtNrKopjeBTN.Text = vlera.merrVlereOpsioni("NRKOPJESH");
-        //                if (vlera.merrVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimeveBTN.Checked = true; txtNrKopjeKthimeshBTN.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimeveBTN.Checked = false;
-        //                this.txtNrKopjeKthimeshBTN.Text = vlera.merrVlereOpsioni("NRKOPJESHKTHIMI");
-        //                break;
         //            case "3":
-        //                //lblSkedariCKVNOKI.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucCKVNOKI.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                txtPortaCom.Text = vlera.merrVlereOpsioni("COMPORT");
-        //                cbKasaMeShifraDhjetoreCKVNOKI.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                txtBoudRate.Text = vlera.merrVlereOpsioni("BOUDRATE");
 
-        //                cbPrintoNrFatureCKVNOKI.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTONRFATURE"));
-        //                if (vlera.merrVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonCKVNOKI.Checked = true; cmbMonedhaCKVNOKI.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonCKVNOKI.Checked = false;
-        //                cmbMonedhaCKVNOKI.Value = vlera.merrVlereOpsioni("CMIMMONEDHEDYTE");
 
-        //                break;
         //            case "4":
-        //                //lblSkedariPKP.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucPKP.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                cbKasaMeShifraDhjetorePKP.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                cbPrintoNrFaturePKP.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTONRFATURE"));
-        //                if (vlera.merrVlereOpsioni("CMIMMONEDHEDYTE") != "0")
         //                { this.cbPrintoTotalDheNeMonPKP.Checked = true; cmbMonedhaPKP.ClientEnabled = true; }
-        //                else this.cbPrintoTotalDheNeMonPKP.Checked = false;
-        //                cmbMonedhaPKP.Value = vlera.merrVlereOpsioni("CMIMMONEDHEDYTE");
-        //                if (vlera.merrVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFaturePKP.Checked = true; txtNrKopjePKP.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFaturePKP.Checked = false;
-        //                txtNrKopjePKP.Text = vlera.merrVlereOpsioni("NRKOPJESH");
-        //                if (vlera.merrVlereOpsioni("NRKOPJESHKTHIMI") != "0")
         //                { this.cbPrintoKopjeTeKthimevePKP.Checked = true; txtNrKopjeKthimeshPKP.ClientEnabled = true; }
-        //                else this.cbPrintoKopjeTeKthimevePKP.Checked = false;
-        //                this.txtNrKopjeKthimeshPKP.Text = vlera.merrVlereOpsioni("NRKOPJESHKTHIMI");
-        //                break;
         //            case "5":
-        //                //lblSkedariGEKOS.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                ucGEKOS.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                this.txtPassOperator.Text = vlera.merrVlereOpsioni("OPERATORPASS");
-        //                cmbGjuha.Value = vlera.merrVlereOpsioni("GJUHA");
-        //                txtKodiTVSH.Text = vlera.merrVlereOpsioni("NIVELDEFAULTTVSH");
-        //                if (vlera.merrVlereOpsioni("NRKOPJESH") != "0")
         //                { this.cbPrintoNrKopjeFatureGEKOS.Checked = true; txtNrKopjeGEKOS.ClientEnabled = true; }
-        //                else this.cbPrintoNrKopjeFatureGEKOS.Checked = false;
-        //                txtNrKopjeGEKOS.Text = vlera.merrVlereOpsioni("NRKOPJESH");
-        //                cbKasaMeShifraDhjetoreGEKOS.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                cbPrintoNrFatureGEKOS.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("PRINTONRFATURE"));
-        //                break;
         //            case "6":
-        //                ucBNTAClass.Text = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-        //                txtPortaComBNTAClass.Text = vlera.merrVlereOpsioni("COMPORT");
-        //                cbKasaMeShifraDhjetoreBNTAClass.Checked = Convert.ToBoolean(vlera.merrVlereOpsioni("MESHIFRADHJETORE"));
-        //                txtBoudRateBNTAClass.Text = vlera.merrVlereOpsioni("BOUDRATE");
-        //                break;
-        //        }
-        //    }
-        //}
         #endregion
 
         private void ruajKonfigurim(int idNdermarrje)
@@ -546,8 +340,6 @@ namespace PlatinumWeb
             {
                 mbushGridKonfigKasashNgaDB(idNdermarrje);
             }
-            //gvKasat.DataBind();
-            //konfiguroGride();
         }
 
         private void modifikoKonfigurimKaseNeGrid(int idNdermarrje, int IdKonfigurimi)
@@ -596,7 +388,6 @@ namespace PlatinumWeb
             if (!eshteShtim)
             {
                 DbCore.DbAdmin.clsKonfigurimKase kasaVjeter = new DbCore.DbAdmin.clsKonfigurimKase(Convert.ToInt32(hfId.Value));
-                // kasaVjeter.merrKonfiguriminSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 if (kasaVjeter.IdKonfigurimi != 0)
                 {
                     llojiKaseVjeter = int.Parse(kasaVjeter.OColVlerat.ktheVlereOpsioni("KASEFISKALELLOJ"));
@@ -711,9 +502,6 @@ namespace PlatinumWeb
             kasa.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             kasa.OColVlerat.Add(krijoObjektVlera("KASEFISKALELLOJ", "1", 0));
             kasa.OColVlerat.Add(krijoObjektVlera("KASEFISKALELOGICALNR", txtPorta.Text, 0));
-            //if (ucAED.PostedFile.FileName == "")
-            //    kasa.OColVlerat.Add(krijoObjektVlera("KASEFISKALEPATH", hfFile.Value.ToString(), 0));
-            //else kasa.OColVlerat.Add(krijoObjektVlera("KASEFISKALEPATH", ucAED.PostedFile.FileName, 0));            
             kasa.OColVlerat.Add(krijoObjektVlera("KASEFISKALEPATH", ucAED.Text, 0));
             kasa.OColVlerat.Add(krijoObjektVlera("PORT", txtPorta.Text, 0));
             if (cbMbyllCdoFature.Checked)
@@ -724,7 +512,6 @@ namespace PlatinumWeb
             kasa.OColVlerat.Add(krijoObjektVlera("RUAJKOPJE", this.cbRuajKopje.Checked.ToString(), 0));
             kasa.OColVlerat.Add(krijoObjektVlera("MESHIFRADHJETORE", this.cbKasaMeShifraDhjetoreAED.Checked.ToString(), 0));
             kasa.OColVlerat.Add(krijoObjektVlera("PRINTONESERVER", cbPrintoNeServerAED.Checked.ToString(), 0));
-            //kasa.OColVlerat.Add(krijoObjektVlera("PLUACTUALNUMBER", "1", 0));
             kasa.OColVlerat.Add(krijoObjektVlera("URL", txtUrl.Text, 0));
             kasa.OColVlerat.Add(krijoObjektVlera("printoKodArtikulli", this.cbPrintoKodArtikulli.Checked.ToString(), 0));
             kasa.OColVlerat.Add(krijoObjektVlera("PRINTOPERSHKRIM2", cbPrintoPershkrim2AED.Checked.ToString(), 0));
@@ -948,13 +735,9 @@ namespace PlatinumWeb
 
         protected void konfiguroVleraFillestare(int idNdermarrje)
         {
-            //mbushComboLlojKase();
             mbushcmbLlojMbyllje();
             mbushcmbLlojObjekti();
             ConfigureAspxComboBox.mbushComboMonedha(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje, true, cmbMonedha, cmbMonedhaPKP, cmbMonedhaBTN);
-            //DbCore.clsFunksione.mbushComboMonedha(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje, cmbMonedhaCKVNOKI, true);
-            //ConfigureAspxComboBox.mbushComboMonedha(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje, cmbMonedhaPKP, true);
-            //ConfigureAspxComboBox.mbushComboMonedha(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje, cmbMonedhaBTN, true);
             mbushComboGjuha();
             mbushGride(-1);
             percaktoTemplate();
@@ -1036,7 +819,6 @@ namespace PlatinumWeb
             string[] arr = e.Parameters.Split(';');
             if (arr.Length == 1)
             {
-                // mbushGride(Convert.ToInt32(arr[0]));
                 mbushGride(Converter.ConvertToInt(arr[0]));
                 percaktoTemplate();
                 konfiguroNivelTVSH();
@@ -1049,81 +831,37 @@ namespace PlatinumWeb
         }
 
         //protected void btnRaportiX_Click(object sender, EventArgs e)
-        //      {
-        //      hfKasa.Value = "";
-        //      string kf_file;
-        //      int kf_lloj;
-        //      int kaseLogicalNumber;
-        //      DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //      kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
-        //      if (kf_lloj < 0) return;
-        //      kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
 
-        //      if (kf_file == "") return;
-        //      string text = kf_file + "&&";
 
-        //      kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
-        //      switch (kf_lloj)
-        //          {
         //          case 1:
-        //              //frmKasaMbyllGjendje.Show;
-        //              break;
         //          case 2:
-        //              //StreamWriter sw = File.CreateText(kf_file);
         //              if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //                  {     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi); percaktoTemplate();  return;
-        //                  }
-        //              else text+="X," + kaseLogicalNumber + ",_______,_,__;";//  sw.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-        //            //  sw.Close();
-        //              break;
         //          case 5:
-        //            //  StreamWriter swg = File.CreateText(kf_file);
-        //           text+= "X," + kaseLogicalNumber + ",_______,_,__;";//  swg.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-        //            //  swg.Close();
-        //              break;
         //          case 0:
-        //             // StreamWriter swi = File.CreateText(kf_file);
         //              if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //                  { clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi); percaktoTemplate();  return;
-        //                  }
         //              else
-        //               text+="69," + kaseLogicalNumber + ",______,_,__;1;" ;//  swi.WriteLine("69," + kaseLogicalNumber + ",______,_,__;1;");
-        //              //swi.Close();
-        //              break;
         //          default:
-        //              clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);    percaktoTemplate();
-        //              return;
-        //              break;
 
-        //          }
-        //      hfKasa.Value = text;
-        //      percaktoTemplate();
-        //      }
         protected void btnRaportiX_Click(object sender, EventArgs e)
         {
             if (hfShtimModifikim.Value == "modifikim")
             {
                 DbCore.DbAdmin.clsKonfigurimKase kase = new clsKonfigurimKase(Convert.ToInt32(hfId.Value));
-                //kase.merrKonfiguriminSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 hfKasa.Value = "";
                 string kf_file;
                 int kf_lloj;
                 int kaseLogicalNumber;
-                //DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
                 kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
                 if (kf_lloj < 0) return;
-                //kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
                 kf_file = kase.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
 
                 if (kf_file == "") return;
                 string text = kf_file + "&&";
 
-                //kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
                 kaseLogicalNumber = int.Parse(kase.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR"));
                 switch (kf_lloj)
                 {
                     case 2:
-                        //StreamWriter sw = File.CreateText(kf_file);
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "True")  //kaseapoprinter = true dmth qe eshte kase, false eshte printer
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);
@@ -1131,16 +869,12 @@ namespace PlatinumWeb
                             return;
                         }
                         else text += "X," + kaseLogicalNumber + ",_______,_,__;";//  sw.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-                        //  sw.Close();
                         break;
                     case 5:
-                        //  StreamWriter swg = File.CreateText(kf_file);
                         text += "X," + kaseLogicalNumber + ",_______,_,__;";//  swg.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-                        //  swg.Close();
                         break;
                     case 0:
                     case 7:
-                        // StreamWriter swi = File.CreateText(kf_file);
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);
@@ -1148,12 +882,9 @@ namespace PlatinumWeb
                             return;
                         }
                         else text += "69," + kaseLogicalNumber + ",______,_,__;1;";//  swi.WriteLine("69," + kaseLogicalNumber + ",______,_,__;1;");
-                        //swi.Close();
                         break;
                     default:
-                        //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi); percaktoTemplate();
                         return;
-                        //break;
                 }
                 hfKasa.Value = text;
                 percaktoTemplate();
@@ -1162,59 +893,20 @@ namespace PlatinumWeb
 
 
         //protected void btnRaportiZ_Click(object sender, EventArgs e)
-        //    {
-        //    hfKasa.Value = "";
-        //    string kf_file;
-        //    int kf_lloj;
-        //    int kaseLogicalNumber;
 
-        //    DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //    kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
-        //    if (kf_lloj < 0) return;
-        //    kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
 
-        //    if (kf_file == "") return;
-        //    string text = kf_file + "&&";
-        //    kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
-        //    switch (kf_lloj)
-        //        {
         //        case 1:
-        //            //frmKasaMbyllGjendje.Show;
-        //            break;
         //        case 2:
-        //          //  StreamWriter sw = File.CreateText(kf_file);
         //            if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
         //                { clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);        percaktoTemplate();    return;}
-        //            else text+="Z," + kaseLogicalNumber + ",_______,_,__;"; // sw.WriteLine("Z," + kaseLogicalNumber + ",_______,_,__;");
 
-        //          //  sw.Close();
-        //            break;
         //        case 5:
-        //           // StreamWriter swg = File.CreateText(kf_file);
-        //          text+="E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;||";//  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
-        //        text+="Z," + kaseLogicalNumber + ",______,_,__;||";//    swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
-        //            DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //        text+= "E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi;//   swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
 
-        //          //  swg.Close();
-        //            break;
         //        case 0:
-        //          //  StreamWriter swi = File.CreateText(kf_file);
         //            if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //                text += "Z," + kaseLogicalNumber + ",______,_,__;";//   swi.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
         //            else
-        //               text+="69," + kaseLogicalNumber + ",______,_,__;0;";// swi.WriteLine("69," + kaseLogicalNumber + ",______,_,__;0;");
-        //          //  swi.Close();
-        //            break;
         //        default:
-        //            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);              percaktoTemplate();
-        //            return;
-        //            break;
 
-        //        }
-        //    hfKasa.Value = text;
-        //    percaktoTemplate();
-        //    }
 
         protected void btnRaportiZ_Click(object sender, EventArgs e)
         {
@@ -1227,7 +919,6 @@ namespace PlatinumWeb
                 DbCore.DbAdmin.clsKonfigurimKase kase = new clsKonfigurimKase(Convert.ToInt32(hfId.Value));
                 kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
                 if (kf_lloj < 0) return;
-                //kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
                 kf_file = kase.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
                 if (kf_lloj == 2)
                 {
@@ -1242,15 +933,12 @@ namespace PlatinumWeb
                 }
                 if (kf_file == "") return;
                 string text = kf_file + "&&";
-                //kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
                 kaseLogicalNumber = int.Parse(kase.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR"));
                 switch (kf_lloj)
                 {
                     case 1:
-                        //frmKasaMbyllGjendje.Show;
                         break;
                     case 2:
-                        //  StreamWriter sw = File.CreateText(kf_file);
                         // if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "False")  //kase
                         {
@@ -1260,31 +948,25 @@ namespace PlatinumWeb
                         }
                         else //text += "Z," + kaseLogicalNumber + ",_______,_,__;"; // sw.WriteLine("Z," + kaseLogicalNumber + ",_______,_,__;");
                             text += "10";
-                        //  sw.Close();
                         break;
                     case 5:
-                        // StreamWriter swg = File.CreateText(kf_file);
                         text += "E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;||";//  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
                         text += "Z," + kaseLogicalNumber + ",______,_,__;||";//    swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
                         DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                         text += "E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi;//   swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
 
-                        //  swg.Close();
                         break;
                     case 0:
                     case 7:
-                        //  StreamWriter swi = File.CreateText(kf_file);
                         //if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "True") //kase
                             text += "Z," + kaseLogicalNumber + ",______,_,__;";//   swi.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
                         else
                             text += "69," + kaseLogicalNumber + ",______,_,__;0;";// swi.WriteLine("69," + kaseLogicalNumber + ",______,_,__;0;");
-                        //  swi.Close();
                         break;
                     default:
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi); percaktoTemplate();
                         return;
-                        //break;
                 }
                 hfKasa.Value = text;
                 percaktoTemplate();
@@ -1293,38 +975,12 @@ namespace PlatinumWeb
 
 
         //protected void btnPlu_Click(object sender, EventArgs e)
-        //    {
-        //    hfKasa.Value = "";
-        //    string kf_file;
-        //    int kf_lloj;
-        //    int kaseLogicalNumber;
 
-        //    DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //    kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
-        //    if (kf_lloj < 0) return;
-        //    kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
 
-        //    if (kf_file == "") return;
-        //    string text = kf_file + "&&";
-        //    kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
-
-        //    switch (kf_lloj)
-        //        {
         //        case 1:
-        //            break;
         //        case 5:
-        //           // StreamWriter swg = File.CreateText(kf_file);
-        //          //  swg.WriteLine("O," + kaseLogicalNumber + ",______,_,__;ALL");
-        //         //   swg.Close();
-        //            text += "O," + kaseLogicalNumber + ",______,_,__;ALL";
-        //            break;
         //        case 0:
-        //            break;
 
-        //        }
-        //    hfKasa.Value = text;
-        //    percaktoTemplate();
-        //    }
 
         protected void btnPlu_Click(object sender, EventArgs e)
         {
@@ -1339,7 +995,6 @@ namespace PlatinumWeb
                 DbCore.DbAdmin.clsKonfigurimKase kase = new clsKonfigurimKase(Convert.ToInt32(hfId.Value));
                 kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
                 /*    if (kf_lloj < 0) return;
-                   //kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
                    kf_file = kase.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
                  /*  if (kf_lloj == 2)
                    {
@@ -1366,10 +1021,6 @@ namespace PlatinumWeb
                     case 5:
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);
                         percaktoTemplate();
-                        // StreamWriter swg = File.CreateText(kf_file);
-                        //  swg.WriteLine("O," + kaseLogicalNumber + ",______,_,__;ALL");
-                        //   swg.Close();
-                        //text += "O," + kaseLogicalNumber + ",______,_,__;ALL";
                         return;
                     case 2:
                         DbCore.DbAdmin.clsVleraKonfigurimiKasa konf = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
@@ -1401,104 +1052,14 @@ namespace PlatinumWeb
                         percaktoTemplate();
                         return;
                 }
-                // hfKasa.Value = text;
                 percaktoTemplate();
             }
         }
 
-        //protected void ButtonOk_Click2(object sender, EventArgs e)
-        //    {
-        //    hfKasa.Value = "";
-        //    string kf_file;
-        //    int kf_lloj;
-        //    int kaseLogicalNumber;
-        //    DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //    kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
-        //    if (kf_lloj < 0) return;
-        //    kf_file = vlera.merrVlereOpsioni("KASEFISKALEPATH");
-
-        //    if (kf_file == "") return;
-        //    string text = kf_file + "&&";
-        //    kaseLogicalNumber = int.Parse(vlera.merrVlereOpsioni("KASEFISKALELOGICALNR"));
-        //    if (hfPyetje.Value == "X")
-        //        {
-        //        //StreamWriter swg = File.CreateText(kf_file);
-        //        text += "X," + kaseLogicalNumber + ",_______,_,__;";// swg.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-        //       // swg.Close();
-        //        }
-        //    else  if (hfPyetje.Value == "Z")
-        //        {
-        //        text += "E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;||";//  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
-        //        text += "Z," + kaseLogicalNumber + ",______,_,__;||";//    swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
-        //        DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //        text += "E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi;//   swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
-
-        //       // StreamWriter swg = File.CreateText(kf_file);
-        //       // swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
-        //       // swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
-        //      //  DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //      //  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
-
-        //      //  swg.Close();
-        //        }
-        //    else   if (hfPyetje.Value == "PLU")
-        //        {
-        //        text += "O," + kaseLogicalNumber + ",______,_,__;ALL";// StreamWriter swg = File.CreateText(kf_file);
-        //      //  swg.WriteLine("O," + kaseLogicalNumber + ",______,_,__;ALL");
-        //      //  swg.Close();
-        //        }
-        //    percaktoTemplate();
-        //    hfKasa.Value = text;
-        //    }
 
         #region ishte eventi  ButtonOk_Click2
-        //protected void ButtonOk_Click2(object sender, EventArgs e)
-        //{
-        //    hfKasa.Value = "";
-        //    string kf_file;
-        //    int kf_lloj;
-        //    int kaseLogicalNumber;
-        //    DbCore.DbAdmin.clsVleraKonfigurimiKasa vlera = new DbCore.DbAdmin.clsVleraKonfigurimiKasa();
-        //    DbCore.DbAdmin.clsKonfigurimKase kase = new DbCore.DbAdmin.clsKonfigurimKase();
-        //    kase.merrKonfiguriminSipasNdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    kf_lloj = int.Parse(cmbLlojiKases.Value.ToString());
-        //    if (kf_lloj < 0) return;
-        //    kf_file = kase.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
 
-        //    if (kf_file == "") return;
-        //    string text = kf_file + "&&";
-        //    kaseLogicalNumber = int.Parse(kase.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR"));
-        //    if (hfPyetje.Value == "X")
-        //    {
-        //        //StreamWriter swg = File.CreateText(kf_file);
-        //        text += "X," + kaseLogicalNumber + ",_______,_,__;";// swg.WriteLine("X," + kaseLogicalNumber + ",_______,_,__;");
-        //        // swg.Close();
-        //    }
-        //    else if (hfPyetje.Value == "Z")
-        //    {
-        //        text += "E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;||";//  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
-        //        text += "Z," + kaseLogicalNumber + ",______,_,__;||";//    swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
-        //        DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //        text += "E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi;//   swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
 
-        //        // StreamWriter swg = File.CreateText(kf_file);
-        //        // swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;Printo Z raportin;F-Link ks;");
-        //        // swg.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
-        //        //  DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //        //  swg.WriteLine("E," + kaseLogicalNumber + ",______,_,__;" + nderm.NdermarrjePershkrimi);
-
-        //        //  swg.Close();
-        //    }
-        //    else if (hfPyetje.Value == "PLU")
-        //    {
-        //        text += "O," + kaseLogicalNumber + ",______,_,__;ALL";// StreamWriter swg = File.CreateText(kf_file);
-
-        //        //  swg.WriteLine("O," + kaseLogicalNumber + ",______,_,__;ALL");
-        //        //  swg.Close();
-        //    }
-        //    percaktoTemplate();
-        //    hfKasa.Value = text;
-        //}
         #endregion
 
         protected void ButtonOk_Click2(object sender, EventArgs e)

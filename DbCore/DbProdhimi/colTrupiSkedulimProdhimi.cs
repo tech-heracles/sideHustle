@@ -115,16 +115,6 @@ namespace DbCore.DbProdhimi
         ///// merr gjithe njesite e artikujve qe ndodhen ne trup
         ///// </summary>
         ///// <returns>nje koleksion me te gjithe njesite e artikujve qe ndodhen ne trup</returns>
-        //public DbInventari.colNjesiteArtikulli ktheColNjesiArt()
-        //{
-        //    DbInventari.colNjesiteArtikulli colNjesi = new DbInventari.colNjesiteArtikulli();
-        //    foreach (clsTrupiSkedulimProdhimi trup in this)
-        //    {
-        //        DbInventari.clsNjesiArtikulli njesiArt = new DbInventari.clsNjesiArtikulli(trup.IdNjesia);
-        //        colNjesi.Add(njesiArt);
-        //    }
-        //    return colNjesi;
-        //}
 
         /// <summary>
         /// mbush trupin e skedulimit sipas id se kokes se skedulimit
@@ -147,8 +137,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool ktheTrupiSkedulimProdhimi(int idkoka, int idndermarje, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushTrupatSkedulimit(db.ktheTrupiSkedulimProdhimi(idkoka, idndermarje));
             return mbush;
         }
@@ -165,21 +153,13 @@ namespace DbCore.DbProdhimi
         private bool mbushTrupatSkedulimit(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiSkedulimProdhimi trupi = new clsTrupiSkedulimProdhimi();
-                    //trupi.mbushTrupSkedulim(rreshti);
                     Add(new clsTrupiSkedulimProdhimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

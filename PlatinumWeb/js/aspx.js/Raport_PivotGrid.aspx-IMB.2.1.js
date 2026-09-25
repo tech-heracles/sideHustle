@@ -28,9 +28,6 @@ var lastSelPunonjesi = 1;
 var lastSelListepagesa = 1;
 
 var lastSelOrganika = 1;
-//var lastSelInventariPerdorues = 1;
-//var lastSelInventariVite = 1;
-//var lastSelEvidencaStatistikore = 1;
 
 
 var lastSelRow = 1;
@@ -58,7 +55,6 @@ Parameters: e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, false);
     if (e.item.name == 'Ruaj') {
         mbush = false;
         valido(s, e);
@@ -67,7 +63,6 @@ function menu_click(s, e) {
     else if (e.item.name == 'Shto') {
         indexModifiko = -1;
         mbush = false;
-        //shikoKonfig = false;
         PageControl.SetActiveTabIndex(1);
         e.processOnServer = false;
         pastrofusha();
@@ -220,9 +215,6 @@ function SuccededCallbackKonfigRaporti(result) {
     lastSelFilter = 1;
     lastSelData = 1;
     lastSelOrganika = 1;
-    //lastSelInventariPerdorues = 1;
-    //lastSelInventariVite = 1;
-    //lastSelEvidencaStatistikore = 1;
 
     var idkol, rendi, emerKolShfaq, emerTabDB, emerKolDB, width, grupimKol, tipiKol, analitikTot, llojGrupimi, dataRow, su;
 
@@ -248,7 +240,6 @@ function SuccededCallbackKonfigRaporti(result) {
                 llojGrupimi: llojGrupimi
             };
             su = jQuery("#tblFushat" + grupimKol).addRowData(Utils.ktheKontroll("lastSel" + grupimKol), dataRow);
-            //ls = ls + 1;
             eval("lastSel" + grupimKol + "=" + (Utils.ktheKontroll("lastSel" + grupimKol) + 1));
             continue;
         }
@@ -295,7 +286,6 @@ function SuccededCallbackKonfigRaporti(result) {
 function ShikoKonfigRaporti() {
     ShfaqFiltrat(ruajTeDhenatKonfigNeHiddenFielde());
     hfState.Set("DateDokumentiVisibility", $('#dateDokumenti').css('visibility'));
-    //callbackCheckBox.PerformCallback();
     if (filterDate.GetItemCount() > 0 && $('#dateDokumenti').css('visibility') != "hidden")
         filterDate.SetSelectedIndex(0);
     if (fushatDateTimePG.GetItemCount() > 0 && $('#dateDokumenti').css('visibility') != "hidden")
@@ -561,7 +551,6 @@ function inicializoGridat() {
 function klickselectedvaluedok(theRadio, e) {
     if (theRadio.GetSelectedIndex() != -1) {
         var rblCaseControlDok = theRadio.GetSelectedItem().index;
-        // theRadio.GetSelectedItem().value;
         if (rblCaseControlDok == 1) {
             //(rblCaseControlDok == 'Periudha') {
             txtNgaDok.SetEnabled(true);
@@ -594,8 +583,6 @@ function UpdateButtonStates() {
     //checkboxet e totaleve
 
 
-
-
     ColumnGrandTotal.SetChecked(ASPxPivotGridRaporti.cpGrandTotalKolona == true);
     ColumnTotal.SetChecked(ASPxPivotGridRaporti.cpColumnTotal == true);
     RowGrandTotal.SetChecked(ASPxPivotGridRaporti.cpRowGrandTotal == true);
@@ -606,15 +593,9 @@ function UpdateButtonStates() {
 
 function activeTabChanging(s, e) {
     indexModifiko = ASPxGridView_KonfigPivotGrid.GetFocusedRowIndex();
-    //if (e.tab.index == 2) {
-    //    e.processOnServer = false;
-    //    shikoKonfig = true;
-    //}
-    //else shikoKonfig = false;
     if (mbush) {
         if (indexModifiko != -1) {
             OnGridDoubleClick(indexModifiko);
-            //mbushfusha();
         }
         else {
             mbush = false;
@@ -623,10 +604,6 @@ function activeTabChanging(s, e) {
         }
     }
     kaloTab = false;
-    //    if (e.tab.index == 2) {
-    //        e.processOnServer = false;
-    //        ShikoKonfigRaporti();
-    //    }
     myMenu.PercaktoMenuSipasTabit(e.tab.index, hfTeDrejta, $('#hfShtimModifikim'));
     if (e.tab.index == 0) {
         ASPxGridView_KonfigPivotGrid.ClearFilter();
@@ -669,14 +646,6 @@ function ButtonGrafikClick(s, e) {
 
 function ButtonPaGrafikClick(s, e) {
     disableWebChartControls();
-    //    WebChart.SetVisible(false);
-    //    tipiGrafikutLabel.SetEnabled(false);
-    //    cmbGrafiku.SetEnabled(false);
-    //    saVleraNeGrafikLabel.SetEnabled(false);
-    //    cmbSaVleraNeGrafik.SetEnabled(false);
-    //    sipasKolonaveChk.SetEnabled(false);
-    //    btnGrafik.SetEnabled(true);
-    //    btnPaGrafik.SetEnabled(false);
 }
 
 function disableWebChartControls() {
@@ -749,6 +718,5 @@ function Autorizime_Click() {
     var hf = $("#hfLupaAutorizimi")[0];
     var queryStr = hf.value;
     var qstrAutorizimet = '?autorizimet=' + cmbAutorizimi.GetText();
-    //    myButtonClickLupa.Autorizime_Click('Zgjidh autorizimet', queryStr, widthLupaAutorizime, heightLupaAutorizime);
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhniAutorizimet"), 'LupaAutorizim.aspx' + qstrAutorizimet, 700, 600);
 }

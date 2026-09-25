@@ -61,9 +61,7 @@ function Init() {//po
         $("#divgride1").show();
         $("#dvFillim").show();
         enabled();
-     //   merrTeDhena();
 
-        //  TextChangedLlojEksporti(false);
     }
 }
 
@@ -99,9 +97,7 @@ Function: menuClick
 Percakton veprimin qe kryhet nese klikohet nje nga butonat e menuse.
 */
 function menu_click(s, e) {
-    //   gvExport.GetSelectedFieldValues('IdArtikulli;Niveli i cmimit;Kodbari', vlerat);
     if (e.item.name === "Eksporto") {
-        //  btnExporto.DoClick();
         e.processOnServer = false;
         if (gvExport.GetSelectedRowCount() == 0) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukKaRreshtaPerEksport"));     
@@ -152,11 +148,8 @@ function menu_click(s, e) {
     }
 
 
-
-
     else if (e.item.name === 'Ngarko') {
         Utils.shfaqLoadingGif();;
-        //  merrTeDhena();
 
         return;
 
@@ -165,14 +158,6 @@ function menu_click(s, e) {
 
 
 function TextChangedSasi(editor, key) {
-    // gvExport.GetSelectedFieldValues('IdArtikulli;Niveli i cmimit;Kodbari', vlerat);
-    //var a = new Array();
-    //a = editor.GetText().toString();
-    //var hf = $("#hfSasia")[0];
-    //hf.value = editor.GetText();
-    //arrSasia = new Array();
-    //cou1 = 0;
-    //  editor.GetText();
     gvExport.SelectRowOnPage(key);
     if (isNaN(editor.GetValue())) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaNumerike"));  
@@ -189,10 +174,8 @@ var arrKodbare = new Array();
 function vlerat(values) {
 
 
-    // alert(values);
     cou1 = 0;
     arrKodbare = new Array();
-    // alert(values);
     for (var i in values) {
         arrKodbare[cou1] = values[i];
         cou1++;
@@ -205,8 +188,6 @@ var index = 0;
 
 function vendosSasi(index) {
 
-   // arrSasia[index] = 1;
-   //$("#hfSasia").val(JSON.stringify(arrSasia));
 }
 function vendosSasiaTeGjitha() {
 
@@ -242,28 +223,23 @@ function merrTeDhena(key) {
 }
 
 function ShfaqTeDhenat() {
-   // alert(gvExport.cpNoPage);
     if (gvExport.cpNoRows > 15 * (gvExport.cpNoPage + 1))
         for (i = 15 * gvExport.cpNoPage; i < 15 * (gvExport.cpNoPage + 1) ; i++) {
-         //   if (gvExport._isRowSelected(i)){
             editorSasia =  Utils.ktheKontroll ('Sasia' + i);
             if (!editorSasia)
                 return;
                 if (arrSasia[i] != undefined)
                     editorSasia.SetText(arrSasia[i]);
-          //  }
 
         }
     else 
         for (i = 15 * gvExport.cpNoPage; i < gvExport.cpNoRows; i++) {
-          //  if (gvExport._isRowSelected(i)){
             editorSasia = Utils.ktheKontroll ('Sasia' + i);
             if (!editorSasia)
                 return;
                 if (arrSasia[i] != undefined)
                     editorSasia.SetText(arrSasia[i]);
             }
-    //  }
 
 }
 
@@ -285,5 +261,4 @@ function Click_ButtonOk3(s, e) {
 function closing(s, e) {
     popupUniversal.SetContentUrl('');
 }
-
 

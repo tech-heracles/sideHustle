@@ -13,7 +13,6 @@ jQuery(document).ready(function () {//po
 
     $(window).on('load', function () {
         Init();
-        //Utils.resizeSplitter();
     });
 
     
@@ -157,7 +156,6 @@ function SucceededCallbackFiltraExport(result) {
 function changeName() {//po
     myFaqeCelje.shtoHandlerSession();
     try { window.parent.callWebServiceKtheInfoLart('Eksport.aspx', 0); } catch (e) { }
-    //myCookies.createCookie('adresa', window.location.href, 1);
 }
 var eksportNgaDok = false;
 function Init() {//po
@@ -227,7 +225,6 @@ function pastroFushatKokes() {
     enabled();
     var hf = document.getElementById("status1");
     hf.value = "false";
-    //percaktoVisibleMenu();
 }
 
 /*
@@ -337,7 +334,6 @@ function menu_click(s, e) {
             e.processOnServer = true;
     }
     else if (e.item.name === 'Ngarko') {
-        //hfState.Set("idQueryString", "");
         Utils.shfaqLoadingGif();
         if ((cmbLlojEksporti.GetValue() == 1 && cmbFormati.GetText() == "" && cmbKategoria.GetText() !== 'Flex Cube') || (cmbLlojEksporti.GetValue() == 2 && cmbKategoria.GetText() !== "Eksport Demesh" && cmbFormati.GetText() == "")) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhFormatin"));
@@ -420,7 +416,6 @@ function PastroClick() {
     var hf = document.getElementById("hfShtimModifikim");
     gvExport.ClearFilter();
     hf.value = "shtim";
-    //$('#ASPxSplitter1_hl').empty();
 }
 function TextChangedFormati() {
     txtEmerSkedari.SetText(cmbFormati.GetText());
@@ -521,8 +516,6 @@ function TextChangedLlojEksporti(mbushKategori) {
         ASPxMenu1.GetItemByName("Ruaj").SetEnabled(false);
     else
         ASPxMenu1.GetItemByName("Ruaj").SetEnabled(true);
-    //gvExport.UnselectRows();
-    //gvExport.ClearFilter();
     gvExport.PerformCallback('pastro');
     visibleKontrolle(mbushKategori);
 }
@@ -674,14 +667,12 @@ function BeginCallBackGrida(s, e)
 
 function EndCallbackGrida(s, e) {
     visibleKontrolle(false);
-    //gvExport.ClearSelection();
     Utils.hiqLoadingGif();
 }
 
 function Selected_IndexChanged(s, e) {
     if (s.FindItemByText(s.GetInputElement().value) != null) {
         btnRuaj.SetEnabled(false); btnFshi.SetEnabled(true);
-        //gvExport.PerformCallback('Filter;'+s.GetValue());
         gvExport.PerformCallback('NdryshoFiltrinSipasCombos;' + s.GetValue())
     } else if (s.GetText() == '') {
         btnRuaj.SetEnabled(false);

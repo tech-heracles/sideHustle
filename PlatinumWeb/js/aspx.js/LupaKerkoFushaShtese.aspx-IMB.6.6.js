@@ -53,7 +53,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //  gvLupaKerko.GetSelectedFieldValues('gid;the_geom;IDLAYER;Status', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {
@@ -64,7 +63,6 @@ function menu_click(s, e) {
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;
-            //OnGridSelectionChanged();
             break;
         case "Anullo":
             e.processOnServer = false;
@@ -78,8 +76,6 @@ function menu_click(s, e) {
 
 //metoda per te shfaqur popupin e filtrave
 function Filtra_Click() {
-    //document.getElementById('<%= Container.ClientID %>').src = 'LupaFiltra.aspx?grida=gvLupaKerko&page=GISLupaKerko.aspx&idKonfigAmbjente=';
-    //popFiltra.Show();
 
 }
 function gup(name) {

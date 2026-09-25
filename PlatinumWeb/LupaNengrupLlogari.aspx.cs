@@ -13,7 +13,6 @@ namespace PlatinumWeb
 {
     public partial class LupaNenGrupLlogari : MyPageBase
     {
-        //private DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab;
         protected void Page_Load(object sender, EventArgs e)
         {
             string vleraQueryString = "";
@@ -21,13 +20,9 @@ namespace PlatinumWeb
                 vleraQueryString = Request.QueryString["idKonfigAmbjente"].ToString();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "NgrupLlog"; // mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             int idNivel = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("NgrupLlog", idNdermarrje);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             int idKonfigambjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "NivCmPrind");
             bool kerkosaposhkruar = true;
             if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
@@ -50,19 +45,13 @@ namespace PlatinumWeb
             konfiguroPopupGride(kerkosaposhkruar, endlessScroll);
             if (!IsPostBack)
             {
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvLupaNGrupLlog, idKonfigambjenti);
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvLupaNGrupLlog", idKonfigambjenti, "LupaNengrupLlogari.aspx");
             }
-            //Container.Attributes["width"] = "350px";
-            //Container.Attributes["height"] = "400px";
-            //Container.Attributes["src"] = "LupaFiltra.aspx?grida=gvLupaNGrupLlog&page=LupaNengrupLlogari.aspx";
         }
         private void mbushPopUpListeNenGrupeLlogarish(int idGrupi, int idGjuha)
         {//mbush griden e popupit me nengrupet e grupit te percaktuar
-            //dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colNenGrupetLlogaria colNenGrupet = dbKontab.merrNenGrupetLlogariaSipasGrupit(idGrupi);
             DbCore.DbKontabiliteti.colNenGrupetLlogaria colNenGrupet = new DbCore.DbKontabiliteti.colNenGrupetLlogaria();
             colNenGrupet.mbushNenGrupetLlogariaSipasGrupit(idGrupi, idGjuha);
             gvLupaNGrupLlog.DataSource = colNenGrupet;
@@ -71,8 +60,6 @@ namespace PlatinumWeb
 
         private void mbushPopUpListeNenGrupeLlogarish(int idGjuha)
         {//mbush griden e popupit gjithe nengrupet
-            //dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colNenGrupetLlogaria colNenGrupet = dbKontab.merrGjitheNenGrupetLlogaria(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbKontabiliteti.colNenGrupetLlogaria colNenGrupet = new DbCore.DbKontabiliteti.colNenGrupetLlogaria();
             colNenGrupet.mbushGjitheNenGrupetLlogaria(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), idGjuha);
             gvLupaNGrupLlog.DataSource = colNenGrupet;
@@ -82,7 +69,6 @@ namespace PlatinumWeb
         private void konfiguroPopupGride(bool kerkosaposhkruar, bool endlessScroll)
         {//konfiguron popupgriden
             GridUtil.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaNGrupLlog, "gvLupaNGrupLlog", "LupaNenGrupLlogari.aspx");
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaNGrupLlog, "IdNenGrupiLlogaria");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaNGrupLlog, "IdNenGrupiLlogaria", kerkosaposhkruar, endlessScroll);
         }
@@ -157,20 +143,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNGrupLlog.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNenGrupiLlogaria", gvLupaNGrupLlog);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNGrupLlog.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNenGrupiLlogaria";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -179,7 +153,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNGrupLlog", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNengrupLlogari.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -203,7 +176,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNGrupLlog", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNengrupLlogari.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -216,13 +188,5 @@ namespace PlatinumWeb
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaNGrupLlog", "LupaNengrupLlogari.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
     }
 }

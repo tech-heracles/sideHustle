@@ -25,7 +25,6 @@ namespace PlatinumWeb.E_PaySlip
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(0, idNdermarrje, "gvLupaPunonjes", 1, "LupaPunonjes.aspx");
             int idKonfigambjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "LPun");
             hfState.Set("idGjuha", idGjuha);
@@ -43,9 +42,6 @@ namespace PlatinumWeb.E_PaySlip
                 mbushPopUpListeNgaSession();
                 konfiguroPopupGride(idKonfigambjenti, false);
             }
-            //Container.Attributes["width"] = "350px";
-            //Container.Attributes["height"] = "400px";
-            //Container.Attributes["src"] = "LupaFiltra.aspx?grida=gvLupaPunonjes&page=LupaPunonjes.aspx";
         }
 
         private void EmratEKontrolleve(ResourceManager rm, CultureInfo cultinf)
@@ -101,7 +97,6 @@ namespace PlatinumWeb.E_PaySlip
             shtoDepartament();
             shtoNenDepartament();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaPunonjes, "gvLupaPunonjes", "LupaPunonjes.aspx", idKonfigambjenti, visibleIndex, 0);
-            //funk.konfiguroGrideListeMadhe(gvLupaPunonjes, "IdPunonjes");
             gvLupaPunonjes.Columns["#"].VisibleIndex = 0;
             if (clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po")
                 gvLupaPunonjes.SettingsPager.Mode = GridViewPagerMode.EndlessPaging;
@@ -174,9 +169,7 @@ namespace PlatinumWeb.E_PaySlip
         /// <param name="e"></param>
         protected void gvLupaPunonjes_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //  gvLupaPunonjes.Selection.UnselectAll();
         }
-
 
 
         protected void gvLupaPunonjes_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
@@ -238,20 +231,8 @@ namespace PlatinumWeb.E_PaySlip
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaPunonjes.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrPersonal", gvLupaPunonjes);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaPunonjes.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrPersonal";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -260,7 +241,6 @@ namespace PlatinumWeb.E_PaySlip
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(0, idNdermarrje, "gvLupaPunonjes", 1, "LupaPunonjes.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -284,7 +264,6 @@ namespace PlatinumWeb.E_PaySlip
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(0, idNdermarrje, "gvLupaPunonjes", 1, "LupaPunonjes.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -297,13 +276,5 @@ namespace PlatinumWeb.E_PaySlip
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaPunonjes", "LupaPunonjes.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
     }
 }

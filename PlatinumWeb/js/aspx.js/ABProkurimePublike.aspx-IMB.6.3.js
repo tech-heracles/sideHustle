@@ -92,7 +92,6 @@ function OnGetRowValuesMod(values) {
         PageControl.SetActiveTabIndex(1);
         ASPxMenu1.AdjustControl();
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
-        // AktivizoDraft();
     }
 
     Utils.hiqLoadingGif();;
@@ -106,7 +105,6 @@ function pastrofusha() {
     
     gvProkurimet.PerformCallback(-1);
     IdStatusDok = undefined;
-    // AktivizoDraft();
 }
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
@@ -137,7 +135,6 @@ function SucceededCallbackKonfig(result) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
         resultkonf = result;
-        //  LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
@@ -148,9 +145,7 @@ function SucceededCallbackKonfig(result) {
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
 
         $("#divFillim").show();
-        // $("#divGrida").width($("#tblPasqyra").width() + "%");
         $("#divGrida").show();
-        //$("#divFundi").show();
 
         if (hfMod.val() == "shtim" || hfMod.val() == "klonim") {
             hfNrAuto.Clear();
@@ -158,7 +153,6 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
             IdStatusDok = 0;
         }
-        //AktivizoDraft();
     }
 }
 
@@ -166,8 +160,6 @@ function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
     if (hfMod.val() != "klonim") {
-      //  cmbPeriudha.SetEnabled(true);
-      //  cmbPeriudha.SetValue(null);
     }
 }
 
@@ -263,7 +255,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {

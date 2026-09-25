@@ -30,19 +30,11 @@ namespace DbCore.DbAdmin
         private bool mbushTabelatEmerLogjik(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTabeleEmerLogjik tabele = new clsTabeleEmerLogjik();
-                    //tabele.mbushTabeleEmerLogjik(rreshti);
                     Add(new clsTabeleEmerLogjik(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -47,7 +47,6 @@ namespace PlatinumWeb
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
@@ -148,7 +147,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                // check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gvKonfigAmbjentesh.Settings.ShowFilterRow = true;
                 gvKonfigAmbjentesh.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -164,12 +162,10 @@ namespace PlatinumWeb
         private void konfiguroGride(int idGjuha, int idNdermarrje, int idPerdoruesi)
         {
             var idNdermarrjeVit = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
-            //ShtoAutorizim(idPerdoruesi, idNdermarrje);
             shtoKategoriDok();
       
             KonfigurimComboGride.ShtoNivelMeDataSource(gvKonfigAmbjentesh, () => colNivelRegjistrimi.ktheGjitheNivelRegjistrimi(idNdermarrje, idPerdoruesi, true), Session, komponente, guidString);
             shtoSkeme(idGjuha, idNdermarrje, idNdermarrjeVit, idPerdoruesi);
-            //percaktoTamplate();
             shto_Lloji();
         }
 
@@ -249,7 +245,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "KodKonfigAmbjente" || e.Column.FieldName == "PershkrimKonfigAmbjente")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue("(Te gjithe)", string.Empty, "true");
                 e.AddValue("Nga A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue("Nga D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");
@@ -273,18 +268,14 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvKonfigAmbjentesh", "KonfigDokumentash.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvKonfigAmbjentesh", 1, "KonfigDokumentash.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -308,39 +299,22 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("gvKonfigAmbjentesh", "RegjistrimMagazine.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "gvKonfigAmbjentesh", "KonfigDokumentash.aspx", idNdermarrje);
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKonfigAmbjentesh.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKonfigAmbjente", gvKonfigAmbjentesh);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvKonfigAmbjentesh.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodKonfigAmbjente";
-            //    filtri.DrejtimRenditje = true;
-            //}
-            //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
 
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvKonfigAmbjentesh", 1, "KonfigDokumentash.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -407,7 +381,6 @@ namespace PlatinumWeb
                 return;
             }
             List<string> teFshire = new List<string>(), tePaFshireDef = new List<string>(), tePafshirePerd = new List<string>();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             DbCore.DbShare.clsDatabaseShare dbShare = new DbCore.DbShare.clsDatabaseShare();
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
@@ -416,7 +389,6 @@ namespace PlatinumWeb
                 konf.IdKonfigAmbjente = int.Parse(id.ToString());
                 konf.mbushkonfigPaLloj(int.Parse(id.ToString()));
                 konf.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                //konf = dbShare.ktheKonfiguriminMeID(id)[0];
                 if (konf.DefaultKonfigAmbjente == true)
                 {
                     tePaFshireDef.Add(konf.KodKonfigAmbjente);
@@ -432,7 +404,6 @@ namespace PlatinumWeb
                     mesazh = konf.fshi();
                     #region Heq konfigurimet nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqDokumentNgaGrida(konf.IdKonfigAmbjente, DbCore.mySessionObjects.ktheGjuhe(Session));
                     teFshire.Add(konf.KodKonfigAmbjente);
                     #endregion
@@ -485,7 +456,6 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         protected void ButtonOk_Click(object sender, EventArgs e)
         {
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);            
             List<object> rreshtat = gvKonfigAmbjentesh.GetSelectedFieldValues("IdKonfigAmbjente");
             List<string> teFshire = new List<string>(), tePaFshire = new List<string>();
             if (rreshtat.Count == 0)
@@ -496,20 +466,17 @@ namespace PlatinumWeb
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             foreach (object id in rreshtat)
             {
-                //DbCore.DbShare.clsDatabaseShare dbShare = new DbCore.DbShare.clsDatabaseShare();
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                 konf.IdKonfigAmbjente = int.Parse(id.ToString());
                 konf.mbushkonfigPaLloj(int.Parse(id.ToString()));
                 if (konf != null)
                 {
                     konf.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                    //konf = dbShare.ktheKonfiguriminMeID(id)[0];
                     konf.mbushkonfigPaLloj(int.Parse(id.ToString()));
                     mesazh = konf.fshi();
                     if (mesazh.Status)
                     {
                         #region Heq konfigurimet nga grida
-                        // ASPxGridView_Artikull.DataSource = dt;
                         hiqDokumentNgaGrida(konf.IdKonfigAmbjente, DbCore.mySessionObjects.ktheGjuhe(Session));
                         teFshire.Add(konf.KodKonfigAmbjente);
                         #endregion
@@ -566,38 +533,10 @@ namespace PlatinumWeb
 
         protected void gvKonfigAmbjentesh_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {
-            //if (e.Column.FieldName == "IdKategori")
-            //{
-            //    GridViewDataComboBoxColumn colnew = gvKonfigAmbjentesh.Columns["IdNivel"] as GridViewDataComboBoxColumn;
-            //    DbCore.DbRegjistrim.clsNivelRegjistrimi oNivel = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-            //    DbCore.DbRegjistrim.colNivelRegjistrimi colNivele = new DbCore.DbRegjistrim.colNivelRegjistrimi();
-            //    colNivele.Add(new DbCore.DbRegjistrim.clsNivelRegjistrimi(-1, 0, "", "", 0, false, 0, 0, 0));
-            //    string[] a = e.Criteria.ToString().Split("=".ToCharArray());
-            //    for (int i = 0; i < a.Length; i++)
-            //    {
-            //        if (a[i].Contains("[IdKategori] "))
-            //        {
-            //            string[] spliti = { ".0m" };
-            //            string id = a[i + 1].Split(spliti, StringSplitOptions.RemoveEmptyEntries)[0];
-            //            id = id.Split(' ')[1];
 
-            //            oNivel.IdKategori = Convert.ToInt32(id);
-            //            if (oNivel.IdKategori != -1)
-            //                colNivele.AddRange(oNivel.merrGjitheNivelRegjistrimiSipasKategoriPaAll(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session)));
             //            else
-            //                colNivele.AddRange(oNivel.merrGjitheNivelRegjistrimi(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session)));
 
-            //        }
-            //    }
-            //    colnew.PropertiesComboBox.DataSource = colNivele;
-            //    colnew.PropertiesComboBox.TextField = "Pershkrimi";
-            //    colnew.PropertiesComboBox.ValueField = "IdNivel";
-            //    colnew.FieldName = "IdNivel";
-            //    if (decimal.Parse(e.Value.ToString()) == -1)
-            //    {
-            //        e.Criteria = null;
             ////    }
-            //}
             if (e.Column.FieldName == "IdNivel" || e.Column.FieldName == "IdKategori")
                 if (Converter.ConvertToInt(e.Value) == -1)
                     e.Criteria = null;
@@ -615,12 +554,9 @@ namespace PlatinumWeb
                 }
                 else
                 {
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvKonfigAmbjentesh", "KonfigDokumentash.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         gvKonfigAmbjentesh.FilterExpression = filtra.FiltraVlera;

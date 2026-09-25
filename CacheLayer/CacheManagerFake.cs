@@ -209,7 +209,6 @@ namespace CacheLayer
                 }
             }
             return default(TOut);
-            //return (TOut)Convert.ChangeType(cache.Get(ComposedKey(key, region)), typeof(TOut));
         }
 
         public CacheItem<object> GetCacheItem(string key)

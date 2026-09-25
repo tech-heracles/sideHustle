@@ -86,14 +86,12 @@ function Drejtori_Click() {
 }
 
 function ndryshoKonfiguriminInit() {
-    //callWebserviceKonfigurimiInit("149" + ";" + cmbKonfigurimi.GetText());
     callWebserviceKonfigurimiInit("149", cmbKonfigurimi.GetText());
 }
 
 function _getKeyCode(evt) {
     return (typeof (evt.keyCode) != "undefined" && evt.keyCode != 0) ? evt.keyCode : evt.charCode;
 }
-
 
 
 function changeName() {
@@ -115,7 +113,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvAfateMaturimi, "426")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid_AgjenteShitje, "149", pastrofusha, hfTeDrejta);
 }
 
@@ -176,7 +173,6 @@ function Llogari_Click() {
     var queryStr = hf.value;
     myButtonClickLupa.ButtonClickLlogaria(hfState.Get("popupAdministrimiUniversal"), queryStr, widthLupaLlogaria, heightLupaLlogaria);
 }
-
 
 
 function ProcessTextChanged(fieldName, value) {
@@ -248,7 +244,6 @@ function TextChangedLlogari(key) {
 }
 
 
-
 function valido(s, e) {
     myFaqeCelje.valido(s, e, PageControl, hfTeDrejta, $('#hfShtimModifikim'));
 }
@@ -293,7 +288,6 @@ function menu_click(s, e) {
 }
 
 
-
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
@@ -304,17 +298,13 @@ function SucceededCallbackKonfig(result) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
         resultkonf = result;
-        //Lupa(kontrollet);
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblAgjenteShitje'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        // myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-    //$("#dvAgjenteShitje").show();//$("#dvAgjenteShitje")[0].style.visibility = 'visible';
 }
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {

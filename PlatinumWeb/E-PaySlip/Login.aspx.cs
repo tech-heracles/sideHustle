@@ -30,7 +30,6 @@ namespace PlatinumWeb.E_PaySlip
                 ASPxLabel8.Text = string.Format(@"© {0} IMB", DateTime.Now.Year);
                 LabelInfo.ClientVisible = false;
                 var combo = Login1.FindControl("cmbServerat") as DevExpress.Web.ASPxComboBox;
-                //clsFunksione.percaktoTemplateCombo(combo);
                 CacheLayer.GlobalCacheManager.MySessionCache["conStringName"] = "connStringAlpha";
                 clsLogin.mbushServerCombo(Session.SessionID , combo);
 
@@ -87,15 +86,11 @@ namespace PlatinumWeb.E_PaySlip
 
         private void emertoKontrolletSipasGjuhes(System.Resources.ResourceManager rm, CultureInfo ci, DevExpress.Web.ASPxLabel PasswordRecoveryLink, DevExpress.Web.ASPxButton LoginButton)
         {
-            //var combo = Login1.FindControl("cmbserverat") as ASPxComboBox;
-            //combo.Items.Insert(0, new ListEditItem { Text = rm.GetString("serverKryesor", ci), Value = 0 });
-
 
 
             PasswordRecoveryLink.Text = rm.GetString("msgLoginKeniHaruuarFjalekalimin", ci);
             ASPxLabel9.Text = rm.GetString("msgLoginKontaktoPerNdihme", ci) + " | Tel : +355 4 22 53 466 / 4 22 55 121 / 4 22 55 123";
             ASPxLabel10.Text = rm.GetString("lblLoginKosove", ci) + " : +377 44177110";
-            //ASPxLabel11.Text = rm.GetString("lblLoginIVizitoreve", ci);
             lblGjuhaAL.NavigateUrl = $"{DbCore.IMBUtils.Paths.loginPathEpaySlip}?gjuha=AL";
             lblGjuhaEN.NavigateUrl= $"{DbCore.IMBUtils.Paths.loginPathEpaySlip}?gjuha=EN";
             ASPxHiddenField loginHiddenField = Login1.FindControl("loginHiddenField") as ASPxHiddenField;
@@ -106,23 +101,18 @@ namespace PlatinumWeb.E_PaySlip
             loginHiddenField.Set("passlbl", rm.GetString("labelEmailFjalekalimi", ci));
 
             ASPxLabel lblHyrje = Login1.FindControl("lblHyrje") as ASPxLabel;
-            //   lblHyrje.Text = rm.GetString("lblLoginHyrjeNeSistem", ci);
             if (ci.ToString().Equals("sq-AL"))
             {
-                // LoginButton.ImageUrl = "~/images/FaqjaPare/buttonhyrje.jpg";
                 LoginButton.Text = "Hyrje";
 
             }
             else
             {
-                //LoginButton.ImageUrl = "~/images/FaqjaPare/buttonhyrje_eng.png";
                 LoginButton.Text = "Login";
-                //ASPxLabel2.Visible = false;
 
             }
             PasswordRecoveryLink.Text = rm.GetString("msgLoginKeniHaruuarFjalekalimin", ci);
         }
-
 
 
         private bool validateUser(string username, string paswd)

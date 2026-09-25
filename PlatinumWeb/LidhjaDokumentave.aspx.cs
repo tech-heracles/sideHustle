@@ -398,7 +398,6 @@ namespace PlatinumWeb
             {
                 grid_dokKryesor.DataSource = tmpObject;
                 grid_dokKryesor.DataBind();
-                //tmpObject.Dispose();
             }
         }
 
@@ -926,7 +925,6 @@ namespace PlatinumWeb
 
            // col9.DataItemTemplate = hfShtimModifikim.Value == "shtim"
           //      ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
-           //     : new MyLabelTemplate();
             col9.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
             col9.Caption = "Vlefta e lidhjes";
 
@@ -979,14 +977,12 @@ namespace PlatinumWeb
 
             //col9.DataItemTemplate = hfShtimModifikim.Value == "shtim"
             //    ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
-             //   : new MyLabelTemplate();
             col9.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
             col9.Caption = "Vlefta e lidhjes";
 
             var col10 = grid_dokLidhes.Columns["VleftaLikuiduarMon"] as GridViewDataTextColumn;
             //col10.DataItemTemplate = hfShtimModifikim.Value == "shtim"
             //    ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
-            //    : new MyLabelTemplate();
             col10.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
 
             var col7 = grid_dokLidhes.Columns["IdMonedha"] as GridViewDataComboBoxColumn;

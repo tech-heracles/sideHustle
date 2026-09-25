@@ -145,9 +145,6 @@ namespace DbCore.DbShare
                     ColKonfLlojRreshtiVlere.Add(konfRreshti);
                     vlera = 1; //mjafton te kete nje vlere cfaredo ne kete rast, pasi konfigurimet ruhen ne tabele tjeter
                 }
-                //if (String.IsNullOrEmpty(prioriteti))
-                //    vlera = 0;
-                //else vlera = int.Parse(prioriteti.Replace(",", String.Empty));
             }
             else
                 if (rresht["Vlera"] != null) int.TryParse(rresht["Vlera"].ToString(), out vlera);
@@ -204,7 +201,6 @@ namespace DbCore.DbShare
 
         public colKusht merrTeGjitheKushteKonfigurimi(int idKonfigurim) //kalohet IDKONFIGAMBJENTE
         {
-            //this.idKonfigAmbjente = idKonfigurim;
             colKusht data = new colKusht();
             data.mbushGjitheKushteKonfigurimi(this.IdKonfigurimAmbjente);
             return data;

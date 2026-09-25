@@ -555,22 +555,11 @@ namespace DbCore
             {
                 username = user.PerdoruesUsername;
                 email = user.PerdoruesEmail;
-                //   gjuha = user.IdGjuha;
                 url = "NdryshimFjalekalimi.aspx?em=";
             }
 
             string encQS = RijndaelSimple.EncryptImbString("idGjuha=" + idgjuha + "&username=" + username + "&expirationDate=" + DateTime.Now.ToString(new CultureInfo("en-us")));
             linku = DbCore.clsFunksione.ktheServerUrl(request) + url + HttpUtility.UrlEncode(encQS);
-            //DataRow[] rreshtaPerdorues = dbAdmin.ktheUserNgaLogin(username).Select("PERDORUESUSERNAME = '" + username + "'");
-            //DataRow rreshtiUserNgaLogin = rreshtaPerdorues.Length == 1 ? rreshtaPerdorues[0] : null;
-            //if (rreshtiUserNgaLogin == null)
-            //   return new clsMesazh(false, "Nuk ekziston përdoruesi me këtë emër!");
-            //clsPerdorues user = new clsPerdorues();
-            //user.mbushPerdorues(rreshtiUserNgaLogin);
-            //clsKonfigurimeFjalekalimi konfigPass = new clsKonfigurimeFjalekalimi(user.IdPerdorues);
-            //if (konfigPass.RuajHistorikunPass)
-            //{
-            //}
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(email))
                 return new clsMesazh(false, rm.GetString("lblFjalekalimiNukMundTeRivendoset", ci) + Environment.NewLine + rm.GetString("lblKontaktAdm", ci));
 
@@ -706,7 +695,6 @@ namespace DbCore
                     return new clsMesazh(false, "Ky link nuk është i saktë!");
                 clsPerdorues user = new clsPerdorues();
                 user.mbushPerdorues(rreshtiUserNgaLogin);
-                //user.mbushPerdorues(rreshtiUserNgaLogin, false);
                 if (user.PerdoruesEmail == null)
                     return new clsMesazh(false, "Fjalëkalimi nuk mund të rivendoset, mungon adresa e emailit në konfigurimin e përdoruesit." + Environment.NewLine + "Ju lutemi, kontaktoni me administratorin!");
                 idPerdorues = user.IdPerdorues;
@@ -716,7 +704,6 @@ namespace DbCore
                 fjalekalimiHashuar = PasswordHelper.HashLogin(user.PerdoruesUsername, fjalekalimi);
                 username = user.PerdoruesUsername;
                 PasswordIPerkohshem = user.PasswordIPerkohshem;
-                //gjuha = user.IdGjuha;
             }
             else
             {
@@ -734,7 +721,6 @@ namespace DbCore
                 username = p.Username;
                 {
                     PasswordIPerkohshem = false;
-                    //gjuha = 0;
                 }
             }
             string[] toEmail = { email };
@@ -856,7 +842,6 @@ namespace DbCore
                 if (emails.Length == 0)
                 {
                     logu.Error("Mungojne email-et per dergim!");
-                    //return new clsMesazh(false, "Mungojne email-et per dergim!");
                 }
 
                 int nrRap = raportet.Length;
@@ -870,12 +855,10 @@ namespace DbCore
                 clsMailSender mail = new clsMailSender(subjekt);
                 mail.SendAsyncEmailMultipleAttach(emails, subjekt, trupEmail, idNdermarrje, idPerdorues, pdfAttachRaporte);
                 logu.Info("Email-et u shtuan ne radhe per dergim!");
-                //return new clsMesazh(true, "Email-et u derguan me sukses!");
             }
             catch (Exception ex)
             {
                 logu.Error(ex.Message);
-                //return new clsMesazh(false, "Ndodhi nje gabim gjate dergimit te raporteve me email!");
             }
         }
 
@@ -892,7 +875,6 @@ namespace DbCore
             body = body.Replace("#viti#", vitDokumenti.ToString());
 
             clsMailSender mailSender = new clsMailSender(idNdermarrje, subject);
-            //mailSender.SendPlainAsyncEmail(emails.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(emails.Split(','), subject, body, idNdermarrje, -1, idPerdoruesi);
 
             return new clsMesazh(true, "Emaili u vendos per dergim.");
@@ -927,7 +909,6 @@ namespace DbCore
             body = body.Replace("#viti#", vitDok.ToString());
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             return new clsMesazh(true, "Emaili u vendos per dergim.");
@@ -950,7 +931,6 @@ namespace DbCore
             body = body.Replace("#llojDok", MessagesResource.Messages.IdGjuha == 0 ? konf.PershkrimKonfigAmbjente : konf.PershkrimKonfigAmbjenteEng).Replace("#dtDok", data.ToShortDateString()).Replace("#miratuaRefuzua#", miratimRefuzim).Replace("#nrDok", nrDok);
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             DbBuxheti.ClsBKokaBuxheti dokBije = new DbBuxheti.ClsBKokaBuxheti(idDokBije);
@@ -978,7 +958,6 @@ namespace DbCore
             body = body.Replace("#llojDok", MessagesResource.Messages.IdGjuha == 0 ? konf.PershkrimKonfigAmbjente : konf.PershkrimKonfigAmbjenteEng).Replace("#dtDok#", data.ToShortDateString()).Replace("#kodNderm", nderm.NdermarrjePershkrimi).Replace("#QendraDrejtoria", qenderDrejtori);
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             return new clsMesazh(true, "Emaili u vendos per dergim.");
@@ -1002,7 +981,6 @@ namespace DbCore
             body = body.Replace("#llojDok", MessagesResource.Messages.IdGjuha == 0 ? konf.PershkrimKonfigAmbjente : konf.PershkrimKonfigAmbjenteEng).Replace("#dtDok#", data.ToShortDateString()).Replace("#kodNderm", nderm.NdermarrjePershkrimi).Replace("#QendraDrejtoria", qenderDrejtori);
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             return new clsMesazh(true, "Emaili u vendos per dergim.");
@@ -1035,7 +1013,6 @@ namespace DbCore
             body = body.Replace("#viti#", vitDok.ToString());
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             return new clsMesazh(true, "Emaili u vendos per dergim.");
@@ -1058,7 +1035,6 @@ namespace DbCore
             body = body.Replace("#llojDok", MessagesResource.Messages.IdGjuha == 0 ? konf.PershkrimKonfigAmbjente : konf.PershkrimKonfigAmbjenteEng).Replace("#dtDok", data.ToShortDateString()).Replace("#miratuaRefuzua#", miratimRefuzim).Replace("#nrDok", nrDok);
 
             clsMailSender mailSender = new clsMailSender(idNdermNga, subject);
-            //mailSender.SendPlainAsyncEmail(email.Split(','), subject, body);
             mailSender.SendPlainAsyncWfEmail(email.Split(','), subject, body, idNdermNga, -1, idPerdoruesi);
 
             DbBuxheti.ClsBKokaBuxheti dokBije = new DbBuxheti.ClsBKokaBuxheti(idDokBije);
@@ -1076,9 +1052,6 @@ namespace DbCore
 
             try
             {
-                //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-                //System.Globalization.CultureInfo ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
-                // string subject = "Lajmerim per agjentet"; //rm.GetString("subjectEmailGeneratedPassword", ci);
                 string adresaip = request.UserHostAddress;
                 string tePakontaktuarHeader = "Lisa e agjenteve te pa kontaktuar : <br/>";
                 string jashteRrezesHeader = "<br/>Lista e agjenteve qe e kane kryer takimin jashte rrezes se percaktuar:<br/>";
@@ -1108,7 +1081,6 @@ namespace DbCore
                     body.Append($"{agjent.EmriAgjentShitje} {agjent.MbiemriAgjentShitje} <br/>");
                 }
 
-                //string footerbody = rm.GetString("njoftimDokFooterEmail", ci) + "<br />AVEC Accounting";
                 clsMailSender mail = new clsMailSender(subject);
                 mail.SendPlainAsyncEmail(toEmail, subject, headerBody + body + footerBody, idNdermarrje, 0);
 

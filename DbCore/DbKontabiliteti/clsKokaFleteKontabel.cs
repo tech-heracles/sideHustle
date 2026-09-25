@@ -52,7 +52,6 @@ namespace DbCore.DbKontabiliteti
         private colTrupatFletetKontabel _oColTrupi;
         private int _idPeriudha;
         private int _idNdermarje;
-        //private string nrGrupKontabilizimi;
         private DbQendraKosto.clsKokaQendraKosto _kokaQendraKosto;
         private DataRow _rreshti;
 
@@ -1281,7 +1280,6 @@ namespace DbCore.DbKontabiliteti
                 IEnumerable<double> vl;
 
                 double v = 0;
-                //oLlojLlogarish = transactionCache.GetLlojLlogariFromCache(colLlojLlogCache, int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), db);
                 oLlojLlogarish = new clsLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), db);// oLlojLlogarish.merrLlojLlogarieSipasID();
                 if (!llogaritfitimhumbjeneto && tempSkemaKontTrupi.KushtiSkemeKontTrupi == idkusht)
                     continue;
@@ -1335,7 +1333,6 @@ namespace DbCore.DbKontabiliteti
                                     }
 
 
-
                                     if (!ekzistonqk) colTrupatPerQK.Add(new clsTrupiFleteKontabel(0, 0, tLlogKF.IdLlogari, tLlogKF.PershkrimTrupiFleteKontabel, tLlogKF.IdMonedha, tLlogKF.Kursi, tLlogKF.VleftaDebiTrupiFleteKontabel, tLlogKF.VleftaKrediTrupiFleteKontabel, tLlogKF.KodMonedha, tLlogKF.KodiSkemaKontabel, tLlogKF.VleftaDebiMonBazeTrupiFleteKontabel, tLlogKF.VleftaKrediMonBazeTrupiFleteKontabel));
                                 }
                                 var ekziston = false;
@@ -1359,10 +1356,6 @@ namespace DbCore.DbKontabiliteti
                                 
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze }; //objektivat
                                 objektetQK.Add(obj);
-                                //var mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
                             }
 
                             break;
@@ -1510,10 +1503,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQk, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = njesi.IdNjesiAdministrative, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze }; //objektivat
                                     objektetQK.Add(obj);
 
-                                    //var mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQk, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, njesi.IdNjesiAdministrative, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                             }
 
@@ -1598,10 +1587,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = veprimTrupi.IdMagazina, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                     objektetQK.Add(obj);
 
-                                    //var mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, veprimTrupi.IdMagazina, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                             break;
                     }
@@ -1673,10 +1658,6 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                         objektetQK.Add(obj);
 
-                                        //var mesazh = "jo";
-                                        //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                        //if (mesazh != "jo")
-                                        //    shfaqmesazh = mesazh;
                                     }
                                     break;
                                 case "TKSD":
@@ -1732,10 +1713,6 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                         objektetQK.Add(obj);
 
-                                        //var mesazh = "jo";
-                                        //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                        //if (mesazh != "jo")
-                                        //    shfaqmesazh = mesazh;
                                     }
                                     break;
                             }
@@ -1779,10 +1756,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK1, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(obj);
 
-                                //var mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK1, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
                             }
                             break;
                         case "KL":
@@ -1847,10 +1820,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                     objektetQK.Add(obj);
 
-                                    //var mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
 
                                     if (oNenLlojLlogarie.KodNenLlojLlogarie == "KKL")
                                     {
@@ -1864,9 +1833,7 @@ namespace DbCore.DbKontabiliteti
                         case "FR":  //llogari klient , eshte ne db rreshti tek T_LLOJLLOGARISH me id 1
                                     //duhet gjetur rreshti qe permbush kushtin e klientit
                                     //nga ky objekt merret idnenllojllogaria perkatese
-                                    //oNenLlojLlogarie = transactionCache.GetNenLlojLlogarishFromCache(colNenLlojLlogCache, int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), db);
                             oNenLlojLlogarie = new clsNenLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), db);//oNenLlojLlogarie.merrNenLlojLlogarieSipasID();
-                                                                                                                            //oKlient = transactionCache.GetKfFromCache(colKfCache, idklientfurnitori, db);
                             oKlient = new clsKlientFurnitor(idklientfurnitori, db);
                             oLlogari = oKlient.merrLlogariKlientFurnitori(oNenLlojLlogarie.KodNenLlojLlogarie, db);
                             if ((oNenLlojLlogarie.KodNenLlojLlogarie == "DKL" || oNenLlojLlogarie.KodNenLlojLlogarie == "DFR") && oLlogari.IdLlogari < 1)
@@ -1922,10 +1889,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK2, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(obj);
 
-                                //var mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK2, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
 
                                 if (oNenLlojLlogarie.KodNenLlojLlogarie == "KFR")
                                 {
@@ -2041,9 +2004,7 @@ namespace DbCore.DbKontabiliteti
             colKurset kurseDate = new colKurset(idNdermarrje, data, dbAdmin);
 
             clsSkemaKontabelTrupiNew tempSkemaKontTrupi = new clsSkemaKontabelTrupiNew();
-            //clsKlientFurnitor oKlient = new clsKlientFurnitor();
             clsLlogari oLlogari = new clsLlogari();
-            //DbInventari.clsArtikulli oArtikull = new DbInventari.clsArtikulli();
             //collection temporar
             colSkemaKontabelTrupiNew tempCol = new colSkemaKontabelTrupiNew();
             int indexGrupimi = 0;
@@ -2084,7 +2045,6 @@ namespace DbCore.DbKontabiliteti
                 clsTrupiFleteKontabel tLlogKF = new clsTrupiFleteKontabel();
                 tempSkemaKontTrupi = tempCol[i];
 
-                //clsLlojLlogarish oLlojLlogarish = transactionCache.GetLlojLlogariFromCache(colLlojLlogCache, int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), db);
                 clsNenLlojLlogarish oNenLlojLlogarie = new clsNenLlojLlogarish();
                 clsLlojLlogarish oLlojLlogarish = new clsLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), db);
                 if (tempSkemaKontTrupi.KodSkemeKontTrupi == "VR")
@@ -2247,10 +2207,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = njesi.IdNjesiAdministrative, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze }; 
                                 objektetQK.Add(obj);
 
-                                //string mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, njesi.IdNjesiAdministrative, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
                             }
                             break;
                         case "NV":
@@ -2325,10 +2281,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQKNV, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze }; 
                                     objektetQK.Add(obj);
 
-                                    //string mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQKNV, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                             }
                             #endregion
@@ -2358,10 +2310,6 @@ namespace DbCore.DbKontabiliteti
                             clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK1, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                             objektetQK.Add(obj);
 
-                            //string mesazh1 = "jo";
-                            //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK1, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh1, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                            //if (mesazh1 != "jo")
-                            //    shfaqmesazh = mesazh1;
 
                             break;
                         case "LL":
@@ -2375,11 +2323,8 @@ namespace DbCore.DbKontabiliteti
                                     idllogobj = new List<int>();
                                     colTrupatFletetKontabel colTrupatPerQK2 = new colTrupatFletetKontabel();
                                     oLlogari = new clsLlogari(llog.IdLlogari, db);
-                                    //oLlogari = transactionCache.getLlogariFromCache(colLlogCache, llog.IdLlogari, db);
-                                    //oLlogari = new clsLlogari(llog.IdLlogari, db);
                                     //llogaria preket sipas peshes qe ze vlera e vendosur ne gride me shumen e grides * shumen e faturave te dates se kaluar si paramete
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, (tempSkemaKontTrupi.KushtiSkemeKontTrupi == 1 ? (llog.Vlefta / shumallog) * vlera : -(llog.Vlefta / shumallog)) * vlera, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                    //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, (tempSkemaKontTrupi.KushtiSkemeKontTrupi == 1 ? (llog.Vlefta / shumallog) * vlera : -(llog.Vlefta / shumallog)) * vlera, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                     if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                     {
                                         DbQendraKosto.clsObjektivaKosto objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -2408,7 +2353,6 @@ namespace DbCore.DbKontabiliteti
                                         }
 
 
-
                                         if (!ekzistonqk) colTrupatPerQK2.Add(new clsTrupiFleteKontabel(0, 0, tLlogKF.IdLlogari, tLlogKF.PershkrimTrupiFleteKontabel, tLlogKF.IdMonedha, tLlogKF.Kursi, tLlogKF.VleftaDebiTrupiFleteKontabel, tLlogKF.VleftaKrediTrupiFleteKontabel, tLlogKF.KodMonedha, tLlogKF.KodiSkemaKontabel, tLlogKF.VleftaDebiMonBazeTrupiFleteKontabel, tLlogKF.VleftaKrediMonBazeTrupiFleteKontabel));
 
                                         foreach (clsTrupiFleteKontabel f in colTrupFK)
@@ -2434,20 +2378,13 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK objekti = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK2, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = idMagKoka, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                         objektetQK.Add(objekti);
 
-                                        //string mesazh = "jo";
                                         ////TODO PATI: ALPHAWEB-11629 - Te vendoset id e magazines nqs te gjithe rreshtat e trupit kane te njejten magazine
-                                        //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK2, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, idMagKoka, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                        //if (mesazh != "jo")
-                                        //    shfaqmesazh = mesazh;
                                     }
                                 }
                             if (idllogari != 0)
                             {
                                 oLlogari = new clsLlogari(idllogari, db);
-                                //oLlogari = transactionCache.getLlogariFromCache(colLlogCache, idllogari, db);
-                                //oLlogari = new clsLlogari(idllogari, db);
                                 tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlera, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlera, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                 {
                                     DbQendraKosto.clsObjektivaKosto objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -2477,7 +2414,6 @@ namespace DbCore.DbKontabiliteti
                                     }
 
 
-
                                     if (!ekzistonqk) colTrupatPerQK3.Add(new clsTrupiFleteKontabel(0, 0, tLlogKF.IdLlogari, tLlogKF.PershkrimTrupiFleteKontabel, tLlogKF.IdMonedha, tLlogKF.Kursi, tLlogKF.VleftaDebiTrupiFleteKontabel, tLlogKF.VleftaKrediTrupiFleteKontabel, tLlogKF.KodMonedha, tLlogKF.KodiSkemaKontabel, tLlogKF.VleftaDebiMonBazeTrupiFleteKontabel, tLlogKF.VleftaKrediMonBazeTrupiFleteKontabel));
                                     foreach (clsTrupiFleteKontabel f in colTrupFK)
                                     {
@@ -2502,10 +2438,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK objekti = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK3, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = idMagKoka, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                     objektetQK.Add(objekti);
 
-                                    //string mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK3, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, idMagKoka, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                             }
                             #endregion
@@ -2567,10 +2499,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK objekti = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(objekti);
 
-                                //string mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
                             }
                             #endregion
                             break;
@@ -2735,7 +2663,6 @@ namespace DbCore.DbKontabiliteti
             var mesazh = DbQendraKosto.clsKokaQendraKosto.KrijoQKLP(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, coltrupiQK, dbqend, ref kokaqender, shperndaDifQKPModDok);
             if (!mesazh.Status)
                 throw new Exception(mesazh.PershkrimMesazhi);
-            //DbQendraKosto.clsKokaQendraKosto kokaqender = DbQendraKosto.clsKokaQendraKosto.krijoQKShitje(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, colTrupFK, iddegeadm, iddep, idnendep, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out shfaqmesazhapolupe, dbshare, trupivjeterqendra, 0);
             #endregion
 
             var kokaFK = new clsKokaFleteKontabel();
@@ -2777,9 +2704,7 @@ namespace DbCore.DbKontabiliteti
             var kurseDate = new colKurset(idNdermarrje, data, dbAdmin);
 
             var tempSkemaKontTrupi = new clsSkemaKontabelTrupiNew();
-            //clsKlientFurnitor oKlient = new clsKlientFurnitor();
             var oLlogari = new clsLlogari();
-            //DbInventari.clsArtikulli oArtikull = new DbInventari.clsArtikulli();
             //collection temporar
             var tempCol = new colSkemaKontabelTrupiNew();
             var indexGrupimi = 0;
@@ -2892,7 +2817,6 @@ namespace DbCore.DbKontabiliteti
                                     }
 
 
-
                                     if (!ekzistonqk) colTrupatPerQK.Add(new clsTrupiFleteKontabel(0, 0, tLlogKF.IdLlogari, tLlogKF.PershkrimTrupiFleteKontabel, tLlogKF.IdMonedha, tLlogKF.Kursi, tLlogKF.VleftaDebiTrupiFleteKontabel, tLlogKF.VleftaKrediTrupiFleteKontabel, tLlogKF.KodMonedha, tLlogKF.KodiSkemaKontabel, tLlogKF.VleftaDebiMonBazeTrupiFleteKontabel, tLlogKF.VleftaKrediMonBazeTrupiFleteKontabel));
                                 }
                                 foreach (var f in colTrupFK)
@@ -2916,10 +2840,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = veprimTrupi.IdMag, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(obj);
 
-                                //var mesazh = "jo";
-                                //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, veprimTrupi.IdMag, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazh = mesazh;
                             }
                             break;
                     }
@@ -2933,10 +2853,7 @@ namespace DbCore.DbKontabiliteti
                             {
                                 var colTrupatPerQK = new colTrupatFletetKontabel();
                                 oLlogari = new clsLlogari(idllogari, db);
-                                //oLlogari = transactionCache.getLlogariFromCache(myColLlog,idllogari, db );
-                                //oLlogari = new clsLlogari(idllogari, db);
                                 tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlera, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlera, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                 {
                                     var objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -2988,10 +2905,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                     objektetQK.Add(obj);
 
-                                    //var mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                             }
                             break;
@@ -3036,7 +2949,6 @@ namespace DbCore.DbKontabiliteti
             var mesazh = DbQendraKosto.clsKokaQendraKosto.KrijoQKLP(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, coltrupiQK, dbqend, ref kokaqender, shperndaDifQKPModDok);
             if (!mesazh.Status)
                 throw new Exception(mesazh.PershkrimMesazhi);
-            //DbQendraKosto.clsKokaQendraKosto kokaqender = DbQendraKosto.clsKokaQendraKosto.krijoQKShitje(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, colTrupFK, iddegeadm, iddep, idnendep, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out shfaqmesazhapolupe, dbshare, trupivjeterqendra, 0);
             #endregion
 
             var kokaFK = new clsKokaFleteKontabel();
@@ -3079,9 +2991,7 @@ namespace DbCore.DbKontabiliteti
             var kurseDate = new colKurset(idNdermarrje, data, dbAdmin);
 
             var tempSkemaKontTrupi = new clsSkemaKontabelTrupiNew();
-            //clsKlientFurnitor oKlient = new clsKlientFurnitor();
             var oLlogari = new clsLlogari();
-            //DbInventari.clsArtikulli oArtikull = new DbInventari.clsArtikulli();
             //collection temporar
             var tempCol = new colSkemaKontabelTrupiNew();
             var indexGrupimi = 0;
@@ -3174,7 +3084,6 @@ namespace DbCore.DbKontabiliteti
                                     oLlogari = oArtikull.merrLlogariArtikulli(new clsNenLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), db).KodNenLlojLlogarie, db);
 
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlerakont, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                    //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, vlerakont, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                     var objekt = new DbQendraKosto.clsObjektivaKosto();
                                     if (oArtikull.IdObjektivaKosto != 0 && oArtikull.IdObjektivaKosto != -1)
                                     {
@@ -3232,10 +3141,6 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = idmag, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                         objektetQK.Add(obj);
 
-                                        //var mesazh = "jo";
-                                        //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, idmag, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                        //if (mesazh != "jo")
-                                        //    shfaqmesazh = mesazh;
                                     }
                                 }
                                 break;
@@ -3259,7 +3164,6 @@ namespace DbCore.DbKontabiliteti
             var idGrupKontabilizimi = 0;
             var kontabilizuar = true;
             var dbshare = new clsDatabaseShare(db);
-            //dbshare.vendosManager(db );
             var konf = new clsKonfigurimAmbjenti(idKonfgjenerues, dbshare);
 
             var konfFK = new clsKonfigurimAmbjenti(konf.IdSkemeKontabel, dbshare);
@@ -3295,7 +3199,6 @@ namespace DbCore.DbKontabiliteti
             idllogobj = new List<int>();
             var dbshare = new clsDatabaseShare(db);
             var dbqendra = new clsDatabaseQendraKosto(db);
-            //dbshare.vendosManager(db );
             var dbkont = new clsDatabaseKontabilitet(db);
             var dbAdmin = new clsDatabaseAdmin(db);
             var eshteAzhornim = false;
@@ -3617,8 +3520,6 @@ namespace DbCore.DbKontabiliteti
                             if (kredite == "")
                                 break;
                             oLlogari = new clsLlogari(kredite, idNdermarrje, dbkont);
-                            //oLlogari = transactionCache.getLlogariFromCache(kredite, idNdermarrje, dbkont);
-                            //oLlogari = new clsLlogari(kredite, idNdermarrje, dbkont);
 
                             vl = from l in list
                                  where l.kodi == tempSkemaKontTrupi.KodSkemeKontTrupi
@@ -3777,7 +3678,6 @@ namespace DbCore.DbKontabiliteti
             var idGrupKontabilizimi = 0;
             var kontabilizuar = true;
             var dbshare = new clsDatabaseShare(db);
-            //dbshare.vendosManager(db );
             var konf = new clsKonfigurimAmbjenti(idKonfgjenerues, dbshare);
 
             var konfFK = new clsKonfigurimAmbjenti(konf.IdSkemeKontabel, dbshare);
@@ -3814,11 +3714,9 @@ namespace DbCore.DbKontabiliteti
             vleratobjektivamonbaze = new List<double>();
             idllogobj = new List<int>();
             var dbshare = new clsDatabaseShare(db);
-            //dbshare.vendosManager(db );
             var dbkont = new clsDatabaseKontabilitet(db);
             var dbAdmin = new clsDatabaseAdmin(db);
             var dbregj = new clsDatabaseRegjistrim(db);
-            //dbregj.vendosManager(db );
             var eshteAzhornim = true;
             var kv = kursi;
             double kk = 0;//KK = Kursi i fatures
@@ -3909,13 +3807,10 @@ namespace DbCore.DbKontabiliteti
 
                                         if (veprimTrupi.IdFatura != 0)
                                         {
-                                            //DbCore.DbRegjistrim.clsNivelRegjistrimi niveli = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                                            //niveli.mbushNivelRegjistrimiSipasID(veprimTrupi.IdNivel, dbregj);
                                             var idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(veprimTrupi.IdNivel, dbregj);
                                             if (idKategoria != 20)
                                             {
                                                 var fatura = new clsKokaShitje(veprimTrupi.IdFatura, dbregj);//rast kur gjenerohet nga fatura sepse selekti jep lock //new DbCore.DbRegjistrim.clsKokaShitje();
-                                                //fatura.mbushKokaShitjeSipasID(veprimTrupi.IdFatura,dbregj);
 
                                                 idkf = fatura.IdKlientFurnitor;
                                                 idmonedhafat = fatura.IdMonedha;
@@ -3943,12 +3838,8 @@ namespace DbCore.DbKontabiliteti
 
 
                                             var klienti = new clsKlientFurnitor(idkf, dbkont);
-                                            //DbCore.DbAdmin.clsNdermarrje nd = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje, dbAdmin);
 
                                             oLlogari = new clsLlogari();
-                                            //DbCore.DbAdmin.clsMonedha monKF = new DbCore.DbAdmin.clsMonedha();
-                                            //monKF.IdMonedha = nd.NdermarrjeMonedha;
-                                            //monKF = new DbAdmin.clsMonedha(nd.NdermarrjeMonedha, dbAdmin);
 
                                             oLlogari.merrLlogFitimHumbjeKlientit(idNdermarrje, idmonedhafat, klienti.IdLlogari, oNenLlojLlogarie.KodNenLlojLlogarie, dbkont);
 
@@ -3978,7 +3869,6 @@ namespace DbCore.DbKontabiliteti
                                             if (krijoFK == true)
                                             {
                                                 tLlogKF = new clsTrupiFleteKontabel(debiKredi, VDK, oLlogari, azhornim, kursi, idmonedha, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                                //tLlogKF = new clsTrupiFleteKontabel(debiKredi, VDK, oLlogari, azhornim, idNdermarrje, kursi, idmonedha, data, eshteAzhornim, pershkrimi, dbAdmin);
                                                 if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                                 {
                                                     var objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -4022,8 +3912,6 @@ namespace DbCore.DbKontabiliteti
                                 {
                                     if (veprimTrupi.IdSubjekti == idklientfurnitor)
                                     {
-                                        //DbCore.DbRegjistrim.clsNivelRegjistrimi niveli = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                                        //niveli.mbushNivelRegjistrimiSipasID(veprimTrupi.IdNivel, dbregj);
                                         var idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(veprimTrupi.IdNivel, dbregj);
                                         if (idKategoria != 20)
                                         {
@@ -4051,10 +3939,8 @@ namespace DbCore.DbKontabiliteti
                                         kmk = veprimTrupi.KMK;
                                         vv = veprimTrupi.VleraPaguar;
                                         VDK = LlogaritDiferenceKursi(kv, kk, kmk, vv);
-                                        //oKlient = transactionCache.GetKfFromCache(colKfCache, idkf, dbkont);
                                         oKlient = new clsKlientFurnitor(idkf, dbkont);
                                         oLlogari = oKlient.merrLlogariKlientFurnitori(oNenLlojLlogarie.KodNenLlojLlogarie, dbkont);
-                                        //oLlogari = oKlient.merrLlogariKlientFurnitori(oNenLlojLlogarie.KodNenLlojLlogarie, dbkont); 
                                         monklient = oLlogari.IdMonedha;//todo Nestila - monklient nuk perdoret mos duhet hequr
                                         if (idllojdok == 3)
                                         {
@@ -4073,7 +3959,6 @@ namespace DbCore.DbKontabiliteti
                                         if (dK == 1) dkmon = 2;
                                         else dkmon = 1;
                                         tLlogKF = new clsTrupiFleteKontabel(dK, VDK, oLlogari, azhornim, kursi, idmonedha, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                        //tLlogKF = new clsTrupiFleteKontabel(dK, VDK, oLlogari, azhornim, idNdermarrje, kursi, idmonedha, data, eshteAzhornim, pershkrimi, dbAdmin);
                                         var objektkl = new DbQendraKosto.clsObjektivaKosto();
                                         if (oKlient.IdObjektivaKosto != 0 && oKlient.IdObjektivaKosto != -1)
                                         {
@@ -4600,7 +4485,6 @@ namespace DbCore.DbKontabiliteti
                             }
                             var klienti = new clsKlientFurnitor(idklientfurnitor, db);
                             oLlogari = new clsLlogari();
-                            //DbCore.DbAdmin.clsMonedha monKF = new DbCore.DbAdmin.clsMonedha(nd.NdermarrjeMonedha, dbadmn);
 
                             oLlogari.merrLlogFitimHumbjeKlientit(idNdermarrje, monedheNdermarrje.IdMonedha, klienti.IdLlogari, oNenLlojLlogarie.KodNenLlojLlogarie, db);
                             debiKredi = dkmon;// tempSkemaKontTrupi.DebikrediSkemeKontTrupi;
@@ -4612,7 +4496,6 @@ namespace DbCore.DbKontabiliteti
                             if (krijoFK == true)
                             {
                                 tLlogKF = new clsTrupiFleteKontabel(debiKredi, VDK, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbadmn);
-                                //tLlogKF = new clsTrupiFleteKontabel(debiKredi, VDK, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbadmn);
                                 if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                 {
                                     var objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -4658,7 +4541,6 @@ namespace DbCore.DbKontabiliteti
                                 VDK = LlogaritDiferenceKursi(veprimTrupi.Kursi, dokKryesor.Kursi, kmk, veprimTrupi.Vlefta);//llogaritDiferenceKursi(KV,KK,KMK,VV); 
                                 oKlient = new clsKlientFurnitor(idklientfurnitor, db);
                                 var oLlogariKF = oKlient.merrLlogariKlientFurnitori(oNenLlojLlogarie.KodNenLlojLlogarie, db);
-                                //monklient = oLlogariKF.IdMonedha;
                                 if (kahuDokKryesor == "Debi")
                                 {
                                     if (VDK > 0) //klienti preket ne debi (gjithmone ne kahun e dokumentit kryesor)
@@ -4675,9 +4557,7 @@ namespace DbCore.DbKontabiliteti
                                 }
                                 if (dK == 1) dkmon = 2;
                                 else dkmon = 1;
-                                //DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha(nd.NdermarrjeMonedha, dbadmn);
                                 tLlogKF = new clsTrupiFleteKontabel(dK, VDK, oLlogariKF, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbadmn); //todo Nestila ketu ishte oLlogari po vura oLlogariKF se me duket gabim sic ishte
-                                //tLlogKF = new clsTrupiFleteKontabel(dK, VDK, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbadmn);
                                 var objektkl = new DbQendraKosto.clsObjektivaKosto();
                                 if (oKlient.IdObjektivaKosto != 0 && oKlient.IdObjektivaKosto != -1)
                                 {
@@ -4819,7 +4699,6 @@ namespace DbCore.DbKontabiliteti
                     else kmk = kurs.VleraKursi;
                 }
                 VDK = LlogaritDiferenceKursi(doklidhes.Kursi, dok.Kursi, kmk, (doklidhes.Vlefta * dok.Vlefta / totali));//llogaritDiferenceKursi(kurs i dok lidhes,kurs i dok kryesor,KMK,vlere e dok lidhes);                        
-
 
 
                 for (var i = 0; i < tempCol.Count; i++)
@@ -5666,7 +5545,6 @@ namespace DbCore.DbKontabiliteti
 
                                     if (veprimTrupi.IdFatura != 0)
                                     {
-                                        //DbCore.DbRegjistrim.clsKokaShitje fatura = new DbCore.DbRegjistrim.clsKokaShitje();
                                         if (fatura.IdShitjeKoka == 0)
                                         {
                                             fatura.mbushKokaShitjeSipasIDPaTrup(veprimTrupi.IdFatura);
@@ -5677,7 +5555,6 @@ namespace DbCore.DbKontabiliteti
                                         idmonedhafat = fatura.IdMonedha;
                                         kursifat = fatura.Kursi;
                                         datafat = fatura.DtDok;
-                                        //DbCore.DbAdmin.clsKurset kursimon = new DbCore.DbAdmin.clsKurset(fatura.IdMonedha, data);
                                         if (fatura.IdMonedha == veprimTrupi.IdMonedha)        //nqs monedha eshte e njejte merret kursi i bankes prn kursi ne daten e bankes per kete monedhe
                                             kmk = veprimTrupi.Kursi;
                                         else if (kursimon != null)
@@ -5685,7 +5562,6 @@ namespace DbCore.DbKontabiliteti
                                             kmk = kursimon.VleraKursi;
                                         }
                                         else kmk = 0;
-
 
 
                                         var azh = new clsAzhornimKFKoka();
@@ -5759,7 +5635,6 @@ namespace DbCore.DbKontabiliteti
                                     {
 
 
-                                        //DbCore.DbRegjistrim.clsKokaShitje fatura = new DbCore.DbRegjistrim.clsKokaShitje();
                                         if (fatura.IdShitjeKoka == 0)
                                         {
                                             fatura.mbushKokaShitjeSipasIDPaTrup(veprimTrupi.IdFatura);
@@ -5770,7 +5645,6 @@ namespace DbCore.DbKontabiliteti
                                         idmonedhafat = fatura.IdMonedha;
                                         kursifat = fatura.Kursi;
                                         datafat = fatura.DtDok;
-                                        //DbCore.DbAdmin.clsKurset kursimon = new DbCore.DbAdmin.clsKurset(fatura.IdMonedha, data);
                                         if (fatura.IdMonedha == veprimTrupi.IdMonedha)        //nqs monedha eshte e njejte merret kursi i bankes prn kursi ne daten e bankes per kete monedhe
                                             kmk = veprimTrupi.Kursi;
                                         else if (kursimon != null)
@@ -5778,7 +5652,6 @@ namespace DbCore.DbKontabiliteti
                                             kmk = kursimon.VleraKursi;
                                         }
                                         else kmk = 0;
-
 
 
                                         var azh = new clsAzhornimKFKoka();
@@ -6255,9 +6128,7 @@ namespace DbCore.DbKontabiliteti
             rreshtakf = new List<string>();
             emrakf = new List<int>();
             trupiPerGjendjeKF = new colTrupatFletetKontabel();
-            //DbCore.DbAdmin.clsNdermarrje nd = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
             var idMon = clsNdermarrje.ktheIdMonedheNdermSipasID(idNdermarrje);
-            //DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha(clsNdermarrje.ktheMonedheNdermSipasID(idNdermarrje));
             var tempSkemaKontTrupi = new clsSkemaKontabelTrupiNew();
             var oKlient = new clsKlientFurnitor();
             var oLlogari = new clsLlogari();
@@ -6405,8 +6276,6 @@ namespace DbCore.DbKontabiliteti
                                 if (dK == 1)
                                     dkmon = 2;
                                 else dkmon = 1;
-                                //if (veprimTrupi.GjendjaMonBaze == 0 && veprimTrupi.GjendjaLlog != 0)
-                                //    tLlogKF = new clsTrupiFleteKontabel(dK, Math.Abs(veprimTrupi.GjendjaLlog), oLlogari, azhornim, idNdermarrje, veprimTrupi.Kursi, llogkf.IdMonedha, data, eshteAzhornim);
                                 //else
                                 tLlogKF = new clsTrupiFleteKontabel(new clsDatabaseAdmin(), dK, Math.Abs(veprimTrupi.GjendjaMonBaze), oLlogari, azhornim, idNdermarrje, veprimTrupi.Kursi, llogkf.IdMonedha, data, pershkrimi, eshteAzhornim);
                                 var objektkl = new DbQendraKosto.clsObjektivaKosto();
@@ -6614,7 +6483,6 @@ namespace DbCore.DbKontabiliteti
                 throw new Exception(mesazh.PershkrimMesazhi);
 
 
-            //DbQendraKosto.clsKokaQendraKosto kokaqender = DbQendraKosto.clsKokaQendraKosto.krijoQKShitje(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaqendra, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, colTrupFK, iddegeadm, iddep, idnendep, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out shfaqmesazhapolupe, dbkont, trupivjeterqendra, 0);
             #endregion
 
             var kokaFK = new clsKokaFleteKontabel();
@@ -6699,7 +6567,6 @@ namespace DbCore.DbKontabiliteti
                     idllogobj = new List<int>();
                     var tLlogKF = new clsTrupiFleteKontabel();
                     tempSkemaKontTrupi = tempCol[i];
-                    //clsLlojLlogarish oLlojLlogarish = transactionCache.GetLlojLlogariFromCache(colLlojLlogCache, int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), dbkont);
                     var oLlojLlogarish = new clsLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdLlojLlogarise), dbkont);
 
                     if (tempSkemaKontTrupi.KodSkemeKontTrupi == "VR")
@@ -6710,10 +6577,7 @@ namespace DbCore.DbKontabiliteti
                                 var ekziston = false;
                                 var colTrupatPerQK = new colTrupatFletetKontabel();
                                 oLlogari = oArtikull.merrLlogariArtikulli(new clsNenLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), dbkont).KodNenLlojLlogarie, dbkont);
-                                //oLlogari = oArtikull.merrLlogariArtikulli(colLlogCache,transactionCache.GetNenLlojLlogarishFromCache(colNenLlojLlogCache, int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), dbkont).KodNenLlojLlogarie, dbkont);
-                                //oLlogari = oArtikull.merrLlogariArtikulli(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), dbkont);
                                 tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.KostoTotale, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbadm);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.KostoTotale, oLlogari, azhornim, idNdermarrje, null, null, data,  eshteAzhornim,pershkrimi,dbadm);
                                 var objekt = new DbQendraKosto.clsObjektivaKosto();
                                 if (oArtikull.IdObjektivaKosto != 0 && oArtikull.IdObjektivaKosto != -1)
                                 {
@@ -6771,10 +6635,6 @@ namespace DbCore.DbKontabiliteti
                                     clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = veprimTrupi.IdMag, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                     objektetQK.Add(obj);
 
-                                    //var mesazh = "jo";
-                                    //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, veprimTrupi.IdMag, dbqk, rishpernda, shperndaDifQKPModDok, statusdok));
-                                    //if (mesazh != "jo")
-                                    //    shfaqmesazh = mesazh;
                                 }
                                 break;
                         }
@@ -6801,10 +6661,7 @@ namespace DbCore.DbKontabiliteti
                                     if ((oArtikullrec.Klasa == 5 || oArtikullrec.Klasa == 6) && idNenLlojLlogari == 10)//idNenLlojLlogari 10 eshte kodi LLBL
                                         idNenLlojLlogari = 21;
                                     oLlogari = oArtikullrec.merrLlogariArtikulli(new clsNenLlojLlogarish(idNenLlojLlogari, dbkont).KodNenLlojLlogarie, dbkont);
-                                    //oLlogari = oArtikullrec.merrLlogariArtikulli(colLlogCache, transactionCache.GetNenLlojLlogarishFromCache(colNenLlojLlogCache, idNenLlojLlogari, dbkont).KodNenLlojLlogarie, dbkont);
-                                    //oLlogari = oArtikullrec.merrLlogariArtikulli(idNenLlojLlogari,dbkont);
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, rec.KostoTotale, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbadm);
-                                    //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, rec.KostoTotale, oLlogari, azhornim, idNdermarrje, null, null, data,  eshteAzhornim,pershkrimi,dbadm);
                                     var objekt = new DbQendraKosto.clsObjektivaKosto();
                                     if (oArtikull.IdObjektivaKosto != 0 && oArtikull.IdObjektivaKosto != -1)
                                     {
@@ -6864,10 +6721,6 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = colTrupatPerQK, IdDegeAdministrative = iddegeadm, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = rec.IdMag, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                         objektetQK.Add(obj);
 
-                                        //var mesazh = "jo";
-                                        //trupiQK.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(colTrupatPerQK, iddegeadm, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, trupiQKold, idperdoruesi, rec.IdMag, dbqk, rishpernda, shperndaDifQKPModDok, statusdok));
-                                        //if (mesazh != "jo")
-                                        //    shfaqmesazh = mesazh;
                                     }
                                     break;
                             }
@@ -6936,7 +6789,6 @@ namespace DbCore.DbKontabiliteti
             mesazh = DbQendraKosto.clsKokaQendraKosto.KrijoQKLP(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, trupiQendra, dbqendra, ref kokaqender, shperndaDifQKPModDok);
             if (!mesazh.Status)
                 return new clsMesazh(false, mesazh.PershkrimMesazhi);
-            //DbQendraKosto.clsKokaQendraKosto kokaqender = DbQendraKosto.clsKokaQendraKosto.krijoQKShitje(konfqk.IdNivel, konfqk.IdKonfigAmbjente, 1, dtDk, nrDk, iddokngaQK, idStatusDok, idNder, idNdVt, idPer, dtRegj, pershkrimi, konfFK.IdNivel, konfFK.IdKonfigAmbjente, 0, colTrupFK, iddegeadm, iddep, idnendep, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out  shfaqmesazhapolupe, dbshare , trupivjeterqendra);
             #endregion
             if (colTrupFK.Count == 0)//rasti kur vlerat jane zero
                 return new clsMesazh(true);
@@ -6955,10 +6807,6 @@ namespace DbCore.DbKontabiliteti
                 db.TransCache.ColKarakteristikaStandarti = new colKarakteristikaStandarti(idNdermarrje, new clsDatabazeAsete(db));
             trupiQendra = new DbQendraKosto.colTrupiQendraKosto();
             shfaqmesazhapolupe = "jo";
-            //objektivat = new DbQendraKosto.colObjektivaKosto();
-            //vleratobjektiva = new List<double>();
-            //vleratobjektivamonbaze = new List<double>();
-            //idllogobj = new List<int>();
             var eshteAzhornim = false;
             var dbshare = new clsDatabaseShare(db);
             var dbinv = new clsDatabaseInventari(db);
@@ -6980,9 +6828,7 @@ namespace DbCore.DbKontabiliteti
             var kurseDate = new colKurset(idNdermarrje, data, dbAdmin);
 
             var tempSkemaKontTrupi = new clsSkemaKontabelTrupiNew();
-            //clsKlientFurnitor oKlient = new clsKlientFurnitor();
             var oLlogari = new clsLlogari();
-            //DbInventari.clsArtikulli oArtikull = new DbInventari.clsArtikulli();
             //collection temporar
             var tempCol = new colSkemaKontabelTrupiNew();
             var indexGrupimi = 0;
@@ -7053,14 +6899,12 @@ namespace DbCore.DbKontabiliteti
                                 oLlogari = oArtikull.merrLlogariArtikulli(new clsNenLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), db).KodNenLlojLlogarie, db);
                                 if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "AmShtese")
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.AmortizimiShtese, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.AmortizimiShtese, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 else
                                 if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "AmGjithsej")
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.AmortizimiGjithsej, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
                                 else
                                 if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "GjendjeMinusAmGjithsej")
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.VleftaGjendje - veprimTrupi.AmortizimiGjithsej, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.AmortizimiGjithsej, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 else
                                 if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "VleftaPlusMinus")
                                 {
@@ -7074,7 +6918,6 @@ namespace DbCore.DbKontabiliteti
                                         oLlogari = oArtikull.merrLlogariArtikulli(new clsNenLlojLlogarish(int.Parse(tempSkemaKontTrupi.IdNenLlojLlogarie), db).KodNenLlojLlogarie, db);
                                     }
                                     tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.VleftaPlusMinus, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                    //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, veprimTrupi.VleftaPlusMinus, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 }
                                 var objekt = new DbQendraKosto.clsObjektivaKosto();
                                 if (oArtikull.IdObjektivaKosto != 0 && oArtikull.IdObjektivaKosto != -1)
@@ -7136,10 +6979,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = coltrupatePunonjesit, IdDegeAdministrative = mag.IdDegeAdministrative, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = mag.IdNjesiAdministrative, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(obj);
 
-                                //var mesazh = "jo";
-                                //trupiQendra.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(coltrupatePunonjesit, mag.IdDegeAdministrative, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, qendravjetertrupi, idperdoruesi, mag.IdNjesiAdministrative, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazhapolupe = mesazh;
                             }
                             break;
                     }
@@ -7152,8 +6991,6 @@ namespace DbCore.DbKontabiliteti
                             if (idllogari != 0)
                             {
                                 oLlogari = new clsLlogari(idllogari, db);
-                                //oLlogari = transactionCache.getLlogariFromCache(myColLlog, idllogari, db);
-                                //oLlogari = new clsLlogari(idllogari, db);
                                 double totali = 0;
                                 var coltrupatePunonjesit = new colTrupatFletetKontabel();
                                 var objektivat = new DbQendraKosto.colObjektivaKosto();
@@ -7166,7 +7003,6 @@ namespace DbCore.DbKontabiliteti
 
                                     if (!new clsKarakteristikaStandarti(idllojstandarti, oArtikull.Kodifikimi1Artikulli, 0, false, dbasete).Kontabilizim)
                                         continue;
-                                    // karakteristika.merrKonfigurimStandartiTeNdermarrjesSipasStatGrupStandart(DbInventari.clsKodifikimArtikulli.ktheIdPrindiFillestar(oArtikull.Kodifikimi1Artikulli, dbinv), idllojstandarti, idNdermarrje, dbasete);
                                     if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "AmGjithsej") totali += veprimTrupi.AmortizimiGjithsej;
                                     if (tempSkemaKontTrupi.PershkrimSkemeKontTrupi == "GjendjeMinusAmGjithsej")
                                         totali += (veprimTrupi.VleftaGjendje - veprimTrupi.AmortizimiGjithsej);
@@ -7174,7 +7010,6 @@ namespace DbCore.DbKontabiliteti
                                         totali += veprimTrupi.VleftaPlusMinus;
                                 }
                                 tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, totali, oLlogari, azhornim, null, null, eshteAzhornim, pershkrimi, kurseDate, monedheNdermarrje, dbAdmin);
-                                //tLlogKF = new clsTrupiFleteKontabel(tempSkemaKontTrupi.DebikrediSkemeKontTrupi, totali, oLlogari, azhornim, idNdermarrje, null, null, data, eshteAzhornim, pershkrimi, dbAdmin);
                                 if (oLlogari.IdObjektivaKosto != 0 && oLlogari.IdObjektivaKosto != -1)
                                 {
                                     var objekt = new DbQendraKosto.clsObjektivaKosto(oLlogari.IdObjektivaKosto, dbqendra);
@@ -7227,10 +7062,6 @@ namespace DbCore.DbKontabiliteti
                                 clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = coltrupatePunonjesit, IdDegeAdministrative = 0, IdDepartamenti = 0, IdNendepartamenti = 0, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze };
                                 objektetQK.Add(obj);
 
-                                //var mesazh = "jo";
-                                //trupiQendra.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(coltrupatePunonjesit, 0, 0, 0, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, qendravjetertrupi, idperdoruesi, 0, dbqendra, rishpernda, shperndaDifQKPModDok, statusdok));
-                                //if (mesazh != "jo")
-                                //    shfaqmesazhapolupe = mesazh;
                             }
                             break;
                         case "":
@@ -7474,11 +7305,7 @@ namespace DbCore.DbKontabiliteti
                                         clsKokaQendraKosto.TrupaFkPerShperndarjeQK obj = new clsKokaQendraKosto.TrupaFkPerShperndarjeQK { TrupatFK = coltrupatePunonjesit, IdDegeAdministrative = 0, IdDepartamenti = punonjes.IdDepartament, IdNendepartamenti = punonjes.IdNenDepartament, IdMagazina = 0, Objektivat = objektivat, IdLlogariObjektiv = idllogobj, VleraObjektiva = vleratobjektiva, VleraMonBazeObjektiva = vleratobjektivamonbaze }; //objektivat
                                         objektetQK.Add(obj);
                                     }
-                                    //var mesazh = "jo";
-                                    //trupiQendra.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQK(objektetQK, qendravjetertrupi, idperdoruesi, idNdermarrje, data, rishpernda, shperndaDifQKPModDok, statusdok, out mesazh));
                                     ////trupiQendra.AddRange(DbQendraKosto.clsKokaQendraKosto.krijoTrupiQKShitje(coltrupatePunonjesit, 0, punonjes.IdDepartament, punonjes.IdNenDepartament, idNdermarrje, data, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out mesazh, qendravjetertrupi, idperdoruesi, 0, rishpernda, shperndaDifQKPModDok, statusdok, trupi.Count));
-                                    //if (mesazh != "jo")
-                                    //        shfaqmesazhapolupe = mesazh;
                                     break;
                                 default:
                                     break;

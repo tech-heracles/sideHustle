@@ -62,21 +62,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushFletatDoganoreKoka(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFleteDoganoreKoka koka = new clsFleteDoganoreKoka();
-                    //koka.mbushFleteDoganoreKok(rreshti);
                     Add(new clsFleteDoganoreKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -110,7 +102,6 @@ namespace DbCore.DbRegjistrim
                 koka.IdKonfigGjenerues = int.Parse(rreshti[19].ToString());
                 koka.IdGjenerues = int.Parse(rreshti[20].ToString());
                 koka.OColTrupi = new colFleteDoganoreTrupi();
-                //koka.OColDetajim = new colFleteDoganoreDetajim();
                 koka.OColTaksat = new colFleteDoganoreTaksa();
                 kokat.Add(koka);
             }

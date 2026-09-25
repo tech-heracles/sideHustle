@@ -25,8 +25,6 @@ namespace AlphaWebReports.RaportetDs
             EmrateLabelave(ci);
             
             
-           
-   
         }
 
         /// <summary>
@@ -44,7 +42,6 @@ namespace AlphaWebReports.RaportetDs
             xrLabel1.Text = rm.GetString("NenTitullRaportiTrialBalance", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel8.Text = rm.GetString("labelRaportiNrLlogari", ci);
-            //xrLabel33.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel9.Text = rm.GetString("filterRaportEmerLlogarie", ci);
             xrLabel10.Text = rm.GetString("labelFilterAvancuarMonedha", ci);
             xrLabel26.Text = rm.GetString("labelRaportiKredi", ci);

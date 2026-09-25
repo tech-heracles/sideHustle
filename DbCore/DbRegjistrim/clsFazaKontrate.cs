@@ -114,7 +114,6 @@ namespace DbCore.DbRegjistrim
         }
 
       
-
         /// <summary>
         /// Kthen/Vendos daten e krijimit.
         /// </summary>
@@ -181,7 +180,6 @@ namespace DbCore.DbRegjistrim
                 this.idNdermarrje = idNdermarrje;
             
 
-
                 clsMesazh mesazh = this.kontrolloFaza(shtim);
                 if (!mesazh.Status)
                     throw new Exception(mesazh.PershkrimMesazhi);
@@ -204,24 +202,12 @@ namespace DbCore.DbRegjistrim
 
         private clsMesazh kontrolloFaza(bool shtim)
         {
-            //if (kodi == "")  return new clsMesazh(false, "Plotesoni kodin e kartes!");
-            //clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
          
-
-            //if (shtim && db.ekzistonKarta(kodi, idNdermarrje))
-            //{
-            //    db.Dispose();
-            //    return new clsMesazh(false, "Ekziston nje karte me kete kod!");
-            //}
-
 
             return new clsMesazh(true, "Kontrollet e artikullit u kaluan me sukses");
         }
 
 
-
-
-        
         public bool mbushFaze(int idFaze)
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
@@ -264,29 +250,22 @@ namespace DbCore.DbRegjistrim
 
         public clsMesazh ruaj(clsDatabaseRegjistrim db)
         {
-          //  clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             clsMesazh mesazh = new clsMesazh();
-            //idFaze = 0;
          
             try
             {
-             //   db.beginTransaksion();
 
                 mesazh = db.ruajFaza(out this.idFaza, this.idKontrata, this.pershkrimi, this.vlera, this.data, this.dite, this.idStatusDok, this.idNdermarrje, this.idKrijuesi);
-                //this.idFaza = idFaze;
                 if (!mesazh.Status)
                 {
-                 //   db.rollbackTransaksion();
                     return mesazh;
                 }
 
                
-              //  db.commitTransaksion();
                 return mesazh;
             }
             catch
             {
-               // db.rollbackTransaksion();
                 return mesazh;
             }
         }
@@ -321,29 +300,22 @@ namespace DbCore.DbRegjistrim
 
         public static clsMesazh fshi(clsDatabaseRegjistrim db, int idKontrata,int idPerdoruesi)
         {
-           // clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             clsMesazh mesazh = new clsMesazh();
-            //idFaze = 0;
 
             try
             {
-              //  db.beginTransaksion();
 
                 mesazh = db.fshiFazatMeStatusDok (idKontrata, idPerdoruesi);
-                //this.idFaza = idFaze;
                 if (!mesazh.Status)
                 {
-                   // db.rollbackTransaksion();
                     return mesazh;
                 }
 
 
-               // db.commitTransaksion();
                 return mesazh;
             }
             catch
             {
-              //  db.rollbackTransaksion();
                 return mesazh;
             }
         }

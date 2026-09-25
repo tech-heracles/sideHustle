@@ -83,20 +83,12 @@ namespace DbCore.DbAdmin
         private bool mbushKokaSkema(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaSkemaWorkFlow koka = new clsKokaSkemaWorkFlow();
-                    //koka.mbushKokaSkema(rreshti);
                     this.Add(new clsKokaSkemaWorkFlow(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -30,8 +30,6 @@ namespace DbCore.DbBuxheti
                 ImbLogger.LogEnter(ImbLogger.LogTraceBuxhetimi);
 
                 //WHAT THE FUCK????Seriously?
-                //if (this == null)
-                //    return new MesazhGabimi(ImbLogger.LogWarningBuxhetimi, "Collectioni me te rreshtat e trupit te buxhetit eshte null, ruajta nuk mund te kryhet!");
 
                 if (this.FirstOrDefault() == null)
                     return new MesazhGabimi(ImbLogger.LogWarningBuxhetimi, "Nuk ka asnje rresht te ndryshuar ne trup!");

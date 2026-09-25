@@ -9,9 +9,6 @@
 });
 
 
-
-
-
 function changeName() {//po
     myFaqeCelje.shtoHandlerSession();
 
@@ -151,7 +148,6 @@ function PoClick(s, e) {//po
         e.processOnServer = false;
     }
   
-   // btn.DoClick();
 
 }
 /*

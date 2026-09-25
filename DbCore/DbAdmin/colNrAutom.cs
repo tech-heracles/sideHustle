@@ -29,11 +29,9 @@ namespace DbCore.DbAdmin
             data.Dispose();
             return sukses;
         }
-        //public static DataTable mbushNrAutomTeNdermarrjes(int idNdermVit);
         public static DataTable mbushNrAutomTeNdermarrjes(int idndermarrje)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
-            //return data.merrNrAutomTeNdermarrjes(idNdermVit);
             DataTable tabela = data.merrNrAutomTeNdermarrjes(idndermarrje);
             data.Dispose();
             return tabela;
@@ -54,19 +52,11 @@ namespace DbCore.DbAdmin
         private bool mbushNumratAutomatike(DataTable dt, clsDatabaseAdmin data)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNrAutom nr = new clsNrAutom();
-                    //nr.mbushNumerAuto(rreshti,data);
                     Add(new clsNrAutom(rreshti, data));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -96,7 +86,6 @@ namespace DbCore.DbAdmin
 
                 nr.IdNdermarja = int.Parse(rreshti[17].ToString());
                 nr.Viti = int.Parse(rreshti[18].ToString());
-                //nr.IdNderViti= int.Parse(rreshti[19].ToString());
                 nr.IdPerdoruesi = int.Parse(rreshti[19].ToString());
                 nr.OColNrAutoFundit = new colNrAutomatikFundit(nr.IdNrAutom);
                 numrat.Add(nr);

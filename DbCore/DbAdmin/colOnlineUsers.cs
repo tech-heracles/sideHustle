@@ -10,12 +10,10 @@ namespace DbCore.DbAdmin
 {
     public class colOnlineUsers : System.Collections.Generic.List<clsOnlineUsers>
     {
-        //private ArrayList OnlineUsers = new ArrayList();
         public new clsOnlineUsers this[int index]
         {
             get { return ((clsOnlineUsers)base[index]); }
         }
-
 
 
         public bool shtoOnlineUsers(clsOnlineUsers OnlUser)
@@ -79,5 +77,4 @@ namespace DbCore.DbAdmin
 
     }
 }
-
 

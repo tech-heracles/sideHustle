@@ -66,7 +66,6 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -85,7 +84,6 @@ namespace PlatinumWeb
             {
                 perktheLabel();
                 hfState.Set("idGjuha", idgjuha);
-                //hfState.Set("Artikull", false);
                 hfState.Set("idNdermarrje", idNdermarrje);
                 hfState.Set("idPerdoruesi", idPerdoruesi);
                 hfState.Set("idVitNdermarrje", idviti);
@@ -473,7 +471,6 @@ namespace PlatinumWeb
 
         protected void gvZgjedhur_HtmlRowCreated(object sender, DevExpress.Web.ASPxGridViewTableRowEventArgs e)
         {
-            //bool ugjet;
             if (e.RowType != GridViewRowType.Data || cmbKategoria.Value == null)
                 return;
 
@@ -494,7 +491,6 @@ namespace PlatinumWeb
             ASPxCheckBox txt2 = ((ASPxGridView)sender).FindRowCellTemplateControl(e.VisibleIndex, col3, "cb") as ASPxCheckBox;
             ASPxCheckBox txt5 = ((ASPxGridView)sender).FindRowCellTemplateControl(e.VisibleIndex, col6, "cb") as ASPxCheckBox;
             
-            // ugjet = false;
             if (trupavis.Count > e.VisibleIndex)
             {
                 if (trupavis[e.VisibleIndex].TipKontrolli == 2 || trupavis[e.VisibleIndex].TipKontrolli == 4 || (trupavis[e.VisibleIndex].TipKontrolli == 1 && trupavis[e.VisibleIndex].KodKontrolli == "Perdoruesi"))
@@ -649,7 +645,6 @@ namespace PlatinumWeb
                                 break;
                             case "Kursi":
                                 cmb3.DropDownButton.Visible = false;
-                                //cmb3.ClientSideEvents.ButtonClick = "function(s,e){ Kursi_Click(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + "); }";
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Menyre Pagese":
@@ -910,8 +905,6 @@ namespace PlatinumWeb
                                         ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorise(idperdorues, idNdermarrje, cmb3, 7, rm, ci, idGjuha);
                                         break;
                                 }
-                                //if (cmbKategoria.Text == "Veprime Arke" || cmbKategoria.Text == "Veprime Banke")
-                                //    break;
                                 if (cmbKategoria.Text == "Artikuj afatshkurter/afatgjate")
                                 {
                                     ConfigureAspxComboBox.mbushComboLlojArt(cmb3);
@@ -936,7 +929,6 @@ namespace PlatinumWeb
                                     cmb3.Items.Add("Grupimi 2", 2);
                                     cmb3.Items.Add("Grupimi 3", 3);
                                     cmb3.ClientSideEvents.SelectedIndexChanged = "function(s,e){ changeLlojKodifikimi(txtVlera" + e.VisibleIndex.ToString() + ", 'txtVlera', " + e.VisibleIndex.ToString() + "); }";
-                                    //cmb3.ClientSideEvents.Init = "function(s,e){ changeLlojKodifikimi(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + "); }";
                                 }
                                 if (cmbKategoria.Text == "Njesi Administrative")
                                 {
@@ -998,7 +990,6 @@ namespace PlatinumWeb
                             case "Llogaria":
                             case "Nr llogari pagese":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
-                                //DbCore.clsFunksione.mbushComboLlogariaPaKolona(idperdorues, idNdermarrje, cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedLL(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + "); }";
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
@@ -1050,31 +1041,26 @@ namespace PlatinumWeb
                             case "Nendepartamenti":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedNendep(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + ",false); }";
-                                // DbCore.clsFunksione.mbushComboStrukturaAdm(cmb3, 0, idNdermarrje);
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Qendra Kosto 1":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedQK1(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + ",false); }";
-                                //   DbCore.clsFunksione.mbushComboQendraKostoPrindNiveli1(idNdermarrje, cmb3);
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Qendra Kosto 2":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedQK2(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + ",false); }";
-                                //    DbCore.clsFunksione.mbushComboQendraKostoBij(idNdermarrje, cmb3);
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Grupim Global":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedGlobal(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + ",false); }";
-                                //   DbCore.clsFunksione.mbushComboQendraKostoPrindNiveli1(idNdermarrje, cmb3);
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Grupim Local":
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedLocal(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + ",false); }";
-                                //    DbCore.clsFunksione.mbushComboQendraKostoBij(idNdermarrje, cmb3);
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Profesioni":
@@ -1099,7 +1085,6 @@ namespace PlatinumWeb
                                 break;
                             case "Kod Artikulli":
                             case "Kod artikulli":
-                                //cmb3.ReadOnly = true;
                                 ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmb3);
                                 ConfigureAspxComboBox.mbushComboArtikulli(idperdorues, idNdermarrje, rm.GetString("postStringTvsh", ci), cmb3);
                                 cmb3.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedArt(txtVlera" + e.VisibleIndex.ToString() + "," + e.VisibleIndex.ToString() + "); }";
@@ -1520,8 +1505,6 @@ namespace PlatinumWeb
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                                 //case "Gjinia":
-                                //    DbCore.clsFunksione.mbushComboGjinia(cmb3);
-                                //    break;
 
                         }
                         cmb3.DropDownStyle = DropDownStyle.DropDown;
@@ -1881,7 +1864,6 @@ namespace PlatinumWeb
                         case "13":
                             trupatvis = colTrupiFormatImporti.merrFormatImportiTrupiSipasIdKokaDetyrueshme(-1, true);
                             trupatinvis = colTrupiFormatImporti.merrFormatImportiTrupiSipasIdKokaDetyrueshme(-1, false);
-                            //hfState.Set("Artikull", false);
                             break;
                         case "67":
                             trupatvis = colTrupiFormatImporti.merrFormatImportiTrupiSipasIdKokaDetyrueshme(-2, true);

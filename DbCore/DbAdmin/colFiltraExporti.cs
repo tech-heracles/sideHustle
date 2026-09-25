@@ -40,19 +40,11 @@ namespace DbCore.DbAdmin
         private bool mbushFiltratGrida(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFiltraExporti filtri = new clsFiltraExporti();
-                    //filtri.mbushFilterGrid(rreshti);
                     Add(new clsFiltraExporti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -32,10 +32,8 @@ namespace PlatinumWeb.E_PaySlip
             item.Template = itemTemplate as ITemplate;
             ASPxButton btnPo = ((PlatinumWeb.E_PaySlip.MenuInfo)(item.Template)).FindControl("btnPo") as ASPxButton;
             btnPo.Click += poHandler;
-            //btnPo.ClientVisible = false;
             ASPxButton btnJo = ((PlatinumWeb.E_PaySlip.MenuInfo)(item.Template)).FindControl("btnJo") as ASPxButton;
             btnJo.Click += joHandler;
-            // btnJo.ClientVisible = false;
         }
 
         public static void ShtoMenuItemInfo(Page page, ASPxMenu m)
@@ -78,9 +76,6 @@ namespace PlatinumWeb.E_PaySlip
         public static void ShtoMesazhGabimi(ASPxMenu m, String mesazh, UpdatePanel pnlMesazhi)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //hl.ForeColor = Color.Red;
-            //hl.Text = mesazh;
             ASPxComboBox combo = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             DateTime tani = DateTime.Now;
             combo.Items.Insert(0, new ListEditItem(appendStringOfTime(tani, mesazh), getIntOfDate(tani), "images/info_error3.ico"));
@@ -92,9 +87,6 @@ namespace PlatinumWeb.E_PaySlip
         public static void ShtoMesazhSuksesi(ASPxMenu m, String mesazh, UpdatePanel pnlMensazhi)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //hl.ForeColor = Color.Green;
-            //hl.Text = mesazh;
             ASPxComboBox combo = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             DateTime tani = DateTime.Now;
             combo.Items.Insert(0, new ListEditItem(appendStringOfTime(tani, mesazh), getIntOfDate(tani), "images/info_sukses.ico"));
@@ -106,9 +98,6 @@ namespace PlatinumWeb.E_PaySlip
         public static void ShtoMesazhInformues(ASPxMenu m, String mesazh, UpdatePanel pnlMensazhi)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //hl.ForeColor = Color.Green;
-            //hl.Text = mesazh;
             ASPxComboBox combo = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             DateTime tani = DateTime.Now;
             combo.Items.Insert(0, new ListEditItem(appendStringOfTime(tani, mesazh), getIntOfDate(tani), "images/info_info.ico"));
@@ -120,8 +109,6 @@ namespace PlatinumWeb.E_PaySlip
         public static string MerrMesazhin(ASPxMenu m)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //return hl.Text;
             ASPxComboBox combo = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             return combo.SelectedItem.Text;
         }
@@ -129,9 +116,6 @@ namespace PlatinumWeb.E_PaySlip
         public static void ShtoPyetje(ASPxMenu m, string pyetje, UpdatePanel pnlMesazhi)
         {
             DevExpress.Web.MenuItem itemButtonInfo = m.Items.FindByName("TemplatedItemInfo");
-            //ASPxLabel hl = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhPage") as ASPxLabel;
-            //hl.ForeColor = Color.Black;
-            //hl.Text = pyetje;
             ASPxComboBox combo = ((PlatinumWeb.E_PaySlip.MenuInfo)(itemButtonInfo.Template)).FindControl("mesazhList") as ASPxComboBox;
             DateTime tani = DateTime.Now;
             combo.Items.Insert(0, new ListEditItem(appendStringOfTime(tani, pyetje), getIntOfDate(tani), "images/info_pyetje.ico"));

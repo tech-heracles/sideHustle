@@ -23,7 +23,6 @@ namespace DbCore.DbQendraKosto
         }
 
        
-
         /// <summary>
         /// konstruktori qe implementon klasen baze
         /// </summary>
@@ -61,18 +60,10 @@ namespace DbCore.DbQendraKosto
         private bool mbushKonfigurim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKonfigurimQK konf = new clsKonfigurimQK();
-                    //konf.mbushKonfigurim(rreshti);
                     Add(new clsKonfigurimQK(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

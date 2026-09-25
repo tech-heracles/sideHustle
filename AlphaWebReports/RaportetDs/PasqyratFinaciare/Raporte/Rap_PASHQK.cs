@@ -15,10 +15,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 		public Rap_PASHQK(){InitializeComponent();} 
         bool hapurgjitha = false;
         private int rritshuma = 0;
-        //public Rap_PASH()
-        //    {
-        //    InitializeComponent();
-        //    }
         public Rap_PASHQK(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdViti, report)
         {
@@ -99,31 +95,26 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
             niv++;
         }
 
         private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
             niv++;
         }
 
         private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
             niv++;
         }
 
         private void xrLabel56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
             niv++;
         }
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //   if (GetCurrentColumnValue("NIVELI").ToString() == "1")
             niv++;
         }
 
@@ -225,14 +216,12 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel79_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = xrLabel79.Text;
-            //e.Result = niv;
             e.Handled = true;
         }
 
         private void xrLabel84_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = xrLabel84.Text;
-            //e.Result = niv;
             e.Handled = true;
         }
         private Hashtable skippedDetailBands;
@@ -481,9 +470,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel79_SummaryReset(object sender, EventArgs e)
         {
-            //niv = 0;
-            //niv2 = 0;
-            //niv3 = 0;
         }
 
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

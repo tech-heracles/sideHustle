@@ -62,10 +62,6 @@ namespace DbCore.DbRegjistrim
   //      public clsKasaKokaFile (string llojiKases, string kompania, string idTransaksioni, int idshop, string nrFature, string menyrePagese, bool fatureTatimore,
   //double zbritjeTotale, string path, bool mosFshiOrigjine, string kodNdermarrja, string pathWebService, int idUser, bool printoKodArtikulli, bool printoBarKod, bool kthim, bool meShifraDhjetore, bool meTVSH, double kursi, bool kopjeFature, bool printimManual, bool eshtePrinterFiskal) :    base (llojiKases,  kompania,
   //    idTransaksioni,  idshop,  printimMeIp,  advertisement,  menyrePagese,  fatureTatimore,  zbritjeTotale,  kodNdermarrja,  pathWebService,  idUser,  printoKodArtikulli,  printoBarKod,  kthim,  meShifraDhjetore,  meTVSH,  kursi,  kopjeFature,  printimManual,  eshtePrinterFiskal)
-  //      {
-  //          this.path = path;
-  //          this.mosFshiOrigjine = mosFshiOrigjine;
-  //      }
         #endregion
 
         public override clsMesazh printoNeKase(bool ruajPergjigje, bool derguar, int idShitje, bool veprimBanke)

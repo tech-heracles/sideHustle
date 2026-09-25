@@ -100,7 +100,6 @@ namespace PlatinumWeb
 
         private void mbushGrideKursesh(int idNdermarrje, int idMonedha)
         {
-            //int llojKurs = int.Parse(Request.QueryString["llojKursi"]);
             DataTable dt = DbCore.DbAdmin.colKurset.ktheKursetMonedhes(idMonedha);
             DbCore.mySessionObjects.ruajGrideNeSessionLupa(Session, dt);
             gvKurset.DataSource = dt;
@@ -218,20 +217,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKurset.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKursi", gvKurset);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvKurset.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdKursi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdNdermarje = idNderm;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -375,7 +362,6 @@ namespace PlatinumWeb
                 ASPxTextBox currentEditor = e.Editor as ASPxTextBox;
                 if (e.Column == gvKurset.Columns["NjesiaKursit"])
                 {
-                    //e.Column.ReadOnly = true;
                     currentEditor.Text = "1";
                     currentEditor.ClientEnabled = false;
                 }

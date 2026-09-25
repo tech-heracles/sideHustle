@@ -24,7 +24,6 @@ namespace DbCore.DbAdmin
         }
 
        
-
         #endregion
 
         #region Metoda Publike
@@ -35,8 +34,6 @@ namespace DbCore.DbAdmin
         }
 
       
-
-
         #endregion
 
         #region Metoda Private
@@ -44,19 +41,11 @@ namespace DbCore.DbAdmin
         private bool mbushGrupeNdermarrje(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupNdermarrje grupNdermarrje = new clsGrupNdermarrje();
-                    //grupNdermarrje.mbushGrupNdermarrje(rreshti);
                     Add(new clsGrupNdermarrje(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -40,9 +40,6 @@ namespace PlatinumWeb
         private DbCore.DbRegjistrim.clsKonfigPivotGridaKoka kokaPG;
         
 
-
-
-
         /// <summary>
         /// Veprimet qe kryhen ne mementin e ngarkimit te faqes
         /// </summary>
@@ -117,7 +114,6 @@ namespace PlatinumWeb
                    
                     shtoTeDhenatPivotGrid(idNdermarrje, idPerdoruesi, idGjuha, idModuli);
                 }
-                //  FilterPopup.BindGridView();
                 konfiguroGride(idGjuha, idNdermarrje);
             }
             percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1);
@@ -126,12 +122,10 @@ namespace PlatinumWeb
                 StateController.ClearState();
                 SaveCurrentStateAndUpdateControlsState();
             }
-            //  GridUtil.PercaktoTitlePanel(ASPxGridView_KonfigPivotGrid, Page, ASPxMenu1, pnlMesazhi,null, idPerdoruesi, idNdermarrje, idViti, idGjuha, emriKomponentes, idKomponente, "EmriPivotGridKoka", rm, ci);
             GridUtil.konfigGrideListeEMadhePaTheme(ASPxGridView_KonfigPivotGrid, "IdKonfPivotGridaKoka");
         }
 
         
-
         /// <summary>
         /// Vendos emrat e tabeve ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -152,10 +146,7 @@ namespace PlatinumWeb
             int indeksiFundit = Math.DivRem(ASPxPivotGridRaporti.RowCount, ASPxPivotGridRaporti.OptionsPager.RowsPerPage, out remainder);
             if (remainder > 0)
                 indeksiFundit = indeksiFundit + 1;
-            //if (ASPxPivotGridRaporti.OptionsPager.PageIndex == indeksiFundit - 1)
-            //    ASPxPivotGridRaporti.OptionsView.ShowRowGrandTotals = true;
             //else
-            //    ASPxPivotGridRaporti.OptionsView.ShowRowGrandTotals = false;
 
             ASPxPivotGridRaporti.OptionsView.ShowColumnGrandTotals = ColumnGrandTotal.Checked;
             ASPxPivotGridRaporti.OptionsView.ShowColumnTotals = ColumnTotal.Checked;
@@ -260,7 +251,6 @@ namespace PlatinumWeb
         /// <param name="idModuli"></param>
         private void konfiguroVleraFillestare(int idGjuha, int idModuli)
         {
-            //inicializoObjekte();
             ASPxPageControl1.ActiveTabIndex = 0;
             int windowWidth = Convert.ToInt32(Request.QueryString["windowWidth"]);
             WebChart.Width = Convert.ToInt32(windowWidth / 1.04);
@@ -276,23 +266,14 @@ namespace PlatinumWeb
             //Mbushet comboja e tipit te grafikut
             ASPxComboBox cmbGrafiku = (ASPxComboBox)navBarFiltrat.Groups[0].FindControl("cmbGrafiku");
             ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedIndex = 0;
-            //var arr = Enum.GetValues(typeof(ViewType));
             //merr te gjitha llojet e grafikut
             cmbGrafiku.Items.AddRange(Enum.GetValues(typeof(ViewType)));
 
             cmbSaVleraNeGrafik.Items.AddRange(new String[] { "10", "50", "100", "200" });
             cmbSaVleraNeGrafik.Items.Add(idGjuha == 1 ? "Te gjitha" : "All");
-            //switch (idGjuha)
-            //{
             //    case 0: //shqip
-            //        cmbSaVleraNeGrafik.Items.AddRange(new String[] { "10", "50", "100", "200", "Te gjitha" });
-            //        break;
             //    case 1: //anglisht
-            //        cmbSaVleraNeGrafik.Items.AddRange(new String[] { "10", "50", "100", "200", "All" });
-            //        break;
             //    default:
-            //        break;
-            //}
 
             cmbSaVleraNeGrafik.SelectedIndex = 4;
             cmbGrafiku.SelectedItem = cmbGrafiku.Items.FindByText(ViewType.Line.ToString());
@@ -307,7 +288,6 @@ namespace PlatinumWeb
         /// </summary>
         private void inicializoObjekte()
         {
-            //dbRegj = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
         }
 
         /// <summary>
@@ -437,15 +417,6 @@ namespace PlatinumWeb
         ///// Mbush combon e filtrave te grides ASPxGridView_KonfigPivotGrid
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //{
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("ASPxGridView_KonfigPivotGrid", "Raport_PivotGrid.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
 
         /// <summary>
         /// Per eksporimin e raporteve te gjeneruara
@@ -473,7 +444,6 @@ namespace PlatinumWeb
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idPerdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
@@ -482,20 +452,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_KonfigPivotGrid.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_KonfigPivotGrid);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_KonfigPivotGrid.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdorues;
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -504,7 +462,6 @@ namespace PlatinumWeb
             mesazh = filtri.ruaj();
             percaktoTemplateMenu(idGjuha, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdorues, idNdermarrje, ASPxMenu1);
 
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "ASPxGridView_KonfigPivotGrid", 1, "Raport_PivotGrid.aspx");
             if (mesazh.Status == true)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -527,9 +484,7 @@ namespace PlatinumWeb
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idPerdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             int idGjuha = (int)hfState.Get("idGjuha");
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "ASPxGridView_KonfigPivotGrid", "Raport_PivotGrid.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -537,7 +492,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = idPerdorues;
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "ASPxGridView_KonfigPivotGrid", 1, "Raport_PivotGrid.aspx");
                 percaktoTemplateMenu(idGjuha, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdorues, idNdermarrje, ASPxMenu1);
 
@@ -737,7 +691,6 @@ namespace PlatinumWeb
         {
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             List<object> rreshtat = this.ASPxGridView_KonfigPivotGrid.GetSelectedFieldValues("IdKonfPivotGridaKoka");
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             int idModuli = (int)hfState["idModuli"];
             if (rreshtat.Count == 0)
@@ -875,9 +828,7 @@ namespace PlatinumWeb
                     ASPxGridView_KonfigPivotGrid.FilterExpression = "";
                 else
                 {
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_KonfigPivotGrid", "Raport_PivotGrid.aspx", idNdermarrje);
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], idNdermarrje, koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)
@@ -939,7 +890,6 @@ namespace PlatinumWeb
                     ASPxPivotGridRaporti.JSProperties["cpRowGrandTotal"] = kokaPG.GrandTotalRreshta;
                     ASPxPivotGridRaporti.JSProperties["cpRowTotal"] = kokaPG.TotalRreshta;
                     ASPxPivotGridRaporti.JSProperties["cpHiqVleraZero"] = kokaPG.HiqVleraZero;
-                    // ASPxPivotGridRaporti.JSProperties["cpFirstCallback"] = false;
                     ColumnGrandTotal.Checked = kokaPG.GrandTotalKolona;
                     ColumnTotal.Checked = kokaPG.TotalKolona;
                     RowTotal.Checked = kokaPG.TotalRreshta;
@@ -1000,8 +950,6 @@ namespace PlatinumWeb
                 else if (e.Value == DBNull.Value || (CellValueThreshold.Value != null && (decimal)e.Value < Convert.ToDecimal(CellValueThreshold.Value)))
                     e.Value = 0;
             }
-            //if ((e.ItemType == DevExpress.XtraPivotGrid.PivotChartItemType.CellItem) && (!Microsoft.VisualBasic.Information.IsNumeric(e.Value)))
-            //    e.Value = null;
         }
 
         /// <summary>
@@ -1049,14 +997,12 @@ namespace PlatinumWeb
                     if (!kaTeDhenaJoNumerike)
                         WebChart.DataSourceID = "ASPxPivotGridRaporti";
                     else
-                        //WebChart.DataSourceID = null;
                         WebChart.DataSourceID = String.Empty;
                     WebChart.DataBind();
                 }
 
             }
         }
-
 
 
         /// <summary>
@@ -1132,14 +1078,7 @@ namespace PlatinumWeb
                 if (fushaKonfig["width"].ToString() != String.Empty)
                     fusha.Width = Convert.ToInt32(fushaKonfig["width"]);
 
-                //if (shfaqSubtotalet.Checked == true)
-                //{
-                //    fusha.CustomTotals.Clear();
-                //    fusha.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals;
-                //    fusha.CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Sum);
-                //}
                 //else
-                //    fusha.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
 
                 ASPxPivotGridRaporti.Fields.Add(fusha);
 
@@ -1148,13 +1087,7 @@ namespace PlatinumWeb
                     percaktoGroupInterval(fusha);
                 }
             }
-            //if (filtriDtVisibility.Equals("visible"))
-            //{
-            //}
             //else
-            //    ASPxPivotGridRaporti.Prefilter.Clear();
-            //ASPxPivotGridRaporti.OptionsView.ShowGrandTotalsForSingleValues = false;
-            //ASPxPivotGridRaporti.OptionsView.ShowColumnGrandTotals = true;
         }
 
         private Tuple<DateTime, DateTime> MerrDateFillimiDheMbarimi()
@@ -1281,7 +1214,6 @@ namespace PlatinumWeb
         }
 
       
-
         private void percaktoGroupInterval(PivotGridField fushaKonfig)
         {
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
@@ -1289,11 +1221,8 @@ namespace PlatinumWeb
             string labelRaport3Mujore = MessagesResource.Messages["labelRaport3Mujore"];
             string labelFilterKryesorMuaji = MessagesResource.Messages["labelFilterKryesorMuaji"];
             String[] fushat = { labelViti, labelRaport3Mujore, labelFilterKryesorMuaji };
-            //String[] fushat = { "Viti", "3Mujori", "Muaji" };
-            //string zona = fushaKonfig["zona"].ToString();
             foreach (String fusheString in fushat)
             {
-                //PivotGridField fusha = new PivotGridField() { ID = "field" + fusheString, FieldName = "DTDOK", Caption = fusheString };
                 PivotGridField fusha = new PivotGridField();
 
                 fusha.ID = "field" + fushaKonfig.FieldName + fusheString;
@@ -1324,9 +1253,7 @@ namespace PlatinumWeb
             }
 
             ASPxPivotGridRaporti.Fields[fushaKonfig.FieldName].Visible = false;
-            //ASPxComboBox cmbPerioda = (ASPxComboBox)navBarFiltrat.Groups[0].FindControl("cmbPerioda");
 
-            //ASPxComboBox fushatDateTime = navBarFiltrat.Groups[0].FindControl("fushatDateTimePG") as ASPxComboBox;
 
             int grupim = 5;
 
@@ -1479,9 +1406,6 @@ namespace PlatinumWeb
             ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items[1].Text = MessagesResource.Messages["RadioButtonListEditItemPeriudha"];
             ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items[2].Text = MessagesResource.Messages["RadioButtonListEditItemVitiUshtrimor"];
             ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).Items[3].Text = MessagesResource.Messages["RadioButtonListEditItemGjitheVitet"];
-
-
-
 
 
             ((ASPxLabel)navBarFiltrat.Groups[0].FindControl("lblNgaDok")).Text = MessagesResource.Messages["labelRaportiNga"];
@@ -1724,8 +1648,6 @@ namespace PlatinumWeb
 
         protected void shfaqSubtotalet_ValueChanged(object sender, EventArgs e)
         {
-            //ASPxPivotGridRaporti.OptionsView.ShowGrandTotalsForSingleValues = shfaqSubtotalet.Checked;
-            //showCustomTotals();
         }
 
         /// <summary>

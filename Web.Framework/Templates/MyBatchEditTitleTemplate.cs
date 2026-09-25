@@ -69,7 +69,6 @@ namespace PlatinumWeb.Templates
             this.rm = rm;
             this.hfState = hfState;
 
-            //hfState.Set("idKonfig", idKonfig);
             scriptManager = ScriptManager.GetCurrent(CurrentPage);
         }
 

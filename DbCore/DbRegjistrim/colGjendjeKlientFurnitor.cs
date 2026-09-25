@@ -25,7 +25,6 @@ namespace DbCore.DbRegjistrim
             for (var i = 0; i < rreshtakf.Count; i++)
             {
                 if (rreshtakf[i] != null)
-                    //gjendjet.Add(clsGjendjeKlientFurnitor.KrijoGjendjeKlientFurnitor(int.Parse(idklientfurnitor[i].Item1.ToString()), idnivel, nrdok, datedok,dateregj, trupi[i], rreshtakf[i]));
                     gjendjet.Add(clsGjendjeKlientFurnitor.KrijoGjendjeKlientFurnitor(idklientfurnitor[i], idnivel, nrdok, datedok, dateregj, trupi[i], rreshtakf[i]));
 
                 else break;

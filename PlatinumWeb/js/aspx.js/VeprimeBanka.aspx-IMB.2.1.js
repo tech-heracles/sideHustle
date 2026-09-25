@@ -8,7 +8,6 @@ var kategoria = "";
 var indexModifiko;
 var focuschange = false;
 function OnGetRowValues(values) {
-    //var hf = $("#hfLloji")[0];
     id = values[0];
     numur = values[1];
     focuschange = false;
@@ -92,7 +91,6 @@ Parameters:
 e-eventi
 */
 function menu_click(s, e) {
-    //var hf = $("#hfLloji")[0];
     switch (e.item.name) {
         case 'Fshi':
             popFshi.Hide();

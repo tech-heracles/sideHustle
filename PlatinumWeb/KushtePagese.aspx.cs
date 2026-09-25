@@ -19,21 +19,17 @@ namespace PlatinumWeb
         private string guidString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
                 return;
             }
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
 
             if (!IsPostBack)
@@ -64,8 +60,6 @@ namespace PlatinumWeb
         /// </summary>
         private void konfiguroVleraFillestare()
         {
-            //dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colKushtPageseKoka colKushtePagese = dbKontab.merrGjitheKushtetPageses(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbKontabiliteti.colKushtPageseKoka colKushtePagese = new DbCore.DbKontabiliteti.colKushtPageseKoka(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             grid_KushtePagese.DataSource = colKushtePagese;
             grid_KushtePagese.DataBind();
@@ -120,14 +114,9 @@ namespace PlatinumWeb
             List<object> rreshtat = grid_KushtePagese.GetSelectedFieldValues("IdKoka");
             foreach (int id in rreshtat)
             {
-                //dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-                //DbCore.DbKontabiliteti.colKushtPageseKoka colKushtePagese = dbKontab.merrKushtPageseSipasID(id);
                 DbCore.DbKontabiliteti.clsKushtPageseKoka clsKushtePagese = new DbCore.DbKontabiliteti.clsKushtPageseKoka(id);
-                //foreach (DbCore.DbKontabiliteti.clsKushtPageseKoka koka in colKushtePagese)
-                //{
                 clsKushtePagese.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 mesazh = clsKushtePagese.fshi();
-                //}
             }
             Response.Redirect(komponente);
             return;

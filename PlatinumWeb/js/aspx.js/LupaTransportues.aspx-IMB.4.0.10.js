@@ -152,10 +152,6 @@ function menu_click(s, e) {
  }
 
 
-//function Succeded() {
-//    window.parent.myButtonClickLupa.LupaUniversal_Click('Shto Transportues', 'LupaTransportuesShpejte.aspx', document.documentElement.clientWidth, document.documentElement.clientHeight);
-//}
-
 function onNdryshimFokusi() {
     try {
         if (PageControl.GetActiveTabIndex() == 0)

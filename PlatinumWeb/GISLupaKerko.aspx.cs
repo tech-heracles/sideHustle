@@ -157,15 +157,7 @@ namespace PlatinumWeb
 
         protected void gvLupaKerko_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //if (cmbLayers.Value != null)
-            //{
-            //    idNdermarrje = (int)hfState["idNdermarrje"];
-            //    idPerdoruesi = (int)hfState["idPerdoruesi"];
 
-            //    dynamic cmbLayeri = merrVlerenNgaCombo();
-            //    string[] kolonat = colLayersGIS.MerrFushaLayeri(idNdermarrje, cmbLayeri.IdLayeri, cmbLayeri.KodLayeri);
-            //    konfiguroGride(gvLupaKerko, kolonat[1]);
-            //}
         }
 
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)

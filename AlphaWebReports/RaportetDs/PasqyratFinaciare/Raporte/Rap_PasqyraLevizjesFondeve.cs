@@ -34,7 +34,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
            
 
-           // xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             EmrateLabelave(ci);
 
         }
@@ -92,8 +91,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
-     
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -163,7 +160,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
           }
 
     
-
         private void lblKPF_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
@@ -206,7 +202,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             }
 
         
-
         private void lblPrindi1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
@@ -342,7 +337,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
      
-     
         private void xrLabel36_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -410,7 +404,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
         private void xrLabel11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             double shuma = 0;
@@ -617,7 +610,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Result = niv;
             e.Handled = true;
         }
-
 
 
         private void xrLabel94_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

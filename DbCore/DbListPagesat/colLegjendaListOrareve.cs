@@ -40,18 +40,10 @@ namespace DbCore.DbListPagesat
         private bool mbushLegjendaListOrari(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLegjendaListOrareve grupKF = new clsLegjendaListOrareve();
-                    //grupKF.mbushLegjendeListOrari(rreshti);
                     this.Add(new clsLegjendaListOrareve(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

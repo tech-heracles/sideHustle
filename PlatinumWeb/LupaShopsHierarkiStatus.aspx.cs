@@ -120,7 +120,6 @@ namespace PlatinumWeb
 
         private void konfiguroGride()
         {
-            //DbCore.clsFunksione funk = new DbCore.clsFunksione();
             GridUtil.percaktoVisibleColumnsMeWidth(MessagesResource.Messages.IdGjuha, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaShopsHierarkiStatus, emerGride, emerKomponente);
             GridUtil.konfiguroGrideListeEvogelPaTheme(gvLupaShopsHierarkiStatus, "IdStatus");
         }
@@ -290,7 +289,6 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemExport");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
@@ -299,20 +297,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaShopsHierarkiStatus.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdStatus", gvLupaShopsHierarkiStatus);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaShopsHierarkiStatus.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdStatus"; 
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -320,7 +306,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(MessagesResource.Messages.IdGjuha, idNdermarrje,  emerGride,1, emerKomponente);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session),idNdermarrje );
   
@@ -332,7 +317,6 @@ namespace PlatinumWeb
         }
 
        
-
         protected void gvLupaShopsHierarkiStatus_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             string[] arr = e.Parameters.Split(';');

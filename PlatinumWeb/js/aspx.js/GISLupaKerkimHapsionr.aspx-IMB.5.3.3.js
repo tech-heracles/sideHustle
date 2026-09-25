@@ -152,7 +152,6 @@ function cmbLayerChanged(s, e) {
 }
 function btnKerkoClick(s, e) {
 
-    //  gvLupaKerko.ApplyFilter();
     ApplyFilterNew();
 }
 function ApplyFilter() {
@@ -170,9 +169,7 @@ function ApplyFilter() {
                         filterCondition = filterCondition + andOperator + "Contains( [" + gvLupaKerko.GetColumn(i).fieldName + "]," + "'" + editor.GetText() + "')";
             }
         }
-    //gvLupaKerko.ApplyFilter(filterCondition);
     callBackPanel.PerformCallback(filterCondition);
-    //hfGrida.Set("filterExpression", filterCondition);
 
 
 }

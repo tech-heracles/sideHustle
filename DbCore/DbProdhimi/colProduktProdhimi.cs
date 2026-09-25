@@ -106,8 +106,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool mbushProduktSipasIdkoka(int idKoka, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushProdukt(db.ktheGjitheProdukteProdhimiNgaKoka(idKoka));
             return mbush;
         }
@@ -124,21 +122,13 @@ namespace DbCore.DbProdhimi
         private bool mbushProdukt(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsProduktProdhimi trupi = new clsProduktProdhimi();
-                    //trupi.mbushProdukt(rreshti);
                     Add(new clsProduktProdhimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

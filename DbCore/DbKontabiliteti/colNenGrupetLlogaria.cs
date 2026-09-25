@@ -88,21 +88,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushNenGrupetLlogaria(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNenGrupiLlogaria nengrupLlogaria = new clsNenGrupiLlogaria();
-                    //nengrupLlogaria.mbushNenGrupLlogaria(rreshti);
                     Add(new clsNenGrupiLlogaria(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

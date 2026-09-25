@@ -22,7 +22,6 @@ namespace PlatinumWeb
         private string ThumbnailFileName;
 
   
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!DbCore.mySessionObjects.isLogedIn(Session))
@@ -246,7 +245,6 @@ namespace PlatinumWeb
 
         protected void btnShfaqImazh_Click(object sender, EventArgs e)
         {
-            //ASPxBinaryImage1.ContentBytes = ((Byte[])CacheLayer.GlobalCacheManager.MySessionCache["Imazhi"]);
             ASPxBinaryImage1.ContentBytes = DbCore.mySessionObjects.merrImazhNgaSesioni(Session);
             pnlImazh.Update();
             hfState.Set("ndryshuarFoto", true);

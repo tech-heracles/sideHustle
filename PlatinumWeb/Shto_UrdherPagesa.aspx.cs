@@ -23,12 +23,7 @@ namespace PlatinumWeb
 {
     public partial class Shto_UrdherPagesa : MyPageBase
     {
-        //private const string STR_ShumaNukDuhetTeJeteZero = "Shuma nuk duhet të jetë zero!";
-        //private const string STR_MungojnëTëDhëna = "Mungojnë të dhëna!";
-        //private int idndermarje, idperdoruesi, idnderviti;
 
-
-       
 
         /// <summary>
         /// mbush kontrollet me te dhena
@@ -119,7 +114,6 @@ namespace PlatinumWeb
             }
 
             
-
             if (!IsPostBack)
             {
                 perktheCheckBox(cultinf, rm);
@@ -140,7 +134,6 @@ namespace PlatinumWeb
                     default:
                         break;
                 }
-                //percaktoTemplateMenu(idPerdoruesi, idViti, idNdermarrje, ASPxMenu1);
                 DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, idViti, "Konfigurime Gride");
                 hfTeDrejtaKonfGride.Value = tedrejtaInfo.DAmb.ToString();
@@ -209,7 +202,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
                 if ((hfLidhur.Value == "True") && m.Name == "Draft")
@@ -282,7 +274,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.KonfiguroComboBoxSipasLlojitKonfigUrdherPagese(idNdermarrje, btneTitulli, Convert.ToInt32(DbCore.DbArkaBanka.LlojeKonfigurimeUrdherPagese.Titull));
             ConfigureAspxComboBox.KonfiguroComboBoxSipasLlojitKonfigUrdherPagese(idNdermarrje, btneKapitulli, Convert.ToInt32(DbCore.DbArkaBanka.LlojeKonfigurimeUrdherPagese.Kapitull));
             ConfigureAspxComboBox.mbushComboLlogariaPaKolona(idPerdoruesi, idNdermarrje, btneArtikulli);
-            //txtVlefta.Text = "0.00";
             DbCore.DbShare.clsFormatiKonfig formatNrKonfig = new DbCore.DbShare.clsFormatiKonfig();
             formatNrKonfig.mbushFormatNrKonfigSipasIdKonfigAmbjente(int.Parse(cmbKonfigurimi.Value.ToString()));
             int idMonedheZgjedhur = DbCore.clsFunksione.ktheMonedhePerFormatNumri(idGjuha, int.Parse(cmbKonfigurimi.Value.ToString()), idNdermarrje, 313, "", -1, true);
@@ -303,7 +294,6 @@ namespace PlatinumWeb
             AspxWebControlUtils.vendosDateEditMask(dteDtDok);
             AspxWebControlUtils.vendosDateEditMask(dteDtDokNgjitur);
             AspxWebControlUtils.vendosDateEditMask(dteDtAprovimi);
-            //txtVlefta.Text = "0.00";
             mbushComboKonfigurimet(true, idGjuha);
             ConfigureAspxComboBox.mbushComboFormatPrintimi(cmbFormatiPrintimit, 39, idNdermarrje);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(btneGrupi);
@@ -467,8 +457,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = (int)hfState["idNdermarrje"];
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -523,7 +511,6 @@ namespace PlatinumWeb
                 if (hfShtimModifikim.Value == "shtim" || hfShtimModifikim.Value == "klonim")
                 {
                     if ((statusDokumenti == 1 && !tedrejtaInfo.DShtim) || (statusDokumenti == 0 && !tedrejtaInfo.DShtimDraft))
-                    //if (!tedrejtaInfo.DShtim)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("mesazhRaportNukKeniTeDrejta", ci), pnlMesazhi);
                         status1.Value = "false";
@@ -534,7 +521,6 @@ namespace PlatinumWeb
                 else if (hfShtimModifikim.Value == "modifikim")
                 {
                     if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                    //if (!tedrejtaInfo.DMod)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("mesazhRaportNukKeniTeDrejta", ci), pnlMesazhi);
                         status1.Value = "false";
@@ -592,10 +578,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             DbCore.DbShare.clsKonfigurimAmbjenti clsKonf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             clsKonf.mbushKonfigDefaultKomponentes(313, (int)hfState["idNdermarrje"]);

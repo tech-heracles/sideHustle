@@ -81,23 +81,15 @@ namespace DbCore.DbRegjistrim
         private bool mbushDokumentatLidhesKoka(DataTable dt)
         {
             //try
-            //{
                 if (dt == null)
                     return true;
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDokumentLidhesKoka koka = new clsDokumentLidhesKoka();
-                    //koka.mbushDokumentLidhesKoka(rreshti);
                     Add(new clsDokumentLidhesKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -54,13 +54,7 @@ namespace DbCore.DbKontabiliteti
         ///// Thirret funksioni <see cref="DbCore.DbKontabiliteti.clsDatabaseKontabilitet.ktheSkemaKontabelNewSipasID"/>
         ///// </summary>
         //[Obsolete("Perdor: clsSkemaKontabelNew ktheSkemeKontabelNewSipasID(int id)", true)]
-        //public colSkemaKontabelNew merrSkemeKontabelNewSipasID(int id)
-        //{
-        //    clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-        //    return data.merrSkemaKontabelNewSipasID(id);
-        //    //clsSkemaKontabelNew data = new clsSkemaKontabelNew(id);
         //    //return data;
-        //}
 
         #endregion
 
@@ -73,42 +67,19 @@ namespace DbCore.DbKontabiliteti
         private bool mbushSkematKontNew(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSkemaKontabelNew skema = new clsSkemaKontabelNew();
-                    //skema.mbushSkemaKontNew(rreshti);
                     Add(new clsSkemaKontabelNew(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
         #endregion
         //[Obsolete("Perdor: bool mbushSkematKontNew(DataTable dt)", true)]
-        //public colSkemaKontabelNew mbushArrayListSkemeKontabelNew(DataSet ds)
         //{// metoda per te mbushur nje arraylist me llogari nga nje dataset
-        //    colSkemaKontabelNew skemakontabel = new colSkemaKontabelNew();
-        //    foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //    {
-        //        clsSkemaKontabelNew skema = new clsSkemaKontabelNew();
-        //        skema.IdSkemeKont = rreshti[0].ToString();
-        //        skema.KodSkemeKont = rreshti[1].ToString();
-        //        skema.PershkrimSkemeKont = rreshti[2].ToString();
-        //        skema.IdLlojDok = rreshti[3].ToString();
-        //        skema.OColSkemakontabelTrupiNew = new colSkemaKontabelTrupiNew();
-        //        skema.OColSkemakontabelTrupiNew  =skema.OColSkemakontabelTrupiNew.merrSkemaTrupiNew(skema.IdSkemeKont);
-        //        skemakontabel.Add(skema);
-        //    }
-        //    return skemakontabel;
-        //}
        
     }
 }

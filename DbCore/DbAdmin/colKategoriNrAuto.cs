@@ -39,21 +39,13 @@ namespace DbCore.DbAdmin
         private bool mbushKategori(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKategoriNrAuto kategori = new clsKategoriNrAuto();
-                    //kategori.mbushKat(rreshti);
                     Add(new clsKategoriNrAuto(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -18,11 +18,8 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         {
             InitializeComponent();
             EmrateLabelave(ci);
-           // xrLabel52.Text = raport.Parameters[0].Description;
             parameter1.Value = raport.Parameters[0].Value;
-            //xrLabel56.Text = raport.Parameters[1].Description;
             parameter2.Value = raport.Parameters[1].Value;
-           // xrLabel60.Text = raport.Parameters[2].Description;
             parameter3.Value = raport.Parameters[2].Value;
         }
 

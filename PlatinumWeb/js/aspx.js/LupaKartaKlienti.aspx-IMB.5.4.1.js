@@ -87,8 +87,6 @@ function OnGridSelectionComplete(values) {
     ////Utils.SelectComboItem(window.parent.cmbKarta, id, kodi, emri);
     ////window.parent.txtTarga2.SetText(values[0][3]);
     ////window.parent.txtShoferi.SetText(values[0][4]);
-    //var item = window.parent.cmbKarta.FindItemByValue(id);
-    //window.parent.cmbKarta.SetSelectedItem(item);
     window.parent.popupUniversal.Hide();
     ////window.parent.cmbKarta.SetFocus(true);
     
@@ -133,7 +131,6 @@ function gup(name) {
 
 $(window).load(function () {
     try {
-        //$("#div")[0].style.visibility = 'visible';
         $("#div").show();
         panel.SetWidth(document.documentElement.clientWidth - 20);
         gvLupaKartaKlienti.SetWidth(document.documentElement.clientWidth - 50);

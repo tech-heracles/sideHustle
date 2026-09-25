@@ -648,7 +648,6 @@ function mbushGrideNgaHiddenFieldet() {
 }
 
 
-
 function callWsMerrTrupDokumenti(ndryshimMuajiCombo) {
  
     if (pageState.shtimModifikim == "klonim")
@@ -703,7 +702,6 @@ function doneCallbackMerrTrupDokumenti(result, ndryshimMuajiCombo ) {
     }
 
    
-  
 }
 
 
@@ -1043,7 +1041,6 @@ function merrTeDhena(e, callbackGjeneral) {
 }
 
 
-
 function ButtonClickKodi() {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
@@ -1113,7 +1110,6 @@ function vendosTotalet() {
     }
     txtVlefta.SetText(totali);
     var tot2 = 0;
-    // var tot3 = 0;
     for (var key in pageState.colKompListPagese) {//gjithe punonjesit
         {
             var colKomp = pageState.colKompListPagese[key];
@@ -1121,7 +1117,6 @@ function vendosTotalet() {
                 for (p = 0; p < colKomp.length; p++) {//secili punonjes
                     if (colKomp[p].Tipi == 1) {
                         tot2 += parseFloat(colKomp[p].Vlera);
-                        // tot3 += parseFloat(colKomp[p].Vlera);
                     }
                     else if (colKomp[p].KodKomponente == "SN" || colKomp[p].KodKomponente == "COMPPENS")
                         tot2 += parseFloat(colKomp[p].Vlera);
@@ -1132,7 +1127,6 @@ function vendosTotalet() {
             }
         }
     }
-    // console.log(tot3);
     txtVlefta2.SetText(tot2);
 }
 
@@ -1253,7 +1247,6 @@ Shiko funksionet <pastro>, <pastroFushatKokes> dhe <ndryshoKonfigurimin>.
 function EndRequestHandler(sender, args) {
 
     console.error("erdhi ketu ku sduhet!")
-    //  EndRequest();
 }
 
 function EndRequest(autosave) {
@@ -1261,7 +1254,6 @@ function EndRequest(autosave) {
     var hf = document.getElementById("status1");
     var idNdermarrje = hfState.Get('idNdermarrje');
     if ($('#hfqkmesazhi').val() == 'shfaqmesazh' && $('#hfStatusRuajtje').val() != '0') {
-        //popMesazhQK.Show();
         $('#hfqkmesazhi').val('jo');
         myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDeshironiTeBeniShperndarjenNeQendratEKostos"), cancelClick: JopopupClick, okClick: hapPopUp });
     }
@@ -1444,7 +1436,6 @@ function KlonoClick(e) {
     pageState.shtimModifikim = "klonim";
     myMenu.menuSipasTeDrejtaRegjistrim(hf1, hfTeDrejta);
     ndryshoKonfigurimin();
-    //inicializoGride();
 }
 
 var click = false;
@@ -1600,7 +1591,6 @@ function doneCallbackRuajRegjistrimListePagese(result, autoSave) {
 }
 
 
-
 function VendosVisibleMenus(visibleMenus) {
 
     ASPxMenu1.GetItemByName("Ruaj").SetVisible(visibleMenus[0]);
@@ -1642,8 +1632,6 @@ function PastroClick() {
     hiqKomponenteMuajiNgaSessioni();
     myMenu.menuSipasTeDrejtaRegjistrim(hf, hfTeDrejta);
     ndryshoKonfigurimin(); //duhet kur klijkojme butonin shto ne rastin kur kemi hap nje dok. per modifikim
-   // jQuery("#rowed5").GridUnload("rowed5");
-  //  inicializoGride();
 
     $('#ASPxSplitter1_hl').empty(); click = false;
 }
@@ -1679,7 +1667,6 @@ function NdryshimMuaji() {
     date.setHours(0);
     date.setMinutes(0);
     dteDtDok.SetDate(date);
-    //dteDtRegjistrimi.SetDate(date);
     var hfKontrollet = JSON.parse($('#hfKontrolletNrAutom').val());
     var atributet = JSON.parse($('#hfAtributeNrAutom').val());
     vendosNrAutomatik(atributet, hfKontrollet);
@@ -1967,7 +1954,6 @@ function doneCallbackLlogaritPagenNew(results) {
         pageState.colKompListPagese[infoPunonjesi.txtNrPersonal] = vleraELlogaritura.colKomponentePerPunonjes;
 
     }
-
 
 
     if (mesazhet != undefined || Object.keys(mesazhet).length > 0)

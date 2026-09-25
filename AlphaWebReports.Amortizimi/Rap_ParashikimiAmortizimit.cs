@@ -42,8 +42,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             parameter5.Value = raport.Parameters[4].Value;
             xrLabel4.Text = raport.Parameters[5].Description;
             parameter6.Value = raport.Parameters[5].Value;
-            //xrLabel3.Text = raport.Parameters[6].Description;
-            //parameter7.Value = raport.Parameters[6].Value;
           
             EmrateLabelave(ci);
 
@@ -61,30 +59,16 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             fieldAmortAkumuluar.FieldName = "amortizimGjithsej";
             fieldAmortAkumuluar.Caption = 
                 rm.GetString("labelAmortAkumuluar", ci);
-            //fieldAmortAkumuluar.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            //fieldAmortAkumuluar.CustomTotals.Add(PivotSummaryType.Sum);
-            //fieldAmortAkumuluar.TotalsVisibility = PivotTotalsVisibility.CustomTotals;
          
-
 
             XRPivotGridField fieldData = new XRPivotGridField("data", PivotArea.ColumnArea);
             fieldData.FieldName = "data";
             fieldData.Caption = "data";
-                //rm.GetString("labelRaportiCmimet", ci);
 
             XRPivotGridField fieldAmortizimi = new XRPivotGridField("amortizimi", PivotArea.DataArea);
-            //if (Convert.ToInt32(Grupim2.Value.ToString()) == 2)
-            //{
-            //    CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiD", ci);
-            //    fieldVleraCmimi.FieldName = "CMIMI2";
-            //}
             //else
-            //{
-                //CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiP", ci);
             fieldAmortizimi.FieldName = "amortizimi";
-           // }
             fieldAmortizimi.Caption = "Amortizimi shtese";
-                //rm.GetString("labelRaportiCmimet", ci);
             fieldAmortizimi.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             fieldAmortizimi.CellFormat.FormatString = "{0:#,#.#0}";
             fieldAmortAkumuluar.CellFormat.FormatString = "{0:#,#.#0}";
@@ -114,25 +98,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
 
             xrLabel17.Text = rm.GetString("lblRaportParashikimi", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel37.Text = rm.GetString("labelLlojDokumenti", ci);
-            //xrLabel27.Text = rm.GetString("filterNrDokRezervime", ci);
-            //xrLabel35.Text = rm.GetString("labelDateDok", ci);
-            //xrLabel23.Text = rm.GetString("labelFilterAvancuarMagazina", ci);
-            //xrLabel29.Text = rm.GetString("labelKodi", ci);
-            //xrLabel36.Text = rm.GetString("filterSeriali", ci);
-            //xrLabel30.Text = rm.GetString("lblRaportiDtAmortizimi", ci);
-            //xrLabel31.Text = rm.GetString("lblRaportiDtMePare", ci);
-            //xrLabel24.Text = rm.GetString("lblRaportiVleftaGjendje", ci);
-            //xrLabel25.Text = rm.GetString("lblRaportiAmortAkumuluar", ci);
-            //xrLabel26.Text = rm.GetString("lblRaportiAmortVjetor", ci);
-            //xrLabel32.Text = rm.GetString("labelRaportVlefta", ci) + "+/-";
-            //xrLabel33.Text = rm.GetString("lblRaportiHDAmortGjith", ci);
-            //xrLabel40.Text = rm.GetString("lblRaportiHDAmortVjetor", ci);
-            //xrLabel34.Text = rm.GetString("lblRaportiHDAmortShtese", ci);
-            //xrLabel38.Text = rm.GetString("lblRaportiDite", ci);
-            //xrLabel39.Text = rm.GetString("loginLoginPerdoruesi", ci);
-            //xrLabel62.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel71.Text = rm.GetString("labelLogoIMB", ci);
           
         }
 

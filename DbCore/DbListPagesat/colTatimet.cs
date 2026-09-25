@@ -169,18 +169,10 @@ namespace DbCore.DbListPagesat
         private bool mbushTatimet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTatime tatime = new clsTatime();
-                    //tatime.mbushTatime(rreshti);
                     Add(new clsTatime(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

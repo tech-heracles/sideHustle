@@ -22,7 +22,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
             EmrateLabelave(ci);
 
             
-
         }
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
@@ -37,7 +36,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
             titulliLabel.Text = rm.GetString("labelRaportBlerjetSipasSasiveKrahasueseTitulli", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             
-            //labelRaportiTotali.Text = rm.GetString("labelRaportiTotali", ci);
             labelLogoIMB.Text = rm.GetString("labelLogoIMB", ci);
             xrTableCell85.Text = rm.GetString("labelRaportiKodi", ci);
              xrTableCell86.Text = rm.GetString("labelRaportJanar", ci);

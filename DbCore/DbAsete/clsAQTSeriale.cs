@@ -399,11 +399,9 @@ namespace DbCore.DbAsete
             using (var scope=new MyTransactionScope())
             {
                 clsDatabazeAsete dbasete = new clsDatabazeAsete();
-                //dbasete.beginTransaksion();
                 mesazh = fshi(dbasete);
                 if (!mesazh.Status)
                 {
-                    //dbasete.rollbackTransaksion();
                     return mesazh;
                 }
                 mesazh = colArkiva.UpdateStatusDokFshi(idAQTSerial, 116, idPerdoruesi);
@@ -412,7 +410,6 @@ namespace DbCore.DbAsete
                     return mesazh;
                 }
                 scope.Complete();
-                //dbasete.commitTransaksion();
 
             }
             return mesazh;

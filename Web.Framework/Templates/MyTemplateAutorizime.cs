@@ -51,9 +51,7 @@ namespace PlatinumWeb.Templates
             {
                 if (gridContainer.Text == "0")
                 {
-                    //cmb.Text = "";
                     cmb.SelectedIndex = -1;
-                  //  cmb.Width = Unit.Percentage(100);
                 }
                 else
                 {
@@ -61,7 +59,6 @@ namespace PlatinumWeb.Templates
                     {
                         cmb.Text = "";
                         cmb.SelectedIndex = -1;
-                      //  cmb.Width = Unit.Percentage(100);
                     }
                     else
                     {
@@ -70,7 +67,6 @@ namespace PlatinumWeb.Templates
 
                         text = DbCore.clsFunksione.zevendesoKaraktere(text);
                         cmb.Text = text;
-                       // cmb.Width = Unit.Percentage(100);
                     }
                 }
             }
@@ -87,7 +83,6 @@ namespace PlatinumWeb.Templates
 
                     text = DbCore.clsFunksione.zevendesoKaraktere(text);
                     cmb.Text = text;
-                  //  cmb.Width = Unit.Percentage(100);
                 }
             }
             Container.Controls.Add(cmb);

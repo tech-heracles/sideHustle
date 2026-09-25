@@ -277,7 +277,6 @@ namespace Web.Framework.WebUtils.Pages
         public void KontrolloTeDrejtaRaporti(int idRaporti, int idPerdoruesi, int idNdermarrja, int idViti)
         {
             clsTeDrejtaRaporte teDrejtaRap = new clsTeDrejtaRaporte();
-            // teDrejtaRap.merrTeDrejtaPerRaportPerPerdorues(idRaporti, IdPerdoruesi, IdNdermarrja, IdViti);
 
             switch (teDrejtaRap.DAmb)
             {

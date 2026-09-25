@@ -41,13 +41,7 @@ function valido(s, e) {
 }
 
 function CustomValidation(s, e) {
-    //  gvEvidenca = new ASPxClientGridView();
     var kolona = gvEvidenca.GetColumnById("IdProfesioni");
-    //for (var i = 0, rreshtat = gvEvidenca.GetVisibleRowsOnPage() ; i < rreshtat;i++)
-    //{
-    //    gvEvidenca.batchEditApi.ValidateRow(i);
-    //    gvEvidenca.batchEditApi.StartEdit(i, kolona.index);
-    //}
 
     if (gvEvidenca.GetVisibleRowsOnPage() == 0) {
         myMesazh.ShtoMesazhGabimi("Nuk mund te ruhet dokumenti me trup bosh!");
@@ -100,7 +94,6 @@ function OnGetRowValuesMod(values) {
         PageControl.SetActiveTabIndex(1);
         ASPxMenu1.AdjustControl();
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
-        // AktivizoDraft();
     }
 
     Utils.hiqLoadingGif();;
@@ -113,7 +106,6 @@ function pastrofusha() {
     aktivizoFusha(colKontrollet, colAtrTrupi, false);
     gvEvidenca.PerformCallback(-1);
     IdStatusDok = undefined;
-    // AktivizoDraft();
 }
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
@@ -143,7 +135,6 @@ function SucceededCallbackKonfig(result) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
         resultkonf = result;
-        //  LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
@@ -154,7 +145,6 @@ function SucceededCallbackKonfig(result) {
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
 
         $("#divFillim").hide();
-        // $("#divGrida").width($("#tblPasqyra").width() + "%");
         $("#divGrida").show();
         $("#divFundi").show();
 
@@ -164,7 +154,6 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
             IdStatusDok = 0;
         }
-        //AktivizoDraft();
     }
 }
 
@@ -289,16 +278,7 @@ function AktivizoDraft() {
             ASPxMenu1.GetItemByName("Draft").SetEnabled(true)
     }
 }
-//function rowValidation(s, e) {
 //    if (e.visibleIndex == (s.GetVisibleRowsOnPage() - 1))//rreshti i fundit
-//        return;
-//    for (var col in e.validationInfo) {
-//        if (col.value == null) {
-//            col.isvalid = false;
-//            col.errorText = "Vlera nuk mund te jete bosh!";
-//        }
-//    }
-//}
 
 function rowValidation(s, e) {
 
@@ -332,7 +312,6 @@ function StartEditing(s, e) {
 
 function EndEditing(s, e) {
 
-    //if (focusedColumn == 'NumriGjithsej' || focusedColumn == 'NumriPerfunduar') {
         var originalValue = s.batchEditApi.GetCellValue(e.visibleIndex, focusedColumn);
         var newValue = e.rowValues[(s.GetColumnByField(focusedColumn).index)].value;
         var dif = newValue - originalValue;
@@ -343,7 +322,6 @@ function EndEditing(s, e) {
         var oldSummary = Utils.HiqPresjet(summaryTotal.GetValue());
 
         summaryTotal.SetValue(Utils.FormatoNumberMePresje(oldSummary + dif));
-    //}
 }
 function gvItemClick(s, e) {
     menu_click(s,e);

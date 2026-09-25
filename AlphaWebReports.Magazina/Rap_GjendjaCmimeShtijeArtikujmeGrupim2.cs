@@ -15,7 +15,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
     {
       
 
-
         public Rap_GjendjaCmimeShtijeArtikujmeGrupim2()
         {
             InitializeComponent();
@@ -72,14 +71,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             fieldGrupim2.SortOrder = PivotSortOrder.Descending;
 
 
-
-            //XRPivotGridField fieldNjesia = new XRPivotGridField("Njesia", PivotArea.RowArea);
-            //if (Convert.ToInt32(Grupim2.Value.ToString()) == 1)
-            //{
-            //    fieldNjesia.FieldName = "KODNJESIA";
-            //}
-            //else fieldNjesia.FieldName = "njesi2";
-            //fieldNjesia.Caption = rm.GetString("labelNjesia", ci);
             XRPivotGridField fieldNivelCmimi = new XRPivotGridField("Cmimet", PivotArea.ColumnArea);
             fieldNivelCmimi.FieldName = "PERSHKRIMNIVELCMIMI";
             fieldNivelCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);
@@ -114,7 +105,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
         }
 
 
-      
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -132,6 +122,5 @@ namespace AlphaWebReports.RaportetDs.Magazina
         }
 
       
-
     }
 }

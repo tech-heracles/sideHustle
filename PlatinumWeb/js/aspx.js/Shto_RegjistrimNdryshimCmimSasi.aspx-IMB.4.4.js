@@ -120,7 +120,6 @@ function inicializoGride(isLidhur) {
     ];
 
 
-
     var selektoriGrides = "#rowed5";
 
     var gridParams = {
@@ -284,12 +283,7 @@ function changeFunc(event, ui, emerKodi, index) {
     var idRresht = grida.getLastSel2();
     var emerfushe = '#' + emerKodi + idRresht;
     var detajim = -1;
-    //var index = -1;
-    //var idKod = 'txtKodi';
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
     if (index == idRresht) {
         var magazine = grida.getTekstQelize('txtMagazina', idRresht);
         if (ui == null || ui.item == null) {
@@ -418,7 +412,6 @@ function vendosArt(result) {
             grida.setTekstQelize('txtKodbari', idRreshti, (kodbarsel != undefined && kodbarsel != null && kodbarsel !== "" ? kodbarsel : kodbar))
             var comboMag = $('#txtMagazina' + idRreshti);
             var merrgjendje = false;
-            //  myelemComboMagazina(artikulli.IdMagazina, null, idRreshti);
             var mag = btneMagazina.GetText();
             if (((artikulli.IdMagazina != 0) && (mag == ''))) //magazina 
             {
@@ -657,7 +650,6 @@ function myElemCmimiRi(value, options) {
 }
 
 
-
 /*
 Function: myElemKodi
 
@@ -724,7 +716,6 @@ function myElemKodbari(value) {//po
     var idRresht = $('#rowed5').getLastSel2();
     return myJQGrid.myElemEmertimi(value, !lejomod ? 'True' : arrayReadOnlyKolonaGrides[2], idRresht, arrayIdKolonaGrides[2]);
 }
-
 
 
 /*
@@ -1051,11 +1042,7 @@ Ketu kolona e fundit eshte "Vlefta" (sepse eshte rasti kur nuk po behet transfer
 */
 function lostFocusKoloneFundit() {
     var grida = $("#rowed5");
-    //var idRresht = grida.getLastSel2();
       grida.lostFocusKoloneFundit();
-    //jQuery("#txtMagazina" + idRresht).focus();
-    //jQuery("#txtMagazina" + idRresht).blur();
-    //jQuery("#txtKodi" + idRresht).focus();
 
 }
 
@@ -1182,7 +1169,6 @@ function ButtonClickKerko(listUrl) {
     };
 
 
-   
     popupUniversal.SetHeaderText(hfState.Get("msgZgjidhDokumentin"));
     popupUniversal.SetContentUrl('LupaDokumenta.aspx?' + Utils.KonvertoObjectQueryString(queryString));
     popupUniversal.SetSize(widthLupaKerko, heightLupaKerko);
@@ -1449,7 +1435,6 @@ Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te
 function ndryshoKonfigurimin() {
     var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     if (pershkKonfigAmb != undefined)
-        //lblKonfigurimi.SetText(pershkKonfigAmb);
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") +': ' + pershkKonfigAmb);
     callWebserviceKonfigurimi(545, cmbKonfigurimi.GetText());
 }
@@ -1629,7 +1614,6 @@ function merrTeDhena(e) {
             panjesi = true;
 
 
-
     }
 
 
@@ -1720,7 +1704,6 @@ function ButtonClickKodi() {
     var queryStr = hfKod.value;
 
 
-
     popupUniversal.SetHeaderText(hfState.Get("headerPopUpZgjidhArtikullin"));
     var grup = '';
     if (btneMagazina.GetText() !== '') {
@@ -1731,7 +1714,6 @@ function ButtonClickKodi() {
         popupUniversal.SetContentUrl('LupaArtikull.aspx?idKonfigAmbjente=' + queryStr + '&grup=' + grup);
     popupUniversal.SetSize(widthLupaArtikull, heightLupaArtikull);
     popupUniversal.Show();
-
 
 
 }
@@ -1763,20 +1745,12 @@ function vendosVleftat(s) {
     if (isNaN(sasia)) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaDuhetNumer"));
         sasia = grida.getVlereDefault('txtSasiaRe');
-        //grida.setTekstQelize('txtSasia', lastsel2, sasia);
         $('#txtSasiaRe' + idRresht).focus();
     }
-    //if (sasia == "0") {
-    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaNukMundTeJeteZero"));
-    //    sasia = grida.getVlereDefault('txtSasiaRe');
-    //    //grida.setTekstQelize('txtSasia', lastsel2, sasia);
-    //    $('#txtSasiaRe' + lastsel2).focus();
-    //}
 
     if (cmimi === '' || isNaN((cmimi))) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgCmimiDuhetTeJeteNumer"));
         cmimi = grida.getVlereDefault('txtCmimiRi');
-        //grida.setTekstQelize('txtCmimi', lastsel2, cmimi);
         $('#txtCmimiRi' + idRresht).focus();
     }
     if (isNaN(vlefta)) {
@@ -1885,7 +1859,6 @@ function vendosCmimin() {
 }
 
 
-
 function updateTotalet() {
     var totali = 0;
     var grida = $("#rowed5");
@@ -1983,7 +1956,6 @@ function isValidKoka() {
     }
 
 
-
     else if ($('#hfRuajDraft').val() != "Draft" && editorCmimi != undefined && cmimzero == 2 && grida.getTekstQelize('txtCmimi', idRresht) == 0.00 && grida.getTekstQelize('txtKodi', idRresht) != '') {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukLejohetCmimZeroNeGride"));
         editorCmimi.focus();
@@ -2002,7 +1974,6 @@ function EndRequestHandler(sender, args) {
     formatoFushaDevi();
     var hf = document.getElementById("status1");
     if ($('#hfqkmesazhi').val() == 'shfaqmesazh') {
-        //popMesazhQK.Show();
         myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDeshironiShperndarjeQendraKosto"), okClick: function () { Utils.hapPopUp(hfState.Get("msgShperndarjeNeQendratEKostos"), $('#hfUrl')); }, cancelClick: function () { Utils.JopopupClick($('#hfUrl')); } });
     }
     if ($('#hfqkmesazhi').val() == 'shfaqlupe') {
@@ -2204,9 +2175,6 @@ function ShfaqPeriudhen() {
 }
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
 function valueChangedPeriudha() {
@@ -2219,7 +2187,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -2331,10 +2298,8 @@ function HeaderClick(s, e) {
 }
 
 
-
 var panjesi = false;
 
 function ButtonOkQKClick(s, e) {
-    //popMesazhQK.Hide();
     myButtonClickLupa.LupaUniversal_Click('Shperndarje ne qendrat e kostos', $('#hfUrl').val(), 900, 600);
 }

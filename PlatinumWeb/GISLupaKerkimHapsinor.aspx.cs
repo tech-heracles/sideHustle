@@ -20,7 +20,6 @@ namespace PlatinumWeb
         private int idPerdoruesi;
         private int idGjuha;
         private int idViti;
-        // private int idKonfigambjenti;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -124,12 +123,10 @@ namespace PlatinumWeb
 
         protected void gvLupaKerko_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //gvLupaKerko.Selection.UnselectAll();
         }
 
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
         {
-            //percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
         }
 
         protected void gvLupaKerko_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
@@ -145,9 +142,7 @@ namespace PlatinumWeb
 
         protected void callBackPanel_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
-            //gvLupaKerko.FilterExpression = e.Parameter;
 
-            // KonfiguroDataSourceGride();
         }
 
         private void KonfiguroDataSourceGride(ResourceManager rm, CultureInfo ci)

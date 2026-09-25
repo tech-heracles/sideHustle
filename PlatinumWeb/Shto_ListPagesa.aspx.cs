@@ -39,9 +39,6 @@ namespace PlatinumWeb
         private CultureInfo Ci => _ci ?? (_ci = mySessionObjects.ktheCultureInfo(Session));
 
 
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             int idGjuha;
@@ -168,9 +165,6 @@ namespace PlatinumWeb
             hfTeDrejta.Add("Arkiva", tedrejtaInfo.DArkiva);
             clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
             hfState.Set("idMonedhaNdermarrje", nderm.NdermarrjeMonedha);
-            //clsFunksione.perkthePopUp(popFshi, Rm.GetString("labelKujdes", ci), lblMsgbox, Rm.GetString("labelAdministrimiMsgJeniSigurt", ci), ButtonCancel, Rm.GetString("labelAnullo", ci));
-            //clsFunksione.perkthePopUp(popFshiRresht, Rm.GetString("labelKujdes", ci), lblMsgboxRreshti, Rm.GetString("labelAdministrimiMsgJeniSigurt", ci), ButtonCancel22, Rm.GetString("labelAnullo", ci));
-            //clsFunksione.perkthePopUp(popMesazhQK, Rm.GetString("labelKujdes", ci), lblMsgbox4, Rm.GetString("msgDeshironiTeBeniShperndarjenNeQendratEKostos", ci), ButtonCancelQK, Rm.GetString("cmbboxItemFilterAvancJo", ci), ButtonOkQK, Rm.GetString("cmbboxItemFilterAvancPo", ci));
         }
 
         /// <summary>
@@ -239,7 +233,6 @@ namespace PlatinumWeb
             hfPeriudhaKontabel.Set("fillimiPeriudha", periudha.FillimiPeriudha);
             hfPeriudhaKontabel.Set("mbarimiPeriudha", periudha.MbarimiPeriudha);
         }
-
 
 
         private void VisibleMenu(int idPerdoruesi, int id)
@@ -450,7 +443,6 @@ namespace PlatinumWeb
             }
 
             AspxWebControlUtils.vendosDateEditMask(dteDtDok, dteDtRegjistrimi);
-           // vendosDataDefault();
             mbushComboKonfigurimet(idPerdoruesi, idNdermarrje, false, rm, ci, idGjuha);
             var idKonfig = int.Parse(cmbKonfigurimi.Value.ToString());
             var idMonedheZgjedhur = clsFunksione.ktheMonedhePerFormatNumri(idGjuha, idKonfig, idNdermarrje, 710, "cmbMonedha", -1, true);
@@ -461,7 +453,6 @@ namespace PlatinumWeb
             hfState.Set("formatMonedhe", JsonConvert.SerializeObject(formatMonedhe));
             txtVlefta.Text = clsFunksione.krijoNumer(formatMonedhe.ShifraPasPresjesVlefta, "0");
         }
-
 
 
         /// <summary>
@@ -597,7 +588,6 @@ namespace PlatinumWeb
                     cmbNenDepartamenti.TextField = "Emri";
                     cmbNenDepartamenti.ValueField = "IdStrukturaAdm";
 
-                    //clsFunksione.mbushComboStrukturaAdm(cmbNenDepartamenti, id, mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 }
             }
         }

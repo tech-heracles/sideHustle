@@ -47,13 +47,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
         }
 
-        //private void xrLabel6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    if (GetCurrentColumnValue("PERDORUESEMRI") != null || GetCurrentColumnValue("PERDORUESMBIEMRI") != null)
-        //    {
-        //        xrLabel6.Text = GetCurrentColumnValue("PERDORUESEMRI").ToString() + " " + GetCurrentColumnValue("PERDORUESMBIEMRI").ToString();
-        //    }
-        //}
 
         private void xrTableCell58_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {

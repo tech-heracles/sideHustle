@@ -135,7 +135,6 @@ namespace DbCore
         {
             //lirojme memorien e ketij transaksioni
             AmbientTransactionCache.TryRemove(_currentTransactionKey, out _);
-            //  return currentCache;
         }
         public void ClearConnection()
         {

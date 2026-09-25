@@ -348,7 +348,6 @@ function ndryshoKonfigurimin() {
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetSelectedItem().GetColumnText("KodKonfigAmbjente"));
     callWebserviceKonfigurimi("513", cmbKonfigurimi.GetText());
     //TODO getson me kismet te behet edhe kjo funksionale
-    //   PlatinumWeb.wsfunc.ktheIndexSelectedFilterPeriudhaKusht(cmbKonfigurimi.GetValue(), SuccededCallbacPeriudhaKusht, myWS.webServiceFail);
 }
 
 function SuccededCallbacPeriudhaKusht(result) {

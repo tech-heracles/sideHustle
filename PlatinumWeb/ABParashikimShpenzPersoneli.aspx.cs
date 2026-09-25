@@ -27,7 +27,6 @@ namespace PlatinumWeb
         private const string komponente = "ABParashikimShpenzPersoneli.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -216,7 +215,6 @@ namespace PlatinumWeb
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
         }
-
 
 
         protected void gvParashikimShpenzPersoneli_HtmlFooterCellPrepared(object sender, ASPxGridViewTableFooterCellEventArgs e)

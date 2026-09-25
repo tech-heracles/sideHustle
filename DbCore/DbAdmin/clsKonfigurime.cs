@@ -144,31 +144,16 @@ namespace DbCore.DbAdmin
         ///// Nuk perdoret.
         ///// </summary>
         //public bool ruaj()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    //bool u_ruajt = data.ruajKonfigurim(this);
-        //    return true;
-        //}
 
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
         //public bool modifiko()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    //bool u_modifikua = data.modifikoKonfigurim(this);
-        //    return true;
-        //}
 
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
         //public bool fshi()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    //bool u_fshi = data.fshiKonfigurim(this);
-        //    return true;
-        //}
 
         /// <summary>
         /// Kthen/Vendos nje collection me objekte te tipit <see cref="DbCore.DbAdmin.clsKonfigurime"/>, te cilat i merr nga
@@ -179,18 +164,12 @@ namespace DbCore.DbAdmin
             colKonfigurime data = new colKonfigurime();
             data.mbushGjitheKonfigurimet();            
             return data;
-            //return new colKonfigurime();
         }
 
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
         //public int ekzistonKonfigurimMultiple()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    //return data.ekzistonKonfigurimMultiple();
-        //    return 1;
-        //}
 
         #endregion
 

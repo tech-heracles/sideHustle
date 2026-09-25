@@ -27,11 +27,6 @@ namespace DbCore.DbAdmin
         ///// metoda kthen obj e auditimit qe i parkasin veprimeve me nej tabele te caktuar
         /////  <see cref="DbCore.DbAdmin.clsDatabaseAdmin.merrKolonatPerAuditim"/> 
         ///// </summary>
-        //public colAuditime gjejAuditimePerTabelen(int idtabele, int idndermarrjeviti)
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    return mbushAuditimet(data.merrKolonatPerAuditim("1", 1)) ? this : null;
-        //}
 
         #endregion 
 
@@ -45,21 +40,13 @@ namespace DbCore.DbAdmin
         private bool mbushAuditimet(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    //clsAuditim audit = new clsAuditim();
-                    //audit.mbushAuditim(dr);
                     this.Add(new clsAuditim(dr));
                 }
                 return true;
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
         }
 
         #endregion

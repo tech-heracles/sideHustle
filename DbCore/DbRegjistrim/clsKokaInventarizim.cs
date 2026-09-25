@@ -228,7 +228,6 @@ namespace DbCore.DbRegjistrim
 
         }
 
-        //  private int idRaportDesing;
         #endregion
 
         #region Konstruktoret
@@ -423,7 +422,6 @@ namespace DbCore.DbRegjistrim
             }
 
           
-
             return krijoInventarizim(0, idNivel, konfigAmbjenti.IdKonfigAmbjente,  idMag, kodMag, dtDk, nrDk, idDokNga,  idSt, idNder, idNdVt, idPer, dtRegj,idNivelGjenerues, idKonfigGjenerues, idNivelGjenerues,  "", coltrupi, new clsDatabaseRegjistrim(), false, true, idkrijuesi, true,0);
         }
 
@@ -503,13 +501,11 @@ namespace DbCore.DbRegjistrim
         public clsMesazh ruajInventarizim(out int idMagKoka, int idNiv, int idKonf,  int idMag, DateTime dtDk, string nrDk,  int idLidhes,  int idSt, int idNder, int idNdVt, int idPer, DateTime dtRegj,  int idNivelGjenerues, int idKonfigGjenerues, int idGjenerues,  colTrupiInventarizim ocolTrupi,   clsDatabaseRegjistrim dbRegj, string pershkrimi,  out string shfaqmesazhapolupe, ResourceManager rm, CultureInfo ci, int idkrijuesi, bool modifikim,int idrap)
         {
             //transaksioni per te ruajtur 
-            //bool connectionIRi = false;
             clsMesazh mesazh;
             
             shfaqmesazhapolupe = "jo";
             idMagKoka = 0;
 
-            //   clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             idMagKoka = dbRegj.ruajKokaInventarizim(idMagKoka, idNiv, idKonf,  idMag, dtDk, nrDk,    idLidhes,  idSt, idNder, idNdVt, idPer, dtRegj,   idNivelGjenerues, idKonfigGjenerues, idGjenerues,  pershkrimi, idkrijuesi,idrap);
 
             if (idMagKoka == 0)
@@ -517,7 +513,6 @@ namespace DbCore.DbRegjistrim
            
             System.Diagnostics.Stopwatch myWatchRuajTrupin = System.Diagnostics.Stopwatch.StartNew();
             #region Ruajtrupin
-            //int count = 0;
             int iii = 0;
             System.Diagnostics.Stopwatch myWatchRuajTrupinOcolTrupiMagazina = System.Diagnostics.Stopwatch.StartNew();
           
@@ -566,7 +561,6 @@ namespace DbCore.DbRegjistrim
         {
            
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_ruajt;
             shfaqmesazhapolupe = "";
@@ -625,7 +619,6 @@ namespace DbCore.DbRegjistrim
             if (!mesazhKontrolli.Status)
             {
                 shfaqmesazhapolupe = "jo";
-                //db.rollbackTransaksion();
                 return mesazhKontrolli;
             }
             int idkoka = 0;
@@ -635,11 +628,9 @@ namespace DbCore.DbRegjistrim
             this.idKoka = idkoka;
             if (!u_ruajt.Status)
             {
-                //db.rollbackTransaksion();
                 return u_ruajt;
             }
 
-            //db.commitTransaksion();
             if (kaNdryshimNumri)
                 return mesazhKontrolli;
             return u_ruajt;
@@ -742,7 +733,6 @@ namespace DbCore.DbRegjistrim
                
                 kokaEkzistuese.mbushKokaInventarizimSipasID(idMagKoka, dbRegj);
                 this.idKrijuesi = kokaEkzistuese.idKrijuesi;//dokumentit te ri i vendosim id e krijuesit te dokumentit te vjeter
-                //clsKokaInventarizim kokaEkzistuese = this.merrKokaMagazinaSipasID(koka)[0];
                 if (string.IsNullOrEmpty(kokaEkzistuese.NrDok) || kokaEkzistuese.IdStatusDok == 2)
                 {
                     return new clsMesazh(false, rm.GetString("msgDokumentiKaNdryshuarHapeniPerseri", ci));
@@ -782,7 +772,6 @@ namespace DbCore.DbRegjistrim
             clsMesazh u_modifikua;
           
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //data.krijoManager();
             shfaqmesazhapolupe = "jo";
 
             try
@@ -864,7 +853,6 @@ namespace DbCore.DbRegjistrim
         }
      
       
-    
         /// <summary>
         /// Fshin objektin e  kokes se dokumentit te magazines ne tabelen perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbRegjistrim.clsDatabaseRegjistrim.fshiKokaMagazina"/> 
@@ -874,7 +862,6 @@ namespace DbCore.DbRegjistrim
         {
             clsKokaInventarizim data = new clsKokaInventarizim();
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             clsMesazh u_fshi = data.fshiInventarizim(this.IdKoka, this.idPerdoruesi, dbRegj);
             if (u_fshi.Status)
@@ -885,7 +872,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-    
         /// <summary>
         /// Merr trupin  e  nje dokumenti te magazines nga tabela perkatese ne databaze.Therret funksionin
         /// :  <see cref="DbCore.DbRegjistrim.clsDatabaseRegjistrim.ktheTrupiMagazina"/> 

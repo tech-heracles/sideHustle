@@ -53,7 +53,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         }
 
 
-
         string TipGrafiku;
         private void Rap_GrafikuMarzhitShitjes_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
@@ -101,9 +100,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             series.Label.Border.Visible = false;            
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
             series.Label.PointOptions.ValueNumericOptions.Precision = 2;
-            //series.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
-            //series.Label.Visible = labelVisible;
-            //series.PointOptions.ValueNumericOptions.Precision = 2;
 
             marzhiShitjeveChart.Series.Add(series);
             MerrTipGrafiku(series);

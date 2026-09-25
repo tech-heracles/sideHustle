@@ -59,21 +59,13 @@ namespace DbCore.DbKontabiliteti
             private bool mbushTrupSkemaFK(DataTable dt)
             {
                 //try
-                //{
 
                     foreach (DataRow rreshti in dt.Rows)
                     {
-                        //clsTrupiSkemaFleteKontabel trupiSkemaFK = new clsTrupiSkemaFleteKontabel();
-                        //trupiSkemaFK.mbushTrupFletSkemKont(rreshti);
                         Add(new clsTrupiSkemaFleteKontabel(rreshti));
                     }
 
-                //}
-                //catch (Exception)
-                //{
-                //    return false;
                 //    //throw;
-                //}
                 return true;
             }
 

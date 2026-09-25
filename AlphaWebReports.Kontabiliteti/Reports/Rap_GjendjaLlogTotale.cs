@@ -17,8 +17,6 @@ namespace AlphaWebReports.RaportetDs
         string windowWidth = "";
 
         
-  
-
         public Rap_GjendjaLlogTotale(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdPerdoruesi, param.GuidString, param.IdRaporti, param.IdGjuha, param.Vjen,param.IdViti, param.IdSubRaporti,param.ScopeID, report)
         {
@@ -277,7 +275,6 @@ namespace AlphaWebReports.RaportetDs
             string catid = GetCurrentColumnValue("NRLLOGARI") == null ? "" : GetCurrentColumnValue("NRLLOGARI").ToString();
           
            
-
             if (SkippedDetailBands.Contains(catid))
                 e.Cancel = Convert.ToBoolean(SkippedDetailBands[catid]);
             else
@@ -288,7 +285,6 @@ namespace AlphaWebReports.RaportetDs
 
         private void xrLabel31_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (Convert.ToDecimal(xrLabel31.Text) < 0)
             if (Double.Parse(xrLabel31.Text) < 0)
                 xrLabel31.Text = "";
         }
@@ -352,7 +348,6 @@ namespace AlphaWebReports.RaportetDs
             else e.Result = String.Format("{0:#,#.00}", 0);
             e.Handled = true;
         }
-
 
 
         private void xrLabel42_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -428,7 +423,4 @@ namespace AlphaWebReports.RaportetDs
     }
 
 
-
-
- 
 }

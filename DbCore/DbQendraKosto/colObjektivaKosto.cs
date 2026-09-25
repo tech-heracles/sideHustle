@@ -123,20 +123,12 @@ namespace DbCore.DbQendraKosto
         private bool mbushObjektivaKosto(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsObjektivaKosto objektiva = new clsObjektivaKosto();
-                    //objektiva.mbushObjektivKosto(rreshti);
                     Add(new clsObjektivaKosto(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

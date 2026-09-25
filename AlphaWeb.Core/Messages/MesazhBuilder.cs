@@ -8,8 +8,6 @@ namespace AlphaWeb.Core.Messages
     public class MesazhBuilder : IMesazhBuilder
     {
         //sealed class
-        //private static MesazhBuilder instance;
-        //private static object syncRoot = new object();
 
         public MesazhBuilder()
         {
@@ -17,20 +15,8 @@ namespace AlphaWeb.Core.Messages
         }
 
         //public static MesazhBuilder Instance
-        //{
         //    get
-        //    {
-        //        lock (syncRoot)
-        //        {
-        //            if (instance == null)
-        //            {
-        //                instance = new MesazhBuilder();
-        //            }
-        //        }
 
-        //        return instance;
-        //    }
-        //}
 
         public IMesazh CreateMesazhGabimi(string mesazhi = "")
         {

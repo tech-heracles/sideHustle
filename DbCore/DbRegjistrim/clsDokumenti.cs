@@ -35,7 +35,6 @@ namespace DbCore.DbRegjistrim
         private int idKonfigAmbjente;
         private string emertimiKf;
         private DataRow rreshti;
-        //private string ngjyra;
      
 
         #endregion
@@ -54,8 +53,6 @@ namespace DbCore.DbRegjistrim
             DbAdmin.clsDatabaseAdmin dbadmin = new DbAdmin.clsDatabaseAdmin(dbregj );
                 if (niveli != null && niveli.ToString() != string.Empty)
                 {
-                    //DbCore.DbRegjistrim.clsNivelRegjistrimi nivel = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                    //nivel.mbushNivelRegjistrimiSipasKodit(niveli.ToString(), idndermarje));
                     int idNiveli = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(niveli.ToString(),idndermarje,dbregj);
                     if (idNiveli >0)
                         this.idNiveli = idNiveli;
@@ -200,16 +197,8 @@ namespace DbCore.DbRegjistrim
             }
         }
         //public string Ngjyra
-        //{
         //    get
-        //    {
-        //        return ngjyra;
-        //    }
         //    set
-        //    {
-        //        ngjyra = value;
-        //    }
-        //}
         /// <summary>
         /// Kthen/Vendos nr e dokumentit.
         /// </summary>

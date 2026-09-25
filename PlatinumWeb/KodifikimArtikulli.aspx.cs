@@ -25,7 +25,6 @@ namespace PlatinumWeb
     public partial class KodifikimArtikulli : MyPageBase
     {
         ArrayList vlerat = new ArrayList();
-        //DbCore.DbInventari.clsKodifikimArtikulli kodifikim;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -692,20 +691,8 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = grida.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKodifikimi", grida);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grida.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodKodifikimi";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = IdPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -1091,12 +1078,6 @@ namespace PlatinumWeb
 
         protected void gridat_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //konfiguroVleraFillestare();
-            //int index = ASPxPageControl1.ActiveTabIndex;
-            //ASPxGridView grida;
-            //if (index == 0) grida = gvKodifikimArtikulli;
-            //else if (index == 1) grida = gvKodifikimArtikulliGr2;
-            //else grida = gvKodifikimArtikulliGr3;
             ASPxGridView grida = sender as ASPxGridView;
             konfiguroGride(grida, (bool)hfState.Get("lupe"));
             percaktoTamplatePrindi(grida);
@@ -1110,12 +1091,7 @@ namespace PlatinumWeb
 
         protected void gridat_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
-            //int index = ASPxPageControl1.ActiveTabIndex;
-            //ASPxGridView grida;
             ASPxGridView grida = sender as ASPxGridView;
-            //if (index == 0) grida = gvKodifikimArtikulli;
-            //else if (index == 1) grida = gvKodifikimArtikulliGr2;
-            //else grida = gvKodifikimArtikulliGr3;
             string[] arr = e.Parameters.Split(';');
             if (arr.Length == 3)
             {
@@ -1123,12 +1099,9 @@ namespace PlatinumWeb
                     grida.FilterExpression = "";
                 else
                 {
-                    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], IdNdermarrja);
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(IdGjuha, "gvKodifikimArtikulli", DbCore.clsFunksione.GetKomponente(Page.Request), IdNdermarrja);
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], IdNdermarrja, koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], IdNdermarrja);
                     if (filtra.FiltraKodi != null)
                     {
                         grida.FilterExpression = filtra.FiltraVlera;

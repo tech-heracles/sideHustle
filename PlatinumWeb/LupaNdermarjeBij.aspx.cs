@@ -101,7 +101,6 @@ namespace PlatinumWeb
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true;
                 check.Width = Unit.Percentage(2);
-                //   check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gvLupaNdermarje.Settings.ShowFilterRow = true;
                 gvLupaNdermarje.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -185,20 +184,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNdermarje.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNdermarrje", gvLupaNdermarje);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNdermarje.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNdermarrje";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -207,7 +194,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNdermarje", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNdermarjeBij.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -231,7 +217,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNdermarje", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNdermarjeBij.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -361,17 +346,9 @@ namespace PlatinumWeb
                     cmimi.IdMonedha = Convert.ToInt32(dt.Rows[i]["IdMonedha"]);
                     cmimi.IdNjesia = Convert.ToInt32(dt.Rows[i]["IdNjesia"]);
                     cmimi.IdNjesia2 = Convert.ToInt32(dt.Rows[i]["IdNjesia2"]);
-                    //cmimi.DateMbarimi = Convert.ToDateTime(dt.Rows[i]["DateMbarimi"]);
-                    //cmimi.SasiMax = Convert.ToDecimal(dt.Rows[i]["SasiMax"]);
-                    //cmimi.SasiMin = Convert.ToDecimal(dt.Rows[i]["SasiMin"]);
                     cmimi.IdCmimArtikulli = Convert.ToInt32(dt.Rows[i]["IdCmimArtikulli"]);
-                    //cmimi.Formula = "";
                     cmimi.IdStatusDok = 1;
                     cmimet.Add(cmimi);
-                    //if (njesi[i] != null&&njesi[i] != "null"&&njesi[i] != "")
-                    //{
-                    //    cmimet[i].IdNjesia = int.Parse(njesi[i]);
-                    //}
                     if (dtFill[i] != null && dtFill[i].ToString() != "")
                         cmimet[j].DateFillimi = DateTime.Parse(dtFill[i].ToString());
                     if (dtMbar[i] != null && dtMbar[i].ToString() != "")
@@ -387,7 +364,6 @@ namespace PlatinumWeb
                     if (cmim2[i] != null && cmim2[i].ToString() != "")
                         cmimet[j].Cmimi2 = decimal.Parse(cmim2[i].ToString());
                     cmimet[j].IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                    //cmimet[j].IdNderViti = new DbCore.clsFunksione().ktheNdermarrjeVit();
                     cmimet[j].IdNdermarje = idNdermarrje;
                     DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                     konf.mbushKonfigAmbjSipasKod("CSH", cmimet[j].IdNdermarje);

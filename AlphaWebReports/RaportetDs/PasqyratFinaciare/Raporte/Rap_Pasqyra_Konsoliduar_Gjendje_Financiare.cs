@@ -16,8 +16,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         bool hapurgjitha = false;
         CultureInfo ci;
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
         int nivTemp = 0;
         string vlera;
         string vlera1;
@@ -267,10 +265,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel57_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //string niv = "";
-            //if (niveli1 > 0)
-            //    niv = romake[niveli1 - 1];
-            //else niv = "I";
             XRLabel label = sender as XRLabel;
             label.Text = xrLabel32.Text + "." + xrLabel23.Text;
         }
@@ -356,7 +350,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel50_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //niv = 0;
             double shuma = 0;
             for (int i = 0; i < e.CalculatedValues.Count; i++)
                 if (e.CalculatedValues[i].ToString().Contains("("))
@@ -474,7 +467,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel22.Text = rm.GetString("labelRaportiUshtrimiParaardhes", ci);
             xrLabel56.Text = rm.GetString("labelRaportiShuma", ci);
             xrLabel58.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel63.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel74.Text = rm.GetString("lblRaportAktivetNeto", ci);
             xrLabel70.Text = rm.GetString("filterMonedha", ci);
             xrLabel14.Text = rm.GetString("labelRaportiNrLlog", ci);
@@ -487,10 +479,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv = 0;
-            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //if (xrLabel2.Text == "Aktivet")
-            //    xrLabel2.Text = rm.GetString("labelRaportiAktive", ci);
-            //else xrLabel2.Text = rm.GetString("labelRaportiKapitali", ci);
         }
 
         private void xrLabel64_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -518,13 +506,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             if (xrLabel6.Text == "Aktive te pacaktuara")
                 xrLabel6.Text = rm.GetString("labelRaportiAktiveTePacaktuara", ci);
             else if (xrLabel6.Text == "Pasive te pacaktuara") xrLabel6.Text = rm.GetString("labelRaportiKapitaliTePacaktuara", ci);
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    xrLabel16.Text = "";
-            //    xrLabel69.Text = "";
-            //    xrLabel37.Text = "";
              
-            //}
         }
 
         private void xrLabel44_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -626,32 +608,12 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //private void xrLabel66_SummaryReset(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //    niv2 = 0;
-        //    niv3 = 0;
-        //}
-
-        //private void xrLabel63_SummaryReset(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //}
 
         private void xrLabel49_SummaryReset(object sender, EventArgs e)
         {
 
         }
 
-        //private void xrLabel63_AfterPrint(object sender, EventArgs e)
-        //{
-        //    //niv = 0;
-        //}
-
-        //private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
 
         private void xrLabel33_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -661,7 +623,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel33_SummaryReset(object sender, EventArgs e)
         {
-            //niv = 0;
         }
 
         private void xrLabel33_AfterPrint(object sender, EventArgs e)
@@ -714,7 +675,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-           // xrLabel34.Text = vlera;
         }
 
         private void xrLabel69_AfterPrint(object sender, EventArgs e)
@@ -729,18 +689,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel89_AfterPrint(object sender, EventArgs e)
         {
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    vlera = xrLabel69.Text;
-            //}
         }
 
         private void xrLabel89_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (xrLabel6.Text == "Nga kjo ; Rezult. e mbartura e te ushtrimi")
-            //{
-            //    vlera = xrLabel69.Text;
-            //}
 
         }
 
@@ -751,9 +703,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_AfterPrint(object sender, EventArgs e)
         {
-            //vlera1 = xrLabel34.Text;
             //float diferenca=Co
-            //xrLabel72.Text = String.Format("{0:#,#.00}", shuma);
         }
 
         private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

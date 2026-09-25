@@ -310,7 +310,6 @@ namespace DbCore.DbListPagesat
         {
             clsMesazh mesazh = new clsMesazh(true);
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
-            //db.krijoManager();
             db.beginTransaksion();
             colTatimet col = new colTatimet(idNdermarje, data);
             IEnumerable<clsTatime> tatimtjeter = (from c in col

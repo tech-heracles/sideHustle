@@ -48,7 +48,6 @@ namespace DbCore.DbKontabiliteti
         public clsNenLlojLlogarish(int id, clsDatabaseKontabilitet dbNenLlojLlog)
         {
             mbushNenLlojLlogarish(dbNenLlojLlog.TransCache.getNenLlojLlogarish(id, dbNenLlojLlog));
-            //mbushNenLlojLlogarish(dbNenLlojLlog.ktheNenLlojLlogarieSipasID(id));
         }
 
         /// <summary>
@@ -123,32 +122,14 @@ namespace DbCore.DbKontabiliteti
         {
             clsNenLlojLlogarish data = new clsNenLlojLlogarish(this.IdNenLlojLlogarie);
             return data;
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //colNenLlojLlogarish col = data.merrNenLlojLlogarieSipasID(this.IdNenLlojLlogarie);
-            //if (col.Count > 0)
-            //{
-            //    return col[0];
-            //}
             //else
-            //{
-            //    return new clsNenLlojLlogarish();
-            //}
         }
 
         public clsNenLlojLlogarish merrNenLlojLlogarieSipasKodit()
         {
             clsNenLlojLlogarish data = new clsNenLlojLlogarish(this.KodNenLlojLlogarie);
             return data;
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //colNenLlojLlogarish col = data.merrNenLlojLlogarieSipasKodit(this.KodNenLlojLlogarie);
-            //if (col.Count > 0)
-            //{
-            //    return col[0];
-            //}
             //else
-            //{
-            //    return new clsNenLlojLlogarish();
-            //}
         }
 
         #endregion

@@ -36,7 +36,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaPasqFin.GetSelectedFieldValues('PershkrimiZerit', OnGridSelectionComplete);
     gvLupaPasqFin.GetRowValues(gvLupaPasqFin.GetFocusedRowIndex(), 'PershkrimiZerit', OnGridSelectionComplete);
 }
 
@@ -44,12 +43,7 @@ function OnGridSelectionComplete(values) {
     var txtpasqyrefinanciare;
     txtpasqyrefinanciare = '';
 
-    //        for (var i = 0; i < values.length; i++) {
-    //            if (txtpasqyrefinanciare == '')
-    //                txtpasqyrefinanciare = values[values.length - 1];
     //            else
-    //                txtpasqyrefinanciare = txtpasqyrefinanciare + ',' + values[i];
-    //        }
 
     txtpasqyrefinanciare = values;
     window.parent.editorGlobal.SetText(txtpasqyrefinanciare);

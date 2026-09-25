@@ -42,7 +42,6 @@ Harta.prototype = {
         var fizikeGooglemap = new OpenLayers.Layer.Google("Harta fizike", { type: google.maps.MapTypeId.TERRAIN, disableDefaultUI: false, numZoomLevels: 22, visibility: false, isBaseLayer: true, displayInLayerSwitcherBase: true });
         this.map.addLayer(fizikeGooglemap);
         
-        //var layerSwitch = new OpenLayers.Control.LayerSwitcher();
         this.layerSwitch = new OpenLayers.Control.LayerSwitcher();
         
         this.map.addControl(this.layerSwitch);
@@ -107,9 +106,7 @@ Harta.prototype = {
             displayClass: 'customEditingToolbar',
             allowDepress: true
         });
-        //panel.addControls([drawPoint]);
         this.map.addControl(panel);
-        //  this.map.zoomToExtent(extent);
         this.map.setCenter(mapCenter,5);
 
         var featureSelected = new Array();

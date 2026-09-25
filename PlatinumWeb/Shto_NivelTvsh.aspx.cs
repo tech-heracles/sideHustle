@@ -112,16 +112,7 @@ namespace PlatinumWeb
         /////      mbush combon e filtrave
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //{
 
-        //    //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("ASPxGridView_Llogarite", "Shto_Llogari.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvShtoNivelTvsh", "Shto_NivelTvsh.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());  //colFiltra = dbAdmin.merrGjitheFiltratGridaByGridaKoka(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -169,7 +160,6 @@ namespace PlatinumWeb
         }
         private void inicializoObjekte()
         {
-            //dbRegjistrime = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
         }
         protected void gvShtoNivelTvsh_DataBound(object sender, EventArgs e)
         {// shton colonen # per selektim dhe disa karakteristika te grides
@@ -179,7 +169,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //  check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gvShtoNivelTvsh.Settings.ShowFilterRow = true;
                 gvShtoNivelTvsh.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -195,7 +184,6 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestare(int idPerdoruesi, int idNdermarrje, ResourceManager rm, CultureInfo ci, int idGjuha)
         { //mbush komboboxet dhe gridat e faqes
             inicializoObjekte();
-            //  mbushListeTaksash();
 
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogDebi);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogKredi); ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogDog);
@@ -208,7 +196,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idgjuha);
             hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
-            //cmbKonfigurimi.SelectedIndex = -1;
         }
         private void mbushGridNiveleshNgaSession()
         {
@@ -233,11 +220,8 @@ namespace PlatinumWeb
         }
         private void mbushListeTaksash(int idNdermarrje)
         {//mbush griden me te dhena
-            //dbRegjistrime = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
             DbCore.DbRegjistrim.colTaksa col = new DbCore.DbRegjistrim.colTaksa(idNdermarrje, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //col.Add(new DbCore.DbRegjistrim.clsTaksa());
-            //col.AddRange(dbRegjistrime.merrGjitheTaksa(idNderm,DbCore.mySessionObjects.ktheIdPerdoruesi(Session)));
 
             gvShtoNivelTvsh.DataSource = col;
             gvShtoNivelTvsh.DataBind();
@@ -246,7 +230,6 @@ namespace PlatinumWeb
         {
             DbCore.DbRegjistrim.colLlojTakse lloj = new DbCore.DbRegjistrim.colLlojTakse();
             lloj.mbushGjitheLlojeTaksash();
-            //DbCore.DbRegjistrim.colLlojTakse lloj = dbRegjistrim.merrGjitheLlojeTaksash();
             cmbLloji.DataSource = lloj;
             cmbLloji.TextField = "Pershkrim";
             cmbLloji.ValueField = "IdLlojTakse";
@@ -273,7 +256,6 @@ namespace PlatinumWeb
             KonfigurimComboGride.shtoAktivPoOseJo(gvShtoNivelTvsh, rm, ci, "FurnizimeZero");
            
             gvShtoNivelTvsh.SettingsEditing.NewItemRowPosition = DevExpress.Web.GridViewNewItemRowPosition.Top;
-            //    mbushListeTaksash();
             GridViewDataTextColumn col3 = gvShtoNivelTvsh.Columns["NormaPerqindje"] as GridViewDataTextColumn;
             col3.PropertiesEdit.DisplayFormatString = "0.00";
             gvShtoNivelTvsh.Columns["#"].VisibleIndex = 0;
@@ -291,7 +273,6 @@ namespace PlatinumWeb
         }
  
 
-
         /// <summary>
         /// fshin filtrin e zgjedhur dhe aplikuar mbi gride, fshirje nga DB ku ai eshte ruajtur, dhe jo pastrimi i grides nga aplikimi i filtrit
         /// per kete do sherbeje Clear Filter ne fund te grides
@@ -305,16 +286,13 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvShtoNivelTvsh", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvShtoNivelTvsh", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
 
@@ -323,7 +301,6 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                // konfiguroVleraFillestare();
                 hfStatusi.Value = "true";
                 gvShtoNivelTvsh.FilterExpression = String.Empty;
             }
@@ -339,39 +316,22 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("ASPxGridView_Llogarite", "Shto_Llogari.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvShtoNivelTvsh", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvShtoNivelTvsh.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodTaksa", gvShtoNivelTvsh);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvShtoNivelTvsh.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodTaksa";
-            //    filtri.DrejtimRenditje = true;
-            //}
-            //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvShtoNivelTvsh", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
             percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
 
@@ -396,7 +356,6 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-            //List<object> rreshtat = gvShtoNivelTvsh.GetSelectedFieldValues("IdTaksa");
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (rreshtat.Count == 0)
@@ -406,7 +365,6 @@ namespace PlatinumWeb
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
 
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbAdmin.clsNdermarrje nderm = new DbCore.DbAdmin.clsNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
@@ -434,7 +392,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqNivelNgaGrida(taksa.IdTaksa, rm, ci);
                     #endregion
                     TeFshire.Add(taksa.KodTaksa);
@@ -501,8 +458,6 @@ namespace PlatinumWeb
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbRegjistrim.colTaksa.merrTaksaSipasNdermarjesDR(idNdermarrje, idnivel);
-                //  dt.Rows.Remove(dr);
-                // dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -654,10 +609,8 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvShtoNivelTvsh", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         gvShtoNivelTvsh.FilterExpression = filtra.FiltraVlera;

@@ -42,7 +42,6 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
@@ -88,8 +87,6 @@ namespace PlatinumWeb
             hfTeDrejta.Set("msgKontrolliPerGabimet", rm.GetString("msgKontrolliPerGabimet", ci));
 
         }
-
-
 
 
         /// <summary>
@@ -210,7 +207,6 @@ namespace PlatinumWeb
                     DbCore.clsMesazh mesazh = koka.ruajErrorImporti();
 
 
-
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgGabimeNeRReshtatEgrides", ci), pnlMesazhi);
                 }
                 else clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgKontrolliKaloiMeSukses", ci), pnlMesazhi);
@@ -276,7 +272,6 @@ namespace PlatinumWeb
                 DbCore.DbRegjistrim.clsKokaShitje kokaurdhershitje = new DbCore.DbRegjistrim.clsKokaShitje();
                 kokaurdhershitje.mbushKokaShitjeSipasIDPaTrup(idshitje);
 
-                //clsPeriudhaKontabel per = new clsPeriudhaKontabel(dateshitje, kokaurdhershitje.IdNdermarrje);
                 int idPeriudheKontabel = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dateshitje, kokaurdhershitje.IdNdermarrje);
                 int loan = 0;
                 DbCore.DbKontabiliteti.clsKlientFurnitor kf = new DbCore.DbKontabiliteti.clsKlientFurnitor();
@@ -788,7 +783,6 @@ namespace PlatinumWeb
             else id = Convert.ToInt32(e.Keys["id"]);
 
             DataRow dr = dt.Rows.Find(id);
-            //dt.Rows.Remove(dr);
             if (Request.QueryString["lloji"] == "importfk")
             {
                 DbCore.clsMesazh fshire = DbCore.DbImporte.clsImportKokaFleteKontabel.fshiKokaFleteKont(id);

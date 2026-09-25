@@ -34,22 +34,6 @@ namespace AlphaWebReports.RaportetDs.Raporte_Menaxheriale
                 xrLabel24.Text = "Te transferuara";
             xrLabel26.Text = raport.Parameters["filterNrSerial"].Description;
             xrLabel25.Text = raport.Parameters["filterNrSerial"].Value.ToString();
-            //  xrLabel21.Text = raport.Parameters[3].Description;
-            // parameter4.Value = raport.Parameters[3].Value;
-            //  xrLabel27.Text = raport.Parameters[4].Description;
-            //  parameter5.Value = raport.Parameters[4].Value;
-            //  xrLabel26.Text = raport.Parameters[5].Description;
-            //parameter6.Value = raport.Parameters[5].Value;
-            //xrLabel28.Text = raport.Parameters[6].Description;
-            //   parameter7.Value = raport.Parameters[6].Value;
-            //  xrLabel29.Text = raport.Parameters[7].Description;
-            //      parameter8.Value = raport.Parameters[7].Value;
-            // xrLabel37.Text = raport.Parameters[8].Description;
-            //parameter9.Value = raport.Parameters[8].Value;
-            //xrLabel36.Text = raport.Parameters[9].Description;
-            //parameter10.Value = raport.Parameters[9].Value;
-            //  xrLabel35.Text = raport.Parameters[10].Description;
-            //parameter11.Value = raport.Parameters[10].Value;
             
         }
            /// <summary>

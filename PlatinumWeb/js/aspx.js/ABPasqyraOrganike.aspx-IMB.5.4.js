@@ -41,13 +41,7 @@ function valido(s, e) {
 }
 
 function CustomValidation(s, e) {
-    //  gvPasqyra = new ASPxClientGridView();
     var kolona = gvPasqyra.GetColumnById("IdProfesioni");
-    //for (var i = 0, rreshtat = gvPasqyra.GetVisibleRowsOnPage() ; i < rreshtat;i++)
-    //{
-    //    gvPasqyra.batchEditApi.ValidateRow(i);
-    //    gvPasqyra.batchEditApi.StartEdit(i, kolona.index);
-    //}
 
     if (gvPasqyra.GetVisibleRowsOnPage() == 0) {
         myMesazh.ShtoMesazhGabimi("Nuk mund te ruhet dokumenti me trup bosh!");
@@ -91,7 +85,6 @@ function OnGetRowValuesMod(values) {
     if ($('#hfShtimModifikim').val() == "shtim")
         return;
 
-    // $('#hfId').val(values[0]);
     if ($('#hfShtimModifikim').val() == "modifikim") {
         txtNrDok.SetEnabled(false);
     } else {
@@ -110,7 +103,6 @@ function OnGetRowValuesMod(values) {
         PageControl.SetActiveTabIndex(1);
         ASPxMenu1.AdjustControl();
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
-        // AktivizoDraft();
     }
 
     Utils.hiqLoadingGif();;
@@ -119,7 +111,6 @@ function OnGetRowValuesMod(values) {
 //pastron fushat per shtim dhe ben aktive fushat
 function pastrofusha() {
     txtNrDok.SetText("");
-    // txtNrDok.SetEnabled(true);
     txtDate.SetValue(new Date());
     cmbMuaji.SetValue(null);
     txtTotaliFemra.SetText("");
@@ -127,7 +118,6 @@ function pastrofusha() {
     aktivizoFusha(colKontrollet, colAtrTrupi, false);
     gvPasqyra.PerformCallback(-1);
     IdStatusDok = undefined;
-    // AktivizoDraft();
 }
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
@@ -158,7 +148,6 @@ function SucceededCallbackKonfig(result) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
         resultkonf = result;
-        //  LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
@@ -169,7 +158,6 @@ function SucceededCallbackKonfig(result) {
         myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, $('#hfShtimModifikim'));
 
         $("#divFillim").hide();
-        // $("#divGrida").width($("#tblPasqyra").width() + "%");
         $("#divGrida").show();
         $("#divFundi").show();
 
@@ -179,7 +167,6 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
             IdStatusDok = 0;
         }
-        //AktivizoDraft();
     }
 }
 
@@ -306,39 +293,12 @@ function AktivizoDraft() {
             ASPxMenu1.GetItemByName("Draft").SetEnabled(true)
     }
 }
-//function rowValidation(s, e) {
 //    if (e.visibleIndex == (s.GetVisibleRowsOnPage() - 1))//rreshti i fundit
-//        return;
-//    for (var col in e.validationInfo) {
-//        if (col.value == null) {
-//            col.isvalid = false;
-//            col.errorText = "Vlera nuk mund te jete bosh!";
-//        }
-//    }
-//}
 
 function rowValidation(s, e) {
-    //s = ASPxClientGridView.Cast(s);
     //kontrollohet nese ekziston i njejti profesion ne grid!
-    //var kolona = s.GetColumnById("IdProfesioni");
 
  
-
-
-    //if (kolona != undefined) {
-    //    var profesioni = e.validationInfo[kolona.index].value;
-    //    var count = 0;
-    //    for (var i = 0, rreshtat = s.GetVisibleRowsOnPage() ; i < rreshtat ; i++) {
-         
-    //        var vleraNew = s.batchEditApi.GetCellValue(i, "IdProfesioni");
-    //        if (vleraNew != null && i != editingIndex && vleraNew == profesioni) {
-    //            e.validationInfo[kolona.index].isValid = false;
-    //            e.validationInfo[kolona.index].errorText = "Ky profesion ekziston njehere ne grid!";
-    //            break;
-    //        }
-    //    }
-    //}
-
     var vleraFakt = s.GetColumnById("VleraFakt");
     if (vleraFakt != undefined) {
         if (e.validationInfo[vleraFakt.index].value < 0) {

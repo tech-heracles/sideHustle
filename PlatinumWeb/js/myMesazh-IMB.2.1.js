@@ -58,7 +58,6 @@
             }
         },
         ShtoMesazhSuksesi: function (mesazh) {
-            //    mesazhPage.SetText(mesazh);
             var currentTime = new Date();
             var msgToInsert = appendStringOfTime(currentTime, mesazh);
             if (!this.ShtoMesazh({ type: "success", text: mesazh })) {
@@ -66,10 +65,8 @@
                 mesazhList.SetSelectedIndex(0);
 
 
-                //    $("#mesazhPage").css({ color: 'green' });
                 clearTimeout(timeout);
                 timeout = setTimeout(function () {
-                    //        mesazhPage.SetText('');
                     mesazhList.SetSelectedIndex(-1);
                 }, 10000);
                 Utils.hiqLoadingGif();;
@@ -105,7 +102,6 @@
                                     myMesazh.Po(msgJson.serverSide);
                                 myMesazhContext.zhblloko();
                                 $noty.close();
-                                //noty({ text: 'You clicked "Ok" button', type: 'success' });
                             }
                         }];
                 if (msgJson.UseCancelButton) {
@@ -165,7 +161,6 @@
 
                             $noty.close();
 
-                            //noty({ text: 'You clicked "Ok" button', type: 'success' });
                         }
                     }];
                 if (msgJson.UseCancelButton) {
@@ -235,10 +230,8 @@
                 btnPo.SetVisible(true);
                 btnJo.SetVisible(true);
                 if (setTimer) {
-                    // timer.SetEnabled(true);
                     clearTimeout(timeout);
                     timeout = setTimeout(function () {
-                        //            mesazhPage.SetText('');
                         mesazhList.SetSelectedIndex(-1);
                         btnPo.SetVisible(false);
                         btnJo.SetVisible(false);
@@ -288,20 +281,10 @@
             this.client = false;
         },
         Po: function (serverSide) {
-            //var currentTime = new Date();
-            //var msgToInsert = appendStringOfTime(currentTime, "U zgjodh 'PO' per pyetjen me siper");
-            //myMesazh.shtoNeSessionStorage(msgToInsert);
             if (serverSide) {
                 btnPo.DoClick();
                 Utils.shfaqLoadingGif();;
                 return;
-                //mesazhList.SetSelectedIndex(-1);
-                //btnPo.SetVisible(false);
-                //btnJo.SetVisible(false);
-                //hlClose.SetVisible(false);
-                //if (!this.client)
-                //Utils.shfaqLoadingGif();;
-                //return;
             }
             myMesazh.PoClick();
         },
@@ -313,11 +296,6 @@
                 btnJo.DoClick();
                 return;
             }
-            //mesazhList.SetSelectedIndex(-1);
-            //btnPo.SetVisible(false);
-            //btnJo.SetVisible(false);
-            //hlClose.SetVisible(false);
-            //e.processOnServer = false;
             myMesazh.JoClick();
         },
         JoStatusi: function(){

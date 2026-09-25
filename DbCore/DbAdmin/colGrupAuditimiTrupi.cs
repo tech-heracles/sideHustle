@@ -30,19 +30,11 @@ namespace DbCore.DbAdmin
         private bool mbushGrupetAuditimit(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupAuditimiTrupi grup = new clsGrupAuditimiTrupi();
-                    //grup.mbushGrupAuditimTrup(rreshti);
                     Add(new clsGrupAuditimiTrupi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

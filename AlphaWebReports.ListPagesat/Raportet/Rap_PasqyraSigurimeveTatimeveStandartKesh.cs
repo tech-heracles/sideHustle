@@ -107,7 +107,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         }
 
 
-        //int i = 1;
         double runnPagaFaktike = 0;
         double sumPagePagaFaktike = 0;
         double runnPagaMeKufi = 0;
@@ -126,11 +125,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         double sumPageTaksePage = 0;
 
     
-     
-    
-
-      
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -183,13 +177,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             xrLabel38.Text = "31)" + rm.GetString("lblDeklaruesi", ci);
             xrLabel43.Text = rm.GetString("lblemermbiemernenshkrimi", ci);
             xrLabel80.Text = rm.GetString("labelRaportMujore", ci);
-
-
-
-
-
-          
-
 
 
         }

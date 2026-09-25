@@ -48,7 +48,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             fieldPershkrimArtikulli.Caption = rm.GetString("labelRaportiEmertimi", ci);
             fieldPershkrimArtikulli.Appearance.FieldValue.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             fieldPershkrimArtikulli.ColumnValueLineCount = 3;
-            //fieldPershkrimArtikulli.Width = 30;
 
             XRPivotGridField fieldKodDoganor = new XRPivotGridField("Koddoganor", PivotArea.RowArea);
             fieldKodDoganor.FieldName = "KODIDOGANOR";
@@ -70,12 +69,10 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             XRPivotGridField fieldVleraCmimi = new XRPivotGridField("Cmimet", PivotArea.DataArea);
             if (Grupim2.Value.ToString() == "Çmimi dytë")
             {
-               // CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiD", ci); 
                 fieldVleraCmimi.FieldName = "CMIMI2";
             }
             else
             {
-              //  CmimiValue.Text = rm.GetString("cmbboxItemFilterAvancCmimiP", ci); 
                 fieldVleraCmimi.FieldName = "CMIMI";
             }
             fieldVleraCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);
@@ -104,7 +101,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void cmimetPivotGrid_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-           // cmimetPivotGrid.BestFit();
         } 
 
 
@@ -115,7 +111,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             for (int i = 0; i < cmimetPivotGrid.RowCount; i++)
             {
                 DevExpress.XtraReports.UI.PivotGrid.FieldValueCell cell = e.GetCell(true, 0);
-                //DevExpress.XtraReports.UI.PivotGrid.FieldValueCell cell2 = e.GetCell(false, 5);
                 if (cell == null) continue;
                 else if (cell.DisplayText == "")
                     e.Remove(cell);

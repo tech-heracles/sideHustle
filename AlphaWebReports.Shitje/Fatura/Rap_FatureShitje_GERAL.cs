@@ -62,7 +62,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel36.Text = rm.GetString("labelShitesi", ci);
             xrLabel31.Text = rm.GetString("labelEmerMbiemerFirma", ci);
             xrLabel37.Text = rm.GetString("labelEmerMbiemerFirma", ci);
-            //xrLabel59.Text = rm.GetString("lblRaportNrLlogarie", ci);
         }
         
     }

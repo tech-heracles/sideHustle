@@ -72,7 +72,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel23.Text = rm.GetString("labelRaportGrupi", ci);
             xrLabel31.Text = rm.GetString("lblBalancaFund", ci);
-            //xrLabel24.Text = rm.GetString("labelRapVlefta", ci);
             xrLabel33.Text = rm.GetString("lblBalancaFund", ci);
             xrLabel40.Text = rm.GetString("labelRaportPakesime", ci);
             xrTableCell33.Text = rm.GetString("labelRaportiTotali", ci) + ":";

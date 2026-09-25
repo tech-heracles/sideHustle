@@ -12,15 +12,7 @@ namespace DbCore.DbAnalizeBuxheti
 
         public string Pershkrim { get; set; }
 
-        //public int IdKrijuesi { get; set; }
 
-        //public int IdModifikuesi { get; set; }
-
-        //public int IdStatusDok{get; set;}
-
-        //public DateTime? DtKrijimi { get; set; }
-
-        //public DateTime? DtModifikimi { get; set; }
         #endregion atributet
         public clsAmbjenti() { }
 
@@ -29,8 +21,6 @@ namespace DbCore.DbAnalizeBuxheti
             IdAmbjenti = idAmbjenti;
             Kodi = kodi;
             Pershkrim = pershkrim;
-            //IdStatusDok = idStatusDok;
-            //IdModifikuesi = idModifikuesi;
         }
 
         /// <summary>

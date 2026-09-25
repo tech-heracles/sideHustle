@@ -90,7 +90,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// Konstruktori i klases
         /// </summary>
@@ -537,7 +536,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh fshi(ResourceManager rm, CultureInfo ci)
         {
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //data.krijoManager();
             data.beginTransaksion();
 
             clsMesazh u_fshi = fshiDokumentDheKontabilitet(data);

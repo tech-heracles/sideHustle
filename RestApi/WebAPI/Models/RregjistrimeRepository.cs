@@ -44,7 +44,6 @@ namespace RestApi.WebAPI.Models
             result[2] = "";
             result[4] = lastsel;
             bool ekzistonneKolection = false;
-            //clsArtikulli art = new clsArtikulli(idartikulli);
             bool MeSerial = clsArtikulli.EshteMeSerial(idartikulli);
             colAQTSeriale colzgjedhur = new colAQTSeriale();
             if (serialeekzistuese != "")
@@ -498,7 +497,6 @@ namespace RestApi.WebAPI.Models
             int idmax = -1;
             int index = 0;
 
-            //clsKokaShitje koka = new clsKokaShitje();
             clsNivelRegjistrimi niveliaktual = new clsNivelRegjistrimi();
             clsKonfigurimAmbjenti konfigurim = new clsKonfigurimAmbjenti();
             konfigurim.mbushKonfigAmbjSipasKod(kodkonfig, idNdermarrje);
@@ -962,7 +960,6 @@ namespace RestApi.WebAPI.Models
 
         public static object[] ktheCmimArtikulliRow(int idNdermarrje, int idPerdoruesi, string kodArtikulli, int nivelCmimi, string date, string monedha, string njesia, decimal kursi, int idRreshti, decimal sasi, int llojNiveli, int iddetajim)
         {
-            //  System.Threading.Thread.Sleep(5000);
             object[] result = new object[3];
             result[0] = idRreshti;
             object[] resultcmimi = new object[2];
@@ -983,7 +980,6 @@ namespace RestApi.WebAPI.Models
             if (idartikulli <= 0)
                 return new { idRreshti = idRreshti, idartikulli = idartikulli, cmimet = new object[0] };
             DataTable dt = colNiveleCmimesh.merrNiveleNdermarjeDTBlerjeShitjeMeAutorizimePerAutocompleteCmimesh(idNdermarrje, llojNiveli, idPerdorues);
-            //object[] cmimet = new object[dt.Rows.Count];
             int i = 0;
             clsMonedha mon = new clsMonedha();
             mon.mbushMonedhen(monedha, idNdermarrje);
@@ -997,10 +993,6 @@ namespace RestApi.WebAPI.Models
                     ListeVleraCmimi vleraCmimi = new ListeVleraCmimi();
                     int idNivel = int.Parse(dr["IdNivelCmimi"].ToString());
                     int detajim = int.Parse(dr["Detajim"].ToString());
-                    //if (iddetajim > 0 && detajim == 0)
-                    //    continue;
-                    //if (iddetajim == 0 && detajim > 0)
-                    //    continue;
                     decimal cmimi = Convert.ToDecimal(clsFunksione.merrCmimSipasNivelitMeDetajim(idNivel, artikulli.KodArtikulli, idPerdorues, njesi, mon, date, decimal.Parse(kursi), decimal.Parse(sasi), idNdermarrje, llojNiveli, db, iddetajim, false)[0]);
                     if (cmimi == 0)
                         continue;
@@ -1011,7 +1003,6 @@ namespace RestApi.WebAPI.Models
                     vleraCmimi.Detajim = int.Parse(dr["Detajim"].ToString());
                     vleraCmimi.IdDetajim = vleraCmimi.Detajim > 0 ? iddetajim : 0; //gabim. Nuk e di nqs ky cmimi eshte me detajim apo jo
                     cmimet.Add(vleraCmimi);
-                    //cmimet[i] = vleraCmimi;
                     i++;
                 }
             }
@@ -1028,7 +1019,6 @@ namespace RestApi.WebAPI.Models
         {
             return colNjesiAdministrative.merrMagazinatPerAutoComplete(infix, idNdermarrje, idPerdoruesi, meAutorizim, llojArt);
         }
-
 
 
         public static int ktheDegeMagazineSipasKodit(string kodi, int idNdermarrje, int idPerdoruesi)
@@ -1086,7 +1076,6 @@ namespace RestApi.WebAPI.Models
             if ((totalartikulli < 0 && shitje_blerje) || (totalartikulli > 0 && !shitje_blerje && !ekzekutimProdhim))
                 return new clsMesazh(true);
             // marrim te dhenat per artikullin, detajimet , magazinen
-            //clsArtikulli artikulli = new clsArtikulli(idja);
             clsDetajimArtikulli detajim = new clsDetajimArtikulli();
             detajim.mbushDetajimArtikulli(koddetajim, idndermarje);
             clsDetajimArtikulli detajim2 = new clsDetajimArtikulli();
@@ -1359,10 +1348,8 @@ namespace RestApi.WebAPI.Models
         }
 
 
-
         public static string ktheKursinFunditSipasLlojitDB(int idMonedha, int lloji, int idNdermarrje)
         {
-            //idMonedha = 0;
             string kursi = "0";
             if (idMonedha == clsMonedha.ktheIdMonedhenENdermarrjes(idNdermarrje))
                 return "1";
@@ -1447,10 +1434,6 @@ namespace RestApi.WebAPI.Models
             if (idmaturimi != 0)
             {
                 clsMaturimi oClsMaturimi = new clsMaturimi(idmaturimi);
-                //DbCore.DbInventari.colMaturimet oColMaturimet = new DbCore.DbInventari.colMaturimet();
-                //oColMaturimet = dbInv.ktheMaturim(idmaturimi);
-                //foreach (DbCore.DbInventari.clsMaturimi o in oColMaturimet)
-                //{
                 if (oClsMaturimi.IdDateFillimi == DateFillimiMaturiteti.DateFature)//1=Date fature
                 {
                     DateTime dt = dataFatures;
@@ -1489,7 +1472,6 @@ namespace RestApi.WebAPI.Models
 
                     dataMaturimit = dt;
                 }
-                //}
             }
             else dataMaturimit = DateTime.Today;
             return dataMaturimit;
@@ -1505,11 +1487,8 @@ namespace RestApi.WebAPI.Models
                 ComboList[] listeNjesish;
                 clsArtikulli art = new clsArtikulli();
                 art.merrSipasKodArtikullit(kodArtikulli, idNdermarrje);
-                //DbCore.DbInventari.clsArtikulli art = db.merrArtikullSipasKodit(newart);
                 clsNjesiArtikulli njesi1 = new clsNjesiArtikulli(art.Njesi1Artikulli);
                 clsNjesiArtikulli njesi2 = new clsNjesiArtikulli(art.Njesi2Artikulli);
-                //DbCore.DbInventari.colNjesiteArtikulli njesi1 = db.ktheNjesiAritkulli(art.Njesi1Artikulli);
-                //DbCore.DbInventari.colNjesiteArtikulli njesi2 = db.ktheNjesiAritkulli(art.Njesi2Artikulli);
                 ComboList njesia;
                 if (njesi2.IdNjesia != njesi1.IdNjesia)
                     listeNjesish = new ComboList[2];
@@ -1590,16 +1569,12 @@ namespace RestApi.WebAPI.Models
             if (idInfoArt == 0)
                 return new { artikulli = artikulli };
 
-            //  int idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
             data = data.ToLocalTime();
             ListeVleraInfo lista = artikulli.merrInfoArtSipasIdKokaDheVisibleVlera(idPerdoruesi, data, "-1", idInfoArt, "-1", idViti, 0, mag, "");
             return new { artikulli = artikulli, infoArt = lista };
         }
 
         //internal static bool ekzistonKodBar(string kodbar, int idNdermarrje)
-        //{
-        //    return clsArtikulli.ekzistonKodbar(kodbar, idNdermarrje);
-        //}
 
         public static object[] ktheRowVleraDetajimMeID(int idja, int rreshti, int lloji, string kodartikulli, int idkokamagazina, int idNdermarrje, int idPerdorues, string magazina, string dtDok, bool kontrolloImeiFifo, string[] listeIMEI, bool promocione, bool DokumentTransferimiOwn, bool merrPerberesit)///idkokamagazina perdoret per rastet kur kemi transferimet nga vodafoni per te pare nqs ky detajim eshte tek fatura e blerjes nga e cila eshte konvertuar fh
         {
@@ -1715,7 +1690,6 @@ namespace RestApi.WebAPI.Models
             if (artikulli.IdArtikulli > 0)
             {
                 artikulli.mbushKodBare();
-                //listArt.gjendjeTot = clsTrupiMagazina.merrSasi(artikulli, -1, data, idDetajim);
                 listArt.idRreshti = rreshti;
                 listArt.artikulli = artikulli;
                 listArt.listeTvsh = artikulli.ktheTvsh(llojTvsh, idPerdoruesi, taksendermarje, taksaNdermarrje, taksaKF);
@@ -1822,7 +1796,6 @@ namespace RestApi.WebAPI.Models
             }
             if (gjendjeMinMax)
             {
-                //string mag = !String.IsNullOrEmpty(listArt.pershkrimMag) ? artikulli.Magazina : kodMagazinaPotenciale;
                 listArt.colGjendjeArtikulli = merrGjendjeArtikulliMag(artikulli.IdArtikulli, !String.IsNullOrEmpty(artikulli.Magazina) ? artikulli.Magazina : kodMag, idNdermarrje);
             }
             if (artikulli.IdArtikulli > 0)
@@ -2315,7 +2288,6 @@ namespace RestApi.WebAPI.Models
                 }
                 clsNivelRegjistrimi niveli = new clsNivelRegjistrimi();
                 int idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(Convert.ToInt32(((object[])dokumenti[i])[3]));
-                //niveli.mbushNivelRegjistrimiSipasIdMeKonvertime(Convert.ToInt32(((object[])dokumenti[i])[3]));
                 List<object> colKodbari = new List<object>();
                 if (idKategoria == 6)//magazina
                 {
@@ -2389,9 +2361,6 @@ namespace RestApi.WebAPI.Models
         }
 
 
-
-
-
         public static colGjendjeArtikulli merrGjendjeArtikulliMag(int idartikulli, String mag, int idNdermarrje)
         {
             colGjendjeArtikulli col = new colGjendjeArtikulli();
@@ -2411,7 +2380,6 @@ namespace RestApi.WebAPI.Models
 
         public static Object merrPerqindjeAgjenti(int idAgj, string llojAgj, int idKlient)
         {
-            //clsAgjentShitje Agjent = new clsAgjentShitje(idAgj);
             double perqindja = clsAgjentShitje.merrPerqindjeAgjentiEdheSipasKlientit(idAgj, idKlient, int.Parse(llojAgj));
             return new { perqindjeAgjenti = perqindja, llojAgenti = llojAgj };
         }
@@ -2480,8 +2448,6 @@ namespace RestApi.WebAPI.Models
                 return "likuiduar";
             if (koka.TotaliMeZbritjeMeTVSH == 0)
                 return "totali0";
-            //clsNivelRegjistrimi niv = new clsNivelRegjistrimi();
-            //niv.mbushNivelRegjistrimiSipasID(kokaKategoriZbritje.IdNivel);
             string kodniveli = clsNivelRegjistrimi.ktheKodNivelRegjistrimi(koka.IdNivel);
             if (kodniveli != "FSH" && kodniveli != "FB")
                 return "joFature";
@@ -2509,8 +2475,6 @@ namespace RestApi.WebAPI.Models
                 url = "ShtoVeprimBanka.aspx?lloji=pagese&shtim_modifikim=shtim&id=0&vjenNga=" + vjenNga + "&idfatura=" + serializeid;
             else if (veprimi == "blerje" && arkabanka == "banka")
                 url = "ShtoVeprimBanka.aspx?lloji=terheqje&shtim_modifikim=shtim&id=0&vjenNga=" + vjenNga + "&idfatura=" + serializeid;
-            //DbCore.DbAdmin.clsKomponente komp = new DbCore.DbAdmin.clsKomponente(url.Split('&')[0]);
-            //DbCore.DbAdmin.clsTeDrejtaRoli tedrejta = komp.merrTeDrejtaPerKeteAmbjent(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdVitNdermarrje(Session));
 
             clsTeDrejtaRoli tedrejta = new clsTeDrejtaRoli();
             tedrejta.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, idVitNdermarrje, url.Split('&')[0]);
@@ -3057,8 +3021,6 @@ namespace RestApi.WebAPI.Models
 
         public static colInfoTrupi ruajNeSessionTrupInfoArt(int idkoka, HttpSessionState Session)
         {
-            // DbCore.DbAdmin.colInfoTrupi trupatvis = DbCore.DbAdmin.colInfoTrupi.merrInfoSipasIdKokaDheVisible(idkoka, true, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //  DbCore.DbAdmin.colInfoTrupi trupatinvis = DbCore.DbAdmin.colInfoTrupi.merrInfoSipasIdKokaDheVisible(idkoka, false, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             colInfoTrupi trupatvis = colInfoTrupi.merrInfoSipasIdKokaDheVisibleNew(idkoka, true, mySessionObjects.merrIdNdermarrjeSesioni(Session));
             colInfoTrupi trupatinvis = colInfoTrupi.merrInfoSipasIdKokaDheVisibleNew(idkoka, false, mySessionObjects.merrIdNdermarrjeSesioni(Session));
             mySessionObjects.ruajInfoVisibleNeSession(Session, trupatvis);
@@ -3083,14 +3045,12 @@ namespace RestApi.WebAPI.Models
                 ImbLogger.Error(err.Message);
                 return klienti;
             }
-            //oColKF = dbKontab.ktheKlientFurnitor(int.Parse(prefixText));
             if (mesazhi.Status)
             {
                 decimal perqindje = 0;
                 bool meTVSH = false;
                 colTrupatKategoriteZbritjes trupat = new colTrupatKategoriteZbritjes();
                 trupat.mbushTrupatKategoriZbritjeSipasKokes(oClsKF.IdKatZbritje);
-                //DbCore.DbInventari.colTrupatKategoriteZbritjes trupat=dbInventari .merrTrupatKategoriZbritjeSipasKokes (oColKF[0].IdKatZbritje );
                 if (trupat.Count > 0)
                     perqindje = trupat[trupat.Count - 1].Zbritja;
                 clsMonedha mon = new clsMonedha();
@@ -3156,7 +3116,6 @@ namespace RestApi.WebAPI.Models
         }
 
 
-
         public static colNjesiAdministrative ktheArrayMagazinatClientSideTeSerializuar(int idNdermarrje, int idPerdoruesi, bool merrMeAutorizim = true)
         {
             colNjesiAdministrative colMagazinat = new colNjesiAdministrative();
@@ -3179,7 +3138,6 @@ namespace RestApi.WebAPI.Models
             string alt = clsAlternativaKushti.getAlternativa(idKonfigurimi, "SHDPER");
             return Convert.ToInt32(Enum.Parse(typeof(ListPeriudha), alt.Replace(' ', '_')));
         }
-
 
 
         public static string KthePathinEThemit(string input)
@@ -3365,7 +3323,6 @@ namespace RestApi.WebAPI.Models
         public static object[] ktheRowGjendjeSerialPerMagazine(string serial, int rreshti, DateTime data, int idndermarja, bool rezerva)
         {
             data = data.ToLocalTime();
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[2];
             result[0] = rreshti;
             clsAQTSeriale seriali = new clsAQTSeriale();
@@ -3388,10 +3345,8 @@ namespace RestApi.WebAPI.Models
         public static object[] ktheRowGjendjeArtikulliPerMagazine(int idja, int rreshti, DateTime data, string magazina, string serial, int idndermarja, bool rezerva)
         {
             data = data.ToLocalTime();
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[2];
             result[0] = rreshti;
-            // DbInventari.clsArtikulli artikulli = new DbInventari.clsArtikulli(idja);
             clsNjesiAdministrative mag = new clsNjesiAdministrative(magazina, idndermarja);
             if (idja > 0)
             {
@@ -3598,7 +3553,6 @@ namespace RestApi.WebAPI.Models
         {
             data = data.ToLocalTime();
             int idPerdorues = mySessionObjects.ktheIdPerdoruesi(Session);
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[5];
             result[0] = rreshti;
             clsArtikulli artikulli = new clsArtikulli(idja);
@@ -3884,7 +3838,6 @@ namespace RestApi.WebAPI.Models
         }
         public static double merrKursiSipasKodMonedhesAndDates(string prefixText, string date, int lloji, HttpSessionState Session)
         {
-            //DbCore.DbAdmin.clsKurset cls = new DbCore.DbAdmin.clsKurset(prefixText, date, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             double kursi = DbCore.DbAdmin.clsKurset.merrKursinFunditSipasKodMonedheDateDheLloj(prefixText, date, mySessionObjects.merrIdNdermarrjeSesioni(Session), lloji);
             if (kursi != 0 && kursi != -1)
             {
@@ -3916,23 +3869,18 @@ namespace RestApi.WebAPI.Models
                 return null;
             clsKlientFurnitor oClsKF = new clsKlientFurnitor();
             oClsKF.mbushKlientFurnitorLikeKodi(inFixText, mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //oColKF = dbKontab.ktheKlientFurnitor(prefixText,DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));            
             if (oClsKF.KodKlientFurnitor == "")
                 return null;
             oClsKF.mbushKlientFurnitorSipasKoditAzhornim(oClsKF.KodKlientFurnitor, mySessionObjects.merrIdNdermarrjeSesioni(Session), data);
-            //string debikredi = "Debi";
             clsLlogari llog = new clsLlogari(oClsKF.IdLlogari);
             DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha(llog.IdMonedha);
             double kurs;
-            //if (oClsKF.LlojiKF == false)
-            //    debikredi = "Kredi";                      
             kurs = DbCore.DbAdmin.clsKurset.merrKursinEFundit(mon.IdMonedha, 1);
             object[] veprimeKf = new object[3];
             veprimeKf[0] = oClsKF;
             veprimeKf[1] = mon;
             veprimeKf[2] = kurs;
 
-            // klienti += oClsKF.EmertimiKF + ";" + debikredi + ";" + mon.KodiMonedha + ";" + kurs + ";" + oClsKF.KodKlientFurnitor;
             return veprimeKf;
         }
 
@@ -3950,14 +3898,7 @@ namespace RestApi.WebAPI.Models
                 if (kursi == 0 || kursi == -1)
                     kursi = 1;
                 kurse[i] = new { idMonedha = m.IdMonedha, kodMonedha = m.KodiMonedha, kursi = kursi };
-                //if (cls.IdKursi != 0)
-                //{
-                //    kurse[i] = new { idMonedha = m.IdMonedha, kodMonedha = m.KodiMonedha, kursi = cls.VleraKursi };
-                //}
                 //else
-                //{
-                //    kurse[i] = new { idMonedha = m.IdMonedha, kodMonedha = m.KodiMonedha, kursi = 1 };
-                //}
             }
             return kurse;
         }
@@ -4016,7 +3957,6 @@ namespace RestApi.WebAPI.Models
             foreach (DbCore.DbAdmin.clsMonedha m in mon)
             {
                 DbCore.DbAdmin.clsKurset kurs = new DbCore.DbAdmin.clsKurset(m.IdMonedha, DateTime.Parse(dtDokumenti), llojKursi);
-                //monedhakurs[i] = m.IdMonedha + ";" + m.KodiMonedha + ";" + kurs.VleraKursi;
                 if (kurs.VleraKursi == 0)
                     monedhakurs[i] = m.IdMonedha + ";" + m.KodiMonedha + ";" + 1;
                 else
@@ -4072,7 +4012,6 @@ namespace RestApi.WebAPI.Models
             string mesazh = "";
             clsDatabaseArkaBanka dbArkaBanka = new clsDatabaseArkaBanka();
             clsBanka banka = new clsBanka();
-            //banka.mbushBankeSipasKodit(kodBanka, idNdermarje);
             banka.mbushBanke(idBanka);
             clsKonfigurimAmbjenti konfig = new clsKonfigurimAmbjenti(idKonfigurimi);
             if (konfig.IdKategori == 3 && banka.LlojArkaBanka == true)
@@ -4153,7 +4092,6 @@ namespace RestApi.WebAPI.Models
             string kushtetPageses = "";
             try
             {
-                //  object kushtetPageses = null;
                 for (int i = 0; i < prefixText.Length; i++)
                 {
                     {
@@ -4171,13 +4109,11 @@ namespace RestApi.WebAPI.Models
                             //int.TryParse(idkoka, out idkushtpagese); //TODO NESTILA jep error
                             int diferencaDatave = int.Parse((dataDokBanke - dataFatures).Days.ToString());
                             clsKushtPageseKoka clsKoka = new clsKushtPageseKoka(idkushtpagese);
-                            //oCol = dbKontab.merrKushtPageseSipasID(int.Parse(vlerat[1]));
                             if (clsKoka != null)
                             {
                                 double zbritja = 0;
                                 if (clsKoka.LlojiKushtPagese == "E plote")
                                 {
-                                    //DbCore.colKushtPageseTrupi colTrupi = dbKontab.merrTrupatKushtevePagesesSipasKokes(clsKoka.IdKoka);
                                     colKushtPageseTrupi colTrupi = new colKushtPageseTrupi(clsKoka.IdKoka);
                                     foreach (clsKushtPageseTrupi t in colTrupi)
                                     {
@@ -4231,7 +4167,6 @@ namespace RestApi.WebAPI.Models
         }
         public static int KtheIDThemeDevExJQuery(string input)
         {
-            //return DbCore.DbAdmin.clsThemesDevExpressJQuery.ktheIdThemeNgaEmri(input)+ ":" + ;
             DbCore.DbAdmin.clsThemesDevExpressJQuery cls = new DbCore.DbAdmin.clsThemesDevExpressJQuery(input);
             return cls.IdTheme;
         }
@@ -4244,10 +4179,8 @@ namespace RestApi.WebAPI.Models
         public static String[] ktheArrayMeDataZbritje(string kodi, string kodbar, string emer1, string emer2, string kodifikim1, string kodifikim2, string furnitori, string njesia, string datafill, string datambar, string idnivelcmimi, HttpSessionState Session)
         {
             if (kodifikim1 != "")
-                //kodifikim1 = new DbCore.DbInventari.clsKodifikimArtikulli(kodifikim1, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)).IdKodifikimi.ToString();
                 kodifikim1 = new clsKodifikimArtikulli(kodifikim1, mySessionObjects.merrIdNdermarrjeSesioni(Session), 1, false).IdKodifikimi.ToString();
             if (kodifikim2 != "")
-                //kodifikim2 = new DbCore.DbInventari.clsKodifikimArtikulli(kodifikim2, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)).IdKodifikimi.ToString();
                 kodifikim2 = new clsKodifikimArtikulli(kodifikim2, mySessionObjects.merrIdNdermarrjeSesioni(Session), 2, false).IdKodifikimi.ToString();
             if (datafill == "01/01/0100")
                 datafill = "";
@@ -4287,8 +4220,6 @@ namespace RestApi.WebAPI.Models
 
         internal static object[] ktheTemplateteNivelit(string lloji, string veprimi, bool mod, HttpSessionState Session)
         {
-            //DbCore.DbShare.clsDatabaseShare dbShare = new DbCore.DbShare.clsDatabaseShare();
-            //DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegj = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
             int idperdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
             DbCore.DbShare.colKonfigurimAmbjenti modelet = new DbCore.DbShare.colKonfigurimAmbjenti();
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
@@ -4314,14 +4245,11 @@ namespace RestApi.WebAPI.Models
                 idNiveli = int.Parse(lloji);
                 konf.IdNivel = idNiveli;
                 modelet.mbushKonfigAmbjSipasIdKategoriIdNivelMeLloj(konf.IdKategori, konf.IdNivel, idperdoruesi);
-                //modelet = dbShare.merrKonfigAmbjSipasIdKategoriIdNivel(konf, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             }
             else
                 modelet.mbushKonfigAmbjSipasIdKategori(konf.IdKategori, konf.IdNdermarje, idperdoruesi, mySessionObjects.ktheGjuhe(Session));
-            //modelet = dbShare.merrKonfigAmbjSipasIdKategori(konf, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             if (modelet.Count == 0)
                 modelet.mbushKonfigDefaultKategori(konf.IdKategori);
-            //modelet = dbShare.ktheKonfigDefaultKategori(konf.IdKategori);
 
             DbCore.DbShare.colKonfigurimAmbjenti konfVarura = new DbCore.DbShare.colKonfigurimAmbjenti();
             foreach (DbCore.DbShare.clsKonfigurimAmbjenti konfi in modelet)
@@ -4334,8 +4262,6 @@ namespace RestApi.WebAPI.Models
             {
                 modelet.Remove(konfi);
             }
-            //foreach (DbCore.DbShare.clsKonfigurimAmbjenti o in modelet)
-            //    templatet += o.IdKonfigAmbjente + "," + o.KodKonfigAmbjente + ";" + o.PershkrimKonfigAmbjente + "|";
             object[] modeletSlim = new object[modelet.Count];
             for (int i = 0; i < modelet.Count; i++)
             {
@@ -4491,10 +4417,8 @@ namespace RestApi.WebAPI.Models
         public static string ktheMonedheNdermarrjeClientSide(HttpSessionState Session)
         {
             string temp = "";
-            //int idmonedha = -1;            
             DbCore.DbAdmin.colMonedhat colMonedhat = new DbCore.DbAdmin.colMonedhat();
             colMonedhat.mbushGjitheMonedhatAktive(mySessionObjects.merrIdNdermarrjeSesioni(Session), mySessionObjects.ktheIdPerdoruesi(Session));
-            //DbCore.DbAdmin.colMonedhat colMonedhat = dbAdmin.merrGjitheMonedhatAktive(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             foreach (DbCore.DbAdmin.clsMonedha m in colMonedhat)
             {
                 temp = temp + m.IdMonedha + ";" + m.KodiMonedha + "|";
@@ -4522,12 +4446,6 @@ namespace RestApi.WebAPI.Models
                 return result;
             }
             date = date.ToLocalTime();
-            //DbCore.DbAdmin.clsKurset cls = new DbCore.DbAdmin.clsKurset(idMondedha, date);
-            //if (cls.IdKursi != 0)
-            //{
-            //    result[1] = cls.VleraKursi;
-            //    return result;
-            //}
             double kursi = DbCore.DbAdmin.clsKurset.merrKursinFunditPerMonedheDateDheLloj(idMonedha, date, lloji);
             if (kursi == 0)
                 result[1] = 1;
@@ -4545,22 +4463,17 @@ namespace RestApi.WebAPI.Models
                 {
                     DbCore.DbAdmin.clsMonedha monedha = new DbCore.DbAdmin.clsMonedha();
                     monedha.mbushMonedhen(s, mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //monedha = db.ktheMonedhe(s, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session))[0];
-                    //DbCore.DbAdmin.colKurset col = new DbCore.DbAdmin.colKurset();
                     DbCore.DbAdmin.clsKurset cls = new DbCore.DbAdmin.clsKurset();
                     if (s != null)
                         cls = new DbCore.DbAdmin.clsKurset(monedha.IdMonedha, date);
-                    //col = db.merrKursetSipasMonedhesAndDates(monedha.IdMonedha, date);
 
                     if (cls.IdKursi != 0)
                     {
                         temp = temp + s + "|" + cls.VleraKursi + "||";
-                        //items.Add(col[0].VleraKursi);
                     }
                     else
                     {
                         temp = temp + s + "|1.00||";
-                        //items.Add(0.00);
                     }
                 }
             }
@@ -4869,13 +4782,9 @@ namespace RestApi.WebAPI.Models
         }
         public static object[] kthePershkrimArtikulliP(string prefixText, int idPerdorues, HttpSessionState Session)
         {
-            //clsDatabaseInventari dbInventari = new clsDatabaseInventari();
             clsArtikulli art = new clsArtikulli();
             object[] result = new object[2];
-            //if (dbInventari.ekzistonArtikull(prefixText, mySessionObjects.merrIdNdermarrjeSesioni(Session)))
-            //{
             art.ktheArtikullSipasKoditDheAutorizime(prefixText, mySessionObjects.merrIdNdermarrjeSesioni(Session), mySessionObjects.ktheIdPerdoruesi(Session));
-            //dbInventari.Dispose();
             if (art.IdArtikulli > 0)
             {
                 result[0] = art;
@@ -4890,11 +4799,7 @@ namespace RestApi.WebAPI.Models
                 result[1] = null;
                 return result;
             }
-            //}
-            //dbInventari.Dispose();
-            //return result;
         }
-
 
 
         public static object[] ktheArtikujPerberesSipasDates(int id, string data, HttpSessionState Session)
@@ -5002,8 +4907,6 @@ namespace RestApi.WebAPI.Models
             mon.mbushGjitheMonedhatPozitive(mySessionObjects.merrIdNdermarrjeSesioni(Session), mySessionObjects.ktheIdPerdoruesi(Session));
             foreach (DbCore.DbAdmin.clsMonedha m in mon)
             {
-                //DbCore.DbAdmin.clsKurset cls = new DbCore.DbAdmin.clsKurset();
-                //cls = new DbCore.DbAdmin.clsKurset(m.IdMonedha, datedok);
                 double kursi = DbCore.DbAdmin.clsKurset.merrKursinFunditPerMonedheDateDheLloj(m.IdMonedha, datedok, llojkursi);
                 if (kursi != 0 && kursi != -1)
                 {
@@ -5069,12 +4972,8 @@ namespace RestApi.WebAPI.Models
         public static int ktheMonedheNdermarrje(HttpSessionState Session)
         {
             int idmonedha = -1;
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-            //string monedha = DbCore.DbAdmin.clsMonedha.ktheMonedhenENdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsMonedha clsMonedha = new DbCore.DbAdmin.clsMonedha();
-            //clsMonedha.mbushMonedhen(monedha, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             clsMonedha.mbushMonedhenENdermarrjes(mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbAdmin.colMonedhat colMonedhat = dbAdmin.ktheMonedhe(monedha, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (clsMonedha != null)
                 idmonedha = clsMonedha.IdMonedha;
             return idmonedha;
@@ -5208,7 +5107,6 @@ namespace RestApi.WebAPI.Models
         public static object[] ktheGjendjeVlefteSipasMagazines(int idja, int rreshti, DateTime data, int iddetajim, string magazina, int idndermarje)
         {
             data = data.ToLocalTime();
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[4];
             result[0] = rreshti;
             clsArtikulli artikulli = new clsArtikulli(idja);
@@ -5767,7 +5665,6 @@ namespace RestApi.WebAPI.Models
             string kurset = "";
             DbCore.DbAdmin.colKurset colKurset = new DbCore.DbAdmin.colKurset();
             colKurset.mbushKursetMonedhes(id);
-            //DbCore.DbAdmin.colKurset colKurset = new DbCore.DbAdmin.clsDatabaseAdmin().merrKursetMonedhes(id);
             foreach (DbCore.DbAdmin.clsKurset k in colKurset)
                 kurset += k.PershkrimLlojKursi + "," + k.LlojKursi + ";";
             for (int i = colKurset.Count + 1; i <= 6; i++)
@@ -5815,14 +5712,12 @@ namespace RestApi.WebAPI.Models
         public static object ktheLlogariSipasKodit(String kodi, int idNdermarja)
         {
             clsLlogari llog = new clsLlogari(kodi, idNdermarja);
-            //llog.mbushLlogariSipasKodit(kodi, idNdermarja);
             return llog;
         }
         public static object[] ktheRowVleraAqtMeKodOseKodBar(string kodi, int rreshti, DateTime data, string magazina, int idndermarje, int idperdoruesi, bool rezerva)
         {
 
             data = data.ToLocalTime();
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[3];
             result[0] = rreshti;
 
@@ -5868,7 +5763,6 @@ namespace RestApi.WebAPI.Models
         public static object[] ktheRowVleraAQTMeID(int idja, int rreshti, DateTime data, int idmagazina, int idndermarja, bool rezerva, bool plotesuarMagKoka)
         {
             data = data.ToLocalTime();
-            //System.Threading.Thread.Sleep(5000);
             object[] result = new object[3];
             result[0] = rreshti;
             clsArtikulli artikulli = new clsArtikulli(idja);
@@ -5935,13 +5829,6 @@ namespace RestApi.WebAPI.Models
                 clsNjesiAdministrative njesi = new clsNjesiAdministrative(mag, mySessionObjects.merrIdNdermarrjeSesioni(Session), mySessionObjects.ktheIdPerdoruesi(Session));
                 idmag = njesi.IdNjesiAdministrative.ToString();
             }
-            //int iddetajim = -1;
-            //if (detajim != "-1")
-            //{
-            //    clsDetajimArtikulli det = new clsDetajimArtikulli();
-            //    det.mbushDetajimArtikulli(detajim, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //    iddetajim = det.IdDetajimArtikulli;
-            //}
             return mbushInfoArtikulliNew(idja, idmag, data, detajim, rreshti, modinfo, idklient, Session);
         }
         public static object[] mbushInfoArtikulliNew(int idja, string idmag, DateTime data, string detajim, int rreshti, string modinfo, int idklient, HttpSessionState Session)
@@ -5984,11 +5871,9 @@ namespace RestApi.WebAPI.Models
             if (artikulli.Klasa == 4)
             {
                 colArtikulliPerberes per = new colArtikulliPerberes();
-                //per.merrSipasIdArtikullKryesore(artikulli.IdArtikulli, null);
                 per.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(artikulli.IdArtikulli, data);
                 foreach (clsArtikulliPerberes art in per)
                 {
-                    //clsArtikulli a = new clsArtikulli(art.IdLidheseArt, null);
                     clsArtikulli a = new clsArtikulli(art.IdLidheseArt);
                     cm += tr.llogaritCmimMesatar(a, int.Parse(idmag), data, iddetajim, 1, idperdoruesi) * (double)art.Koeficienti;
                     cmtot += tr.llogaritCmimMesatar(a, 0, data, iddetajim, 1, idperdoruesi) * (double)art.Koeficienti;
@@ -6072,8 +5957,6 @@ namespace RestApi.WebAPI.Models
                                     artPerberes.ktheArtikujPerberesSipasIdArtikullitKryesorDheDatesMeTeAfert(artikulli.IdArtikulli, data);
                                 foreach (clsArtikulliPerberes art in artPerberes)
                                 {
-                                    //int tmpMetodeKostoje = clsArtikulli.ktheMetodeKostoje(art.IdLidheseArt);
-                                    //decimal koef = clsArtikulli.ktheKoeficent(art.IdLidheseArt);
                                     clsArtikulli receptura = new clsArtikulli(art.IdLidheseArt);
                                     cmmagzgjedhur += tr.llogaritCmimMesatar(receptura, Magzgjedhur, data, -1, 1, idperdoruesi) * (double)art.Koeficienti;
                                 }
@@ -6187,7 +6070,6 @@ namespace RestApi.WebAPI.Models
                             else vlerat.Add(cmmag.ToString("##########.##"));
 
 
-
                             break;
                     }
                 }
@@ -6210,12 +6092,10 @@ namespace RestApi.WebAPI.Models
             DbCore.DbAdmin.clsMonedha mon = new DbCore.DbAdmin.clsMonedha();
             if (IDkf == 0)
                 return new { idRreshti = rreshti, oKF = oClsKF, monedha = mon, kursi = kurs };
-            //string klienti = "";
             oClsKF = new clsKlientFurnitor(IDkf);
             if (oClsKF.KodKlientFurnitor == "")
                 return new { idRreshti = rreshti, oKF = oClsKF, monedha = mon, kursi = kurs };
             oClsKF.mbushKlientFurnitorSipasKoditAzhornim(oClsKF.KodKlientFurnitor, mySessionObjects.merrIdNdermarrjeSesioni(Session), date);
-            //string debikredi = "Debi";
             clsLlogari llog = new clsLlogari(oClsKF.IdLlogari);
             mon = new DbCore.DbAdmin.clsMonedha(llog.IdMonedha);
             kurs = DbCore.DbAdmin.clsKurset.merrKursinEFundit(mon.IdMonedha, llojKursi);
@@ -6261,25 +6141,16 @@ namespace RestApi.WebAPI.Models
                 return new { idRreshti = rreshti, oKF = oClsKF, monedha = mon, kursi = kurs };
 
             oClsKF.mbushKlientFurnitorSipasKodit(kodi, mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //oColKF = dbKontab.ktheKlientFurnitor(prefixText,DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));      
 
             if (oClsKF.KodKlientFurnitor == null)
                 return new { idRreshti = rreshti, oKF = oClsKF, monedha = mon, kursi = kurs };
             oClsKF.mbushKlientFurnitorSipasKoditAzhornim(oClsKF.KodKlientFurnitor, mySessionObjects.merrIdNdermarrjeSesioni(Session), data);
-            //string debikredi = "Debi";
             clsLlogari llog = new clsLlogari(oClsKF.IdLlogari);
             mon = new DbCore.DbAdmin.clsMonedha(llog.IdMonedha);
 
-            //if (oClsKF.LlojiKF == false)
-            //    debikredi = "Kredi";                      
             kurs = DbCore.DbAdmin.clsKurset.merrKursinEFundit(mon.IdMonedha, 1);
             return new { idRreshti = rreshti, oKF = oClsKF, monedha = mon, kursi = kurs };
-            //object[] veprimeKf = new object[3];
-            //veprimeKf[0] = oClsKF;
-            //veprimeKf[1] = mon;
-            //veprimeKf[2] = kurs;
 
-            //return veprimeKf;
         }
         public static object merrQendraKosto(int lloji, HttpSessionState Session)
         {
@@ -6316,7 +6187,6 @@ namespace RestApi.WebAPI.Models
         }
         public static object merrInfoComboSkemaArtikulliByID(int idSkema, string kodKontrolli)
         {
-            //clsLlogari llogaria = new clsLlogari(idLlogari);
             clsSkemaKontabilitetiArtikulli skema = new clsSkemaKontabilitetiArtikulli(idSkema);
             if (skema.IdSkemaKontabilitetiArtikulli != 0)
                 return new
@@ -6471,7 +6341,6 @@ namespace RestApi.WebAPI.Models
             string furnitoriDefault = colAtrTrupi.Find(atr => atr.IdKontroll == colKontrolle.Find(kontroll => kontroll.KodKontrolli == "furnitori_ComboBox").IdKontrolli).VlereDefault;
             object furnitori;
             string kodKf = shtim ? furnitoriDefault : EmertimiKF;
-
 
 
             if (!shtim && !string.IsNullOrEmpty(kodKf))

@@ -105,47 +105,18 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj') {
-       // if (isValidViti()) {
             merrTeDhena();
-      //  }
-        //else {
-        //    e.processOnServer = false;
-        //}
     }
-    //else if (e.item.name == "MbyllVitin") {
-    //    popMbyllje.Show();
-    //    e.processOnServer = false;
-    //}
 }
 
 /*
 Kontrollon nese jane plotesuar skate data e fillimit dhe e mbarimit te vitit.
 */
 function isValidViti() {
-    //var dataFillimit = dteFillimiViti.GetDate();
-    //var dataMbarimit = dteMbarimiViti.GetDate();
-    //if (parseInt(dataFillimit.getDate()) != 1) {
-    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgVitetDitaEFillimitTeVititDuhetTeJeteEParaEMuajitTeZgjedhur"));
-    //    return false;
-    //}
 
-    //var muajiFillimit = parseInt(dataFillimit.getMonth() + 1);
-    //var dtSkateMabarimit;
-    //if (muajiFillimit == 1) {
-    //    dtSkateMabarimit = new Date(dataFillimit.getFullYear(), 11, 31)
-    //}
-    //else {
     //    //Duke vendosur ne konstruktor vleren 0 per diten, kthehet dita e fundit e muajit
-    //    dtSkateMabarimit = new Date(dataFillimit.getYear() + 1, muajiFillimit - 1, 0);
-    //}
-    //if ((dtSkateMabarimit.getTime() - dataMbarimit.getTime()) != 0) {
-    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgVitetVitiDuhetTeJeteIPlote"));
-    //    return false;
-    //}
-    //return true;
 }
 
 //merr te dhenat e rreshtit te selektuar
@@ -163,14 +134,6 @@ function OnGetRowValuesMod(values) {
     if ($('#hfShtimModifikim').val() == "shtim")
         return;
     $('#hfId')[0].value = values[0];
-   // txtKodi.SetText(values[1]);
-    //dteFillimiViti.SetDate(values[2]);
-    //dteMbarimiViti.SetDate(values[3]);
-    //cmbPeriudhaLloji.SetValue(values[4]);
-    //cbPeriudhaHapjes.SetChecked(values[5]);
-    //cbPeriudhaMbylljes.SetChecked(values[6]);
-    //txtLlogMbylljeViti.SetValue(values[7]);
-    //    lblDateMbyllurMe.SetText(values[8].format('dd/MM/yyyy')); else lblDateMbyllurMe.SetText('');
     gvPeriudha.PerformCallback(indexModifiko);
     lista = false;
     var idGjuha = hfState.Get('idGjuha');
@@ -181,7 +144,6 @@ function OnGetRowValuesMod(values) {
         data: JSON.stringify({ idkomp: "3032", kodkonfi: cmbKonfigurimi.GetText(), iddokumenti: values[0], idNdermarrje: idNdermarrje, idGjuha: idGjuha })
     }).done(function (result) { SucceededCallbackLidhur(result, values[0]) });
     if (kaloTab) {
-    //    ASPxMenu1.GetItemByName('MbyllVitin').SetVisible(true);
         PageControl.SetActiveTabIndex(1);
         myMenu.PercaktoMenuSipasTabit(1, hfTeDrejta, $('#hfShtimModifikim'));
     }
@@ -204,19 +166,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
 
 //pastron fushat per shtim dhe ben aktive fushat
 function pastrofusha() {// eshte bere koment sepse per momentin nuk lejohet shtimi i viteve
- //   txtLlogMbylljeViti.SetValue('');
-    //lblDateMbyllurMe.SetText('');
-   // txtKodi.SetText('');
-    //dteFillimiViti.SetText('');
-    //dteMbarimiViti.SetText('');
-    //cmbPeriudhaLloji.SetText('1 mujore');
-    //cmbPeriudhaLloji.SetSelectedIndex(0);
-  //  cbPeriudhaHapjes.SetChecked(false);
-   // cbPeriudhaMbylljes.SetChecked(false);
-    //var hf = $('#hfKontrollet')[0];
-    //aktivizoFusha(colKontrollet, colAtrTrupi, false);
-    //gvPeriudha.PerformCallback(-1);
-    //lista = false;
 
 }
 /* 
@@ -252,42 +201,18 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //            var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblViti'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-  //  $("#dvViti").show();//$("#dvViti")[0].style.visibility = 'visible';
 }
-//    function SucceededCallbackKonfigurimi(result) {
-//        if (result !== "") {
-//            resultkonf = result; var vlerat = '';
-//            vlerat = result.split('*');
-//            var kontrollet = vlerat[0].split(';');
-//            var hf = $('#hfKontrollet')[0];
-//            var hfLidhur = $("#hfLidhur")[0];
-//            var hfMod = $('#hfShtimModifikim')[0];
-//            var arrTabela = ['tblViti'];
-//            Lupa(kontrollet);
-//            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-//            ASPxGridView_Vitet.PerformCallback("3032" + ";" + cmbKonfigurimi.GetText());
-//        } $("#dvViti")[0].style.visibility = 'visible';
-//    }
 
 var identikuesPerPopupLlogari = "Vitet";
 function LupaKontrollet(kontrollet, colAtrTrupi) {
@@ -324,7 +249,6 @@ function _getKeyCode(evt) {
 function changeName() {
     var hf = $("#hfKonffillestar")[0];
     myFaqeCelje.changeName('PostoEPaySlip.aspx', 0, hf);
- //   ASPxMenu1.GetItemByName('MbyllVitin').SetVisible(false);
     myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $('#hfShtimModifikim'));
 }
 
@@ -339,22 +263,16 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet')[0];
     var hfShtimModifikim = $('#hfShtimModifikim')[0]; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId')[0];  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //  indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, ASPxGridView_Vitet, "3032")
     if (hf.value == "true") {
-        //              aktivizoFusha(hfKontrollet.value);
-        //              window.mbush = false;
         //               hfShtimModifikim.value = "shtim"; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
         //               hfId.value = 0; //hidden fieldi qe ruan id  e rreshtit te selektuar
         //               indexModifiko = -1; //indexi i reshtit te selektuar      
-        //              pastrofusha();
         hf.value = "false";
 
         if (PageControl.GetActiveTabIndex() != 0)
         { 
-          //  ASPxMenu1.GetItemByName('MbyllVitin').SetVisible(true);
             PageControl.SetActiveTabIndex(0); myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $('#hfShtimModifikim'));
         }
-        //  SucceededCallbackKonfigurimiInit(resultkonf);
         mbushfusha();
         ASPxGridView_Vitet.PerformCallback(3032 + ";" + cmbKonfigurimi.GetText());
         ASPxGridView_Vitet.ClearFilter();
@@ -368,9 +286,6 @@ function valido(s, e) {
     myFaqeCelje.valido(s, e, PageControl, hfTeDrejta, $('#hfShtimModifikim'));
 }
 
-//function krijoTable(rresht, kolone, emerTabele) {
-//    myFaqeCelje.krijoTable(rresht, kolone, emerTabele);
-//}
 var modifikim = false;
 var kycje = new Array();
 var posto = new Array();
@@ -399,7 +314,6 @@ function merrTeDhena() {
         posto[count] = i.toString() + ":" + editor1.GetChecked();
         postom[count] = i.toString() + ":" + editor2.GetChecked();
         postoa[count] = i.toString() + ":" + editor3.GetChecked();
-        //count += 1;
         count = count + 1;
     }
 

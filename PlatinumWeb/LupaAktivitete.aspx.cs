@@ -21,10 +21,7 @@ namespace PlatinumWeb
             else
                 vleraQueryString = "";
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "LAKT"; //eshte kodi i lupes, mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             int idKonfigAmbjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "LAKT");
 
@@ -39,7 +36,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 ////DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
-                //AplikoFilterDefault();
                 cmbKonfigurimi.Value = idKonfigAmbjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvLupaAktivitetet, idKonfigAmbjenti);
                 mbushPopUpListeNgaDB();
@@ -51,7 +47,6 @@ namespace PlatinumWeb
                 mbushPopUpListeNgaSession();
                 konfiguroPopupGride(idKonfigAmbjenti, false, kerkosaposhkruar, endlessScroll);
             }
-            //mbushComboBoxFiltra(idNdermarrje);
 
 
         }
@@ -120,65 +115,14 @@ namespace PlatinumWeb
         }
 
 
-        //protected void Apliko_ASPxButton_Click(object sender, EventArgs e)
-        //{
-        //    DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-        //    //filtra.mbushFiltraGridaSipasFiltraKodi(Filtri_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaAktivitetet", "LupaAktivitete.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    filtra.mbushFilterPerGrideSipasKodit(Filtri_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-        //    gvLupaAktivitetet.FilterExpression = filtra.FiltraVlera;
-        //    if (filtra.DrejtimRenditje == true)
-        //        gvLupaAktivitetet.SortBy(gvLupaAktivitetet.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
         //    else
-        //        gvLupaAktivitetet.SortBy(gvLupaAktivitetet.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
 
-        //    Filtri_ASPxTextBox.Text = "";
-        //}
 
-        //protected void Ruaj_ASPxButton_Click(object sender, EventArgs e)
-        //{
-        //    if (Page.IsValid)
-        //    {
-        //        DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = Kodi_ASPxTextBox.Text, FiltraShenime = Shenime_ASPxTextBox.Text, FiltraUniversal = false };
-        //        DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaAktivitetet", "LupaAktivitete.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //        filtri.GridaKokaId = koka.IdGridaKoka;
-        //        filtri.FiltraVlera = gvLupaAktivitetet.FilterExpression;
-        //        System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaAktivitetet.GetSortedColumns();
-        //        if (kolona.Count > 0)
-        //        {
-        //            filtri.KoloneRenditje = kolona[0].FieldName;
-        //            if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-        //                filtri.DrejtimRenditje = true;
         //            else
-        //                filtri.DrejtimRenditje = false;
-        //        }
         //        else
-        //        {
-        //            filtri.KoloneRenditje = "IdKoka";
-        //            filtri.DrejtimRenditje = true;
-        //        }
-
-        //        filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-        //        filtri.IdNdermarje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-        //        filtri.IdStatusDok = 1;
-        //        filtri.ruaj();
-        //        Kodi_ASPxTextBox.Text = "";
-        //        Shenime_ASPxTextBox.Text = "";
-        //        popRuaj.ShowOnPageLoad = false;
-        //    }
-        //}
 
 
-        //protected void Kodi_CustomValidator_ServerValidate(object source, ServerValidateEventArgs args)
-        //{
-        //    using (DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin())
-        //    {
-        //        if (dbAdmin.ekzistonFilter(Kodi_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
-        //            args.IsValid = false;
         //        else
-        //            args.IsValid = true;
-        //    }
-        //}
 
         protected void gvLupaAktivitetet_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
         {
@@ -224,7 +168,6 @@ namespace PlatinumWeb
         private void percaktoTemplateMenu(ASPxMenu aSPxMenu1, int idViti, int idPerdorues, int idNdermarrje)
         {
             clsToolbarConfig.percaktoTemplateMenu(DbCore.mySessionObjects.ktheGjuhe(Session), idViti, idPerdorues, idNdermarrje, aSPxMenu1, "LupaAktivitete.aspx", this, MenuInfo, Ruaj_ASPxButton_Click, FshiFilter_ASPxButton_Click, true, false, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session));
-            //aSPxMenu1.Items.FindByName("Anullo").Text = "Mbyll";
         }
 
 
@@ -243,20 +186,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaAktivitetet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKoka", gvLupaAktivitetet);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaAktivitetet.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdKoka";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -265,7 +196,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAktivitetet", Convert.ToInt32(cmbKonfigurimi.Value), "LupaAktivitete.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -289,7 +219,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaAktivitetet", Convert.ToInt32(cmbKonfigurimi.Value), "LupaAktivitete.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -302,13 +231,5 @@ namespace PlatinumWeb
         }
 
         //private void mbushComboBoxFiltra(int idNdermarrje)
-        //{
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvLupaAktivitetet", "LupaAktivitete.aspx", idNdermarrje);
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, idNdermarrje);
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
     }
 }

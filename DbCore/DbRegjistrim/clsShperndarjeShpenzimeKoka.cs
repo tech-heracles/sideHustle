@@ -359,7 +359,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// Ruan nje objekt dokumenti shperndarje shpenzimesh sebashku me trupin,faturat  dhe kontabilitetin perkates
         /// Nje objekt koka dokumenti shperndarje shpenzimesh ka nje koleksion me trupin e dokumentit,faturat  dhe kontabilitetin perkates , 
@@ -727,7 +726,6 @@ namespace DbCore.DbRegjistrim
                 this.idKokaShperndarjeShpenz = id;
                 if (u_ruajt)
                     myscope.Complete();
-                //db.commitTransaksion();
                 if (kaNdryshimNumri)
                     return mesazhKontrolli;
 
@@ -741,7 +739,6 @@ namespace DbCore.DbRegjistrim
             kaNdryshimNumri = false;
 
             clsDatabaseAdmin db = new clsDatabaseAdmin( );
-            //db.vendosManager(dbRegj );
             clsMesazh mes = new clsMesazh();
             if (nrDok == "")
                 return new clsMesazh(false, "Kodi i nuk mund te jete bosh");
@@ -1020,7 +1017,6 @@ namespace DbCore.DbRegjistrim
                     clsDatabazeAsete dbasete = new clsDatabazeAsete(dbRegj);
 
                     clsShperndarjeShpenzimeKoka kokaEkzistuese = new clsShperndarjeShpenzimeKoka(id);
-                    //clsShperndarjeShpenzimeKoka kokaEkzistuese = this.merrShperndarjeShpenzimeshKokaSipasID(koka.IdKokaShperndarjeShpenz)[0];
                     colKokaMagazina kokaEkzistueseMag = new colKokaMagazina();
 
                     kokaEkzistueseMag.mbushKokaMagazinaSipasIDGjenerues(kokaEkzistuese.IdKonfigAmbjente, kokaEkzistuese.IdKokaShperndarjeShpenz, dbRegj);
@@ -1040,18 +1036,14 @@ namespace DbCore.DbRegjistrim
                     }
 
 
-
-
                     kokaEkzistuese.OColFletetKontabel = new colKokatFletetKontabel();
                     DbKontabiliteti.colKokatFletetKontabel kokaFleteKontabel = new colKokatFletetKontabel(kokaEkzistuese.IdKokaShperndarjeShpenz, 7);
-                    //DbKontabiliteti.colKokatFletetKontabel kokaFleteKontabel = dbkontab.merrKokaFleteKontabelSipasIDDokAndIDLlojDok(kokaEkzistuese.IdKokaShperndarjeShpenz, 39);
                     for (int i = 0; i < kokaFleteKontabel.Count; i++)
                     {
                         if (mesazhKont.Status)
                         {
                             clsKokaFleteKontabel kokaFk = kokaFleteKontabel[i];
 
-                            //clsKokaFleteKontabel kokaFk = dbkontab.merrKokaFleteKontabelSipasIDDokAndIDLlojDok(kokaEkzistuese.IdKokaShperndarjeShpenz, 39)[0];
                             if (kokaFk.IdKokaFleteKontabel != 0)
                             {
                                 mesazh = kokaFk.fshiupd(dbkontab);
@@ -1109,7 +1101,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi()
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             clsMesazh u_fshi = fshiShperndarjeShpenzimesh(this.IdKokaShperndarjeShpenz);
             return u_fshi;
         }

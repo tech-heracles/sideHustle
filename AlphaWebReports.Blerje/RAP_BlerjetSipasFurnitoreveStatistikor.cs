@@ -52,7 +52,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
             ResourceManager rm = new ResourceManager("Resources.Strings",
             System.Reflection.Assembly.Load("App_GlobalResources"));          
             xrLabel70.Text = rm.GetString("FiltratEmertimi", ci);
-            //xrLabel20.Text = rm.GetString("lblTitulliRap", ci);
             NrRendKoka.Text = rm.GetString("lblNrrend", ci);
             KodiKoka.Text = rm.GetString("lblKodi", ci);
             EmertimiKoka.Text = rm.GetString("labelRaportiEmertimi", ci);

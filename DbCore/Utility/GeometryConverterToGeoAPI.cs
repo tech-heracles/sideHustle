@@ -416,7 +416,6 @@ namespace DotSpatial.Topology
                 {
                     var c = new GeoAPICoordinate(vertex.X, vertex.Y);
                     coords.Add(c);
-                    //if (shape.HasM()) c.M = shape.M[i];
                     if (shape.HasZ()) c.Z = shape.Z[i];
                     i++;
                 }
@@ -445,7 +444,6 @@ namespace DotSpatial.Topology
                 {
                     var c = new GeoAPICoordinate(d.X, d.Y);
                     coords.Add(c);
-                    //if (shape.HasM()) c.M = M[i];
                     if (shape.HasZ()) c.Z = shape.Z[i];
                     i++;
                 }
@@ -482,7 +480,6 @@ namespace DotSpatial.Topology
                 foreach (var d in part)
                 {
                     var c = new GeoAPICoordinate(d.X, d.Y);
-                    //if (shape.HasM()) c.M = M[i];
                     if (shape.HasZ()) c.Z = shape.Z[i];
                     i++;
                     coords.Add(c);

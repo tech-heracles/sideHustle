@@ -60,7 +60,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrTableCell8.Text = rm.GetString("labelRaportVlera", ci);
             xrLabel24.Text = rm.GetString("labelRaportiTotali", ci) + ":";
             xrLabel22.Text = rm.GetString("labelRaportPranuesi", ci);        
-            // xrLabel26.Text = rm.GetString("lblRaportPreventivuesi", ci);
 
           }
 

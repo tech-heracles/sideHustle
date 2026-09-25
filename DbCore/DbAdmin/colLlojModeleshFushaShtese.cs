@@ -93,19 +93,11 @@ namespace DbCore.DbAdmin
         private bool mbushLlojeModeleshFushaShtese(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojModeliFushaShtese llojModeliFushaShtese = new clsLlojModeliFushaShtese();
-                    //llojModeliFushaShtese.mbushLlojModelFushaShtese(rreshti);
                     Add(new clsLlojModeliFushaShtese(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -18,9 +18,7 @@ namespace PlatinumWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             // Prevent caching, so can't be viewed offline
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -52,7 +50,6 @@ namespace PlatinumWeb
         {
 
             DbCore.DbAdmin.colKushteDergimi colKushteDergimi = new DbCore.DbAdmin.colKushteDergimi(idNdermarrje);
-            //DbCore.DbAdmin.colKushteDergimi colKushteDergimi = dbAdmin.merrKushtetDergimit(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             grid_KushteDergimi.DataSource = colKushteDergimi;
             grid_KushteDergimi.DataBind();
         }
@@ -60,7 +57,6 @@ namespace PlatinumWeb
         private void konfiguroGride(int idNdermarrje)
         {
             GridUtil.percaktoVisibleColumnsShto(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, grid_KushteDergimi, "grid_KushteDergimi", "Shto_KushtDergimi.aspx");
-            //funksione.percaktoAtributeTeGridesShto(grid_KushteDergimi, "IdKushtDergimi");
             GridUtil.percaktoAtributeTeGridesShtoPaTheme(grid_KushteDergimi, "IdKushtDergimi");
         }
 

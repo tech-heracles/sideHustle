@@ -21,7 +21,6 @@ namespace PlatinumWeb
           
             if (!Page.IsPostBack)
             {
-                //Session.Add("mesazh", ":Green");
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
                 mbushPopUpListeGrupePunonjesish();
                 konfiguroPopupGride();
@@ -76,7 +75,6 @@ namespace PlatinumWeb
         {
        
                 GridUtil.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(Session), idndermarje,gvLupaGrPunonjesish, "gvLupaGrPunonjesish", "LupaGrupPunonjesish.aspx");
-                //funk.konfiguroGrideListeEvogelPopupi(gvLupaGrPunonjesish, "IdGrupPunonjesish");
    
             mbushPopUpListeGrupePunonjesish();
         }

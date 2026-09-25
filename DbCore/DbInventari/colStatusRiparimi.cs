@@ -67,20 +67,12 @@ namespace DbCore.DbInventari
         private bool mbushStatusRiparimi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsStatusRiparimi statusriparimi = new clsStatusRiparimi();
-                    //statusriparimi.mbushStatusRiparime(rreshti);
                     this.Add(new clsStatusRiparimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

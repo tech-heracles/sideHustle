@@ -49,7 +49,6 @@ namespace PlatinumWeb
                     string redirect = "true";
                     if (licenca.IdLlojLicenca != 7 && licenca.IdLlojLicenca != 4)
                         grid_ListLoginNdermarrje.FilterExpression = $"[VITI]={DateTime.Now.Year}";
-                    //if(grid_ListLoginNdermarrje)
                     if (query.ContainsKey("redirect")) redirect = (string)query["redirect"];
                     if (grid_ListLoginNdermarrje.VisibleRowCount == 1 && redirect != "false")
                     {
@@ -109,7 +108,6 @@ namespace PlatinumWeb
         {
             if (idPerdoruesi == 0)
             {
-                //DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
                 DbCore.clsFunksione.logout(Session, true, "FaqePaautorizuar");
                 return;
             }
@@ -127,8 +125,6 @@ namespace PlatinumWeb
                 grid_ListLoginNdermarrje.DataSource = dbAdmin.merrNdermarrjetEPerdoruesitDataTable(idPerdoruesi);
 
                 grid_ListLoginNdermarrje.DataBind();
-
-
 
 
             }
@@ -161,11 +157,6 @@ namespace PlatinumWeb
                 grid_ListLoginNdermarrje.Columns[3].VisibleIndex = 3;
                 grid_ListLoginNdermarrje.Columns[3].Width = Unit.Percentage(10);
                 grid_ListLoginNdermarrje.Columns[3].MinWidth = 70;
-                //GridViewDataTextColumn colnew = new GridViewDataTextColumn();
-                //colnew = grid_ListLoginNdermarrje.Columns[3] as GridViewDataTextColumn;
-                //colnew.Settings.FilterMode = ColumnFilterMode.DisplayText;
-                //GridViewDataColumn col3 = grid_ListLoginNdermarrje.Columns[3] as GridViewDataColumn;
-                //col3.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
                 grid_ListLoginNdermarrje.Columns[4].Visible = false;
                 grid_ListLoginNdermarrje.Columns[4].Width = 0;
 

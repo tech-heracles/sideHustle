@@ -55,20 +55,12 @@ namespace DbCore.DbAdmin
         private bool mbushVleratKonfigurimKasash(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
 
-                    //clsVleraKonfigurimiKasa kasa = new clsVleraKonfigurimiKasa();
-                    //kasa.mbushVleraKonfigurimKase(rreshti);
                     this.Add(new clsVleraKonfigurimiKasa(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         #endregion

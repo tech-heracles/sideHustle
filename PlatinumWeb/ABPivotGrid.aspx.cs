@@ -50,7 +50,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -231,8 +230,6 @@ namespace PlatinumWeb
                     field.GrandTotalCellFormat.FormatType = FormatType.Numeric;
                     field.TotalCellFormat.FormatType = FormatType.Numeric;
                     field.TotalCellFormat.FormatString = "n2";
-                    //field.ValueFormat.FormatString = "n2";
-                    //field.ValueFormat.FormatType = FormatType.Numeric;
                     field.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum;
                     
                 }
@@ -244,8 +241,6 @@ namespace PlatinumWeb
                     field.GrandTotalCellFormat.FormatType = FormatType.Numeric;
                     field.TotalCellFormat.FormatType = FormatType.Numeric;
                     field.TotalCellFormat.FormatString = "n0";
-                    //field.ValueFormat.FormatString = "n2";
-                    //field.ValueFormat.FormatType = FormatType.Numeric;
                     field.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum;
 
                 }
@@ -302,19 +297,8 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemExport");
             ASPxComboBox cmbExport = ((PlatinumWeb.MenuExport)(itemButton.Template)).FindControl("cmbExport") as ASPxComboBox;
 
-            //PrintingSystem printingSystem = new PrintingSystem();
 
-            //using (PrintableComponentLink printableComponentLink = new PrintableComponentLink())
-            //{
-            //    //PrintableComponentLink printableComponentLink = new PrintableComponentLink();
-            //    printableComponentLink.PrintingSystem = printingSystem;
-            //    printableComponentLink.Component = ASPxPivotGridExporterRaporti;
             //    //if (ASPxPivotGridRaporti.Data.FieldListFields.FieldItems.Count > 8)
-            //    //    printableComponentLink.Landscape = true;
-            //    //else printableComponentLink.Landscape = false;
-            //    printableComponentLink.CreateDocument();
-            //}
-            //printingSystem.Document.AutoFitToPagesWidth = 1;
             ASPxPivotGridExporterRaporti.OptionsPrint.PageSettings.Landscape = true;
             
             try
@@ -326,8 +310,6 @@ namespace PlatinumWeb
                         break;
 
                     case 1:
-                        //XlsxExportOptions optXlsx = new XlsxExportOptions();
-                        //optXlsx.RawDataMode = true;
                         ASPxPivotGridExporterRaporti.ExportXlsxToResponse(fileName, true);
                         break;
 

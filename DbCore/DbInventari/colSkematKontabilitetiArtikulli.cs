@@ -163,20 +163,12 @@ namespace DbCore.DbInventari
         private bool mbushSkematKontabilitetArtikulli(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSkemaKontabilitetiArtikulli skemaKontabilitetiArtikulli = new clsSkemaKontabilitetiArtikulli();
-                    //skemaKontabilitetiArtikulli.mbushSkemaKontabilitetiArtikull(rreshti);
                     this.Add(new clsSkemaKontabilitetiArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

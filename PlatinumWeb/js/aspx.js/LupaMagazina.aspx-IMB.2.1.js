@@ -27,8 +27,6 @@ function Init() {
     try {
         if (window.parent.identifikuesPerPopupMagazina !== 'GisDefault')           
         myFaqeCelje.shtoHandlerSession();
-        //gvLupaMagazina.SelectRowOnPage(0, true);
-        //gvLupaMagazina.SetFocusedRowIndex(0);
         btnOk.Focus();
     }
     catch (err) {
@@ -244,10 +242,6 @@ function VendosIdMagazine(id) {
     }
 }
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

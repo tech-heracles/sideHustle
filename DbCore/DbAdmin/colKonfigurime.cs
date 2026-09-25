@@ -79,19 +79,11 @@ namespace DbCore.DbAdmin
         private bool mbushListaKonfigurime(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKonfigurime konfig = new clsKonfigurime();
-                    //konfig.mbushKonfigurime(rreshti);
                     Add(new clsKonfigurime(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -111,7 +103,6 @@ namespace DbCore.DbAdmin
                 konfig.Password = rreshti[4].ToString();
                 konfig.RaportDomain = rreshti[5].ToString();
                 konfig.RaportFolder = rreshti[6].ToString();
-                //konfig.MultipleUser = Convert.ToBoolean(rreshti[7].ToString());
                 konfigurimet.Add(konfig);
             }
             return konfigurimet;

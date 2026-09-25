@@ -68,7 +68,6 @@ namespace PlatinumWeb
                 idGjuha = (int)hfState["idGjuha"];
             }
 
-            //konfigGrid();
             if (mySessionObjects.merrPeriudheKontabel(Session) != null)
             {
                 DbCore.DbAdmin.clsPeriudhaKontabel periudha = mySessionObjects.merrPeriudheKontabel(Session);
@@ -256,7 +255,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
 
@@ -409,8 +407,6 @@ namespace PlatinumWeb
             }
          
             
-            
-
             mbushListeRegjistrimInventarizimiTrupiModifiko(kok);
         }
 
@@ -522,7 +518,6 @@ namespace PlatinumWeb
                         Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + id + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatPrintimi.Value;
                     }
 
-                    //  Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=38&idDokumenti=" + clsKoka.IdKokaMagazina + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatPrintimi.Value;
 
                 }
                 else
@@ -565,8 +560,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -576,7 +569,6 @@ namespace PlatinumWeb
 
             kokam.IdPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
             mesazh = kokam.fshi();
-            //Session.Add("trupat", trupat);
             if (mesazh.Status)
             {
 
@@ -638,7 +630,6 @@ namespace PlatinumWeb
                     if (hfShtimModifikim.Value == "shtim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DShtim) || (statusDokumenti == 0 && !tedrejtaInfo.DShtimDraft))
-                        //if (!tedrejtaInfo.DShtim)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
                             status1.Value = "false";
@@ -651,7 +642,6 @@ namespace PlatinumWeb
                     else if (hfShtimModifikim.Value == "modifikim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                        //if (!tedrejtaInfo.DMod)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
                             status1.Value = "false";
@@ -720,10 +710,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             clsKokaInventarizim koka = new clsKokaInventarizim();
 
@@ -784,7 +772,6 @@ namespace PlatinumWeb
         }
 
 
-
         private colTrupiInventarizim ruajTrupinInventarizim()
         {
             CultureInfo ci = mySessionObjects.ktheCultureInfo(Session);
@@ -804,7 +791,6 @@ namespace PlatinumWeb
 
             return trupat;
         }
-
 
 
         /// <summary>

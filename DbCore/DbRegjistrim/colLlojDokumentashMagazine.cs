@@ -125,21 +125,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushDokumentatMagazine(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojDokumentiMagazine llojDok = new clsLlojDokumentiMagazine();
-                    //llojDok.mbushLlojDokumentiMagazine(rreshti);
                     Add(new clsLlojDokumentiMagazine(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

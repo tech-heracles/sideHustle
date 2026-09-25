@@ -99,7 +99,6 @@ function MbushComboMeDataAktivizimi(idEntiteti, idModeli, then) {
             cmbDtNdryshimi.SetSelectedIndex(currentSelection);
             HfFushaShtese.Set("selectedDate", cmbDtNdryshimi.GetItem(currentSelection).value);
         }
-        // var cmbDtNdryshimi = new ASPxClientComboBox();    
         cmbDtNdryshimi.EndUpdate();
 
     });

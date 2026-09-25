@@ -1735,7 +1735,6 @@ namespace DbCore.DbRegjistrim
 
             #region magazina
             oKokaMagazina = new clsKokaMagazina();
-            // oKokaRezervime = new clsKokaRezervime();
             oKokaMagazina.OFleteKontabel = new clsKokaFleteKontabel();
 
             clsKokaShitje shitjePerRezervim = this;
@@ -1870,7 +1869,6 @@ namespace DbCore.DbRegjistrim
                 clsLlogari llog = new clsLlogari(klientmeme.IdLlogari);
                 int idMonedh = llog.IdMonedha;
                 string kodiMon = clsMonedha.ktheKodMonedheSipasId(llog.IdMonedha);
-                //clsMonedha mon = new clsMonedha(llog.IdMonedha);
 
                 clsNdermarrjeViti nderviti = new clsNdermarrjeViti(idNdVt);
                 clsViti viti = new clsViti(nderviti.IdViti);
@@ -1925,7 +1923,6 @@ namespace DbCore.DbRegjistrim
                 int idndermarjebij = kf.IdNdermarjeBij;
                 if (idndermarjebij > 0)
                 {
-                    //clsNdermarrje nderm = new clsNdermarrje(idndermarjebij);
                     clsNdermarrje ndermpr = new clsNdermarrje(idNder);
                     clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti();
                     string kodNivelRegjistrimi = clsNivelRegjistrimi.ktheKodNivelRegjistrimi(idNiv);
@@ -1945,7 +1942,6 @@ namespace DbCore.DbRegjistrim
                     clsLlogari llog = new clsLlogari(furnitoribij.IdLlogari);
                     int idMonedh = llog.IdMonedha;
                     string kodiMon = clsMonedha.ktheKodMonedheSipasId(llog.IdMonedha);
-                    //clsMonedha mon = new clsMonedha(llog.IdMonedha);
                     clsNdermarrjeViti nderviti = new clsNdermarrjeViti(idNdVt);
                     clsViti viti = new clsViti(nderviti.IdViti);
                     clsViti vitiprind = new clsViti();
@@ -1960,7 +1956,6 @@ namespace DbCore.DbRegjistrim
                         kursimeme.VleraKursi = 1.00;
                     }
 
-                    //clsPeriudhaKontabel per = new clsPeriudhaKontabel(dtDk, idndermarjebij);
                     int idPeriudhaKont = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtDk, idndermarjebij);
                     if (kodiMon != kodMon)
                     {
@@ -3226,7 +3221,6 @@ namespace DbCore.DbRegjistrim
             faturashitjengaurdhershitjamekupontatimor.nrDok = nrdokshitje;
             faturashitjengaurdhershitjamekupontatimor.nrSerial = nrserialshitje;
             if (dbRegj.ekzistonRegjistrimShitjeSipasIdentifikuese(faturashitjengaurdhershitjamekupontatimor.IdShitjeKoka, faturashitjengaurdhershitjamekupontatimor.idNivel, faturashitjengaurdhershitjamekupontatimor.idKonfigAmbjente, faturashitjengaurdhershitjamekupontatimor.dtDok, faturashitjengaurdhershitjamekupontatimor.nrDok, faturashitjengaurdhershitjamekupontatimor.idNdermarje, faturashitjengaurdhershitjamekupontatimor.IdKlientFurnitor, faturashitjengaurdhershitjamekupontatimor.nrSerial, faturashitjengaurdhershitjamekupontatimor.idMenyrePagese, faturashitjengaurdhershitjamekupontatimor.idPikeShitjeFurnizimi, faturashitjengaurdhershitjamekupontatimor.idDegeAdministrative, faturashitjengaurdhershitjamekupontatimor.idRaportDesing, faturashitjengaurdhershitjamekupontatimor.idGrup1, faturashitjengaurdhershitjamekupontatimor.idGrup2, faturashitjengaurdhershitjamekupontatimor.idGrup3, faturashitjengaurdhershitjamekupontatimor.idAgjent))
-            //if (dbRegj.ekzistonRegjistrimShitje(faturashitjengaurdhershitjamekupontatimor.idNivel, faturashitjengaurdhershitjamekupontatimor.idKonfigAmbjente, faturashitjengaurdhershitjamekupontatimor.dtDok, faturashitjengaurdhershitjamekupontatimor.nrDok, faturashitjengaurdhershitjamekupontatimor.idNdermarje))
             {
                 ImbLogger.LogWarningShitje($"Ekziston një regjistrim me këto të dhëna identifikuese: faturashitjengaurdhershitjamekupontatimor.idShitjeKoka:{faturashitjengaurdhershitjamekupontatimor.IdShitjeKoka}, faturashitjengaurdhershitjamekupontatimor.idNivel:{faturashitjengaurdhershitjamekupontatimor.idNivel},faturashitjengaurdhershitjamekupontatimor.idKonfigAmbjente:{faturashitjengaurdhershitjamekupontatimor.idKonfigAmbjente}");
                 return new clsMesazh(false, "Ekziston një regjistrim me këto të dhëna identifikuese!");
@@ -3307,7 +3301,6 @@ namespace DbCore.DbRegjistrim
                     }
 
 
-
                     if (!mesazhKontrolli.Status)
                     {
                         shfaqmesazhapolupemag = "jo";
@@ -3349,7 +3342,6 @@ namespace DbCore.DbRegjistrim
 
                     if (!u_ruajt.Status)
                     {
-                        // dbRegj.rollbackTransaksion();
                         return u_ruajt;
                     }
                     if (ndryshostatusdokgjenerues)
@@ -3357,7 +3349,6 @@ namespace DbCore.DbRegjistrim
                         u_ruajt = dbRegj.modifikoKokaShitjeStatusGjenerimi(this.idGjenerues, true);
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
                     }
@@ -3391,7 +3382,6 @@ namespace DbCore.DbRegjistrim
                             printogarancifature = true;
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
                         faturashitjengaurdhershitjamekupontatimor.faturePermbledhese = true;
@@ -3399,7 +3389,6 @@ namespace DbCore.DbRegjistrim
                         u_ruajt = faturashitjengaurdhershitjamekupontatimor.ruajShitje(serverUrl, faturashitjengaurdhershitjamekupontatimor, isShitje, false, idPeriudha, dbRegj, colkonvshitje, false, skemaWorkFlow, statusapp, idetapa, out mesazhLupeMag, new DbQendraKosto.colTrupiQendraKosto(), false, eshteOwn, serialet, konfigurimAmortizimi, new colAmortizimiKoka(), true, new DbQendraKosto.colTrupiQendraKosto(), out mesazhLupe, kodkonfigurimi, 0, 0, 0, idGjuha, 0, ruajrenditje, kontrolloSasiKonvertimiDheKthimi, false, kontrolloIMEIFifo, promocione, out mesazhmevonshem, false, new clsKokaShitje());
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
                     }
@@ -3414,21 +3403,18 @@ namespace DbCore.DbRegjistrim
 
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
 
                         u_ruajt = shitjemema.ruajShitje(serverUrl, shitjemema, !isShitje, false, idPeriudha, dbRegj, colkonvertimi, gjenerodokmagazine, skemaWorkFlow, statusapp, idetapa, out shfaqmesazhapolupemag, new DbQendraKosto.colTrupiQendraKosto(), kontrollodisponibelmema, eshteOwn, serialet, konfigurimAmortizimi, new colAmortizimiKoka(), mekontabilizim, new DbQendraKosto.colTrupiQendraKosto(), out shfaqmesazhapolupe, kodkonfigurimi, 0, 0, 0, idGjuha, 0, ruajrenditje, kontrolloSasiKonvertimiDheKthimi, false, kontrolloIMEIFifo, promocione, out mesazhmevonshem, false, new clsKokaShitje());
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
 
                         u_ruajt = dbRegj.modifikoKokaShitjeStatusTransferimi(idush, StatusTrasferimi.Konvertuar);
                         if (!u_ruajt.Status)
                         {
-                            // dbRegj.rollbackTransaksion();
                             return u_ruajt;
                         }
 
@@ -3437,7 +3423,6 @@ namespace DbCore.DbRegjistrim
                             u_ruajt = krijoMagazinatPerFature(shitjemema, dbRegj, idPeriudha, out shfaqmesazhapolupemag, eshteOwn, "FHK", krijoartri, idGjuha, ruajrenditje, promocione);
                             if (!u_ruajt.Status)
                             {
-                                // dbRegj.rollbackTransaksion();
                                 return u_ruajt;
                             }
                         }
@@ -3505,18 +3490,14 @@ namespace DbCore.DbRegjistrim
                     }
 
 
-
                     scope.Complete(out dbData);
                 }
-
-
 
 
                 myWatchTransaksion.Stop();
                 string debugMsg = $"TRANSAKSION: {myWatchTransaksion.Elapsed} ; nrRreshta: {nrRreshtaTrupi}";
                 System.Diagnostics.Debug.WriteLine(debugMsg);
                 ImbLogger.Info(debugMsg);
-                //dbRegj.commitTransaksion();
                 if (kaNdryshimNumri)
                 {
                     return mesazhKontrolli;
@@ -3712,8 +3693,6 @@ namespace DbCore.DbRegjistrim
             bool aplikonrserialneruajte = clsAlternativaKushti.getAlternativa(IdKonfigAmbjente, "ANRSVSR", dbShare) == "Po";
             foreach (clsTrupiShitje t in OColTrupiShitje)
             {
-                // if (t.IdLlojVeprimi == 1)
-                //    shumaKomision += t.VleraKomisionit;
                 if (t.Kodi != string.Empty && t.Pershkrimi == string.Empty)
                 {
                     ImbLogger.LogTraceShitje("Ka rreshta pa pershkrim. --Msg i nxjerr ne metoden kontrolloShitje!");
@@ -3777,24 +3756,10 @@ namespace DbCore.DbRegjistrim
                     totali += t.VleftaMeTvsh;
                     #region komentuar
                     //if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100), 2) == t.VleftaPaTvsh)//nivel cmimi pa tvsh
-                    //{
-                    //    if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100) * (1 + double.Parse(taksa.NormaPerqindje.ToString()) / 100), 2) != t.VleftaMeTvsh)
-                    //    {
-                    //        return new clsMesazh("Te dhenat nuk jane te sakta");
-                    //    }
-                    //}
                     //else
                     //    if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100) / (1 + double.Parse(taksa.NormaPerqindje.ToString()) / 100), 2) == t.VleftaPaTvsh)//nivel cmimi me tvsh
-                    //    {
-                    //        if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100), 2) != t.VleftaMeTvsh)
-                    //        {
-                    //            return new clsMesazh("Te dhenat nuk jane te sakta");
-                    //        }
-                    //    }
                     //    else
-                    //        return new clsMesazh("Te dhenat nuk jane te sakta");
 
-                    //totali += t.VleftaMeTvsh;
                     #endregion
                 }
             }
@@ -4249,7 +4214,6 @@ namespace DbCore.DbRegjistrim
                 colTrupiMagazina coltrupivjetermagKryesor = new colTrupiMagazina();
                 coltrupivjetermagKryesor.mbushGjitheTrupiMagazinaNgaKoka(koka.oKokaMagazina.IdDokNga, dbRegj);
                 mesazh = koka.OKokaMagazina.ruaj(false, kontabalizimmag, null, idPeriudha, pershkrimMagFK, idLlojDok, idDokNgaFK, dbRegj, out shfaqmesazhapolupemag, koka.oKokaMagazina.OFleteKontabel.KokaQendraKosto.IdDokNga, colTrupiQendramagvejter, eshteOwn, serialet, new colSerialetMagazine(), konfigurimAmortizimi, new clsKonfigurimAmbjenti(), 0, 0, new DbQendraKosto.colTrupiQendraKosto(), isShitje, koka, false, gjithmone, col, mekontabilizim ? 1 : 0, ruajrenditje, modifikim, coltrupivjetermagKryesor, colAmortizimetEVjetra, new int[0], kontrolloIMEIFifo, promocione, out mesazhmevonshem, null, false, false);
-                //mesazh = ruajMagazinePerShitje(koka.OKokaMagazina,false, shitje_blerje, koka.IdKonfigAmbjente, koka,idPeriudha, dbRegj);
                 if (!mesazh.Status)
                     return mesazh;
                 #region amortizimi
@@ -4354,8 +4318,6 @@ namespace DbCore.DbRegjistrim
                         mesazh = dbRegj.ruajGjendjeKF(out idG, gj.IdDok, gj.NrDok, gj.DateDok, gj.VlMinus, gj.VlPlus, gj.NivelDok, gj.IdMonedhaDok, gj.KursiDok, gj.DateRegj, gj.VlMinusMonedheBaze, gj.VlPlusMonedheBaze, gj.IdKlientGjendjeKf);
                         if (!mesazh.Status)
                         {
-                            //if (!modifikim) dbRegj.rollbackTransaksion();
-                            //dbManager.RollBackTransaction();
                             return mesazh;
                         }
 
@@ -4898,7 +4860,6 @@ namespace DbCore.DbRegjistrim
                             u_modifikua = pergatitTrupPerMeme(shitjemema, dbRegj, out colkonvertimi, 0, nivel.Kodi == "OB", idPeriudha, isshitje, false);
                             if (!u_modifikua.Status)
                             {
-                                //dbRegj.rollbackTransaksion();
                                 return u_modifikua;
                             }
 
@@ -4984,7 +4945,6 @@ namespace DbCore.DbRegjistrim
                             u_modifikua = dbRegj.modifikoDokumentaVartesSeShitjesNRDokDheDtDok(this.IdShitjeKoka, this.IdNivel, this.IdKonfigAmbjente, this.dtDok, this.nrDok, rm, cultinf, this.nrDokMagazine);
                             if (!u_modifikua.Status)
                             {
-                                //dbRegj.rollbackTransaksion();
                                 return u_modifikua;
                             }
                         }
@@ -5655,7 +5615,6 @@ namespace DbCore.DbRegjistrim
                 }
             }
 
-            //clsGjendjeKlientFurnitor gjendjeEkzistuese = koka.ktheObjektGjendjeKF();   
             foreach (clsGjendjeKlientFurnitor gj in kokaEkzistuese.OGjendjeKF)
             {
                 if (gj.IdGjendjeKf != 0)
@@ -5804,7 +5763,6 @@ namespace DbCore.DbRegjistrim
             koka.OKokaMagazina = new clsKokaMagazina();
             koka.OKokaMagazina.IdGjenerues = kokaEkzistuese.IdShitjeKoka;
             int idKategori = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(kokaEkzistuese.IdNivel, dbRegj);
-            //koka.oArkiva = new colArkiva(koka.idShitjeKoka, idKategori, dbshare);
             ImbLogger.LogTraceShitje($"Mbaroi clsMesazh fshiShitje me parametra idPerdoruesi:{idPerdoruesi}, koka:{JsonConvert.SerializeObject(koka)}, isshitje:{isshitje}, idstatusfshirje:{idstatusfshirje}");
             foreach (clsGjendjeKlientFurnitor gj in kokaEkzistuese.OGjendjeKF)
             {
@@ -5901,7 +5859,6 @@ namespace DbCore.DbRegjistrim
                 }
 
                 DbProdhimi.clsDatabazeProdhimi db = new DbProdhimi.clsDatabazeProdhimi(dbRegj);
-                //db.vendosManager(dbRegj );
                 mesazh = db.fshiUrdherPorosiPlanifikimiSipasIdUrdheri(kokaEkzistuese.IdShitjeKoka);
                 if (!mesazh.Status)
                 {
@@ -6218,7 +6175,6 @@ namespace DbCore.DbRegjistrim
                 string descria; //rreshti qe do te shkruhet ne kase
                 int kaseLogicalNumber;
                 string filename = kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
-                //clsVleraKonfigurimiKasa vlera = new clsVleraKonfigurimiKasa();
                 kaseLogicalNumber = int.Parse(kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR")); //meret nr llogjik i kases
                 bool printoPershkrim2 = bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2"));
                 bool eshtePrinterFiskal = (kasa.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "False");
@@ -6236,29 +6192,13 @@ namespace DbCore.DbRegjistrim
                         text += "48,1,______,_,__;" + this.NrSerial + ";||";
                     }
                 //else
-                //{
-                //    text += "M,1,______,_,__;" + this.NrSerial + ";||";
-                //}
 
                 if (this.kupon)
                     text += "M,1,______,_,__;" + this.NrSerial + ";||";
 
-                //if (kasa.OColVlerat.ktheVlereOpsioni("PRINTONRFATURE") == "True")
-                //    if (eshtePrinterFiskal)
-                //    {
-                //        if (!string.IsNullOrEmpty(this.NrSerial))
-                //        {
-                //           text += "54," + kaseLogicalNumber + ",______,_,__;Serial:" + this.NrSerial + ";||";
-                //        }
-                //    }
-                //    else if (!string.IsNullOrEmpty(this.NrSerial))
-                //    {                       
-                //        text += "P," + kaseLogicalNumber.ToString() + ",______,_,__;Serial:" + this.NrSerial + ";;;;;||";
-                //    }
                 if (kaRreshtaKthimi(this))
                 {
                     this.OColTrupiShitje = rendit(this.OColTrupiShitje);  //renditen ne fund rreshtat e kthimit
-                                                                          // nrkopjesh = int.Parse(kasa.OColVlerat.ktheVlereOpsioni("NRKOPJESHKTHIMI"));
                 }
                 foreach (clsTrupiShitje t in this.OColTrupiShitje)
                 {
@@ -6269,15 +6209,12 @@ namespace DbCore.DbRegjistrim
                     if (true)    //cmimet me tvsh 
                     {
                         //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                        //PPZI = t.Cmimi * this.Kursi;
                         if (metvsh)
                         {
                             PPZI = t.Cmimi * this.Kursi;
                         }
                         else
                         {
-                            //PPZI = t.VleftaMeTvsh / t.Sasia * this.Kursi;
-                            // PPZI = (t.VleftaMeTvsh / (t.Sasia * (1 - t.Zbritje / 100))) * this.Kursi;
                             if (t.Zbritje == 100)
                             {
                                 PPZI = 0;
@@ -6289,26 +6226,19 @@ namespace DbCore.DbRegjistrim
                         }
 
 
-
                     }
                     //else TODO: kur ndermarrje eshte e konfiguruar pa tvsh
-                    //{
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * (1 + t.Zbritje / 100) * this.Kursi;
-                    //}
 
 
                     double cmimSipasKonfigKase;
-                    //int MeShifraDhjetore;
                     if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") == "False")
                     {
                         cmimSipasKonfigKase = PPZI;
-                        //MeShifraDhjetore = 0; 
                     } //kasa eshte konfiguruar pa presje dhjetore, i dergohen cmimet te konvertuar ne numra te plote
                     else
                     {
                         cmimSipasKonfigKase = PPZI * 100;
-                        //MeShifraDhjetore = 1; 
                     } //kasa eshte konfiguruar me presje dhjetore, i dergohen cmimet te shumezuar me 100, te konvertuar ne numra te plote, ne menyre qe dy shifrat e fundit te perfaqesojne pjesen dhjetore
                     int paramKthim = 0;
                     if (t.Sasia < 0)     //nqs kthime cmimi vete me minus
@@ -6318,7 +6248,6 @@ namespace DbCore.DbRegjistrim
                             cmimSipasKonfigKase = -cmimSipasKonfigKase;
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", printoPershkrim2, t.Pershkrimi, t.Pershkrim2, 25);
                     string niveltvsh = "1";
-                    //niveltvsh = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     niveltvsh = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
                     if (eshtePrinterFiskal)
                         descria = "49," + kaseLogicalNumber + ",______,_,__;" + DESIC + ";" + Math.Round(cmimSipasKonfigKase, 2) + ";" + QPZ + ";" + niveltvsh + ";" + paramKthim + ";1;" + Math.Round(t.Zbritje, 2) + ";";
@@ -6331,7 +6260,6 @@ namespace DbCore.DbRegjistrim
                         if (t.Zbritje > 0)
                         {
                             descria = "C," + kaseLogicalNumber + ",______,_,__;1;" + Math.Round(t.Zbritje * 100, 2) + ";;;;";
-                            //sw.WriteLine(descria);
                             text += descria + "||";
                         }
                 }
@@ -6343,11 +6271,9 @@ namespace DbCore.DbRegjistrim
                     else
                     {
                         text += "T," + kaseLogicalNumber + ",______,_,__;4;;;;;||";
-                        //sw.WriteLine("T," + kaseLogicalNumber + ",______,_,__;4;;;;;");
                         descria = "C," + kaseLogicalNumber + ",______,_,__;1;" + Math.Round(perqindja * 100, 2) + ";;;;";
                     }
                     text += descria + "||";
-                    //sw.WriteLine(descria);
                 }
                 //per opsionin e afishimit te cmimit ne fature sipas nje monedhe te dyte
                 string cmimMonDyte;
@@ -6356,19 +6282,16 @@ namespace DbCore.DbRegjistrim
                 {
                     double kurs;
                     clsKurset kursi = new clsKurset(int.Parse(cmimMonDyte), this.DtDok);
-                    //clsMonedha mon = new clsMonedha(int.Parse(cmimMonDyte));
                     kurs = kursi.VleraKursi;
                     if (kurs != -1 && kurs != 0)
                     {
                         if (eshtePrinterFiskal)
                         {
                             text += "54," + kaseLogicalNumber + ",______,_,__;" + clsMonedha.ktheKodMonedheSipasId(int.Parse(cmimMonDyte)) + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2) + ";||";
-                            //sw.WriteLine("54," + kaseLogicalNumber + ",______,_,__;" + mon.KodiMonedha + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2) + ";");
                         }
                         else
                         {
                             text += "P," + kaseLogicalNumber + ",______,_,__;" + clsMonedha.ktheKodMonedheSipasId(int.Parse(cmimMonDyte)) + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;||";
-                            //sw.WriteLine("P," + kaseLogicalNumber + ",______,_,__;" + mon.KodiMonedha + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;");
                         }
                     }
                 }
@@ -6377,28 +6300,22 @@ namespace DbCore.DbRegjistrim
                 {
                     text += "53," + kaseLogicalNumber + ",______,_,__;" + this.IdMenyrePagese + ";;||";
                     text += "56," + kaseLogicalNumber + ",______,_,__;||";
-                    //sw.WriteLine("53," + kaseLogicalNumber + ",______,_,__;" + this.IdMenyrePagese + ";;");
-                    //sw.WriteLine("56," + kaseLogicalNumber + ",______,_,__;");
                 }
                 else
                 {
                     text += String.Format("T,{0},______,_,__;", kaseLogicalNumber) + "||";
                     if (nrkopjesh)
                         text += "D,1,______,_,__;" + "||"; //ALPHAWEB-3368
-                    //sw.WriteLine(String.Format("T,{0},______,_,__;", kaseLogicalNumber));
                 }
                 if (eshtePrinterFiskal && nrkopjesh)
                 {
                     text += "109," + kaseLogicalNumber + ",______,_,__;" + 1 + ";";
-                    //sw.WriteLine("109," + kaseLogicalNumber + ",______,_,__;" + nrkopjesh + ";");
                 }
 
                 if (kasa.OColVlerat.ktheVlereOpsioni("PRINTOMANUALISHTNGAKASA") == "True")
                     text += "F,1,______,_,__;" + "||";
-                //  sw.Close();
                 stream = text;
                 return new clsMesazh(true, clsKokaShitje.krijimStreamKaseMeSukses);
-                //return new clsMesazh(true, clsKokaShitje.mesazhSuksesKase);
             }
         }
 
@@ -6452,7 +6369,6 @@ namespace DbCore.DbRegjistrim
                             if (t.Sasia < 0)
                             {
                                 //kur kemi kthim ja perfshijme zbritjen ne cmim se perndryshe nuk e pranon kasa
-                                //PPZI = Convert.ToString(((t.Cmimi) * (100 - (t.Zbritje)) / 100) * this.Kursi);
                                 if (metvsh)
                                     cmimi = Convert.ToDouble(((t.Cmimi) * (100 - (t.Zbritje)) / 100) * this.Kursi);
                                 else
@@ -6469,19 +6385,10 @@ namespace DbCore.DbRegjistrim
                             }
                         }
                         //else TODO: per ndermarrjet pa tvsh
-                        //{
                         //    if (t.Sasia < 0)  //cmimi pa tvsh
-                        //    {
-                        //        PPZI = ((t.Cmimi * (100 - (t.Zbritje)) / 100) * this.Kursi).ToString();
-                        //        ZPZ = 0;
-                        //    }
                         //    else
                         //    {    //cmimi pa tvsh
-                        //        PPZI = (t.Cmimi * this.Kursi).ToString();
-                        //        ZPZ = (t.Zbritje);
-                        //    }
 
-                        //}
                     }
                     else   //kur nuk ka zbritje
                     {
@@ -6498,7 +6405,6 @@ namespace DbCore.DbRegjistrim
 
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(2, printoKodArtikull, t.Kodi, printoPershkrim2, t.Pershkrimi, t.Pershkrim2, 30);
 
-                    //TVSHKOD = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     TVSHKOD = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
                     if (TVSHKOD == "0")
                         TVSHKOD = "1";
@@ -6507,7 +6413,6 @@ namespace DbCore.DbRegjistrim
                     {
                         descria = "vend rep=" + TVSHKOD + ",des='" + DESIC + "',qty=" + Math.Abs(decimal.Parse(QPZ)) + ",prezzo=" + PPZI + ",reso";
                         text += descria + "||";
-                        //sw.WriteLine(descria);
                         Kthim = true;
                     }
                     else
@@ -6633,19 +6538,16 @@ namespace DbCore.DbRegjistrim
                 string text = string.Empty;
                 text = filename + "&&";
                 //text += "H,1,______,_,__;||"; p //hap kase
-                //    StreamWriter sw = File.CreateText(filename);
                 //if (kasa.OColVlerat.ktheVlereOpsioni("KUPONTATIMOR") == "True" && !eshtePrinteFiskal)  //p nr i fatures
                 if (kasa.OColVlerat.ktheVlereOpsioni("KUPONTATIMOR") == "False" && eshtePrinteFiskal)  //nr i fatures 
                     text += "Q,0,______,_,__;" + this.NrDok.Substring(Math.Max(0, this.NrDok.Length - 4)) + ";||";
 
-                // sw.WriteLine("M,1,______,_,__;" + this.NrDok + ";");
                 if (kasa.OColVlerat.ktheVlereOpsioni("PRINTONRFATURE") == "True")
                     if (eshtePrinteFiskal)
                     {
                         if (!string.IsNullOrEmpty(this.NrSerial)) text += "P," + kaseLogicalNumber + ",______,_,__;Serial:" + this.NrSerial + "||"; // sw.WriteLine("P," + kaseLogicalNumber + ",______,_,__;Serial:" + this.NrSerial);
                     }
                 //else
-                //    if (!string.IsNullOrEmpty(this.NrSerial)) text += "P," + kaseLogicalNumber.ToString() + ",______,_,__;Serial:" + this.NrSerial + ";;;;;||"; // sw.WriteLine("P," + kaseLogicalNumber.ToString() + ",______,_,__;Serial:" + this.NrSerial + ";;;;;");
                 if (kaRreshtaKthimi(this))
                 {
                     this.OColTrupiShitje = rendit(this.OColTrupiShitje);
@@ -6668,14 +6570,8 @@ namespace DbCore.DbRegjistrim
 
                     //if (true)//nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
 
-                    //{
-                    //    PPZI = t.Cmimi * this.Kursi;
-                    //}
                     //else TODO:llogarit cmimin ne rastin pa tvsh
-                    //{
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * (1 + t.Zbritje / 100) * this.Kursi;
-                    //}
 
                     //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
                     if (metvsh)
@@ -6692,20 +6588,17 @@ namespace DbCore.DbRegjistrim
                         cmimSipasKonfigKase = -cmimSipasKonfigKase;
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2")), t.Pershkrimi, t.Pershkrim2, 25);
 
-                    //string niveletvsh = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     string niveletvsh = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
 
                     if (!eshtePrinteFiskal)
                     {
                         descria = plu + ";" + DESIC + ";" + niveletvsh + ";" + Math.Round(cmimSipasKonfigKase, 2) * (1 - Math.Round(perqindja, 2) / 100) * (1 - Math.Round(t.Zbritje, 2) / 100) + ";" + QPZ;// +KasePLUActualNumber;
-                        //descria = plu + ";" + DESIC + ";" + niveletvsh + ";" + Math.Round((t.VleftaMeTvsh / t.Sasia) * this.Kursi, 2) * (1 - Math.Round(double.Parse(perqindja), 2) / 100) * (1 - Math.Round(t.Zbritje, 2) / 100) + ";" + QPZ;// +KasePLUActualNumber;
                     }
                     else
                         descria = "S," + kaseLogicalNumber + ",______,_,__;" + DESIC + ";" + Math.Round(cmimSipasKonfigKase, 2) + ";" + QPZ + ";1;1;" + niveletvsh + ";0;" + plu + ";";
 
                     plu++;
                     text += descria + "||";
-                    //  sw.WriteLine(descria);
                     //printojme zbritjen analitike, nese ka per artikullin e rradhes
                     if (t.Zbritje > 0 && eshtePrinteFiskal)
                     {
@@ -6730,12 +6623,10 @@ namespace DbCore.DbRegjistrim
                 {
                     double kurs;
                     clsKurset kursi = new clsKurset(int.Parse(cmimMonDyte), this.DtDok);
-                    //clsMonedha mon = new clsMonedha(int.Parse(cmimMonDyte));
                     kurs = kursi.VleraKursi;
                     if (kurs != -1 && kurs != 0)
                     {
                         text += "P," + kaseLogicalNumber + ",______,_,__;" + clsMonedha.ktheKodMonedheSipasId(int.Parse(cmimMonDyte)) + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;||";
-                        //  sw.WriteLine("P," + kaseLogicalNumber + ",______,_,__;" + mon.KodiMonedha + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;");
                     }
                 }
                 //mbyllja e fatures
@@ -6745,9 +6636,7 @@ namespace DbCore.DbRegjistrim
                 {
                     text += string.Empty;
                     text += "Ga;";
-                    // sw.WriteLine("T," + kaseLogicalNumber + ",______,_,__;0;");
                 }
-                // sw.Close();
                 //p text += "||F,1,______,_,__;"; //hap kase
                 stream = text;
 
@@ -6758,7 +6647,6 @@ namespace DbCore.DbRegjistrim
                     mesazhi = clsKokaShitje.krijimStreamKaseMeSuksesDheArritjaLimititPLU;
 
                 return new clsMesazh(true, mesazhi);
-                //return new clsMesazh(true, clsKokaShitje.mesazhSuksesKase);
             }
         }
 
@@ -6770,7 +6658,6 @@ namespace DbCore.DbRegjistrim
             else
             {
 
-                // string filename = kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
                 string port = kasa.OColVlerat.ktheVlereOpsioni("COMPORT");
                 string boudrate = kasa.OColVlerat.ktheVlereOpsioni("BOUDRATE");
                 string text = string.Empty;
@@ -6848,7 +6735,6 @@ namespace DbCore.DbRegjistrim
                     }
 
                     double cmimSipasKonfigKase;
-                    //int MeShifraDhjetore;
                     if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") == "False")
                     {
                         cmimSipasKonfigKase = PPZI;
@@ -6886,8 +6772,6 @@ namespace DbCore.DbRegjistrim
                 {
 
                     descria = "51," + kaseLogicalNumber + ",______,_,__;1;1;0;" + -Math.Round(perqindja, 2) + ";";
-                    //text += "T," + kaseLogicalNumber + ",______,_,__;4;;;;;||";
-                    //descria = "C," + kaseLogicalNumber + ",______,_,__;1;" + Math.Round(perqindja, 2) + ";;;;";
                     text += descria + "||";
 
                 }
@@ -6949,7 +6833,6 @@ namespace DbCore.DbRegjistrim
                     }
 
                     double cmimSipasKonfigKase;
-                    //int MeShifraDhjetore;
                     if (!meShifraDhjetore)
                     {
                         cmimSipasKonfigKase = PPZI;
@@ -7018,7 +6901,6 @@ namespace DbCore.DbRegjistrim
             else
             {
 
-                // string filename = kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
                 string port = kasa.OColVlerat.ktheVlereOpsioni("COMPORT");
                 string boudrate = kasa.OColVlerat.ktheVlereOpsioni("BOUDRATE");
                 string meShifraDhjetore = kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE");
@@ -7067,14 +6949,8 @@ namespace DbCore.DbRegjistrim
                 kaseLogicalNumber = int.Parse(kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR"));
                 string port = kasa.OColVlerat.ktheVlereOpsioni("COMPORT");
                 long boudrate = long.Parse(kasa.OColVlerat.ktheVlereOpsioni("BOUDRATE"));
-                //if (!Directory.Exists(filename.Remove(filename.LastIndexOf("\\"))))
-                //    {
-                //    return new clsMesazh(false, "Direktoria nuk ekziston!");
-                //    }
                 //krijohet file text
                 string text = filename + "&&";
-                //  StreamWriter sw = File.CreateText(filename);
-                // TransmitPrinterCommand (0, port, boudrate, "F2;1") ;
                 if (kasa.OColVlerat.ktheVlereOpsioni("PRINTONRFATURE") == "True")
                     text += "F2;1;;1;\"\"" + this.NrSerial + "\"\"||";  //    sw.WriteLine("F2;1;;1;\"\string.Empty + this.NrSerial + "\"\string.Empty);
                 else
@@ -7096,15 +6972,9 @@ namespace DbCore.DbRegjistrim
 
                     //llogaritet cmimi qe shkon ne kasen fiskale
                     //if (true)    //cmimet me tvsh 
-                    //{
                     //    //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * this.Kursi;
-                    //}
                     //else
-                    //{
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * (1 + t.Zbritje / 100) * this.Kursi;
-                    //}
                     if (metvsh) //nqs cmimi eshte metvsh e perfshire duhet vetem ta shumezojme me kursin, perndryshe duhet llogaritur se sa eshte cmimi me tvsh pa marre parasysh zbritjen, sepse ate e llogarit vet kasa.
                         PPZI = t.Cmimi * this.Kursi;
                     else
@@ -7117,7 +6987,6 @@ namespace DbCore.DbRegjistrim
 
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2")), t.Pershkrimi, t.Pershkrim2, 25);
 
-                    //string niveltvsh = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     string niveltvsh = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
                     descria = "F2;3;\"\"" + DESIC + "\"\";" + Math.Round(cmimSipasKonfigKase, 2) + ";" + niveltvsh + ";" + QPZ;
                     text += descria + "||";    //    sw.WriteLine(descria);
@@ -7147,15 +7016,11 @@ namespace DbCore.DbRegjistrim
                 }
                 //mbyllja e fatures
                 text += "F2;2";   //  sw.WriteLine("F2;2");
-                //  if (string.IsNullOrEmpty(GetKonfigPos(KonfigPosNodes.kasefiskaleexecutable)))
-                //       clsMenuInfo.ShtoMesazhGabimi(MenuInfo,"Nuk gjendet file-i i ekzekutimit te printimin ne kase!",pnlMesazhi);
                 //     else
                 {//???? ShellExecute( NULL, "open", "C:\Program Files\Internet Explorer\iexplore.exe -new", NULL, NULL, SW_SHOWNORMAL);
                 }
-                //         sw.Close();
                 stream = text;
                 return new clsMesazh(true, clsKokaShitje.krijimStreamKaseMeSukses);
-                //return new clsMesazh(true, clsKokaShitje.mesazhSuksesKase);
             }
         }
 
@@ -7174,17 +7039,11 @@ namespace DbCore.DbRegjistrim
                 string filename = kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALEPATH");
                 clsVleraKonfigurimiKasa vlera = new clsVleraKonfigurimiKasa();
                 kaseLogicalNumber = int.Parse(kasa.OColVlerat.ktheVlereOpsioni("KASEFISKALELOGICALNR"));    //meret nr llogjik i kases
-                //if (!Directory.Exists(filename.Remove(filename.LastIndexOf("\\"))))
-                //    {
-                //    return new clsMesazh(false, "Direktoria nuk ekziston!");
-                //    }
                 //krijohet file text
                 string text = filename + "&&";
-                // StreamWriter sw = File.CreateText(filename);
                 if (kasa.OColVlerat.ktheVlereOpsioni("PRINTONRFATURE") == "True")
                 {
                     text += "P,1,______,_,__;Fatura:" + this.NrDok + ";;;;;||";
-                    // sw.WriteLine("P,1,______,_,__;Fatura:" + this.NrDok + ";;;;;");
 
                 }
                 if (this.kupon && !string.IsNullOrEmpty(this.NrSerial))
@@ -7198,15 +7057,9 @@ namespace DbCore.DbRegjistrim
                     QPZ = (Math.Abs(t.Sasia)).ToString();
                     //llogaritet cmimi qe shkon ne kasen fiskale
                     //if (true)    //cmimet me tvsh 
-                    //{
                     //    //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * this.Kursi;
-                    //}
                     //else
-                    //{
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //    PPZI = t.Cmimi * (1 + t.Zbritje / 100) * this.Kursi;
-                    //}
                     if (metvsh) //nqs cmimi eshte metvsh e perfshire duhet vetem ta shumezojme me kursin, perndryshe duhet llogaritur se sa eshte cmimi me tvsh pa marre parasysh zbritjen, sepse ate e llogarit vet kasa.
                         PPZI = t.Cmimi * this.Kursi;
                     else
@@ -7221,7 +7074,6 @@ namespace DbCore.DbRegjistrim
                         cmimSipasKonfigKase = -cmimSipasKonfigKase;
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2")), t.Pershkrimi, t.Pershkrim2, 25);
 
-                    //string niveletvsh = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     string niveletvsh = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
                     descria = "S," + kaseLogicalNumber + ",______,_,__;" + DESIC + ";" + Math.Round(Math.Abs(cmimSipasKonfigKase), 2) + ";" + QPZ + ";1;1;" + niveletvsh + ";0;0;";
                     text += descria + "||";// sw.WriteLine(descria);
@@ -7246,21 +7098,16 @@ namespace DbCore.DbRegjistrim
                 {
                     double kurs;
                     clsKurset kursi = new clsKurset(int.Parse(cmimMonDyte), this.DtDok);
-                    //clsMonedha mon = new clsMonedha(int.Parse(cmimMonDyte));
                     kurs = kursi.VleraKursi;
                     if (kurs != -1 && kurs != 0)
                     {
                         text += "P," + kaseLogicalNumber + ",______,_,__;" + clsMonedha.ktheKodMonedheSipasId(int.Parse(cmimMonDyte)) + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;||";
-                        //  sw.WriteLine("P," + kaseLogicalNumber + ",______,_,__;" + mon.KodiMonedha + ":" + Math.Round(double.Parse(totalimonbaze) / kurs, 2).ToString() + ";;;;;");
                     }
                 }
                 //mbyllja e fatures
                 text += "T," + kaseLogicalNumber + ",______,_,__;";
-                //    sw.WriteLine("T," + kaseLogicalNumber + ",______,_,__;");
-                //    sw.Close();
                 stream = text;
                 return new clsMesazh(true, clsKokaShitje.krijimStreamKaseMeSukses);
-                //return new clsMesazh(true, clsKokaShitje.mesazhSuksesKase);
             }
         }
 
@@ -7272,11 +7119,6 @@ namespace DbCore.DbRegjistrim
             if (double.Parse(totatimezbritjemetvsh) < 0)
                 return new clsMesazh(false, "Kasa nuk pranon fature me total negativ. Fatura nuk u regjistrua ne kase!");
 
-            //DbCore.clsMesazh msg = validateNivelTvshTotal(this, idperdoruesi);
-            //if (msg.Status == false)
-            //{
-            //    return msg;
-            //}
 
             else
             {
@@ -7297,15 +7139,8 @@ namespace DbCore.DbRegjistrim
                 kodDefaultTvsh = kasa.OColVlerat.ktheVlereOpsioni("NIVELDEFAULTTVSH");
                 int shifraPasPresjes;
                 shifraPasPresjes = int.Parse(vlera.merrVlereOpsioni("SHIFRAPASPRESJE"));
-                //if (!Directory.Exists(filename.Remove(filename.LastIndexOf("\\"))))
-                //    {
-                //    return new clsMesazh(false, "Direktoria nuk ekziston!");
-                //    }
                 //krijohet file text bosh
                 //krijojme nje file me emer kf_filename + kohen kur eshte krijuar
-                //string extens = Path.GetExtension(filename);
-                //filename = String.Format("{0}{1} {2}{3}", filename.Substring(0, filename.Length - extens.Length + 1), this.NrDok, System.DateTime.Now.ToString().Replace('/', ' ').Replace(':', ' '), extens);
-                //   StreamWriter sw = File.CreateText(filename);
                 filename = filename.Replace(".", this.NrDok.Replace('\\', '_').Replace('/', '_') + ".");
                 string text = filename + "&&";
                 string operatorPass = kasa.OColVlerat.ktheVlereOpsioni("OPERATORPASS");
@@ -7340,7 +7175,6 @@ namespace DbCore.DbRegjistrim
                             else
                                 descria = "C," + kaseLogicalNumber + ",______,_,__;;;" + Math.Round(double.Parse(vlefta) * 100, 2);
                             text += descria + "||";
-                            //sw.WriteLine(descria);
                             uPrintuaZbritjaNeTotal = true;
                         }
                     }
@@ -7349,23 +7183,18 @@ namespace DbCore.DbRegjistrim
                     if (true)    //cmimet me tvsh 
                     {
                         //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                        //PPZI = (t.VleftaMeTvsh / t.Sasia * this.Kursi);
                         if (metvsh)
                             PPZI = t.Cmimi * this.Kursi;
                         else
                             PPZI = Math.Round(((t.VleftaMeTvsh / (t.Sasia * (1 - t.Zbritje / 100))) * this.Kursi), shifraPasPresjes);
                     }
                     //else TODO: te llogaritet per ndermarrjet patvsh
-                    //{
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //  PPZI = Math.Round((t.Cmimi * (1 + t.Zbritje / 100) * this.Kursi), shifraPasPresjes);
                     //        if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") == "False") //'kasa eshte konfiguruar pa presje dhjetore, i dergohen cmimet te konvertuar ne numra te plote
-                    //    cmimSipasKonfigKase = PPZI;
                     //else
                     //    cmimSipasKonfigKase = PPZI * 100;  //kasa eshte konfiguruar me presje dhjetore, i dergohen cmimet te shumezuar me 100, te konvertuar ne numra te plote, ne menyre qe dy shifrat e fundit te perfaqesojne pjesen dhjetore
 
                     //        ShumaTotale = ShumaTotale + Math.Round(((QPZ * cmimSipasKonfigKase * (1 - ZbritjeAnalitike / 100)) * Math.Pow(10, shifraPasPresjes)), shifraPasPresjes) / Math.Pow(10, shifraPasPresjes);      //rounddown
-                    // }                   
 
                     ZbritjeAnalitike = Math.Round(t.Zbritje, shifraPasPresjes);
                     double cmimSipasKonfigKase;
@@ -7381,7 +7210,6 @@ namespace DbCore.DbRegjistrim
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2")), t.Pershkrimi, t.Pershkrim2, 32);
 
                     kodTvsh = kasa.OColVlerat.ktheVlereTakse(t.Tvsh);
-                    //kodTvsh = merrNivelTvsh(t, this.idNdermarje, idperdoruesi);
                     if (kodTvsh == string.Empty)
                     {
                         kodTvsh = kodDefaultTvsh;
@@ -7391,7 +7219,6 @@ namespace DbCore.DbRegjistrim
                         cmimSipasKonfigKase = cmimSipasKonfigKase * (1 - ZbritjeAnalitike / 100);
                         ZbritjeAnalitike = 0;
                     }
-                    //descria = "S," + kaseLogicalNumber + ",______,_,__;" + DESIC + ";" + cmimSipasKonfigKase + ";" + QPZ + ";1;1;" + kodTvsh + ";0;" + rowTrupiShitje["ARTNR"].ToString() + ";" + rowTrupiShitje["Zb"].ToString() + ";";
                     descria = String.Format("S,{0},______,_,__;{1};{2};{3};1;1;{4};0;{5};{6};", kaseLogicalNumber, DESIC, cmimSipasKonfigKase, QPZ, kodTvsh, KthePLU(i, this), ZbritjeAnalitike);
                     text += descria + "||";//   sw.WriteLine(descria);
 
@@ -7403,13 +7230,11 @@ namespace DbCore.DbRegjistrim
                 if (perqindja > 0)
                 {
                     if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") != "False") //'kasa eshte konfiguruar pa presje dhjetore, i dergohen cmimet te konvertuar ne numra te plote
-                        //    vlefta = vlefta;
                         //else
                         vlefta = (double.Parse(vlefta) * 100).ToString();
                     ShumaTotale = ShumaTotale - Math.Round(double.Parse(vlefta) * this.Kursi, shifraPasPresjes);
                     if ((!uPrintuaZbritjaNeTotal))
                         text += "C," + kaseLogicalNumber + ",______,_,__;;;" + Math.Round((double.Parse(vlefta) * this.Kursi), shifraPasPresjes) + "||";
-                    //sw.WriteLine("C," + kaseLogicalNumber + ",______,_,__;;;" + Math.Round((double.Parse(vlefta) * this.Kursi), shifraPasPresjes));
                 }
                 //mbyllja e fatures duke kapur dhe menyren e pageses
                 double shuma;
@@ -7451,12 +7276,8 @@ namespace DbCore.DbRegjistrim
                     text += "V," + kaseLogicalNumber + ",______,_,__;m||";// sw.WriteLine("V," + kaseLogicalNumber + ",______,_,__;m");
                 text += "V," + kaseLogicalNumber + ",______,_,__;/" + "Mireservini||";
                 text += "V," + kaseLogicalNumber + ",______,_,__;#" + string.Empty;
-                // sw.WriteLine("V," + kaseLogicalNumber + ",______,_,__;/" + "Mireservini");
-                //  sw.WriteLine("V," + kaseLogicalNumber + ",______,_,__;#" + string.Empty);
-                //  sw.Close();
                 stream = text;
                 return new clsMesazh(true, clsKokaShitje.krijimStreamKaseMeSukses);
-                //return new clsMesazh(true, clsKokaShitje.mesazhSuksesKase);
             }
         }
 
@@ -7707,7 +7528,6 @@ namespace DbCore.DbRegjistrim
                                     }
 
 
-
                                     mesazh = ShtoTrupatEMagazines(trupShitje, njesiP, sasiaP, cmimiP, vleftaP, magOrigjine, idNdermarrjeOwn, idPerdorues, magDestinacion, shitje.DtDok, index, konfigFDTK, shitje.Kursi, ref colSerialet, magDestinacionOwn, trupiFDTK, trupiFHTK, kategorite, a, serialeNeDetajim, lejoModifikimDetajimi, art.KodArtikulli, loan);
                                     if (!mesazh)
                                         break;
@@ -7837,8 +7657,6 @@ namespace DbCore.DbRegjistrim
             if (!mesazh)
             {
                 return mesazh;
-                //clsFunksione.ShtoNeTabeleGabimesh(err, konfiShitje.KodKonfigAmbjente + " " + shitje.NrDok + " " + shitje.DtDok.ToShortDateString(), mesazh.PershkrimMesazhi, nrrreshti);
-                //continue;
             }
             clsTrupiFHTK = clsTrupiFDTK.ShallowCopy();
 
@@ -8313,7 +8131,6 @@ namespace DbCore.DbRegjistrim
             string niptKlienti = klient.NiptiKF;
             string qytetiK = klient.EmriQytetitKF;
 
-            //DbCore.DbAdmin.clsMonedha monedha = new DbCore.DbAdmin.clsMonedha(colurdhera[0].IdMonedha);            
             clsDegeAdministrative dege = new clsDegeAdministrative(colurdhera[0].IdDegeAdministrative);
             clsPikeShitjeFurnizimi pike = new clsPikeShitjeFurnizimi(colurdhera[0].IdPikeShitjeFurnizimi);
             clsGrupimDokumentiKoka grup = new clsGrupimDokumentiKoka(colurdhera[0].IdGrup1);
@@ -9002,14 +8819,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
-        //private clsMesazh gjeneroFatureFiskale(int idPerdoruesi, int idNdermarrje, clsKokaShitje koka)
-        //{
-        //    clsKlientFurnitor kf = new clsKlientFurnitor(Convert.ToInt32(btnKlienti.Value));
-        //    string stream;
-        //    return gjeneroFatureFiskale(out stream, idPerdoruesi, idNdermarrje, koka, kf, cmbKonfigurimKase.Value == null ? 0 : Convert.ToInt32(cmbKonfigurimKase.Value));
-        //}
-
         private clsMesazh gjeneroFatureFiskale(out string stream, int idPerdoruesi, int idNdermarrje, clsKokaShitje koka, clsKlientFurnitor kf, int idKonfigurimiKases, bool kasacheck, string perqindjetxt, string paguartxt)
         {
             clsKonfigurimKase kasa = new clsKonfigurimKase(idKonfigurimiKases);
@@ -9018,14 +8827,12 @@ namespace DbCore.DbRegjistrim
                 stream = string.Empty;
                 return new clsMesazh(false, "Fatura nuk u printua ne kase. Ju lutemi, zgjidhni kasen!");
             }
-            //kasa.merrKonfiguriminSipasNdermarjes(idNdermarrje);
             if (kasa.IdKonfigurimi == 0)
             {
                 stream = string.Empty;
                 return new clsMesazh(false, "Nuk keni konfiguruar kase per kete ndermarje");
             }
 
-            //kf.mbushKlientFurnitorSipasKodit(btnKlienti.Text, idNdermarrje);           
             clsNivelCmimi nivel = new clsNivelCmimi(kf.IdNivelCmimi);
             bool meTvsh = nivel.BrutoNetoNivelCmimi == 1 ? true : false;
             clsVleraKonfigurimiKasa vlera = new clsVleraKonfigurimiKasa();
@@ -9039,15 +8846,12 @@ namespace DbCore.DbRegjistrim
             switch (llojkase)
             {
                 case "0":
-                    //mesazh = koka.gjeneroFatureFiskaleIva(kasa, txtPerqindje.Text, txtTotal2.Text, idperdoruesi, txtTotal1.Text);
                     mesazh = koka.gjeneroFatureFiskaleIva(out stream, kasa, perqindje, totalimonedhabaze, idPerdoruesi, TotaliMeZbritjeMeTVSH.ToString(), meTvsh);
                     break;
                 case "1":
-                    //mesazh = koka.gjeneroFatureFiskaleAed(kasa, perqindje, idperdoruesi, txtTotal1.Text);
                     mesazh = koka.gjeneroFatureFiskaleAed(out stream, kasa, perqindje, idPerdoruesi, TotaliMeZbritjeMeTVSH.ToString(), meTvsh);
                     break;
                 case "2":
-                    //mesazh = koka.gjeneroFatureFiskaleBtn(kasa, perqindje, txtTotal2.Text, idperdoruesi, txtTotal1.Text);
                     mesazh = koka.gjeneroFatureFiskaleBtn(out stream, kasa, perqindje, totalimonedhabaze, idPerdoruesi, TotaliMeZbritjeMeTVSH.ToString(), meTvsh, idKonfigurimiKases);
                     break;
                 case "3":
@@ -9058,11 +8862,9 @@ namespace DbCore.DbRegjistrim
                         mesazh = koka.gjeneroFatureFiskaleCkvNoki(out stream, kasa, perqindje, TotaliMeZbritjeMeTVSH.ToString(), meTvsh);
                     break;
                 case "4":
-                    //mesazh = koka.gjeneroFatureFiskalePkp(kasa, perqindje, txtTotal2.Text, idperdoruesi, txtTotal1.Text);
                     mesazh = koka.gjeneroFatureFiskalePkp(out stream, kasa, perqindje, totalimonedhabaze, idPerdoruesi, TotaliMeZbritjeMeTVSH.ToString(), meTvsh);
                     break;
                 case "5":
-                    //mesazh = koka.gjeneroFatureFiskaleGekos(kasa, DbCore.clsFunksione.kthePerdorues(Session).PerdoruesUsername, perqindje, txtVlefte.Text, idperdoruesi, txtTotal1.Text);
                     mesazh = koka.gjeneroFatureFiskaleGekos(out stream, kasa, perdoruesi.PerdoruesUsername, perqindje, Zbritje.ToString(), idPerdoruesi, TotaliMeZbritjeMeTVSH.ToString(), meTvsh);
                     break;
                 case "6":

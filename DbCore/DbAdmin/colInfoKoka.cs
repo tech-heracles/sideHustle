@@ -38,19 +38,11 @@ namespace DbCore.DbAdmin
         private bool mbushColInfoKoka(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsInfoKoka info = new clsInfoKoka();
-                    //info.mbushInfoKoka(rreshti);
                     Add(new clsInfoKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

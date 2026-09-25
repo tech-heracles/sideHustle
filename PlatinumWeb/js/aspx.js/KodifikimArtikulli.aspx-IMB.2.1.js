@@ -166,8 +166,6 @@ function InitPrind() {
     var hf = $('#hfPrindi');
     var hf1 = $('#hfNiveli');
     editorPrind = Utils.ktheKontroll('IdPrindi');
-    // if (hf.value != "")
-    // hf.value = editorPrindi.GetText();
 
     editorNiveli = Utils.ktheKontroll('NivelKodifikimi');
     if (!editorNiveli || !editorPrind) return;
@@ -359,9 +357,6 @@ function TextChangedPrind(key) {//kur ndryshon texti tek kolona Autorizimeve
     hf.val(a[0]);
     var hf1 = $("#hfNiveli");
     hf1.val(editorNiveli.GetText());
-    //var pershkKonfigAmb = cmbModeli.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
-    //if (pershkKonfigAmb != undefined)
-    //    lblKonfigurimi.SetText(pershkKonfigAmb);
 }
 
 function ndryshoPrindi(s, e) {
@@ -394,13 +389,7 @@ function SucceededCallbackSkemaPrindi(result) {
     Utils.SelectComboItem(btneLlogShit, result.IdLlogariShitje, null);
     Utils.SelectComboItem(cmbLlogAmortizimi, result.IdLlogariAmortizimi, null);
 
-    //btneLlogInv.SetValue(result.IdLlogariInventari);
-    //btneLlogBle.SetValue(result.IdLlogariVlere);
-    //btneLlogShit.SetValue(result.IdLlogariShitje);
-    //btneLlogTretet.SetValue(result.IdLlogariNeProces);
 
-    //btnLlogShpe.SetValue(result.IdLlogariShpenzimi);
-    //cmbLlogAmortizimi.SetValue(result.IdLlogariAmortizimi);
 }
 
 function menu_click(s, e) {
@@ -495,7 +484,6 @@ function ZgjidhRreshtaNgaLupa() {
 
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     switch (window.parent.grida) {
@@ -958,7 +946,6 @@ function ButtonClickArkiva() {
     else {
         popupUniversal.SetHeaderText(hfState.Get("regjisDokZgjidhDokPerTeBashkengjitur"));
         popupUniversal.SetSize(738, 548);
-        //popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=grupArtikull&idDok=' + indexModifiko + '&shtim_modifikim=modifikim');
         popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=grupArtikull&idDok=' + indexModifiko
             //+ '&shtim_modifikim=modifikim'
             + "&tmpfolder=" + hfArkiva.Get("rootFolder"));

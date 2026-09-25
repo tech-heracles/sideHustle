@@ -10,7 +10,6 @@ namespace DbCore.DbAdmin
     public class clsTeDrejtaRaporte : IDataBaseReader
     {
         #region Atributet
-        //public const string mySessionKey = "clsTeDrejtaRaporte";
         private int idDrejta;
         private int idPeme; //id qe i vendoset te drejtave per krijimin e pemes
         private int? idPrindi;
@@ -273,8 +272,6 @@ namespace DbCore.DbAdmin
         {
 
         }
-
-
 
 
         public clsTeDrejtaRaporte(IDataRecord rreshti)

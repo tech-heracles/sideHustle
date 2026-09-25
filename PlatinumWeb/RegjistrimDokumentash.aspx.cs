@@ -154,15 +154,7 @@ namespace PlatinumWeb
 			}
 			percaktoTemplateMenu(idGjuha, ASPxMenu1, idViti, idPerdoruesi, idNdermarrje, eshteMeme);
 			clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarrje);
-			//if (ndermarrje.Fiskalizimi == true && veprimi == "shitje")
-			//{
-			//    using (ScriptManager scriptManager = (ScriptManager)this.FindControl("ScriptManager1"))
-			//    {
-			//        if(clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
-			//            scriptManager.RegisterPostBackControl(ASPxMenu1);
 
-			//    }
-			//}
 		}
 
 		private void merrColKushtet(int idKonfigurim)
@@ -357,7 +349,6 @@ namespace PlatinumWeb
 			grid_RegDok.DataSource = dt;
 			grid_RegDok.DataBind();
 			grid_RegDok.RuajDataSourceMePeriduheNeSession(Session, komponente, Periudha, konf.KodKonfigAmbjente, dt, guidString);
-			//DbCore.mySessionObjects.RuajNeSession<DataTable>(Session, dt, komponente + periudheDok + idNdermarrjeVit);
 			dt.Dispose();
 
 		}
@@ -459,7 +450,6 @@ namespace PlatinumWeb
 			}
 			if (!IsPostBack)
 				grid.FilterExpression = filterExpressionDefault;
-			//SaveFilter();
 		}
 
 		/// <summary>
@@ -484,7 +474,6 @@ namespace PlatinumWeb
 				DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
 				filtra.IdPerdoruesi = idPerdoruesi;
 				mesazh = filtra.fshi();
-				//mbushComboBoxFiltra();
 				clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "grid_RegDok", int.Parse(cmbKonfigurimi.Value.ToString()), "RegjistrimDokumentash.aspx");
 				int idViti = (int)hfState["idViti"];
 				percaktoTemplateMenu(idGjuha, ASPxMenu1, idViti, idPerdoruesi, idNdermarrje, (bool)hfState["eshteMeme"]);
@@ -511,7 +500,6 @@ namespace PlatinumWeb
 			int idPerdoruesi = (int)hfState["idPerdoruesi"];
 			int idGjuha = (int)hfState["idGjuha"]; int idfiltri = 0;
 			DbCore.clsMesazh mesazh = GridUtil.ruajFiltra(idNdermarrje, idPerdoruesi, idGjuha, "grid_RegDok", "RegjistrimDokumentash.aspx", cmbFiltra.Text, grid_RegDok.FilterExpression, grid_RegDok, "IdNivel", int.Parse(cmbKonfigurimi.Value.ToString()), out idfiltri);
-			//mbushComboBoxFiltra();
 			int idViti = (int)hfState["idViti"];
 			clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "grid_RegDok", int.Parse(cmbKonfigurimi.Value.ToString()), "RegjistrimDokumentash.aspx");
 			percaktoTemplateMenu(idGjuha, ASPxMenu1, idViti, idPerdoruesi, idNdermarrje, (bool)hfState["eshteMeme"]);
@@ -671,7 +659,6 @@ namespace PlatinumWeb
 						clsMesazh mesazh = new clsMesazh(true, "Transferimi perfundoi me sukses!");
 
 
-
 						if (shitjepertrasferim.Count > 0)
 						{
 							mesazh = clsFunksione.eksportAutomatikDokumentesh(clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.FORMAT_EKSPORTI_TRANSFER_USH), idNdermarrje, idPerdoruesi, shitjepertrasferim, true);
@@ -813,7 +800,6 @@ namespace PlatinumWeb
 				error.Columns.Add("Gabimi");
 				error.Columns.Add("Rreshti");
 				clsNivelRegjistrimi nivelRegjistrimi = new clsNivelRegjistrimi("FSH", idNdermarrje);
-				//return;
 				string filePath = "";
 				string zipName = "";
 				if (nderm.Fiskalizimi)
@@ -1238,7 +1224,6 @@ namespace PlatinumWeb
 				string veprimi = (string)hfState["veprimi"];
 				string periudheDok = clsAlternativaKushti.getAlternativa(Convert.ToInt32(cmbKonfigurimi.Value), "SHDPER");
 				string datanga, dataderi;
-				// clsFunksione.ruajPeriudhatNeHiddenField(IsPostBack, hfState, periudheDok, null, out datanga, out dataderi);
 				mbushGridNgaSession(DbCore.clsFunksione.GetKomponente(Page.Request), Periudha.PeriudhaDok, idNdermarrjeVit, veprimi, idNdermarrje, idPerdoruesi, Periudha.DataDokNga, Periudha.DataDokDeri, cmbKonfigurimi.Text);
 				GridUtil.AplikoFilterDefault(grid_RegDok, Convert.ToInt32(cmbKonfigurimi.Value));
 			}
@@ -1250,7 +1235,6 @@ namespace PlatinumWeb
 				else
 				{
 					DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-					//filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
 					DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "grid_RegDok", "RegjistrimDokumentash.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
 					filtra.mbushFilterPerGrideSipasKodit(arr[2], idNdermarrje, koka.IdGridaKoka);
 					if (filtra.FiltraKodi != null)
@@ -1380,11 +1364,7 @@ namespace PlatinumWeb
 		}
 		protected void grid_RegDok_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
 		{
-			//var grida =(ASPxGridView)sender;
-			//if (e.RowType != GridViewRowType.Data) return;
 
-			//GridViewDataColumn col1 = grida.Columns["ColorVleraMbetur"] as GridViewDataColumn;
-			//col1.DataItemTemplate = new MyGaugeTemplate();
 
 		}
 

@@ -351,12 +351,6 @@ namespace DbCore.DbListPagesat
         ///// <param name="idNivel">id e nivelit</param>
         ///// <param name="nrdok">nr i dokumentit</param>
         ///// <param name="dtdok">data e dokumentit</param>
-        //public clsKokaListPagese(int idNivel, string nrdok, DateTime dtdok)
-        //{
-        //    clsDatabazeListPagesa dbListPagesa = new clsDatabazeListPagesa();
-        //    mbushKokaListPagese(dbListPagesa.ktheKokaListPageseSipasIdNivelNrDokDtDok(idNivel, nrdok, dtdok), dbListPagesa);
-        //    dbListPagesa.Dispose();
-        //}
 
         /// <summary>
         /// konstruktori me nje param
@@ -908,7 +902,6 @@ namespace DbCore.DbListPagesat
         public clsMesazh fshi()
         {
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_fshi = fshiListPagese(idKoka, idPerdoruesi, db);
             if (u_fshi.Status)
@@ -916,7 +909,6 @@ namespace DbCore.DbListPagesat
             else db.rollbackTransaksion();
             return u_fshi;
         }
-
 
 
         #endregion
@@ -959,7 +951,6 @@ namespace DbCore.DbListPagesat
             int.TryParse(rreshti["STATUSAPROVIMI"].ToString(), out stap);
             statusAprovimi = (StatusAprovimi)stap;
             oColTrupi = meTrup ? new colTrupiListPagese(idKoka, db) : new colTrupiListPagese();
-            //oColTrupi = merrTrupi(db);
             oFleteKontabel = new clsKokaFleteKontabel();
             return true;
 

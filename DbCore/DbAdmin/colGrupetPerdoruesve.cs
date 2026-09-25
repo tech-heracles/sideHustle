@@ -114,38 +114,22 @@ namespace DbCore.DbAdmin
         private bool mbushGrupetPerdoruesveGjitheNdermarrje(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupiPerdorues grup = new clsGrupiPerdorues();
-                    //grup.mbushGrupPerdoruesGjitheNdermarrje(rreshti);
                     Add(new clsGrupiPerdorues(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
         private bool mbushGrupetPerdoruesve(DataTable dt, int idndermarrjeviti)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupiPerdorues grup = new clsGrupiPerdorues();
-                    //grup.mbushGrupPerdorues(rreshti, idndermarrjeviti);
                     Add(new clsGrupiPerdorues(rreshti, idndermarrjeviti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

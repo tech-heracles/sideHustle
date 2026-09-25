@@ -16,7 +16,6 @@ namespace PlatinumWeb
 {
     public partial class CRMListaAnketa : MyPageBase
     {
-       // DbCore.DbCRM.clsKokaAnketa anketa;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -84,7 +83,6 @@ namespace PlatinumWeb
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 gvCRMListaAnketa.Columns.Add(check);
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //check.SetColVisibleIndex(0);
 
                 gvCRMListaAnketa.SettingsText.CommandUpdate = rm.GetString("buttonRuaj", cultinf);
                 gvCRMListaAnketa.SettingsText.CommandCancel = rm.GetString("labelAnullo", cultinf);
@@ -160,7 +158,6 @@ namespace PlatinumWeb
         }
 
 
-       
         protected void gvCRMListaAnketa_StartRowEditing(object sender, DevExpress.Web.Data.ASPxStartRowEditingEventArgs e)
         {//kur fillon editimi te behet validimi
             if (hfRuaj.Value == "Ruaj")
@@ -183,12 +180,9 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvCRMListaAnketa", "CRMListaAnketa.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -203,12 +197,7 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-                //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-                //  btnRuaj.ClientEnabled = false;
-                //  btnFshiFilter.ClientEnabled = false;
-                //  konfiguroVleraFillestare();
                 gvCRMListaAnketa.FilterExpression = String.Empty;
             }
         }
@@ -224,32 +213,17 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("gvCRMListaAnketa", "CRMListaAnketa.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvCRMListaAnketa", "CRMListaAnketa.aspx", idNdermarrje);
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvCRMListaAnketa.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvCRMListaAnketa);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvCRMListaAnketa.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
             filtri.IdNdermarje = idNdermarrje;
@@ -257,7 +231,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             int idkonf = DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("LA", idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvCRMListaAnketa", idkonf, "CRMListaAnketa.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
@@ -291,45 +264,12 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
         }
 
-        //protected void ButtonOk_Click2(object sender, EventArgs e)
-        //{
-        //    int a = gvCRMListaAnketa.FocusedRowIndex;
-        //    gvCRMListaAnketa.Selection.SelectRow(a);
-        //    List<object> rreshtat = gvCRMListaAnketa.GetSelectedFieldValues("IdKokaAnketa");
-        //    DbCore.DbCRM.clsDatabaseCRM dbCRM = new DbCore.DbCRM.clsDatabaseCRM();
-        //    foreach (int id in rreshtat)
-        //    {
-        //        DbCore.DbCRM.clsKokaAnketa col = new DbCore.DbCRM.clsKokaAnketa(id);
-        //        col.IdModifikues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-        //        if (!(dbCRM.kaVeprimeCRMListaAnketa(col.IdKokaAnketa))&&(col.DtFillimi> DateTime.Today) )
-        //            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ka veprime me kete anketa", pnlMesazhi);
         //        else
-        //        {
-        //            DbCore.DbCRM.clsKokaAnketa.fshi(col.IdKokaAnketa, col.IdModifikues);
-        //            clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["msgFshirjeMeSukses"], pnlMesazhi);
-        //        }
 
-        //        konfiguroVleraFillestare();
-
-        //    }
-        //    dbCRM.Dispose();
-        //    pnlGrida.Update();
-        //}
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Modifiko")
-            //{
-            //    int indeksi = gvCRMListaAnketa.FocusedRowIndex;
-            //    gvCRMListaAnketa.StartEdit(indeksi);
-            //    konfiguroGride();             
-            //}
 
-            //else if (e.Item.Name == "Shto")
-            //{
-            //    gvCRMListaAnketa.AddNewRow();
-            //    konfiguroGride();               
-            //}
         }
 
         protected void gvCRMListaAnketa_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
@@ -338,7 +278,6 @@ namespace PlatinumWeb
 
         protected void gvCRMListaAnketa_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //  konfiguroVleraFillestare();            
         }
 
         protected void gvCRMListaAnketa_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e)
@@ -357,23 +296,12 @@ namespace PlatinumWeb
 
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvCRMListaAnketa, arr[2], "gvCRMListaAnketa", "CRMListaAnketa.aspx", 1);
                     ////DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
                     
                     ////filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhePerdoruesi(base.Session), "gvCRMListaAnketa", "CRMListaAnketa.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     ////DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                    //if (filtra.FiltraKodi != null)
-                    //{
-                    //    gvCRMListaAnketa.FilterExpression = filtra.FiltraVlera;
-                    //    if (filtra.DrejtimRenditje == true)
-                    //        gvCRMListaAnketa.SortBy(gvCRMListaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
                     //    else
-                    //        gvCRMListaAnketa.SortBy(gvCRMListaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
 
-                    //    //  konfiguroVleraFillestare();
 
-                    //}
                 }
             }
             konfiguroGride();

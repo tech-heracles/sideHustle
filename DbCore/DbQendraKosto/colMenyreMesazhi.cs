@@ -43,20 +43,12 @@ namespace DbCore.DbQendraKosto
         private bool mbushMenyreMesazhi(DataTable dt)
             {
             //try
-            //    {
 
                 foreach (DataRow rreshti in dt.Rows)
                     {
-                    //clsMenyreMesazhi menyre = new clsMenyreMesazhi();
-                    //menyre.mbushMenyreMesazhi(rreshti);
                     this.Add(new clsMenyreMesazhi(rreshti));
                     }
 
-            //    }
-            //catch (Exception)
-            //    {
-            //    return false;
-            //    }
             return true;
             }
 

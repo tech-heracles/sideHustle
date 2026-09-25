@@ -91,7 +91,6 @@ namespace DbCore.DbArkaBanka
         }
 
       
-
         #endregion
 
         #region Metoda Private
@@ -99,19 +98,11 @@ namespace DbCore.DbArkaBanka
         private bool mbushGrupeBanke(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupBanke grupBanke = new clsGrupBanke();
-                    //grupBanke.mbushGrupBanke(rreshti);
                     Add(new clsGrupBanke(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

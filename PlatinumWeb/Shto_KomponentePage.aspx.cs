@@ -233,7 +233,6 @@ namespace PlatinumWeb
         }
 
 
-
         /// <summary>
         /// perdoret ne rastet kur grida ben callback per ta rimbushur griden
         /// </summary>
@@ -257,8 +256,6 @@ namespace PlatinumWeb
                     gvKomponentePage.FilterExpression = "[Lloji]=true";
                 }
             }
-            // konfiguroVleraFillestare(); 
-            // konfiguroGride(cmbKonfigurimi.Text.Split(';')[0], 703);
         }
 
         /// <summary>
@@ -300,7 +297,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNdermarrje);
             DbCore.DbAdmin.clsGridaKoka koka =
                 new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvKomponentePage",
                     komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session),
@@ -357,22 +353,9 @@ namespace PlatinumWeb
             filtri.FiltraVlera = gvKomponentePage.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvKomponentePage);
             //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona =
-            //    gvKomponentePage.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
             filtri.IdNdermarje = idNdermarrje;
@@ -420,13 +403,11 @@ namespace PlatinumWeb
                 string[] rreshti = { hfId.Value, txtKodi.Text };
                 rreshtat.Add(rreshti);
             }
-            //List<object> rreshtat = gvKomponentePage.GetSelectedFieldValues("IdKomponentePage", "Kodi");
             if (rreshtat.Count == 0)
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, MessagesResource.Messages["msgKompZgjidh"], pnlMesazhi);
                 return;
             }
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             List<string> TePaFshiraFormule = new List<string>(), TeLidhur = new List<string>();
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -479,7 +460,6 @@ namespace PlatinumWeb
                 komp.IdPerdoruesi = idperdoruesi;
                 #region Heq llogarite nga grida
 
-                // ASPxGridView_Artikull.DataSource = dt;
                 hiqNgaGrida(idNdermarrje, komp.Kodi);
                 hfKaNdryshimeNeGride.Value = bool.TrueString;
                 #endregion
@@ -523,7 +503,6 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhInfoGabim, pnlMesazhi);
             else
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazhInfoSukses, pnlMesazhi);
-            //mbushGridKomponenteNgaDB(idNdermarrje);
             pnlMesazhi.Update();
         }
 
@@ -762,7 +741,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idgjuha);
             hfKonffillestar.Value = string.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
-            // cmbKonfigurimi.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -781,8 +759,6 @@ namespace PlatinumWeb
             {
                 konf.IdKategori = kat;
                 konf.IdNdermarje = idNdermarrje;
-                //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                //niv.mbushNivelRegjistrimiSipasKodiMeKonvertime(nivel, idNdermarrje);
                 int idNiveli = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(nivel,
                     idNdermarrje);
                 col.mbushKonfigAmbjSipasIdKategoriIdNivelMeLloj(konf.IdKategori, idNiveli, idperdoruesi);
@@ -849,7 +825,6 @@ namespace PlatinumWeb
             {
 
                 komp = krijoKomponente(idNdermarrje);
-                //   komp.shenime = txtShenime.Text;
                 DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
 
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idperdoruesi, idNdermarrje,
@@ -864,12 +839,10 @@ namespace PlatinumWeb
                         hfStatusi.Value = "false";
                         return;
                     }
-                    //int id = int.Parse(CacheLayer.GlobalCacheManager.MySessionCache["idshtimi"].ToString());
                     int id = DbCore.mySessionObjects.merrIdShtimiNgaSesioni(Session);
                     komp.IdKomponentePage = id;
                     shtoNeGrid(idNdermarrje, komp);
                     hfKaNdryshimeNeGride.Value = bool.TrueString;
-                    //CacheLayer.GlobalCacheManager.MySessionCache["idshtimi"] = id - 1;
                     DbCore.mySessionObjects.ruajIdShtimiNeSesion(Session, id - 1);
                 }
                 else
@@ -888,7 +861,6 @@ namespace PlatinumWeb
                     komp.IdRenditje = kompivjeter.IdRenditje;
                     if (kompivjeter.Model != 0)
                         komp.Model = kompivjeter.Model;
-                    //komp.shenime = kompivjeter.shenime;
                     modifikoNeGrid(idNdermarrje, komp);
                     hfKaNdryshimeNeGride.Value = bool.TrueString;
                 }
@@ -940,7 +912,6 @@ namespace PlatinumWeb
                 Convert.ToDateTime(cmbNdryshimi.Text), idperdoruesi, idNdermarrje, konfig.IdKonfigAmbjente, idstatusdok,
                 Convert.ToInt32(cmbNjesiaParam.Value), cbAplikoPage.Checked, cbAplikoDite.Checked,
                 cbShfaqDefault.Checked, idgrup, cbLejoModVlere.Checked, cbLlogaritGjithmone.Checked, 0, 0, 999, txtShenime.Text);
-            //  komp.shenime = txtShenime.Text;
             return komp;
         }
 
@@ -1002,12 +973,6 @@ namespace PlatinumWeb
                 hfStatusi.Value = "false";
                 return false;
             }
-            //if (cmbNjesia.Text == DbCore.DbListPagesat.NjesiPagese.For.ToString() && (cmbTipi.Text == DbCore.DbListPagesat.TipPagese.Ndalese.ToString() || cmbTipi.Text == DbCore.DbListPagesat.TipPagese.Pagese.ToString()) && txtParamKodi.Text == "")
-            //{
-            //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Jepni parametrin e formules per komponenten!", pnlMesazhi);
-            //    hfStatusi.Value = "false";
-            //    return false;
-            //}
 
             if (cmbNjesia.Text == DbCore.DbListPagesat.NjesiPagese.For.ToString() && txtParamKodi.Text != "")
             {
@@ -1238,7 +1203,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka =
                         new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvKomponentePage",
                             komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session),

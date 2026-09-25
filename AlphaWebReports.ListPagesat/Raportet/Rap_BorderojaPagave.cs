@@ -166,16 +166,12 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
 
         private void xrTableCell20_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //xrTableCell20.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell20.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
             double perqindja = Convert.ToDouble(GetCurrentColumnValue("svKomp"));
             xrTableCell20.Text = String.Format("{0:n" + shifraPasPresjes + "}", perqindja);
         }
 
         private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //xrTableCell16.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell16.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
         }
 
     }

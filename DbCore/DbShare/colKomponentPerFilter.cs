@@ -9,9 +9,7 @@ namespace DbCore.DbShare
    public class colKomponentPerFilter : System.Collections.Generic.List<clsKomponentPerFilter>
     {
         //public new clsKomponentPerFilter this[int index]
-        //{
         //    get { return ((clsKomponentPerFilter)base[index]); }
-        //}
        /// <summary>
        /// 
        /// </summary>
@@ -43,8 +41,6 @@ namespace DbCore.DbShare
         {
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsKomponentPerFilter komponent = new clsKomponentPerFilter();
-                //komponent.mbushKomponentPerFilter(rreshti);
                 Add(new clsKomponentPerFilter(rreshti));
             }
             return true;

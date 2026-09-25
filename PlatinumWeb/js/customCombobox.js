@@ -38,21 +38,14 @@
                         item: ui.item.option
 
                     });
-                    //      if (this.element.get(0).match('txtMagazina1' + "$") == suffix)
 
                     // zgjidhur per momentin
                     if (this.element.context.id.indexOf('txtMagazina1')!=-1)
                         changeMag();
                 },
                 autocompletechange: "_removeIfInvalid"
-                //    function (event, ui) {
-                //    ui.item.option.selected = true;
-                //    this._trigger("change", event,{
                 //        item: ui.item.option 
 
-                //    },   this._trigger("change"));
-                //    //changeMag();
-                //}
 
             });
 
@@ -142,7 +135,6 @@
             this._delay(function () {
                 this.input.tooltip("close").attr("title", "");
             }, 2500);
-            //this.input.autocomplete("instance").term = "";
         },
 
         _destroy: function () {

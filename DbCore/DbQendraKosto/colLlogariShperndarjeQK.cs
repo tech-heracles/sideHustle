@@ -132,18 +132,10 @@ namespace DbCore.DbQendraKosto
         private bool mbushLlogari(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsLlogariShperndarjeQK llog = new clsLlogariShperndarjeQK();
-                //llog.mbushLlogari(rreshti);
                 Add(new clsLlogariShperndarjeQK(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

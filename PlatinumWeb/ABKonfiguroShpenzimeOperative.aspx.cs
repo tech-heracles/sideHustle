@@ -26,7 +26,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -53,9 +52,6 @@ namespace PlatinumWeb
             }
             else
             {
-                //idNdermarrje = (int)hfState.Get("idNdermarrje");
-                //idPerdoruesi = (int)hfState.Get("idPerdoruesi");
-                //idGjuha = (int)hfState.Get("idGjuha");
                 mbushGrideNgaSession(idNdermarrje);
             }
             shtoComboPrindi();
@@ -71,7 +67,6 @@ namespace PlatinumWeb
 
         private void PercaktoTemplateComboPrindi(GridViewDataComboBoxColumn cmb, int idNdermarrje)
         {
-           // object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "shpenzimeKonfig");
 
             colShpenzimeOperativeKonfig col = new colShpenzimeOperativeKonfig(idNdermarrje);
 
@@ -90,7 +85,6 @@ namespace PlatinumWeb
             cmb.PropertiesComboBox.ValueField = "ShokId";
             cmb.PropertiesComboBox.TextField = "Pershkrimi";
             cmb.PropertiesComboBox.TextFormatString = "{0}";
-            // combo.TextField = "KodKonfigAmbjente";
             cmb.PropertiesComboBox.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
         }
 
@@ -192,7 +186,6 @@ namespace PlatinumWeb
                         };
 
                         newShpenzime = e.InsertValues[i].MerrCustomInsertedObject(newShpenzime);
-                        // newShpenzime.Niveli = AnalizeBuxheti.ktheNivelShpenzimiOperativ(newCol, newShpenzime);
                         if (newShpenzime.Niveli == 0)
                             newShpenzime.Niveli = 1;
                         mesazhi = newShpenzime.Ruaj();
@@ -233,8 +226,6 @@ namespace PlatinumWeb
 
                 gvKonfiguroShpenzimeOperative.DataSource = col;
                 gvKonfiguroShpenzimeOperative.DataBind();
-
-
 
 
             }
@@ -281,7 +272,6 @@ namespace PlatinumWeb
                     else
                         DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
                 }
-                // mbushGridenNgaDB(mySessionObjects.merrIdNdermarrjeSesioni(Session), Convert.ToInt32(cmbAmbjenti.Value));
             }
         }
 

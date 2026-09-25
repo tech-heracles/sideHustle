@@ -234,10 +234,6 @@ namespace DbCore.DbAdmin
         }
 
         //public void merr()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    data.merrNdermarrjeVit(this);
-        //}
 
         /// <summary>
         /// Kthen/Vendos nje collection me objekte te tipit <see cref="DbCore.DbAdmin.clsNdermarrjeViti"/> . Thirret funksioni
@@ -250,7 +246,6 @@ namespace DbCore.DbAdmin
             return data;
 
         }
-
 
 
         public bool mbushNdermarrjeVitiSipasNdermarjesDheVitit(int idndermarje, int idviti)

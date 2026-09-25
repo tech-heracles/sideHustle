@@ -45,7 +45,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             parameter20.Value = raport.Parameters[20].Value;
             parameter21.Value = raport.Parameters[21].Value;
             PershkrimDetajimArt.Value = raport.Parameters[27].Value;
-            //xrLabel104.Text = raport.Parameters[28].Description;
             parameter22.Value = raport.Parameters[28].Value;
 
         }
@@ -79,7 +78,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel64.Text = rm.GetString("labelTVSH", ci);
             xrLabel65.Text = rm.GetString("labelShumaMeTvsh", ci);
             xrLabel90.Text = rm.GetString("labelFilterAvancuarPerdorues", ci);
-            //xrLabel94.Text = rm.GetString("filterRaportPershkrimFature", ci);
             xrLabel1.Text = rm.GetString("labelNr", ci);
             xrLabel2.Text = rm.GetString("label_Klienti",ci);
             xrLabel71.Text = rm.GetString("label_Emri", ci);

@@ -115,11 +115,9 @@ function menu_click(s, e) {
     }
     if (e.item.name === "Default") {
         e.processOnServer = false;
-        //popFshi.Show();
 
         identifikuesPyetje = 'Default';
         myMesazh.ShtoPyetje(hfState.Get("msgPyetjeFshirjeKonfigurime"), true);
-        //ButtonOk.SetVisible(false);
 
     }
     if (e.item.name === "Fshi") {
@@ -127,7 +125,6 @@ function menu_click(s, e) {
         e.processOnServer = false;
         identifikuesPyetje = 'Fshi';
         myMesazh.ShtoPyetje(hfState.Get("msgPyetjeFshirjeKonfigurime"), true);
-        // ButtonOk2.SetVisible(false);
     }
     else
         myMenu.menu_click_regjistrime(s, e, "KonfigurimDokumentash.aspx?idsuperkat=" + Utils.getUrlVar('idsuperkat') + '&shtim_modifikim=shtim', 'KonfigurimDokumentash.aspx?idsuperkat=' + Utils.getUrlVar('idsuperkat') + '&id=' + id + '&numur=' + numur + '&indexrow=' + indexModifiko + '&shtim_modifikim=modifikim');
@@ -135,12 +132,7 @@ function menu_click(s, e) {
 }
 var mbush = false;
 function OnGridDoubleClick(e, index) {
-//    if (!focuschange) {
-//        myMenu.ShikoClick(editor, 'KonfigurimDokumentash.aspx?idsuperkat=' + Utils.getUrlVar('idsuperkat') + '&id=' + id + '&numur=' + numur + '&indexrow=' + indexModifiko + '&shtim_modifikim=modifikim');
 //    } else {
-//        indexModifiko = index;
-//        mbush = true;
-    //    }
     indexModifiko = index;
     gvKonfigAmbjentesh.GetRowValues(indexModifiko, 'IdKonfigAmbjente;KodKonfigAmbjente', OnGetRowValues);
     mbush = true;
@@ -175,7 +167,6 @@ function enter() {
         event.cancel = true;
     }
 }
-
 
 
 function EndRequestHandler(sender, args) {

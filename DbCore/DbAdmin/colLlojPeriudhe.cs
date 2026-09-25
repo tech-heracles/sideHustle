@@ -154,19 +154,11 @@ namespace DbCore.DbAdmin
         private bool mbushLlojePeriudhash(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojPeriudhe oLlojPeriudhe = new clsLlojPeriudhe();
-                    //oLlojPeriudhe.mbushLlojPeriudhe(rreshti);
                     Add(new clsLlojPeriudhe(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -110,7 +110,6 @@ namespace PlatinumWeb
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(IdPerdoruesi, IdNdermarrja, IdViti, clsFunksione.GetKomponente(Page.Request));
                 hfTeDrejta.Add("Shtim", tedrejtaInfo.DShtim);
                 hfTeDrejta.Add("Modifikim", tedrejtaInfo.DMod);
-                //GridUtil.konfigGrideListeEMadhePaThemePerKonfigurim(grid_kontrollet, "IDKONTROLL");
                 GridUtil.percaktoVisibleColumnsMeWidth(IdGjuha, IdNdermarrja, grid_kontrollet, "grid_kontrollet", "KonfigurimDokumentash.aspx");
                 grid_kontrollet.GetFilteredSelectedValues();
 
@@ -123,7 +122,6 @@ namespace PlatinumWeb
                     KonfiguroGrideKontrollet();
                     KonfiguroGrideKushtet();
                 }
-                //GridUtil.konfigGrideListeEMadhePaThemePerKonfigurim(grid_kontrollet, "IDKONTROLL");
 
 
             }
@@ -749,9 +747,7 @@ namespace PlatinumWeb
                                     break;
 
                                 case "caktimi i llojit te layerit":
-                                    //DbCore.clsFunksione.percaktoTemplateCombo(combo);
                                     ConfigureAspxComboBox.mbushComboLlojLayerMagazine(combo);
-                                    //combo.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedNjesiProdhimi('txtVleraDefault" + e.VisibleIndex.ToString() + "'," + e.VisibleIndex.ToString() + "); }";
                                     break;
 
                                 case "caktimi i kursit te pageses":
@@ -992,8 +988,6 @@ namespace PlatinumWeb
 
                         }
                     }
-
-
 
 
                     if (cmb2 != null)
@@ -1382,12 +1376,10 @@ namespace PlatinumWeb
             DataTable tmpObject = DbCore.mySessionObjects.MerrNgaSession<DataTable>(Session, "grid_kontrollet");
             if (tmpObject == null)
             {
-                //mbushGridNgaDB(komponente, periudheDok, idNdermarrjeVit, veprimi, idNdermarrje, idPerdoruesi, gjitheDokumentat, datanga, dataderi);
             }
             else
             {
                 grid_kontrollet.DataSource = tmpObject;
-                //grid_kontrollet.SaveFilter(idNdermarrje, veprimi);
                 grid_kontrollet.DataBind();
                 tmpObject.Dispose();
             }
@@ -1522,10 +1514,6 @@ namespace PlatinumWeb
                             temptxtTrupi = cmb13;
                             ugjet = false;
                         }
-                        //else if (koloneFocusTrupi == "IndexTrupi")
-                        //{
-                        //    ugjet = true;
-                        //}
                     }
                 }
 
@@ -1539,10 +1527,6 @@ namespace PlatinumWeb
                             temptxtTrupi = txt11;
                             ugjet = false;
                         }
-                        //else if (koloneFocusTrupi == "WidthTrupi")
-                        //{
-                        //    ugjet = true;
-                        //}
                     }
                 }
 
@@ -1561,10 +1545,6 @@ namespace PlatinumWeb
                             tempcomboTrupi = cmb11;
                             ugjet = false;
                         }
-                        //else if (koloneFocusTrupi == "VisibleTrupi")
-                        //{
-                        //    ugjet = true;
-                        //}
                     }
                 }
 
@@ -1581,10 +1561,6 @@ namespace PlatinumWeb
                             tempcomboTrupi = cmb12;
                             ugjet = false;
                         }
-                        //else if (koloneFocusTrupi == "ReadonlyTrupi")
-                        //{
-                        //    ugjet = true;
-                        //}
                     }
                 }
 
@@ -1652,10 +1628,6 @@ namespace PlatinumWeb
                                     temptxtNormal = txt171;
                                     ugjet = false;
                                 }
-                                //else if (koloneFocus == "KodLupa")
-                                //{
-                                //    ugjet = true;
-                                //}
                             }
                         }
                     }

@@ -94,8 +94,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         /// <summary>
         /// perkthen label 
         /// </summary>
@@ -188,8 +186,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         /// <summary>
         /// kur grida ben databound per ti shtuar kolonen e selektimit
         /// </summary>
@@ -223,8 +219,6 @@ namespace PlatinumWeb
         {
 
         }
-
-
 
 
         /// <summary>
@@ -263,9 +257,7 @@ namespace PlatinumWeb
 
                 }
             }
-            //konfiguroGride(idNdermarrje, rm, ci);
         }
-
 
 
         /// <summary>
@@ -392,23 +384,7 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void gvRecetaOptike_HeaderFilterFillItems(object sender, ASPxGridViewHeaderFilterEventArgs e)
         {
-            //if (e.Column.FieldName == "NrDok" || e.Column.FieldName == "Klienti")
-            //{
-            //    e.Values.Clear();
-            //    e.AddValue("(Te gjithe)", string.Empty, "true");
-            //    e.AddValue("Nga A-D ", string.Empty, String.Format("{0}>'A     ' and {0} <'DDDDDDD'", e.Column.FieldName));
-            //    e.AddValue("Nga D-G ", string.Empty, String.Format("{0}>'D     ' and {0}<'GGGGGGG'", e.Column.FieldName));
-            //    e.AddValue("Nga H-K ", string.Empty, String.Format("{0}>'H     ' and {0}<'KKKKKKK'", e.Column.FieldName));
-            //    e.AddValue("Nga L-O ", string.Empty, String.Format("{0}>'L     ' and {0}  <'OOOOOOO'", e.Column.FieldName));
-            //    e.AddValue("Nga P-S ", string.Empty, String.Format("{0}>'P     ' and {0}<'SSSSSSS'", e.Column.FieldName));
-            //    e.AddValue("Nga T-W ", string.Empty, String.Format("{0}>'T     ' and {0}<'WWWWWWW'", e.Column.FieldName));
-            //    e.AddValue("Nga X-Z ", string.Empty, String.Format("{0}>'X     ' and {0}<'ZZZZZZZ'", e.Column.FieldName));
-            //}
             //else
-            //{
-            //    e.Values.Clear();
-            //    e.AddValue("(Te gjithe)", string.Empty, "true");
-            //}
         }
 
         protected void ButtonOk2_Click2(object sender, EventArgs e)

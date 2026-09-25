@@ -57,8 +57,6 @@ function OnGridSelectionComplete(values) {
     idagjent = values[0][0];
     emriagjent = values[0][2];
     if (window.parent.identikuesPerPopupAgjenteShitje == "Shto_KF") {
-        //window.parent.cmbAgjentShitjesh.SetText(agjent);
-        //window.parent.cmbAgjentShitjesh.Focus();
         var editorAgjenti;
         if (Utils.getUrlVar("agjenti") == "1") {
             editorAgjenti = window.parent.cmbAgjentShitjesh;
@@ -121,9 +119,7 @@ function OnGridSelectionComplete(values) {
         window.parent.editorAGJ.SetFocus(true);
     } else if (window.parent.identikuesPerPopupAgjenteShitje == "Router") {
    
-        // Utils.ShtoNeseNukGjendetDheSelektoCombo(window.parent.btnAgjenti, idagjent, agjent, emriagjent);
         Utils.ShtoNeseNukGjendetDheSelektoCombo(window.parent.btnAgjenti, idagjent, new Array(values[0][1], values[0][2]));
-       // new Array(value[0][1], value[0][2])
         window.parent.btnAgjenti.SetValue(idagjent);
         window.parent.btnAgjenti.SetFocus(true);
         window.parent.skeduler.PerformCallback();

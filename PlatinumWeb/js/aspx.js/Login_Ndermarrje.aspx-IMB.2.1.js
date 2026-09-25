@@ -1,13 +1,6 @@
 ﻿
 function SetSplitterPaneContentUrl(pane, contentUrl) {
-    //            var parentWindow = window.parent;
-    //            var paneContent = parentWindow.splitter.GetPaneByName(pane);
-    //            // paneContent.SetContentUrl(contentUrl);
     //            // ASPxClientSplitterPane.RefreshContentUrl()   
-    //            var e = Math.floor(Math.random() * 100000).toString();
-    //            contentUrl = 'FooterPanelInfo.aspx?' + e;
-    //            paneContent.SetContentUrl(contentUrl);
-    //            paneContent.RefreshContentUrl();
 }
 
 function RedirectWindow(url) {
@@ -17,10 +10,8 @@ function RedirectWindow(url) {
 
 function OnGridDoubleClick(s,e) {
     btnOk.DoClick();
-    //            grid.GetRowValues(index, 'IDNDERMARJE;NDERMARJEKODI;VITI;IDNDERVITI', OnGetRowValues);
 }
 function OnGetRowValues(values) {
-    // window.location = 'Default.aspx?id=' + values[0] + '&kodi=' + values[1] + '&viti=' + values[2] + '&idnderviti=' + values[3];
 }
 
 function createCookie(name, value, days) {
@@ -44,10 +35,6 @@ $(document).ready(function () {
 function Init(s, e) {
     btnOk.Focus();
     Utils.setApplicationLanguageId(hfState.Get("idGjuha"));
-    //if (top.location == self.location) {
-    //    createCookie('adresa', 'Login_Ndermarrje.aspx', 1);
-    //    window.location = "FaqeKryesore.aspx";
-    //}
 }
 
 
@@ -58,7 +45,6 @@ function setSize() {
     if (width < 700) {
         grid.SetWidth(width);
         $(".content").width(width);
-       // ResizePager();
     }
     else {
 

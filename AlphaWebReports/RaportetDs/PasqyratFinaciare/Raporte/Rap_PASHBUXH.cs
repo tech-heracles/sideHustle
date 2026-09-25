@@ -103,8 +103,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
         private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
@@ -138,7 +136,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
             niv++;
             xrLabel47.Text = niv.ToString();
         }
@@ -180,7 +177,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
         
-
 
         private void xrLabel47_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -585,7 +581,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel9.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel7.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel20.Text = rm.GetString("labelRaportiShenime", ci);
             xrLabel21.Text = rm.GetString("labelRaportiUshtrimiMbyllur", ci);
             xrLabel22.Text = rm.GetString("labelRaportiUshtrimiParaardhes", ci);
             xrLabel80.Text = rm.GetString("labelRaportiFitimiNetoVitFinanciar", ci);
@@ -666,22 +661,16 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void GroupHeader8_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (gjendje && Convert.ToInt32(GetCurrentColumnValue("gjend")) == 0)
-               // GroupHeader8.Visible = false;
 
         }
 
         private void GroupHeader7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (gjendje && Convert.ToInt32(GetCurrentColumnValue("gjend")) == 0)
-                //GroupHeader7.Visible = false;
         }
 
         private void GroupHeader6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
 
-            //if (gjendje && Convert.ToInt32(GetCurrentColumnValue("gjend")) == 0)
-                //GroupHeader6.Visible = false;
         }
     }
 }

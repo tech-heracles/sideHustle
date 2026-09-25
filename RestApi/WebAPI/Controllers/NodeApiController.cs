@@ -36,7 +36,6 @@ namespace RestApi.WebAPI.Controllers
 
         }
 
-        // public HttpResponseMessage RuajMesazhe(JObject param)
         [HttpPost, HttpGet]
         public HttpResponseMessage ruajmesazhe(JObject param)
         {

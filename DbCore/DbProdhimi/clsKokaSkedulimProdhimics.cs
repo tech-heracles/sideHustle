@@ -695,7 +695,6 @@ namespace DbCore.DbProdhimi
         {
 
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, db); //perdor ruajtjen me transaksion
 
@@ -843,7 +842,6 @@ namespace DbCore.DbProdhimi
             clsDatabazeProdhimi data = new clsDatabazeProdhimi();
             if (lidhur == false)
             {
-                //data.krijoManager();
                 data.beginTransaksion();
                 u_modifikua = modifikoSkedulim(IdKoka, IdNivel, IdKonfigAmbjente, IdPlanifikimi, IdBurimi, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues,  colTrupi, data);
                 if (u_modifikua.Status)
@@ -898,7 +896,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh fshi()
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_fshi = fshiSkedulim(IdKoka, idPerdoruesi, db);
             if (u_fshi.Status)
@@ -915,7 +912,6 @@ namespace DbCore.DbProdhimi
         public static clsKokaSkedulimProdhimi merrSipasId(int id)
         {
             clsKokaSkedulimProdhimi data = new clsKokaSkedulimProdhimi();
-            //data.mbushKokaPlanifikimSipasID(id, null);
             data.mbushKokaSkedulimProdhimiSipasID(id);
             return data;
         }
@@ -986,8 +982,6 @@ namespace DbCore.DbProdhimi
         /// <param name="db"></param>
         public bool mbushKokaSkedulimProdhimiSipasID(int idKoka, clsDatabazeProdhimi db)
         {
-            //if (db == null) 
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushKokaSkedulimProdhimi(db.ktheKokaSkedulimProdhimiSipasID(idKoka), db);
             return mbush;
         }
@@ -1054,5 +1048,4 @@ namespace DbCore.DbProdhimi
         #endregion
     }
 }
-
 

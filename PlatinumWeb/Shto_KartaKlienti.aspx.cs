@@ -608,7 +608,6 @@ namespace PlatinumWeb
             {
                 if (Request.Params["__CALLBACKID"].Contains("cmbPolitike"))
                 {
-                    // mbushComboBoxPolitikat(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 }
             }
         }

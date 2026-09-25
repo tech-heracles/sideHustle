@@ -50,7 +50,6 @@ namespace RestApi.WebAPI.Models
                 kodniveli = clsNivelRegjistrimi.ktheKodNivelRegjistrimi(clsKonf.IdNivel);
                 kategoria = clsKonf.IdKategori;
             }
-            //DbCore.DbShare.colKusht colKushte = new DbCore.DbShare.colKusht();
             DataTable kushtAlternativa = colKusht.mbushGjitheKushteAlternativa(idKonfigurim);
             clsKonfLlojRreshti konfLlojRreshti = new clsKonfLlojRreshti();
 
@@ -64,9 +63,7 @@ namespace RestApi.WebAPI.Models
             }
             colAtributeTrupi colAtrTrupi = new colAtributeTrupi();
             colAtrTrupi.mbushKontrolletKonfigurimitKomponentes(idGjuha, idKomp, idKonfigurim);
-            //DbCore.DbShare.colKontrolle colKontroll1 = colAtrTrupi.ktheKontrolle();
             colKontrolle colKontroll = new colKontrolle(idGjuha, idKomp, idKonfigurim);
-            //colKontroll.TableName = "colKontroll";
             colGridaTrupi colGrida = new colGridaTrupi(idKomp, idKonfigurim, idGjuha);
 
             clsFormatKonfigTrup formatNumri = new clsFormatKonfigTrup();
@@ -75,7 +72,6 @@ namespace RestApi.WebAPI.Models
             formatNumri = (clsFormatKonfigTrup)form[0];
             formatiKursit = form[1].ToString();
 
-            //RregjistrimeRepository.ktheGrupimDokumentashNderm(kodKonf, idNdermarrje, idper)
 
             return new
             {
@@ -450,9 +446,7 @@ namespace RestApi.WebAPI.Models
             {
                 foreach (Newtonsoft.Json.Linq.JObject oo in artPerb)
                 {
-                    //DbCore.DbInventari.clsArtikulliPerberes artPerberes = new DbCore.DbInventari.clsArtikulliPerberes();
                     // ((Newtonsoft.Json.Linq.JObject)oo)["Kodi"]
-                    //Dictionary<string, object> rresht = (Dictionary<string, object>)oo;
                     kodi = oo["Kodi"].ToString();
                     if (kodi != "")
                     {
@@ -492,8 +486,6 @@ namespace RestApi.WebAPI.Models
                     colNiveleCmimesh.merrNiveleNdermarjeDTBlerjeShitjeMeAutorizime(idNdermarrje, 0, idPerdorues);
 
 
-                //clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
-                //decimal norma = clsTaksa.ktheNormePerqindjeMeId(nderm.IdTakse);
                 clsTaksa taksa = new clsTaksa();
                 taksa.mbushTakseDefaultNdermarrje(idNdermarrje);
                 foreach (DataRow dr in dt.Rows)
@@ -636,7 +628,6 @@ namespace RestApi.WebAPI.Models
                     obj[1] = clsTrupiMagazina.kaVeprimeMagPerArtikull(artikull.IdArtikulli, idNdermarrje);
                 }
                 else obj[1] = false;
-                //obj[1] = eshteLidhur(int.Parse(idkomp), kodkonfi, artikull.IdArtikulli.ToString());
                 return obj;
             }
             else

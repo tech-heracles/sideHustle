@@ -327,17 +327,7 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvFleteKontabelKoka.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDukumentiKokaFleteKontabel", gvFleteKontabelKoka);
-            //var kolona = gvFleteKontabelKoka.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDukumentiKokaFleteKontabel";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             var mesazh = new clsMesazh();
@@ -612,7 +602,6 @@ namespace PlatinumWeb
             var col = gvFleteKontabelKoka.Columns["Kontabilizuar"] as GridViewDataColumn;
             col.DataItemTemplate = new MyCheckTemplate(true, false);
         }
-
 
 
         protected void gvFleteKontabelKoka_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)

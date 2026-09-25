@@ -119,41 +119,25 @@ namespace DbCore.DbRegjistrim
         private bool mbushDegetAdministrative(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDegeAdministrative nivel = new clsDegeAdministrative();
-                    //nivel.mbushDegeAdministrative(rreshti);
                     Add(new clsDegeAdministrative(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         private bool mbushDegetAdministrativePerKonfigurim(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDegeAdministrative nivel = new clsDegeAdministrative();
-                    //nivel.mbushDegeAdministrative(rreshti);
                     Add(new clsDegeAdministrative(rreshti,true));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         

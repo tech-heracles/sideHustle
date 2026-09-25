@@ -39,7 +39,6 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         return;
     sessionStorage.removeItem(pageState.guid);
     if (emrimenuse === "mesazhe") {
-        //$(".dialog-mesazhet").modal("show");
         myMesazh.ndertoMesazhet({ idGjuha: parseInt(hfState.Get("idGjuha")) });
         return;
     }
@@ -93,7 +92,6 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
 
 function SuccededVendosPeriudha(result) {
     pageKryesoreState.periudha = result;
-    //vendosHfPeriudhe(id, textPeriudhe, dateFillim, dateMbarim);
     hfState.Set("periudha", JSON.stringify(result));
     popupUniversal.Hide();
     var btnPeriudha = splitter.GetPaneByName('Footer').GetContentIFrame().contentWindow.btnPeriudha;
@@ -107,13 +105,6 @@ function SuccededVendosPeriudha(result) {
 
 function lexoHfPeriudhe() {
     return JSON.parse(hfState.Get("periudha"));
-    //return pageKryesoreState.periudha;
-    //var HfPeriudheObj = new Object();
-    //HfPeriudheObj.idPeriudha = hfPeriudhKontabel.Get("idPeriudha");
-    //HfPeriudheObj.emerPeriudha = hfPeriudhKontabel.Get("emerPeriudha");
-    //HfPeriudheObj.fillimiPeriudha = hfPeriudhKontabel.Get("fillimiPeriudha");
-    //HfPeriudheObj.mbarimiPeriudha = hfPeriudhKontabel.Get("mbarimiPeriudha");
-    //return HfPeriudheObj;
 }
 
 function fshiCookie() {
@@ -154,22 +145,10 @@ var pageState = { menuJson: {}, guid: '', webhook: {} };
 $(document).ready(function (e) {
     rifresko = false;
 
-    //$(".footer1").parent().css("margin-top", "-30px");
-    //$(".footer1").parent().css("position", "absolute");
     $(window).on('unload', function (event) {
     });
-    //var dateSkadimiCertifikate = hfState.Get("SkadimCertifikate");
-    //if (dateSkadimiCertifikate != "" && dateSkadimiCertifikate != undefined) {
-    //    var opsionMbyllje = hfState.Get("MenuItemMbyll");
-    //    var popUpOptions = { prependSelector: "body", dialogClass: "dialog-skadim-certifikate", contentClass: "tabele-skadim-certifikate", titulli: "Njoftim", text: { mbyll: opsionMbyllje } };
-    //    var myPopup = Utils.ndertoPopupCertifikata(popUpOptions, dateSkadimiCertifikate);
-    //    myPopup.modal("show");
-    //    $("#certificate-notice").css("display", "block");
     //    document.getElementById("certificate-notice").innerHTML = "Certifikata Elektronike e Fiskalizimit per kompanine tuaj skadon ne date <b>" + dateSkadimiCertifikate + "</b> Ju lutem ngarkoni certifikaten e re. (Pas dates <b>" + dateSkadimiCertifikate + "</b> nuk do mund te leshoni fatura me certifikaten e vjeter.)"
 
-    //    $(".footer1").parent().css("margin-top", "-50px");
-    //    $(".footer1").parent().css("position", "absolute");
-    //}
 
     $(document).on('keydown', function (e) {//po
         switch (e.which) {
@@ -283,7 +262,6 @@ function SucceededCallbackInfoLart(result) {
     }
     else
         lblFaqja.SetText(result.emerKomponente);
-    //lblUserEmri.SetText(result.EmerPerdoruesi + '   |   ');
 }
 
 function callWebServiceKtheMesazhPerPerdoruesin() {

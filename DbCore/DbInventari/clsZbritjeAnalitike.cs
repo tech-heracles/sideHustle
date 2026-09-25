@@ -29,7 +29,6 @@ namespace DbCore.DbInventari
         private int llojZbritje;
         private decimal zbritja;
         private int idPerdoruesi;
-        //private int idNderViti;
         private string emerArtikulli1;
         private string emerArtikulli2;
         private string kodbarArtikulli;
@@ -609,12 +608,10 @@ namespace DbCore.DbInventari
                             int idZ;
                             mesazh = dbInv.ruajZbritjeAnalitike(out idZ, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
                                 c.VleftaMin, c.VleftaMax, c.LlojZbritje, c.Zbritja, c.IdPerdoruesi, c.IdNdermarje, c.IdKonfig, c.idStatusDok, c.idNjesia2, c.zbritja2);
-                            //mesazh= ruajZbritjeAnalitike(c);
                         }
                         else
                             mesazh = dbInv.modifikoZbritjeAnalitike(c.IdZbritjeAnalitike, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
     c.VleftaMin, c.VleftaMax, c.LlojZbritje, c.Zbritja, c.IdPerdoruesi, c.IdNdermarje, c.IdKonfig, c.idStatusDok, c.idNjesia2, c.zbritja2);
-                        //mesazh= modifikoZbritjeAnalitike(c);
                     }
                     else
                     {
@@ -654,7 +651,6 @@ namespace DbCore.DbInventari
             clsMesazh u_modifikua = data.modifikoZbritjeAnalitike(this.IdZbritjeAnalitike, this.IdArtikulli, this.IdNivelZbritje, this.IdNjesia, this.DateFillimi, this.DateMbarimi, this.SasiMin, this.SasiMax,
                                 this.VleftaMin, this.VleftaMax, this.LlojZbritje, this.Zbritja, this.IdPerdoruesi, this.IdNdermarje, this.IdKonfig, this.idStatusDok, this.idNjesia2, this.zbritja2);
             data.Dispose();
-            //clsMesazh u_modifikua = data.modifikoZbritjeAnalitike(this);
             return u_modifikua;
         }
         /// <summary>
@@ -668,7 +664,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiZbritjeAnalitikeStatus(this.IdZbritjeAnalitike, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiZbritjeAnalitike(this);
             return u_fshi;
         }
         /// <summary>
@@ -677,7 +672,6 @@ namespace DbCore.DbInventari
         /// </summary>
       
        
-
         public static int ktheIdZbritjeAnalitikeSipasArtikullitDheNivelit(int idNivelZbritje, int idArtikulli, int idNdermarrje)
         {
             using (clsDatabaseInventari dbInv = new clsDatabaseInventari())
@@ -747,9 +741,6 @@ namespace DbCore.DbInventari
             colZbritjetAnalitike colZbritje = new colZbritjetAnalitike(kodArtikulli, nivelZbritje, idperdorues, idNdermarrje);
             if (colZbritje.Count > 0 && DateTime.Parse(date) >= colZbritje[0].DateFillimi) // && DateTime.Parse(date) <= colZbritje[0].DateMbarimi)
             {
-                //if (idNjesia == colZbritje[0].IdNjesia)
-                //    zbritje += colZbritje[0].Zbritja;
-                //else zbritje += colZbritje[0].Zbritja2;
                 return colZbritje[0];
             }
             return null;
@@ -788,7 +779,6 @@ namespace DbCore.DbInventari
                     decimal.TryParse(dbDataRowZbritjeAnalitike["ZBRITJA2"].ToString(), out zbritja2);
 
                     int.TryParse(dbDataRowZbritjeAnalitike["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowZbritjeAnalitike["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowZbritjeAnalitike["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowZbritjeAnalitike["IDKONFIG"].ToString(), out idKonfig);
                     int.TryParse(dbDataRowZbritjeAnalitike["IDSTATUSDOK"].ToString(), out idStatusDok);

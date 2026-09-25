@@ -38,9 +38,7 @@ namespace PlatinumWeb
         private int idPerdoruesi, idviti, idgjuha, idNdermarrje;
         private string guidString;
         private string komponente => DbCore.clsFunksione.GetKomponente(Page.Request);
-        //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
-        //string veprimi;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!DbCore.mySessionObjects.isLogedIn(Session))
@@ -117,7 +115,6 @@ namespace PlatinumWeb
                 string periudhaSelektuar;
                 if (hfState.Contains("PeriudhaSelektuar"))
                 {
-                    //if (radDtDok.SelectedItem == null || radDtDok.SelectedIndex == -1)
                     radDtDok.SelectedIndex = Convert.ToInt16(hfState.Get("PeriudhaSelektuar"));
                     periudhaSelektuar = radDtDok.SelectedItem.Text;
                 }
@@ -230,14 +227,12 @@ namespace PlatinumWeb
         }
  
 
-
         protected void grid_FleteDoganore_DataBound(object sender, EventArgs e)
         {
             if (this.grid_FleteDoganore.Columns["#"] == null)
             {
                 DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //  check.SetColVisibleIndex(0);
                 grid_FleteDoganore.Settings.ShowFilterRow = true;
                 grid_FleteDoganore.Settings.ShowHeaderFilterButton = true;
                 grid_FleteDoganore.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -263,16 +258,13 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_FleteDoganore", "FleteDoganore.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text,  DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_FleteDoganore", int.Parse(cmbKonfigurimi.Value.ToString()), "FleteDoganore.aspx");
                 percaktoTemplateMenu(idgjuha, ASPxMenu1, idviti, idPerdoruesi, idNdermarrje);
                 if (mesazh.Status == true)
@@ -280,7 +272,6 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //  konfiguroVleraFillestare();
                 if (Request.QueryString["lloji"] == "import")
                     grid_FleteDoganore.FilterExpression = "[ImportExport]=1 and [IdStatusDok]=1";
                 else grid_FleteDoganore.FilterExpression = "[ImportExport]=2 and [IdStatusDok]=1";
@@ -306,29 +297,14 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_FleteDoganore.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_FleteDoganore);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_FleteDoganore.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
-            //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
 
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_FleteDoganore", int.Parse(cmbKonfigurimi.Value.ToString()), "FleteDoganore.aspx");
             percaktoTemplateMenu(idgjuha, ASPxMenu1, idviti, idPerdoruesi, idNdermarrje);
             if (mesazh.Status == true)
@@ -341,20 +317,7 @@ namespace PlatinumWeb
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Shto")
-            //{
-            //    Response.Redirect("Shto_FleteDoganore.aspx?shtim_modifikim=shtim");
-            //}
-            //else if (e.Item.Name == "Modifiko")
-            //{
-            //    int indeksi = grid_FleteDoganore.FocusedRowIndex;
-            //    string id;
 
-            //    if (grid_FleteDoganore.GetRowValues(indeksi, "IdFleteDoganoreKoka") != null)
-            //        id = grid_FleteDoganore.GetRowValues(indeksi, "IdFleteDoganoreKoka").ToString();
-            //    else id = null;
-            //    Response.Redirect("Shto_FleteDoganore.aspx?id=" + id + "&indexrow=" + grid_FleteDoganore.FocusedRowIndex + "&shtim_modifikim=modifikim");
-            //}
         }
 
         //fshin rreshtat e selektuar
@@ -362,18 +325,13 @@ namespace PlatinumWeb
         {
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<object> rreshtat = grid_FleteDoganore.GetSelectedFieldValues("IdFleteDoganoreKoka");
             List<string> TeFshire = new List<string>(), TeLidhur = new List<string>(), PeriudheKycur = new List<string>(), closedPeriod = new List<string>();
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (object id in rreshtat)
             {
                 DbCore.DbRegjistrim.clsFleteDoganoreKoka koka = new DbCore.DbRegjistrim.clsFleteDoganoreKoka(Convert.ToInt32(id));
-                //DbCore.DbRegjistrim.clsFleteDoganoreKoka koka = dbRegjistrim.merrFleteDoganoreKokaSipasId(id);
-                //foreach (DbCore.DbRegjistrim.clsFleteDoganoreKoka koka in colKoka)
-                //{
 
-                //}
                 bool lidhur = dbAdmin.eshteDokumentiILidhur(koka.IdFleteDoganoreKoka, koka.IdNivel, "T_FLETEDOGANOREKOKA", "IDFLETEDOGANORE");
                 if (lidhur)
                 {
@@ -419,7 +377,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqFleteDoganoreNgaGrida(koka.IdFleteDoganoreKoka);
                     #endregion
                     TeFshire.Add(koka.NrDok);
@@ -527,10 +484,8 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2],  DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_FleteDoganore", "FleteDoganore.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2],  DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         grid_FleteDoganore.FilterExpression = filtra.FiltraVlera;

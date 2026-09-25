@@ -144,18 +144,10 @@ namespace DbCore.DbListPagesat
         private bool mbushGrupime(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupimeLocaleGlobale grupim = new clsGrupimeLocaleGlobale();
-                    //grupim.mbushGrupime(rreshti);
                     Add(new clsGrupimeLocaleGlobale(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

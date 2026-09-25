@@ -272,7 +272,6 @@ namespace AlphaWebReports.RaportetDs
         {
             if (vleraProgresivGjithsej < 0)
             {
-                //vleraProgresivGjithsej = vleraProgresivGjithsej * (-1);
                 xrLabel67.Text = String.Format("{0:#,#.00}", Math.Abs(vleraProgresivGjithsej));
             }
            
@@ -280,11 +279,6 @@ namespace AlphaWebReports.RaportetDs
 
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (this.PrintingSystem.Document.PageCount == 0)
-            //{
-            //    e.Cancel = true;
-            //    return;
-            //}
             
         }
 
@@ -410,7 +404,6 @@ namespace AlphaWebReports.RaportetDs
         {
             if (GetCurrentColumnValue("vleftadebipare") != null && GetCurrentColumnValue("vleftakredipare") != null
                 && !String.IsNullOrEmpty(GetCurrentColumnValue("vleftadebipare").ToString()) && !String.IsNullOrEmpty(GetCurrentColumnValue("vleftakredipare").ToString()))
-                //if (cnt == 0)
                 vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("vleftadebipare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredipare").ToString());
         }
 
@@ -418,102 +411,23 @@ namespace AlphaWebReports.RaportetDs
         {
             if (GetCurrentColumnValue("vleftadebimonhuajpare") != null && GetCurrentColumnValue("vleftakredimonhuajpare") != null 
                 && !String.IsNullOrEmpty(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) && !String.IsNullOrEmpty(GetCurrentColumnValue("vleftakredimonhuajpare").ToString()))
-                //if (cnt == 0)
                 vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
         }
 
         #region komentuar
 
-        //private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
 
-        //}
-
-        //private void xrLabel66_SummaryReset(object sender, EventArgs e)
-        //{
-        //    vleraProgresivGjithsej = 0;
-        //}
-
-        //private void xrLabel67_SummaryReset(object sender, EventArgs e)
-        //{
-
-        //    vleraProgresivGjithsej = 0;
-        //}
-
-        //private void xrLabel29_AfterPrint(object sender, EventArgs e)
-        //{
         //    //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-        //    //    shumadebi = Convert.ToDouble(xrLabel29.Text);
-        //}
 
-        //private void xrLabel30_AfterPrint(object sender, EventArgs e)
-        //{
         //    //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-        //    //    shumakredi = Convert.ToDouble(xrLabel30.Text);
-        //}
 
-        //private void xrLabel6_AfterPrint(object sender, EventArgs e)
-        //{
-        //    cnt = 0;
-        //    //double shumadebi = 0;
-        //    //double shumakredi = 0;
-        //    //double shumakredimonllog = 0;
-        //    //double shumadebimonllog = 0;
-        //}
 
-        //private void xrLabel31_AfterPrint(object sender, EventArgs e)
-        //{
         //    //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-        //    //    shumadebimonllog = Convert.ToDouble(xrLabel31.Text);
-        //}
 
-        //private void xrLabel32_AfterPrint(object sender, EventArgs e)
-        //{
         //    //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-        //    //    shumakredimonllog = Convert.ToDouble(xrLabel32.Text);
-        //}
 
         #region po u deshen te perdoret llogaritShumeNgaFushaGrupuar 
 
-        //private void xrLabel36_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    double sum = 0;
-        //    for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //        sum += Convert.ToDouble(e.CalculatedValues[i]);
-        //    if (sum > 0)
-        //        e.Result = sum;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel37_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    double sum = 0;
-        //    for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //        sum += Convert.ToDouble(e.CalculatedValues[i]);
-        //    if (sum > 0)
-        //        e.Result = sum;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel39_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    double sum = 0;
-        //    for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //        sum += Convert.ToDouble(e.CalculatedValues[i]);
-        //    if (sum > 0)
-        //        e.Result = sum;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel40_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    double sum = 0;
-        //    for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //        sum += Convert.ToDouble(e.CalculatedValues[i]);
-        //    if (sum > 0)
-        //        e.Result = sum;
-        //    e.Handled = true;
-        //}
 
         private void llogaritShumeNgaFushaGrupuar(object sender, SummaryGetResultEventArgs e)
         {
@@ -527,67 +441,14 @@ namespace AlphaWebReports.RaportetDs
         #endregion
 
 
-        //private void xrLabel66_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    //double sum = 0;
         //    //for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //    //    sum += Convert.ToDouble(e.CalculatedValues[i]);
         //    //if (sum > 0)
-        //    //    e.Result = sum;
-        //    //e.Handled = true;
-        //    e.Result = vleraProgresivGjithsej;
-        //    e.Handled = true;
-        //}
 
-        //private void xrLabel67_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    //double sum = 0;
         //    //for (int i = 0; i < e.CalculatedValues.Count; i++)
-        //    //    sum += Convert.ToDouble(e.CalculatedValues[i]);
         //    //if (sum > 0)
-        //    //    e.Result = sum;
-        //    //e.Handled = true;
-        //    vleraProgresivGjithsej = vleraProgresivGjithsej * (-1);
-        //    e.Result = vleraProgresivGjithsej;
-        //    e.Handled = true;
-        //}
 
-        //private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-
-        //private void xrLabel4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    //vleraProgresive = 0;
-        //    //vleraProgresive2 = 0;
-        //    //gjendjamepare = 0;
-        //}
 
         //komentuar anxhela
-        //private void xrLabel34_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null && GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString() != "")
-        //    {
-        //        if (cnt == 0)
-        //            vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
-        //        vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
-        //        //   xrLabel34.Text = String.Format("{0:#,#.00}", vleraProgresive2);
-        //    }
-        //}
-
-
-
-        //private void xrLabel9_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    if (GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI") != null && GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString() != "")
-        //    {
-        //        if (cnt == 0)
-        //            vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("vleftadebipare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredipare").ToString());
-        //        vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
-        //        //  xrLabel33.Text = String.Format("{0:#,#.00}", vleraProgresive);
-        //    }
-        //}
 
 
         #endregion

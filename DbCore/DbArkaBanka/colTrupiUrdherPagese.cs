@@ -47,8 +47,6 @@ namespace DbCore.DbArkaBanka
         /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
         public bool mbushTrupiUrdherPagese(int idKoka, clsDatabaseArkaBanka db)
         {
-            //if (db == null)
-            //    db = new clsDatabaseArkaBanka();
             return mbushTrupat(db.ktheGjitheTrupiUrdherPageseNgaKoka(idKoka));
 
         }
@@ -136,21 +134,13 @@ namespace DbCore.DbArkaBanka
         private bool mbushTrupat(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiUrdherPagese trupi = new clsTrupiUrdherPagese();
-                    //trupi.mbushTrupUrdherPagese(rreshti);
                     Add(new clsTrupiUrdherPagese(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -34,7 +34,6 @@ namespace PlatinumWeb
 
         static Designer()
         {
-            //  SerializationService.RegisterSerializer(CustomUntypedDataSetSerializer.Name, new CustomUntypedDataSetSerializer());
         }
 
 

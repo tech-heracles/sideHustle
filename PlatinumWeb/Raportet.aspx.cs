@@ -46,7 +46,6 @@ namespace PlatinumWeb
                                 currentRow["RAPEMRIREAL"] = "RaportAlphaMobile";
                                 currentRow["RAPEMRI"] = "Raport Alpha Mobile";
                                 DataRow desRow = dt.Rows.Add(currentRow.ItemArray.Clone() as object[]);
-                                //desRow.ItemArray = currentRow.ItemArray.Clone() as object[];
                                 break;
                             }
 
@@ -60,7 +59,6 @@ namespace PlatinumWeb
 
                 }
 
-                //DataRow shitje = dt.Rows.AsQueryable().Where(key => key["RAPEMRIREAL"] == "liber_shitje");
                 hfState.Add("listaRap", Newtonsoft.Json.JsonConvert.SerializeObject(dt));
                 var stringKonfig = clsRaporti.KtheListKonfigRaportesh(IdPerdoruesi, IdNdermarrja, idModuli);
                 hfState.Add("konfigRap", string.IsNullOrEmpty(stringKonfig) ? "" : stringKonfig);

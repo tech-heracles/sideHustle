@@ -12,11 +12,6 @@
 });
 
 function changeName() {
-    //myFaqeCelje.shtoHandlerSession();
-    //window.parent.callWebServiceKtheInfoLart('NdryshimFjalekalimi.aspx');
-    //window.parent.createCookie('adresa', 'NdryshimFjalekalimi.aspx', 1);
-    //var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(myFaqeCelje.EndRequestTimer);
     myFaqeCelje.changeName('NdryshimCmimi.aspx', 0, null);
 }
 

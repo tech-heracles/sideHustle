@@ -57,21 +57,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushKushtetPagesaTrup(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKushtPageseTrupi trupi = new clsKushtPageseTrupi();
-                    //trupi.mbushKushtPagTrup(rreshti);
                     Add(new clsKushtPageseTrupi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

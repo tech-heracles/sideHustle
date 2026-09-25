@@ -192,7 +192,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         public clsMesazh ruaj()
         {//metoda qe therret klasen clsDatabaseAdmin per ruajtjen e nje autorizim 
-            //clsDatabaseAdmin  data = new clsDatabaseAdmin();
             clsMesazh u_ruajt = ruajAutorizimKokaAndTrupi(this);
             return u_ruajt;
         }
@@ -202,7 +201,6 @@ namespace DbCore.DbAdmin
         /// </summary>
         public clsMesazh modifiko()
         {//metoda qe therret klasen clsDatabaseAdmin per modifikimin e nje autorizim
-            //clsDatabaseAdmin data = new clsDatabaseAdmin();
             clsMesazh u_modifikua = modifikoAutorizimKokaAndTrupi(this);
             return u_modifikua;
         }
@@ -210,22 +208,13 @@ namespace DbCore.DbAdmin
         /// <summary>
         /// Fshin objektin e Kokes se autorizimit ne databaze.
         /// </summary>
-        //public clsMesazh fshi()
         //{//metoda qe therret klasen clsDatabaseAdmin per fshirjen e nje autorizim
-        //    //clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    clsMesazh u_fshi = fshiAutorizimKokaAndTrupi(this);
-        //    return u_fshi;
-        //}
 
         /// <summary>
         /// Merr objektin e Kokes se autorizimit nga  databaza. Nuk perdoret.
         /// </summary>
         //public void merr()
         //{//metoda qe therret klasen clsDatabaseAdmin per marrjen e nje autorizim
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    data.merrAutorizimKoka(this.IdAutorizimKoka);
-        //    data.Dispose();
-        //}
 
         /// <summary>
         /// Kthen nje objekt te tiptit <code>clsAutorizimKoka</code>, te cilin e merr nga databaza sipas kodit
@@ -324,7 +313,6 @@ namespace DbCore.DbAdmin
         {//transaksioni per te modifikuar edhe koken edhe trupin e nje autorizimi
             //marrim gjithe trupat eksistues
             colAutorizimetTrupi trupi = new colAutorizimetTrupi(autorizimKoka.IdAutorizimKoka);
-            //colAutorizimetTrupi trupi = merrAutorizimTrupiNgaIdAutorizimKoka(autorizimKoka.IdAutorizimKoka);
             clsMesazh mesazh;
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
 
@@ -392,7 +380,6 @@ namespace DbCore.DbAdmin
         public clsMesazh fshiAutorizimKokaAndTrupi(clsAutorizimKoka autorizimKoka)
         {//transaksioni per te fshire nje autorizim koke dhe trupat
             colAutorizimetTrupi trupi = new colAutorizimetTrupi(autorizimKoka.IdAutorizimKoka);
-            //colAutorizimetTrupi trupi = merrAutorizimTrupiNgaIdAutorizimKoka(autorizimKoka.IdAutorizimKoka);
             clsMesazh mesazh;
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
             dbAdmin.beginTransaksion();

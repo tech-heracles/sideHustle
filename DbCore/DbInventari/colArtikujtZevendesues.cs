@@ -124,21 +124,13 @@ namespace DbCore.DbInventari
         private bool mbushArtikujtZevendesues(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsArtikullZevendesues artikullZevendesues = new clsArtikullZevendesues();
-                    //artikullZevendesues.mbushArtikullZevendesues(rreshti);
                     this.Add(new clsArtikullZevendesues(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
 
         }

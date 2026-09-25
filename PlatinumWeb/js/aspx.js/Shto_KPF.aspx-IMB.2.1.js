@@ -72,50 +72,15 @@ function OnGridDoubleClick2(index) {
     indexModifiko = index;
     lista = true;
     mbushfusha();
-    // callWebservice2();
 }
 function OnGridDoubleClick3(index) {
     lista = true;
     indexModifiko = index;
     mbushfusha();
-    //   callWebservice3();
 }
 //        //therrasin web service per te pare ne kete te drejta
-//        function callWebservice1() {
-//            var emerPlusVeprim = 'KPF.aspx;Modifiko';
-//        }
-//        function callWebservice2() {
-//            var emerPlusVeprim = 'KPF.aspx;Modifiko';
-//        }
-//        function callWebservice3() {
-//            var emerPlusVeprim = 'KPF.aspx;Modifiko';
-//        }
 //        // This is the callback function that
 //        // processes the Web Service return value.
-//        function SucceededCallback1(result) {
-//            if (result == "true") {
-//                mbushfusha();
-//            }
-//            else {
-//                alert("Nuk ke te drejta per te kryer kete veprim");
-//            }
-//        }
-//        function SucceededCallback2(result) {
-//            if (result == "true") {
-//                mbushfusha();
-//            }
-//            else {
-//                alert("Nuk ke te drejta per te kryer kete veprim");
-//            }
-//        }
-//        function SucceededCallback3(result) {
-//            if (result == "true") {
-//                mbushfusha();
-//            }
-//            else {
-//                alert("Nuk ke te drejta per te kryer kete veprim");
-//            }
-//        }
 /*
 Function: Poshte_click
 
@@ -210,7 +175,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     if (e.item.name == 'Ruaj') {
         mbush = false;
         Utils.vendosVlereNeHiddenField("cmbAutorizimiHf", cmbAutorizimi.GetText());
@@ -348,7 +312,6 @@ function callWebserviceKonfigurimi(idKomp, kodKonf) {
     grid3.PerformCallback(idKomp + ";" + kodKonf);
 }
 function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
-  //  $("#dvKPF").show();
     var idGjuha = hfState.Get('idGjuha');
     $.ajax({
         url: Utils.getServerApiUrl("Konfigurime", "ktheKonfig"),
@@ -358,19 +321,11 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 //vendos kontrollet sipas konfigurimit
 function SucceededCallbackKonfig(result) {
-   // $("#dvKPF").show();//$("#dvKPF")[0].style.visibility = 'visible';
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //                var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
 
@@ -378,31 +333,9 @@ function SucceededCallbackKonfig(result) {
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblLlogaria', 'tblShenime'];
-        //                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
 }
-//        function SucceededCallbackKonfigurimi(result) {
-//            $("#dvKPF")[0].style.visibility = 'visible';
-//            if (result != "") {
-//                resultkonf = result;
-//                var vlerat = '';
-//                vlerat = result.split('*');
-//                var kontrollet = vlerat[0].split(';');
-//                Lupa(kontrollet);
-
-//                var hf = $('#hfKontrollet')[0];
-//                var hfLidhur = $("#hfLidhur")[0];
-//                var hfMod = $('#hfShtimModifikim')[0];
-//                var arrTabela = ['tblLlogaria', 'tblShenime'];
-//                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-//                grid1.PerformCallback("110" + ";" + cmbKonfigurimi.GetText());
-//                grid2.PerformCallback("110" + ";" + cmbKonfigurimi.GetText());
-//                grid3.PerformCallback("110" + ";" + cmbKonfigurimi.GetText());
-//            }
-//        }
 
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
@@ -452,15 +385,12 @@ function EndRequestHandler(sender, args) {
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
     switch ($('#HiddenField4').val()) {
         case '0':
-            //                    indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, grid1, "110")
             indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid1, "110", pastrofusha, hfTeDrejta);
             break;
         case '1':
-            //                    indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, grid2, "110")
             indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid2, "110", pastrofusha, hfTeDrejta);
             break;
         case '2':
-            //                    indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, grid3, "110")
             indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid3, "110", pastrofusha, hfTeDrejta);
             break;
         default:

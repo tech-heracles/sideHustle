@@ -21,12 +21,6 @@ namespace DbCore
     {
         static Logger log = LogManager.GetCurrentClassLogger();
 
-        //private string _mailServer = "smtp.imb.al";
-        //private int _port = 587;
-        //private string _mail = "wfes@alphaweb.al";
-        //private string _passw = "Fjale4Kalim&Auto";
-        //private string _emerEmali;
-        //private bool _enableSsl = false;
         private string _mailServer;
         private int _port;
         private string _mail;
@@ -101,11 +95,7 @@ namespace DbCore
             mail.Subject = subjekt;
             mail.Body = body;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer, _port);
-            // smtp.EnableSsl = true;
-            //smtp.Port = 25;
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential(_mail, _passw);
             //mail Server IP or NAME 
@@ -140,7 +130,6 @@ namespace DbCore
                     }
                     else
                     {
-                        //System.Diagnostics.Trace.WriteLine(String.Format("[{0}] {1}", idEmail, e.Error.ToString()));
                         DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.gabim, e.Error.Message + Environment.NewLine + ((e.Error.InnerException != null) ? Convert.ToString(e.Error.InnerException) : ""));
                     }
                     log.Error(e.Error, Environment.NewLine + (userResetPassword == "" ? "SendCompletedCallback" : "Error nga resetimi i fjalekalimit per userin : " + userResetPassword) + Environment.NewLine);
@@ -180,8 +169,6 @@ namespace DbCore
             {
                 DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje,0, String.Join(";", toEmails), DateTime.Now, subjekt, body, idPerdorues);
                 
-                //SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString());
-                //object emailObj = new { toEmail = toEmail, subjekt = subjekt, body = body, idEmail = email.IdEmail.ToString() };
                 ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMailMultiple(toEmails, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
                 return true;
             }
@@ -302,8 +289,6 @@ namespace DbCore
                 {
                     string toEmail = toEmails[i];
                     DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, nrProcesi, toEmail, DateTime.Now, subjekt, body, idPerdoruesi);
-                    //SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString());
-                    //object emailObj = new { toEmail = toEmail, subjekt = subjekt, body = body, idEmail = email.IdEmail.ToString() };
                     ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString()));
                 }
                 return true;
@@ -329,8 +314,6 @@ namespace DbCore
                 {
                     string toEmail = toEmails[i];
                     DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, toEmail, DateTime.Now, subjekt, body, idPerdoruesi);
-                    //SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString());
-                    //object emailObj = new { toEmail = toEmail, subjekt = subjekt, body = body, idEmail = email.IdEmail.ToString() };
                     ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
                 }
                 return true;
@@ -428,11 +411,8 @@ namespace DbCore
                 mail.Body = body;
                 mail.IsBodyHtml = isBodyHtml;
                 //send the mail using SMTP Client
-                //string certificate="Certificate.cer";
-                //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
                 SmtpClient smtp = new SmtpClient(_mailServer, _port);
                 smtp.EnableSsl = _enableSsl;
-                //smtp.Port = 25;
                 
 
                 if (withCredentials)
@@ -449,9 +429,6 @@ namespace DbCore
             catch (Exception ex)
             {
                 log.Error(ex, Environment.NewLine + (usernametoResetPass == "" ? "SendPlainAsyncMail" : " Error nga resetimi i fjalekalimit per userin : " + usernametoResetPass) + Environment.NewLine);
-                //clsLogError log;
-                //if (Convert.ToInt32(System.Web.Configuration.WebConfigurationManager.AppSettings["Verbosity"]) < 5)
-                //    log = new clsLogError("~/log/Errors/log.txt", " Error nga resetimi i fjalekalimit per userin : " + usernametoResetPass + Environment.NewLine + ex.Message);
             }
         }
         public void SendPlainAsyncMailMultiple(string[] toemail, string subjekt, string body, string idEmail, bool isBodyHtml = false)
@@ -491,11 +468,8 @@ namespace DbCore
             mail.Body = body;
             mail.IsBodyHtml = isBodyHtml;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer, _port);
             smtp.EnableSsl = _enableSsl;
-            //smtp.Port = 25;
             smtp.Credentials = new System.Net.NetworkCredential(mail.From.Address, _passw);
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             listEmail.Add(idEmail + toemail, mail);
@@ -530,11 +504,7 @@ namespace DbCore
             mail.Subject = subjekt;
             mail.Body = body;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer, _port);
-            // smtp.EnableSsl = _enableSsl;
-            //smtp.Port = 25;
             smtp.Credentials = new System.Net.NetworkCredential(_mail, _passw);
             //mail Server IP or NAME 
             smtp.Send(mail);
@@ -555,8 +525,6 @@ namespace DbCore
             mail.Body = body;
             mail.IsBodyHtml = true;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer, _port);
             smtp.EnableSsl = _enableSsl;
             smtp.Credentials = new System.Net.NetworkCredential(_mail, _passw);
@@ -641,8 +609,6 @@ namespace DbCore
             mail.Body = body;
             mail.IsBodyHtml = true;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer, _port);
             smtp.EnableSsl = _enableSsl;
             if (Convert.ToBoolean(WebConfigurationManager.AppSettings["MailServerWithCredentials"]))
@@ -667,8 +633,6 @@ namespace DbCore
                 mail.Attachments.Add(attach);
                 if (!listEmail.ContainsKey(pathi))
                     listEmail.Add(pathi, mail);
-                //Attachment attachment1 = new Attachment(zipStream, new ContentType("application/zip"));
-                //mail.Attachments.Add(attachment1);
                 smtp.SendCompleted += SendCompletedCallback;
                 //mail Server IP or NAME 
                 try
@@ -691,11 +655,7 @@ namespace DbCore
             mail.Body = body;
             mail.IsBodyHtml = true;
             //send the mail using SMTP Client
-            //string certificate="Certificate.cer";
-            //System.Security.Cryptography.X509Certificates.X509Certificate cer=new System.Security.Cryptography.X509Certificates.X509Certificate(certificate);
             SmtpClient smtp = new SmtpClient(_mailServer);
-            // smtp.EnableSsl = true;
-            //smtp.Port = 25;
             smtp.Credentials = new System.Net.NetworkCredential(_mail, _passw);
             //mail Server IP or NAME 
             smtp.Send(mail);

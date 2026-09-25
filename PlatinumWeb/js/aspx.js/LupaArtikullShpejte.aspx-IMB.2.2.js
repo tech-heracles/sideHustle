@@ -158,15 +158,8 @@ function unformatoFushaDevi() {
 
 function textChangedKodbari(s, e) {
     //si ka qene
-    //    var hf = hfKodbar.Get('kod');
-    //    var listeFushash = hf.split(',');
-    //    var gja = listeFushash[0].length;
-    //    hf = '0:' + btneKodbari.GetText() + hf.substring(gja, hf.length);
-    //    hfKodbar.Set('kod', hf);
     //end 'si ka qene'
 
-    //var kodbaret = JSON.parse($('#hfKodbaret').val());
-    //kodbaret[0] = { indeksi: '0', pershkrimi: kodbaretArr[j] };
     var kodbaret = btneKodbari.GetText().split(',');
     var ArrayKodbaret = new Array();
     for (var i = 0; i < kodbaret.length; i++) {
@@ -250,18 +243,13 @@ function menu_click(s, e) {
 }
 
 function ButtonClickArkiva() {
-    //indexModifiko = ASPxGridView_Artikull.GetRowKey(ASPxGridView_Artikull.GetFocusedRowIndex())
     var idArt = $('#hfId')[0].value;
-    //if(typeof(idArt) == 'undefined' || idArt <= 0)
-    //    myMesazh.ShtoMesazhGabimi('Duhet te zgjidhni nje artikull!');
-    //else {
     popupUniversal.SetHeaderText(hfState.Get("regjisDokZgjidhDokPerTeBashkengjitur"));
     popupUniversal.SetSize(738, 548);
     popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=ListaShpejte&veprimi=artikull&idDok=' + idArt
         //+ '&shtim_modifikim=' + $('#hfShtimModifikim').val()
         );
     popupUniversal.Show();
-    //}
 }
 
 function cmbKlasaIndexChanged(s, e) {
@@ -1104,7 +1092,6 @@ function SucceededCallbackArtPerberes2(result) { //pati
             lloji = "Artikull";
             kodi = colArt[i].KodArtikulli;
             pershkrimi = colArt[i].PershkrimArtikulli;
-            // pershkrimiang = colArt[i].PershkrimiAngArtikulli;
             njesia = (colArt[i].KodNjesia1 == null) ? "" : colArt[i].KodNjesia1;
             idkodi = colArt[i].IdArtikulli;
             kosto = colkosto[i].toFixed(2);
@@ -1116,7 +1103,6 @@ function SucceededCallbackArtPerberes2(result) { //pati
             pershkrimiang = "";
             idkodi = colMakro[i].IdKoka;
             njesia = (colMakro[i].NjesiKohe == 1 ? 'sec' : colMakro[i].NjesiKohe == 2 ? 'min' : colMakro[i].NjesiKohe == 3 ? 'ore' : 'dite');
-            //kosto = '';
             kosto = colkosto[i].toFixed(2);
         }
 
@@ -1223,7 +1209,6 @@ function kontrolloNjesi() {
 }
 
 
-
 var col;
 function EndCallback(s, e) {
     ShfaqTeDhenat();
@@ -1241,7 +1226,6 @@ function SucceededCallbackCmime(result) {
 function merrTeDhenat(s, e) {//merren te dhenat qe ka grida
     if (col == undefined || col == null || col.length == 0)
         return;
-    //if (col != undefined || col != null) {
     if (gvCmimet.cpNoRows > 15 * (gvCmimet.cpNoPage + 1))
         for (i = 15 * gvCmimet.cpNoPage; i < 15 * (gvCmimet.cpNoPage + 1) ; i++) {
             editorCmimi2 = Utils.ktheKontroll('Cmimi2' + i);
@@ -1308,13 +1292,11 @@ function merrTeDhenat(s, e) {//merren te dhenat qe ka grida
     }
     $('#hfArtikuj').val(JSON.stringify(col));
     unformatoFushaDevi();
-    //}
 }
 
 function ShfaqTeDhenat() {
     if (col == undefined || col == null || col.length == 0)
         return;
-    //if (col != undefined || col != null)
     if (gvCmimet.cpNoRows > 15 * (gvCmimet.cpNoPage + 1))
         for (i = 15 * gvCmimet.cpNoPage; i < 15 * (gvCmimet.cpNoPage + 1) ; i++) {
             editorCmimi2 = Utils.ktheKontroll('Cmimi2' + i);
@@ -1508,7 +1490,6 @@ function TextChangedCmimet(editor, e, key, artNjesiTeVarura, llojCmimi) {
 }
 
 
-
 function TextChangedIdTvsh(editor, e, key) {
 
     editorNorma = Utils.ktheKontroll('Norme' + key);
@@ -1534,7 +1515,6 @@ function TextChangedKohaMbar(editor, e, key) {
 }
 
 
-
 function TextChangedDataFill(editor, e, key) {
 
 }
@@ -1557,7 +1537,6 @@ $(window).on('unload', function () {
 })
 
 
-
 var indeksiArtPerb;
 var tekstiShkruar;
 
@@ -1565,22 +1544,7 @@ function llogaritKoston(key) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     colNorma = new Array();
-    //var rreshtaTeGrides = grida.jqGrid('getRowData');
-    //for (i = 0; i < rreshtaTeGrides.length; i++) {
-    //    if (rreshtaTeGrides[i].txtKodi.toString().search('value') != -1) {
 
-    //        colNorma[i] = new Object();
-    //        colNorma[i].Kodi = $("#txtKodi" + idRresht).val();
-    //        colNorma[i].Lloji = grida.getTekstQelize('cmbLloji', idRresht);
-    //        colNorma[i].Koeficienti = $("#txtKoeficienti" + idRresht).val();
-    //    }
-    //    else {
-    //        colNorma[i] = new Object();
-    //        colNorma[i].Kodi = rreshtaTeGrides[i].txtKodi;
-    //        colNorma[i].Lloji = rreshtaTeGrides[i].cmbLloji;
-    //        colNorma[i].Koeficienti = rreshtaTeGrides[i].txtKoeficienti;
-    //    }
-    //}
     var gridIds = grida.jqGrid('getDataIDs');
     for (i = 0; i < gridIds.length; i++) {
         var indeksi = gridIds[i];
@@ -1613,14 +1577,10 @@ function SucceededCallbackKostoArtPerb(result) {
 }
 
 
-
-
-
 function Furnitori_Click() {
     var hf = $("#hfLupaFurnitori");
     var queryStr = hf.val();
     identikuesPerPopupKlientFurnitori = "Artikull_ButtonEdit";
-    //txtLlog.SetText('ld');
     myButtonClickLupa.ButtonClickFurnitori(hfState.Get("headerZgjidhKlientFurnitorin"), queryStr, "Furnitor", 600, 400);
 }
 
@@ -1819,8 +1779,6 @@ function inicializoGride(isLidhur) {//po
     };
     return myJQGrid.initGride(gridParams);
 
-    //myJQGrid.inicializoGride("#rowed5", arrayPershkrime, arrayModel, isLidhur, lastsel2, "#txtKodi", "#cmbLloji", "", null, null, null, $('#divgride2').width(), undefined, undefined, null, null, '', '', undefined, undefined, undefined, undefined, undefined, undefined);
-    // ruajFormatetNeGride(grida);
 
 }
 /*
@@ -1840,7 +1798,6 @@ Vendos vlerat default te fushave ne gride ne baze te emrit te kolones
 */
 function vendosVleraDefaultNeGride(grida) {
     grida.setVlereDefault('txtKoeficienti', 1);
-    //  grida.setVlereDefault('txtFiro', 0);
     grida.setVlereDefault('txtKosto', 0);
     return;
 }
@@ -1868,9 +1825,6 @@ function ndryshoKonfigFormatNumri(grida, formatNumri, formatkursi) {
     grida.setShifraPasPresjes('txtKoeficienti', formatNumri.ShifraPasPresjesSasia);
     grida.setShifraPasPresjes('txtKosto', formatNumri.ShifraPasPresjesCmimi);
 }
-
-
-
 
 
 function selectFunc(event, ui, emerfushe, idArt, kodArt) { //po
@@ -1942,12 +1896,7 @@ function selectFunc(event, ui, emerfushe, idArt, kodArt) { //po
 }
 
 function changeFunc(event, ui, emerKodi, index) {//po
-    //var index = -1;
-    //var idKod = 'txtKodi';
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     if (index == idRresht) {
@@ -2346,15 +2295,11 @@ function keyup() {
     if (editorKoeficenti.val() == "" || isNaN(editorKoeficenti.val())) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgKoeficDuhetNr"));
         editorKoeficenti.focus();
-        //sasia = '1.00';
-        //grida.setTekstQelize('txtKoeficienti', idRresht);
     }
     else
         if (editorKoeficenti.val() == "0") {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgKoeficJoZero"));
             editorKoeficenti.focus();
-            //sasia = '1.00';
-            //grida.setTekstQelize('txtKoeficienti', idRresht);
         }
 }
 
@@ -2368,7 +2313,6 @@ function callWebserviceKodi(vlera) {//po
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     var vleraLlojit = grida.getTekstQelize('cmbLloji', idRresht);
-    //var idPerdoruesi = hfState.Get('idPerdoruesi');
     if (vleraLlojit == "Artikull") { //Artikull        
         $.ajax({
             pritPergjigje: true,
@@ -2408,7 +2352,6 @@ function mbushGrideNgaHiddenFieldet() {
         return;
 
     if (Utils.getUrlVar('veprimi') == "shtim") {
-        //myJQGrid.keyPressKodi("#rowed5", window.lastsel2, arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides.length - 1]);
         return;
     }
 
@@ -2451,7 +2394,6 @@ function ButtonClickKodi() {//po
     }
 
 
-
 }
 function ndryshoImazhin(nr, index) {
     var id = "butonFshi" + index;
@@ -2471,7 +2413,6 @@ function changedKoeficienti() {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgKoeficDuhetNr"));
         editorKoeficienti.focus();
         grida.setTekstQelize('txtKoeficienti', idRresht);
-        //gjeresi = '1.00';
     }
     else
         if (editorKoeficienti.val() == "0" || editorKoeficienti.val() == "0.") {

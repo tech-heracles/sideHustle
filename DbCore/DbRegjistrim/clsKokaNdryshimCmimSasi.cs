@@ -592,8 +592,6 @@ namespace DbCore.DbRegjistrim
             if (nrLlogari != "" && !DbKontabiliteti.clsLlogari.ekzistonLlogari(nrLlogari, idNdermarje, dbkont))
                 return new clsMesazh(false, "Llogaria nuk ekziston!");
             clsDatabaseShare dbshare = new clsDatabaseShare(db );
-            //clsKusht kushtgj = new clsKusht(IdKonfigAmbjente, "LLN", dbshare);
-            //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
             foreach (clsTrupiNdryshimCmimSasi trup in ocolTrupiNdryshimCmimSasi)
             {
                 if (ocolTrupiNdryshimCmimSasi.FindAll(x => x.IdArtikulli == trup.IdArtikulli).Count > 1)
@@ -807,8 +805,6 @@ namespace DbCore.DbRegjistrim
                         pershkrimMagFK = "Nga ndryshim sasi/cmim";
 
                     bool gjithmone = false;
-                    //clsKusht kushtgj = new clsKusht(koka.oKokaMagazina.IdKonfigAmbjente, "GJKGJ", dbshare);
-                    //clsAlternativaKushti alt = new clsAlternativaKushti(kushtgj.Vlera, dbshare);
                     if (clsAlternativaKushti.getAlternativa(koka.oKokaMagazina.IdKonfigAmbjente, "GJKGJ", dbshare) == "Po")
                         gjithmone = true;
                     int kontabalizimmag = 0;
@@ -879,7 +875,6 @@ namespace DbCore.DbRegjistrim
                 idLlojDokFK = -1;
             int idDokNgaFK = -1;
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_ruajt = ruaj(meKontabilizim, hfNrAutoregjistrime, idPeriudha, pershkrimFK, idLlojDokFK, idDokNgaFK, db, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, out shfaqmesazhapolupemag, gjenerodokmagazine, rm, ci); //perdor ruajtjen me transaksion
 
@@ -914,7 +909,6 @@ namespace DbCore.DbRegjistrim
             if (!mesazhKontrolli.Status)
             {
                 shfaqmesazhapolupe = "jo";
-                //db.rollbackTransaksion();
                 return mesazhKontrolli;
             }
             int idkoka = 0;
@@ -923,10 +917,8 @@ namespace DbCore.DbRegjistrim
             this.idKoka = idkoka;
             if (!u_ruajt.Status)
             {
-                //db.rollbackTransaksion();
                 return u_ruajt;
             }
-            //db.commitTransaksion();
             if (kaNdryshimNumri)
                 return mesazhKontrolli;
             return u_ruajt;
@@ -1151,7 +1143,6 @@ namespace DbCore.DbRegjistrim
             clsMesazh u_modifikua;
 
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //data.krijoManager();
             shfaqmesazhapolupe = "jo"; shfaqmesazhapolupemag = "jo";
             if (lidhur == false)
             {
@@ -1178,7 +1169,6 @@ namespace DbCore.DbRegjistrim
             data.beginTransaksion();
 
 
-
             u_modifikua = data.modifikoKokaNdryshimCmimSasi(this.IdKoka, this.IdNivel, this.IdKonfigAmbjente, this.IdMagazina, this.DtDok, this.NrDok,
            this.Vlefta, this.IdStatusDok, this.DtRegjistrimi, this.IdDegeAdministrative, this.idLlogKunderparti, this.idGrup1, this.IdGrup2, this.IdGrup3, this.Pershkrimi,
                this.idPerdoruesi);
@@ -1187,7 +1177,6 @@ namespace DbCore.DbRegjistrim
                 data.rollbackTransaksion();
                 return u_modifikua;
             }
-
 
 
             data.commitTransaksion();
@@ -1270,7 +1259,6 @@ namespace DbCore.DbRegjistrim
         {
             clsKokaNdryshimCmimSasi data = new clsKokaNdryshimCmimSasi();
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             clsMesazh u_fshi = data.fshiNdryshimCmimSasi(this.IdKoka, this.idPerdoruesi, dbRegj);
             if (u_fshi.Status)

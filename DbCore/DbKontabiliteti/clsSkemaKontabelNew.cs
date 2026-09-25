@@ -138,8 +138,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public clsSkemaKontabelNew mbushSkemeKontabelNewSipasID(int id)
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrSkemaKontabelNewSipasID(id);
             clsSkemaKontabelNew data = new clsSkemaKontabelNew(id);
             return data;
         }

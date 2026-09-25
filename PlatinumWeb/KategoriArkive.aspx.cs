@@ -102,20 +102,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKategoriArkive.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvKategoriArkive);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvKategoriArkive.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivel";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -182,7 +170,6 @@ namespace PlatinumWeb
             GridUtil.konfiguroGrideListeEvogelPaTheme(gvKategoriArkive, "IdKategoriArkive");
         }
 
-     
      
         protected void gvKategoriArkive_HeaderFilterFillItems(object sender, ASPxGridViewHeaderFilterEventArgs e)
         {
@@ -308,16 +295,12 @@ namespace PlatinumWeb
             foreach (int id in rreshtat)
             {
                 //TODO: PATI te behet kontrolli a eshte e lidhur te tabela T_ARKIVA
-                //if (DbCore.DbShare.clsKategoriArkive.kaVeprimeMeKategoriArkive(id))
-                //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ka veprime me kete kategori arkive!", pnlMesazhi);
                 //else
-                //{
                     DbCore.clsMesazh mesazh = DbCore.DbShare.clsKategoriArkive.fshi(id, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     if (mesazh.Status)
                         clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["msgFshirjeMeSukses"], pnlMesazhi);
                     else
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ndodhi nje gabim gjate fshirjes!", pnlMesazhi);
-                //}
                 konfiguroVleraFillestare(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             }
             pnlGrida.Update();

@@ -69,10 +69,8 @@ namespace PlatinumWeb
                     string[] idte = vleraQueryString.Split('-');
                     if (idte.Length > 1)
                     {
-                        //DbCore.DbShare.clsKonfigurimAmbjenti konfigLupa;
                         for (int i = 0; i < idte.Length; i++)
                         {
-                            //konfigLupa = new DbCore.DbShare.clsKonfigurimAmbjenti(Convert.ToInt32(idte[i]));
                             if (DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdNivel(Convert.ToInt32(idte[i])) == idNivel)
                             {
                                 idKonfigambjenti = Convert.ToInt32(idte[i]);
@@ -263,10 +261,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPanel1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, null, ASPxPanel1);
 
             hfNrAutoKF = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrShasie", "NrShasie");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "txtNrShasie", "NrShasie");
 
             int idAuto;
             if (shtim == true)

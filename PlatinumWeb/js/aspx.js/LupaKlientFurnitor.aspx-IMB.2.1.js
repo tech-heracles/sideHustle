@@ -89,11 +89,9 @@ function OnGridSelectionComplete(value) {
     if (value.length > 1) {
         for (i = 0; i < value.length - 1; i++) {
             var values = value[i];
-            //kodi += values[0] + ",";
             kodi = kodi + values[0] + ",";
         }
         values = value[value.length - 1];
-        //kodi += values[0];
         kodi = kodi + values[0];
     }
     else {
@@ -116,11 +114,6 @@ function OnGridSelectionComplete(value) {
             combo.SetFocus(true);
             window.parent.popupUniversal.Hide();
             break;
-            //window.parent.ddKlienti.SetValue(id);
-            //window.parent.$('#hfklienti').val(id);
-            //window.parent.console.log(id);
-            //window.parent.ddKlienti.SetFocus(true);
-            //break;
         case "raportklientfurnitor":
             window.parent.editorGlobal.SetText(kodi);
             window.parent.editorGlobal.SetFocus(true);
@@ -140,7 +133,6 @@ function OnGridSelectionComplete(value) {
         case "Artikull_ButtonEdit":
             var kf = new Array(kodi, emri);
             window.parent.txtFurnitori.SetSelectedIndex(window.parent.txtFurnitori.AddItem(kf, id));
-            //window.parent.txtFurnitori.SetSelectedIndex(window.parent.txtFurnitori.AddItem(kodi, id));
             window.parent.txtFurnitori.SetFocus(true);
             break;
         case "Dokumenta":
@@ -172,7 +164,6 @@ function OnGridSelectionComplete(value) {
             window.parent.btneKlientFurnitori.SetSelectedIndex(window.parent.btneKlientFurnitori.AddItem(kf, id));
             break;
         case "Zbritje Analitike":
-            //window.parent.btneFurnitori.SetText(kodi);
             var kf = new Array(kodi, emri);
             window.parent.btneFurnitori.SetSelectedIndex(window.parent.btneFurnitori.AddItem(kf, id));
             break;
@@ -206,8 +197,6 @@ function OnGridSelectionComplete(value) {
             }
             else {
                 if (window.parent.btneAutomjeti.GetText() != '') {
-                    //window.parent.btneAutomjeti.SetText('');
-                    //window.parent.btneAutomjeti.SetSelectedIndex(-1);
                 }
 
                 if (id == "") {
@@ -359,7 +348,6 @@ function OnGridSelectionComplete(value) {
             break;
         case "ShtoKartaKlienti":
             if (value.length > 1 && window.parent.multiselect == 'False') {
-                //alert(hfState.Get("msgLupaKFNukMundTeZgjidhniMeShumeSeNjeKF"));
                 myMesazh.ShtoMesazhGabimi(hfState.Get("msgLupaKFNukMundTeZgjidhniMeShumeSeNjeKF"));
                 hide = false;
             }

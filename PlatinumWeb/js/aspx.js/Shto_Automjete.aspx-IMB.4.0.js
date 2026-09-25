@@ -164,7 +164,6 @@ e-eventi
 function menu_click(s, e) {
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            var hfKontrollet = $('#hfKontrollet');
     var ruajbuxhetet = false; //i here per i here
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, ruajbuxhetet, undefined, indexModifiko, pastrofusha, vendosKonfig, resultkonf, colKontrollet, aktivFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj') {
@@ -192,8 +191,6 @@ function OnGetRowValuesMod(values) {
         return;
     $('#hfId').val(values[0]);
     if ($('#hfShtimModifikim').val() == "modifikim") {
-        //txtTarga.SetEnabled(false);
-       // txtNrShasie.SetEnabled(false);
     }
     txtNrShasie.SetText(values[1]);
     txtTarga.SetText(values[2]);
@@ -294,7 +291,6 @@ function SucceededCallbackKonfig(result) {
 }
 
 function vendosKonfig(result) {
-   // $("#dvAutomjete").show();//$("#dvAutomjete")[0].style.visibility = 'visible';
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;

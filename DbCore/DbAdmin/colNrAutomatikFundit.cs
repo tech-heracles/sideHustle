@@ -116,19 +116,11 @@ namespace DbCore.DbAdmin
         private bool mbushNumratAutomatikeFundit(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNrAutomatikFundit nrAutoFundit = new clsNrAutomatikFundit();
-                    //nrAutoFundit.mbushNumraAutomatikeFundit(rreshti);
                     Add(new clsNrAutomatikFundit(rreshti));
                 }
 
-            //}
-            //catch (InvalidCastException)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -282,17 +282,7 @@ namespace PlatinumWeb
             var koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvKonfigurim", komponente, _idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             var filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra?.Text, FiltraShenime = cmbFiltra?.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvKonfigurim.FilterExpression, IdPerdoruesi = _idperdoruesi, IdNdermarje = _idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvKonfigurim);
-            //var kolona = gvKonfigurim.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             var mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();

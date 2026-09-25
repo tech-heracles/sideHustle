@@ -47,14 +47,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         }
 
-        //private void xrLabel11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{            
-        //    if (enabled && GetCurrentColumnValue("IDSHITJEKOKA") != null && GetCurrentColumnValue("NRDOK") != null)
-        //    {
-        //        xrLabel11.NavigateUrl = "javascript:window.parent. myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&id=" + GetCurrentColumnValue("IDSHITJEKOKA").ToString() + "&numer=" + GetCurrentColumnValue("NRDOK").ToString() + "&shtim_modifikim=modifikim')";
-        //        this.xrLabel11.ForeColor = System.Drawing.Color.SteelBlue;
-        //    }
-        //}
 
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit

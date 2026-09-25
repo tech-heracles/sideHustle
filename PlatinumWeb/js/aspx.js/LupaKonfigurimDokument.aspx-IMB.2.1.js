@@ -36,7 +36,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaKonfigDok.GetRowValues(gvLupaKonfigDok.GetFocusedRowIndex(), 'IdKonfigAmbjente;KodKonfigAmbjente', OnGridSelectionComplete);
     gvLupaKonfigDok.GetSelectedFieldValues('IdKonfigAmbjente;KodKonfigAmbjente', OnGridSelectionComplete);
 }
 
@@ -49,15 +48,11 @@ function OnGridSelectionComplete(value) {
     if (value.length > 1) {
         for (i = 0; i < value.length - 1; i++) {
             var values = value[i];
-            //kodi += values[1] + "-";
             kodi = kodi + values[1] + "-";
-            //id += values[0] + "-";
             id = id + values[0] + "-";
         }
         values = value[value.length - 1];
-        //kodi += values[1];
         kodi = kodi + values[1];
-        //id += values[0];
         id = id + values[0];
     }
     else {

@@ -94,16 +94,7 @@ namespace PlatinumWeb
         /////      mbush combon e filtrave
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //{
-        //    //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
 
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("gvDokumenta", "ListaLidhjaDokumentave.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -183,23 +174,7 @@ namespace PlatinumWeb
         }
 
      
-
-
         //private void shtoKlient(int idNdermarrje)
-        //{
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-        //    gvDokumenta.Columns.Remove(gvDokumenta.Columns["IdKlientFurnitor"]);
-        //    GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
-        //    DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new DbCore.DbKontabiliteti.colKlienteFurnitore();
-        //    colKlientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor(0, "", 0, false, 0, "", "", "", "", 0, "", "", "", "", "", "", "", "", true, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", 0, "", 0, 0, 0, "", 0, 0, 0, 0, false));
-        //    colKlientet.mbushKlienteFurnitoreNdermarrjes(idNdermarrje);
-        //    //DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = dbKontab.merrKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colnew.PropertiesComboBox.DataSource = colKlientet;
-        //    colnew.PropertiesComboBox.TextField = "EmertimiKF";
-        //    colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";
-        //    colnew.FieldName = "IdKlientFurnitor";
-        //    gvDokumenta.Columns.Add(colnew);
-        //}
 
         protected void gvDokumenta_DataBound(object sender, EventArgs e)
         {
@@ -269,20 +244,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvDokumenta.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvDokumenta);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvDokumenta.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivel";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -301,21 +264,8 @@ namespace PlatinumWeb
         }
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
-            //if (e.Item.Name == "Shto")
-            //{
-            //    Response.Redirect("Shto_RegjistrimMagazine.aspx?shtim_modifikim=shtim&lloj="+hfLloji .Value.ToString ());
-            //}
-            //else if (e.Item.Name == "Modifiko")
-            //{
-            //    int indeksi = gvDokumenta.FocusedRowIndex;
-            //    string id;
 
-            //    if (gvDokumenta.GetRowValues(indeksi, "IdKoka") != null)
-            //        id = gvDokumenta.GetRowValues(indeksi, "IdKoka").ToString();
-            //    else id = null;
 
-            //    Response.Redirect("Shto_RegjistrimMagazine.aspx?id=" + id + "&indexrow=" + gvDokumenta.FocusedRowIndex + "&shtim_modifikim=modifikim&lloj="+hfLloji .Value.ToString ());
-            //}
         }
 
         //fshin rreshtat e selektuar
@@ -332,7 +282,6 @@ namespace PlatinumWeb
             List<string> TeFshire = new List<string>(), TeLidhur = new List<string>(), PeriudheKycur = new List<string>(), closedPeriod = new List<string>();
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             pergjigja.Text = "";
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (object id in rreshtat)
@@ -363,8 +312,6 @@ namespace PlatinumWeb
                 }
                 if (kok.IdStatusDok == 2)
                     continue;
-                //periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kok.DateDokumenti, idNdermarrje);
-                //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
               
                 mesazh = kok.fshi(rm, ci);
                 if (mesazh.Status)

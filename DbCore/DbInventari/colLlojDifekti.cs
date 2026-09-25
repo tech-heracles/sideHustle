@@ -60,20 +60,12 @@ namespace DbCore.DbInventari
         private bool mbushLlojDifekti(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojDifekti llojdifekti = new clsLlojDifekti();
-                    //llojdifekti.mbushLlojDifekti(rreshti);
                     this.Add(new clsLlojDifekti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

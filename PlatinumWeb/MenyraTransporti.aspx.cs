@@ -18,22 +18,18 @@ namespace PlatinumWeb
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
                 return;
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
                 return;
             }
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             if (!IsPostBack)
             {
@@ -63,7 +59,6 @@ namespace PlatinumWeb
         {
             int idNdermarje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.colMenyraTransporti colTransport = new DbCore.DbAdmin.colMenyraTransporti(idNdermarje);
-            //DbCore.DbAdmin.colMenyraTransporti colTransport = dbAdmin.merrMenyratTransportit(idNdermarje);
             grid_MenyraTransporti.DataSource = colTransport;
             grid_MenyraTransporti.DataBind();
         }
@@ -99,7 +94,6 @@ namespace PlatinumWeb
         private void konfiguroGride()
         {
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), grid_MenyraTransporti, "grid_MenyraTransporti", "MenyraTransporti.aspx");
-            //funk.konfiguroGrideListeMadhe(grid_MenyraTransporti, "IdMenyreTransporti");
             GridUtil.konfigGrideListeEMadhePaTheme(grid_MenyraTransporti, "IdMenyreTransporti");
         }
 
@@ -172,15 +166,10 @@ namespace PlatinumWeb
             List<object> rreshtat = grid_MenyraTransporti.GetSelectedFieldValues("IdMenyreTransporti");
             foreach (int id in rreshtat)
             {
-                //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                 DbCore.DbAdmin.clsMenyreTransporti clsTransporti = new DbCore.DbAdmin.clsMenyreTransporti(id);
-                //DbCore.DbAdmin.colMenyraTransporti colTransporti = dbAdmin.ktheMenyreTransporti(id);
 
-                //foreach (DbCore.DbAdmin.clsMenyreTransporti q in colTransporti)
-                //{
                 clsTransporti.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 clsTransporti.fshi();
-                //}
             }
             Response.Redirect("MenyraTransporti.aspx");
             return;

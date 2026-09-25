@@ -39,34 +39,11 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
            
-
         }
         private void caktoFormatinENumrave()
         {
-            //xrTableCell1.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell1.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
-            //xrTableCell2.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell2.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
-            //xrTableCell41.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell41.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
-            //xrTableCell3.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrTableCell3.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
         }
-        //private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
 
-        //}
-
-        //private void xrTableCell20_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
-
-        //private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    //xrTableCell16.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-        //    //xrTableCell16.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
-        //}
 
     }
 }

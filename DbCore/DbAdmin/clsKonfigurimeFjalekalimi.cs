@@ -254,7 +254,6 @@ namespace DbCore.DbAdmin
             bool sukses = true;
             sukses = mbushKonfigurimeFjalekalimi(dbAdm.merrKonfigurimeFjalekalimiSipasIdPerdoruesi(idPerdoruesi));
             dbAdm.Dispose();
-            //if (!sukses) throw new MyException("Kjo licence nuk ka konfigurime per fjalekalimin!");
         }
 
         /// <summary>
@@ -272,7 +271,6 @@ namespace DbCore.DbAdmin
             else
                 sukses = mbushKonfigurimeFjalekalimi(dbAdm.merrKonfigurimeFjalekalimiSipasIdPerdoruesi(idPerdoruesi));
             dbAdm.Dispose();
-            //if (!sukses) throw new MyException("Kjo licence nuk ka konfigurime per fjalekalimin!");
         }
 
         /// <summary>
@@ -484,35 +482,14 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         public clsMesazh kontrolloSkadencenEPass(clsPerdorues perdorues)
         {
-            //if (ekzistonKyPass(perdorues.IdPerdorues, password))
-            //    return new clsMesazh(false, "Ky fjalekalim eshte perdorur me pare. Ju lutemi, zgjidhni nje fjalekalim te ri!");
-            //if (this.komplexPassword)
-            //return IsStrongPassword(password);
-            //if(perdorues.PerdoruesIKycur)
-            //    return new clsMesazh(false, "Ky perdorues eshte i kycur! Ju lutemi, kontaktoni me administratorin!");
-            //if (this.bllokoLogin)
-            //{
-            //    if (eshtePerdoruesILoguar(perdorues.IdPerdorues))
-            //        return new clsMesazh(false, "Ky perdorues eshte aktualisht i loguar ne sistem!");
-            //}
-            //DbCore.DbAdmin.clsPassword_History pass_Hist = new DbCore.DbAdmin.clsPassword_History();
-            //TimeSpan diffTime = Convert.ToDateTime(pass.DateKrijimi.AddDays(this.DiteSkadimiPassword), new System.Globalization.CultureInfo("en-us")) - DateTime.Now;
-            //if (diffTime.TotalDays > 0)
             if (this.skadoPassword)
             {
-                //PlatinumWeb.clsPassword_History pass = new PlatinumWeb.clsPassword_History(perdorues.IdPerdorues, password);
                 DateTime sot = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
-                //DateTime dateSkadimi = pass.DateKrijimi.AddDays(this.DiteSkadimiPassword);
                 DateTime dateSkadimi = perdorues.DateKrijimiPassword.AddDays(this.DiteSkadimiPassword);
                 int diteSkaduar = Convert.ToInt32(dateSkadimi.Subtract(sot).TotalDays);
-                //TimeSpan diffTime = DateTime.Now - perdorues.DateKrijimiPassword.AddDays(this.DiteSkadimiPassword);
                 if (diteSkaduar <= 0)
-                //if (diffTime.TotalDays > 0)
-                //if (DateTime.Now > Convert.ToDateTime(pass.DateKrijimi.AddDays(this.DiteSkadimiPassword), new System.Globalization.CultureInfo("en-us")))
-                //    if (pass.DateKrijimi.AddDays(this.DiteSkadimiPassword) > DateTime.Now)
                 {
                     return new clsMesazh(false, "Fjalekalimi juaj ka skaduar , ju duhet ta ndryshoni ate!");
-                    //System.Web.HttpContext.Current.Response.Redirect("Default.aspx?SkaduarPass=true");
                 }
                 else
                     return new clsMesazh(true, "Passwordi eshte i vlefshem!");
@@ -562,21 +539,12 @@ namespace DbCore.DbAdmin
             string alphaCaps = "QWERTYUIOPASDFGHJKLZXCVBNM";
             string numerics = "1234567890";
             string special = "~!@#$%^&*()_+|{}:\"<>?`-=\\[];',./";
-            //bool numer = false;
-            //bool germeKapitale = false;
-            //bool germeEvogel = false;
-            //bool simbol = false;
-            //string mesazh = "Fjalëkalimi nuk plotëson minimumin e gjatësisë ose kompleksitetin e kërkuar!";
             string mesazh = rm.GetString("labelFjalekalimipermban", ci) + " " + this.gjatesiaMinPassword + " " + rm.GetString("labelKaraktere", ci) + " " + nrUppercaseLetters + " " + rm.GetString("labelShkronjaKapitale", ci) + " " + nrNumberChars + rm.GetString("labelNumra", ci) + " " + nrSpecialChars + " " + rm.GetString("labelKaraktereSpeciale", ci);
             //kur gjatesia eshte < se min i kerkuar nuk kontrollojme kushtet e tjera.
             if (password.Length < this.gjatesiaMinPassword)
-                //return new clsMesazh(false,"Gjatesia e passwordit duhet te jene minimalisht " + this.gjatesiaMinPassword + "karaktere!");
                 return new clsMesazh(false, mesazh);
 
             //Kontrollojme nqs passwordi korespondon me ndonje password te meparshem te perdoruesit.
-            //if (oldPasswords.Any(c => password.Equals(c)))
-            //    //return  new clsMesazh(false, "Ky password perputhet me nje password te meparshem");
-            //    return false;
 
             if (password.Count(c => alphaCaps.Contains(c)) < nrUppercaseLetters)
                 return new clsMesazh(false, mesazh);
@@ -586,27 +554,15 @@ namespace DbCore.DbAdmin
                 return new clsMesazh(false, mesazh);
             return new clsMesazh(true);
             // Te pakten nje numer.
-            //if (password.Any(c => char.IsDigit(c)))
-            //    numer = true;
 
             //// Te pakten nje germe kapitale
-            //if (password.Any(c => char.IsUpper(c)))
-            //    germeKapitale = true;
 
             // Te pakten nje germe te vogel
-            //if (password.Any(c => char.IsLower(c)))
-            //    germeEvogel = true;
 
             // Te pakten nje simbol
-            //if (password.Any(c => !char.IsLetterOrDigit(c)))
-            //    simbol = true;
 
             //nqs plotesohet nje nga kushtet passwordi eshte i forte.
-            //if (((germeEvogel && germeKapitale) && (numer || simbol)) || (numer && simbol))
-            //    return new clsMesazh(true);
             //else
-            //    //return new clsMesazh(false, "Password i dobet");
-            //    return new clsMesazh(false, mesazh);
         }
 
         /// <summary>

@@ -58,9 +58,7 @@ namespace PlatinumWeb
 
 				ASPxLabel8.Text = $@"© {DateTime.Now.Year} AVEC";
 				LabelInfo.Text = "";
-				//lblCapsLock.Text = MessagesResource.Messages["capsLockWarning"];
 				//ruaj connstring default ne hapje te pare
-				//MyConnectionsManager.SetSelectedConNameServer(Session.SessionID, MyConnectionsManager.ConnStringNameDefault);
 				var idGjuha = MerrIdGjuha();
 				mySessionObjects.ruajGjuhe(Session, idGjuha);
 				var autoLogin = WebConfigurationManager.AppSettings["AutoLoginAsVizitor"];
@@ -93,7 +91,6 @@ namespace PlatinumWeb
 					if (Request.QueryString["user"] != null) //tregon qe eshte klikuar linku i resetimit te passwordit
 					{
 						ASPxTextBox txtUsername = Login1.FindControl("UserName") as ASPxTextBox;
-						//string username1 = this.Login1.UserName;
 						string username = Request.QueryString["user"].ToString();
 						if (!username.Equals(""))
 						{
@@ -141,7 +138,6 @@ namespace PlatinumWeb
 				VendosInfoSipasArsyes(arsye, idGjuha);
 				clsLogin.mbushServerCombo(Session.SessionID, combo);
 			}
-
 
 
 		}
@@ -210,7 +206,6 @@ namespace PlatinumWeb
 		private bool ndryshoGjuhe(ResourceManager rm, CultureInfo ci, int idGjuha)
 		{
 			var user = mySessionObjects.kthePerdorues(Session);
-			//clsFunksione.logout(Session, true, true, true);
 			mySessionObjects.ruajGjuhe(Session, idGjuha);
 			clsMesazh mesazh = clsFunksione.validoPerdoruesinNeLogin(HttpContext.Current, user.PerdoruesUsername, user.PerdoruesPassword, false, DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss", ci), false, rm, ci, "", "", "", "", true);
 			string redirectToPage = Request.QueryString["ktheNe"] == null ? "" : Request.QueryString["ktheNe"];
@@ -248,7 +243,6 @@ namespace PlatinumWeb
 
 
 			PasswordRecoveryLink.Text = MessagesResource.Messages["msgLoginKeniHaruuarFjalekalimin"];
-			//ASPxHyperLink NdryshoOrganizate = Login1.FindControl("NdryshoOrganizate") as ASPxHyperLink;
 			ASPxHyperLink lblGjuhaAL = Login1.FindControl("lblGjuhaAL") as ASPxHyperLink;
 			ASPxHyperLink lblGjuhaEN = Login1.FindControl("lblGjuhaEN") as ASPxHyperLink;
 			lblGjuhaAL.NavigateUrl = $"{Paths.defaultLoginPath}?gjuha=AL";
@@ -258,7 +252,6 @@ namespace PlatinumWeb
 			loginHiddenField.Set("userlbl", MessagesResource.Messages["lblLoginPerdoruesi"]);
 			loginHiddenField.Set("passlbl", MessagesResource.Messages["lblLoginPassword"]);
 			loginHiddenField.Set("srvlbl", MessagesResource.Messages["cmbzgjidhServerin"]);
-			//NdryshoOrganizate.Text = MessagesResource.Messages["NdryshoOrganizate"];
 			switch (ci.ToString())
 			{
 				case "sq-AL":
@@ -316,7 +309,6 @@ namespace PlatinumWeb
 					if (clsFunksione.validoPerdoruesUsernmaePass(HttpContext.Current, Login1.UserName, pass.Text))
 					{
 						step1Complete.Value = true.ToString();
-
 
 
 						var userToken = user.Otp_Token;

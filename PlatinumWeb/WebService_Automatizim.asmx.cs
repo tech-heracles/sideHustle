@@ -669,7 +669,6 @@ namespace PlatinumWeb
 				if (string.IsNullOrEmpty(USERNAME)) throw new MyException("username eshte bosh!");
 
 
-
 				if (idNdermarrje == 0) throw new MyException(string.Format("Ndermarrja me kodin : '{0}' nuk ekziston!"));
 
 				int idPerdoruesi = clsPerdorues.ktheIdPerdoruesSipasUsername(USERNAME, idNdermarrje);
@@ -916,7 +915,6 @@ namespace PlatinumWeb
 				DateTime.TryParse(dictionary["startDate"].ToString(), out dtFillimi);
 				DateTime.TryParse(dictionary["endDate"].ToString(), out dtMbarimi);
 				double.TryParse(dictionary["totalVatValue"].ToString(), out tvsh);
-				//double.TryParse(dictionary["totalDisscountPercentage"].ToString(), out zbritje);
 				double.TryParse(dictionary["totalValue"].ToString(), out totali);
 				double.TryParse(dictionary["exchangeRate"].ToString(), out kursi);
 				if (dictionary.ContainsKey("isOrder"))
@@ -994,17 +992,6 @@ namespace PlatinumWeb
 				}
 				if (dictionary.ContainsKey("isOrder")) koka.IdStatusDok = (bool)dictionary["isOrder"] == true ? 0 : 1;
 
-				//colAtributeTrupi atribute = new colAtributeTrupi();
-				//atribute.mbushAtributetKontrolleveSipasKonfigurimit(konfigurimAmbjenti.IdKonfigAmbjente);
-				//int idNrAuto = atribute.Where(atribut => atribut.PershkrimKontroll == "Caktimi i  numrit te dokumentit").First().IdNrAutomatik;
-				//clsNrAutom nrAuto = new clsNrAutom();
-				//if (idNrAuto != 0)
-				//{
-				//    nrAuto = new clsNrAutom(idNrAuto);
-				//    nrdok = koka.changeDocNoIfExists(nrdok, dtDok, ndermarrje.IdNdermarrje, nrAuto);
-				//}
-
-
 
 				//Creating invoice
 				clsMesazh mesazhi = koka.krijoShitje(ref gjeneroDokMag, konfigurimAmbjenti.IdNivel, 0, konfigurimAmbjenti.IdKonfigAmbjente, kf.IdKlientFurnitor, kf.KodKlientFurnitor, 0, "0", dtDok, nrdok, nrSerial, dtDok, monedha.IdMonedha, monedha.KodiMonedha,
@@ -1013,8 +1000,6 @@ namespace PlatinumWeb
 					, 0, out mesazhInfo, false, new clsKokaShitje(), 0, 0, false, false, StatusTrasferimi.PaTransferuar, kf.EmertimiKF, kf.EmailKF, false, false, "", dtFillimi, dtMbarimi, 0, 0.00, "", 0, 0.00, "", 0, 0.00, "", "", 0, "", false, new clsKokaShitje(), false, banka.IdBanka, true, false, false, dtDok, false, dtDok.Month, ndermarrjeViti.IdViti, "", "", zbritjeNeVlere, perqindjeZbritjeTotale, 0, 0, new colFazaKontrate(), 0, new colKlienteFurnitore(), DateTime.Now, new DbData(), "", false, perdorues.IdGjuha, 0, kf.NiptiKF, new clsQyteti(kf.QytetiKF).KodiQyteti, false, 0,
 					new colSerialeUnikeMagazina(), shenime, false, 0, false, 0, "", StatusMarreveshje.Aktive, "", "shtim", dtDok, false, nrdok, iic, nivf, operatori, nivfKthim, eic, einStatus, procesi, tipiEinvoice, tipVetFaturimi);
 				if (!mesazhi.Status) return new clsMesazh(false, mesazhi.PershkrimMesazhi);
-
-
 
 
 				var msg = koka.ruaj(perdorues.IdGjuha, "", !blerje, new Dictionary<string, object>(), periudhaKontabel.IdPeriudha, new colKonvertimi(), gjeneroDokMag, out veprimebanka, 0, StatusAprovimi.Undefined, 0,
@@ -1055,28 +1040,11 @@ namespace PlatinumWeb
 				}
 				if (!msg.Status) return new clsMesazh(false, msg.PershkrimMesazhi);
 
-				//if (nrAuto.IdNrAutom != 0)
-				//{
-				//    bool numberChange = false;
-				//    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-				//    DbCore.DbAdmin.NrAuto nrdokshi = new NrAuto();
-				//    nrdokshi.kodKontrolli = "txtNumer";
-				//    nrdokshi.idNrAuto = idNrAuto;
-				//    nrdokshi.vlereNrAuto = nrdok;
-				//    nrdokshi = nrAuto.kontrolloNrAutomatik(dbAdmin, nrdokshi, dtDok);
-				//    List<NrAuto> autoNumbers = new List<NrAuto>();
-				//    autoNumbers.Add(nrdokshi);
-				//    clsMesazh mes = NrAuto.ruajvlera(out numberChange, autoNumbers, dtDok, perdorues.IdPerdorues, ndermarrje.IdNdermarrje, dbAdmin);
-				//    dbAdmin.Dispose();
-				//}
-
-
 
 				return new clsMesazh(true, msg.PershkrimMesazhi + $" Numer dokumenti: {nrdok}.");
 			}
 			catch (ArgumentNullException ex)
 			{
-				//logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
 				return new clsMesazh(false, "Sent object was not complete, please send the object correctly. Error message: " + ex.Message.ToString());
 			}
 			catch (Exception ex)
@@ -1168,7 +1136,6 @@ namespace PlatinumWeb
 			}
 			catch (ArgumentNullException ex)
 			{
-				//logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
 				return new clsMesazh(false, "Sent object was not complete, please send the object correctly. Error message: " + ex.Message.ToString());
 			}
 			catch (Exception ex)
@@ -1248,7 +1215,6 @@ namespace PlatinumWeb
 		{
 			try
 			{
-				//object json = JsonConvert.DeserializeObject(obj);
 				Deposit deposit = JsonConvert.DeserializeObject<Deposit>(obj);
 				clsMesazh serverMessage = clsLogin.setServerFromOrgName(Session.SessionID, deposit.alphaMetadata.organization);
 				if (!serverMessage.Status) return new clsMesazh(false, serverMessage.PershkrimMesazhi);

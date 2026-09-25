@@ -6,7 +6,6 @@ namespace DbCore.DbAnalizeBuxheti
     public class clsParashikimiTeArdhura
     {
         #region atributet
-        //private static int index = 0;
         public int IdAuto { get ; set; }
         public int PTaId { get; set; }
 

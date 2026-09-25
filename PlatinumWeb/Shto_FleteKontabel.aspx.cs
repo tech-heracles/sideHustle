@@ -488,7 +488,6 @@ namespace PlatinumWeb
             var arrFormatNr = new string[nrReshtash];
             for (var i = 0; i < col.Count; i++)
             {
-                //arrFormatNr[i] = col[i].KodiMonedha + ":" + col[i].IdFormatVlefta + ":" + col[i].FormatVlefta;
             }
             hfFormatNr.Value = string.Join("||", arrFormatNr);
         }

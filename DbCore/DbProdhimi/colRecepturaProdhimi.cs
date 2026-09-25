@@ -144,8 +144,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool mbushRecepturaSipasIdProdukti(int idprodukti, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushReceptura(db.ktheGjitheRecepturatSipasProduktit(idprodukti));
             return mbush;
         }
@@ -173,8 +171,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool mbushRecepturaSipasIdArtikulli(int idartikulli, DateTime data,int idplanifikimi, string sasiburimi, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushReceptura(db.ktheGjitheRecepturatSipasArtikullit(idartikulli,data, idplanifikimi,sasiburimi));
             return mbush;
         }
@@ -200,8 +196,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool mbushRecepturaSipasIdKoka(int idkoka, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushReceptura(db.ktheGjitheRecepturaProdhimiNgaKoka(idkoka));
             return mbush;
         }
@@ -232,7 +226,6 @@ namespace DbCore.DbProdhimi
                  
                 
             };
-           // ExecutionContext.SuppressFlow();
             Parallel.ForEach(colrecartikulli,options, (rec) =>
             {
                 HttpContext.Current = currentContext;
@@ -314,21 +307,13 @@ namespace DbCore.DbProdhimi
         private bool mbushReceptura(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsRecepturaProdhimi trupi = new clsRecepturaProdhimi();
-                    //trupi.mbushRecepture(rreshti);
                     Add(new clsRecepturaProdhimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

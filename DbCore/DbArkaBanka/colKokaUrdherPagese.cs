@@ -40,8 +40,6 @@ namespace DbCore.DbArkaBanka
         }
 
 
-
-
         #endregion
 
         #region Metoda Publike
@@ -77,21 +75,13 @@ namespace DbCore.DbArkaBanka
         private bool mbushKokat(DataTable dt, clsDatabaseArkaBanka db)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaUrdherPagese koka = new clsKokaUrdherPagese();
-                    //koka.mbushKokaUrdherPagese(rreshti, db);
                     Add(new clsKokaUrdherPagese(rreshti, db));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

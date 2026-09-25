@@ -49,7 +49,6 @@ namespace PlatinumWeb.E_PaySlip
             m.Items.Remove(item);
             item = m.Items.Add("", "TemplatedItemFilter");
 
-            //PagedData.Header h = (PagedData.Header)Page.LoadControl("Header.ascx");
             Control itemTemplate = page.LoadControl("MenuFilter.ascx");
 
             item.Template = itemTemplate as ITemplate;
@@ -61,17 +60,13 @@ namespace PlatinumWeb.E_PaySlip
             //i shtoj eventet kontrolleve te template qe te trajtohen ne faqen qe mban template-in
             btnRuaj.Click += handlerRuaj;
             btnFshiFilter.Click += handlerFshi;
-            //cmbFiltra.SelectedIndexChanged += handlerApliko;            
             cmbFiltra.ClientInstanceName = "cmbfiltra";
             cmbFiltra.ClientSideEvents.SelectedIndexChanged = "function(s,e){ktheFiltra(cmbfiltra.GetValue());}";
             cmbFiltra.ClientSideEvents.KeyUp = "function(s,e){checkText(s,e,cmbfiltra);}";
             btnRuaj.ClientSideEvents.Click = "function(s,e){ RuajFilter_Click(s,e,cmbfiltra);}";
             btnFshiFilter.ClientSideEvents.Click = "function(s,e){FshiFilter_Clicked(s,e,cmbfiltra.GetValue());}";
-            //if (!page.IsPostBack)
-            // {
             btnRuaj.ClientEnabled = false;
             btnFshiFilter.ClientEnabled = false;
-            // }
         }
         /// <summary>
         /// ne menune kryesore krijohet dhe shtohet nje item i perbere nga user control-i per te zgjedhur, shtuar dhe fshire nje filter te krijuar me pare per griden e faqes
@@ -87,7 +82,6 @@ namespace PlatinumWeb.E_PaySlip
             m.Items.Remove(item);
             item = m.Items.Add("", "TemplatedItemFilter");
 
-            //PagedData.Header h = (PagedData.Header)Page.LoadControl("Header.ascx");
             Control itemTemplate = page.LoadControl("MenuFilter.ascx");
 
             item.Template = itemTemplate as ITemplate;
@@ -143,7 +137,6 @@ namespace PlatinumWeb.E_PaySlip
             m.Items.Remove(item);
             item = m.Items.Add("", "TemplatedItemFrame");
 
-            //PagedData.Header h = (PagedData.Header)Page.LoadControl("Header.ascx");
             Control itemTemplate = page.LoadControl("MenuFrame.ascx");
 
             item.Template = itemTemplate as ITemplate;
@@ -158,19 +151,7 @@ namespace PlatinumWeb.E_PaySlip
         ///// </summary>
         ///// <param name="m"></param>
         //public static void ShtoMenuItem(ASPxMenu m, DbCore.DbShare.clsMenuItem menuitem, bool enabled)
-        //{
-        //    DevExpress.Web.MenuItem item3 = m.Items.FindByName(menuitem.Name);
-        //    m.Items.Remove(item3);
-        //    item3 = m.Items.Add();
-        //    item3.Name = menuitem.Name;
-        //    item3.Text = menuitem.Text;
-        //    item3.Image.Url = menuitem.ImageUrl;
-        //    m.ItemStyle.Width = 500;
-        //    item3.Enabled = enabled;
-        //    if (menuitem.Name == "Ruaj" || menuitem.Name == "ShtoPunesim" || menuitem.Name == "RuajPunesim" || menuitem.Name == "FshiPunesim")
-        //        item3.ClientVisible = false;
 
-        //}
         /// <summary>
         /// ne menu shtohet nje item 
         /// </summary>
@@ -186,12 +167,9 @@ namespace PlatinumWeb.E_PaySlip
                 itemToAdd = m.Items.FindByName(menuitem.Name);
                 m.Items.Remove(itemToAdd);
                 
-                //if (menuitem.Enabled) {
                     itemToAdd = m.Items.Add();
                     itemToAdd.ClientEnabled = menuitem.Enabled;
-                //}
                 //else
-                //    return;
             }
             else
             {
@@ -220,8 +198,6 @@ namespace PlatinumWeb.E_PaySlip
                         itemToAdd.Image.Url = themeMenuFolder + menuUrl;
                         itemToAdd.Image.UrlHottracked = themeMenuFolder + imageURlPaTheme + "_W.png";
                     }
-                    //itemToAdd.Image.Width = 25;
-                    //itemToAdd.Image.Height = 25;
                 }
                 else
                     itemToAdd.Image.Url = menuitem.ImageUrl;
@@ -237,16 +213,7 @@ namespace PlatinumWeb.E_PaySlip
         ///// </summary>
         ///// <param name="m"></param>
         //public static void ShtoMenuSubItem(ASPxMenu m, DbCore.DbShare.clsMenuItem menuitem, DbCore.DbShare.clsMenuItem parentItem, bool enabled)
-        //{
-        //    DevExpress.Web.MenuItem item3 = m.Items.FindByName(parentItem.Name).Items.FindByName(menuitem.Name);
-        //    m.Items.FindByName(parentItem.Name).Items.Remove(item3);
-        //    item3 = m.Items.FindByName(parentItem.Name).Items.Add();
-        //    item3.Name = menuitem.Name;
-        //    item3.Text = menuitem.Text;
-        //    item3.Image.Url = menuitem.ImageUrl;
-        //    item3.Enabled = enabled;
 
-        //}
 
         /// <summary>
         /// ne menu shtohet nje item bosh
@@ -279,16 +246,11 @@ namespace PlatinumWeb.E_PaySlip
 
         public static void percaktoTemplateMenu(int idgjuha, int idViti, int idPerdorues, int idNdermarrje, ASPxMenu aSPxMenu1, string emerkomponente, Page page, ASPxMenu MenuInfo, EventHandler Ruaj_ASPxButton_Click, EventHandler FshiFilter_ASPxButton_Click, EventHandler btnPo_Click, EventHandler btnJo_Click, bool shtim, bool shfaqRuaj, bool raport, bool meme, bool kubi, bool menuPerCRM = false)
         {
-            //DbCore.DbShare.colMenuItem menu = new DbCore.DbShare.colMenuItem(idgjuha);
-            //if (!kubi)
-            //    menu.merrMenuItemSipasKomponentes(idgjuha, emerkomponente, idPerdorues, idNdermarrje, idViti, shtim);
-            //else menu.merrMenuItemPerKubin(idgjuha, emerkomponente, idPerdorues, idNdermarrje, idViti, shtim);
             DbCore.DbShare.colMenuItem menu = merrMenuSipasKomponentes(idgjuha, kubi, emerkomponente, idPerdorues, idNdermarrje, aSPxMenu1, idViti, shtim);
             
             for (int i =0,menuItemCount = menu.Count; i < menuItemCount; i++)
             {
                 DbCore.DbShare.clsMenuItem m = menu[i];
-                //if (!m.Enabled) continue;
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame" && m.Name != "ItemExport")
                 {
                     ShtoMenuItem(page.Theme, aSPxMenu1, m, menuPerCRM);

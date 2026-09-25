@@ -51,8 +51,6 @@ namespace RestApi.WebAPI.Controllers
                 var data = (parametrat["data"].ToObject<DateTime>()).ToLocalTime();
                 var idpunonjes = parametrat["idpunonjesi"].ToObject<int>();
                 var llogariDP = parametrat["llogaritDP"].Value<bool>();
-                //var nrpersonal = parametrat["nrpersonal"].Value<string>();
-                //var emri = parametrat["emri"].Value<string>();
                 var muaji = parametrat["muaji"].Value<int>();
                 var ditemuajindryshueshme = parametrat["ditemuajindryshueshme"].Value<bool>();
                 var kodi = parametrat["kodi"].Value<string>();

@@ -142,7 +142,6 @@ namespace PlatinumWeb
                 GridUtil.AplikoFilterDefault(gvLupaArtikull, idKonfigambjenti);
                 gvLupaArtikull.Columns.Clear();
                 MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, kosto || gjendja, idMagazina, cmime, cmimeMeTvsh, artikujTeShitshem, (bool)hfState["MerrDB"], dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, dhurataVfOne);
-                //hfState.Set("MerrDB", false);
                 KonfiguroPopupGride(IdNdermarrjePerListe, kodeNivCmimi, cmime, cmimeMeTvsh, postStringTvsh);
                 kodeNivCmimi.Dispose();
                 GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaArtikull, "gvLupaArtikull", Komponente, idKonfigambjenti, true, IdGjuha);
@@ -160,7 +159,6 @@ namespace PlatinumWeb
                 {
                     MbushPopUpListeArtikujshNgaSession();
                     KonfiguroPopupGride(IdNdermarrjePerListe, null, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh);
-                   // GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaArtikull, "gvLupaArtikull", Komponente, idKonfigambjenti, true, (int)hfState["idGjuha"]);
                 }
             }
             gridaSelectButtons.Visible = (Request.QueryString["vjenNgaRaporti"] == "true");
@@ -385,17 +383,7 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaArtikull.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdArtikulli", gvLupaArtikull);
-            //var kolona = gvLupaArtikull.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = IdPerdoruesi;
             filtri.IdNdermarje = IdNdermarrja;
             filtri.IdStatusDok = 1;
@@ -497,12 +485,7 @@ namespace PlatinumWeb
                 if (!string.IsNullOrEmpty(btneKodifikimi3.Text))
                     idKodifikimi3 = clsKodifikimArtikulli.ktheIdKodifikimi(btneKodifikimi1.Text, IdNdermarrja, 3, false);
                 var idKonfigambjenti = (int)hfState["idKonfigambjenti"];
-                //var op = CriteriaOperator.Parse(gvLupaArtikull.FilterExpression, 0);
-                //var filterString = CriteriaToWhereClauseHelper.GetMsSqlWhere(op);
-                //if (filterString == "" && idMagazina == -1 && idKodifikimi1 == -1 && idKodifikimi2 == -1 && idKodifikimi3 == -1)
-                //    MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrja, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], false, dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
                 //else
-                //    MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrja, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], true, dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
                 MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], false, dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
                 KonfiguroPopupGride(IdNdermarrjePerListe, null, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh);
                 GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaArtikull, "gvLupaArtikull", Komponente, idKonfigambjenti, true, (int)hfState["idGjuha"]);

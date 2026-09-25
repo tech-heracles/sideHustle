@@ -17,11 +17,8 @@ namespace DbCore.DbKontabiliteti
         {
 
         }
-        //public colLlogarite(int capacity)
         //    : base(capacity)
-        //{
 
-        //}
         public colLlogarite(IEnumerable<clsLlogari> collection)
             : base(collection)
         {
@@ -212,8 +209,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public colLlogarite merrLlogarite(int idndermarje, int idperdoruesi)
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrLLogariteNdermarrjesAndAutorizime(idndermarje ,idperdoruesi );
             colLlogarite data = new colLlogarite();
             data.mbushLLogariteNdermarrjesAndAutorizime(idndermarje, idperdoruesi);
             return data;
@@ -390,19 +385,11 @@ namespace DbCore.DbKontabiliteti
         private bool mbushLlogarite(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlogari llogari = new clsLlogari();
-                    //llogari.mbushLlogari(rreshti);
                     Add(new clsLlogari(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         private void mbushLlogarite(colLlogarite colLlog)
@@ -434,7 +421,6 @@ namespace DbCore.DbKontabiliteti
                 llogari.LlogariKonsoliduese = int.Parse(rreshti[12].ToString());
                 llogari.LlogariKoresponduese = int.Parse(rreshti[13].ToString());
                 llogari.IdNdermarja = int.Parse(rreshti[14].ToString());
-                //llogari.IdNderViti = int.Parse(rreshti[15].ToString());
                 llogari.IdPerdoruesi = int.Parse(rreshti[15].ToString());
                 llogari.IdKonfig = int.Parse(rreshti[16].ToString());
                 llogari.PershkrimiGrupiLlogaria = rreshti[17].ToString();

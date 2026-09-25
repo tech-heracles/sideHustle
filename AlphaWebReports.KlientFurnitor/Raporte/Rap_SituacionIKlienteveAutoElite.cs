@@ -37,7 +37,6 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel20.Text = rm.GetString("labelLogoIMB", ci);
             xrTableCell21.Text = rm.GetString("labelRaportiTotali", ci);
-            //   xrLabel10.Text = rm.GetString("labelNrRendor", ci);
             xrTableCell1.Text = rm.GetString("labelKodi", ci);
             xrTableCell3.Text = rm.GetString("labelRaportEmertimiKlientit", ci);
             xrTableCell2.Text = rm.GetString("labelRaportiNrLlogari", ci);

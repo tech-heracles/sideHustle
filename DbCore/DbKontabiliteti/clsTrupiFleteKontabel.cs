@@ -177,15 +177,11 @@ namespace DbCore.DbKontabiliteti
                         VleftaDebiTrupiFleteKontabel = double.Parse(debi);
                 }
 
-                //if (debi != "null" && debi != "")
-                //    if (debi == "0" && debimon != "0")
                 //        VleftaDebiTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
                 //            ? double.Parse(debimon)
-                //            : double.Parse(debimon) / Kursi;
                 //    else
                 //        VleftaDebiTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
                 //            ? double.Parse(debimon)
-                //            : double.Parse(debi);
 
                 if (kredi != "null" && kredi != "")
                 {
@@ -197,15 +193,11 @@ namespace DbCore.DbKontabiliteti
                         VleftaKrediTrupiFleteKontabel = double.Parse(kredi);
                 }
 
-                //if (kredi != "null" && kredi != "")
-                //if (kredi == "0" && kredimon != "0")
                 //    VleftaKrediTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
                 //        ? double.Parse(kredimon)
-                //        : double.Parse(kredimon) / Kursi;
                 //else
                 //    VleftaKrediTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
                 //        ? double.Parse(kredimon)
-                //        : double.Parse(kredi);
 
                 if (debimon != "null" && debimon != "")
                     if (debimon == "0" && debi != "0")
@@ -227,15 +219,6 @@ namespace DbCore.DbKontabiliteti
                 clsKokaFleteKontabel.ShtoTeDhenaPerObjektivat(dtDok, new colObjektivaKosto(), new List<double>(), new List<double>(), new List<int>(), llog, this, new clsObjektivaKosto(llog.IdObjektivaKosto));
         }
 
-        //private void ValidoLlogarine(string llog)
-        //{
-        //    if (debimon != "null" && debimon != "")
-        //        IdLlogari = llog.IdLlogari;
-        //    if (IdLlogari <= 0)
-        //        throw new Exception("Nje nga llogarite nuk ekziston!");
-        //    if (!llog.Aktiv)
-        //        throw new Exception("Nje nga llogarite nuk eshte aktive!");
-        //}
 
         private void ValidoMonedhen(string monedha, int idNdermarrje, clsLlogari llog)
         {

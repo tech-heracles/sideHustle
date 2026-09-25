@@ -65,18 +65,10 @@ namespace DbCore.DbAsete
         private bool mbushStandarteAmortizimiList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsStandarteAmortizim standarte = new clsStandarteAmortizim();
-                    //standarte.mbushStandarteAmortizimiObjekt(rreshti);
                     Add(new clsStandarteAmortizim(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

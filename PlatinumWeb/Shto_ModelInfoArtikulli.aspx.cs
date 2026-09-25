@@ -28,7 +28,6 @@ namespace PlatinumWeb
         private const string lidhesMesazhi = ". Kurse ";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
@@ -45,7 +44,6 @@ namespace PlatinumWeb
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), "ASPxGridView_InfoArtikulli", 1, "Shto_ModelInfoArtikulli.aspx");
             if (Page.IsPostBack == false)
             {
@@ -308,11 +306,6 @@ namespace PlatinumWeb
         }
         protected void ASPxGridView_InfoArtikulli_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e)
         {
-            //ASPxGridView grida = sender as ASPxGridView;
-            //GridViewDataComboBoxColumn colFormatNr;
-            //colFormatNr = grida.Columns["IdFormatNumri"] as GridViewDataComboBoxColumn;
-            //colFormatNr.PropertiesComboBox.Items.FindByValue(Convert.ToInt32(2)).Selected = true;
-            //e.NewValues["IdFormatNumri"] = colFormatNr.PropertiesComboBox.Items.FindByValue(Convert.ToInt32(2));
         }
 
         /// <summary>
@@ -403,7 +396,6 @@ namespace PlatinumWeb
         }
 
 
-
         protected void ASPxGridView_InfoArtikulli_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             string idkomponente = "";
@@ -420,10 +412,8 @@ namespace PlatinumWeb
                 {
 
                     clsFiltraGrida filtra = new clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_InfoArtikulli", "Shto_ModelInfoArtikulli.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         ASPxGridView_InfoArtikulli.FilterExpression = filtra.FiltraVlera;
@@ -458,7 +448,6 @@ namespace PlatinumWeb
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             List<object> rreshtat = ASPxGridView_InfoArtikulli.GetSelectedFieldValues("IdInfoKoka");
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>(), telidhura = new List<string>();
 
             foreach (object id in rreshtat)
@@ -525,14 +514,6 @@ namespace PlatinumWeb
         ///// Mbush combon e filtrave te grides ASPxGridView_InfoArtikulli
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //{
-        //    clsGridaKoka koka = new clsGridaKoka("ASPxGridView_InfoArtikulli", "Shto_ModelInfoArtikulli.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltratGrida colFiltra = new colFiltratGrida(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltra.Insert(0, new clsFiltraGrida());
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //}
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -573,27 +554,14 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_InfoArtikulli.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_InfoArtikulli);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_InfoArtikulli.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "ASPxGridView_InfoArtikulli", 1, "Shto_ModelInfoArtikulli.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
 
@@ -620,7 +588,6 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             clsFiltraGrida filtra = new clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_InfoArtikulli", "Shto_ModelInfoArtikulli.aspx", idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -628,7 +595,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "ASPxGridView_InfoArtikulli", 1, "Shto_ModelInfoArtikulli.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
 

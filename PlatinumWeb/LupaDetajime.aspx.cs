@@ -21,10 +21,7 @@ namespace PlatinumWeb
             if (Request.QueryString["idKonfigAmbjente"] != null && Request.QueryString["idKonfigAmbjente"] != "")
                 vleraQueryString = Request.QueryString["idKonfigAmbjente"].ToString();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
             //nivel.Kodi = "DET"; //eshte kodi i lupes, mund te shihet ne DB ne T_NIVELREGJISTRIMI
-            //nivel.IdNdermarje = idNdermarrje;
-            //nivel = nivel.merrNivelRegjSipasKodi();
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, idNdermarrje);
             int idKonfigambjenti = DbCore.clsFunksione.getIdKonfigAmbLupa(vleraQueryString, idNdermarrje, "DET");
@@ -39,8 +36,6 @@ namespace PlatinumWeb
             hfState.Set("idNdermarrje", idNdermarrje);
             if (!IsPostBack)
             {
-                //DbCore.clsFunksione.konfiguroMenuRuajPerLupa(ASPxMenu1);
-                //AplikoFilterDefault();
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
                 GridUtil.AplikoFilterDefault(gvDetajimArtikulli, idKonfigambjenti);
                 konfiguroPopupGride(idKonfigambjenti, true, kerkosaposhkruar, endlessScroll);
@@ -50,10 +45,6 @@ namespace PlatinumWeb
             {
                 konfiguroPopupGride(idKonfigambjenti, false, kerkosaposhkruar, endlessScroll);
             }
-            //Container.Attributes["width"] = "340px";
-            //Container.Attributes["height"] = "350px";
-            //Container.Attributes["src"] = "LupaFiltra.aspx?grida=gvDetajimArtikulli&page=LupaDetajime.aspx";
-            //mbushComboBoxFiltra(idNdermarrje);
             gvDetajimArtikulli.Columns["#"].VisibleIndex = 0;
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
@@ -131,13 +122,11 @@ namespace PlatinumWeb
         private void shto_Autorizim()
         {//shtohen komboja me Autorizimeve tek grida e KPF
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvDetajimArtikulli.Columns["IdNivelAutorizimi"].VisibleIndex;
             gvDetajimArtikulli.Columns.Remove(gvDetajimArtikulli.Columns["IdNivelAutorizimi"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbAdmin.colAutorizimetKoka colAutorizim = new DbCore.DbAdmin.colAutorizimetKoka();
             colAutorizim.mbushGjitheAutorizimet(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //colAutorizim = dbAdmin.merrGjitheAutorizimet();
             colnew.PropertiesComboBox.DataSource = colAutorizim;
             colnew.PropertiesComboBox.TextField = "KodiAutorizim";
             colnew.PropertiesComboBox.ValueField = "IdAutorizimKoka";
@@ -149,14 +138,12 @@ namespace PlatinumWeb
         private void shto_Lloj()
         {//shtohen komboja me Autorizimeve tek grida 
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvDetajimArtikulli.Columns["LlojDetajimArtikulli"].VisibleIndex;
             gvDetajimArtikulli.Columns.Remove(gvDetajimArtikulli.Columns["LlojDetajimArtikulli"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             colnew.PropertiesComboBox.Items.Add("Alfanumerik", 1);
             colnew.PropertiesComboBox.Items.Add("Numerik", 2);
             colnew.PropertiesComboBox.Items.Add("Date", 3);
-            // colnew.PropertiesComboBox.Items.Add("Garanci", 4);
             colnew.VisibleIndex = visibleindex;
             colnew.FieldName = "LlojDetajimArtikulli";
             gvDetajimArtikulli.Columns.Add(colnew);
@@ -165,7 +152,6 @@ namespace PlatinumWeb
         private void shto_Kategori()
         {//shtohen komboja  tek grida 
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvDetajimArtikulli.Columns["KategoriDetajimi"].VisibleIndex;
             gvDetajimArtikulli.Columns.Remove(gvDetajimArtikulli.Columns["KategoriDetajimi"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
@@ -178,7 +164,6 @@ namespace PlatinumWeb
 
         protected void gvDetajimArtikulli_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //gvDetajimArtikulli.Selection.UnselectAll();
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             GridUtil.ToolTipButonaveMbiGride(gvDetajimArtikulli, cultinf, rm);
@@ -260,20 +245,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvDetajimArtikulli.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvDetajimArtikulli);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvDetajimArtikulli.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDetajimArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -282,7 +255,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvDetajimArtikulli", Convert.ToInt32(cmbKonfigurimi.Value), "LupaDetajime.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -306,7 +278,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvDetajimArtikulli", Convert.ToInt32(cmbKonfigurimi.Value), "LupaDetajime.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)

@@ -283,7 +283,6 @@ function MbylljePeriudheWizard() {
         this.onDisposeFunction = null;
             
         this.initializeWizardPopUp = function () {
-            //controller.stepper = new Stepper().init([controller.wizardPopUpState.messages.MP_lblEntitety, controller.wizardPopUpState.messages.MP_lblPcAction, controller.wizardPopUpState.messages.MP_lblPeriod, controller.wizardPopUpState.messages.MP_lblProgress], controller.wizardGoToIndex);
             controller.stepper = $("<div>").awStepper({
                 items: [controller.wizardPopUpState.messages.MP_lblEntitety, controller.wizardPopUpState.messages.MP_lblPcAction, controller.wizardPopUpState.messages.MP_lblPeriod, controller.wizardPopUpState.messages.MP_lblProgress],
                 disabledItems: [controller.wizardPopUpState.messages.MP_lblPeriod, controller.wizardPopUpState.messages.MP_lblProgress],

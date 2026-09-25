@@ -41,9 +41,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
 
-        
- 
-
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -135,9 +132,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
         
 
-      
-        
-
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrPictureBox1.Image = AlphaWebReports.raporteUtil.MerrLogoNdermarrje(this.Extensions["ndermarrjeLogo"]);
@@ -183,7 +177,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
-            //string catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
             string catid = "";
             if (GetCurrentColumnValue("PERSHKRIMIZERIT") != null)
                 catid = GetCurrentColumnValue("PERSHKRIMIZERIT").ToString();
@@ -252,7 +245,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
     
-
         private void xrTableCell24_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             XRLabel label = sender as XRLabel;
@@ -325,15 +317,5 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
         
         
-
-       
-        
-
-     
-        
-
-      
-        
-
     }
 }

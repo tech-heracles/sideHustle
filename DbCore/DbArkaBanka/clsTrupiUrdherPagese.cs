@@ -84,11 +84,6 @@ namespace DbCore.DbArkaBanka
             string objekti = rreshtDoku["txtObjekti"].ToString();
             if (grupi != "" && titulli != "" && kapitulli != "" && analiza != "" && artikulli != "")
             {
-                //if (artikulli.StartsWith("231") && analiza.StartsWith("231") && kodprojekti == "")
-                //{
-                //    new Exception("Duhet te vendosni kodin e projektit!");
-                //    return;
-                //}
                 if (grupi != null && grupi != "null" && grupi != "")
                 {
                     clsKonfigUrdherPagese gr = new clsKonfigUrdherPagese(grupi, idndermarje, Convert.ToInt32(DbCore.DbArkaBanka.LlojeKonfigurimeUrdherPagese.Grup));

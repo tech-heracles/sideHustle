@@ -13,7 +13,6 @@ var widthLupaAutorizime = 600, heightLupaAutorizime = 600;
 var ndryshuarFormatNr = false;
 
 
-
 //per filtrat
 function checkText(s, e) {
     myMenu.checkText(s, e);
@@ -402,7 +401,6 @@ function SucceededCallbackKonfig(result) {
         var arrTabela = ['tblMonedha', 'tblKursi'];
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-    // $("#dvMonedha").show();//$("#dvMonedha")[0].style.visibility = 'visible';
 }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
@@ -442,7 +440,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, monedhat_PageControl, ASPxGridView_Monedhat, "133")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, monedhat_PageControl, ASPxGridView_Monedhat, "133", pastrofusha, hfTeDrejta);
 }
 
@@ -515,17 +512,6 @@ function TextChangedVleraKursit(editor, field, key) {
 
     if (editor.GetText() == '.')
         editor.SetText("0.");
-    //if (!(parseFloat(editor.GetText()) == 1) && (hfState.Get('MonedheNderm') == kodi_TextBox.GetText())) {
-    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgKursiNje"));
-    //    if (btneFormatNumri.GetText() === "")
-    //        editor.SetText(1.00);
-    //    else {
-    //        var formatNrKursi = btneFormatNumri.GetText();
-    //        if (formatNrKursi.indexOf('.') !== -1)
-    //            editor.SetText('1.' + formatNrKursi.substring(formatNrKursi.indexOf('.') + 1));
-    //        else editor.SetText(1);
-    //    }
-    //}
     if (!(parseFloat(editor.GetValue()) == 1)  && (hfState.Get('MonedheNderm') == kodi_TextBox.GetText())) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgKursiNje"));
         if (btneFormatNumri.GetText() === "")

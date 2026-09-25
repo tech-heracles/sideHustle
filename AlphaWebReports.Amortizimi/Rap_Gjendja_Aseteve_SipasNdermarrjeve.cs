@@ -46,7 +46,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             xrLabel29.Text = rm.GetString("filterSeriali", ci);
             xrLabel28.Text = rm.GetString("labelFooterNdermarrja", ci);
             xrLabel36.Text = rm.GetString("labelPershkrimiNd", ci);
-          //  xrLabel30.Text = rm.GetString("labelRaportStatusMagazina", ci);
             xrLabel27.Text = rm.GetString("labelRaportGrupi", ci);
             xrLabel25.Text = rm.GetString("labelRaportDataBlerjes", ci);
             xrLabel31.Text = rm.GetString("labelRaportDtFillimAmort", ci);

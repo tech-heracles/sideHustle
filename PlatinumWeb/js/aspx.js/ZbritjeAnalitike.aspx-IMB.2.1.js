@@ -286,7 +286,6 @@ function ZbritjeAnalitikeApp() {
                     if (zbritjaEditor != undefined && zbritjaEditor.value < 0) {
 
                         myMesazh.ShtoMesazhGabimi("Zbritja duhet te jete numer pozitiv!");
-                        // s.batchEditApi.SetCellValue(e.visibleIndex, "Cmimi", 0);
                         zbritjaEditor.value = 0;
                     } else if (zbritjaEditor != undefined && zbritjaEditor.value > 0) {
                         if (llojzbritjeEditor != undefined && llojzbritjeEditor.value === "Vlere")
@@ -388,10 +387,4 @@ $(document).on("ready", zbritjet.initApp).on("keydown", zbritjet.handlers.keyDow
 function cbCmimBazeZbAnalitikeChecked(s, e) {
     gvZbritjeAnalitike.PerformCallback("ShtoCmBazeNeGride");
 }
-
-
-
-
-
-
 

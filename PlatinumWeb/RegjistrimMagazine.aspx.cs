@@ -37,7 +37,6 @@ namespace PlatinumWeb
         private DbCore.DbRegjistrim.colTrupiMagazina trupat = new DbCore.DbRegjistrim.colTrupiMagazina();
         private TitlePeriudha _periudha;
         public TitlePeriudha Periudha => _periudha ?? (_periudha = this.MerrPeriudhe(hfState));
-        //private int _IdKomponente = Request.QueryString["lloj"] == "hyrje" ? 513 : 519;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!mySessionObjects.isLogedIn(Session))
@@ -117,15 +116,7 @@ namespace PlatinumWeb
             if (!IsPostBack)
                 ShtoMesazhPerVeprim();
             clsNdermarrje ndermarrje = new clsNdermarrje(idNdermarrja);
-            //if (ndermarrje.Fiskalizimi == true)
-            //{
-            //    using (ScriptManager scriptManager = (ScriptManager)this.FindControl("ScriptManager1"))
-            //    {
-            //        if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
-            //            scriptManager.RegisterPostBackControl(_menu);
 
-            //    }
-            //}
         }
 
         /// <summary>
@@ -337,7 +328,6 @@ namespace PlatinumWeb
                 pergjigja.Text = "";
 
                 List<object> rreshtat = grid_RegMag.GetSelectedFieldValues("IdKokaMagazina");
-                //List<object> rreshtatKodKlienti = grid_RegMag.GetSelectedFieldValues("idKlientFurnitor");
                 List<object> rreshtatOperatori = grid_RegMag.GetSelectedFieldValues("IdOperator");
                 List<object> rreshtatNenKategori = grid_RegMag.GetSelectedFieldValues("IdNivel");
                 clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
@@ -346,7 +336,6 @@ namespace PlatinumWeb
                 error.Columns.Add("Gabimi");
                 error.Columns.Add("Rreshti");
 
-                //return;
                 string filePath = "";
                 string zipName = "";
                 if (nderm.Fiskalizimi)
@@ -516,7 +505,6 @@ namespace PlatinumWeb
                 }
                 else
                 {
-                    //clsMenuInfo.ShtoMesazhInformues(MenuInfo, "Ndermarrja nuk ka aplikuar fiskalizimin!", pnlMesazhi);
                     return;
                 }
                 CultureInfo cultInfo = ci; ResourceManager resMng = rm;
@@ -533,7 +521,6 @@ namespace PlatinumWeb
                 }
             
 
-
         }
         protected void Riruaj()
         {
@@ -543,9 +530,7 @@ namespace PlatinumWeb
             pergjigja.Text = "";
 
             List<object> rreshtat = this.grid_RegMag.GetSelectedFieldValues("IdKokaMagazina");
-            //int idPerdoruesi = (int)hfState["idPerdoruesi"];
             int idNdermarrje = (int)hfState["idNdermarrje"];
-            //int idNdermarrjeVit = (int)hfState["idNdermarrjeVit"];
             int idGjuha = (int)hfState["idGjuha"];
             bool eshteOwn = (bool)hfState["OwnShop"];
 

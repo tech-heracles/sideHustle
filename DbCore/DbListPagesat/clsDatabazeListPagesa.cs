@@ -67,10 +67,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
-
-
-
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsStrukturaAdministrative dhe colStrukturaAdministrative
         /// </summary>
@@ -204,7 +200,6 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh(true, mesazhFshirje);
             return mesazh;
         }
-
 
 
         /// <summary>
@@ -543,7 +538,6 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh(true, mesazhFshirje);
             return mesazh;
         }
-
 
 
         /// <summary>
@@ -1158,7 +1152,6 @@ namespace DbCore.DbListPagesat
             dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idnder, ParameterDirection.Input);
             return dbManager.FillObject<clsKomponenteListPagesePunonjesi>("prc_T_KOMPONENTEPAGE_merrKomponenteSipasKodit", komponPage.mbushKomponente);
-
 
 
         }
@@ -3715,7 +3708,6 @@ namespace DbCore.DbListPagesat
             dbManager.AddParameters(1, "@PERSHKRIMI", pershkrimi, ParameterDirection.Input);
 
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARSYEJALARGIMIT_ins");
-            //id = int.Parse(dbManager.Parameters[0].Value.ToString());
             return new clsMesazh(true, mesazhRuajtje);
 
         }
@@ -5402,7 +5394,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable kategorite e pages sipas ndermarjes dhe tipit
         /// </summary>
@@ -5601,7 +5592,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable shtesate e pages sipas ndermarjes dhe tipit
         /// </summary>
@@ -5792,7 +5782,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable sigurimit sipas ndermarjes 
         /// </summary>
@@ -5880,8 +5869,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0].Rows[0];
 
         }
-
-
 
 
         /// <summary>
@@ -5982,7 +5969,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -6001,7 +5987,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0];
 
         }
-
 
 
         #endregion
@@ -6110,8 +6095,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
-
         /// <summary>
         /// ekzekuton prc_T_KALENDARIFESTAVE_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
         /// Shiko clsMesazh brenda ketij moduli per informacion te metejshem mbi vleren e kthimit te kesaj metode
@@ -6207,7 +6190,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -6247,7 +6229,6 @@ namespace DbCore.DbListPagesat
 
 
         #endregion
-
 
 
         /// <summary>
@@ -6297,7 +6278,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0].Rows[0];
 
         }
-
 
 
         /// <summary>
@@ -6416,7 +6396,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -6490,9 +6469,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0].Rows[0];
 
         }
-
-
-
 
 
         /// <summary>
@@ -6603,7 +6579,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -6618,7 +6593,6 @@ namespace DbCore.DbListPagesat
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
             return dbManager.GetIEnumerbale("prc_T_LISTORARE_merrSipasNdermarrjes", clsListOrare.Krijo);
-
 
 
         }
@@ -6659,7 +6633,6 @@ namespace DbCore.DbListPagesat
             dbManager.AddParameters(2, "@datembarimi", datembarimi, ParameterDirection.Input);
 
             return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LISTORARE_merrSipasPunonjesitDhePeriudhes").Tables[0];
-
 
 
         }
@@ -6713,9 +6686,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0].Rows[0];
 
         }
-
-
-
 
 
         /// <summary>
@@ -6825,7 +6795,6 @@ namespace DbCore.DbListPagesat
             return mesazh;
 
         }
-
 
 
         /// <summary>
@@ -6952,12 +6921,7 @@ namespace DbCore.DbListPagesat
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOMPONENTENR_ktheSipasId");
 
 
-
-
         }
-
-
-
 
 
         /// <summary>
@@ -7063,7 +7027,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -7152,7 +7115,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         #endregion
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsDiteLeje dhe colDiteLeje
@@ -7179,9 +7141,6 @@ namespace DbCore.DbListPagesat
 
 
         }
-
-
-
 
 
         /// <summary>
@@ -7288,7 +7247,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -7362,7 +7320,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         #endregion
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsKontrolliMjekesor dhe colKontrolliMjekesor
@@ -7390,9 +7347,6 @@ namespace DbCore.DbListPagesat
 
 
         }
-
-
-
 
 
         /// <summary>
@@ -7492,7 +7446,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         /// <summary>
         /// kthen Datatable konfigurim list orari sipas id ndermarjes
         /// </summary>
@@ -7537,8 +7490,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0];
 
         }
-
-
 
 
         #endregion
@@ -8698,7 +8649,6 @@ namespace DbCore.DbListPagesat
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-            // dbManager.AddParameters(2, "@LLOJI", lloji, ParameterDirection.Input);
             using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIMELOCALEGLOBALE_ktheSipasKodi"))
             {
                 if (ds == null)
@@ -8722,7 +8672,6 @@ namespace DbCore.DbListPagesat
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            //  dbManager.AddParameters(2, "@LLOJI", lloji, ParameterDirection.Input);
             using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIMELOCALEGLOBALE_ekzistonKod"))
             {
                 if (ds.Tables[0].Rows.Count == 1)
@@ -8763,7 +8712,6 @@ namespace DbCore.DbListPagesat
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            //dbManager.AddParameters(1, "@LLOJI", lloji, ParameterDirection.Input);
             using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIMELOCALEGLOBALE_merrSipaSNdermarrjesDheLlojitDT"))
             {
                 return ds.Tables[0];

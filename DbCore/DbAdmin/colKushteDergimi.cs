@@ -37,19 +37,11 @@ namespace DbCore.DbAdmin
         private bool mbushKushteDergimi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKushtDergimi transporti = new clsKushtDergimi();
-                    //transporti.mbushKushtDergimi(rreshti);
                     Add(new clsKushtDergimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

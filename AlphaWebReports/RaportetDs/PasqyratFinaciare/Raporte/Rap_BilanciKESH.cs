@@ -143,17 +143,12 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel12.Text = rm.GetString("RaportBilanciTitulliKapitale", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel19.Text = rm.GetString("labelRaportiEmertimi", ci);
-            //xrLabel85.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel20.Text = rm.GetString("labelRaportiShenime", ci);
             xrLabel21.Text = rm.GetString("labelRaportiVitiRaportues", ci);
             xrLabel22.Text = rm.GetString("labelRaportiVitiParaardhes", ci);
-            //xrLabel56.Text = rm.GetString("labelRaportiShuma", ci);
             xrTableCell43.Text = rm.GetString("labelRaportiShuma", ci);
-            //xrLabel58.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell50.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel63.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell84.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel66.Text = rm.GetString("labelRaportiDiferenca", ci);
             xrTableCell69.Text = rm.GetString("labelRaportiDiferenca", ci);
             xrLabel70.Text = rm.GetString("filterMonedha", ci);
         }

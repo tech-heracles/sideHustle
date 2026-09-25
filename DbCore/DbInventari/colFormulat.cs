@@ -136,19 +136,11 @@ namespace DbCore.DbInventari
         private bool mbushFormulat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFormula formula = new clsFormula();
-                    //formula.mbushFormulen(rreshti);
                     this.Add(new clsFormula(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

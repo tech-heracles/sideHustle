@@ -31,8 +31,6 @@ namespace PlatinumWeb
             colInfoTrupi trupatvis, trupatinvis;
             if (def)
             {
-                //trupatvis = colInfoTrupi.merrInfoSipasIdKokaDheVisible(id, true, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                //trupatinvis = colInfoTrupi.merrInfoSipasIdKokaDheVisible(id, false, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 trupatvis = colInfoTrupi.merrInfoSipasIdKokaDheVisibleNew(id, true, idNdermarrje);
                 trupatinvis = colInfoTrupi.merrInfoSipasIdKokaDheVisibleNew(id, false, idNdermarrje);
             }

@@ -20,7 +20,6 @@ namespace PlatinumWeb
         {
           
 
-        
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
 
             int idNivel = clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi("LupaDetyra", idNdermarrje);
@@ -30,10 +29,6 @@ namespace PlatinumWeb
         
             mbushPopUpListeAutorizimesh(idNdermarrje);
 
-            //bool kerkosaposhkruar = true;
-            //if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
-            //    kerkosaposhkruar = true;
-            //else kerkosaposhkruar = false;
             bool endlessScroll = false;
             if (clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po")
                 endlessScroll = true;
@@ -70,7 +65,6 @@ namespace PlatinumWeb
         private void konfiguroPopupGride(bool visibleIndex, bool endlessScroll)
         {//konfiguron popupgriden
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaDetyrat, "gvLupaDetyrat", "CRMLupaDetyra.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhe(gvLupaDetyrat, "IdAutorizimKoka");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaDetyrat, "IdDetyra", true, endlessScroll);
             shtoKategoria();
@@ -85,7 +79,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //   check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gvLupaDetyrat.Settings.ShowFilterRow = true;
                 gvLupaDetyrat.Columns.Add(check);
@@ -94,7 +87,6 @@ namespace PlatinumWeb
                 gvLupaDetyrat.SettingsBehavior.AllowSelectByRowClick = true;
 
             }
-
 
 
         }
@@ -202,20 +194,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDetyrat.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvLupaDetyrat);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaDetyrat.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -224,7 +204,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDetyrat", 1, "CRMLupaDetyra.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -248,7 +227,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDetyrat", 1, "CRMLupaDetyra.aspx");
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)
@@ -262,8 +240,6 @@ namespace PlatinumWeb
 
         protected void ASPxMenu1_ItemClick(object source, MenuItemEventArgs e)
         {
-           // if (e.Item.Name == "OK")
-              //  ruajAnketa();
         }
 
         

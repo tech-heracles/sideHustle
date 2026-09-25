@@ -37,19 +37,11 @@ namespace DbCore.DbAdmin
         private bool mbushMenyratTransporti(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsMenyreTransporti transporti = new clsMenyreTransporti();
-                    //transporti.mbushMenyreTransport(rreshti);
                     Add(new clsMenyreTransporti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -37,7 +37,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             xrLabel2.Text = rm.GetString("labelRaportNrVendosjesDok", ci);
             xrLabel3.Text =rm.GetString("labelRaportPerdorimZyrtar", ci);
             xrLabel4.Text = "(2)" +  rm.GetString("labelRaportPeriudhaTatimore", ci);
-           // xrLabel5.Text = "(1)" + rm.GetString("labelFilterAvancuarNrSerial", ci) + ":";
             xrLabel9.Text = rm.GetString("labelRaportNrIdentifikuesPersonitTatueshem", ci) + ":";
             xrLabel10.Text = rm.GetString("labelRaportEmriTregtarPersonitTat", ci) + ":";
             xrLabel11.Text = rm.GetString("labelRaportEmerMbiemerPersFizik", ci) + ":";

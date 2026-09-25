@@ -29,7 +29,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -168,7 +167,6 @@ namespace PlatinumWeb
                 {
                     for (int i = 0, count = e.UpdateValues.Count; i < count; i++)
                     {
-                        //string key = e.UpdateValues[i].Keys[0].ToString();
                         clsPBuxheti3Vjecar buxhetiVjeter = col.FirstOrDefault(x => x.RreshtiId == e.UpdateValues[i].MerrKeyValue<int>());
 
                         clsPBuxheti3Vjecar buxhetiRi = e.UpdateValues[i].MerrCustomUpdatedObject(buxhetiVjeter);

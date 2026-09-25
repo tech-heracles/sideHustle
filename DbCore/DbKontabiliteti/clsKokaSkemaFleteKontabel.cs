@@ -244,7 +244,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public clsMesazh ruajSkemaFleteKontabel(int idKokaSkemaFK, string kodiKokaSkemaFK, string pershkrimiKokaSkemaFK, int idPerdoruesi, int idNdermarje, int idstatusdok, colTrupatSkematFletetKontabel oColTrupi, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
         {//transaksioni per te ruajtur skemen fleten kontabel
-            //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("SkematFleteKontabel");
             clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet();
             dbKont.beginTransaksion();
             bool statusVeprimi;
@@ -332,12 +331,9 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public clsMesazh modifikoSkemaFleteKontabel(int idKokaSkemaFK, string kodiKokaSkemaFK, string pershkrimiKokaSkemaFK, int idPerdoruesi, int idNdermarje, int idstatusdok, colTrupatSkematFletetKontabel oColTrupi)
         {//transaksioni per te modifikuar fleten kontabel
-            //colLlojeBuxhetesh colLloj = merrLlojBuxhetiSipasKodit("SkematFleteKontabel");
           
-            //DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaSkemaFK, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("SkematFleteKontabel"));
             clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet();
             dbKont.beginTransaksion();
-            //colTrupatSkematFletetKontabel trupat = dbKont.merrTrupatSkematFletetKontabelSipasKokes(idKokaSkemaFK);
             colTrupatSkematFletetKontabel trupat = new colTrupatSkematFletetKontabel(idKokaSkemaFK);
            
             clsMesazh mesazh = new clsMesazh();
@@ -454,7 +450,6 @@ namespace DbCore.DbKontabiliteti
         {//transaksioni per te fshire nje skeme flete kontabel
             clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet();
             colTrupatSkematFletetKontabel trupat = new colTrupatSkematFletetKontabel(idKokaSkemaFK);
-            //colTrupatSkematFletetKontabel trupat = dbKont.merrTrupatSkematFletetKontabelSipasKokes(idKokaSkemaFK);
             dbKont.beginTransaksion();
            
             clsMesazh mesazh = new clsMesazh(true);

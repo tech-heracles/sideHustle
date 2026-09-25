@@ -58,20 +58,12 @@ namespace DbCore.DbAdmin
         private bool mbushTrupatSkemaWorkFlow(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiSkemaWorkFlow skema = new clsTrupiSkemaWorkFlow();
-                    //skema.mbushTrupiSkeme(rreshti);
                     this.Add(new clsTrupiSkemaWorkFlow(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

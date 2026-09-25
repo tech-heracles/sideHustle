@@ -56,21 +56,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushFletatDoganoreTrupi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFleteDoganoreTrupi trupi = new clsFleteDoganoreTrupi();
-                    //trupi.mbushFleteDoganoreTrupi(rreshti);
                     Add(new clsFleteDoganoreTrupi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

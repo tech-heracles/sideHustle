@@ -52,7 +52,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaMakro.GetSelectedFieldValues('NrLlogariKF;EmertimiKF', OnGridSelectionComplete);
     gvLupaMakro.GetRowValues(gvLupaMakro.GetFocusedRowIndex(), 'KodiKokaMakro;PershkrimiKokaMakro', OnGridSelectionComplete);
 }
 
@@ -98,9 +97,7 @@ function OnGridSelectionComplete(values) {
                 el3check = "<input  id ='cbTVSH" + index2 + "'  type ='checkbox' onclick='vendosVleftat(5)' onBlur='vendosVleftat(5)' onfocus='aktivizoresht(" + index2 + ")'  checked='checked' style='width: 100%'     ";
             else el3check = "<input  id ='cbTVSH" + index2 + "'  type ='checkbox' onclick='vendosVleftat(5)' onBlur='vendosVleftat(5)' onfocus='aktivizoresht(" + index2 + ")'  style='width: 100%'    ";
             if (window.parent.arrayReadOnlyKolonaGrides[11] == 'True')
-            //el3check += "disabled='disabled'";
                 el3check = el3check + "disabled='disabled'";
-            //el3check += ">";
             el3check = el3check + ">";
             var datarow = { cmbLloji: "", txtKodi: "", txtPershkrimi: "", txtDetajimi: "", cmbNjesia: "", txtSasia: "", txtCmimi: "", txtZbritja: "", txtVleftaTVSH: "", cbTVSH: el3check, txtVlefta: "", txtFshi: be };
             var su = grida.addRowData(parseInt(index) + 1, datarow);
@@ -118,10 +115,6 @@ function OnGridSelectionComplete(values) {
 
 
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

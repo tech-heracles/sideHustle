@@ -62,7 +62,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell27.Text = rm.GetString("lblRaportTedhenaInventar", ci);
             xrTableCell37.Text = rm.GetString("labelSasia", ci);
             xrTableCell48.Text = rm.GetString("labelKategoria", ci);
-            //TotaliGjithMAgazinave.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell38.Text = rm.GetString("lblRaportVleftaLeke", ci);
             xrTableCell29.Text = rm.GetString("lblRaportRezultatet", ci);
             xrTableCell39.Text = rm.GetString("lblMungesat", ci);
@@ -72,7 +71,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell41.Text = rm.GetString("lblRaportVerejtje", ci);
 
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
         }
         
     }

@@ -24,7 +24,6 @@ namespace DbCore.DbInventari
         private int brutoNetoNivelCmimi;
         private int prioritetiNivelCmimi;
         private int idPerdoruesi;
-        //private int idNderViti;
         private string kodMonedha;
         private string lloji;
         private int idNdermarje;
@@ -128,10 +127,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos kodin e monedhes.
         /// </summary>
@@ -264,7 +261,6 @@ namespace DbCore.DbInventari
             this.brutoNetoNivelCmimi = brutoNetoNivelCmimi;
             this.prioritetiNivelCmimi = prioritetiNivelCmimi;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idnderm;
             this.idKonfig = idKonfig;
             this.idStatusDok = idstatusdok;
@@ -299,7 +295,6 @@ namespace DbCore.DbInventari
             this.brutoNetoNivelCmimi = brutoNetoNivelCmimi;
             this.prioritetiNivelCmimi = prioritetiNivelCmimi;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idnderm;
             this.idKonfig = idKonfig;
             this.idStatusDok = idstatusdok;
@@ -390,7 +385,6 @@ namespace DbCore.DbInventari
             clsMesazh ruajtur = ruajNivelCmimi(this.IdNivelCmimi, this.kodNivelCmimi, this.pershkrimNivelCmimi, this.idPrindi, this.llojiNivelCmimi, this.idMonedha, this.BrutoNetoNivelCmimi, this.prioritetiNivelCmimi, this.IdPerdoruesi, this.idNdermarje, this.idKonfig, this.idStatusDok, this.njesiTeVarura, this.teVaruraNgaMonedha, this.nivelCmimiBaze, this.oColLidhjetAutorizim, this.idCmimRetail, this.detajim, db);
 
             
-
             return ruajtur;
         }
 
@@ -508,7 +502,6 @@ namespace DbCore.DbInventari
 
                 if (!mesazh.Status)
                 {
-                    //db.Dispose();
 
                     return mesazh;
                 }
@@ -577,7 +570,6 @@ namespace DbCore.DbInventari
                                         mesazh = db.modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNdermarje, n.IdKonfig, n.IdStatusDok, n.NjesiTeVarura, n.TeVaruraNgaMonedha, n.NivelCmimiBaze, n.Detajim, n.IdCmimRetail);
 
 
-
                                         if (!mesazh.Status)
                                         {
 
@@ -593,7 +585,6 @@ namespace DbCore.DbInventari
                                         n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi - 1;
 
                                         mesazh = db.modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNdermarje, n.IdKonfig, n.idStatusDok, n.njesiTeVarura, n.teVaruraNgaMonedha, n.nivelCmimiBaze, n.detajim, n.IdCmimRetail);
-
 
 
                                         if (!mesazh.Status)
@@ -621,7 +612,6 @@ namespace DbCore.DbInventari
                                         n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
 
                                         mesazh = db.modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNdermarje, n.IdKonfig, n.idStatusDok, n.njesiTeVarura, n.teVaruraNgaMonedha, n.nivelCmimiBaze, n.detajim, n.IdCmimRetail);
-
 
 
                                         if (!mesazh.Status)
@@ -686,13 +676,6 @@ namespace DbCore.DbInventari
         ///// </summary>
         ///// <returns > nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public clsMesazh modifiko()
-        //{
-        //    clsDatabaseInventari data = new clsDatabaseInventari();
-        //    clsMesazh u_modifikua = data.modifikoNivelCmimi(this.IdNivelCmimi, this.KodNivelCmimi, this.PershkrimNivelCmimi, this.IdPrindi, this.LlojiNivelCmimi, this.IdMonedha, this.BrutoNetoNivelCmimi, this.PrioritetiNivelCmimi, this.IdPerdoruesi, this.IdNderViti, this.IdNdermarje);
-        //    //clsMesazh u_modifikua = data.modifikoNivelCmimi(this);
-        //    return u_modifikua;
-        //}
 
         /// <summary>
         /// Fshin objektin nivel cmimi ne tabelen perkatese ne databaze.Therret funksionin
@@ -704,7 +687,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiNivelCmimiStatus(this.IdNivelCmimi, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiNivelCmimi(this);
             return u_fshi;
         }
 
@@ -717,7 +699,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.ktheNivelCmimi(this.idNivelCmimi);
             data.Dispose();
-            //data.merrNivelCmimi(this);
         }
 
         /// <summary>
@@ -913,7 +894,6 @@ namespace DbCore.DbInventari
                     int.TryParse(dbDataRowNivelCmimi["BRUTONETONIVELCMIMI"].ToString(), out brutoNetoNivelCmimi);
                     int.TryParse(dbDataRowNivelCmimi["PRIORITETINIVELCMIMI"].ToString(), out prioritetiNivelCmimi);
                     int.TryParse(dbDataRowNivelCmimi["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowNivelCmimi["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowNivelCmimi["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowNivelCmimi["IDKONFIG"].ToString(), out idKonfig);
                     int.TryParse(dbDataRowNivelCmimi["IDSTATUSDOK"].ToString(), out idStatusDok);
@@ -927,7 +907,6 @@ namespace DbCore.DbInventari
                     KodMonedha = dbDataRowNivelCmimi.Table.Columns.Contains("MONEDHAKOD") ? dbDataRowNivelCmimi["MONEDHAKOD"].ToString() : "";
 
 
-                    //clsDatabaseAdmin dbadm = new clsDatabaseAdmin(db );
                     oColLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim();
                     return true;
                 }

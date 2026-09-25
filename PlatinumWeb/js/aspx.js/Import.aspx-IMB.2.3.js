@@ -312,7 +312,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            //myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     else if (e.item.name === "Importo") {
@@ -437,7 +436,6 @@ function DoMenuClickPostBack(mbishkruajVlera, s, e) {
     $("#hfKaVleraTeImportuara").val('False');
     Utils.shfaqLoadingGif();
     kontrolloImportoTeDhenaGridImporti(true);
-    //__doPostBack(s.name, "CLICK:" + e.item.index);
 }
 function SucceededCallbackImportAutomatik(result) {
     alert(result);
@@ -481,7 +479,6 @@ function KlonoClick(e) {
 
 function TextChangedKategoria(idKategoria) {
     if (cmbKategoria.GetValue() === "1") {
-        //rbTipi.GetItem(3).SetEnabled(true);
         cbPermbledhese.SetVisible(true);
         cbPermbledhese.SetEnabled(true);
         if (rbTipi.GetValue() == "SQL") {
@@ -495,7 +492,6 @@ function TextChangedKategoria(idKategoria) {
     }
     else
         if (cmbKategoria.GetValue() !== "1" && cmbKategoria.GetValue() !== "2") {
-            //rbTipi.GetItem(3).SetEnabled(false);
             cbPermbledhese.SetVisible(false);
             cbPermbledhese.SetEnabled(false);
             cbTransferoFatura.SetVisible(false);

@@ -483,24 +483,12 @@ namespace RestApi.WebAPI.Models
                         string pString = "P";
                         string formula = tatimet[k].Norma;
                         formula = formula.Replace(pString, P.ToString());
-                        //vleratatime = (vleratkufi[i] / kursimon);
                         DataTable dt = new DataTable();
                         decimal vleraTatime = Convert.ToDecimal(dt.Compute(formula, ""));
                         normaFaktike = vleratatime / P;
                         break;
                         //if (tatimet[k].Menyra  c == 1) //totale
-                        //{
-                        //    vleratatime += ((vleratkufi[i] / kursimon) * tatimet[k].Norma / 100);
-                        //}
                         //else //progresive
-                        //{
-                        //    vleratatime = (vleratkufi[i] / kursimon - (tatimet[k].Min - 1) / kursimon) * tatimet[k].Norma / 100;
-                        //    for (var j = k - 1; j >= 0; j--)
-                        //    {
-                        //        vleratatime += ((tatimet[j].Max + 1 - tatimet[j].Min) / kursimon) * tatimet[j].Norma / 100;
-                        //    }
-                        //}
-                        //break;
                     }
                 }
 
@@ -702,7 +690,6 @@ namespace RestApi.WebAPI.Models
             }
 
 
-            //var colKompPage = new colKomponentePage(colpaga.Select(x => x.komponentePage));
             if (merrimporte && !dukeMarreImporte)
             {
                 for (int i = 0, count = colpaga.Count; i < count; i++)
@@ -748,8 +735,6 @@ namespace RestApi.WebAPI.Models
                         //nese eshte hera e pare qe ketij punonjesi po i llogaritet paga ath,vlera duhet te merret nga vlera default e komponentes se punonjesit.
                         if (merrVlereDefault) arrvlera[m] = paga.Vlera;
 
-                        //if (arrvlera[m] == 0 && paga.Vlera != 0)
-                        //    arrvlera[m] = paga.Vlera;
                         //nese vlera eshte 0 dhe ekziston vlera default ath vendos ate (old)
 
                         #region merrimporte
@@ -804,7 +789,6 @@ namespace RestApi.WebAPI.Models
                                 kompPage.ParamKodi = vleraDp;
                                 //ruan ne list indexin e kesaj komponenteje qe ka si param dp
                                 listeidDp.Add(i);
-                                // komp.Formula = zevendesoParameter(komp.Formula, komp.ParamKodi, arrparam[i].ToString());
                             }
                         }
 
@@ -905,14 +889,11 @@ namespace RestApi.WebAPI.Models
                     string formula = tatimet[i].Norma;
                     formula = formula.Replace(pString, P.ToString());
                     formula = formula + " + 0";
-                    //vleratatime = (vleratkufi[i] / kursimon);
                     DataTable dt = new DataTable();
                     decimal vleraTatime = Convert.ToDecimal(dt.Compute(formula, ""));
                     tatimi = vleraTatime;
                     break;
                 }
-                //if (paga < tatimet[i].Min * (decimal)kursinderm.VleraKursi)
-                //    continue;
                 ////decimal P = vleratkufi[i] / kursimon;
                 ////string pString = "P";
                 ////string formula = tatimet[k].Norma;
@@ -923,29 +904,13 @@ namespace RestApi.WebAPI.Models
                 ////normaFaktike = vleratatime / P;
                 ////break;
 
-                //var pagaQePoTatohet = paga - tatimet[i - 1].Max * (decimal)kursinderm.VleraKursi;
-                //paga -= pagaQePoTatohet;
-                //tatimi += pagaQePoTatohet * tatimet[i].Norma / 100;
 
             }
 
-            //if (tatimet[0].Menyra == 1)
-            //{
 
-            //    //decimal P = vleratkufi[i] / kursimon;
-            //    //string pString = "P";
-            //    //string formula = tatimet[k].Norma;
-            //    //formula = formula.Replace(pString, P.ToString());
-            //    ////vleratatime = (vleratkufi[i] / kursimon);
-            //    //DataTable dt = new DataTable();
-            //    //decimal vleraTatime = (decimal)dt.Compute(formula, "");
-            //    //normaFaktike = vleratatime / P;
             //    //break;
-            //    tatimi = paga * tatimet[0].Norma / 100;
             //} else
-            //{
                
-            //}
 
             tatimMbiPagen.Formula = tatimi.ToString();
         }
@@ -1122,7 +1087,6 @@ namespace RestApi.WebAPI.Models
                     //nese muaji i  vlerave te importuara eshte i njejte me muajin e listpageses
                     if (!muajiPerTuLlogaritur.llogaritur)
                     {
-                        //var arrParaMuajiAktual = new decimal[arrparam.Length];
                         arrparam = ZevendesoParametratSipasImportit(arrkodi, arrparam, kompImportuar.Value);
                         //shenojme si te llogaritur kete muaj
                         muajiPerTuLlogaritur.llogaritur = true;
@@ -1161,7 +1125,6 @@ namespace RestApi.WebAPI.Models
             }
             return arrparam;
         }
-
 
 
         private static colKomponenteMuaji LlogaritColComponenteMuaji(clsKomponentePage komp, clsKompListPagese kompLp, int m, colKomponenteMuaji colmuaji, int vitiKomponentesImportuar, int muajiKomponentesImportuar, decimal vleraParamMuaji)
@@ -1514,42 +1477,22 @@ namespace RestApi.WebAPI.Models
             switch (kompPage.Kodi)
             {
                 case "PPS":
-                    //ppspershendetsore = string.Format("(iif({1}>{0}, {0}, iif({1}<{2},{2}, {1} ) ))", sigurimet.PageMaxShen / Convert.ToDecimal(kursinderm.VleraKursi), kompPage.Formula, sigurimet.PageMinShen / Convert.ToDecimal(kursinderm.VleraKursi));
-                    //formula(colkom, "PPP", $"({ppspershendetsore})");
-                    //kompPage.Formula = ppspershendetsore;
-                    //break;
 
                 case "SPS":
-                    //kompPage.Formula = string.Format("((iif(PPS>{0},{0},PPS))*{1}/100)", sigurimet.PagaMax / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigShoqPun);
-                    //break;
 
                 case "SPD":
-                    //kompPage.Formula = string.Format("((iif({2}>{0},{0},{2}))*{1}/100)", sigurimet.PageMaxShen / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigShenPun, ppspershendetsore);
-                    //break;
 
                 case "SNS":
-                    //kompPage.Formula = string.Format("((iif(PPS>{0},{0},PPS))*{1}/100)", sigurimet.PagaMax / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigShoqNder);
-                    //break;
 
                 case "SND":
-                    //kompPage.Formula = string.Format("((iif({2}>{0},{0},{2}))*{1}/100)", sigurimet.PageMaxShen / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigShenNder, ppspershendetsore);
-                    //break;
 
                 case "SSP":
-                    //kompPage.Formula = string.Format("((iif(PPS>{0},{0},PPS))*{1}/100)", sigurimet.PagaMax / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigSupPun);
-                    //break;
 
                 case "SSN":
-                    //kompPage.Formula = string.Format("((iif(PPS>{0},{0},PPS))*{1}/100)", sigurimet.PagaMax / Convert.ToDecimal(kursinderm.VleraKursi), sigurimet.SigSupNder);
-                    //break;
 
                 case "SP":
-                    //kompPage.Formula = "SPS+SPD+SSP";
-                    //break;
 
                 case "SN":
-                    //kompPage.Formula = "SNS+SND+SSN";
-                    //break;
                     break;
 
                 case "DLM":
@@ -1565,11 +1508,7 @@ namespace RestApi.WebAPI.Models
                     break;
 
                     //case "OD":
-                    //    if (result[8].ToString() == "OD")
-                    //        result[8] = zevendesoParameter(result[8].ToString(), "OD", komp.Formula);
-                    //    break;
             }
-            //return ppspershendetsore;
         }
 
         private static void ZevendesoFormulePerKomponenteTabelarePerMaxMinSigurime(colKomponentePage colkom, clsKurset kursinderm, clsSigurimet sigurimet)
@@ -1579,7 +1518,6 @@ namespace RestApi.WebAPI.Models
             pps.Formula = string.Format("(iif({1}>{0}, {0}, iif({1}<{2},{2}, {1} ) ))", sigurimet.PagaMax / Convert.ToDecimal(kursinderm.VleraKursi), pps.Formula, sigurimet.PagaMin / Convert.ToDecimal(kursinderm.VleraKursi));
 
            
-
             formula(colkom, "PPP", $"({ppspershendetsore})", false, null, 0, 0);
             string formulaSPS = "0", formulaSPD = "0", formulaSNS = "0", formulaSND = "0", formulaSSP = "0", formulaSSN = "0";
 
@@ -2097,7 +2035,6 @@ namespace RestApi.WebAPI.Models
                  });
 
                 vleratMujorePerPunonjesDheKomponente.RuajGjitheVleratColKomponente();
-                // results.CompleteAdding();
                 ImbLogger.Info("Blloku i llogaritjes se pagave ne parallel perfundoi me sukses!");
             }
             catch (Exception ex)
@@ -2358,7 +2295,6 @@ namespace RestApi.WebAPI.Models
         
         public static AutoCompleteItem[] ktheACListePunonjesish(string kodi, int idNdermarrje)
         {
-            //int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DataTable tmpTable = DbCore.DbListPagesat.colPunonjes.ktheACListePunonjesishLikeKodiEmerMbiemer(kodi, idNdermarrje);
             tmpTable.Columns["des"].ColumnName = "desc";
             AutoCompleteItem[] autoCompleteItem = new AutoCompleteItem[tmpTable.Rows.Count];
@@ -2373,7 +2309,6 @@ namespace RestApi.WebAPI.Models
         #endregion metoda private
 
         #region TEST METHODS
-
 
 
         private static Tuple<clsMesazh, colPunonjes> colPunonjesTest(int idNdermarje)
@@ -2447,12 +2382,10 @@ namespace RestApi.WebAPI.Models
         }
 
         
-
         public static AutoCompleteItem[] ktheACListeLlogarishBeginWith(string infixText, int idPerdoruesi, int idNderrmarje)
         {
             DataTable tmpTable = new DataTable();
             tmpTable = DbCore.DbKontabiliteti.colLlogarite.merrLLogariteNdermarrjesAndAutorizimeLikeNew(idNderrmarje, idPerdoruesi, infixText);
-            //DataTable tmpTable = DbCore.DbKontabiliteti.colLlogarite.merrLLogariteNdermarrjesAndAutorizimeLikeNew(idNderrmarje, idPerdoruesi, infixText);
             AutoCompleteItem[] autoCompleteItem = new AutoCompleteItem[tmpTable.Rows.Count];
 
             tmpTable.Columns["des"].ColumnName = "desc";
@@ -2488,7 +2421,6 @@ namespace RestApi.WebAPI.Models
         }
 
        
-        
         public static Object kthePunonjesMeIdRow(int idPunonjes, int rreshti)
         {
             clsPunonjes pun = new clsPunonjes(idPunonjes);
@@ -2528,7 +2460,6 @@ namespace RestApi.WebAPI.Models
        
         public static clsLlogari ktheVleraLlogMeKod(string kodi, int idNderrmarje)
         {
-            //clsLlogari llogaria = new clsLlogari(kodi, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             clsLlogari llogaria = new clsLlogari();
             llogaria.merrLlogariAktiveSipasKodit(kodi, idNderrmarje);
             return llogaria.IdLlogari > 0 ? llogaria : null;

@@ -34,7 +34,6 @@ namespace DbCore.DbKontabiliteti
         private int llogariKonsoliduese;
         private int llogariKoresponduese;
         private int idNdermarja;
-        //private int idNderViti;
         private string pershkrimiGrupiLlogaria;
         private string pershkrimiNenGrupiLlogaria;
         private string kodiMonedha;
@@ -347,7 +346,6 @@ namespace DbCore.DbKontabiliteti
             if (String.IsNullOrEmpty(nr))
                 return;
             mbushLlogari(dbLlogari.TransCache.getLlogari(nr, idndermarje, dbLlogari));
-            //mbushLlogari(dbLlogari.ktheLlogariSipasKodit(nr, idndermarje));
         }
 
         /// <summary>
@@ -375,7 +373,6 @@ namespace DbCore.DbKontabiliteti
                 return;
             }
             mbushLlogari(dbLlogari.TransCache.getLlogari(idLlog, dbLlogari));
-            //mbushLlogari(dbLlogari.merrLlogari(idLlog));
         }
 
         public clsLlogari(int idNenLlojLlogarie, int idArtikulli, clsDatabaseKontabilitet dbLlogari)
@@ -668,16 +665,8 @@ namespace DbCore.DbKontabiliteti
         /// <summary>
         /// Kthen/Vendos ID-ne lidhese ndermarrje - vit
         /// </summary>
-        //public int IdNderViti {
         //    get
-        //    { 
-        //        return idNderViti; 
-        //    }
         //    set
-        //    {
-        //        idNderViti = value;
-        //    }
-        //}
 
         /// <summary>
         /// Kthen/Vendos pershkrimin e grupit te llogarise <seealso cref="DbCore.DbKontabiliteti.clsGrupiLlogaria"/>
@@ -1013,8 +1002,6 @@ namespace DbCore.DbKontabiliteti
         }
 
 
-
-
         #endregion
 
         #region Metoda Publike
@@ -1193,7 +1180,6 @@ namespace DbCore.DbKontabiliteti
 
                     if (vjenNgaImportSQL)
                     {
-                        //ruajtur = db.updateDokTabeleTemportal(idLlogImp, idNdermarja, 1, emerTabele, primaryKey, ndermarrjeKey);
                         DbImporte.clsDatabazeImporte dbImport = new DbImporte.clsDatabazeImporte(db);
                         ruajtur = DbImporte.colImportSQL.updateDokTabeleTemportal(idTemp, idNdermarja, 1, emerTabele, primaryKey, ndermarrjeKey, dbImport);
                         if (!ruajtur) return ruajtur;
@@ -1339,7 +1325,6 @@ namespace DbCore.DbKontabiliteti
                 return mesazh;
 
 
-
             }
             catch (Exception ce)
             {
@@ -1377,7 +1362,6 @@ namespace DbCore.DbKontabiliteti
 
                     mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
                     return mesazh;
-
 
 
                 }
@@ -1567,17 +1551,12 @@ namespace DbCore.DbKontabiliteti
                         {
                             mbushLlogari(dbKontab.merrLlogari(int.Parse(rreshti["idLlogariHumbje"].ToString())));
                         }
-                        //oLlogari = dbKontab.ktheLlogari(int.Parse(rreshti[2].ToString()));
                         else //nese nuk ka llogari humbje te skema e azhornimit merret llog e humbjes e monedhes   
                             mbushLlogari(dbKontab.merrLlogari(monedha.IdLlogHumbje));
-                        //oLlogari = new DbCore.DbKontabiliteti.clsLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogHumbje);
-                        //oLlogari = dbKontab.ktheLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogHumbje);
                     }
                 }
                 else
                     mbushLlogari(dbKontab.merrLlogari(monedha.IdLlogHumbje));
-                //oLlogari = new DbCore.DbKontabiliteti.clsLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogHumbje);
-                //oLlogari = dbKontab.ktheLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogHumbje);
             }
             else if (kodNenLlojLlogarie == "LLMF")
             {
@@ -1587,11 +1566,8 @@ namespace DbCore.DbKontabiliteti
                     {
                         if (rreshti["idLlogariFitim"].ToString() != "0")
                             mbushLlogari(dbKontab.merrLlogari(int.Parse(rreshti["idLlogariFitim"].ToString())));
-                        //oLlogari = dbKontab.ktheLlogari(int.Parse(rreshti[1].ToString()));
                         else //nese nuk ka llogari fitimi te skema e azhornimit merret llog e fitimit e monedhes     
                             mbushLlogari(dbKontab.merrLlogari(monedha.IdLlogFitimi));
-                        //oLlogari = new DbCore.DbKontabiliteti.clsLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogFitimi);
-                        //oLlogari = dbKontab.ktheLlogari(dbAdmin.ktheMonedhe(idmonedha)[0].IdLlogFitimi);
                     }
                 }
                 else

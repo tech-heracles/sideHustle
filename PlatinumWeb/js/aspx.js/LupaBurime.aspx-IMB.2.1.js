@@ -96,12 +96,10 @@ function OnGridSelectionComplete(values) {
             window.parent.selectFunca(null, null, idKontrolli, values[3], kodi);
             window.parent.$(idKontrolli).focus();
            
-           // window.parent.editorNjesia.SetText("Ore");
         }
        else if (Utils.getUrlVar('vjenNga') == 'SkedulimProdhimi') {
             window.parent.btnBurimi.SetText(kodi);
             window.parent.btnBurimi.SetFocus(true);
-           // window.parent.editorNjesia.SetText("Ore");
        }
        else if (Utils.getUrlVar('vjenNga') == 'SkedulimProdhimiGrida') {
            var grida = window.parent.$('#rowed5');
@@ -113,33 +111,16 @@ function OnGridSelectionComplete(values) {
            window.parent.selectFunc(null, null, idKontrolli, values[3], kodi);
            window.parent.$(idKontrolli).focus();
            
-           // window.parent.editorNjesia.SetText("Ore");
        }
        else if (window.parent.identikuesPerPopupBurimi == 'Raporti') {
            window.parent.editorGlobal.SetText(kodi);
            window.parent.editorGlobal.SetFocus(true);
        }
-        //                if (window.parent.identifikuesPerPopupMagazina === "RegjistrimMagazine") {
-        //                    if (window.parent.identifikuesMagazina === 'Mag1') {
-        //                        window.parent.btneMagazina.SetText(kodi);
-        //                        window.parent.btneMagazina.SetFocus();
-        //                        window.parent.TextChangedMagazina();
-        //                    }
-        //                    else {
-        //                        window.parent.btneMagazina2.SetText(kodi);
-        //                        window.parent.btneMagazina2.SetFocus();
-        //                        window.parent.TextChangedMagazina2();
-        //                    }
-        //                }
     }
 
     window.parent.popupUniversal.Hide();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
         OnGridSelectionChanged(gvLupaBurimet.GetFocusedRowIndex());

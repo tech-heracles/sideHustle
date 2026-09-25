@@ -35,9 +35,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",
                        System.Reflection.Assembly.Load("App_GlobalResources"));
-           // xrLabel12.Text = rm.GetString("labelNIPT", ci);
-           // xrLabel6.Text = rm.GetString("labelRaportNrFature", ci);
-           // xrLabel8.Text = rm.GetString("labelRaportNrSerial", ci);
             xrTableCell5.Text = rm.GetString("labelRaportiArtikull", ci);
             xrTableCell9.Text = rm.GetString("labelSasia", ci);
             xrTableCell10.Text = rm.GetString("labelCmimi", ci);
@@ -46,7 +43,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel47.Text = rm.GetString("lblPagesaLEk", ci);
             xrLabel26.Text = rm.GetString("lblRaportiTotaliBankaveArkave", ci) + ":";
             xrLabel3.Text = rm.GetString("labelFleteGarancieUpperCase", ci);
-            //xrLabel49.Text = rm.GetString("labelRaportJuFalemnderit", ci);
             xrLabel2.Text = rm.GetString("lblbGarancia", ci);
             xrTableCell1.Text = rm.GetString("labelRaportKlienti", ci);
             xrTableCell11.Text = rm.GetString("labelDyqani", ci);

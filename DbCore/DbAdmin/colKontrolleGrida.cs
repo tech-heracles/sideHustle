@@ -44,19 +44,11 @@ namespace DbCore.DbAdmin
         private bool mbushKontrollet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKontrolleGrida kontrolli = new clsKontrolleGrida();
-                    //kontrolli.mbushKontrollin(rreshti);
                     this.Add(new clsKontrolleGrida(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

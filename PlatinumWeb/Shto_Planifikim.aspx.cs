@@ -46,7 +46,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.shtoKolonaPerGrupim(cmbGrup3);
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup3, idNdermarrje, 3, koka.IdKonfigAmbjente, idPerdoruesi);
             hfKonffillestar.Value = konf.KodKonfigAmbjente;
-            // hfKonffillestar.Value = String.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
             if (koka.IdKlientFurnitor != 0)
                 ConfigureAspxComboBox.KonfiguroComboBoxKlientFurnitoriById(btneKlientFurnitori, koka.IdKlientFurnitor);
             if (koka.IdMagazina != 0)
@@ -394,8 +393,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -521,10 +518,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             DbCore.DbProdhimi.clsKokaPlanifikim koka = new DbCore.DbProdhimi.clsKokaPlanifikim();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);

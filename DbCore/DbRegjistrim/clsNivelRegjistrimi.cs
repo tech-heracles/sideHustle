@@ -264,7 +264,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh ruajNivelPlusKonvertim()
         {
             clsNivelRegjistrimi data = new clsNivelRegjistrimi();
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             clsMesazh u_ruajt = data.ruajNivelRegjistrimiKonvertim(this.IdNivel, this.IdKategori, this.Kodi, this.Pershkrimi, this.Radha, this.Aktiv, this.IdNdermarje, this.OColNivelRegjistrimi, this.idPerdoruesi, this.idStatusDok, this.nrSerialUnik);
             return u_ruajt;
         }
@@ -272,7 +271,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifikoNivelRegjistrimi(int idNiv, int idKat, string kod, string pershk, int radh, bool akt, int nderm, colNivelRegjistrimi ocolNivelRegjistrimi, int perdoruesi, int idstatusdok, bool nrSerUnik)
         {//fshin rreshtat e ruajtur me pare ne tab T_NIVELREGJISTRIMIKONVERTO per kete nivel dhe ruan rreshtat e rinj nga col me konvertime
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             try
             {
@@ -332,7 +330,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifiko()
         {
             clsNivelRegjistrimi data = new clsNivelRegjistrimi();
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             clsMesazh u_modifikua = data.modifikoNivelRegjistrimi(this.IdNivel, this.IdKategori, this.Kodi, this.Pershkrimi, this.Radha, this.Aktiv, this.IdNdermarje, this.OColNivelRegjistrimi, this.idPerdoruesi, this.idStatusDok, this.nrSerialUnik);
             return u_modifikua;
         }
@@ -340,7 +337,6 @@ namespace DbCore.DbRegjistrim
         public clsMesazh fshiNivelRegjistrimi(int idNiv, colNivelRegjistrimi ocolNivelRegjistrimi)
         {
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             clsMesazh mesazh = new clsMesazh(true);
             try
@@ -394,7 +390,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi()
         {
-            //  clsNivelRegjistrimi data = new clsNivelRegjistrimi();
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             clsMesazh u_fshi = data.fshiNivStatus(this.IdNivel, this.idPerdoruesi);
             data.Dispose();
@@ -408,7 +403,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt colNivelRegjistrimi me te gjithe nivelet e regjistrimit te kategorise</returns>
         public colNivelRegjistrimi merriTeGjithe()
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             //return data.merrNivelRegjistrimi(this); //i kalohet idKategori
             colNivelRegjistrimi nivele = new colNivelRegjistrimi();
             nivele.mbushNivelRegjistrimi(this.IdKategori, this.idNdermarrje);
@@ -425,8 +419,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje object colNivelRegjistrimi me te gjithe nivelet e regjistrimit te ndermarjes</returns>
         public colNivelRegjistrimi merrGjitheNivelRegjistrimi(int idNd, int user)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheNivelRegjistrimi(idNd, user);
             colNivelRegjistrimi data = new colNivelRegjistrimi();
             data.mbushGjitheNivelRegjistrimi(idNd, user);
             return data;
@@ -441,8 +433,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje object colNivelRegjistrimi me te gjithe nivelet e regjistrimit te ndermarjes dhe te kesaj kategorie</returns>
         public static colNivelRegjistrimi merrGjitheNivelRegjistrimiSipasKategori(int idNd, int user, int idkat)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheNivelRegjistrimiSipasKategori(this, idNd, user);
             colNivelRegjistrimi data = new colNivelRegjistrimi();
             data.mbushGjitheNivelRegjistrimiSipasKategoriPlus(idkat, idNd, user);
             return data;
@@ -450,8 +440,6 @@ namespace DbCore.DbRegjistrim
 
         public colNivelRegjistrimi merrGjitheNivelRegjistrimiSipasKategoriPaAll(int idNd, int user)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheNivelRegjistrimiSipasKategoriPaAll(this, idNd, user);
             colNivelRegjistrimi data = new colNivelRegjistrimi();
             data.mbushGjitheNivelRegjistrimiSipasKategoriPaAll(this.IdKategori, idNd, user);
             return data;
@@ -467,8 +455,6 @@ namespace DbCore.DbRegjistrim
             colNivelRegjistrimi data = new colNivelRegjistrimi();
             data.mbushKonvertimeNiveli(this.idNivel);
             return data;
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrKonvertimeNiveli(this);
         }
 
         /// <summary>
@@ -480,8 +466,6 @@ namespace DbCore.DbRegjistrim
         {
             colNivelRegjistrimi data = new colNivelRegjistrimi();
             data.mbushKonvertimeNiveliNew(this.IdNivel);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrKonvertimeNiveliNew(this);
             return data;
         }
 
@@ -494,16 +478,12 @@ namespace DbCore.DbRegjistrim
         {
             mbushNivelRegjistrimiSipasIdMeKonvertime(this.IdNivel);
             return this;
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrNivelRegjistrimiSipasID(this.IdNivel);
         }
 
         public clsNivelRegjistrimi merrNivelRegjSipasKodi()
         {
             mbushNivelRegjistrimiSipasKodiMeKonvertime(this.Kodi, this.IdNdermarje);
             return this;
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrNivelRegjistrimiSipasKodi(this.Kodi, this.IdNdermarje);
         }
 
         public bool mbushNivelRegjistrimiSipasKodeve(string parameter, string idNderm)

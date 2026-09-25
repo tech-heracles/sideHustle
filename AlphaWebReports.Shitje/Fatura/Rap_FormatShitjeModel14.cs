@@ -42,23 +42,19 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel14.Text = rm.GetString("labelRaportTelFax", ci)+":";
             xrTableCell4.Text = rm.GetString("lblRaportArtik", ci);
             xrTableCell5.Text = rm.GetString("labelPERSHKRIMI", ci);
-           // xrTableCell19.Text = rm.GetString("labelRaportDTSKAD", ci);
             xrTableCell7.Text = rm.GetString("labelNjesiaUpperCase", ci);
             xrTableCell9.Text = rm.GetString("label_SASIA", ci);
            xrTableCell10.Text = rm.GetString("label_CMIMI", ci);
-            //xrTableCell17.Text = rm.GetString("labelRaportLOTNR", ci);
             xrTableCell8.Text = rm.GetString("labelRaportZb", ci) + ". %";
             xrTableCell11.Text = rm.GetString("lblRaportVlZbritur", ci);
             xrTableCell6.Text = rm.GetString("labelTVSH", ci);
             xrLabel16.Text = rm.GetString("labelQyteti", ci)+":";
             xrLabel20.Text = rm.GetString("labelAgjenti", ci)+":";
             xrLabel26.Text = rm.GetString("labelVleraPaTVSH", ci);
-            //xrLabel44.Text = rm.GetString("labelBleresi", ci);
             xrLabel45.Text = rm.GetString("labelRaportEmerMbiemerFirma", ci);
             xrLabel46.Text = rm.GetString("labelShitesi", ci);
             xrLabel47.Text = rm.GetString("labelRaportEmerMbiemerFirma", ci);
             xrLabel48.Text = rm.GetString("labelRaportEmail", ci)+":";
-           // xrLabel57.Text = rm.GetString("labelRaportNrFiskal", ci);
             xrLabel15.Text = rm.GetString("labelRaportNrFiskal", ci) + ":";
             xrTableCell23.Text = rm.GetString("labelRaportiNrUpperCase",ci);
             

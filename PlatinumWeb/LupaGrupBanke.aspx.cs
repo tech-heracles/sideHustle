@@ -244,7 +244,6 @@ namespace PlatinumWeb
                 if (dbArkaBanka.ekzistonGrupBanke(grupoverview.NrGrupBanke, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
                 {
                     isValid = false;
-                    //CacheLayer.GlobalCacheManager.MySessionCache["mesazh"] = "Ekziston nje grup banke me kete numer!Ju lutemi shenoni nje nr tjeter.:Red";
                     DbCore.mySessionObjects.ruajMesazhNeSesion(Session, "Ekziston nje grup banke me kete numer!Ju lutemi shenoni nje nr tjeter.:Red");
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ekziston nje grup banke me kete numer!Ju lutemi shenoni nje nr tjeter.", pnlMesazhi);
                     return isValid;
@@ -325,48 +324,6 @@ namespace PlatinumWeb
         //public void konfiguroMenu(ASPxMenu menu)
         //    {//konfigurimi i menu si toolbar
 
-        //    menu.CssFilePath = "~/App_Themes/Aqua/{0}/styles.css";
-        //    menu.CssPostfix = "Aqua";
-        //    menu.ImageFolder = "~/App_Themes/Aqua/{0}/";
-        //    menu.ItemSpacing = 0;
-
-        //    menu.SeparatorHeight = 100;
-        //    menu.SeparatorWidth = 1;
-
-        //    menu.ImageSpacing = 7;
-        //    menu.Height = 7;
-        //    menu.Items.Clear();
-        //    for (int i = 0; i < 5; i++)
-        //        {
-        //        menu.Items.Add();
-        //        }
-        //    menu.AutoPostBack = true;
-        //    menu.Items[0].Name = "Modifiko";
-        //    menu.Items[0].Text = "Modifiko";
-        //    menu.Items[0].Image.Url = "~/images/01.bmp";
-        //    menu.Items[1].Name = "RuajRresht";
-        //    menu.Items[1].Text = "Ruaj";
-        //    menu.Items[1].Image.Url = "~/images/03.bmp";
-        //    menu.Items[2].Name = "Fshi";
-        //    menu.Items[2].Text = "Fshi";
-        //    menu.Items[2].Image.Url = "~/images/05.bmp";
-        //    menu.Items[3].Name = "Pastro";
-        //    menu.Items[3].Text = "Pastro";
-        //    menu.Items[3].Image.Url = "~/images/05.bmp";
-        //    menu.Items[4].Name = "Shto";
-        //    menu.Items[4].Text = "Shto";
-        //    menu.Items[4].Image.Url = "~/images/03.bmp";
-        //    menu.VerticalPopOutImage.Height = 11;
-        //    menu.VerticalPopOutImage.Width = 11;
-        //    menu.ItemStyle.ImageSpacing = 5;
-        //    menu.ItemStyle.PopOutImageSpacing = 18;
-        //    menu.SubMenuStyle.GutterWidth = 0;
-        //    menu.SubMenuItemStyle.ImageSpacing = 7;
-        //    menu.BorderWidth = 1;
-        //    menu.HorizontalPopOutImage.Height = 7;
-        //    menu.HorizontalPopOutImage.Width = 7;
-
-        //    }
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {//veprimet e menuse
@@ -378,11 +335,6 @@ namespace PlatinumWeb
 
             }
 
-            //else if (e.Item.Name == "RuajRresht")
-            //    {
-            //    Page.Validate();
-            //    ruajGrupBankeOverview();
-            //    }
             else if (e.Item.Name == "Pastro")
             {
                 gvLupaGrBanka.SettingsEditing.Mode = GridViewEditingMode.Inline;

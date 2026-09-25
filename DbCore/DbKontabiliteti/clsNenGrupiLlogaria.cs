@@ -174,8 +174,6 @@ namespace DbCore.DbKontabiliteti
             colNenGrupetLlogaria data = new colNenGrupetLlogaria();
             data.mbushGjitheNenGrupetLlogaria(this.idNdermarje, idGjuha);
             return data;
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrGjitheNenGrupetLlogaria(this.idNdermarje);
         }
 
         /// <summary>

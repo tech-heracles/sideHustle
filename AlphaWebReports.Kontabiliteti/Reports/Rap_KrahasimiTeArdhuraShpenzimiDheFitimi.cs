@@ -81,7 +81,6 @@ namespace AlphaWebReports.RaportetDs
                             break;
                     }
 
-                   // titulliRaportLabel.Text += rm.GetString("labelRaportGrafikKrahasuesTeArdhura", ci);
                     bindingAktuale = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "teArdhuraAktuale");
                     bindingParaardhese = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "teArdhuraParaardhese");
                     xrLabel8.Text = rm.GetString("filterTeArdhurat", ci) + periudhaAkt.Substring(periudhaAkt.Length - Math.Min(4, periudhaAkt.Length));
@@ -102,7 +101,6 @@ namespace AlphaWebReports.RaportetDs
                      
                     }
 
-                  //  titulliRaportLabel.Text += rm.GetString("labelRaportGrafikKrahasuesShpenzimeve", ci);
                     bindingAktuale = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "shpenzimeAktuale");
                     bindingParaardhese = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "shpenzimeParaardhese");
                     xrLabel8.Text = rm.GetString("labelShpenzimet", ci)  + periudhaAkt.Substring(periudhaAkt.Length - Math.Min(4, periudhaAkt.Length));
@@ -123,7 +121,6 @@ namespace AlphaWebReports.RaportetDs
                        
                     }
 
-                  //  titulliRaportLabel.Text += rm.GetString("labelRaportGrafikKrahasuesFitimit", ci);
                     bindingAktuale = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "fitimAktual");
                     bindingParaardhese = new XRBinding("Text", ((System.Data.DataSet)this.DataSource).Tables[0], "fitimParaardhes");
                     xrLabel8.Text = rm.GetString("filterFitimi", ci) + periudhaAkt.Substring(periudhaAkt.Length - Math.Min(4, periudhaAkt.Length));
@@ -191,9 +188,6 @@ namespace AlphaWebReports.RaportetDs
         }
 
      
-
-      
-
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
         }

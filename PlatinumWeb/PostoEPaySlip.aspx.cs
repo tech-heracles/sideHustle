@@ -95,7 +95,6 @@ namespace PlatinumWeb
         private void emertimetDheMesazhetEPerkthyera(ResourceManager rm, CultureInfo ci)
         {
             ASPxPageControl1.TabPages[0].Text = rm.GetString("labelAdministrimiTePergjithshme", ci);
-           // ASPxPageControl1.TabPages[1].Text = rm.GetString("labelViti", ci);
             ASPxPageControl1.TabPages[1].Text = rm.GetString("RadioButtonListEditItemPeriudha", ci);
             konfigurimi_Label.Text = rm.GetString("lblModeli", ci);
             popupUniversal.HeaderText = rm.GetString("headerPopUpText", ci);
@@ -109,16 +108,7 @@ namespace PlatinumWeb
         /////      mbush combon e filtrave
         ///// </summary>
         //private void mbushComboBoxFiltra()
-        //    {
 
-        //    //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("ASPxGridView_Vitet", "Shto_Vit.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka("ASPxGridView_Vitet", "Shto_Vit.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    DbCore.DbAdmin.colFiltratGrida colFiltra = new DbCore.DbAdmin.colFiltratGrida(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    colFiltra.Insert(0, new DbCore.DbAdmin.clsFiltraGrida());  //colFiltra = dbAdmin.merrGjitheFiltratGridaByGridaKoka(koka.IdGridaKoka, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    MenuFilter.colekstioni = colFiltra;
-        //    MenuFilter.ValueField = "IdFiltra";
-        //    MenuFilter.TextField = "FiltraShenime";
-        //    }
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -180,7 +170,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                //  check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 ASPxGridView_Vitet.Settings.ShowFilterRow = true;
                 ASPxGridView_Vitet.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -191,7 +180,6 @@ namespace PlatinumWeb
                 ASPxGridView_Vitet.SettingsBehavior.AllowSelectByRowClick = true;
                 ASPxGridView_Vitet.SettingsBehavior.AllowFocusedRow = true;
             }
-            //  this.ASPxGridView_Vitet.Columns["#"].VisibleIndex = 0;
         }
         /// <summary>
         /// ben konfigurimin e grides sipas konfigurimit te zgjedhur
@@ -262,10 +250,8 @@ namespace PlatinumWeb
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_Vitet", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
@@ -275,16 +261,10 @@ namespace PlatinumWeb
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
                 cmbFiltra.Text = "";
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "ASPxGridView_Vitet", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
                 percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
 
-                //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-                //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-                //btnRuaj.ClientEnabled = false;
-                //btnFshiFilter.ClientEnabled = false;
-                // konfiguroVleraFillestare();
                 hfStatusi.Value = "true";
                 this.ASPxGridView_Vitet.FilterExpression = String.Empty;
             }
@@ -300,14 +280,11 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
-            //filtra.mbushFiltraGridaSipasFiltraKodi(cmbFiltra.Text, idNdermarrje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "ASPxGridView_Vitet", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 ASPxGridView_Vitet.FilterExpression = filtra.FiltraVlera;
@@ -330,7 +307,6 @@ namespace PlatinumWeb
                 btnRuaj.ClientEnabled = true;
 
             }
-            // this.Filtri_ASPxTextBox.Text = "";
         }
         /// <summary>
         /// sherben per te ruajtur filtrin e zgjedhur
@@ -347,25 +323,12 @@ namespace PlatinumWeb
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("ASPxGridView_Vitet", "Shto_Vit.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_Vitet", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Vitet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiViti", ASPxGridView_Vitet);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_Vitet.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodiViti";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
@@ -373,7 +336,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "ASPxGridView_Vitet", int.Parse(cmbKonfigurimi.Value.ToString()), komponente);
             percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
 
@@ -383,11 +345,7 @@ namespace PlatinumWeb
 
             hfStatusi.Value = "true";
             cmbFiltra.Text = "";
-            //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-            //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-            //btnRuaj.ClientEnabled = false;
-            //btnFshiFilter.ClientEnabled = false;
         }
         /// <summary>
         /// perdoret per te fshire reshtat e zgjedhur ne gride pasi perdoruesi ka konfirmuar fshirjen
@@ -404,7 +362,6 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-            //  List<object> rreshtat = ASPxGridView_Vitet.GetSelectedFieldValues("IdViti");
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (rreshtat.Count == 0)
@@ -413,21 +370,16 @@ namespace PlatinumWeb
                 return;
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (object id in rreshtat)
             {
                 DbCore.DbAdmin.clsViti clsVitet = new DbCore.DbAdmin.clsViti();
                 clsVitet.mbushVitetMet(Convert.ToInt32(id));
-                //DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                 konf.mbushKonfigAmbjSipasId(clsVitet.IdKonfig, DbCore.mySessionObjects.ktheGjuhe(Session));
-                //konf.IdKonfigAmbjente = colVitet[0] .IdKonfig;
-                //konf = new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasId(konf)[0];
 
-                //bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(clsVitet.IdViti.ToString(), konf.IdNivel.ToString());
                 bool lidhur = dbAdmin.ekzistonNdermarrjeSipasIdViti(clsVitet.IdViti);
                 if (lidhur)
                 {
@@ -442,7 +394,6 @@ namespace PlatinumWeb
                 {
                     #region Heq llogarite nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqVitNgaGrida(clsVitet.IdViti, rm, ci);
                     #endregion
                     TeFshire.Add(clsVitet.KodiViti);
@@ -556,8 +507,6 @@ namespace PlatinumWeb
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbAdmin.colVitet.merrViteSipasNdermarjesDR(idNdermarrje, idviti);
-                //  dt.Rows.Remove(dr);
-                // dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -574,7 +523,6 @@ namespace PlatinumWeb
             if (e.Item.Name == "Ruaj")
             {
                 Page.Validate("entries");
-              //  ruajVit();
                 ruajPeriudha();
             }
         }
@@ -605,20 +553,12 @@ namespace PlatinumWeb
 
         private void konfiguroVleraFillestare(int idPerdoruesi, int idNdermarrje, ResourceManager rm, CultureInfo ci, int idGjuha)
         {
-            //mbushComboLloji(cmbPeriudhaLloji);
             ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorise(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 137, rm, ci, idGjuha);
-            // funk.shtoKolonaPerLlogarine(txtLlogMbylljeViti);
-            //DbCore.clsFunksione.mbushComboLlogariaPaKolona(idPerdoruesi, idNdermarrje, txtLlogMbylljeViti);
-            //DbCore.clsFunksione.percaktoTemplateComboMeEnableCallback(txtLlogMbylljeViti);
             cmbKonfigurimi.SelectedIndex = 0;
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             mbushGridePeriudha();
-            //  mbushGrideVitesh();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idGjuha);
-            //konf.IdKonfigAmbjente = int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString());
-            //konf = new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasId(konf)[0];
             hfKonffillestar.Value = String.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
-            //cmbKonfigurimi.SelectedIndex = -1;
         }
 
         private void mbushGridViteshNgaSession()
@@ -646,7 +586,6 @@ namespace PlatinumWeb
         {
             DbCore.DbAdmin.colVitet colVitet = new DbCore.DbAdmin.colVitet();
             colVitet.merrGjitheVitetENdermarjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbAdmin.colVitet colVitet = dbAdmin.merrGjitheVitet();
             ASPxGridView_Vitet.DataSource = colVitet;
             ASPxGridView_Vitet.DataBind();
         }
@@ -654,17 +593,7 @@ namespace PlatinumWeb
         {
         }
         //public void mbushComboLloji(ASPxComboBox cmbPeriudhaLloji)
-        //{
-        //    CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
-        //    ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-        //    cmbPeriudhaLloji.Items.Add(rm.GetString("cmbItemNjeMujore", cultinf), 1);
-        //    cmbPeriudhaLloji.Items.Add(rm.GetString("cmbItemDyMujore", cultinf), 2);
-        //    cmbPeriudhaLloji.Items.Add(rm.GetString("cmbItemTreMujore", cultinf), 3);
-        //    cmbPeriudhaLloji.Items.Add(rm.GetString("cmbItemKaterMujore", cultinf), 4);
-        //    cmbPeriudhaLloji.Items.Add(rm.GetString("cmbItemGjashteMujore", cultinf), 5);
-        //    cmbPeriudhaLloji.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
 
-        //}
         private void konfiguroGridePeriudhash()
         {//konfigurohet grida
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -683,7 +612,6 @@ namespace PlatinumWeb
             col4.Visible = false;
             GridViewDataColumn col5 = gvPeriudha.Columns["MbarimiPeriudha"] as GridViewDataColumn;
             col5.Visible = false;
-          //  DbCore.clsFunksione.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvPeriudha, "gvPeriudha", "PostoEPaySlip.aspx");
             GridUtil.konfiguroGrideRegjistrimEvogelPaTheme(gvPeriudha, "IdPeriudha");
         }
 
@@ -715,113 +643,26 @@ namespace PlatinumWeb
             gvPeriudha.AllColumns["EmerPeriudha"].Caption = rm.GetString("columnHeaderEmerPeriudha", ci);
         }
         //public void ruajVit()
-        //{
-        //    DbCore.DbAdmin.clsViti viti;
-        //    if (Page.IsValid == false)
-        //        return;
         //    else
-        //    {
-        //        int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-        //        int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-        //        int idGjuha = DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session);
-        //        System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-        //        System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-        //        if (isValidVit(idNdermarrje, rm, ci))
-        //        {
-        //            bool eshteShtim;
         //            viti = 
-        //                krijoVit(idPerdoruesi);
             
-        //            DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-        //            DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
-        //            konf.IdKategori = 137;
-        //            konf.IdNdermarje = -1;
-        //            DbCore.DbShare.colKonfigurimAmbjenti colKonf = new DbCore.DbShare.colKonfigurimAmbjenti();
-        //            colKonf.mbushKonfigAmbjSipasIdKategori(konf.IdKategori, konf.IdNdermarje, idPerdoruesi, idGjuha);
-        //            konf = colKonf[0];
-        //            DbCore.DbShare.clsKonfigurimAmbjenti konfvkos = new DbCore.DbShare.clsKonfigurimAmbjenti();
-        //            konfvkos.IdKategori = 137;
-        //            konfvkos.IdNdermarje = -3;
-        //            DbCore.DbShare.colKonfigurimAmbjenti colKonfkos = new DbCore.DbShare.colKonfigurimAmbjenti();
-        //            colKonfkos.mbushKonfigAmbjSipasIdKategori(konfvkos.IdKategori, konfvkos.IdNdermarje, idPerdoruesi, idGjuha);
-        //            if (colKonfkos.Count > 0) konfvkos = colKonfkos[0];
-        //            //konf=new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasIdKategori(konf, DbCore.mySessionObjects.ktheIdPerdoruesi(Session))[0];
-        //            DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
 
-        //            tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), "PostoEPaySlip.aspx");
-        //            if (hfShtimModifikim.Value == "shtim" || hfShtimModifikim.Value == "klonim")
-        //            {
-        //                if (!tedrejtaInfo.DShtim)
-        //                {
-        //                    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
-        //                    hfStatusi.Value = "false";
-        //                    return;
-        //                }
-        //                mesazh = viti.ruaj(ruajPeriudha(), konf.IdKonfigAmbjente, konfvkos.IdKonfigAmbjente);
-        //                eshteShtim = true;
-        //            }
         //            else
-        //            {
-        //                if (!tedrejtaInfo.DMod)
-        //                {
-        //                    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", ci), pnlMesazhi);
-        //                    hfStatusi.Value = "false";
-        //                    return;
-        //                }
-        //                eshteShtim = false;
-        //                DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
-        //                konf.mbushKonfigAmbjSipasId(viti.IdKonfig, idGjuha);
-        //                // konf.IdKonfigAmbjente = viti.IdKonfig;
-        //                //konf = new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasId(konf)[0];
 
-        //                viti.IdViti = int.Parse(hfId.Value.ToString());
-        //                bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(viti.IdViti.ToString(), konf.IdNivel.ToString());
-        //                if (lidhur.ToString() != hfLidhur.Value)
-        //                {
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = rm.GetString("msgVitetKaVeprimeMeKeteVit", ci);
-        //                }
         //                else
-        //                    mesazh = viti.modifiko(ruajPeriudha(), Session);
-        //                dbRegjistrim.Dispose();
-        //            }
-        //            if (mesazh.Status)
-        //            {
-        //                clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("labelRaportMesazhRuajtjaPerfundoiSukses", ci), pnlMesazhi);
-        //                hfStatusi.Value = "true";
-        //                if (eshteShtim)
-        //                    shtoVitNeGrid(idNdermarrje, viti.IdViti, rm, ci);
         //                else //modifikim
-        //                    modifikoVitNeGrid(idNdermarrje, viti.IdViti, rm, ci);
-        //            }
         //            else
-        //            {
-        //                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiGabime", ci), pnlMesazhi);
-        //                hfStatusi.Value = "false";
-        //            }
-        //            ASPxPageControl1.ActiveTabIndex = 0;
 
-        //            // mbushGrideVitesh();
-        //        }
         //        //else
         //        //{
-        //        //    // mbushGrideVitesh();
         //        //}
-        //    }
-        //    pnlMesazhi.Update();
-        //}
 
         public DbCore.DbAdmin.clsViti krijoVit(int idPerdoruesi)
         {
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbShare.clsKonfigurimAmbjenti konfig = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konfig.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, idNdermarrje);
-            //int idllogari = DbCore.DbKontabiliteti.clsLlogari.mbushIDLlogariSipasKodit(this.txtLlogMbylljeViti.Text.Split(';')[0], idNdermarrje);
-            //DateTime mbyllurme = new DateTime();
-            //if (this.lblDateMbyllurMe.Text != "")
-            //    mbyllurme = DateTime.Parse(lblDateMbyllurMe.Text);
             //viti = new DbCore.DbAdmin.clsViti(txtKodi.Text, dteFillimiViti.Date, dteMbarimiViti.Date, cmbPeriudhaLloji.Value.ToString(), cbPeriudhaHapjes.Checked,
-            //    cbPeriudhaMbylljes.Checked, idPerdoruesi, konfig.IdKonfigAmbjente, idNdermarrje, 1, mbyllurme, idllogari);
             return viti;
         }
         private void ruajPeriudha()
@@ -881,287 +722,15 @@ namespace PlatinumWeb
             pnlMesazhi.Update();
            
         }
-        //private DbCore.DbAdmin.colPeriudhaKontabel llogaritPeriudhat(int llojperiudha)
-        //{
-        //    DbCore.DbAdmin.colPeriudhaKontabel periudhat = new DbCore.DbAdmin.colPeriudhaKontabel();
-        //    String[] muajt = { "Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nentor", "Dhjetor" };
-        //    if (cbPeriudhaHapjes.Checked == true)
-        //    {
-        //        DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //        per.NrPeriudha = 0;
-        //        per.EmerPeriudha = DbCore.DbAdmin.clsPeriudhaKontabel.periudheFillestare;
-        //        per.Ekycur = false;
-        //        per.FillimiPeriudha = dteFillimiViti.Date;
-        //        per.MbarimiPeriudha = dteFillimiViti.Date;
-        //        periudhat.Add(per);
-        //    }
-        //    int periudhavjetore = ((dteMbarimiViti.Date.Month - dteFillimiViti.Date.Month) + 1) + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year);
 
-        //    if (llojperiudha == 1)
-        //    {
-
-        //        for (int i = 0; i < periudhavjetore; i++)
-        //        {
-        //            int month = (dteFillimiViti.Date.Month + i);
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = i + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(i);
-        //            per.MbarimiPeriudha = dteFillimiViti.Date.AddMonths(i + 1).AddDays(-1);
-        //            if (month == dteMbarimiViti.Date.Month + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year))
-        //                per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-
-        //    }
-        //    else if (llojperiudha == 2)
-        //    {
-        //        for (int i = 0; i < periudhavjetore / 2; i++)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + 2 * i;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = i + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(2 * i);
-        //            per.MbarimiPeriudha = dteFillimiViti.Date.AddMonths(2 * i + 2).AddDays(-1);
-        //            if (month == dteMbarimiViti.Date.Month + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year))
-        //                per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        if (periudhavjetore % 2 == 1)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 1;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 2 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 1);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-
-        //            periudhat.Add(per);
-        //        }
-        //    }
-        //    else if (llojperiudha == 3)
-        //    {
-        //        for (int i = 0; i < periudhavjetore / 3; i++)
-        //        {
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            int month = dteFillimiViti.Date.Month + 3 * i;
-        //            per.NrPeriudha = i + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(3 * i);
-        //            per.MbarimiPeriudha = dteFillimiViti.Date.AddMonths(3 * i + 3).AddDays(-1);
-        //            if (month == dteMbarimiViti.Date.Month + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year))
-        //                per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        if (periudhavjetore % 3 == 1)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 1;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 3 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 1);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 3 == 2)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 2;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 3 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 2);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //    }
-        //    else if (llojperiudha == 4)
-        //    {
-        //        for (int i = 0; i < periudhavjetore / 4; i++)
-        //        {
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            int month = dteFillimiViti.Date.Month + 4 * i;
-        //            per.NrPeriudha = i + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12] + "-" + muajt[(month + 2) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(4 * i);
-        //            per.MbarimiPeriudha = dteFillimiViti.Date.AddMonths(4 * i + 4).AddDays(-1);
-        //            if (month == dteMbarimiViti.Date.Month + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year))
-        //                per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        if (periudhavjetore % 4 == 1)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 1;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 4 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 1);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 4 == 2)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 2;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 4 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 2);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 4 == 3)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 3;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 4 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 3);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-
-        //    }
-        //    else if (llojperiudha == 5)
-        //    {
-        //        for (int i = 0; i < periudhavjetore / 6; i++)
-        //        {
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            int month = dteFillimiViti.Date.Month + 6 * i;
-        //            per.NrPeriudha = i + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12] + "-" + muajt[(month + 2) % 12] + "-" + muajt[(month + 3) % 12] + "-" + muajt[(month + 4) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(6 * i);
-        //            per.MbarimiPeriudha = dteFillimiViti.Date.AddMonths(6 * i + 6).AddDays(-1);
-        //            if (month == dteMbarimiViti.Date.Month + 12 * (dteMbarimiViti.Date.Year - dteFillimiViti.Date.Year))
-        //                per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        if (periudhavjetore % 6 == 1)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 1;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 6 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 1);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 6 == 2)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 2;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 6 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 2);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 6 == 3)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 3;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 6 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 3);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 6 == 4)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 4;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 6 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12] + "-" + muajt[(month + 2) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 4);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-        //        else if (periudhavjetore % 6 == 5)
-        //        {
-        //            int month = dteFillimiViti.Date.Month + periudhavjetore - 5;
-        //            DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-        //            per.NrPeriudha = periudhavjetore / 6 + 1;
-        //            per.EmerPeriudha = muajt[(month - 1) % 12] + "-" + muajt[month % 12] + "-" + muajt[(month + 1) % 12] + "-" + muajt[(month + 2) % 12] + "-" + muajt[(month + 3) % 12];
-        //            per.Ekycur = false;
-        //            per.FillimiPeriudha = dteFillimiViti.Date.AddMonths(periudhavjetore - 5);
-        //            per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //            periudhat.Add(per);
-        //        }
-
-
-        //    }
-        //    if (this.cbPeriudhaMbylljes.Checked == true)
-        //    {
-        //        DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-
-        //        per.NrPeriudha = periudhavjetore;
-        //        per.EmerPeriudha = DbCore.DbAdmin.clsPeriudhaKontabel.periudheMbyllje;
-        //        per.Ekycur = false;
-        //        per.FillimiPeriudha = dteMbarimiViti.Date;
-        //        per.MbarimiPeriudha = dteMbarimiViti.Date;
-        //        periudhat.Add(per);
-        //    }
-        //    return periudhat;
-        //}
 
         private bool isValidVit(int idNdermarrje, ResourceManager rm, CultureInfo ci)
         {
             bool isValid;
             isValid = true;
             DbCore.DbAdmin.clsViti viti = new DbCore.DbAdmin.clsViti();
-            //viti.KodiViti = txtKodi.Text;
-            //viti.IdNdermarje = idNdermarrje;
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-            //if (this.txtLlogMbylljeViti.Text != "")
-            //{
-            //    if (!DbCore.DbKontabiliteti.clsLlogari.ekzistonLlogari(this.txtLlogMbylljeViti.Text.Split(';')[0], idNdermarrje))
-            //    {
-            //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgCeljeArkaBankaLlogariaNukEkziston", ci), pnlMesazhi);
-            //        hfStatusi.Value = "false";
-            //        return false;
-            //    }
-            //    else if (!DbCore.DbKontabiliteti.clsLlogari.eshteLlogariAktive(this.txtLlogMbylljeViti.Text.Split(';')[0], idNdermarrje))
-            //    {
-            //        clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgCeljeArkaBankaLlogariaNukEshteAktive", ci), pnlMesazhi);
-            //        hfStatusi.Value = "false";
-            //        return false;
-            //    }
             //    else
-            //    {
-            //        DbCore.DbKontabiliteti.clsLlogari llog = new DbCore.DbKontabiliteti.clsLlogari(this.txtLlogMbylljeViti.Text.Split(';')[0], idNdermarrje);
-            //        //DbCore.DbAdmin.clsNdermarrje nder = new DbCore.DbAdmin.clsNdermarrje(idNdermarrje);
-            //        if (llog.IdMonedha != DbCore.DbAdmin.clsNdermarrje.ktheIdMonedheNdermSipasID(idNdermarrje))
-            //        {
-            //            clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgLlogariaDuhetTeJetENeMonedhenBaze", ci), pnlMesazhi);
-            //            hfStatusi.Value = "false";
-            //            return false;
-            //        }
-            //    }
-            //}
-            //if (!dbAdmin.ekzistonVit(viti.KodiViti, viti.IdNdermarje).Status && (hfShtimModifikim.Value == "shtim" || hfShtimModifikim.Value == "klonim"))
-            //{
-            //    isValid = false;
-            //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgVitetEkziston1VitMeKeteKod", ci), pnlMesazhi);
 
-            //    hfStatusi.Value = "false";
-            //    return isValid;
-            //}
-            //dbAdmin.Dispose();
             return isValid;
         }
 
@@ -1185,10 +754,8 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "ASPxGridView_Vitet", komponente, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), int.Parse(cmbKonfigurimi.Value.ToString()));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     if (filtra.FiltraKodi != null)
                     {
                         ASPxGridView_Vitet.FilterExpression = filtra.FiltraVlera;
@@ -1281,25 +848,9 @@ namespace PlatinumWeb
         DbCore.DbAdmin.colPeriudhaKontabel periudhat;
         protected void gvPeriudha_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
-            //if (cmbPeriudhaLloji.Value != null)
           
-            //    int.TryParse(cmbPeriudhaLloji.Value.ToString(), out llojperiudha);
             string[] argumenta = e.Parameters.Split(',');
-            //if (argumenta[0] == "-1")
-            //{
-            //    DbCore.DbAdmin.colPeriudhaKontabel periudhat = new DbCore.DbAdmin.colPeriudhaKontabel();
-            //   // periudhat = llogaritPeriudhat(llojperiudha);
-            //    hfKycje.Value = "";
-            //    for (int i = 0; i < periudhat.Count; i++)
-            //    {
-            //        hfKycje.Value += i + ":" + periudhat[i].Ekycur + ";";
-            //    }
-            //    gvPeriudha.DataSource = periudhat;
-            //    gvPeriudha.DataBind();
-            //    konfiguroGridePeriudhash();
-            //}
             //else
-            //{
                 int id = 0;
               
                 int.TryParse(this.ASPxGridView_Vitet.GetRowValues(int.Parse(argumenta[0]), "IdViti").ToString(), out id);
@@ -1307,35 +858,7 @@ namespace PlatinumWeb
                 System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
                 periudhat.merrSipasVitiEpaySlip(id, ci);
                
-               // periudhat = new DbCore.DbAdmin.clsDatabaseAdmin().merrPeriudhaSipasViti(id);
-                //if (cbPeriudhaHapjes.Checked)
-                //{
-                //    if (periudhat[0].NrPeriudha != 0)
-                //    {
-                //        DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
 
-                //        per.NrPeriudha = 0;
-                //        per.EmerPeriudha = DbCore.DbAdmin.clsPeriudhaKontabel.periudheFillestare;
-                //        per.Ekycur = false;
-                //        periudhat.Insert(0, per);
-                //    }
-                //}
-                //else if (periudhat[0].NrPeriudha == 0)
-                //{
-                //    periudhat.RemoveAt(0);
-                //}
-                //if (cbPeriudhaMbylljes.Checked)
-                //{
-                //    if (periudhat[periudhat.Count - 1].EmerPeriudha != DbCore.DbAdmin.clsPeriudhaKontabel.periudheMbyllje)
-                //    {
-                //        DbCore.DbAdmin.clsPeriudhaKontabel per = new DbCore.DbAdmin.clsPeriudhaKontabel();
-
-                //        per.NrPeriudha = periudhat.Count + 1;
-                //        per.EmerPeriudha = DbCore.DbAdmin.clsPeriudhaKontabel.periudheMbyllje;
-                //        per.Ekycur = false;
-                //        periudhat.Add(per);
-                //    }
-                //}
                 //else 
                 if (periudhat[periudhat.Count - 1].EmerPeriudha == DbCore.DbAdmin.clsPeriudhaKontabel.PeriudheMbyllje || periudhat[periudhat.Count - 1].EmerPeriudha == DbCore.DbAdmin.clsPeriudhaKontabel.PeriudheMbyllje)
                 {
@@ -1366,7 +889,6 @@ namespace PlatinumWeb
                 gvPeriudha.DataBind();
                 konfiguroGridePeriudhash();
 
-          //  }
 
         }
         protected void txtLlogMbylljeViti_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
@@ -1375,7 +897,6 @@ namespace PlatinumWeb
             {
                 if (Request.Params["__CALLBACKID"].Contains("txtLlogMbylljeViti"))
                 {
-                  //  DbCore.clsFunksione.mbushComboLlogariaPaKolona(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), txtLlogMbylljeViti);
                 }
             }
 

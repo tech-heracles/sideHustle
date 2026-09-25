@@ -43,7 +43,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.Fatura_AutoElite
             ResourceManager rm = new ResourceManager("Resources.Strings",
                        System.Reflection.Assembly.Load("App_GlobalResources"));
 
-          //  xrLabel1.Text = rm.GetString("RaportLibretMirembajtjeAutomjetiTitulli", ci);
             xrLabel13.Text = rm.GetString("labelAdresaUpperCase", ci);
             xrLabel7.Text = rm.GetString("labelKmAktuale", ci);
             xrLabel9.Text = rm.GetString("labelPershkrimVeprimiUpperCase", ci);

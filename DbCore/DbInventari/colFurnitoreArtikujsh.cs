@@ -121,20 +121,12 @@ namespace DbCore.DbInventari
         private bool mbushFurnitoreArtikujsh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFurnitoreArtikulli furnitoreArtikulli = new clsFurnitoreArtikulli();
-                    //furnitoreArtikulli.mbushFurnitoreArtikulli(rreshti);
                     this.Add(new clsFurnitoreArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

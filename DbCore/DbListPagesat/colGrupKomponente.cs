@@ -62,19 +62,11 @@ namespace DbCore.DbListPagesat
         private bool mbushGrupeKomponente(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupKomponente grup = new clsGrupKomponente();
-                    //grup.mbushGrupKomponente(rreshti);
                     Add(new clsGrupKomponente(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

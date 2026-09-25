@@ -27,7 +27,6 @@ namespace PlatinumWeb
         private const string komponente = "ABInventariPerdorues.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -125,7 +124,6 @@ namespace PlatinumWeb
             gvinventariPerdorues.KeyFieldName = "RreshtiId";
            
              
-
         }
 
         private void percaktoTemplateMenu()
@@ -215,7 +213,6 @@ namespace PlatinumWeb
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {
         }
-
 
 
         protected void gvinventariPerdorues_HtmlFooterCellPrepared(object sender, ASPxGridViewTableFooterCellEventArgs e)

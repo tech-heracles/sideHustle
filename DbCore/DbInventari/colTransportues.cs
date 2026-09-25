@@ -167,18 +167,10 @@ namespace DbCore.DbInventari
         private bool mbushTransportuesit(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTransportues transportues = new clsTransportues();
-                    //transportues.mbushTransportues(rreshti);
                     this.Add(new clsTransportues(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

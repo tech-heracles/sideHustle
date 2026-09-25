@@ -640,8 +640,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel56.Text = rm.GetString("labelRaportiShuma", ci);
             xrLabel61.Text = rm.GetString("labelRaportiRritjaMjeteveMonetare", ci);
             xrLabel80.Text = rm.GetString("labelRaportiMjeteMonetareFundPeriudhe", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha");
-
 
 
         }

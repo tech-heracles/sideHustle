@@ -11,7 +11,6 @@ $(window).load(function () {
 
 $(window).bind('resize', function () {//po
     try {
-        //document.getElementById("menu").style.width = document.documentElement.clientWidth - 50;
         ASPxPanel1.SetWidth(document.documentElement.clientWidth - 20);
     }
     catch (e) {
@@ -105,7 +104,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 function SucceededCallbackKonfig(result) {
     $("#dvTransp").show();//$("#dvTransp")[0].style.visibility = 'visible';
-    //$("#dvTransp")[0].style.display = '';
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
@@ -121,29 +119,9 @@ function SucceededCallbackKonfig(result) {
     }
 }
 
-//function LupaKontrollet(kontrollet, colAtrTrupi) {
-//    var hf1 = $("#hfLupaGrupi");
-//    var hf2 = $("#hfLupaNengrupi");
-//    var hf3 = $("#hfLupaKpf1");
-//    for (var i = 0; i < kontrollet.length; i++) {
 
 //        //id e konfigurimit te lupes vendoset ne hidden field
 //        //vlera e saj do t'i kalohet si query string hapjes se popUp-it
-//        if (kontrollet[i].KodKontrolli == "cmbGrupi") {
-//            hf1.val(colAtrTrupi[i].IdKonfigAmbjenteLupa);
-//            continue;
-//        }
-//        if (kontrollet[i].KodKontrolli == "cmbNengrupi") {
-//            hf2.val(colAtrTrupi[i].IdKonfigAmbjenteLupa);
-//            continue;
-//        }
-//        if (kontrollet[i].KodKontrolli == "cmbKpf1") {
-//            hf3.val(colAtrTrupi[i].IdKonfigAmbjenteLupa);
-//            continue;
-//        }
-//    }
-//}
-
 
 
 /*
@@ -155,15 +133,12 @@ Shiko funksionet  <ndryshoKonfigurimin>.
 function EndRequestHandler(sender, args) {
     var hf = $("#hfStatusi");
     if (hf.val() == "true") {
-        //        if (hfShtimModifikim.val() != "modifikim") {
         window.mbush = false;
         $('#hfShtimModifikim').val("shtim"); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
         //hfId.val(0); //hidden fieldi qe ruan id  e rreshtit te selektuar
         //indexModifiko = -1; //indexi i reshtit te selektuar  
         var emertimi = txtTransportues.GetText();
-        // var emertimi = $('#hfEmertimi').value;
         pastrofusha();
-        //InitiComboKategoriaLloji();
         hf.val("false");
 
 
@@ -206,8 +181,6 @@ function pastrofusha() {
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //        var hfLidhur = $("#hfLidhur")[0];
-    //        myFaqeCelje.aktivizoFusha(vlerat, hfMod, hfLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 

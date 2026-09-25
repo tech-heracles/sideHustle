@@ -54,7 +54,6 @@ namespace DbCore.DbProdhimi
         }
 
 
-
         #endregion
 
         #region Metoda Private
@@ -66,19 +65,11 @@ namespace DbCore.DbProdhimi
         private bool mbushUrdherPorosiPlanifikim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsUrdherPorosiPlanifikim upp = new clsUrdherPorosiPlanifikim();
-                    //upp.mbushUrdherPorosiPlanifikim(rreshti);
                     Add(new clsUrdherPorosiPlanifikim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

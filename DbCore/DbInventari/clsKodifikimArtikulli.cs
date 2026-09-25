@@ -26,7 +26,6 @@ namespace DbCore.DbInventari
         private int idPrindi;
         private int nivelKodifikimi;
         private int idPerdoruesi;
-        //private int idNderViti;
         private int idNdermarje;
         private int idStatusDok;
         private DateTime dtKrijimi;
@@ -104,10 +103,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
 
         /// <summary>
         /// Kthen/Vendos ID-ne e prindit.
@@ -293,7 +290,6 @@ namespace DbCore.DbInventari
             this.idPrindi = idPrindi;
             this.nivelKodifikimi = nivelKodifikimi;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idNdermarje;
             this.idStatusDok = idStatusDok;
             this.llojKodifikimi = llojKodifikimi;
@@ -345,7 +341,6 @@ namespace DbCore.DbInventari
             this.idLlogariPakesim = idllogpakesimi;
             this.nrLlogPakesimi = nrllogpakesimi;
             this.colNorma = new DbAsete.colGrupNormaAmortizimi();
-            //this.hfArkiva = hfArkiva;
         }
 
         /// <summary>
@@ -365,7 +360,6 @@ namespace DbCore.DbInventari
             this.idPrindi = idPrindi;
             this.nivelKodifikimi = nivelKodifikimi;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idNdermarje;
             this.idStatusDok = idstatusdok;
             this.llojKodifikimi = llojKodifikimi;
@@ -616,7 +610,6 @@ namespace DbCore.DbInventari
             using (var scope=new MyTransactionScope())
             {
                 clsDatabaseInventari data = new clsDatabaseInventari();
-                //data.beginTransaksion();
                 clsMesazh u_ruajt = ruaj(data);
                 if (!u_ruajt.Status)
                     return u_ruajt;
@@ -631,7 +624,6 @@ namespace DbCore.DbInventari
                         return u_ruajt;                    
                 }
                 scope.Complete();
-                //clsMesazh u_ruajt = data.ruajKodifikimArtikulli(this);
                 return u_ruajt;
             }
         }
@@ -681,12 +673,9 @@ namespace DbCore.DbInventari
                 if (!u_modifikua.Status)
                 {
                     return u_modifikua;
-                    //if (!u_modifikua.Status)
-                    // data.commitTransaksion();
                     
                 }
                 scope.Complete();
-               // else data.rollbackTransaksion();
                 return u_modifikua;
             }
         }
@@ -712,7 +701,6 @@ namespace DbCore.DbInventari
             }
 
 
-
             return u_modifikua;
         }
 
@@ -726,7 +714,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiKodifikimArtikulliStatus(this.IdKodifikimi, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiKodifikimArtikulli(this);
             return u_fshi;
         }
 
@@ -751,15 +738,12 @@ namespace DbCore.DbInventari
             using (var scope=new MyTransactionScope())
             {
                 DbCore.DbAsete.clsDatabazeAsete dbAsete = new DbCore.DbAsete.clsDatabazeAsete();
-                //dbAsete.beginTransaksion();
                 clsMesazh mesazh = fshiKodifikimArtDheLidhjeStandartStatusMag(dbAsete);
                 if (!mesazh.Status)
                 {
-                    //dbAsete.rollbackTransaksion();
                     return mesazh;
                 }
                 scope.Complete();
-                //dbAsete.commitTransaksion();
                 return mesazh;
             }
         }
@@ -787,7 +771,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.merrKodifikimArtikulliPaKthim(this.IdKodifikimi);
             data.Dispose();
-            //data.merrKodifikimArtikulli(this);
         }
 
         public bool ekziston()
@@ -897,7 +880,6 @@ namespace DbCore.DbInventari
                     int.TryParse(dbDataRowKodifikimArtikulli["IDPRINDI"].ToString(), out idPrindi);
                     int.TryParse(dbDataRowKodifikimArtikulli["NIVELKODIFIKIMI"].ToString(), out nivelKodifikimi);
                     int.TryParse(dbDataRowKodifikimArtikulli["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowKodifikimArtikulli["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowKodifikimArtikulli["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowKodifikimArtikulli["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowKodifikimArtikulli["DTKRIJIMI"].ToString(), out dtKrijimi);

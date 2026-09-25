@@ -80,21 +80,13 @@ namespace DbCore.DbProdhimi
         private bool mbushKokaPlanifikim(DataTable dt, clsDatabazeProdhimi db)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaPlanifikim koka = new clsKokaPlanifikim();
-                    //koka.mbushKokaPlanifikim(rreshti, db);
                     Add(new clsKokaPlanifikim(rreshti, db));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

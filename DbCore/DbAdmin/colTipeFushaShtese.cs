@@ -84,19 +84,11 @@ namespace DbCore.DbAdmin
         private bool mbushTipeFushashShtese(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTipiFushaShtese tipiFushaShtese = new clsTipiFushaShtese();
-                    //tipiFushaShtese.mbushTipFushShtese(rreshti);
                     Add(new clsTipiFushaShtese(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -119,5 +111,4 @@ namespace DbCore.DbAdmin
         }
     }
 }
-
 

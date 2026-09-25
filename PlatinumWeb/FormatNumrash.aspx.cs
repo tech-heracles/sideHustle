@@ -98,7 +98,6 @@ namespace PlatinumWeb
 
             konfiguroGride();
             konfiguroGrideTrupi(idPerdoruesi, idNdermarrje);
-            //percaktoTemplateTrupi(idNdermarrje, idPerdoruesi);
            
             AspxWebControlUtils.perkthePopUp(popFshi, rm.GetString("labelKujdes", cultinf), lblMsgbox, rm.GetString("labelAdministrimiMsgJeniSigurt", cultinf), ButtonCancel, rm.GetString("labelAnullo", cultinf));
         }
@@ -169,20 +168,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvFormati.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdFormatKonfig", gvFormati);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvFormati.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdFormatKonfig";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -236,7 +223,6 @@ namespace PlatinumWeb
         private void konfiguroGride()
         {//konfigurohet grida
             GridUtil.konfigGrideListeEMadhePaTheme(gvFormati, "IdFormatKonfig");
-            //KonfigurimComboGride.ShtoKategoriNivelDokPerFormatNumrash(gvFormati, Session, komponente, guidString, "IdKategoria");
         }
 
         /// <summary>
@@ -317,37 +303,10 @@ namespace PlatinumWeb
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)
         {//veprimet e menuse
             #region Kod i vjeter i komentuar
-            //if (e.Item.Name == "Shto" || e.Item.Name == "Modifiko")
-            //{
-            //    DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //    if (isValidFormat())
-            //    {
-            //        DbCore.DbShare.colFormatKonfig formatet = new DbCore.DbShare.colFormatKonfig();
-            //        formatet = ruajFormatKonfig();
 
-            //        mesazh = formatet.ruajFormatet(formatet);
 
-            //        if (!mesazh.StatusMesazhi == true)
-            //        {
-            //            pergjigja.Text = mesazh.PershkrimMesazhi;
-            //            mbushListeFormatesh();
-            //            //percaktoTemplateFormatesh();
-            //        }
             //        else
-            //        {
-            //            pergjigja.Text = "Ndryshimet e konfigurimit te numrave u ruajten me sukses.";
-            //            pergjigja.ForeColor = Color.Green;
-            //            mbushListeFormatesh();
-            //            //percaktoTemplateFormatesh();
-            //        }
-            //    }
             //    else
-            //    {                   
-            //        konfiguroVleraFillestare(); 
-            //        konfiguroGride();
-            //        //percaktoTemplateFormatesh();
-            //    }
-            //}
             #endregion
 
             if (e.Item.Name == "Ruaj")
@@ -470,7 +429,6 @@ namespace PlatinumWeb
                 dt.ImportRow(newFormatDr);
             }
             else mbushListeFormatesh(idNdermarrje);
-           // konfiguroGride();
         }
 
         private void modifikoFormatNrNeGrid(int idNdermarrje, int idPerdorues, int idFormati)
@@ -491,7 +449,6 @@ namespace PlatinumWeb
                 dr.ItemArray = arr;
             }
             else mbushListeFormatesh(idNdermarrje);
-           // konfiguroGride();
         }
 
         /// <summary>
@@ -598,16 +555,6 @@ namespace PlatinumWeb
 
         protected void gvFormati_DataBound(object sender, EventArgs e)
         {//shton butonin fshi
-            //if (this.gvFormati.Columns["Fshi"] == null)
-            //{
-            //    GridViewDataTextColumn fshi = new GridViewDataTextColumn();
-            //    fshi.Caption = "Fshi";
-            //    fshi.Width = 50;
-            //    gvFormati.Columns.Add(fshi);                  
-            //    gvFormati.KeyFieldName = "IdFormatKonfig";
-            //    gvFormati.SettingsBehavior.AllowSelectByRowClick = false;
-            //    gvFormati.SettingsBehavior.AllowFocusedRow = true;
-            //}
         }
 
         protected void gvFormati_HeaderFilterFillItems(object sender, ASPxGridViewHeaderFilterEventArgs e)
@@ -707,8 +654,6 @@ namespace PlatinumWeb
                     txt1.ClientEnabled = false;
                 }
 
-                //DbCore.DbShare.colFormatNr colFormat = new DbCore.DbShare.colFormatNr();
-                //colFormat.mbushFormatNr();
                 if (cmb2 != null)
                 {
                     cmb2.ClientEnabled = true;
@@ -718,18 +663,6 @@ namespace PlatinumWeb
                     cmb2.DropDownStyle = DropDownStyle.DropDownList;
                     if (cmb2.Items.Count == 0)
                         ConfigureAspxComboBox.mbushComboFormateNumrashNew(cmb2);
-                    //cmb2.TextFormatString = "{1}";
-                    //cmb2.DataSource = colFormat;
-                    //if (cmb2.Columns.Count == 0)
-                    //{
-                    //    ListBoxColumn colprove = new ListBoxColumn();
-                    //    colprove.FieldName = "KodFormati";
-                    //    ListBoxColumn colemer = new ListBoxColumn();
-                    //    colemer.FieldName = "VlereFormati";
-                    //    cmb2.Columns.Add(colprove);
-                    //    cmb2.Columns.Add(colemer);
-                    //}
-                    //cmb2.ValueField = "IdFormatNr";                    
                 }
                 if (cmb3 != null)
                 {
@@ -740,18 +673,6 @@ namespace PlatinumWeb
                     cmb3.DropDownStyle = DropDownStyle.DropDownList;
                     if (cmb3.Items.Count == 0)
                         ConfigureAspxComboBox.mbushComboFormateNumrashNew(cmb3);
-                    //cmb3.TextFormatString = "{1}";
-                    //cmb3.DataSource = colFormat;
-                    //if (cmb3.Columns.Count == 0)
-                    //{
-                    //    ListBoxColumn colprove = new ListBoxColumn();
-                    //    colprove.FieldName = "KodFormati";
-                    //    ListBoxColumn colemer = new ListBoxColumn();
-                    //    colemer.FieldName = "VlereFormati";
-                    //    cmb3.Columns.Add(colprove);
-                    //    cmb3.Columns.Add(colemer);
-                    //}
-                    //cmb3.ValueField = "IdFormatNr";
                 }
                 if (cmb4 != null)
                 {
@@ -762,18 +683,6 @@ namespace PlatinumWeb
                     cmb4.DropDownStyle = DropDownStyle.DropDownList;
                     if (cmb4.Items.Count == 0)
                         ConfigureAspxComboBox.mbushComboFormateNumrashNew(cmb4);
-                    //cmb4.TextFormatString = "{1}";
-                    //cmb4.DataSource = colFormat;
-                    //if (cmb4.Columns.Count == 0)
-                    //{
-                    //    ListBoxColumn colprove = new ListBoxColumn();
-                    //    colprove.FieldName = "KodFormati";
-                    //    ListBoxColumn colemer = new ListBoxColumn();
-                    //    colemer.FieldName = "VlereFormati";
-                    //    cmb4.Columns.Add(colprove);
-                    //    cmb4.Columns.Add(colemer);
-                    //}
-                    //cmb4.ValueField = "IdFormatNr";
                 }
                 if (cmb5 != null)
                 {
@@ -803,7 +712,6 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn col3 = gvTrupiFormatNr.Columns["ShifraPasPresjesCmimi"] as GridViewDataComboBoxColumn;
             GridViewDataComboBoxColumn col4 = gvTrupiFormatNr.Columns["ShifraPasPresjesVlefta"] as GridViewDataComboBoxColumn;
             GridViewDataComboBoxColumn col5 = gvTrupiFormatNr.Columns["ShifraPasPresjesZbritja"] as GridViewDataComboBoxColumn;
-            //col1.DataItemTemplate = new MyTextTemplate();
             col2.DataItemTemplate = new MyComboTemplateFormatNr(DbCore.mySessionObjects.ktheCultureInfo(Session));
             col3.DataItemTemplate = new MyComboTemplateFormatNr(DbCore.mySessionObjects.ktheCultureInfo(Session));
             col4.DataItemTemplate = new MyComboTemplateFormatNr(DbCore.mySessionObjects.ktheCultureInfo(Session));

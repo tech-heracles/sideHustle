@@ -19,7 +19,6 @@ namespace DbCore.DbShare
         }
 
 
-
         public clsDatabaseShare(DbData db) : base(db)
         {
         }
@@ -322,7 +321,6 @@ namespace DbCore.DbShare
         }
 
       
-
         internal DataRow merrRaportDesignOrigjinalSipasIdDesign(int idRaportDesign)
         {
             dbManager.Open();
@@ -598,7 +596,6 @@ namespace DbCore.DbShare
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKOKAFILTER", idKokaFilter, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FILTERTRUPI_merrTrupinMeIdKoka");
-            //DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FILTERKOKA_merrTrupin");
             return ds.Tables[0];
         }
 
@@ -646,7 +643,6 @@ namespace DbCore.DbShare
         }
 
      
-
         internal DataTable merrKomponentPerFilter(int idFilter)
         {
             dbManager.Open();
@@ -800,7 +796,6 @@ namespace DbCore.DbShare
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FILTERKOKA_selDefault");
             return ds.Tables[0];
         }
-
 
 
         #endregion KOKA E FILTRAVE
@@ -2913,7 +2908,6 @@ namespace DbCore.DbShare
         }
         
   
-
         internal clsMesazh ModifikoSipasPathit(string oldPath, string newPath, string newFileName, int idPerdoruesi,String emerConn)
         {
             dbManager.Open();
@@ -2971,7 +2965,6 @@ namespace DbCore.DbShare
             dbManager.AddParameters(0, "@DTARKIVA", dtArkiva, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDDOK", idDok, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(3, "@ConnEmer", emerConn, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_Arkiva_insDT");
 
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);

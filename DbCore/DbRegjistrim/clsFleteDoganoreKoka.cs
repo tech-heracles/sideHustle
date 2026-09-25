@@ -100,7 +100,6 @@ namespace DbCore.DbRegjistrim
             idPerdoruesi = idperdoruesi;
             this.importExport = importexport;
             oColTrupi = new colFleteDoganoreTrupi();
-            // oColDetajim = new colFleteDoganoreDetajim();
             oColTaksat = new colFleteDoganoreTaksa();
             oColTVSH = new colFleteDoganoreTVSH();
         }
@@ -467,8 +466,6 @@ namespace DbCore.DbRegjistrim
             return new clsMesazh(false, "Monedha nuk ekziston!");
            
 
-
-
             return new clsMesazh(true, "Kontrollet u kaluan me sukses!");
         }
 
@@ -658,14 +655,12 @@ namespace DbCore.DbRegjistrim
         {
             idkokare = 0;
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             clsMesazh mesazh = new clsMesazh();
             DbCore.clsMesazh mesazhKont = new DbCore.clsMesazh(true);
             try
             {   //obj koka qe i kalohet si parameter eshte si duhet te modifikohet
                 clsFleteDoganoreKoka kokaEkzistuese = new clsFleteDoganoreKoka(id);
-                //clsFleteDoganoreKoka kokaEkzistuese = this.merrFleteDoganoreKokaSipasId(koka.IdFleteDoganoreKoka);
                 if (string.IsNullOrEmpty(kokaEkzistuese.NrDok) || kokaEkzistuese.IdStatusDok == 2)
                 {
                     dbRegj.rollbackTransaksion();
@@ -678,8 +673,6 @@ namespace DbCore.DbRegjistrim
                 kokaEkzistuese.OFleteKontabel = new clsKokaFleteKontabel();
                 clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(dbRegj );
                 clsKokaFleteKontabel newclsKokaFleteKontabel = new clsKokaFleteKontabel(kokaEkzistuese.IdFleteDoganoreKoka, 8, dbkontab);
-                //if (newclsKokaFleteKontabel.IdStatusDokumenti == 0)
-                //{
                     kokaEkzistuese.OFleteKontabel = newclsKokaFleteKontabel;
                     DbQendraKosto.clsKokaQendraKosto kokaqendra = new DbQendraKosto.clsKokaQendraKosto();
                     kokaqendra.KtheKokaQKSipasIDGjeneruesDheKonfigMeTrup(newclsKokaFleteKontabel.IdKokaFleteKontabel, newclsKokaFleteKontabel.IdKonfigAmbjente, dbqendra);
@@ -688,14 +681,10 @@ namespace DbCore.DbRegjistrim
                         kokaEkzistuese.OFleteKontabel.KokaQendraKosto = kokaqendra;
                     }
                     else kokaEkzistuese.OFleteKontabel.KokaQendraKosto = new DbQendraKosto.clsKokaQendraKosto();
-                    //if (dbkontab.merrKokaFleteKontabelSipasIDDokAndIDLlojDok(kokaEkzistuese.IdFleteDoganoreKoka, 70).Count > 0)
-                    //{
-                    //    DbKontabiliteti.clsKokaFleteKontabel kokaFleteKontabel = dbkontab.merrKokaFleteKontabelSipasIDDokAndIDLlojDok(kokaEkzistuese.IdFleteDoganoreKoka, 70)[0];
                     oFleteKontabel.IdDokNga = kokaEkzistuese.OFleteKontabel.IdKokaFleteKontabel;
                     oFleteKontabel.KokaQendraKosto.IdDokNga = kokaEkzistuese.OFleteKontabel.KokaQendraKosto.IdKoka;
                     if (kokaEkzistuese.OFleteKontabel.IdKokaFleteKontabel != 0)
                         mesazhKont = kokaEkzistuese.OFleteKontabel.ModifikoFleteKontabel(true, dbkontab);
-                //}
                 if (mesazh.Status && mesazhKont.Status)
                 {
                     mesazh = ruajFleteDoganoreKokaMeTransaksion(out id, nrDk, dtDk, dtRegj, idMon, kurs, vlFat, vlM, vlTransp, vlSig, vlTj, vlDog, idStatus, idnderm, idndermvit, idkonfig, idnivel, iddoknga, idnivelgjenerues, idkonfiggjenerues, idgjenerues, oColTrupi, oColTaksat, oFleteKontabel, meKontabilizim, oColTVSH, dbRegj, idperdoruesi, rm, ci);
@@ -769,7 +758,6 @@ namespace DbCore.DbRegjistrim
         {
 
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             clsMesazh mesazh = new clsMesazh(true);
             DbCore.clsMesazh mesazhKont = new DbCore.clsMesazh(true);

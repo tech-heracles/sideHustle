@@ -17,7 +17,6 @@ public partial class SelectionToolTip : ASPxSchedulerToolTipBase {
     public override string ClassName { get { return "ASPxClientSelectionToolTip"; } }
 
     protected void Page_Load(object sender, EventArgs e) {
-        //DevExpress.Web.ASPxWebControl.RegisterBaseScript(Page);
     }
     protected override void OnLoad(EventArgs e) {
         base.OnLoad(e);

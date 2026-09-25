@@ -231,18 +231,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKomponente(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsKomponentePage komp = new clsKomponentePage();
-                //komp.mbushKomponente(rreshti);
                 Add(new clsKomponentePage(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

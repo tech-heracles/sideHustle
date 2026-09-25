@@ -72,7 +72,6 @@ namespace PlatinumWeb
             int idNdermarrje = (int)hfState["idNdermarrje"];
             int idGjuha = (int)hfState["idGjuha"];
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNdermarrje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "ASPxGridView_Detyrat", "CRMDetyra.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
             if (filtra.FiltraKodi != null)
@@ -80,7 +79,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1, eshteLupe);
                 if (mesazh.Status == true)
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -181,7 +179,6 @@ namespace PlatinumWeb
             }
 
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti(int.Parse(cmbKonfigurimi.Value.ToString()), idGjuha);
-            //konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()), idgjuha);
 
             konfiguroGrideDetyrash(idNdermarrje, konf.KodKonfigAmbjente, idKomponente);
 
@@ -235,7 +232,6 @@ namespace PlatinumWeb
         /// <param name="e">      argumentat </param>
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)
         {
-            //percaktoTemplateMenu(idgjuha, idviti, idperdoruesi, idNdermarrje, ASPxMenu1, eshteLupe);
         }
 
         /// <summary>
@@ -257,22 +253,9 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Detyrat.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_Detyrat);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = ASPxGridView_Detyrat.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Kodi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
             filtri.IdNdermarje = idNdermarrje;
@@ -376,7 +359,6 @@ namespace PlatinumWeb
                 rreshtat = new List<object>();
                 rreshtat.Add(hfId.Value);
             }
-            // List<object> rreshtat = ASPxGridView_Automjete.GetSelectedFieldValues("IdAutomjeti"); 
             if (rreshtat.Count == 0)
             {
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazhZgjidhniNje, pnlMesazhi);
@@ -477,15 +459,8 @@ namespace PlatinumWeb
         {
             if (e.CallbackName == "COLUMNMOVE" && ASPxGridView_Detyrat.AllColumns[int.Parse(e.Args[0])].Width.Value == 0)
                 ASPxGridView_Detyrat.AllColumns[int.Parse(e.Args[0])].Width = System.Web.UI.WebControls.Unit.Percentage(3);
-            //if (e.CallbackName == "APPLYFILTER" && e.Args[0] == "")
-            //{
-            //    MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
-            //    ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            //    cmbFiltra.Text = "";
-            //}
             CultureInfo cultinf = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo((int)hfState["idGjuha"]);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //DbCore.clsFunksione.ToolTipButonaveMbiGride(ASPxGridView_Detyrat, cultinf, rm);
         }
 
         /// <summary>
@@ -720,7 +695,6 @@ namespace PlatinumWeb
 
             mesazh = GridUtil.ruajkonfigurimgride(ASPxGridView_Detyrat, cmbKonfigurimi.Text, idNdermarrje, idPerdoruesi, 2011, idfiltri, idViti, DbCore.mySessionObjects.ktheCultureInfo(Session), DbCore.mySessionObjects.ktheGjuhe(Session));/// ruan konfigurimin e grides dhe filtrin
             clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "ASPxGridView_Detyrat ", int.Parse(cmbKonfigurimi.Value.ToString()), "CRMDetyra.aspx");
-            //percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1, eshteLupe);
             return mesazh;
         }
 
@@ -832,7 +806,6 @@ namespace PlatinumWeb
                 else //modifikim
                     modifikoDetyreNeGrid(idNdermarrje, idPerdoruesi, detyra.IdDetyre);
                 hfStatusi.Value = "true";
-                // konfiguroGrideDetyrash(idNdermarrje, cmbKonfigurimi.Text.Split(';')[0], 2011); 
                 ASPxPageControl1.ActiveTabIndex = 0;
 
                 ScriptManager1.RegisterDataItem(hfId, detyra.IdDetyre.ToString());
@@ -851,10 +824,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPageControl1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, this.ASPxPageControl1, null, null);
 
             hfNrAutoDet = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoDet, hfNrAuto, "txtKodi", "KodDetyra");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoDet, hfNrAuto, "txtKodi", "KodDetyra");
 
             if (txtKodi.Text == "")
                 throw new DbCore.MyException("Plotesoni kodin e detyres!");
@@ -1048,17 +1019,7 @@ namespace PlatinumWeb
                 else
                 {
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvLupaAnketa, arr[2], "gvLupaAnketa", "CRMDetyra.aspx", 1);
-                    //DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), "gvLupaAnketa", "CRMDetyra.aspx", idNdermarrje);
-                    //filtra.mbushFilterPerGrideSipasKodit(arr[2], idNdermarrje, koka.IdGridaKoka);
-                    //if (filtra.FiltraKodi != null)
-                    //{
-                    //    gvLupaAnketa.FilterExpression = filtra.FiltraVlera;
-                    //    if (filtra.DrejtimRenditje == true)
-                    //        gvLupaAnketa.SortBy(gvLupaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
                     //    else
-                    //        gvLupaAnketa.SortBy(gvLupaAnketa.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
-                    //}
                 }
             }
             else if (arr.Length == 2)//nese eshte zgjedhur nje konfigurim tek combo e konfigurimeve
@@ -1129,7 +1090,6 @@ namespace PlatinumWeb
 
         private void konfiguroGrideAnketash(string kodKonfigurimi, int idKomponente)
         {
-            //funk.konfiguroGrideListeMadhe(gvLupaAnketa, "IdAutorizimKoka");
 
             GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, "gvLupaAnketa", gvLupaAnketa, kodKonfigurimi, idKomponente.ToString(), idGjuha);
 

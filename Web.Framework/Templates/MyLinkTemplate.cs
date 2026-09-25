@@ -31,7 +31,6 @@ namespace PlatinumWeb.Templates
             else
             {
                 text.Text = "Raporti";
-             //   text.Value = "javascript: window.open('" + DbCore.clsFunksione.zevendesoKaraktere(gridContainer.Text) + "')";
                 text.ClientSideEvents.Click = "function(s,e){ window.open('" + DbCore.clsFunksione.zevendesoKaraktere(gridContainer.Text) + "&windowWidth="+width+"')}";
             
                 text.Width = Unit.Percentage(100);

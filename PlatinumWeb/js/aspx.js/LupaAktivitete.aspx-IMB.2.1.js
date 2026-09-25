@@ -76,17 +76,7 @@ function OnGridSelectionComplete(values) {
 
             window.parent.selectFunc(null, null, idKontrolli, values[4], kodi);
             window.parent.$(idKontrolli).focus();
-//            if (window.parent.editorKodi.GetText() != kodi) {
 
-//                window.parent.editorKodi.SetText(kodi);
-//                window.parent.editorEmertimi.SetText(emri);
-//                window.parent.editorNjes.SetText(values[3] == 1 ? 'sec' : values[3] == 2 ? 'min' : values[3] == 3 ? 'ore' : 'dite');
-//                window.parent.kontrollo(window.parent.keyGlobal);
-//                window.parent.arr[1][window.parent.keyGlobal] = window.parent.keyGlobal.toString() + ":" + kodi;
-//                window.parent.arr[2][window.parent.keyGlobal] = window.parent.keyGlobal.toString() + ":" + emri;
-//                window.parent.arr[5][window.parent.keyGlobal] = window.parent.keyGlobal.toString() + ":" + kodi;
-//            }
-//            window.parent.editorKodi.SetFocus();
         } else if (Utils.getUrlVar('vjenNga') == 'SkedulimProdhimi') {
             var grida = window.parent.$('#rowed5');
             var idRresht = grida.getLastSel2();
@@ -109,10 +99,6 @@ function OnGridSelectionComplete(values) {
     window.parent.popupUniversal.Hide();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
         OnGridSelectionChanged(gvLupaAktivitetet.GetFocusedRowIndex());

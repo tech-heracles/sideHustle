@@ -221,7 +221,6 @@ function inicializoGride(rreshtat) {
     ];
 
     
-        
     var gridParams = {
         emergride: pageState.selektoriGrides,
         emerEditorKodi: "txtSeriali",
@@ -274,7 +273,6 @@ function fshiClicked(index) {//po
     var Artikulli = grida.getTekstQelize('txtArtikulli', index);
     if (!grida.merrTeDhenaPerQelizen('txtSeriali', index, "Gabim")) {
         HiqSerial(seriali);
-        //UpdateNrSerial(false);
     }
     if (Artikulli && Artikulli.length != 0)
         KaNdryshime = true;

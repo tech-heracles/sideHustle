@@ -61,11 +61,6 @@ namespace DbCore.DbArkaBanka
                 mbushVeprimeBankaKoka(db.ktheGjitheVeprimetBankaPerTuLidhur(idkokashitje));
             }
         }
-        //public static DataTable merrVeprimBankaDT(int idndermvit, int idkategoria, int idperdoruesi)
-        //{
-        //    clsDatabaseArkaBanka dbartikuj = new clsDatabaseArkaBanka();
-        //    return dbartikuj.merrVeprimBankaDT(idndermvit, idkategoria, idperdoruesi);
-        //}
 
         /// <summary>        
         /// Kthen dokumentat e regjistrimeve Arka/Banka ne DataTable.
@@ -88,62 +83,17 @@ namespace DbCore.DbArkaBanka
         private bool mbushVeprimeBankaKoka(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsVeprimBankaKoka koka = new clsVeprimBankaKoka();
-                    //koka.mbushVeprimBankaKoka(rreshti);
                     Add(new clsVeprimBankaKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
         #endregion
         //[Obsolete("Perdor: bool mbushVeprimeBankaKoka(DataTable dt)", true)]
-        //public colVeprimBankaKoka mbushArrayListVeprimeBanka(DataSet ds)
-        // {
-        //     colVeprimBankaKoka col = new colVeprimBankaKoka();
-        //     foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //     {
-        //         clsVeprimBankaKoka koka = new clsVeprimBankaKoka();
 
-        //         koka.IdKoka = int.Parse(rreshti[0].ToString());
-        //         koka.IdBanka = int.Parse(rreshti[1].ToString());
-        //         koka.Kursi= int.Parse(rreshti[2].ToString());
-        //         koka.DateDokumenti = DateTime.Parse(rreshti[3].ToString());
-        //         koka.DateRegjistrimi = DateTime.Parse(rreshti[4].ToString());
-        //         koka.NrDokumenti = rreshti[5].ToString();
-        //         koka.NrReference = int.Parse(rreshti[6].ToString());
-        //         koka.NrSerial = rreshti[7].ToString();
-        //         koka.PershkrimiKoka = rreshti[8].ToString();
-        //         koka.IdMenyrePagese = int.Parse(rreshti[9].ToString());
-        //         koka.Vlera = double.Parse(rreshti[10].ToString());
-        //         koka.VleraMonedhaBaze = double.Parse(rreshti[11].ToString());
-        //         koka.KomisioniBankar = double.Parse(rreshti[12].ToString());
-        //         koka.KomisioniMonedhaBaze = double.Parse(rreshti[13].ToString());
-        //         koka.LlojiVeprimit = rreshti[14].ToString();
-        //         koka.IdPerdoruesi = int.Parse (rreshti[15].ToString());
-        //         koka.IdLlojDokumenti = int.Parse(rreshti[16].ToString());
-        //         koka.IdStatusDokumenti = int.Parse(rreshti[17].ToString());
-        //         koka.IdNderViti = int.Parse(rreshti[18].ToString());
-        //         koka.IdKonfigAmbjente = int.Parse(rreshti[19].ToString());
-        //         koka.IdNivelGjenerues = int.Parse(rreshti[20].ToString());
-        //         koka.IdKonfigGjenerues = int.Parse(rreshti[21].ToString());
-        //         koka.IdGjenerues = int.Parse(rreshti[22].ToString());
-        //         koka.IdNivel = int.Parse(rreshti[23].ToString());
-        //         koka.IdDokNga = int.Parse(rreshti[24].ToString());
-        //         ////DbCore.DbKontabiliteti.clsDatabaseKontabilitet data = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
 
-        //         ////koka.o = data.ktheKokaFleteKontabel();
-        //         col.Add(koka);
-        //     }
-        //     return col;
-        //}
     }
 }

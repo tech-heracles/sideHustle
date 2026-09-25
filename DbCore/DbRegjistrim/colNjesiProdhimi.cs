@@ -51,19 +51,11 @@ namespace DbCore.DbRegjistrim
         private bool mbushNjesiteEProdhimit(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNjesiProdhimi njesiProdhimi = new clsNjesiProdhimi();
-                    //njesiProdhimi.mbushNjesiProdhimi(rreshti);
                     Add(new clsNjesiProdhimi(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -102,8 +102,6 @@ namespace DbCore.DbAdmin
 
         public static DataTable merrTeDrejtatPerKompRaportesh(int roli, int idNdermarrje, int idviti, clsDatabaseAdmin db)
         {
-            //if (db == null)
-            //    db = new clsDatabaseAdmin();
             DataTable dt = db.merrTeDrejtatPerKompRaportesh(roli, idNdermarrje, idviti);
             return dt;
         }
@@ -511,9 +509,6 @@ namespace DbCore.DbAdmin
         private DataRow mbushTeDrejtenRolTrup(DataTable dataTableHeader, clsTeDrejtaRoli edrejtaRolTrup)
         {
             DataRow rreshti = dataTableHeader.NewRow();
-            //rreshti["IDNDERMARRJE"] = edrejtaRolTrup.IdNdermarrje;
-            //rreshti["IDVITI"] = edrejtaRolTrup.IdViti;
-            //rreshti["IDROLI"] = edrejtaRolTrup.IdRoli;
             rreshti["IDDREJTA"] = edrejtaRolTrup.IdDrejta;
             rreshti["IDKOMPONENTE"] = edrejtaRolTrup.IdKomponente;
             rreshti["D_MOD"] = edrejtaRolTrup.DMod;

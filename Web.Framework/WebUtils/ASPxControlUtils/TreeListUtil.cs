@@ -55,7 +55,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         }
 
 
-
         public static TreeListComboBoxColumn KrijoTreeListComboBoxColumnSipasKolonesEkzistuese(TreeListColumn oldColumn)
         {
             return new TreeListComboBoxColumn
@@ -171,7 +170,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                 string kodkonfigurimi = paramKodKonfigurimi;
                 clsKonfigurimAmbjenti clsKonf = new clsKonfigurimAmbjenti();
                 clsKonf.mbushKonfiguriminMeKod(kodkonfigurimi, idNdermarrje, idGjuha);
-                //DbCore.DbShare.colKonfigurimAmbjenti colKonf = share.ktheKonfiguriminMeKod(kodkonfigurimi, DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
                 idKonfigurim = clsKonf.IdKonfigAmbjente;
             }
             else
@@ -179,7 +177,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                 idkomponente = paramIdKomponente;
                 clsKonfigurimAmbjenti clsKonf = new clsKonfigurimAmbjenti();
                 clsKonf.mbushKonfigDefaultKomponentes(int.Parse(idkomponente), idNdermarrje);
-                //DbCore.DbShare.colKonfigurimAmbjenti colKonf = share.ktheKonfigDefaultKomponentes(int.Parse(idkomponente), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                 idKonfigurim = clsKonf.IdKonfigAmbjente;
             }
             colGridaTrupi colGrida = new colGridaTrupi(idKonfigurim, idGjuha);

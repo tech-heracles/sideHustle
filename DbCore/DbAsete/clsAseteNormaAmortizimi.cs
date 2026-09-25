@@ -43,25 +43,7 @@ namespace DbCore.DbAsete
 
         #endregion
 
-        //public clsAseteNormaAmortizimi krijoPerImport(string kodartikulli, string llojamortizimi, string standart, string normemagazine, double norme, int indermarje, bool shtim, DateTime dtkativizimi)
-        //{
         //    try
-        //    {
-        //        IdArtikulli = DbInventari.clsArtikulli.ktheIdArtikulli(kodartikulli, indermarje);
-        //        if (normemagazine == "Artikull")
-        //            NormeMagazine = false;
-        //        else if (normemagazine == "Magazine")
-        //            NormeMagazine = true;
-        //        else throw new MyException("Kjo lloj norme nuk ekziston!");
-        //        IdStandartAmortizimi = clsStandarteAmortizim.merrIDStandartinAmortizimitTeNdermarrjesSipasEmertimit(standart, indermarje);
-        //        IdLlojAmortizimi = clsAseteLlojAmortizimi.ktheIdLlojAmortizimiSipasEmertimit(llojamortizimi);
-        //        return new clsAseteNormaAmortizimi(IdArtikulli, IdLlojAmortizimi, IdStandartAmortizimi, NormeMagazine, norme, kodartikulli, llojamortizimi, standart, indermarje, shtim, true, dtkativizimi);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //}
 
         #region Metoda Internal
 

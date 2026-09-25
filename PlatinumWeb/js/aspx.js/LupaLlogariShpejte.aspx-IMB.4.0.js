@@ -17,7 +17,6 @@ $(window).load(function () {
 
 $(window).bind('resize', function () {//po
     try {
-        //document.getElementById("menu").style.width = document.documentElement.clientWidth - 50;
         ASPxPanel1.SetWidth(document.documentElement.clientWidth - 20);
     }
     catch (e) {
@@ -144,7 +143,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 function SucceededCallbackKonfig(result) {
     $("#dvLlogari").show();//$("#dvLlogari")[0].style.visibility = 'visible';
-    //$("#dvLlogari")[0].style.display = '';
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
@@ -153,7 +151,6 @@ function SucceededCallbackKonfig(result) {
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfMod = $('#hfShtimModifikim');
-        //hfMod.val('shtim');
         var arrTabela = ['tblInformacion'];
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPanel");
         var monedha = hfState.Get("MonedhaNder");

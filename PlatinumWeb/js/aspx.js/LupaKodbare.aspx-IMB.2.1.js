@@ -19,8 +19,6 @@ $(document).keydown(function (e) {
             gvLupaKodbar.PerformCallback();
         }
         else Utils.ktheKontroll('txtPershkrimi' + parseFloat(parseFloat(indeksi) + parseFloat(1))).SetFocus(true);
-        //                e.returnValue = false;
-        //                e.cancel = true;
     }
 });
 var indeksi;
@@ -38,9 +36,6 @@ function TextChangedPershkrimi(editor, key) {
         myMesazh.ShtoMesazhGabimi('Kodbari nuk mund te permbaje Hapesira!');
         return;
     }
-//    if (key == 0) {
-//        window.parent.btneKodbari.SetText(editor.GetText());
-//    }
     if (key == gvLupaKodbar.cpNoRows - 1) {//shton rresht kur jemi ne rreshtin e fundit
         indexCounter = indexCounter + 1;
         gvLupaKodbar.PerformCallback();
@@ -98,7 +93,6 @@ function merrTeDhenaNew() {//merren te dhenat qe ka grida dhe ruhen tek hidden f
         }
         if (editorEmer.GetText() == '' || editorEmer.GetText() == ' ' || editorEmer.GetText() == null)
             continue;
-        //kodbaret[i] = { indeksi: i, pershkrimi: editorEmer.GetText(), njesia: editorNjesia.GetValue(), detajimi1: editorDetajimi1.GetText(), detajimi2: editorDetajimi2.GetText() };
         kodbaret[i] = { indeksi: i, pershkrimi: editorEmer.GetText(), njesia: editorNjesia.GetValue(), detajimi1: editorDetajimi1.GetValue() == null ? "0" : editorDetajimi1.GetValue(), detajimi2: editorDetajimi2.GetValue() == null ? "0" : editorDetajimi2.GetValue() };
         if (i != gvLupaKodbar.cpNoRows - 1)
             kodbaretString += editorEmer.GetText() + ',';

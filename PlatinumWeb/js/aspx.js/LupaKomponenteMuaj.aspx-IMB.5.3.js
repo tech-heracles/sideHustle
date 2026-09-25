@@ -50,7 +50,6 @@
     };
 
 
-
     var models = (function () {
         //mbajme referencen e prindit per arsye performance
         var modeliPrind = window.parent.lupaKomponente.models.Komponentet;
@@ -361,7 +360,6 @@
                 }
                 if (e.item.name == "Anullo") {
                     controller.UpdateTotalet(true);
-                    //app.view.popupUniversalPrindi.Hide();
                     e.processOnServer = false;
                 }
             },

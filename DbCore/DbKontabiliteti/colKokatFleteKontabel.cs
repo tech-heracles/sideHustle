@@ -143,8 +143,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public colKokatFletetKontabel merrGjitheFletetKontabelTePaKontabilizuara(int idNdermvit)
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
-            //return db.merrGjitheFletetKontabelTePaKontabilizuara(idNdermvit);
             colKokatFletetKontabel koka = new colKokatFletetKontabel(idNdermvit);
             return koka;
         }
@@ -175,21 +173,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushKokaFleteveKontabel(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaFleteKontabel kokaFleteKontabel = new clsKokaFleteKontabel();
-                    //kokaFleteKontabel.mbushKokaFleteKontabel(rreshti);
                     Add(new clsKokaFleteKontabel(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

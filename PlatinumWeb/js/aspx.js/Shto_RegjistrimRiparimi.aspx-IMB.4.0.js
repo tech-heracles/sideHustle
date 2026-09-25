@@ -50,7 +50,6 @@ ekzekutohet sa here i behet resize faqes, dhe ben resize te grides
         }
 
     }).trigger('resize');
-    //formoArrayKolonaGrides();
 
     var isLidhur = ($("input[id$='hfLidhur']").val().toLowerCase() === 'true');
 
@@ -75,11 +74,7 @@ ekzekutohet sa here i behet resize faqes, dhe ben resize te grides
         Utils.resizeSplitter();
 
     });
-    //jQuery("#rowed5").hideCol("txtMagazina2");        
 });
-
-
-
 
 
 var indeksi = -1;
@@ -92,7 +87,6 @@ var identifikuesPerPopupMakro;
 var identifikuesPerPopupMagazina;
 var NivelCmimi; // variabel qe mban nivelin e cmimit qe i eshte caktuar klientit qe kemi zgjedhur
 
-//var arrDetajimetSelektuara = new Array();
 
 function changeName() {
     myFaqeCelje.shtoHandlerSession();
@@ -153,7 +147,6 @@ function ButtonClickKerko(listUrl) {
 function Init() {
     if (typeof (isPostBack) == "undefined") {
         editorData = dteDtDok;
-        //    callWebserviceKonfigurimi("510"); //510 = id komponente (Shto_RegjistrimMagazine.aspx)
         var hf = document.getElementById("hfKonffillestar");
 
         cmbKonfigurimi.SetText(hf.value);
@@ -228,10 +221,7 @@ function SucceededCallbackKonfig(result) {
         $("#divgride6").show();//$("#divgride6")[0].style.visibility = 'visible'; $("#divgride6")[0].style.display = '';
     }
     $("#dvFillim").show();//$("#dvFillim")[0].style.visibility = 'visible';
-    //$("#dvFillim")[0].style.display = '';
     $("#dvFundi").show();//$("#dvFundi")[0].style.visibility = 'visible';
-    //$("#dvFundi")[0].style.display = '';
-    // $("#divfund1")[0].style.visibility = 'visible';
     vendosDateDefault();
     NivelCmimi = 0;
 
@@ -240,8 +230,6 @@ function SucceededCallbackKonfig(result) {
     colAlterKusht = result.colAlterKusht;
     var kodniveli = result.kodniveli;
     $('#HfGridCol').val(JSON.stringify(colGrida));
-    //var kontrollet = vlerat[0].split(';');
-    //kushtet = vlerat[2].split(';');
 
     var hfMag = $("#hfLupaMagazina")[0];
     var hfrivleresim = $('#hfKontrollRivleresim');
@@ -263,8 +251,6 @@ function SucceededCallbackKonfig(result) {
     }
     btneMagazina.SetSelectedIndex(0);
     var modinfo = 0;
-    //   btnMagazina.SetEnabled(false);
-    //   btnMagazina.SetText();   
     for (j = 0; j < colKushte.length; j++) {
 
         if (colKushte[j].Kodi == 'KR') {
@@ -276,7 +262,6 @@ function SucceededCallbackKonfig(result) {
 
     }
 
-    //formoArrayKolonaGrides();
     var isLidhur = (hfLidhur.val().toLowerCase() === 'true');
     var lloji = cmbLloji.GetText();
     shfaqSwap(false);
@@ -313,7 +298,6 @@ function TextChangedLloji() {
 }
 
 
-
 function callWebserviceNiveliNew(lloji, tipi, mod) {
     try {
       $.ajax({
@@ -335,7 +319,6 @@ function SucceededCallbackNiveliNew(colModelet) {
 }
 
 var colNjesiVartese;
-
 
 
 /*
@@ -389,17 +372,14 @@ function resetCountera() {
 }
 
 
-
 /*
 Function: pastroFushatKokes
     
 Pastron fushat pasi eshte bere ruajtja apo modifikimi per te bere gati ambjentin per shtim.
 */
 function pastroFushatKokes() {
-    //  cmbLloji.SetText('');
     txtIMEI.SetText('');
     btneMagazina.SetValue(null);;
-   // if (btneMagazina.GetItemCount() == 1)
         btneMagazina.SetSelectedIndex(0);
     txtGaranci.SetText('');
     cmbDorezuar.SetValue(3);
@@ -479,7 +459,6 @@ function EndRequestHandler(sender, args) {
 
 
     }
-    //  Utils.hiqLoadingGif();;
     if (hf.value == "true") {
 
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimRiparimi.aspx?shtim_modifikim=shtim', true);
@@ -515,7 +494,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            // myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
 
@@ -527,7 +505,6 @@ function menu_click(s, e) {
         }
         else {
             e.processOnServer = false;
-            //myMesazh.ShtoMesazhGabimi('Plotesoni te gjitha fushat');
         }
     }
     else if (e.item.name == 'Kerko') {
@@ -599,8 +576,6 @@ function RuajClick(s, e) {
                 }
           
          
-
-
             if (!kaimei) {
                 myMesazh.ShtoMesazhGabimi("Zgjidhni IMEI e artikullit loan!");
                 e.processOnServer = false;
@@ -626,19 +601,12 @@ function PastroClick() {
     pastroFushatKokes(); //gvArtLoan.PerformCallback("pastro");
     var hf = $("#hfShtimModifikim");
     ASPxMenu1.GetItemByName('Shto').SetVisible(true);
-    // ASPxMenu1.GetItemByName('PrintPreview').SetVisible(false);
-    //ASPxMenu1.GetItemByName('FletaKontabel').SetVisible(false); 
-    //ASPxMenu1.GetItemByName('Fshi').SetVisible(false);// ASPxMenu1.GetItemByName('QendraKosto').SetVisible(false);
     ASPxMenu1.GetItemByName('Draft').SetVisible(true);
     hf.val("shtim"); myMenu.menuSipasTeDrejtaRegjistrim(hf, hfTeDrejta);
-    //            if (hf.value == "modifikim") 
     cmbLloji.SetText('RF');
     TextChangedLloji();
  grid_faturat.PerformCallback("pastro");//gvArtLoan.PerformCallback("pastro");
     //  ndryshoKonfigurimin(); //duhet kur klijkojme butonin shto ne rastin kur kemi hap nje dok. per modifikim
-    //            jQuery("#rowed5").GridUnload("rowed5");
-    //            inicializoGride();
-    //            mbushGrideNgaHiddenFieldet();
     $("#ASPxSplitter1_hl").empty(); click = false;
 }
 
@@ -656,9 +624,6 @@ function ShfaqPeriudhen() {
 }
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
 function valueChangedPeriudha() {
@@ -671,7 +636,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -733,7 +697,6 @@ function EndCallback(s, e) {
 }
 
 function TextChangedImei(key) {  
-   // gvArtLoan.SelectRows(key);
     try {
         if (Utils.ktheKontroll('txtIMEI' + key).GetText() != "") {
             $.ajax({
@@ -839,8 +802,6 @@ function shfaqSwap(ndryshodorezuar) {
         lblIMEISwap.SetVisible(false);
         txtProdukti.SetVisible(false);
         lblProdukti.SetVisible(false);
-        //txtIMEISwap.SetText('');
-        //txtProdukti.SetText('');
 
     }
     if (cmbStatus.GetText() == "Aparati dorezuar Klientit" && grid_Loan.GetVisibleRowsOnPage() != 0) {

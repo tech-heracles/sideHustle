@@ -11,7 +11,6 @@ namespace DbCore.DbAdmin
 {
     public class clsTeDrejtaRoli : IDataBaseReader
     {
-        //public const string mySessionKey = "clsTeDrejtaRoli";
         #region Atributet
 
         private int idDrejta;
@@ -816,8 +815,6 @@ namespace DbCore.DbAdmin
 
         public static bool kaTeDrejtaRoliPerNdermarrjeDheVit(int idRoli, int idNdermarrje, int idViti, clsDatabaseAdmin db)
         {
-            //if (db == null)
-            //    db = new clsDatabaseAdmin();
             bool ekziston = db.kaTeDrejtaRoliPerNdermarrjeDheVit(idRoli, idNdermarrje, idViti);
             return ekziston;
         }
@@ -831,7 +828,6 @@ namespace DbCore.DbAdmin
 
             idDrejta = Convert.ToInt32(rreshti["IDDREJTA"]);
             idPrindi = colTeDrejtaRoli.rootPrindi;
-            //idPrindi = Convert.ToInt32(rreshti["IDPRINDI"]);
             idNdermarrje = Convert.ToInt32(rreshti["IDNDERMARRJE"]);
             idViti = Convert.ToInt32(rreshti["IDVITI"]);
             idModul = Convert.ToInt32(rreshti["IDMODULI"]);
@@ -882,7 +878,6 @@ namespace DbCore.DbAdmin
 
                 idDrejta = Convert.ToInt32(rreshti["IDDREJTA"]);
                 idPrindi = colTeDrejtaRoli.rootPrindi;
-                //idPrindi = Convert.ToInt32(rreshti["IDPRINDI"]);
                 idNdermarrje = Convert.ToInt32(rreshti["IDNDERMARRJE"]);
                 idViti = Convert.ToInt32(rreshti["IDVITI"]);
                 idModul = Convert.ToInt32(rreshti["IDMODULI"]);

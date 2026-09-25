@@ -56,21 +56,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushDetajimeRegjistrime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDetajimArtikulliRegjistrim det = new clsDetajimArtikulliRegjistrim();
-                    //det.mbushDetajimArtikullRegjistrim(rreshti);
                     Add(new clsDetajimArtikulliRegjistrim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -94,7 +86,6 @@ namespace DbCore.DbRegjistrim
             catch (Exception)
             {
                 return false;
-                //throw;
             }
             return true;
         }

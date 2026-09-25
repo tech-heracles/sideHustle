@@ -29,10 +29,8 @@ namespace PlatinumWeb
         private const string idKomponente = "3031";
 
   
-
         protected void Page_Load(object sender, EventArgs e)
          {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -156,7 +154,6 @@ namespace PlatinumWeb
 
                     clsFazaKontrate newRreshti = e.UpdateValues[i].MerrCustomUpdatedObject<clsFazaKontrate>(oldRreshti);
                     newRreshti.IdKrijues = idPerdoruesi;
-                  //  mesazhi = newRreshti.modifiko();
                 }
 
                 for (int i = 0; i < e.InsertValues.Count; i++)
@@ -171,9 +168,6 @@ namespace PlatinumWeb
                     };
                    
                     newRreshti = e.InsertValues[i].MerrCustomInsertedObject(newRreshti);
-                  //  int idFaze=0;
-                  //  mesazhi = newRreshti.ruaj(out idFaze);
-                 //   if (mesazhi.Status)
                         col.Add(newRreshti);
                 }
                 for (int i = 0; i < e.DeleteValues.Count; i++)
@@ -255,13 +249,6 @@ namespace PlatinumWeb
 
         }
 
-       // protected void gvFazat_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
-       // {
-            //int idUrdherPagesa = 0;
-            //clsMesazh mesazhi = clsRreshtaAmbjenti.EkzistonKyKod(e.NewValues["Pershkrimi"].ToString(), idUrdherPagesa, idNdermarrje);
-            //if (mesazhi.Status)
-            //    e.Errors[gvFazat.Columns["Pershkrimi"]] = mesazhi.PershkrimMesazhi;
 
-       // }
     }
 }

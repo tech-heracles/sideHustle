@@ -65,8 +65,6 @@ function aplikoFiltra(s, e) {
 }
 
 
-
-
 function gridFocusRowCanged(s, e) {
     mbush = true;
 }
@@ -162,7 +160,6 @@ e-eventi
 function menu_click(s, e) {
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            var hfKontrollet = $('#hfKontrollet');
     var ruajbuxhetet = false; //i here per i here
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, ruajbuxhetet, undefined, indexModifiko, pastrofusha, vendosKonfig, resultkonf, colKontrollet, aktivFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj') {

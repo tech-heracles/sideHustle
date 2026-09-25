@@ -31,7 +31,6 @@ namespace PlatinumWeb
                 int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 hfState.Set("idNdermarrje", idNdermarrje);
                 mbushgridaBosh();
-                //mbushPopUpListeNgaDB(id, true, idNdermarrje);
                 konfiguroGride();
             }
         }
@@ -161,7 +160,6 @@ namespace PlatinumWeb
                 DbCore.DbAsete.colAQTSeriale colzgjedhur = DbCore.mySessionObjects.merrSerialeArtikulliZgjedhurNgaSesioni(Session, id);
                 JavaScriptSerializer serializusi = new JavaScriptSerializer();
                 if (hfSeriale.Contains(id + "_" + lastsel))
-                    //  hfSeriale.Clear();
                     hfSeriale.Set(id + "_" + lastsel, serializusi.Serialize(colzgjedhur));
                 else hfSeriale.Add(id + "_" + lastsel, serializusi.Serialize(colzgjedhur));
 

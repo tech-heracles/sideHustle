@@ -59,7 +59,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrLabel9.Text = rm.GetString("labelAgjent", ci) + " 1";
             xrLabel10.Text = "% \n" + rm.GetString("labelAgjent", ci) + " 1";
             xrLabel11.Text = rm.GetString("labelAgjent", ci) + " 2";
-         //   xrLabel12.Text = "% \n" + rm.GetString("labelAgjent", ci) + " 2";
             xrLabel13.Text = rm.GetString("labelAgjent", ci) + " 3";
             xrLabel14.Text = "% \n" + rm.GetString("labelAgjent", ci) + " 3";
             xrLabel28.Text = rm.GetString("labelTotali", ci);

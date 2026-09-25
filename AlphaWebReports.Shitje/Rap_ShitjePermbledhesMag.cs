@@ -79,15 +79,11 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             }
 
             // cnt++;
-            // xrLabel7.Text = cnt.ToString();
         }
 
         private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (ndryshuar == true)
-            //    xrLabel36.Text = "";
             //else
-            //    xrLabel36.Text = String.Format("{0:#,#.00}", shumaNenTotal);
         }
 
         private void xrLabel16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -111,83 +107,41 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel26_AfterPrint(object sender, EventArgs e)
         {            
-            //if (GetCurrentColumnValue("NRDOK") != null)
-            //{
-            //    shumaMonBazeTVSH = shumaMonBazeTVSH + (Convert.ToDouble(GetCurrentColumnValue("TVSH").ToString()) * Convert.ToDouble(GetCurrentColumnValue("KURSI").ToString()));
-            //}
         }
 
         private void xrLabel38_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (ndryshuar == true)
-            //    xrLabel38.Text = "";
             //else
-            //    xrLabel38.Text = String.Format("{0:#,#.00}", shumaTVSH);
         }
 
         private void xrLabel40_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("NRDOK") != null)
-            //{
-            //    xrLabel40.Text = String.Format("{0:#,#.00}", shumaMonBazeTVSH);
-            //}
         }
 
         private void xrLabel37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         { 
-        //    if (ndryshuar == true)
-        //        xrLabel37.Text = "";
         //    else
-        //        xrLabel37.Text = String.Format("{0:#,#.00}", shumaZbritje);
         }
 
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //for (int i = 0; i < e.CalculatedValues.Count; i++)
-            //{
-            //    if (GetCurrentColumnValue("NRDOK") != null)
-            //    {
-            //        shumaNenTotal = shumaNenTotal + Convert.ToDouble(e.CalculatedValues[i]);
-            //    }
-            //}
         }
 
         private void xrLabel8_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //for (int i = 0; i < e.CalculatedValues.Count; i++)
-            //{
-            //    if (GetCurrentColumnValue("NRDOK") != null)
-            //    {
-            //        shumaZbritje = shumaZbritje + Convert.ToDouble(e.CalculatedValues[i]);
-            //    }
-            //}
         }
 
         private void xrLabel3_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //for (int i = 0; i < e.CalculatedValues.Count; i++)
-            //{
-            //    if (GetCurrentColumnValue("NRDOK") != null)
-            //    {
-            //        shumaTotal = shumaTotal + Convert.ToDouble(e.CalculatedValues[i]);
-            //    }
-            //}
         }
 
         private void xrLabel39_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (ndryshuar == true)
-            //    xrLabel39.Text = "";
             //else
-            //    xrLabel39.Text = String.Format("{0:#,#.00}", shumaTotal);
         }
 
         private void xrLabel2_AfterPrint(object sender, EventArgs e)
         {
-            //if (GetCurrentColumnValue("NRDOK") != null)
-            //{
-            //    shumaTVSH = shumaTVSH + Convert.ToDouble(GetCurrentColumnValue("TVSH").ToString());
-            //}
         }
         private void TotalLabels_SummaryCalculated(object sender, TextFormatEventArgs e)
         {

@@ -150,9 +150,7 @@ namespace PlatinumWeb
             else
             {
                 gvSeriale.DataSource = tmpObject;
-               // DbCore.mySessionObjects.RestoreFilter(idNdermarrje, Session, gvSeriale, Request.QueryString["kf"]);
                 gvSeriale.DataBind();
-               // DbCore.mySessionObjects.SaveFilter(idNdermarrje, Session, gvSeriale, Request.QueryString["kf"]);
                 tmpObject.Dispose();
             }
         }
@@ -160,17 +158,14 @@ namespace PlatinumWeb
         private void konfiguroPopupGride(int idPerdorues, int idNdermarrje)
         {//konfiguron popupgriden
             GridUtil.PercaktoVisibleColumnsGridSipasKodKonfigurimi(idNdermarrje, emerGride, gvSeriale, cmbKonfigurimi.Text, "445", DbCore.mySessionObjects.ktheGjuhe(Session));
-            //DbCore.clsFunksione.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), idNdermarrje, gvSeriale, emerGride, emerKomponente);
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //DbCore.clsFunksione.konfiguroGrideListeEvogelPopupiPaTheme(gvSeriale, "IdAQTSerial", rm, ci);
             GridUtil.konfigGrideListeEMadhePaTheme(gvSeriale, "IdAQTSerial");
             gvSeriale.Settings.ShowFilterRow = true;
             gvSeriale.Settings.ShowFilterRowMenu = true;
             gvSeriale.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
             gvSeriale.Columns["#"].VisibleIndex = 0;
             gvSeriale.SettingsPager.PageSize = 10;
-            //mbushPopUpSeriale(idNdermarrje);
         }
 
         protected void gvSeriale_DataBound(object sender, EventArgs e)
@@ -205,7 +200,6 @@ namespace PlatinumWeb
             System.Globalization.CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
             System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             GridUtil.ToolTipButonaveMbiGride(gvSeriale, cultinf, rm);
-            //gvSeriale.Selection.UnselectAll();
         }
 
         public static void mbushComboKonfigurimeshSipasKategorise(int idPerdoruesi, int idNdermarrje, ASPxComboBox combo, int kat, string nivel, int idGjuha, ResourceManager rm, CultureInfo cultinf)
@@ -407,19 +401,10 @@ namespace PlatinumWeb
                 ruajSeriale();
             }
             ////veprimet e menuse
-            //switch (e.Item.Name)
-            //{
             //    case "Modifiko":
-            //        int indeksi = gvSeriale.FocusedRowIndex;
-            //        gvSeriale.StartEdit(indeksi);
-            //        break;
             //    case "Pastro":
             //    case "Shto":
-            //        gvSeriale.AddNewRow();
-            //        break;
             //    default:
-            //        break;
-            //}
         }
 
 
@@ -588,10 +573,6 @@ namespace PlatinumWeb
             aqt.HistorikSeriali = new DbCore.DbAsete.clsHistorikAQTSeriale();
 
             aqt.HfArkiva = hfArkiva;
-            //colArkiva oArkiva = new colArkiva();
-            //if (hfArkiva != null)
-            //    oArkiva = clsArkiva.krijoArkiva(aqt.IdAQTSerial, 1, 116,DateTime.Now, idPerdoruesi, hfArkiva);
-            //aqt.OArkiva = oArkiva;
             if (aqt.MeSerialPerCope)
                 aqt.HistorikSeriali = new DbCore.DbAsete.clsHistorikAQTSeriale(aqt.IdAQTSerial, String.Empty, 0, 0, 0, 1, 0, 0, 1, aqt.IdNdermarrje, aqt.IdPerdoruesi, aqt.IdPerdoruesi, aqt.DtKrijimi, aqt.DtModifikimi);
 
@@ -621,20 +602,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvSeriale.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdAQTSerial", gvSeriale);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvSeriale.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdAQTSerial";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -643,7 +612,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, emerGride, 1, emerKomponente);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -667,7 +635,6 @@ namespace PlatinumWeb
                 filtra.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, emerGride, 1, emerKomponente);
                 percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
                 if (mesazh.Status == true)

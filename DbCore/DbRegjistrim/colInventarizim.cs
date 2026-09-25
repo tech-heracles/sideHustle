@@ -48,21 +48,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushInventarizime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsInventarizim inv = new clsInventarizim();
-                    //inv.mbushInventar(rreshti);
                     Add(new clsInventarizim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

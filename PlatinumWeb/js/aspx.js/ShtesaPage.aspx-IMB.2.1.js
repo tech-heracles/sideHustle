@@ -303,33 +303,6 @@ function menu_click(s, e) {
     else if (grida == "gvShtesaPage6")
         myMenu.menu_click_celjevogel(s, e, hfRuaj, gvShtesaPage6, hfTeDrejta);
 
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage") {
-//        gvShtesaPage.UpdateEdit();
-//        e.processOnServer = false;
-
-//    }
-
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage2") {
-//        gvShtesaPage2.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage3") {
-//        gvShtesaPage3.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage4") {
-//        gvShtesaPage4.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage5") {
-//        gvShtesaPage5.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-//    if (e.item.name == 'Ruaj' && grida == "gvShtesaPage6") {
-//        gvShtesaPage6.UpdateEdit();
-//        e.processOnServer = false;
-//    }
 
 }
 

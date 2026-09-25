@@ -25,7 +25,6 @@ namespace DbCore.DbListPagesat
         private System.Data.DataRow rreshti;
       
 
-
         #endregion
 
         #region Properties
@@ -232,8 +231,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
-
         #endregion
 
         #region Metoda Publike
@@ -338,21 +335,10 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi)
-        //{
-        //    clsDatabazeListPagesa data = new clsDatabazeListPagesa();
-        //    bool sukses = data.ekzistonOreShtese(date, idpunonjesi);
-        //    data.Dispose();
-        //    return sukses;
-        //}
         //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi, clsDatabazeListPagesa data)
-        //{
 
-        //    bool sukses = data.ekzistonOreShtese(date, idpunonjesi);
 
-        //    return sukses;
-        //}
         #endregion
 
         #region Metoda Internal

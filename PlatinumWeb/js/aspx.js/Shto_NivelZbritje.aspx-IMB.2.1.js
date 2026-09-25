@@ -120,7 +120,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 
 }
@@ -229,11 +228,9 @@ function SucceededCallbackKonfig(result) {
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblNivelZbritje'];
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
         gvNivelZbritje.PerformCallback("420" + ";" + cmbKonfigurimi.GetText());
     }
-    //$("#dvNiveli").show();//$("#dvNiveli")[0].style.visibility = 'visible';
 }
 
 function SucceededCallbackKonfigInit(result) {
@@ -245,14 +242,9 @@ function SucceededCallbackKonfigInit(result) {
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblNivelZbritje'];
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");        
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-    //$("#dvNiveli").show();
 }
-
-
-
 
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
@@ -267,15 +259,9 @@ function LupaKontrollet(kontrollet, colAtrTrupi) {
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //            myFaqeCelje.aktivizoFusha(vlerat, hfMod, hfLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
-//        function ndryshoKonfigurimin() {
-//            lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
-//            cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
 //           
-//            callWebserviceKonfigurimi("420" + ";" + cmbKonfigurimi.GetText());
-//        }
 
 function ndryshoKonfigurimin() {
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
@@ -285,7 +271,6 @@ function ndryshoKonfigurimin() {
 
 function ndryshoKonfiguriminInit() {
     callWebserviceKonfigurimiInit("420", cmbKonfigurimi.GetText());
-    //callWebserviceKonfigurimiInit("420" + ";" + cmbKonfigurimi.GetText());
 }
 
 function _getKeyCode(evt) {

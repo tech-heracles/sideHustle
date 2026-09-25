@@ -91,7 +91,6 @@ function OnGridSelectionChanged() {
 }
 
 function OnGridSelectionComplete(values) {
-    //    var s = new String();
     if (values.length == 0 || values == null) {
         alert("Ju lutemi, zgjidhni një rresht!");
         return;

@@ -36,7 +36,6 @@ namespace DbCore.DbAdmin
 
         private int idNdermarja;
         private int viti;
-        //private int idNderViti;
         private int idPerdoruesi;
         private int idStatusDok;
         private DateTime dtKrijimi;
@@ -77,12 +76,10 @@ namespace DbCore.DbAdmin
             gjatesiaNrAutom = gjatesianrautom;
             idNdermarja = idndermarja;
             viti = vit;
-            //idNderViti = idndermvit;
             idPerdoruesi = idperdoruesi;
             idStatusDok = idstatusdok;
             this.interval = interval;
             this.lajmeroPerparaNrFundit = lajmeroPerparaNrFundit;
-            //clsNrAutomatikFundit nr = new clsNrAutomatikFundit(idnrautom, ngadatanrautom, fillonnrautom, idperdoruesi, idndermarja, idstatusdok);
             oColNrAutoFundit = new colNrAutomatikFundit();
         }
 
@@ -113,7 +110,6 @@ namespace DbCore.DbAdmin
             gjatesiaNrAutom = gjatesianrautom;
             idNdermarja = idndermarja;
             viti = vit;
-            //idNderViti = idndermvit;
             idPerdoruesi = idperdoruesi;
             idStatusDok = idstatusdok;
             this.interval = interval;
@@ -294,10 +290,8 @@ namespace DbCore.DbAdmin
         }
 
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         public int IdNdermarja
         {
             get { return idNdermarja; }
@@ -458,7 +452,6 @@ namespace DbCore.DbAdmin
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             clsMesazh mesazh;
-            //data.krijoManager();
             data.beginTransaksion();
             try
             {
@@ -534,7 +527,6 @@ namespace DbCore.DbAdmin
                 //Nqs numri automatik ka periudhe mujore apo vjetore do kerkojme per vlera brenda periudhave te caktuara
                 DateTime dtKerkimit;
                 DateTime dtKerkimitF;
-                //DateTime dtKerkimitM;
                 //Nqs eshte periudha mujore do kerkojme per intervalin nje mujor te numrit automatik, se ciles i perket data aktuale
                 if (this.PeriudhaNrAutom == 2)
                 {
@@ -757,13 +749,6 @@ namespace DbCore.DbAdmin
         ///// </summary>
         ///// <param name="dtAktuale"></param>
         ///// <returns></returns>
-        //public DbCore.DbAdmin.NrAuto merrVlerenNrAutomatik(string kodKontrolli, int idNrAuto, DateTime date)
-        //{
-        //    date = date.ToLocalTime();
-        //    string vleraPasardhese = DbCore.DbAdmin.clsNrAutom.merrVlerenNrAutomatik(idNrAuto, date);
-        //    return new DbCore.DbAdmin.NrAuto() { kodKontrolli = kodKontrolli, idNrAuto = idNrAuto, vlereNrAuto = vleraPasardhese };
-        //    // return new string[] { kodKontrolli, idNrAuto.ToString(), vleraPasardhese, "false" };
-        //}
 
         public DbCore.DbAdmin.clsNrAutomatikFundit ktheNrAutomatikFundit(DateTime dtAktuale, clsDatabaseAdmin db)
         {
@@ -775,10 +760,6 @@ namespace DbCore.DbAdmin
             DateTime dtKerkimitF = this.ktheFillimPeriudheSipasDates(dtAktuale).Date;
             DateTime dtKerkimitM = this.ktheMbarimPeridheSipasDates(dtAktuale).Date;
 
-            //if (dtKerkimitF != null)
-            //    dtKerkimitF = dtKerkimitF.Date;
-            //if (dtKerkimitM != null)
-            //    dtKerkimitM = dtKerkimitM.Date;
 
             try
             {
@@ -824,7 +805,6 @@ namespace DbCore.DbAdmin
                 return "";
             if (this.OColNrAutoFundit.Count == 0) // kur e kam per here te pare
                 return this.gjeneroPerHereTePareNumrinAutomatik();
-            //DbCore.DbAdmin.clsNrAutomatikFundit nrFundit = this.ktheNrAutomatikFundit(dtAktuale, null);
             DbCore.DbAdmin.clsNrAutomatikFundit nrFundit = this.ktheNrAutomatikFundit(dtAktuale, dbAdmin);
             return ktheVlerenParsardheseNrAutomatik(dtAktuale, eshteAktivNrAutomatik, nrFundit);
         }
@@ -844,7 +824,6 @@ namespace DbCore.DbAdmin
                 return "";
             if (this.OColNrAutoFundit.Count == 0) // kur e kam per here te pare
                 return this.gjeneroPerHereTePareNumrinAutomatik();
-            //DbCore.DbAdmin.clsNrAutomatikFundit nrFundit = this.ktheNrAutomatikFundit(dtAktuale, null);            
             if (nrFundit == null) //kur e kam per here te pare per periudhen ku ndodhet data e dhene 
                 return this.gjeneroPerHereTePareNumrinAutomatik();
 
@@ -947,8 +926,6 @@ namespace DbCore.DbAdmin
                 }
             }
 
-            //if (this.PeriudhaNrAutom == 3) 
-            //    isValid = isValid && this.NgaDataNrAutom.Date <= data.Date;
             //else
             isValid = isValid && (this.NgaDataNrAutom.Date <= data.Date) && (this.DeriMeNrAutom.Date >= data.Date);
             ImbLogger.LogTraceShitje($"Filloi metoda per kontrollin nqs nje numer automatik eshte aktiv ose jo mbaroi dhe ktheu :{isValid}");
@@ -1045,7 +1022,6 @@ namespace DbCore.DbAdmin
                     int.TryParse(dbDataRowNumerAuto["GJATESIANRAUTOM"].ToString(), out gjatesiaNrAutom);
                     int.TryParse(dbDataRowNumerAuto["IDNDERMARJE"].ToString(), out idNdermarja);
                     int.TryParse(dbDataRowNumerAuto["VITI"].ToString(), out viti);
-                    //int.TryParse(dbDataRowNumerAuto["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowNumerAuto["IDPERDORUESI"].ToString(), out idPerdoruesi);
                     int.TryParse(dbDataRowNumerAuto["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowNumerAuto["DTKRIJIMI"].ToString(), out dtKrijimi);

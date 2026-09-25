@@ -10,7 +10,6 @@ namespace DbCore.MbylljePeriudhe
     {
         private static ProcesetContainer instance;
         private static object syncRoot = new object();
-        //private List<ProcesiAnalitik> procesetAnalitike = null;
         private static List<IProcess> proceset;
         private static BlockingCollection<IClosedPeriod> closedPeriods;
 

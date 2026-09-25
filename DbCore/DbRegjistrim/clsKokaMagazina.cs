@@ -1245,7 +1245,6 @@ namespace DbCore.DbRegjistrim
         {
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeAsete dbasete = new clsDatabazeAsete(dbRegj);
-            //   clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
 
             mesazh.Status = true;
             if (!modifikim && dbRegj.ekzistonRegjistrimMagazineSipasIdentifikuese(0, idKonf, nrDk, idMag, dtDk, idNder, idNiv, idKlFurn, iddegeadministrative, idRaportDesing, idgrup1, idgrup2, idgrup3))
@@ -1285,9 +1284,6 @@ namespace DbCore.DbRegjistrim
                         o.IdRenditjes = trupiivjetertransferim[i].IdRenditjes;
                     i++;
                 }
-                //o.IdRenditjes = dbRegj.vendosIdRenditjesTrupi(o.IdMag, dtDk);
-                //int idM;
-                //mesazh = dbRegj.ruajTrupiMagazina(out idM, o.IdKokaMagazina, o.IdLlojVeprimi, o.IdArtikulli, o.IdNjesia, o.Sasia, o.Vlefta, o.Koeficenti, o.Shenja, o.SasiProgresive, o.VleftaProgresive, o.IdMag, o.Data, o.IdStatusDok, o.IdRenditjes, o.IdDetajimi, o.SasiProgresive, o.VlefteProgresiveDetajimi, o.IdDetajimi2, o.IdTrupiRezervimi, 0, 0, 0, 0, 0, o.Shenime);
                 DataTable dt = ocolTrupiMagazina.ToDataTable<clsTrupiMagazina>("IdTrupiMagazina", "IdKokaMagazina", "IdLlojVeprimi", "IdArtikulli", "IdNjesia",
                     "Sasia", "Vlefta", "Koeficenti", "Shenja", "SasiProgresive", "VleftaProgresive", "IdMag", "Data", "IdStatusDok", "IdRenditjes", "IdDetajimi",
                     "SasiProgresiveDetajimi", "VlefteProgresiveDetajimi", "IdDetajimi2", "IdTrupiRezervimi", "IdTrupiKonvertimFSH", "IdTrupiKonvertimUSH",
@@ -1380,12 +1376,7 @@ namespace DbCore.DbRegjistrim
 
             if (idSt == 1 && meKontabilizim != 0) // idllojdokmag == 2 &&
             {//nese eshte dalje fleta kontabel krijohet ketu pasi vlefta percaktohet sipas cmimit mesatar me progresiv
-             //DbShare.clsKonfigurimAmbjenti konf = new DbShare.clsKonfigurimAmbjenti();
-             //konf.mbushKonfiguriminMeID(idKonf);
-             //if (konf != null)
-             //    idLlojDok = konf.IdKategori;
              //else
-             //    idLlojDok = -1;
                 clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbRegj);
                 DbQendraKosto.colObjektivaKosto objektivat;
                 List<double> vleratobjektiva; List<double> vleratobjektivamonbaze;
@@ -1404,9 +1395,6 @@ namespace DbCore.DbRegjistrim
                     kontMesazh = oFleteKontabel.Ruaj(dbkont);
                     if (!kontMesazh.Status)
                     {
-                        //dbRegj.rollbackTransaksion();
-                        //if (connectionIRi)
-                        //dbManager.RollBackTransaction();
 
                         return new clsMesazh(kontMesazh.Status, kontMesazh.PershkrimMesazhi);
                     }
@@ -1648,7 +1636,6 @@ namespace DbCore.DbRegjistrim
                         }
                         
                         rreshtDokMag.Vlefta = cm * rreshtDokMag.Sasia * rreshtDokMag.Koeficenti;    // u shtua koeficienti per te llogaritur cmimn ne njesine e dyte
-                                                                                                    //}
                         rreshtDokMag.Cmimi = cm;
                     }
                     double totaliArtikullit = 0;//totali i artikullit qe duam te bejme dalje(vlera e ketij rreshti + gjithe rreshtave te tjere qe kane kete artikull)
@@ -1672,7 +1659,6 @@ namespace DbCore.DbRegjistrim
                     {
                         double sasimag = clsTrupiMagazina.merrSasi(artikulli, rreshtDokMag.IdMag, rreshtDokMag.Data, -1, dbRegj);
                        double sasiDaljeRezervimi = (koka.OKokaRezervime != null && koka.OKokaRezervime.OcolTrupiRezervime != null) ? koka.OKokaRezervime.OcolTrupiRezervime.ktheSasiDaljeRezervimi(rreshtDokMag.IdArtikulli, rreshtDokMag.IdMag) : 0;
-                        //double sasiadisp = sasimag - sasiarez + sasiaporUB - sasiarezUB;
 
                         totaliArtikullit = totaliArtikullit == 0 ? ktheTotalinArtikullit(ocolTrupiMagazina, artikulli.IdArtikulli, rreshtDokMag.IdMag) : totaliArtikullit;
                         if (sasiDaljeRezervimi == 0 || sasimag < sasiDaljeRezervimi)
@@ -1756,7 +1742,6 @@ namespace DbCore.DbRegjistrim
 
             #region Ruajtrupin
 
-            //int count = 0;
             int iii = 0;
             System.Diagnostics.Stopwatch myWatchRuajTrupinOcolTrupiMagazina = System.Diagnostics.Stopwatch.StartNew();
             DbInventari.clsArtikulli tmpArt;
@@ -1782,12 +1767,9 @@ namespace DbCore.DbRegjistrim
 
                 if (trup.IdTrupiMagazina == 0)
                     trup.IdTrupiMagazina = int.MaxValue - ocolTrupiMagazina.Count + iii;
-                //if (!modifikim || !ruajrenditje)
-                //trup.IdRenditjes = dbRegj.vendosIdRenditjesTrupi(trup.IdMag, dtDk);
                 //else
                 if (!newIdRenditje)
                     trup.IdRenditjes = coltrupivjeterKryesor[iii].IdRenditjes;
-                //int idM;
 
                 //kontrollojme nqs detajimi i vendosur tek fusha eshte i ri, apo ekziston aktualisht.
                 //Nqs eshte i ri (pra nuk ekziston), atehere ai do krijohet dhe me pas do te behet edhe lidhja me artikullin.
@@ -1969,10 +1951,6 @@ namespace DbCore.DbRegjistrim
                         if (!mesazh.Status)
                             return mesazh;
                     }
-                    //if (!eshteTrasferim && idLlojDokumentiMagazine == 1 && serial.IdHistorikAktualPaSerial <= 0 && serial.IdNjesiAdministrativeAktuale != 0)
-                    //{
-                    //    return new clsMesazh(false, string.Format(MessagesResource.Messages["msgSerialPerdorurNeVeprime"], serial.AqtSerialKod));
-                    //}
                     if (serial.IdHistorikAktualPaSerial > 0)//nqs kemi seriale te ndashem kalojme id e dokumentit te magazines dhe sasine dhe cmimin e ketij seriali
                     {
                         if (idLlojDokumentiMagazine == 2)
@@ -2052,15 +2030,7 @@ namespace DbCore.DbRegjistrim
                 }
 
                 //foreach (DbAsete.clsHistorikAQTSeriale h in colHistorik)//nesnes
-                //{
-                //    clsAQTSeriale serialprindi = new clsAQTSeriale();
-                //    serialprindi.merrAQTSerialSipasID(h.IdPrindi, dbasete);
-                //    clsHistorikAQTSeriale historikprindi = new clsHistorikAQTSeriale();
-                //    historikprindi.merrHistorikAQTSerialSipasID(serialprindi.IdHistorikAktualPaSerial, idNder, dbasete);
                 //    mesazh = dbasete.modifikoHistorikAQTSerial(serialprindi.IdHistorikAktualPaSerial, idPer, historikprindi.IdDok, historikprindi.SasiaProgresive - h.SasiaProgresive, h.CmimiProgresive, h.CmimiProgresive * (historikprindi.SasiaProgresive - h.SasiaProgresive), historikprindi.IdStatusDokumenti);//zbresim sasine e serialit te ri nga prindi
-                //    if (!mesazh.Status)
-                //        return mesazh;
-                //}
             }
 
             #endregion amortizimi
@@ -2369,7 +2339,6 @@ namespace DbCore.DbRegjistrim
                 if (!mes.Status)
                     return mes;
             }
-            //  if (dbRegj.ekzistonRegjistrimMagazine(idKonfigAmbjente, nrDok, idMagazina, dtDok, idNdermarrje))
             if (dbRegj.ekzistonRegjistrimMagazineSipasIdentifikuese(IdKokaMagazina, idKonfigAmbjente, nrDok, idMagazina, dtDok, idNdermarrje, idNivel, idKlientFurnitor, idDegeAdministrative, idRaportDesing, idGrup1, idGrup2, idGrup3))
                 return new clsMesazh(false, "Ekziston një regjistrim magazine me këto të dhëna identifikuese!");
             if (kaNdryshimNumri)
@@ -2682,11 +2651,6 @@ namespace DbCore.DbRegjistrim
                     clsHistorikAQTSeriale historik = new clsHistorikAQTSeriale();
                     historik.merrHistorikAQTSerialSipasID(serial.IdHistorikAktualPaSerial, kokaEkzistuese.idNdermarrje, dbasete);
                     // clsAQTSeriale serialprind = new clsAQTSeriale();//nesnes
-                    // serialprind.merrAQTSerialSipasID(historik.IdPrindi, dbasete);
-                    // if (serialprind.IdHistorikAktualPaSerial > 0)
-                    //  {
-                    // clsHistorikAQTSeriale historikprind = new clsHistorikAQTSeriale();
-                    //  historikprind.merrHistorikAQTSerialSipasID(serialprind.IdHistorikAktualPaSerial, kokaEkzistuese.idNdermarrje, dbasete);
                     //  mesazh = dbasete.modifikoHistorikAQTSerial(historikprind.IdHistoriku, kokaEkzistuese.idPerdoruesi, historikprind.IdDok, historikprind.SasiaProgresive + historik.SasiaProgresive, historikprind.CmimiProgresive, historikprind.CmimiProgresive * (historikprind.SasiaProgresive + historik.SasiaProgresive), historikprind.IdStatusDokumenti);//shtojme  sasine e serialit te ri nga prindi meqe seriali i ri do fshihet
                     if (idllojdokmag == 2)
                     {
@@ -2695,7 +2659,6 @@ namespace DbCore.DbRegjistrim
                             return mesazh;
                     }
 
-                    //   }
                     if (idllojdokmag == 1)
                     {
                         mesazh = dbasete.modifikoHistorikAQTSerialStatusSipasHistorikID(serial.IdHistorikAktualPaSerial, idPer);//nesnes
@@ -2963,21 +2926,18 @@ namespace DbCore.DbRegjistrim
                                     u_modifikua = dbasete.modifikoHistorikAQTSerial(historikprind.IdHistoriku, idPerdoruesi, historikprind.IdDok, historikprind.SasiaProgresive + historik.SasiaProgresive, historikprind.CmimiProgresive, historikprind.CmimiProgresive * (historikprind.SasiaProgresive + historik.SasiaProgresive), historikprind.IdStatusDokumenti);//shtojme  sasine e serialit te ri nga prindi meqe seriali i ri do fshihet
                                     if (!u_modifikua.Status)
                                     {
-                                        //data.rollbackTransaksion();
                                         return u_modifikua;
                                     }
                                 }
                                 u_modifikua = dbasete.modifikoHistorikAQTSerialStatusSipasHistorikID(serial.IdHistorikAktualPaSerial, idPerdoruesi);
                                 if (!u_modifikua.Status)
                                 {
-                                    //data.rollbackTransaksion();
                                     return u_modifikua;
                                 }
 
                                 u_modifikua = dbasete.modifikoAQTSerialNgaVeprimi(s.IdAQTSeriali, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue, 0, serial.IdHistorikAktualPaSerial, idPerdoruesi, 1, false);//serialin e ri e kalojme pa magazine
                                 if (!u_modifikua.Status)
                                 {
-                                    //data.rollbackTransaksion();
                                     return u_modifikua;
                                 }
                             }
@@ -2995,7 +2955,6 @@ namespace DbCore.DbRegjistrim
                             u_modifikua = dbasete.modifikoAQTSerialNgaVeprimi(s.IdAQTSeriali, serial.AqtSerialDataHyrje, serial.AqtSerialDataMagAktive, serial.AqtSerialDataAmortizimfillestar, ocolTrupiMagazina[s.NrRendor].IdMag, serial.IdHistorikAktualPaSerial, idPerdoruesi, 1, false);
                             if (!u_modifikua.Status)
                             {
-                                //data.rollbackTransaksion();
                                 return u_modifikua;
                             }
                         }
@@ -3075,7 +3034,6 @@ namespace DbCore.DbRegjistrim
                     }
                 }
 
-                // }
                 if (kokaEkzistuese.idLlojDokumentiMagazine == 1)
                 {
                     if (vjenngaModifikimShitje)
@@ -3502,7 +3460,6 @@ namespace DbCore.DbRegjistrim
                     double sasiTotaleArtikulliPaDet = grupimTrupiNew[i].Sasia;
                     if (grupimTrupiNew[i].IdDetajimi > 0 || grupimTrupiNew[i].IdDetajimi2 > 0)
                     {
-                        //double sasiTotaleArtikulliPaDetOld = ktheTotalinArtikullit(trupiOld, grupimTrupiNew[i].IdArtikulli, grupimTrupiNew[i].IdMag);
                         sasiTotaleArtikulliPaDet = ktheTotalinArtikullit(trupiNew, grupimTrupiNew[i].IdArtikulli, grupimTrupiNew[i].IdMag);// - sasiTotaleArtikulliPaDetOld;
                     }
                     var mag = clsNjesiAdministrative.ktheMagazineSipasIdNeseEkziston(grupimTrupiNew[i].IdMag, dbRegj);
@@ -3777,7 +3734,6 @@ namespace DbCore.DbRegjistrim
             else
                 if (Math.Abs(gjendjeartikulli) > gjendjaArtikullitNeMagazine)
                 return new clsMesazh(false, "Per artikullin: " + artikulli.KodArtikulli + " gjenerohet gjendje negative ne daten " + data.ToShortDateString() + ". Gjendja ne kete date eshte " + gjendjaArtikullitNeMagazine + "!");
-            //break;
             if (llojDetajimi == 1)
             {
                 if (artikulli.KontrollGjendje == true)
@@ -3823,9 +3779,6 @@ namespace DbCore.DbRegjistrim
                         else if (artikulli.MetodeKostojeArtikulli == 2) //cmim mesatar sipas id se renditjes
                             sasiaDetajimitDyte = dbRegj.ktheSasineTotaleSipasDetajimitTeDyteSipasRadhes(artikulli.IdArtikulli, iddetajim, idmag, data, idrenditje);
                         //else    //fifo    apo progresiv
-                        //{
-                        //    sasiaProgresiveDetajimit = dbRegj.ktheSasineProgresiveSipasDetajimit(artikulli.IdArtikulli, iddetajim, idmag, data, idrenditje);
-                        //}
                         sasiaDetajimitDyte += shtimgjendjedetmod;
                         if (dalje)
                         {
@@ -3881,18 +3834,14 @@ namespace DbCore.DbRegjistrim
             using (var scope = new MyTransactionScope())
             {
                 clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-                //dbRegj.krijoManager();
-                // dbRegj.beginTransaksion();
                 bool kaveprimepas = false;
                 clsMesazh u_fshi = data.fshiMagazina(this.IdKokaMagazina, this.idPerdoruesi, dbRegj, true, true, false, new colSerialetMagazine(), out kaveprimepas, true);
                 if (u_fshi.Status)
                 {
-                    // dbRegj.commitTransaksion();
                     scope.Complete();
                 }
 
                 //  else
-                // dbRegj.rollbackTransaksion();
                 return u_fshi;
             }
         }
@@ -3905,64 +3854,13 @@ namespace DbCore.DbRegjistrim
         ///// <param name="oLlogari"> llogaria e trupit</param>
         ///// <returns> kthen nje obj clsTrupiFleteKontabel me nje rresht te trupit te fletes kontabel</returns>
         //[Obsolete("perdor: public clsTrupiFleteKontabel(int debikredi, double vlera, clsLlogari oLlogari, bool azhornim, int idndermarje, Nullable<Double> kursi, Nullable<Int32> idMonedha)")]
-        //    public clsTrupiFleteKontabel krijoObjektTrupiFleteKontabelMagDalje(int debikredi, double vlera, clsLlogari oLlogari, bool azhornim, int idndermarje)
-        //    {
-        //        clsTrupiFleteKontabel trupiFK = new clsTrupiFleteKontabel();
-        //        trupiFK.NrLlogari = oLlogari.NrLlogari;
-        //        trupiFK.IdLlogari = oLlogari.IdLlogari;
-        //        trupiFK.EmerLlogari = oLlogari.EmerLlogari1;
-        //        DbAdmin.clsMonedha monKF = new DbAdmin.clsMonedha();
-        //        if (azhornim)
-        //        {
-        //            DbAdmin.clsNdermarrje nd = new DbAdmin.clsNdermarrje(idndermarje);
-        //            monKF.IdMonedha = nd.NdermarrjeMonedha;
-        //            monKF = monKF.merr();
-        //            monKF.mbushMonedhen(monKF.KodiMonedha, idndermarje);
-        //        }
         //        else
-        //        {
-        //            monKF.IdMonedha = oLlogari.IdMonedha;
-        //            monKF = monKF.merr();
-        //        }
-        //        trupiFK.IdMonedha = monKF.IdMonedha;
-        //        trupiFK.KodMonedha = monKF.KodiMonedha;
-        //        if (azhornim)
-        //            trupiFK.Kursi = 1;
         //        else
-        //        {
-        //            DbAdmin.colKurset kurset = new DbAdmin.colKurset();
-        //            kurset.mbushKursetFunditMonedhesSipasLlojit(trupiFK.IdMonedha, 1);
-        //            if (kurset.Count > 0)
-        //                trupiFK.Kursi = double.Parse(kurset[0].VleraKursi.ToString());
         //            else
-        //                trupiFK.Kursi = 1;
-        //        }
 
-        //        trupiFK.KodiSkemaKontabel = "";
-        //        trupiFK.PershkrimTrupiFleteKontabel = "";
         //        if (debikredi == 1) //rasti kur preket llogaria ne debi
-        //        {
-        //            if (azhornim)
-        //                trupiFK.VleftaDebiTrupiFleteKontabel = 0;
         //            else
-        //                trupiFK.VleftaDebiTrupiFleteKontabel = vlera / trupiFK.Kursi;
-        //            trupiFK.VleftaKrediTrupiFleteKontabel = 0;
-        //            trupiFK.VleftaKrediMonBazeTrupiFleteKontabel = 0;
-        //            trupiFK.VleftaDebiMonBazeTrupiFleteKontabel = vlera;
-        //            trupiFK.DK = "D";
-        //        }
         //        else if (debikredi == 2) //rasti kur preket llogaria ne kredi
-        //        {
-        //            trupiFK.VleftaDebiTrupiFleteKontabel = 0;
-        //            if (azhornim)
-        //                trupiFK.VleftaKrediTrupiFleteKontabel = 0;
-        //            else trupiFK.VleftaKrediTrupiFleteKontabel = vlera / trupiFK.Kursi;
-        //            trupiFK.VleftaKrediMonBazeTrupiFleteKontabel = vlera;
-        //            trupiFK.VleftaDebiMonBazeTrupiFleteKontabel = 0;
-        //            trupiFK.DK = "K";
-        //        }
-        //        return trupiFK;
-        //    }
 
         /// <summary>
         /// perdoret per te gjetur totalin e sasise te nje artikulli ne trupin e nje dokumenti magazine per te kontrolluar me pas gjendjen e tij ne krahasim me sasine qe do dale nga magazina
@@ -3973,10 +3871,7 @@ namespace DbCore.DbRegjistrim
         /// <returns> kthen totalin e sasise te artikullit</returns>
         public double ktheTotalinArtikullit(colTrupiMagazina trupi, int idArtikulli, int idMagazina)
         {
-            //double newTotali = 0;
             double totali = 0;
-            //System.Diagnostics.Stopwatch myWatch1 = new System.Diagnostics.Stopwatch();
-            //myWatch1.Start();
             foreach (clsTrupiMagazina o in trupi)
             {
                 if (o.IdArtikulli == idArtikulli && o.IdMag == idMagazina)
@@ -3984,8 +3879,6 @@ namespace DbCore.DbRegjistrim
             }
 
             totali = Math.Round(totali, 10);
-            //myWatch1.Stop();
-            //System.Diagnostics.Trace.WriteLine("myWatch1: " + myWatch1.Elapsed + "; Totali:" + totali);
             return Math.Round(totali, 10);
         }
         public bool shtoNivfshTeMagazina(int idNdermarrje, int idDokumenti, string nivfsh)
@@ -4000,15 +3893,6 @@ namespace DbCore.DbRegjistrim
         }
 
         //public double ktheTotalinArtikullitMeShenje(colTrupiMagazina trupi, int idArtikulli, int idMagazina)
-        //{
-        //    double totali = 0;
-        //    foreach (clsTrupiMagazina o in trupi)
-        //    {
-        //        if (o.IdArtikulli == idArtikulli && o.IdMag == idMagazina)
-        //            totali += o.Sasia * o.Koeficenti * o.Shenja;
-        //    }
-        //    return Math.Round(totali, 10);
-        //}
 
         public double ktheTotalinArtikullitDetajim(colTrupiMagazina trupi, int idArtikulli, int iddetajim, int idMagazina)
         {
@@ -4399,8 +4283,6 @@ namespace DbCore.DbRegjistrim
                            
                     }
 
-                    //ocolTrupiMagazina = new colTrupiMagazina();
-                    //ocolTrupiMagazina = merrTrupiMagazina(db);
                     return true;
                 }
                 catch (InvalidCastException)

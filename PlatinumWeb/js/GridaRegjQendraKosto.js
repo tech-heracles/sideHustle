@@ -230,9 +230,6 @@ function dxQendraKosto() {
                 dataGrid.AddCustomOptionToColumns(["IdOk"], "setCellValue", function (newData, value, currentRowData) { controllerContext.OnChangeLookUpCols(newData, value, currentRowData, "Objektiva"); });
                 dataGrid.AddCustomOptionToColumns(["IdLlog"], "setCellValue", function (newData, value, currentRowData) { controllerContext.OnChangeLookUpCols(newData, value, currentRowData, "Llogaria"); });
 
-                //dataGrid.AddCustomOptionToColumns(["IdQK", "IdOk", "IdLlog"], "customizeText", function (cellInfo) { return cellInfo && cellInfo.value ? cellInfo.value.substring(0, cellInfo.value.indexOf(" (")) : ""; });
-                //dataGrid.AddCustomOptionToColumns(["IdQK", "IdOk"], "customizeText", function (cellInfo) { return cellInfo && cellInfo.value ? cellInfo.value.substring(0, cellInfo.value.indexOf(" (")) : ""; });
-                //dataGrid.AddCustomOptionToColumns(["IdOk"], "customizeText", function (cellInfo) { return cellInfo && cellInfo.value ? cellInfo.value.substring(0, cellInfo.value.indexOf(" (")) : ""; });
 
                 dataGrid.AddCustomOptionToColumns(["VleftaLlog"], "calculateDisplayValue", function (rowData) { return controllerContext.ApplyFormatNumberAccordingCurrency(rowData.MonedhaLlog, rowData.VleftaLlog); });
                 dataGrid.AddCustomOptionToColumns(["VleftaMonBaze"], "calculateDisplayValue", function (rowData) { return controllerContext.ApplyFormatNumberAccordingCurrency(rowData.MonedhaLlog, rowData.VleftaMonBaze); });
@@ -381,9 +378,6 @@ function dxQendraKosto() {
                 pageState.llogari = ds.llogari;
 
                 app.view.QKDataGrid.AddCustomOptionToColumns(["DebiKredi"], "lookup", { dataSource: [{ value: 1, name: "Debi" }, { value: 2, name: "Kredi" }], displayExpr: "name", valueExpr: "value" });
-                //app.view.QKDataGrid.AddCustomOptionToColumns(["IdQK"], "lookup", { dataSource: ds.qendraKosto, valueExpr: "Id", displayExpr: function (item) { return item.Kodi + ' (' + item.Pershkrimi + ')'; } });
-                //app.view.QKDataGrid.AddCustomOptionToColumns(["IdOk"], "lookup", { dataSource: ds.objektivaKosto, allowClearing: true, valueExpr: "Id", displayExpr: function (item) { return item.Kodi + ' (' + item.Pershkrimi + ')'; } });
-                //app.view.QKDataGrid.AddCustomOptionToColumns(["IdLlog"], "lookup", { dataSource: ds.llogari, valueExpr: "IdLlogari", displayExpr: function (item) { return item.NrLlogari + ' (' + item.EmerLlogari1 + ')'; } });
                 
                 var llogariaAutoCompleteColumns = [{ dataField: "NrLlogari", capField: "Llogaria", width: 2 }, { dataField: "EmerLlogari1", capField: "Pershkrimi", width: 7 }, { dataField: "KodiMonedha", capField: "Monedha", width: 1 }];
                 app.view.QKDataGrid.AddAutocompleteToColumn("Llogaria", "IdLlog", "PershkrimiLlog", merrLlogari, "Zgjidhni llogarine...", "IdLlogari", "NrLlogari", "EmerLlogari1", HapLupeLlogarie, onValueChangedLlogaria, llogariaAutoCompleteColumns);
@@ -429,7 +423,6 @@ function dxQendraKosto() {
 
                 data = data.length == 0 ? Utils.CloneObject(pageState.defaultObject) : data.map(function (row) { if (row.IdOk == 0) row.IdOk = null; return row; });
 
-                //data.sort(function (a, b) { return (a.IdTrupi > b.IdTrupi) ? 1 : -1 });
 
                 app.view.QKDataGrid.SetDataSource(data);
 

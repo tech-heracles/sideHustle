@@ -69,42 +69,16 @@ namespace DbCore.DbShare
         private bool mbushColFilterKoka(DataTable dt) 
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFilterKoka filterKoka = new clsFilterKoka();
-                    //filterKoka.mbushFilterKoka(rreshti);
                     Add(new clsFilterKoka(rreshti));
                 }
                 return true;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;                
-            //}
         }
 
         #endregion
         //[Obsolete("Perdor: bool mbushColFilterKoka(DataTable dt)", true)]
-        //public colFilterKoka mbushArrayListFilterKoka(DataSet ds)
-        //{
-        //    clsFilterTrupi oTrupi = new clsFilterTrupi();
-        //    colFilterKoka kokat = new colFilterKoka();
 
-        //    foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //    {
-        //        clsFilterKoka koka = new clsFilterKoka();
-
-        //        koka.IdKokaFilter = int.Parse(rreshti[0].ToString());
-        //        koka.KokaFilterKodi = rreshti[1].ToString();
-        //        koka.KokaFilterPershkrimi = rreshti[2].ToString();
-        //        koka.IdPerdoruesi = int.Parse(rreshti[3].ToString());
-        //        //koka.Default = Boolean.Parse(rreshti[4].ToString());
-        //        //koka.OColFilterTrupi = oTrupi.merrFilterTrupin(koka);
-        //        kokat.Add(koka);
-        //    }
-        //    return kokat;
-        //}
 
     }
 }

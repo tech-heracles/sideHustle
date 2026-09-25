@@ -83,7 +83,6 @@ function OnGridSelectionComplete(values) {
                 if (window.parent.btnPerdoruesi.GetText() != values[3]) {
 
                     window.parent.btnPerdoruesi.SetText(values[3]);
-                    // window.parent.editorEmail.SetText(values[4]);
 
                 }
                 window.parent.btnPerdoruesi.SetFocus();

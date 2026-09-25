@@ -157,8 +157,6 @@ namespace DbCore.DbKontabiliteti
             colLlojeBuxhetesh data = new colLlojeBuxhetesh();
             data.mbushGjitheLlojeBuxhetesh();
             return data;
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrGjitheLlojeBuxhetesh();
 
         }
 

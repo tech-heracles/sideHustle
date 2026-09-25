@@ -130,8 +130,6 @@ function InitPrind() {
     editorPrind = Utils.ktheKontroll('IdPrindi');
     if (!editorPrind) return;
     myMenu.menuSipasTeDrejtaCeljeVogel($("#hfRuaj"), hfTeDrejta);
-    //if ($('#hfRuaj')[0].value != 'Modifiko')
-    //hf.value = editorPrind.GetText();
 
     editorNiveli = Utils.ktheKontroll('NivelGrupi');
     if (!editorNiveli) return;
@@ -324,26 +322,8 @@ function menu_click(s, e) {
         pastro();
     }
 
-    //    if (e.item.name == 'Ruaj' && grida == "gvKodifikimKlientFurnitor") {
-    //        gvKodifikimKlientFurnitor.UpdateEdit();
-    //        e.processOnServer = false;
-    //        //gvKodifikimArtikulli.Refresh();
-    //        //  btn.DoClick();
-    //    }
-
-    //    if (e.item.name == 'Ruaj' && grida == "gvKodifikimKlientFurnitorGrupim2") {
-    //        gvKodifikimKlientFurnitorGrupim2.UpdateEdit();
-    //        e.processOnServer = false;
-    //    }
-
-    //    if (e.item.name == 'Ruaj' && grida == "gvKodifikimKlientFurnitorGrupim3") {
-    //        gvKodifikimKlientFurnitorGrupim3.UpdateEdit();
-    //        e.processOnServer = false;
-    //    }
 
     if (e.item.name == 'Modifiko') {
-        //var hf1 = $("#hfNiveli")[0];
-        //hf1.value = '';
         pastro();
     }
 }

@@ -24,17 +24,8 @@ namespace AlphaWebReports.RaportetDs
         int cnt = 0;
 
         
-     
-
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("gjendjambartuar") != null)
-            //{
-            //    if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
-            //    {
-            //        e.Cancel = true;
-            //    }
-            //}
         }
         public Rap_kontKartelaLlogarive_Format2(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdViti, param.IdPerdoruesi,param.ScopeID, report)
@@ -74,9 +65,6 @@ namespace AlphaWebReports.RaportetDs
 
         private void xrLabel4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //vleraProgresive = 0;
-            //vleraProgresive2 = 0;
-            //gjendjamepare = 0;
         }
 
         //komentuar anxhela
@@ -87,33 +75,20 @@ namespace AlphaWebReports.RaportetDs
                 if (cnt == 1)
                     vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
                 vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
-             //   xrLabel34.Text = String.Format("{0:#,#.00}", vleraProgresive2);
             }
 }
 
 
-
 private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("gjendjambartuar") != null)
-            //{
-            //    if (GetCurrentColumnValue("gjendjambartuar").ToString() == "1")
-            //    {
-            //        e.Cancel = true;
-            //    }
-          //  }
         }
 
         private void xrLabel29_AfterPrint(object sender, EventArgs e)
         {
-            //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-            //    shumadebi = Convert.ToDouble(xrLabel29.Text);
         }
 
         private void xrLabel30_AfterPrint(object sender, EventArgs e)
         {
-            //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-            //    shumakredi = Convert.ToDouble(xrLabel30.Text);
         }
 
         private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -142,22 +117,14 @@ private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.Pri
         private void xrLabel6_AfterPrint(object sender, EventArgs e)
         {
             cnt = 0;
-            //double shumadebi = 0;
-            //double shumakredi = 0;
-            //double shumakredimonllog = 0;
-            //double shumadebimonllog = 0;
         }
 
         private void xrLabel31_AfterPrint(object sender, EventArgs e)
         {
-            //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-            //    shumadebimonllog = Convert.ToDouble(xrLabel31.Text);
         }
 
         private void xrLabel32_AfterPrint(object sender, EventArgs e)
         {
-            //if (GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ") != null)
-            //    shumakredimonllog = Convert.ToDouble(xrLabel32.Text);
         }
 
         private void xrLabel39_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -363,7 +330,6 @@ private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.Pri
             }
 
                
-
         private void xrLabel1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             cnt++;
@@ -488,7 +454,6 @@ private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.Pri
         }
 
  
-
         private void xrLabel26_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
 
@@ -497,7 +462,6 @@ private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.Pri
                 if (cnt == 1)
                     vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("vleftadebimonhuajpare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredimonhuajpare").ToString());
                 vleraProgresive2 = vleraProgresive2 + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBIMONEDHEHUAJ").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDIMONEDHEHUAJ").ToString());
-             //   xrLabel34.Text = String.Format("{0:#,#.00}", vleraProgresive2);
             }
         }
 
@@ -508,7 +472,6 @@ private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.Pri
                 if (cnt == 1)
                     vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("vleftadebipare").ToString()) - Convert.ToDouble(GetCurrentColumnValue("vleftakredipare").ToString());
                 vleraProgresive = vleraProgresive + Convert.ToDouble(GetCurrentColumnValue("VLEFTADEBILLOGARIKONTABILITETI").ToString()) - Convert.ToDouble(GetCurrentColumnValue("VLEFTAKREDILLOGARIKONTABILITETI").ToString());
-                //  xrLabel33.Text = String.Format("{0:#,#.00}", vleraProgresive);
             }
         }
 

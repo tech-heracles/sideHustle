@@ -154,7 +154,6 @@ function ndryshoKonfigFormatNumri(grida, formatNumri, formatkursi) {
         formatkursi = $.parseJSON(hfState.Get("formatKurset"));
     else
         hfState.Set("formatKurset", JSON.stringify(formatkursi));
-    // var formatMOn = $.parseJSON(hfState.Get("formatKurset"));
     grida.setShifraPasPresjes('txtVlefta', formatNumri.KonfigTrupi[0].ShifraPasPresjesVlefta);
     grida.setShifraPasPresjes('txtGjendja', formatNumri.KonfigTrupi[0].ShifraPasPresjesVlefta);
     grida.setShifraPasPresjes('txtGjendjaAkt', formatNumri.KonfigTrupi[0].ShifraPasPresjesVlefta);
@@ -256,8 +255,6 @@ function myElemLlog(value, options) {
     else llog = llogariKredi_ButtonEdit.GetText();
     if (value == "" && llog != "" && llog != undefined)
         value = llog;
-    //            if (hf.val() == "modifikim")
-    //                disabled = 'True';
     return myJQGrid.myElemKodi(value, options, disabled, idRresht, arrayIdKolonaGrides[12], ButtonClickLlog, keyPressLlog, changeFunc2); //'kontrollo',
 }
 
@@ -476,7 +473,6 @@ Function: myElemEmertimi
 Nderton nje textbox ku vendoset emertimi i klient furnitorit
 */
 function myElemEmertimi(value) {
-    // lastsel2 = $("input[id$='hfId']")[0].value;
     var idRresht = $('#rowed5').getLastSel2();
     return myJQGrid.myElemEmertimi(value, arrayReadOnlyKolonaGrides[3], idRresht, 'txtEmertimi');
 
@@ -489,7 +485,6 @@ Nderton nje textbox ku vendoset pershkrimi
 */
 function myElemPershkrimi(value) {
     var idRresht = $('#rowed5').getLastSel2();
-    // lastsel2 = $("input[id$='hfId']")[0].value;
     if (value == "")
         value = txtPershkrimi.GetText();
     return myJQGrid.myElemEmertimi(value, arrayReadOnlyKolonaGrides[4], idRresht, 'txtPershkrim');
@@ -762,7 +757,6 @@ function vendosKf(kfMonKurs) {
     var idRreshti = kfMonKurs.idRreshti;
     var grida = $('#rowed5');
     var idRow = grida.getLastSel2();
-    //  lastsel2 = $("input[id$='hfId']")[0].value;
 
     var clsKlientFurnitor = kfMonKurs.oKF;
     if (clsKlientFurnitor == null || clsKlientFurnitor == undefined || clsKlientFurnitor.IdKlientFurnitor < 1) {
@@ -790,10 +784,6 @@ function vendosKf(kfMonKurs) {
     if (!clsKlientFurnitor.AktivKF) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgKlientFurnitoriNukEshteAktiv"));
         resetRreshtKorent(idRow);
-        //grida.setTekstQelize('txtKodi', idRreshti, '');
-        //grida.setTekstQelize('txtEmertimi', idRreshti, '');
-        //grida.setTekstQelize('txtMonedha', idRreshti, '');
-        //grida.setTekstQelize('txtKursi', idRreshti);
         if (klientifundit != "" && klientifundit != clsKlientFurnitor.KodKlientFurnitor) {
 
             gvKF.PerformCallback('majtas:' + klientifundit);
@@ -805,10 +795,6 @@ function vendosKf(kfMonKurs) {
     if (clsKlientFurnitor.DtAzhornimi >= Data_DateEdit.GetDate() || clsKlientFurnitor.DtLidhje >= Data_DateEdit.GetDate()) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgAzhornimPasDtDok"));
         resetRreshtKorent(idRow);
-        //grida.setTekstQelize('txtKodi', idRreshti, '');
-        //grida.setTekstQelize('txtEmertimi', idRreshti, '');
-        //grida.setTekstQelize('txtMonedha', idRreshti, '');
-        //grida.setTekstQelize('txtKursi', idRreshti);
         if (klientifundit != "" && klientifundit != clsKlientFurnitor.KodKlientFurnitor) {
             gvKF.PerformCallback('majtas:' + klientifundit);
         }
@@ -824,10 +810,6 @@ function vendosKf(kfMonKurs) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgEkzistonkfGride"));
             ekziston = true;
             resetRreshtKorent(idRow);
-            //grida.setTekstQelize('txtKodi', idRreshti, '');
-            //grida.setTekstQelize('txtEmertimi', idRreshti, '');
-            //grida.setTekstQelize('txtMonedha', idRreshti, '');
-            //grida.setTekstQelize('txtKursi', idRreshti);
             kursifundit = 1;
             if (klientifundit != "" && klientifundit != clsKlientFurnitor.KodKlientFurnitor) {
 
@@ -849,7 +831,6 @@ function vendosKf(kfMonKurs) {
     }
 
     hf = $("input[id$='hfMonedhaNder']")[0];
-    //$("#cmbDebiKredi" + lastsel2 + " option[text=" + debiKredi + "]").attr('checked', 'checked');
     $("#cmbDebiKredi" + idRreshti + " option:contains('" + debiKredi + "')").attr('selected', 'selected');
     grida.setTekstQelize('txtKodi', idRreshti, clsKlientFurnitor.KodKlientFurnitor);
     grida.setTekstQelize('txtEmertimi', idRreshti, clsKlientFurnitor.EmertimiKF);
@@ -927,7 +908,6 @@ Function: ndryshoKonfigurimin
 Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te ri.
 */
 function ndryshoKonfigurimin() {
-    //var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     var pershkKonfigAmb = cmbKonfigurimi.GetText();
     if (pershkKonfigAmb != undefined)
         lblKonfigurimi.SetText(pershkKonfigAmb);
@@ -1065,7 +1045,6 @@ function SucceededCallbackKonfig(result) {
     ruajFormatetNeGride(grida, formatNumriZgjedhur, formatKursi);
     inicializoGride();
     mbushGrideNgaHiddenFieldet();
-    //  mbushGrideNgaHiddenFieldi();
 }
 /*
 Function: ValueChangedPershkrimi
@@ -1127,7 +1106,6 @@ function ValidoDateDokumenti() {
 function valueChangedPeriudha() {
     var vleraLabel = lblPeriudhaAktuale.GetText();
     var periudha = vleraLabel.split("-");
-    //var dataDok = data_DateEdit.GetText();
 
     var dataDok = new Date();
     dataDok = formatDate(dataDok, "dd/MM/yyyy");
@@ -1136,7 +1114,6 @@ function valueChangedPeriudha() {
     dtDokumentit = dataDok.split("/");
 
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         data_DateEdit.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -1144,12 +1121,10 @@ function valueChangedPeriudha() {
         else
             Data_DateEdit.SetText(dataDok);
     }
-    // return true;
 }
 function EndRequestHandler(sender, args) {
     var hf = document.getElementById("hfStatusRuajtje");
     if ($('#hfqkmesazhi').val() == 'shfaqmesazh') {
-        //popMesazhQK.Show();
         if ($('#hfqkmesazhi').val() == 'shfaqmesazh') {
             $('#hfqkmesazhi').val('jo');
             myMesazh.ShtoMesazh({ type: "confirm", layout: "center", modal: true, text: hfState.Get("msgDeshironiShperndarjeQendraKosto"), okClick: function () { Utils.hapPopUp(hfState.Get("msgShperndarjeNeQendratEKostos"), $('#hfUrl')); }, cancelClick: function () { Utils.JopopupClick($('#hfUrl')); } });
@@ -1265,7 +1240,6 @@ function RuajClick(s, e) {
     else {
 
         click = true;
-        //  lastsel2 = $("input[id$='hfId']")[0].value;
         if (isValidKoka()) {
             grida.saveRow(idRresht, false, 'clientArray');
             merrTeDhena();
@@ -1413,7 +1387,6 @@ function pastro() {
     var grida = $('#rowed5');
     grida.setLastSel2(0);
 
-    //   $("input[id$='hfId']")[0].value = 0;
 }
 /*
 Function: resetCountera
@@ -1543,22 +1516,6 @@ var counter9 = 0;
 var counter10 = 0;
 var counter11 = 0;
 
-//function kundert() {
-
-//    if (gvKF.cpNoRows > 10 * (gvKF.cpNoPage + 1)) {
-//        for (l = 10 * gvKF.cpNoPage; l < 10 * (gvKF.cpNoPage + 1) ; l++) {
-
-//            gvKF.SelectRowOnPage(l, !gvKF.IsRowSelectedOnPage(l));
-
-//        }
-//    }
-//    else {
-//        for (l = 10 * gvKF.cpNoPage; l < gvKF.cpNoRows; l++) {
-
-//            gvKF.SelectRowOnPage(l, !gvKF.IsRowSelectedOnPage(l));
-//        }
-//    }
-//}
 
 function KlikoTeGjitha() {
     gvKF.SelectAllRowsOnPage();

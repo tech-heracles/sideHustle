@@ -15,9 +15,6 @@ namespace DbCore.DbShare
         private int idKokaFilter;
         private int idKontrolli;
         private string vlera;        
-        //private String veprim1;
-        //private String vlera1;
-        //private String lidhesaLogjike;
 
         #endregion
 
@@ -70,10 +67,8 @@ namespace DbCore.DbShare
         }
 
         //public String LidhesaLogjike
-        //{
         //    get { return lidhesaLogjike; }
         //    set { lidhesaLogjike = value; }
-        //}
 
         #endregion
 
@@ -87,12 +82,7 @@ namespace DbCore.DbShare
             return u_ruajt;
         }
 
-        //public clsMesazh modifiko()
-        //{
-        //    //clsDatabaseShare data = new clsDatabaseShare();
-        //    //clsMesazh u_modifikua = data.modifikoFilterTrupi(this);
         //    //return u_modifikua;
-        //}
 
         /// <summary>
         /// Fshin filter trupin.
@@ -113,23 +103,10 @@ namespace DbCore.DbShare
         /// <returns></returns>
         public clsMesazh fshi(clsDatabaseShare data)
         {
-            //if (data == null)
-            //    data = new clsDatabaseShare();
             clsMesazh u_fshi = data.fshiFilterTrupi(this.IdTrupiFilter);
             return u_fshi;
         }
 
-        //public colFilterTrupi merrFilterTrupiRaportDefault(int rapid)
-        //{
-        //    clsDatabaseShare data = new clsDatabaseShare();
-        //    return data.merrFilterTrupiRapDefault(rapid);
-        //}
-
-        //public colFilterTrupi merrFilterTrupin(clsFilterKoka oKoka)
-        //{
-        //    clsDatabaseShare data = new clsDatabaseShare();
-        //    return data.merrFilterTrupin(oKoka);
-        //}
 
         #endregion
 

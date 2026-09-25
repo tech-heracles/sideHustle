@@ -145,7 +145,6 @@ var CustomItems;
         };
         onlineMapItem.prototype.clearSelection = function () {
             _super.prototype.clearSelection.call(this);
-            //this._updateSelection();
         };
         onlineMapItem.prototype.getValues = function (values) {
             var bindings = this.getBindingValue('Values');
@@ -210,7 +209,6 @@ var CustomItems;
         };
         onlineMapItem.prototype._onClick = function (row) {
             this.setMasterFilter(row);
-            //this._updateSelection();
         };
         onlineMapItem.prototype._updateSelection = function () {
             var _this = this;

@@ -19,7 +19,6 @@ namespace PlatinumWeb
     public partial class Modifiko_KushtPagese : MyPageBase
     {
         
-        //private DbCore.DbKontabiliteti.clsKushtPageseKoka kokaOverview;
         private DbCore.DbKontabiliteti.colKushtPageseTrupi oColTrupiKushtPagese;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         ASPxComboBox tempcombo = null;
@@ -36,7 +35,6 @@ namespace PlatinumWeb
 
             int id = int.Parse(Request.QueryString["id"]);
 
-            //DbCore.DbKontabiliteti.colKushtPageseKoka colKoka = dbKontab.merrKushtPageseSipasID(id);
             DbCore.DbKontabiliteti.clsKushtPageseKoka clsKoka = new DbCore.DbKontabiliteti.clsKushtPageseKoka(id);
             if (clsKoka != null)
             {
@@ -56,9 +54,7 @@ namespace PlatinumWeb
                 pagesa_ASPxComboBox.SelectedIndex = 1;
             if (koka.IdAutorizim != 0)
             {
-                //DbCore.DbAdmin.clsDatabaseAdmin data = new DbCore.DbAdmin.clsDatabaseAdmin();
                 txtAutorizimi.Text = DbCore.DbAdmin.clsAutorizimKoka.ktheKodAutorizim(koka.IdAutorizim);
-                //txtAutorizimi.Text = data.ktheAutorizim(koka.IdAutorizim)[0].KodiAutorizim;
             }
             if (koka.Afati == -1)
                 afati_TextBox.Text = "";
@@ -72,21 +68,17 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
                 return;
             }
 
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
 
             Container.Attributes["width"] = "450px";
@@ -137,12 +129,10 @@ namespace PlatinumWeb
             
             int id = int.Parse(Request.QueryString["id"]);
 
-            //DbCore.DbKontabiliteti.colKushtPageseTrupi colTrupi = dbKontab.merrTrupatKushtevePagesesSipasKokes(id);
             DbCore.DbKontabiliteti.colKushtPageseTrupi colTrupi = new DbCore.DbKontabiliteti.colKushtPageseTrupi(id);
             string kodiKushtPagese;
             foreach (DbCore.DbKontabiliteti.clsKushtPageseTrupi tr in colTrupi)
             {
-                //DbCore.DbKontabiliteti.colKushtPageseKoka col = dbKontab.merrKushtPageseSipasID(tr.KushtPagese);
                 DbCore.DbKontabiliteti.clsKushtPageseKoka clsKusht = new DbCore.DbKontabiliteti.clsKushtPageseKoka(tr.KushtPagese);
                 if (clsKusht != null)
                     kodiKushtPagese = clsKusht.KodiKushtPagese;
@@ -174,7 +164,6 @@ namespace PlatinumWeb
             shtoKolone("Periudha");
             shtoKolone("KushtPagese");
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), grid_trupi, "grid_KushtPagesetrupi", "Shto_KushtPagese.aspx");
-            //funk.percaktoAtributeTeGridesShto(grid_trupi, "IdTrupi");
             GridUtil.percaktoAtributeTeGridesShtoPaTheme(grid_trupi, "IdTrupi");
 
             mbushTrupin();
@@ -464,8 +453,6 @@ namespace PlatinumWeb
                     if (!(arrCompKushtPagese[1].ToString() == " "))
                     {
                         DbCore.DbKontabiliteti.clsKushtPageseKoka clsKoka = new DbCore.DbKontabiliteti.clsKushtPageseKoka(arrCompKushtPagese[1].ToString(), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-                        //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-                        //DbCore.DbKontabiliteti.colKushtPageseKoka col = dbKontab.merrKushtPageseSipasKodit(arrCompKushtPagese[1].ToString(), new DbCore.clsFunksione().ktheIdNdermarrje ());
                         if (clsKoka != null)
                         {
                             if (Convert.ToInt32(arrCompKushtPagese[0]) < oColTrupiKushtPagese.Count())
@@ -525,7 +512,6 @@ namespace PlatinumWeb
         private DbCore.DbKontabiliteti.clsKushtPageseKoka krijoKushtPagese()
         {
             DbCore.DbKontabiliteti.clsKushtPageseKoka koka = new DbCore.DbKontabiliteti.clsKushtPageseKoka();
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             koka.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             koka.IdStatusDok = 1;
 
@@ -534,7 +520,6 @@ namespace PlatinumWeb
             koka.EmertimiKushtPagese = emertimi_TextBox.Text;
             koka.LlojiKushtPagese = pagesa_ASPxComboBox.SelectedItem.Text.ToString();
             koka.IdAutorizim = DbCore.DbAdmin.clsAutorizimKoka.ktheIDAutorizim(txtAutorizimi.Text);
-            //koka.IdAutorizim = dbAdmin.ktheAutorizim(txtAutorizimi.Text)[0].IdAutorizimKoka;
             if (koka.LlojiKushtPagese == "E plote")
             {
                 if (afati_TextBox.Text != "")
@@ -609,8 +594,6 @@ namespace PlatinumWeb
         {
             SetStyle(e.Cell);
         }
-
-
 
 
         protected void ruaj_Button_Click(object sender, EventArgs e)

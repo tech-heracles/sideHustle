@@ -103,7 +103,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// mbush gjithe nivelet e regjistrimit
         /// </summary>
@@ -234,8 +233,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje object colNivelRegjistrimi me te gjithe nivelet e regjistrimit te ndermarjes</returns>
         public static DataView ktheGjitheNivelRegjistrimi(int idNd, int user, bool shtoRreshtBosh)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheNivelRegjistrimi(idNd, user);
             using (clsDatabaseRegjistrim data = new clsDatabaseRegjistrim())
             {
                 DataTable nivele = data.ktheGjitheNivelRegjistrimiSmall(idNd, user);
@@ -342,21 +339,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushNivelRegjistrimiMeKonvertime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNivelRegjistrimi regj = new clsNivelRegjistrimi();
-                    //regj.mbushNivelRegjMeKonvertime(rreshti);
                     Add(new clsNivelRegjistrimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         /// <summary>
@@ -366,7 +355,6 @@ namespace DbCore.DbRegjistrim
         private bool mbushNivelRegjistrimiPaKonvertime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
@@ -375,12 +363,7 @@ namespace DbCore.DbRegjistrim
                     Add(regj);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         /// <summary>
@@ -390,7 +373,6 @@ namespace DbCore.DbRegjistrim
         private bool mbushNivelRegjistrimiNew(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
@@ -399,12 +381,7 @@ namespace DbCore.DbRegjistrim
                     Add(regj);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

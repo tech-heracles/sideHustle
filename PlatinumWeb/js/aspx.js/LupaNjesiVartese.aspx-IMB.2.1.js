@@ -21,8 +21,6 @@ $(window).on('unload',function () {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        //gvLupaNjesiVartese.SelectRowOnPage(0, true);
-        //gvLupaNjesiVartese.SetFocusedRowIndex(0);
         btnOk.Focus();
     }
     catch (err) {
@@ -76,7 +74,6 @@ function OnGridSelectionComplete(values) {
             }
             else {
                 window.parent.btneMagazina2.SetSelectedIndex(window.parent.btneMagazina2.AddItem(new Array(kodi, emri), idDege));
-                //window.parent.btneMagazina2.SetText(kodi + " (" + emri + ")");
                 window.parent.btneMagazina2.SetFocus();
                 window.parent.TextChangedMagazina2();
             }
@@ -105,10 +102,6 @@ function OnGridSelectionComplete(values) {
     window.parent.popupUniversal.Hide();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

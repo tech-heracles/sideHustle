@@ -142,7 +142,6 @@ namespace DbCore.DbInventari
         /// <param name="dbDetajimPerArt">dbinvetari ne raste transaksioni</param>
         public bool mbushDetajimArtSipasIdArtikulliDheLlojit(int idartikulli, int lloji, clsDatabaseInventari dbDetajimPerArt)
         {
-          //if(dbDetajimPerArt==null) dbDetajimPerArt = new clsDatabaseInventari();
           return mbushDetajimePerArt(dbDetajimPerArt.ktheDetajimArtSipasIdArtikulliDheLlojit(idartikulli, lloji));
         }
 
@@ -158,20 +157,12 @@ namespace DbCore.DbInventari
         private bool mbushDetajimePerArt(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsDetajimPerArt detajimArt = new clsDetajimPerArt();
-                    //detajimArt.mbushDetajimPerArtikull(rreshti);
                     this.Add(new clsDetajimPerArt(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

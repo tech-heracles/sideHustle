@@ -297,7 +297,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 }
 
 
-
 function ndryshoKonfiguriminInit() {
     callWebserviceKonfigurimiInit("2018", "");
 }
@@ -393,16 +392,12 @@ function EndCallbackGrida(s, e) {
     else  {
         txtKodi.SetEnabled(true);
     }
- //   $.ajax({
  //       url: Utils.getServerApiUrl("Konfigurime", "lexoMesazhNgaSessioni"),
  //   data: JSON.stringify({ })
-    //}).done(SucceededCallbackMesazhi);
     var mesazhi = Utils.MerrMesazhNgaGrida(ASPxGridView_KategoriPike);
     if (mesazhi.Kodi != 1000) {
         if (mesazhi.Status) {
             pastrofusha();
-            //ASPxGridView_Politikat.ClearFilter();
-            //PageControl.SetActiveTabIndex(0);
             myMesazh.ShtoMesazhSuksesi(mesazhi.PershkrimMesazhi);
         }
         else {

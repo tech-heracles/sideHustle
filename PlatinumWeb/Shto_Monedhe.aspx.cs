@@ -29,8 +29,6 @@ namespace PlatinumWeb
         private string guidString;
 
 
-
-
         protected void Page_Init(object sender, EventArgs e)
         {
         }
@@ -328,24 +326,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Monedhat.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiMonedha", ASPxGridView_Monedhat);
-            //var kolona = ASPxGridView_Monedhat.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //    {
-            //        filtri.DrejtimRenditje = true;
-            //    }
             //    else
-            //    {
-            //        filtri.DrejtimRenditje = false;
-            //    }
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "KodiMonedha";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             var mesazh = new DbCore.clsMesazh();
@@ -582,14 +564,6 @@ namespace PlatinumWeb
             colKurset = new DbCore.DbAdmin.colKurset();
             var oTrupi = new DbCore.DbAdmin.clsKurset();
             var llojetKurseve = new string[] { "Kursi1", "Kursi2", "Kursi3", "Kursi4", "Kursi5", "Kursi6", "Kursi7", "Kursi8", "Kursi9", "Kursi10", "Kursi11", "Kursi12", "Kursi13", "Kursi14", "Kursi15", "Kursi16", "Kursi17", "Kursi18", "Kursi19", "Kursi20" };
-
-
-
-
-
-
-
-
 
 
             oTrupi.PershkrimLlojKursi = "Kursi1";

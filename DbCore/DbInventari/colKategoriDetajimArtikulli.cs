@@ -53,20 +53,12 @@ namespace DbCore.DbInventari
         private bool mbushKategoriDetajimesh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKategoriDetajimArtikulli kat = new clsKategoriDetajimArtikulli();
-                    //kat.mbushKategoriDetajimArtikulli(rreshti);
                     this.Add(new clsKategoriDetajimArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

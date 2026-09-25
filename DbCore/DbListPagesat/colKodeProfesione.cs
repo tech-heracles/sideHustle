@@ -132,18 +132,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKodeProfesione(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKodeProfesione vendndodhje = new clsKodeProfesione();
-                    //vendndodhje.mbushKodeProfesione(rreshti);
                     Add(new clsKodeProfesione(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

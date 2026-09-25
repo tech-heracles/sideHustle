@@ -64,7 +64,6 @@ function OnGridSelectionComplete(values) {
         return;
     }
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     var kodbari = vl[3];
@@ -79,9 +78,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

@@ -22,8 +22,6 @@ $(window).on('unload',function () {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        //gvLayerElementi.SetFocusedRowIndex(0);
-        //gvLayerElementi.SelectRowOnPage(0, true);
         btnOk.Focus();
     }
     catch (err) {
@@ -66,7 +64,6 @@ function OnGridSelectionComplete(values) {
         return;
     }
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     var layerelem = vl[1];
@@ -81,10 +78,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

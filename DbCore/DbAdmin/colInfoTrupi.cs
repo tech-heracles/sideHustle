@@ -69,19 +69,11 @@ namespace DbCore.DbAdmin
         private bool mbushColInfoTrupi(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsInfoTrupi info = new clsInfoTrupi();
-                    //info.mbushInfoTrupi(rreshti);
                     Add(new clsInfoTrupi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

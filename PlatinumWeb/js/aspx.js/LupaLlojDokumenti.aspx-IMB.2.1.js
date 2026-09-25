@@ -54,19 +54,12 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaLlojDok.GetSelectedFieldValues('LlojDokKodi;LlojDokPershkrimi', OnGridSelectionComplete);
     gvLupaLlojDok.GetRowValues(gvLupaLlojDok.GetFocusedRowIndex(), 'LlojDokKodi;LlojDokPershkrimi', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {
-    //        var s = new String();
-    //        s += values[0];
-    //        var vl = s.split(",");
 
     if (window.parent.identikuesPerPopupLlojDokumenti == "RaporteKontabiliteti") {
-        //                 window.parent.editorGlobal.SetText(values[0]);
-        //                 window.parent.editorGlobalLlojDokPershk.SetText(values[1]);
-        //                window.parent.editorGlobal.Focus();
         window.parent.editorGlobal.SetText(values[0]);
     }
     else if (window.parent.identikuesPerPopupLlojDokumenti == "LidhjaDokumentave") {
@@ -83,10 +76,6 @@ function OnGridSelectionComplete(values) {
 
 
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

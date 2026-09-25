@@ -28,7 +28,6 @@ namespace PlatinumWeb
         private const string komponente = "ABParashikimTeArdhura.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -131,7 +130,6 @@ namespace PlatinumWeb
             gvparashikimTeArdhura.KeyFieldName = "RreshtiId";
            
              
-
         }
 
         private void percaktoTemplateMenu()
@@ -174,7 +172,6 @@ namespace PlatinumWeb
 
                     for (int i = 0; i < e.UpdateValues.Count; i++)
                     {
-                       // string key = e.UpdateValues[i].Keys[0].ToString();
                         clsParashikimiTeArdhura parashikimVjeter = col.Where(x => x.RreshtiId==e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
 
                         clsParashikimiTeArdhura parashikimRi = e.UpdateValues[i].MerrCustomUpdatedObject<clsParashikimiTeArdhura>(parashikimVjeter);

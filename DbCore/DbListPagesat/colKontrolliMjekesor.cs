@@ -56,18 +56,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKontrolliMjekesor(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKontrolliMjekesor grupKF = new clsKontrolliMjekesor();
-                    //grupKF.mbushKontrolliMjekesor(rreshti);
                     this.Add(new clsKontrolliMjekesor(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -165,7 +165,6 @@ namespace PlatinumWeb
         {
 
             shtoKomente();
-            //shtoProgres();
             KonfigurimComboGride.ShtoMuaj(gvAprovimet, rm, ci);
             KonfigurimComboGride.ShtoStatusAprovimi(gvAprovimet, rm, ci, "Statusi");
             GridViewDataTextColumn col3 = gvAprovimet.Columns["Vlefta"] as GridViewDataTextColumn;
@@ -209,19 +208,14 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void gvAprovimet_DataBound(object sender, EventArgs e)
         {
-            //if (gvAprovimet.Columns["#"] == null)
-            //{
-            //    GridViewCommandColumn check = new GridViewCommandColumn("#") { ShowSelectCheckbox = true, Width = System.Web.UI.WebControls.Unit.Percentage(2) };
             gvAprovimet.Settings.ShowFilterRow = true;
             gvAprovimet.Settings.ShowHeaderFilterButton = true;
             gvAprovimet.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
             gvAprovimet.Settings.ShowFilterRowMenu = true;
-            // gvAprovimet.Columns.Add(check);
             gvAprovimet.Settings.ShowGroupPanel = true;
             gvAprovimet.KeyFieldName = "IdEtapa";
             gvAprovimet.SettingsBehavior.AllowSelectByRowClick = true;
             gvAprovimet.SettingsBehavior.AllowFocusedRow = true;
-            // }
         }
 
         /// <summary>
@@ -446,7 +440,6 @@ namespace PlatinumWeb
                 else
                 {
                     DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-                    //filtra.mbushFiltraGridaSipasFiltraKodi(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvAprovimet", "ListeAprovimi.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
                     filtra.mbushFilterPerGrideSipasKodit(arr[2], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), koka.IdGridaKoka);
                     if (filtra.FiltraKodi != null)
@@ -522,7 +515,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "NrDokokumenti" || e.Column.FieldName == "Krijuesi")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue(TeGjithe, string.Empty, "true");
                 e.AddValue(nga + " A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue(nga + " D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");

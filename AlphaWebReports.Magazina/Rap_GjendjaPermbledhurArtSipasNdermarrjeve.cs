@@ -104,10 +104,7 @@ namespace AlphaWebReports.RaportetDs.Magazina
 
             if (GetCurrentColumnValue("KODARTIKULLI") != System.DBNull.Value && GetCurrentColumnValue("KODARTIKULLI") != null)
             {
-                //if (GetCurrentColumnValue("pershkrimNdermBije") == System.DBNull.Value || GetCurrentColumnValue("pershkrimNdermBije") == null)
-                //    label.Text = "";
                 //else
-                //{
                 string kodArt = GetCurrentColumnValue("KODARTIKULLI").ToString() + GetCurrentColumnValue("eshteArtILidhur");
                 label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + kodArt + ";Detail;gjendjepermbledhurArtikujshNdermarje')";
                 if (!SkippedDetailBands.ContainsKey(kodArt))
@@ -118,7 +115,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
                     label.Text = "-";
                 else
                     label.Text = "+";
-                // }
             }
             else
             {

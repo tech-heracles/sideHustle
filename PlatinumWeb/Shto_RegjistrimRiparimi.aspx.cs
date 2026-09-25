@@ -36,15 +36,6 @@ namespace PlatinumWeb
         public void MerrTedhenat(int idPerdoruesi, int idViti, int idNdermarrje, clsKokaRiparime koka)
         {
 
-            //string kodNiveli = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheKodNivelRegjistrimi(koka.IdNivel);
-            //cmbLloji.Text = kodNiveli;
-            //mbushComboKonfigurimet(true);
-            //DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
-            //konf.mbushKonfigAmbjSipasId(koka.IdKonfigAmbjente);
-            //cmbKonfigurimi.Text = konf.KodKonfigAmbjente;
-            //hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
-            //if (koka.IdMagazina != 0)
-            //    btneMagazina.Text = DbCore.DbRegjistrim.clsNjesiAdministrative.mbushKodiNjesiAdministrativeSipasiD(koka.IdMagazina, idPerdoruesi);
             txtNrKontakti.Text = koka.NrKontakti;
 
             txtAksesor.Text = koka.Aksesor;
@@ -67,13 +58,8 @@ namespace PlatinumWeb
                 txtIMEISwap.Text = trupivjeter[0].DetSwap;
                 txtProdukti.Text = trupivjeter[0].ArtSwap;
             }
-            //DataTable dtlidhur = koka.merrIdsDokLidhur();// new DbCore.DbAdmin.clsDatabaseAdmin().MerrDokLidhur(koka.IdKokaMagazina, koka.IdNivel, "T_KOKAMAGAZINA", "IDKOKAMAGAZINA");
-            //hfLidhur.Value = (!(dtlidhur.Rows.Count == 0)).ToString();
-            //DbCore.clsFunksione.ShtoLidhje(idPerdoruesi, idViti, idNdermarrje, hl, dtlidhur, koka.IdGjenerues, koka.IdNivelGjenerues, koka.IdKonfigGjenerues);
         }
 
-
-   
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -188,7 +174,6 @@ namespace PlatinumWeb
             foreach (DbCore.DbRegjistrim.clsTrupiMagazina t in trupat)
             {
 
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, DbCore.DbInventari.clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today, clsArtikulli.ktheKontrollCmimiPerDetajim(t.IdArtikulli),log,cultinf,rm, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                 if (!mesazh.Status)
                 {
@@ -220,7 +205,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
 
@@ -312,7 +296,6 @@ namespace PlatinumWeb
         /// <param name="idNdermarrje"></param>
         private void konfiguroVleraFillestareModifiko(int idPerdoruesi, int idViti, int idNdermarrje, int idGjuha, ResourceManager rm, CultureInfo cultinf)
         {//mbush kombot dhe gridat
-            // txtNrDok.Enabled = false;
 
             AspxWebControlUtils.vendosDateEditMask(dteDtDok);
             AspxWebControlUtils.vendosDateEditMask(dteDtRegjistrimi);
@@ -340,7 +323,6 @@ namespace PlatinumWeb
 
 
         }
-
 
 
         private void mbushComboKonfigurimet(bool mod, int idGjuha, int idNdermarje, int idPerdoruesi, ResourceManager rm, CultureInfo cultinf)
@@ -379,7 +361,6 @@ namespace PlatinumWeb
             cmbKonfigurimi.Columns.Add(colemer);
             cmbKonfigurimi.DataSource = colKonfig;
             cmbKonfigurimi.ValueField = "IdKonfigAmbjente";
-            //  cmbKonfigurimi.TextField = "KodKonfigAmbjente";
             cmbKonfigurimi.DataBind();
             cmbKonfigurimi.SelectedIndex = 0;
             hfKonffillestar.Value = cmbKonfigurimi.SelectedItem.Text;
@@ -414,10 +395,7 @@ namespace PlatinumWeb
                 if (status.Pershkrimi == "Kerkese e re")
                 {
                     int idRaporti = 0;
-                  //  clsGaranciArtikulli garanci = new clsGaranciArtikulli(regjistrime.IdGaranci);
                   ////  clsArtikulli art = new clsArtikulli(garanci.IdArtikulli);
-                  //   loan = clsArtikulli.ktheArtLoan(garanci.IdArtikulli);
-                  // if (loan) 
                     if (regjistrime.ColTrupi.Count > 0 && regjistrime.ColTrupi[0].IdArtLoan > 0) idRaporti = 147; 
                     else 
                         idRaporti = 146;
@@ -426,32 +404,16 @@ namespace PlatinumWeb
                 else if (status.Pershkrimi == "Aparati dorezuar Klientit")
                 {
                     int idRaporti = 0;
-                  //  clsGaranciArtikulli garanci = new clsGaranciArtikulli(regjistrime.IdGaranci);
-                  // // clsArtikulli art = new clsArtikulli(garanci.IdArtikulli);
-                  //bool loan=  clsArtikulli.ktheArtLoan(garanci.IdArtikulli);
-                  //if (loan) 
                     if (regjistrime.ColTrupi.Count > 0 && regjistrime.ColTrupi[0].IdArtLoan > 0) idRaporti = 149; 
                     else 
                         idRaporti = 148;
                     Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + regjistrime.IdKoka + "&printo=false";
                 }
 
-                //if (hfShtimModifikim.Value == "riparim")
-                //{
                 //   
                 //   
-                //   clsStatusRiparimi status=new clsStatusRiparimi (kokaekzistuese.IdStatusRiparimi)
-                //   if(status.Pershkrimi=="Kerkese e re")
 
 
-                //}
-                //id = int.Parse(Request.QueryString["id"]);
-                //clsKoka = new DbCore.DbRegjistrim.clsKokaShitje();
-                //clsKoka.mbushKokaShitjeSipasID(id);
-                //int idRaporti = DbCore.DbShare.clsRaporti.ktheIdRaporti(idGjuha, clsKoka.IdRaportDesing);
-                //Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + clsKoka.IdShitjeKoka + "&printo=false&iddesign=" + cmbFormatiPrintimit.Value;
-                // Page.Validate();
-                // ruajRegjistrimRiparim(1, true);
             }
         }
 
@@ -482,8 +444,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -633,7 +593,6 @@ namespace PlatinumWeb
                 else if (hfShtimModifikim.Value == "riparim")
                 {
                     if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                    //if (!tedrejtaInfo.DMod)
                     {
                         clsMenuInfo.ShtoMesazhGabimi(MenuInfo, MessagesResource.Messages["msgNukKeniTeDrejta"], pnlMesazhi);
                         status1.Value = "false";
@@ -674,10 +633,7 @@ namespace PlatinumWeb
                     if (status.Pershkrimi == "Kerkese e re")
                     {
 
-                      //  clsGaranciArtikulli garanci = new clsGaranciArtikulli(regjistrime.IdGaranci);
                       ////  clsArtikulli art = new clsArtikulli(garanci.IdArtikulli);
-                      //  bool loan=clsArtikulli.ktheArtLoan(garanci.IdArtikulli);
-                      //  if (loan) 
                         if (regjistrime.ColTrupi.Count > 0 && regjistrime.ColTrupi[0].IdArtLoan > 0) idRaporti = 147; else idRaporti = 146;
 
                         Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + regjistrime.IdKoka + "&printo=true";
@@ -685,24 +641,14 @@ namespace PlatinumWeb
                     else
                         if (status.Pershkrimi == "Aparati dorezuar Klientit")
                         {
-                           // clsGaranciArtikulli garanci = new clsGaranciArtikulli(regjistrime.IdGaranci);
                            //// clsArtikulli art = new clsArtikulli(garanci.IdArtikulli);
-                           // bool loan = clsArtikulli.ktheArtLoan(garanci.IdArtikulli);
-                           // if (loan) 
                             if (regjistrime.ColTrupi.Count > 0 && regjistrime.ColTrupi[0].IdArtLoan > 0) idRaporti = 149; else idRaporti = 148;
 
                             Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + regjistrime.IdKoka + "&printo=true";
                         }
 
-                    //if (hfShtimModifikim.Value == "riparim")
-                    //{
-                    //    int id = int.Parse(Request.QueryString["id"]);
-                    //    clsKokaRiparime kokaekzistuese = new clsKokaRiparime(id);
                     //  
-                    //   if(status.Pershkrimi=="Kerkese e re")
 
-
-                    //}
 
                 }
                 if (mesazh.Status == true)
@@ -755,9 +701,6 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrProjekti", "NrProjekt");
             clsKokaRiparime koka = new clsKokaRiparime();
 
             int idnivel = int.Parse(cmbLloji.Value.ToString());
@@ -978,7 +921,6 @@ namespace PlatinumWeb
         }
 
 
-
         #region  GRIDA E garancise
 
         private void inicializoGridFaturat(int idNdermarrje)
@@ -1032,7 +974,6 @@ namespace PlatinumWeb
             if (grid_faturat.Columns["DtDok"] == null)
             {
                 colnew2 = new GridViewDataDateColumn();
-                //  colnew2.DataItemTemplate = new MyDateGTemplate("");
                 colnew2.FieldName = "DtDok"; colnew2.VisibleIndex = 3;
                 grid_faturat.Columns.Add(colnew2);
 
@@ -1126,7 +1067,6 @@ namespace PlatinumWeb
             if (grid_faturat.Columns["DtMbarimi"] == null)
             {
                 colnew2 = new GridViewDataDateColumn();
-                //  colnew2.DataItemTemplate = new MyDateGTemplate("");
                 colnew2.FieldName = "DtMbarimi"; colnew2.VisibleIndex = 20;
                 grid_faturat.Columns.Add(colnew2);
 
@@ -1241,7 +1181,6 @@ namespace PlatinumWeb
         }
 
 
-
         #endregion
         #region  GRIDA E statusit aktual
 
@@ -1276,7 +1215,6 @@ namespace PlatinumWeb
             grid_aktuale.SettingsText.Title = "Statusi aktual";
 
         }
-
 
 
         protected void grid_aktuale_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
@@ -1319,7 +1257,6 @@ namespace PlatinumWeb
             grid_historiku.SettingsText.Title = "Historiku";
 
         }
-
 
 
         protected void grid_historiku_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
@@ -1393,7 +1330,6 @@ namespace PlatinumWeb
         }
 
 
-
         protected void grid_Loan_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
         {
 
@@ -1447,7 +1383,6 @@ namespace PlatinumWeb
         }
 
 
-
         protected void gvArtLoan_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {
         }
@@ -1496,19 +1431,12 @@ namespace PlatinumWeb
             gvArtLoan.Settings.ShowHeaderFilterButton = false;
             gvArtLoan.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
             gvArtLoan.Settings.ShowFilterRowMenu = false;
-            //  gvArtLoan.Columns.Add(check);
             gvArtLoan.Settings.ShowGroupPanel = false;
             gvArtLoan.SettingsBehavior.AllowDragDrop = false;
             gvArtLoan.SettingsBehavior.AllowSort = false;
             gvArtLoan.SettingsBehavior.AllowGroup = false;
             gvArtLoan.SettingsPager.Mode = GridViewPagerMode.ShowAllRecords;
-            //gvArtLoan.Columns["#"].VisibleIndex = 0;
-            //gvArtLoan.SettingsEditing.EditFormColumnCount = 2;
 
-            //((GridViewDataColumn)gvArtLoan.Columns["Produkti"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
-            //((GridViewDataColumn)gvArtLoan.Columns["Barkodi"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
-            //((GridViewDataColumn)gvArtLoan.Columns["Cmimi"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
-            //((GridViewDataColumn)gvArtLoan.Columns["Gjendje"]).EditFormSettings.Visible = DevExpress.Utils.DefaultBoolean.False;
 
         }
         protected void gvArtLoan_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
@@ -1556,20 +1484,15 @@ namespace PlatinumWeb
         }
         protected void gvArtLoan_DataBound(object sender, EventArgs e)
         {
-            //if (gvArtLoan.Columns["#"] == null)
             {
-                //DevExpress.Web.GridViewCommandColumn check = new DevExpress.Web.GridViewCommandColumn("#");
-                //check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
                 gvArtLoan.Settings.ShowFilterRow = false;
                 gvArtLoan.Settings.ShowHeaderFilterButton = false;
                 gvArtLoan.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
                 gvArtLoan.Settings.ShowFilterRowMenu = false;
-                //  gvArtLoan.Columns.Add(check);
                 gvArtLoan.Settings.ShowGroupPanel = false;
                 gvArtLoan.KeyFieldName = "IdArtikulli";
                 gvArtLoan.SettingsBehavior.AllowSelectSingleRowOnly = true;
                 gvArtLoan.SettingsBehavior.AllowFocusedRow = true;
-                //  gvArtLoan.Settings.ShowTitlePanel = false;
             }
         }
         #endregion

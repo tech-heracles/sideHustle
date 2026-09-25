@@ -40,7 +40,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
             xrLabel10.Text = rm.GetString("lblskonto", ci);
             xrLabel12.Text = rm.GetString("labelFilterAvancuarMonedha", ci);
-           // xrLabel15.Text = rm.GetString("lblMenyraPageses", ci) + ":";
             xrLabel15.Text = rm.GetString("lblMenyraPagese", ci) + ":";
             xrLabel17.Text = rm.GetString("lblRaportiDifferentNotes", ci) + ":";
             xrLabel18.Text = rm.GetString("lblInvoiceDate", ci);

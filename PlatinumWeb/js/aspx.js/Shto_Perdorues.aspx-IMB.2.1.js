@@ -99,16 +99,13 @@ function menu_click(s, e) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgNdodhiGabimGjateMarrjesSeTeDhenave"));
         }
             e.processOnServer = false;
-            //setTabRoleVisibility(true);
     }
     if (hfShtimModifikim.val() == "shtim") {
         lblPasswordieksistues.SetVisible(false);
         txtPasswordieksistues.SetVisible(false);
-        //cbPassPerkohshem.SetChecked(true);
         cbKycurMobile.SetChecked(true);
         AktivizoFushatEPasswordit();
         cbShfaqNjoftime.SetChecked(false);
-        // setTabRoleVisibility(true);
     }
 }
 function AktivizoFushatEPasswordit()
@@ -122,15 +119,7 @@ function AktivizoFushatEPasswordit()
 }
 
 //merr te dhenat e rreshtit te selektuar
-//function mbushfusha() {
-//    mbush = false;
-//    $('#hfShtimModifikim')[0].value = "modifikim";
-//    indexModifiko = grid_ListPerdoruesit.GetFocusedRowIndex();
-//    if (indexModifiko == -1)
-//        myMesazh.ShtoMesazhGabimi(hfState.Get('msgPerdoruesitZgjidhniNjePerdorues'));
 //    else
-//        grid_ListPerdoruesit.GetRowValues(indexModifiko, 'IdPerdorues;IdQyteti;EmriPerdorues;MbiemriPerdorues;PerdoruesAktiv;PerdoruesUsername;PerdoruesTel;PerdoruesFax;PerdoruesEmail;PerdoruesAdresa;IdGjuha;IdAmbjent;PassIPerkohshem;Kycur;KONTROLLOPASSWORD;SHFAQDTPRINTIMI;KycurMobile;SHFAQPERDORUESMENU;SHFAQMESAZHEPOPUP;IdAmbjentMobile;ShopCode;ShopName;DealerName;UseriCRM;UserEtopUP;IDETopUp;TypeOfDevice;SalesRepMobileNumber;SalesRepMPesaMSISDN;Gjinia;SalesRepStartDateVod;SalesRepTrainingStart;SalesRepStartDateShop;SalesRepMaternityLeaveStart;LeaveDateVod;LeaveDateShop;MaternityLeaveEndDate;TrainingEndDate;CommentsRetailSales;AccountExecutive;IDNumber;IsInsured;CommentsRetailOpSpecialist;RegionalSupervisor;RetailSalesAccountExecutive;RetailSalesAreaManager;Birthdate;SiteCode;District;ShopMainCode;Latitude;Longitude;PershkrimStatusi;PershkrimLeaveReason;PershkrimUniform;Shenime;StatusAprovimi;NjoftimEmailAprovim', OnGetRowValuesMod); Utils.shfaqLoadingGif();;
-//}
 
 function mbushfusha() {
     $('#hfShtimModifikim')[0].value = "modifikim";
@@ -181,8 +170,6 @@ function SelektoPerdorues(indexi) {
         else qyteti_ASPxComboBox.SetValue(null);
         tel_TextBox.SetText(values[6]);
         fax_TextBox.SetText(values[7]);
-        //lblPasswordieksistues.SetVisible(true);
-        //txtPasswordieksistues.SetVisible(true);
         ASPxGridView_Autorizimet.PerformCallback(indexModifiko);
         password_TextBox.SetText('');
         txtPasswordieksistues.SetText('');
@@ -337,7 +324,6 @@ function pastrofusha() {
     cbKycurMobile.SetChecked(true);
     kontrolloPassword_CheckBox.SetChecked(true);
     cbShfaqNjoftime.SetChecked(false);
-    //shfaqPerdoruesMenu_CheckBox.SetChecked(false);
     setTimeout(AktivizoFushatEPasswordit, 10);
     txtKodiDyqanit.SetText('');
     txtShopName.SetText('');
@@ -407,8 +393,6 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 }
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackRoletPerd(result)
 {
     if (result.toString() !== roletNew.toString()) {
@@ -479,7 +463,6 @@ function SucceededCallbackKonfig(result) {
         }
     }
 
-    //$("#dvPerdorues").show();//$("#dvPerdorues")[0].style.visibility = 'visible';
 }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
@@ -501,12 +484,6 @@ function _getKeyCode(evt) {
     return (typeof (evt.keyCode) != "undefined" && evt.keyCode != 0) ? evt.keyCode : evt.charCode;
 }
 
-//function changeName() {
-//    $('#hfId').val(0);
-//    var hf = $("#hfKonffillestar")[0];
-//    myFaqeCelje.changeName('Shto_Perdorues.aspx',0, hf);
-//    myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $('#hfShtimModifikim'));
-//}
 function changeName() {
     var id = parseInt($('#hfId').val());
     if (isNaN(id))
@@ -527,14 +504,9 @@ Shiko funksionet  <ndryshoKonfigurimin>.
 */
 function EndRequestHandler(sender, args) {
     var hf = $("#hfStatusi");
-    //var hfRedirect = $('#hfRedirect');
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, grid_ListPerdoruesit, "100")
-    //if (hfRedirect.val() == "true")
-    //    setTimeout(function () {
-    //        window.location = 'Default.aspx';
     //    }, 5000)
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, grid_ListPerdoruesit, "100", pastrofusha, hfTeDrejta);
 }
@@ -585,8 +557,6 @@ function OnSelectionChanged(s, e) {
 }
 
 function kontrolloPassword(s, e) {
-    // var valid = password_TextBox.GetIsValid();
-    //if (!valid) {
     var gjatesiPass = s.GetValue();
     if (hfMinGjatesiPassword !== 'undefined') {
         if (hfMinGjatesiPassword.Contains('GjatesiMinPass')) {

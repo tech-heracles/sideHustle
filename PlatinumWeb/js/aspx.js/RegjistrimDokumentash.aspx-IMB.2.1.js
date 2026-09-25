@@ -108,10 +108,8 @@ function shto_dok(s, e) {
         emerFaqe = "Shto_RegjistrimDokumentash.aspx";
 
     myFaqeCelje.kontrolloTeDrejta(Utils.buildUrl(emerFaqe, { "shitje_blerje": shitjeBlerje, "shtim_modifikim": "shtim" }));
-        //myMenu.menu_click_regjistrime(s, e, Utils.buildUrl(emerFaqe, { "shitje_blerje": shitjeBlerje, "shtim_modifikim": "shtim" }), Utils.buildUrl(emerFaqe, {
         //    "shitje_blerje": shitjeBlerje,
         //    "shtim_modifikim": "shtim",
-        //}));
 }
 
 function menu_click(s, e) {
@@ -280,7 +278,6 @@ function Print() {
         });
     });
 }
-
 
 
 function kontrolloTeDrejtaPerNivelRegjistrimiDokumenti(values, veprimi, callBackFunction) {
@@ -463,7 +460,6 @@ function OnGridSelectionCompleteEksport(values) {
         myButtonClickLupa.ButtonClickLupaEksporto(values, shitjeBlerje, 2, 'Blerje', 'Format Standart Blerje me Artikuj');
 
 
-
 }
 
 var konfigurimet, idte;
@@ -579,7 +575,6 @@ function SuccededCallbackKthim(result) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgJoKthimDokFatOferteKerkese"));        
     }
     else if (result[1] === "likuiduar") {
-        //Utils.hiqLoadingGif();
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimDokumentash.aspx?shitje_blerje=' + Utils.getUrlVar('shitje_blerje') + '&id=' + grid_RegDok.GetRowKey(grid_RegDok.GetFocusedRowIndex()) + '&shtim_modifikim=kthim&pageCacheId=' + window['CurrentPageId'] + '&likuiduar=true');
     }
     else if (result[1] === "negative") {
@@ -603,7 +598,6 @@ function SuccededCallbackPaguaj(result) {
     else myFaqeCelje.kontrolloTeDrejta(result);
 }
 
-//var mbush = false;
 
 function OnGridDoubleClick(s, e, index) {
     grid_RegDok.GetRowValues(grid_RegDok.GetFocusedRowIndex(), 'TotaliMeZbritjeMeTVSH', function (result) {
@@ -612,7 +606,6 @@ function OnGridDoubleClick(s, e, index) {
 }
     
     
-
 function clickExport(e) {
     if (grid_RegDok.GetSelectedRowCount() == 0) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjdhniNjeNgaElementetEListes"));

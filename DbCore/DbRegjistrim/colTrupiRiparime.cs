@@ -59,46 +59,16 @@ namespace DbCore.DbRegjistrim
         ///// merr artikujt qe ndodhne ne trup
         ///// </summary>
         ///// <returns>nje koleksion me te gjithe artikujt qe ndodhen ne trup</returns>
-        //public DbInventari.colArtikujt ktheColArtikuj()
-        //{
-        //    DbInventari.colArtikujt colArt = new DbInventari.colArtikujt();
-        //    foreach (clsTrupiRiparime trup in this)
-        //    {
-        //        DbInventari.clsArtikulli art = new DbInventari.clsArtikulli(trup.IdArtikulli);
-        //        colArt.Add(art);
-        //    }
-        //    return colArt;
-        //}
 
         ///// <summary>
         ///// merr gjithe magazinat qe ndodhen ne trup
         ///// </summary>
         ///// <returns>nje koleksion me te gjitha magazinat qe ndodhen ne trup</returns>
-        //public colNjesiAdministrative ktheColMag(int idPerdorues)
-        //{
-        //    colNjesiAdministrative colMag = new colNjesiAdministrative();
-        //    foreach (clsTrupiRiparime trup in this)
-        //    {
-        //        clsNjesiAdministrative mag = new clsNjesiAdministrative(trup.IdMag, idPerdorues);
-        //        colMag.Add(mag);
-        //    }
-        //    return colMag;
-        //}
 
         ///// <summary>
         ///// merr gjithe njesite e artikujve qe ndodhen ne trup
         ///// </summary>
         ///// <returns>nje koleksion me te gjithe njesite e artikujve qe ndodhen ne trup</returns>
-        //public DbInventari.colNjesiteArtikulli ktheColNjesiArt()
-        //{
-        //    DbInventari.colNjesiteArtikulli colNjesi = new DbInventari.colNjesiteArtikulli();
-        //    foreach (clsTrupiRiparime trup in this)
-        //    {
-        //        DbInventari.clsNjesiArtikulli njesiArt = new DbInventari.clsNjesiArtikulli(trup.IdNjesia);
-        //        colNjesi.Add(njesiArt);
-        //    }
-        //    return colNjesi;
-        //}
 
         /// <summary>
         /// mbush trupin e riparimit sipas id se kokes se riparimit
@@ -144,21 +114,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushTrupatRiparime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiRiparime trupi = new clsTrupiRiparime();
-                    //trupi.mbushTrupRiparime(rreshti);
                     Add(new clsTrupiRiparime(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

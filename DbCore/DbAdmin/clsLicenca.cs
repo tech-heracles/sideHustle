@@ -56,8 +56,6 @@ namespace DbCore.DbAdmin
         }
 
 
-
-
         /// <summary>
         /// Konstruktor i klases
         /// </summary>
@@ -165,7 +163,6 @@ namespace DbCore.DbAdmin
                 dateRegjistrimi = value;
             }
         }
-
 
 
         /// <summary>
@@ -375,24 +372,7 @@ namespace DbCore.DbAdmin
         /// <returns>kthen false nepermjet objektit clsMesazh ne rastin kur licenca ka skaduar; kthen true me mesazhin perkates nqs i skadon per disa dite; kthen true pa mesazh kur nuk eshte ne ditet e fundit te licences</returns>
         public static clsMesazh KontrolloSkadiminLicences(int idPerdoruesi, ResourceManager rm, CultureInfo ci)
         {
-            //int limitDiteTeMbetura = DbCore.DbAdmin.clsLicenca.merrLimitDiteTeMbetura();
-            //DbCore.DbAdmin.clsLicenca licence = new DbCore.DbAdmin.clsLicenca();
-            //licence.mbushLicencen(idPerdoruesi);
-            //if (licence.IdLicenca == 0)
-            //    return new clsMesazh("Problem ne leximin e licences!");
-            //if (!licence.isValid())
-            //    return new clsMesazh("Problem ne validimin e licences!");
-            //if (!licence.nrDiteTeMbetura.HasValue)
-            //    return new clsMesazh(true, "");
-            //int nrDiteTeMbetura = licence.nrDiteTeMbetura.Value;
-            //int nrDiteTolerance = 0;
-            //if (nrDiteTeMbetura + nrDiteTolerance <= 0)
-            //    return new clsMesazh(false, "Ka mbaruar afati bashke me tolerance!!!");
             //if (limitDiteTeMbetura != -1)   //kontrollon nqs DataMbarimit dhe limitDiteTeMbetura nuk jane null ne Db
-            //{
-            //    if (nrDiteTeMbetura <= limitDiteTeMbetura)
-            //        return new clsMesazh(true, DbCore.DbAdmin.clsLicenca.merrMesazhPerfundimLicence(nrDiteTeMbetura, nrDiteTolerance, rm, ci));
-            //}
             
             try
             {
@@ -417,7 +397,6 @@ namespace DbCore.DbAdmin
                     {
                         string ServiceResult = rd.ReadToEnd();
                         var dbObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(ServiceResult);
-                        //json.GetType().GetProperty("allUrl").GetValue(json,null)
                         dbObject.TryGetValue("endDate", out dtSkadence);
                     }
 

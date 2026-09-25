@@ -62,23 +62,11 @@ function OnGridSelectionChanged() {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
-    //        alert(s+1);
-    //      txtPersh.SetText(s);
-    //      //gvLupaSkemaKontArt.PerformCallback();
-    //        }
-    //        function Return() {
-    //         alert(txtPersh.GetText()+2);
     var vl = s.split(",");
     if (window.parent.identifikuesPerPopupSkema === "KonfigurimDokumentash") {
         window.parent.editorSKA.SetValue(vl[1]);
         window.parent.editorSKA.SetFocus();
-        //                window.parent.editorLLI.SetText(vl[2]);
-        //                window.parent.editorLLB.SetText(vl[3]);
-        //                window.parent.editorLLS.SetText(vl[4]);
-        //                window.parent.editorLLT.SetText(vl[5]);
-        //                window.parent.editorLLSH.SetText(vl[6]);
         window.parent.colAtribute[window.parent.keySK].VlereDefault = vl[1];
         window.parent.pageState.fushaLlogarie.llogariInv.fusha.VlereDefault = vl[8];
         window.parent.pageState.fushaLlogarie.llogariB.fusha.VlereDefault = vl[9];
@@ -111,16 +99,11 @@ function OnGridSelectionComplete(values) {
 
         Utils.SelectComboItem(window.parent.btneSkema, vl[1], vl[0]);
         window.parent.btneSkema.SetFocus(true);
-        //                window.parent.btneLlogInv.SetText(vl[2]);
         try {
             Utils.SelectComboItem(window.parent.btneLlogInv, vl[8], vl[2]);
-            //window.parent.btneLlogBle.SetText(vl[3]);
             Utils.SelectComboItem(window.parent.btneLlogBle, vl[9], vl[3]);
-            //window.parent.btneLlogShit.SetText(vl[4]);
             Utils.SelectComboItem(window.parent.btneLlogShit, vl[10], vl[4]);
-            //window.parent.btneLlogTretet.SetText(vl[5]);
             Utils.SelectComboItem(window.parent.btneLlogTretet, vl[11], vl[5]);
-            //window.parent.btnLlogShpe.SetText(vl[6]);
             Utils.SelectComboItem(window.parent.btnLlogShpe, vl[12], vl[6]);
             Utils.SelectComboItem(window.parent.cmbLlogAmortizimi, vl[13], vl[7]);
             Utils.SelectComboItem(window.parent.btnLlogPakesim,  vl[15],vl[14]);
@@ -130,17 +113,11 @@ function OnGridSelectionComplete(values) {
         var hf = window.parent.document.getElementById("hfSkema");
         hf.value = window.parent.btneSkema.GetText();
         //KEVI: nuk perdoret kjo poshte
-        //                if (window.parent.identifikuesPerSkemat!=="modifikim") {
-        //                    window.parent.IdSkemaKontabilitetiArtikulli.SetText(vl[0]);
-        //                    //   window.parent.ProcessTextCahnged('IdSkemaKontabilitetiArtikulli', vl[0]);
-        //                }
         ////        callWebservice(vl[2]);
         ////        callWebservice1(vl[3]);
         ////        callWebservice2(vl[4]);
         ////        callWebservice3(vl[5]);
         ////        callWebservice4(vl[6]); 
-
-
 
 
     }  window.parent.popupUniversal.Hide();
@@ -197,10 +174,6 @@ function SucceededCallback4(result) {
 
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

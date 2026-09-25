@@ -16,20 +16,13 @@ namespace PlatinumWeb
 {
     public partial class LupaLloji : MyPageBase
     {
-        //private string koloneFocus;
         ASPxTextBox temptxt = null;
-        //ASPxComboBox tempcombo = null;
-        //ASPxCheckBox tempcb = null;
         public static int idNdermVit = -1;
-        //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             String array = Request.QueryString["value"];
-            //if (!Page.IsCallback)
-            //{
                                
-            //}
             mbushPopUpListeLlojesh(array);
             konfiguroPopupGride();
         }
@@ -103,83 +96,16 @@ namespace PlatinumWeb
 
         protected void gvLupaLloji_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {//kur grida ben callback te ruajme te dhenat
-            //int key = -1;
-            //DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.clsDatabaseInventari();
 
-            //dbKontabiliteti = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //if (e.Parameters.ToString() != "")
-            //{
-            //    key = int.Parse(e.Parameters.ToString());
-            //}
-            //DbCore.DbInventari.colArtikujtZevendesues artikujt = new DbCore.DbInventari.colArtikujtZevendesues();
-            //DbCore.DbInventari.clsArtikullZevendesues artikulli;
-            //int rreshta = gvLupaLloji.VisibleRowCount + 1;
-            //string initVal = this.hfArtikulli.Text;
-            //string[] pars1 = initVal.Split(',');
-            //string initVal2 = this.hfEmertimiA.Text;
-            //string[] pars3 = initVal2.Split(',');
-            //string initVal3 = this.hfPrioritetiA.Text;
-            //string[] pars5 = initVal3.Split(',');
 
-            //string[] kodi = new string[pars1.Length];
-            //string[] emri = new string[pars1.Length];
-            //string[] prioriteti = new string[pars1.Length];
             //if (initVal != "")//merren te dhenat e hiden fieldeve te trupave te fleteve kontabel nga javascipti
-            //{
-            //    for (int i = 0; i < pars1.Length; i++)
-            //    {
-            //        string[] pars2 = pars1[i].Split(':');
-            //        kodi[Convert.ToInt32(pars2[0])] = pars2[1];
-            //    }
-            //}
-            //if (initVal2 != "")
-            //{
-            //    for (int i = 0; i < pars3.Length; i++)
-            //    {
-            //        string[] pars4 = pars3[i].Split(':');
-            //        emri[Convert.ToInt32(pars4[0])] = pars4[1];
-            //    }
-            //}
-            //if (initVal3 != "")
-            //{
-            //    for (int i = 0; i < pars5.Length; i++)
-            //    {
-            //        string[] pars6 = pars5[i].Split(':');
-            //        prioriteti[Convert.ToInt32(pars6[0])] = pars6[1];
-            //    }
-            //}
 
             //for (int i = 0; i < rreshta - 1; i++)//krijohet kolectioni me trupat e fleteve kontabel e futura nga perdoruesi
-            //{
-            //    artikulli = new DbCore.DbInventari.clsArtikullZevendesues();
-            //    if (kodi[i] != null && kodi[i] != "null" && kodi[i] != "")
-            //    {
-            //        artikulli.KodArtikulli = kodi[i];
-            //        artikulli.IdArtikulliZevend = dbInventari.ktheArtikull(kodi[i], DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session))[0].IdArtikulli;
             //    } if (emri[i] != null && emri[i] != "null" && emri[i] != "")
-            //        artikulli.PershkrimArtikulli = emri[i];
-            //    if (prioriteti[i] != null && prioriteti[i] != "null" && prioriteti[i] != "")
-            //        artikulli.Prioriteti = prioriteti[i];
 
-            //    artikujt.Add(artikulli);
-            //}
 
-            //if (key != -1)
-            //    artikujt.RemoveAt(key);
             //else
-            //{
-            //    DbCore.DbInventari.clsArtikullZevendesues art = new DbCore.DbInventari.clsArtikullZevendesues();
 
-            //    artikujt.Add(art);
-            //}
-            //if (artikujt.Count == 0)
-            //{
-            //    DbCore.DbInventari.clsArtikullZevendesues art = new DbCore.DbInventari.clsArtikullZevendesues();
-            //    artikujt.Add(art);
-            //}
-            //this.gvLupaLloji.DataSource = artikujt;
-            //this.gvLupaLloji.DataBind();
-            //percaktoTemplateArtikujsh();
         }
 
         protected void gvLupaLloji_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
@@ -189,17 +115,10 @@ namespace PlatinumWeb
 
         protected void gvLupaLloji_DataBound(object sender, EventArgs e)
         {//shton butonin fshi
-            //if (this.gvLupaLloji.Columns["Fshi"] == null)
-            //{
-            //    GridViewDataTextColumn fshi = new GridViewDataTextColumn();
-            //    fshi.Caption = "Fshi";
-            //    fshi.Width = 50;
-            //    gvLupaLloji.Columns.Add(fshi);
 
             gvLupaLloji.KeyFieldName = "IdLloji";
             gvLupaLloji.SettingsBehavior.AllowSelectByRowClick = false;
             gvLupaLloji.SettingsBehavior.AllowFocusedRow = true;
-            // }
         }
 
         protected void gvLupaLloji_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)

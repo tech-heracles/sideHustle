@@ -215,8 +215,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt  clsKategoriNivelDok qe permban kategorine e nivelit te dokumentit te kerkuar</returns>
         public clsKategoriNivelDok merr()
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrKategoriNivelDok(this)[0]; 
             clsKategoriNivelDok data = new clsKategoriNivelDok(this.Pershkrimi);
             return data;
         }
@@ -228,8 +226,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt  clsKategoriNivelDok qe permban kategorine e nivelit te dokumentit te kerkuar</returns>
         public clsKategoriNivelDok merrSipasId()
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrKategoriNivelDokSipasID(this)[0];
             clsKategoriNivelDok data = new clsKategoriNivelDok();
             data.mbushKategoriNivelDokSipasID(this.IdKategori);
             return data;
@@ -245,8 +241,6 @@ namespace DbCore.DbRegjistrim
             clsKategoriNivelDok data = new clsKategoriNivelDok();
             data.mbushKategoriNivelDokSipasIDPaNivele(this.IdKategori);
             return data;
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrKategoriNivelDokSipasIDPaNivele(this)[0];
         }
 
         /// <summary>
@@ -257,8 +251,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt  colKategoriNivelDok qe permban kategorite e nivelit te dokumentit  te nje ndermarje</returns>
         public colKategoriNiveleDok merriTeGjithe(int idNdermVit)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheKategoriNivelDok(idNdermVit);
             colKategoriNiveleDok data = new colKategoriNiveleDok();
             data.mbushGjitheKategoriNivelDok();
             return data;
@@ -272,8 +264,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt  colKategoriNivelDok qe permban kategorite e nivelit te dokumentit  te nje ndermarje</returns>
         public colKategoriNiveleDok merriTeGjithePa(int idNdermVit)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheKategoriNivelDokPa(idNdermVit);
             colKategoriNiveleDok data = new colKategoriNiveleDok();
             data.mbushGjitheKategoriNivelDokPa(idNdermVit);
             return data;
@@ -289,24 +279,16 @@ namespace DbCore.DbRegjistrim
             colNivelRegjistrimi nivele = new colNivelRegjistrimi();
             nivele.mbushNivelRegjistrimi(this.IdKategori, idndermarje);
             return nivele;
-            //clsNivelRegjistrimi nivel = new clsNivelRegjistrimi();
-            //nivel.IdKategori = this.IdKategori;
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrNivelRegjistrimi(nivel);            
         }
 
         public colKategoriNiveleDok merriTeGjithePa2(int idNdermVit)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheKategoriNivelDokPa2(idNdermVit);
             colKategoriNiveleDok data = new colKategoriNiveleDok();
             data.mbushGjitheKategoriNivelDokPa2(idNdermVit);
             return data;
         }
                 public colKategoriNiveleDok merriTeGjithePaSipasSuperKat(int idsuperkat)
         {
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrGjitheKategoriNivelDokPa2(idNdermVit);
             colKategoriNiveleDok data = new colKategoriNiveleDok();
             data.mbushGjitheKategoriNivelDokPaSipasSuperKat(idsuperkat);
             return data;

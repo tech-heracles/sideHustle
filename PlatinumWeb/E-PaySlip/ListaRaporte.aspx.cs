@@ -36,7 +36,6 @@ namespace PlatinumWeb.E_PaySlip
             hfState.Set("NdermarrjeKodi", ndermarrje.NdermarrjeKodi);
                  
 
-            
             if (periudha != null)
             {
                 dtdoknga.Set("dtdoknga", periudha.FillimiPeriudha.ToString());
@@ -49,15 +48,10 @@ namespace PlatinumWeb.E_PaySlip
             vendosEmraLabela(ci, rm);
             
             
-
-            
-
         }
         protected void vendosEmraLabela(CultureInfo ci, ResourceManager rm)
         {
 
-            //  dalje.Text = "Log out";
-         //   lblLista.Text = rm.GetString("lblListaRaporteve", ci);
             dalje.InnerText = rm.GetString("lblDalje", ci);
             hfState.Set("NdryshoFjalekalim", rm.GetString("lblNdryshoFjalekalim", ci));
             hfState.Set("lblListaRaporteve", rm.GetString("lblListaRaporteve", ci));

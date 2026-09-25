@@ -30,7 +30,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -214,7 +213,6 @@ namespace PlatinumWeb
         }
 
         
-
         protected void gvbuxhetPermbledhes_CustomUnboundColumnData(object sender,
     ASPxGridViewColumnDataEventArgs e)
         {

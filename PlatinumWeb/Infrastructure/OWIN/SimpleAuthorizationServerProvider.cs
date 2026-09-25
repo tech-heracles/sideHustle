@@ -58,7 +58,6 @@ namespace PlatinumWeb.Providers
         }
 
 
-
         public override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
         {
             var originalClient = context.Ticket.Properties.Dictionary["as:client_id"];
@@ -99,16 +98,7 @@ namespace PlatinumWeb.Providers
             //ketu mund te kapet access token
             return base.TokenEndpointResponse(context);
         }
-        //public override Task ValidateClientRedirectUri(OAuthValidateClientRedirectUriContext context)
-        //{
 
-        //    Uri expectedRootUri = new Uri(context.Request.Uri, "/");
-        //    if (expectedRootUri.AbsoluteUri == context.RedirectUri)
-        //    {
-        //        context.Validated();
-        //    }
-        //    return Task.FromResult<object>(null);
-        //}
         public static AuthenticationProperties CreateProperties(OAuthGrantResourceOwnerCredentialsContext context, string userName)
         {
             IDictionary<string, string> data = new Dictionary<string, string>

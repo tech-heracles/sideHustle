@@ -175,7 +175,6 @@ namespace DbCore.DbAsete
         {
             Type type = this.GetType().UnderlyingSystemType;
             this.className = type.Name;
-            //clsAseteNormaAmortizimiAbstract klasa = krijoInstance(rreshti, this.className);
             
             mbushArtikullNormaAmortizimiObjekt(rreshti);
 

@@ -69,18 +69,10 @@ namespace DbCore.DbAsete
         private bool mbushNormaAmortizimiGrupList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupNormaAmortizimi normaAmortizimiGrup = new clsGrupNormaAmortizimi();
-                    //normaAmortizimiGrup.mbushNormaAmortizimiGrupObjekt(rreshti);
                     this.Add(new clsGrupNormaAmortizimi(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -126,7 +126,6 @@ namespace PlatinumWeb.Templates
                 ImageUrl = $"images/theme/{CurrentPage.Theme}/grida/filter_default.png",
                 ToolTip = rm.GetString("regjisDokBtnToolTipAplikoFilterDefault", cultinf)
             };
-           // _btnfilterDefault.Click += btnfilterDefault_Click;
 			_btnfilterDefault.Image.UrlHottracked = $"images/theme/{CurrentPage.Theme}/grida/filter_default_W.png";
             _btnfilterDefault.Image.Height = 16;
             _btnfilterDefault.ClientSideEvents.Click = $@"function(s,e)
@@ -134,7 +133,6 @@ namespace PlatinumWeb.Templates
              {Grid.ClientInstanceName}.PerformCallback('{GridUtil.APLIKOFILTERDEFAULT}');
           }}";
             _btnfilterDefault.AutoPostBack = false;
-            //ScriptManager.RegisterPostBackControl(_btnfilterDefault);
         }
         #endregion
 

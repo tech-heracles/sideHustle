@@ -107,7 +107,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell45.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell46.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell47.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-          //  xrTableCell48.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell49.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
 
             xrTableCell27.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
@@ -131,7 +130,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell45.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell46.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell47.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
-         //   xrTableCell48.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
             xrTableCell49.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
 
 

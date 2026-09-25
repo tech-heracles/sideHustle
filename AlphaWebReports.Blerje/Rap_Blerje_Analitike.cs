@@ -25,7 +25,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel1.Text = rm.GetString("titullRaportiBlerjeAnalitike", ci);
             xrTableCell1.Text = rm.GetString("labelAsetKodi", ci);
             xrTableCell2.Text = rm.GetString("labelRaportProdukti", ci);

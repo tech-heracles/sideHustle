@@ -30,7 +30,6 @@ namespace DbCore.DbListPagesat
         private DataRow rreshti;
 
 
-
         #endregion
 
         #region Properties
@@ -208,12 +207,6 @@ namespace DbCore.DbListPagesat
         ///// <param name="kodi">kod</param>
         ///// <param name="idndermarje">id e ndermarrjes</param>
         ///// <param name="grupi">grupi</param>
-        //public clsKalendariFestave(string kodi, int idndermarje, int grupi)
-        //{
-        //    clsDatabazeListPagesa dbKodifikimArtikujsh = new clsDatabazeListPagesa();
-        //    mbushGrup(dbKodifikimArtikujsh.merrGrupimSipasKod(kodi, idndermarje, grupi));
-        //    dbKodifikimArtikujsh.Dispose();
-        //}
 
 
         #endregion
@@ -286,7 +279,6 @@ namespace DbCore.DbListPagesat
             data.commitTransaksion();
             return u_fshi;
         }
-
 
 
         public static bool ekzistonFeste(DateTime date, int idndermarje)

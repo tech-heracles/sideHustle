@@ -99,7 +99,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlExtensions
         }
 
 
-
         /// <summary>
         /// perdoret kur grid eshte ne callback
         /// </summary>
@@ -159,8 +158,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlExtensions
         /// <returns></returns>
         public static bool UpdateCustomObjectByRow<T>(this ASPxDataUpdateValues updateValues, T oldObj)
         {
-            // Type temp =typeof(T) ;
-            //  T obj = New<T>.Instance();
             PropertyInfo[] properties = typeof(T).GetProperties();
             //  obj = oldObj;///me qellim qe te kopjohen gjithe vlerat e vjetra
 
@@ -189,8 +186,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlExtensions
         /// <returns></returns>
         public static T MerrCustomUpdatedObject<T>(this ASPxDataUpdateValues updateValues, T oldObj)
         {
-            // Type temp =typeof(T) ;
-            //  T obj = New<T>.Instance();
             PropertyInfo[] properties = typeof(T).GetProperties();
             //  obj = oldObj;///me qellim qe te kopjohen gjithe vlerat e vjetra
 
@@ -219,7 +214,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlExtensions
         /// <returns></returns>
         public static T MerrCustomInsertedObject<T>(this ASPxDataInsertValues insertedValues, T obj)
         {
-            //Type temp = typeof(T);
 
             //T obj = New<T>.Instance();//me mire ta marrim si parameter sepse behet instancimi me shpejt
             PropertyInfo[] properties = typeof(T).GetProperties();
@@ -359,7 +353,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlExtensions
 
         public static void MbushGride(this ASPxGridView grida ,object objekt, HttpSessionState Session, string guidString, string komponente)
         {
-            //mySessionObjects.RuajNeSession<DateTime>(Session, DateTime.Now, komponente + "_" + grida.ClientInstanceName, guidString);
             grida.DataSource = objekt;
             grida.DataBind();
         }

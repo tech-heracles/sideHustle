@@ -775,8 +775,6 @@ namespace DbCore.DbQendraKosto
         public static clsKokaQendraKosto KrijoQenderRe(clsKonfigurimAmbjenti konfig, colTrupatFletetKontabel colTrupFk, colObjektivaKosto objektivat, List<double> vleratobjektiva, List<double> vleratobjektivamonbaze, List<int> idllogobj, int statusdok, out string shfaqmesazhapolupe, int idNdermarrje, int idGjuha, string shtimModifikim, int idKokaFleteKontabel, string pershkrimi, DateTime data, DateTime dateRegjistrimi, int idNderVit, int idPerdoruesi, string nrDokumenti)
         {
             shfaqmesazhapolupe = "jo";
-            //if (statusdok == 0)
-            //    return new clsKokaQendraKosto();
             var clsKonf = new clsKonfigurimAmbjenti();
             clsKonf.mbushKonfigDefaultKomponentes(906, idNdermarrje);
 
@@ -1411,7 +1409,6 @@ namespace DbCore.DbQendraKosto
             bool rishpernda = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "RSKDMD", dbShare) == "Po";
             bool shperndaDifQKPModDok = clsAlternativaKushti.getAlternativa(konfig.IdKonfigAmbjente, "SHDQKPMD", dbShare) == "Po";
             colTrupiQendraKosto coltrup = new colTrupiQendraKosto(this.IdKoka, dbQK);
-            //DbCore.DbQendraKosto.clsKokaQendraKosto kokaqender = DbCore.DbQendraKosto.clsKokaQendraKosto.krijoQK(konfig.IdNivel, konfig.IdKonfigAmbjente, this.NrRef, this.DtDok, this.NrDok, this.IdKoka, 1, this.IdNdermarrje, this.IdNdermarrjeVit, idPerdoruesi, this.DtRegj, this.Pershkrimi, kokafl.IdNivel, kokafl.IdKonfigAmbjente, kokafl.IdKokaFleteKontabel, coltrupfk, iddegeadm, 0, 0, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out shfaqmesazhapolupe, coltrup, dbQK, 0, rishpernda, shperndaDifQKPModDok);
             DbCore.DbQendraKosto.clsKokaQendraKosto kokaqender = DbCore.DbQendraKosto.clsKokaQendraKosto.KrijoQK(dbQK, konfig.IdNivel, konfig.IdKonfigAmbjente, this.NrRef, this.DtDok, this.NrDok, this.IdKoka, 1, this.IdNdermarrje, this.IdNdermarrjeVit, idPerdoruesi, this.DtRegj, this.Pershkrimi, kokafl.IdNivel, kokafl.IdKonfigAmbjente, kokafl.IdKokaFleteKontabel, coltrupfk, iddegeadm, 0, 0, objektivat, vleratobjektiva, vleratobjektivamonbaze, idllogobj, out shfaqmesazhapolupe, coltrup, 0, rishpernda, shperndaDifQKPModDok);
             kokaqender.IdKoka = this.IdKoka;
             if (kokaqender.colTrupi.Count > 0)
@@ -1471,7 +1468,6 @@ namespace DbCore.DbQendraKosto
             if (this.idKoka > 0)
             {
                 //this.IdStatusDok = idstatusfshirje;  //duhet vendosur nje status i pershtatshem per kete modifikim
-                //clsMesazh mesazh = dbProdh.modifikoKokaQenderKosto(this.IdKoka, this.IdNivel, this.IdKonfigAmbjente, this.NrRef, this.DtDok, this.NrDok, this.IdStatusDok, this.idNdermarrje, this.idNdermarrjeVit, idperdoruesi, this.DtRegj, this.pershkrimi);
                 clsMesazh mesazh = clsKokaQendraKosto.kaloNeHistorik(this.idKoka, idperdoruesi, idstatusfshirje, dbProdh);
                 if (!mesazh.Status)
                     return mesazh;

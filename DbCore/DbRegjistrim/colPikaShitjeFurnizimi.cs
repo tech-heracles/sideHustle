@@ -174,21 +174,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushPikaShitjeFurnizimi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPikeShitjeFurnizimi nivel = new clsPikeShitjeFurnizimi();
-                    //nivel.mbushPikeShitjeFurnizimi(rreshti);
                     Add(new clsPikeShitjeFurnizimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

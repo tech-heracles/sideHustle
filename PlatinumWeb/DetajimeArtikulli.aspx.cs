@@ -110,7 +110,6 @@ namespace PlatinumWeb
             gvDetajimArtikulli.PercaktoTitlePanel(this, _menu, pnlMesazhi, hfState, IdPerdoruesi, IdNdermarrja, IdViti, IdGjuha, 1, "DetajimeArtikulli.aspx", rm, ci);
 
 
-
         }
 
         protected List<int> pozicionoNeFillimDetajimetEZgjedhura(int idNdermarrje, DataTable dt)
@@ -164,7 +163,6 @@ namespace PlatinumWeb
             int idNdermarrje = (int)hfState["idNdermarrje"];
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
@@ -176,24 +174,10 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvDetajimArtikulli.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvDetajimArtikulli);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvDetajimArtikulli.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDetajimArtikulli";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
 
-            //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -202,7 +186,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltraMeValFieldTextField(idGjuha, idNdermarrje, emerGride, emerKomponente, "IdFiltra", "FiltraShenime", 1);
-            //gvDetajimArtikulli.SortBy('IdDetajimArtikulli', 'DSC');
             percaktoTemplateMenu(idGjuha, ASPxMenu1, (int)hfState["idViti"], idPerdoruesi, idNdermarrje, (bool)hfState["lupe"]);
             if (mesazh.Status == true)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -223,21 +206,17 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNderm);
             int idGjuha = (int)hfState["idGjuha"];
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, emerGride, emerKomponente, idNdermarrje);
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
 
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 int idPerdoruesi = (int)hfState["idPerdoruesi"];
                 filtra.IdPerdoruesi = idPerdoruesi;
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra(idNderm);
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, emerGride, 1, emerKomponente);
                 percaktoTemplateMenu(idGjuha, ASPxMenu1, (int)hfState["idViti"], idPerdoruesi, idNdermarrje, (bool)hfState["lupe"]);
                 if (mesazh.Status == true)
@@ -245,7 +224,6 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //   konfiguroVleraFillestare();
                 gvDetajimArtikulli.FilterExpression = String.Empty;
             }
         }
@@ -324,14 +302,12 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
 
             DbCore.DbAdmin.colAutorizimetKoka colAutorizim = new DbCore.DbAdmin.colAutorizimetKoka(idPerdoruesi);
-            //colAutorizim = dbAdmin.merrAutorizimKokaPerPerdorues (DbCore.mySessionObjects.ktheIdPerdoruesi(Session) );
             colnew.PropertiesComboBox.DataSource = colAutorizim;
             colnew.PropertiesComboBox.TextField = "KodiAutorizim";
             colnew.PropertiesComboBox.ValueField = "IdAutorizimKoka";
             colnew.FieldName = "IdNivelAutorizimi";
             gvDetajimArtikulli.Columns.Add(colnew);
         }
-
 
 
         protected void gvDetajimArtikulli_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
@@ -344,7 +320,6 @@ namespace PlatinumWeb
             if (e.Editor.GetType().Name == "ASPxTextBox")
             {
                 ASPxTextBox currentEditor = e.Editor as ASPxTextBox;
-                //currentEditor.ClientSideEvents.TextChanged = "function(s,e){ProcessTextChanged('" + e.Column.FieldName + "',s.GetText());}";
                 currentEditor.ClientInstanceName = e.Column.FieldName;
                 if (e.Column == gvDetajimArtikulli.Columns["KodDetajimArtikulli"])
                 {
@@ -385,8 +360,6 @@ namespace PlatinumWeb
                         continue;
                     if (e.NewValues["KategoriDetajimi"] != null && (e.NewValues["KategoriDetajimi"].ToString() == "3" || e.NewValues["KategoriDetajimi"].ToString() == "4") && dataColumn.FieldName == "PershkrimDetajimArtikulli")
                         continue;
-                    //   if (String.IsNullOrEmpty(hfAutorizime.Value))
-                    //       e.Errors[dataColumn] = "Vlera nuk mund te jete null.";
 
                     if (e.NewValues[dataColumn.FieldName] == null && dataColumn.FieldName != "IdNivelAutorizimi")//validimi per kolonat e detyrueshme
                     {
@@ -455,13 +428,11 @@ namespace PlatinumWeb
             if (e.Errors.Count > 0)
             {
                 e.RowError = "Ju lutemi, plotesoni te gjitha fushat.";
-                //percaktoTamplate();
                 return;
             }
             if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
             {
                 e.RowError = "Ju lutemi, korrigjoni te gjithe gabimet.";
-                //percaktoTamplate();
                 return;
             }
         }
@@ -529,7 +500,6 @@ namespace PlatinumWeb
             gvDetajimArtikulli.CancelEdit();
             mbushGrideNgaDb(idPerdoruesi, idNdermarrje);
 
-            //konfiguroGride((int)hfState["idGjuha"], idNdermarrje, true);
             hfAutorizime.Value = "";
         }
         private void hiqDetajimeNgaGrida(int idPerdoruesi, int idNdermarrje, int IdDetajimArtikulli, System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
@@ -631,7 +601,6 @@ namespace PlatinumWeb
             {
                 int indeksi = gvDetajimArtikulli.FocusedRowIndex;
                 gvDetajimArtikulli.StartEdit(indeksi);
-                //mbushGrideNgaSesioni((int)hfState["idPerdoruesi"], (int)hfState["idNdermarrje"]);
                 hfAutorizime.Value = "";
             }
         }
@@ -764,14 +733,11 @@ namespace PlatinumWeb
                 check.ShowSelectCheckbox = true;
                 check.Width = Unit.Percentage(2);
                 check.Index = 0;
-                //check.VisibleIndex = 0;
-
 
 
                 gvDetajimArtikulli.Settings.ShowFilterRow = true;
                 gvDetajimArtikulli.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
                 gvDetajimArtikulli.Settings.ShowFilterRowMenu = true;
-                //check.SetColVisibleIndex(0);
 
                 gvDetajimArtikulli.Columns.Add(check);
                 gvDetajimArtikulli.KeyFieldName = "IdDetajimArtikulli";

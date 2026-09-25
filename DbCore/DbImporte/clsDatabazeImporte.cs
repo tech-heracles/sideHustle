@@ -145,15 +145,7 @@ IMPORTUAR, DATE_EKSPORTI, DATE_IMPORTIMI FROM " + Properties.Settings.Default.Db
             dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
             dbManager.AddParameters(1, "@DATEDOK", dt, ParameterDirection.Input);
             return (string)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_TEMP_KOKA_IMPORT_FLETEKONTABEL_ktheNrFunditImportiSipasDates");
-            //DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SELECT TOP 1 NRKOKAFLETEKONTABEL FROM " + Properties.Settings.Default.DbCore_EmriDatabaze_Import + ".dbo." + Properties.Settings.Default.DbCore_EmriTabeles_ImportKokaFleteKontabel + @"  WHERE DATEDOKUMENTIKOKAFLETEKONTABEL= " + dt + " ORDER BY ID_KOKAIMPORT DESC");
-            //if (ds == null)
-            //    return -1;
-            //if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-            //    return -1;
 
-            //int idKokaImport;
-            //int.TryParse(ds.Tables[0].Rows[0]["ID_KOKAIMPORT"].ToString(), out idKokaImport);
-            //return idKokaImport;
         }
 
         #endregion

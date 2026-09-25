@@ -136,9 +136,6 @@ namespace DbCore.DbGIS
         }
 
 
-
-
-
         /// <summary>
         /// Merr si parameter nje DataRow dhe ben leximin e features qe ai ka
         /// </summary>
@@ -442,13 +439,8 @@ namespace DbCore.DbGIS
             colSkedaretGIS skedaret = new colSkedaretGIS();
             skedaret.mbushSkedareLloji(lloji, idPerdorues);
 
-            //DbCore.clsMesazh result = new DbCore.clsMesazh();
-            //result.Status = true;
-            //result.PershkrimMesazhi = clsJSONHelper.Serialize<colSkedaretGIS>(skedaret);
-            //return result;
             return skedaret;
         }
-
 
 
         public static clsMesazh merrTeGjitheSkedaretUploadPerObjektGeo(string idDytesore)

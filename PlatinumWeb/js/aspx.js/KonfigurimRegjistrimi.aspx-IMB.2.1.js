@@ -99,14 +99,12 @@ function SynchronizeListBoxValues(dropDown, args) {
     var texts = dropDown.GetText().split(textSeparator);
     var values = GetValuesByTexts(texts);
     checkListBox.SelectValues(values);
-   // UpdateSelectAllItemState();
     UpdateText();  // for remove non-existing texts
 }
 
 function GetSelectedItemsText(items) {
     var texts = [];
     for (var i = 0; i < items.length; i++)
-    //  if (items[i].index != 0)
         texts.push(items[i].text);
     return texts.join(textSeparator);
 }

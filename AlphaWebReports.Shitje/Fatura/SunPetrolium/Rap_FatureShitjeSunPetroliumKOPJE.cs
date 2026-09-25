@@ -60,17 +60,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.SunPetrolium
             xrTableCell10.Text = rm.GetString("labelNjesiaUpperCase", ci);
             xrTableCell17.Text = rm.GetString("labelRaportNRKARTELE", ci);
             xrLabel73.Text = rm.GetString("footerRaportPerdorimiFaturesLejuarNgaDPTatimeve", ci);
-            //xrLabel45.Text = rm.GetString("MenuItemRaportBanka", ci);
-            //xrLabel51.Text = rm.GetString("labelFilterAvancuarMonedha", ci);
-            //xrLabel54.Text = rm.GetString("lblRaportNrllogarise", ci);
-            //xrLabel55.Text = rm.GetString("lblRaportNrLlogariRaiffeisenBank1", ci);
-            //xrLabel56.Text = rm.GetString("lblRaportNrLlogariRaiffeisenBank2", ci);
-            //xrLabel62.Text = rm.GetString("lblRaportNrLlogariRaiffeisenBank3", ci);
-            //xrLabel61.Text = rm.GetString("lblRaportNrLlogariBKT", ci);
-            //xrLabel46.Text = rm.GetString("lblRaportRaiffesienBank", ci);
-            //xrLabel47.Text = rm.GetString("lblRaportRaiffesienBank", ci);
-            //xrLabel57.Text = rm.GetString("lblRaportRaiffesienBank", ci);
-            //xrLabel58.Text = rm.GetString("lblRaportBKT", ci);
         }
 
     }

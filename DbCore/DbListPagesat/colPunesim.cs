@@ -141,16 +141,9 @@ namespace DbCore.DbListPagesat
         /// <param name="dt"> data table me te dhenat e tipit punesim</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
         //public bool mbushPunesim(DataTable dt)
-        //{
         //    //try
         //    //{
 
-        //        foreach (DataRow rreshti in dt.Rows)
-        //        {
-        //            //clsPunesim skema = new clsPunesim();
-        //            //skema.mbushPunesim(rreshti);
-        //            Add(new clsPunesim(rreshti));
-        //        }
 
         //    //}
         //    //catch (Exception)
@@ -158,8 +151,6 @@ namespace DbCore.DbListPagesat
         //    //    return false;
         //    //    //throw;
         //    //}
-        //    return true;
-        //}
 
         #endregion
         public static colPunesim MerrPunesimTeFunditPerPunonjesit(List<int> punonjesIDs, DateTime data)

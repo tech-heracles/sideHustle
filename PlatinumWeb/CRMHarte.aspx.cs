@@ -77,7 +77,6 @@ namespace PlatinumWeb
                 hfState.Set("idPerdoruesi", idPerdoruesi);
                 hfState.Set("idNdermarrjeVit", idNdermarrjeVit);
                 hfState.Set("idViti", idViti);
-               // lblUserEmri.Text = DbCore.mySessionObjects.ktheEmerPerdorues(Session);
                 cultinf = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
 
@@ -86,8 +85,6 @@ namespace PlatinumWeb
                 DbCore.DbAdmin.clsTeDrejtaRoli tedrejtaInfo = new DbCore.DbAdmin.clsTeDrejtaRoli();
                 tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdoruesi, idNdermarrje, idViti, komponente);
                 hfTeDrejta["Ambjenti"] = tedrejtaInfo.DAmb;
-                //hfTeDrejta.Add("Shtim", tedrejtaInfo.DShtim);
-                //hfTeDrejta.Add("Modifikim", tedrejtaInfo.DMod);
                 EmratELabelave(cultinf, hfState);
                 KonfiguroVleraFillestare(idNdermarrje);
 
@@ -109,7 +106,6 @@ namespace PlatinumWeb
 
             RuajVleratNeHiddenField(levizjet, hfState);
            
-            // periudhat = clsFunksione.merrPeriudhenNgaDeringaHiddenField(hfState);
 
             percaktoTemplateMenu(ASPxMenuToolBar,idViti,idPerdoruesi,idNdermarrje);
         }
@@ -247,27 +243,10 @@ namespace PlatinumWeb
        public void Ruaj_ASPxButton_Click (object sender, EventArgs e){}
         public void ASPxButtonFshiFilterOk_Click(object sender, EventArgs e)
         {
-            //DevExpress.Web.MenuItem itemButton = ASPxMenuToolBar.Items.FindByName("TemplatedItemFilter");
-            //ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
-            //int idFilter = Convert.ToInt32(cmbFiltra.Value);
-            //clsFilterKoka filtri = new clsFilterKoka(idFilter);
-            //int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //filtri.IdPerdoruesi = idPerdoruesi;
-            //DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //mesazh = filtri.fshistatus();
-            //int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //cmbFiltra.Text = "";
-            //mbushComboBoxFiltra(idPerdoruesi, idNdermarrje);
-            //percaktoTemplateMenu(ASPxMenuToolBar, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idPerdoruesi, idNdermarrje);
 
-            //if (mesazh.Status)
-            //    clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             //else
-            //    clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             ////cmbFiltra.Items.Remove(new ListEditItem(Convert.ToString(cmbFiltra.Value)));
-            //cmbFiltra.DataBind();
 
-            //((UpdatePanel)navBarFiltrat.Groups[0].FindControl("updfiltrat")).Update();
         }
 
         private void KonfiguroVleraFillestare(int idNdermarrje)

@@ -56,21 +56,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushLlogariteTrupi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlogariaTrupiPasqyres llog = new clsLlogariaTrupiPasqyres();
-                    //llog.mbushLlogariTrup(rreshti);
                     Add(new clsLlogariaTrupiPasqyres(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

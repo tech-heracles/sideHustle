@@ -89,13 +89,6 @@ function MultiSelect(options) {
     }
 
     this.IsInitialized = function () { return this._initialized; };
-    //this.SetFocus = function (focus) {
-    //    this.Options.focus = focus;
-    //    if (!this._initialized)
-    //        return;
-    //    if (this.Options.focus) this.Control.focus();
-    //    else this.Control.blur();
-    //};
 
     this.Init = function () {
         if (this._initialized)
@@ -108,7 +101,6 @@ function MultiSelect(options) {
 
         this.SetEnabled(this.Options.enabled);
         this.SetValue(this.Options.value);
-        // this.SetFocus(this.Options.focus);
         this.SetVisible(this.Options.visible);
     }
 

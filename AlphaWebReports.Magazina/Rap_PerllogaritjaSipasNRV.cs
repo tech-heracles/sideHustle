@@ -54,7 +54,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             fieldNRV_Effect.AreaIndex = 4;
 
 
-
             XRPivotGridField fieldMagazina = new XRPivotGridField("Magazina", PivotArea.ColumnArea);
             fieldMagazina.FieldName = "kodmag";
             fieldMagazina.Caption = rm.GetString("labelFilterAvancuarKodbari", ci);
@@ -109,9 +108,7 @@ namespace AlphaWebReports.RaportetDs.Magazina
             ResourceManager rm = new ResourceManager("Resources.Strings",
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
-           // xrLabel12.Text = rm.GetString("TitullRaportiGjendjaMagazinesMeIMEIExp", ci);
           
-
         }
 
     }

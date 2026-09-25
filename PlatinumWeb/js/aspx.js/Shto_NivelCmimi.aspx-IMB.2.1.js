@@ -126,7 +126,6 @@ function mbushfusha() {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhni1NivelCmimi"));
     else
         gvNivelCmimi.GetRowValues(indexModifiko, 'IdNivelCmimi;KodNivelCmimi;PershkrimNivelCmimi;IdPrindi;LlojiNivelCmimi;IdMonedha;BrutoNetoNivelCmimi;PrioritetiNivelCmimi;NjesiTeVarura;TeVaruraNgaMonedha;NivelCmimiBaze;KodPrindi;PershkrimPrindi;Detajim;IdCmimRetail;PershkrimRetail', OnGetRowValuesMod);
-       // gvNivelCmimi.GetRowValues(indexModifiko, 'IdNivelCmimi;KodNivelCmimi;PershkrimNivelCmimi;IdPrindi;LlojiNivelCmimi;IdMonedha;BrutoNetoNivelCmimi;PrioritetiNivelCmimi;NjesiTeVarura;TeVaruraNgaMonedha;NivelCmimiBaze;KodPrindi;PershkrimPrindi', OnGetRowValuesMod);
     Utils.shfaqLoadingGif();;
 }
 
@@ -194,7 +193,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
     var hf = $('#hfKontrollet')[0]; //mban te dhenat mbi kontrollet
     var hfLidhur = $("#hfLidhur")[0];
     hfLidhur.value = result;
-    //            aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result.toLowerCase()));
 }
 //pastron fushat per shtim dhe ben aktive fushat
@@ -249,29 +247,19 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //                var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblNivelCmimi'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
 
- //   $("#dvNiveli").show();//$("#dvNiveli")[0].style.visibility = 'visible';
 }
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
@@ -291,7 +279,6 @@ function LupaKontrollet(kontrollet, colAtrTrupi) {
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //            myFaqeCelje.aktivizoFusha(vlerat, hfMod, hfLidhur, '#ASPxPageControl1_');
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 function ndryshoKonfigurimin() {
@@ -325,7 +312,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvNivelCmimi, "410")
    btneEmertimPrindi.PerformCallback();
    indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvNivelCmimi, "410", pastrofusha, hfTeDrejta);
 }

@@ -26,7 +26,6 @@ namespace PlatinumWeb
     public partial class GjeneroProjektProdhimi : MyPageBase
     {
         bool visibleindex;
-        //private static string STR_njeProdhimPorosi = "Duhet te kete te pakten nje prodhim per porosi!";
 
         /// <summary>
         /// perdoret per te vendosur theme
@@ -189,10 +188,8 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup2, idNdermarrje, 2, int.Parse(cmbKonfigurimi.Value.ToString()), idPerdoruesi);
             ConfigureAspxComboBox.shtoKolonaPerGrupim(cmbGrup3);
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup3, idNdermarrje, 3, int.Parse(cmbKonfigurimi.Value.ToString()), idPerdoruesi);
-            //   cmbKonfigurimi.TextFormatString = "{0}";
             hfKonffillestar.Value = cmbKonfigurimi.Text;
             colProjektProdhimi col = new colProjektProdhimi();
-            //Session.Add("Produktet", col);
             DbCore.mySessionObjects.ruajProjektProdhimiNeSesion(Session, col);
             ConfigureAspxComboBox.mbushComboKodifikim(idNdermarrje, btneGrup, 1, false, false);
             ConfigureAspxComboBox.mbushComboKodifikim(idNdermarrje, btneNenGrup, 2, false, false);
@@ -325,7 +322,6 @@ namespace PlatinumWeb
             colUrdherPorosiPlanifikim coludher = new colUrdherPorosiPlanifikim();
             JavaScriptSerializer serializusi = new JavaScriptSerializer();
             object[] dokumenti = (object[])serializusi.DeserializeObject(gridDataObject.Value);
-            //DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti(int.Parse(hfFD.Value.ToString()));
 
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             for (int i = 0; i < dokumenti.Length; i++)
@@ -503,9 +499,7 @@ namespace PlatinumWeb
             KonfigurimComboGride.ShtoModel(grid_faturat, 1, idNdermarrje, idPerdoruesi, idGjuha, Session, komponente, guidString);
 
 
-           
             shtoColor();
-            //shtoKlientFurnitor(grid_faturat,"IdKlientFurnitori");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(grid_faturat, "IdDokumenti", true, false);
             grid_faturat.Columns["#"].VisibleIndex = 0;
@@ -628,13 +622,11 @@ namespace PlatinumWeb
         private void shtoKlientFurnitor(ASPxGridView grid, string emerkolone)
         {
             int visibleindex = grid.Columns["IdKlientFurnitori"].VisibleIndex;
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             grid.Columns.Remove(grid.Columns[emerkolone]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new colKlienteFurnitore();
             colKlientet.Add(new DbCore.DbKontabiliteti.clsKlientFurnitor());
             colKlientet.mbushKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = dbKontab.merrKlienteFurnitoreNdermarrjes(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             colnew.PropertiesComboBox.DataSource = colKlientet;
             colnew.PropertiesComboBox.TextField = "KodKlientFurnitor";
             colnew.PropertiesComboBox.ValueField = "IdKlientFurnitor";

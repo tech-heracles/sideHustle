@@ -40,8 +40,6 @@ namespace DbCore.DbAdmin
         private ResourceManager rm=new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-
-
         #endregion Atributet
 
         #region Konstruktoret
@@ -66,9 +64,6 @@ namespace DbCore.DbAdmin
                 VlereDefault = vlereDefault;
                 Shenime = shenime;
                 idGjuha = idgjuha;
-
-
-
 
 
         }
@@ -269,21 +264,15 @@ namespace DbCore.DbAdmin
         #region Metoda Private
         private clsMesazh kontrolloFushaShtese()
         {
-            //if (kodi == "")            
-            //        return new clsMesazh(false, "Plotesoni kodin e fushes shtese!");
             clsMesazh kontrollkodiFushaShtese = clsFunksione.kontrolloKaraktereMeMesazh(kodi, FusheKontrolli.Kodi, false);
             if (!kontrollkodiFushaShtese.Status)
                 return kontrollkodiFushaShtese;
 
-            //if (pershkrimiFushaShtese == "")
-            //    return new clsMesazh(false, "Plotesoni pershkrimin e fushes shtese!");
             clsMesazh kontrollpershkrimiFushaShtese = clsFunksione.kontrolloKaraktereMeMesazh(pershkrimiFushaShtese, FusheKontrolli.Emri, true);
             if (!kontrollpershkrimiFushaShtese.Status)
                 return kontrollpershkrimiFushaShtese;
 
 
-            //if (pershkrimiEng == "")
-            //    return new clsMesazh(false, "Plotesoni pershkrimin anglisht te fushes shtese!");
             clsMesazh kontrollpershkrimienfFushaShtese = clsFunksione.kontrolloKaraktereMeMesazh(pershkrimiEng, FusheKontrolli.Emri, true);
             if (!kontrollpershkrimienfFushaShtese.Status)
                 return kontrollpershkrimienfFushaShtese;
@@ -304,8 +293,6 @@ namespace DbCore.DbAdmin
             if (!mesazh.Status)
                 throw new Exception(mesazh.PershkrimMesazhi);
         
-
-    
 
             using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
             {

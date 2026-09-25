@@ -38,7 +38,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaViti.GetSelectedFieldValues('Kodi;Monedha', OnGridSelectionComplete);
     gvLupaViti.GetRowValues(gvLupaViti.GetFocusedRowIndex(), 'KodiViti', OnGridSelectionComplete);
 }
 

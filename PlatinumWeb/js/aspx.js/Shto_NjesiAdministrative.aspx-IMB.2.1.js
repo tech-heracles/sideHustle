@@ -74,7 +74,6 @@ Parameters:
 e-eventi
 */
 function Poshte_click(e) {
-    //indexSel = myMenu.JSlevizNeGride.Poshte_click(e, gvNjesiAdm, indexSel);
 }
 
 /*Function: Lart_click
@@ -86,7 +85,6 @@ Parameters:
 e-eventi
 */
 function Lart_click(e) {
-    //indexSel = myMenu.JSlevizNeGride.Lart_click(e, gvNjesiAdm, indexSel);
 }
 
 /*
@@ -99,7 +97,6 @@ Parameters:
 e-eventi
 */
 function Fillim_click(e) {
-    //indexSel = myMenu.JSlevizNeGride.Fillim_click(e, gvNjesiAdm, indexSel);
 }
 
 /*
@@ -112,7 +109,6 @@ Parameters:
 e-eventi
 */
 function Fund_click(e) {
-    //indexSel = myMenu.JSlevizNeGride.Fund_click(e, gvNjesiAdm, indexSel);
 }
 
 /*
@@ -121,7 +117,6 @@ Function: menu_click
 perdoret per veprimet e menuse ne javascript
 
 Parameters:
-
 
 
 e-eventi
@@ -165,7 +160,6 @@ function menu_click(s, e) {
             myMesazh.ShtoMesazhGabimi(hfState.Get("regjisDokNukKeniAsnjeDokTeZgjedhur"));
         } else
             ButtonClickArkiva();
-        // myFaqeCelje.kontrolloTeDrejta('LupaArkiva.aspx?veprimi=' + Utils.getUrlVar('shitje_blerje') + '&idDok=' + grid_RegDok.GetRowKey(grid_RegDok.GetFocusedRowIndex()) + '&shtim_modifikim=modifikim');
         e.processOnServer = false;
     }
 
@@ -173,7 +167,6 @@ function menu_click(s, e) {
 function ButtonClickArkiva() {//po
     popupUniversal.SetHeaderText(hfState.Get("regjisDokZgjidhDokPerTeBashkengjitur"));
     popupUniversal.SetSize(738, 548);
-    //popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=njesiadmin&idDok=' + gvNjesiAdm.GetRowKey(gvNjesiAdm.GetFocusedRowIndex()) + '&shtim_modifikim=modifikim');
     popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=Lista&veprimi=njesiadmin&idDok=' + gvNjesiAdm.GetRowKey(gvNjesiAdm.GetFocusedRowIndex())
         //+ '&shtim_modifikim=modifikim'
         + "&tmpfolder=" + hfArkiva.Get("rootFolder"));
@@ -203,9 +196,6 @@ function OnGetRowValuesMod(values) {
         data: JSON.stringify({ idLidhese: values[0], kodLloji: 'Magazina', idPerdorues: hfState.Get('idPerdorues') })
     }).done(SucceededCallbackKtheAutorizime);
     txtKodi.SetText(values[1]);
-    //if ($('#hfShtimModifikim').val() == "modifikim") {
-    //    txtKodi.SetEnabled(false);
-    //}
     txtPershkrimi.SetText(values[2]);
     txtAdresa.SetText(values[3]);
     cmbInventarizimi.SetValue(values[4]);
@@ -303,7 +293,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
     var hfLidhur = $("#hfLidhur")[0];
     hfLidhur.value = result;
 
-    //        aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result.toLowerCase()));
     LlojiChanged(cmbLloji);
 }
@@ -468,7 +457,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvNjesiAdm, "509")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvNjesiAdm, "509", pastrofusha, hfTeDrejta, undefined, undefined, false);
 }
 

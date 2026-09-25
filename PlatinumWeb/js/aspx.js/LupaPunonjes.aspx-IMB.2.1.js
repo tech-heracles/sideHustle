@@ -1,6 +1,5 @@
 ﻿
 
-
 function checkText(s, e) {
     myMenu.checkText(s, e);
 }
@@ -148,7 +147,6 @@ function LupaPunonjesApp() {
                 this.shfaqMesazhPopup = function (mesazhi, type) {
                     //ky funksion duhet te behet i pergjithshem
                     //ku mund te perdoret nje popup custom jo alert
-                    //window.alert(mesazhi);
                     myMesazh.ShtoMesazh({ text: mesazhi, type: "error", timeout: 0, modal: true });
                 },
                 this.shfaqMesazhPopupv2 = function (mesazhi) {
@@ -315,7 +313,6 @@ function LupaPunonjesApp() {
             };
             this.resizePage = function () {
                 try {
-                    //panel.SetWidth(document.documentElement.clientWidth - 20);
                     app.view.grida.SetWidth(document.documentElement.clientWidth - 50);
                 } catch (e) {
                     console.log(e);

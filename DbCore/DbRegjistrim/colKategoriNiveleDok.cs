@@ -131,25 +131,16 @@ namespace DbCore.DbRegjistrim
         private bool mbushKategoriNivelDok(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKategoriNivelDok kategori = new clsKategoriNivelDok();
-                    //kategori.mbushKatNivelDok(rreshti);
                     Add(new clsKategoriNivelDok(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
         private bool mbushKategoriNivelDokPaNivele(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
@@ -158,19 +149,13 @@ namespace DbCore.DbRegjistrim
                     Add(kategori);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
         private bool mbushKategoriNivelDokPaLupa(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
@@ -179,37 +164,13 @@ namespace DbCore.DbRegjistrim
                     Add(kategori);
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
         #endregion
         //[Obsolete("Perdor: bool mbushKategoriNivelDok(DataTable dt)", true)]
-        //public colKategoriNiveleDok mbushArrayListKategoriNivelDok(DataSet ds)
-        //{
-        //    colKategoriNiveleDok kategorite = new colKategoriNiveleDok();
-        //    colNivelRegjistrimi nivelet = new colNivelRegjistrimi();
 
-        //    foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //    {
-        //        clsKategoriNivelDok kategori = new clsKategoriNivelDok();
-
-        //        kategori.IdKategori = int.Parse(rreshti[0].ToString());
-        //        kategori.Pershkrimi = rreshti[1].ToString();
-        //        kategori.IdKomponente = int.Parse(rreshti[2].ToString());
-        //        kategori.IdSuperKategori = int.Parse(rreshti[3].ToString());
-        //        kategori.OColNivelRegjistrimi = new colNivelRegjistrimi();
-        //        kategori.OColNivelRegjistrimi = kategori.merrNiveleRegjistrimi();
-        //        kategori.OColNivelRegjistrimi = new colNivelRegjistrimi();
-        //        kategorite.Add(kategori);
-        //    }
-        //    return kategorite;
-        //}
 
         [Obsolete("Perdor: bool mbushKategoriNivelDokPaNivele(DataTable dt)", true)]
         public colKategoriNiveleDok mbushArrayListKategoriNivelDokPaNivele(DataSet ds)

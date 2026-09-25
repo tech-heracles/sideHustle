@@ -212,62 +212,15 @@ namespace RestApi.WebAPI.Models
         }
 
         //internal static object RuajTrupRegjQendraKosto(bool kontrolloShperndare, object[] trupiQK, int idNdermarrje, int idVitNdermarrje, int idPerdorues, int idKoka, int idGjenerues, int idKonfigGjenerues, int idKonfig, string kodKonfig, string nrDok, string nrRef, string shenime, string hfShtimModifikim, DateTime dteDtDok, DateTime dteDtRegj, int idStatusDok, string komponenteNga, bool kontrolloLidhur, bool hfLidhur, int idGjuha)
-        //{
-        //    clsKokaQendraKosto koka = new clsKokaQendraKosto();
-        //    clsMesazh mesazh;
         //    try
-        //    {
-        //        if (idKonfig == 0 && kodKonfig != "")
-        //            idKonfig = clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod(kodKonfig, idNdermarrje);
 
-        //        koka = krijoRegjistrim(trupiQK, idNdermarrje, idGjenerues, idKonfig, idPerdorues, idVitNdermarrje, dteDtDok, dteDtRegj, nrDok, nrRef, shenime, idStatusDok, kontrolloShperndare);
-        //        if (koka.ColTrupi.Count == 0)
-        //            return new clsMesazh(false, MessagesResource.Messages["msgTrupiDokNukDuhetBosh"]);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        NLog.LogManager.GetCurrentClassLogger().Error(ex.Message);
-        //        return new clsMesazh(false, ex.Message);
-        //    }
 
-        //    clsTeDrejtaRoli tedrejtaInfo = new clsTeDrejtaRoli();
-        //    tedrejtaInfo.merrTeDrejtaPerKeteKomponente(idPerdorues, idNdermarrje, idVitNdermarrje, komponenteNga);
-
-        //    if (hfShtimModifikim == "shtim" || hfShtimModifikim == "klonim")
-        //    {
-        //        if ((idStatusDok == 1 && !tedrejtaInfo.DShtim) || (idStatusDok == 0 && !tedrejtaInfo.DShtimDraft))
-        //                return new clsMesazh(false, MessagesResource.Messages["msgAdministrimiNukKeniTeDrejteVeprimi"]);
-        //        mesazh = koka.Ruaj();
-        //    }
         //    else
-        //    {
-        //        if ((idStatusDok == 1 && !tedrejtaInfo.DMod) || (idStatusDok == 0 && !tedrejtaInfo.DModifikimDraft))
-        //            return new clsMesazh(false, MessagesResource.Messages["msgAdministrimiNukKeniTeDrejteVeprimi"]);
 
-        //        if (kontrolloLidhur)
-        //        {
-        //            koka.IdKoka = idKoka;
-        //            bool lidhur = koka.EshteILidhur();
-        //            if (lidhur != hfLidhur)
-        //                return new clsMesazh(false, MessagesResource.Messages["msgDokumentiEshteILidhur"]);
         //            else
-        //                if (lidhur == true)
-        //                mesazh = koka.Modifiko(true);
         //            else
-        //                mesazh = koka.Modifiko(false);
-        //        }
         //        else
-        //        {
-        //            koka.IdKoka = idKoka;
-        //            mesazh = koka.Modifiko(false);
-        //        }
-        //    }
 
-        //    if (!mesazh.Status)
-        //        return mesazh;
-
-        //    return mesazh;
-        //}
 
         internal static object MerrTrupFKSipasKokes(int idKoka)
         {

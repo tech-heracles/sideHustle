@@ -110,20 +110,12 @@ namespace DbCore.DbInventari
         private bool mbushMetodeKostoje(DataTable dt)
             {
             //try
-            //    {
 
                 foreach (DataRow rreshti in dt.Rows)
                     {
-                    //clsMetodeKostoje MetodeKostoje = new clsMetodeKostoje();
-                    //MetodeKostoje.mbushMetodeKostoje(rreshti);
                     this.Add(new clsMetodeKostoje(rreshti));
                     }
 
-            //    }
-            //catch (Exception)
-            //    {
-            //    return false;
-            //    }
             return true;
             }
 

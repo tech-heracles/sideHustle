@@ -146,21 +146,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushGrupetLlogaria(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupiLlogaria grupLlogaria = new clsGrupiLlogaria();
-                    //grupLlogaria.mbushGrupLlogaria(rreshti);
                     Add(new clsGrupiLlogaria(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
         

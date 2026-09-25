@@ -36,8 +36,6 @@ namespace RestApi.WebAPI.Models
                 foreach (int i in idMetoda)
                 {
                     (clsMesazh sukses, clsMesazh error) = TransferimSerialeUnike.dergoFileTransferimSerialeUnike(idNdermarje, kategoriSeriali, data, idLlojDokumentMag, i);
-                    //if (sukses.PershkrimMesazhi == "Nuk ka asnje te dhene per te transferuar ne kete date!")
-                    //    return (sukses, new clsMesazh(false, ""));
                     if (!suksese.PershkrimMesazhi.Contains(sukses.PershkrimMesazhi)) suksese.PershkrimMesazhi += sukses.PershkrimMesazhi + "<br>";
                     if (sukses.Tipi == TipMesazhi.Informim) suksese.Tipi = TipMesazhi.Informim;
                     if (!errore.PershkrimMesazhi.Contains(error.PershkrimMesazhi)) errore.PershkrimMesazhi += error.PershkrimMesazhi + "<br>";
@@ -450,7 +448,6 @@ namespace RestApi.WebAPI.Models
                     continue;
                 artPerbere.shtoSasiPlotesuar(serial.Sasia);
             }
-
 
 
             return artPer;

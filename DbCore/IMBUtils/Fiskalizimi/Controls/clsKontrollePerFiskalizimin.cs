@@ -48,7 +48,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
                 var dbManager = MyScopeDbManager;
                 string connectionString = dbManager.ConnectionString;
                 int start = connectionString.IndexOf("Initial Catalog=") + 16;
-                //int end = connectionString.LastIndexOf(";Trusted_Connection");
                 int end = connectionString.LastIndexOf(";user Id");
                 string result = connectionString.Substring(start, end - start);
                 return result;

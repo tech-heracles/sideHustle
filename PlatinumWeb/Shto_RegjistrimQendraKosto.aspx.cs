@@ -140,7 +140,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
                 if ((this.hfLidhur.Value == "True") && m.Name == "Kontabilizo")
@@ -192,7 +191,6 @@ namespace PlatinumWeb
             AspxWebControlUtils.vendosDateEditMask(dteDtRegjistrimi);
             vendosDataDefault();
             int idViti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
-            //   DbCore.clsFunksione.mbushComboPeriudhatAktuale(idViti, btnPeriudha);
             ConfigureAspxComboBox.mbushComboKonfigurimetVetemKodiSiTekst(idPerdoruesi, idNdermarrje, this.cmbKonfigurimi, 906, false, idGjuha);
             //vendoset fiks sepse ai eshte konfigurimi default per ambjentin e flets kontabel
             cmbKonfigurimi.SelectedIndex = 0;
@@ -224,7 +222,6 @@ namespace PlatinumWeb
             AspxWebControlUtils.vendosDateEditMask(dteDtDok);
             AspxWebControlUtils.vendosDateEditMask(dteDtRegjistrimi);
             int idViti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
-            //DbCore.clsFunksione.mbushComboPeriudhatAktuale(idViti, btnPeriudha);
             ConfigureAspxComboBox.mbushComboKonfigurimetVetemKodiSiTekst(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 906, true, idGjuha);
 
             ConfigureAspxComboBox.mbushComboLlojQendre(cmbLloji, false, rm, ci);
@@ -377,8 +374,6 @@ namespace PlatinumWeb
             if (lidhur == false)
             {
                 int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-                //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DtDok, idNdermarrje);
-                //DbCore.clsMesazh mesazh = periudha.isPeriudheKycur();
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(clsKoka.DtDok, idNdermarrje);
                 if (ekycur)
                 {
@@ -404,7 +399,6 @@ namespace PlatinumWeb
         }
 
 
-
         #region autocomplete
         protected void cmbQendraKosto_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {
@@ -428,7 +422,6 @@ namespace PlatinumWeb
                     if (string.IsNullOrWhiteSpace(e.Filter)) return;
 
                     
-                   
                     if (cmbLloji.Value.ToString() == "1")
                     {
                         DbCore.DbQendraKosto.colQendraKosto col = new DbCore.DbQendraKosto.colQendraKosto();

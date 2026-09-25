@@ -29,7 +29,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -169,7 +168,6 @@ namespace PlatinumWeb
                 {
                     foreach (ASPxDataUpdateValues updated in e.UpdateValues)
                     {
-//string key = e.UpdateValues[i].Keys[0].ToString();
 
                         clsShpenzimeKapitale shpenzimVjeter = col.FirstOrDefault(x => x.RreshtiId == updated.MerrKeyValue<int>());
 
@@ -198,22 +196,7 @@ namespace PlatinumWeb
         }
 
         //private void shtoKoloneTotali()
-        //{
-        //    if (gvShpenzimeKapitale.Columns["TotaliEArdhme"] == null)
-        //    {
-        //        GridViewDataTextColumn colTotal = new GridViewDataTextColumn();
-        //        colTotal.Caption = "Totali";
-        //        colTotal.FieldName = "TotaliEArdhme";
-        //        colTotal.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-        //        colTotal.VisibleIndex = gvShpenzimeKapitale.Columns["TransferimKapitalArdhme"].VisibleIndex;
-        //        colTotal.PropertiesTextEdit.DisplayFormatString = "n2";
-        //        colTotal.HeaderStyle.Wrap = DefaultBoolean.True;
-        //        colTotal.HeaderStyle.BackColor = Color.LightGray;
 
-        //        colTotal.Width = gvShpenzimeKapitale.Columns["ParashikimTotaliPlus3"].Width;
-        //        gvShpenzimeKapitale.Columns.Add(colTotal);
-        //    }
-        //}
 
         protected void gvShpenzimeKapitale_CustomUnboundColumnData(object sender,
     ASPxGridViewColumnDataEventArgs e)

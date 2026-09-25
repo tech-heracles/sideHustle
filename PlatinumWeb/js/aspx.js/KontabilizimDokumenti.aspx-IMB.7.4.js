@@ -36,7 +36,6 @@ function EndCallback(s,e)
 }
 
 function initNgaDok(s, e) {
-    //$(s.GetInputElement()).css('zIndex', 3000);
 }
 
 function initDateRegjistrimi(s, e) {
@@ -73,7 +72,6 @@ function menu_click(s, e) {
 
     }
 }
-
 
 
 function ButtonClickedLlojDok(editor) {

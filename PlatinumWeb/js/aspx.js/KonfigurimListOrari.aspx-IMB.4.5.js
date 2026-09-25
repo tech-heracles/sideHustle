@@ -208,14 +208,8 @@ var editorKodi;
 var editorGrupi;
 
 
-
 ///kur ndryshon data, key ka vlere OreFillimi ose OreMbarimi, ora mund te jete variabli orefillimi ose orembarimi
 function DateChanged(s, e, key) {
-    //if (txtOreFillimi.GetDate() > txtOreMbarimi.GetDate())
-    //{
-    //    myMesazh.ShtoMesazhGabimi('Ora e fillimit duhet te jete me e vogel se ora e mbarimit');
-    //    txtOreFillimi.SetDate(txtOreMbarimi.GetDate());
-    //}
     var kontroll = Utils.ktheKontroll("txt" + key);
     var ora = kontroll.GetText();
     $('#hf' + key).val(ora);
@@ -237,10 +231,6 @@ function DateInit(s, e, key) {
 }
 
 //kur inicializohet data e mbarimit
-//function DateMbarimiChanged1(s, e) {
-//    txtOreMbarimi.SetText(orembarimi);
-//    $('#hfOreMbarimi').val(txtOreMbarimi.GetText());
-//}
 
 
 ///menu click kur shtypet nje buton i menuse

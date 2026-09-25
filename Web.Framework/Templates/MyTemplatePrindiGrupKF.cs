@@ -62,7 +62,6 @@ namespace PlatinumWeb.Templates
             {
                 if (gridContainer.Text == "0")
                 {
-                    //cmb.Text = "";
                     cmb.SelectedIndex = -1;
                     cmb.Width = Unit.Percentage(100);
 
@@ -71,7 +70,6 @@ namespace PlatinumWeb.Templates
                 {
                     if (gridContainer.Text == "&nbsp;")
                     {
-                        //cmb.Text = "";
                         cmb.SelectedIndex = -1;
                         cmb.Width = Unit.Percentage(100);
                     }
@@ -79,7 +77,6 @@ namespace PlatinumWeb.Templates
                     {
                         string text = "";
                         text = gridContainer.Text;
-                       // DbCore.clsFunksione funksion = new DbCore.clsFunksione(DbCore.mySessionObjects.ktheCultureInfo(Session));
                         text = DbCore.clsFunksione.zevendesoKaraktere(text);
                         cmb.Text = text;
                         cmb.Width = Unit.Percentage(100);
@@ -96,7 +93,6 @@ namespace PlatinumWeb.Templates
                 {
                     string text = "";
                     text = gridContainer.Text;
-                   // DbCore.clsFunksione funksion = new DbCore.clsFunksione(DbCore.mySessionObjects.ktheCultureInfo(Session));
                     text = DbCore.clsFunksione.zevendesoKaraktere(text);
                     cmb.Text = text;
                     cmb.Width = Unit.Percentage(100);

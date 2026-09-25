@@ -36,7 +36,6 @@ namespace PlatinumWeb
             else tePalidhur = false;
             mbushPopUpElementesh(lloji, tePalidhur);
            
-            //mbushComboBoxFiltra(idNdermarrje);
             if (!IsPostBack)
             {
                 cmbKonfigurimi.Value = idKonfigambjenti.ToString();
@@ -78,20 +77,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaElementePerIntegrim.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdAgjentShitje", gvLupaElementePerIntegrim);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaElementePerIntegrim.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdAgjentShitje";
-            //    filtri.DrejtimRenditje = true;
-            //}
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -100,7 +87,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaElementePerIntegrim", Convert.ToInt32(cmbKonfigurimi.Value), "LupaAgjenteShitje.aspx");
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
             if (mesazh.Status == true)
@@ -137,7 +123,6 @@ namespace PlatinumWeb
         }
 
         
-
         private void mbushPopUpElementesh(int idlloji, bool teLidhur)
         {//mbush griden e popupit me te dhena
             
@@ -174,7 +159,6 @@ namespace PlatinumWeb
 
         protected void gvLupaElementePerIntegrim_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {
-            //gvLupaElementePerIntegrim.Selection.UnselectAll();
         }
 
         protected void ASPxMenu1_DataBound(object sender, EventArgs e)

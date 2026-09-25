@@ -58,21 +58,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushKushtetPagesaKoka(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKushtPageseKoka koka = new clsKushtPageseKoka();
-                    //koka.mbushKushtPagesaKoka(rreshti);
                     Add(new clsKushtPageseKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

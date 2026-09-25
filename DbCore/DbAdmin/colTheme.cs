@@ -33,19 +33,11 @@ namespace DbCore.DbAdmin
         private bool mbushThemat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTheme theme = new clsTheme();
-                    //theme.mbushTheme(rreshti);
                     Add(new clsTheme(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

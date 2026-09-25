@@ -33,36 +33,27 @@ namespace PlatinumWeb
         /// <summary>
         /// konstante per mesazhin e trupit nuk duhet te jete bosh
         /// </summary>
-        //private const string STR_TrupiIDokumentitNukDuhetTeJeteBosh = "Trupi i dokumentit nuk duhet të jetë bosh!";
-        //private const string STR_DokumentiEshteILidhurDheNukMundTeFshihet = "Dokumenti është i lidhur dhe nuk mund të fshihet!";
         /// <summary>
         /// konstante per dokumenti eshte i lidhur
         /// </summary>
-        //private const string STR_DokumentiEshteILidhur = "Dokumenti është i lidhur";
         /// <summary>
         /// konstante per magazina nuk ekziston
         /// </summary>
-        //private const string STR_MagazinaNukEkziston = "Magazina nuk ekziston!";
         /// <summary>
         /// konstante per zgjidhni nje date regjistrimi
         /// </summary>
-        //private const string STR_ZgjidhniNjeDateRegjistrimi = "Zgjidhni nje datë regjistrimi!";
         /// <summary>
         /// konstante per zgjidhni nje date dokumenti
         /// </summary>
-        //private const string STR_ZgjidhniNjeDateDokumenti = "Zgjidhni një datë dokumenti!";
         /// <summary>
         /// konstante per data nuk i perket vitit ushtrimor
         /// </summary>
-        //private const string STR_DataNukIPerketVititUshtrimorTeZgjedhur = "Data nuk i përket vitit ushtrimor të zgjedhur";
         /// <summary>
         /// konstante per magazina nuk ekziston
         /// </summary>
-        //private const string STR_KjoMagazineNukEkziston = "Kjo magazinë nuk ekziston!";
         /// <summary>
         /// konstante per magazina nuk eshte aktive
         /// </summary>
-        //private const string STR_KjoMagazineNukEshteAktive = "Kjo magazinë nuk është aktive!";
         /// <summary>
         /// perdoret per te vendosur theme
         /// </summary>
@@ -72,7 +63,6 @@ namespace PlatinumWeb
         private  const string komponente = "Shto_Ekzekutim.aspx";
         private string guidString;
         private const string emerGride = "grid_faturat";
-
 
 
         /// <summary>
@@ -116,8 +106,6 @@ namespace PlatinumWeb
                 hfState.Set("idNdermarrje", idNdermarrje);
                 hfState.Set("idViti", idViti);
                 hfState.Set("idPeriudha", periudha.IdPeriudha);
-                //DbCore.DbAdmin.clsPerdorues per = new DbCore.DbAdmin.clsPerdorues(idPerdoruesi);
-                //string hapur = per.InfoHapur.ToString();
                 hfHapurMbyllur.Value = DbCore.DbAdmin.clsPerdorues.ktheInfoHapur(idPerdoruesi);
                 mbushHiddenFieldMePerkthime();
                 EmrateTabeve();
@@ -197,7 +185,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(koka.IdKonfigAmbjente, idGjuha);
             cmbKonfigurimi.Text = konf.KodKonfigAmbjente;
-            //  hfKonffillestar.Value = String.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
             hfKonffillestar.Value = konf.KodKonfigAmbjente;
             ConfigureAspxComboBox.shtoKolonaPerGrupim(cmbGrup1);
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup1, idNdermarrje, 1, koka.IdKonfigAmbjente, idPerdoruesi);
@@ -319,9 +306,7 @@ namespace PlatinumWeb
 
         public void btnJo_Click(object sender, EventArgs e)
         {
-            //CacheLayer.GlobalCacheManager.MySessionCache["trupat"] = new DbCore.DbRegjistrim.colTrupiMagazina();
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, new DbCore.DbRegjistrim.colTrupiMagazina());
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["Fshi"]!=null && CacheLayer.GlobalCacheManager.MySessionCache["Fshi"].ToString() == "fshi")
             if (DbCore.mySessionObjects.merrFshiNgaSesioni(Session) != null && DbCore.mySessionObjects.merrFshiNgaSesioni(Session) == "fshi")
             {
                 Response.Redirect("EkzekutimProdhimi.aspx?fshi=po");
@@ -336,10 +321,8 @@ namespace PlatinumWeb
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             CultureInfo ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //DbCore.DbRegjistrim.colTrupiMagazina  trupat = (DbCore.DbRegjistrim.colTrupiMagazina)CacheLayer.GlobalCacheManager.MySessionCache["trupat"];
             DbCore.DbRegjistrim.colTrupiMagazina trupat = DbCore.mySessionObjects.merrTrupatNgaSesioni(Session);
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh(true, MessagesResource.Messages["regjMagMesazhSuksesRivleresimi"]);
-            //db.krijoManager();
             string fileLogPath = Server.MapPath("~/log/log.txt");
             DbCore.DbAdmin.clsLogRivleresimInventari log = new DbCore.DbAdmin.clsLogRivleresimInventari();
             try
@@ -353,10 +336,6 @@ namespace PlatinumWeb
             }
             foreach (DbCore.DbRegjistrim.clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli();
-                //art.mbushArtikull(t.IdArtikulli);
-                //mesazh = art.rivleresimCmimiMesatar(t.IdMag, t.Data, DateTime.Today);
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, DbCore.DbInventari.clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today,log,ci,rm, idNdermarrje, idPerdoruesi);
                 if (!mesazh.Status)
                 {
@@ -364,7 +343,6 @@ namespace PlatinumWeb
                     return;
                 }
             }
-            //CacheLayer.GlobalCacheManager.MySessionCache["trupat"] = new DbCore.DbRegjistrim.colTrupiMagazina();
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, new DbCore.DbRegjistrim.colTrupiMagazina());
             if (mesazh.Status)
             {
@@ -389,7 +367,6 @@ namespace PlatinumWeb
 
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
                 if ((hfLidhur.Value == "True") && m.Name == "Draft")
@@ -461,11 +438,6 @@ namespace PlatinumWeb
                     clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1);
                 if (m.Name == "Shto" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemFilter" || m.Name == "ItemFrame")
                     aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].BeginGroup = true;
-                //if (m.Name == "Arkiva")
-                //{
-                //    if (!DbCore.DbAdmin.clsNdermarrje.meArkive(idNdermarrje))
-                //        aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].Visible = false;
-                //}
             }
 
             EventHandler handlerPerPo = btnPo_Click;
@@ -500,7 +472,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 filtra.IdPerdoruesi = idPerdoruesi;
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, idNdermarrje, emerGride, int.Parse(cmbKonfigurimi.Value.ToString()), komponente);                
                 percaktoTemplateMenu(idPerdoruesi, idViti, idNdermarrje, ASPxMenu1, idGjuha);
                 if (mesazh.Status == true)
@@ -532,20 +503,8 @@ namespace PlatinumWeb
                 GridaKokaId = koka.IdGridaKoka, FiltraVlera = grid_faturat.FilterExpression, IdPerdoruesi = idPerdoruesi,
                 IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDokumenti", grid_faturat);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_faturat.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdDokumenti";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             DbCore.clsMesazh mesazh = GridUtil.ruajFiltra(idNdermarrje, idPerdoruesi, idGjuha, "grid_faturat", komponente, cmbFiltra.Text, grid_faturat.FilterExpression, grid_faturat, "IdDokumenti", int.Parse(cmbKonfigurimi.Value.ToString()), out idfiltri);
 
@@ -614,13 +573,8 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.mbushComboMagazinat(idNdermarrje, btneMagazin2a, idPerdoruesi, true, 1,true);
             colProduktProdhimi col = new colProduktProdhimi();
             colRecepturaProdhimi colrec = new colRecepturaProdhimi();
-            //Session.Add("Recepturat", colrec);
             DbCore.mySessionObjects.ruajRecepturatNeSession(Session, colrec);
-            //Session.Add("Produktet", col);
             DbCore.mySessionObjects.ruajProdukteProdhimiNeSession(Session, col);
-            //  mbushListeArtikujPerberes();
-            //  mbushListeRecepturash();
-            //inicializoGridFaturat(idNdermarrjeVit, idNdermarrje, idPerdoruesi);
             konfiguroGrideFaturat(true, idGjuha, idNdermarrje, idPerdoruesi);
             int idMonedheZgjedhur = DbCore.clsFunksione.ktheMonedhePerFormatNumri(idGjuha, int.Parse(cmbKonfigurimi.Value.ToString()), idNdermarrje, 806, "", -1, true);
             DbCore.DbShare.clsFormatiKonfig formatNrPerKonfig = new DbCore.DbShare.clsFormatiKonfig();
@@ -640,7 +594,6 @@ namespace PlatinumWeb
         /// <param name="idNdermarrjeVit"></param>
         private void konfiguroVleraFillestareModifiko(int idGjuha, int idPerdoruesi, int idViti, int idNdermarrje, System.Resources.ResourceManager rm, System.Globalization.CultureInfo cultinf, int idNdermarrjeVit)
         {//mbush kombot dhe gridat
-            // txtNrDok.Enabled = false;
 
             AspxWebControlUtils.vendosDateEditMask(dteDtDok);
             AspxWebControlUtils.vendosDateEditMask(dteDtRegjistrimi);
@@ -660,7 +613,6 @@ namespace PlatinumWeb
             }
 
             mbushTrupin(kok);
-            //inicializoGridFaturat(idNdermarrjeVit, idNdermarrje, idPerdoruesi);
             konfiguroGrideFaturat(true, idGjuha, idNdermarrje, idPerdoruesi);
         }
 
@@ -769,10 +721,7 @@ namespace PlatinumWeb
                     clsKoka.mbushKokaEkzekutimSipasID(int.Parse(id));
                     DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                     konf.mbushKonfiguriminMeID(clsKoka.IdKonfigAmbjente);
-                    //if (konf.KodKonfigAmbjente == "FH" || konf.KodKonfigAmbjente == "FD")
-                    //{
                     Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&emriReal=urdherPune&idDokumenti=" + clsKoka.IdKokaEkzekutim + "&printo=false";
-                    //}
                 }
             }
         }
@@ -805,8 +754,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = (int)hfState["idNdermarrje"];
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -876,14 +823,12 @@ namespace PlatinumWeb
                     trupat.AddRange(tr);
                 }
             mesazh = kokam.fshi();
-            //Session.Add("trupat", trupat);
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, trupat);
             if (mesazh.Status)
             {
                 if (rivleresim)
                 {
                     clsMenuInfo.ShtoPyetje(MenuInfo, mesazh.PershkrimMesazhi + MessagesResource.Messages["regjMagVeprimiSjellNdryshimNeCmimDalje"], pnlMesazhi, idGjuha);
-                    //Session.Add ("Fshi","fshi");
                     DbCore.mySessionObjects.ruajFshiNeSesion(Session, "fshi");
                 }
                 else
@@ -989,7 +934,6 @@ namespace PlatinumWeb
             }
             else
                 idPeriudha = DbCore.DbAdmin.clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(koka.DtDok, idNdermarrje);
-                //periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(koka.DtDok, idNdermarrje);
          
             bool mekontabilizim = false;
             if (statusDokumenti == 1)//nese nuk eshte draft do gjeneroje kontabilizim perndryshe jo
@@ -1000,9 +944,7 @@ namespace PlatinumWeb
                 }
             }
             DbCore.DbShare.clsKonfigurimAmbjenti konfdalje = new DbCore.DbShare.clsKonfigurimAmbjenti(int.Parse(hfFD.Value.ToString()));
-            //konfdalje.mbushKonfigAmbjSipasKod(konfdalje.KodKonfigAmbjente, idndermarje);
             DbCore.DbShare.clsKonfigurimAmbjenti konfhyrje = new DbCore.DbShare.clsKonfigurimAmbjenti(int.Parse(hfFH.Value.ToString()));
-            //konfhyrje.mbushKonfigAmbjSipasKod(konfhyrje.KodKonfigAmbjente, idndermarje);
            
             DbCore.DbRegjistrim.clsKokaMagazina maghyrje = new DbCore.DbRegjistrim.clsKokaMagazina();
             DbCore.DbRegjistrim.clsKokaMagazina magdalje = new DbCore.DbRegjistrim.clsKokaMagazina();
@@ -1018,7 +960,6 @@ namespace PlatinumWeb
                     status1.Value = "false";
                     return;
                 }
-                //hfArkiva.Set("kopjoArkiven", hfShtimModifikim.Value != "shtim");
                 mesazh = koka.ruaj(hfNrAutoShitje, colPlanifikimEkzekutimi, idPeriudha, mekontabilizim, konfdalje, konfhyrje, out shfaqmesazhapolupe, eshteOwn, idGjuha, rm, ci, false, "", "", "", "", false);
                 if (statusDokumenti != 0 && hfKontrollRivleresim.Value.ToLower() == "true")
                 {
@@ -1162,10 +1103,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             clsKokaEkzekutim koka = new clsKokaEkzekutim();
             try
@@ -1272,8 +1211,6 @@ namespace PlatinumWeb
                     {
                         if (r.IdMag == 0)
                         {
-                            //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, STR_MagazinaNukEkziston, pnlMesazhi, LoadingPanel);
-                            //return new colProduktProdhimi();
                             throw new MyException(MessagesResource.Messages["msgMagazinaNukEkziston"]);
                         }
                         if (r.IdArtikulli != 0)
@@ -1281,8 +1218,6 @@ namespace PlatinumWeb
                             clsArtikulli artikulli = new clsArtikulli(r.IdArtikulli);
                             if (!artikulli.Aktiv)
                             {
-                                //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Artikulli me kod: " + artikulli.KodArtikulli + " nuk eshte aktiv!", pnlMesazhi, LoadingPanel);
-                                //return new colProduktProdhimi();
                                 throw new MyException(MessagesResource.Messages["msgShtoArtikullPrefixNjejes"] + artikulli.KodArtikulli + MessagesResource.Messages["msgNukEshteAktiv"]);
                             }
                             if (!artikulli.MbetjeShitshme && r.SasiaAktuale < 0)
@@ -1293,8 +1228,6 @@ namespace PlatinumWeb
                             clsBurime burim = new clsBurime(r.IdBurimi);
                             if (!burim.Aktiv)
                             {
-                                //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Burimi me kod: " + burim.Kodi + " nuk eshte aktiv!", pnlMesazhi, LoadingPanel);
-                                //return new colProduktProdhimi();
                                 throw new MyException(MessagesResource.Messages["msgBurimiMeKod"] + burim.Kodi + MessagesResource.Messages["msgNukEshteAktiv"]);
                             }
                         }
@@ -1394,13 +1327,11 @@ namespace PlatinumWeb
         }
      
 
-
         #region  GRIDA E FATURAVE
         private void mbushGrideFaturatngaDB(int idNdermarrjeVit, int idNdermarrje, int idPerdoruesi)
         {
             ASPxGridView grid_faturat = (ASPxGridView)ASPxNavBar1.Groups[0].FindControl("grid_faturat");
 
-            //nder.mbushNdermarrjeViti(idNdermarrjeVit);
             DataTable dt = new DataTable();
             dt = colDokumentat.ktheGjitheDokumentatPlanifikimTePalidhura(idNdermarrje, new DateTime().ToShortDateString(), new DbCore.DbAdmin.clsNdermarrjeViti(idNdermarrjeVit).NdermarrjeVitiFund.ToShortDateString(), idPerdoruesi);
             mySessionObjects.ruajGrideNeSession(komponente,Session, dt);
@@ -1541,7 +1472,6 @@ namespace PlatinumWeb
         private void shtoKlientFurnitor(ASPxGridView grid, int idNdermarrje)
         {
             int visibleindex = grid.Columns["IdKlientFurnitori"].VisibleIndex;
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             grid.Columns.Remove(grid.Columns["IdKlientFurnitori"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             DbCore.DbKontabiliteti.colKlienteFurnitore colKlientet = new colKlienteFurnitore();
@@ -1627,7 +1557,6 @@ namespace PlatinumWeb
             }
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //clsFunksione.ToolTipButonaveMbiGride(grid_faturat, ci, rm);
         }
         protected void grid_faturat_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {

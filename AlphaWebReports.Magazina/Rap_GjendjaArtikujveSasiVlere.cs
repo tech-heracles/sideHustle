@@ -96,18 +96,10 @@ namespace AlphaWebReports.RaportetDs.Magazina
             xrTableCell7.Text = rm.GetString("labelKartela", ci);
             xrTableCell8.Text = rm.GetString("labelRaportiPershkrimi", ci);
             xrTableCell9.Text = rm.GetString("labelNjesia", ci);
-            //xrLabel19.Text = rm.GetString("labelRaportLLogariInventar", ci);
-            //xrLabel55.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
-            //xrLabel18.Text = rm.GetString("labelRaportSasiHyrje", ci);
-            //xrLabel17.Text = rm.GetString("labelRaportSasiaDalje", ci);
-            //xrLabel14.Text = rm.GetString("labelVlefta", ci);
-            //xrLabel16.Text = rm.GetString("labelFilterAvancuarGjendja", ci);
             xrTableCell10.Text = rm.GetString("labelRaportKosto", ci);
-            // TotaliGjithMAgazinave.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell28.Text = rm.GetString("labelRaportiTotali", ci);
             xrTableCell27.Text = rm.GetString("filterMagazina", ci);
             xrLabel37.Text = rm.GetString("labelLogoIMB", ci);
-            //xrLabel155.Text = rm.GetString("labelRaportGjendjaeMeparshme", ci);
         }
 
       

@@ -54,20 +54,12 @@ namespace DbCore.DbRegjistrim
         private bool mbushVeprimeKFKoka(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
 
-                    //clsVeprimeKFKoka koka = new clsVeprimeKFKoka();
-                    //koka.mbushVeprimeKFKoka(rreshti);
                     this.Add(new clsVeprimeKFKoka(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -330,7 +330,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
        
         
-
         private void xrLabel67_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
 
@@ -380,8 +379,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
         
-
-
     /// <summary>
     /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
     /// </summary>
@@ -398,7 +395,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel22.Text = rm.GetString("labelRaportiUshtrimiParaardhes", ci);
             xrLabel56.Text = rm.GetString("labelRaportiShuma", ci);
             xrLabel58.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel63.Text = rm.GetString("labelRaportiTotali", ci);
             xrLabel66.Text = rm.GetString("labelRaportiDiferenca", ci);
             xrLabel70.Text = rm.GetString("filterMonedha", ci);
             xrLabel14.Text = rm.GetString("labelRaportiNrLlog", ci);
@@ -542,7 +538,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
       
-
         private void xrLabel33_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = nivTemp + 1;
@@ -568,7 +563,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel63_AfterPrint_1(object sender, EventArgs e)
         {
-           // niv = 0;
         }
 
         private void xrLabel43_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -637,8 +631,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
         private void GroupHeader4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (gjendje && Convert.ToInt32(GetCurrentColumnValue("gjend")) == 0)
-            //    GroupHeader4.Visible = false;
         }
     }
 }

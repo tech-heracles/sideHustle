@@ -77,19 +77,11 @@ namespace DbCore.DbAdmin
         private bool mbushGrupetPerdoruesve(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupetPerdoruesit grup = new clsGrupetPerdoruesit();
-                    //grup.mbushGrupetPerdoruesit(rreshti);
                     grupetPerdoruesve.Add(new clsGrupetPerdoruesit(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

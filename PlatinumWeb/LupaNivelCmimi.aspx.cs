@@ -30,7 +30,6 @@ namespace PlatinumWeb
         string guidString;
         private const string komponente = "LupaNivelCmimi.aspx";
 
-        //private int idKonfigambjenti;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -139,7 +138,6 @@ namespace PlatinumWeb
         }
 
      
-
         protected void gvLupaNivCm_DataBound(object sender, EventArgs e)
         {
             //perdoret per ti vene disa atribute grides
@@ -220,20 +218,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNivCm.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivelCmimi", gvLupaNivCm);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNivCm.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNivelCmimi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             filtri.IdStatusDok = 1;

@@ -127,21 +127,6 @@ namespace DbCore.DbRegjistrim
         }
 
        
-
-        //public static DataTable merrKartatSipasKlientit(int idNdermarrje, int idKlient)
-        //{
-        //    clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
-        //    DataTable table = db.merrKarteSipasKlientit(idNdermarrje, idKlient);
-        //    db.Dispose();
-        //    return table;
-        //}
-
-       
-
-
-
-      
-
         public bool mbushFazatSipasKontrates(int idNdermarrje,int idKontrata)
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
@@ -150,13 +135,6 @@ namespace DbCore.DbRegjistrim
             return sukses;
 
         }
-        //public static DataTable ktheKarteSipasNdermMeFilter(string filter, long startIndex, long endIndex, int idnderm)
-        //{
-        //    clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
-        //    DataTable tabela = db.merrKarteSipasNdermarrjesMeFilter(filter, startIndex, endIndex, idnderm);
-        //    db.Dispose();
-        //    return tabela;
-        //}
 
  
         #endregion

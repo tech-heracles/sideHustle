@@ -231,18 +231,10 @@ namespace DbCore.DbAdmin
         private bool mbushNdermarrjet(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsNdermarrje ndermarrje = new clsNdermarrje();
-                //ndermarrje.mbushNdermarrja(rreshti);
                 Add(new clsNdermarrje(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -253,18 +245,12 @@ namespace DbCore.DbAdmin
         private bool mbushNdermarrjetList(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
                 clsNdermarrje ndermarrje = new clsNdermarrje();
                 ndermarrje.mbushNdermarrjaList(rreshti);
                 Add(ndermarrje);
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -46,17 +46,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             labelLogoIMB.Text = rm.GetString("labelLogoIMB", ci);
             
             //Report header
-            //titulliLabelReportHeader.Text = rm.GetString("RaportArtikujTeShiturTitulli", ci);
-            //xrLabel67.Text = rm.GetString("labelKodi", ci);
-            //xrLabel75.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrLabel74.Text = rm.GetString("labelNjesia", ci);
-            //xrLabel73.Text = rm.GetString("labelSasia", ci);
-            //xrLabel72.Text = rm.GetString("labelCmimi", ci);
-            //xrLabel71.Text = rm.GetString("labelZbritjeAnalitike", ci);
-            //xrLabel70.Text = rm.GetString("labelVleftapaTVSH", ci);
-            //xrLabel66.Text = rm.GetString("labelZbritjaTotale", ci);
-            //xrLabel69.Text = rm.GetString("labelTVSH", ci);
-            //xrLabel76.Text = rm.GetString("labelVleftaMe_Tvsh", ci);
         }
     }
 }

@@ -68,11 +68,6 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// Konstruktori i klases
         ///// </summary>
-        //public clsKomponente(int idmoduli, String emrikomponente)
-        //{
-        //    idModuli = idmoduli;
-        //    emriKomponente = emrikomponente;
-        //}
 
         /// <summary>
         /// Konstruktori default i klases
@@ -222,22 +217,6 @@ namespace DbCore.DbAdmin
             return false;
         }
 
-        //public bool kaTeDrejtaAmbjenti(int idperdorues, int idndermarje, int idnderviti)
-        //{
-        //    colRolPerdorues colRolPer = new colRolPerdorues();
-        //    colRolPer.mbushRolePerdoruesSipasPerdoruesi(idperdorues);
-        //    int idviti = new clsNdermarrjeViti(idnderviti).IdViti;
-
-        //    foreach (clsRolPerdorues rp in colRolPer)
-        //    {
-        //        clsRoli roli = new clsRoli(rp.IdRoli);
-        //        colTeDrejtaRoli colTedrejta = new colTeDrejtaRoli(roli.IdRoli, idndermarje, idviti);
-        //        if (colTedrejta.filtroTeDrejtaRoli(this.idModuli, this.idKomponente) != null)
-        //            if (colTedrejta.filtroTeDrejtaRoli(this.idModuli, this.idKomponente).DAmb)
-        //                return true;
-        //    }
-        //    return false;
-        //}
 
         [Obsolete("Duhet te perdoret merrKomponenteDefaultPerdoruesiSipasLlojit", false)]
         public static string merrKomponenteDefaultPerdoruesi(int idperdoruesi)

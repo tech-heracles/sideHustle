@@ -20,7 +20,6 @@ public partial class ReminderForm : SchedulerFormControl {
     protected override void OnLoad(EventArgs e) {
         base.OnLoad(e);
         Localize();
-		//PrepareChildControls();
 	}
     void Localize() {
         btnDismissAll.Text = ASPxSchedulerLocalizer.GetString(ASPxSchedulerStringId.Form_ButtonDismissAll);

@@ -117,38 +117,19 @@ namespace DbCore.DbAdmin
         private bool mbushModulet(int  idGjuha,   DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsModuli mod = new clsModuli(idGjuha);
                     mod.mbushModul(idGjuha, rreshti);
                     this.Add(mod);
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
         #endregion
         //[Obsolete("Perdor: bool mbushModulet(DataTable dt)", true)]
-        //public colModulet mbushArrayListModulet(DataSet ds)
-        //{
-        //    colModulet modulet = new colModulet();
-        //    foreach (DataRow rreshti in ds.Tables[0].Rows)
-        //    {
-        //        clsModuli mod = new clsModuli(idGjuha);
 
-        //        mod.IdModuli = int.Parse(rreshti[0].ToString());
-        //        mod.KodiModuli = rreshti[1].ToString();
-        //        mod.PershkrimiModuli = rreshti[2].ToString();
 
-        //        modulet.Add(mod);
-        //    }
-        //    return modulet;
-        //}
     }
 }

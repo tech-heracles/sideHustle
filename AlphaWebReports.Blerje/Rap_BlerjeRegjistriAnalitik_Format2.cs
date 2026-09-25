@@ -122,7 +122,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
             xrLabel69.Text = rm.GetString("labelLogoIMB", ci);
             xrLabel6.Text = rm.GetString("filterMonedha", ci);
             //report header
-            //xrLabel94.Text = rm.GetString("RaportRegjistriAnalitikBlerjeveTitulli", ci);
             xrLabel108.Text = rm.GetString("labelVleftameZbritje", ci);
             xrLabel106.Text = rm.GetString("labelKodi", ci);
             xrLabel102.Text = rm.GetString("labelZbritjaTotale", ci);

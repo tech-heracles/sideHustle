@@ -118,13 +118,6 @@ function OnGridSelectionComplete(values) {
             window.parent.cmbArka.SetFocus(true);
         }
     
-        //else {
-        //    window.parent.ndryshokurs = true;
-        //    window.parent.banka_ComboBox.SetText(banka);
-        //    window.parent.banka_ComboBox.SetFocus(true);
-        //    window.parent.cmbDegeAdministrative.SetValue(dege);
-        //    window.parent.TextChangedBanka();
-        //}
     window.parent.popupUniversal.Hide();
 }
 
@@ -158,7 +151,6 @@ function gup(name) {
 
 $(window).load(function () {
     try {
-        //$("#div")[0].style.visibility = 'visible';
         $("#div").show();
         panel.SetWidth(document.documentElement.clientWidth - 20);
         gvLupaBanka.SetWidth(document.documentElement.clientWidth - 50);

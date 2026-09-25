@@ -73,7 +73,6 @@ namespace PlatinumWeb
         }
 
   
-
         protected void Page_Load(object sender, EventArgs e)
         {
             var cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -408,9 +407,6 @@ namespace PlatinumWeb
         }
 
 
-
-
-
         /// <summary>
         /// Percakton veprimin qe kryhet kur klikohet nje nga butonat e menuse
         /// </summary>
@@ -458,8 +454,6 @@ namespace PlatinumWeb
                 return;
             }
             var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //var periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //var mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -483,7 +477,6 @@ namespace PlatinumWeb
                 return;
             }
         }
-
 
 
         /// <summary>
@@ -552,7 +545,6 @@ namespace PlatinumWeb
                             var lidhur = koka.eshteILidhur();
 
 
-
                             if (lidhur.ToString() != hfLidhur.Value)
                             {
                                 mesazh.Status = false;
@@ -585,7 +577,6 @@ namespace PlatinumWeb
                 {
                     hfShtimModifikim.Value = "shtim";
                     percaktoTemplateMenu(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idNdermarrje, ASPxMenu1);
-
 
 
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgRuajtjeMeSukses", ci), pnlMesazhi);
@@ -621,10 +612,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             var clsKonf = new DbCore.DbShare.clsKonfigurimAmbjenti();

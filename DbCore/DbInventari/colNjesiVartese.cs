@@ -77,21 +77,13 @@ namespace DbCore.DbInventari
         private bool mbushNjesiteVartese(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNjesiVartese nivel = new clsNjesiVartese();
-                    //nivel.mbushNjesiVartese(rreshti);
                     Add(new clsNjesiVartese(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -141,19 +141,11 @@ namespace DbCore.DbInventari
         public bool mbushGarancite(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGarancia garanci = new clsGarancia();
-                    //garanci.mbushGaranci(rreshti);
                     this.Add(new clsGarancia(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

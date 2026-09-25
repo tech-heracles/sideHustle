@@ -13,7 +13,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
 		public Rap_HistorikRecepturat(){InitializeComponent();}
 
         
-
         public Rap_HistorikRecepturat(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.IdGjuha, param.Ci, param.IdNdermarrje, param.IdViti, report)
         {
@@ -78,8 +77,6 @@ namespace AlphaWebReports.RaportetDs.Prodhimi.Raportet
             xrLabel18.Text = rm.GetString("labelRaportSasiaNjesi", ci);
             xrLabel19.Text = rm.GetString("labelRaportHumbjeLigjore", ci) + "%";
             xrLabel5.Text = rm.GetString("labelRaportData", ci);
-            //xrLabel21.Text = rm.GetString("labelRaportiArtikull", ci);
-            //xrLabel31.Text = rm.GetString("labelRaportAktiviteti", ci);
             xrLabel35.Text = rm.GetString("labelLogoIMB", ci);
         }
     }

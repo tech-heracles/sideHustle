@@ -24,7 +24,6 @@
 
             this._initListFromJson();
             this._krijoMenu(this.options.selektorMenu);
-            //this.options.konfigRap = rregulloKonfigRap(this.options.konfigRap, this.options);
 
         },
         // called when created, and later when changing options
@@ -110,7 +109,6 @@
         },
         _kerkoTextChanged: function (options) {
             options.filterString = $("input.imb-liste-kerko").val();
-            //this._krijoListen({ lista: options.myList, konfigRap: options.konfigRap, filterString: $("input.imb-liste-kerko").val(), fushaEmrit: pageState.fushaEmrit, fushaLinkut: pageState.fushaLinkut, selektorHomeMenu: pageState.selektorHomeMenu, fushaIdRaportit: pageState.idRaporti });
             this.options.lista = this.options.myList;
 
             this._krijoListen(options);
@@ -277,7 +275,6 @@
                         }
                         else {
                             myMesazh.ShtoMesazh({ text: 'Ndodhi gabim gjate ruajtjes se konfigurimit!', type: "error" });
-                            //console.error('Ndodhi gabim gjate ruajtjes se konfigurimit!');
                         }
                     });
                 }
@@ -434,12 +431,10 @@
         },
         _destroy: function () {
             // remove generated elements
-            //this.changer.remove();
 
             //this.element
             //  .removeClass("custom-colorize")
             //  .enableSelection()
-            //  .css("background-color", "transparent");
         },
 
         // _setOptions is called with a hash of all options that are changing
@@ -453,9 +448,6 @@
         // _setOption is called for each individual option that is changing
         _setOption: function (key, value) {
             // prevent invalid color values
-            //if (/red|green|blue/.test(key) && (value < 0 || value > 255)) {
-            //    return;
-            //}
             this._super(key, value);
         }
 

@@ -32,7 +32,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             parameter3.Value = raport.Parameters[2].Value;
             xrLabel7.Text = raport.Parameters[3].Description;
             parameter4.Value = raport.Parameters[3].Value;
-            //  monedha = Convert.ToBoolean(raport.Parameters[2].Value);
             xrLabel1.Text = raport.Parameters[4].Description;
             parameter5.Value = raport.Parameters[4].Value;
             xrLabel11.Text = raport.Parameters[5].Description;
@@ -69,7 +68,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             parameter21.Value = raport.Parameters[20].Value;
             this.ci = ci;
             EmrateLabelave(ci);
-           // this.PrintingSystem.ExportOptions.Xlsx.TextExportMode = DevExpress.XtraPrinting.TextExportMode.Value;
 
         }
         /// <summary>
@@ -92,7 +90,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             xrTableCell17.Text = rm.GetString("labelRaportiRritjes", ci);
             xrTableCell2.Text = rm.GetString("labelRaportiRritjes", ci);
             xrTableCell23.Text = rm.GetString("labelRaportiTotali", ci);
-            //xrLabel20.Text = rm.GetString("labelLogoIMB", ci);
         }
 
         private void xrTableCell14_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -292,11 +289,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             e.Result = String.Format("{0:#,#.00}",  shumaxhiro3);
                
             e.Handled = true;
-            //if ((shumaxhiro1 == 0) && (shumaxhiro2 == 0) && (shumaxhiro3 == 0))
-            //{
-            //    xrTableCell6.Visible = false;
 
-            //}
         }
 
         private void xrTableCell7_SummaryReset(object sender, EventArgs e)
@@ -338,14 +331,12 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         private void xrTableCell10_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = String.Format("{0:#,#.00}",Convert.ToDouble( shumaxhiro3-shumaxhiro1));
-         //   xrTableCell10.Text = String.Format("{0:#,#.00}", shumaxhiro3 - shumaxhiro1);
             e.Handled = true;
             xrTableCell10.XlsxFormatString=String.Format("{0:#,#.00}",Convert.ToDouble( shumaxhiro3-shumaxhiro1));
             dif1 += shumaxhiro3 - shumaxhiro1;
         }
 
       
-
         private void xrTableCell11_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = String.Format("{0:#,#.00}", shumaxhiro3 - shumaxhiro2);
@@ -356,7 +347,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         }
 
      
-
         private void xrTableCell26_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrTableCell26.Text = String.Format("{0:#,#.00}", dif1);
@@ -375,7 +365,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                     xrTableCell30.Text = "";
                 else
                     xrTableCell30.Text =
-                        //((shumaxhiro3 - shumaxhiro1) / shumaxhiro1).ToString();
             String.Format("{0:#,#.00}", (dif2 / total2) * 100);
             }
             else xrTableCell30.Text = "";
@@ -389,14 +378,12 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                     xrTableCell31.Text = "";
                 else
                     xrTableCell31.Text =
-                        //((shumaxhiro3 - shumaxhiro1) / shumaxhiro1).ToString();
             String.Format("{0:#,#.00}", (dif1 / total1) * 100);
             }
             else xrTableCell31.Text = "";
         }
 
        
-
         private void xrTableCell29_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             if (shumaxhiro1 != 0)
@@ -405,22 +392,13 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
                     e.Result = "";
                 else
                     e.Result =
-            //((shumaxhiro3 - shumaxhiro1) / shumaxhiro1).ToString();
             String.Format("{0:#,#.00}", ((shumaxhiro3 - shumaxhiro1) / shumaxhiro1) * 100);
             }
             else e.Result = "";
             e.Handled = true;
 
-            //if (shumaxhiro2 != 0)
-            //{
-            //    if ((shumaxhiro2 < 0) && (shumaxhiro3 - shumaxhiro2) > 0)
-            //        e.Result = "";
             //    else
-            //        e.Result = String.Format("{0:#,#.00}", ((shumaxhiro3 - shumaxhiro2) / shumaxhiro2) * 100);
-            //}
-            //else e.Result = "";
 
-            //e.Handled = true;
         }
 
         private void xrTableCell12_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

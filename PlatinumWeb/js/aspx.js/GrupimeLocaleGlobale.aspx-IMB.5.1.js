@@ -116,8 +116,6 @@ function Fund_click(e) {
 }
 
 
-
-
 function _getKeyCode(evt) {
     return (typeof (evt.keyCode) != "undefined" && evt.keyCode != 0) ?
 												            evt.keyCode : evt.charCode;
@@ -193,15 +191,9 @@ function enable() {//kur humb fokusin kolona Autorizimeve
 ///verprimet e menu clickut
 
 function menu_click(s, e) {
-    //var hfRuaj = $('#hfRuaj');
-    //if (grida == "gvGrupime")
-    //    myMenu.menu_click_celjevogel(s, e, hfRuaj, gvGrupime, hfTeDrejta);
-    //else if (grida == "gvGlobale")
-    //    myMenu.menu_click_celjevogel(s, e, hfRuaj, gvGlobale, hfTeDrejta);
 
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 
 
@@ -247,7 +239,6 @@ function SucceededCallbackLidhur(result) {
     var hf = $('#hfKontrollet')[0]; //mban te dhenat mbi kontrollet
     var hfLidhur = $("#hfLidhur");
     hfLidhur.val(result);
-    //        aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result));
 }
 //pastron fushat per shtim dhe ben aktive fushat
@@ -283,10 +274,7 @@ function SucceededCallbackMesazhi(result) {
 function ndryshoKonfigurimin() {
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
-    //            cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     callWebserviceKonfigurimi(721, cmbKonfigurimi.GetText());
-    //var grida = $('#rowed5');
-    //ndryshoKonfigFormatNumri(grida);
 
 }
 function OnGridSelectionChanged(e) {
@@ -331,18 +319,7 @@ function SucceededCallbackKonfig(result) {
             hfNrAutoKF.Clear();
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
         }
-        //for (j = 0; j < colKushte.length; j++) {
-        //    if (colKushte[j].Kodi == 'NrAutoKodi') {
-        //        nrauto = colKushte[j].Vlera;
 
-        //    }
-        //    if (colKushte[j].Kodi == 'NrAutoKodi2') {
-        //        nrauto2 = colKushte[j].Vlera;
-
-        //    }
-
-        //}
-           
 
             resultkonf = result;
             LupaKontrollet(colKontrollet, colAtrTrupi);

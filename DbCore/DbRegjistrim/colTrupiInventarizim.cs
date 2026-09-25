@@ -90,21 +90,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushTrupatInventarizim(DataTable dt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsTrupiInventarizim trupi = new clsTrupiInventarizim();
-                //trupi.mbushTrupNdryshimCmimSasi(rreshti);
                 Add(new clsTrupiInventarizim(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

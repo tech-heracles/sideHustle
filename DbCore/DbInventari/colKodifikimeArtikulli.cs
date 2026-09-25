@@ -249,20 +249,12 @@ namespace DbCore.DbInventari
         private bool mbushKodifikimArtikujsh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKodifikimArtikulli kodifikimArtikulli = new clsKodifikimArtikulli();
-                    //kodifikimArtikulli.mbushKodifikimArtikulli(rreshti);
                     this.Add(new clsKodifikimArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -281,7 +273,6 @@ namespace DbCore.DbInventari
                 kodifikimArtikulli.IdPrindi = int.Parse(rreshti[3].ToString());
                 kodifikimArtikulli.NivelKodifikimi = int.Parse(rreshti[4].ToString());
                 kodifikimArtikulli.IdPerdoruesi = int.Parse(rreshti[5].ToString());
-                //kodifikimArtikulli.IdNderViti = int.Parse(rreshti[6].ToString());
                 kodifikimArtikulli.IdNdermarje = int.Parse(rreshti[6].ToString());
                 kodifikimArtikulli.LlojKodifikimi = int.Parse(rreshti[7].ToString());
                 kodifikimeArtikulli.Add(kodifikimArtikulli);

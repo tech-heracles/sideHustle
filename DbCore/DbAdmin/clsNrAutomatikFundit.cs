@@ -261,13 +261,7 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// Fshin objektin e lidhjes se Numrit Automatike me Ambjentet e Cleje/Regjistrimit ne databaze.
         ///// </summary>
-        //public clsMesazh fshi()
         //{//metoda qe therret klasen clsDatabaseAdmin per fshirjen e nje  ambjenti celje regjistrim per numrat automatike
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    clsMesazh u_fshi = data.fshiNumraAutomatikeFunditSipasID(this.IdNrFunditAutomatik);
-        //    data.Dispose();
-        //    return u_fshi;
-        //}
         /// <summary>
         /// Fshin objektin e lidhjes se Numrit Automatike me Ambjentet e Cleje/Regjistrimit ne databaze.
         /// </summary>

@@ -45,7 +45,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
 
             XRPivotGridField fieldPershkrimArtikulli = new XRPivotGridField("Pershkrim", PivotArea.RowArea);
             fieldPershkrimArtikulli.FieldName = "PERSHKRIMARTIKULLI";
-            //fieldPershkrimArtikulli.Width = 100;
             fieldPershkrimArtikulli.Caption = rm.GetString("labelRaportiPershkrimi", ci);
 
             XRPivotGridField fieldGrupim1 = new XRPivotGridField("Grupimi 1", PivotArea.RowArea);
@@ -104,6 +103,5 @@ namespace AlphaWebReports.RaportetDs.Magazina
         }
 
       
-
     }
 }

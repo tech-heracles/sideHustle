@@ -26,10 +26,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         }
 
 
-      
-
-
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -73,11 +69,8 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel19.Text = rm.GetString("labelEmerMbiemerFirma", ci);
             xrLabel37.Text = rm.GetString("labelEmerMbiemerFirma", ci);
             xrLabel4.Text = rm.GetString("labelAfatiPageses", ci);
-            //xrLabel40.Text = rm.GetString("labelRaportTel", ci);
          
         }
-
-       
 
        
     }

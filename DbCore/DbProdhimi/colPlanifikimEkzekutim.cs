@@ -68,19 +68,11 @@ namespace DbCore.DbProdhimi
         private bool mbushPlanifikimEkzekutim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPlanifikimEkzekutim planekze = new clsPlanifikimEkzekutim();
-                    //planekze.mbushPlanifikimEkzekutim(rreshti);
                     Add(new clsPlanifikimEkzekutim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

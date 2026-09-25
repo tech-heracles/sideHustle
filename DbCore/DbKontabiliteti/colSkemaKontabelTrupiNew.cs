@@ -54,8 +54,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         public colSkemaKontabelTrupiNew merrSkemaTrupiNew(string id)
         {
-            //clsDatabaseKontabilitet data = new clsDatabaseKontabilitet();
-            //return data.merrSkemaTrupiNewSipasID(id);
             colSkemaKontabelTrupiNew data = new colSkemaKontabelTrupiNew(id);
             return data;
         }
@@ -71,21 +69,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushSkematTrupiNew(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsSkemaKontabelTrupiNew skematrupi = new clsSkemaKontabelTrupiNew();
-                    //skematrupi.mbushSkemKontTrupiNew(rreshti);
                     Add(new clsSkemaKontabelTrupiNew(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

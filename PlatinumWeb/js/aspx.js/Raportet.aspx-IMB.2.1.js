@@ -12,8 +12,6 @@ function myTimeStamp() {
 function hapKubin(idModuli) {
     var ngaCRM = Utils.getUrlVar("vjenNga");
     var width = $(window).width();
-    //if (window.parent && window.parent.SucceededCallbackInfoLart && emerRaporti)
-    //    window.parent.SucceededCallbackInfoLart({ emerKomponente: emerRaporti });
     myFaqeCelje.kontrolloTeDrejta("Raport_PivotGrid.aspx?idModuli=" + idModuli + "&windowWidth=" + width + "&vjenNga=" + ngaCRM);
 }
 function hapRaport(idRaporti, emerRaporti, filtro) {
@@ -93,10 +91,8 @@ $.noty.defaults = {
     callback: {
         onShow: function (e) {
 
-            //            this.options.text = myTimestamp() + " - " + this.options.text;
         },
         afterShow: function () {
-            //$(this.$message).find(".noty_text").text(myTimeStamp() + " - " + $(this.$message).find(".noty_text").text());
         },
         onClose: function () { },
         afterClose: function () { },
@@ -111,7 +107,6 @@ $(document).ready(function () {
     var stringKonfigRap = hfState.Get("konfigRap");
     hfState.Remove("konfigRap");
     pageState.params = { konfigRap: stringKonfigRap == "" ? false : JSON.parse(stringKonfigRap), lista: JSON.parse(hfState.Get("listaRap")), fushaLinkut: pageState.fushaLinkut, idModuliRaporteve: pageState.idModuliRaporteve, selektorHomeMenu: pageState.selektorHomeMenu, fushaEmrit: pageState.fushaEmrit, fushaIdRaportit: pageState.idRaporti, etiketa: { kryesore: (pageState.idGjuha == 0 ? "Kryesore" : "Main"), teTjera: (pageState.idGjuha == 0 ? "Te tjera" : "Others"), raporteTeri: (pageState.idGjuha == 0 ? "Raporte te rinj" : "New reports") }, selektorMenu: ".titull" };
-    //initListFromJson(pageState.params);
     $("#menuHomePage").imblist(pageState.params);
 });
 
@@ -173,5 +168,4 @@ function kerkoTextChanged(filterString) {
     krijoListen({ lista: pageState.myList, filterString: filterString?filterString:this.text(), fushaEmrit: pageState.fushaEmrit, fushaLinkut: pageState.fushaLinkut, selektorHomeMenu: pageState.selektorHomeMenu, fushaIdRaportit: pageState.idRaporti });
 }
 function kerkoInit(s, e) {    
-    //s.GetInputElement().placeholder = "Kerko";//loginHiddenField.Get("userlbl");
     }

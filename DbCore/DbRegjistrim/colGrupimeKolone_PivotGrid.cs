@@ -45,18 +45,10 @@ namespace DbCore.DbRegjistrim
         private bool mbushColGrupimKolone(DataTable grupimKoloneDataTable)
         {
             //try
-            //{
                 foreach (DataRow row in grupimKoloneDataTable.Rows)
                 {
-                    //clsGrupimeKolone_PivotGrid grupimi = new clsGrupimeKolone_PivotGrid();
-                    //grupimi.mbushGrupimKolone(row);
                     Add(new clsGrupimeKolone_PivotGrid(row));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

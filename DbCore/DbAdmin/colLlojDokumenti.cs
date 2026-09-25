@@ -106,19 +106,11 @@ namespace DbCore.DbAdmin
         private bool mbushLlojDokumenti(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsLlojDokumenti oLlojDok = new clsLlojDokumenti();
-                    //oLlojDok.mbushLlojDokumenti(rreshti);
                     Add(new clsLlojDokumenti(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

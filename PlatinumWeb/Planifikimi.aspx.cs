@@ -144,17 +144,6 @@ namespace PlatinumWeb
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -228,7 +217,6 @@ namespace PlatinumWeb
         }
 
   
-
         /// <summary>
         /// kthen kolonen e idklient ne kombo me kodet e klientit
         /// </summary>
@@ -318,24 +306,8 @@ namespace PlatinumWeb
             var koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvPlanifikimi", komponente, idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             var filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvPlanifikimi.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", gvPlanifikimi);
-            //var kolona = gvPlanifikimi.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //    {
-            //        filtri.DrejtimRenditje = true;
-            //    }
             //    else
-            //    {
-            //        filtri.DrejtimRenditje = false;
-            //    }
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "NrDok";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             var mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
@@ -398,7 +370,6 @@ namespace PlatinumWeb
 
             var rreshtat = gvPlanifikimi.GetSelectedFieldValues("IdKokaPlanifikim");
             pergjigja.Text = string.Empty;
-          //  DbCore.DbAdmin.clsPeriudhaKontabel periudha;
             var dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             foreach (object id in rreshtat)
             {
@@ -416,8 +387,6 @@ namespace PlatinumWeb
                     continue;
                 }
 
-               // periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(clsKoka.DtDok, idndermarje);
-                //var mesazhi = periudha.isPeriudheKycur();
                
                 bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(clsKoka.DtDok, idndermarje);
                 if (ekycur)

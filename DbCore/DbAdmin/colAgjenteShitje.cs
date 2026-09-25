@@ -56,10 +56,6 @@ namespace DbCore.DbAdmin
             data.Dispose();
             return tabela;
 
-            //clsDatabaseKontabilitet dbartikuj = new clsDatabaseKontabilitet();
-            //DataTable tabela = dbartikuj.ktheKFNdermarrjesAndAutorizimeDT(idNdermarrje, idPerdorues);
-            //dbartikuj.Dispose();
-            //return tabela;
         }
 
         public static DataRow merrSipasAgjenteveNdermarrjesAndAutorizimeDR(int idnderm, int idperdorues, int idagjenti)
@@ -83,17 +79,11 @@ namespace DbCore.DbAdmin
         private bool mbushAgjentetShitjes(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     Add(new clsAgjentShitje(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

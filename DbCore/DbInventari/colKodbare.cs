@@ -210,19 +210,11 @@ namespace DbCore.DbInventari
         private bool mbushKodbare(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsKodbari kodbar = new clsKodbari();
-                //kodbar.mbushKodbarin(rreshti);
                 this.Add(new clsKodbari(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

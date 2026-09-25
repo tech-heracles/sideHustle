@@ -499,7 +499,6 @@ namespace DbCore.DbProdhimi
                 this.pershkrimArtikull = artikull.PershkrimArtikulli;
                 this.idBurimi = 0;
                 clsTrupiMagazina tr = new clsTrupiMagazina();
-                //this.Kosto = tr.llogaritCmimMesatar(artikull, this.idMag, dtDok, -1, this.sasiaAktuale);
                 this.Kosto = tr.llogaritCmimMesatar(artikull, this.idMag, dtDok, -1, this.sasiaAktuale, idPerdorues);
                 if (String.IsNullOrEmpty(njesiRec))
                     return new clsMesazh(false, "Plotesoni njesine e receptures!");
@@ -600,7 +599,6 @@ namespace DbCore.DbProdhimi
         public colRecepturaProdhimi merrSipasProduktit()
         {
             colRecepturaProdhimi data = new colRecepturaProdhimi();
-            //data.mbushRecepturaSipasIdProdukti(IdProdukti, null);
             data.mbushRecepturaSipasIdProdukti(IdProdukti);
             return data;
         }
@@ -612,7 +610,6 @@ namespace DbCore.DbProdhimi
         public colRecepturaProdhimi merrSipasKokes(int idkoka)
         {
             colRecepturaProdhimi data = new colRecepturaProdhimi();
-            //data.mbushRecepturaSipasIdKoka(idkoka, null);
             data.mbushRecepturaSipasIdKoka(idkoka);
             return data;
         }

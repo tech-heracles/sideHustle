@@ -10,8 +10,6 @@ function toWords(s) {
     s = s.replace(/[\, ]/g, '');
     if (s === '')
         return '';
-//    if (s != String(parseFloat(s)))
-    //        return 'nuk eshte numer';
 //KEVI
         if (isNaN(s))
             return 'nuk eshte numer';
@@ -68,12 +66,6 @@ function toWords(s) {
         str = str + toWords(paspikes);
     }
     
-//    var fundi2 = str.charAt(str.length - 3); //alert(fundi2);
-//    var fundi3 = str.charAt(str.length - 2); //alert(fundi3);
-//    var fundi4 = str.charAt(str.length - 1);// alert(fundi4);
 
-//    if (fundi2 == ' ' && fundi3 == 'e' && fundi4 == ' ')
-//        str = str.substr(0, str.length - 4); 
-        
     return str.replace(/\s+/g, ' ');
 }

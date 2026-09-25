@@ -417,12 +417,6 @@ namespace DbCore.DbAdmin
                     if (!mes.Status)
                         return mes;
                 }
-                //if (njoftim == true && trup.Delegimi != "")
-                //{
-                //    clsPerdorues per = new clsPerdorues(trup.IdDelegimi);
-                //    if (per.PerdoruesEmail == "")
-                //        return new clsMesazh(false, "Keni delegues pa adrese emaili!");
-                //}
                 nivelifundit = trup.Niveli;
             }
             if (!kaNivel1)
@@ -541,7 +535,6 @@ namespace DbCore.DbAdmin
                         return mesazh;
 
 
-               
                     }
                     else
                     {
@@ -692,7 +685,6 @@ namespace DbCore.DbAdmin
                 if (mesazh.Status)
                 {
                     mesazh = db.fshiKokaSkemaWorkFlowStatus(idKoka, idperdoruesi);
-                    //mesazh =  fshiKokaKategoriZbritje(kategorizbritje);
                     if (mesazh.Status)
                     {
                         db.commitTransaksion();

@@ -51,12 +51,6 @@ namespace DbCore.DbAdmin
         }
 
         //public void merrVitet(int ndermarrja)
-        //{
-        //    clsDatabaseAdmin dbadmin = new clsDatabaseAdmin();
-        //    DataTable dt = dbadmin.merrVitetENdermarrjes(ndermarrja);
-        //    if (!mbushVitet(dt))
-        //        throw new Exception("ERROR: Colcetion-i i viteve nuk arriti te mbushet");
-        //}
 
         /// <summary>
         /// mbush nje klase me te gjithe vitet    e celura ne kete ndermarje
@@ -130,19 +124,11 @@ namespace DbCore.DbAdmin
         private bool mbushVitet(DataTable dt) {
 
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsViti viti = new clsViti();
-                    //viti.mbushViti(rreshti);
                     this.Add(new clsViti(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

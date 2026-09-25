@@ -27,7 +27,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -218,7 +217,6 @@ namespace PlatinumWeb
                 {
                     for (int i = 0; i < e.UpdateValues.Count; i++)
                     {
-                       //string key = e.UpdateValues[i].Keys[0].ToString();
                         clsShpenzimeOperative shpenzimVjeter = col.Where(x => x.ShokId == e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
 
                         clsShpenzimeOperative shpenzimRi = e.UpdateValues[i].MerrCustomUpdatedObject(shpenzimVjeter);
@@ -255,42 +253,12 @@ namespace PlatinumWeb
         protected void gvShpenzimeOperative_CustomUnboundColumnData(object sender,
             ASPxGridViewColumnDataEventArgs e)
         {
-            //if (e.Column.FieldName == "TotalParaardhes")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("NgaBuxhetiParaardhes"))
             //        + Convert.ToDecimal(e.GetListSourceFieldValue("NgaTeArdhuratParaardhes"))
-            //        ;
-            //}
-            //else if (e.Column.FieldName == "TotalAktuale")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("NgaBuxhetiAktuale"))
             //        + Convert.ToDecimal(e.GetListSourceFieldValue("NgaTeArdhuratAktuale"))
-            //        ;
-            //}
-            //else if (e.Column.FieldName == "DiferencaKerkeseLimitArdhme")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("KerkesaGjykatesArdhme"))
             //        - Convert.ToDecimal(e.GetListSourceFieldValue("LimitiArdhme"))
-            //        ;
-            //}
-            //else if (e.Column.FieldName == "TotalKerkesaTeArdhuraArdhme")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("DiferencaKerkeseLimitArdhme"))
             //        + Convert.ToDecimal(e.GetListSourceFieldValue("ShpenzimeTePlanifikuarTeArdhuraArdhme"))
-            //        ;
-            //}
-            //else if (e.Column.FieldName == "DiferencaKerkeseLimitArdhmePlus1")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("KerkesaGjykatesArdhmePlus1"))
             //        - Convert.ToDecimal(e.GetListSourceFieldValue("LimitiArdhmePlus1"))
-            //        ;
-            //}
-            //else if (e.Column.FieldName == "DiferencaKerkeseLimitArdhmePlus2")
-            //{
-            //    e.Value = Convert.ToDecimal(e.GetListSourceFieldValue("KerkesaGjykatesArdhmePlus2"))
             //        - Convert.ToDecimal(e.GetListSourceFieldValue("LimitiArdhmePlus2"))
-            //        ;
-            //}
         }
 
         protected void ASPxMenu1_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e)

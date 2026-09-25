@@ -30,7 +30,6 @@ namespace DbCore.DbRegjistrim
         }
 
     
-
         #endregion
 
         #region Metoda Private
@@ -38,19 +37,11 @@ namespace DbCore.DbRegjistrim
         private bool mbushLidhje(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKonvertimi konvertim = new clsKonvertimi();
-                    //konvertim.mbushKonvertim(rreshti);
                     Add(new clsLidhjaMagazinaInventarizim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

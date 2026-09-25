@@ -78,18 +78,12 @@ namespace AlphaWebReports.RaportetDs
 
         private void xrLabel20_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (shumadebi - shumakredi >=0)
-            //    xrLabel20.Text = String.Format("{0:#,#.00}", shumadebi - shumakredi);
             //else
-            //    xrLabel20.Text = String.Format("{0:#,#.00}", 0);
         }
 
         private void xrLabel29_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (shumadebi - shumakredi <=0)
-            //    xrLabel29.Text = String.Format("{0:#,#.00}", shumakredi - shumadebi);
             //else
-            //    xrLabel29.Text = String.Format("{0:#,#.00}", 0);
         }
 
         private void xrLabel5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

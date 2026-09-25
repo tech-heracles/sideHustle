@@ -533,7 +533,6 @@ popupUniversal.Show();
 }
 
 
-
 function ButtonClickedLlogaria(editor) {
     var headerText = hfState.Get("popupAdministrimiUniversal");
     var contentUrl = RaportiEmerReal != "historikRecepturash" ? 'LupaLlogaria.aspx?vjenNgaRaporti=true' : 'LupaLlogaria.aspx?idKonfigAmbjente=6821&vjenNgaRaporti=true';
@@ -983,12 +982,10 @@ function ButtonClickedBurimi(editor) {
     var widthLupa = '600';
     var heightLupa = '600';
     editorGlobal = editor;
-    //identikuesPerPopupArtikulli = "raportBurim";
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhBurimin"), contentUrl, widthLupa, heightLupa);
 }
 function ButtonClickedAktiviteti(editor) {
     editorGlobal = editor;
-    //identikuesPerPopupArtikulli = "raportBurim";
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhAktivitetin"), 'LupaAktivitete.aspx?vjenNgaRaporti=true', 600, 500);
 }
 
@@ -1227,7 +1224,6 @@ function ButtonClickedGrupimArt3(editor) {
 }
 
 
-
 function ButtonClickedbtneAuto(editor) {
     var headerText = hfState.Get("msgZgjidhAutomjetin");
     contentUrl = 'LupaAutomjeti.aspx';
@@ -1274,143 +1270,26 @@ function ButtonClickedbtneKompania(editor) {
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("headerPopUpTextZgjidhNdermarrjet"), 'LupaNdermarjeBij.aspx' + queryStr, 750, 600);
 }
 
-//function ButtonClickedGrupim1KF(editor) {
-//    if (lblGrupPKF.GetText() == "Grup Klienti 1") {
-//        var headerText = hfState.Get("msgZgjidhGrupin1TeKlientit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=1&kf=klient&vjenNgaRaporti=true';
 //    } else if (lblGrupPKF.GetText() == "Grup Furnitori 1") {
-//        headerText = hfState.Get("msgZgjidhGrupin1TeFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=1&kf=furnitor&vjenNgaRaporti=true';
 //    } else {
-//        headerText = hfState.Get("msgZgjidhGrupin1TeKlientFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=1&vjenNgaRaporti=true';
-//    }
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
-//function ButtonClickedGrup1KF(editor, emerLabelGrupimi, llojKodifikimi) {
-//    var labelGrupimi = Utils.ktheKontroll(emerLabelGrupimi).GetText();
-//    var llojKf;
-//    var headerText;
-//    switch (labelGrupimi) {
 //        case "Grup Klienti 1":
-//            headerText = hfState.Get("msgZgjidhGrupin1TeKlientit");
-//            llojKf = "klient";
-//            break;
 //        case "Grup Furnitori 1":
-//            headerText = hfState.Get("msgZgjidhGrupin1TeFurnitorit");
-//            llojKf = "furnitor";
-//            break;
 //        default:
-//            headerText = hfState.Get("msgZgjidhGrupin1TeKlientFurnitorit");
-//            llojKf = "";
-//            break;
-//    }
-//    var contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=' + llojKodifikimi + '&vjenNgaRaporti=true';
-//    if (!Utils.IsNullOrEmpty(llojKf))
-//        contentUrl += '&kf=' + llojKf;
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
-//function ButtonClickedGrupim2KF(editor) {
-//    if (lblGrupDKF.GetText() == "Grup Klienti 2") {
-//        var headerText = hfState.Get("msgZgjidhGrupin2TeKlientit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=2&kf=klient&vjenNgaRaporti=true';
 //    } else if (lblGrupDKF.GetText() == "Grup Furnitori 2") {
-//        headerText = hfState.Get("msgZgjidhGrupin2TeFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=2&kf=furnitor&vjenNgaRaporti=true';
 //    } else {
-//        headerText = hfState.Get("msgZgjidhGrupin2TeKlientFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=2&vjenNgaRaporti=true';
-//    }
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
-//function ButtonClickedGrup2KF(editor, emerLabelGrupimi, llojKodifikimi) {
-//    var labelGrupimi = Utils.ktheKontroll(emerLabelGrupimi).GetText();
-//    var llojKf;
-//    var headerText;
-//    switch (labelGrupimi) {
 //        case "Grup Klienti 2":
-//            headerText = hfState.Get("msgZgjidhGrupin2TeKlientit");
-//            llojKf = "klient";
-//            break;
 //        case "Grup Furnitori 2":
-//            headerText = hfState.Get("msgZgjidhGrupin2TeFurnitorit");
-//            llojKf = "furnitor";
-//            break;
 //        default:
-//            headerText = hfState.Get("msgZgjidhGrupin2TeKlientFurnitorit");
-//            llojKf = "";
-//            break;
-//    }
-//    var contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=' + llojKodifikimi + '&vjenNgaRaporti=true';
-//    if (!Utils.IsNullOrEmpty(llojKf))
-//        contentUrl += '&kf=' + llojKf;
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
-//function ButtonClickedGrupim3KF(editor) {
-//    if (lblGrupTKF.GetText() == "Grup Klienti 3") {
-//        var headerText = hfState.Get("msgZgjidhGrupin3TeKlientit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=3&kf=klient&vjenNgaRaporti=true';
 //    } else if (lblGrupTKF.GetText() == "Grup Furnitori 3") {
-//        headerText = hfState.Get("msgZgjidhGrupin3TeFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=3&kf=furnitor&vjenNgaRaporti=true';
 //    } else {
-//        headerText = hfState.Get("msgZgjidhGrupin3TeKlientFurnitorit");
-//        contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=3&vjenNgaRaporti=true';
-//    }
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
-//function ButtonClickedGrup3KF(editor, emerLabelGrupimi, llojKodifikimi) {
-//    var labelGrupimi = Utils.ktheKontroll(emerLabelGrupimi).GetText();
-//    var llojKf;
-//    var headerText;
-//    switch (labelGrupimi) {
 //        case "Grup Klienti 3":
-//            headerText = hfState.Get("msgZgjidhGrupin3TeKlientit");
-//            llojKf = "klient";
-//            break;
 //        case "Grup Furnitori 3":
-//            headerText = hfState.Get("msgZgjidhGrupin3TeFurnitorit");
-//            llojKf = "furnitor";
-//            break;
 //        default:
-//            headerText = hfState.Get("msgZgjidhGrupin3TeKlientFurnitorit");
-//            llojKf = "";
-//            break;
-//    }
-//    var contentUrl = 'LupaGrupimeKlientFurnitor.aspx?llojkodifikimi=' + llojKodifikimi + '&vjenNgaRaporti=true';
-//    if (!Utils.IsNullOrEmpty(llojKf))
-//        contentUrl += '&kf=' + llojKf;
-//    var widthLupa = '750';
-//    var heightLupa = '600';
-//    identifikuesPerPopupKodifikimin = "raportGrupim";
-//    editorGlobal = editor;
-//    myButtonClickLupa.LupaUniversal_Click(headerText, contentUrl, widthLupa, heightLupa);
-//}
 
 function ButtonClickedGrupeKF(editor, emerLabelGrupimi, llojKodifikimi) {
     var labelGrupimi = Utils.ktheKontroll(emerLabelGrupimi).GetText();
@@ -1533,12 +1412,10 @@ function klickselectedvalueReg(theRadio, e) {
         if (rblCaseControl == 'Periudha') {
             txtDeriDokReg.SetEnabled(true);
             txtNgaDokReg.SetEnabled(true);
-            //txtDeriDokReg.SetEnabled(true);
         }
         else {
             txtDeriDokReg.SetEnabled(false);
             txtNgaDokReg.SetEnabled(false);
-            // txtNgaDokReg.SetEnabled(false);
         }
     }
 }
@@ -1740,8 +1617,6 @@ function klickselectedvaluedokLidhes(theRadio, e) {
 }
 
 
-
-
 function klickselectedvaluedokPlanifikimi(theRadio, e) {
     if (theRadio.GetSelectedIndex() != -1) {
         var rblCaseControlDokKrahasues = theRadio.GetSelectedItem().value;
@@ -1808,9 +1683,6 @@ function changeName() {
 }
 
 function changeButtonsType() {
-    //document.querySelectorAll("input[title=Ndihme]")[0].type = "button";
-    //document.querySelectorAll("input[title=Minimizo]")[0].type = "button";
-    //document.querySelectorAll("input[title=Maksimizo]")[0].type = "button";
 }
 
 function OnGridSelectionChanged() {
@@ -1819,7 +1691,6 @@ function OnGridSelectionChanged() {
 
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     txtEmerFiltri.SetText(vl[1]);
@@ -1838,13 +1709,10 @@ function changeRadioButtonDateValue() {
     }
 }
 function initNgaTakim(s, e) {
-    //$(s.GetInputElement()).css('zIndex', 3000);
 }
 
 
-
 function initNgaDok(s, e) {
-    //$(s.GetInputElement()).css('zIndex', 3000);
 }
 function ngaDokDateChanged(s, e) {
     if (txtDeriDok.GetDate() < txtNgaDok.GetDate())
@@ -2222,12 +2090,10 @@ function renditFiltra() {
     }
     var filtroQueryString = Utils.getUrlVar("Filtro");
     if (filtroQueryString == "true") {
-        //$('.ImbReportToolBar').hide();
         var filtraAvancuar = navBarFiltrat.GetGroupByName("filtraAvancuar");
         filtraAvancuar.SetExpanded(true);
     }
     else {
-        //$('.ImbReportToolBar').show();
     }
     var idDivKrye = JSON.parse($('#hfIdKrye').val());
     var topDivKrye = JSON.parse($('#hfTopKrye').val());
@@ -2484,11 +2350,9 @@ function toastMessage(message) {
     toast.querySelector('.toast-body').innerHTML = message;
     toast.style.opacity = 1;
     toast.style.zIndex = 999999;
-    //toast.style.display = "block";
     setTimeout(function () {
         toast.style.opacity = 0;
         toast.style.zIndex = -10;
-        //toast.style.display= "none";
     }, 4000);
 }
 function KontrolloIntervalet() {

@@ -964,21 +964,8 @@ namespace DbCore
 					}
 				}
 				//if (!liste && !modifikim) //modifikim
-				//{
 				//    //listen direkt
-				//    colKonfigurimAmbjenti konfVarura = new colKonfigurimAmbjenti();
 				//    //konfVarura.mbushKonfigAmbjVarteseSipasIdKategoriKodNivel( TODO PATI
-				//    foreach (DbCore.DbShare.clsKonfigurimAmbjenti konfi in konfigurime)
-				//    {
-				//        DbCore.DbShare.clsKusht kusht = new DbCore.DbShare.clsKusht(konfi.IdKonfigAmbjente, "V");
-				//        if (kusht.Vlera == 43)
-				//            konfVarura.Add(konfi);
-				//    }
-				//    foreach (DbCore.DbShare.clsKonfigurimAmbjenti konfi in konfVarura)
-				//    {
-				//        konfigurime.Remove(konfi);
-				//    }
-				//}
 				if (konfigurime.Count == 0)
 					return false;
 				else return true;
@@ -1103,7 +1090,6 @@ namespace DbCore
 				return null;
 			String serveri = dr["HELPNAME"].ToString();
 			String faqeKryesore = dr["HELPFAQEKRYESORE"].ToString();
-
 
 
 			if (serveri.Length == 0 || faqeKryesore.Length == 0)
@@ -1629,7 +1615,6 @@ namespace DbCore
 				{
 					if (prind && niv.PrioritetiNivelCmimi > colNivele[i].PrioritetiNivelCmimi)//prioriteti me i vogel me mire
 					{
-						//prind = false;
 						result = ktheCmimDheBrutoNetoNivelCmimi(colNivele[i], kodArtikulli, idPerdoruesi, njesia, monedha, date, kursi, sasi, idNdermarrje, llojNiveli, koefArt, db, iddetajim);
 						if (Convert.ToDecimal(result[0]) != 0)
 							return result;
@@ -1718,7 +1703,6 @@ namespace DbCore
 							case 301: //    arka / banka
 								clsBanka arka = new clsBanka();
 								arka.mbushBankeSipasKodit(atrKontrolli.VlereDefault.ToString(), idNdermarrje);
-								//arka.mbushBanke(int.Parse(atrKontrolli.VlereDefault.ToString()));
 								idMonedha = arka.IdMonedhaBanka;
 								break;
 
@@ -1848,8 +1832,6 @@ namespace DbCore
 			var ls = MerrKaraktereTePalejuara(text, lejoPresje);
 			if (Regex.IsMatch(text, @"\s{2,}|[\t]"))
 				return new clsMesazh(false, MessageResource["msgPershkrimiHapesiraTeNjepasnjeshme"]);
-			//if ((lloji == FusheKontrolli.Kodi || lloji == FusheKontrolli.Kodbari) && System.Text.RegularExpressions.Regex.IsMatch(text, @"\s+"))
-			//    return new clsMesazh(false, MessageResource["msgKodiHapsira"]);
 			if (text.Contains("'"))
 				return new clsMesazh(false, MessageResource["msgZevendesimThonjeze"]);
 			if (text.Contains("+") && lloji == FusheKontrolli.Kodbari)
@@ -1887,16 +1869,9 @@ namespace DbCore
 		{
 			StringBuilder str = new StringBuilder();
 			string SpecialChar = lejoPresje ? @"[';<>]" : @"[,';<>]";
-			//switch (lloji)
-			//{
 			//    case FusheKontrolli.Pershkrimi:
 			//    case FusheKontrolli.Emri:
-			//        SpecialChar = @"[';<>]";
-			//        break;
 			//    default:
-			//        SpecialChar = @"[,';<>]";
-			//        break;
-			//}
 			Regex rgx = new Regex(SpecialChar, RegexOptions.IgnoreCase);
 			MatchCollection matches = rgx.Matches(text);
 			if (matches.Count > 0)
@@ -1911,34 +1886,18 @@ namespace DbCore
 		public static clsMesazh validoPunonjesinNeLogin(HttpContext httpContext, string username, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, clsPunonjes user, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
 		{
 			string arsyeLoginFail = "";
-			//clsMesazh validUser;
 			clsMesazh mesazh;
 
 			int loginCount = mySessionObjects.merrLoginCount(httpContext.Session);
 			int maxLoginAttempts = mySessionObjects.merrMaxLoginAttempts(httpContext.Session);
 			Dictionary<string, Dictionary<int, int>> loginAttempts = (Dictionary<string, Dictionary<int, int>>)HttpContext.Current.Application["loginAttempts"];
 			Dictionary<string, string> useraAktiv = (Dictionary<string, string>)HttpContext.Current.Application["userAktiv"];
-			// string failureText = STR_perdoruesIPasakte;
 			mySessionObjects.ruajEmerPerdoruesNeSesion(httpContext.Session, username);
 			//i jepen vlera obj perdorues sipas vlerave ne login
-			// DbCore.DbAdmin.clsPerdorues user = new DbCore.DbAdmin.clsPerdorues(username);
 
 			#region
-			//NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
-			//foreach (NetworkInterface iface in interfaces)
-			//{
-			//    IPInterfaceProperties properties = iface.GetIPProperties();
 
-			//    foreach (UnicastIPAddressInformation address in properties.UnicastAddresses)
-			//    {
-			//        Console.WriteLine("{0} (Mask: {1})", address.Address, address.IPv4Mask);
-			//    }
-			//}
 
-			//string clientDt = clientDate.Value;
-			//string[] clientDateParts = clientDt.Split('/');
-			//DateTime clientDate = new DateTime(Convert.ToInt32(clientDateParts[2].Split(' ')[0]), Convert.ToInt32(clientDateParts[1]), Convert.ToInt32(clientDateParts[0]));
-			//DateTime serverDate = DateTime.Now;
 			//kthen col me obj te perdoruesve me username sa ai i perdoruesit te loguar
 			#endregion
 			if (user.IdPunonjes != 0)
@@ -2012,12 +1971,9 @@ namespace DbCore
 					mySessionObjects.ruajDyqaninNgaWebServisi(httpContext.Session, dyqaniWS);
 					clsNdermarrje nderm = new clsNdermarrje(user.IdNdermarje);
 
-					// DbCore.DbAdmin.clsViti vit = new DbCore.DbAdmin.clsViti(nderm.IdViti);
 					clsNdermarrjeViti vit = new clsNdermarrjeViti();
-					// vit.mbushNdermarrjeVitiSipasNdermarjesDheVitit(nderm.IdNdermarrje, nderm.IdViti);
 					clsViti viti = new clsViti();
 					vit.mbushNdermarrjeVitiSipasNdermarjesDheVitit(nderm.IdNdermarrje, clsViti.ktheIdVitPerNdermarrjenSipasKodit(user.IdNdermarje, DateTime.Now.Year.ToString()));
-					//   vit.mbushVitetMet(vit.KodiViti, user.IdNdermarje);
 					merrNdermarrjenPerPune(httpContext.Session, user.IdPunonjes, user.IdNdermarje, nderm.NdermarrjeKodi, vit.Viti.ToString(), vit.IdNderViti, null);
 
 				}
@@ -2093,9 +2049,7 @@ namespace DbCore
 		/// <returns>kthen nje objekt clsMesazh</returns>
 		public static clsMesazh validoPerdoruesinNeLogin(HttpContext httpContext, string username, string password, bool rememberMeSet, string data, bool webServise, ResourceManager rm, CultureInfo ci, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "", bool authenticationFromRestart = false)
 		{
-			//string failureText;
 			string arsyeLoginFail = "";
-			//clsMesazh validUser;
 			clsMesazh mesazh;
 			int loginCount = mySessionObjects.merrLoginCount(httpContext.Session);
 			int maxLoginAttempts = mySessionObjects.merrMaxLoginAttempts(httpContext.Session);
@@ -2113,12 +2067,9 @@ namespace DbCore
 					return msgSkadimLicence;
 				}
 				var konfig = new clsKonfigurimeFjalekalimi(user.IdPerdorues);
-				//if (user.KontrollPassword)
-				//{
 				clsMesazh lejoLogin = kontrolloNrMaxTentativaLogin(httpContext.Session, loginAttempts, username, konfig, user.IdPerdorues, loginCount, maxLoginAttempts, rm, ci);
 				if (!lejoLogin) return new clsMesazh(false, lejoLogin.PershkrimMesazhi);
 
-				// }
 
 				bool isValidDate = kontrolloDatenKlientServer(data);
 				if (!isValidDate)
@@ -2317,7 +2268,6 @@ namespace DbCore
 			clsGjenerimPIN piniRi = new clsGjenerimPIN(idPerdoruesi, idNdermarrje);
 			if (piniRi.ruaj())
 			{
-				//e.Authenticated = true;
 
 				string nrTel = clsPunonjes.merrNumerTelefoneSipasUsername(username);
 				var dergoPinMeSMS = clsServerConfiguration.LexoKonfigurimSipasKey<int>(ServerKonfigKey.DERGO_PIN_SMS);
@@ -2468,14 +2418,11 @@ namespace DbCore
 		{
 			ruajNrLoginFailAttempt(Session, konfig, loginAttempts, username, loginCount);
 			clsTrackUser.shtoUserLoginFail(arsyeLoginFail, username, Session.SessionID, HttpContext.Current.Request.UserHostAddress);
-			//if (konfig != null)
-			//{
 			clsMesazh arriturNrMaxTentativa = kontrolloNrMaxTentativaLogin(Session, loginAttempts, username, konfig, idPerdoruesi, loginCount, maxLoginAttempts, rm, ci);
 			if (!arriturNrMaxTentativa.Status)
 			{
 				return new clsMesazh(false, arriturNrMaxTentativa.PershkrimMesazhi);
 			}
-			//}
 			return new clsMesazh(true, "");
 		}
 
@@ -2494,15 +2441,12 @@ namespace DbCore
 			{
 				if (loginCount >= maxLoginAttempts)
 				{
-					//Response.Redirect("LoginFail.aspx?arsye=maxLoginAttempts", false);
 					return new clsMesazh(false, rm.GetString("msgLoginNukKeniMeTeDrejteTeLogoheni", ci));
 				}
 				else return new clsMesazh(true, "");
 			}
 			else
 			{
-				//if (konfig.BllokoPerdorues)
-				//{
 				if (loginAttempts.ContainsKey(username))
 				{
 					string mesazh = "";
@@ -2510,19 +2454,9 @@ namespace DbCore
 					nrTentativaLogin = loginAttempts[username];
 					int key = nrTentativaLogin.Last().Key;//numri me i madh i tentativave per login deri ne kete moment
 					int sesioniPErdoruesit = nrTentativaLogin.Last().Value;//vlera me e fundit e numrit te sesionit per perdoruesin
-																		   //if (Convert.ToInt32(loginAttempts[username]) > konfig.TentativaBllokUserXSession)
-																		   //{
-																		   //    Login1.FailureText = "Nuk keni me te drejte te provoni login! Te dhenat ishin te gabuara.";
-																		   //    return false;
-																		   //}
 					lock (loginAttempts)
 					{
 						//kontrollon nqs eshte kaluar nr i lejuar i tentativave per login sipas konfigurimit
-						//if (Convert.ToInt32(loginAttempts[username]) >= konfig.MaxSesioneXPerdorues * konfig.TentativaBllokUserXSession)
-						//{
-						//    if (DbCore.DbAdmin.clsPerdorues.kycPerdorues(user.IdPerdorues))
-						//        Login1.FailureText = "Ky perdorues u kyç. Ju nuk keni me te drejte te provoni login! Ju lutemi, kontaktoni me administratorin!";
-						//    return false;
 						if (sesioniPErdoruesit == konfig.MaxSesioneXPerdorues && key >= konfig.TentativaBllokUserXSession)
 						{
 							if (konfig.BllokoPerdorues)
@@ -2543,16 +2477,7 @@ namespace DbCore
 					}
 				}
 				return new clsMesazh(true);
-				//}
 				//else //rasti kur nuk e ka te konfiguruar qe pedoruesi te bllokohet, behet bllokimi default(max tre tentativa per nje sesion)
-				//{
-				//    if (loginCount >= maxLoginAttempts)
-				//    {
-				//        //Response.Redirect("LoginFail.aspx?arsye=maxLoginAttempts", false);
-				//        return new clsMesazh(false, rm.GetString("msgLoginNukKeniMeTeDrejteTeLogoheni", ci));
-				//    }
-				//}
-				// return new clsMesazh(true, "");
 			}
 		}
 
@@ -2685,8 +2610,6 @@ namespace DbCore
 		}
 		public static void Logout(HttpSessionState Session, bool logOut, bool signOutFormsAuth, bool dontRedirect, string loginUrl, string queryString)
 		{
-			//string emerPerdoruesi = DbCore.mySessionObjects.merrEmerPerdoruesiNgaSesioni(Session);
-			//string emerNdermarrje = DbCore.mySessionObjects.merrNdermarjeselectSesioni(Session);
 			Session.Abandon();
 			HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
 			ImbLogger.LogTrace($"(Shkaterrim sesioni) -> SessionId:{Session.SessionID} - Url:(clsFunksione) {HttpContext.Current.Request.Url.PathAndQuery}");
@@ -2780,12 +2703,7 @@ namespace DbCore
 					response.Redirect(shtoVarToUrl(redirectToPage, "idTheme", idTheme.ToString()), false);
 					return mesazh;
 				}
-				//string komponente = clsKomponente.merrKomponenteDefaultPerdoruesi(idPerdoruesi);
-				//if (komponente != "")
-				//{
 				//    response.Redirect(shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false);//tocheck Getson
-				//    return mesazh;
-				//}
 				//response.Redirect(shtoVarToUrl("FaqeKryesore.aspx", "idTheme", idTheme.ToString()), false); //tocheck Getson
 				string komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrjes, "FaqeKryesore.aspx", vitiNdermarrjes);
 				response.Redirect(shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false); //tocheck Getson
@@ -2923,7 +2841,6 @@ namespace DbCore
 		}
 
 
-
 		public static string KrijoScopeTeRiNgaScopeIVjeter(HttpContext context, string idNderm, string idVitNderm)
 		{
 			int idNdermarrjes = 0, idNdermarrjeVit = 0;
@@ -2989,7 +2906,6 @@ namespace DbCore
 		}
 
 
-
 		/// <summary>
 		/// Vetem per alpha bank Flex Cube
 		/// Krijon nje DataTable me te dhenat qe do kete sheet-i master
@@ -3023,18 +2939,11 @@ namespace DbCore
 
 		public static void shtoKoloneQKTeRaportiExcelWorkbook(string filePathToOpen, HttpResponse Response, bool shfaqDtPrintimi)
 		{
-			// Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.ApplicationClass();
 			//Specify the template excel file path.
-			//string filePathToOpen = @"c:\Data Entry Batch Upload Amortizimi Tetor.xlsx";
-			//string filePathToOpen = AppDomain.CurrentDomain.BaseDirectory + "\\ExcelData.xlsx";
 			string pathDir = HttpContext.Current.Server.MapPath(null) + @"\AlphaWebExport\";
 			DirectoryExtension.CreateDirIfNotExists(pathDir);
 			string[] similarString = filePathToOpen.Split('\\');
 			string subStr = similarString[similarString.Length - 1].Split('.')[0];
-			//string[] filePaths = Directory.GetFiles(pathDir, subStr + "*.xlsx");
-			//DirectoryInfo di = new DirectoryInfo(pathDir);
-			//FileSystemInfo[] files = di.GetFileSystemInfos();
-			//string[] filePaths = files.OrderBy(f => f.CreationTime);
 			DirectoryInfo info = new DirectoryInfo(pathDir);
 			string[] filePaths = info.GetFiles(subStr + "*.xlsx").OrderBy(p => p.CreationTime).Select(x => x.Name).ToArray();
 			for (int x = 0; x < filePaths.Length; x++)
@@ -3051,16 +2960,12 @@ namespace DbCore
 				FileInfo newFileQk = new FileInfo(filePaths[f]);
 				if (filePathToOpen == filePaths[f])
 					continue;
-				//ExcelPackage excPacQK = new ExcelPackage(newFileQk);
-				//FileInfo newFile = new FileInfo(@"Sample2.xlsx");
 				ExcelRange columnCells;
 				ExcelWorksheet detailWorksheetQk;
 				int kolonaFunditEPerdorurQK;
 				ExcelPackage excPacQK = new ExcelPackage(newFileQk);
-				//{
 				ExcelWorkbook WBQK = excPacQK.Workbook;
 				//Hap file e excel
-				//Microsoft.Office.Interop.Excel.Workbook WB = excelApp.Workbooks.Open(filePathToOpen, Missing.Value, Missing.Value, Missing.Value, Missing.Value,Missing.Value, Missing.Value,Missing.Value, Missing.Value,Missing.Value, Missing.Value,Missing.Value, Missing.Value,Missing.Value, Missing.Value);
 				detailWorksheetQk = WBQK.Worksheets.ElementAt(0);
 				int rreshtiFunditIPerdorurQK = detailWorksheetQk.Dimension.End.Row;
 				kolonaFunditEPerdorurQK = detailWorksheetQk.Dimension.End.Column;
@@ -3081,17 +2986,14 @@ namespace DbCore
 					}
 				}
 				columnCells = detailWorksheetQk.Cells[3, indexVitiRaportuesQK, detailWorksheetQk.Dimension.End.Row, indexVitiRaportuesQK];
-				//}
 				using (ExcelPackage excPac = new ExcelPackage(newFile))
 				{
-					//ExcelPackage excPac = new ExcelPackage(newFile);
 					//Get the work book in the file
 					ExcelWorkbook WB = excPac.Workbook;
 					//Hap file e excel
 					ExcelWorksheet detailWorksheet = WB.Worksheets.ElementAt(0);
 					ExcelColumn col = detailWorksheet.Column(5);
 					//Worksheet detailWorksheet = WB.Worksheets[1] as Microsoft.Office.Interop.Excel.Worksheet; //merr sheet-in e pare
-					//detailWorksheet.Name = "QK";
 					detailWorksheet.Cells.Style.Font.Size = 10;
 					detailWorksheet.Cells.Style.Font.Name = "Arial";
 					detailWorksheet.Cells.Style.Numberformat.Format = "@";
@@ -4786,7 +4688,6 @@ namespace DbCore
 			}
 			else
 			{
-				//string fushaGrupimi = "";
 				var fushat = new List<string>();
 				foreach (var trupi in col)
 				{
@@ -4995,7 +4896,6 @@ namespace DbCore
 					{
 						//krijojme nje tabele te re, ku vendosim dokumentin 
 						string selekti = "";
-						//string[] fushat = fushatEGrupimit.Split(';');
 						string[] fushat = fushatEGrupimit.Split(';');
 						for (int j = 0; j < fushat.Count(); j++)
 						{
@@ -5563,7 +5463,6 @@ namespace DbCore
 				var ndermarrje = new clsNdermarrje(idNdermarrje);
 
 
-
 				if (clsAlternativaKushti.getAlternativa(konfigAmbjenti.IdKonfigAmbjente, "MPLSHKKI", dbS) == "Po")
 				{
 					if (!kupon)
@@ -5741,7 +5640,6 @@ namespace DbCore
 					bool printofature, printogarancifature, pagesefature;
 					clsKusht kushtamor = new clsKusht(konfigAmbjenti.IdKonfigAmbjente, "ZDAM");
 
-					//DbCore.DbShare.clsKonfigurimAmbjenti konfamortizimi = new clsKonfigurimAmbjenti(kushtamor.Vlera, idGjuha);
 					string mesazhmevonshem = "";
 					clsKonfigurimAmbjenti konfamortizimi = kushtamor.Vlera != 0 ? new clsKonfigurimAmbjenti(kushtamor.Vlera, dbS) : new clsKonfigurimAmbjenti();
 
@@ -5757,7 +5655,6 @@ namespace DbCore
 							if (clsKokaShitje.merrIdShitjeKokaSipasIdTransferimi(idDokNga) != 0) // Rasti kur importohet per here te dyte ne Alphawebin e Finances (magazine)
 							{
 								koka.IdShitjeKoka = clsKokaShitje.merrIdShitjeKokaSipasIdTransferimi(idDokNga);
-								//koka.NrDok = clsKokaShitje.ktheNrDok(koka.IdShitjeKoka);
 								int idskema = (new clsKusht(konfigAmbjenti.IdKonfigAmbjente, "ZSP")).Vlera;
 								string shfaqmesazhapolupemagazina = "jo";
 								bool dergoemail = clsAlternativaKushti.getAlternativa(konfigAmbjenti.IdKonfigAmbjente, "LE") == "Po";
@@ -5814,7 +5711,6 @@ namespace DbCore
 						else
 							msgGabimi = mesazh.PershkrimMesazhi;
 						shtoGabimeNeDataTable(ref gabime, ref tePaImportuara, indexRreshtImporti, importo, msgGabimi, dokTable.Rows[0][nrDokumentiEmerImport].ToString(), vjenNgaImportSQL, dokTable, idKategoria);
-						//indexRreshtImporti += dokTable.Rows.Count;
 					}
 					if (!mesazh.Status)
 					{
@@ -5825,7 +5721,6 @@ namespace DbCore
 							msgGabimi = "Date Dokumenti " + datedok.Day + "/" + datedok.Month + "/" + datedok.Year + ": " + mesazh.PershkrimMesazhi;
 						else msgGabimi = mesazh.PershkrimMesazhi;
 						shtoGabimeNeDataTable(ref gabime, ref tePaImportuara, indexRreshtImporti, importo, msgGabimi, dokTable.Rows[0][nrDokumentiEmerImport].ToString(), vjenNgaImportSQL, dokTable, idKategoria);
-						//indexRreshtImporti += dokTable.Rows.Count;
 					}
 				}
 				indexRreshtImporti += dokTable.Rows.Count;
@@ -5912,7 +5807,6 @@ namespace DbCore
 			{
 				try
 				{
-					//clsTrupiShitje trupi = new clsTrupiShitje();
 					string kodi = "", pershkrimTrupi = "", njesia = "", tvsh = "", magazina = "", detajim1 = "", detajim2 = "", shenime = "", llogariShpenzimi = "", llojVeprimi = "", kategoriShpenzimi = "", seriali = "", kodbari = "", serialiUnikKryesor = "", serialiUnikDytesor = "", shenime2trupi = "", kodArtikulliSet = "";
 					double sasia = 0, cmimi = 0, cmimitvsh = 0, zbritjeAnalitike = 0, zbritjevlere = 0, vleftaPaTvsh = 0, vleftaMeTvsh = 0, gjatesi = 0, gjeresi = 0, sasiPermase = 0, sasiRez = 0, sasiMbeturNgaImporti = 0, vleraKomisionit = 0;
 					DateTime dtFillimTrupi = DateTime.Today, dtMbarimTrupi = DateTime.Today;
@@ -5964,8 +5858,6 @@ namespace DbCore
 								break;
 
 							case "Detajimi 1":
-								//detajim1 = vendosVlere(trup, dr, out error);
-								//break;
 								detajim1 = vendosVlere(trup, dr, out error);
 								DateTime dt = new DateTime();
 								bool parseDt = DateTime.TryParse(detajim1, out dt);
@@ -6002,7 +5894,6 @@ namespace DbCore
 										error = "Lloj zbritje e pacaktuar";
 										break;
 								}
-								// llojzbritje = vendosVlere(trup, dr, out error);
 								break;
 							case "Zbritje vlere":
 								zbritjevlere = vendosDouble(trup, dr, out error);
@@ -6094,7 +5985,6 @@ namespace DbCore
 						throw new MyException("Niveli i TVSH-se nuk ekziston!");
 
 					double koeficientTVSH = (1 + Double.Parse(takse.NormaPerqindje.ToString()) / 100);
-					//double cmimitvsh = 0, zbritjeAnalitike = 0, zbritjevlere = 0, vleftaPaTvsh = 0, vleftaMeTvsh = 0;
 
 
 					if (cmimi == 0 && cmimitvsh != 0)
@@ -6103,7 +5993,6 @@ namespace DbCore
 
 					if (!string.IsNullOrWhiteSpace(kodArtikulliSet) && llojVeprimi == "Artikull")
 						kodi = kodArtikulliSet;
-
 
 
 					if (sasiRezervimiAuto.ToLower() == "po")
@@ -6248,7 +6137,6 @@ namespace DbCore
 							clsLlogari llogariShpenzimiUSH = new clsLlogari(trupiurdher.IdLlogShpenzimi);
 							zbritjevlereUSH = zbritjeAnalitike * cmimiUSH * sasiaTrupiUrdher / 100;
 
-							//KtheColKomision(ref colTrupiKomision, trupiurdher, idNdermarrje, klientKomision, vleraKomisionit, kodi, idPerdorues);
 							mesazh = trupi.krijoTrupShitjeImport(trupiurdher.IdShitjeTrupi, trupiurdher.IdShitjeKoka, llojVeprimi, trupiurdher.Kodi, trupiurdher.Pershkrimi, detajim1, detajim2, njesiaUSH.KodNjesia, sasiaTrupiUrdher, cmimiUSH, zbritjeAnalitike, vleftaMeTvshUSH, kodTakseUSH, vleftaPaTvshUSH, kodMagUSH, trupiurdher.Gjeresi, trupiurdher.Gjatesi, trupiurdher.SasiPermasa, trupiurdher.Shenime, trupiurdher.DtFillimi, trupiurdher.DtMbarimi, trupiurdher.SasiRez, trupiurdher.IdTrupiRezervimi, trupiurdherbij.IdShitjeTrupi, idNdermarrje, idPerdorues, llogariShpenzimiUSH.NrLlogari, cmimZero, gjeneronFaturePermbledhese, seriali, j - 1, konfigMagazina, kursi, idstatusdok, ref colSerialet, shitje_blerje, "", 1, zbritjevlereUSH, "", dbData, cmimitvsh, serialiUnikKryesor, loan, dtDok, shenime2trupi, vleraKomisionit, false, 0, ref colTrupiKomision, trupiurdher, klientKomision, true, 0, trupiurdher.IdShitjeTrupi, 0);
 							if (mesazh.Status)
 							{
@@ -6269,7 +6157,6 @@ namespace DbCore
 					}
 					else
 					{
-						//KtheColKomision(ref colTrupiKomision,null , idNdermarrje, klientKomision, vleraKomisionit, kodi, idPerdorues);
 						int idTrupiKthimi = 0;
 						int sasiambetur = 0;
 						if (nderm.OwnShop && sasia < 0)
@@ -6298,7 +6185,6 @@ namespace DbCore
 							throw new MyException(mesazh.PershkrimMesazhi);
 						}
 					}
-
 
 
 				}
@@ -7202,7 +7088,6 @@ namespace DbCore
 						else
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
-							//string[] fushat = fushatEGrupimit.Split(';');
 							var fushat = fushatEGrupimit.Split(';');
 							var selekti = fushat.Where(t => !string.IsNullOrEmpty(drDok[t].ToString())).Aggregate("", (current, t) => current + "[" + t + "] = '" + drDok[t] + "' AND ");
 							selekti += "1 = 1";
@@ -7258,7 +7143,6 @@ namespace DbCore
 						else
 						{
 							//krijojme nje tabele te re, ku vendosim dokumentin
-							//string[] fushat = fushatEGrupimit.Split(';');
 							var fushat = fushatEGrupimit.Split(';');
 							var selekti = fushat.Where(t => !string.IsNullOrEmpty(drDok[t].ToString())).Aggregate("", (current, t) => current + "[" + t + "] = '" + drDok[t] + "' AND ");
 							selekti += "1 = 1";
@@ -8491,8 +8375,6 @@ namespace DbCore
 							break;
 
 						//case "Pershkrimi":
-						//    pershkrimi = DbCore.clsFunksione.vendosVlere(trup, dokTable.Rows[0], out error);
-						//    break;
 
 						case "Magazina":
 							magazina = vendosVlere(trup, dokTable.Rows[0], out error);
@@ -8535,7 +8417,6 @@ namespace DbCore
 				clsDatabaseShare dbShare = new clsDatabaseShare(dbData);
 				clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(dbData);
 				clsKonfigurimAmbjenti konfigAmbjenti = new clsKonfigurimAmbjenti(llojDokumenti, idNdermarrje, dbShare);
-				// konfigAmbjenti.mbushKonfigAmbjSipasKod(llojDokumenti, idNdermarrje);
 
 
 				if (!clsViti.ekzistonVitPerNdermarrjen(dtDok.Year.ToString(), idNdermarrje))
@@ -8602,24 +8483,8 @@ namespace DbCore
 
 				if (importo)
 				{
-					//string id = "";
-					//string idDokImporti = "";
-					//if (vjenNgaImportSQL)
-					//{
-					//    idDokImporti = dokTable.Rows[0][primaryKey].ToString();
-					//}
 					//else
-					//    id = "Id";
 
-					//if (gabime.Rows.Count > 0)
-					//{
-					//    foreach (DataRow dr in dokTable.Rows)
-					//    {
-					//        if (tePaImportuara.Select(String.Format("{0} = '{1}'", id, dr[id])).Count() == 0)
-					//            tePaImportuara.ImportRow(dr);
-					//    }
-					//    return new clsMesazh(false, "Ka gabime!");
-					//}
 
 					if (!kontrolloPerGabime(vjenNgaImportSQL, fushat, primaryKey, tePaImportuara, dokTable))
 						return new clsMesazh(false, "Ka gabime!");
@@ -8924,14 +8789,10 @@ namespace DbCore
 				bool kaAutorizim = clsKonfigurimAmbjenti.getAutorizimKonfigurimi(konfigAmbjenti.IdKonfigAmbjente, idPerdorues, dbShare);
 				if (!kaAutorizim)
 					throw new Exception($"Perdoruesi nuk ka autorizim per llojin e dokumentit {konfigAmbjenti.KodKonfigAmbjente}.");
-				//konfigAmbjenti.mbushKonfigAmbjSipasKod(llojDokumenti, idNdermarrje);
 
-				//if (konfigAmbjenti.IdKonfigAmbjente == 0)
-				//    throw new Exception(rm.GetString("labelFilterAvancuarLlojDok", ci) + " " + llojDokumenti + " " + rm.GetString("msgNukEkziston", ci));
 
 				object[] nivele = new object[dokTable.Rows.Count];
 
-				//int idMonedhaBanka = DbCore.DbArkaBanka.clsBanka.ktheIdMonedhaBanka(arkaBanka, idNdermarrje);
 				if (!clsBanka.ekziston(arkaBanka, idNdermarrje).Status)
 					throw new Exception(rm.GetString("msgArkeBankeNukEkziston", ci));
 				clsMonedha monedhaArkesBankes = new clsMonedha();
@@ -8941,8 +8802,6 @@ namespace DbCore
 				int idPerdoruesPerKontroll = idPerdorues;
 				idPerdorues = clsFunksione.kthePerdoruesPerImport(idNdermarrje, idPerdorues, krijuesi, dbAdmin);
 
-				//clsMonedha monArkaBanka = new clsMonedha(idMonedhaBanka);
-				//string kodiMonArkaBanka = clsMonedha.ktheKodMonedheSipasId(idMonedhaBanka);
 				string alternativa = clsAlternativaKushti.getAlternativa(konfigAmbjenti.IdKonfigAmbjente, "LLK");
 				int llojKursi = 1;
 				if (alternativa != "")
@@ -8953,7 +8812,6 @@ namespace DbCore
 				double kursiMon = 1;
 				if (kursi == 0)
 					kursiMon = (new clsKurset(monedhaArkesBankes.IdMonedha, dtDok, konfigAmbjenti.IdKonfigAmbjente, idNdermarrje)).VleraKursi;
-				// = clsKurset.merrKursinFunditPerMonedheDateDheLloj(monedhaArkesBankes.IdMonedha, dtDok, llojKursi);
 				else kursiMon = kursi;
 				if (kursiMon == 0)
 					kursiMon = 1;
@@ -9291,7 +9149,6 @@ namespace DbCore
 				clsDatabaseShare dbShare = new clsDatabaseShare(dbData);
 				clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(dbData);
 				clsKonfigurimAmbjenti konfigAmbjenti = new clsKonfigurimAmbjenti(llojDokumenti, idNdermarrje, dbShare);
-				//konfigAmbjenti.mbushKonfigAmbjSipasKod(llojDokumenti, idNdermarrje);
 				if (MbylljePeriudhe.PeriodClosing.IsPeriodClosed(dtDok, dbData.MyScopeDbManager.ConnectionName, idNdermarrje, KategoriDokumenti.EkzekutimProdhimi, konfigAmbjenti.IdKonfigAmbjente))
 					throw new Exception(MessagesResource.Messages["msgPeriodIsClosed"]);
 				idPerdorues = clsFunksione.kthePerdoruesPerImport(idNdermarrje, idPerdorues, krijuesi, dbAdmin);
@@ -9314,7 +9171,6 @@ namespace DbCore
 
 				produktProdhimi = krijoProdukteProdhimi(dokTable, idNdermarrje, idPerdorues, col, ref gabime, ref tePaImportuara, importo, nrDokumentiEmerImport, dtDokumentiEmerImport, dtDok, ref indexRreshtImporti, importAutomatik, vjenNgaImportSQL, primaryKeyProd, prodsirecepture, out isMagENjejteProd, out isMagENjejteRec);
 
-				//clsPeriudhaKontabel per = new clsPeriudhaKontabel(dtDok, idNdermarrje);
 				int idPeriudheKont = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtDok, idNdermarrje);
 				DateTime dtRegjistrimi = DateTime.Today;
 
@@ -9843,7 +9699,6 @@ namespace DbCore
 			contentDisposition.DispositionType = "attachment";
 
 			response.AddHeader("Content-Disposition", contentDisposition.ToString());
-			//response.BinaryWrite(filearray);
 			ms.WriteTo(response.OutputStream);
 
 
@@ -11039,9 +10894,6 @@ namespace DbCore
 		}
 
 
-
-
-
 		public static clsMesazh importoQytete(DataTable dt, ref DataTable gabime, ref DataTable tePaImportuara, bool importo, int pozicionkodi, ResourceManager rm, CultureInfo ci, int idPerdorues, int idndermarje, int idNdermVit, int idGjuha, colTrupiFormatImporti col, bool vjenNgaImportSQL, string emerTab)
 		{
 			try
@@ -11625,7 +11477,6 @@ namespace DbCore
 			if (String.IsNullOrEmpty(krijuesi))
 				return idPerdorues;
 			clsPerdorues krijues = new clsPerdorues(krijuesi, dbA);
-			//int idKrijues = clsPerdorues.ktheIdPerdoruesSipasUsername(krijuesi, idNdermarrje);
 			bool kaLicence = clsPerdorues.kaLicencePerIdNdermarje(idNdermarrje, krijues.IdPerdorues);
 			if (!kaLicence)
 				throw new MyException("Perdoruesi ska autorizim te kjo ndermarje!");
@@ -11870,7 +11721,6 @@ namespace DbCore
 				return new DbCore.clsMesazh(false, "Ndodhi nje gabim gjate eksportit!");
 			}
 		}
-
 
 
 		public static clsMesazh importoDokumentBuxheti(DataTable teDhenatPerImport, int idNdermarrje, int idPerdorues, ref DataTable gabime, ref DataTable tePaImportuara, string ndermarrjeKey, string primaryKey, colTrupiFormatImporti col, int idKategori, ResourceManager rm, CultureInfo ci, int idGjuha, string emerTabKoka, string emerTabTrupi, bool importo, bool vjenNgaImportSQL, bool importAutomatik, int idNdermVit)
@@ -12339,7 +12189,6 @@ namespace DbCore
 					error = "";
 					ColBTrupiBuxheti trupiMuajt = new ColBTrupiBuxheti();
 					string prindi = String.Empty, analize = String.Empty, buxheti = String.Empty, pershkrimi = String.Empty;
-					//janar = String.Empty, shkurt = String.Empty, mars = String.Empty, prill = String.Empty, maj = String.Empty, qershor = String.Empty, korrik = String.Empty, gusht = String.Empty, shtator = String.Empty, tetor = String.Empty, nentor = String.Empty, dhjetor = String.Empty;
 					string[] muajt = new string[12];
 					Decimal miratuar = 0;
 
@@ -12419,7 +12268,6 @@ namespace DbCore
 			}
 			return colTrupi;
 		}
-
 
 
 		public static string ktheStringItemsTeBashkuarMeChar(List<int> lista, char karakteri)
@@ -12988,15 +12836,12 @@ namespace DbCore
 				kodniveli = clsNivelRegjistrimi.ktheKodNivelRegjistrimi(clsKonf.IdNivel);
 				kategoria = clsKonf.IdKategori;
 			}
-			//DbCore.DbShare.colKusht colKushte = new DbCore.DbShare.colKusht();
 			DataTable kushtAlternativa = colKusht.mbushGjitheKushteAlternativa(idKonfigurim);
 			clsKonfLlojRreshti konfLlojRreshti = clsKonfLlojRreshti.getKonfLlojRreshti(kushtAlternativa, kategoria, "LLD");
 
 			colAtributeTrupi colAtrTrupi = new colAtributeTrupi();
 			colAtrTrupi.mbushKontrolletKonfigurimitKomponentes(idGjuha, idKomp, idKonfigurim);
-			//DbCore.DbShare.colKontrolle colKontroll1 = colAtrTrupi.ktheKontrolle();
 			colKontrolle colKontroll = new colKontrolle(idGjuha, idKomp, idKonfigurim);
-			//colKontroll.TableName = "colKontroll";
 			colGridaTrupi colGrida = new colGridaTrupi(idKomp, idKonfigurim, idGjuha);
 
 			clsFormatKonfigTrup formatNumri = new clsFormatKonfigTrup();

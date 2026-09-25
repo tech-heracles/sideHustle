@@ -23,12 +23,9 @@ function changeName() {
     if (hf !== null) {
         lblKonfigurimi.SetText(hf.value.split(';')[1]);
         cmbKonfigurimi.SetText(hf.value.split(';')[0]);
-        // cmbKonfigurimi.SetText(hfKonffillestar.value);
         
-        //window.parent.callWebServiceKtheInfoLart(hfState.Get('komponente'), 0);
     }
     var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(EndRequestHandler);
     prm.add_endRequest(myMesazh.EndRequestTimer);
     myFaqeCelje.changeName(hfState.Get('komponente'), 0);
 }
@@ -41,7 +38,6 @@ function SucceededCallbackMesazhi(result) {
     if (result.length == undefined)
         return;
 
-    //if (result != null)
     {
         var arr = result.split(':');
         if (arr[1] == "Green") {
@@ -110,7 +106,6 @@ function EndEditing(s, e) {
     var oldSummary = Utils.HiqPresjet(summaryTotal.GetValue());
 
     summaryTotal.SetValue(Utils.FormatoNumberMePresje(oldSummary + dif));
-
 
 
     if (focusedColumn == "NgaBuxhetiParaardhes" || focusedColumn == "NgaTeArdhuratParaardhes")

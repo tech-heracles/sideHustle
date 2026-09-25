@@ -98,18 +98,10 @@ namespace DbCore.DbImporte
         private bool mbushTrupFleteKontabelPerImport(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsImportTrupiFleteKontabel trupFleteKontabelPerImport = new clsImportTrupiFleteKontabel();
-                    //trupFleteKontabelPerImport.mbushTrupFleteKontabelImport(rreshti);
                     Add(new clsImportTrupiFleteKontabel(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

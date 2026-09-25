@@ -68,18 +68,10 @@ namespace DbCore.DbAsete
         private bool mbushHistorikNjesiAdministrativeList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsHistorikStatusMagazine historikNjesiAdministrative = new clsHistorikStatusMagazine();
-                    //historikNjesiAdministrative.mbushHistorikNjesiAdministrativeObjekt(rreshti);
                     Add(new clsHistorikStatusMagazine(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -30,7 +30,6 @@ namespace PlatinumWeb
         private const string komponente = "ABPlanifikimRealizim.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -147,7 +146,6 @@ namespace PlatinumWeb
         }
 
       
-
         private void PercaktoTemplateMenu()
         {
             clsToolbarConfig.percaktoTemplateMenu(idGjuha, idViti, idPerdoruesi, idNdermarrje, ASPxMenu1, komponente, this, MenuInfo, Ruaj_ASPxButton_Click, FshiFilter_ASPxButton_Click, false, true, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session), true);
@@ -223,7 +221,6 @@ namespace PlatinumWeb
         }
 
         
-
         protected void gvPlanifikim_HtmlFooterCellPrepared(object sender, ASPxGridViewTableFooterCellEventArgs e)
         {
 

@@ -75,8 +75,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
-
         /// <summary>
         /// therritet procedura nga DB prc_T_KATEGORINIVELDOK_upd pasi merr parametrat qe i kalohen nga objekti clsKategoriNivelDok
         /// </summary>
@@ -186,8 +184,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0].Rows[0];
 
         }
-
-
 
 
         /// <summary>
@@ -347,7 +343,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0];
 
         }
-
 
 
         /// <summary>
@@ -1312,7 +1307,6 @@ namespace DbCore.DbRegjistrim
             }
 
 
-
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKASHITJE_ins");
             idShiKoka = int.Parse(dbManager.Parameters[0].Value.ToString());
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgDokumentiURuajtMeSukese"]);
@@ -1339,7 +1333,6 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(1, "@NIVF", nivf, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
             dbManager.AddParameters(3, "@EIC", eic, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IIC", iic, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKASHITJE_updNIVF");
             return true;
 
@@ -5658,7 +5651,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// perdoret per te marre sasine totale per nje  artikull ne nje dokument magazine sipas detajimit
         /// </summary>
@@ -5681,7 +5673,6 @@ namespace DbCore.DbRegjistrim
             return sasiaArtikullit;
 
         }
-
 
 
         /// <summary>
@@ -6811,7 +6802,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         internal DataTable merrKokaInventarizimDT(int idNdermVit, int idperdoruesi, string datanga, string dataderi, bool gjithedokhyrje, bool gjithedokdalje, bool lloj)
         {//metoda per te marre te gjithe  kokat e fleteve kontabel te pa kontabilizuara
 
@@ -7142,11 +7132,6 @@ namespace DbCore.DbRegjistrim
 
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKANDRYSHIMCMIMSASI_upd");
 
-
-
-
-
-            //idMagKoka = int.Parse(dbManager.Parameters[0].Value.ToString());
 
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
             return mesazh;
@@ -7485,7 +7470,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0];
 
         }
-
 
 
         /// <summary>
@@ -10324,7 +10308,6 @@ namespace DbCore.DbRegjistrim
         /// </summary>
         internal clsMesazh modifikoDokumentLidhesKoka(int idkoka, String nrlidhje, DateTime datedokumenti, DateTime dateregjistrimi, int idklientfurnitor, int idgjenerues, int idllojdok, int idndermarje, int idnderviti, int idnivel, int idkonfigambjente, int iddoknga, int idnivelgjenerues, int idkonfiggjenerues, int idstatusdok, int idperdorues)
         {
-            // idkoka = -1;
 
             dbManager.Open();
             dbManager.CreateParameters(16);
@@ -11180,7 +11163,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         #endregion
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsFleteDoganoreTrupi dhe colFleteDoganoreTrupi
@@ -11563,7 +11545,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         #endregion
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsFleteDoganoreKoka dhe colFleteDoganoreKoka
@@ -11663,7 +11644,6 @@ namespace DbCore.DbRegjistrim
 
             dbManager.Open();
             dbManager.CreateParameters(14);
-            // dbManager.CreateParameters(15);
             dbManager.AddParameters(0, "@IDFLETEDOGANORE", id, ParameterDirection.Input);
             dbManager.AddParameters(1, "@NRDOK", nrDk, ParameterDirection.Input);
             dbManager.AddParameters(2, "@DTDOK", dtDk, ParameterDirection.Input);
@@ -11678,7 +11658,6 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(11, "@VLDOGANIM", vlDog, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDSTATUSDOK", idStatus, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IMPORTEXPORT", importexport, ParameterDirection.Input);
-            // dbManager.AddParameters(14, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FLETEDOGANOREKOKA_upd");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
             return mesazh;
@@ -12227,7 +12206,6 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(12, "@VLMINUSMONEDHEBAZE", vlMinusMonBaze, ParameterDirection.Input);
             dbManager.AddParameters(13, "@VLPLUSMONEDHBAZE", vlplusMonBaze, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GJENDJEKF_upd");
-            //gjendje.IdGjendjeKF = int.Parse(dbManager.Parameters[0].Value.ToString());
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
             return mesazh;
 
@@ -13112,8 +13090,6 @@ namespace DbCore.DbRegjistrim
         #region KONFIG_PIVOTGRIDA_KOKA
 
 
-
-
         ///<summary>
         ///emrat e grupeve per modulin e zgjedhur ne BI
         ///</summary>
@@ -13467,7 +13443,6 @@ namespace DbCore.DbRegjistrim
             }
 
             return dbManager.ExecuteDataSet(CommandType.StoredProcedure, emriSp).Tables[0].DefaultView;
-            //return new DataView(ds.Tables[0]);
 
         }
 
@@ -13696,7 +13671,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// kthen Datatable grupimesh dokumentash sipas id ndermarjes
         /// </summary>
@@ -13852,7 +13826,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0];
 
         }
-
 
 
         #endregion
@@ -14199,7 +14172,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// kthen datatable komentet e nje procesi
         /// </summary>
@@ -14217,7 +14189,6 @@ namespace DbCore.DbRegjistrim
 
 
         }
-
 
 
         #endregion
@@ -14787,8 +14758,6 @@ namespace DbCore.DbRegjistrim
                 return 0;
             int.TryParse(ds.Tables[0].Rows[0][0].ToString(), out nrprocesi);
             return nrprocesi;
-            //int.TryParse(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ETAPAAPROVIMI_merrNrProcesiSipasPerdoruesitDheKokaShitje").ToString(), out nrprocesi);
-            //return nrprocesi;
         }
 
         internal bool eshteDeleguar(int idndermarje, int nrprocesi, int niveli)
@@ -14901,7 +14870,6 @@ namespace DbCore.DbRegjistrim
             ImbLogger.LogTraceShitje($"Mbaroi metoda ktheKokaRezervimiSipasIDGjenerues nga DB me idGjenerues:{idGjenerues}, idKonfigGjen:{idKonfigGjen}");
             return ds.Tables[0].Rows[0];
         }
-
 
 
         internal DataTable ktheKokaRezervimiSipasIDGjenerues(int idKonfigGjen, int idGjenerues)
@@ -15040,7 +15008,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// ne rastin e shtimit te nje dok rezervimi modifikon statusin e rezervimit
         /// </summary>
@@ -15151,7 +15118,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         internal DataRow ktheTrupiRezervimSipasID(int idTrupi)
         {
 
@@ -15166,8 +15132,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0].Rows[0];
 
         }
-
-
 
 
         internal clsMesazh ruajTrupiRezervime(out int idRezTrup, int idRezKoka, int idArt, int idNjes, double sas, double koefic, int idmag, DateTime dt, int idstatusdok, int sgn, int idtrupingavjen, int idtrupihyrje)
@@ -15252,7 +15216,6 @@ namespace DbCore.DbRegjistrim
             return mesazh;
 
         }
-
 
 
         internal clsMesazh fshiTrupiRezervimeSipasID(int idRezTrup)
@@ -17112,7 +17075,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston nje kartes me kete emertim ne kete ndermarje
         /// behet kontrolli per qellime konsistence te informacionit ne DB, nuk lejon te celen trasportues te ndryshem me te njejtin emertim
@@ -17312,7 +17274,6 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(8, "@IDKRIJUES", idKrijuesi, ParameterDirection.Input);
 
 
-
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KONTRATAFAZA_ins");
             idFaza = int.Parse(dbManager.Parameters[0].Value.ToString());
             mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
@@ -17362,8 +17323,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
-
         /// <summary>
         /// kthen datarow karta sipas id-se
         /// </summary>
@@ -17398,7 +17357,6 @@ namespace DbCore.DbRegjistrim
             return ds.Tables[0];
 
         }
-
 
 
         /// <summary>
@@ -17451,7 +17409,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         #endregion
 
         public clsMesazh fshiUshPermbledhur(int idPerdoruesi, List<int> idDokumenta)
@@ -17487,8 +17444,6 @@ namespace DbCore.DbRegjistrim
             return dbManager.GetIEnumerbale("prc_T_TRUPISHITJE_MerrGjitheTrupatSipasKokave", clsTrupiShitje.KrijoTrupShitje);
 
         }
-
-
 
 
         public DataTable merrSipasNdermarjePerLupeLayerElement(int idnderm, int gjuha)

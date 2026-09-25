@@ -6,7 +6,6 @@ var numur;
 var indexModifiko;
 var focuschange = false;
 function OnGetRowValues(values) {
-    //        var hf = $("#hfLloji")[0];
     id = values[0];
     numur = values[1]; focuschange = false;
     if (mbush) myMenu.ShikoClick(editor, 'LidhjaDokumentave.aspx?shtim_modifikim=modifikim&numer=' + values[1] + '&indexrow=' + indexModifiko + '&id=' + gvDokumenta.GetRowKey(gvDokumenta.GetFocusedRowIndex()));
@@ -100,14 +99,12 @@ Parameters:
 e-eventi
 */
 function menu_click(s, e) {
-    //        var hf = $("#hfLloji")[0];
     myMenu.menu_click_regjistrime(s, e, "LidhjaDokumentave.aspx?shtim_modifikim=shtim", 'LidhjaDokumentave.aspx?shtim_modifikim=modifikim&numer=' + numur + '&indexrow=' + indexModifiko + '&id=' + gvDokumenta.GetRowKey(gvDokumenta.GetFocusedRowIndex()));
 
 }
 var mbush = false;
 function OnGridDoubleClick(e, index) {
     if (!focuschange) {
-        //            var hf = $("#hfLloji")[0];
         myMenu.ShikoClick(editor, 'LidhjaDokumentave.aspx?shtim_modifikim=modifikim&numer=' + numur + '&indexrow=' + indexModifiko + '&id=' + gvDokumenta.GetRowKey(gvDokumenta.GetFocusedRowIndex()));
     } else {
         indexModifiko = index;

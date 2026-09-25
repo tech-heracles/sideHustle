@@ -190,13 +190,8 @@ namespace AlphaWeb.Core.Infrastructure.DependencyManagement
         {
             try
             {
-                //if (HttpContext.Current != null)
                 ////return AutofacDependencyResolver.Current.RequestLifetimeScope;
-                //{
-                //    var container = (IContainerProviderAccessor)HttpContext.Current.ApplicationInstance;
 
-                //    return container.ContainerProvider.RequestLifetime;
-                //}
                 var requestScope = _requestLifetimeScopeManager.GetCurrentRequestLifetimeScope();
                 if(requestScope!=null)
                 {

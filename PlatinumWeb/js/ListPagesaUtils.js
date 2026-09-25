@@ -79,7 +79,6 @@ var ListPagesaUtils = {
         for (var i = 0; i < colKomp.length; i++) {
             formula = 0;
             var kompPage = colKomp[i];
-            //arrvleraParam = vleraPerPunonjes.VleraParam;
             for (var h = 0; h < arrKodi.length; h++) {
                 if (arrKodi[h] === kompPage.Kodi) {
                     if (typeof (colFillestare[h]) == "undefined") {
@@ -113,30 +112,10 @@ var ListPagesaUtils = {
                         colFillestare[h].VleraParam = arrvleraParam[h];
 
                         //if (kompPage.Kodi === "TP") { //tatimet
-                        //    pt = parseFloat(formula).toFixed(4);
-                        //    for (var k = 0, lengthTatimet = coltat.length; k < lengthTatimet; k++) {
                         //        //nqs paga per tatim eshte midis kufirit min dhe max marrim kete perqindje tatimi
-                        //        if (coltat[k].Min / (kursinderm.VleraKursi) <= pt && coltat[k].Max / (kursinderm.VleraKursi) >= pt) {
                         //            //menyra totale
-                        //            if (coltat[k].Menyra === 1) {
-                        //                formula = (pt * coltat[k].Norma / 100);
-                        //            }
-                        //            else {
                         //                //menyra progesive
-                        //                var tatimi = (pt - (coltat[k].Min - 1) / (kursinderm.VleraKursi)) * coltat[k].Norma / 100;
-                        //                if (coltat[k].Norma == 0) pt = coltat[k].Min;
-                        //                for (var j = k - 1; j >= 0; j--) {
                         //                    //  if (coltat[j].Norma == 0) //nestila u hoq se ekonomistet thone qe duhet te dali vetem paga per nivelin e fundit te tatimit
-                        //                    //   pt = pt - (coltat[j].Max - ((j - 1) < 0 ? coltat[j].Min : coltat[j - 1].Max));
-                        //                    //tatimi += coltat[j].Max / (kursinderm.VleraKursi) * coltat[j].Norma / 100;
-                        //                    tatimi = tatimi + parseFloat((coltat[j].Max - coltat[j].Min + 1) / (kursinderm.VleraKursi) * coltat[j].Norma / 100);
-                        //                }
-                        //                formula = tatimi;
-                        //            }
-                        //            break;
-                        //        }
-                        //    }
-                        //}
                         kompPage.Formula = formula;
                     } else {
                         //eshte komponente vlere
@@ -220,7 +199,6 @@ var ListPagesaUtils = {
                             dite = dite + vleraParam;
                             break;
                         case "DLK":
-                            //dite += formulaFloat;
                             dite = dite + formulaFloat;
                             break;
                         default:
@@ -254,8 +232,6 @@ var ListPagesaUtils = {
                 console.log(JSON.stringify(mesazhet));
             }
         }
-        //punonjesitMeProbleme += " nuk u llogariten sepse kane probleme,kontrolloni te dhenat e tyre!";
-        //myMesazh.ShtoMesazhGabimi(punonjesitMeProbleme);
 
     },
 

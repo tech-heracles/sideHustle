@@ -23,8 +23,6 @@ $(window).on('unload', function () {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        //gvLupaLlog.SetFocusedRowIndex(0);
-        //gvLupaLlog.SelectRowOnPage(0, true);
         btnOk.Focus();
     }
     catch (err) {

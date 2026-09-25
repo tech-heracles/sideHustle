@@ -57,21 +57,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushFletaDoganoreTVSHt(DataTable dt)
             {
             //try
-            //    {
 
                 foreach (DataRow rreshti in dt.Rows)
                     {
-                    //clsFleteDoganoreTVSH TVSH = new clsFleteDoganoreTVSH();
-                    //TVSH.mbushFleteDoganoreTVSH(rreshti);
                     Add(new clsFleteDoganoreTVSH(rreshti));
                     }
 
-            //    }
-            //catch (Exception)
-            //    {
-            //    return false;
             //    //throw;
-            //    }
             return true;
             }
 

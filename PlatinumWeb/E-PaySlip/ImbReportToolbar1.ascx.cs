@@ -166,7 +166,6 @@ namespace PlatinumWeb.E_PaySlip
         }
 
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -199,10 +198,6 @@ namespace PlatinumWeb.E_PaySlip
         public void konfigFleteRaporti(DevExpress.XtraReports.UI.XtraReport report, int idPerdorues, string emerRaportiReal, bool shtoOrePrintimi = true)
         {
             float scaleFactor;
-            //if (this.InitialPageWidth == -1)
-            //    this.InitialPageWidth = report.PageWidth;
-            //if (this.InitialPageHeight == -1)
-            //    this.InitialPageHeight = report.PageHeight;
             if (orientimi == clsRaportDesign._rap_portrait)
             {
                 if (report.PageWidth > 850)
@@ -227,29 +222,10 @@ namespace PlatinumWeb.E_PaySlip
             DataSet ds = (DataSet)report.DataSource;
             if (ds.Tables[0].Rows.Count == 0)
                 shtomesazh(report, emerRaportiReal);
-            //ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //CultureInfo ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
-            //ReportHeaderBand headerBand = new ReportHeaderBand()
-            //{
             //    HeightF = 80
-            //};
-            //headerBand.Controls.Add(new XRLabel()
-            //{
             //    Text = rm.GetString("lblTeDhenatNukJanePostuar", ci),
             //    // "Te dhenat per periudhen nuk jane postuar ende",
             //    SizeF =new  SizeF(7000, 80),
-
-            //    Font = new Font("Arial", 15)
-            //});
-
-
-
-            //if (headerBand != null)
-            //{
-            //    report.Bands.Add(headerBand);
-            //    report.CreateDocument();
-
-            //}
 
 
             report.CreateDocument();
@@ -328,18 +304,11 @@ namespace PlatinumWeb.E_PaySlip
 
                 };
                 label.SizeF = new System.Drawing.SizeF(100F, 23F);
-                //foreach (Control c in report.Bands["ReportHeader"].Controls)
-                //{
-                //    if (c.GetType() == typeof(XRLabel))
-                //        if ((XRLabel)c == label) return;
 
-                //}
                 XRLabel label1 = (XRLabel)report.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.ReportHeaderBand)).FindControl("labelMesazhTeDhenatJoPostuar", true);
                 if (label1 == null)
                     report.Bands.GetBandByType(typeof(DevExpress.XtraReports.UI.ReportHeaderBand)).Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] { label });
             }
-
-
 
 
         }
@@ -405,13 +374,9 @@ namespace PlatinumWeb.E_PaySlip
             btnSaveToDisk100.ToolTip = rm.GetString("ReportToolbarButtonSaveToDisk100", ci);
             ASPxButton_SaveWindow.ToolTip = rm.GetString("ReportToolbarButtonSaveToWindow", ci);
             ASPxComboBox_ExportFormat.ToolTip = rm.GetString("ReportToolbarExportFormatTooltip", ci);
-            //ASPxCheckBox_Raw.ToolTip = rm.GetString("ReportToolbarExportExcelRaw", ci);
             ASPxButton_SaveRaw.ToolTip = rm.GetString("ReportToolbarExportExcelRaw", ci);
-            //labelZoomFactor.Text = rm.GetString("ReportToolbarLabelScaleFactor", ci);
             ASPxComboBox_ZoomFactor.ToolTip = rm.GetString("ReportToolbarZoomFactorTooltip", ci);
-            //labelStili.Text = rm.GetString("ReportToolbarLabelStili", ci);
             ASPxComboBox_Style.ToolTip = rm.GetString("ReportToolbarComboBoxStiliTooltip", ci);
-            //labelOrientimi.Text = rm.GetString("ReportToolbarLabelOrientimi", ci);
             ASPxButton_SaveStyle.Text = rm.GetString("ReportToolbarButtonRuajStil", ci);
             ASPxComboBox_Orientimi.ToolTip = rm.GetString("ReportToolbarLabelOrientimi", ci);
             ListEditItem landscapeItem = ASPxComboBox_Orientimi.Items.FindByValue(clsRaportDesign._rap_landscape);
@@ -421,7 +386,6 @@ namespace PlatinumWeb.E_PaySlip
             if (portraitItem != null)
                 portraitItem.Text = rm.GetString("ReportToolbarComboBoxOrientimiPortrait", ci);
             HfState.Set("ReportToolbarExportModeSingleFile", rm.GetString("ReportToolbarExportModeSingleFile", ci));
-            //HfState.Set("ReportToolbarExportModeDifferentFiles", rm.GetString("ReportToolbarExportModeDifferentFiles", ci));
             HfState.Set("ReportToolbarExportModeSingleFilePageByPage", rm.GetString("ReportToolbarExportModeSingleFilePageByPage", ci));
         }
 
@@ -444,16 +408,7 @@ namespace PlatinumWeb.E_PaySlip
                     hiqReportHeaderNgaRaporti(r, idRaporti);
                     break;
                 //case "csv": //to do Per Vodafone ne raportin e shitjeve ditore
-                //    if (idRaporti == 111)
-                //    {
                 //        r.FindControl("TopMargin", true).Visible = false; //i ben hide bandes ku eshte titulli bashke me filtrat
-                //        for (int i = 1; i < 39; i++)
-                //        {
-                //            r.FindControl("xrLabel" + i, true).Visible = false;
-                //        }
-                //        r.FindControl("xrPictureBox1", true).Visible = false;
-                //    }
-                //    break;
                 default:
                     break;
             }
@@ -479,7 +434,6 @@ namespace PlatinumWeb.E_PaySlip
             ASPxButton_SaveStyle.ClientVisible = false;
             ASPxComboBox_Orientimi.ClientVisible = false;
         }
-
 
 
         /// <summary>

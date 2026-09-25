@@ -293,13 +293,6 @@ namespace PlatinumWeb
             {
                 DataRow dd = dt1.Rows.Find(i);
                 dt2.Rows.Add(dd.ItemArray);
-                //DataRow dr = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDR(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), Convert.ToInt32(i));
-                //dt2.ImportRow(dr);
-                //DataRow[] drs = dt1.Select("IdArtikulli = " + i);
-                //if (drs.Length > 1)
-                //    throw new Exception("GABIM: Ndodhen 2 artikuj me te njejten id ne gride");
-                //if (drs.Length == 0) return;
-                //DataRow dr1 = drs[0];
                 dt1.Rows.Remove(dd);
 
             }
@@ -354,13 +347,6 @@ namespace PlatinumWeb
             {
                 DataRow dd = dt2.Rows.Find(i);
                 dt1.Rows.Add(dd.ItemArray);
-                //DataRow dr = DbCore.DbInventari.colArtikujt.merrSipasArtikujNdermarrjesAndAutorizimeDR(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), Convert.ToInt32(i));
-                //dt1.ImportRow(dr);
-                //DataRow[] drs = dt2.Select("IdArtikulli = " + i);
-                //if (drs.Length > 1)
-                //    throw new Exception("GABIM: Ndodhen 2 artikuj me te njejten id ne gride");
-                //if (drs.Length == 0) return;
-                //DataRow dr1 = drs[0];
                 dt2.Rows.Remove(dd);
 
             }
@@ -409,9 +395,6 @@ namespace PlatinumWeb
             var ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             try
             {
-                //  DbCore.DbRegjistrim.colNjesiAdministrative magazinat = new DbCore.DbRegjistrim.colNjesiAdministrative();
-                //magazinat.mbushGjitheNjesiAdministrativeAktive(idNdermarrje, idPerdorues);
-                //int max = magazinat.Count * dt.Rows.Count;
                 System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Lowest;
                 DbCore.DbAsete.colAQTSeriale colArtikujMeSerial = new DbCore.DbAsete.colAQTSeriale();
                 DbCore.DbAsete.colAQTSeriale colArtikujPaSerial = new DbCore.DbAsete.colAQTSeriale();
@@ -520,7 +503,6 @@ namespace PlatinumWeb
             DbCore.DbAsete.colAQTSeriale col = new DbCore.DbAsete.colAQTSeriale();
             JavaScriptSerializer serializusi = new JavaScriptSerializer();
 
-            //clsArtikulli art = new clsArtikulli(idartikulli);
             if (hfSeriale.Contains(idartikulli + "_0"))
             {
                 object[] dokumenti = (object[])serializusi.DeserializeObject(hfSeriale.Get(idartikulli + "_0").ToString());

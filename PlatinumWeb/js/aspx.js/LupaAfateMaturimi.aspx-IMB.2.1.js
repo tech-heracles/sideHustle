@@ -69,7 +69,6 @@ function ProcessKeyPress() {
 }
 
 function OnGridSelectionChanged() {
-    //gvLupaAfatMaturimi.GetSelectedFieldValues('NrLlogariKF;EmertimiKF', OnGridSelectionComplete);
     gvLupaAfatMaturimi.GetRowValues(gvLupaAfatMaturimi.GetFocusedRowIndex(), 'KodMaturimi;PershkrimMaturimi;IdMaturimi', OnGridSelectionComplete);
 }
 
@@ -112,10 +111,6 @@ function menu_click(s, e) {
     else if (e.item.name == 'Anullo') {
         window.parent.popupUniversal.Hide();
     }
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
 }
 
 //metoda per te shfaqur popupin e filtrave

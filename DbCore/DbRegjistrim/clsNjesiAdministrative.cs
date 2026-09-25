@@ -189,7 +189,6 @@ namespace DbCore.DbRegjistrim
                 this.ownShop = ownShop;
                 this.tipiMag = tipimag;
                 this.qyteti = qyteti;
-                //this.oArkiva = oArkiva;
                 clsMesazh mesazh = kontrolloMagazine(shtim, rm, ci);
                 if (!mesazh.Status)
                     throw new Exception(mesazh.PershkrimMesazhi);
@@ -263,7 +262,6 @@ namespace DbCore.DbRegjistrim
         public clsNjesiAdministrative(int idNjesiAdm, clsDatabaseRegjistrim dbNjesiAdministrative)
         {
             mbushNjesiAdministrative(dbNjesiAdministrative.TransCache.getNjesiAdministrative(idNjesiAdm, dbNjesiAdministrative));
-            //mbushNjesiAdministrative(dbNjesiAdministrative.ktheNjesiAdministrativeSipasiDPaAutorizime(idNjesiAdm));
         }
 
         /// <summary>
@@ -281,7 +279,6 @@ namespace DbCore.DbRegjistrim
         }
 
         
-
         #endregion
 
         #region Properties
@@ -738,7 +735,6 @@ namespace DbCore.DbRegjistrim
                         break;
                     default:
                         throw new Exception("Lloji i layerit nuk eshte i sakte!");
-                        //break;
                 }
 
                 colLidhjetAutorizim colLidhje;
@@ -902,27 +898,23 @@ namespace DbCore.DbRegjistrim
             {
                 clsMesazh mesazh;
                 clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-                //data.beginTransaksion();
                 try
                 {
                     bool kaNdryshimNumri;
                     clsMesazh mesazhKontrolli = kontrolloMagazine(out kaNdryshimNumri, data, hfNrAutoKF, false);
                     if (!mesazhKontrolli.Status)
                     {
-                        //db.rollbackTransaksion();
                         return mesazhKontrolli;
                     }
                     mesazh = ruajMagazine(data, idNderViti, idperiudha, idnivel, oArkiva);
                     if (!mesazh.Status)
                     {
-                        //data.rollbackTransaksion();
                         return mesazh;
                     }
                     if (HfArkiva != null)
                         mesazh = colArkiva.RuajArkiven(idDegeAdministrative, 23, idPerdorues, idNdermarrje, HfArkiva);
                     if (!mesazh.Status)
                         return mesazh;
-                    //data.commitTransaksion();
                     scope.Complete();
                     return mesazh;
                 }
@@ -1019,14 +1011,11 @@ namespace DbCore.DbRegjistrim
             using (var scope=new MyTransactionScope())
             using (clsDatabaseRegjistrim data = new clsDatabaseRegjistrim())
             {
-                //data.beginTransaksion();
                 mesazh = modifikoMagazine(data, idNderViti, idperiudha, idnivel, rm, ci);
                 if (!mesazh.Status)
                 {
-                    //data.rollbackTransaksion();
                     return mesazh;
                 }
-                //data.commitTransaksion();
                 scope.Complete();
                 return mesazh;
             }
@@ -1153,11 +1142,9 @@ namespace DbCore.DbRegjistrim
                     historik.fshi(idndermarje, idperdorues);
                     if (!u_fshi.Status)
                     {
-                        //   data.rollbackTransaksion();
                         return u_fshi;
                     }
                 }
-                //  data.commitTransaksion();
                 scope.Complete();
                 return u_fshi;
             }
@@ -1172,7 +1159,6 @@ namespace DbCore.DbRegjistrim
         {
             colNjesiAdministrative data = new colNjesiAdministrative();
             data.mbushGjitheNjesiAdministrative(IdNdermarje, IdPerdorues);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
@@ -1374,8 +1360,6 @@ namespace DbCore.DbRegjistrim
                     DateTime.TryParse(dbDataRowNjesiAdministrative["DATA_NDRYSHIM_STATUS"].ToString(), out dataNdryshimStatus);
                     int.TryParse(dbDataRowNjesiAdministrative["ID_HISTORIK_FUNDIT"].ToString(), out idHistorikFundit);
                     float.TryParse(dbDataRowNjesiAdministrative["KOHEZGJATJA"].ToString(), out kohezgjatja);
-                    //clsDatabaseAdmin dbadm = new clsDatabaseAdmin(db );
-                    //oColLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(idNjesiAdm, "Magazina", dbadm);
                     colHistorik = new DbAsete.colHistorikStatusMagazine();
                     koordinata = dbDataRowNjesiAdministrative["KOORDINATA"].ToString();
                     bool.TryParse(dbDataRowNjesiAdministrative["CELPERDORUESTOLLONASH"].ToString(), out celPerdoruesTollonash);
@@ -1391,8 +1375,6 @@ namespace DbCore.DbRegjistrim
                     object objEmail = dbDataRowNjesiAdministrative["EMAIL"];
                     email = (objEmail != null && objEmail != DBNull.Value) ? Convert.ToString(objEmail) : "";
                     bool.TryParse(dbDataRowNjesiAdministrative["OWNSHOP"].ToString(), out ownShop);
-                    //if (clsKontrollePerFiskalizimin.ktheNeseKlientiEshteAzhornuarPerFiskalizim())
-                    //{
                     if (dbDataRowNjesiAdministrative.Table.Columns.Contains("TIPIMAG"))
                     {
                         tipiMag = dbDataRowNjesiAdministrative["TIPIMAG"].ToString();
@@ -1400,7 +1382,6 @@ namespace DbCore.DbRegjistrim
                     }
 
 
-                    //}
                     ImbLogger.LogTraceShitje("Mbaroi metoda mbushNjesiAdministrative nga Db");
                     return true;
                 }

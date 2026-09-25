@@ -86,38 +86,15 @@ namespace DbCore.DbAdmin
         }
 
         //public bool ruaj()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_ruajt = data.ruajUserTrack(this);
-        //    return u_ruajt;
-        //}
 
         //public bool modifiko()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_modifikua = data.modifikoOnlineUser(this);
-        //    return u_modifikua;
-        //}
 
         //public bool modifikoAllOffline()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    bool u_modifikua = data.modifikoOnlineUserAllOffline(this);
-        //    return u_modifikua;
-        //}
 
 
         //public void merr()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    data.merrOnlineUser(this);
-        //}
 
         //public int merrNrOnline()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    return data.merrOnlineUserCount(this);
-        //}
         
 
     }

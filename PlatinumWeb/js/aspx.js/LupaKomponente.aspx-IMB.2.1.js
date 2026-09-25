@@ -145,7 +145,6 @@ function LupaKomponenteApp() {
                 this.arrvleraParam = vleratEPunonjesit.VleraParam;
                 this.arrKodi = vleratEPunonjesit.Kodet;
 
-                //this.ndryshoColFillestareSipasKesajDate(vleratEPunonjesit.ColKomponente);
 
             },
             vendosVleraFillestareNeModel: function (arrkodi, arrvlera, arrVleraParam, arrmosNdrysho, colFillestare, paguar) {
@@ -158,7 +157,6 @@ function LupaKomponenteApp() {
             },
             llogaritPagen: function (vleratEPunonjesit) {
 
-                //vleratEPunonjesit = new ListPagesaUtils.LlogaritPagenModel();
                 var vleraTeLlogaritura = ListPagesaUtils.llogaritPagen(this.colFillestare, vleratEPunonjesit.ColKomponente, this.arrKodi, this.arrvleraParam, this.arrvlera, vleratEPunonjesit.Tatimet, vleratEPunonjesit.KursiNdermarrjes, undefined, vleratEPunonjesit.OrePuneNeDite);
 
                 this.dite = vleraTeLlogaritura.dite;
@@ -491,10 +489,8 @@ function LupaKomponenteApp() {
                 }
                 controller.formatoFushaDevi();
                 controller.callWsRuajNdryshimetPerMuajt(function () {
-                    //if (model.paguar !== 0) {
                     //nese ka page shtoje ne listpagese
                     controller.shtoPunonjesNeTrupinLp();
-                    //}
 
                     var punonjesitStr = localStorage.getItem("punonjesitEZgjedhur");
                     var punonjesit = [];

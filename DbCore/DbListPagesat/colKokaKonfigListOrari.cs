@@ -40,18 +40,10 @@ namespace DbCore.DbListPagesat
         private bool mbushKonfigurimeListOrari(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaKonfigListOrari grupKF = new clsKokaKonfigListOrari();
-                    //grupKF.mbushKonfigurimListOrari(rreshti);
                     this.Add(new clsKokaKonfigListOrari(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

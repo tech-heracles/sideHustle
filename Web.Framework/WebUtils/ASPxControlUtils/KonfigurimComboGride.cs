@@ -1459,7 +1459,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "IdPeriudheLlogAmortizimi", "Emertimi", () =>
             {
                 var col = new DbCore.DbAsete.colPeriudhaLlogaritje();
-                //col.Add(new DbCore.DbAsete.clsPeriudhaLlogaritje());
                 col.merrPeriudhaLlogaritjeFillim(idGjuha);
                 return col;
             }, session, komponente, guidString);
@@ -1469,7 +1468,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "IdPeriudheLlogAmortizimi", "Emertimi", () =>
             {
                 var col = new DbCore.DbAsete.colPeriudhaLlogaritje();
-                //col.Add(new DbCore.DbAsete.clsPeriudhaLlogaritje());
                 col.merrPeriudhaLlogaritjeFund(idGjuha);
                 return col;
             }, session, komponente, guidString);
@@ -1637,9 +1635,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "IdNivelCmimi", "PershkrimNivelCmimi", () =>
             {
                 var nivelet = new DbCore.DbInventari.colNiveleCmimesh();
-                //var niveli = new DbCore.DbInventari.clsNivelCmimi();
-                //niveli.IdNivelCmimi = 0;
-                //nivelet.Add(niveli);
                 nivelet.mbushGjitheNiveleCmimeshSipasNdermarjes(idNdermarrje);
                 return nivelet;
             }, session, komponente, guidString);
@@ -1658,9 +1653,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "IdAutorizimKoka", "KodiAutorizim", () =>
             {
                 var colAutorizimet = new DbCore.DbAdmin.colAutorizimetKoka(idPerdoruesi);
-                //var aut = new DbCore.DbAdmin.clsAutorizimKoka();
-                //aut.IdAutorizimKoka = 0;
-                //colAutorizimet.Add(aut);
                 return colAutorizimet;
             }, session, komponente, guidString);
         }
@@ -1879,7 +1871,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "Id", "Kodi", () =>
             {
                 var col = new DbCore.DbQendraKosto.colQendraKosto(idNdermarrje);
-                //  col.Insert(0, new DbCore.DbQendraKosto.clsQendraKosto());
                 return col;
             }, session, komponente, guidString);
         }
@@ -1888,7 +1879,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "Id", "Kodi", () =>
             {
                 var col = new colGrupimeLocaleGlobale(idNdermarrje, 1);
-                // col.Insert(0, new clsGrupimeLocaleGlobale());
                 return col;
             }, session, komponente, guidString);
         }
@@ -1919,7 +1909,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             grid.KonfiguroCombo(fieldName, "ID", "Kategori", () =>
             {
                 var colSerialeUnikeKategori = new colSerialeUnikeKategori(idndermarje);
-                //colSerialeUnikeKategori.Insert(0, new clsSerialeUnikeKategori());
                 return colSerialeUnikeKategori;
             }, session, komponente, guidString);
         }

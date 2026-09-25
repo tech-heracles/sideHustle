@@ -2,11 +2,6 @@
     var hf = $("#hfKonfillestar")[0];
     myFaqeCelje.changeName('KonfigurimeFtp.aspx', 0, hf);
     myMenu.PercaktoMenuSipasTabit(0, hfTeDrejta, $('#hfShtimModifikim'));
-    //myFaqeCelje.shtoHandlerSession();
-    //window.parent.callWebServiceKtheInfoLart('KonfigurimeFtp.aspx',0);
-    //window.parent.createCookie('adresa', 'KonfigurimeFtp.aspx', 1);
-    //var prm = Sys.WebForms.PageRequestManager.getInstance();
-    //prm.add_endRequest(myMesazh.EndRequestTimer);
 }
 
 $(document).ready(function () {
@@ -61,7 +56,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvAfateMaturimi, "426")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKonfigurimeFTP, "3047", pastrofusha, hfTeDrejta);
 }
 
@@ -101,12 +95,10 @@ function BeginCallback(s, e) {
 }
 
 function menu_click(s, e) {
-    //Utils.vendosVlereNeHiddenField("cmbAutorizimiHf", cmbAutorizimi.GetText());
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 }
-
 
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {

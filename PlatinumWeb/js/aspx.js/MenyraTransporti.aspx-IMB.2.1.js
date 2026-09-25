@@ -41,21 +41,8 @@ function changeName() {
 }
 
 function switchEditMode(index) {
-    //            if (editmode) {
-    //                if (index == indexEdit) {
-    //                    grid_MenyraTransporti.CancelEdit();
-    //                    editmode = !editmode;
-    //                }
-    //                else {
     grid_MenyraTransporti.StartEditRow(index);
     indexEdit = index;
-    //                }
-    //            }
-    //            else {
-    //                grid_MenyraTransporti.StartEditRow(index);
-    //                indexEdit = index;
-    //                editmode = !editmode;
-    //            }
 }
 
 function Init() {

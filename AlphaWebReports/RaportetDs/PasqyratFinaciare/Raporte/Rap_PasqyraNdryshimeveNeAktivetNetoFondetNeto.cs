@@ -326,9 +326,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -339,9 +337,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -352,9 +348,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -365,9 +359,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -378,9 +370,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -391,9 +381,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -405,9 +393,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             if (label.Text.Contains("("))
                 shuma = -double.Parse(label.Text.ToString().Replace('(', ' ').Replace(')', ' '));
             else shuma = double.Parse(label.Text.ToString());
-            //if (shuma >= 0)
                 label.Text = String.Format("{0:#,#.00}", shuma);
-            //else label.Text = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
         }
 
         private void xrLabel65_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -417,9 +403,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -430,9 +414,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -443,9 +425,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -456,9 +436,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -560,9 +538,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -573,9 +549,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-           // if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -615,9 +589,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             if (label.Text.Contains("("))
                 shuma = -double.Parse(label.Text.ToString().Replace('(', ' ').Replace(')', ' '));
             else shuma = double.Parse(label.Text.ToString());
-            //if (shuma >= 0)
                 label.Text = String.Format("{0:#,#.00}", shuma);
-            //else label.Text = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
         }
 
         private void xrLabel30_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -629,9 +601,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             if (label.Text.Contains("("))
                 shuma = -double.Parse(label.Text.ToString().Replace('(', ' ').Replace(')', ' '));
             else shuma = double.Parse(label.Text.ToString());
-            //if (shuma >= 0)
                 label.Text = String.Format("{0:#,#.00}", shuma);
-            //else label.Text = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
         }
 
         private void xrLabel58_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -642,9 +612,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -655,9 +623,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
 
         }
@@ -669,9 +635,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -682,9 +646,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -695,9 +657,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -708,9 +668,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -721,9 +679,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -734,9 +690,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -747,9 +701,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -760,9 +712,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -773,9 +723,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -786,9 +734,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -799,9 +745,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -812,9 +756,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -825,9 +767,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -838,9 +778,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -851,9 +789,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -864,9 +800,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -877,9 +811,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -890,9 +822,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -903,9 +833,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -916,9 +844,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -929,9 +855,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -942,9 +866,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -955,9 +877,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -968,9 +888,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -981,9 +899,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -994,9 +910,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1007,9 +921,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1020,9 +932,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1035,9 +945,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             if (label.Text.Contains("("))
                 shuma = -double.Parse(label.Text.ToString().Replace('(', ' ').Replace(')', ' '));
             else shuma = double.Parse(label.Text.ToString());
-            //if (shuma >= 0)
                 label.Text = String.Format("{0:#,#.00}", shuma);
-            //else label.Text = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
         }
 
         private void xrLabel90_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1047,9 +955,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1060,9 +966,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1073,9 +977,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1086,9 +988,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1099,9 +999,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
 
@@ -1112,9 +1010,7 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 if (e.CalculatedValues[i].ToString().Contains("("))
                     shuma -= double.Parse(e.CalculatedValues[i].ToString().Replace('(', ' ').Replace(')', ' '));
                 else shuma += double.Parse(e.CalculatedValues[i].ToString());
-            //if (shuma >= 0)
                 e.Result = String.Format("{0:#,#.00}", shuma);
-            //else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
         }
     }

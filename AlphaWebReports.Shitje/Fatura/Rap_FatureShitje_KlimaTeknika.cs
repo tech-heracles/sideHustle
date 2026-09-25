@@ -28,8 +28,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         }
 
 
-
-
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             
@@ -53,19 +51,13 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel13.Text = rm.GetString("labelRaportAdresa", ci);
             xrLabel12.Text = rm.GetString("labelNIPT", ci);
             xrLabel14.Text = rm.GetString("labelRaportTelFax", ci);
-            //xrLabel4.Text = rm.GetString("labelRaportSubjektBleres", ci);
             xrLabel2.Text = rm.GetString("labelRaportAdresa", ci);
-            //xrLabel16.Text = rm.GetString("labelNIPT", ci);
-            //xrLabel18.Text = rm.GetString("labelRaportTelFax", ci);
             xrLabel20.Text = rm.GetString("lblRaportDetyrimi", ci);
-           // xrTableCell3.Text = rm.GetString("labelRaportiNr", ci);
             xrTableCell14.Text = rm.GetString("lblRaportNrkartel", ci);
             xrTableCell15.Text = rm.GetString("labelRaportiPershkrimi", ci);
-          //  xrTableCell11.Text = rm.GetString("lblRaportSerialNo", ci);
            xrTableCell7.Text = rm.GetString("labelNjesia", ci);
             xrTableCell9.Text = rm.GetString("labelSasia", ci);
           xrTableCell10.Text = rm.GetString("labelCmimiMeTvsh", ci);
-           // xrTableCell16.Text = rm.GetString("lblRaportDetajime", ci);
             xrTableCell8.Text = rm.GetString("labelRaportVlera", ci);
            xrLabel24.Text = rm.GetString("lblRaportTotalPreventiv", ci);
            xrLabel35.Text = rm.GetString("labelTotaliMeSkonto", ci);
@@ -81,12 +73,7 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
         private void xrTableCell6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (GetCurrentColumnValue("KODI") != null)
-            //{
             //    counter++;
-            //    xrTableCell6.Text = counter.ToString();
-            //}
-            //else xrTableCell6.Text = "";        
         }
 
         private void xrTableCell18_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -104,8 +91,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
         private void xrLabel33_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //e.Result = totalSkonto;
-            //e.Handled = true;
         }
 
         private void xrLabel33_SummaryReset(object sender, EventArgs e)

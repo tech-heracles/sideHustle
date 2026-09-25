@@ -89,10 +89,6 @@ namespace DbCore.DbShare
             if (lloji == "ArkaBanka")
                 return (int)(llojRreshtiArkeBanke)System.Enum.Parse(typeof(llojRreshtiArkeBanke), kodLlojRreshti);
             return 0;
-            //using (clsDatabaseShare data = new clsDatabaseShare())
-            //{
-            //    return data.merrKonfLlojRreshtiVlere(kodLlojRreshti, lloji);                
-            //}
         }
         public clsMesazh ruaj()
         {

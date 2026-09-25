@@ -134,13 +134,10 @@ namespace PlatinumWeb
                 }
 
                 veprimi = Request.QueryString["shitje_blerje"];
-                //idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 if (Request.QueryString["idNderm"] != null && Request.QueryString["vjenNga"] != null && Convert.ToInt32(Request.QueryString["idNderm"]) != idNdermarrje && Request.QueryString["vjenNga"] == "aprovim")
                     clsFunksione.logout(Session, true, "aprovimDokNdermarrjeGabuar");
                 if (Request.QueryString["likuiduar"] != null)
                     hfState.Set("likuiduar", Request.QueryString["likuiduar"]);
-                //idViti = mySessionObjects.ktheIdVitNdermarrje(Session);
-                //idNdermarrjeVit = mySessionObjects.ktheNdermarrjeVit(Session);
                 eshteOwn = mySessionObjects.merrEshteOwnSesioni(Session);
                 ruajLog = mySessionObjects.merrRuajLog(Session);
                 ucEmerSkedari.ValidationSettings.MaxFileSize = DbCore.clsFunksione.merrMaxFileSizePerImport();
@@ -193,10 +190,8 @@ namespace PlatinumWeb
                 hfState.Set("idDokPara", idDokPara);
                 hfVeprimi.Value = veprimi;
                 hfPerdoruesi.Value = idPerdoruesi.ToString();
-                //hfShtimModifikim.Value = pageStateLloji = Request.QueryString["shtim_modifikim"];
                 DataTable colMagazinatPara = colNjesiAdministrative.ktheTreNjesiteEParaAdministrativeAktiveMeLloj(idNdermarrje, idPerdoruesi, true);
                 hfState.Set("tmpColMag", JsonConvert.SerializeObject(colMagazinatPara));
-                //hfTmpColMag.Value = JsonConvert.SerializeObject(colMagazinat); 
                 clsPerdorues perdoruesi = new clsPerdorues(idPerdoruesi);
                 hfPerdoruesAktual.Value = perdoruesi.PerdoruesUsername;
                 hfHapurMbyllur.Value = perdoruesi.InfoHapur.ToString();
@@ -206,7 +201,6 @@ namespace PlatinumWeb
                 hfState.Set("teDrejtaNivele", Newtonsoft.Json.JsonConvert.SerializeObject(teDrejtaNiveleRregjistrimi));
                 mbushComboNiveli();
                 konfiguroTeDrejtat(idPerdoruesi, idNdermarrje, idViti);
-                // mbushComboBoxKartat(idNdermarrje);
                 int idKlienti = -1;
                 DateTime dateDok = clsFunksione.ktheDateOreDefault(mySessionObjects.merrPeriudheKontabel(Session));
                 clsMonedha clsMon = new clsMonedha();
@@ -261,7 +255,6 @@ namespace PlatinumWeb
                 var temp = cmbNiveli.Value;
                 mbushComboNiveli();
                 cmbNiveli.SelectedItem = cmbNiveli.Items.FindByValue(temp);
-                //  hfMerrFazaNgaSesioni.Value = "true";
             }
             percaktoTemplateMenu(idGjuha, veprimi, idPerdoruesi, idViti, idNdermarrje, ASPxMenu1, pageStateLloji, idDokPara, idDokPas);
 
@@ -681,7 +674,6 @@ namespace PlatinumWeb
             cmbLlojMarreveshje.SelectedIndex = koka.IdLlojMarreveshje;
             cmbStatusMarreveshje.SelectedIndex = (shtimModifikim == "klonim" && Request.QueryString["modMarreveshje"] != "modifikim") ? 0 : (int)koka.StatusMarreveshje - 1;
             txtIdMarreveshje.Text = koka.IdMarreveshje;
-            //cbMarreveshjeAktive.Checked = koka.AktiveMarrveshja;
             cmbLlojZbritje.SelectedItem = cmbLlojZbritje.Items.FindByText(koka.ZbritjeNeVlere == false ? "Perqindje" : "Vlere");
             txtAdresaFaturimit.Text = koka.AdresaFaturimit;
             txtEmriKlienti.Text = koka.EmerKlienti;
@@ -813,7 +805,6 @@ namespace PlatinumWeb
                     ConfigureAspxComboBox.mbushComboMagazinatMeID(idNdermarrje, btnMagazina, idPerdoruesi, true, 0, true, idMag);
                 }
                 txtPershkrimMagazine.Text = clsNjesiAdministrative.kthePershkrimNjesiAdministrativeSipasiDPaAutorizime(kokam.IdMagazina);
-                //  btnMagazina.Text = clsNjesiAdministrative.ktheKodiNjesiAdministrativeSipasiDPaAutorizime(kokam.IdMagazina);
             }
             colAdresatKlientFurnitor adresat = new colAdresatKlientFurnitor();
             if (koka.IdKlientFurnitor != 0)
@@ -1034,7 +1025,6 @@ namespace PlatinumWeb
                 // eshte shtuar qe te mos modifikohet trupi i nje dokumenti per te cilin jane printuar garancite
                 if (hfLidhur.Value == "False" && garanci.Count > 0)
                     hfLidhur.Value = "True";
-                //if (koka.FaturePermbledhese)
                 if (koka.FaturePermbledhese && koka.IdStatusDok != 0)
                     hfLidhur.Value = "True";
                 if (!autorizimet)
@@ -1082,7 +1072,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup2, idNdermarrje, 2, Convert.ToInt32(cmbModeli.Value), idPerdoruesi);
             ConfigureAspxComboBox.shtoKolonaPerGrupim(cmbGrup3);
             ConfigureAspxComboBox.mbushComboGrupeDokumentashSipasKonfigurimit(cmbGrup3, idNdermarrje, 3, Convert.ToInt32(cmbModeli.Value), idPerdoruesi);
-            //clsFunksione.mbushComboKlientet(btnKlienti, cmbModeli.Text.Split(';')[0], idPerdoruesi, idNdermarrje); 
             if (koka.IdKlientFurnitor != 0)
             {
                 clsKlientFurnitor klienti = new clsKlientFurnitor();
@@ -1223,7 +1212,6 @@ namespace PlatinumWeb
                 colKonvertimi col = new colKonvertimi(id);
                 foreach (clsKonvertimi konv in col)
                 {
-                    //DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti(konv.IdKonfigAmbjenteKonvertuar);
                     int idKategori = clsKonfigurimAmbjenti.ktheIdKategori(konv.IdKonfigAmbjenteKonvertuar);
                     if (idKategori == 1 || idKategori == 2)
                     {
@@ -1247,11 +1235,6 @@ namespace PlatinumWeb
 
         public void btnJo_Click(object sender, EventArgs e)
         {
-            //mySessionObjects.ruajTrupatNeSession(Session, new colTrupiMagazina());
-            //if (pergjigja.Text == "fshi")
-            //{
-            //    Response.Redirect("RegjistrimDokumentash.aspx?shitje_blerje=" + Request.QueryString["shitje_blerje"] + "&fshi=po");
-            //}
             //else 
             if (pergjigja.Text == "ruaj")
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgRuajtjeMeSukses", MessagesResource.KtheCultureInfo((int)hfState["idGjuha"])), pnlMesazhi);
@@ -1287,7 +1270,6 @@ namespace PlatinumWeb
             }
             foreach (clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today, clsArtikulli.ktheKontrollCmimiPerDetajim(t.IdArtikulli), log, ci, rm, (int)hfState["idNdermarrje"], idPerdoruesi);
                 if (!mesazh.Status)
                 {
@@ -1325,7 +1307,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(Theme, aSPxMenu1, m);
                 }
 
@@ -1540,7 +1521,6 @@ namespace PlatinumWeb
                 ConfigureAspxComboBox.mbushComboFormatPrintimi(cmbFormatiPrintimit, 2, idNdermarrje, true);
             }
             ConfigureAspxComboBox.mbushComboMonedha(idPerdoruesi, idNdermarrje, false, cmbMonedha, cmbMonedhaPagese);
-            //ConfigureAspxComboBox.mbushComboMonedha(idPerdoruesi, idNdermarrje, cmbMonedhaPagese, false);
             ConfigureAspxComboBox.mbushComboMuaji(cmbMuajRaportimi);
             ConfigureAspxComboBox.mbushComboVitet(cmbVitRaportimi, idNdermarrje);
             cmbVitRaportimi.Value = mySessionObjects.merrPeriudheKontabel(Session).IdViti.ToString();
@@ -1567,8 +1547,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.KonfiguroComboBoxMenyreTransporti(idNdermarrje, btnMenyreTransporti);
             ConfigureAspxComboBox.KonfiguroComboBoxKushteDergimi(idNdermarrje, btnKushtDergimi);
             ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(IdNdermarrja, IdPerdoruesi, btnAgjenti, btnAgjenti2, btnAgjenti3);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti2, IdNdermarrja, IdPerdoruesi);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti3, IdNdermarrja, IdPerdoruesi);
             ConfigureAspxComboBox.mbushComboTransportues(idNdermarrje, btnTransportues);
             ConfigureAspxComboBox.KonfiguroComboBoxMetoda(cmbMenyrePagese, false);
             ConfigureAspxComboBox.mbushComboLlojMarreveshje(cmbLlojMarreveshje);
@@ -1666,7 +1644,6 @@ namespace PlatinumWeb
             AspxWebControlUtils.vendosDateEditMask(data_DateEdit, dteAfatiKohor, dateMaturimi_DateEdit, dateTransportimi_DateEdit, dateRegjistrimi_DateEdit, DtFillimi_DateEdit,
                 DtMbarimi_DateEdit, DtFature_DateEdit, DtKerkese_DateEdit);
             ConfigureAspxComboBox.mbushComboMonedha(idPerdoruesi, idNdermarrje, false, cmbMonedha, cmbMonedhaPagese);
-            //ConfigureAspxComboBox.mbushComboMonedha(idPerdoruesi, idNdermarrje, cmbMonedhaPagese, false);
             ConfigureAspxComboBox.mbushComboMuaji(cmbMuajRaportimi, true);
             ConfigureAspxComboBox.percaktoTemplateCombo(false, false, cmbKategoriSeriali);
             ConfigureAspxComboBox.mbushComboKategoriSeriali(idNdermarrje, cmbKategoriSeriali);
@@ -1680,10 +1657,7 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.KonfiguroComboBoxMenyreTransporti(idNdermarrje, btnMenyreTransporti);
             ConfigureAspxComboBox.KonfiguroComboBoxKushteDergimi(idNdermarrje, btnKushtDergimi);
             ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(IdNdermarrja, 0, btnAgjenti, btnAgjenti2, btnAgjenti3);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti2, IdNdermarrja);
-            //ConfigureAspxComboBox.KonfiguroComboBoxAgjentesh(btnAgjenti3, IdNdermarrja);
             ConfigureAspxComboBox.mbushComboTransportues(idNdermarrje, btnTransportues);
-            //ConfigureAspxComboBox.mbushComboOperatori(cmbOperatori, idNdermarrje);
             ConfigureAspxComboBox.mbushComboKonfigurimKase(cmbKonfigurimKase, idNdermarrje);
             cmbKonfigurimKase.SelectedIndex = 0;
             ConfigureAspxComboBox.KonfiguroComboBoxMetoda(cmbMenyrePagese, false);
@@ -1791,8 +1765,6 @@ namespace PlatinumWeb
             else
                 hfState.Set("eshteDokKthimi", trupiShitjeFirst != null && trupiShitjeFirst.IdTrupiKthim != 0 ? true : false);
             mbushHiddenFieldet(idKokeShitje, idKonfig, idPerdoruesi, trupiShitje, idNdermarrje, kokam.IdKokaMagazina, kokam.IdKonfigAmbjente, hfShtimModifikimValue, data, idKF);
-            //clsTrupiShitje trupi = new clsTrupiShitje();
-            //trupiShitje.Add(trupi);
             ImbLogger.LogTraceShitje($"Mbaroi metoda konfiguroVleraFillestareModifiko me parametra idKonfig:{idKonfig}, idKokeShitje:{idKokeShitje}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, hfShtimModifikimValue:" + hfShtimModifikimValue + $", data:{data}, idKF:{idKF}");
         }
 
@@ -1813,8 +1785,6 @@ namespace PlatinumWeb
                 object myCols = new { colTrupi = col };
                 HfColTrup.Value = JsonConvert.SerializeObject(col);
                 colArtikujt colArtikuj = new colArtikujt(idKokeShitje);
-                //colKodbare colKodbare = new colKodbare();
-                //colKodbare.merrKodbarePerShitjen(idKokeShitje);
                 DataTable colKodbare = DbCore.DbInventari.colKodbare.merrKodbarArtikulliNeTrupDokShitje(idKokeShitje);
                 colArtikulliPerberes colArtikujtPerberes = new colArtikulliPerberes();
 
@@ -1878,7 +1848,6 @@ namespace PlatinumWeb
                         }
                     }
                     mbushComboBoxFazat(ocolFazat);
-                    // hfFazat.Value = serializusi.Serialize(ocolFazat);
                 }
 
                 if (hfShtimModifikimValue != "klonim")
@@ -1984,7 +1953,6 @@ namespace PlatinumWeb
                 }
                 HfColArtPerb.Value = JsonConvert.SerializeObject(colArtikujtPerberes);
                 clsKokaMagazina kokam = new clsKokaMagazina();
-                //DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti(idKonfig);
                 int idKategoria = clsKonfigurimAmbjenti.ktheIdKategori(idKonfig);
                 if (idKategoria == 1)
                     kokam.mbushKokaMagazinaSipasIDGjenerues(ids[i], 2, idKonfig);
@@ -2079,10 +2047,7 @@ namespace PlatinumWeb
             HfColNjesAdminis.Value = JsonConvert.SerializeObject(colmaggjithe);
             HfColNjesiArt.Value = JsonConvert.SerializeObject(colnjesigjithe);
             HfColTaksa.Value = JsonConvert.SerializeObject(coltaksagjithe);
-            // HfColTvshArt.Value = JsonConvert.SerializeObject(listeTvshArtGjithe);
-            //HfColTvshLlog.Value = JsonConvert.SerializeObject(listeTvshLlogGjithe);
             mbushComboBoxFazat(colTotal);
-            //  hfFazat.Value = serializusi.Serialize(colTotal);
             ImbLogger.LogTraceShitje($"Mbaroi metoda mbushHiddenFieldet me parametra idKokeShitje:{idKokeShitje}, idKonfig:{idKonfig}, idPerdoruesi:{idPerdoruesi}, idNdermarrje:{idNdermarrje}, idkokamag:{idkokamag}, idkonfmag:{idkonfmag}, hfShtimModifikimValue:" + hfShtimModifikimValue + $", data:{data}, idKF:{idKF}");
         }
         private void merrLlojeTVSH(int idKonfig, int idPerdoruesi, int idNdermarrje, colArtikujt colArtikuj, colLlogarite colLlogari, int idKF)
@@ -2317,7 +2282,6 @@ namespace PlatinumWeb
                     return;
                 }
             }
-            //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, string.Empty, pnlMesazhi);
 
 
             int idskema = int.Parse(hfSkema.Value);
@@ -2580,10 +2544,6 @@ namespace PlatinumWeb
                                             {
 
                                                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "Fatura elektronike u krijua me sukses!", pnlMesazhi);
-                                                //var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
-                                                //var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "Pdf", true);
-                                                //string b64string = base64[0];
-                                                //blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
 
                                                 if (cbPrinto.Checked)
                                                 {
@@ -2858,7 +2818,6 @@ namespace PlatinumWeb
                         txtIIC.Text = clsFunksioneFiskalizimi.GjeneroIIC(new clsNdermarrje(idNdermarrje), txtNumer.Text, txtTotal1.Text, "ur271so291", kodSoftueri, Convert.ToDateTime(kokeShitje.DtDok.ToString().Split(' ')[0] + ' ' + kokeShitje.DtKrijimiPajisje.ToString().Split(' ')[1]));
                         kokeShitje.IIC = txtIIC.Text;
                     }
-                    //kokeShitje.IIC = txtIIC.Text;
                     mesazh = kokeShitje.modifikoSh(idGjuha, serverUrl, lidhur, hfNrAutoShitje, periudha.IdPeriudha, colkonvetimi, gjenerodokmag, idskema, statusAprovimi, idetapa, out shfaqmesazhapolupemagazina,
                         kokaMema, dergoemail, eshteOwn, serialemag, konfamortizimi, isShitje, faturashitjengaurdhershitjamekupontatimor, out printofature, out printogarancifature,
                         out shfaqmesazhapolupe, mekontabilizim, qend.ColTrupi, cmbModeli.Text, rm, cultinf,
@@ -2946,10 +2905,6 @@ namespace PlatinumWeb
                                                     string b64string = base64[0];
                                                     blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
                                                 }
-                                                //var fatura = clsFunksioneFiskalizimi.merrEinvoice(nderm, EIC[0], DateTime.UtcNow);
-                                                //var base64 = clsFunksioneFiskalizimi.InvokeService(fatura, "ns2:Pdf", true);
-                                                //string b64string = base64[0];
-                                                //blob.Value = JsonConvert.SerializeObject(new { b64 = b64string});
                                                 //ketu e dim qe fatura ka shkuar me sukses te einvoice dhe kemi marr pergjigje suksesi, kshu qe mund te behet ktu kodi ku do hapet pdf
                                             }
 
@@ -2992,7 +2947,6 @@ namespace PlatinumWeb
                                                 string b64string = base64[0];
                                                 blob.Value = JsonConvert.SerializeObject(new { b64 = b64string });
                                             }
-
 
 
                                         }
@@ -3073,7 +3027,6 @@ namespace PlatinumWeb
                 cbGaranci.Checked = bool.Parse(atr.VlereDefault);
 
             hfKasa.Value = string.Empty;
-            //Session.Add("trupat", trupat);
             mySessionObjects.ruajTrupatNeSession(Session, trupat);
             pergjigja.Text = "ruaj";
             clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti(kokeShitje.IdKonfigAmbjente);
@@ -3298,13 +3251,9 @@ namespace PlatinumWeb
             {
                 clsKonvertimi konv = new clsKonvertimi();
                 konv.IdDokKonvertuar = Convert.ToInt32(((object[])dokumenti[i])[0]);
-                //clsNivelRegjistrimi niv = new clsNivelRegjistrimi();
-                //niv.mbushNivelRegjistrimiSipasIdPaKonvertime(Convert.ToInt32(((object[])dokumenti[i])[3]));
                 int idKategoria = clsNivelRegjistrimi.ktheIdKategoriaNivelRegjistrimi(Convert.ToInt32(((object[])dokumenti[i])[3]));
                 if (idKategoria == 1 || idKategoria == 2)
                 {
-                    //    clsKokaShitje koka = new clsKokaShitje();
-                    //    koka.mbushKokaShitjeSipasIDPaTrup(konv.IdDokKonvertuar);
                     konv.IdKonfigAmbjenteKonvertuar = clsKokaShitje.ktheIdKonfigAmbjente(konv.IdDokKonvertuar);//koka.IdKonfigAmbjente;
                 }
                 else if (idKategoria == 6)
@@ -3347,11 +3296,6 @@ namespace PlatinumWeb
         }
 
         //protected void cmbKarta_Callback(object source, DevExpress.Web.CallbackEventArgsBase e)
-        //{  
-        //    int idNdermarrje = (int)hfState["idNdermarrje"];
-        //   mbushComboBoxKartat(idNdermarrje);
-
-        //}
 
 
         /// <summary>
@@ -3376,7 +3320,6 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
             clsNdermarrje nderm = new clsNdermarrje(idNdermarrje);
             int menyretransporti = 0, kushtedergimi = 0, idagjenti = 0, kushtepagese = 0, degeadministrative = 0, pikeshitje = 0, idgrup = 0, idgrup2 = 0, idgrup3 = 0, idAgjenti2 = 0, idAgjenti3 = 0, idTransportues = 0, idArka = 0, idKarta = 0, pike = 0, idMuajRaportimi = 0, idVitRaportimi = 0;
             var colKlienteFurnitoreVartes = new colKlienteFurnitore();
@@ -3551,7 +3494,6 @@ namespace PlatinumWeb
             // konfigurimet qe mbarojne me kodin 3-shkronjesh te magazines (p.sh. FSHmag) nuk lidhin detajimet me artikullin
             bool mosLidhDetajimet = btnMagazina.Text.Length == 3 && KonfigAmbjente.KodKonfigAmbjente.EndsWith(btnMagazina.Text);
             colTrupiShitje trupi = ruajTrupShitje(idPerdoruesi, veprimi, idNdermarrje, KonfigAmbjente.IdKonfigAmbjente, gridDataObject.Value, gridObjectKomision.Value, shtimModifikim, gjeneroDokMag, eshteOwn, cmbGrup1.Text, btnMagazina, eshteMemme, hfSeriale, hfIdGride, perqindjeZbritje, colserialemag, kontrolloSasi, kursi, statusDokumenti, konfmag, ci, rm, mosLidhDetajimet);
-            //krijoSeriale(colserialemag, trupi, statusDokumenti, idNdermarrje, idPerdoruesi, idPerdoruesi, konfmag, kontrolloSasi, ci, rm, perqindjeZbritje);
             if (cbFiskalizo.Checked)
                 for (int i = 0; i < trupi.Count; i++)
                     if (trupi[i].IdLlojVeprimi != 1)
@@ -3644,7 +3586,6 @@ namespace PlatinumWeb
             string targa = string.Empty;
             if (btneAutomjeti.Text != string.Empty)
             {
-                //clsAutomjete auto = new clsAutomjete();
                 idAutomjet = clsAutomjete.ktheidAutomjetSipasShasise(btneAutomjeti.Text, idNdermarrje);
                 targa = txtTarga.Text;
             }
@@ -3916,16 +3857,12 @@ namespace PlatinumWeb
 
             if ((cmbMenyrePagese.Text == "Karte krediti") && (DbCore.DbArkaBanka.clsBanka.ktheLlojBanka(btneArka.Text, idNdermarrje)) == 0)
             {
-                //ImbLogger.LogTraceShitje($"Mbaroi metoda isValidRegjistrim sepse arka jo e sakte per menyre pagese");
-                //return new clsMesazh(false, rm.GetString("msgArkaJoSaktePerMenyrePagese", ci));
             }
 
             else if ((cmbMenyrePagese.Text == "Pagese Automatike") && (DbCore.DbArkaBanka.clsBanka.ktheLlojBanka(btneArka.Text, idNdermarrje)) == 1)
             {
                 ImbLogger.LogTraceShitje($"Mbaroi metoda isValidRegjistrim sepse arka jo e sakte per menyre pagese");
                 return new clsMesazh(false, rm.GetString("msgArkaJoSaktePerMenyrePagese", ci));
-                //clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgArkaJoSaktePerMenyrePagese", ci), pnlMesazhi);
-                //return false;
             }
 
             if (cmbDegeAdministrative.Text != string.Empty && cmbDegeAdministrative.Text != " ()")
@@ -4027,11 +3964,6 @@ namespace PlatinumWeb
                     return new clsMesazh(false, "Ju nuk keni autorizime per kete klient/furnitor!");
                 }
 
-                //if (kf.IdKlientFurnitor <= 0)
-                //{
-                //    ImbLogger.LogInfoShitje($"Mbaroi metoda isValidRegjistrim sepse KF nuk ekziston");
-                //    return new clsMesazh(false, rm.GetString("msgKFnukEkziston", ci));
-                //}
                 if (hfkf.Value != string.Empty)
                 {
                     if (kf.IdKlientFurnitor != Convert.ToInt32(hfkf.Value) && hfShtimModifikimValue == "kthim")
@@ -4142,7 +4074,6 @@ namespace PlatinumWeb
                     {
                         id = int.Parse(Request.QueryString["id"]);
                         clsKoka = new clsKokaShitje(id);
-                        //clsKoka.mbushKokaShitjeSipasIDPaTrup(id);
                         if (String.IsNullOrEmpty(cmbFormatiPrintimit.Text))
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("regjShitjeMesazhSkaFormatPerPrintim", cultinf), pnlMesazhi);
                         else
@@ -4150,15 +4081,12 @@ namespace PlatinumWeb
                             int idRaporti = clsRaporti.KtheIdRaporti(idGjuha, Convert.ToInt32(cmbFormatiPrintimit.Value));
                             Container55.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + id + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
                         }
-                        //if (cbGaranci.Checked)
-                        //{
                         colGaranciArtikulli garancia = new colGaranciArtikulli(id);
                         if (garancia.Count > 0)
                         {
                             int idrapgarancia = 142;
                             Container1.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idrapgarancia + "&idDokumenti=" + id + "&printo=false&raportdyte=po";
                         }
-                        // }
                     }
                     else
                     {
@@ -4358,7 +4286,6 @@ namespace PlatinumWeb
                 object form = JsonConvert.DeserializeObject<object>(hfState["formatMonedhe"].ToString());
                 Dictionary<string, object> formati = (Dictionary<string, object>)form;
                 formatMonedhe = new clsFormatKonfigTrup(int.Parse(formati["ShifraPasPresjesSasia"].ToString()), int.Parse(formati["ShifraPasPresjesCmimi"].ToString()), int.Parse(formati["ShifraPasPresjesVlefta"].ToString()), int.Parse(formati["ShifraPasPresjesZbritja"].ToString()), string.Empty, string.Empty, string.Empty, string.Empty);
-                //  vendosDisplayFormatStringTotalet(formatMonedhe);
             }
         }
 
@@ -4408,7 +4335,6 @@ namespace PlatinumWeb
             }
             zbrasHiddenFieldet(idPerdoruesi, idNdermarrje, hfShtimModifikimValue);
             ImbLogger.LogTraceShitje($"Mbaroi metoda ruajJoNgaMenuja me parametra kontrollsasiL{kontrollosasi}, idPerdoruesi:{idPerdoruesi}");
-            //   percaktoTemplateInfo();
         }
         /// <summary>
         /// ruan ne rastin kur ka limit, dhe kur shtyp F9
@@ -4937,7 +4863,6 @@ namespace PlatinumWeb
                 EIC = clsFunksioneFiskalizimi.InvokeService(mesazhEInvoice, "ns2:EIC", true);
             EIC[3] = fatureUbl[1];
             return EIC;
-
 
 
         }

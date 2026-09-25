@@ -52,7 +52,6 @@ namespace DbCore.DbShare
         }
 
         
-
         public new clsFormatiKonfig this[int index]
         {
             get { return ((clsFormatiKonfig)base[index]); }
@@ -117,18 +116,10 @@ namespace DbCore.DbShare
         private bool mbushKonfigurimFormatesh(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFormatiKonfig konfig = new clsFormatiKonfig();
-                    //konfig.mbushFormatKonfig(rreshti);
                     Add(new clsFormatiKonfig(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -143,17 +134,7 @@ namespace DbCore.DbShare
 
                 konfig.IdFormatKonfig = int.Parse(rreshti[0].ToString());
                 konfig.IdKategoria = int.Parse(rreshti[1].ToString());
-                //konfig.IdMonedha = int.Parse(rreshti[2].ToString());
-                //konfig.IdFormatSasia = int.Parse(rreshti[3].ToString());
-                //konfig.IdFormatCmimi = int.Parse(rreshti[4].ToString());
-                //konfig.IdFormatVlefta = int.Parse(rreshti[5].ToString());
-                //konfig.IdFormatZbritja = int.Parse(rreshti[6].ToString());
                 konfig.IdNdermarrja = int.Parse(rreshti[7].ToString()); 
-                //konfig.KodiMonedha = rreshti[8].ToString();
-                //konfig.FormatSasi = rreshti[9].ToString();
-                //konfig.FormatCmimi = rreshti[10].ToString();
-                //konfig.FormatVlefta = rreshti[11].ToString();
-                //konfig.FormatZbritja = rreshti[12].ToString();
                 konfig.Kategoria = rreshti[13].ToString();
                 col.Add(konfig);
             }

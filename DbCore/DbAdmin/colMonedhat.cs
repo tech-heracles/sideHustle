@@ -160,19 +160,11 @@ namespace DbCore.DbAdmin
         private bool mbushMonedhat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsMonedha monedha = new clsMonedha();
-                    //monedha.mbushMonedha(rreshti);
                     Add(new clsMonedha(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -30,19 +30,11 @@ namespace DbCore.DbShare
         private bool mbushFormatetNumra(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFormatNr koka = new clsFormatNr();
-                    //koka.mbushFormatNr(rreshti);
                     Add(new clsFormatNr(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

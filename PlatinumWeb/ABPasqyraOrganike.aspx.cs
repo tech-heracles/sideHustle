@@ -33,7 +33,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -92,7 +91,6 @@ namespace PlatinumWeb
                 idNdermVit = (int)hfState.Get("idNdermVit");
                 
                 mbushGridenEPasqyraveNgaSession();
-                // GridUtil.PercaktoNgjyrenPerKolonatReadOnly(gvPasqyra, "PBuxhetId", "RreshtiId", "Emertimi", "Totali", "IdNdermarrje", "IdKrijuesi", "IdModifikuesi", "DtKrijimi", "DtModifikimi");
             }
             GridUtil.KtheKolonenNeComboNeGride(gvPasqyra, "IdProfesioni", "Profesioni", ZevendesoKolonenProfesione);
             KonfigurimComboGride.shtoStatuse(gvListaPasqyrat);
@@ -106,7 +104,6 @@ namespace PlatinumWeb
         protected void gvPasqyra_DataBound(object sender, EventArgs e)
         {
             gvPasqyra.KeyFieldName = "IdTrupiDok";
-           // if (!IsPostBack) ZevendesoKolonenProfesione();
         }
         private void ZevendesoKolonenProfesione(GridViewDataComboBoxColumn cmb)
         {
@@ -138,18 +135,14 @@ namespace PlatinumWeb
             cmb.PropertiesComboBox.ValueField = "Id";
             cmb.PropertiesComboBox.TextField = "Pershkrimi";
             cmb.PropertiesComboBox.TextFormatString = "{0}";
-            // combo.TextField = "KodKonfigAmbjente";
             cmb.PropertiesComboBox.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
         }
       
   
-
-
         public void ZevendesoKolonenMuaji()
         {
             GridViewDataComboBoxColumn colNew = new GridViewDataComboBoxColumn();
             gvListaPasqyrat.Columns.Remove(gvListaPasqyrat.Columns["Muaji"]);
-            //  gvPasqyra.Columns.Add(colNew);
             colNew.FieldName = "Muaji";
 
             colNew.Caption = "Muaji";
@@ -250,13 +243,10 @@ namespace PlatinumWeb
 
         private void mbushGridenPasqyraPerEditim(int idKoka)
         {
-            // gvPasqyra.Columns.Clear();
             colTrupiPasqyraOrganike col = new colTrupiPasqyraOrganike(idKoka);
-            // col.ShtoObjektBosh();
             gvPasqyra.DataSource = col.ToDataTable();
             gvPasqyra.DataBind();
             mySessionObjects.ruajObjectNeSesion(Session, col, "gvPasqyra");
-            //   konfiguroGridePasqyraMod();
         }
 
         /// <summary>
@@ -312,7 +302,6 @@ namespace PlatinumWeb
                 int idkoka = int.Parse(e.Parameters);
                 mbushGridenPasqyraPerEditim(idkoka);
 
-                //  gvPasqyra.AddNewRow();
             }
             catch (Exception ex)
             {
@@ -336,9 +325,6 @@ namespace PlatinumWeb
                 colKokaPasqyraOrganike col = (tmp as colKokaPasqyraOrganike) ?? new colKokaPasqyraOrganike(idNdermarrje, idNdermVit);
 
                 clsKokaPasqyraOrganike koka = KrijoKokePasqyraOrganike(eshteShtim);
-
-
-
 
 
                 if (eshteShtim)
@@ -397,13 +383,10 @@ namespace PlatinumWeb
                     if (koka.IdStatusDok == 1 && idStatusDok == 0)
                     {
                         mesazhi = new clsMesazh(false, "Ky dokument eshte me status  ruajtur dhe nuk mund te ruhet me status draft!");
-                        //DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
-                        //  throw new Exception("Ky dokument eshte me status  ruajtur dhe nuk mund te ruhet me status draft!");
                     }
                     else
                     {
                         koka.IdStatusDok = idStatusDok;
-                        // koka.ColTrupi.Capacity = e.InsertValues.Count + e.UpdateValues.Count - e.DeleteValues.Count;
                         //merr vlerat e reja
                         for (int i = 0; i < e.InsertValues.Count - 1; i++)//hiqet rreshti bosh
                         {
@@ -469,7 +452,6 @@ namespace PlatinumWeb
             {
                 NLog.LogManager.GetCurrentClassLogger().Error(err.Message);
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, err.Message + ":Red");
-                //  throw;
             }
             e.Handled = true;
         }
@@ -538,8 +520,6 @@ namespace PlatinumWeb
 
         protected void gvListaPasqyrat_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
-            //if(e.NewValues["IdProfesioni"]==null)
-            //    gvPasqyra.DeleteRow()
         }
     }
 }

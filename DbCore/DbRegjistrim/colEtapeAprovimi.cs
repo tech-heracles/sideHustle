@@ -70,21 +70,13 @@ namespace DbCore.DbRegjistrim
         internal bool mbushEtapat(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsEtapeAprovimi koka = new clsEtapeAprovimi();
-                    //koka.mbushEtape(rreshti);
                     Add(new clsEtapeAprovimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

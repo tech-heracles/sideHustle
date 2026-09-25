@@ -182,9 +182,6 @@ namespace DbCore.DbAdmin
         #region Metoda Publike
 
         //public override string ToString()
-        //{
-        //    return "Qyteti: " + this.emriQyteti + " ka ID: " + this.idQyteti; ;
-        //}
 
         /// <summary>
         /// Ruan objektin e qytetit ne tabelen perkatese ne databaze.Theret funksionin
@@ -195,22 +192,10 @@ namespace DbCore.DbAdmin
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             colQytetet qytetdefault = new colQytetet();
             qytetdefault.mbushGjitheQytetetPozitive(-1);
-            //colQytetet qytetdefault = data.merrGjitheQytetetPozitive(-1);
             int idQ;
             clsMesazh u_ruajt = data.ruajQytet(out idQ, this.KodiQyteti, this.EmriQyteti, this.IdNdermarja, this.IdPerdoruesi, this.idStatusDok);
             if (!u_ruajt.Status)
                 return u_ruajt;
-            //bool ekziston = false;
-            //foreach (clsQyteti q in qytetdefault)
-            //{
-            //    if (q.KodiQyteti == this.KodiQyteti)
-            //        ekziston = true;
-            //}
-            //if (!ekziston)
-            //{
-            //    this.IdNdermarja = -1;
-            //    u_ruajt = data.ruajQytet(out idQ, this.KodiQyteti, this.EmriQyteti, this.IdNdermarja, this.IdPerdoruesi, this.idStatusDok);
-            //}
             data.Dispose();
             return u_ruajt;
         }
@@ -261,12 +246,6 @@ namespace DbCore.DbAdmin
             return data;
         }
 
-        //public colQytetet merriTeGjithe()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    return data.merrGjitheQytetet();
-
-        //}
 
         /// <summary>
         /// Kjo metode kthen true nqs qyteti eshte i lidhur, pra ka nje ndermarrje apo klient/furnitor me kete qytet

@@ -88,11 +88,6 @@ function OnGridDoubleClick(index) {
     callWebservice();
 }
 
-//function RuajFilter_Click()
-//{   
-//if(Kodi_ASPxTextBox.GetText()!='')
-//popRuaj.Hide();
-//}
  
 function Item_Click(s, e) {
     if(e.item.name=='Fshi')

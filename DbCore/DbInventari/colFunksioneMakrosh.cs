@@ -114,20 +114,12 @@ namespace DbCore.DbInventari
         private bool mbushFunksioneMakrosh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFunksionMakro funksionMakro = new clsFunksionMakro();
-                    //funksionMakro.mbushFunksionMakro(rreshti);
                     this.Add(new clsFunksionMakro(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

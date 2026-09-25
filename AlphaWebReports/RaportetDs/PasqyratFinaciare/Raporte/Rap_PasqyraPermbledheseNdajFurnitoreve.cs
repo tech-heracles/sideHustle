@@ -22,22 +22,16 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         public Rap_PasqyraPermbledheseNdajFurnitoreve(CultureInfo ci, int idNdermarrje, int idViti, DevExpress.XtraReports.UI.XtraReport raport)
         {
             InitializeComponent();
-            //MonNder.Value = raport.Parameters[4].Value;
             xrLabel52.Text = raport.Parameters[0].Description;
             parameter1.Value = raport.Parameters[0].Value;
             xrLabel55.Text = raport.Parameters[1].Description;
             parameter2.Value = raport.Parameters[1].Value;
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
-            //azhornimLabel.Text = raport.Parameters[3].Description;
-            //Azhornim.Value = raport.Parameters[3].Value;
-           //EmrateLabelave(ci);
         }
         string[] shkronjevogel = { "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" };
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //int niv2 = 0;
-        //int niv3 = 0;
         private void xrLabel32_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
@@ -53,55 +47,29 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             niv++;
         }
 
-        //private void xrLabel16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel23_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    niv++;
-        //}
 
-        //private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
         //    //    niv++;
-        //}
 
-        //private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
         //    //   niv++;
-        //}
 
-        //private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
         //    //  niv++;
-        //}
 
-        //private void xrLabel56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
         //    //   niv++;
-        //}
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
             niv++;
         }
 
-        //private void xrLabel79_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
         //    //     niv++;
-        //}
 
-        //private void xrLabel84_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-
-        //}
 
         private void xrLabel32_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -121,42 +89,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //private void xrLabel16_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel23_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel73_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel66_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel61_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
-
-        //private void xrLabel56_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = niv;
-        //    e.Handled = true;
-        //}
 
         private void xrLabel47_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -164,18 +96,8 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //private void xrLabel79_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
-        //    e.Result = "";
-        //    e.Handled = true;
-        //}
 
-        //private void xrLabel84_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        //{
         //    //  niv++;
-        //    e.Result = niv + 1;
-        //    e.Handled = true;
-        //}
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -760,21 +682,14 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           // xrLabel12.Text = rm.GetString("lblRaportBurimeShpenzLidhurInvestime", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-          //  xrLabel9.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel7.Text = rm.GetString("labelLogoIMB", ci);
-           // xrLabel20.Text = rm.GetString("labelRaportiShenime", ci);
-          //  xrLabel21.Text = rm.GetString("labelRaportiVitiRaportues", ci);
-         //   xrLabel22.Text = rm.GetString("labelRaportiVitiParaardhes", ci);
           
             xrLabel1.Text = rm.GetString("labelRaportiNr", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha", ci);
             xrLabel12.Text = rm.GetString("lblRaportBurimeShpenzLidhurInvestime", ci);
             xrLabel107.Text = rm.GetString("lblRaportNrLlog", ci);
             xrLabel19.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel20.Text = rm.GetString("lblRaportTepricaCelje", ci);
-            //xrLabel23.Text = rm.GetString("lblRaportTransaksioneViti", ci);
             xrLabel21.Text = rm.GetString("labelRaportiDebi", ci);
             xrLabel22.Text = rm.GetString("labelRaportiKredi", ci);
             xrLabel16.Text = rm.GetString("lblRaportTepricaNeFund", ci);

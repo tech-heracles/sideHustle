@@ -32,21 +32,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushShperndarjeShpezimeLlogarite(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsShperndarjeShpenzimeLlogarite llogari = new clsShperndarjeShpenzimeLlogarite();
-                    //llogari.mbushShperndarjeShpenzLlog(rreshti);
                     Add(new clsShperndarjeShpenzimeLlogarite(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

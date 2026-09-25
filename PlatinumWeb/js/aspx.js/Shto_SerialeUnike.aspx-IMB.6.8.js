@@ -104,7 +104,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 }
 
@@ -157,7 +156,6 @@ function SucceededCallbackLidhur(result, idObjekti) {
     var hf = $('#hfKontrollet')[0]; //mban te dhenat mbi kontrollet
     var hfLidhur = $("#hfLidhur");
     hfLidhur.val(result);
-    //        aktivizoFusha(hf.value);
     aktivizoFusha(colKontrollet, colAtrTrupi, eval(result.toLowerCase()));
 }
 
@@ -218,9 +216,7 @@ function SucceededCallbackKonfig(result) {
         var arrTabela = ['tblSeriali'];
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-    // $("#dvBurimi").show();
 }
-
 
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {

@@ -57,10 +57,7 @@ namespace DbCore.DbListPagesat
         /// <param name="idkoka">id e kokes se list pages</param>
         public colTrupiListPagese(int idkoka, clsDatabazeListPagesa db) : base(db.ktheGjitheTrupListPageseNgaKokaList(idkoka).OrderBy(x => x.IdPunonjes))
         {
-            //clsDatabazeListPagesa db = new clsDatabazeListPagesa();
 
-            //mbushTrupat(db.ktheGjitheTrupiListPageseNgaKoka(idkoka));
-            //db.Dispose();
         }
         public colTrupiListPagese(Dictionary<string, int> numraPersonalMeId, Dictionary<string, string>[] dokumenti, List<colKompListPagese> komponente, int idNdermarrje, HttpSessionState sessioni, int idGjuha, DateTime data)
         {
@@ -110,8 +107,6 @@ namespace DbCore.DbListPagesat
 
             }
         }
-
-
 
 
         /// <summary>

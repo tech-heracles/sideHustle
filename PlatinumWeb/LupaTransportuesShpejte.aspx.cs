@@ -83,7 +83,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()));
             hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
-            //cmbKonfigurimi.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -191,7 +190,6 @@ namespace PlatinumWeb
             transp.IdPerdorues = idPerdoruesi;
             transp.IdKrijuesi = idPerdoruesi;
             transp.Targa = string.Empty;
-            //hfEmertimi.Value = this.txtTransportues.Text; 
             return transp;
         }
 
@@ -211,8 +209,6 @@ namespace PlatinumWeb
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             aSPxMenu1.Items.FindByName("Anullo").Text = rm.GetString("MenuItemMbyll", ci);
         }
-
-
 
 
     }

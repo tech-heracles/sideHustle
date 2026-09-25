@@ -1,6 +1,5 @@
 ﻿
 var focusedColumn;
-//var merrNgaSessioni = false;
 ; $(document).ready(function (e) {
     changeName();
     myMesazh.eshteLupe = true;
@@ -59,15 +58,8 @@ function gvEndCallback(s, e) {
 
 function StartEditing(s, e) {
     //ndalon kolonat qe nuk duhet te editohen
-    //if (e.focusedColumn.fieldName == 'Dite') 
-    //       e.cancel = true;
 
     focusedColumn = e.focusedColumn.fieldName;
-  //  if (e.focusedColumn.fieldName == 'Data') {
-   //     var nowdate = new Date();
-   //     if (e.rowValues[(s.GetColumnByField(focusedColumn).index)].value == null || e.rowValues[(s.GetColumnByField(focusedColumn).index)].value == undefined)
-    //        e.rowValues[(s.GetColumnByField(focusedColumn).index)].value = nowdate;
-   // }
 
 }
 function rowValidation(s, e) {
@@ -98,7 +90,6 @@ function rowValidation(s, e) {
             e.validationInfo[vleraFakt.index].errorText = "Data nuk mund te jete bosh!";
         }
     }
-
 
 
 }

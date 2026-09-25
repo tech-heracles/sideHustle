@@ -30,7 +30,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -103,9 +102,6 @@ namespace PlatinumWeb
         }
 
        
-
-      
-
         #region Ambjentet
 
 
@@ -128,9 +124,7 @@ namespace PlatinumWeb
             cmbAmbjenti.Columns.Add(colprove);
             cmbAmbjenti.Columns.Add(colemer);
             cmbAmbjenti.ValueField = "IdAmbjenti";
-            //cmbAmbjenti.TextField = "Pershkrim";
 
-            // combo.TextField = "KodKonfigAmbjente";
             cmbAmbjenti.ClientSideEvents.KeyUp = @"function(s,e) { var keyCode = e.htmlEvent.keyCode; if((keyCode==46 || keyCode==8) && s.GetInputElement().value == '')  s.SetSelectedIndex(-1); }";
             cmbAmbjenti.DropDownStyle = DropDownStyle.DropDownList;
             cmbAmbjenti.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
@@ -189,12 +183,10 @@ namespace PlatinumWeb
                 clsMesazh mesazhi = new clsMesazh(true);
 
                 
-
                 colRreshtaAmbjenti col = (tmp as colRreshtaAmbjenti) ?? new colRreshtaAmbjenti(idNdermarrje, idAmbjenti);
 
                 for (int i = 0; i < e.UpdateValues.Count; i++)
                 {
-                    //int key = Convert.ToInt32(e.UpdateValues[i].Keys[0]);
                     clsRreshtaAmbjenti oldRreshti = col.FirstOrDefault(x => x.RreshtiId == e.UpdateValues[i].MerrKeyValue<int>());
                     //viti i ndermarrjes duhet ndryshuar gjithashtu
                     clsRreshtaAmbjenti newRreshti = e.UpdateValues[i].MerrCustomUpdatedObject<clsRreshtaAmbjenti>(oldRreshti);
@@ -335,13 +327,11 @@ namespace PlatinumWeb
             }
 
 
-
         }
 
         #endregion Ambjentet
 
        
-
         #region konfiguro shpenzime operative
 
         private void mbushGridenNgaDBShpenzimeOperative(int idNdermarrje)
@@ -368,11 +358,8 @@ namespace PlatinumWeb
         }
     
 
-       
-
         private void PercaktoTemplateComboPrindi(GridViewDataComboBoxColumn cmb)
         {
-            // object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "shpenzimeKonfig");
 
             colShpenzimeOperativeKonfig col = new colShpenzimeOperativeKonfig(idNdermarrje);
 
@@ -391,7 +378,6 @@ namespace PlatinumWeb
             cmb.PropertiesComboBox.ValueField = "ShokId"; 
             cmb.PropertiesComboBox.TextField = "Pershkrimi";
             cmb.PropertiesComboBox.TextFormatString = "{0}";
-            // combo.TextField = "KodKonfigAmbjente";
             cmb.PropertiesComboBox.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
         }
         protected void gvKonfiguroShpenzimeOperative_BatchUpdate(object sender, DevExpress.Web.Data.ASPxDataBatchUpdateEventArgs e)
@@ -399,7 +385,6 @@ namespace PlatinumWeb
             try
             {
 
-                //int idAmbjenti = Convert.ToInt32(cmbAmbjenti.Value);
                 int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 int idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                 object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "shpenzimeOperativeKonfig");
@@ -421,12 +406,10 @@ namespace PlatinumWeb
 
                     for (int i = 0, count = e.UpdateValues.Count; i < count; i++)
                     {
-                        // int key = Convert.ToInt32(e.UpdateValues[i].Keys[0]);
                         clsShpenzimeOperativeKonfig oldShpenzime = col.Where(x => x.ShokId == e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
                         
                         clsShpenzimeOperativeKonfig newShpenzime = e.UpdateValues[i].MerrCustomUpdatedObject(oldShpenzime);
                         newShpenzime.IdModifikuesi = idPerdoruesi;
-                        //newShpenzime.Niveli = newShpenzime.NiveliPrindit;
                         mesazhi = newShpenzime.Modifiko(newCol);
 
 
@@ -442,7 +425,6 @@ namespace PlatinumWeb
                         };
 
                         newShpenzime = e.InsertValues[i].MerrCustomInsertedObject(newShpenzime);
-                        // newShpenzime.Niveli = AnalizeBuxheti.ktheNivelShpenzimiOperativ(newCol, newShpenzime);
                         if (newShpenzime.Niveli == 0)
                             newShpenzime.Niveli = 1;
                         mesazhi = newShpenzime.Ruaj();
@@ -485,8 +467,6 @@ namespace PlatinumWeb
                 gvKonfiguroShpenzimeOperative.DataBind();
 
 
-
-
             }
             catch (Exception err)
             {
@@ -516,7 +496,6 @@ namespace PlatinumWeb
                     else
                         DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
                 }
-                // mbushGridenNgaDB(mySessionObjects.merrIdNdermarrjeSesioni(Session), Convert.ToInt32(cmbAmbjenti.Value));
             }
         }
 
@@ -573,10 +552,8 @@ namespace PlatinumWeb
         }
 
         
-
         private void PercaktoTemplateComboPrindiParashikimShpenzimesh(GridViewDataComboBoxColumn cmb)
         {
-            // object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "shpenzimeKonfig");
 
             colParashikimShpenzPersoneliConfig col = new colParashikimShpenzPersoneliConfig(idNdermarrje, true);
 
@@ -595,7 +572,6 @@ namespace PlatinumWeb
             cmb.PropertiesComboBox.ValueField = "PShPConfigId";
             cmb.PropertiesComboBox.TextField = "Kodi";
             cmb.PropertiesComboBox.TextFormatString = "{0}";
-            // combo.TextField = "KodKonfigAmbjente";
             cmb.PropertiesComboBox.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
         }
 
@@ -619,8 +595,6 @@ namespace PlatinumWeb
         }
 
        
-
-      
         protected void gvKonfigParashikimShpenzimesh_DataBound(object sender, EventArgs e)
         {
             GridUtil.ShtoCommandColumnNeDatabound((ASPxGridView)sender, "#", "RreshtiId");
@@ -658,7 +632,6 @@ namespace PlatinumWeb
                 {
                     for (int i = 0, teUpdatetuara = e.UpdateValues.Count; i < teUpdatetuara; i++)
                     {
-                        //string key = e.UpdateValues[i].Keys[0].ToString();
                         clsParashikimShpenzPersoneliConfig konfigVjeter = col.Where(x => x.RreshtiId == e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
 
                         clsParashikimShpenzPersoneliConfig konfigUpdated = e.UpdateValues[i].MerrCustomUpdatedObject(konfigVjeter);
@@ -707,7 +680,6 @@ namespace PlatinumWeb
                             throw new Exception("Ky prind eshte i lidhur me shpenzime bija");
                         }
                         mesazh = clsParashikimShpenzPersoneliConfig.Fshi(key);
-                        //  mesazh = clsParashikimShpenzPersoneliConfig.FshiUpdateShpenzimeOperative(key, idPerdoruesi);
                         if (mesazh.Status) col.RemoveAll(x => x.PShPConfigId == key);
                     }
 
@@ -766,8 +738,6 @@ namespace PlatinumWeb
             }
 
 
-
-            
         }
 
 
@@ -799,7 +769,6 @@ namespace PlatinumWeb
 
         private void PercaktoTemplateComboPrindiZeraProkurorimesh(GridViewDataComboBoxColumn cmb)
         {
-            // object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "shpenzimeKonfig");
 
             colRealizimProkurimeshKonfig col = new colRealizimProkurimeshKonfig(idNdermarrje);
 
@@ -818,11 +787,8 @@ namespace PlatinumWeb
             cmb.PropertiesComboBox.ValueField = "RpkId";
             cmb.PropertiesComboBox.TextField = "Pershkrimi";
             cmb.PropertiesComboBox.TextFormatString = "{0}";
-            // combo.TextField = "KodKonfigAmbjente";
             cmb.PropertiesComboBox.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
         }
-
-
 
 
         protected void gvKonfiguroZeraProkurimesh_DataBound(object sender, EventArgs e)
@@ -845,7 +811,6 @@ namespace PlatinumWeb
                     else
                         DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
                 }
-                // mbushGridenNgaDB(mySessionObjects.merrIdNdermarrjeSesioni(Session), Convert.ToInt32(cmbAmbjenti.Value));
             }
         }
 
@@ -882,7 +847,6 @@ namespace PlatinumWeb
             try
             {
 
-                //int idAmbjenti = Convert.ToInt32(cmbAmbjenti.Value);
                 int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(Session);
                 int idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
                 object tmp = mySessionObjects.merrObjectNgaSesioni(Session, "zeraProkurorimeshKonfig");
@@ -904,12 +868,10 @@ namespace PlatinumWeb
 
                     for (int i = 0, count = e.UpdateValues.Count; i < count; i++)
                     {
-                        // int key = Convert.ToInt32(e.UpdateValues[i].Keys[0]);
                         clsRealizimProkurimesh zeIVjeter = col.Where(x => x.RpkId == e.UpdateValues[i].MerrKeyValue<int>()).FirstOrDefault();
 
                         clsRealizimProkurimesh zeIRi = e.UpdateValues[i].MerrCustomUpdatedObject(zeIVjeter);
                         zeIRi.IdModifikuesi = idPerdoruesi;
-                        //newShpenzime.Niveli = newShpenzime.NiveliPrindit;
                         mesazhi = zeIRi.Modifiko(newCol);
 
 
@@ -925,7 +887,6 @@ namespace PlatinumWeb
                         };
 
                         newShpenzime = e.InsertValues[i].MerrCustomInsertedObject(newShpenzime);
-                        // newShpenzime.Niveli = AnalizeBuxheti.ktheNivelShpenzimiOperativ(newCol, newShpenzime);
                         if (newShpenzime.Niveli == 0)
                             newShpenzime.Niveli = 1;
                         mesazhi = newShpenzime.Ruaj();
@@ -967,8 +928,6 @@ namespace PlatinumWeb
 
                 gvKonfiguroZeraProkurimesh.DataSource = col;
                 gvKonfiguroZeraProkurimesh.DataBind();
-
-
 
 
             }

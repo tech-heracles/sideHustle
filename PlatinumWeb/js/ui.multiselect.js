@@ -60,9 +60,6 @@
             var that = this;
 
             // set dimensions
-            //this.container.width(this.element.width() + 1);
-            //this.selectedContainer.width(Math.floor(this.element.width() * this.options.dividerLocation));
-            //this.availableContainer.width(Math.floor(this.element.width() * (1 - this.options.dividerLocation)));
             this.selectedContainer.width("" + (100 * this.options.dividerLocation) + "%");
             this.availableContainer.width("" + (100 * (1 - this.options.dividerLocation) - 1) + "%");
 
@@ -126,16 +123,7 @@
             this.container.find(".add-all").click(function () {
                 that._populateLists(that.element.find('option').attr('selected', 'selected'));
                 return false;
-                //var options = that.element.find('option').not(":selected");
-                //if (that.availableList.children('li:hidden').length > 1) {
-                //    that.availableList.children('li').each(function (i) {
-                //        if ($(this).is(":visible")) $(options[i - 1]).attr('selected', 'selected');
-                //    });
                 //} else {
-                //    options.attr('selected', 'selected');
-                //}
-                //that._populateLists(that.element.find('option'));
-                //return false;
             });            
         },
         _lang: function (lang) {

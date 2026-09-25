@@ -138,20 +138,10 @@ namespace DbCore.DbListPagesat
         /// <param name="dt"> data table me te dhenat e tipit komp list pagese</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
         //private void mbushKompMuaji(DataTable dt)
-        //{
-        //    foreach (DataRow rreshti in dt.Rows)
-        //          {
-        //              clsKomponenteMuaji komp = new clsKomponenteMuaji();
-        //              komp.mbushKomponenteMuaji(rreshti);
-        //              Add(komp);
-        //          }
-        //}
 
         #endregion
 
 
     }
 }
-
-
 

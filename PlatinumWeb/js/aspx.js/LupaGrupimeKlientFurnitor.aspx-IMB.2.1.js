@@ -57,8 +57,6 @@ function ProcessKeyPress() {
 
 function zgjidhElement() {
     if (window.parent.identifikuesPerPopupKodifikimin == "Shto_KlientFurnitor" || window.parent.identifikuesPerPopupKodifikimin == "KonfigurimDokumentash") {
-//        if (gvLupaGrupKlientFurnitor.GetSelectedRowCount() == 1)
-//            gvLupaGrupKlientFurnitor.GetRowValues(gvLupaGrupKlientFurnitor.GetFocusedRowIndex(), 'IdGrupi;KodGrupi;PershkrimGrupi;NivelGrupi', OnCompletePerWebServiceOneRow);
 //        else
         gvLupaGrupKlientFurnitor.GetSelectedFieldValues('IdGrupi;KodGrupi;PershkrimGrupi;NivelGrupi', OnCompletePerWebService);
     }
@@ -70,7 +68,6 @@ function zgjidhElement() {
 
 function OnGridSelectionChanged() {
     gvLupaGrupKlientFurnitor.GetSelectedFieldValues('IdGrupi;KodGrupi;PershkrimGrupi;NivelGrupi', OnGridSelectionComplete);
-    //gvLupaGrupKlientFurnitor.GetRowValues(gvLupaGrupKlientFurnitor.GetFocusedRowIndex(), 'IdGrupi;KodGrupi;PershkrimGrupi;NivelGrupi', OnGridSelectionComplete);
 }
 
 function OnCompletePerWebService(values) {
@@ -85,26 +82,9 @@ function OnCompletePerWebService(values) {
 }
 
 
-//function OnCompletePerWebServiceOneRow(values) {
-//    if (values != null && values.length != 0) {
-//        PlatinumWeb.wsfunc.eshteKodifikimiKFPrind(values[0], SucceededCallback);
-//    }
 //    else
-//        myMesazh.ShtoMesazhGabimi("Zgjidhni të paktën një rresht!");
-//}
 
-//function OnCompletePerWebServiceMultipleRows(values) {
-//    if (values != null && values.length != 0) {
-//        var id = '';
-//        for (i = 0; i < values.length; i++) {
-//            if (values[i][0] != undefined)
-//                id = id + ';' + values[i][0];
-//        }
-//        PlatinumWeb.wsfunc.janeKodifikimetKFPrind(id, SucceededCallback);
-//    }
 //    else
-//        myMesazh.ShtoMesazhGabimi("Zgjidhni të paktën një rresht!");
-//}
 
 function SucceededCallback(result) {
     if (result == "true" || result == true) {
@@ -117,7 +97,6 @@ function SucceededCallback(result) {
 
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     var kodi = '';
@@ -174,13 +153,8 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-    //    if (e.item.name == 'Filtra')
-    //        popZgjidhFiltrin.Show();
-    //    if (e.item.name == 'Ruaj')
-    //        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
-        //OnGridSelectionChanged();
         zgjidhElement();
     }
     else if (e.item.name = "Anullo") {

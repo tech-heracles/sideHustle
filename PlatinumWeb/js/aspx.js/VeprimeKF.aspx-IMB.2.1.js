@@ -101,12 +101,7 @@ function OnGridSelectionCompleteEksport(values) {
 
 var mbush = false;
 function OnGridDoubleClick(e, index) {
-//        if (!focuschange) {
-//            myMenu.ShikoClick(editor, 'Shto_VeprimeKF.aspx?shtim_modifikim=modifikim&numer=' + numur + '&indexrow=' + indexModifiko + '&id=' + id );
 //        } else {
-//            indexModifiko = index;
-//            mbush = true;
-    //        } 
         indexModifiko = index;
     grid_VeprimeKF.GetRowValues(indexModifiko, 'IdVeprimeKFKoka;NrDok', OnGetRowValues); 
         mbush = true;

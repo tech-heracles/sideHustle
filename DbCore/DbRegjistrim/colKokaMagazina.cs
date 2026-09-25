@@ -46,12 +46,6 @@ namespace DbCore.DbRegjistrim
         /// konstruktor me 1 parameter
         /// </summary>
         /// <param name="idNdermVit">id qe lidh ndermarrjen me vitin</param>
-        //public colKokaMagazina(int idNdermVit)
-        //{
-        //    clsDatabaseRegjistrim dbKokaMagazina = new clsDatabaseRegjistrim();
-        //    mbushKokatMagazina(dbKokaMagazina.ktheGjitheKokaMagazina(idNdermVit), dbKokaMagazina);
-        //    dbKokaMagazina.Dispose();
-        //}
         public static DataTable merrKokaMagazinaDT(int idndermvit, int idperdoruesi, string datanga, string dataderi, bool gjithedok, bool meautorizim, int eshteHyrje)
         {
             using (clsDatabaseRegjistrim dbartikuj = new clsDatabaseRegjistrim())
@@ -61,23 +55,12 @@ namespace DbCore.DbRegjistrim
         }
 
         //[Obsolete("Perdor: DataRow ktheKokaMagazinaSipasIDGjenerues(int idGjenerues)", false)]  
-        //public colKokaMagazina(int idGjenerues)
-        //{
-        //    clsDatabaseRegjistrim regjDb = new clsDatabaseRegjistrim();
-        // this.AddRange(  mbushArrayListKokaMagazina(regjDb.merrKokaMagazinaSipasIDGjenerues(idGjenerues)));
-        //}
         //   /// <summary>
         ///// konstruktor me 3 parametra
         ///// </summary>
         ///// <param name="filtrat">filtrat</param>
         ///// <param name="idNderm">id e ndermarrjes</param>
         ///// <param name="idNdermVit">id e ndermarrjes qe lidhet me vitin</param>
-        //public colKokaMagazina(string filtrat, string shpenz)
-        //{
-        //    clsDatabaseRegjistrim dbKokeShitje = new clsDatabaseRegjistrim();
-        //    mbushKokatMagazina(dbKokeShitje.ktheFaturatSipasFiltraveShpez(filtrat), dbKokeShitje);
-        //    dbKokeShitje.Dispose();
-        //}
 
         /// <summary>
         /// mbush koken e magazines sipas id gjenerues
@@ -179,7 +162,6 @@ namespace DbCore.DbRegjistrim
                 {
                     if (id.ToString() == faf.Rows[a]["IDKOKAMAGAZINA"].ToString())
                     {
-                        //err.Columns["Gabimi"].ExtendedProperties["WrapMode"] = true;
                         object[] arr = { faf.Rows[a]["MAGKODKONFIGAMBJENTE"] + " " + faf.Rows[a]["NRDOK"] + " " + faf.Rows[a]["DTDOK"], Environment.NewLine + "Ky dokument eshte i lidhur me FAF dhe nuk mund te fshihet! " + Environment.NewLine + faf.Rows[a]["DOKFAF"].ToString().Replace("&lt;/br&gt;", Environment.NewLine), nrreshta, faf.Rows[a]["NRFAF"] };
                         err.AddRow(arr);
                         break;
@@ -303,7 +285,6 @@ namespace DbCore.DbRegjistrim
                 int roundedPosition = (int)Math.Round((double)((nrreshta / (double)max) * 100));
                 if (e.Value != roundedPosition)
                     e.UpdateProgress(roundedPosition, " " + rm.GetString("msgRivleresimMagazineTekArtikulliMeKod", ci) + " " + clsKoka.NrDok + " dhe date " + clsKoka.DtDok);
-
 
 
             }
@@ -561,20 +542,12 @@ namespace DbCore.DbRegjistrim
             if (dt == null)
                 return;
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaMagazina koka = new clsKokaMagazina();
-                    //koka.mbushKokaMagazina(rreshti, db);
                     Add(new clsKokaMagazina(rreshti, db));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
         }
 
         #endregion

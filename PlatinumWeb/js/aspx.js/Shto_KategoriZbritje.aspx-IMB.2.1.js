@@ -113,7 +113,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
     if (e.item.name == 'Ruaj')
         merrTeDhena(s, e);
@@ -126,7 +125,6 @@ function mbushfusha() {
     $('#hfShtimModifikim').val("modifikim");
     indexModifiko = gvKokaKategoriZbritje.GetFocusedRowIndex();
     if (indexModifiko == -1)
-        //        myMesazh.ShtoMesazhGabimi('Duhet te zgjidhni nje Kategori Zbritje!');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgZgjidhKategori"));
     else
         gvKokaKategoriZbritje.GetRowValues(indexModifiko, 'IdKokaKategoriZbritje;KodKategoriZbritje;PershkrimKategoriZbritje;Zbritja;IdMonedha', OnGetRowValuesMod); Utils.shfaqLoadingGif();;
@@ -227,7 +225,6 @@ function SucceededCallbackKonfig(result) {
         var arrTabela = ['tblNenkategoria'];
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
-    //$("#dvKategoria").show();
 }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
@@ -261,10 +258,8 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet')[0];
     var hfShtimModifikim = $('#hfShtimModifikim')[0]; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId')[0];  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //  indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvKokaKategoriZbritje, "417")
     if (hf.value == "true") {
         if (hfShtimModifikim.value !== "modifikim") {
-            //                    aktivizoFusha(hfKontrollet.value);
 
             window.mbush = false;
             hfShtimModifikim.value = "shtim"; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
@@ -367,7 +362,6 @@ function merrTeDhena(s, e) {//merren te dhenat qe ka grida
 
             for (j = 0; j < arrRreshtat.length; j++) {
                 if (arrRreshtat[j] == vleratRreshtitTeRi) {
-                    //                    myMesazh.ShtoMesazhGabimi("Nuk lejohen dy rreshta njelloj");
                     myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgRreshtaNjelloj"));
                     e.processOnServer = false;
                 }
@@ -376,7 +370,6 @@ function merrTeDhena(s, e) {//merren te dhenat qe ka grida
             vleratRreshtit = myFormatDate.formatDate(editorDateFillimi.GetValue(), 'dd/MM/yyyy') + myFormatDate.formatDate(editorDateMbarimi.GetValue(), 'dd/MM/yyyy') + editorVleraMin.GetText() + editorVleraMax.GetText();
             arrRreshtat[cou1] = vleratRreshtit;
         }
-        //cou1 += 1;
         cou1 = cou1 + 1;
     }
 
@@ -434,9 +427,7 @@ function TextChangedPrioriteti(editor, key) {
 function TextChangedDateFillimi(editor, key) {
     editorDateFillimi = Utils.ktheKontroll('dteDateFillimi' + key);
     editorDateMbarimi = Utils.ktheKontroll('dteDateMbarimi' + key);
-    //alert(editorDateMbarimi.GetDate());
     if (editorDateMbarimi.GetDate() != null && editorDateFillimi.GetDate() > editorDateMbarimi.GetDate()) {
-        //        myMesazh.ShtoMesazhGabimi('Data e fillimit nuk mund te jete me e madhe se data e mbarimit');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgDataGabim"));
 
         editorDateFillimi.SetDate(editorDateMbarimi.GetDate())
@@ -452,7 +443,6 @@ function TextChangedDateMbarimi(editor, key) {
     editorDateFillimi = Utils.ktheKontroll('dteDateFillimi' + key);
     editorDateMbarimi = Utils.ktheKontroll('dteDateMbarimi' + key);
     if (editorDateFillimi.GetDate() > editorDateMbarimi.GetDate()) {
-        //        myMesazh.ShtoMesazhGabimi('Data e fillimit nuk mund te jete me e madhe se data e mbarimit');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgDataGabim"));
         editorDateMbarimi.SetDate(editorDateFillimi.GetDate())
     }
@@ -500,7 +490,6 @@ function TextChangedVleraMax(editor, key) {
     switch (cmbLlojiValue) {
         case "1": //perqindje
             if (isNaN(vleraMax) || parseInt(vleraMin) > parseInt(vleraMax) || parseInt(vleraMax) > 100) {
-                //        myMesazh.ShtoMesazhGabimi('Vlera Maximum duhet te jete numer.');
                 myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgVleraMaximumPerqindje")); //TODO ALDA - "Vlera maximum duhet nga min ne 100 per llojin perqindje"//
                 editor.SetText('0.00');
                 return;
@@ -544,17 +533,14 @@ function TextChangedLloji(editor, key) {
 function TextChangedZbritja(editor, key) {
     var cmbLloji = "cmbLloji" + key; //nderton variablin ne varesi te rreshtit te grides 
     if (isNaN(editor.GetText())) {
-        //        myMesazh.ShtoMesazhGabimi('Zbritja duhet te jete numer.');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgZbritjaNumer"));
         editor.SetText('0.00');
     }
     if (parseFloat(editor.GetText()) < 0) {
-        //        myMesazh.ShtoMesazhGabimi('Zbritja duhet te jete numer pozitiv.');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgZbritjaPozitive"));
         editor.SetText('0.00');
     }
     if (parseFloat(editor.GetText()) > 100 && (eval(cmbLloji)).GetText() != "Vlere") {
-        //        myMesazh.ShtoMesazhGabimi('Zbritja duhet te jete numer pozitiv.');
         myMesazh.ShtoMesazhGabimi(hfMsgZbritje.Get("MsgZbritjaMaximum100"));
         editor.SetText('0.00');
     }
@@ -597,7 +583,6 @@ function enable() {
         editorPrioriteti = Utils.ktheKontroll('cmbPrioriteti' + i);
 
         arrayListPri[count] = i.toString() + ":" + editorPrioriteti.GetValue();
-        //count += 1;
         count = count + 1;
     }
     hidField.value = arrayListPri;

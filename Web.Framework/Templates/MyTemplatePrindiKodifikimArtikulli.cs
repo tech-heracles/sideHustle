@@ -62,7 +62,6 @@ namespace PlatinumWeb.Templates
                 {
                     if (gridContainer.Text == "0")
                     {
-                        //cmb.Text = "";
                         cmb.SelectedIndex = -1;
                         cmb.Width = Unit.Percentage(100);
 
@@ -71,7 +70,6 @@ namespace PlatinumWeb.Templates
                     {
                         if (gridContainer.Text == "&nbsp;")
                         {
-                            //cmb.Text = "";
                             cmb.SelectedIndex = -1;
                             cmb.Width = Unit.Percentage(100);
                         }

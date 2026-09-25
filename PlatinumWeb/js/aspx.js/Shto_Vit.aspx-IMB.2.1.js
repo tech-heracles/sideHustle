@@ -366,7 +366,6 @@ function merrTeDhena() {
     for (i = 0; i < rreshta; i++) {
         editor = Utils.ktheKontroll('kycur' + i);
         kycje[count] = i.toString() + ":" + editor.GetChecked();
-        //count += 1;
         count = count + 1;
     }
     count = 0;
@@ -439,7 +438,6 @@ function Active_TabChanging(s, e) {
         if (e.tab.index == 2) {
             if (dteFillimiViti.GetText() != '' && dteMbarimiViti.GetText() != '') {
                 if (lista) {
-                    //  gvPeriudha.PerformCallback(-1);
                     lista = false;
                 }
             }

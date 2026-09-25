@@ -100,7 +100,6 @@ namespace PlatinumWeb
         }
 
 
-
         public void perktheLabel()
         {
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -294,9 +293,7 @@ namespace PlatinumWeb
                 colnew.VisibleIndex = 5;
                 if (colnew.PropertiesComboBox.Items.Count == 0)
                 {
-                    //grid_RegDok.Columns.Remove(grid_RegDok.Columns["LlojiKf"]);
                     colnew.PropertiesComboBox.Items.AddRange((ListEditItemCollection)mySessionObjects.merrDsComboGrideNeSession(Session, "lupakomp" + "colLlojiKf"));
-                    //grid_RegDok.Columns.Add(colnew);
                 }
             }
         }
@@ -336,7 +333,6 @@ namespace PlatinumWeb
         {
             gvLupaK.PercaktoTemplateGroupSummaryFooter(clsFunksione.krijoNumer(int.Parse(Request.QueryString["formatnr"]), "0"), "Vlera");
             gvLupaK.ShtoGroupSummary(clsFunksione.krijoNumer(int.Parse(Request.QueryString["formatnr"]), "0"), DevExpress.Data.SummaryItemType.Custom, "Vlera");
-            //GridUtil.PercaktoTemplateGroupRowContent(gvLupaK, clsFunksione.krijoNumer(int.Parse(Request.QueryString["formatnr"]), "0"));
         }
 
         protected void gvLupaK_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
@@ -357,7 +353,6 @@ namespace PlatinumWeb
 
         protected void gvLupaK_CustomGroupDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
         {
-            //if(e.Column.Name==gvLupaK.GetGroupedColumns()[0].Name)
         }
 
         protected void gvLupaK_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)

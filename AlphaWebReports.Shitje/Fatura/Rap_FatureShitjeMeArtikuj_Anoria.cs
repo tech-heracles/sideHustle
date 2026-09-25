@@ -31,7 +31,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-           // xrLabel11.Text = rm.GetString("labelNIPT", ci);
             xrLabel6.Text = rm.GetString("labelRaportNumer", ci) + ":";
             xrLabel7.Text = rm.GetString("labelRaportData", ci);
             xrLabel14.Text = rm.GetString("labelRaportTel", ci);
@@ -39,8 +38,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel15.Text = rm.GetString("labelRaportLlogariBankare", ci);
             xrTableCell4.Text = rm.GetString("labelKodi", ci);
             xrTableCell5.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrTableCell7.Text = rm.GetString("labelNjesia", ci);
-            //xrTableCell11.Text = rm.GetString("labelTVSH", ci);
             xrLabel2.Text = rm.GetString("lblRaportMagazina", ci) + ":";
             xrLabel12.Text = rm.GetString("lblRaportFatureAnoriaTelCel", ci);
         }

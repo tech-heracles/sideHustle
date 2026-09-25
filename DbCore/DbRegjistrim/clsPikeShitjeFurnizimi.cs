@@ -431,7 +431,6 @@ namespace DbCore.DbRegjistrim
         {
             colPikaShitjeFurnizimi data = new colPikaShitjeFurnizimi();
             data.mbushGjithePikeShitjeFurnizimi(this.IdNdermarje);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
@@ -444,8 +443,6 @@ namespace DbCore.DbRegjistrim
         public clsPikeShitjeFurnizimi merrPikeSipasKodit()
         {
             clsPikeShitjeFurnizimi data = new clsPikeShitjeFurnizimi(this.Kodi, this.IdNdermarje);
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            //return data.merrNjesiAdministrativeSipasKodit(this);
             return data;
         }
 

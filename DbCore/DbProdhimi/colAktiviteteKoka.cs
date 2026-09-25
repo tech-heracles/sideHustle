@@ -143,18 +143,10 @@ namespace DbCore.DbProdhimi
         private bool mbushAktivitet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAktiviteteKoka aktivitet = new clsAktiviteteKoka();
-                    //aktivitet.mbushAktivitet(rreshti);
                     Add(new clsAktiviteteKoka(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

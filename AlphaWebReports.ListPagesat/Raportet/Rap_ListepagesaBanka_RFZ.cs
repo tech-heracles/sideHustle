@@ -34,20 +34,12 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
 
         private void caktoFormatinENumrave()
         {
-            //xrLabel7.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel7.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
             ////xrLabel9.XlsxFormatString = 0.ToString("N" + shifraPasPresjes);
-            //xrLabel9.DataBindings[0].FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel9.Summary.FormatString = "{0:n" + shifraPasPresjes + "}";
-            //xrLabel7.BeforePrint += label_BeforePrint;
-            //xrLabel9.BeforePrint += label_BeforePrint;
         }
 
 
- 
         private void xrLabel1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //xrLabel1.Text = Convert.ToString(i++);
         }
 
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -63,19 +55,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",
                       System.Reflection.Assembly.Load("App_GlobalResources"));
-
-           // xrLabel11.Text = rm.GetString("labelRaportEmri", ci);
-           // xrLabel12.Text = rm.GetString("RaportListëpagesaBankaTitulli", ci);
-           // FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-           // xrLabel35.Text = rm.GetString("labelLogoIMB", ci);
-           //xrLabel41.Text = rm.GetString("labelRaportiNr", ci);
-           // xrLabel1.Text = rm.GetString("labelRaportEmri", ci);
-           // xrLabel45.Text = rm.GetString("labelRaportAtesia", ci);
-           // xrLabel13.Text = rm.GetString("labelRaportMbiemri", ci);
-           // xrLabel14.Text = rm.GetString("labelRaportNrSigurimeve", ci);
-           // xrLabel47.Text = rm.GetString("labelRaportNrLlogariseRrjedhese", ci);
-           // xrLabel15.Text = rm.GetString("labelRaportPagaNeto", ci);
-          //  xrLabel8.Text = rm.GetString("labelRaportiTotali", ci);
 
 
         }

@@ -132,18 +132,10 @@ namespace DbCore.DbListPagesat
         private bool mbushProfesioneTitujPune(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsProfesioneTitujPune profesion = new clsProfesioneTitujPune();
-                    //profesion.mbushProfesioneTitujPune(rreshti);
                     Add(new clsProfesioneTitujPune(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

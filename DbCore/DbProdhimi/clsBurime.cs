@@ -441,8 +441,6 @@ namespace DbCore.DbProdhimi
                 return new clsMesazh(false, STR_PlotesoniEmertiminEBurimit);
             if (tipi == 0)
                 return new clsMesazh(false, STR_PlotesoniTipinEBurimit);
-            //if (nrLlogari == "")
-            //    return new clsMesazh(false, STR_PlotesoniLlogarineEBurimit);
 
             if (shtim && ekzistonBurim(kodi, idNdermarje))
                 return new clsMesazh(false, STR_EkzistonNjeBurimMeKeteKodJuLutemShenoniNjeKodTje);
@@ -513,8 +511,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh ruaj(clsDatabazeProdhimi db)
         {
             clsMesazh mesazh = new clsMesazh();
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             int idburim = 0;
             mesazh = db.ruajBurim(out idburim, kodi, emertimi, tipi, kostoPlan, idLlogari, aktiv, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
             idBurimi = idburim;
@@ -557,8 +553,6 @@ namespace DbCore.DbProdhimi
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi(clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             clsMesazh u_fshi = db.fshiBurimStatus(idBurimi, idPerdoruesi);
             return u_fshi;
         }

@@ -21,7 +21,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         public Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404(CultureInfo ci, int idNdermarrje, int idPerdoruesi)
         {
             InitializeComponent();
-           // parameterIdNderm.Value = idNdermarrje;
         }
     }
 }

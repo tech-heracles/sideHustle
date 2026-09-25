@@ -29,7 +29,6 @@ function OnGridDoubleClick(index) {
 }
 
 
-
 $(document).ready(function () {
     changeName();
     $(document).keydown(function (e) {
@@ -135,9 +134,6 @@ function OnGetRowValuesMod(values) {
     }
     txtPershkrimi.SetText(values[2]);
     txtAdresa.SetText(values[3]);
-    //        if (values[7] == true)
-    //            cmbShitjeFurnizim.SetText('Pike Shitje');
-    //        else cmbShitjeFurnizim.SetText('Pike Furnizimi');
     cbAktiv.SetChecked(values[4]);
     cmbDegeAdministrative.SetValue(values[6]);
     if ($('#hfShtimModifikim').val() == 'klonim') {
@@ -226,26 +222,16 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 }
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //                var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfLidhur = $("#hfLidhur");
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblPikaShitjeFurnizimi'];
-        //                myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
         if (hfMod.val() == "shtim") {
             hfNrAuto.Clear();
@@ -253,40 +239,17 @@ function SucceededCallbackKonfig(result) {
             vendosNrAutomatik(colAtrTrupi, colKontrollet);
         }
     }
-    // $("#dvPika").show();//$("#dvPika")[0].style.visibility = 'visible';
 }
 
-//    function SucceededCallbackKonfigurimi(result) {
-//        if (result != "") {
-//            resultkonf = result;
-//            var vlerat = '';
-//            vlerat = result.split('*');
-//            var kontrollet = vlerat[0].split(';');
-//            Lupa(kontrollet);
-//            var hf = $('#hfKontrollet')[0];
-//            var hfLidhur = $("#hfLidhur")[0];
-//            var hfMod = $('#hfShtimModifikim')[0];
-//            var arrTabela = ['tblPikaShitjeFurnizimi'];
-//            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-//            gvPikeShitjeFurnizimi.PerformCallback("524" + ";" + cmbKonfigurimi.GetText());
-//        } $("#dvPika")[0].style.visibility = 'visible';
-//    }
 function vendosNrAutomatik(colAtrTrupi, colKontrollet) {
     myNrAuto.vendosNrAutomatik(colAtrTrupi, colKontrollet, new Date());
-    //            myNrAuto.vendosNrAutomatikCelje(kontrollet, new Date());
 }
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
-    //        var hf6 = $("#hfLupaAutorizimi")[0];
-    //        for (var i = 0; i < kontrollet.length - 1; i++) {
-    //            if (kontrollet[i].split(',')[0] == "cmbAutorizimi")
-    //                hf6.value = kontrollet[i].split(',')[11].toString();
-    //        }
 }
 
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //            var hfLidhur = $("#hfLidhur")[0];
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 
@@ -327,7 +290,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvPikeShitjeFurnizimi, "524")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvPikeShitjeFurnizimi, "524", pastrofusha, hfTeDrejta);
 }
 
@@ -393,11 +355,6 @@ function kontrollokoordinate(koordinata) {
             }
            
 
-            //if (!isNaN(koordinata[i])) continue;
-            //else {
-            //    return false;
-            //    break;
-            //}
         }
     return kontroll;
 }

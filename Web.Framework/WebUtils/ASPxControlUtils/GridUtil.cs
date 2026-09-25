@@ -55,27 +55,17 @@ namespace PlatinumWeb
         {
             grid.KeyboardSupport = true;
 
-            //PercaktoSettingsMeLartesi(grid, Session, 600);
         }
 
         public static void PercaktoSettingsMeLartesi(ASPxGridView grid, HttpSessionState session, int height)
         {
             throw new NotImplementedException();
-            //clsPerdorues p = mySessionObjects.kthePerdorues(Session);
 
             // //per momentin eshte vetem lloji i pagerit
 
-            // grid.SettingsPager.PageSize = 15;
-
-            // if (p.GridaEndless)
-            // {
-            //     grid.SettingsPager.Mode = GridViewPagerMode.EndlessPaging;
 
             //     per momentin po ja vendosim fixe
-            //     grid.ClientSideEvents.Init = string.Format("function(s,e){{s.SetHeight({0});}}",height);
-            // }
             // else
-            //     grid.SettingsPager.Mode = GridViewPagerMode.ShowPager;
         }
 
         /// <summary>
@@ -308,7 +298,6 @@ namespace PlatinumWeb
                 banda.Columns.Add(col);
                 banda.Width = Unit.Percentage(banda.Width.Value + col.Width.Value);
                 banda.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-                // grida.Columns.Remove(grida.Columns[kolonat[i]]);
             }
 
             grida.Columns.Add(banda);
@@ -661,7 +650,6 @@ namespace PlatinumWeb
             filter = filter != null ? filter : clsFiltraGrida.MerrFilterDefault(idKonfigambjenti);
             if (filter != null && filter.IdFiltra != 0 && !string.IsNullOrEmpty(filter.KoloneRenditje))
             {
-                //string sortOrder = filter.DrejtimRenditje ? ColumnSortOrder.Ascending.ToString() : ColumnSortOrder.Descending.ToString();
                 return filter.KoloneRenditje; // $"{filter.KoloneRenditje};{sortOrder}";
             }
             return string.Empty;
@@ -697,7 +685,6 @@ namespace PlatinumWeb
                 if (col == null)
                 {
                     //ImbLogger.Error(
-                    //    $"percaktoVisibleColumnsGridSipasKodKonfigurimi({idGjuha}, {idNdermarrje}, {emergride}, {paramKodKonfigurimi}, {paramIdKomponente}, {idGjuha}, {mefilterDefault}) - col == null, Grida == {emergride.ToString()}, Kolona == {o.KodiTrupi}");
                     continue;
                 }
 
@@ -966,7 +953,6 @@ namespace PlatinumWeb
             renditGriden(filtra.KoloneRenditje, grida);            
             //grida.SortBy(grida.Columns[filtra.KoloneRenditje], filtra.DrejtimRenditje
             //    ? ColumnSortOrder.Ascending
-            //    : ColumnSortOrder.Descending);
         }
 
         public static void AplikoFilter(int idGjuha, int idNdermarrje, ASPxGridView grida, string filtraKodi, string emriGrides, string emerKomponente, int idKonfigurimi)
@@ -1073,7 +1059,6 @@ namespace PlatinumWeb
             commandCol.ButtonRenderMode = GridCommandButtonRenderMode.Image;// ButtonType.Image;
             grid.Columns.Add(commandCol);
             grid.KonfiguroSearchPanel();
-            //grid.AddNewRow();
             if (endlessScroll)
                 grid.SettingsPager.Mode = GridViewPagerMode.EndlessPaging;
         }
@@ -1111,30 +1096,6 @@ namespace PlatinumWeb
         }
         
         //public static void konfigGrideListeEMadhePaThemePerKonfigurim(ASPxGridView grid, String KeyFieldName, bool searchPanelVisible = true, bool LoadingPanelAktiv = true)
-        //{
-        //    grid.Settings.ShowGroupPanel = true;
-        //    grid.KeyFieldName = KeyFieldName;
-        //    grid.SettingsPager.PageSize = 50;
-        //    grid.Settings.ShowHeaderFilterButton = true;
-        //    grid.SettingsBehavior.AllowFocusedRow = true;
-        //    grid.Settings.ShowFilterRow = true;
-        //    grid.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
-        //    grid.Settings.ShowFilterRowMenu = true;
-        //    grid.SettingsBehavior.EnableCustomizationWindow = true;
-        //    grid.SettingsPopup.CustomizationWindow.Height = 250;
-        //    grid.SettingsPopup.CustomizationWindow.HorizontalAlign = PopupHorizontalAlign.Center;
-        //    grid.SettingsPopup.CustomizationWindow.VerticalAlign = PopupVerticalAlign.Middle;
-        //    grid.SettingsPopup.CustomizationWindow.Width = 250;
-        //    grid.SettingsResizing.ColumnResizeMode = ColumnResizeMode.NextColumn;
-        //    grid.SettingsText.GroupPanel = MessagesResource.Messages["mesazhDragColumnHeader"];
-        //    grid.SettingsText.EmptyDataRow = MessagesResource.Messages["lblNukKaTeDhena"];
-        //    grid.SettingsText.CustomizationWindowCaption = MessagesResource.Messages["mesazhZgjidhniFushat"];
-        //    grid.Settings.ShowTitlePanel = true;
-        //    if (searchPanelVisible)
-        //        grid.KonfiguroSearchPanel();
-        //    if (!LoadingPanelAktiv)
-        //        grid.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.Disabled;
-        //}
 
         /// <summary>
         /// percakton atributet e grides per popup e medha, por pa percaktuar temen
@@ -1177,8 +1138,6 @@ namespace PlatinumWeb
             grid.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Bottom;
             grid.Settings.UseFixedTableLayout = true;
             grid.KeyFieldName = KeyFieldName;
-            //grid.CssFilePath = "~/App_Themes/BlackGlass/{0}/styles.css";
-            //grid.CssPostfix = "BlackGlass";
             grid.SettingsBehavior.AllowFocusedRow = true;
             grid.SettingsPager.Mode = GridViewPagerMode.ShowAllRecords;
             grid.SettingsEditing.Mode = GridViewEditingMode.Inline;
@@ -1198,8 +1157,6 @@ namespace PlatinumWeb
         public static void percaktoAtributeTeGridesShtoPaTheme(ASPxGridView grid, String KeyFieldName)
         { //percakton atribute te grides
             grid.KeyFieldName = KeyFieldName;
-            //grid.CssFilePath = "~/App_Themes/BlackGlass/{0}/styles.css";
-            //grid.CssPostfix = "BlackGlass";
             grid.SettingsPager.PageSize = 20;
             grid.SettingsBehavior.AllowSelectByRowClick = true;
             grid.SettingsBehavior.AllowFocusedRow = true;
@@ -1222,7 +1179,6 @@ namespace PlatinumWeb
                 LogManager.GetCurrentClassLogger().Error($"percaktoVisibleColumnsShto({idGjuha}, {idNdermarrje}, {grid}, {emriGrides}, {emriKomponentes}) - koka.IdGridaKoka == 0");
                 return;
             }
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri(emriGrides, emriKomponentes,  DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             koka.OColGridaTrupi.mbushTrupin(idGjuha, koka.IdGridaKoka);
             foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
             {
@@ -1254,7 +1210,6 @@ namespace PlatinumWeb
         /// <param name="emriKomponentes">emri i komponentes</param>
         public static void percaktoVisibleColumns(int idGjuha, int idNdermarrje, ASPxGridView grid, String emriGrides, String emriKomponentes)
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             clsGridaKoka koka = new clsGridaKoka(idGjuha, emriGrides, emriKomponentes, idNdermarrje);
             if (koka.IdGridaKoka == 0)
             {
@@ -1280,7 +1235,6 @@ namespace PlatinumWeb
                 col.Settings.ShowInFilterControl = DefaultBoolean.True;
                 col.CellStyle.Wrap = DefaultBoolean.False;
                 col.ShowInCustomizationForm = gridaKolone.VisibleCostumize;
-                //col.Width = Unit.Percentage(gridaKolone.WidthTrupi);
             }
         }
 
@@ -1307,7 +1261,6 @@ namespace PlatinumWeb
                 {
                     LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumnsMeWidth({0}, {1}, {2}, {3}, {4}, {5}) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes, gridaKolone.KodiTrupi));
                     continue;
-                    //  throw new MyException($"percaktoVisibleColumnsMeWidth({idGjuha}, {idNdermarrje}, {grid}, {emriGrides}, {emriKomponentes}) - gridaKolone.KodiTrupi: {gridaKolone.KodiTrupi}");                    
                 }
                 gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
                 gridViewColumn.VisibleIndex = gridaKolone.IndexTrupi;
@@ -1327,7 +1280,6 @@ namespace PlatinumWeb
 
         public static void percaktoVisibleColumnsMeWidthPaVisibleIndex(int idGjuha, int idNdermarrje, ASPxGridView grid, String emriGrides, String emriKomponentes)
         {
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             clsGridaKoka koka = new clsGridaKoka(idGjuha, emriGrides, emriKomponentes, idNdermarrje);
             if (koka.IdGridaKoka == 0)
             {
@@ -1344,7 +1296,6 @@ namespace PlatinumWeb
                     return;
                 }
                 gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
-                // grid.Columns[gridaKolone.KodiTrupi].VisibleIndex = gridaKolone.IndexTrupi;
                 gridViewColumn.Visible = gridaKolone.VisibleTrupi;
 
                 GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
@@ -1370,7 +1321,6 @@ namespace PlatinumWeb
                 string kodkonfigurimi = paramKodKonfigurimi;
                 clsKonfigurimAmbjenti clsKonf = new clsKonfigurimAmbjenti();
                 clsKonf.mbushKonfiguriminMeKod(kodkonfigurimi, idNdermarrje, idGjuha);
-                //DbCore.DbShare.colKonfigurimAmbjenti colKonf = share.ktheKonfiguriminMeKod(kodkonfigurimi, DbCore.clsFunksione.merrIdNdermarrjeSesioni(Session));
                 idKonfigurim = clsKonf.IdKonfigAmbjente;
             }
             else
@@ -1381,7 +1331,6 @@ namespace PlatinumWeb
                 idKonfigurim = clsKonf.IdKonfigAmbjente;
             }
             colGridaTrupi colGrida = new colGridaTrupi(Int32.Parse(idkomponente), idKonfigurim, idGjuha);
-            //DbCore.DbAdmin.colGridaTrupi colGrida = share.ktheGridenKonfigurimitKomponentes(int.Parse(idkomponente), idKonfigurim);
             foreach (clsGridaTrupi o in colGrida)
             {
 
@@ -1408,11 +1357,8 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             if (typeof(GridViewDataComboBoxColumn) != grida.Columns["ModelAutomjeti"].GetType())
             {
-                //int indexi = ASPxGridView_Automjete.Columns["ModelAutomjeti"].VisibleIndex;
                 grida.Columns.Remove(grida.Columns["ModelAutomjeti"]);
                 grida.Columns.Add(colnew);
-                //if (visibleIndex)
-                //    colnew.VisibleIndex = indexi;
                 colModeleAutomjetesh modelet = new colModeleAutomjetesh();
                 modelet.Add(new clsModelAutomjeti(0, "", "", 0, 0, 0, 0));
                 modelet.mbushModeleAutomjeteshSipasNdermarrjes(idNdermarrje);
@@ -1426,7 +1372,6 @@ namespace PlatinumWeb
             else
             {
                 colnew = (GridViewDataComboBoxColumn)grida.Columns["ModelAutomjeti"];
-                //if (colnew.PropertiesComboBox.Items.Count == 0)
                 colnew.PropertiesComboBox.DataSource = mySessionObjects.merrDsComboGrideNeSession(Session, "colModelet");
             }
         }
@@ -1491,7 +1436,6 @@ namespace PlatinumWeb
                 if (col == null)
                 {
                     //Komentuar pasi mbushte file-in e logeve me shkrime te shumeta dhe ngadalsonte projektin
-                    //ImbLogger.Error($"percaktoVisibleColumnsSipasKonfigurimit({emriGrides}, {emriKomponentes}, {idKonfigurim}, {percaktoIndex}, {idGjuha},{gridaKolone.KodiTrupi}) - col == null");
                     continue;
                 }
                 
@@ -1584,7 +1528,6 @@ namespace PlatinumWeb
                     }
                 }
                 clsKusht kusht = new clsKusht(clsKonf.IdKonfigAmbjente, "FILTER");///marim kushtin filter
-                //kusht.Vlera = idfiltri;
 
                 bool mod = trupiGrida.update(dbAdmin, idGjuha);///ruajme ndryshimet ne gride
 
@@ -1675,7 +1618,6 @@ namespace PlatinumWeb
                     }
                 }
                 clsKusht kusht = new clsKusht(idKonfigAmbjente, "FILTER");///marim kushtin filter
-                //kusht.Vlera = idfiltri;
 
                 bool mod = trupiGrida.update(dbAdmin, idGjuha);///ruajme ndryshimet ne gride
 
@@ -1831,7 +1773,6 @@ namespace PlatinumWeb
             grid.Settings.ShowFilterRowMenu = showFilter;
 
             grid.SettingsBehavior.AllowSelectByRowClick = false;
-            // grid.SettingsBehavior.AllowSelectSingleRowOnly = true;
 
             grid.SettingsBehavior.FilterRowMode = GridViewFilterRowMode.Auto;
             grid.SettingsBehavior.AllowFocusedRow = false;
@@ -1846,7 +1787,6 @@ namespace PlatinumWeb
             grid.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.Click;
             grid.SettingsEditing.BatchEditSettings.EditMode = GridViewBatchEditMode.Cell;
             grid.SettingsPager.PageSize = 20;
-            //  grid.SettingsPager.Visible = false;
             grid.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.Disabled;
             grid.Styles.BatchEditModifiedCell.BackColor = Color.Transparent;
             grid.Styles.FocusedRow.BackColor = Color.Transparent;
@@ -1945,34 +1885,9 @@ namespace PlatinumWeb
             clsFiltraGrida filtri = new clsFiltraGrida() { FiltraKodi = kodfiltri, FiltraShenime = kodfiltri, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = filtriexp, IdPerdoruesi = idPerdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = ktheKolRenditjeNgaGridaPerRuajtje(renditjedefault, grida, hfState);
             filtri.DrejtimRenditje = true; //kjo kolone s'do perdoret me
-            //ReadOnlyCollection<GridViewDataColumn> kolona = grida.GetSortedColumns();
-            //var kolonatRenditura = String.Empty;
-            //if (kolona.Count > 0)
-            //{
-            //    foreach(GridViewDataColumn kol in kolona)
-            //    {
-            //        kolonatRenditura += kol.FieldName + " " + kol.SortOrder + ",";
-            //    }
-            //    filtri.KoloneRenditje = kolonatRenditura; //kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //    if (hfState != null && hfState.Contains("sortColumn") && hfState.Get("sortColumn") != null)
-            //    {
-            //        if (hfState.Get("sortColumn") != null) {
-            //            var sortColumn = hfState.Get("sortColumn").ToString().Split(';');
-            //            filtri.KoloneRenditje = sortColumn[0];
-            //            filtri.DrejtimRenditje = sortColumn[1] != "Descending";
-            //        }   
-            //    }
             //else
-            //{
-            //    filtri.KoloneRenditje = renditjedefault;
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             clsFiltraGrida filtraekzistues = new clsFiltraGrida();
             if (kodfiltri == "FilterDefault")   //nqs filtri eshte filtri default qe ruhet tek konfigurimi i dokumentit kontrollojme nqs ky filter ekziston dhe e modifikojme. filtri default eshte filtri i konfigurimit. filtrat e tjere jane filtrat qe shfaqen tek comboja lart e filtrave qe i ruan perdoruesi
@@ -2010,7 +1925,6 @@ namespace PlatinumWeb
             {
                 if (hfState.Get("sortColumn") != null)
                 {
-                    //var sortColumn = hfState.Get("sortColumn").ToString().Split(';');
                     kolonaPerRenditje = hfState.Get("sortColumn").ToString(); // sortColumn[0];
                 }
             }
@@ -2104,7 +2018,6 @@ namespace PlatinumWeb
                 //perzgjidh
                 GridViewCommandColumn check = new GridViewCommandColumn("#");
                 check.ShowSelectCheckbox = true; check.Width = Unit.Percentage(2);
-                // check.SetColVisibleIndex(0);
                 //behet per te afishuar rreshtin qe do sherbej per filtrim
                 gridView.Settings.ShowFilterRow = true;
                 gridView.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
@@ -2160,12 +2073,8 @@ namespace PlatinumWeb
                         {
                             gridView.FilterExpression = filtra.FiltraVlera;
                             GridUtil.renditGriden(filtra.KoloneRenditje, gridView, gridView.KeyFieldName);
-                            //if (filtra.DrejtimRenditje)
-                            //    gridView.SortBy(gridView.Columns[filtra.KoloneRenditje] != null ? gridView.Columns[filtra.KoloneRenditje] : gridView.Columns[gridView.KeyFieldName], ColumnSortOrder.Ascending);
                             //else
-                            //    gridView.SortBy(gridView.Columns[filtra.KoloneRenditje] != null ? gridView.Columns[filtra.KoloneRenditje] : gridView.Columns[gridView.KeyFieldName], ColumnSortOrder.Descending);
 
-                            // konfiguroVleraFillestare();
                             hfStatusi.Value = "true";
                         }
                         else hfStatusi.Value = "false";

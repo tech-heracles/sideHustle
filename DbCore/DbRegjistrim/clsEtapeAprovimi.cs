@@ -421,7 +421,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-
         /// <summary>
         /// Kthen/Vendos nje kolekson me komentet e etapes.
         /// </summary>
@@ -695,11 +694,7 @@ namespace DbCore.DbRegjistrim
             {
                 clsEtapeAprovimi etapaakt = new clsEtapeAprovimi(idetapaaktuale, idkategoria, dbRegj);
                 tt.merrTrupSipasKokesDhePerdoruesitDheNivelit(skemaWorkFlow, idaprovuesi, etapaakt.niveli, dbadmin);
-                //     delegim = dbRegj.eshteDeleguar(idndermarje, nrprocesi,etapaakt.Niveli);
-                //if (delegim)
-                //    tt.merrTrupSipasKokesDheDeleguesi(skemaWorkFlow, idaprovuesi, dbadm);
             }
-
 
 
             int nretape = 0;
@@ -791,7 +786,6 @@ namespace DbCore.DbRegjistrim
                         clsEtapeAprovimi etapaVjeter = new clsEtapeAprovimi();
                         foreach (clsEtapeAprovimi et in etapat)// etapat e tjera te ketij niveli ju ndryshojme nr e etapes
                         {
-                            // if ((et.IdAprovuesi == tt.IdPerdRol && et.LlojAprovuesi==tt.Lloji)||(delegim && et.idAprovuesi==tt.IdDelegimi))
                             if (et.idEtapa == idetapaaktuale)
                                 etapaVjeter = et;
                             else
@@ -897,7 +891,6 @@ namespace DbCore.DbRegjistrim
                     clsEtapeAprovimi etapaVjeter3 = new clsEtapeAprovimi();
                     foreach (clsEtapeAprovimi et in etapatdel)// etapat e tjera te ketij niveli ju ndryshojme nr e etapes
                     {
-                        // if ((et.IdAprovuesi == tt.IdPerdRol && et.LlojAprovuesi == tt.Lloji)||(delegim && et.idAprovuesi==tt.IdDelegimi))
                         if (et.idEtapa == idetapaaktuale)
                             etapaVjeter3 = et;
                         else
@@ -972,10 +965,8 @@ namespace DbCore.DbRegjistrim
             }
             mesazh = ModifikoStatusAprovimi(dbRegj, idkategoria, statusAprovimi, idkoka);
             if (!mesazh) return mesazh;
-            //DbShare.clsKonfigurimAmbjenti konfigAmb = new DbShare.clsKonfigurimAmbjenti(koka.IdKonfigAmbjente, dbRegj );
             string shitjeBlerje = DbShare.clsKonfigurimAmbjenti.ktheIdKategori(idkonfig, new DbShare.clsDatabaseShare(dbRegj)) == 1 ? "shitje" : "blerje";
             string kodKonfigAmbjente = DbShare.clsKonfigurimAmbjenti.ktheKodKonfigurimi(idkonfig, new DbShare.clsDatabaseShare(dbRegj));
-            //konfigAmb.IdKategori;
             foreach (clsEtapeAprovimi etape in etapatEReja)// ruajme aprovimet e reja
             {
                 mesazh = etape.ruaj(dbRegj);
@@ -1015,24 +1006,8 @@ namespace DbCore.DbRegjistrim
                     #endregion
 
                     #region menyra si behej me pare percaktimi i gjuhes se emailit (teknikisht nuk ndahej fare, ndaj u komentua)
-                    //int tmpIdGjuha = -1;
-                    //foreach (clsPerdorues tmpPerdorues in toParalelEmail.OrderBy(elem => elem.IdGjuha))
-                    //{
-                    //    if (tmpIdGjuha == -1)
-                    //        tmpIdGjuha = tmpPerdorues.IdGjuha;
 
-                    //    if (tmpIdGjuha == tmpPerdorues.IdGjuha)
-                    //        toEmail1Gjuhe.Add(tmpPerdorues.PerdoruesEmail);
                     //    else
-                    //    {
-                    //        EmailComposer.sendPlainTextEmailRefuzuar(etape.IdNdermarje, toEmail1Gjuhe.ToArray(), serverUrl, shitjeBlerje, ci, kodKonfigAmbjente, nrdok, idkoka, etape.IdEtapa, etape.NrProcesi, dtdok.ToShortDateString(), refuzuesiEmerPlote, idkategoria, idPerdorues);
-                    //        toEmail1Gjuhe.Clear();
-                    //        toEmail1Gjuhe.Add(tmpPerdorues.PerdoruesEmail);
-                    //        tmpIdGjuha = tmpPerdorues.IdGjuha;
-                    //    }
-                    //}
-                    //if (tmpIdGjuha != -1)
-                    //    EmailComposer.sendPlainTextEmailRefuzuar(etape.IdNdermarje, toEmail1Gjuhe.ToArray(), serverUrl, shitjeBlerje, ci, kodKonfigAmbjente, nrdok, idkoka, etape.IdEtapa, etape.NrProcesi, dtdok.ToShortDateString(), refuzuesiEmerPlote, idkategoria, idPerdorues);
                     #endregion
                     continue;
                 }

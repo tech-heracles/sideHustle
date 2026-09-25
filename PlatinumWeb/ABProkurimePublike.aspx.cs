@@ -34,7 +34,6 @@ namespace PlatinumWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
@@ -93,17 +92,14 @@ namespace PlatinumWeb
                 idNdermVit = (int)hfState.Get("idNdermVit");
                 idKonfig = int.Parse(cmbKonfigurimi.Value.ToString());
                 mbushGridenEProkurimeveNgaSession();
-                // GridUtil.PercaktoNgjyrenPerKolonatReadOnly(gvProkurimet, "IdTrupiDok", "RreshtiId", "IdKokaDok", "IdNdermarrje", "IdKrijuesi", "IdModifikuesi", "DtKrijimi", "DtModifikimi");
             }
             
             ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idGjuha);
             gvListaProkurimet.PercaktoTitlePanel(this, MenuInfo, pnlMesazhi, hfState, idPerdoruesi, idNdermarrje, idViti, idGjuha, idKonfig, komponente, rm, ci);
-            //GridUtil.PercaktoTitlePanelPerTrupDokumenti(gvProkurimet, this, MenuInfo, pnlMesazhi, hfState, idPerdoruesi, idNdermarrje, idViti, idGjuha, 1, komponente, idKomponente, "IdTrupiDok", rm, ci);
             percaktoTemplateMenu();
         }
 
        
-
         protected void gvProkurimet_DataBound(object sender, EventArgs e)
         {
             gvProkurimet.KeyFieldName = "RpkId";
@@ -114,7 +110,6 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn colNew = new GridViewDataComboBoxColumn();
 
             this.gvListaProkurimet.Columns.Remove(gvListaProkurimet.Columns["KaterMujori"]);
-            //  gvPasqyra.Columns.Add(colNew);
             colNew.FieldName = "KaterMujori";
 
             colNew.Caption = "Periudha";
@@ -134,7 +129,6 @@ namespace PlatinumWeb
             GridViewDataComboBoxColumn colNew = new GridViewDataComboBoxColumn();
 
             this.gvListaProkurimet.Columns.Remove(gvListaProkurimet.Columns["IdStatusDok"]);
-            //  gvPasqyra.Columns.Add(colNew);
             colNew.FieldName = "IdStatusDok";
 
             colNew.Caption = "Statusi";
@@ -144,7 +138,6 @@ namespace PlatinumWeb
 
             colNew.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             gvListaProkurimet.Columns.Add(colNew);
-
 
 
         }
@@ -298,7 +291,6 @@ namespace PlatinumWeb
                 int idkoka = int.Parse(e.Parameters);
                 mbushGridenEProkurimevePerEditim(idkoka);
 
-                //  gvProkurimet.AddNewRow();
             }
             catch (Exception ex)
             {
@@ -360,8 +352,6 @@ namespace PlatinumWeb
                     if (koka.IdStatusDok == 1 && idStatusDok == 0)
                     {
                         mesazhi = new clsMesazh(false, "Ky dokument eshte me status  ruajtur dhe nuk mund te ruhet me status draft!");
-                        //DbCore.mySessionObjects.ruajMesazhNeSesion(Session, mesazhi.PershkrimMesazhi + ":Red");
-                        //  throw new Exception("Ky dokument eshte me status  ruajtur dhe nuk mund te ruhet me status draft!");
                     }
                     else
                     {

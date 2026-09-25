@@ -29,9 +29,7 @@ namespace PlatinumWeb
 {
 	public partial class RaportiShpejte : MyReportPageBase
 	{
-		//private Int32 idRaporti = -1;
 		private static string styleNamePrefix = "Style_";
-		//private static string styleNameDefault = "Default";
 		private static string styleNamePostfix = ".repss";
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -186,7 +184,6 @@ namespace PlatinumWeb
 					ChangeReportStyle();
 					break;
 			}
-			//raporteUtil.HapRaportDetails(source, e, GetReport(hfState["guidString"].ToString()), rvRaporti);
 		}
 
 		private void ChangeReportOrientation()
@@ -202,7 +199,6 @@ namespace PlatinumWeb
 		private void ChangeDesignRaporti()
 		{
 			clsRaportDesign rapDes = new clsRaportDesign(IdReportDesign);
-			//ImbReportToolbar.BtnReportEditVisible = rapDes.IModifikueshem;
 			SetOrientations(rapDes);
 			AfishoRaport();
 		}
@@ -278,11 +274,6 @@ namespace PlatinumWeb
 			report.StyleSheet.LoadFromFile(NdertoPathStyleSheet(StylePath, ReportStyle));
 			report.PrintingSystem.ContinuousPageNumbering = false;
 
-			//if (teDhenaRap.Count > 1)
-			//{
-			//    exportReportToPdf(report);
-			//    return;
-			//}
 
 			if (teDhenaRap.Count <= 1)
 			{
@@ -348,7 +339,6 @@ namespace PlatinumWeb
 			var idPeriudhaKontabel = clsPeriudhaKontabel.ktheIdPeriudheSipasDatesDheNdermarrjes(dtmbarimi, IdNdermarrja);
 			var perdoruesi = new clsPerdorues(IdPerdoruesi);
 			var idKonfigAmbjentiNkm = clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("NKM", IdNdermarrja);
-			//var oRap = new clsRaporti(IdGjuha, idRaporti);
 
 			foreach (var item in teDhenaRap)
 			{

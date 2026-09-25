@@ -215,7 +215,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         #endregion
 
         #region Metoda Publike
@@ -240,7 +239,6 @@ namespace DbCore.DbListPagesat
                     clsMesazh mesazh = dblist.fshiListOrariSipasDatesDhePunonjesit(data, idPunonjesi);
                     if (!mesazh.Status)
                         throw new Exception("Ndodhi nje gabim gjate krijimit te listorarit!");
-                    //   throw new Exception("Ekziston nje list orari per punonjesin " + pun.NrPersonal + " per daten " + data.ToShortDateString());
                 }
                 return new clsListOrare(0, idPunonjesi, data, IdSimboli, idkrijuesi, idperdoruesi, idndermarje, idstatusdok);
             }
@@ -256,19 +254,15 @@ namespace DbCore.DbListPagesat
         /// <returns > nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo</returns>
         public clsMesazh ruaj(clsDatabazeListPagesa data)
         {
-            // = new clsDatabazeListPagesa();
             int id;
-            // data.beginTransaksion();
 
             clsMesazh u_ruajt = data.ruajListOrari(out id, this.idPunonjesi, this.Data, this.idSimboli, this.IdPerdoruesi, this.idKrijuesi, this.IdNdermarje, this.idStatusDok);
             if (!u_ruajt.Status)
             {
-                // data.rollbackTransaksion();
 
                 return u_ruajt;
             }
 
-            // data.commitTransaksion();
 
             return u_ruajt;
         }
@@ -315,7 +309,6 @@ namespace DbCore.DbListPagesat
             data.commitTransaksion();
             return u_fshi;
         }
-
 
 
         public static bool ekzistonListOrari(DateTime date, int idpunonjesi)

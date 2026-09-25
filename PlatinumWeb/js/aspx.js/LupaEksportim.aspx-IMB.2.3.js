@@ -23,9 +23,6 @@ function menu_click(s, e) {
             return;
         }
         Exporto.DoClick();
-        //if (e.processOnServer)
-        //    setTimeout(function () {
-        //        window.parent.popupUniversal.Hide();
         //    }, 2000);
     }
     else window.parent.popupUniversal.Hide();

@@ -4,24 +4,10 @@ Hap lupen e priudhave.
 */
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
-//        function valueChangedPeriudha() {
-//            var vleraLabel = lblPeriudhaAktuale.GetText();
-//            var periudha = vleraLabel.split("-");
-//            var dataDok = new Date();
-//            dataDok = formatDate(dataDok, "dd/MM/yyyy");
 
-//            periudha1 = periudha[0].split("/");
-//            periudha2 = periudha[1].split("/");
-//            dtDokumentit = dataDok.split("/");
-//        }
-//        function btnPeriudha_Init(s, e) {
 ////            window.parent.window["footerPeriudha"] = btnPeriudha;
-//        }
 function ShfaqPeriudhen() {
     var parentWindow = window.parent;
     parentWindow.document.getElementById('Container').src = 'LupaPeriudhaKontabel.aspx';
@@ -29,7 +15,6 @@ function ShfaqPeriudhen() {
 }
 
 $(document).ready(function () {//po
-    //Utils.SetPeriudha(btnPeriudha.GetText());
     window.parent.document.getElementById("hfPeriudha").value = btnPeriudha.GetText();    
     $(document).keydown(function (e) {
         switch (e.which) {

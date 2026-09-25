@@ -53,7 +53,5 @@ function changeName() {
 
 //veprimet e menuse
 function menu_click(s, e) {//po
-//    var hfRuaj = $('#hfRuaj')
-//    myMenu.menu_click_celjevogeltree(s, e, hfRuaj, trlStruktura, hfTeDrejta);
 }
 

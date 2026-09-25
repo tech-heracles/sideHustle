@@ -66,7 +66,6 @@
         var DivMenuMajtas = $('<div id="' + mapHTML.divIDMenuMajtasWrapper + '"></div>');
         DivMenuMajtas.append(divHeader);
         DivMenuMajtas.append(divSidebar);
-        //$(DivMenuMajtas).append(divMain);
         DivMenuMajtas.appendTo(appendTo);
     }
 

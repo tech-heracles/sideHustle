@@ -160,42 +160,26 @@ namespace DbCore.DbInventari
         private bool mbushNjesiArtikujsh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsNjesiArtikulli njesiArtikulli = new clsNjesiArtikulli();
-                    //njesiArtikulli.mbushNjesiArtikulli(rreshti);
                     this.Add(new clsNjesiArtikulli(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
         private bool mbushNjesiArtikujsh(DataTable dt, colNjesiteArtikulli colNjesiArt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                //clsNjesiArtikulli njesiArtikulli = new clsNjesiArtikulli();
-                //njesiArtikulli.mbushNjesiArtikulli(rreshti);
                     if (!rreshti.IsNull("IDNJESIA"))
                         this.Add(colNjesiArt.Where(x => x.IdNjesia == int.Parse(rreshti["IDNJESIA"].ToString())).FirstOrDefault());
                     else
                         this.Add(new clsNjesiArtikulli());
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -212,7 +196,6 @@ namespace DbCore.DbInventari
                 njesiArtikulli.KodNjesia =rreshti[1].ToString();
                 njesiArtikulli.PershkrimNjesia= rreshti[2].ToString();
                 njesiArtikulli.IdPerdoruesi = int.Parse(rreshti[3].ToString());
-                //njesiArtikulli.IdNderViti = int.Parse(rreshti[4].ToString());
                 njesiArtikulli.IdNdermarje = int.Parse(rreshti[4].ToString());
                 njesiteArtikulli.Add(njesiArtikulli);
             }

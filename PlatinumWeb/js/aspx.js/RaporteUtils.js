@@ -10,13 +10,11 @@ var RaporteUtils = {
 
 RaporteUtils.InitReportViewer = function (s, e) {
     RaporteUtils.Viewer = s;
-    //s.previewModel.reportPreview.zoom(1.05);
     var rapEmriReal = hfState.Get("RaportiEmerReal");
     if (rapEmriReal == "shpenzimeParapaguaraProcredit" || rapEmriReal == "shitjesipasgrupeartikjvestatistikor")
         s.previewModel.reportPreview.zoom(1.10);
     else
         s.previewModel.reportPreview.zoom(1.05);
-    //$('div[title="Export Options"]').remove();
     if ($('div[title="Search"]')[1]) {
         $('div[title="Search"]')[1].click();
         $('div[title="Collapse"]').click();

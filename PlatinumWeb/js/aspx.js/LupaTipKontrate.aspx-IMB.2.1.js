@@ -20,7 +20,6 @@ var modifiko = false;
 // kur kthehet nje veprim postback nga serveri
 function EndRequestHandler(sender, args) {
      menuSipasTeDrejta(modifiko, hfTeDrejta);
-    //   if (modifiko) Nr.SetEnabled(false);
 }
 document.onkeydown = ProcessKeyPress;
 function menuSipasTeDrejta(modifiko, hfTeDrejta) {

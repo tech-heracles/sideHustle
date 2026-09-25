@@ -151,12 +151,9 @@ namespace DbCore.DbInventari
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDBARKODI", idBarkodi, ParameterDirection.Input);
-            // return Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KODBARI_eshteILidhur").ToString());
             int nr = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KODBARI_eshteILidhur"));
             return Convert.ToBoolean(nr);
         }
-
-
 
 
         internal bool ekzistonDetajimBarkodArtikulli(string kodartikulli, int idndermarje, int llojdetajim, string koddetajimi)
@@ -170,7 +167,6 @@ namespace DbCore.DbInventari
             int nr = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_DETAJIMART_ekzistonDetajimBarkodArtikulli"));
             return Convert.ToBoolean(nr);
         }
-
 
 
         /// <summary>
@@ -263,28 +259,9 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataRow ktheKodbarSipasIdArtikulli(int idArtikulli)", true)]
-        //public colKodbare merrKodbarSipasIdArtikulli(int idartikulli)
         //{//metoda per te marre kodbaret sipas id artikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODBARI_merrSipasIdArtikulli");
-        //        colKodbare colKodbare = new colKodbare();
-        //        return colKodbare.mbushArrayListKodbaresh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodbare();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable ktheArtikujKodbareNdermarrjesAndAutorizimePerLupeKodbari(int idnderm, int idperdorues)
         {
@@ -396,27 +373,10 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: clsMesazh ruajFurnitoreArtikulli(int idFurnitoreArtikulli, int idArtikulli, int idFurnitori, string prioriteti)", true)]
-        //public clsMesazh ruajFurnitoreArtikulli(clsFurnitoreArtikulli furnitoreArtikulli)
         //{ //metoda per ruajtjen e FurnitoreArtikulli
         //        try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDFURNITOREARTIKULLI", furnitoreArtikulli.IdFurnitoreArtikulli, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDARTIKULLI", furnitoreArtikulli.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDFURNITORI", furnitoreArtikulli.IdFurnitori, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PRIORITETI", furnitoreArtikulli.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_FURNITOREARTIKULLI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -443,25 +403,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoFurnitoreArtikulli(int idFurnitoreArtikulli, int idArtikulli, int idFurnitori, string prioriteti)", true)]
-        //public clsMesazh modifikoFurnitoreArtikulli(clsFurnitoreArtikulli furnitoreArtikulli)
         //{//metoda per modifikimin e FurnitoreArtikulli
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDFURNITOREARTIKULLI", furnitoreArtikulli.IdFurnitoreArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDARTIKULLI", furnitoreArtikulli.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDFURNITORI", furnitoreArtikulli.IdFurnitori, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PRIORITETI", furnitoreArtikulli.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_FURNITOREARTIKULLI_del duke i kaluar id e furnitorit te artikullit qe e marrim nga objekti clsFurnitoreArtikulli qe i kalohet si parameter
@@ -481,23 +425,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiFurnitoreArtikulli(int idFurnitoreArtikulli)", true)]
-        //public clsMesazh fshiFurnitoreArtikulli(clsFurnitoreArtikulli furnitoreArtikulli)
         //{//metoda per fshirjen e FurnitoreArtikulli
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDFURNITOREARTIKULLI", furnitoreArtikulli.IdFurnitoreArtikulli, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen objektet furnitor artikulli sipas idse
@@ -515,24 +446,9 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: merrFurnitoreArtikulli(int idFurnitoreArtikulli)", true)]
         //public void merrFurnitoreArtikulli(clsFurnitoreArtikulli furnitoreArtikulli)
         //{// metoda per te marre nje FurnitoreArtikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDFURNITOREARTIKULLI", furnitoreArtikulli.IdFurnitoreArtikulli , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable furnitor artikulli sipas id artikullit
@@ -548,28 +464,9 @@ namespace DbCore.DbInventari
             return ds.Tables[0];
         }
         //[Obsolete("Perdor: DataTable ktheFurnitoreArtikulliSipasIdArtikulli(int idartikulli)", true)]
-        //public colFurnitoreArtikujsh merrFurnitoreArtikulliSipasIdArtikulli(int idartikulli)
         //{//metoda per te marre FurnitoreArtikulli sipas id artikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_merrSipasIdArtikulli");
-        //        colFurnitoreArtikujsh colFurnitoreArtikujsh = new colFurnitoreArtikujsh();
-        //        return colFurnitoreArtikujsh.mbushArrayListFurnitoreArtikujsh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colFurnitoreArtikujsh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston ky furnitor  per kete artikull
@@ -626,27 +523,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajArtikulliZevendesues(int idArtikulliZevendesues, int idArtikulliKryesor, int idArtikulliZevend, string prioriteti)", true)]
-        //public clsMesazh ruajArtikulliZevendesues(clsArtikullZevendesues artikullZevendesues)
         //{ //metoda per ruajtjen e artikullZevendesues
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIZEVENDESUES", artikullZevendesues.IdArtikulliZevendesues, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDARTIKULLIKRYESOR", artikullZevendesues.IdArtikulliKryesor, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDARTIKULLIZEVEND", artikullZevendesues.IdArtikulliZevend, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PRIORITETI", artikullZevendesues.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIZEVENDESUES_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_ARTIKULLIZEVENDESUES_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -672,25 +552,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoArtikulliZevendesues(int idArtikulliZevendesues, int idArtikulliKryesor, int idArtikulliZevend, string prioriteti)", true)]
-        //public clsMesazh modifikoArtikulliZevendesues(clsArtikullZevendesues artikullZevendesues)
         //{//metoda per modifikimin e artikullZevendesues
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIZEVENDESUES", artikullZevendesues.IdArtikulliZevendesues, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDARTIKULLIKRYESOR", artikullZevendesues.IdArtikulliKryesor, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDARTIKULLIZEVEND", artikullZevendesues.IdArtikulliZevend, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PRIORITETI", artikullZevendesues.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIZEVENDESUES_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_ARTIKULLIZEVENDESUES_del duke i kaluar id e artikullit zevendesues qe e marrim nga objekti clsArtikullZevendesues qe i kalohet si parameter
@@ -708,23 +572,10 @@ namespace DbCore.DbInventari
             return mesazh;
         }
         //[Obsolete("Perdor: clsMesazh fshiArtikulliZevendesues(int idArtikulliZevendesues)", true)]
-        //public clsMesazh fshiArtikulliZevendesues(clsArtikullZevendesues artikullZevendesues)
         //{//metoda per fshirjen e artikullZevendesues
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIZEVENDESUES", artikullZevendesues.IdArtikulliZevendesues, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIZEVENDESUES_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen objektet artikullin zevendesues sipas idse
@@ -742,24 +593,9 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: merrArtikulliZevendesues(int idArtikulliZevendesues)", true)]
         //public void merrArtikulliZevendesues(clsArtikullZevendesues artikullZevendesues)
         //{// metoda per te marre nje artikullZevendesues NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIZEVENDESUES", artikullZevendesues.IdArtikulliZevendesues, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIZEVENDESUES_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet artikuj zevendesues sipas id artikullit qe zevendesohet
@@ -777,28 +613,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheAtikujZevendesuesSipasIdArtikulli(int idartikulli)", true)]
-        //public colArtikujtZevendesues merrArtikujZevendesuesSipasIdArtikulli(int idartikulli)
         //{//metoda per te marre ARTIKULLIN ZEVENDESUES sipas id artikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", idartikulli, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIZEVENDESUES_merrSipasIdArtikulli");
-        //        colArtikujtZevendesues colArtikujtZevendesues = new colArtikujtZevendesues();
-        //        return colArtikujtZevendesues.mbushArrayListArtikujshZevendesues(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikujtZevendesues();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston  ky artikull zevendesues per kete artikull kryesor 
@@ -870,39 +687,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajSkemaKontabilitetiArtikulli(int idSkemaKontabilitetiArtikulli, string kodiSkemaKontabilitetiArtikulli, string pershkrimiSkemaKontabilitetiArtikulli, int klasa, int idLlogariInventari, int idLlogariBlerje, int idLlogariShitje, int idLlogariTekTeTretet, int idLlogariShpenzimi, int idNdermarje)", true)]
-        //public clsMesazh ruajSkemaKontabilitetiArtikulli(clsSkemaKontabilitetiArtikulli skemaKontabilitetiArtikulli)
         //{ //metoda per ruajtjen e SkemaKontabilitetiArtikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(10);
-        //        dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.IdSkemaKontabilitetiArtikulli, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODISKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.KodiSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMISKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.PershkrimiSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KLASA", skemaKontabilitetiArtikulli.Klasa, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDLLOGARIINVENTARI", skemaKontabilitetiArtikulli.IdLlogariInventari, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDLLOGARIBLERJE", skemaKontabilitetiArtikulli.IdLlogariBlerje, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDLLOGARISHITJE", skemaKontabilitetiArtikulli.IdLlogariShitje, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDLLOGARITEKTETRETET", skemaKontabilitetiArtikulli.IdLlogariTekTeTretet, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDLLOGARISHPENZIME", skemaKontabilitetiArtikulli.IdLlogariShpenzimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERMARJE", skemaKontabilitetiArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_SKEMAKONTABILITETIARTIKULLI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -943,34 +732,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoSkemaKontabilitetiArtikulli(int idSkemaKontabilitetiArtikulli, string kodiSkemaKontabilitetiArtikulli, string pershkrimiSkemaKontabilitetiArtikulli, int klasa, int idLlogariInventari, int idLlogariBlerje, int idLlogariShitje, int idLlogariTekTeTretet, int idLlogariShpenzimi, int idNdermarje)", true)]
-        //public clsMesazh modifikoSkemaKontabilitetiArtikulli(clsSkemaKontabilitetiArtikulli skemaKontabilitetiArtikulli)
         //{//metoda per modifikimin e skemaKontabilitetiArtikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(10);
-        //        dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.IdSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODISKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.KodiSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMISKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.PershkrimiSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KLASA", skemaKontabilitetiArtikulli.Klasa, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDLLOGARIINVENTARI", skemaKontabilitetiArtikulli.IdLlogariInventari, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDLLOGARIBLERJE", skemaKontabilitetiArtikulli.IdLlogariBlerje, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDLLOGARISHITJE", skemaKontabilitetiArtikulli.IdLlogariShitje, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDLLOGARITEKTETRETET", skemaKontabilitetiArtikulli.IdLlogariTekTeTretet, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDLLOGARISHPENZIME", skemaKontabilitetiArtikulli.IdLlogariShpenzimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERMARJE", skemaKontabilitetiArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_SKEMAKONTABILITETIARTIKULLI_del duke i kaluar id e skemes se kontabilitetit te artikullit qe e marrim nga objekti clsSkemaKontabilitetiArtikulli qe i kalohet si parameter
@@ -989,29 +753,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiSkemaKontabilitetiArtikulli(int idSkemaKontabilitetiArtikulli)", true)]
-        //public clsMesazh fshiSkemaKontabilitetiArtikulli(clsSkemaKontabilitetiArtikulli skemaKontabilitetiArtikulli)
         //{//metoda per fshirjen e skemaKontabilitetiArtikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", skemaKontabilitetiArtikulli.IdSkemaKontabilitetiArtikulli, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datarow skema kontabiliteti artikulli sipas idse
@@ -1035,29 +780,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrSkemaKontabilitetiArtikulli(int id)", true)]
-        //public colSkematKontabilitetiArtikulli merrSkemaKontabilitetiArtikulli(int id)
         //{// metoda per te marre nje skemaKontabilitetiArtikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_sel");
-        //        colSkematKontabilitetiArtikulli colSkematKontabilitetiArtikulli = new colSkematKontabilitetiArtikulli();
-        //        return colSkematKontabilitetiArtikulli.mbushArrayListSkemashKontabilitetiArtikulli(ds);
 
-        //    }
-        //    catch (Exception)
-        //    { return new colSkematKontabilitetiArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable skema kontabiliteti artikulli 
@@ -1075,31 +802,12 @@ namespace DbCore.DbInventari
         }
 
 
-
-
         //[Obsolete("Perdor: DataTable ktheSkemaKontabilitetiArtikulliTeGjitha()", true)]
-        //public colSkematKontabilitetiArtikulli merrSkemaKontabilitetiArtikulliTeGjitha()
         //{// metoda per te marre nje skemaKontabilitetiArtikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave               
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrTeGjithe");
-        //        colSkematKontabilitetiArtikulli colSkematKontabilitetiArtikulli = new colSkematKontabilitetiArtikulli();
-        //        return colSkematKontabilitetiArtikulli.mbushArrayListSkemashKontabilitetiArtikulli(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colSkematKontabilitetiArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable skema kontabiliteti artikulli sipas idse te ndermarjes
@@ -1138,32 +846,12 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheSkemaKontabilitetiArtikulliTeGjithaSipasNdermarjes(int idndermarje)", true)]
-        //public colSkematKontabilitetiArtikulli merrSkemaKontabilitetiArtikulliTeGjithaSipasNdermarjes(int idndermarje)
         //{// metoda per te marre nje skemaKontabilitetiArtikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave 
-        //        ;
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrTeGjitheSipasNdermarjes");
-        //        colSkematKontabilitetiArtikulli colSkematKontabilitetiArtikulli = new colSkematKontabilitetiArtikulli();
-        //        return colSkematKontabilitetiArtikulli.mbushArrayListSkemashKontabilitetiArtikulli(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colSkematKontabilitetiArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable skema kontabiliteti artikulli sipas idse te ndermarjes dhe klases
@@ -1183,29 +871,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheSkemaKontabilitetiArtikulliSipasKlases(int klasa, int idnderm)", true)]
-        //public colSkematKontabilitetiArtikulli merrSkemaKontabilitetiArtikulliSipasKlases(int klasa, int idnderm)
         //{//metoda per te marre te skemat kontabiliteti te artikullit sipas klases
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KLASA", klasa , ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKlases");
-        //        colSkematKontabilitetiArtikulli colSkematKontabilitetiArtikulli = new colSkematKontabilitetiArtikulli();
-        //        return colSkematKontabilitetiArtikulli.mbushArrayListSkemashKontabilitetiArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colSkematKontabilitetiArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datarow skema kontabiliteti artikulli sipas idse te ndermarjes me kete kod
@@ -1257,29 +925,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm) ose int ktheIdSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm)", true)]
-        //public colSkematKontabilitetiArtikulli merrSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm)
         //{//metoda per te marre te skemakontabilitetiartikulli sipas kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODISKEMAKONTABILITETIARTIKULLI", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKodit");
-        //        colSkematKontabilitetiArtikulli colSkematKontabilitetiArtikulli = new colSkematKontabilitetiArtikulli();
-        //        return colSkematKontabilitetiArtikulli.mbushArrayListSkemashKontabilitetiArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colSkematKontabilitetiArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -1287,7 +935,6 @@ namespace DbCore.DbInventari
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsArtikullVfone dhe colArtikullVfone
         /// </summary>
         #region ARTIKULLI VFONE
-
 
 
         internal clsMesazh ruajArtikullVfone(out int id, int idartikull, string kodvfone, decimal pike, decimal vlere)
@@ -1898,7 +1545,6 @@ namespace DbCore.DbInventari
             return Convert.ToDecimal(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_Artikulli_ktheKoeficentArtikulliSipasKodit"));
 
 
-
         }
         internal bool ktheArtikullLoan(int idArtikulli)
         {
@@ -1936,7 +1582,6 @@ namespace DbCore.DbInventari
 
             dbManager.Open();
             dbManager.CreateParameters(3);
-            // infixKodi = "%" + infixKodi + "%";
             dbManager.AddParameters(0, "@KODARTIKULLI", infixKodi, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
             dbManager.AddParameters(2, "@Idperdorues", idperdoruesi, ParameterDirection.Input);
@@ -2553,7 +2198,6 @@ namespace DbCore.DbInventari
         }
 
 
-
         /// <summary>
         /// kthen datatable artikuj aktiv sipas ndermarjes dhe autorizimeve dhe qe fillojne me kete kodbar
         /// </summary>
@@ -2948,26 +2592,7 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajArtikullPerbere(int id, int lloj, int idart, int idlidh, int koef, int vl)", true)]
-        //public clsMesazh ruajArtikullPerbere(clsArtikulliPerberes artikull)
-        //{
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@ID", artikull.IdArtikulliPerberes, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@LLOJI", artikull.Lloji, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDARTIKULLIKRYESOR", artikull.IdArtikulliKryesor, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDLIDHESE", artikull.IdLidhese, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@KOEFICIENTI", artikull.Koeficienti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@VLERA", artikull.Vlera, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERES_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable artikuj perberes sipas id artikullit kryesor
@@ -3106,7 +2731,6 @@ namespace DbCore.DbInventari
         }
 
 
-
         /// <summary>
         /// kthen datatable artikuj perberes sipas id artikullit kryesor
         /// </summary>
@@ -3194,51 +2818,12 @@ namespace DbCore.DbInventari
             return ds.Tables[0];
 
         }
-        //internal DataTable ktheArtikujPerberesSipasIdArtikullitKryesorMeKod(int id)
-        //{
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERES_merrArtikujPerberesSipasIdArtikullitKryesorMeKod");
 
-        //        return ds.Tables[0];
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
         //[Obsolete("Perdor: DataTable ktheArtikujPerberesSipasIdArtikullitKryesor(int id)", true)]
-        //public colArtikulliPerberes merrArtikujPerberesSipasIdArtikullitKryesor(int id)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
 
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERES_merrArtikujPerberesSipasIdArtikullitKryesor");
-        //        colArtikulliPerberes artikujt = new colArtikulliPerberes();
-        //        return artikujt.mbushArrayListArtikujPerberes(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikulliPerberes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_ARTIKULLIPERBERES_del duke i kaluar id e artikullit kryesor qe e marrim nga objekti clsArtikulli qe i kalohet si parameter
@@ -3362,64 +2947,18 @@ namespace DbCore.DbInventari
         #endregion
 
         //[Obsolete("Perdor: clsMesazh fshiArtikujPerberes(int idArtikulli)", true)]
-        //private clsMesazh fshiArtikujPerberes(clsArtikulli artikulli)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", artikulli.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERES_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsArtikullPerberesTemplateKoka,clsArtikulliPerberesTemplateTrupi dhe colArtikulliPerberesTemplateKoka,colArtikulliPerberesTemplateTrupi
         /// </summary>
         #region TEMPLATE - ARTIKULL I PERBERE
 
-        //public clsMesazh ruajTemplateArtikullPerberes(clsArtikullPerberesTemplateKoka koka)
-        //{
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
 
         //    try
-        //    {
-        //        ruajTemplateArtikullPerberesKoka(koka);
 
-        //        foreach (clsArtikulliPerberesTemplateTrupi o in koka.oColTrupi)
-        //        {
-        //            o.IdKoka = koka.IdKoka;
-        //            ruajTemplateArtikullPerberesTrupi(o);
-        //        }
-        //        dbManager.CommitTransaction();
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_ARTIKULLIPERBERESTEMPLATEKOKA_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -3533,26 +3072,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: bool ktheGjitheTemplatetArtikujvePerberes()", true)]
-        //public colArtikulliPerberesTemplateKoka merrGjitheTemplatetArtikujvePerberes()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERESTEMPLATEKOKA_merrGjitheTemplatetArtikujvePerberes");
-        //        colArtikulliPerberesTemplateKoka kokat = new colArtikulliPerberesTemplateKoka();
-        //        return kokat.mbushArrayListArtikujPerberes(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikulliPerberesTemplateKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen dataTable trup template artikuj perberes sipas idse se kokes
@@ -3572,28 +3093,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheTrupTemplateSipasKokes(int idKoka)", true)]
-        //public colArtikulliPerberesTemplateTrupi merrTrupTemplateSipasKokes(int idKoka)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKA", idKoka, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERESTEMPLATETRUPI_merrTrupTemplateSipasKokes");
-        //        colArtikulliPerberesTemplateTrupi trupat = new colArtikulliPerberesTemplateTrupi();
-        //        return trupat.mbushArrayListArtikujPerberes(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikulliPerberesTemplateTrupi();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen templetin artikulli perberes sipas id
@@ -3616,28 +3117,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheTemplateArtikulliPerberesSipasID(int id)", true)]
-        //public colArtikulliPerberesTemplateKoka merrTemplateArtikulliPerberesSipasID(int id)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKA", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERESTEMPLATEKOKA_merrTemplateArtikulliPerberesSipasID");
-        //        colArtikulliPerberesTemplateKoka kokat = new colArtikulliPerberesTemplateKoka();
-        //        return kokat.mbushArrayListArtikujPerberes(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikulliPerberesTemplateKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen id e kokes se  template artikulli perberes sipas kodit 
@@ -3662,28 +3143,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheTemplateArtikulliPerberesSipasKodit(String kodi)", true)]
-        //public colArtikulliPerberesTemplateKoka merrTemplateArtikulliPerberesSipasKodit(String kodi)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERESTEMPLATEKOKA_merrTemplateArtikulliPerberesSipasKodit");
-        //        colArtikulliPerberesTemplateKoka kokat = new colArtikulliPerberesTemplateKoka();
-        //        return kokat.mbushArrayListArtikujPerberes(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colArtikulliPerberesTemplateKoka();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -3754,28 +3215,10 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataTable ktheGjitheKlasaArtikulli()", false)]
-        //public colKlasaArtikulli merrGjitheKlasaArtikulli()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLASAARTIKULLI _merrGjitheKlasat");
-        //        colKlasaArtikulli colKlasaArtikulli = new colKlasaArtikulli();
-        //        return colKlasaArtikulli.mbushArrayListKlasaArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKlasaArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow klasat e artikullit sipas id
@@ -3799,29 +3242,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheKlasaArtikulliSipasId(int id)", false)]
-        //public colKlasaArtikulli merrKlasaArtikulliSipasId(int Id)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKLASAARTIKULLI", Id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLASAARTIKULLI _merrKlasaSipasId");
-        //        colKlasaArtikulli colKlasaArtikulli = new colKlasaArtikulli();
-        //        return colKlasaArtikulli.mbushArrayListKlasaArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKlasaArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable e artikullit sipas pershkrimit
@@ -3844,29 +3267,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheKlasaArtikulliSipasPershkrimit(string pershkrimi)", false)]
-        //public colKlasaArtikulli merrKlasaArtikulliSipasId(string pershkrimi)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@PERSHKRIMIKLASAARTIKULLI", pershkrimi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLASAARTIKULLI _merrKlasaSipasPershkrimit");
-        //        colKlasaArtikulli colKlasaArtikulli = new colKlasaArtikulli();
-        //        return colKlasaArtikulli.mbushArrayListKlasaArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKlasaArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -3895,47 +3298,10 @@ namespace DbCore.DbInventari
         ///// </summary>        
         //internal bool ruajNivCmimi(out int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idnderm, int idkonfig, int idstatusdok, bool njesiTeVarura, bool teVaruraNgaMonedha, bool nivelcmimbaze)
         //{ //metoda per ruajtjen e nivelit te cmimeve
-        //    idNivelCmimi = -1;
-        //    bool ruaj = false;
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(15);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", idNivelCmimi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNIVELCMIMI", kodNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELCMIMI", pershkrimNivelCmimi, ParameterDirection.Input);
-        //        if(idPrindi==0)   dbManager.AddParameters(3, "@IDPRINDI", DBNull.Value, ParameterDirection.Input);
-        //        else  dbManager.AddParameters(3, "@IDPRINDI", idPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@LLOJINIVELCMIMI", llojiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDMONEDHA", idMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@BRUTONETONIVELCMIMI", brutoNetoNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PRIORITETINIVELCMIMI", prioritetiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-        //        //dbManager.AddParameters(9, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@IDKONFIG", idkonfig, ParameterDirection.Input);
-        //        dbManager.AddParameters(11, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
-        //        dbManager.AddParameters(12, "@NJESITEVARURA", njesiTeVarura, ParameterDirection.Input);
-        //        dbManager.AddParameters(13, "@TEVARURANGAMONEDHA", teVaruraNgaMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(14, "@NIVELCMIMIBAZE", nivelcmimbaze, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_ins");
-        //        idNivelCmimi = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        ruaj = true;
-        //        return ruaj;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
         internal bool kontrollDetajimNjejteNdermarrje(int id, int detajimi, int idNdermarje)
         {
             dbManager.Open();
@@ -4011,167 +3377,21 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajNivCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //internal clsMesazh ruajNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)
         //{ //metoda per ruajtjen e nivelit te cmimeve
-        //    bool ruaj = false;
-        //    clsMesazh mesazh = new clsMesazh();
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
 
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(11);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", idNivelCmimi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNIVELCMIMI", kodNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELCMIMI", pershkrimNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", idPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@LLOJINIVELCMIMI", llojiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDMONEDHA", idMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@BRUTONETONIVELCMIMI", brutoNetoNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PRIORITETINIVELCMIMI", prioritetiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin();
-        //        int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CNC");
-        //        //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CNC")[0].IdCR;
-        //        int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod");
-        //        //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
-        //        if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje).IdLidhjeNrAuto!=0)
-        //        {
-        //            DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje);
-        //            DbAdmin.clsNrAutom NrAutom = new clsNrAutom(ACR.IdNumraAutoLidhje);
-        //            //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-        //            int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-        //            int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-        //            string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-        //            string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-        //            ACR.VleraFunditLidhje = vlera;
-        //            ACR.modifiko();
-        //        }
-        //        ruaj = true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //    if (ruaj == true)
-        //    {
-        //        if (idPrindi != 0)
-        //        {
-        //            colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //            colNivele.mbushNivelSipasPrindit(idPrindi);
-        //            //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //            clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //            nivelPrindi.IdNivelCmimi = idPrindi;
-        //            colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //            //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //            if (colNivele.Count > 0)
-        //                if (prioritetiNivelCmimi <= colNivele[0].PrioritetiNivelCmimi)
-        //                {
-        //                    foreach (clsNivelCmimi n in colNivele)
-        //                        if (n.PrioritetiNivelCmimi >= prioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                        {
-        //                            n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                            modifikoNivelCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje);
-        //                            //modifikoNivelCmimi(n);
-        //                        }
 
-        //                }
-        //        }
-        //    }
-        //    return mesazh;
-        //}
         //[Obsolete("Perdor: clsMesazh ruajNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //public clsMesazh ruajNivelCmimi(clsNivelCmimi  nivelCmimi, int idndermarje)
         //{ //metoda per ruajtjen e nivelit te cmimeve
-        //    bool ruaj = false;
-        //    clsMesazh mesazh = new clsMesazh();
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(11);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", nivelCmimi.IdNivelCmimi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNIVELCMIMI", nivelCmimi.KodNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELCMIMI", nivelCmimi.PershkrimNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", nivelCmimi.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@LLOJINIVELCMIMI", nivelCmimi.LlojiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDMONEDHA", nivelCmimi.IdMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@BRUTONETONIVELCMIMI", nivelCmimi.BrutoNetoNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PRIORITETINIVELCMIMI", nivelCmimi.PrioritetiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", nivelCmimi.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERVITI", nivelCmimi.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@IDNDERMARJE", nivelCmimi.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_ins");
-        //            mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin();
-        //        int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CNC");
-        //        //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CNC")[0].IdCR;
-        //        int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod");
-        //        //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
-        //        if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje ).IdLidhjeNrAuto!=0)
-        //        {
-        //            DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje);
-        //            DbAdmin.clsNrAutom NrAutom = new clsNrAutom(ACR.IdNumraAutoLidhje);
-        //            //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-        //            int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-        //            int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-        //            string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-        //            string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-        //            ACR.VleraFunditLidhje = vlera;
-        //            ACR.modifiko();
-        //        }
-        //        ruaj = true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //    if (ruaj == true)
-        //    {
-        //        if (nivelCmimi.IdPrindi != 0)
-        //        {
-        //            colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //            colNivele.mbushNivelSipasPrindit(nivelCmimi.IdPrindi);
-        //            //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //            clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //            nivelPrindi.IdNivelCmimi = nivelCmimi.IdPrindi;
-        //            colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //            //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //            if (colNivele.Count > 0)
-        //            if (nivelCmimi.PrioritetiNivelCmimi <= colNivele[0].PrioritetiNivelCmimi)
-        //            {
-        //                foreach (clsNivelCmimi n in colNivele)
-        //                    if (n.PrioritetiNivelCmimi >= nivelCmimi.PrioritetiNivelCmimi && n.KodNivelCmimi  !=nivelCmimi.KodNivelCmimi  )
-        //                    {
-        //                        n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                        modifikoNivelCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje);
-        //                        //modifikoNivelCmimi(n);
-        //                    }
 
-        //            }
-        //        }
-        //    }
-        //    return mesazh;
-        //}
 
         ///// <summary>
         ///// ekzekuton prc_T_NIVELCMIMI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4190,45 +3410,8 @@ namespace DbCore.DbInventari
         ///// <returns> nje objekt clsMesazh qe tregon nese modifikimi eshte kryer ne rregull apo jo.</returns>
         ///// </summary>
         //internal bool modifikoNivCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idnderm, int idkonfig, int idstatusdok, bool njesiTeVarura, bool teVaruraNgaMonedha, bool nivelcmimbaze)
-        //{
-        //    bool ruaj = false;
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(15);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", idNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODNIVELCMIMI", kodNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELCMIMI", pershkrimNivelCmimi, ParameterDirection.Input);
-        //        if (idPrindi == 0) dbManager.AddParameters(3, "@IDPRINDI", DBNull.Value, ParameterDirection.Input);
-        //        else dbManager.AddParameters(3, "@IDPRINDI", idPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@LLOJINIVELCMIMI", llojiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDMONEDHA", idMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@BRUTONETONIVELCMIMI", brutoNetoNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PRIORITETINIVELCMIMI", prioritetiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-        //        //dbManager.AddParameters(9, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@IDKONFIG", idkonfig, ParameterDirection.Input);
-        //        dbManager.AddParameters(11, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
-        //        dbManager.AddParameters(12, "@NJESITEVARURA", njesiTeVarura, ParameterDirection.Input);
-        //        dbManager.AddParameters(13, "@TEVARURANGAMONEDHA", teVaruraNgaMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(14, "@NIVELCMIMIBAZE", nivelcmimbaze, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        ruaj = true;
-        //        return ruaj;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_NIVELCMIMI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -4283,41 +3466,10 @@ namespace DbCore.DbInventari
         }
         //[Obsolete("Perdor: bool modifikoNivCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
         //public bool modifikoNivCmimi(clsNivelCmimi nivelCmimi)
-        //{
-        //    bool ruaj = false;
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(11);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", nivelCmimi.IdNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODNIVELCMIMI", nivelCmimi.KodNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELCMIMI", nivelCmimi.PershkrimNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", nivelCmimi.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@LLOJINIVELCMIMI", nivelCmimi.LlojiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDMONEDHA", nivelCmimi.IdMonedha, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@BRUTONETONIVELCMIMI", nivelCmimi.BrutoNetoNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PRIORITETINIVELCMIMI", nivelCmimi.PrioritetiNivelCmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", nivelCmimi.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERVITI", nivelCmimi.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@IDNDERMARJE", nivelCmimi.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        ruaj = true;
-        //        return ruaj;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         //    /// <summary>
         //    /// modifikon nje nivel cmimi duke ndryshuar prioritetet e te gjithe nivele te tjera te te njejtit prind ne varesi te ndryshimit te nivelit qe u modifikua
@@ -4335,252 +3487,30 @@ namespace DbCore.DbInventari
         //    /// <param name="idnderm"> id e ndermarjes</param>
         //    /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
         //    [Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //    internal clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)
         //    {//metoda per modifikimin e nivelit te cmimit
-        //        bool ruaj = false;
-        //        clsMesazh mesazh = new clsMesazh();
-        //        clsNivelCmimi nivelipara = new clsNivelCmimi(idNivelCmimi);
-        //        //clsNivelCmimi nivelipara = merrNivelCmimi(nivelCmimi)[0];
-        //        ruaj = modifikoNivCmimi(idNivelCmimi, kodNivelCmimi, pershkrimNivelCmimi, idPrindi, llojiNivelCmimi, idMonedha, brutoNetoNivelCmimi, prioritetiNivelCmimi, idPerdoruesi, idNderViti, idnderm,0);
-        //        if (ruaj == true)
-        //        {
-        //            mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            if (idPrindi == 0)
-        //            {
-        //                colNiveleCmimesh nivelet = new colNiveleCmimesh();
-        //                nivelet.mbushNivelSipasPrindit(idNivelCmimi);
-        //                //colNiveleCmimesh nivelet = merrNivelCmimiSipasPrindit(nivelCmimi.IdNivelCmimi);
-        //                if (nivelet.Count > 0)
-        //                    if (nivelet[0].LlojiNivelCmimi != llojiNivelCmimi)
-        //                    {
-        //                        foreach (clsNivelCmimi c in nivelet)
-        //                        {
-        //                            c.LlojiNivelCmimi = llojiNivelCmimi;
-        //                            modifikoNivCmimi(c.IdNivelCmimi, c.KodNivelCmimi, c.PershkrimNivelCmimi, c.IdPrindi, c.LlojiNivelCmimi, c.IdMonedha, c.BrutoNetoNivelCmimi, c.PrioritetiNivelCmimi, c.IdPerdoruesi, c.IdNderViti, c.IdNdermarje,0);
-        //                            //modifikoNivCmimi(c);
-        //                        }
-        //                    }
-        //            }
-        //            if (idPrindi != 0)
-        //            {
-        //                if (nivelipara.IdPrindi == idPrindi)
-        //                {
-        //                    if (nivelipara.PrioritetiNivelCmimi != prioritetiNivelCmimi)
-        //                    {
-        //                        colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                        colNivele.mbushNivelSipasPrindit(idPrindi);
-        //                        //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //                        clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //                        nivelPrindi.IdNivelCmimi = idPrindi;
-        //                        colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //                        //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //                        if (prioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi)
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi >= prioritetiNivelCmimi && n.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
 
-        //                        }
         //                        else
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi <= prioritetiNivelCmimi && n.PrioritetiNivelCmimi > nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi - 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
-        //                        }
 
-        //                    }
-        //                }
         //                else
-        //                {
-        //                    colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                    colNivele.mbushNivelSipasPrindit(idPrindi);
-        //                    //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //                    clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //                    nivelPrindi.IdNivelCmimi = idPrindi;
-        //                    colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //                    //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //                    if (colNivele.Count > 0)
-        //                        if (prioritetiNivelCmimi <= colNivele[0].PrioritetiNivelCmimi)
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi >= prioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
 
-        //                        }
-        //                }
-        //            }
         //            else
-        //            {
-        //                if (nivelipara.PrioritetiNivelCmimi != prioritetiNivelCmimi)
-        //                {
-        //                    colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                    colNivele.mbushNivelSipasPrindit(idNivelCmimi);
-        //                    //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdNivelCmimi );
 
-        //                    if (prioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi)
-        //                    {
-        //                        foreach (clsNivelCmimi n in colNivele)
-        //                            if (n.PrioritetiNivelCmimi >= prioritetiNivelCmimi && n.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                            {
-        //                                n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                //modifikoNivCmimi(n);
-        //                            }
 
-        //                    }
         //                    else
-        //                    {
-        //                        foreach (clsNivelCmimi n in colNivele)
-        //                            if (n.PrioritetiNivelCmimi <= prioritetiNivelCmimi && n.PrioritetiNivelCmimi > nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != kodNivelCmimi)
-        //                            {
-        //                                n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi - 1;
-        //                                modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                //modifikoNivCmimi(n);
-        //                            }
-        //                    }
 
-        //                }
-        //            }
-        //        }
 
-        //        return mesazh;
-        //    }
         //    [Obsolete("Perdor: clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //    public clsMesazh modifikoNivelCmimi(clsNivelCmimi  nivelCmimi)
         //    {//metoda per modifikimin e nivelit te cmimit
-        //        bool ruaj = false;
-        //        clsMesazh mesazh = new clsMesazh();
-        //        clsNivelCmimi nivelipara = new clsNivelCmimi(nivelCmimi.IdNivelCmimi);
-        //        //clsNivelCmimi nivelipara = merrNivelCmimi(nivelCmimi)[0];
-        //        ruaj = modifikoNivCmimi(nivelCmimi.IdNivelCmimi, nivelCmimi.KodNivelCmimi, nivelCmimi.PershkrimNivelCmimi, nivelCmimi.IdPrindi, nivelCmimi.LlojiNivelCmimi, nivelCmimi.IdMonedha, nivelCmimi.BrutoNetoNivelCmimi, nivelCmimi.PrioritetiNivelCmimi, nivelCmimi.IdPerdoruesi, nivelCmimi.IdNderViti, nivelCmimi.IdNdermarje,0);
-        //        //ruaj = modifikoNivCmimi(nivelCmimi);
-        //        if (ruaj == true)
-        //        {
-        //            mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //            if (nivelCmimi.IdPrindi == 0)
-        //            {
-        //                colNiveleCmimesh nivelet = new colNiveleCmimesh();
-        //                nivelet.mbushNivelSipasPrindit(nivelCmimi.IdNivelCmimi);
-        //                //colNiveleCmimesh nivelet = merrNivelCmimiSipasPrindit(nivelCmimi.IdNivelCmimi);
-        //                if (nivelet.Count > 0)
-        //                    if (nivelet[0].LlojiNivelCmimi != nivelCmimi.LlojiNivelCmimi)
-        //                    {
-        //                        foreach (clsNivelCmimi c in nivelet)
-        //                        {
-        //                            c.LlojiNivelCmimi = nivelCmimi.LlojiNivelCmimi;
-        //                            modifikoNivCmimi(c.IdNivelCmimi, c.KodNivelCmimi, c.PershkrimNivelCmimi, c.IdPrindi, c.LlojiNivelCmimi, c.IdMonedha, c.BrutoNetoNivelCmimi, c.PrioritetiNivelCmimi, c.IdPerdoruesi, c.IdNderViti, c.IdNdermarje,0);
-        //                            //modifikoNivCmimi(c);
-        //                        }
-        //                    }
-        //            }
-        //            if (nivelCmimi.IdPrindi != 0)
-        //            {
-        //                if (nivelipara.IdPrindi == nivelCmimi.IdPrindi)
-        //                {
-        //                    if (nivelipara.PrioritetiNivelCmimi != nivelCmimi.PrioritetiNivelCmimi)
-        //                    {
-        //                        colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                        colNivele.mbushNivelSipasPrindit(nivelCmimi.IdPrindi);
-        //                        //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //                        clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //                        nivelPrindi.IdNivelCmimi = nivelCmimi.IdPrindi;
-        //                        colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //                        //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //                        if (nivelCmimi.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi)
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi >= nivelCmimi.PrioritetiNivelCmimi && n.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != nivelCmimi.KodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
 
-        //                        }
         //                        else
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi <= nivelCmimi.PrioritetiNivelCmimi && n.PrioritetiNivelCmimi > nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != nivelCmimi.KodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi - 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
-        //                        }
 
-        //                    }
-        //                }
         //                else
-        //                {
-        //                    colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                    colNivele.mbushNivelSipasPrindit(nivelCmimi.IdPrindi);
-        //                    //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdPrindi);
-        //                    clsNivelCmimi nivelPrindi = new clsNivelCmimi();
-        //                    nivelPrindi.IdNivelCmimi = nivelCmimi.IdPrindi;
-        //                    colNivele.Add(new clsNivelCmimi(nivelPrindi.IdNivelCmimi));
-        //                    //colNivele.Add(merrNivelCmimi(nivelPrindi)[0]);
-        //                    if (colNivele.Count > 0)
-        //                        if (nivelCmimi.PrioritetiNivelCmimi <= colNivele[0].PrioritetiNivelCmimi)
-        //                        {
-        //                            foreach (clsNivelCmimi n in colNivele)
-        //                                if (n.PrioritetiNivelCmimi >= nivelCmimi.PrioritetiNivelCmimi && n.KodNivelCmimi != nivelCmimi.KodNivelCmimi)
-        //                                {
-        //                                    n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                    modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                    //modifikoNivCmimi(n);
-        //                                }
 
-        //                        }
-        //                }
-        //            }
         //            else
-        //            {
-        //                if (nivelipara.PrioritetiNivelCmimi != nivelCmimi.PrioritetiNivelCmimi)
-        //                {
-        //                    colNiveleCmimesh colNivele = new colNiveleCmimesh();
-        //                    colNivele.mbushNivelSipasPrindit(nivelCmimi.IdNivelCmimi);
-        //                    //colNiveleCmimesh colNivele = merrNivelCmimiSipasPrindit(nivelCmimi.IdNivelCmimi );
 
-        //                    if (nivelCmimi.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi)
-        //                    {
-        //                        foreach (clsNivelCmimi n in colNivele)
-        //                            if (n.PrioritetiNivelCmimi >= nivelCmimi.PrioritetiNivelCmimi && n.PrioritetiNivelCmimi < nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != nivelCmimi.KodNivelCmimi)
-        //                            {
-        //                                n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi + 1;
-        //                                modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                //modifikoNivCmimi(n);
-        //                            }
 
-        //                    }
         //                    else
-        //                    {
-        //                        foreach (clsNivelCmimi n in colNivele)
-        //                            if (n.PrioritetiNivelCmimi <= nivelCmimi.PrioritetiNivelCmimi && n.PrioritetiNivelCmimi > nivelipara.PrioritetiNivelCmimi && n.KodNivelCmimi != nivelCmimi.KodNivelCmimi)
-        //                            {
-        //                                n.PrioritetiNivelCmimi = n.PrioritetiNivelCmimi - 1;
-        //                                modifikoNivCmimi(n.IdNivelCmimi, n.KodNivelCmimi, n.PershkrimNivelCmimi, n.IdPrindi, n.LlojiNivelCmimi, n.IdMonedha, n.BrutoNetoNivelCmimi, n.PrioritetiNivelCmimi, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                                //modifikoNivCmimi(n);
-        //                            }
-        //                    }
 
-        //                }
-        //            }
-        //        }
-
-        //return mesazh;
-        //    }
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_NIVELCMIMI_del duke i kaluar id e nivelit te cmimit qe e marrim nga objekti clsNivelCmimi qe i kalohet si parameter
@@ -4611,29 +3541,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiNivelCmimi(int idNivelCmimi)", true)]
-        //public clsMesazh fshiNivelCmimi(clsNivelCmimi nivelCmimi)
         //{//metoda per fshirjen e nivelit te cmimit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", nivelCmimi.IdNivelCmimi , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// merr nivelet e cmimit sipas id
@@ -4674,29 +3585,10 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataRow ktheNivelCmimi(int id)", true)]
-        //public colNiveleCmimesh merrNivelCmimi(clsNivelCmimi nivelCmimi)
         //{// metoda per te marre nje nivelin e cmimit NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNIVELCMIMI", nivelCmimi.IdNivelCmimi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_sel");
-        //        colNiveleCmimesh colNiveleCmimesh = new colNiveleCmimesh();
-        //        return colNiveleCmimesh.mbushArrayListNiveleCmimesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleCmimesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e cmimeve te nje ndermarje
@@ -4731,28 +3623,9 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataTable ktheGjitheNiveleCmimeshSipasNdermarjes(int idnder)", true)]
-        //public colNiveleCmimesh  merrGjitheNiveleCmimeshSipasNdermarjes(int idnder)
         //{//metoda per te marre te gjithe nivelet e cmimeve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_merrNivelCmimiSipasNdermarjes");
-        //        colNiveleCmimesh colNiveleCmimesh = new colNiveleCmimesh();
-        //        return colNiveleCmimesh.mbushArrayListNiveleCmimesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleCmimesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e cmimeve prind te nje ndermarje 
@@ -4782,28 +3655,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheNiveleCmimeshPrindiSipasNdermarjes(int idnder)", true)]
-        //public colNiveleCmimesh merrGjitheNiveleCmimeshPrindiSipasNdermarjes(int idnder)
         //{//metoda per te marre te gjithe nivelet e cmimeve prind
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_merrNivelCmimiPrindSipasNdermarjes");
-        //        colNiveleCmimesh colNiveleCmimesh = new colNiveleCmimesh();
-        //        return colNiveleCmimesh.mbushArrayListNiveleCmimesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleCmimesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr id e nivelit te cmimit te nje ndermarje me kete kod
@@ -4970,28 +3824,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheNivelSipasPrindit(int idprindi)", true)]
-        //public colNiveleCmimesh merrNivelCmimiSipasPrindit(int idprindi)
         //{//metoda per te marre NIVEL CMIMI sipas KODIT
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPRINDI", idprindi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_merrNivelCmimiSipasPrindit");
-        //        colNiveleCmimesh colNiveleCmimesh = new colNiveleCmimesh();
-        //        return colNiveleCmimesh.mbushArrayListNiveleCmimesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleCmimesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e cmimit me kete pershkrim
@@ -5201,7 +4036,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(8, "@SASIMAX", sasiMax, ParameterDirection.Input);
             dbManager.AddParameters(9, "@CMIMI", cmimi, ParameterDirection.Input);
             dbManager.AddParameters(10, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(11, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(11, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -5211,7 +4045,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(17, "@KOHEMBARIMI", kohembarimi, ParameterDirection.Input);
             dbManager.AddParameters(18, "@IdDetajim", idDetajim, ParameterDirection.Input);
 
-            //dbManager.AddParameters(16, "@FORMULA", formula, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_CMIMARTIKULLI_ins");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
             return mesazh;
@@ -5257,7 +4090,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(8, "@SASIMAX", sasiMax, ParameterDirection.Input);
             dbManager.AddParameters(9, "@CMIMI", cmimi, ParameterDirection.Input);
             dbManager.AddParameters(10, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(11, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(11, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -5266,7 +4098,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(16, "@KOHEFILLIMI", kohefillimi, ParameterDirection.Input);
             dbManager.AddParameters(17, "@KOHEMBARIMI", kohembarimi, ParameterDirection.Input);
             dbManager.AddParameters(18, "@IdDetajim", idDetajim, ParameterDirection.Input);
-            //dbManager.AddParameters(16, "@FORMULA", formula, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_CMIMARTIKULLI_upd");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
             return mesazh;
@@ -5413,7 +4244,6 @@ namespace DbCore.DbInventari
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
@@ -5470,7 +4300,6 @@ namespace DbCore.DbInventari
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
@@ -5482,7 +4311,6 @@ namespace DbCore.DbInventari
 
         internal bool ekzistonCmimArtikulli(int idartikulli, int idnivel, out int idcmimi)
         {
-
 
 
             idcmimi = 0;
@@ -5514,31 +4342,8 @@ namespace DbCore.DbInventari
                 return Convert.ToInt32(ds.Tables[0].Rows[0][0]);
         }
         //[Obsolete("Perdor: DataTable ktheCmimArtikulliSipasNivelit(string kodartikulli, string idnivelcmimi, int idperdorues, int idndermarje)", true)]
-        //public colCmimeArtikujsh merrCmimArtikulliSipasNivelit(string kodartikulli,string idnivelcmimi,int idperdorues, int idndermarje)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@KODARTIKULLI", kodartikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNIVELCMIMI", idnivelcmimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_CMIMARTIKULLI_merrCmimArtikulliSipasNivelit");
-        //        colCmimeArtikujsh colCmimeArtikujsh = new colCmimeArtikujsh();
-        //        return colCmimeArtikujsh.mbushArrayListCmimeArtikujsh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colCmimeArtikujsh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -5572,7 +4377,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODNJESIA", kodNjesia, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMNJESIA", pershkrimNjesia, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDSTATUSDOK", idstatudsok, ParameterDirection.Input);
             if(klientFiskalizimi)
@@ -5585,36 +4389,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajNjesiArtikulli(int idNjesia, string kodNjesia, String pershkrimNjesia, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public clsMesazh ruajNjesiArtikulli(clsNjesiArtikulli njesiArtikulli)
         //{ //metoda per ruajtjen e njesise se Artikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        clsMesazh mesazh = new clsMesazh();            
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDNJESIA", njesiArtikulli.IdNjesia, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNJESIA", njesiArtikulli.KodNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNJESIA", njesiArtikulli.PershkrimNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", njesiArtikulli.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", njesiArtikulli.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERMARJE", njesiArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_NJESIARTIKULLI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -5641,7 +4420,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODNJESIA", kodNjesia, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMNJESIA", pershkrimNjesia, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             if(klientFiskalizimi)
@@ -5653,36 +4431,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoNjesiArtikulli(int idNjesia, string kodNjesia, String pershkrimNjesia, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public clsMesazh modifikoNjesiArtikulli(clsNjesiArtikulli njesiArtikulli)
         //{//metoda per modifikimin e njesise se artikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        clsMesazh mesazh = new clsMesazh();
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDNJESIA", njesiArtikulli.IdNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODNJESIA", njesiArtikulli.KodNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNJESIA", njesiArtikulli.PershkrimNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", njesiArtikulli.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", njesiArtikulli.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERMARJE", njesiArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_upd");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_NJESIARTIKULLI_del duke i kaluar id e njesise se artikullit qe e marrim nga objekti clsNjesiArtikulli qe i kalohet si parameter
@@ -5715,28 +4468,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiNjesiArtikulli(int idNjesia)", true)]
-        //public clsMesazh fshiNjesiArtikulli(clsNjesiArtikulli njesiArtikulli)
         //{//metoda per fshirjen e njesise se Artikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNJESIA", njesiArtikulli.IdNjesia , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet njesi artikulli sipas idse
@@ -5754,30 +4488,12 @@ namespace DbCore.DbInventari
         }
 
 
-
-
-
         //[Obsolete("Perdor: merrNjesiArtikulliPakthyer(int idNjesia)", true)]
         //public void merrNjesiArtikulli(clsNjesiArtikulli  njesiArtikulli)
         //{// metoda per te marre nje njesi artikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNJESIA", njesiArtikulli .IdNjesia , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet njesi artikulli sipas id ndermarjes
@@ -5796,28 +4512,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheNjesiteArtikulliSipasNdermarrjes(int idnder)", true)]
-        //public colNjesiteArtikulli  merrGjitheNjesiteArtikulliSipasNdermarrjes(int  idnder)
         //{//metoda per te marre te gjithe njesite
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnder , ParameterDirection.Input);               
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_merrSipasNdermarrjes");
-        //        colNjesiteArtikulli colNjesiteArtikulli = new colNjesiteArtikulli();
-        //        return colNjesiteArtikulli.mbushArrayListNjesishArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNjesiteArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet njesi artikulli sipas idse
@@ -5839,28 +4536,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheNjesiAritkulli(int idnjesia)", true)]
-        //public colNjesiteArtikulli ktheNjesiAritkulli(int idnjesia)
         //{//metoda per te marre NJESINE SIPAS ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNJESIA", idnjesia , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ktheNjesiArtikulliSipasId");
-        //        colNjesiteArtikulli colNjesiteArtikulli = new colNjesiteArtikulli();
-        //        return colNjesiteArtikulli.mbushArrayListNjesishArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNjesiteArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet njesi artikulli sipas kodit
@@ -5883,28 +4561,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheNjesiAritkulli(string  kodnjesia)", true)]
-        //public colNjesiteArtikulli ktheNjesiAritkulli(string  kodnjesia)
         //{//metoda per te marre NJESINE SIPAS kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@KODNJESIA", kodnjesia, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ktheNjesiArtikulliSipasKodit");
-        //        colNjesiteArtikulli colNjesiteArtikulli = new colNjesiteArtikulli();
-        //        return colNjesiteArtikulli.mbushArrayListNjesishArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNjesiteArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet njesi artikulli sipas pershkrimit dhe idndermarjes
@@ -5987,29 +4646,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: int ktheIdNjesiAritkulli(string pershkrimnjesia, int idnderm) ose DataRow ktheNjesiAritkulli(string pershkrimnjesia, int idnderm)", true)]
-        //public colNjesiteArtikulli ktheNjesiAritkulli(string pershkrimnjesia, int idnderm)
         //{//metoda per te marre NJESINE SIPAS pershkrimit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@PERSHKRIMNJESIA", pershkrimnjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ktheNjesiArtikulliSipasPershkrimit");
-        //        colNjesiteArtikulli colNjesiteArtikulli = new colNjesiteArtikulli();
-        //        return colNjesiteArtikulli.mbushArrayListNjesishArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNjesiteArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston nje njesi artikulli me kete kod ne kete ndermarje
@@ -6151,40 +4790,13 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajKodifikimArtikulli(int idKodifikimi, string kodKodifikimi, String pershkrimKodifikimi, int idPrindi, int nivelKodifikimi, int idPerdoruesi, int idNderViti, int idNdermarje)", true)]
-        //public clsMesazh ruajKodifikimArtikulli(clsKodifikimArtikulli kodifikimArtikulli)
         //{ //metoda per ruajtjen e kodifikim se Artikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDKODIFIKIMI", kodifikimArtikulli.IdKodifikimi, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODKODIFIKIMI", kodifikimArtikulli.KodKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMKODIFIKIMI", kodifikimArtikulli.PershkrimKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", kodifikimArtikulli.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@NIVELKODIFIKIMI", kodifikimArtikulli.NivelKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", kodifikimArtikulli.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", kodifikimArtikulli.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", kodifikimArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_KODIFIKIMARTIKULLI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -6223,7 +4835,6 @@ namespace DbCore.DbInventari
             else dbManager.AddParameters(3, "@IDPRINDI", idPrindi, ParameterDirection.Input);
             dbManager.AddParameters(4, "@NIVELKODIFIKIMI", nivelKodifikimi, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(6, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(7, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.AddParameters(8, "@LLOJKODIFIKIMI", llojKodifikimi, ParameterDirection.Input);
@@ -6253,40 +4864,13 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoKodifikimArtikulli(int idKodifikimi, string kodKodifikimi, String pershkrimKodifikimi, int idPrindi, int nivelKodifikimi, int idPerdoruesi, int idNderViti, int idNdermarje)", true)]
-        //public clsMesazh modifikoKodifikimArtikulli(clsKodifikimArtikulli kodifikimArtikulli)
         //{//metoda per modifikimin e KodifikimArtikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDKODIFIKIMI", kodifikimArtikulli.IdKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODKODIFIKIMI", kodifikimArtikulli.KodKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMKODIFIKIMI", kodifikimArtikulli.PershkrimKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", kodifikimArtikulli.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@NIVELKODIFIKIMI", kodifikimArtikulli.NivelKodifikimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", kodifikimArtikulli.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", kodifikimArtikulli.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", kodifikimArtikulli.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_upd");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_KODIFIKIMARTIKULLI_del duke i kaluar id e kodifikimit te artikullit qe e marrim nga objekti clsKodifikimArtikulli qe i kalohet si parameter
@@ -6319,29 +4903,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiKodifikimArtikulli(int idKodifikimi)", true)]
-        //public clsMesazh fshiKodifikimArtikulli(clsKodifikimArtikulli kodifikimArtikulli)
         //{//metoda per fshirjen e KodifikimArtikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKODIFIKIMI", kodifikimArtikulli.IdKodifikimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet kodifikimin e artikulli sipas idse
@@ -6360,24 +4925,9 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: merrKodifikimArtikulli(int idKodifikimi)", true)]
         //public void merrKodifikimArtikulli(clsKodifikimArtikulli kodifikimArtikulli)
         //{// metoda per te marre nje KodifikimArtikulli NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKODIFIKIMI", kodifikimArtikulli.IdKodifikimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen Datatable artikulli sipas id ndermarjes
@@ -6497,29 +5047,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable KtheGjitheKodifikimetArtikulliSipasNdermarrjes(int idndermarje)", true)]
-        //public colKodifikimeArtikulli  merrGjitheKodifikimetArtikulliSipasNdermarrjes(int idndermarje)
         //{//metoda per te marre te gjithe njesite
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_merrSipasNdermarrjes");
-        //        colKodifikimeArtikulli colKodifikimeArtikulli = new colKodifikimeArtikulli();
-        //        return colKodifikimeArtikulli.mbushArrayListKodifikimeshArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodifikimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable kodifikim artikulli sipas id ndermarjes te cilat nuk jane prind
@@ -6566,29 +5097,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKodifikimetArtikulliSipasNdermarrjesJoPrind(int idndermarje)", true)]
-        //public colKodifikimeArtikulli merrGjitheKodifikimetArtikulliSipasNdermarrjesJoPrind(int idndermarje)
         //{//metoda per te marre te gjithe njesite
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_merrSipasNdermarrjesJoPrind");
-        //        colKodifikimeArtikulli colKodifikimeArtikulli = new colKodifikimeArtikulli();
-        //        return colKodifikimeArtikulli.mbushArrayListKodifikimeshArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodifikimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datarow kodifikim artikulli sipas idse
@@ -6612,29 +5124,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrKodifikimArtikulli(int idkodifikimi)", true)]
-        //public colKodifikimeArtikulli ktheKodifikimArtikulli(int idkodifikimi)
         //{//metoda per te marre KODIFIKIMIN SIPAS ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKODIFIKIMI", idkodifikimi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_ktheKodifikimArtikulliSipasId");
-        //        colKodifikimeArtikulli colKodifikimeArtikulli = new colKodifikimeArtikulli();
-        //        return colKodifikimeArtikulli.mbushArrayListKodifikimeshArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodifikimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
-
 
 
         internal DataRow merrKodifikimArtikulliKodLloj(string kodkodifikimi, int idndermarje, int llojkod, bool llojartikulli)
@@ -6675,29 +5167,9 @@ namespace DbCore.DbInventari
 
 
         //[Obsolete("Perdor: DataRow ktheKodifikimArtikulli(string kodkodifikimi, int idndermarje)", true)]
-        //public colKodifikimeArtikulli ktheKodifikimArtikulli(string kodkodifikimi, int idndermarje)
         //{//metoda per te marre KODIFIKIMIN SIPAS kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODKODIFIKIMI", kodkodifikimi , ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE",  idndermarje , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_ktheKodifikimArtikulliSipasKodit");
-        //        colKodifikimeArtikulli colKodifikimeArtikulli = new colKodifikimeArtikulli();
-        //        return colKodifikimeArtikulli.mbushArrayListKodifikimeshArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodifikimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable kodifikim artikulli sipas prindit
@@ -6755,28 +5227,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheKodifikimArtikulliSipasPrindit(int idprindi)", true)]
-        //public colKodifikimeArtikulli merrKodifikimArtikulliSipasPrindit(int idprindi)
         //{//metoda per te marre KODIFIKIMIN SIPAS prindit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPRINDI", idprindi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODIFIKIMARTIKULLI_ktheKodifikimArtikulliSipasPrindit");
-        //        colKodifikimeArtikulli colKodifikimeArtikulli = new colKodifikimeArtikulli();
-        //        return colKodifikimeArtikulli.mbushArrayListKodifikimeshArtikulli(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKodifikimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         public DataTable mbushLlojetKodifikime()
         {
@@ -6971,7 +5424,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(6, "@LLOJI", lloji, ParameterDirection.Input);
             dbManager.AddParameters(7, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(9, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(9, "@PRIORITETI", prioriteti, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_ins");
             mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
@@ -6979,41 +5431,13 @@ namespace DbCore.DbInventari
             return mesazh;
 
 
-
         }
         //[Obsolete("Perdor: clsMesazh ruajTrupiKategoriZbritje(int idTrupiKategoriZbritje, int idKokaKategoriZbritje, DateTime dateFillimi, DateTime dateMbarimi, decimal vleraMin, " +
         //    "decimal vleraMax, int lloji, decimal zbritja, int idPerdoruesi, int idNderViti, int prioriteti)",true)]
-        //public clsMesazh ruajTrupiKategoriZbritje(clsTrupiKategoriZbritje kategoriZbritje)
         //{ //metoda per ruajtjen e TRUPIT KategoriZbritje
         //        try
-        //    {
-        //            clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(11);
-        //        dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", kategoriZbritje.IdTrupiKategoriZbritje , ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDKOKAKATEGORIZBRITJE", kategoriZbritje.IdKokaKategoriZbritje, ParameterDirection.Input);
-        //            dbManager.AddParameters(2, "@DATEFILLIMI", kategoriZbritje.DateFillimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@DATEMBARIMI", kategoriZbritje.DateMbarimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERAMIN", kategoriZbritje.VleraMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@VLERAMAX", kategoriZbritje.VleraMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@LLOJI", kategoriZbritje.Lloji, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@ZBRITJA", kategoriZbritje.Zbritja, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", kategoriZbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERVITI", kategoriZbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@PRIORITETI", kategoriZbritje.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_TRUPIKATEGORIZBRITJE_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -7049,7 +5473,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(6, "@LLOJI", lloji, ParameterDirection.Input);
             dbManager.AddParameters(7, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(9, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(9, "@PRIORITETI", prioriteti, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_upd");
             mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
@@ -7060,37 +5483,10 @@ namespace DbCore.DbInventari
         }
         //[Obsolete("Perdor: clsMesazh modifikoTrupiKategoriZbritje(int idTrupiKategoriZbritje, int idKokaKategoriZbritje, DateTime dateFillimi, DateTime dateMbarimi, decimal vleraMin, " +
         //    "decimal vleraMax, int lloji, decimal zbritja, int idPerdoruesi, int idNderViti, int prioriteti)",true)]
-        //public clsMesazh modifikoTrupiKategoriZbritje(clsTrupiKategoriZbritje kategoriZbritje)
         //{//metoda per modifikimin e TRUPIT KategoriZbritje
         //        try
-        //    {
-        //            clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(11);
-        //        dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", kategoriZbritje.IdTrupiKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDKOKAKATEGORIZBRITJE", kategoriZbritje.IdKokaKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@DATEFILLIMI", kategoriZbritje.DateFillimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@DATEMBARIMI", kategoriZbritje.DateMbarimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERAMIN", kategoriZbritje.VleraMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@VLERAMAX", kategoriZbritje.VleraMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@LLOJI", kategoriZbritje.Lloji, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@ZBRITJA", kategoriZbritje.Zbritja, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@IDPERDORUESI", kategoriZbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@IDNDERVITI", kategoriZbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@PRIORITETI", kategoriZbritje.Prioriteti, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_upd");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_TRUPIKATEGORIZBRITJE_del duke i kaluar id e trupit te kategori zbritje qe e marrim nga objekti clsTrupiKategoriZbritje qe i kalohet si parameter
@@ -7111,23 +5507,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiTrupiKategoriZbritje(int idTrupiKategoriZbritje)",true)]
-        //public clsMesazh fshiTrupiKategoriZbritje(clsTrupiKategoriZbritje kategoriZbritje)
         //{//metoda per fshirjen e TRUPIT KategoriZbritje
         //    try
-        //    {
         //            //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", kategoriZbritje.IdTrupiKategoriZbritje , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen objektet trupi kategori zbritje sipas idse
@@ -7146,24 +5529,9 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: merrTrupiKategoriZbritje(int idTrupiKategoriZbritje)",true)]
         //public void merrTrupiKategoriZbritje(clsTrupiKategoriZbritje kategoriZbritje)
         //{// metoda per te marre nje KategoriZbritje NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", kategoriZbritje.IdTrupiKategoriZbritje , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_sel");
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable kategori zbritje sipas id ndermarje vitit
@@ -7183,29 +5551,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheTrupatKategoriZbritjeSipasNdermarrjes(int idnderviti)", true)]
-        //public colTrupatKategoriteZbritjes merrGjitheTrupatKategoriZbritjeSipasNdermarrjes(int idnderviti)
         //{//metoda per te marre te gjithe TRUPAT KategoriZbritje
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERVITI", idnderviti, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_merrSipasNdermarrjes");
-        //        colTrupatKategoriteZbritjes colKategoriteZbritjes = new colTrupatKategoriteZbritjes();
-        //        return colKategoriteZbritjes.mbushArrayListTrupashKategorishZbritje(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatKategoriteZbritjes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datarow trupi kategori zbritje sipas idse
@@ -7228,28 +5577,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrTrupiKategoriZbritje(int idkatzbritje)", true)]
-        //public colTrupatKategoriteZbritjes ktheTrupiKategoriZbritje(int idkatzbritje)
         //{//metoda per te marre TRUPI KategoriZbritje SIPAS ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", idkatzbritje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_ktheKategoriZbrijteSipasId");
-        //        colTrupatKategoriteZbritjes colKategoriteZbritjes = new colTrupatKategoriteZbritjes();
-        //        return colKategoriteZbritjes.mbushArrayListTrupashKategorishZbritje(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatKategoriteZbritjes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable  trupi kategori zbritje sipas idse se kokes
@@ -7267,28 +5597,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheTrupatKategoriZbritjeSipasKokes(int idKokaKategoriZbritje)", true)]
-        //public colTrupatKategoriteZbritjes merrTrupatKategoriZbritjeSipasKokes(int idKokaKategoriZbritje)
         //{//metoda per te marre TRUPAT KategoriZbritje SIPAS kokes
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", idKokaKategoriZbritje , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_ktheKategoriZbritjeSipasPrindit");
-        //        colTrupatKategoriteZbritjes colKategoriteZbritjes = new colTrupatKategoriteZbritjes();
-        //        return colKategoriteZbritjes.mbushArrayListTrupashKategorishZbritje(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatKategoriteZbritjes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -7318,7 +5629,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODKATEGORIZBRITJE", kodKategoriZbritje, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMKATEGORIZBRITJE", pershkrimKategoriZbritje, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -7330,29 +5640,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajKokaKategoriZbritje(int idKokaKategoriZbritje,string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, int idNderViti, decimal zbritja, int idnderm)",true)]
-        //public clsMesazh ruajKokaKategoriZbritje(clsKokaKategoriZbritje  kategorizbritje)
         //{//ruajtja e kokamakro
         //    try
-        //    {
-        //        dbManager.CreateParameters(7);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", kategorizbritje.IdKokaKategoriZbritje, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODKATEGORIZBRITJE", kategorizbritje.KodKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMKATEGORIZBRITJE", kategorizbritje.PershkrimKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", kategorizbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", kategorizbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@ZBRITJA", kategorizbritje.Zbritja, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERMARJE", kategorizbritje.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_ins");
-        //        kategorizbritje.IdKokaKategoriZbritje = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_KOKAKATEGORIZBRITJE_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -7376,7 +5666,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODKATEGORIZBRITJE", kodKategoriZbritje, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMKATEGORIZBRITJE", pershkrimKategoriZbritje, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -7388,27 +5677,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoKokaKategoriZbritje(int idKokaKategoriZbritje,string kodKategoriZbritje, string pershkrimKategoriZbritje, int idPerdoruesi, int idNderViti, decimal zbritja, int idnderm)",true)]
-        //public clsMesazh modifikoKokaKategoriZbritje(clsKokaKategoriZbritje kategorizbritje)
         //{//modifikimi i kokamakro
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", kategorizbritje.IdKokaKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODKATEGORIZBRITJE", kategorizbritje.KodKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMKATEGORIZBRITJE", kategorizbritje.PershkrimKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", kategorizbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", kategorizbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@ZBRITJA", kategorizbritje.Zbritja , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_upd");
-        //        kategorizbritje.IdKokaKategoriZbritje = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_KOKAKATEGORIZBRITJE_del duke i kaluar id e kokes te kategori zbritje qe e marrim nga objekti clsKokaKategoriZbritje qe i kalohet si parameter
@@ -7439,21 +5709,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiKokaKategoriZbritje(int idKokaKategoriZbritje)",true)]
-        //public clsMesazh fshiKokaKategoriZbritje(clsKokaKategoriZbritje kategorizbritje)
         //{//fshirja e KokaKategoriZbritje
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", kategorizbritje.IdKokaKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         ///// <summary>
         ///// fshin nje objekt kategori zbritje sebashku me trupin
@@ -7465,122 +5722,20 @@ namespace DbCore.DbInventari
         ///// <param name="idKokaKategoriZbritje"> id ritese e kokes se kategorise zbritje</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e fshirjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje)", true)]
-        //internal clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje)
         //{//fshin kategorizbritje
 
-        //    //colTrupatKategoriteZbritjes  trupat = merrTrupatKategoriZbritjeSipasKokes(kategorizbritje.IdKokaKategoriZbritje);
-        //    colTrupatKategoriteZbritjes trupat = new colTrupatKategoriteZbritjes();
-        //    trupat.mbushTrupatKategoriZbritjeSipasKokes(idKokaKategoriZbritje);
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
-        //        foreach (clsTrupiKategoriZbritje  o in trupat)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiTrupiKategoriZbritje(o.IdTrupiKategoriZbritje);
-        //                //mesazh = fshiTrupiKategoriZbritje(o);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            mesazh = fshiKokaKategoriZbritje(idKokaKategoriZbritje);
-        //            //mesazh =  fshiKokaKategoriZbritje(kategorizbritje);
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
         //[Obsolete("Perdor: clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje) ",true)]
-        //public clsMesazh fshiKategoriZbritje(clsKokaKategoriZbritje kategorizbritje)
         //{//fshin kategorizbritje
 
-        //    //colTrupatKategoriteZbritjes  trupat = merrTrupatKategoriZbritjeSipasKokes(kategorizbritje.IdKokaKategoriZbritje);
-        //    colTrupatKategoriteZbritjes trupat = new colTrupatKategoriteZbritjes();
-        //    trupat.mbushTrupatKategoriZbritjeSipasKokes(kategorizbritje.IdKokaKategoriZbritje);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
         //    try
-        //    {
-        //        foreach (clsTrupiKategoriZbritje  o in trupat)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                //mesazh = fshiTrupiKategoriZbritje(o.IdTrupiKategoriZbritje);
-        //                mesazh = fshiTrupiKategoriZbritje(o);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            mesazh =  fshiKokaKategoriZbritje(kategorizbritje.IdKokaKategoriZbritje);
-        //            //mesazh =  fshiKokaKategoriZbritje(kategorizbritje);
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// kthen objektet koka kategori zbritje sipas idse
@@ -7600,25 +5755,10 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: merrKokaKategoriZbritje(int idKokaKategoriZbritje)",true)]
         //public void merrKokaKategoriZbritje(clsKokaKategoriZbritje kategorizbritje)
         //{// metoda per te marre nje KokaKategoriZbritje ne baze te id te tij
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", kategorizbritje.IdKokaKategoriZbritje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_sel");
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable koka kategori zbritje sipas id ndermarjes
@@ -7637,29 +5777,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheKokaKategoriZbritjeSipasNdermarrjes(int idnderm)", true)]
-        //public colKokatKategoriteZbritjes merrKokaKategoriZbritjeSipasNdermarrjes(int idnderm)
         //{//metoda per te marre te gjithe koka kategori zbritje e nje ndermarje 
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_merrSipasNdermarrjes");
-        //        colKokatKategoriteZbritjes colKokatKategoriteZbritjes = new colKokatKategoriteZbritjes();
-        //        return colKokatKategoriteZbritjes.mbushArrayListKokashKategorishZbritje(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatKategoriteZbritjes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow  koka kategori zbritje sipas idse
@@ -7683,30 +5804,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrKokaKategoriZbritje(int id)", true)]
-        //public colKokatKategoriteZbritjes ktheKokaKategoriZbritje(int id)
         //{//kthen KokaKategoriZbritje sipas id
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAKATEGORIZBRITJE", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAKATEGORIZBRITJE_ktheKategoriZbritjeSipasId");
-        //        colKokatKategoriteZbritjes colKokatKategoriteZbritjes = new colKokatKategoriteZbritjes();
-        //        return colKokatKategoriteZbritjes.mbushArrayListKokashKategorishZbritje(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatKategoriteZbritjes();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow  koka kategori zbritje sipas kodit
@@ -7869,7 +5971,6 @@ namespace DbCore.DbInventari
 
             dbManager.AddParameters(4, "@PRIORITETINIVELZBRITJE", prioritetiNivelZbritje, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(6, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(7, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -7880,165 +5981,26 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: clsMesazh ruajNivZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //internal clsMesazh ruajNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)
         //{ //metoda per ruajtjen e nivelit te zbritjeve
-        //    bool ruaj = false;
-        //    clsNivelZbritje nivelZbritje = new clsNivelZbritje(idNivelZbritje, kodNivelZbritje, pershkrimNivelZbritje, idPrindi, prioritetiNivelZbritje, idPerdoruesi, idNderViti, idnderm,0);
-        //    clsMesazh mesazh = new clsMesazh();
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDNIVELZBRITJE", idNivelZbritje, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNIVELZBRITJE", kodNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELZBRITJE", pershkrimNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", idPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@PRIORITETINIVELZBRITJE", prioritetiNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin();
-        //        int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CNZ");
-        //        //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CNZ")[0].IdCR;
-        //        int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod");
-        //        //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
-        //        if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje).IdLidhjeNrAuto!=0)
-        //        {
-        //            DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje);
-        //            DbAdmin.clsNrAutom NrAutom = new clsNrAutom(ACR.IdNumraAutoLidhje);
-        //            //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-        //            int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-        //            int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-        //            string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-        //            string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-        //            ACR.VleraFunditLidhje = vlera;
-        //            ACR.modifiko();
-        //        }
-        //        ruaj = true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //    if (ruaj == true)
-        //    {
-        //        if (nivelZbritje.IdPrindi != 0)
-        //        {
-        //            //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //            clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //            clsNivelZbritje nivelPrindi = new clsNivelZbritje();
-        //            nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
-        //            nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //            clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //            //colNivele.Add(merrNivelZbritje (nivelPrindi)[0] );
-        //            if (clsNivele != null)
         //                //if (colNivele.Count > 0)
-        //                if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
         //                //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
-        //                {
         //                    //foreach (clsNivelZbritje n in colNivele)
-        //                    if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                    {
-        //                        clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                        modifikoNivelZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje);
-        //                        //modifikoNivelZbritje(clsNivele);
-        //                    }
 
-        //                }
-        //        }
-        //    }
-        //    return mesazh;
-        //}
         //[Obsolete("Perdor: clsMesazh ruajNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //public clsMesazh ruajNivelZbritje(clsNivelZbritje nivelZbritje, int idndermarje)
         //{ //metoda per ruajtjen e nivelit te zbritjeve
-        //    bool ruaj = false;
-        //    clsMesazh mesazh = new clsMesazh();
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDNIVELZBRITJE", nivelZbritje.IdNivelZbritje, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODNIVELZBRITJE", nivelZbritje.KodNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELZBRITJE", nivelZbritje.PershkrimNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", nivelZbritje.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@PRIORITETINIVELZBRITJE", nivelZbritje.PrioritetiNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", nivelZbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", nivelZbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", nivelZbritje.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        DbAdmin.clsDatabaseAdmin dbAdmin = new DbAdmin.clsDatabaseAdmin();
-        //        int idregj = DbAdmin.clsListeAmbjenteCeljeRegjistrim.ktheIdCR("CNZ");
-        //        //int idregj = dbAdmin.ktheListeAmbjentiCeljeRegjistrim("CNZ")[0].IdCR;
-        //        //int idlloji = dbAdmin.ktheLlojKodi("Kod")[0].IdLlojKodi;
-        //        int idlloji = DbAdmin.clsLlojKodi.ktheIDLlojKodi("Kod");
-        //        if (new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje).IdLidhjeNrAuto!=0)
-        //        {
-        //            DbAdmin.clsACRNumraAutomatike ACR = new DbAdmin.clsACRNumraAutomatike(idregj, idlloji, idndermarje);
-        //            DbAdmin.clsNrAutom NrAutom = new clsNrAutom(ACR.IdNumraAutoLidhje);
-        //            //DbAdmin.clsNrAutom NrAutom = dbAdmin.ktheNrAutom(ACR.IdNumraAutoLidhje)[0];
-        //            int karakteremajtas = NrAutom.MajtasNrAutom.Length;
-        //            int karakteredjathtas = ACR.VleraFunditLidhje.Length - NrAutom.DjathtasNrAutom.Length - karakteremajtas;
-        //            string vle = ACR.VleraFunditLidhje.Substring(karakteremajtas, karakteredjathtas);
-        //            string vlera = NrAutom.gjeneroNumrinAutomatikPasardhes(vle);
-        //            ACR.VleraFunditLidhje = vlera;
-        //            ACR.modifiko();
-        //        }
-        //        ruaj = true;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //    if (ruaj == true)
-        //    {
-        //        if (nivelZbritje.IdPrindi != 0)
-        //        {
-        //            //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //            clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //            clsNivelZbritje nivelPrindi=new clsNivelZbritje ();
-        //            nivelPrindi.IdNivelZbritje =nivelZbritje.IdPrindi ;
-        //            nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //            clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //            //colNivele.Add(merrNivelZbritje (nivelPrindi)[0] );
-        //            if (clsNivele != null)
         //            //if (colNivele.Count > 0)
-        //                if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
         //                //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
-        //                {
         //                    //foreach (clsNivelZbritje n in colNivele)
-        //                    if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                            modifikoNivelZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje);
-        //                            //modifikoNivelZbritje(clsNivele);
-        //                        }
 
-        //                }
-        //        }
-        //    }
-        //    return mesazh;
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_NIVELZBRITJE_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -8069,7 +6031,6 @@ namespace DbCore.DbInventari
 
             dbManager.AddParameters(4, "@PRIORITETINIVELZBRITJE", prioritetiNivelZbritje, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(6, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(7, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(8, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -8081,38 +6042,10 @@ namespace DbCore.DbInventari
         }
         //[Obsolete("Perdor: bool modifikoNivZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
         //public bool modifikoNivZbritje(clsNivelZbritje nivelZbritje)
-        //{
-        //    bool ruaj = false;
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDNIVELZBRITJE", nivelZbritje.IdNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODNIVELZBRITJE", nivelZbritje.KodNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMNIVELZBRITJE", nivelZbritje.PershkrimNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPRINDI", nivelZbritje.IdPrindi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@PRIORITETINIVELZBRITJE", nivelZbritje.PrioritetiNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDPERDORUESI", nivelZbritje.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDNDERVITI", nivelZbritje.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", nivelZbritje.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        ruaj = true;
-        //        return ruaj;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         ///// <summary>
         ///// modifikon nje nivel zbritje duke ndryshuar prioritetet e te gjithe nivele te tjera te te njejtit prind ne varesi te ndryshimit te nivelit qe u modifikua
@@ -8127,229 +6060,42 @@ namespace DbCore.DbInventari
         ///// <param name="idnderm"> id e ndermarjes</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: modifikoNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //internal clsMesazh modifikoNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)
         //{//metoda per modifikimin e nivelit te zbritje
-        //    bool ruaj = false;
-        //    clsMesazh mesazh = new clsMesazh();
-        //    clsNivelZbritje nivelZbritje = new clsNivelZbritje(idNivelZbritje, kodNivelZbritje, pershkrimNivelZbritje, idPrindi, prioritetiNivelZbritje, idPerdoruesi, idNderViti, idnderm,0);
-        //    clsNivelZbritje nivelipara = new clsNivelZbritje();
-        //    nivelipara.mbushNivelZbritje(nivelZbritje.IdNivelZbritje, nivelZbritje.IdNdermarje);
-        //    //clsNivelZbritje nivelipara = merrNivelZbritje(nivelZbritje)[0];
-        //    ruaj = modifikoNivZbritje(idNivelZbritje, kodNivelZbritje, pershkrimNivelZbritje, idPrindi, prioritetiNivelZbritje, idPerdoruesi, idNderViti, idnderm,0);
-        //    if (ruaj == true)
-        //    {
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        if (nivelZbritje.IdPrindi != 0)
-        //        {
-        //            if (nivelipara.IdPrindi == nivelZbritje.IdPrindi)
-        //            {
-        //                if (nivelipara.PrioritetiNivelZbritje != nivelZbritje.PrioritetiNivelZbritje)
-        //                {
-        //                    //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //                    clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //                    clsNivelZbritje nivelPrindi = new clsNivelZbritje();
-        //                    nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
-        //                    nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //                    clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //                    //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
-        //                    if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                            modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                            //modifikoNivZbritje(clsNivele);
-        //                        }
 
-        //                    }
         //                    else
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje <= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje > nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje - 1;
-        //                            modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                            //modifikoNivZbritje(clsNivele);
-        //                        }
-        //                    }
 
-        //                }
-        //            }
         //            else
-        //            {
-        //                //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //                clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //                clsNivelZbritje nivelPrindi = new clsNivelZbritje();
-        //                nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
-        //                nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //                clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //                //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
-        //                if (clsNivele != null)
         //                    //if (colNivele.Count > 0)
-        //                    if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
         //                    //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                            modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                            //modifikoNivZbritje(clsNivele);
-        //                        }
 
-        //                    }
-        //            }
-        //        }
         //        else
-        //        {
-        //            if (nivelipara.PrioritetiNivelZbritje != nivelZbritje.PrioritetiNivelZbritje)
-        //            {
-        //                colNiveleZbritjesh colNivele = new colNiveleZbritjesh();
-        //                colNivele.mbushNiveleZbritjeshSipasPrindit(nivelZbritje.IdNivelZbritje);
-        //                //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdNivelZbritje);
 
-        //                if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
-        //                {
-        //                    foreach (clsNivelZbritje n in colNivele)
-        //                        if (n.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && n.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje && n.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje + 1;
-        //                            modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                            //modifikoNivZbritje(n);
-        //                        }
 
-        //                }
         //                else
-        //                {                                                                                                                                                                             
-        //                    foreach (clsNivelZbritje n in colNivele)
-        //                        if (n.PrioritetiNivelZbritje <= nivelZbritje.PrioritetiNivelZbritje && n.PrioritetiNivelZbritje > nivelipara.PrioritetiNivelZbritje && n.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje - 1;
-        //                            modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                            //modifikoNivZbritje(n);
-        //                        }
-        //                }
 
-        //            }
-        //        }
-        //    }
 
-        //    return mesazh;
-        //}
         //[Obsolete("Perdor: clsMesazh modifikoNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public clsMesazh modifikoNivelZbritje(clsNivelZbritje nivelZbritje)
         //{//metoda per modifikimin e nivelit te zbritje
-        //    bool ruaj = false;
-        //    clsMesazh mesazh = new clsMesazh();
-        //    clsNivelZbritje nivelipara = new clsNivelZbritje();
-        //    nivelipara.mbushNivelZbritje(nivelZbritje.IdNivelZbritje, nivelZbritje.IdNdermarje);
-        //    //clsNivelZbritje nivelipara = merrNivelZbritje(nivelZbritje)[0];
-        //    ruaj = modifikoNivZbritje(nivelZbritje.IdNivelZbritje, nivelZbritje.KodNivelZbritje, nivelZbritje.PershkrimNivelZbritje, nivelZbritje.IdPrindi, nivelZbritje.PrioritetiNivelZbritje, nivelZbritje.IdPerdoruesi, nivelZbritje.IdNderViti, nivelZbritje.IdNdermarje,0);
-        //    //ruaj = modifikoNivZbritje(nivelZbritje);
-        //    if (ruaj == true)
-        //    {
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
 
-        //        if (nivelZbritje.IdPrindi != 0)
-        //        {
-        //            if (nivelipara.IdPrindi == nivelZbritje.IdPrindi)
-        //            {
-        //                if (nivelipara.PrioritetiNivelZbritje != nivelZbritje.PrioritetiNivelZbritje)
-        //                {
-        //                    //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //                    clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //                    clsNivelZbritje nivelPrindi = new clsNivelZbritje();
-        //                    nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
-        //                    nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //                    clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //                    //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
-        //                    if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                            {
-        //                                clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                                modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                                //modifikoNivZbritje(clsNivele);
-        //                            }
 
-        //                    }
         //                    else
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje <= nivelZbritje.PrioritetiNivelZbritje && clsNivele.PrioritetiNivelZbritje > nivelipara.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                            {
-        //                                clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje - 1;
-        //                                modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                                //modifikoNivZbritje(clsNivele);
-        //                            }
-        //                    }
 
-        //                }
-        //            }
         //            else
-        //            {
-        //                //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdPrindi);
-        //                clsNivelZbritje clsNivele = new clsNivelZbritje();
-        //                clsNivelZbritje nivelPrindi = new clsNivelZbritje();
-        //                nivelPrindi.IdNivelZbritje = nivelZbritje.IdPrindi;
-        //                nivelPrindi.IdNdermarje = nivelZbritje.IdNdermarje;
-        //                clsNivele.mbushNivelZbritje(nivelPrindi.IdNivelZbritje, nivelPrindi.IdNdermarje);
-        //                //colNivele.Add(merrNivelZbritje(nivelPrindi)[0]);
-        //                if (clsNivele !=null)
         //                //if (colNivele.Count > 0)
-        //                    if (nivelZbritje.PrioritetiNivelZbritje <= clsNivele.PrioritetiNivelZbritje)
         //                    //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
-        //                    {
         //                        //foreach (clsNivelZbritje n in colNivele)
-        //                        if (clsNivele.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && clsNivele.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                            {
-        //                                clsNivele.PrioritetiNivelZbritje = clsNivele.PrioritetiNivelZbritje + 1;
-        //                                modifikoNivZbritje(clsNivele.IdNivelZbritje, clsNivele.KodNivelZbritje, clsNivele.PershkrimNivelZbritje, clsNivele.IdPrindi, clsNivele.PrioritetiNivelZbritje, clsNivele.IdPerdoruesi, clsNivele.IdNderViti, clsNivele.IdNdermarje,0);
-        //                                //modifikoNivZbritje(clsNivele);
-        //                            }
 
-        //                    }
-        //            }
-        //        }
         //        else
-        //        {
-        //            if (nivelipara.PrioritetiNivelZbritje != nivelZbritje.PrioritetiNivelZbritje)
-        //            {
-        //                colNiveleZbritjesh colNivele = new colNiveleZbritjesh();
-        //                colNivele.mbushNiveleZbritjeshSipasPrindit(nivelZbritje.IdNivelZbritje);
-        //                //colNiveleZbritjesh colNivele = merrNivelZbritjeSipasPrindit(nivelZbritje.IdNivelZbritje);
 
-        //                if (nivelZbritje.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje)
-        //                {
-        //                    foreach (clsNivelZbritje n in colNivele)
-        //                        if (n.PrioritetiNivelZbritje >= nivelZbritje.PrioritetiNivelZbritje && n.PrioritetiNivelZbritje < nivelipara.PrioritetiNivelZbritje && n.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje + 1;
-        //                            modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                            //modifikoNivZbritje(n);
-        //                        }
 
-        //                }
         //                else
-        //                {
-        //                    foreach (clsNivelZbritje n in colNivele)
-        //                        if (n.PrioritetiNivelZbritje <= nivelZbritje.PrioritetiNivelZbritje && n.PrioritetiNivelZbritje > nivelipara.PrioritetiNivelZbritje && n.KodNivelZbritje != nivelZbritje.KodNivelZbritje)
-        //                        {
-        //                            n.PrioritetiNivelZbritje = n.PrioritetiNivelZbritje - 1;
-        //                            modifikoNivZbritje(n.IdNivelZbritje, n.KodNivelZbritje, n.PershkrimNivelZbritje, n.IdPrindi, n.PrioritetiNivelZbritje, n.IdPerdoruesi, n.IdNderViti, n.IdNdermarje,0);
-        //                            //modifikoNivZbritje(n);
-        //                        }
-        //                }
 
-        //            }
-        //        }
-        //    }
-
-        //    return mesazh;
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_NIVELZBRITJE_del duke i kaluar id e nivelit te zbritjes qe e marrim nga objekti clsNivelZbritje qe i kalohet si parameter
@@ -8382,30 +6128,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiNivelZbritje(int idNivelZbritje)", true)]
-        //public clsMesazh fshiNivelZbritje(clsNivelZbritje nivelZbritje)
         //{//metoda per fshirjen e nivelit te zbritje
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNIVELZBRITJE", nivelZbritje.IdNivelZbritje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// merr nivelet e zbritje sipas id
@@ -8431,30 +6158,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrNivelZbritje(int idNivelZbritje, int idNdermarje)", true)]
-        //public colNiveleZbritjesh merrNivelZbritje(clsNivelZbritje nivelZbritje)
         //{// metoda per te marre nje nivelin e zbritje NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDNIVELZBRITJE", nivelZbritje.IdNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", nivelZbritje.IdNdermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_sel");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e zbritjes te nje ndermarje
@@ -8472,28 +6179,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable merrGjitheNiveleZbritjeshSipasNdermarjes(int idnderm)", true)]
-        //public colNiveleZbritjesh merrGjitheNiveleZbritjeshSipasNdermarjes(int idnderm)
         //{//metoda per te marre te gjithe nivelet e zbritjeve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_merrNivelZbritjeSipasNdermarjes");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e zbritjes prind te nje ndermarje 
@@ -8511,28 +6199,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable merrGjitheNiveleZbritjeshPrindiSipasNdermarjes(int idnderm)", true)]
-        //public colNiveleZbritjesh merrGjitheNiveleZbritjeshPrindiSipasNdermarjes(int idnderm)
         //{//metoda per te marre te gjithe nivelet e zbritjeve prind
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_merrNivelZbritjePrindSipasNdermarjes");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e zbritjes te nje ndermarje me kete kod
@@ -8558,29 +6227,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: int merrNivelZbritjeSipasKodit(string kodi,int idnderm)", true)]
-        //public colNiveleZbritjesh merrNivelZbritjeSipasKodit(string kodi,int idnderm)
         //{//metoda per te marre NIVEL ZBRITJE sipas KODIT
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODNIVELZBRITJE", kodi, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_merrNivelZbritjeSipasKodit");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr gjithe nivelet e zbritjes te nje prindi
@@ -8598,28 +6247,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable merrNivelZbritjeSipasPrindit(int idprindi)", true)]
-        //public colNiveleZbritjesh merrNivelZbritjeSipasPrindit(int idprindi)
         //{//metoda per te marre NIVEL ZBRITJE sipas primdit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDPRINDI", idprindi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_merrNivelZbritjeSipasPrindit");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// merr datarow nivelin e zbritjes  me kete pershkrim
@@ -8666,29 +6296,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable merrNivelZbritjeSipasPershkrimit(string pershkrim, int idnderm)", true)]
-        //public colNiveleZbritjesh merrNivelZbritjeSipasPershkrimit(string pershkrim, int idnderm)
         //{//metoda per te marre NIVEL ZBRITJE sipas pershkrimit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@PERSHKRIMNIVELZBRITJE", pershkrim, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idnderm , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_merrNivelZbritjeSipasPershkrimit");
-        //        colNiveleZbritjesh colNiveleZbritjesh = new colNiveleZbritjesh();
-        //        return colNiveleZbritjesh.mbushArrayListNiveleZbritjesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colNiveleZbritjesh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston nje nivel zbritje me kete kod
@@ -8786,59 +6396,13 @@ namespace DbCore.DbInventari
         /// <returns> nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo.</returns>
         /// </summary>
         //    [Obsolete("Perdor nga klasa perkatese: clsMesazh ruajZbritje(colZbritjetAnalitike  zbritjetAnalitike)", true)]
-        //    public clsMesazh ruajZbritje(colZbritjetAnalitike  zbritjetAnalitike)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //        dbManager.Open();
-        //        dbManager.BeginTransaction();
-        //        clsMesazh mesazh = new clsMesazh(true);
         //        try
-        //        {
-        //            foreach (clsZbritjeAnalitike  c in zbritjetAnalitike)
-        //            {
-        //                if (mesazh.Status)
-        //                {
-        //                    if (c.IdZbritjeAnalitike == 0)
-        //                    {
-        //                        int idZ;
         //                        mesazh = ruajZbritjeAnalitike(out idZ, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
-        //                            c.VleftaMin, c.VleftaMax, c.LlojZbritje, c.Zbritja, c.IdPerdoruesi, c.IdNderViti, c.IdNdermarje, c.IdKonfig);
-        //                        //mesazh= ruajZbritjeAnalitike(c);
-        //                    }
         //                    else
         //                        mesazh = modifikoZbritjeAnalitike(c.IdZbritjeAnalitike, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
-        //c.VleftaMin, c.VleftaMax, c.LlojZbritje, c.Zbritja, c.IdPerdoruesi, c.IdNderViti, c.IdNdermarje, c.IdKonfig);
-        //                        //mesazh= modifikoZbritjeAnalitike(c);
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazh.Status)
-        //            {
-        //                dbManager.CommitTransaction();
-        //                mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                return mesazh;
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return new clsMesazh(false, ce.Message);
-        //        }
         //        finally
-        //        {
-        //            dbManager.Dispose();
-        //        }
-        //    }
 
         /// <summary>
         /// ekzekuton prc_T_ZBRITJEANALITIKE_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -8884,7 +6448,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(10, "@LLOJZBRITJE", llojZbritje, ParameterDirection.Input);
             dbManager.AddParameters(11, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(13, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(14, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(15, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -8900,50 +6463,15 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: clsMesazh ruajZbritjeAnalitike(int idZbritjaAnalitike, int idArtikulli, int idNivelZbritje, int idNjesia, DateTime dateFillimit, DateTime dateMbarimit, " +  
         //    "decimal sasiMin, decimal sasiMax, decimal vleftaMin, decimal vleftaMax, int zbritjeNeVlere, decimal zbritja, int idPerdoruesi, int idNderViti, int idNdermarje, " + 
         //    "int idkonfig)",true)]
-        //public clsMesazh ruajZbritjeAnalitike(clsZbritjeAnalitike zbritjeAnalitike)
         //{ //metoda per ruajtjen e zbritjeAnalitike
 
 
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(16);
-        //        dbManager.AddParameters(0, "@IDZBRITJEANALITIKE", zbritjeAnalitike.IdZbritjeAnalitike, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDARTIKULLI", zbritjeAnalitike.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDNIVELZBRITJE", zbritjeAnalitike.IdNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNJESIA", zbritjeAnalitike.IdNjesia, ParameterDirection.Input);
-        //            dbManager.AddParameters(4, "@DTFILLIMIT", zbritjeAnalitike.DateFillimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@DTMBARIMIT", zbritjeAnalitike.DateMbarimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@SASIMIN", zbritjeAnalitike.SasiMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@SASIMAX", zbritjeAnalitike.SasiMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@VLEFTAMIN", zbritjeAnalitike.VleftaMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@VLEFTAMAX", zbritjeAnalitike.VleftaMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@LLOJZBRITJE", zbritjeAnalitike.LlojZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(11, "@ZBRITJA", zbritjeAnalitike.Zbritja, ParameterDirection.Input);
-        //        dbManager.AddParameters(12, "@IDPERDORUESI", zbritjeAnalitike.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(13, "@IDNDERVITI", zbritjeAnalitike.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(14, "@IDNDERMARJE", zbritjeAnalitike.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(15, "@IDKONFIG", zbritjeAnalitike.IdKonfig, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_ins");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_ZBRITJEANALITIKE_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -8987,7 +6515,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(10, "@LLOJZBRITJE", llojZbritje, ParameterDirection.Input);
             dbManager.AddParameters(11, "@ZBRITJA", zbritja, ParameterDirection.Input);
             dbManager.AddParameters(12, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(13, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(13, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(14, "@IDKONFIG", idkonfig, ParameterDirection.Input);
             dbManager.AddParameters(15, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
@@ -9012,46 +6539,11 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: clsMesazh modifikoZbritjeAnalitike(int idZbritjaAnalitike, int idArtikulli, int idNivelZbritje, int idNjesia, DateTime dateFillimit, DateTime dateMbarimit, " +
         //    "decimal sasiMin, decimal sasiMax, decimal vleftaMin, decimal vleftaMax, int zbritjeNeVlere, decimal zbritja, int idPerdoruesi, int idNderViti, int idNdermarje, " +
         //    "int idkonfig)", true)]
-        //public clsMesazh modifikoZbritjeAnalitike(clsZbritjeAnalitike zbritjeAnalitike)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(16);
-        //        dbManager.AddParameters(0, "@IDZBRITJEANALITIKE", zbritjeAnalitike.IdZbritjeAnalitike, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDARTIKULLI", zbritjeAnalitike.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDNIVELZBRITJE", zbritjeAnalitike.IdNivelZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNJESIA", zbritjeAnalitike.IdNjesia, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@DTFILLIMIT", zbritjeAnalitike.DateFillimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@DTMBARIMIT", zbritjeAnalitike.DateMbarimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@SASIMIN", zbritjeAnalitike.SasiMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@SASIMAX", zbritjeAnalitike.SasiMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@VLEFTAMIN", zbritjeAnalitike.VleftaMin, ParameterDirection.Input);
-        //        dbManager.AddParameters(9, "@VLEFTAMAX", zbritjeAnalitike.VleftaMax, ParameterDirection.Input);
-        //        dbManager.AddParameters(10, "@LLOJZBRITJE", zbritjeAnalitike.LlojZbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(11, "@ZBRITJA", zbritjeAnalitike.Zbritja, ParameterDirection.Input);
-        //        dbManager.AddParameters(12, "@IDPERDORUESI", zbritjeAnalitike.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(13, "@IDNDERVITI", zbritjeAnalitike.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(14, "@IDNDERMARJE", zbritjeAnalitike.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_upd");
-        //        dbManager.AddParameters(15, "@IDKONFIG", zbritjeAnalitike.IdKonfig, ParameterDirection.Input);
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_ZBRITJEANALITIKE_del duke i kaluar id e zbritjes analitike te artikullit qe e marrim nga objekti clsZbritjeAnalitike qe i kalohet si parameter
@@ -9084,30 +6576,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiZbritjeAnalitike(int idZbritjeAnalitike)", true)]
-        //public clsMesazh fshiZbritjeAnalitike(clsZbritjeAnalitike zbritjeAnalitike)
         //{//metoda per fshirjen e ZbritjeAnalitike
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDZBRITJEANALITIKE", zbritjeAnalitike.IdZbritjeAnalitike, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow zbritje analitike  sipas idse
@@ -9140,29 +6613,10 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataRow ktheZbritjeAnalitike(int idZbritjeAnalitike)", true)]
-        //public colZbritjetAnalitike merrZbritjeAnalitike(clsZbritjeAnalitike zbritjeAnalitike)
         //{// metoda per te marre nje ZbritjeAnalitike NE BAZE TE ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDZBRITJEANALITIKE", zbritjeAnalitike.IdZbritjeAnalitike, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_sel");
-        //        colZbritjetAnalitike colZbritjetAnalitike = new colZbritjetAnalitike();
-        //        return colZbritjetAnalitike.mbushArrayListZbritjeshAnalitike(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colZbritjetAnalitike();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable zbritje analitike artikujsh sipas filtrave te kaluar si parametra
@@ -9202,7 +6656,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(4, "@KODIFIKIMARTIKULLI1 ", kodifikimi1, ParameterDirection.Input);
             dbManager.AddParameters(5, "@KODIFIKIMARTIKULLI2", kodifikimi2, ParameterDirection.Input);
             dbManager.AddParameters(6, "@FURNITORI", furnitori, ParameterDirection.Input);
-            //dbManager.AddParameters(7, "@IDNDERVITI", idndervit, ParameterDirection.Input);
             dbManager.AddParameters(7, "@NJESIA", njesia, ParameterDirection.Input);
             if (datafillimit == "")
                 dbManager.AddParameters(8, "@DATAFILLIMIT", datafillimit, ParameterDirection.Input);
@@ -9236,55 +6689,13 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataTable ktheZbritjeAnalitikeSipasFiltrit(string kodartikulli, string kodbar, string pershkrimi1, string pershkrimi2, string kodifikimi1, string kodifikimi2, string furnitori, string njesia, string datafillimit, string datambarimit, int idndervit, string idnivelzbritje, int idperdorues, int idndermarje)", true)]
-        //public colZbritjetAnalitike merrZbritjeAnalitikeSipasFiltrit(string kodartikulli, string kodbar, string pershkrimi1, string pershkrimi2, string kodifikimi1, string kodifikimi2, string furnitori, string njesia, string datafillimit, string datambarimit, int idndervit, string idnivelzbritje, int idperdorues, int idndermarje)
         //{// metoda per te marre nje ZbritjeAnalitike NE BAZE TE filtrave
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        DateTime dtfill = new DateTime();
-        //        DateTime dtmbar = new DateTime();
-        //        dbManager.Open();
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(14);
-        //        if (datafillimit != "")
-        //            dtfill = DateTime.Parse(datafillimit);
-        //        if (datambarimit != "")
-        //            dtmbar = DateTime.Parse(datambarimit);
 
-        //        dbManager.AddParameters(0, "@KODARTIKULLI", kodartikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODBARARTIKULLI", kodbar, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMARTIKULLI", pershkrimi1, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PERSHKRIMANGARTIKULLI", pershkrimi2, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@KODIFIKIMARTIKULLI1 ", kodifikimi1, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@KODIFIKIMARTIKULLI2", kodifikimi2, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@FURNITORI", furnitori, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERVITI", idndervit, ParameterDirection.Input);
-        //        dbManager.AddParameters(8, "@NJESIA", njesia, ParameterDirection.Input);
-        //        if (datafillimit == "")
-        //            dbManager.AddParameters(9, "@DATAFILLIMIT", datafillimit, ParameterDirection.Input);
         //        else
-        //            dbManager.AddParameters(9, "@DATAFILLIMIT", dtfill, ParameterDirection.Input);
-        //        if (datambarimit == "")
-        //            dbManager.AddParameters(10, "@DATAMBARIMIT", datambarimit, ParameterDirection.Input);
         //        else
-        //            dbManager.AddParameters(10, "@DATAMBARIMIT", dtmbar, ParameterDirection.Input);
-        //        dbManager.AddParameters(11, "@IDNIVELZBRITJE", idnivelzbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(12, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(13, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_merrZbritjetSipasFiltrit");
-        //        colZbritjetAnalitike colZbritjetAnalitike = new colZbritjetAnalitike();
-        //        return colZbritjetAnalitike.mbushArrayListZbritjeshAnalitike(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colZbritjetAnalitike();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable zbritje analitike artikujsh sipas nivelit
@@ -9323,31 +6734,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable  ktheZbritjeAnalitikeSipasNivelit(string kodartikulli, string idnivelzbritje, int idperdorues, int idndermarje)", true)]
-        //public colZbritjetAnalitike  merrZbritjeAnalitikeSipasNivelit(string kodartikulli, string idnivelzbritje, int idperdorues, int idndermarje)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@KODARTIKULLI", kodartikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNIVELZBRITJE", idnivelzbritje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ZBRITJEANALITIKE_merrZbritjeAnalitikeSipasNivelit");
-        //        colZbritjetAnalitike colZbritjeArtikujsh = new colZbritjetAnalitike();
-        //        return colZbritjeArtikujsh.mbushArrayListZbritjeshAnalitike(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colZbritjetAnalitike();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen dataTable zbritjesh analitike sipas ndermarrjes
@@ -9623,37 +7011,12 @@ namespace DbCore.DbInventari
             return mesazh;
 
 
-
         }
         //[Obsolete("Perdor: clsMesazh ruajTrupiMakro(int idTrupiMakro, int idKokaMakro, int idLlojMakro, int idProdukti, string pershkrimi, int idFunksionMakro, decimal vlera, int renditja)", true)]
-        //public clsMesazh ruajTrupiMakro(clsTrupiMakro trupiMakro)
         //{ //metoda per ruajtjen e TRUPIT makros
         //    try
-        //    {
-        //        clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDTRUPIMAKRO", trupiMakro.IdTrupiMakro, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@IDLLOJIMAKRO", trupiMakro.IdLlojMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPRODUKTI", trupiMakro.IdProdukti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDFUNKSIONI", trupiMakro.IdFunksionMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERA", trupiMakro.Vlera, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@RENDITJA", trupiMakro.Renditja, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDKOKAMAKRO", trupiMakro.IdKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PERSHKRIMI", trupiMakro.Pershkrimi, ParameterDirection.Input);
-        //            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIMAKRO_ins");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_TRUPIMAKRO_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -9690,37 +7053,12 @@ namespace DbCore.DbInventari
             return mesazh;
 
 
-
         }
         //[Obsolete("Perdor: clsMesazh modifikoTrupiMakro(int idTrupiMakro, int idKokaMakro, int idLlojMakro, int idProdukti, string pershkrimi, int idFunksionMakro, decimal vlera, int renditja)", true)]
-        //public clsMesazh modifikoTrupiMakro(clsTrupiMakro trupiMakro)
         //{//metoda per modifikimin e TRUPIT MAKRO
         //    try
-        //    {
-        //        clsMesazh mesazh = new clsMesazh();
         //        //shtimi i parametrave
 
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDTRUPIMAKRO", trupiMakro.IdTrupiMakro, ParameterDirection.Input );
-        //        dbManager.AddParameters(1, "@IDLLOJIMAKRO", trupiMakro.IdLlojMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPRODUKTI", trupiMakro.IdProdukti, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDFUNKSIONI", trupiMakro.IdFunksionMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@VLERA", trupiMakro.Vlera, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@RENDITJA", trupiMakro.Renditja, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@IDKOKAMAKRO", trupiMakro.IdKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@PERSHKRIMI", trupiMakro.Pershkrimi, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIMAKRO_upd");
-        //        mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-
-
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_TRUPIMAKRO_del duke i kaluar id e trupit te makros qe e marrim nga objekti clsTrupiMakro qe i kalohet si parameter
@@ -9740,23 +7078,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiTrupiMakro(int idTrupiMakro)", true)]
-        //public clsMesazh fshiTrupiMakro(clsTrupiMakro trupiMakro)
         //{//metoda per fshirjen e TRUPIT MAKRO
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIMAKRO", trupiMakro.IdTrupiMakro, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIMAKRO_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow trupi makro sipas idse
@@ -9779,28 +7104,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheTrupiMakro(int idtrupi)", true)]
-        //public colTrupatMakro ktheTrupiMakro(int idtrupi)
         //{//metoda per te marre TRUPI makro SIPAS ID
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDTRUPIMAKRO", idtrupi , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIMAKRO_ktheTrupiMakroSipasID");
-        //        colTrupatMakro colMakro = new colTrupatMakro();
-        //        return colMakro.mbushArrayListTrupaMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatMakro();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable trupi makro sipas idse te kokes
@@ -9818,28 +7124,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable merrTrupatMakroSipasKokes(int idkoka)", true)]
-        //public colTrupatMakro merrTrupatMakroSipasKokes(int idkoka)
         //{//metoda per te marre TRUPAT Makro SIPAS kokes
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAMAKRO", idkoka , ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIMAKRO_ktheTrupiMakroSipasIDKoka");
-        //        colTrupatMakro colTrupatMakro = new colTrupatMakro();
-        //        return colTrupatMakro.mbushArrayListTrupaMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colTrupatMakro();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         internal DataTable MerrMakroFature(int idDok)
         {
@@ -9882,39 +7169,18 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODIKOKAMAKRO", kodKokaMakro, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMIKOKAMAKRO", pershkrimKokaMakro, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_ins");
             idKokaMakro = int.Parse(dbManager.Parameters[0].Value.ToString());
-            //clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
             return idKokaMakro;
 
 
         }
         //[Obsolete("Perdor: clsMesazh ruajKokaMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //public clsMesazh ruajKokaMakro(clsKokaMakro makro)
         //{//ruajtja e kokamakro
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDKOKAMAKRO", makro.IdKokaMakro, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODIKOKAMAKRO", makro.KodiKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMIKOKAMAKRO", makro.PershkrimiKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", makro.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", makro.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERMARJE", makro.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_ins");
-        //        makro.IdKokaMakro = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_KOKAMAKRO_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -9936,7 +7202,6 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(1, "@KODIKOKAMAKRO", kodKokaMakro, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERSHKRIMIKOKAMAKRO", pershkrimKokaMakro, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            //dbManager.AddParameters(4, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
             dbManager.AddParameters(4, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
             dbManager.AddParameters(5, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_upd");
@@ -9946,27 +7211,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoKokaMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //public clsMesazh modifikoKokaMakro(clsKokaMakro makro)
         //{//modifikimi i kokamakro
         //    try
-        //    {
-        //        dbManager.CreateParameters(6);
-        //        dbManager.AddParameters(0, "@IDKOKAMAKRO", makro.IdKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@KODIKOKAMAKRO", makro.KodiKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMIKOKAMAKRO", makro.PershkrimiKokaMakro, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@IDPERDORUESI", makro.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDNDERVITI", makro.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERMARJE", makro.IdNdermarje, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_upd");
-        //        makro.IdKokaMakro = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_KOKAMAKRO_del duke i kaluar id e kokes te makros qe e marrim nga objekti clsKokaMakro qe i kalohet si parameter
@@ -9997,21 +7243,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiKokaMakro(int idKokaMakro)", true)]
-        //public clsMesazh fshiKokaMakro(clsKokaMakro makro)
         //{//fshirja e KokaMakro
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAMAKRO", makro.IdKokaMakro, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         ///// <summary>
         ///// fshin nje objekt makro sebashku me trupin dhe autorizimet
@@ -10023,173 +7256,24 @@ namespace DbCore.DbInventari
         ///// <param name="idKokaMakro">id ritese e kokes se makros</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e fshirjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor nga klasa perkatese: public clsMesazh fshiMakro(int idKokaMakro)", true)]
-        //internal clsMesazh fshiMakro(int idKokaMakro)
         //{//fshin makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-        //    DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    colTrupatMakro trupat = new colTrupatMakro(idKokaMakro);
-        //    //colTrupatMakro  trupat =merrTrupatMakroSipasKokes (makro.IdKokaMakro);
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        foreach (clsTrupiMakro o in trupat)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiTrupiMakro(o.IdTrupiMakro);
-        //                //mesazh = fshiTrupiMakro(o);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
-        //            {
-        //                if (mesazhAdmin.Status)
-        //                    mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
 
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                mesazh = fshiKokaMakro(idKokaMakro);
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         //[Obsolete("Perdor: clsMesazh fshiMakro(int idKokaMakro)", true)]
-        //public clsMesazh fshiMakro(clsKokaMakro makro)
         //{//fshin makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-        //    DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(makro.IdKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(makro.IdKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    colTrupatMakro trupat = new colTrupatMakro(makro.IdKokaMakro);
-        //    //colTrupatMakro  trupat =merrTrupatMakroSipasKokes (makro.IdKokaMakro);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh(true);
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        foreach (clsTrupiMakro o in trupat)
-        //        {
-        //            if (mesazh.Status)
-        //            {
-        //                mesazh = fshiTrupiMakro(o.IdTrupiMakro);
-        //                //mesazh = fshiTrupiMakro(o);
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //            }
-        //        }
-        //        if (mesazh.Status)
-        //        {
-        //            foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
-        //            {
-        //                if (mesazhAdmin.Status)
-        //                    mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
 
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                mesazh = fshiKokaMakro(makro.IdKokaMakro);
-        //                //mesazh=fshiKokaMakro(makro);
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen datatable makro sipas ndermarjes dhe autorizimit
@@ -10209,30 +7293,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheMakroSipasNdermarrjesAndAutorizime(int idndermarje, int idperdorues)", true)]
-        //public colKokatMakro  merrMakroSipasNdermarrjesAndAutorizime(int idndermarje, int idperdorues)
         //{//metoda per te marre te gjithe makrot
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_merrKokaMakroSipasNdermarrjesAndAutorizime");
-        //        colKokatMakro  colMakro = new colKokatMakro ();
-        //        return colMakro.mbushArrayListKokaMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatMakro ();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable makro sipas ndermarjes dhe autorizimit qe fillojne me kete kod
@@ -10255,31 +7319,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheMakroSipasNdermarrjesAndAutorizimeLike(int idndermarje, int idperdorues, string kodi)", true)]
-        //public colKokatMakro merrMakroSipasNdermarrjesAndAutorizimeLike(int idndermarje, int idperdorues, string kodi)
         //{//metoda per te marre te gjithe makrot
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KODIKOKAMAKRO", kodi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_merrKokaMakroSipasNdermarrjesAndAutorizimeLike");
-        //        colKokatMakro colMakro = new colKokatMakro();
-        //        return colMakro.mbushArrayListKokaMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatMakro();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datarow koka makro me kete id
@@ -10303,30 +7346,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow ktheKokaMakro(int id)", true)]
-        //public colKokatMakro ktheKokaMakro(int id)
         //{//kthen KokaMakro sipas id
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKOKAMAKRO", id, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_ktheKokaMakroSipasID");
-        //        colKokatMakro colMakro = new colKokatMakro();
-        //        return colMakro.mbushArrayListKokaMakrosh(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatMakro();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen int id koka makro me kete kod ne kete ndermarje
@@ -10371,31 +7395,11 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrKokaMakro(string kod, int idndermarje)", true)]
-        //public colKokatMakro ktheKokaMakro(string kod, int idndermarje)
         //{//kthen KokaMakro sipas kodit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@KODIKOKAMAKRO", kod, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_ktheKokaMakroSipasKodit");
-        //        colKokatMakro colMakro = new colKokatMakro();
-        //        return colMakro.mbushArrayListKokaMakrosh(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKokatMakro();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         ///// <summary>
         ///// Ruan nje objekt makro sebashku me trupin dhe autorizimet
@@ -10412,213 +7416,27 @@ namespace DbCore.DbInventari
         ///// <param name="idNdermarje">id e ndermarjes</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e ruajtjes se te dhenave ne DB</returns>     
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //internal clsMesazh ruajMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)
         //{//ruan makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
 
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-        //    clsKokaMakro makro = new clsKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idNderViti, idPerdoruesi, idNdermarje);
-        //    bool statusVeprimi;
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        idKokaMakro = ruajKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idNderViti, idPerdoruesi, idNdermarje);
-        //        if (idKokaMakro == 0)
-        //            statusVeprimi = false;
-        //        else statusVeprimi = true;
 
-        //        if (statusVeprimi)
-        //        {
-        //            if (makro.IdNivelAutorizimi != "")
-        //            {
-        //                DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //                string[] pars1 = makro.IdNivelAutorizimi.Split(',');
-        //                for (int i = 0; i < pars1.Length; i++)
-        //                {
-        //                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                    colLidhjet.Add(lidhje);
-        //                }
-        //                foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        o.IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                        o.IdLidhese = idKokaMakro;
-        //                        mesazhAdmin = new DbAdmin.clsDatabaseAdmin().ruajLidhjeAutorizim(o.IdLidhjeAutorizim, o.IdLidhese, o.IdLloji, o.IdAutorizimeKoka);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                foreach (clsTrupiMakro o in makro.OColTrupatMakro)
-        //                {
-        //                    if (statusVeprimi)
-        //                    {
-        //                        o.IdKokaMakro = idKokaMakro;
-        //                        int idT;
-        //                        mesazh = ruajTrupiMakro(out idT, o.IdKokaMakro, o.IdLlojMakro, o.IdProdukti, o.Pershkrimi, o.IdFunksionMakro, o.Vlera, o.Renditja);
-        //                        //mesazh= ruajTrupiMakro(o);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         //[Obsolete("Perdor: clsMesazh ruajMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //public clsMesazh ruajMakro(clsKokaMakro makro)
         //{//ruan makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
 
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
 
-        //    bool statusVeprimi;
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        makro.IdKokaMakro = ruajKokaMakro(makro.IdKokaMakro, makro.KodiKokaMakro, makro.PershkrimiKokaMakro, makro.IdNderViti, makro.IdPerdoruesi, makro.IdNdermarje);
-        //        //mesazh= ruajKokaMakro(makro);
-        //        if (makro.IdKokaMakro == 0)
-        //            statusVeprimi = false;
-        //        else statusVeprimi = true;
 
-        //        if (statusVeprimi)
-        //        {
-        //            if (makro.IdNivelAutorizimi != "")
-        //            {
-        //                DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //                string[] pars1 = makro.IdNivelAutorizimi.Split(',');
-        //                for (int i = 0; i < pars1.Length; i++)
-        //                {
-        //                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                    colLidhjet.Add(lidhje);
-        //                }
-        //                foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjet)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        o.IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                        o.IdLidhese = makro.IdKokaMakro;
-        //                        mesazhAdmin = new DbAdmin.clsDatabaseAdmin().ruajLidhjeAutorizim(o.IdLidhjeAutorizim, o.IdLidhese, o.IdLloji, o.IdAutorizimeKoka);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                foreach (clsTrupiMakro o in makro.OColTrupatMakro)
-        //                {
-        //                    if (statusVeprimi)
-        //                    {
-        //                        o.IdKokaMakro = makro.IdKokaMakro;
-        //                        int idT;
-        //                        mesazh = ruajTrupiMakro(out idT, o.IdKokaMakro, o.IdLlojMakro, o.IdProdukti, o.Pershkrimi, o.IdFunksionMakro, o.Vlera, o.Renditja);
-        //                        //mesazh= ruajTrupiMakro(o);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        return mesazh;
-        //                    }
-        //                }
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// Modifikon nje objekt makro sebashku me trupin dhe autorizimet
@@ -10635,384 +7453,64 @@ namespace DbCore.DbInventari
         /// <param name="idNdermarje">id e ndermarjes</param>
         /// <returns> kthen nje obj clsMesazh per te identifikuar statusin e modifikimit te te dhenave ne DB</returns>     
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //internal clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)
-        //{
         //    //modifikon Makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
 
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-        //    DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    //DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    colTrupatMakro trupat = new colTrupatMakro(idKokaMakro);
-        //    clsKokaMakro makro = new clsKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idNderViti, idPerdoruesi, idNdermarje);
-        //    //colTrupatMakro trupat = merrTrupatMakroSipasKokes(makro.IdKokaMakro);
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        mesazh = modifikoKokaMakro(idKokaMakro, kodKokaMakro, pershkrimKokaMakro, idNderViti, idPerdoruesi, idNdermarje);
-        //        if (mesazh.Status)
-        //        {
-        //            DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //            if (makro.IdNivelAutorizimi != "")
-        //            {
 
-        //                string[] pars1 = makro.IdNivelAutorizimi.Split(',');
-        //                for (int i = 0; i < pars1.Length; i++)
-        //                {
-        //                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                    colLidhjet.Add(lidhje);
-        //                }
 
-        //            }
         //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-        //            {
-        //                for (int i = 0; i < colLidhjet.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                        colLidhjet[i].IdLidhese = idKokaMakro;
-        //                        if (i < colLidhjetAutorizim.Count)
-        //                        {
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
         //            else//rasti kur jane fshire rreshta
-        //            {
-        //                int count = 0;
-        //                for (int i = 0; i < colLidhjetAutorizim.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        if (count < colLidhjet.Count)
-        //                        {
-        //                            colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                            colLidhjet[i].IdLidhese = idKokaMakro;
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                        {
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(colLidhjetAutorizim[i].IdLidhjeAutorizim);
-        //                        }
         //                        count++;
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
         //                if (trupat.Count < makro.OColTrupatMakro.Count)//rasti kur jane shtuar rreshta trupi
-        //                {
-        //                    for (int i = 0; i < makro.OColTrupatMakro.Count; i++)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            makro.OColTrupatMakro[i].IdKokaMakro = idKokaMakro;
-        //                            if (i < trupat.Count)
-        //                            {
 
-        //                                makro.OColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
-        //                                mesazh = modifikoTrupiMakro(makro.OColTrupatMakro[i].IdTrupiMakro, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
         //                            else
-        //                            {
-        //                                int idoC;
-        //                                mesazh = ruajTrupiMakro(out idoC, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  ruajTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                }
         //                else//rasti kur jane fshire rreshta
-        //                {
-        //                    int count = 0;
-        //                    for (int i = 0; i < trupat.Count; i++)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            if (count < makro.OColTrupatMakro.Count)
-        //                            {
 
-        //                                makro.OColTrupatMakro[i].IdKokaMakro = idKokaMakro;
 
-        //                                makro.OColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
-        //                                mesazh = modifikoTrupiMakro(makro.OColTrupatMakro[i].IdTrupiMakro, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
         //                            else
-        //                            {
-        //                                mesazh = fshiTrupiMakro(trupat[i].IdTrupiMakro);
-        //                                //mesazh=  fshiTrupiMakro(trupat[i]);
-        //                            }
         //                            count++;
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                }
 
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         ////[Obsolete("Perdor: clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //public clsMesazh modifikoMakro(clsKokaMakro makro)
-        //{
         //    //modifikon Makro
-        //    //DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
 
-        //    //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("Makro");
-        //    DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(makro.IdKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    //DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(makro.IdKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-        //    colTrupatMakro trupat = new colTrupatMakro(makro.IdKokaMakro);
-        //    //colTrupatMakro trupat = merrTrupatMakroSipasKokes(makro.IdKokaMakro);
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        mesazh = modifikoKokaMakro(makro.IdKokaMakro, makro.KodiKokaMakro, makro.PershkrimiKokaMakro, makro.IdNderViti, makro.IdPerdoruesi, makro.IdNdermarje);
-        //        //mesazh = modifikoKokaMakro(makro);
-        //        if (mesazh.Status)
-        //        {
-        //            DbAdmin.colLidhjetAutorizim colLidhjet = new DbAdmin.colLidhjetAutorizim();
-        //            if (makro.IdNivelAutorizimi != "")
-        //            {
 
-        //                string[] pars1 = makro.IdNivelAutorizimi.Split(',');
-        //                for (int i = 0; i < pars1.Length; i++)
-        //                {
-        //                    DbAdmin.clsLidhjeAutorizim lidhje = new DbAdmin.clsLidhjeAutorizim();
-        //                    lidhje.IdAutorizimeKoka = DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[i]);
-        //                    //lidhje.IdAutorizimeKoka = new DbAdmin.clsDatabaseAdmin().ktheAutorizim(pars1[i])[0].IdAutorizimKoka;
-        //                    colLidhjet.Add(lidhje);
-        //                }
 
-        //            }
         //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-        //            {
-        //                for (int i = 0; i < colLidhjet.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                        colLidhjet[i].IdLidhese = makro.IdKokaMakro;
-        //                        if (i < colLidhjetAutorizim.Count)
-        //                        {
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
         //            else//rasti kur jane fshire rreshta
-        //            {
-        //                int count = 0;
-        //                for (int i = 0; i < colLidhjetAutorizim.Count; i++)
-        //                {
-        //                    if (mesazhAdmin.Status)
-        //                    {
-        //                        if (count < colLidhjet.Count)
-        //                        {
-        //                            colLidhjet[i].IdLloji = DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro");
-        //                            colLidhjet[i].IdLidhese = makro.IdKokaMakro;
 
-        //                            colLidhjet[i].IdLidhjeAutorizim = colLidhjetAutorizim[i].IdLidhjeAutorizim;
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().modifikoLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka);
-        //                        }
         //                        else
-        //                        {
-        //                            mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(colLidhjetAutorizim[i].IdLidhjeAutorizim);
-        //                        }
         //                        count++;
-        //                    }
         //                    else
-        //                    {
-        //                        dbManager.Transaction.Rollback();
-        //                        mesazh.Status = false;
-        //                        mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                        return mesazh;
-        //                    }
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
         //                if (trupat.Count < makro.OColTrupatMakro.Count)//rasti kur jane shtuar rreshta trupi
-        //                {
-        //                    for (int i = 0; i < makro.OColTrupatMakro.Count; i++)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            makro.OColTrupatMakro[i].IdKokaMakro = makro.IdKokaMakro;
-        //                            if (i < trupat.Count)
-        //                            {
 
-        //                                makro.OColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
-        //                                mesazh = modifikoTrupiMakro(makro.OColTrupatMakro[i].IdTrupiMakro, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
         //                            else
-        //                            {
-        //                                int idoC;
-        //                                mesazh = ruajTrupiMakro(out idoC, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  ruajTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                }
         //                else//rasti kur jane fshire rreshta
-        //                {
-        //                    int count = 0;
-        //                    for (int i = 0; i < trupat.Count; i++)
-        //                    {
-        //                        if (mesazh.Status)
-        //                        {
-        //                            if (count < makro.OColTrupatMakro.Count)
-        //                            {
 
-        //                                makro.OColTrupatMakro[i].IdKokaMakro = makro.IdKokaMakro;
 
-        //                                makro.OColTrupatMakro[i].IdTrupiMakro = trupat[i].IdTrupiMakro;
-        //                                mesazh = modifikoTrupiMakro(makro.OColTrupatMakro[i].IdTrupiMakro, makro.OColTrupatMakro[i].IdKokaMakro, makro.OColTrupatMakro[i].IdLlojMakro, makro.OColTrupatMakro[i].IdProdukti, makro.OColTrupatMakro[i].Pershkrimi, makro.OColTrupatMakro[i].IdFunksionMakro, makro.OColTrupatMakro[i].Vlera, makro.OColTrupatMakro[i].Renditja);
-        //                                //mesazh=  modifikoTrupiMakro(makro.OColTrupatMakro[i]);
-        //                            }
         //                            else
-        //                            {
-        //                                mesazh = fshiTrupiMakro(trupat[i].IdTrupiMakro);
-        //                                //mesazh=  fshiTrupiMakro(trupat[i]);
-        //                            }
         //                            count++;
-        //                        }
         //                        else
-        //                        {
-        //                            dbManager.Transaction.Rollback();
-        //                            return mesazh;
-        //                        }
-        //                    }
-        //                }
 
-        //                if (mesazh.Status)
-        //                {
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            dbManager.Transaction.Rollback();
-        //                return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston nje makro me kete kod ne kete ndermarje
@@ -11078,28 +7576,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeMakrosh()", true)]
-        //public colLlojeMakrosh  merrGjitheLlojeMakrosh()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJMAKRO _merrGjitheLlojMakro");
-        //        colLlojeMakrosh colLlojeMakrosh = new colLlojeMakrosh();
-        //        return colLlojeMakrosh.mbushArrayListLlojeMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colLlojeMakrosh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
         /// <summary>
@@ -11172,28 +7652,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheFunksioneMakrosh()", true)]
-        //public colFunksioneMakrosh  merrGjitheFunksioneMakrosh()
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FUNKSIONMAKRO _merrGjitheFunksionMakro");
-        //        colFunksioneMakrosh colFunksioneMakrosh = new colFunksioneMakrosh();
-        //        return colFunksioneMakrosh.mbushArrayListFunksioneMakrosh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colFunksioneMakrosh();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -11237,30 +7699,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh ruajDetajimArtikulli(int idDetajimArtikulli, string kodDetajimArtikulli, int llojDetajimArtikulli, string pershkrimDetajimArtikulli, int idPerdoruesi, int idNderViti, int kategoriDetajimi, int idndermrje)", true)]
-        //public clsMesazh ruajDetajimArtikulli(clsDetajimArtikulli detajimArtikulli)
         //{//ruajtja e detajimArtikulli
         //    try
-        //    {
-        //        dbManager.CreateParameters(8);
-        //        dbManager.AddParameters(0, "@IDDETAJIMARTIKULLI", detajimArtikulli.IdDetajimArtikulli, ParameterDirection.Output);
-        //        dbManager.AddParameters(1, "@KODDETAJIMARTIKULLI", detajimArtikulli.KodDetajimArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@LLOJDETAJIMARTIKULLI", detajimArtikulli.LlojDetajimArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PERSHKRIMDETAJIMARTIKULLI", detajimArtikulli.PershkrimDetajimArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@IDPERDORUESI", detajimArtikulli.IdPerdoruesi, ParameterDirection.Input);
-        //        dbManager.AddParameters(5, "@IDNDERVITI", detajimArtikulli.IdNderViti, ParameterDirection.Input);
-        //        dbManager.AddParameters(6, "@KATEGORIDETAJIMI", detajimArtikulli.KategoriDetajimi, ParameterDirection.Input);
-        //        dbManager.AddParameters(7, "@IDNDERMARJE", detajimArtikulli.IdNdermarje , ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_ins");
-        //        detajimArtikulli.IdDetajimArtikulli = int.Parse(dbManager.Parameters[0].Value.ToString());
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// ekzekuton prc_T_DETAJIMARTIKULLI_upd ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -11364,21 +7805,8 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiDetajimArtikulli(int idDetajimArtikulli)", true)]
-        //public clsMesazh fshiDetajimArtikulli(clsDetajimArtikulli detajimArtikulli)
         //{//fshirja e DetajimArtikulli
         //    try
-        //    {
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDDETAJIMARTIKULLI", detajimArtikulli.IdDetajimArtikulli, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         ///// <summary>
         ///// fshin nje objekt detajimet sebashku me  autorizimet
@@ -11391,146 +7819,26 @@ namespace DbCore.DbInventari
         ///// <param name="idDetajimArtikulli"> id ritese e detajimit</param>
         ///// <returns> kthen nje obj clsMesazh per te identifikuar statusin e fshirjes se te dhenave ne DB</returns>
         //[Obsolete("Perdor: clsMesazh fshiDetajim(int idDetajimArtikulli)", true)]
-        //internal clsMesazh fshiDetajim(int idDetajimArtikulli)
         //{//fshin detajimArtikulli
-        //    DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
 
-        //    if (dbManager == null)
-        //    {
-        //        dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //        dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    }
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //        mesazh = kaVeprimeDetajim(idDetajimArtikulli);
-        //        if (!mesazh.Status)
-        //        {
-        //            //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("DetajimArtikulli");
-        //            DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(idDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
-        //            //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
-        //            foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
-        //            {
-        //                if (mesazhAdmin.Status)
-        //                    mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
 
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                mesazh = fshiDetajimArtikulli(idDetajimArtikulli);
-        //                if (mesazh.Status)
-        //                {
 
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
         //[Obsolete("Perdor: clsMesazh fshiDetajim(int idDetajimArtikulli)", true)]
-        //public clsMesazh fshiDetajim(clsDetajimArtikulli detajimArtikulli)
         //{//fshin detajimArtikulli
-        //    DbCore.DbKontabiliteti.clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();            
 
-        //    dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
-        //    dbManager.Open();
-        //    dbManager.BeginTransaction();
-        //    clsMesazh mesazh = new clsMesazh();
-        //    DbCore.clsMesazh mesazhAdmin = new DbCore.clsMesazh(true);
         //    try
-        //    {
-        //            mesazh = kaVeprimeDetajim(detajimArtikulli.IdDetajimArtikulli);
-        //        if (!mesazh.Status)
-        //        {
-        //            //colLlojeBuxhetesh colLloj = db.merrLlojBuxhetiSipasKodit("DetajimArtikulli");
-        //            DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.colLidhjetAutorizim(detajimArtikulli.IdDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
-        //            //DbAdmin.colLidhjetAutorizim colLidhjeAutorizim = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(detajimArtikulli.IdDetajimArtikulli, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("DetajimArtikulli"));
-        //            foreach (DbAdmin.clsLidhjeAutorizim o in colLidhjeAutorizim)
-        //            {
-        //                if (mesazhAdmin.Status)
-        //                    mesazhAdmin = new DbAdmin.clsDatabaseAdmin().fshiLidhjeAutorizim(o.IdLidhjeAutorizim);
 
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    mesazh.Status = false;
-        //                    mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                    return mesazh;
-        //                }
-        //            }
-        //            if (mesazhAdmin.Status)
-        //            {
-        //                mesazh= fshiDetajimArtikulli(detajimArtikulli.IdDetajimArtikulli);
-        //                if (mesazh.Status)
-        //                {
 
-        //                    dbManager.CommitTransaction();
-        //                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //                    return mesazh;
-        //                }
         //                else
-        //                {
-        //                    dbManager.Transaction.Rollback();
-        //                    return mesazh;
-        //                }
-        //            }
         //            else
-        //            {
-        //                dbManager.Transaction.Rollback();
-        //                mesazh.Status = false;
-        //                mesazh.PershkrimMesazhi = mesazhAdmin.PershkrimMesazhi;
-        //                return mesazh;
-        //            }
-        //        }
         //        else
-        //        {
-        //            return mesazh;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbManager.Transaction.Rollback();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         /// <summary>
         /// kthen dataTable detajim artikulli sipas ndermarjes dhe autorizimit
@@ -11553,30 +7861,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheDetajimeSipasNdermarrjesAndAutorizime(int idndermarje, int idperdorues)", true)]
-        //public colDetajimeArtikulli merrDetajimeSipasNdermarrjesAndAutorizime(int idndermarje, int idperdorues)
         //{//metoda per te marre te gjithe detajimArtikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(2);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_merrDetajimArtikulliSipasNdermarrjesAndAutorizime");
-        //        colDetajimeArtikulli colDetajimeArtikulli = new colDetajimeArtikulli();
-        //        return colDetajimeArtikulli.mbushArrayListDetajimArtikullish(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable detajim artikulli sipas artikullit, ndermarjes dhe autorizimeve
@@ -11745,31 +8033,10 @@ namespace DbCore.DbInventari
         }
 
         //[Obsolete("Perdor: DataTable ktheDetajimeSipasArtikullitAndNdermarrjesAndAutorizime(string kodiArtikullit, int idndermarje, int idperdorues)", true)] 
-        //public colDetajimeArtikulli merrDetajimeSipasArtikullitAndNdermarrjesAndAutorizime(string kodiArtikullit,int idndermarje, int idperdorues)
         //{//metoda per te marre te gjithe detajimArtikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@KODARTIKULLI", kodiArtikullit, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_merrDetajimeSipasArtikullitAndNdermarrjesAndAutorizime");
-        //        colDetajimeArtikulli colDetajimeArtikulli = new colDetajimeArtikulli();
-        //        return colDetajimeArtikulli.mbushArrayListDetajimArtikullish(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable artikulli sipas ndermarjes, autorizimit, pershkrimit dhe kategorise
@@ -11798,33 +8065,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheDetajimeSipasNdermarrjesAndAutorizimeAndKategoribetweenPershkrimi(int idndermarje, int idperdorues, string pershkriminga, string pershkrimideri, int kategori)", true)]
-        //public colDetajimeArtikulli merrDetajimeSipasNdermarrjesAndAutorizimeAndKategoribetweenPershkrimi(int idndermarje, int idperdorues, string pershkriminga, string pershkrimideri, int kategori)
         //{//metoda per te marre te gjithe detajimArtikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(5);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@PERSHKRIMINGA", pershkriminga, ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@PERSHKRIMIDERI", pershkrimideri, ParameterDirection.Input);
-        //        dbManager.AddParameters(4, "@KATEGORI", kategori, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_merrDetajimArtikulliSipasNdermarrjesAndAutorizimeAndKategoriBetweenPershkrimi");
-        //        colDetajimeArtikulli colDetajimeArtikulli = new colDetajimeArtikulli();
-        //        return colDetajimeArtikulli.mbushArrayListDetajimArtikullish(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable detajim artikulli sipas ndermarjes, autorizimit dhe kategorise
@@ -11859,31 +8103,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("DataTable ktheDetajimeSipasNdermarrjesAndAutorizimeSipasKategorise(int idndermarje, int idperdorues, int kategoriDetajimi)", true)]
-        //public colDetajimeArtikulli merrDetajimeSipasNdermarrjesAndAutorizimeSipasKategorise(int idndermarje, int idperdorues, int kategoriDetajimi)
         //{//metoda per te marre te gjithe detajimArtikullit
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KATEGORIDETAJIMI", kategoriDetajimi, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_merrDetajimArtikulliSipasNdermarrjesAndAutorizimeSipasKategorise");
-        //        colDetajimeArtikulli colDetajimeArtikulli = new colDetajimeArtikulli();
-        //        return colDetajimeArtikulli.mbushArrayListDetajimArtikullish(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable detajim artikulli sipas ndermarjes, autorizimit,artikullit dhe qe iu fillon kodi me kete koddetajimi
@@ -12038,33 +8261,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheDetajimeSipasArtikullitAndNdermarrjesAndAutorizimeLike(int idNdermarje, int idperdorues, string kodDetajimi, string kodArtikulli)", true)]
-        //public colDetajimeArtikulli merrDetajimeSipasArtikullitAndNdermarrjesAndAutorizimeLike(int idNdermarje, int idperdorues, string kodDetajimi, string kodArtikulli)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(4);
-        //        dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@KODDETAJIMI", kodDetajimi + "%", ParameterDirection.Input);
-        //        dbManager.AddParameters(3, "@KODARTIKULLI", kodArtikulli, ParameterDirection.Input);
 
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMARTIKULLI_merrDetajimeSipasArtikullitAndNdermarrjesAndAutorizimeLike");
-        //        colDetajimeArtikulli colDetajimeArtikulli = new colDetajimeArtikulli();
-        //        return colDetajimeArtikulli.mbushArrayListDetajimArtikullish(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimeArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
         internal DataRow merrDetajimArtikulli(int idDetajim)
         {
             ImbLogger.LogTraceShitje($"Filloi metoda merrDetajimArtikulli sipas idDetajim:{idDetajim}");
@@ -12336,7 +8536,6 @@ namespace DbCore.DbInventari
         }
 
 
-
         public DataTable merrDetajime2Fature(int idDok)
         {
             dbManager.Open();
@@ -12534,24 +8733,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh modifikoDetajimArt(int idDetajimArt, int idArtikulli, int idDetajimArtikulli)", true)]
-        //public clsMesazh modifikoDetajimArt(clsDetajimPerArt detajimArt)
         //{//metoda per modifikimin e DetajimArt
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(3);
-        //        dbManager.AddParameters(0, "@IDDETAJIMART", detajimArt.IdDetajimArt, ParameterDirection.Input);
-        //        dbManager.AddParameters(1, "@IDARTIKULLI", detajimArt.IdArtikulli, ParameterDirection.Input);
-        //        dbManager.AddParameters(2, "@IDDETAJIMARTIKULLI", detajimArt.IdDetajimArtikulli, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DETAJIMART_upd");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         /// <summary>
         /// ekzekutohet sp-ja prc_T_DETAJIMART_del duke i kaluar id e detajim artikullit qe e marrim nga objekti clsDetajimArt qe i kalohet si parameter
@@ -12574,23 +8758,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: clsMesazh fshiDetajimArt(int idDetajimArt)", true)]
-        //public clsMesazh fshiDetajimArt(clsDetajimPerArt detajimArt)
         //{//metoda per fshirjen e DetajimArt
         //    try
-        //    {
         //        //shtimi i parametrave
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDDETAJIMART", detajimArt.IdDetajimArt, ParameterDirection.Input);
-        //        dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DETAJIMART_del");
-        //        clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new clsMesazh(false, ce.Message);
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen datatable detajim artikulli sipas id se artikullit
@@ -12629,28 +8800,9 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheDetajimArtSipasIdArtikulli(int idartikulli)", true)]
-        //public colDetajimePerArt  merrDetajimArtSipasIdArtikulli(int idartikulli)
         //{//metoda per te marre DetajimArt sipas id artikulli
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMART_merrDetajimArtSipasArtikullit");
-        //        colDetajimePerArt colDetajimeArt = new colDetajimePerArt();
-        //        return colDetajimeArt.mbushArrayListDetajimeshArt(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colDetajimePerArt();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
-        //}
 
         #endregion
 
@@ -12674,27 +8826,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataTable ktheGjitheKategoriteDetajimit()", false)]
-        //public colKategoriDetajimArtikulli merrGjitheKategoriteDetajimit()
         //{//metoda per te marre te gjithe kategorite e detajimeve
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KATEGORIDETAJIMARTIKULLI_merrGjitheKategoriteDetajimit");
-        //        colKategoriDetajimArtikulli col = new colKategoriDetajimArtikulli();
-        //        return col.mbushArrayListkategoriDetajimesh(ds);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKategoriDetajimArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         /// <summary>
         /// kthen objektet kategori detajimi sipas id
@@ -12735,30 +8870,10 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: DataRow merrKategoriDetajimiSipasID(int idkategori)", false)]
-        //public colKategoriDetajimArtikulli ktheKategoriDetajimiSipasID(int idkategori)
-        //{
-        //    IDBManager dbManager = new DbAccessLayer.DBManager(DataProvider.SqlServer, MyConnectionsManager.GetConNameServer());
-        //    dbManager.ConnectionString = dbManager.GetConnectionString();
         //    try
-        //    {
-        //        dbManager.Open();
-        //        dbManager.CreateParameters(1);
-        //        dbManager.AddParameters(0, "@IDKATEGORI", idkategori, ParameterDirection.Input);
-        //        DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KATEGORIDETAJIMARTIKULLI_ktheKategoriDetajimiSipasID");
-        //        colKategoriDetajimArtikulli kategori = new colKategoriDetajimArtikulli();
-        //        return kategori.mbushArrayListkategoriDetajimesh(ds);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return new colKategoriDetajimArtikulli();
-        //    }
         //    finally
-        //    {
-        //        dbManager.Dispose();
-        //    }
 
-        //}
 
         #endregion
 
@@ -13105,7 +9220,6 @@ namespace DbCore.DbInventari
         #region LLOJ DIFEKTI
 
 
-
         internal clsMesazh ruajLlojDifekti(out int id, string kodi, String pershkrimi, int idPerdoruesi, int idkrijuesi, int idnderm, int idstatudsok)
         {
             id = -1;
@@ -13365,7 +9479,6 @@ namespace DbCore.DbInventari
         /// Metodat e meposhtme i perkasin veprimeve qe kryhen nga objektet clsStatusRiparimi dhe colStatusRiparimi
         /// </summary>
         #region STATUS RIPARIMI
-
 
 
         internal clsMesazh ruajStatusRiparimi(out int id, string kodi, String pershkrimi, int idPerdoruesi, int idkrijuesi, int idnderm, int idstatudsok)
@@ -13754,7 +9867,6 @@ namespace DbCore.DbInventari
         {
 
 
-
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@ID_SHITJE", idShitje, ParameterDirection.Input);
@@ -13904,7 +10016,6 @@ namespace DbCore.DbInventari
         /// <returns>Kthen DataTable te te dhenave nga databaza</returns>
         internal DataTable ktheDergimeKaseSipasIdShopIdNdermDheStatus(int idShop, bool statusiPrintimi, int idUser, int idndermarje, int idnivel)
         {
-
 
 
             dbManager.Open();
@@ -14167,7 +10278,6 @@ namespace DbCore.DbInventari
             return idAuto;
 
         }
-
 
 
         /// <summary>

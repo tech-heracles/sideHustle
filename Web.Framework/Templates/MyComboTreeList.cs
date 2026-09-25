@@ -16,7 +16,6 @@ namespace PlatinumWeb.Templates
             cmb.DropDownButton.Visible = true;
             cmb.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             cmb.DropDownStyle = DropDownStyle.DropDownList;
-            //    cmb.TextFormatString = "{0}";
              TreeListEditCellTemplateContainer    gridContainer = (TreeListEditCellTemplateContainer)Container;
             cmb.ID = "cmbBox";
             if (!(gridContainer.Text == "&nbsp;" || gridContainer.Text == "0"))

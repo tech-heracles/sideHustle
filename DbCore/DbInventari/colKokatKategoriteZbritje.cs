@@ -144,20 +144,12 @@ namespace DbCore.DbInventari
         private bool mbushKokaKategoriZbritje(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaKategoriZbritje kategoriZbritje = new clsKokaKategoriZbritje();
-                    //kategoriZbritje.mbushKokaKategoriZbritje(rreshti);
                     this.Add(new clsKokaKategoriZbritje(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -174,7 +166,6 @@ namespace DbCore.DbInventari
                 kategoriZbritje.KodKategoriZbritje = rreshti[1].ToString();
                 kategoriZbritje.PershkrimKategoriZbritje = rreshti[2].ToString();              
                 kategoriZbritje.IdPerdoruesi = int.Parse(rreshti[3].ToString());
-                //kategoriZbritje.IdNderViti = int.Parse(rreshti[4].ToString());
                 kategoriZbritje.Zbritja = decimal.Parse(rreshti[4].ToString());
                 kategoriZbritje.IdNdermarje = int.Parse(rreshti[5].ToString());
                 kategoriteZbritje.Add(kategoriZbritje);

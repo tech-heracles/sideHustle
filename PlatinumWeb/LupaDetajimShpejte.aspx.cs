@@ -82,8 +82,6 @@ namespace PlatinumWeb
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaDetajime", int.Parse(cmbKonfigurimi.Value.ToString()), "LupaDetajimShpejte.aspx");
                 mbushPopUpListe(idPerdoruesi, idNdermarrje);
                 konfiguroGride(idPerdoruesi, idNdermarrje, true, idKonfigambjenti, (bool)hfState["KSSH"], (bool)hfState["ES"]);
-                //mbushPopUpListeArtikujshNgaDB(idPerdoruesi, idNdermarrje);
-                //konfiguroPopupGride(idNdermarrje, idKonfigambjenti, true);
             }
             else
             {
@@ -112,7 +110,6 @@ namespace PlatinumWeb
             if (!String.IsNullOrEmpty(Request.QueryString["idArtikulli"]) && Request.QueryString["idArtikulli"] != "undefined")
             {
                 idartikulli = int.Parse(Request.QueryString["idArtikulli"]);
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(idartikulli);
                 string kodartikulli = DbCore.DbInventari.clsArtikulli.ktheKodArtikulliSipasId(idartikulli);
                 if (!String.IsNullOrEmpty(Request.QueryString["lloji"]))
                     lloji = int.Parse(Request.QueryString["lloji"]);
@@ -150,8 +147,6 @@ namespace PlatinumWeb
         private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
         {
             //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            //DbCore.DbShare.clsKonfigurimAmbjenti ambj = new DbCore.DbShare.clsKonfigurimAmbjenti(idNdermarrje, idNivel);
-            //return ambj.IdKonfigAmbjente;
             return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
         }
 
@@ -290,7 +285,6 @@ namespace PlatinumWeb
             else lloji = 0;
 
             
-            
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (isValidDetajimi(artikulli.KodArtikulli, lloji, idArt, rm, ci))
@@ -416,7 +410,6 @@ namespace PlatinumWeb
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ekziston nje detajim me kete kod!", pnlMesazhi);
                             return isValid;
                         }
-                        //     hfState.Set("veprim", "Lidh");
                     }
                 }
                 else //kur nuk po krijohet per ndonje artikull te caktuar dhe s'do lidhet
@@ -516,7 +509,6 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestare(int idPerdoruesi, int idNdermarrje, int idGjuha)
         { //mbush komboboxet dhe gridat e faqes
             ConfigureAspxComboBox.mbushComboKategoriDetajimesh(cmbKategoria);
-            //enableComboKategoriaDheLloji();
             mbushComboKonfigurimeshSipasKategorise(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 71, "DetShp", idGjuha);
             cmbKonfigurimi.SelectedIndex = 0;
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
@@ -592,8 +584,6 @@ namespace PlatinumWeb
             {
                 konf.IdKategori = kat;
                 konf.IdNdermarje = idNdermarrje;
-                //DbCore.DbRegjistrim.clsNivelRegjistrimi niv = new DbCore.DbRegjistrim.clsNivelRegjistrimi();
-                //niv.mbushNivelRegjistrimiSipasKodiMeKonvertime(nivel, idNdermarrje);
                 int idNivel = DbCore.DbRegjistrim.clsNivelRegjistrimi.ktheIdNivelRegjistrimiSipasKodi(nivel, idNdermarrje);
                 col.mbushKonfigAmbjSipasIdKategoriIdNivelMeLloj(konf.IdKategori, idNivel, idPerdoruesi);
             }
@@ -618,10 +608,8 @@ namespace PlatinumWeb
         private void konfiguroGride(int idPerdoruesi, int idNdermarrje, bool visibleIndex, int idKonfigambjenti, bool kerkosaposhkruar, bool endlessScroll)
         {//konfigurohet grida
             shto_Lloj();
-            //shto_Autorizim();
             shto_Kategori();
             GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaDetajime, "gvLupaDetajime", "LupaDetajimShpejte.aspx", idKonfigambjenti, visibleIndex, DbCore.mySessionObjects.ktheGjuhe(Session));
-            //funk.konfiguroGrideListeMadhe(gvLupaDetajime, "IdDetajimArtikulli");
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaDetajime, "IdDetajimArtikulli", kerkosaposhkruar, endlessScroll);
         }
@@ -630,14 +618,12 @@ namespace PlatinumWeb
         private void shto_Lloj()
         {//shtohen komboja me Autorizimeve tek grida 
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaDetajime.Columns["LlojDetajimArtikulli"].VisibleIndex;
             gvLupaDetajime.Columns.Remove(gvLupaDetajime.Columns["LlojDetajimArtikulli"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();
             colnew.PropertiesComboBox.Items.Add("Alfanumerik", 1);
             colnew.PropertiesComboBox.Items.Add("Numerik", 2);
             colnew.PropertiesComboBox.Items.Add("Date", 3);
-            // colnew.PropertiesComboBox.Items.Add("Garanci", 4);
             colnew.VisibleIndex = visibleindex;
             colnew.FieldName = "LlojDetajimArtikulli";
             gvLupaDetajime.Columns.Add(colnew);
@@ -646,7 +632,6 @@ namespace PlatinumWeb
         private void shto_Kategori()
         {//shtohen komboja  tek grida 
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             int visibleindex = gvLupaDetajime.Columns["KategoriDetajimi"].VisibleIndex;
             gvLupaDetajime.Columns.Remove(gvLupaDetajime.Columns["KategoriDetajimi"]);
             GridViewDataComboBoxColumn colnew = new GridViewDataComboBoxColumn();

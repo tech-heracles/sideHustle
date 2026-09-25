@@ -27,7 +27,6 @@ namespace DbCore.IMBUtils.Security
         public static String DecryptString(string crypt, string KeyString, string IVString, PaddingMode paddingMode)
         {
 
-            //byte[] cypher = Decode(crypt);
             var sRet = "";
 
             var encoding = new UTF8Encoding();
@@ -97,7 +96,6 @@ namespace DbCore.IMBUtils.Security
                     cs.Close();
                 }
                 byte[] encoded = ms.ToArray();
-                //encrypted = Convert.ToBase64String(encoded);
                 encrypted = BitConverter.ToString(encoded).Replace("-", "");
                 ms.Close();
             }
@@ -122,7 +120,6 @@ namespace DbCore.IMBUtils.Security
 
             return encrypted;
         }
-
 
 
         /// <summary>

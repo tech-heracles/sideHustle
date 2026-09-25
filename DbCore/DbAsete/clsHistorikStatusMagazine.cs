@@ -231,22 +231,8 @@ namespace DbCore.DbAsete
         ///// <param name="njesiadm">(DbRegjistrim.clsNjesiAdministrative) Objekti i njesise administrative.</param>
         ///// <param name="idnivelgjenerues">(int) Id e nivelit gjenerues.</param>
         ///// <returns>Kthen clsMesazh me atribut statusi True nese modifikimi kryhet me sukses ose False dhe mesazhin e gabimit ne te kundert.</returns>
-        //public clsMesazh modifiko(int idNdermarrje, int idPerdoruesi, int idNderViti, int idperiudha, DbRegjistrim.clsNjesiAdministrative njesiadm, int idnivelgjenerues, ResourceManager rm, CultureInfo ci)
-        //{
-        //    clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
 
-        //    if (kontrolloEkzistonHistorikMagazinaSipasIdStatusMagazine(idNjesiAdministrative, idStatusMagazine, moduliAsete))
-        //    {
-        //        moduliAsete.beginTransaksion();
-        //        clsMesazh pergjigja = modifikoStatusDokumentiTransaksion(moduliAsete, idNdermarrje, idPerdoruesi, idNderViti, idperiudha, njesiadm, idnivelgjenerues, rm, ci);
-        //        if (pergjigja.Status)
-        //            moduliAsete.commitTransaksion();
         //        else
-        //            moduliAsete.rollbackTransaksion();
-        //        return pergjigja;
-        //    }
-        //    return new clsMesazh(false, rm.GetString("msgNukKaHistorik", ci));
-        //}
 
         /// <summary>
         /// MODULI ASETE:
@@ -478,13 +464,6 @@ namespace DbCore.DbAsete
         ///// <param name="njesiadm">(DbRegjistrim.clsNjesiAdministrative) Objekti i njesise administrative.</param>
         ///// <param name="idnivelgjenerues">(int) Id e nivelit gjenerues.</param>
         ///// <returns>Kthen clsMesazh me atribut statusi True nese modifikimi ne transaksion kryhet me sukses ose False dhe mesazhin e gabimit ne te kundert.</returns>
-        //private clsMesazh modifikoStatusDokumentiTransaksion(clsDatabazeAsete moduliAsete, int idNdermarrje, int idPerdoruesi, int idNderViti, int idperiudha, DbRegjistrim.clsNjesiAdministrative njesiadm, int idnivelgjenerues, ResourceManager rm, CultureInfo ci)
-        //{
-        //    clsMesazh pergjigja = fshiStatusDokumentiTransaksion(moduliAsete, idNdermarrje, idPerdoruesi);
-        //    if (pergjigja.Status)
-        //        pergjigja = ruajStatusDokumentiTransaksion(moduliAsete, idNdermarrje, idNderViti, idperiudha, njesiadm, idnivelgjenerues, rm, ci);
-        //    return pergjigja;
-        //}
 
         /// <summary>
         /// MODULI ASETE:

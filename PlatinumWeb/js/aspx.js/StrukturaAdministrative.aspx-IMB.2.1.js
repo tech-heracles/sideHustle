@@ -151,7 +151,6 @@ function changeName() {
     var hf = $("#hfKonffillestar")[0];
     myFaqeCelje.changeName('StrukturaAdministrative.aspx', 0, hf);
 
-   // ndryshoKonfigurimin();
 }
 //ben enabled disabled kodin nese jemi ne shtim apo modifikim
 function enable() {
@@ -171,10 +170,7 @@ function enable() {
 function ndryshoKonfigurimin() {
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
-    //            cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     callWebserviceKonfigurimi(701, cmbKonfigurimi.GetText());
-    //var grida = $('#rowed5');
-    //ndryshoKonfigFormatNumri(grida);
 
 }
 function ndryshoKonfiguriminInit() {
@@ -220,11 +216,6 @@ function menu_click(s, e) {//po
         e.processOnServer = false;
     }
     lblMsgbox.SetText("Jeni i sigurt?");
-    //for (var i = 0; i < arr.length; i++)
-    //    if (trlStruktura.GetNodeState(arr[i]) != 'Child') {
-    //        lblMsgbox.SetText("Duke fshire prindin, fshihen edhe te gjithe femijet e tij. Jeni i sigurt?");
-    //        break;
-    //    }
     myMenu.menu_click_celjevogeltree(s, e, hfRuaj, trlStruktura, hfTeDrejta);
 
 }
@@ -248,12 +239,6 @@ function endcallback(s, e) {
         myMenu.menuSipasTeDrejtaCeljeVogel($("#hfRuaj"), hfTeDrejta);
     }
     if (s.GetErrorCell() === null || s.GetErrorCell().innerHTML === "")
-    //              if ($('#hfRuaj').val() === 'Modifiko') {
-    //                  btn.DoClick();
-    //              }
-    //              else if ($('#hfRuaj').val() === 'Ruaj') {
-    //                  btn.DoClick();
-    //              }
         $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "merrMesazhNgaSesioni"),
         data: JSON.stringify({})

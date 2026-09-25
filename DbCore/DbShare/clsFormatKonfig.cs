@@ -49,7 +49,6 @@ namespace DbCore.DbShare
         {
             try
             {
-                //this.idFormatKonfig = idFormKonf;
                 this.idKategoria = idKat;
                 this.idNdermarrje = idNderm;
                 this.kategoria = kateg;

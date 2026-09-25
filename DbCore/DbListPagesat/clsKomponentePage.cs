@@ -171,7 +171,6 @@ namespace DbCore.DbListPagesat
         public clsKomponentePage(DataRow rreshti)
         {
             
-           // mbushKomponente(rreshti);
         }
         #endregion
 
@@ -661,7 +660,6 @@ namespace DbCore.DbListPagesat
         {
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeListPagesa db = new clsDatabazeListPagesa(); ;
-            //db.krijoManager();
             db.beginTransaksion();
             if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
             {
@@ -709,7 +707,6 @@ namespace DbCore.DbListPagesat
         {
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
-            //db.krijoManager();
             db.beginTransaksion();
             if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
             {
@@ -987,7 +984,6 @@ namespace DbCore.DbListPagesat
         }
 
        
-
         #endregion
 
        

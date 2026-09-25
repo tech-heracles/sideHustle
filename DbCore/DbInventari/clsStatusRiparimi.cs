@@ -328,7 +328,6 @@ namespace DbCore.DbInventari
                     u_ruajt = dbAdmin.ruajLidhjeAutorizim(o.IdLidhjeAutorizim, o.IdLidhese, o.IdLloji, o.IdAutorizimeKoka, 1);
                     if (!u_ruajt.Status)
                     {
-                        //dbInv.rollbackTransaksion();
                         return u_ruajt;
                     }
                 }
@@ -426,17 +425,9 @@ namespace DbCore.DbInventari
                     DateTime.TryParse(db["DTMODIFIKIMI"].ToString(), out dtModifikimi);
                     if (db.Table.Columns.Contains("Autorizimi") && db["Autorizimi"] != null)
                         this.Autorizimi = db["Autorizimi"].ToString();
-                    //DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.colLidhjetAutorizim(id, "StatusRiparimi" );
                    
-                    //if (lidhje.Count != 0)
-                    //{
-                    //    autorizimi = DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[0].IdAutorizimeKoka);
-                    //     for (int i = 1; i < lidhje.Count; i++)
-                    //        autorizimi += "," + DbAdmin.clsAutorizimKoka.ktheKodAutorizim(lidhje[i].IdAutorizimeKoka);
                         
-                    //}
                     //else
-                    //    autorizimi = "";
                     return true;
                 }
                 catch (InvalidCastException)

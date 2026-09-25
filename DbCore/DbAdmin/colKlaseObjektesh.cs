@@ -75,19 +75,13 @@ namespace DbCore.DbAdmin
         {
             
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     clsKlaseObjektesh klasa = new clsKlaseObjektesh(Convert.ToInt32(rreshti["IDKLASEOBJEKTESH"]), Convert.ToString(rreshti["PERSHKRIMKLASEOBJEKTESH"]),
                         Convert.ToInt32(rreshti["IDAMBJMODULI"]));
                     this.Add(klasa);
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -112,7 +106,6 @@ namespace DbCore.DbAdmin
             catch (Exception)
             {
                 return klasat;
-                //throw;
             }
             return klasat;
         }

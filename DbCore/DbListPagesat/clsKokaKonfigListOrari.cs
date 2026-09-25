@@ -156,8 +156,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
-
         public colTrupiKonfigListOrari ColTrupi
         {
             get
@@ -249,12 +247,6 @@ namespace DbCore.DbListPagesat
         ///// <param name="kodi">kod</param>
         ///// <param name="idndermarje">id e ndermarrjes</param>
         ///// <param name="grupi">grupi</param>
-        //public clsKokaKonfigListOrari(string kodi, int idndermarje, int grupi)
-        //{
-        //    clsDatabazeListPagesa dbKodifikimArtikujsh = new clsDatabazeListPagesa();
-        //    mbushGrup(dbKodifikimArtikujsh.merrGrupimSipasKod(kodi, idndermarje, grupi));
-        //    dbKodifikimArtikujsh.Dispose();
-        //}
 
 
         #endregion
@@ -358,14 +350,7 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         //public static bool ekzistonGrup(string kodi, int idndermarje, int grupi)
-        //{
-        //    clsDatabazeListPagesa data = new clsDatabazeListPagesa();
-        //    bool sukses = data.ekzistonGrupDokumentash(kodi, idndermarje, grupi);
-        //    data.Dispose();
-        //    return sukses;
-        //}
 
         #endregion
 

@@ -12,7 +12,6 @@ namespace PlatinumWeb
 {
     public partial class LupaPeriudhaKontabel : MyPageBase
     {
-        //private DbCore.DbAdmin.clsDatabaseAdmin dbAdmin;
         private int idVitiAktual;
         private int idgjuha;
         private CultureInfo ci;
@@ -22,9 +21,6 @@ namespace PlatinumWeb
             idgjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
             ci = DbCore.IMBUtils.Messages.MessagesResource.KtheCultureInfo(idgjuha);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //StringReader sr = new StringReader(CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"].ToString());
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(sr);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = (DbCore.DbAdmin.clsPeriudhaKontabel)(CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"]);
             DbCore.DbAdmin.clsPeriudhaKontabel periudha = DbCore.mySessionObjects.merrPeriudheKontabel(Session);
             idVitiAktual = periudha.IdViti;
             mbushPopUpListePeriudhash(idVitiAktual);
@@ -37,14 +33,12 @@ namespace PlatinumWeb
 
         private void mbushPopUpListePeriudhash(int idViti)
         {
-            //dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
            
             DbCore.DbAdmin.colPeriudhaKontabel colPeriudha = new DbCore.DbAdmin.colPeriudhaKontabel();
             colPeriudha.merrSipasViti(idViti, ci);
             gvLupaPerKont.DataSource = colPeriudha;
             gvLupaPerKont.DataBind();
             GridUtil.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaPerKont, "gvLupaPerKont", "LupaPeriudhaKontabel.aspx");
-            //funk.konfiguroGrideListeMadhePopupi(gvLupaPerKont, "IdPeriudha");
             var endlessScroll = clsAlternativaKushti.getAlternativa(clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("LP/PerKont", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)), "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaPerKont, "IdPeriudha", true, endlessScroll);
             gvLupaPerKont.SettingsPager.PageSize = 12;
@@ -54,7 +48,6 @@ namespace PlatinumWeb
         {
             DbCore.DbAdmin.colNdermarrjeVitet vitet = new DbCore.DbAdmin.colNdermarrjeVitet();
             vitet.mbushGjitheViteELidhuraMeNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-            //vitet = dbAdmin.merrGjitheViteELidhuraMeNdermarrje(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             cmbVitiAktual.DataSource = vitet;
 
             cmbVitiAktual.TextField = "NdermarrjeViti";
@@ -78,19 +71,6 @@ namespace PlatinumWeb
         }
 
         //protected void btnFshi_Click(object sender, EventArgs e)
-        //    {
-        //    List<object> rreshtat = gvLupaPerKont.GetSelectedFieldValues("IdPeriudha");
-
-        //    foreach (int id in rreshtat)
-        //        {
-        //        // DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabilitet = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-        //        DbCore.DbAdmin.clsPeriudhaKontabel oPeriudha = new DbCore.DbAdmin.clsPeriudhaKontabel(id);
-        //        // oPeriudha.fshi();
-
-        //        }
-        //    mbushPopUpListePeriudhash(idVitiAktual);
-        //    mbushListeVite();
-        //    }
 
 
         protected void cmbVitiAktual_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -105,7 +85,6 @@ namespace PlatinumWeb
             foreach (int id in rreshtat)
             {
                 DbCore.DbAdmin.clsPeriudhaKontabel oPeriudha = new DbCore.DbAdmin.clsPeriudhaKontabel(id, idgjuha);
-                //CacheLayer.GlobalCacheManager.MySessionCache["oPeriudhaAktuale"] = oPeriudha;
                 DbCore.mySessionObjects.ruajPeriudheKontabelNeSesion(oPeriudha, Session);
             }
         }

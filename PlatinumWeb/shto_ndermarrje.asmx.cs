@@ -25,7 +25,6 @@ namespace PlatinumWeb.WebServiceLicencat
         public clsMesazh shtoNdermarrje(int idLicenca, string kodiNdermarrje, string kodiNdermDefault, string pershrkimiNder, int monedha, string viti, int llojLicence, string konfigurimiDefault)
         {
             DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-            // string decryptedtranID = DbCore.RijndaelSimple.DecryptImbString(tranid);
             dbAdmin.beginTransaksion();
             try
             {

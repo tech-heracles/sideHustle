@@ -269,14 +269,12 @@ namespace DbCore.DbAdmin
 
         public clsMesazh ruajMultipleLupa(int idKonfig, clsDatabaseAdmin data)
         {
-            //if (data == null) data = new clsDatabaseAdmin();
             clsMesazh u_ruajt = data.ruajLupaMultiple(this.IdTrupi, this.IdKonfigAmbjenteLupa, idKonfig);
             return u_ruajt;
         }
 
         public clsMesazh fshiLupaMultiple(clsDatabaseAdmin data, int idkonfig)
         {
-            //if (data == null) data = new clsDatabaseAdmin();
             clsMesazh u_fshi = data.fshiLupaMultiple(idkonfig);
             return u_fshi;
         }

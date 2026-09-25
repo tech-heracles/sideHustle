@@ -29,8 +29,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
                        System.Reflection.Assembly.Load("App_GlobalResources"));
            
           
-          
-            //xrLabel67.Text = rm.GetString("Galina_Adresa", ci);
             xrLabel6.Text = rm.GetString("labelNriSerise", ci);
 
             xrLabel72.Text = rm.GetString("Galina_TiranaBank", ci);
@@ -61,7 +59,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrTableCell7.Text = xrTableCell30.Text = rm.GetString("labelVleraTVSH", ci);
             xrTableCell8.Text = xrTableCell31.Text = rm.GetString("labelVleraMeTVSH", ci);
             xrTableCell36.Text = rm.GetString("labelRaportiTotali", ci)+" nÎ Euro";
-            //xrTableCell1.Text = rm.GetString("Galina_SocieteGeneral", ci);
             xrTableCell35.Text = rm.GetString("lblTotLek", ci);
             xrTableCell45.Text = rm.GetString("lblFurnizimeTÎTatueshme", ci);
             xrTableCell50.Text = rm.GetString("lblFurnizimeTÎPaTatueshme", ci);
@@ -71,7 +68,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
             xrLabel69.Text = rm.GetString("lblSocieteGeneraleAlbaniaUPPER", ci);
             xrLabel71.Text = rm.GetString("lblIBANfpd", ci);
             xrLabel72.Text = rm.GetString("lblSWIFTCODEFPD", ci);
-            //xrLabel70.Text = rm.GetString("Galina_SocieteGeneral", ci);
 
         }
 

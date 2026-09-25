@@ -28,7 +28,6 @@ namespace AlphaWebReports.RaportetDs.B_Buxheti.Raporte
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel2.Text = rm.GetString("RaportiRialokimidheEkzekutimiBuxhetitQeveritar", ci);
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
-            //xrLabel2.Text = rm.GetString("VeprimeteKlientitperdatatmetefundit", ci);
 
         }
         private Hashtable skippedDetailBands;

@@ -32,7 +32,6 @@ function gvSelectedIndexChanged(s, e) {
 
 function ndryshoAmbjentin() {
     lblAmbjenti.SetText(cmbAmbjenti.GetText());
-    //cmbAmbjenti.SetText(cmbAmbjenti.GetText().split(';')[0]);
     var amb = cmbAmbjenti.GetValue();
     if (amb == 4 || amb == 3) {
         Tabs.SetActiveTabIndex(amb - 2);
@@ -95,8 +94,6 @@ function gvEndCallback(s, e) {
 
 function StartEditing(s, e) {
     //ndalon kolonat qe nuk duhet te editohen
-    //if (e.focusedColumn.fieldName == 'Emertimi' || e.focusedColumn.fieldName == 'Total')
-    //	e.cancel = true;
 }
 function rowValidation(s, e) {
     if (e.validationInfo[2].value == undefined || e.validationInfo[2].value == null) {
@@ -143,11 +140,9 @@ function menu_click_konfiguroFusha(s, e) {
         $.map(keys, function (key) {
             KontrolloRreshtin(key,idAmb);
         });
-       // gvKonfiguroFusha.UpdateEdit();
     }
 
     else if (e.item.name == "Ruaj") {
-      //  Utils.shfaqLoadingGif();;
 
         gvKonfiguroFusha.UpdateEdit();
     }
@@ -172,11 +167,9 @@ function menu_click_konfiguroShpenzimmeOperative(s, e) {
         $.map(keys, function (key) {
             KontrolloRreshtinShpenzimeOperative(key);
         });
-        // gvKonfiguroShpenzimeOperative.UpdateEdit();
     }
 
     else if (e.item.name == "Ruaj") {
-        // Utils.shfaqLoadingGif();;
         gvKonfiguroShpenzimeOperative.UpdateEdit();
     }
     else if (e.item.name == "AnulloNdryshimet") {
@@ -201,14 +194,10 @@ function menu_click_konfiguroParashikimShpenzimesh(s, e) {
         $.map(keys, function (key) {
             KontrolloRreshtinParashikimShpenzimesh(key);
         });
-        //gvKonfigParashikimShpenzimesh.UpdateEdit();
     }
 
     else if (e.item.name == "Ruaj") {
-        //Utils.shfaqLoadingGif();;
-        //gvKonfigParashikimShpenz.AddNewRow();
         gvKonfigParashikimShpenzimesh.UpdateEdit();
-        //gvKonfigParashikimShpenz.CancelEdit();
     }
     else if (e.item.name == "AnulloNdryshimet") {
         gvKonfigParashikimShpenzimesh.CancelEdit();
@@ -236,7 +225,6 @@ function menu_click_konfiguroZeraProkurimesh(s, e) {
     }
 
     else if (e.item.name == "Ruaj") {
-        // Utils.shfaqLoadingGif();;
         gvKonfiguroZeraProkurimesh.UpdateEdit();
     }
     else if (e.item.name == "AnulloNdryshimet") {
@@ -275,11 +263,9 @@ function StartEditingShpenzimeOperative(s, e) {
 }
 
 function EndEditingShpenzimeOperative(s, e) {
-    //gvKonfiguroShpenzimeOperative = new ASPxClientGridView();
 
     if (focusedColumn == "IdPrindi") {
 
-        //  var originalValue = s.batchEditApi.GetCellValue(e.visibleIndex, focusedColumn);
         var idPrindi = e.rowValues[(s.GetColumnByField(focusedColumn).index)].value;
         $.ajax({
 
@@ -415,7 +401,6 @@ function rowValidationZeraProkurimesh(s, e) {
     }
 
 }
-
 
 
 function ItemClickMenu(s, e) {

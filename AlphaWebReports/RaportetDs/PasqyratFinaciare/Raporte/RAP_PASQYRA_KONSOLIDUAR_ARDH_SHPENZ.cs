@@ -16,10 +16,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         public RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ(){InitializeComponent();} 
         bool hapurgjitha = false;
         private int rritshuma = 0;
-        //public Rap_PASH()
-        //    {
-        //    InitializeComponent();
-        //    }
         public RAP_PASQYRA_KONSOLIDUAR_ARDH_SHPENZ(AlphaWebReports.Common.ParametraRaporti param, XtraReport report):
             this(param.Ci, param.IdNdermarrje, param.IdViti, report)
         {
@@ -39,7 +35,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             parameter3.Value = raport.Parameters[5].Value;
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
 
-            //xrPictureBox1.ImageUrl = @"/images/RaporteLogo.bmp";
             EmrateLabelave(ci);
         }
         string[] shkronjevogel = { "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" };
@@ -47,7 +42,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         int niv = 0;
      
 
-      
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands
@@ -255,7 +249,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
    
-
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;
@@ -425,7 +418,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -448,30 +440,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
        
-
-        //private void xrLabel79_AfterPrint(object sender, EventArgs e)
-        //{
-        //    if (xrLabel79.Text != "")
-        //        xrLabel79.Text = (Convert.ToInt16(xrLabel79.Text) + 1+rritshuma).ToString();
-        //}
-
-        //private void xrLabel84_AfterPrint(object sender, EventArgs e)
-        //{
-        //    if (xrLabel84.Text != "")
-        //        xrLabel84.Text = (Convert.ToInt16(xrLabel84.Text) + 2+rritshuma).ToString();
-        //}
-
-      
-
-        //private void xrLabel32_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    if (xrLabel32.Text != "" && xrTableCell38.Text == " Te pacaktuara")
-        //    {
-        //        xrLabel32.Text = (Convert.ToInt16(xrLabel32.Text) + 1).ToString();
-        //        rritshuma = 1;
-        //    }
-        //}
-
         private void xrTableCell40_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             //xrLabel45_SummaryGetResult
@@ -719,18 +687,11 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrTableCell55_AfterPrint(object sender, EventArgs e)
         {
-            //int nr = 0;
             ////xrLabel79_AfterPrint
-            //if (xrTableCell55.Text != "")
-            //{
-            //    int.TryParse(xrTableCell55.Text, out nr);
 
-            //}
-            //    xrTableCell55.Text = (nr+ 1 + rritshuma).ToString();
         }
 
     
-
         private void xrTableCell59_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
 
@@ -747,9 +708,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
      
-
-     
-
         private void xrTableCell68_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             double shuma = 0;

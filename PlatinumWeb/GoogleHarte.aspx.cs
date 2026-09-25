@@ -180,13 +180,8 @@ namespace PlatinumWeb
                     hfState.Set("type", tip); //geochart
                     
                 }
-                //string geomsToDeserialize = "";
 
-                //object[] koordinata = new object[5];
-                //for (int i = 0; i < 5; i++)
-                //{
                 //    koordinata[i] = "" 
-                //}
 
             }
         }

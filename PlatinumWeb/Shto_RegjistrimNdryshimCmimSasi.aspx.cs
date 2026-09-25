@@ -95,8 +95,6 @@ namespace PlatinumWeb
             hfAutorizimi.Value = autorizimet.ToString();
             if (!autorizimet)
                 hfLidhur.Value = "True";
-            //DbCore.DbShare.clsKusht kusht = new DbCore.DbShare.clsKusht(koka.IdKonfigAmbjente, "LMD");
-            //DbCore.DbShare.clsAlternativaKushti alternativa = new DbCore.DbShare.clsAlternativaKushti(kusht.Vlera);
             if (koka.IdStatusDok == 1 && clsAlternativaKushti.getAlternativa(koka.IdKonfigAmbjente, "LMD") == "Jo")
                 hfLidhur.Value = "True";
             AspxWebControlUtils.ShtoLidhje(idPerdoruesi, idViti, idNdermarrje, hl, dtlidhur, koka.IdGjenerues, koka.IdNivelGjenerues, koka.IdKonfigGjenerues, idGjuha);
@@ -104,7 +102,6 @@ namespace PlatinumWeb
         }
         
   
-
         protected void Page_Load(object sender, EventArgs e)
         {
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -137,7 +134,6 @@ namespace PlatinumWeb
                 hfState.Set("OwnShop", eshteOwn);
                 hfState.Set("idGjuha", idGjuha);
                 AspxWebControlUtils.perkthePopUp(popFshi, rm.GetString("labelAdministrimiKujdes", cultinf), lblMsgbox, rm.GetString("labelAdministrimiMsgJeniSigurt", cultinf), ButtonCancel, rm.GetString("labelAnullo", cultinf));
-                //clsFunksione.perkthePopUp(popMesazhQK, rm.GetString("labelAdministrimiKujdes", cultinf), lblMsgbox4, rm.GetString("msgDeshironiTeBeniShperndarjenNeQendratEKostos", cultinf), ButtonCancelQK, rm.GetString("btnJO", cultinf), ButtonOkQK, rm.GetString("btnPO", cultinf));
             }
             else
             {
@@ -295,7 +291,6 @@ namespace PlatinumWeb
             }
             foreach (DbCore.DbRegjistrim.clsTrupiMagazina t in trupat)
             {
-                //DbCore.DbInventari.clsArtikulli art = new DbCore.DbInventari.clsArtikulli(t.IdArtikulli);
                 mesazh = DbCore.DbInventari.clsArtikulli.rivleresimCmimiMesatar(t.IdArtikulli, DbCore.DbInventari.clsArtikulli.ktheMetodeKostoje(t.IdArtikulli), t.IdMag, t.Data, DateTime.Today,log,ci,rm, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                 if (!mesazh.Status)
                 {
@@ -354,7 +349,6 @@ namespace PlatinumWeb
             {
                 if (m.Name != "ItemFilter" && m.Name != "ItemFrame")
                 {
-                    //if (!m.Enabled) continue;
                     clsToolbarConfig.ShtoMenuItem(this.Theme, aSPxMenu1, m);
                 }
 
@@ -582,8 +576,6 @@ namespace PlatinumWeb
         }
 
 
-
-
         private void mbushComboKonfigurimet(bool mod, ResourceManager rm, CultureInfo ci, int idGjuha, int idNdermarje, int idPerdoruesi)
         {
             DbCore.DbShare.colKonfigurimAmbjenti colKonfig = new DbCore.DbShare.colKonfigurimAmbjenti();
@@ -645,25 +637,10 @@ namespace PlatinumWeb
             if (e.Item.Name == "PrintPreview")
             {
 
-                //if (hfShtimModifikim.Value.ToString() == "modifikim")
-                //{
-                //    string id = Request.QueryString["id"];
-                //    DbCore.DbRegjistrim.clsKokaNdryshimCmimSasi clsKoka = new DbCore.DbRegjistrim.clsKokaNdryshimCmimSasi();
-                //    clsKoka.mbushKokaMagazinaSipasID(int.Parse(id));
-                //    DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
-                //    konf.mbushKonfiguriminMeID(clsKoka.IdKonfigAmbjente);
                 //    //if (konf.KodKonfigAmbjente == "FH" || konf.KodKonfigAmbjente == "FD")
                 //    //{
-                //    Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=38&idDokumenti=" + clsKoka.IdKokaMagazina + "&printo=false&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
-                //    //Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=" + idRaporti + "&idDokumenti=" + kokeShtije.IdShitjeKoka + "&printo=true&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
                 //    //}
-                //}
                 //else
-                //{
-                //    Page.Validate();
-                //    ruajRegjistrimMagazine(1, false);
-                //    mbushHiddenFieldet(new colTrupiNdryshimCmimSasi(), 1, 0, 0);
-                //}
             }
             if (e.Item.Name == "RuajPrint")
             {
@@ -700,8 +677,6 @@ namespace PlatinumWeb
                 return;
             }
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsPeriudhaKontabel periudha = new DbCore.DbAdmin.clsPeriudhaKontabel(kokam.DtDok, idNdermarrje);
-            //DbCore.clsMesazh mesazhi = periudha.isPeriudheKycur();
             bool ekycur = DbCore.DbAdmin.clsPeriudhaKontabel.eshteKycurPeriudheSipasDateDheNdermarrjes(kokam.DtDok, idNdermarrje);
             if (ekycur)
             {
@@ -744,7 +719,6 @@ namespace PlatinumWeb
 
             kokam.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             mesazh = kokam.fshi();
-            //Session.Add("trupat", trupat);
             DbCore.mySessionObjects.ruajTrupatNeSession(Session, trupat);
             if (mesazh.Status)
             {
@@ -837,7 +811,6 @@ namespace PlatinumWeb
                     if (hfShtimModifikim.Value == "shtim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DShtim) || (statusDokumenti == 0 && !tedrejtaInfo.DShtimDraft))
-                        //if (!tedrejtaInfo.DShtim)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", cultinf), pnlMesazhi);
                             status1.Value = "false";
@@ -858,7 +831,6 @@ namespace PlatinumWeb
                     else if (hfShtimModifikim.Value == "modifikim")
                     {
                         if ((statusDokumenti == 1 && !tedrejtaInfo.DMod) || (statusDokumenti == 0 && !tedrejtaInfo.DModifikimDraft))
-                        //if (!tedrejtaInfo.DMod)
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, rm.GetString("msgNukKeniTeDrejta", cultinf), pnlMesazhi);
                             status1.Value = "false";
@@ -931,8 +903,6 @@ namespace PlatinumWeb
 
                         hfShtimModifikim.Value = "shtim";
                         percaktoTemplateMenu(DbCore.mySessionObjects.ktheIdPerdoruesi(Session), DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), idNdermarrje, ASPxMenu1);
-                        //if (printo)
-                        //    Container.Attributes["src"] = "RaportiShpejte.aspx?Sesioni=false&idraporti=38&idDokumenti=" + regjistrim.IdKoka + "&printo=true&raportdyte=jo&iddesign=" + cmbFormatiPrintimit.Value;
                         hfShtimModifikim.Value = "shtim";
                         if (rivleresim)
                             clsMenuInfo.ShtoPyetje(MenuInfo, mesazhinformues + rm.GetString("regjMagVeprimiSjellNdryshimNeCmimDalje", cultinf), pnlMesazhi, (int)hfState["idGjuha"]);
@@ -981,10 +951,8 @@ namespace PlatinumWeb
             controls.AddRange(ASPxSplitter1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, null, ASPxSplitter1, null);
 
             hfNrAutoShitje = (ASPxHiddenField)DbCore.DbAdmin.NrAuto.ShtoNeRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoShitje, hfNrAuto, "txtNrDok", "NrDok");
 
             clsKokaNdryshimCmimSasi koka = new clsKokaNdryshimCmimSasi();
 
@@ -1048,7 +1016,6 @@ namespace PlatinumWeb
         }
 
 
-
         private colTrupiNdryshimCmimSasi ruajTrupinNdryshimSasiCmim()
         {
             CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -1090,7 +1057,6 @@ namespace PlatinumWeb
             }
             return trupat;
         }
-
 
 
         /// <summary>

@@ -17,7 +17,6 @@
     //   ['Elbasan', 67370, 213.44],
     //   ['Kukes', 52192, 43.43],
     //   ['Diber', 38262, 11]
-    //]);
 
     var data;
     var googleData;
@@ -40,7 +39,6 @@
                 arr.push(etiketa[i][key]);
             }
             googleData.push(arr);
-            // googleData.push([parseFloat(koordinata[1]), parseFloat(koordinata[0]), etiketa[i]["pershkrimi"], etiketa[i]["sasia_e_shitur"], etiketa[i]["vlefta"]]);
         }
         data = google.visualization.arrayToDataTable(googleData);
     }
@@ -98,8 +96,6 @@
             map.draw(data, options);
     }
     else {
-        //if (hartaType=="geochart")  lblMsgbox.SetText('Nuk ka pika ne chart');
-        //else if (hartaType == "map")
         lblMsgbox.SetText('Nuk ka te dhena');
         popmsg.SetSize(100, 100);
         popmsg.Show();

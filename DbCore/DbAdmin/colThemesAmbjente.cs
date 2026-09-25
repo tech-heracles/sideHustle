@@ -33,12 +33,6 @@ namespace DbCore.DbAdmin
         /// <param name="idperd">id e perdoruesit</param>
         /// <returns>kthen true nese mbushja kryhet me sukses,ne te kundert false</returns>
         //public bool mbushGjitheThemeAmbjenteSipasNdermPerd(int idperd)
-        //{
-        //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-        //    bool sukses = mbushThemesAmbjentet(dbAdmin.ktheGjitheThemesAmbjenteSipasNdermPerd(idperd));
-        //    dbAdmin.Dispose();
-        //    return sukses;
-        //}
 
         /// <summary>
         /// mbush gjithe themes sipas ndermarrjes dhe perdoruesit
@@ -55,12 +49,6 @@ namespace DbCore.DbAdmin
         }
 
         //public bool merrGjitheThemesAmbjenteVjeterZgjedhurPerPerd(int idperd)
-        //{
-        //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-        //    dbAdmin.ktheDataTableThemeZgjedhurPerdorues(idperd,this);
-        //    dbAdmin.Dispose();
-        //    return true;
-        //}
 
         public bool merrGjitheThemesAmbjenteVjeterZgjedhurPerPerd(int idperd, clsDatabaseAdmin dbAdmin)
         {

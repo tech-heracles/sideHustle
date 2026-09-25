@@ -100,8 +100,6 @@ function Fund_click(e) {
 }
 
 
-
-
 function _getKeyCode(evt) {
     return (typeof (evt.keyCode) != "undefined" && evt.keyCode != 0) ?
 												            evt.keyCode : evt.charCode;
@@ -135,8 +133,6 @@ function switchEditMode(index, grida) {
     }).done(SucceededCallback1);
 
    
-   
-
     indexEdit = index;
 }
 function SucceededCallback1(result) {
@@ -226,10 +222,7 @@ function SucceededCallbackMesazhi(result) {
 function ndryshoKonfigurimin() {
     lblKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[1]);
     cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
-    //            cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     callWebserviceKonfigurimi(720, cmbKonfigurimi.GetText());
-    //var grida = $('#rowed5');
-    //ndryshoKonfigFormatNumri(grida);
 
 }
 function ndryshoKonfiguriminInit() {

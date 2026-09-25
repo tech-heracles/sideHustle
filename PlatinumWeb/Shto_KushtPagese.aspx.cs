@@ -20,7 +20,6 @@ namespace PlatinumWeb
     {        
         private DbCore.DbKontabiliteti.clsKushtPageseKoka kokaOverview;
         private DbCore.DbKontabiliteti.colKushtPageseTrupi oColTrupiKushtPagese;
-        //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         ASPxComboBox tempcombo = null;
         ASPxTextBox temptxt = null;
         TextBox temptxtNormal = null;
@@ -33,15 +32,12 @@ namespace PlatinumWeb
         {
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
             }
             idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerdoruesi);
@@ -108,8 +104,6 @@ namespace PlatinumWeb
         /// <param name="idNdermarrje"></param>
         private void mbushListeKushteshPagese(int idNdermarrje)
         {
-            //dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-            //DbCore.DbKontabiliteti.colKushtPageseKoka colKushtetPageses = dbKontab.merrGjitheKushtetPageses(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbKontabiliteti.colKushtPageseKoka colKushtetPageses = new DbCore.DbKontabiliteti.colKushtPageseKoka(idNdermarrje);
             grid_KushtePagese.DataSource = colKushtetPageses;
             grid_KushtePagese.DataBind();
@@ -126,7 +120,6 @@ namespace PlatinumWeb
             KonfigurimComboGride.shtoAutorizimSipasKushtePagese(grid_KushtePagese, idPerdoruesi, Session, komponente, guidString, "IdAutorizim");
             KonfigurimComboGride.shtoLlojPagese(grid_KushtePagese, rm, ci);
             GridUtil.percaktoVisibleColumnsShto(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, grid_KushtePagese, "grid_KushtePagese", komponente);
-            //funksione.percaktoAtributeTeGridesShto(grid_KushtePagese, "IdKoka");
             GridUtil.percaktoAtributeTeGridesShtoPaTheme(grid_KushtePagese, "IdKoka");
 
         }
@@ -142,7 +135,6 @@ namespace PlatinumWeb
             shtoKolone("KushtPagese");
 
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, grid_trupi, "grid_KushtPagesetrupi", "Shto_KushtPagese.aspx");
-            //funksione.percaktoAtributeTeGridesShto(grid_trupi, "IdTrupi");
             GridUtil.percaktoAtributeTeGridesShtoPaTheme(grid_trupi, "IdTrupi");
         }
 
@@ -279,8 +271,6 @@ namespace PlatinumWeb
                 {
                     if (!(arrCompKushtPagese[1].ToString() == " "))
                     {
-                        //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontab = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-                        //DbCore.DbKontabiliteti.colKushtPageseKoka col = dbKontab.merrKushtPageseSipasKodit(arrCompKushtPagese[1].ToString(), new DbCore.clsFunksione ().ktheIdNdermarrje ());
                         DbCore.DbKontabiliteti.clsKushtPageseKoka clsKoka = new DbCore.DbKontabiliteti.clsKushtPageseKoka(arrCompKushtPagese[1].ToString(), idNdermarrje);
                         if (clsKoka != null)
                         {
@@ -418,7 +408,6 @@ namespace PlatinumWeb
         private DbCore.DbKontabiliteti.clsKushtPageseKoka krijoKushtPagese()
         {
             DbCore.DbKontabiliteti.clsKushtPageseKoka koka = new DbCore.DbKontabiliteti.clsKushtPageseKoka();
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             koka.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             koka.IdStatusDok = 1;
             koka.KodiKushtPagese = kodi_TextBox.Text;
@@ -426,7 +415,6 @@ namespace PlatinumWeb
             koka.LlojiKushtPagese = pagesa_ASPxComboBox.SelectedItem.Text.ToString();
             if (txtAutorizimi.Text != "")
                 koka.IdAutorizim = DbCore.DbAdmin.clsAutorizimKoka.ktheIDAutorizim(txtAutorizimi.Text);
-            //koka.IdAutorizim = dbAdmin.ktheAutorizim(txtAutorizimi.Text)[0].IdAutorizimKoka;
             else koka.IdAutorizim = 0;
             if (koka.LlojiKushtPagese == "E plote")
             {
@@ -507,13 +495,10 @@ namespace PlatinumWeb
             string[] pars1 = initVal.Split(';');
             if (pars1[3] != "")
             {
-                //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
                 kokaOverview.IdAutorizim = DbCore.DbAdmin.clsAutorizimKoka.ktheIDAutorizim(pars1[3]);
-                //kokaOverview.IdAutorizim = dbAdmin.ktheAutorizim(pars1[3])[0].IdAutorizimKoka;
             }
             else kokaOverview.IdAutorizim = 0;
 
-            //kokaOverview.OColTrupi = new DbCore.DbKontabiliteti.colKushtPageseTrupi();
             kokaOverview.OColTrupi = oColTrupiKushtPagese;
 
             e.Cancel = true;
@@ -595,17 +580,7 @@ namespace PlatinumWeb
                 {
                     GridViewDataColumn dataColumn = column as GridViewDataColumn;
                     if (dataColumn == null) continue;
-                    //if (dataColumn.FieldName == "IdAutorizim")
-                    //    if (pars1.Length < 9)
-                    //    {
-                    //        if (HiddenField1.Value == "" || pars1[3] == "undefined" || pars1[3] == "")
-                    //            e.Errors[dataColumn] = "Vlera nuk mund te jete null.";
-                    //    }
                     //    else
-                    //    {
-                    //        if (HiddenField1.Value == "" || pars1[8] == "undefined" || pars1[8] == "")
-                    //            e.Errors[dataColumn] = "Vlera nuk mund te jete null.";
-                    //    }
 
                     if (e.NewValues[dataColumn.FieldName] == null && dataColumn.FieldName != "IdAutorizim")
                     {
@@ -859,8 +834,6 @@ namespace PlatinumWeb
         {
             SetStyle(e.Cell);
         }
-
-
 
 
     }

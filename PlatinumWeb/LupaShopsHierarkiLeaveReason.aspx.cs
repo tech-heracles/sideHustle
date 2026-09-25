@@ -74,7 +74,6 @@ namespace PlatinumWeb
         private void percaktoTemplateMenu(ASPxMenu aSPxMenu1, int idViti, int idPerdorues, int idNdermarrje)
         {
             clsToolbarConfig.percaktoTemplateMenu(MessagesResource.Messages.IdGjuha, idViti, idPerdorues, idNdermarrje, aSPxMenu1, emerKomponente, this, MenuInfo, Ruaj_ASPxButton_Click, FshiFilter_ASPxButton_Click, hfRuaj.Value == "Ruaj" ? true : false, true, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session));
-           // aSPxMenu1.Items.FindByName("Anullo").Text = "Mbyll";
             aSPxMenu1.Items.FindByName("Anullo").Text = rm.GetString("MenuItemMbyll", ci);
         }
 
@@ -111,7 +110,6 @@ namespace PlatinumWeb
 
         private void konfiguroGride()
         {
-            //DbCore.clsFunksione funk = new DbCore.clsFunksione();
             GridUtil.percaktoVisibleColumnsMeWidth(MessagesResource.Messages.IdGjuha, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaShopsHierarkiLeaveReason, emerGride, emerKomponente);
             GridUtil.konfiguroGrideListeEvogelPaTheme(gvLupaShopsHierarkiLeaveReason, "IdLeaveReason");
         }
@@ -280,7 +278,6 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemExport");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida();
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
@@ -289,20 +286,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaShopsHierarkiLeaveReason.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdLeaveReason", gvLupaShopsHierarkiLeaveReason);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaShopsHierarkiLeaveReason.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdLeaveReason";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -310,7 +295,6 @@ namespace PlatinumWeb
             filtri.IdStatusDok = 1;
 
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(MessagesResource.Messages.IdGjuha, idNdermarrje, emerGride, 1, emerKomponente);
             percaktoTemplateMenu(ASPxMenu1, DbCore.mySessionObjects.ktheIdVitNdermarrje(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session), idNdermarrje);
 
@@ -320,7 +304,6 @@ namespace PlatinumWeb
             cmbFiltra.Text = "";
 
         }
-
 
 
         protected void gvLupaShopsHierarkiLeaveReason_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)

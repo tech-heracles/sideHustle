@@ -140,7 +140,6 @@ function buttonClick() {
     gvLupaKonvDok.PerformCallback(vlera);
 }
 function OnGridSelectionChanged() {
-    //gvLupaKonvDok.GetSelectedFieldValues('NrLlogariKF;EmertimiKF', OnGridSelectionComplete);
     gvLupaKonvDok.GetSelectedFieldValues('IdDokumenti;NrDokumenti;Pershkrimi;IdNiveli;IdKlientFurnitori', OnGridSelectionComplete);
 }
 var id;
@@ -210,10 +209,6 @@ function OnGridSelectionComplete(values) {
     window.parent.popupUniversal.Hide();
 }
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     if (e.item.name == "OK") {
         e.processOnServer = false;
         OnGridSelectionChanged();

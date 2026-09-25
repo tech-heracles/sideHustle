@@ -127,8 +127,6 @@ namespace DbCore.DbProdhimi
         /// <returns>kthen true nese mbushja kruhet me sukses, ne te kundert false</returns>
         public bool mbushTrupiPlanifikimi(int idkoka, int idndermarje, clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             bool mbush = mbushTrupatPlanifikim(db.ktheTrupiPlanifikim(idkoka, idndermarje));
             return mbush;
         }
@@ -145,21 +143,13 @@ namespace DbCore.DbProdhimi
         private bool mbushTrupatPlanifikim(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiPlanifikim trupi = new clsTrupiPlanifikim();
-                    //trupi.mbushTrupPlanifikim(rreshti);
                     Add(new clsTrupiPlanifikim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

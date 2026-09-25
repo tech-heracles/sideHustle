@@ -36,9 +36,7 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 Response.Redirect(DbCore.IMBUtils.Paths.defaultLoginPath);
@@ -51,7 +49,6 @@ namespace PlatinumWeb
             idperdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             idnderviti = DbCore.mySessionObjects.ktheNdermarrjeVit(Session);
             idviti = DbCore.mySessionObjects.ktheIdVitNdermarrje(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idperdoruesi);
@@ -60,13 +57,10 @@ namespace PlatinumWeb
 
             percaktoTemplateMenu(ASPxMenu1, idviti, idperdoruesi, idndermarje);
 
-            //mbushComboBoxFiltra();
-        //    clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhePerdoruesi(Session), idndermarje, "gvGrupime", 1, "GrupimeLocaleGlobale.aspx");
             if (!IsPostBack)
             {
                 perktheLabel();
                 EmrateTabeve();
-                //Session.Add("mesazh", ":Green");
                 DbCore.mySessionObjects.ruajMesazhNeSesion(Session, ":");
                 if (Request.QueryString["ruaj"] == "ok")
               clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("mesazhRuajtjeMeSukses", ci), pnlMesazhi);
@@ -195,7 +189,6 @@ namespace PlatinumWeb
                 return;
             }
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<string> TeFshire = new List<string>(), TePaFshire = new List<string>();
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
 
@@ -297,7 +290,6 @@ namespace PlatinumWeb
                 CultureInfo cultinf = DbCore.mySessionObjects.ktheCultureInfo(Session);
                 ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 ruajGrupim(rm, cultinf);
-              //  clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("mesazhRuajtjeMeSukses",cultinf), pnlMesazhi);
 
             }
         }
@@ -309,14 +301,8 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestare(int idNdermarrje, ResourceManager rm, CultureInfo cultinf, int idGjuha)
         { //mbush komboboxet dhe gridat e faqes
             ASPxPageControl1.ActiveTabIndex = 0;
-           // DbCore.clsFunksione.mbushComboQendraKostoPrindKolona(cmbPrindi, rm, cultinf);
 
             ConfigureAspxComboBox.percaktoTemplateComboMeEnableCallback(cmbPrindi);
-          //  DbCore.clsFunksione.mbushComboKonfigurimeshSipasKategorise(idperdoruesi, idNdermarrje, cmbKonfigurimi, 108, rm, cultinf, idGjuha);
-            //cmbKonfigurimi.SelectedIndex = 0;
-            //DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
-            //konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()));
-            //hfKonffillestar.Value = String.Format("{0};{1}", konf.KodKonfigAmbjente, konf.PershkrimKonfigAmbjente);
 
         }
 
@@ -328,13 +314,8 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestareG()
         {
             DataTable dt = DbCore.DbListPagesat.colGrupimeLocaleGlobale.merrGrupimeLocaleGlobaleDT(idndermarje);
-            // DbCore.DbListPagesat.colGrupimeLocaleGlobale col1 = new DbCore.DbListPagesat.colGrupimeLocaleGlobale(idndermarje, 1);
             gvGrupime.DataSource = dt;
             gvGrupime.DataBind();
-
-            //DbCore.DbListPagesat.colGrupimeLocaleGlobale col2 = new DbCore.DbListPagesat.colGrupimeLocaleGlobale(idndermarje, 2);
-            //gvGlobale.DataSource = col2;
-            //gvGlobale.DataBind();
 
 
         }
@@ -382,7 +363,6 @@ namespace PlatinumWeb
                         hfStatusi.Value = "false";
                         return;
                     }
-                    //mesazh = burime.ruaj(null);
                     mesazh = qender.ruaj(hfNrAutoKF);
                     eshteShtim = true;
                 }
@@ -440,7 +420,6 @@ namespace PlatinumWeb
             controls.AddRange(ASPxPageControl1.GetAsPxTextEditIdValue());
 
             hfNrAuto = (ASPxHiddenField)NrAuto.VendosVleratNrAuto(hfNrAuto, controls);
-            //DbCore.DbAdmin.NrAuto.vendosVleratNrAuto(hfNrAuto, this, this.ASPxPageControl1, null, null);
 
             if (cmbPrindi.Text != "")
             {
@@ -452,7 +431,6 @@ namespace PlatinumWeb
                 idPrindi = 0;
 
             hfNrAutoKF = (ASPxHiddenField)NrAuto.ShtoNeRegjistrime(hfNrAutoKF, hfNrAuto, "txtKodi", "Kodi");
-            //DbCore.DbAdmin.NrAuto.shtoNeHfRegjistrime(hfNrAutoKF, hfNrAuto, "txtKodi", "Kodi");
 
             DbCore.DbShare.clsKonfigurimAmbjenti konfig = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konfig.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
@@ -481,7 +459,6 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         protected void gvGrupime_CustomCallback1(object sender, TreeListCustomCallbackEventArgs e)
         {
-
 
 
             string idkomponente = "";

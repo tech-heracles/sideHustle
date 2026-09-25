@@ -74,8 +74,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 mbushHiddenFieldMePerkthime(cultinf, rm);
-                //percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje, rm, cultinf);
-                //clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "gvLupaGrupimPerberes", 1, "LupaArtikull.aspx");
                 string vleraQueryString = "";
                 if (Request.QueryString["idKonfigAmbjente"] != null && Request.QueryString["idKonfigAmbjente"] != "")
                     vleraQueryString = Request.QueryString["idKonfigAmbjente"].ToString();
@@ -89,7 +87,6 @@ namespace PlatinumWeb
                     {
                         for (int i = 0; i < idte.Length; i++)
                         {
-                            //konfigLupa = new DbCore.DbShare.clsKonfigurimAmbjenti(Convert.ToInt32(idte[i]));
                             if (DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdNivel(Convert.ToInt32(idte[i])) == idNivel)
                             {
                                 idKonfigambjenti = Convert.ToInt32(idte[i]);
@@ -111,33 +108,26 @@ namespace PlatinumWeb
                 else
                     idKonfigambjenti = merrKonfiguriminDefaultTeLupes(idNdermarrje, idNivel);
 
-                //DbCore.DbShare.clsKusht kushtkss = new DbCore.DbShare.clsKusht(idKonfigambjenti, "KSSH");
-                //DbCore.DbShare.clsAlternativaKushti alterkss = new DbCore.DbShare.clsAlternativaKushti(kushtkss.Vlera);
                 if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po")
                     hfState.Add("KSSH", true);
                 else hfState.Add("KSSH", false);
                 if (DbCore.DbShare.clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po")
                     hfState.Add("ES", true);
                 else hfState.Add("ES", false);
-                //  DbCore.clsFunksione.AplikoFilterDefault(gvLupaGrupimPerberes, idKonfigambjenti);
                 hfState.Set("idKonfigambjenti", idKonfigambjenti);
-                // mbushPopUpListeArtikujshNgaDB(idPerdoruesi, idNdermarrje, (kosto || gjendja), idMagazina, cmime, artikujTeShitshem);
                 mbushPopUpListeGrupimPerberes(artikulli, idartikullSasi,data);
-                //konfiguroPopupGride(idNdermarrje, idKonfigambjenti, true, kosto, gjendja, cultinf, rm);
             }
             else
             {
                 idKonfigambjenti = (int)hfState["idKonfigambjenti"];
                 if (!IsCallback || (IsCallback && Request["__CALLBACKID"].ToString().Contains("ASPxMenu1")))
                 {
-                    // percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje, rm, cultinf);
                 }
 
                 if (!IsCallback || (IsCallback && Request["__CALLBACKID"].ToString().Contains("gvLupaGrupimPerberes")))
                 {
 
                     mbushPopUpListeArtikujshNgaSession(artikulli,idartikullSasi,data);
-                    //  konfiguroPopupGride(idNdermarrje, idKonfigambjenti, false, cbKosto.Checked, cbGjendje.Checked,cultinf,rm);
                 }
             }
             System.Globalization.CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
@@ -150,7 +140,6 @@ namespace PlatinumWeb
               }
 
 
-
         private void mbushPopUpListeGrupimPerberes(string artikulli, string idartikullSasi, DateTime data)
         {
             DataTable dtb= new DataTable();
@@ -161,7 +150,6 @@ namespace PlatinumWeb
             DataColumn sasi = tabidartikullSasi.Columns.Add("sasi", typeof(int));
           
  
-
             string[] lines = idartikullSasi.Split(';');
 
             foreach (var line in lines)
@@ -229,8 +217,6 @@ namespace PlatinumWeb
         private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
         {
             //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            //DbCore.DbShare.clsKonfigurimAmbjenti ambj = new DbCore.DbShare.clsKonfigurimAmbjenti(idNdermarrje, idNivel);
-            //return ambj.IdKonfigAmbjente;
             return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
         }
 

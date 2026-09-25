@@ -81,7 +81,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             fieldDitet.Options.ShowGrandTotal = false;
             fieldDitet.Options.ShowTotals = false;
             fieldDitet.Options.ShowCustomTotals = false;
-            //fieldDitet.TotalsVisibility = PivotTotalsVisibility.AutomaticTotals;
             fieldDitet.SummaryType = PivotSummaryType.Min;
 
             XRPivotGridField fieldIDKokaListepagese = new XRPivotGridField("IDKOKA", PivotArea.FilterArea);
@@ -158,7 +157,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
                 for (int i = 0; i < ds.RowCount; i++)
                 {
                     object currentType = ds.GetValue(i, "TIPI");
-                    // object currentType = ds.GetValue(i, "TIPINR");
                     if (currentType != null && Convert.ToInt32(currentType.ToString()) == 1)
                         customValue += Convert.ToDouble(ds.GetValue(i, "VLERA"));
                     else
@@ -168,8 +166,6 @@ namespace AlphaWebReports.RaportetDs.ListPagesat.Raportet
             }
         }
 
-
-   
 
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit

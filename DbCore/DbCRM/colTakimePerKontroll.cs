@@ -27,9 +27,6 @@ namespace DbCore.DbCRM
         public colTakimePerKontroll(string kodNdermarrje,DateTime data )
             : base(new DbCore.DbCRM.clsDatabaseCRM().MerrListenETakimevePerKontroll(data, kodNdermarrje))
         {
-            //clsDatabaseAdmin data = new clsDatabaseAdmin();
-            //mbushGridaTrupa(data.merrGridenKonfigurimitKomponentesSipasGrides(emriGrides, idKomponente, idKonfigurim, idGjuha));
-            //data.Dispose();
         }
         #endregion
 
@@ -120,11 +117,8 @@ namespace DbCore.DbCRM
         }
 
         
-
-
         #endregion
 
     }
 }
-
 

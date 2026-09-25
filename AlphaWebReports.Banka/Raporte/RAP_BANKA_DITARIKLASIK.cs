@@ -26,7 +26,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
         }
 
       
-
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
@@ -41,7 +40,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             xrTableCell1.Text = rm.GetString("labelRaportiLloji", ci);
             xrTableCell12.Text = rm.GetString("labelRaportData", ci);
             xrTableCell2.Text = rm.GetString("labelRaportiPershkrimi", ci);
-            //xrTableCell21.Text = rm.GetString("labelRaportVlera", ci);
             xrTableCell3.Text = rm.GetString("labelRaportKomision", ci);
             xrTableCell17.Text = rm.GetString("labelRaportVlArketuar", ci);
             xrTableCell22.Text = rm.GetString("labelRaportVlPaguar", ci);
@@ -51,7 +49,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             xrTableCell6.Text = rm.GetString("labelRaportiNr", ci) + ":";
             xrTableCell49.Text = rm.GetString("labelRaportGjendjePerpara", ci);
             xrLabel19.Text = rm.GetString("labelRaportiTotali", ci) + ":";
-            //xrLabel20.Text = rm.GetString("labelFilterAvancuarGjendja", ci);
             xrTableCell15.Text = rm.GetString("labelRaportNumer", ci);
         }
     }

@@ -124,18 +124,10 @@ namespace DbCore.DbQendraKosto
         private bool mbushSkema(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaSkemaQK skema = new clsKokaSkemaQK();
-                    //skema.mbushSkeme(rreshti);
                     Add(new clsKokaSkemaQK(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

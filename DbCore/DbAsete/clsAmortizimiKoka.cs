@@ -649,7 +649,6 @@ namespace DbCore.DbAsete
         {
             string mesazhmevonshem = "";
             clsMesazh u_modifikua;
-            //data.krijoManager();
             shfaqmesazhapolupe = "jo";
             if (lidhur == false)
             {
@@ -843,8 +842,6 @@ namespace DbCore.DbAsete
             String konfigurimi = clsKonfigurimAmbjenti.ktheKodKonfigurimi(dokMagazine.IdKonfigAmbjente);
             int idkrijuesi = dokMagazine.IdKrijuesi;
             if (idkrijuesi == 0) idkrijuesi = idPerdoruesi;
-            //clsKokaMagazina.merrKrijuesin(dokMagazine.NrDok, dokMagazine.IdNdermarrje, dokMagazine.DtDok, konfigurimi, dbregj);
-            // if (idkrijuesi == 0) idkrijuesi = dokMagazine.IdPerdoruesi;
             filloObjektin(dokMagazine.NrDok, konfamortizimi.IdNivel, konfamortizimi.IdKonfigAmbjente, dokMagazine.DtDok, dokMagazine.DtDok, dokMagazine.DtDok, dokMagazine.IdMagazina, idLlojStandarti, 0, dokMagazine.IdStatusDok, dokMagazine.Shenime, dokMagazine.IdNdermarrjeVit,
                 dokMagazine.IdNdermarrje, dokMagazine.IdPerdoruesi, idkrijuesi, DateTime.Now, dokMagazine.IdKokaMagazina, dokMagazine.IdNivel, dokMagazine.IdKonfigAmbjente, iddoknga, 0, nrRenditja);
             colAmortizimiTrupiAbstract trupiPlote = new colAmortizimiTrupi();
@@ -915,11 +912,8 @@ namespace DbCore.DbAsete
         {
             mesazhmevonshem = "";
                clsMesazh pergjigja = new clsMesazh(true);
-            //String konfigurimi = clsKonfigurimAmbjenti.ktheKodKonfigurimi(dokMagazine.IdKonfigAmbjente, dbshare);
             int idkrijuesi = dokMagazine.IdKrijuesi;
             if (idkrijuesi == 0) idkrijuesi = idPerdoruesi;
-            //clsKokaMagazina.merrKrijuesin(dokMagazine.NrDok, dokMagazine.IdNdermarrje, dokMagazine.DtDok, konfigurimi, dbregj);
-            //  if (idkrijuesi == 0) idkrijuesi = dokMagazine.IdPerdoruesi;
             filloObjektin(dokMagazine.NrDok, konfamortizimi.IdNivel, konfamortizimi.IdKonfigAmbjente, dokMagazine.DtDok, dokMagazine.DtDok, dokMagazine.DtRegjistrimi, dokMagazine.IdMagazina, idLlojStandarti, 0, dokMagazine.IdStatusDok, dokMagazine.Shenime, dokMagazine.IdNdermarrjeVit, dokMagazine.IdNdermarrje, dokMagazine.IdPerdoruesi, idkrijuesi, DateTime.Now, dokMagazine.IdKokaMagazina, dokMagazine.IdNivel, dokMagazine.IdKonfigAmbjente, iddoknga, 0, nrRenditje);
             //Marrja e trupit te ri vetem per hyrjen. Rasti kur i njejti serial del ne te njejtin dokument me shume se nje here.
             kokaPerHyrje = (clsAmortizimiKoka)this.Clone();
@@ -953,8 +947,6 @@ namespace DbCore.DbAsete
             String konfigurimi = clsKonfigurimAmbjenti.ktheKodKonfigurimi(dokMagazine.IdKonfigAmbjente);
             int idkrijuesi = dokMagazine.IdKrijuesi;
             if (idkrijuesi == 0) idkrijuesi = idPerdoruesi;
-            //clsKokaMagazina.merrKrijuesin(dokMagazine.NrDok, dokMagazine.IdNdermarrje, dokMagazine.DtDok, konfigurimi, dbregj);
-            //if (idkrijuesi == 0) idkrijuesi = dokMagazine.OMagazinaTransferim.IdPerdoruesi;
             filloObjektin(dokMagazine.OMagazinaTransferim.NrDok, konfamortizimi.IdNivel, konfamortizimi.IdKonfigAmbjente, amortizimiKrijuarNgaDalja.DateDokumenti, amortizimiKrijuarNgaDalja.DateDokumenti, dokMagazine.OMagazinaTransferim.DtRegjistrimi, dokMagazine.OMagazinaTransferim.IdMagazina, amortizimiKrijuarNgaDalja.IdLlojStandarti, 0, dokMagazine.OMagazinaTransferim.IdStatusDok, dokMagazine.OMagazinaTransferim.Shenime, dokMagazine.OMagazinaTransferim.IdNdermarrjeVit, dokMagazine.OMagazinaTransferim.IdNdermarrje, dokMagazine.OMagazinaTransferim.IdPerdoruesi, idkrijuesi, DateTime.Now, amortizimiKrijuarNgaDalja.idAmortizimi, amortizimiKrijuarNgaDalja.idNiveli, amortizimiKrijuarNgaDalja.idKonfigurimAmbjenti, iddoknga, 0, nrRenditje);
             pergjigja = colTrupi.krijoTrupiDokAmortizimiNgaVeprimeMagazineHyrjePerTransferim(amortizimiKrijuarNgaDalja, idNjesiAdministrative, serialetendashem, dokMagazine.OMagazinaTransferim);
             if (!pergjigja)
@@ -1118,11 +1110,8 @@ namespace DbCore.DbAsete
             clsDatabaseRegjistrim dbregj = new clsDatabaseRegjistrim(dbasete);
             String konfigurimi = clsKonfigurimAmbjenti.ktheKodKonfigurimi(idKonfigurimAmbjenti, dbshare);
             clsKokaMagazina koka = new clsKokaMagazina(idNiveli, nrDok, dateDokumenti);
-            //colSerialetPerRivleresim serialetXRivleresim;
             int krijuesi = koka.IdKrijuesi;
             if (krijuesi == 0) krijuesi = idPerdoruesi;
-            // clsAmortizimiKoka.merrKrijuesin(nrDok, idNdermarrje, dateDokumenti, konfigurimi, dbregj);
-            //if (krijuesi == 0) krijuesi = idPerdoruesi;
             //Lloji i dokumentit FRA
             filloObjektin(nrDok, idNiveli, idKonfigurimAmbjenti, dateDokumenti, dateAmortizimi, dateRegjistrimi, idNjesiAdministrative, idLlojStandarti, 0, idstatusdok, shenime, idNderViti, idNdermarrje, idPerdoruesi, krijuesi, DateTime.Now, 0, 0, 0, 0, idllogari, 0);
             colTrupi = colTrupiKrijuar;
@@ -1281,8 +1270,6 @@ namespace DbCore.DbAsete
             clsMesazh pergjigje = new clsMesazh();
             try
             {
-                //using (var scope = new MyTransactionScope())
-                //{
                     colAmortizimiTrupiAbstract amortizimiTrupiIMundurPerRillogaritje = new colAmortizimiTrupi();
                     colAmortizimiTrupiAbstract amortizimiTrupiIMundurPerRillogaritjeNew = new colAmortizimiTrupi();
                     colAmortizimiTrupiAbstract amortizimiTrupiIMundurPerRillogaritjeRez = new colAmortizimiTrupiRezerva();
@@ -1297,7 +1284,6 @@ namespace DbCore.DbAsete
                     }
                     else
                     {
-                        //e.UpdateProgress(50);
                         amortizimiTrupiIMundurPerRillogaritje.merrAmortizimTrupiPerRillogaritjeArtikujPaSerial(idNdermarrje, dataFillimiRillogaritje, idLlojStandarti);
                         amortizimiTrupiIMundurPerRillogaritjeNew.AddRange(amortizimiTrupiIMundurPerRillogaritje.Where(p => serialePerRillogaritje.Any(p2 => p2.IdAQTSerial == p.IdPrindFillestar)));
 
@@ -1308,9 +1294,7 @@ namespace DbCore.DbAsete
                         pergjigje = colAmortizimiTrupiAbstract.rillogariTrupinAmortizimArtikuj(gjitheKokat, idNdermarrje, idLlojStandarti, StandartiEmertim, dataFillimiRillogaritje, idPerdoruesi, meSerial, e, rm, ci, amortizimiTrupiIMundurPerRillogaritjeNew, amortizimiTrupiIMundurPerRillogaritjeNewRez);
                     }
                     
-                    //scope.Complete();
                     return pergjigje;
-                //}
             }
             catch (MyException m)
             {
@@ -1700,7 +1684,6 @@ namespace DbCore.DbAsete
         private clsMesazh kontrolloTrup(colAmortizimiTrupiAbstract colAmortizimiTrupi, int idkonfigambjente, int idStandartAmortizimi, colAmortizimiTrupiAbstract colAmortizimiTrupiIRI)
         {
             clsMesazh kaveprime = new clsMesazh(true, "Nuk ka veprime!");
-            //DbShare.clsKonfigurimAmbjenti konf = new clsKonfigurimAmbjenti(idkonfigambjente, moduliAsete );
             string kodKonfig = DbShare.clsKonfigurimAmbjenti.ktheKodKonfigurimi(idkonfigambjente, new clsDatabaseShare());
             if (kodKonfig == "FAB" || kodKonfig == "FAFanalitike" || kodKonfig == "FAFpermbledhese" || kodKonfig == "FANS")//per konfigurime te caktuara
             {

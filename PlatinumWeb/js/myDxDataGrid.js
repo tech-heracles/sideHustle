@@ -186,7 +186,6 @@ function myDxDataGrid(emerGride, options, noInstanciate) {
                 onItemClick: function (e) {
                     grida.VendosVleraNeDataSource(cellInfo.rowIndex, dataField, idField, descriptionField, e.itemData, dataSourceTextField, dataSourceValueField, dataSourceDescField, onValueChangeFunction);
                     grida.lastFocusedCell = { rowIndex: cellInfo.rowIndex, dataField: dataField };
-                    //grida.Grida.closeEditCell();
                     this.selected = true;
                     var cell = grida.Grida.getCellElement(cellInfo.rowIndex, dataField);
                     grida.Grida.focus(cell);

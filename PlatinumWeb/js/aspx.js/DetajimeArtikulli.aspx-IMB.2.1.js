@@ -29,16 +29,10 @@ $(document).ready(function () {
 });
 
 function Autorizime_Click() {
-    //popupUniversal.SetHeaderText('Zgjidh autorizimet');
-    //document.getElementById('').src = 'LupaAutorizime.aspx';
-    //popupUniversal.Show();
 }
 
 
-
 function Filtra_Click() {
-    //document.getElementById('').src = 'LupaFiltra.aspx?grida=gvDetajimArtikulli&page=DetajimeArtikulli.aspx';
-    //popFiltra.Show();
 }
 
 
@@ -77,8 +71,6 @@ function SucceededCallback(result) {
 }
 
 function eshteDetajimLidhur(result) {
-    //LlojDetajimArtikulli.SetValue(result[2]);
-    //KategoriDetajimi.SetValue(result[4]);    
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "eshteDetajimLidhur"),
         data: JSON.stringify({ kodi: result[1], idNdermarrje: result[5] })
@@ -184,8 +176,6 @@ function KeyPresAutorizime(kodi, editor, key) {//kur shtypet nje key per kolonen
         Autorizime_Click();
         var hf = document.getElementById("hfAutorizime");
         hf.value = editorAutorizime.GetText();
-        //                editorValues["IdNivelAutorizimi"] = editorAutorizime.GetText();
-        //                var hf1 = document.getElementById("HiddenField1");
         //                hf1.value = editorValues["KodiKokaMakro"] + ";" + editorValues["PershkrimiKokaMakro"] + ";"
         //            + editorValues["IdNivelAutorizimi"] + ";";
 
@@ -198,8 +188,6 @@ function LostFocusAutorizime(key) {//kur humb fokusin kolona Autorizimeve
     if (!editorAutorizime) return;
     var hf = document.getElementById("hfAutorizime");
     hf.value = editorAutorizime.GetText();
-    //            editorValues["IdNivelAutorizimi"] = editorAutorizime.GetText();
-    //            var hf1 = document.getElementById("HiddenField1");
     //            hf1.value = editorValues["KodiKokaMakro"] + ";" + editorValues["PershkrimiKokaMakro"] + ";"
     //            + editorValues["IdNivelAutorizimi"] + ";";
 }
@@ -277,20 +265,8 @@ function TextChangedKategoria(indexModifiko) {
     }
 }
 
-//function ProcessTextChanged(fieldName, value) {
    
-//    if (fieldName == "PershkrimDetajimArtikulli" || fieldName == "LlojDetajimArtikulli") {
-//        if (LlojDetajimArtikulli.GetText() == "Date") {
-//            if ((Date.parseLocale(PershkrimDetajimArtikulli.GetText(), "dd/MM/yyyy")) == null && PershkrimDetajimArtikulli.GetText() != '') {
-//                myMesazh.ShtoMesazhGabimi("Jepni nje date te vlefshme");
-//                PershkrimDetajimArtikulli.SetText(new Date().format("dd/MM/yyyy"));
-//            }
-//        }
-//    }
 //    else 
-//    if (fieldName == "KategoriDetajimi")
-//        TextChangedKategoria();
-//}
 
 function OnGridSelectionChanged() {
     gvDetajimArtikulli.GetSelectedFieldValues('KodDetajimArtikulli;KategoriDetajimi;PershkrimDetajimArtikulli', OnGridSelectionComplete);
@@ -305,7 +281,6 @@ function OnGridSelectionComplete(values) {
         else
             kodi = kodi + ',' + values[i][0];
     }
-
 
 
     var pershkrimi = '';
@@ -337,10 +312,8 @@ function OnGridSelectionComplete(values) {
         window.parent.editordetajimi.SetText(kodi);
         window.parent.editordetajimi.Focus();
         window.parent.popupUniversal.Hide();
-        //$.ajax({
         //    url: Utils.getServerApiUrl("Konfigurime", "kontrolloDetajimePerVeprime"),
         //    data: JSON.stringify({ detajimereja: kodi, detajimevjetra: Utils.getUrlVar('detajime'), kodartikulli: Utils.getUrlVar('kodArtikulli') })
-        //}).done(SuccededDetajime);
     }
     else {//kur thirret nga Shto_Artikull dhe Modifiko_Artikull
         window.parent.editordetajimi.SetText(kodi);

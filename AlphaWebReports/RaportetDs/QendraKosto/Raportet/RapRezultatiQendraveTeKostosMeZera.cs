@@ -78,10 +78,6 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
         }
 
 
-
-
-
-
         private void xrTableCell10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
 
@@ -158,9 +154,6 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
 
         private void xrLabel4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-           //string kod = xrTableCell16.Text.ToString();
-           //XRLabel cell = sender as XRLabel;
-           // cell.Text = kod;
         }
 
         private void xrLabel4_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -181,10 +174,8 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
 
         private void xrLabel5_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-           // if (!printed)
                 e.Result = ktheRezultat(shuma);
            // else
-               // e.Result = (sender as XRLabel).Text;
             e.Handled = true;
         }
 
@@ -312,4 +303,3 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
     }
 
    
-      

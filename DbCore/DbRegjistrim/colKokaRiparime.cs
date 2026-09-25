@@ -88,21 +88,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushKokaRiparime(DataTable dt, clsDatabaseRegjistrim db)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaRiparime koka = new clsKokaRiparime();
-                    //koka.mbushKokaRiparime(rreshti, db);
                     Add(new clsKokaRiparime(rreshti, db));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

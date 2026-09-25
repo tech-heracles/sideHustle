@@ -22,7 +22,6 @@ function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
         gvLupaStruktura.SetFocusedRowIndex(0);
-     //   btnOk.Focus();
     }
     catch (err) {
         ///alert('gabim');    
@@ -49,16 +48,12 @@ function ProcessKeyPress() {
             gvLupaStruktura.SetFocusedRowIndex(currentIndex - 1);
         }
     }
-    //if (event.keyCode === 13) {
-    //    OnGridSelectionChanged();
 
-    //}
 }
 
 function OnGridSelectionChanged(index) {
     if (index != -1)
         gvLupaStruktura.GetRowValues(index,'IdStrukturaAdm;Emri', OnGridSelectionComplete);
-    //gvLupaStruktura.GetRowValues(gvLupaStruktura.GetFocusedRowIndex(), 'IdStrukturaAdm;Emri', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {
@@ -96,12 +91,7 @@ function OnGridSelectionComplete(values) {
 }
 
 
-
 function menu_click(s, e) {
-//    if (e.item.name === 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name === 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

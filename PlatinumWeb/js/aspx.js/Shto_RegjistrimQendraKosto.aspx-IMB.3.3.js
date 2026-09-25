@@ -93,7 +93,6 @@ function Init() {
         document.getElementById("fundKonfigurimi").innerHTML = hfState.Get("MenuFundDokumenti");
         var hf = $("input[id$='hfKonffillestar']")[0];
 
-        //cmbKonfigurimi.SetText(hf.value.split(';')[0]);
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") + ': ' + hf.value.split(';')[1]);
         callWebserviceKonfigurimi("906", hf.value.split(';')[0]);
         changeName();
@@ -224,7 +223,6 @@ function SucceededCallbackKonfig(result) {
     regjQK = new dxQendraKosto();
     gridaQK = regjQK.initGridQK({ ngaThirret: 'regj', formatNr: formatNumriZgjedhur, konfigurimGride: colGrida, PershkrimiKokes: txtShenime.GetText() }, hf.val(), { idKoka: hfState.Get("id"), dteDtDok: dteDtDok.date.toDateString(), dteDtRegj: dteDtRegjistrimi.date.toDateString(), idKonfig: cmbKonfigurimi.GetValue() }, { idDokGjenerues: hfState.Get("idDokGjenerues"), idKonfigGjenerues: 0, llogariFK: null });
     regjQK.setGridEditableOrNot(hfLidhur.val() == 'True');
-    //cmbKonfigurimi.SetText(cmbKonfigurimi.GetText().split(';')[0]);
     $("#gvGrida").show();
     $("#dvFillim").show();
     $("#dvFundi").show();

@@ -65,18 +65,10 @@ namespace DbCore.DbAsete
         private bool mbushPeriudhaLlogaritjeList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPeriudhaLlogaritje periudha = new clsPeriudhaLlogaritje();
-                    //periudha.mbushPeriudhaLlogaritjeObjekt(rreshti);
                     this.Add(new clsPeriudhaLlogaritje(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

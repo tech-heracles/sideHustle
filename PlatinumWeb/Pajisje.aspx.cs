@@ -61,7 +61,6 @@ namespace PlatinumWeb
             }
             if (!IsCallback)
                 if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                    //FormsAuthentication.RedirectToLoginPage();
                     DbCore.clsFunksione.logout(Session, false, "", false);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             CultureInfo ci = mySessionObjects.ktheCultureInfo(Session);
@@ -239,20 +238,8 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvPajisje.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Targa", gvPajisje);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvPajisje.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "Targa";
-            //    filtri.DrejtimRenditje = true;
-            //}
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
@@ -441,8 +428,6 @@ namespace PlatinumWeb
 
             pajisja.IdKlienti = idKlienti;
 
-            //if (!int.TryParse(cmbLlojKonvertimesh.Value.ToString(), out idLlojKonvertimi))
-            //    throw new DbCore.MyException("Lloji i konvertimit nuk ekziston!");
             pajisja.IdLlojKonvertimi = 0;
             return pajisja;
         }

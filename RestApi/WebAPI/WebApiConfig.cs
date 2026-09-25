@@ -26,8 +26,6 @@ namespace RestApi.WebAPI
                 defaults: new { id = RouteParameter.Optional }
              );
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-            // config.Filters.Add(new AuthorizeAttribute());
-            //config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new Formatters.FeatureCollectionConverter());
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.None;
 
 

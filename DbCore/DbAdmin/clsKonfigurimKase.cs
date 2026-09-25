@@ -161,73 +161,18 @@ namespace DbCore.DbAdmin
         ///// 
         ///// </summary>
         ///// <returns></returns>
-        //internal DataRow mbushKonfigurimKase()
-        //{
         //    try
-        //    {
-        //        DataTable kasa = new DataTable("kasa");
 
-        //        kasa.Columns.Add("IDKONFIGURIMI", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("PERSHKRIMI", ("").GetType());
-        //        kasa.Columns.Add("IDNDERMARJE", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("IDPERDORUESI", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("IDSTATUSDOK", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("DTKRIJIMI", (new System.DateTime()).GetType());
-        //        kasa.Columns.Add("DTMODIFIKIMI", (new System.DateTime()).GetType());
-        //        DataRow rreshti = kasa.NewRow();
 
-        //        rreshti["IDKONFIGURIMI"] = this.idKonfigurimi;
-        //        rreshti["PERSHKRIMI"] = this.pershkrimi;
-        //        rreshti["IDNDERMARJE"] = this.idNdermarje;
-        //        rreshti["IDPERDORUESI"] = this.idPerdoruesi;
-        //        rreshti["IDSTATUSDOK"] = this.idStatusDok;
-        //        rreshti["DTKRIJIMI"] = this.dtKrijimi;
-        //        rreshti["DTMODIFIKIMI"] = this.dtModifikimi;
-
-        //        return rreshti;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-
-        //    }
-        //}
         ///// <summary>
         ///// 
         ///// </summary>
         ///// <param name="roli"></param>
         ///// <returns></returns>
-        //internal DataRow mbushKonfigurimKase(clsKonfigurimKase kasat)
-        //{
 
         //    try
-        //    {
-        //        DataTable kasa = new DataTable("kasa");
-        //        kasa.Columns.Add("IDKONFIGURIMI", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("PERSHKRIMI", ("").GetType());
-        //        kasa.Columns.Add("IDNDERMARJE", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("IDPERDORUESI", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("IDSTATUSDOK", (new System.Decimal()).GetType());
-        //        kasa.Columns.Add("DTKRIJIMI", (new System.DateTime()).GetType());
-        //        kasa.Columns.Add("DTMODIFIKIMI", (new System.DateTime()).GetType());
 
-        //        DataRow rreshti = kasa.NewRow();
-        //        rreshti["IDKONFIGURIMI"] = kasat.idKonfigurimi;
-        //        rreshti["PERSHKRIMI"] = kasat.pershkrimi;
-        //        rreshti["IDNDERMARJE"] = kasat.idNdermarje;
-        //        rreshti["IDPERDORUESI"] = kasat.idPerdoruesi;
-        //        rreshti["IDSTATUSDOK"] = kasat.idStatusDok;
-        //        rreshti["DTKRIJIMI"] = kasat.dtKrijimi;
-        //        rreshti["DTMODIFIKIMI"] = kasat.dtModifikimi;
 
-        //        return rreshti;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-
-        //    }
-        //}
         #endregion
         /// <summary>
         /// mbush objektin nga nje datarow i marr nga db-ja

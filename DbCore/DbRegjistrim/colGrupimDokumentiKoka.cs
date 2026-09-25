@@ -111,36 +111,22 @@ namespace DbCore.DbRegjistrim
         private bool mbushGrupet(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsGrupimDokumentiKoka grupKF = new clsGrupimDokumentiKoka();
-                //grupKF.mbushGrup(rreshti);
                 this.Add(new clsGrupimDokumentiKoka(rreshti));
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
         private bool mbushGrupetDtSmall(DataTable dt)
         {
             //try
-            //{
             foreach (DataRow rreshti in dt.Rows)
             {
                 clsGrupimDokumentiKoka grupKF = new clsGrupimDokumentiKoka();
                 grupKF.mbushGrupDtSmall(rreshti);
                 this.Add(grupKF);
             }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

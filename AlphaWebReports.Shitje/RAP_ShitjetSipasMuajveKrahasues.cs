@@ -29,7 +29,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             fieldAgjent.SortMode = PivotSortMode.Custom;
             
 
-
             XRPivotGridField fieldEmertimi = new XRPivotGridField("Emertimi", PivotArea.RowArea);
             fieldEmertimi.FieldName = "EMERTIMIKF";
             fieldEmertimi.Caption = rm.GetString("labelRaportiEmertimi", ci);
@@ -85,51 +84,18 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         private void xrPivotGrid1_CustomFieldSort(object sender, DevExpress.XtraReports.UI.PivotGrid.PivotGridCustomFieldSortEventArgs e)
         {
 
-            //if (e.Field.FieldName == "muaj")
-            //{
-            //    int vl1;
-            //    int vl2;
-            //    int m1;
-            //    int m2;
 
-            //    if (e.GetListSourceColumnValue(e.ListSourceRowIndex1, "ROWID") != null)
-            //    {
-            //        vl1 = Convert.ToInt32(e.GetListSourceColumnValue(e.ListSourceRowIndex1, "ROWID"));
-            //        vl2 = Convert.ToInt32(e.GetListSourceColumnValue(e.ListSourceRowIndex2, "ROWID"));
-            //    }
             //    else
-            //    {
-            //        vl1 = 0;
-            //        vl2 = 0;
-            //    }
-            //    if ((e.GetListSourceColumnValue(e.ListSourceRowIndex1, "muajnr")) != null)
-            //    {
-            //        m1 = Convert.ToInt32(e.GetListSourceColumnValue(e.ListSourceRowIndex1, "muajnr"));
-            //        m2 = Convert.ToInt32(e.GetListSourceColumnValue(e.ListSourceRowIndex2, "muajnr"));
-            //    }
             //    else
-            //    {
-            //        m1 = 0;
-            //        m2 = 0;
-            //    }
-            //    if (m1 == m2)
-            //    {
-            //        e.Result = -1 * vl1.CompareTo(vl2);
 
-            //    }
             //    else
-            //        e.Result = m1.CompareTo(m2);
-            //    e.Handled = true;
-            //}
 
             
-
         }
 
 
         private void xrPivotGrid1_CustomGroupInterval(object sender, PivotCustomGroupIntervalEventArgs e)
         {
-            //e.GroupValue = e.Value.ToString();
         }
     }
 }

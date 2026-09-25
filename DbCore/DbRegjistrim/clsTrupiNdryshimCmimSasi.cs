@@ -223,8 +223,6 @@ namespace DbCore.DbRegjistrim
                 }
 
               
-
-              
                     idMag = idMagHyrje;
                
             }
@@ -369,7 +367,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-      
         #endregion
 
         #region Metoda Publike
@@ -500,7 +497,6 @@ namespace DbCore.DbRegjistrim
         public colTrupiNdryshimCmimSasi merriSipasKoka()
         {
             colTrupiNdryshimCmimSasi data = new colTrupiNdryshimCmimSasi();
-            //clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             data.mbushGjitheTrupiNdryshimCmimSasiNgaKoka(this.idKoka);
             return data;
         }

@@ -45,12 +45,6 @@ namespace DbCore.DbGIS
             else return false;
         }
         //public bool merrTeGjitheListeAtributeSipasIdList()
-        //{
-        //    using (clsDatabaseGIS db = new clsDatabaseGIS())
-        //    {
-        //        return mbushLidhjeObjekteWebGis(db.merrTeGjitheObjekteWebGis());
-        //    }
-        //}
         public static DataTable MerrObjekteSipasBoundBoxit(int idNdermarrje, string boundBox, int idPerdoruesi, int idViti, int gjuha)
         {
 

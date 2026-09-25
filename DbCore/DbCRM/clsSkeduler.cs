@@ -67,7 +67,6 @@ namespace DbCore.DbCRM
         public clsSkeduler(int idTakimi)
         {
             
-            //this.idTakimi = idTakimi;
             mbushTakim(idTakimi);
         }
 
@@ -141,7 +140,6 @@ namespace DbCore.DbCRM
         }
 
 
-
         public DateTime StartDate
         {
             get { return startDate; }
@@ -161,16 +159,12 @@ namespace DbCore.DbCRM
         }
 
 
-
-
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
 
-
-     
 
         public int IdNdermarje
         {
@@ -259,9 +253,6 @@ namespace DbCore.DbCRM
             if (this.description != oldSkeduler.description)
             {
                 string emri = "";
-
-
-
 
 
                 if (string.IsNullOrWhiteSpace(oldSkeduler.Description))

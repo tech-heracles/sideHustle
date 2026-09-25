@@ -30,19 +30,11 @@ namespace DbCore.DbAdmin
         private bool mbushKolonat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKoloneEmerLogjik kolone = new clsKoloneEmerLogjik();
-                    //kolone.mbushKolone(rreshti);
                     Add(new clsKoloneEmerLogjik(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

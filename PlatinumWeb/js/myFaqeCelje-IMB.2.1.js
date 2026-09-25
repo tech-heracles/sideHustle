@@ -108,7 +108,6 @@ myFaqeCelje.EndRequestHandler = function (sender, args, hfStatus, hfKontrollet, 
     if (hfStatus.val() == "true") {
         if (hfShtimModifikim.val() != "modifikim") {
             aktivizoFusha(hfKontrollet.value);
-            //        aktivFusha(hfKontrollet.value);
             window.mbush = false;
             hfShtimModifikim.val("shtim"); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
             hfId.val(0); //hidden fieldi qe ruan id  e rreshtit te selektuar
@@ -208,7 +207,6 @@ myFaqeCelje.EndRequestHandlerPas = function (sender, args, hfStatus, hfShtimModi
         }
         //mos e hiq, sepse nuk shtohet elementi ne gride
         emergride.PerformCallback();
-        //emergride.ClearFilter();
     }
     else myMenu.PercaktoMenuSipasTabit(PageControl.GetActiveTabIndex(), hfTeDrejta, hfShtimModifikim);
     Utils.hiqLoadingGif();
@@ -242,7 +240,6 @@ myFaqeCelje.changeName = function (emerfaqe, id, hfKonffillestar) {
     if (hfKonffillestar !== undefined && hfKonffillestar !== null) {
         lblKonfigurimi.SetText(hfKonffillestar.value.split(';')[1]);
         cmbKonfigurimi.SetText(hfKonffillestar.value.split(';')[0]);
-        // cmbKonfigurimi.SetText(hfKonffillestar.value);
         ndryshoKonfiguriminInit();
     }
     var prm = Sys.WebForms.PageRequestManager.getInstance();
@@ -258,23 +255,9 @@ myFaqeCelje.changeNameRegjistrime = function (emerfaqe, id) {
     prm.add_endRequest(myMesazh.EndRequestTimer);
 };
 var timeout;
-//myFaqeCelje.EndRequestTimer = function (sender, args) {
-//    if (mesazhPage.GetText() != "" && mesazhPage.GetText().split('?').length == 1) {
-//        clearTimeout(timeout);
-//        timeout = setTimeout(function () {
-//            mesazhPage.SetText('');
 //        }, 10000);
-//    }
-//    //    var mesazh = mesazhPage.GetText();
-//    //    timer.DoTick();
-//    //    timer.Stop();
 //    //
-//    //    timer.SetEnabled(false);
-//    //    mesazhPage.SetText(mesazh);
 //    //   { timer.SetInterval(10000); timer.SetEnabled(true); }
-//    //    else timer.SetEnabled(false);
-//    Utils.hiqLoadingGif();;
-//}
 //ben aktive ose jo fushat nqs eshte i lidhur ose aktivizon fushat e bera inaktive kur behet shtim
 myFaqeCelje.aktivizoFusha = function (vlerat, hfMod, hfLidhur, emerContaineri) {
     var kontrollet = vlerat.split(';');
@@ -309,7 +292,6 @@ myFaqeCelje.aktivizoFusha = function (vlerat, hfMod, hfLidhur, emerContaineri) {
     }
 };
 myFaqeCelje.aktivFusha = function (colKontrollet, colAtrTrupi, hfMod, isLidhur, emerContaineri, arrdrejta, arrTabela) {
-    //    var kontrollet = vlerat.split(';');
     if (colKontrollet === undefined || colKontrollet === null) return;
     for (var i = 0; i < colKontrollet.length; i++) {
         if (colKontrollet[i].IdTipiKontrollit == 5)   //tipi gride
@@ -608,8 +590,6 @@ myFaqeCelje.SucceededCallbackKonfigurimPergjithshemSeriale = function (colKontro
             k.validationGroup = "entries1";
         if (hfMod != undefined && hfMod.val() == "modifikim" && colAtrTrupi[i].Identifikues == 1)
             k.SetEnabled(false);
-            //else if (colKontrollet[i].IdTipiKontrollit == 3 && hfMod != undefined && hfMod.val() == "modifikim" && colAtrTrupi[i].Identifikues == 2)
-            //    k.SetEnabled(false);
         else if (colAtrTrupi[i].Enabled !== null || colAtrTrupi[i].Enabled !== undefined)
             k.SetEnabled(colAtrTrupi[i].Enabled);
 
@@ -1016,29 +996,6 @@ Parameters:
 
 e-eventi
 */
-//myMenu.menu_click = function (s, e, hfShtimModifikim, hfId, PageControl, ruajbuxhetet, konfigurim) {
-//    if (e.item.name == 'Fshi') {
-//        myMenu.FshiClick(e);
-//        return;
-//    }
-//    if (e.item.name == 'Shto') {
-//        myMenu.ShtoClick(e, hfShtimModifikim, hfId, PageControl, konfigurim);
-//        return;
-//    }
-//    if (e.item.name == 'Ruaj') {
-//        Utils.shfaqLoadingGif();;
-//        myMenu.RuajClick(s, e, ruajbuxhetet);
-//        return;
-//    }
-//    if (e.item.name == 'Modifiko') {
-//        myMenu.ModifikoClick(e);
-//        return;
-//    }
-//    if (e.item.name == 'Klono') {
-//        myMenu.KlonoClick(e, hfShtimModifikim, hfId);
-//        return;
-//    }
-//}
 myMenu.menu_click_regjistrime = function (s, e, url, urlMod, selectrowcount) {
     switch (e.item.name) {
         case 'Fshi': myMenu.FshiClick(e);
@@ -1343,24 +1300,11 @@ myMenu.ShtoClick = function (e, hfShtimModifikim, hfId, PageControl, konfigurim,
     }
     if (PageControl)
         PageControl.SetActiveTabIndex(1);
-    //myMenu.PercaktoMenuSipasTabit(1);
     e.processOnServer = false;
 };
-//myMenu.ShtoClick = function (e, hfShtimModifikim, hfId, PageControl,konfigurim) {
-//    window.mbush = false;
 //    hfShtimModifikim.value = "shtim"; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
 //    hfId.value = 0; //hidden fieldi qe ruan id  e rreshtit te selektuar
 //    window.indexModifiko = -1; //indexi i reshtit te selektuar
-//    pastrofusha();
-//    if (konfigurim!==false) {
-//        SucceededCallbackKonfigurimiInit(resultkonf);
-//        var hf = $('#hfKontrollet')[0];
-//        aktivizoFusha(hf.value);
-//    }
-//    PageControl.SetActiveTabIndex(1);
-//    //myMenu.PercaktoMenuSipasTabit(1);
-//    e.processOnServer = false;
-//}
 
 myMenu.UpdateFilter = function (cmb, colFiltraGrida, filtriDefault) {
     cmb.BeginUpdate();

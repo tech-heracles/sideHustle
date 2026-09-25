@@ -181,7 +181,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.mbushComboNivelesh(cmbNiveleKPF);
             ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorise(idPerdoruesi, idNdermarrje, cmbKonfigurimi, 16, rm, ci, idGjuha);
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbPrindi);
-          // DbCore.clsFunksione.shtoKPFPrind(cmbPrindi);
             ConfigureAspxComboBox.mbushComboKPF(idPerdoruesi, idNdermarrje, cmbPrindi, 1);
             cmbKonfigurimi.SelectedIndex = 0;
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
@@ -243,8 +242,6 @@ namespace PlatinumWeb
                         DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrim = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
                         DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                         konf.mbushKonfigAmbjSipasId(KPF.IdKonfig);
-                        //konf.IdKonfigAmbjente = KPF.IdKonfig;
-                        //konf = new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasId(konf)[0];
 
                         KPF.IdKPF = int.Parse(hfId.Value.ToString());
                         bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(KPF.IdKPF.ToString(), konf.IdNivel.ToString());
@@ -280,20 +277,17 @@ namespace PlatinumWeb
                     ASPxPageControl1.ActiveTabIndex = 0;
                     if (KPF.GrupiKPF == 1)
                     {
-                        // konfiguroVleraFillestare1();
 
                         ASPxPageControl2.ActiveTabIndex = 0;
 
                     }
                     else if (KPF.GrupiKPF == 2)
                     {
-                        // konfiguroVleraFillestare2();
                         ASPxPageControl2.ActiveTabIndex = 1;
 
                     }
                     else if (KPF.GrupiKPF == 3)
                     {
-                        // konfiguroVleraFillestare3();
                         ASPxPageControl2.ActiveTabIndex = 2;
 
                     }
@@ -302,21 +296,18 @@ namespace PlatinumWeb
                 {
                     if (ASPxPageControl2.ActiveTabIndex == 0)
                     {
-                        //  konfiguroVleraFillestare1();
                         percaktoTamplate1();
                         percaktoTamplate2();
                         percaktoTamplate3();
                     }
                     else if (ASPxPageControl2.ActiveTabIndex == 1)
                     {
-                        //  konfiguroVleraFillestare2();
                         percaktoTamplate1();
                         percaktoTamplate2();
                         percaktoTamplate3();
                     }
                     else if (ASPxPageControl2.ActiveTabIndex == 2)
                     {
-                        //  konfiguroVleraFillestare3();
                         percaktoTamplate1();
                         percaktoTamplate2();
                         percaktoTamplate3();
@@ -383,7 +374,6 @@ namespace PlatinumWeb
             else if (ASPxPageControl2.ActiveTabIndex == 2)
                 KPF.GrupiKPF = 3;
             KPF.IdPerdoruesi = idPerdoruesi;
-            //KPF.OColBuxhetet = ruajBuxhet();
             return KPF;
         }
         /// <summary>
@@ -925,7 +915,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "EmertimiKPF")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue(TeGjithe, string.Empty, "true");
                 e.AddValue(nga + " A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue(nga + " D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");
@@ -971,21 +960,17 @@ namespace PlatinumWeb
             DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
             ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
             DbCore.DbAdmin.clsFiltraGrida filtra = new DbCore.DbAdmin.clsFiltraGrida();
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             int idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //filtra.mbushFiltraGridaSipasFiltraEmri(cmbFiltra.Text, idNdermarrje);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "grid_ListKPFsh", "Shto_KPF.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtra.mbushFilterPerGrideSipasKodit(cmbFiltra.Text, idNdermarrje, koka.IdGridaKoka);
-            //DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraEmri(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             if (filtra.FiltraKodi != null)
             {
                 filtra.IdPerdoruesi = idPerdoruesi;
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
-                //mbushComboBoxFiltra();
                 clsToolbarConfig.mbushComboBoxFiltra(idGjuha, idNdermarrje, "grid_ListKPFsh", int.Parse(cmbKonfigurimi.Value.ToString()), "Shto_KPF.aspx");
                 percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
                 if (mesazh.Status == true)
@@ -993,11 +978,7 @@ namespace PlatinumWeb
                 else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
 
                 cmbFiltra.Text = "";
-                //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-                //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-                //btnRuaj.ClientEnabled = false;
-                //btnFshiFilter.ClientEnabled = false;
                 CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
                 ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
                 konfiguroVleraFillestare(idPerdoruesi, idNdermarrje, rm, ci, idGjuha);
@@ -1015,60 +996,13 @@ namespace PlatinumWeb
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //protected void Apliko_ASPxButton_Click(object sender, EventArgs e)
-        //    {
         //    //kap item qe ka template ne menune e kesaj faqeje
-        //    DevExpress.Web.MenuItem itemButton = ASPxMenu1.Items.FindByName("TemplatedItemFilter");
-        //    ASPxComboBox cmbFiltra = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFiltra") as ASPxComboBox;
 
-        //    DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    DbCore.DbAdmin.clsFiltraGrida filtra = dbAdmin.merrFiltraGridaSipasFiltraKodi(cmbFiltra.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
-        //    if (filtra.FiltraKodi != null)
-        //        {
-        //        if (ASPxPageControl2.ActiveTabIndex == 0)
-        //            {
-        //            grid_ListKPFsh1.FilterExpression = filtra.FiltraVlera;
-        //            if (filtra.DrejtimRenditje == true)
-        //                grid_ListKPFsh1.SortBy(grid_ListKPFsh1.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
         //            else
-        //                grid_ListKPFsh1.SortBy(grid_ListKPFsh1.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
-        //            konfiguroVleraFillestare1();
-        //            percaktoTamplate1();
-        //            }
-        //        else if (ASPxPageControl2.ActiveTabIndex == 1)
-        //            {   grid_ListKPFsh2.FilterExpression = filtra.FiltraVlera;
-        //            if (filtra.DrejtimRenditje == true)
-        //                grid_ListKPFsh2.SortBy(grid_ListKPFsh2.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
         //            else
-        //                grid_ListKPFsh2.SortBy(grid_ListKPFsh2.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
-        //            konfiguroVleraFillestare2();
-        //            percaktoTamplate2();
-        //            }
-        //        else if (ASPxPageControl2.ActiveTabIndex == 2)
-        //            { grid_ListKPFsh3.FilterExpression = filtra.FiltraVlera;
-        //            if (filtra.DrejtimRenditje == true)
-        //                grid_ListKPFsh3.SortBy(grid_ListKPFsh3.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Ascending);
         //            else
-        //                grid_ListKPFsh3.SortBy(grid_ListKPFsh3.Columns[filtra.KoloneRenditje], DevExpress.Data.ColumnSortOrder.Descending);
-        //            konfiguroVleraFillestare3();
-        //            percaktoTamplate3();
-        //            }
 
-        //        hfStatusi.Value = "true";
-        //        ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
-        //        btnFshiFilter.ClientEnabled = true;
 
-        //        }
-        //    else hfStatusi.Value = "false";
-        //    if (cmbFiltra.Text != "" && filtra.FiltraKodi == null)
-        //        {
-        //        ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-
-        //        btnRuaj.ClientEnabled = true;
-
-        //        }
-        //    // this.Filtri_ASPxTextBox.Text = "";
-        //    }
         /// <summary>
         /// sherben per te ruajtur filtrin e zgjedhur
         /// </summary>
@@ -1084,79 +1018,39 @@ namespace PlatinumWeb
             filtri.FiltraKodi = cmbFiltra.Text;
             filtri.FiltraShenime = cmbFiltra.Text;
             filtri.FiltraUniversal = false;// Universal_ASPxCheckBox.Checked;
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("grid_ListKPFsh", "Shto_KPF.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "grid_ListKPFsh", "Shto_KPF.aspx", idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             filtri.GridaKokaId = koka.IdGridaKoka;
             if (ASPxPageControl2.ActiveTabIndex == 0)
             {
                 filtri.FiltraVlera = grid_ListKPFsh1.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh1);
-                //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_ListKPFsh1.GetSortedColumns();
-                //if (kolona.Count > 0)
-                //{
 
-                //    filtri.KoloneRenditje = kolona[0].FieldName;
-                //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-                //        filtri.DrejtimRenditje = true;
                 //    else
-                //        filtri.DrejtimRenditje = false;
-                //}
                 //else
-                //{
-                //    filtri.KoloneRenditje = "KodiKPF";
-                //    filtri.DrejtimRenditje = true;
-                //}
             }
             else
                 if (ASPxPageControl2.ActiveTabIndex == 1)
             {
                 filtri.FiltraVlera = grid_ListKPFsh2.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh2);
-                //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_ListKPFsh2.GetSortedColumns();
-                //if (kolona.Count > 0)
-                //{
 
-                //    filtri.KoloneRenditje = kolona[0].FieldName;
-                //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-                //        filtri.DrejtimRenditje = true;
                 //    else
-                //        filtri.DrejtimRenditje = false;
-                //}
                 //else
-                //{
-                //    filtri.KoloneRenditje = "KodiKPF";
-                //    filtri.DrejtimRenditje = true;
-                //}
             }
             else
                     if (ASPxPageControl2.ActiveTabIndex == 2)
             {
                 filtri.FiltraVlera = grid_ListKPFsh3.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh3);
-                //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = grid_ListKPFsh3.GetSortedColumns();
-                //if (kolona.Count > 0)
-                //{
 
-                //    filtri.KoloneRenditje = kolona[0].FieldName;
-                //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-                //        filtri.DrejtimRenditje = true;
                 //    else
-                //        filtri.DrejtimRenditje = false;
-                //}
                 //else
-                //{
-                //    filtri.KoloneRenditje = "KodiKPF";
-                //    filtri.DrejtimRenditje = true;
-                //}
             }
-            //DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
-            //oPerdorues = (DbCore.DbAdmin.clsPerdorues)(CacheLayer.GlobalCacheManager.MySessionCache["oClsPerdoruesi"]);
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             filtri.IdStatusDok = 1;
             mesazh = filtri.ruaj();
-            //mbushComboBoxFiltra();
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "grid_ListKPFsh", int.Parse(cmbKonfigurimi.Value.ToString()), "Shto_KPF.aspx");
             percaktoTemplateMenu(idgjuha, idviti, idPerdoruesi, idNdermarrje, ASPxMenu1);
             if (mesazh.Status == true)
@@ -1165,11 +1059,7 @@ namespace PlatinumWeb
 
             hfStatusi.Value = "true";
             cmbFiltra.Text = "";
-            //ASPxButton btnRuaj = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("Button1") as ASPxButton;
-            //ASPxButton btnFshiFilter = ((PlatinumWeb.MenuFilter)(itemButton.Template)).FindControl("btnFshi") as ASPxButton;
 
-            //btnRuaj.ClientEnabled = false;
-            //btnFshiFilter.ClientEnabled = false;
 
         }
         /// <summary>
@@ -1177,13 +1067,6 @@ namespace PlatinumWeb
         /// </summary>
         /// <param name="source">derguesi</param>
         /// <param name="args">argumentat</param>
-        //protected void Kodi_CustomValidator_ServerValidate(object source, ServerValidateEventArgs args)
-        //    {
-        //    args.IsValid = true;
-        //    DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-        //    if (dbAdmin.ekzistonFilter(Kodi_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
-        //        args.IsValid = false;
-        //    }
         /// <summary>
         /// perdoret per te fshire reshtat e zgjedhur ne gride pasi perdoruesi ka konfirmuar fshirjen
         /// </summary>
@@ -1191,7 +1074,6 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void ButtonOk_Click2(object sender, EventArgs e)
         {
-            //clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, "", pnlMesazhi);
             List<object> rreshtat = null;
 
             if (ASPxPageControl1.ActiveTabIndex == 0)//nqs kemi zgjedhur vetem nje kartele per te pare fshijme vetem ate
@@ -1206,11 +1088,6 @@ namespace PlatinumWeb
                 rreshtat.Add(hfId.Value);
             }
             //
-            //if (ASPxPageControl2.ActiveTabIndex == 0)
-            //    rreshtat = grid_ListKPFsh1.GetSelectedFieldValues("IdKPF");
-            //else if (ASPxPageControl2.ActiveTabIndex == 1)
-            //    rreshtat = grid_ListKPFsh2.GetSelectedFieldValues("IdKPF");
-            //else rreshtat = grid_ListKPFsh3.GetSelectedFieldValues("IdKPF");
             CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
             if (rreshtat.Count == 0)
@@ -1223,16 +1100,10 @@ namespace PlatinumWeb
             int idPerdorues = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             foreach (object id in rreshtat)
             {
-                //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabilitet = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
-                //DbCore.DbKontabiliteti.colKPFte colKPFte = dbKontabilitet.ktheKPF(id);
                 DbCore.DbKontabiliteti.clsKPF clskpf = new DbCore.DbKontabiliteti.clsKPF(Convert.ToInt32(id));
                 clskpf.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-                //foreach (DbCore.DbKontabiliteti.clsKPF k in colKPFte)
-                //    {
                 DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
                 konf.mbushKonfigAmbjSipasId(clskpf.IdKonfig);
-                //konf.IdKonfigAmbjente = clskpf.IdKonfig;
-                //konf = new DbCore.DbShare.clsDatabaseShare().merrKonfigAmbjSipasId(konf)[0];
 
                 bool lidhur = dbRegjistrim.eshteDokumentiILidhurCelje(clskpf.IdKPF.ToString(), konf.IdNivel.ToString());
                 if (lidhur)
@@ -1248,7 +1119,6 @@ namespace PlatinumWeb
                 {
                     #region Heq artikujt nga grida
 
-                    // ASPxGridView_Artikull.DataSource = dt;
                     hiqKPFNgaGrida(clskpf.IdKPF, rm, ci);
                     #endregion
                     TeFshire.Add(clskpf.KodiKPF);
@@ -1302,7 +1172,6 @@ namespace PlatinumWeb
                 else grid_ListKPFsh3.DataBind();
 
                     
-
             }
             else mbushGridKPFshNgaDB();
         }
@@ -1340,8 +1209,6 @@ namespace PlatinumWeb
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbKontabiliteti.colKPFte.merrSipasKPFNdermarrjesAndAutorizimeDR(idNdermarrje, idPerdorues, idKPF);
-                //  dt.Rows.Remove(dr);
-                // dt.ImportRow(newArtDr);
                 object[] arr = newArtDr.ItemArray;
                 dr.ItemArray = arr;
             }
@@ -1444,8 +1311,6 @@ namespace PlatinumWeb
         private void konfiguroListe()
         {
 
-            //DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin();
-            //DbCore.DbAdmin.clsGridaKoka koka = dbAdmin.merrGridaKokaByEmri("listBoxLlogarite", "Modifiko_KPF.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session));
             var idGjuha = DbCore.mySessionObjects.ktheGjuhe(Session);
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "listBoxLlogarite", "Shto_KPF.aspx", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(base.Session), 1);
             koka.OColGridaTrupi.mbushTrupinEng(idGjuha, koka.IdGridaKoka);
@@ -1526,7 +1391,6 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void listBoxLlogarite_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
-            //DbCore.DbKontabiliteti.clsDatabaseKontabilitet dbKontabilitet = new DbCore.DbKontabiliteti.clsDatabaseKontabilitet();
             int id = -1; DbCore.DbKontabiliteti.colLlogarite colKPFte = new DbCore.DbKontabiliteti.colLlogarite();
             DataTable dt = DbCore.DbKontabiliteti.colLlogarite.mbushLlogariteNgaKPF(-5);
             if (e.Parameter != "-1")
@@ -1541,7 +1405,6 @@ namespace PlatinumWeb
                     int.TryParse(grid_ListKPFsh3.GetRowValues(index, "IdKPF").ToString(), out id);
                 dt = DbCore.DbKontabiliteti.colLlogarite.mbushLlogariteNgaKPF(id);
             }
-            //DbCore.DbKontabiliteti.colLlogarite colKPFte = dbKontabilitet.merrLlogariteNgaKPF(id);
 
             this.listBoxLlogarite.DataSource = dt;// colKPFte;
             this.listBoxLlogarite.DataBind();

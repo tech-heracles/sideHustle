@@ -48,7 +48,6 @@ function menu_click(s, e) {
                   url: Utils.getServerApiUrl("Konfigurime", "merrNgaSessionURLLupaShpejte"),
                  data: JSON.stringify({ lupa: 'LupaKlientShpejte' })
                 }).done(Succeded);
-                //window.history.go(lengjth - window.history.length - 1);
                 return;
             }
             window.parent.popupUniversal.Hide();
@@ -131,7 +130,6 @@ var colKontrollet, colAtrTrupi;
 
 function SucceededCallbackKonfig(result) {
     $("#dvKlientFurnitor").show();//$("#dvKlientFurnitor")[0].style.visibility = 'visible';
-    //$("#dvKlientFurnitor")[0].style.display = '';
     if (result !== "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
@@ -179,10 +177,6 @@ function LupaKontrollet(kontrollet, colAtrTrupi) {
         //id e konfigurimit te lupes vendoset ne hidden field
         //vlera e saj do t'i kalohet si query string hapjes se popUp-it
 
-        //        if (kontrollet[i].KodKontrolli == "cmbAutorizimi") {
-        //            hf7.val(colAtrTrupi[i].IdKonfigAmbjenteLupa); // kontrollet[i].split(',')[11].toString();
-        //            continue;
-        //        }
         if (kontrollet[i].KodKontrolli == "txtNr2") {
             hf1.val(colAtrTrupi[i].IdKonfigAmbjenteLupa);
             continue;
@@ -261,18 +255,15 @@ Shiko funksionet  <ndryshoKonfigurimin>.
 */
 function EndRequestHandler(sender, args) {
     var hf = $("#hfStatusi")[0];
-    //    var hfKontrollet = $('#hfKontrollet')[0];
     //    var hfShtimModifikim = $('#hfShtimModifikim')[0]; //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     //    var hfId = $('#hfId')[0];  //hidden fieldi qe ruan id  e rreshtit te selektuar
     //    //            indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, ASPxGridView_KF, "123")
-    //    indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, ASPxGridView_KF, "123", pastrofusha);
     if (hf.value == "true") {
         if (pageState.vjenNga == undefined || pageState.vjenNga == "undefined") {
             $.ajax({               
                url: Utils.getServerApiUrl("Konfigurime", "merrNgaSessionURLLupaShpejte"),
                 data: JSON.stringify({ lupa: 'LupaKlientShpejte' })
             }).done(Succeded);
-            // window.history.go(lengjth - window.history.length - 1);
             return;
         }
         var grida = window.parent.$("#rowed5");
@@ -315,7 +306,6 @@ function EndRequestHandler(sender, args) {
                         if (window.parent.pershkrimi_Memo.GetText() == "")
                             rreshti.txtPershkrimi = "";
                         else rreshti.txtPershkrimi = window.parent.pershkrimi_Memo.GetText();
-                        //                        rreshti.txtVlefta = 1;
                        grida.jqGrid('setRowData', rreshtILire, rreshti);
                         var rreshtitjeter = parseFloat(rreshtILire) + 1;
                         if (window.parent.arrayReadOnlyKolonaGrides[window.parent.arrayReadOnlyKolonaGrides.length - 1] == 'True')
@@ -435,7 +425,6 @@ function Init() {
     lengjth = window.history.length;
     changeName();
     initAdresa();
-    //hf2.value = arrkodipostar;
     cmbLlojAdrese.SetSelectedIndex(0);
     var kodi = hfState.Get('Kodi');
     pageState.veprimi = $('#hfShtimModifikim').val();
@@ -489,24 +478,18 @@ function mbushFushat(values) {
     $('#hfId')[0].value = values.IdKlientFurnitor;
     if (pageState.veprimi === "modifikim")
         txtKodi.SetEnabled(false);
-  //if (pageState.veprimi !== "klonim")
         txtKodi.SetText(values.KodKlientFurnitor);
     txtNipt.SetText(values.NiptiKF);
     if (values.IdLlogari != null)
         Utils.SelectComboItem(txtNr2, values.IdLlogari, values.NrLLogKlientFurnitor);
     if (values.IdKatZbritje != null)
         btneKategoriZbritje.SetText(values.KodKatZbritje);
-    // Utils.SelectComboItem(btneKategoriZbritje, values.IdKatZbritje, values.KodKatZbritje);
-    //if (values.)
-    //cmbLlojAdrese.SetSelectedIndex(cmbNjesia1.AddItem(artikulli.PershkrimNjesia1, artikulli.Njesi1Artikulli));
     txtAdresa.SetText(values.AdresaBanka);
-    //  txtKodiPostar.SetText(values)
     if (values.EmriBanka != null)
     $.ajax({
         url: Utils.getServerApiUrl("Rregjistrime", "merrBankaSipasId"),
         data: JSON.stringify({ idbanka: values.EmriBanka })
     }).done(SucceededCallbackBankaID);
-    //  txtEmriBanka.SelectComboItem(txtEmriBanka, values.IDBANKF, values.LlogariBankareKF);
     txtTel.SetText(values.TelKF);
     txtEmerKerkimi.SetText(values.EmerKerkimiKF);
     txtEmertimi.SetText(values.EmertimiKF);
@@ -516,17 +499,14 @@ function mbushFushat(values) {
         btneNivelCmimi.SetText(values.PershkrimNivelCmimi);
     if (values.IdLlogariDytesore != null)
         txtLlogDytesor.SetText(values.NrLlogDytesor);
-    //  Utils.SelectComboItem(btneNivelCmimi,values.IdNivelCmimi, values.PershkrimNivelCmimi);
     if (values.PershkrimNivelZbritje != null)
         btneNivelZbritje.SetText(values.PershkrimNivelZbritje);
-    //  Utils.SelectComboItem(btneKategoriZbritje,values.ZbritjeAnalitike, values.ZbritjeAnalitike);
     if (values.Idgrupim1kf != null)
         btneGrupimi1.SetText(values.Grupim1KF);
     if (values.Idgrupim2kf != null)
         btneGrupimi2.SetText(values.Grupim2KF);
     if (values.Idgrupim3kf != null)
         btneGrupimi3.SetText(values.Grupim3KF);
-    // Utils.SelectComboItem(btneGrupimi, values.Idgrupim1kf, values.Grupim1KF);
     txtEmail.SetText(values.EmailKF);
     txtQyteti.SetText(values.EmriQytetitKF);
     cmbAgjentShitjesh.SetText(values.KodPerfaqesuesShitje);
@@ -645,7 +625,6 @@ function validateLLogariKod() {
 }
      
 
-
 function ButtonClickedLlogaria(s) {
     var hf = $("#hfLupaLlogaria")[0];
     editorGlobal = s;
@@ -698,9 +677,4 @@ function txtEmertimiTextChanged(s, e) {
     var tmp = Utils.hiqEnter(s.GetText());
     s.SetText(tmp);
     txtEmertimi.SetText(tmp);
-    //txtEmertimi3.SetText(tmp);
-    //txtEmertimi4.SetText(tmp);
-    //txtEmertimi5.SetText(tmp);
-    //txtEmertimi6.SetText(tmp);
-    //txtEmertimi7.SetText(tmp);
 }

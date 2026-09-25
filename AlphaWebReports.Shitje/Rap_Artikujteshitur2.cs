@@ -67,8 +67,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel30_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //e.Result = (Convert.ToDouble(lbltotalipatvshmezbr.Summary.GetResult()) / Convert.ToDouble(lblsasia.Summary.GetResult())).ToString();
-            //e.Handled = true;
         }
 
         private void xrLabel12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -78,18 +76,10 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel31_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (xrLabel8.Summary.GetResult() != null)
-            //{
-            //    xrLabel31.Text = ((Convert.ToDouble(xrLabel8.Summary.GetResult()) / Convert.ToDouble(xrLabel5.Summary.GetResult())) * 100).ToString();
-            //}
         }
 
         private void xrLabel12_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //if (xrLabel6.Summary.GetResult() != null)
-            //{
-            //    xrLabel12.Text = ((Convert.ToDouble(xrLabel6.Summary.GetResult()) / Convert.ToDouble(xrLabel11.Summary.GetResult())) * 100).ToString();
-            //}
         }
 
         private void xrLabel9_SummaryReset(object sender, EventArgs e)

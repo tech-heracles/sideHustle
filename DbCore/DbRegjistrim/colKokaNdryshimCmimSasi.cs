@@ -66,21 +66,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushKokatNdryshimCmimSasi(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaNdryshimCmimSasi koka = new clsKokaNdryshimCmimSasi();
-                    //koka.mbushKokaNdryshimCmimSasi(rreshti);
                     Add(new clsKokaNdryshimCmimSasi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

@@ -41,7 +41,6 @@ namespace DbCore.DbAnalizeBuxheti
             };
 
 
-
         }
         public void Mbush(IDataRecord record)
         {
@@ -56,7 +55,6 @@ namespace DbCore.DbAnalizeBuxheti
         public clsMesazh Ruaj()
         {
 
-            //int kokaID = -1;
             clsDatabaseAnalizeBuxheti dbAB = new clsDatabaseAnalizeBuxheti();
             dbAB.beginTransaksion();
             clsMesazh mesazh = dbAB.RuajShpenzimeOperativeCeshtje(KokaId, DtDok, idNdermarrje, NrCeshtjeParaardhes, NrCeshtjeVitiAktual, NrCeshtjeVitiPasardhes);
@@ -68,10 +66,6 @@ namespace DbCore.DbAnalizeBuxheti
             return mesazh;
         }
         //public static int MerrVlerenDefaultTeKokes(clsDatabaseAnalizeBuxheti dbAB,int idNdermarrje)
-        //{
-        //    int kokaID = -1;
-        //    clsMesazh mesazh = dbAB.KrijoKokenDefaultDheMerrIdKoke(idNdermarrje);
-        //}
         public clsShpenzimeOperativeCeshtje(int kokaID)
         {
            using(clsDatabaseAnalizeBuxheti dbAB=new clsDatabaseAnalizeBuxheti())

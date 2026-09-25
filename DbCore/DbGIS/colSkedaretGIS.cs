@@ -55,7 +55,6 @@ namespace DbCore.DbGIS
         public bool mbushSkedarePerObjektGeo(string idDytesore)
         {
             clsDatabaseGIS db = new clsDatabaseGIS();
-          //  return mbushSkedare(db.getAllSkedareLloji(lloji));
             return mbushSkedare(db.getAllSkedareObjektGeo(idDytesore));
         }
         #endregion

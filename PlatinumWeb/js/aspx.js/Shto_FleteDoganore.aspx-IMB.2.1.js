@@ -100,7 +100,6 @@ jQuery(document).ready(function () {
     }).trigger('resize');
 
 
-
     /***********   Function: ekzekutohet sa here i behet resize faqes, dhe ben resize te grides  *******/
 
 
@@ -175,7 +174,6 @@ function formSubGridColsArray() {     //po
 }
 
 
-
 function PastroClick() {     //po
     var hf = $("#hfShtimModifikim"); ASPxMenu1.GetItemByName('FletaKontabel').SetVisible(false); ASPxMenu1.GetItemByName('Fshi').SetVisible(false); ASPxMenu1.GetItemByName('QendraKosto').SetVisible(false);
     hf.val("shtim"); myMenu.menuSipasTeDrejtaRegjistrim(hf, hfTeDrejta);
@@ -216,9 +214,6 @@ function Init() {       //po
         comboNrFature = false;
         changeName();
         //komentuar sepse ndikon ne mosllogaritjen e taksave kur hapet dok per here te pare ne modifikim
-        //if ($('#hfShtimModifikim').val() == 'modifikim') {
-        //    first = 1;
-        //}
         var prm = Sys.WebForms.PageRequestManager.getInstance();
         prm.add_endRequest(EndRequestHandler);
         myMesazh.shtoHandler();
@@ -444,10 +439,6 @@ function closePopup(s, e) {
 }
 
 function pastroFushatKokes() {   //po
-    //var formatKursi = hfFormatNumri.Get("FormatKursi");
-    //var vlDefaultVlefta = hfFormatNumri.Get("FormatZgjedhurVlefta");
-    //if (formatKursi.indexOf('.') !== -1)
-    //    vlDefaultKursi = '1.' + formatKursi.substring(formatKursi.indexOf('.') + 1);
 
     cmbMonedha.SetValue('');
     txtKursi.SetText('');
@@ -856,7 +847,6 @@ function SucceededCallbackAplikohetTVSHNeTakse(result) {
 }
 
 function TextChangedKodi(editor, editorEmer, editorVlera, editorTvsh, key) { //po
-    //var shifraPasPresjes = parseInt(hfFormatNumri.Get("ShifraPasPresjesVlefta"));
     var a = new Array();
     a = editor.GetText().toString();
     var hf = $("#hfKodi")[0];
@@ -1005,7 +995,6 @@ function inicializoGride() {  //po
     return myJQGrid.initGride(gridParams);
     //myJQGrid.inicializoGride("#rowed5", arrayPershkrime, arrayModel, lidhur, lastsel2,
     //    null, null, null, null, null, null, $('#divgride2')[0].offsetWidth, true, undefined,
-    //    undefined, undefined, undefined, undefined, undefined, undefined, $('#hfTeDrejtaKonfGride').val());
 }
 
 /*
@@ -1685,7 +1674,6 @@ function ruajVlera(idrreshti, fill) {  //po
         tk = $('#txtTaksa' + idRow).val();
 
 
-
     if (koka != "") {
         arrtransp[idrreshti] = trans;
         arrsig[idrreshti] = sig;
@@ -1779,7 +1767,6 @@ function changetaksa2() {
 
     }
 
-    //  $('#' + lastselsubgrid).formatoQelize('txtTaksaSub', lastselsub, 0, lastselsubgrid + 's' + lastselsub);
     VendosTotaleTeShperndarjes(false);
 
 }

@@ -163,23 +163,11 @@ namespace DbCore.DbAdmin
         ///// Ruan ne databaze nje objekt te tipti <c>clsGrupiPerdorues</c>, sebashku me collectionin me 
         ///// objekte te tipit <c> clsTeDrejtat</c>.
         ///// </summary>
-        //public clsMesazh ruaj()
-        //{
-        //    //clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    clsMesazh u_ruajt = ruajGrupPerdoruesishTeDrejta(this);
-        //    return u_ruajt;
-        //}
 
         ///// <summary>
         ///// Modifikon ne databaze nje objekt te tipti <c>clsGrupiPerdorues</c> sipas , sebashku me collectionin me 
         ///// objekte te tipit <c> clsTeDrejtat</c>.
         ///// </summary>
-        //public clsMesazh modifiko()
-        //{
-        //    //clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    clsMesazh u_modifikua = modifikoGrupTeDrejta(this);
-        //    return u_modifikua;
-        //}
 
         /// <summary>
         /// Fshin nga databaza nje objekt te tipti <c>clsGrupiPerdorues</c>
@@ -196,11 +184,6 @@ namespace DbCore.DbAdmin
         ///// Nuk perdoret.
         ///// </summary>
         //public void merr()
-        //{
-        //    clsDatabaseAdmin data = new clsDatabaseAdmin();
-        //    data.merrGrupPerdoruesish(this.IdGrupiPerdorues);
-        //    data.Dispose();
-        //}
 
         /// <summary>
         ///Kthen nje collection me objekte te tipit <c>clsGrupiPerdorues</c> te cilat i merr nga tabela 
@@ -213,92 +196,10 @@ namespace DbCore.DbAdmin
             return data;
         }
 
-        //public clsMesazh ruajGrupPerdoruesishTeDrejta(clsGrupiPerdorues grup)
-        //{
-        //    clsMesazh mesazh;
-        //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();            
-        //    dbAdmin.beginTransaksion();
         //    try
-        //    {
-        //        if (dbAdmin.ekzistonGrupPerdoruesiMeKeteKod(grup.GrupiPerdoruesKodi))
-        //        {
-        //            return new clsMesazh(false, "Ekziston nje grup me te njejtin kod!");
-        //        }
-        //        int idG;                
-        //        mesazh = dbAdmin.ruajGrupPerdoruesish(out idG, grup.GrupiPerdoruesKodi, grup.GrupiPerdoruesPershkrimi, grup.GrupiAktivPerdorues, grup.GrupiPerdoruesData, grup.IdPerdoruesi);
-        //        if (!mesazh.Status)
-        //        {
-        //            mesazh = new clsMesazh(false, mesazh.PershkrimMesazhi);
-        //            return mesazh;
-        //        }
-        //        grup.IdGrupiPerdorues = idG;
-        //        foreach (clsTeDrejtat o in grup.OColTeDrejtat)
-        //        {
-        //            o.IdPerdorues = grup.IdGrupiPerdorues;
-        //            if (!dbAdmin.ekzistonEDrejta(o.IdNderViti, o.IdKomponente, o.IdAmbjentiModuli, o.IdModul, o.IdDrejtaVeprim, o.IdPerdorues))
-        //            {
-        //                mesazh = dbAdmin.ruajTeDrejte(o.IdDrejta, o.IdNderViti, o.IdKomponente, o.IdModul, o.IdPerdorues, o.IdDrejtaVeprim, o.PerdoruesApoGrup);
-        //                if (!mesazh.Status)
-        //                {
-        //                    dbAdmin.rollbackTransaksion();
-        //                    return mesazh;
-        //                }
-        //            }
-        //        }
 
-        //        dbAdmin.commitTransaksion();
-        //        mesazh = new clsMesazh(true, "Ruajtja perfundoi me sukses!");
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbAdmin.rollbackTransaksion();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
-        //public clsMesazh modifikoGrupTeDrejta(clsGrupiPerdorues grup)
-        //{
-        //    clsMesazh mesazh;
-        //    clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();
-        //    dbAdmin.beginTransaksion();
         //    try
-        //    {
-        //        mesazh = dbAdmin.modifikoGrupPerdoruesish(grup.IdGrupiPerdorues, grup.GrupiPerdoruesKodi, grup.GrupiPerdoruesPershkrimi, grup.GrupiAktivPerdorues, grup.GrupiPerdoruesData, grup.IdPerdoruesi);
-        //        if (!mesazh.Status)
-        //        {
-        //            dbAdmin.rollbackTransaksion();
-        //            return mesazh;
-        //        }
-        //        mesazh = dbAdmin.fshiTeDrejtaGrupPerdorues(grup.IdGrupiPerdorues);
-        //        if (!mesazh.Status)
-        //        {
-        //            dbAdmin.rollbackTransaksion();
-        //            return mesazh;
-        //        }
-        //        foreach (clsTeDrejtat o in grup.OColTeDrejtat)
-        //        {
-        //            o.IdPerdorues = grup.IdGrupiPerdorues;
-        //            if (!dbAdmin.ekzistonEDrejta(o.IdNderViti, o.IdKomponente, o.IdAmbjentiModuli, o.IdModul, o.IdDrejtaVeprim, o.IdPerdorues))
-        //            {
-        //                mesazh = dbAdmin.ruajTeDrejte(o.IdDrejta, o.IdNderViti, o.IdKomponente, o.IdModul, o.IdPerdorues, o.IdDrejtaVeprim, o.PerdoruesApoGrup);
-        //                if (!mesazh.Status)
-        //                {
-        //                    dbAdmin.rollbackTransaksion();
-        //                    return mesazh;
-        //                }
-        //            }
-        //        }
-        //        dbAdmin.commitTransaksion();
-        //        mesazh = new clsMesazh(true, "Ruajtja perfundoi me sukses!");
-        //        return mesazh;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        dbAdmin.rollbackTransaksion();
-        //        return new clsMesazh(false, ce.Message);
-        //    }
-        //}
 
         #endregion
 

@@ -26,7 +26,6 @@ var varKonfig = {
 };
 
 
-//$("#shtoSasine").on("keydown", function () { alert("bkjhkjhklj"); })
 jQuery(document).ready(function () {
     krijoLupeShtoSasi();
     Utils.konfiguroAccorditionNeDocReady(varKonfig.identifikuesPerLocalStorageKey);
@@ -115,7 +114,6 @@ function krijoLupeShtoSasi() {
         }
     });
     
-   // $("#dialog-shtoSasi").addClass("klasePerDialogtitlebar");
 }
 /*
 Function: inicializoGride
@@ -140,8 +138,6 @@ function inicializoGride(isLidhur) {
         { name: arrayIdKolonaGrides[6], index: arrayIdKolonaGrides[6], width: arrayWidthKolonaGrides[6], hidden: arrayVisibleKolonaGrides[6], classes: classes, editable: true, edittype: 'custom', editoptions: { custom_element: myElemShenime, custom_value: myJQGrid.myValueTextBox } },
       { name: arrayIdKolonaGrides[7], index: arrayIdKolonaGrides[7], width: arrayWidthKolonaGrides[7], hidden: arrayVisibleKolonaGrides[7], classes: classes, sorttype: "int", editable: true, edittype: 'custom', editoptions: { custom_element: myElemButtonFshi, custom_value: myValueButtonFshi }, hidedlg: true },
     ];
-
-
 
 
     var selektoriGrides = "#rowed5";
@@ -251,7 +247,6 @@ function resetRreshtKorent(idRreshti) {
         return;
     }
     grida.jqGrid('delRowData', idRreshti);
-    //grida.rregulloNrRendorMeTeMadh(idRreshti);
     grida.rregulloNrRendor("txtKodbari");
     return;
 }
@@ -378,8 +373,6 @@ var pyeturDoni = 0;
 function kodiKeydown(id, idRreshti, event) {
     if (event.which != 13)
         return;
-    //event.stopPropagation();
-    //event.preventDefault();
     changeKodbari(id, idRreshti);
 }
 
@@ -467,7 +460,6 @@ function changeKodbari(id, idRreshti) {
 }
 
 
-
 /*
 Function: fshiClicked
 
@@ -534,9 +526,6 @@ Ketu kolona e fundit eshte "Vlefta" (sepse eshte rasti kur nuk po behet transfer
 */
 function lostFocusKoloneFundit() {
     $("#rowed5").lostFocusKoloneFundit();
-    //jQuery("#txtSasia" + lastsel2).focus();
-    //jQuery("#txtSasia" + lastsel2).blur();
-    //jQuery("#txtKodbari" + lastsel2).focus();
 }
 
 
@@ -632,17 +621,10 @@ function focusGridParams(idRreshti) {
 Function: callWebserviceKonfigurimi
 
 */
-//function callWebserviceKonfigurimi(idKomp, kodKonf) {
     
-//        var idGjuha = hfState.Get('idGjuha');
-//        var idNdermarrje = hfState.Get('idNdermarrje');
-//        var idPerdorues = hfState.Get('idPerdoruesi');
-//        $.ajax({
 //            url: Utils.getServerApiUrl("Konfigurime", "ktheKonfigAmbjentiMeFormatNumrash"),
 //            data: JSON.stringify({ idKomp: idKomp, kodKonf: kodKonf, kodKontrolli: '', idObjekti: -1, shtim: false, merrFormatKursi: false, merrGjitheKonf: false, idGjuha: idGjuha })
-//        }).done(SucceededCallbackKonfig);
    
-//}
 
 function callWebserviceKonfigurimi(idKomp, kodKonf) {
 
@@ -724,7 +706,6 @@ function SucceededCallbackKonfig(result) {
                 break;
             case "F":
                 pageState.kushte[kusht.Kodi] = kusht.Alternativa == "Sasia" ? 1 : kusht.Alternativa == "Rreshti tjeter" ? 2 : 0;
-                //fokus = pageState.kushte[kusht.Kodi]; 
                 break;
             default:
                 break;
@@ -760,7 +741,6 @@ Therret funksionin <callWebserviceKonfigurimi> per te vendosur nje konfigurim te
 function ndryshoKonfigurimin() {
     var pershkKonfigAmb = cmbKonfigurimi.GetSelectedItem().GetColumnText("PershkrimKonfigAmbjente");
     if (pershkKonfigAmb != undefined)
-      //  lblKonfigurimi.SetText(pershkKonfigAmb);
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") +': ' + pershkKonfigAmb);
     callWebserviceKonfigurimi(549, cmbKonfigurimi.GetText());
 }
@@ -935,9 +915,6 @@ Kontrollon nese jane plotesuar fushat e detyrueshme te kokes se dokumentit dhe v
 function isValidKoka() {
     var grida = $('#rowed5');
     //!Utils.nrWsRrugesManager.kanePerfunduarWs() {
-    //    myMesazh.ShtoMesazhGabimi(hfState.Get("msgPoTransferohetTeDhenatShtypniPerseriRuaj"));
-    //    return false;
-    //}
     if (cmbLloji.GetText() == "") {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgZgjidhniLlojin"));
         return false;
@@ -1029,7 +1006,6 @@ function menu_click(s, e) {
             return;
         }
         var isValid = myFaqeCelje.validim(s, e);
-       // myFaqeCelje.validim(s, e);
         if (isValid) {
             Utils.shfaqLoadingGif();;
             RuajClick(s, e);
@@ -1148,9 +1124,6 @@ function ShfaqPeriudhen() {
 }
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
 function valueChangedPeriudha() {
@@ -1163,7 +1136,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -1235,25 +1207,18 @@ function callWebServiceInfoRow(idRreshti) {
 
 function doneKtheArtInfo(result, idRreshti, kodbar) {
     var grida = $('#rowed5');   
-    //grida.jqGrid('saveRow', idRreshti, null, 'clientArray', {}, null);
     if (!result) {
         grida.ngjyrosEkziston(idRreshti, "txtKodbari", false);
-        //if (editRow)
-        //    grida.jqGrid("editRow", idRreshti, false);
         //else
-        //    lostFocusKoloneFundit();
         pastroInfoArt();        
         myJQGrid.setFokus(pageState.kushte.F, lostFocusKoloneFundit, idRreshti, "#txtSasia");
         return;
     }
    
     grida.ngjyrosEkziston(idRreshti, "txtKodbari", true);
-    //if (editRow)
-    //    grida.jqGrid("editRow", idRreshti, false);
     var artikulli = result.artikulli;
     grida.setTekstQelize('txtPershkrimi', idRreshti, artikulli.PershkrimArtikulli);
     grida.setTekstQelize('txtKodi', idRreshti, artikulli.KodArtikulli);
-    //grida.setTekstQelize('txtSasia', idRreshti, 1);
     if (result.infoArt) {
         result.infoArt.colInfoTrupi.unshift({ PershkrimKolone: "Kodbari", EmerKolone: "Kodbari" });
         result.infoArt.vlerat.unshift(kodbar);
@@ -1263,8 +1228,6 @@ function doneKtheArtInfo(result, idRreshti, kodbar) {
     pageState.cache.kodbare[kodbar] = artikulli; //e fusim nqs kemi info
     myJQGrid.setFokus(pageState.kushte.F, lostFocusKoloneFundit, idRreshti, "#txtSasia");
 }
-
-
 
 
 //---------------------------------- FUNKSIONE INFO -----------------------------------------
@@ -1304,13 +1267,10 @@ function HeaderClick(s, e) {
 
 function Expanded() {
     lbxZgjedhur.SetHeight(lbxZgjedhur.GetItemCount() * 23 + 28);
-    //lbxLlogari.SetHeight(lbxLlogari.GetItemCount() * 22 + 28);
-    //lbxKF.SetHeight(lbxKF.GetItemCount() * 22 + 28);
 }
 
 function KontrolloTeDrejta(s) {
     var alti = $(s.GetValue()).attr('alt');
-    //    if (s.GetText().split('alt="')[1].split('"')[0] == "Artikulli" && $('#hfTeDrejtaInfoArt').val() == 'False')
     if (alti == "Artikulli" && $('#hfTeDrejtaInfoArt').val() == 'False')
         s.SetEnabled(false);
     if (alti == "KF" && $('#hfTeDrejtaInfoKF').val() == 'False')
@@ -1331,7 +1291,6 @@ function ButtonClickNavBar(s) {
         return;
     }
 }
-
 
 
 function pastroInfoArt() {

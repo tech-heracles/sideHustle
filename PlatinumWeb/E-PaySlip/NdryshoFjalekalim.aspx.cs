@@ -50,12 +50,10 @@ namespace PlatinumWeb.E_PaySlip
                     idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
                 DbCore.DbListPagesat.clsPunonjes punonjes = new DbCore.DbListPagesat.clsPunonjes(idPerd);
                 lblUserEmri.Text = punonjes.Emer;
-                // DbCore.mySessionObjects.kthePerdorues(Session).PerdoruesUsername + "   |   ";
                 ASPxHyperLink2.Text = "Log out";
                 ASPxHyperLink2.NavigateUrl = $"{DbCore.IMBUtils.Paths.loginPathEpaySlip}?arsye=logout";
                 System.Globalization.CultureInfo ci = MessagesResource.KtheCultureInfo(idGjuha);
                 EmratELabelave(rm, ci);
-                // DbCore.DbAdmin.clsPerdorues per = new DbCore.DbAdmin.clsPerdorues(idPerd);
                 DbCore.DbAdmin.clsKonfigurimeFjalekalimi konfig = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(punonjes.IdPunonjes, true);
                 hfGjatesiMinPassword.Set("GjatesiMinPass", konfig.GjatesiaMinPassword);
 

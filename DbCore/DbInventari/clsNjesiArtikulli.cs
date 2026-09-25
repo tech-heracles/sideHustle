@@ -20,7 +20,6 @@ namespace DbCore.DbInventari
         private string kodNjesia;
         private string  pershkrimNjesia;
         private int idPerdoruesi;
-        //private int idNderViti;
         private int idNdermarje;
         private int idStatusDok;
         private DateTime dtKrijimi;
@@ -44,7 +43,6 @@ namespace DbCore.DbInventari
             this.kodNjesia = kodNjesia;
             this.pershkrimNjesia = pershkrimNjesia;
             this.idPerdoruesi = idPerdoruesi;
-            //this.idNderViti = idNderViti;
             this.idNdermarje = idnderm;
             this.idStatusDok = idstatusdok;
             this.kodEinvoice = kodEinvoice;
@@ -75,7 +73,6 @@ namespace DbCore.DbInventari
         public clsNjesiArtikulli(string kodnjesia, int idnderm, clsDatabaseInventari dbNjesiArtikujsh)
         {
             mbushNjesiArtikulli(dbNjesiArtikujsh.TransCache.getNjesiArt(kodnjesia, idnderm, dbNjesiArtikujsh));
-            //mbushNjesiArtikulli(dbNjesiArtikujsh.merrNjesiArtikulliMeKod(kodnjesia, idnderm));
         }
 
         public clsNjesiArtikulli(string kodnjesia, int idnderm)
@@ -131,10 +128,8 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //{
         //    get { return idNderViti; }
         //    set { idNderViti = value; }
-        //}
         /// <summary>
         /// Kthen/Vendos ID-ne  e ndermarjes.
         /// </summary>
@@ -242,7 +237,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_ruajt = ruaj(data); 
             data.Dispose();
-            //clsMesazh u_ruajt = data.ruajNjesiArtikulli(this);
             return u_ruajt;
         } 
         public clsMesazh ruaj( clsDatabaseInventari data )
@@ -264,7 +258,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_modifikua = modifiko(data); 
             data.Dispose();
-            //clsMesazh u_modifikua = data.modifikoNjesiArtikulli(this);
             return u_modifikua;
         }
         public clsMesazh modifiko(clsDatabaseInventari data)
@@ -284,7 +277,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             clsMesazh u_fshi = data.fshiNjesiArtikulliStatus(this.IdNjesia, this.idPerdoruesi);
             data.Dispose();
-            //clsMesazh u_fshi = data.fshiNjesiArtikulli(this);
             return u_fshi;
         }
         /// <summary>
@@ -297,7 +289,6 @@ namespace DbCore.DbInventari
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.merrNjesiArtikulliPakthyer(this.IdNjesia);
             data.Dispose();
-            //data.merrNjesiArtikulli(this);
         }
 
         /// <summary>
@@ -352,7 +343,6 @@ namespace DbCore.DbInventari
                     kodNjesia = dbDataRowNjesiArtikulli["KODNJESIA"].ToString();
                     pershkrimNjesia = dbDataRowNjesiArtikulli["PERSHKRIMNJESIA"].ToString();
                     int.TryParse(dbDataRowNjesiArtikulli["IDPERDORUESI"].ToString(), out idPerdoruesi);
-                    //int.TryParse(dbDataRowNjesiArtikulli["IDNDERVITI"].ToString(), out idNderViti);
                     int.TryParse(dbDataRowNjesiArtikulli["IDNDERMARJE"].ToString(), out idNdermarje);
                     int.TryParse(dbDataRowNjesiArtikulli["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowNjesiArtikulli["DTKRIJIMI"].ToString(), out dtKrijimi);

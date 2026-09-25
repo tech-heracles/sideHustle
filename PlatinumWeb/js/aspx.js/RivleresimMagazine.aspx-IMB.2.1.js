@@ -4,13 +4,9 @@ var pageState = false;
 window.parent.open("https://rivleresimi.alpha.al/Prezantohu.aspx", "_blank");
 window.parent.location.reload();
 function ButtonClickMagazina() {
-    // var hfKl = document.getElementById("hfLupaMagazina");
-    // var queryStr = hfKl.value;
     myButtonClickLupa.ButtonClickMagazina(hfState.Get("msgZgjidhMagazinen"), '', 720, 650);
 }
 function ButtonClickArtikuj() {
-    //  var hfKl = document.getElementById("hfLupaMagazina");
-    // var queryStr = hfKl.value;
     myButtonClickLupa.ButtonClickArtikulli(hfState.Get("headerPopUpZgjidhArtikullin"), 0, 800, 600);
 }
 function LostFocus() {
@@ -51,16 +47,6 @@ jQuery(document).ready(function () {
 });
 
 function menuClick(s, e) {
-    //    if (prbRivleresim.GetPosition() > 0 && prbRivleresim.GetPosition() < 100) {
-    //        myMesazh.ShtoMesazhGabimi('Ju lutem prisni te mbaroje rivleresimi');
-    //        e.cancel = true;
-    //        status = false;
-    //    }
-    //    else {
-    //Utils.shfaqLoadingGif();;
-    //        tmRivleresim.SetEnabled(true);
-    //        prbRivleresim.SetVisible(true);
-    //        prbRivleresim.SetPosition(0);
     switch ((e.item.name)) {
         case 'Rivleresim':
             e.processOnServer = false;
@@ -105,7 +91,6 @@ function menuClick(s, e) {
             Utils.hiqLoadingGif("#ASPxSplitter1");
             break;
     }
-    //    }
 }
 function menuInit(s, e) {
     s.GetItemByName('Stop').SetVisible(false);
@@ -149,9 +134,6 @@ function onTaskError() {
     gvRivleresim2.PerformCallback()
 }
 
-//function timerTick(s, e) {
-//    prbRivleresim.SetPosition(prbRivleresim.GetPosition());
-//}
 
 function Init() {
     myMesazh.shtoHandler(); myFaqeCelje.shtoHandlerSession();
@@ -166,9 +148,6 @@ function changeName() {
 }
 
 function EndRequestHandler(sender, args) {
-//    if (status)
-//        tmRivleresim.SetEnabled(false);
-//    pastro();
 }
 
 var arrSel = new Array();

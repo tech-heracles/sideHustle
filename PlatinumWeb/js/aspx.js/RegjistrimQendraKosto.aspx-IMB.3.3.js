@@ -155,8 +155,6 @@ var focuschange = false;
 function mbushfusha(e) {
     editor = e;
     indexModifiko = gvRegjQK.GetFocusedRowIndex();
-    //         if (indexModifiko == -1)
-    //            myMesazh.ShtoMesazhGabimi('Duhet te zgjidhni nje fature shitje/blerje!');
     //        else
     gvRegjQK.GetRowValues(indexModifiko, 'IdKoka;NrDok;IdGjenerues', OnGetRowValues);
     focuschange = true;
@@ -224,7 +222,6 @@ function onTaskDone(s,e) {
         else
             myMesazh.ShtoMesazhInformues("Rillogaritja ndaloi tek " + ' ' + ProgressBar1.getValue() + ' %');
     }
-    //ASPxMenu1.GetItemByName('Stop').SetVisible(false);
     setTimeout(function () { $("#progressBar").hide(); }, 2000);
 }
 

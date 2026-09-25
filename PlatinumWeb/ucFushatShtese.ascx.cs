@@ -153,7 +153,6 @@ namespace PlatinumWeb
 
             colFushatShtese fushatEKetijModeli;
 
-            //    var dataEzgjedhur = cmbDtNdryshimi.Text;
             var colFushatTeGjitha = mySessionObjects.merrFushaShteseNGaSessioni(Session, EmerKomponente);
             if (!colFushatTeGjitha.TryGetValue(idModeli, out fushatEKetijModeli))
             {
@@ -168,7 +167,6 @@ namespace PlatinumWeb
             gvFushat.DataSource = colVlerat;
             gvFushat.DataBind();
         }
-
 
 
         /// <summary>
@@ -236,7 +234,6 @@ namespace PlatinumWeb
                     {
                         data = vlerat[0];
                         dtAktivizimi.Date = data;
-                        //dtAktivizimi.Text = data.ToString();
                     }
                     IDEntiteti = indexi;//ruajm id e rreshtit te entitetit qe po modifikohet
                     colVleratSipasDates = NgarkoNeSessionVleratSipasDates(idModeli, veprimi == "shtim" ? new DateTime(2000, 1, 1) : data);//dtAktivizimi.Date);
@@ -451,7 +448,6 @@ namespace PlatinumWeb
                     var txt1 = ((ASPxGridView)sender).FindRowCellTemplateControl(e.VisibleIndex, col2, "cal") as ASPxDateEdit;
                     if (txt1 != null)
                     {
-                        //  txt1.Value = txt1.Text;
                         txt1.ClientInstanceName = "txtVlera" + e.VisibleIndex;
                         txt1.ClientSideEvents.ValueChanged = "function(s,e){ShtoStringOrDate(txtVlera" + e.VisibleIndex + "," + e.VisibleIndex + ");}";
                         txt1.Text = vleraFushesShtese.MerrVlereDefaultOseEkzistuesen(txt1.Text, fushaShtese.VlereDefault);
@@ -583,7 +579,6 @@ namespace PlatinumWeb
         }
 
 
-
         private void PastroFushatShteseNgaSessioni()
         {
             mySessionObjects.RuajFushaShteseNeSessionGrida(Session, EmerKomponente, null);
@@ -610,7 +605,6 @@ namespace PlatinumWeb
             HfFushaShtese.Set("fushat", "");
             percaktoTemplateFushash();
         }
-
 
 
         private void aplikoValidationSettings(ASPxEdit editBox, clsFushaShtese fushaShtese)

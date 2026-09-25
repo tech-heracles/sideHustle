@@ -55,7 +55,6 @@ namespace PlatinumWeb
             }
             if (!IsCallback)
                 if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                    //FormsAuthentication.RedirectToLoginPage();
                     DbCore.clsFunksione.logout(Session, false, "", false);
 
             if (!IsPostBack)
@@ -119,7 +118,6 @@ namespace PlatinumWeb
 
         private void mbushGrideModelesh(int idNdermarrje)
         {
-            //DataTable dt = DbCore.DbInventari.colFormulat.merrFormulatSipasNdermarrjes(idNdermarrje);
             DataTable dt = DbCore.DbInventari.colModeleAutomjetesh.merrModeleAutomjeteshSipasNdermarrjes(idNdermarrje);
             DbCore.mySessionObjects.ruajGrideNeSessionLupa(Session, dt);
             gvModelAutomjeti.DataSource = dt;
@@ -163,20 +161,8 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvModelAutomjeti.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdFormula", gvModelAutomjeti);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvModelAutomjeti.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdFormula";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdNdermarje = idNderm;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -261,7 +247,6 @@ namespace PlatinumWeb
             if (e.Editor.GetType().Name == "ASPxTextBox")
             {
                 ASPxTextBox currentEditor = e.Editor as ASPxTextBox;
-                //currentEditor.ClientSideEvents.TextChanged = "function(s,e){ProcessTextChanged('" + e.Column.FieldName + "',s.GetText());}";
                 currentEditor.ClientInstanceName = e.Column.FieldName;
                 if (e.Column == gvModelAutomjeti.Columns["KodModeli"])
                 {
@@ -383,7 +368,6 @@ namespace PlatinumWeb
             foreach (object id in rreshtat)
             {
                 if(DbCore.DbInventari.clsModelAutomjeti.eshteLidhurModelAutomjeti(int.Parse(id.ToString()))){
-                    //mySessionObjects.ruajMesazhNeSesion(Session, "Ky model eshte i lidhur!:Red");
                     clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ky model eshte i lidhur!", pnlMesazhi);
                     continue;
                 }

@@ -19,7 +19,6 @@ function BeginCallback(s, e) {
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        // gvLupaAutorizim.SetFocusedRowIndex(0);
         btnOk.Focus();
     }
     catch (err) {
@@ -54,7 +53,6 @@ function ProcessKeyPress() {
 
 function OnGridSelectionChanged() {
     gvLupaAutorizim.GetSelectedFieldValues('KodiAutorizim', OnGridSelectionComplete);
-    // gvLupaAutorizim.GetRowValues(gvLupaAutorizim.GetFocusedRowIndex(), 'KodiAutorizim', OnGridSelectionComplete);
 }
 
 function OnGridSelectionComplete(values) {

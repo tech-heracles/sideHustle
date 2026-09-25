@@ -135,17 +135,11 @@ namespace DbCore.DbShare
         private bool mbushKontrollet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
                     this.Add(new clsKontroll(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -162,7 +156,6 @@ namespace DbCore.DbShare
                 koka.IdKomponente = int.Parse(rreshti[1].ToString());
                 koka.KodKontrolli= rreshti[2].ToString();
                 koka.PershkrimKontrolli = rreshti[3].ToString();
-               // koka.KontrollTipi = int.Parse(rreshti[4].ToString());
                 try
                 {
                     int tipi;

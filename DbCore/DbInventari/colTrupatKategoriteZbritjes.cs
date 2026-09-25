@@ -131,20 +131,12 @@ namespace DbCore.DbInventari
         private bool mbushTrupatKategoriZbritje(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiKategoriZbritje kategoriZbritje = new clsTrupiKategoriZbritje();
-                    //kategoriZbritje.mbushTrupiKategoriZbritje(rreshti);
                     this.Add(new clsTrupiKategoriZbritje(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -167,7 +159,6 @@ namespace DbCore.DbInventari
                 kategoriZbritje.Lloji  = int.Parse (rreshti[6].ToString());
                 kategoriZbritje.Zbritja = decimal.Parse (rreshti[7].ToString());
                 kategoriZbritje.IdPerdoruesi = int.Parse(rreshti[8].ToString());
-                //kategoriZbritje.IdNderViti = int.Parse(rreshti[9].ToString());
                 kategoriZbritje.Prioriteti = int.Parse(rreshti[9].ToString());
                 kategoriteZbritje.Add(kategoriZbritje);
             }

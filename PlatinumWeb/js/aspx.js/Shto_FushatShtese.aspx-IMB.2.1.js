@@ -48,7 +48,6 @@ function OnGridDoubleClick(index) {
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, false, pageState.indexModifiko, pastrofusha, undefined, undefined, undefined, undefined, undefined);
     if (e.item.name == 'Ruaj') {
         merrTeDhena();
@@ -235,7 +234,6 @@ function ShtoPershkrim(editor, editorgjatesi, editortip, idRreshti) {
             }
 
 
-
         }
         else mbushCombonEPrinditv2(idRreshti);
     }
@@ -322,7 +320,6 @@ function ShtoPrind(editor, idRreshti) {
 ///merr nga grida nje objekt fushashtese
 function MerrFushShteseSipasRreshtitNeGride(idRreshti) {
     ///var fushaShtese = pageState.colFushat[idRreshti];
-    //if (fushaShtese == undefined) 
     fushaShtese = {};
 
     fushaShtese["IdFushaShtese"] = grid_fushatShtese.GetRowKey(idRreshti);
@@ -344,9 +341,6 @@ function MerrFushShteseSipasRreshtitNeGride(idRreshti) {
 function merrTeDhena() {//merren te dhenat qe ka grida
     var gridDataObject = $('#gridDataObject');
     var numerRreshtashNeGride = grid_fushatShtese.cpNoRows;
-    //for (i = 0; i < numerRreshtashNeGride ; i++) {
-    //    pageState.colFushat[i] = MerrFushShteseSipasRreshtitNeGride(i);
-    //}
     if (numerRreshtashNeGride < pageState.colFushat.length) {       //fshin nga array te gjithe rreshtat qe kane indeks me te madh se indeksi i fundit i grides,per tu siguruar qe nuk ka vlera te mbetura
         pageState.colFushat.splice(numerRreshtashNeGride - 1, pageState.colFushat.length);
     }
@@ -383,7 +377,6 @@ function mbushCombonEPrindit(idRreshti) {
         var editor = Utils.ktheKontroll("cmbPrindi" + idRreshti);
         var vleraPrindi = undefined;
         var textiPrindi = undefined;
-        //editor = new ASPxClientComboBox();
         editor.BeginUpdate();
         editor.ClearItems();
 
@@ -393,21 +386,10 @@ function mbushCombonEPrindit(idRreshti) {
             if (prinderitEVlefshem[i].Vlera == vleraPrindi)
                 textiPrindi = prinderitEVlefshem[i].Pershkrimi;
         }
-        //grid_fushatShtese.GetRowValues(idRreshti, "AtiTipiFushaShtese", function (result) {
-        //    vleraPrindi = result;
-        //    if ((vleraPrindi || 0) != 0) {
-        //        var item = editor.FindItemByValue(vleraPrindi);
-        //        if (item != undefined)
-        //            editor.SetSelectedItem(item);
         //        else
-        //            editor.SetSelectedIndex(editor.AddItem(textiPrindi, vleraPrindi));
 
-        //    }
 
-        //});
         editor.SetValue(pageState.colFushat[idRreshti].AtiTipiFushaShtese)
-        //if ((oldVlera || 0) != 0)
-        //    Utils.SelectComboItem(editor,)
         editor.EndUpdate();
     }
 }
@@ -415,7 +397,6 @@ function merrPrinderit(idRreshti) {
     var fushaShtese;
     var prinderitEVlefshem = new Array();
     //marrim gjite vlerat
-    // new ASPxClientGridView().GetRowKey()
     for (i = 0, count = idRreshti ; i < count; i++) {
         fushaShtese = pageState.colFushat[i];
         if (fushaShtese.TipiFushaShtese == 6 && (fushaShtese.PershkrimiPrindit || "") == "")

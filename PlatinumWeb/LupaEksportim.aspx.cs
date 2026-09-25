@@ -24,7 +24,6 @@ namespace PlatinumWeb
             if (!IsPostBack)
             {
                 AspxWebControlUtils.konfiguroMenuRuajPerLupaPerEksport(ASPxMenu1, this);
-                //clsMenuInfo.ShtoMenuItemInfo(this, MenuInfo);
                 DbCore.DbAdmin.clsKokaFormatImporti kokaFormatImporti = new DbCore.DbAdmin.clsKokaFormatImporti(int.Parse(Request.QueryString["id"]));
                 txtEmerSkedari.Text = kokaFormatImporti.Kodi;
                 txtEmerSheet.Text = kokaFormatImporti.Kodi;

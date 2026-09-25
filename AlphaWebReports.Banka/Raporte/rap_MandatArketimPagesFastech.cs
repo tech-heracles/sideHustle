@@ -51,7 +51,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             xrTableCell37.Text = rm.GetString("labelRaportNeFjale", ci);
             xrTableCell34.Text = rm.GetString("labelRaportPer", ci);
             xrTableCell15.Text = rm.GetString("labelRaportiShuma", ci) + ":";
-            //xrTableCell41.Text = rm.GetString("labelRaportiSubjekti", ci); 
             xrTableCell19.Text = rm.GetString("labelRaportFinancieri", ci);
             xrTableCell23.Text = rm.GetString("labelRaportArketari", ci);
             xrTableCell30.Text = rm.GetString("labelRaportProdhuarNgaIMB", ci);
@@ -64,7 +63,6 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
             xrTableCell60.Text = rm.GetString("labelRaportNeFjale", ci);
             xrTableCell63.Text = rm.GetString("labelRaportPer", ci);
             xrTableCell65.Text = rm.GetString("labelRaportiShuma", ci) + ":";
-            //xrTableCell68.Text = rm.GetString("labelRaportiSubjekti", ci); 
             xrTableCell73.Text = rm.GetString("labelRaportFinancieri", ci);
             xrTableCell75.Text = rm.GetString("labelRaportArketari", ci);
             xrTableCell83.Text = rm.GetString("labelRaportProdhuarNgaIMB", ci);
@@ -73,6 +71,5 @@ namespace AlphaWebReports.RaportetDs.Banka.Raporte
         }
 
      
-
     }
 }

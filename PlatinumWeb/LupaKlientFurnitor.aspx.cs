@@ -306,17 +306,7 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaKlientFurnitor.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKlientFurnitor", gvLupaKlientFurnitor);
-            //var kolona = gvLupaKlientFurnitor.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    filtri.DrejtimRenditje = kolona[0].SortOrder == ColumnSortOrder.Ascending;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdKlientFurnitor";
-            //    filtri.DrejtimRenditje = true;
-            //}
 
             var mesazh = filtri.ruaj();
             PercaktoTemplateMenu();

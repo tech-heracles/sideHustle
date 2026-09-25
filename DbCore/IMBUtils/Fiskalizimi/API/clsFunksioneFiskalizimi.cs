@@ -490,14 +490,10 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
         }
         public static string ktheIICSignature(clsNdermarrje nderm, string txtNumer, string txtTotal1, string cashRegister, string softNum, DateTime dateKrijimi)
         {
-            //string DateServeriOffset = clsKontrollePerFiskalizimin.ktheDatenEServeritOffset();
-            //DateTimeOffset dt = DateTimeOffset.Parse(DateServeriOffset);
-            //TimeSpan t = dt.Offset;
             //DateTimeOffset sourceDate = new DateTimeOffset(dateKrijimi,
             //             t);
 
             //DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(sourceDate,
-            //              TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 
             string iicSignatureString = "";
             if (nderm.Pathname.ToString() == "")
@@ -517,7 +513,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             // issuerNuis
             iicInput += "|" + nderm.NdermarrjeNipt;
             // dateTimeCreated
-            //iicInput += "|" + timezoneIShqiperise.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz");
             // invoiceNumber
             iicInput += "|" + txtNumer;
             // busiUnit
@@ -865,7 +860,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + "/>";
                 else
                     artikujtarray += "<I C = " + $"{kodiArtikulli}" + " N=" + $"{emertimArtikulli}" + " PA=" + $"{PA2}" + " PB=" + $"{PB2}" + " Q=" + $"{sasia}" + " R=" + $"{R2}" + " RR=\"false\" " + taguPerjashtimi + " U=" + $"{U}" + " UPA=" + $"{UPA2}" + " UPB=" + $"{UPB2}" + " VA=" + $"{VA2}" + "/>";
-                //}
 
 
             }
@@ -1056,14 +1050,10 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                           TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 
 
-            //string DateServeriOffsetAktuale = clsKontrollePerFiskalizimin.ktheDatenEServeritOffset();
-            //DateTimeOffset dtAktuale = DateTimeOffset.Parse(DateServeriOffsetAktuale);
-            //TimeSpan tAktuale = dtAktuale.Offset;
             //DateTimeOffset sourceDateAktuale = new DateTimeOffset(dateKrijimiFature.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz"),
             //             tAktuale);
 
             //DateTimeOffset timezoneIShqiperiseAktuale = TimeZoneInfo.ConvertTime(sourceDateAktuale,
-            //              TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 
             vleraPaTvsh = String.Format("{0:0.00}", Convert.ToDouble(vleraPaTvsh));
             nenTotali2 = Math.Truncate(100 * nenTotali2) / 100;
@@ -1121,10 +1111,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             }
             string klientiNIPT = klienti.NiptiKF;
             string KlientiTipi = klienti.TipiId;
-            //string klientiAdresa = klienti.OColAdresat[0].Adresa.ToString().Replace("\"", "");
             iicFatureOrigjinale = $"\"{iicFatureOrigjinale}\"";
             nivfFatureOrigjinale = $"{nivfFatureOrigjinale}";
-            //dtRegjistrimiFatureOrigjinale = $"{dtRegjistrimi.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz")}";
             string vitiTani = DateTime.Now.ToString("yyyy");
             var metodPagimi = "";
             if (menyrePagese == "Pagese Automatike" || menyrePagese == "Arke")
@@ -1181,7 +1169,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
             klientiVendi = $"\"{klientiVendi}\"";
             klientiNIPT = $"\"{klientiNIPT}\"";
             KlientiTipi = $"\"{KlientiTipi}\"";
-            //klientiAdresa = $"\"{klientiAdresa}\"";
             txtNumer = $"\"{txtNumer}\"";
             tcr = $"\"{tcr}\"";
             var buyerInfo = "";
@@ -1758,8 +1745,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     VR2 = float.Parse(normaPerqindjeArtikulli).ToString();
                     tvshEVlerave = Convert.ToDouble(normaPerqindjeArtikulli);
                     var VATAmt = vleftaTvsh * tvshEVlerave / 100;
-                    //var VATAmt2 = String.Format("{0:0.00}", Math.Round(VATAmt, 2));
-                    //var PriceBefVAT = String.Format("{0:0.00}", Math.Round(vleftaTvsh, 2));
                     var VATAmt2 = String.Format("{0:0.00}", VATAmt);
                     var PriceBefVAT = String.Format("{0:0.00}", vleftaTvsh);
                     var VATRate = String.Format("{0:0.00}", tvshEVlerave);
@@ -1996,7 +1981,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 tagNoteKursi = $"<Note>CurrencyExchangeRate=" + kursi + "#AAI#</Note>";
             }
             if (pershkrimFature != "") pershkrimFature = $"<Note>Pershkrimi i fatures: " + pershkrimFature + "#AAI#</Note>";
-            //if (shenimFature != "") shenimFature = $"<Note>Shenimi i fatures: " + shenimFature + "#AAI#</Note>";
             if (klientFurnitor.ShitjePaTvsh)
             {
                 bleresiTaxScheme = "";
@@ -2782,10 +2766,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                 File.Delete(filePathToOpen);
                 HttpContext.Current.Response.SuppressContent = true;
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
-                //Response.End();
-
-                //return File.ReadAllBytes(filePathToOpen);
-
 
 
             }

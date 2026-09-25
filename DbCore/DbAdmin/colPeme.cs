@@ -38,19 +38,11 @@ namespace DbCore.DbAdmin
         private bool mbushPemet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsPeme peme = new clsPeme();
-                    //peme.mbushPeme(rreshti);
                     Add(new clsPeme(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

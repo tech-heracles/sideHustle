@@ -97,14 +97,6 @@ function Fund_click(e) {
 
 //        // This is the callback function that
 //        // processes the Web Service return value.
-//        function SucceededCallback(result) {
-//            if (result == "true") {
-//                gvFleteKontabelKoka.GetRowValues(indexModifiko, 'IdKokaFleteKontabel;NrDukumentiKokaFleteKontabel', OnGetRowValues);
-//            }
-//            else {
-//                alert("Nuk ke te drejta per te kryer kete veprim");
-//            }
-//        }
 /*
 Function: menu_click
 
@@ -134,9 +126,6 @@ function OnGridDoubleClick(e, index) {
         indexModifiko = index;
         mbush = true;
     }
-    //  myMenu.ShikoClick(e,'Shto_FleteKontabel.aspx?id=' +id + '&numur=' +numur + '&shtim_modifikim=modifikim');
-    //  mbushfusha(e);
-    //  callWebservice();
 }
 var editor;
 //merr te dhenat e rreshtit te selektuar
@@ -157,34 +146,6 @@ var arrUnSel = new Array();
 var count = 0;
 var count1 = 0;
 
-//function kundert() {
-
-//    if (gvFleteKontabelKoka.cpNoRows > 15 * (gvFleteKontabelKoka.cpNoPage + 1)) {
-//        for (l = 15 * gvFleteKontabelKoka.cpNoPage; l < 15 * (gvFleteKontabelKoka.cpNoPage + 1); l++) {
-//            gvFleteKontabelKoka.SelectRowOnPage(l, !gvFleteKontabelKoka.IsRowSelectedOnPage(l));
-
-
-//        }
-//    }
-//    else {
-//        for (l = 15 * gvFleteKontabelKoka.cpNoPage; l < gvFleteKontabelKoka.cpNoRows; l++) {
-//            gvFleteKontabelKoka.SelectRowOnPage(l, !gvFleteKontabelKoka.IsRowSelectedOnPage(l));
-
-
-//        }
-//    }
-//}
-//function KlikoTeGjitha() {
-//    gvFleteKontabelKoka.SelectAllRowsOnPage();
-
-
-
-//}
-//function HiqTeGjitha() {
-//    gvFleteKontabelKoka.UnselectAllRowsOnPage();
-
-
-//}
 
 function clickExport(e) {
     if (gvFleteKontabelKoka.GetSelectedRowCount() == 0) {

@@ -49,7 +49,6 @@ function ProcessKeyPress() {
 }
 // kur ndryshon select 
 function OnGridSelectionChanged() {
-    //gvLupaGrBanka.GetSelectedFieldValues('NrGrupBanke', OnGridSelectionComplete);
     gvLupaGrBanka.GetRowValues(gvLupaGrBanka.GetFocusedRowIndex(), 'NrGrupBanke', OnGridSelectionComplete);
 }
 

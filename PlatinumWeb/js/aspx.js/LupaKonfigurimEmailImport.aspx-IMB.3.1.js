@@ -43,7 +43,6 @@ function Init() {
         myMesazh.shtoHandler();
         gvLupaKonfigurimEmailImport.SelectRowOnPage(0, true);
         gvLupaKonfigurimEmailImport.SetFocusedRowIndex(0);
-    //btnOk.Focus();
         EndRequesHandler();
 }
 
@@ -110,7 +109,6 @@ function OnGridSelectionComplete(values) {
 function menu_click(s, e) {
     if (e.item.name == "Ruaj") {
         merrTeDhena();
-        //gvLupaKonfigurimEmailImport.PerformCallback();
     }
     else if (e.item.name == 'Anullo') 
         window.parent.popupUniversal.Hide();
@@ -234,12 +232,6 @@ function TextChangedEmail(editor, key) {
 function TextChangedStatusi(editor, key) {
     keyGlobal = key;
     var editorStatusi = editor;
-    //var editorEmail = eval('Email' + key);
-    //editorEmail.SetText('');
-    //editorEmail.SetEnabled(false);
-    //var editorDestinacion = eval('Destinacion' + key);
-    //editorDestinacion.SetText('');
-    //eval('Destinacion' + key).ClearItems();
     if (key === gvLupaKonfigurimEmailImport.cpNoRows - 1) {
         indexCounter = indexCounter + 1;
         merrTeDhena();
@@ -331,7 +323,6 @@ function KeyPressDestinacion(kodi, editor, key) {
         event.cancel = true;
     }
 }
-
 
 
 function SucceededCallbackKodi(result) {

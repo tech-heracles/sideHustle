@@ -53,15 +53,8 @@ function OnGridSelectionChanged() {
     gvLupaNGrupLlog.GetRowValues(gvLupaNGrupLlog.GetFocusedRowIndex(), 'IdNenGrupiLlogaria;PershkrimiNenGrupiLlogaria', OnGridSelectionComplete);
 }
 function OnGridSelectionComplete(values) {
-    //        var nengrupi;
-    //        nengrupi = '';
     //        
-    //            for (var i = 0; i < values.length; i++) {
-    //                if (nengrupi == '')
-    //                    nengrupi = values[i];
     //                else
-    //                    nengrupi = nengrupi + ',' + values[i];
-    //            }
 
     if (window.parent.identikuesPerPopupNenGrupeLlogari == "Shto_Llogari") {
         if (window.parent.grida == true) {
@@ -89,10 +82,6 @@ function OnGridSelectionComplete(values) {
 }
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

@@ -25,28 +25,12 @@ function changeName() {
     myMesazh.InicializoTimer();
     myMesazh.shtoHandler();
     $('#dvMenu').show();
-    //vendosVisiblitetPerMenuItems();
 }
 
-//function vendosVisiblitetPerMenuItems() {
-//    var lloji = Utils.getUrlVar('lloji')
-//    switch (lloji) {
 //        case 'planifikim':
-//            bejMenuItemsVisible(false, true); // (visiblePosto, visibleKonverto)
-//            break;
 //        case 'miratim':
-//            bejMenuItemsVisible(true, true);
-//            break;
 //        //default:
-//        //    bejMenuItemsVisible(false, false);
 //        //    break;
-//    }
-//}
-
-//function bejMenuItemsVisible(visiblePosto, visibleKonverto) {
-//    ASPxMenu1.GetItemByName('Posto').SetVisible(visiblePosto);
-//    ASPxMenu1.GetItemByName('Konverto').SetVisible(visibleKonverto);
-//}
 
 
 var nrreshtash = 1

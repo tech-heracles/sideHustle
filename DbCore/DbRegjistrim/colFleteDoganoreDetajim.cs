@@ -70,21 +70,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushFletetDoganoreDetajim(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsFleteDoganoreDetajim trupi = new clsFleteDoganoreDetajim();
-                    //trupi.mbushFleteDoganoreDetajim(rreshti);
                     Add(new clsFleteDoganoreDetajim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -105,7 +97,6 @@ namespace DbCore.DbRegjistrim
                 trupi.VlTjera = decimal.Parse(rreshti[4].ToString());
                 trupi.VlDoganim = decimal.Parse(rreshti[5].ToString());
                 trupi.VlTjera = decimal.Parse(rreshti[6].ToString());
-                //trupi.OColTrupi = new colFleteDoganoreTrupi();
                 trupat.Add(trupi);
             }
             return trupat;

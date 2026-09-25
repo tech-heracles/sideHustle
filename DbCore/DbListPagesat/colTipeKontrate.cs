@@ -65,19 +65,11 @@ namespace DbCore.DbListPagesat
         private bool mbushTipeKontrate(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTipeKontrate tipeKontrate = new clsTipeKontrate();
-                    //tipeKontrate.mbushTipKontrate(rreshti);
                     Add(new clsTipeKontrate(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

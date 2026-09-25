@@ -78,33 +78,7 @@ namespace DbCore
                 }
             }
         }
-        //public void TestKonstruktor(string methodName, object[] testParams)
-        //{
-        //    Assembly assembly = Assembly.LoadFile("...Assembly1.dll");
-        //    Type type = assembly.GetType("TestAssembly.Main");
-        //    if (type != null)
-        //    {
-        //        MethodInfo methodInfo = type.GetConstructor(new[] { typeof(testParams) });
-        //        if (methodInfo != null)
-        //        {
-        //            object result = null;
-        //            ParameterInfo[] parameters = methodInfo.GetParameters();
-        //            object classInstance = Activator.CreateInstance(type, null);
-        //            if (testParams.Length != parameters.Length)
-        //            {
-        //                throw new MyException("parameter number mismatch");
-        //            }
-        //            if (parameters.Length == 0)
-        //            {
         //                //This works fine
-        //                result = methodInfo.Invoke(classInstance, null);
-        //            }
         //            else
-        //            {
-        //                result = methodInfo.Invoke(methodInfo, testParams);
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

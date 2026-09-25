@@ -25,8 +25,6 @@
                     this.url = this.url + preffix + 'scopeID=' + Utils.getUrlVar("scopeID");
             }
             if (this.pritPergjigje) Utils.nrWsRrugesManager.rritNrWsRruges();
-            //if (this.showLoading && window["LoadingPanel"])
-            //    Utils.shfaqLoadingGif();;
             if (this.showLoading)
                 Utils.shfaqLoadingGif();
         },
@@ -39,7 +37,6 @@
                 Utils.nrWsRrugesManager.zbritNrWsRruges();
 
             //nese eshte kerkuar te shfaqet nje loading gjate kerkeses ne mberritje te pergjigjes fshehim loading.
-            //if (this.showLoading && window["LoadingPanel"]) Utils.hiqLoadingGif();;
             if (this.showLoading)
                 Utils.hiqLoadingGif();
             //nese pergjigja e mberritur ka dhene error sesioni apo ndonje redirect,ath bejme redirect kerkesen
@@ -170,7 +167,6 @@ function AutoSaverManager(func, args, context) {
     }
 
 
-
 };
 
 Utils.getServerUrlHost = function () {
@@ -207,7 +203,6 @@ Utils.shtoFunksionNeRadhe = function (func, idGjuha, context, grida) {
     /// <param name="grida" type="string" optional="true">emri i grides</param>
     this.shtoFunksionNeRadheMeParametra(func, undefined, idGjuha, context, grida);
 };
-
 
 
 Utils.shtoFunksionNeRadheMeParametra = function (func, params, idGjuha, context, grida) {
@@ -293,13 +288,11 @@ Utils.AjaxFail = function (e, x, settings, exception) {
     var message = undefined;
     /* if (e.state() == "rejected") {
          message = "Kerkesa nuk eshte pranuar nga serveri";
-         //alert("Kerkesa nuk eshte pranuar nga serveri");
      }
      */
     if (e.state() === "rejected") {//&& e.status==200 ){
         console.log('e.state() === "rejected" - eshte bere logout');
         console.log("status:" + e.status + ";" + "e.responseText" + e.responseText);
-        //window.location.href = "FaqeKryesore.aspx";        
         return;
     }
     if (e.status) {
@@ -308,7 +301,6 @@ Utils.AjaxFail = function (e, x, settings, exception) {
         }
         if (e.status == 401) {
             //Kerkese e paautorizuar
-            // myCookies.readCookie('adresa', Paths.defaultLoginPath, 1);
             window.location.href = "FaqeKryesore.aspx";
         }
         else {
@@ -407,7 +399,6 @@ Utils.setUrlVar = function (name, value, url) {
     if (url.indexOf('?') === -1)
         url += '?' + name + '=' + value;
     else {
-        //url += '&' + name + '=' + value;
         url = url.split('?')[0] + '?' + name + '=' + value + '&' + url.split('?')[1];
     }
     return url;
@@ -625,23 +616,12 @@ Utils.GetPeriudha = function () {
 };
 
 Utils.lostFocusTxtNumer = function (s, e) {
-    //console.log("LostFocus: " + s.name);
     s.SetText(s.oldGetText());
-    //var value = s.oldGetText();
-    //var formati = $(s.GetMainElement()).data('formatNumri');
-    //console.log(s.name + " vlereReale "+value);
-    //$(s.GetMainElement()).data('vlereReale', value);
-    //if (typeof value != 'undefined' && value !== '' && !isNaN(value) && typeof formati != 'undefined') {
-    //    value = parseFloat(value).toFixed(formati);
-    //    value = Utils.FormatNumberBy3(value, ".", ",");
-    //    s.oldSetText(value);
-    //}
 };
 
 Utils.gotFocusTxtNumer = function (s, e) {
 
     var value = $(s).data('vlereReale');
-    //console.log("GotFocus: " + s.name + " vlereReale: "+value);
     if (typeof value != 'undefined' && value !== '' && !isNaN(value)) {
         s.oldSetText(value);
     }
@@ -670,10 +650,8 @@ Utils.SetValueTextBox = function (value) {
     if (typeof value == "string")
         value = value.replace(",", "");
     $(this).data('vlereReale', value);
-    //console.log(this.name + " SET vlereReale " + value);
     if (!isNaN(value) && value !== '' && typeof formati != 'undefined') {
         if (!$(this).is(':focus')) {
-            //console.log(this.name + " FOCUS " + value);
             value = parseFloat(value).toFixed(formati);
             value = Utils.FormatNumberBy3(value, ".", ",");
         }
@@ -709,7 +687,6 @@ Utils.unFormatoShumeTextBox = function () {
     for (var i = 0, count = arguments.length; i < count; i++)
         Utils.unFormatoTextBox(arguments[i]);
 };
-
 
 
 var winWidth = 0, winHeight = 0, resizeTimeout;
@@ -946,8 +923,6 @@ Utils.hapAccordionSipasLocalStorage = function (identifikuesLSAmbjenti) {
 Utils.documentKeyDown = function (e) {
     switch (e.which) {
         //case 8:  // Backspace
-        //    e.preventDefault();
-        //    break;
         case 13:
             e.preventDefault();
             break;
@@ -1185,7 +1160,6 @@ Utils.hapPopUp = function (titull, hfUrl) {
         hfUrl.val('');
     }
 };
-
 
 
 Utils.ktheElement = function (myArray, identifikuesi, vlera) {
@@ -1794,7 +1768,6 @@ Utils.ShtoDetajimeNeGride = function (values) {
                     window.parent.selectFunc3(null, null, idKontrolli, values[0][0], kodi, index);
             }
         }
-        //window.parent.jQuery(idKontrolli)[0].focus();
         grida.setFocus(qeliza, index);
         if ((Utils.getUrlVar("idArtikulli") == "undefined" || Utils.getUrlVar("idArtikulli") == "") && window.parent.Utils.nrWsRrugesManager.merrNrWsRruges() > 0)//kur shtyp po tek pyetja per celje detajim
             window.parent.Utils.nrWsRrugesManager.zbritNrWsRruges();
@@ -1833,7 +1806,6 @@ Utils.ShtoDetajimeNeGride = function (values) {
                 var vlefta = grida.getTekstQelize('txtVlefta', index);
                 var detajimi2t = grida.getTekstQelize('txtDetajimi2t', index);
                 var sasia = grida.getTekstQelize('txtSasia', index);
-                //var kategoria = grida.getTekstQelize('cmbLloji', index);
                 var pershkrimi = grida.getTekstQelize('txtPershkrimi', index);
                 var njesia = grida.getTekstQelize('txtNjesia', index);
                 var tvsh = grida.getTekstQelize('cbTVSH', index);
@@ -1907,7 +1879,6 @@ Utils.ShtoDetajimeNeGride = function (values) {
                 window.parent.updateTotalet();
             }
             else {
-                //window.parent.jQuery(idKontrolli)[0].value = kodi;
                 if (Utils.getUrlVar('lloji') == 1)
                     window.parent.selectFunc2(null, null, idKontrolli, values[0][0], kodi, index);
                 else
@@ -1916,7 +1887,6 @@ Utils.ShtoDetajimeNeGride = function (values) {
         }
 
         grida.setFocus(qeliza, index);
-        //window.parent.jQuery(idKontrolli)[0].focus();
         if ((Utils.getUrlVar("idArtikulli") == "undefined" || Utils.getUrlVar("idArtikulli") == "") && window.parent.Utils.nrWsRrugesManager.merrNrWsRruges() > 0)//kur shtyp po tek pyetja per celje detajim
             window.parent.Utils.nrWsRrugesManager.zbritNrWsRruges();
     }

@@ -15,7 +15,6 @@ public partial class AppointmentToolTip : ASPxSchedulerToolTipBase {
     public override string ClassName { get { return "ASPxClientAppointmentToolTip"; } }
 
     protected void Page_Load(object sender, EventArgs e) {
-        //DevExpress.Web.ASPxWebControl.RegisterBaseScript(Page);
     }
     protected override void OnLoad(EventArgs e) {
         base.OnLoad(e);

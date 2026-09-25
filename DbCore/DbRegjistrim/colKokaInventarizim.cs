@@ -35,8 +35,6 @@ namespace DbCore.DbRegjistrim
         }
 
       
-
-       
         #endregion
 
         #region Metoda Publike
@@ -58,14 +56,6 @@ namespace DbCore.DbRegjistrim
         }
 
 
-        //public static DataTable merrDokMagazinePerImport(string emerTabKoka, string emerTabTrupi, string ndermarrjeKod, string ndermarjeKodi, string nenkategoria,int lloji, string primaryKey)
-        //{
-        //    clsDatabaseRegjistrim dbImportMagazina = new clsDatabaseRegjistrim();
-        //    DataTable dt = dbImportMagazina.merrDokMagazinePerImport(emerTabKoka, emerTabTrupi, ndermarrjeKod, ndermarjeKodi, nenkategoria, lloji, primaryKey);
-        //    dbImportMagazina.Dispose();
-        //    return dt;
-        //}
-
         #endregion
 
         #region Metoda Private
@@ -77,21 +67,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushKokaInventarizm(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKokaInventarizim koka = new clsKokaInventarizim();
-                    //koka.mbushKokaMagazina(rreshti, db);
                     Add(new clsKokaInventarizim(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

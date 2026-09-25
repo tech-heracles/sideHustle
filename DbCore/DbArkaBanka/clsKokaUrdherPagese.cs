@@ -796,7 +796,6 @@ namespace DbCore.DbArkaBanka
         public clsMesazh fshi()
         {
             clsDatabaseArkaBanka db = new clsDatabaseArkaBanka();
-            //db.krijoManager();
             db.beginTransaksion();
             clsMesazh u_fshi = clsKokaUrdherPagese.fshiUrdherPagese(idKoka, db);
             if (u_fshi.Status)
@@ -805,7 +804,6 @@ namespace DbCore.DbArkaBanka
                 db.rollbackTransaksion();
             return u_fshi;
         }
-
 
 
         /// <summary>

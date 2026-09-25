@@ -117,7 +117,6 @@ function Init() {
         editorData = dteDtDok;
         var hf = document.getElementById("hfKonffillestar");
         cmbKonfigurimi.SetText(hf.value);
-        //ndryshoKonfigurimin();
         document.getElementById("kokeKonfigurimi").innerHTML = hfState.Get("MenuKokeDokumenti");
         document.getElementById("trupKonfigurimi").innerHTML = hfState.Get("MenuTrupDokumenti");
         document.getElementById("fundKonfigurimi").innerHTML = hfState.Get("MenuFundDokumenti");
@@ -1346,7 +1345,6 @@ function myElemCmimi(value, options) {
     if (koloneDisabled() || arrayReadOnlyKolonaGrides[10] == 'True' || !lejomod || cmbLloji.GetText() === 'FD' || cmbLloji.GetText() === 'UD')
         disable = 'True';
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disable, indexRow: idRresht, id: "txtCmimi", onKeyDown: vendosVleftat, onFocusout: kontrolloVlereBosh });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disable, idRresht, 'txtCmimi', vendosVleftat, hfFormatNumri, kontrolloVlereBosh);
 }
 
 function myElemCombo(value) {//po
@@ -1540,7 +1538,6 @@ function ButtonClickArkiva() {//po
     popupUniversal.SetSize(738, 548);
 
     popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=RegjistrimMagazine&veprimi=magazina' + '&idDok=' + $('#hfArkivaDokId').val() + "&tmpfolder=" + hfArkiva.Get("rootFolder"));
-    //popupUniversal.SetContentUrl('LupaArkiva.aspx?vjenNga=RegjistrimMagazine&veprimi=magazina' + '&idDok=' + $('#hfArkivaDokId').val() + '&shtim_modifikim=' + $('#hfShtimModifikim').val());
     popupUniversal.Show();
 }
 
@@ -1660,7 +1657,6 @@ function myElemSasia(value, options) {//po
     if (koloneDisabled() || arrayReadOnlyKolonaGrides[9] == 'True' || !(vlerakushti == "Po" || vlerakushti == ""))
         disable = 'True';
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disable, indexRow: idRresht, id: "txtSasia", onFocusout: function (id, indexRow, e) { vendosVleftat(id, indexRow, e); changedSasia(); }});
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disable, idRresht, 'txtSasia', vendosVleftat, hfFormatNumri, changedSasia);
 }
 
 function changedSasia() {
@@ -1721,22 +1717,7 @@ function SucceededCallbackCmimArtikulliRow(result) {//po
 }
 
 
-//function beginWebserviceCmimArtikulliRow(idRreshti) {
-//    var counterCmimi = 0;   
-//    if ($("#txtCmimi" + idRreshti).data('pending') && $("#txtCmimi" + idRreshti).data('pending') != "")
-//        counterCmimi = parseInt($("#txtCmimi" + idRreshti).data('pending'));
-//    $("#txtCmimi" + idRreshti).data('pending', counterCmimi + 1);
-//}
-
-//function endWebserviceCmimArtikulliRow(idRreshti) {
-//    if ($("#txtCmimi" + idRreshti).data('pending') && $("#txtCmimi" + idRreshti).data('pending') != "") {
-//        var counterCmimi = $("#txtCmimi" + idRreshti).data('pending');
-//        if (counterCmimi == 1)
-//            $("#txtCmimi" + idRreshti).removeData('pending');
 //        else
-//            $("#txtCmimi" + idRreshti).data('pending', counterCmimi - 1);
-//    }
-//}
 
 
 /*
@@ -1752,7 +1733,6 @@ function myElemVlefta(value, options) {
     if (koloneDisabled() || arrayReadOnlyKolonaGrides[11] == 'True' || !lejomod || cmbLloji.GetText() == 'FD' || cmbLloji.GetText() === 'UD')
         disable = 'True';
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disable, indexRow: idRresht, id: "txtVlefta", onKeyDown: vendosVleftat, onFocusout: kontrolloVlereBosh });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disable, idRresht, 'txtVlefta', vendosVleftat, hfFormatNumri, kontrolloVlereBosh);
 }
 
 var pyeturDoni = 0;
@@ -1780,18 +1760,6 @@ function kontrolloRow(rowid) {
                     console.log('txtSasia:' + sasia);
                     vendosVleftat('txtSasia', gridIds[i]);
                     resetRreshtKorent(rowid);
-                    //var cmimi = grida.getTekstQelize('txtCmimi', gridIds[i]);
-                    //grida.setTekstQelize('txtVlefta', gridIds[i], (parseFloat(sasia) + 1) * parseFloat(cmimi));
-                    //resetRreshtKorent(rowid);
-                    //updateTotalet();
-                    //if (fokusi == 1) {
-                    //    grida.jqGrid('saveRow', rowid, null, 'clientArray');
-                    //    grida.jqGrid('setSelection', gridIds[i], true);
-                    //    lastsel2 = gridIds[i];
-                    //    grida.jqGrid('editRow', lastsel2, false);
-                    //    $('#txtSasia' + lastsel2).focus();
-                    //}
-                    //  alert(fokusi);
                     return false;
                 }
                 if (konfirmimArt == 1) {
@@ -2222,9 +2190,6 @@ Ketu kolona e fundit eshte "Vlefta" (sepse eshte rasti kur nuk po behet transfer
 */
 function lostFocusKoloneFundit() {
     $("#rowed5").lostFocusKoloneFundit();
-    //jQuery("#txtMagazina" + lastsel2).focus();
-    //jQuery("#txtMagazina" + lastsel2).blur();
-    //jQuery("#txtKodi" + lastsel2).focus();
 }
 
 /*
@@ -2236,7 +2201,6 @@ Ketu kolona e fundit eshte "Magazina Destinacion".
 function lostFocusKoloneFunditTransferim() {
     var idRresht = $('#rowed5').getLastSel2();
     var mag1 = $('#txtMagazina' + idRresht + ' option:selected').text();
-    //if (cmbKonfigurimi.GetText() == "FDT" || cmbKonfigurimi.GetText() == "FDTK") {
     if (hfState.Get("kushtTransferim") === "Po") {
         var mag2 = $('#txtMagazina2' + idRresht + ' option:selected').text();
         if (mag1 == mag2 && mag1 != "") {
@@ -2295,7 +2259,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
             if ($('#HfColNjesAdminisDest').val() !== "" && colNjesAdminisDest.length > i)
                 magazina2 = colNjesAdminisDest[i].Kodi;
             else if (btneMagazina2.GetText() != "") magazina2 = btneMagazina2.GetSelectedItem().GetColumnText('Kodi');
-                // btneMagazina2.GetText().split(' ')[0];
             else magazina2 = colMagazina2[0].Kodi;
             if ($('#hfShtimModifikim').val() === "rezervim" || $('#hfShtimModifikim').val() === "konvertim") {
                 sasia = (colTrupMag[i].Sasimbetur == null) ? "" : colTrupMag[i].Sasimbetur;
@@ -2309,7 +2272,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
                         magazina = btneMagazina.GetSelectedItem().GetColumnText('Kodi');
                         pershkrimmag = btneMagazina.GetSelectedItem().GetColumnText('Pershkrimi');
                     }
-                        //btneMagazina.GetText().split(' ')[0];
                     else {
                         magazina = colNjesAdminis[i].Kodi;
                         pershkrimmag = colNjesAdminis[i].Pershkrimi;
@@ -2317,7 +2279,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
 
                     if (btneMagazina2.GetText() != "")
                         magazina2 = btneMagazina2.GetSelectedItem().GetColumnText('Kodi');
-                        //btneMagazina2.GetText().split(' ')[0];
                     else magazina2 = colNjesAdminis[i].Kodi;
                 }
             }
@@ -2332,7 +2293,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
             artikulliset = colArtSet[i].KodArtikulli;
          
            
-            
             if ($('#hfShtimModifikim').val() === "inventarizim" && Utils.getUrlVar('llojinv') == 'ash')
                 kodbar = colKodbar[i];
 
@@ -2365,7 +2325,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
             if ($('#HfColNjesAdminisDest').val() !== "" && colNjesAdminisDest.length > i)
                 magazina2 = colNjesAdminisDest[i].Kodi;
             else if (btneMagazina2.GetText() != "") magazina2 = btneMagazina2.GetSelectedItem().GetColumnText('Kodi');
-                // btneMagazina2.GetText().split(' ')[0];
             else magazina2 = colMagazina2[0].Kodi;
             if ($('#hfShtimModifikim').val() === "rezervim" || $('#hfShtimModifikim').val() === "konvertim") {
                 sasia = (colTrupMag[i].Sasimbetur == null) ? "" : colTrupMag[i].Sasimbetur;
@@ -2379,7 +2338,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
                         magazina = btneMagazina.GetSelectedItem().GetColumnText('Kodi');
                         pershkrimmag = btneMagazina.GetSelectedItem().GetColumnText('Pershkrimi');
                     }
-                        //btneMagazina.GetText().split(' ')[0];
                     else {
                         magazina = colNjesAdminis[i].Kodi;
                         pershkrimmag = colNjesAdminis[i].Pershkrimi;
@@ -2387,7 +2345,6 @@ function mbushGrideNgaHiddenFieldet(isLidhur) {
 
                     if (btneMagazina2.GetText() != "")
                         magazina2 = btneMagazina2.GetSelectedItem().GetColumnText('Kodi');
-                        //btneMagazina2.GetText().split(' ')[0];
                     else magazina2 = colNjesAdminis[i].Kodi;
                 }
             }
@@ -2570,7 +2527,6 @@ var ruajlocalstorage = false;
 function SucceededCallbackKonfig(result) {
     if ($("input[id$='hfShtimModifikim']").val() == "shtim" || $("input[id$='hfShtimModifikim']").val() == "shtimraport")
         pastroFushatKokes();
-    //btneMagazina2.SetText('');
     var hf = $("input[id$='hfShtimModifikim']");
     var hfAuto = $("#hfLupaAutomjet");
     var hfLidhur = $("input[id$='hfLidhur']");
@@ -2623,7 +2579,6 @@ function SucceededCallbackKonfig(result) {
     lajmerimmagazine = 0;
   
     
-    //  btneKlientFurnitori.SetEnabled(false);
     gjendjeartminmax = 2;
     kodkodbar = 1;
     ruajlocalstorage = false;
@@ -3530,16 +3485,13 @@ Function: TextChangedMagazina2
 Vendos ne gride magazinen destinacion qe zgjidhet te koka
 */
 function TextChangedMagazina2() {
-    //var reshtiieditueshem = false;
     var grida = $("#rowed5");
     var idRresht = grida.getLastSel2();
     if (btneMagazina.GetSelectedItem() != null)
         magazina1 = btneMagazina.GetSelectedItem().GetColumnText('Kodi');
-    //btneMagazina.GetText().split(' ')[0];
     if (btneMagazina2.GetSelectedItem() != null) {
         magazina2 = btneMagazina2.GetSelectedItem().GetColumnText('Kodi');
     }
-    //btneMagazina2.GetText().split(' ')[0];
     
     var rreshtaTeGrides = grida.jqGrid('getDataIDs');
     for (i = 0; i < rreshtaTeGrides.length; i++) {
@@ -3549,7 +3501,6 @@ function TextChangedMagazina2() {
     if (magazinagrides != undefined) {
         callWebServiceInfoRow(idRresht);
     }
-    //if (cmbKonfigurimi.GetText() == "FDT" || cmbKonfigurimi.GetText() == "FDTK") {
     if (hfState.Get("kushtTransferim") === "Po") {
         if (magazina1 == magazina2 && magazina1 != "") {
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgNukMundTeBeniTransferimNeTeNjejtenMagazine"));
@@ -3557,22 +3508,7 @@ function TextChangedMagazina2() {
             return;
         }
     }
-    //var magazinagrides = $('#txtMagazina2' + lastsel2)[0];
-    //if (magazinagrides != undefined) {
-    //    for (var i = 0; i < magazinagrides.length; i++) {
-    //        if (magazinagrides[i].text == magazina2)
-    //            magazinagrides.selectedIndex = i;
-    //    }
-    //    reshtiieditueshem = true;
-    //}
 
-    //for (i = 0; i < rreshtaTeGrides.length; i++) {
-    //    if (!reshtiieditueshem)
-    //        grida.jqGrid('setCell', rreshtaTeGrides[i], 'txtMagazina2', magazina2, 'clientArray', '');
-    //    else if (rreshtaTeGrides[i] != lastsel2) {
-    //        grida.jqGrid('setCell', rreshtaTeGrides[i], 'txtMagazina2', magazina2, 'clientArray', '');
-    //    }
-    //}
 }
 
 /*
@@ -3658,7 +3594,6 @@ function merrTeDhena(e) {
         editorSasia = grida.getTekstQelize('txtSasia', idTe[i]);
         editorCmimi = grida.getTekstQelize('txtCmimi', idTe[i]);
         editorVlefta = grida.getTekstQelize('txtVlefta', idTe[i]);
-        //if (cmbKonfigurimi.GetText() == "FDT" || cmbKonfigurimi.GetText() == "FDTK") {
         if (hfState.Get("kushtTransferim") === "Po") {
             editorMagazina2 = grida.getTekstQelize('txtMagazina2', idTe[i]);
         }
@@ -3720,7 +3655,6 @@ function merrTeDhena(e) {
             click = false;
             e.processOnServer = false; return;
         }
-        //if (cmbKonfigurimi.GetText() == "FDT" || cmbKonfigurimi.GetText() == "FDTK") {
         if (hfState.Get("kushtTransferim") === "Po") {
             if (editorMagazina !== "" && editorMagazina === editorMagazina2 && editorKodi !== "") {
                 e.processOnServer = false;
@@ -3916,7 +3850,6 @@ function keyPressDetajimi(event, lloji) {//po
 }
 
 
-
 function keyPressDet(event) {
     keyPressDetajimi(event, 1);
 }
@@ -4027,9 +3960,6 @@ function kontrolloVlereBosh() {
         grida.setTekstQelize('txtCmimi', idRresht, cmimi);
         updateVleften = true;
     }
-    //if (cmimi == 0 && cmimzero == 1) {
-    //    myMesazh.ShtoMesazhInformues("Kujdes ka cmim zero ne gride!");
-    //}
     if (sasia === '' || isNaN(parseFloat(sasia)) || parseFloat(sasia) === 0) {
         myMesazh.ShtoMesazhGabimi(hfState.Get("msgSasiaDuhetNumer"));
         sasia = grida.getVlereDefault('txtSasia');
@@ -4349,9 +4279,6 @@ function menuClick(s, e, doPostback) {
             e.processOnServer = false;
             click = false;
         }
-        //if (s == 'tastiera' && e.processOnServer)
-        //    btn.DoClick();
-        //return;
     }
     if (e.item.name === 'Klono') {
         KlonoClick(e);
@@ -4395,8 +4322,6 @@ function menuClick(s, e, doPostback) {
         else {
             e.processOnServer = false;
         }
-        //if (s == 'tastiera' && e.processOnServer)
-        //    btn.DoClick();
         return;
     }
     else if (e.item.name == 'Kerko') {
@@ -4705,9 +4630,6 @@ function ShfaqPeriudhen() {
 }
 
 function lostFocusPeriudha(vlera) {
-    //            if (vlera != '') {
-    //                callBackPanel.PerformCallback('skeme,' + vlera);
-    //            }
 }
 
 function valueChangedPeriudha() {
@@ -4720,7 +4642,6 @@ function valueChangedPeriudha() {
     periudha2 = periudha[1].split("/");
     dtDokumentit = dataDok.split("/");
     if (periudha1[2] != dtDokumentit[2])
-        //return false;
         dteDtDok.SetText(periudha[0]);
     else {
         if ((dtDokumentit[1] < periudha1[1] || dtDokumentit[1] > periudha2[1]))
@@ -4829,7 +4750,6 @@ function HeaderClick(s, e) {
 }
 
 function myvalueComboMagazina2(elem, operation, value) {
-    //if (cmbKonfigurimi.GetText() == "FDT" || cmbKonfigurimi.GetText() == "FDTK") {
     if (hfState.Get("kushtTransferim") === "Po") {
         return myJQGrid.myValueTextBox(elem, operation, value);
     }
@@ -4862,12 +4782,6 @@ Therret funksionin <ndryshoKonfigurimin>.
 */
 function SucceededCallbackNjesiVartese(result) {
     colNjesiVartese = result;
-    //if ($("input[id$='hfShtimModifikim']").val() == "shtim") {
-    //    btneMagazina2.ClearItems();
-    //    for (i = 0; i < result.length; i++) {
-    //        btneMagazina2.AddItem([result[i].Kodi, result[i].Pershkrimi], result[i].IdNjesiVartese); //AddItem(teksti, vlera);
-    //    }
-    //}
 }
 
 /*
@@ -4929,21 +4843,18 @@ function shtoMagazinat(colMagazina2, btneMagazina2, shtimModifikim) {
             magDefault = btneMagazina2.GetSelectedItem().value;
         else
             valueMagDefault = btneMagazina2.GetValue();
-        //btneMagazina2.ClearItems();
         if (colMagazina2 == undefined)
             return;
         if (magDefault)
             btneMagazina2.SetValue(magDefault);
         if (valueMagDefault)
             btneMagazina2.SetSelectedItem(btneMagazina2.FindItemByValue(valueMagDefault));
-        //btneMagazina2.EndUpdate();
     }
 }
 
 var panjesi = false;
 
 function ButtonOkQKClick(s, e) {
-    //popMesazhQK.Hide();
     myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgShperndarjeNeQendratEKostos"), $('#hfUrl').val(), 900, 600);
 }
 
@@ -4980,7 +4891,6 @@ function nrLlogariChange(s, e) {
     s.SetText(v.split(';')[0]);
 }
 function Ngarko() {
-    //ucEmerSkedari.Upload();
     hfState.Set("kategoriSeriali", cmbKategoriSeriali.GetText());
 }
 function LostFocusSerial() {
@@ -5128,7 +5038,6 @@ function ShtoArtikujPerSerialet(arrArtikujt, idArtikujPertuHequr, nrSerialesh) {
     var idRreshti = -1;
     var buttonFshiEnable = arrayReadOnlyKolonaGrides[arrayReadOnlyKolonaGrides - 1] == 'True' || ($("input[id$='hfLidhur']").val().toLowerCase() === 'true') || !lejomod;
     for (var i = 0; i < arrArtikujt.length; i++) {
-
 
 
         var idRreshtiEkzistues = grida.gjejIdRreshtiSipasFunksionit(function (rreshti) {

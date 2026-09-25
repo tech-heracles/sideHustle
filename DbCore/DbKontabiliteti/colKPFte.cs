@@ -228,21 +228,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushKPFte(DataTable dt)
         {
             //try
-            //{
 
             foreach (DataRow rreshti in dt.Rows)
             {
-                //clsKPF KPF = new clsKPF();
-                //KPF.mbushKPF(rreshti);
                 Add(new clsKPF(rreshti));
             }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 
@@ -250,5 +242,4 @@ namespace DbCore.DbKontabiliteti
 
     }
 }
-
 

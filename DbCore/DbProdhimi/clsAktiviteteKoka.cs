@@ -568,8 +568,6 @@ namespace DbCore.DbProdhimi
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi(clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             clsMesazh u_fshi = db.fshiAktiviteteKokaStatus(idKoka, idPerdoruesi);            
             return u_fshi;
         }

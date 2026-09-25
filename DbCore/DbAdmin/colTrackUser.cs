@@ -80,19 +80,11 @@ namespace DbCore.DbAdmin
         private bool mbushTrackUserat(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrackUser OnlUsr = new clsTrackUser();
-                    //OnlUsr.mbushTrackUser(rreshti);
                     Add(new clsTrackUser(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -100,5 +92,4 @@ namespace DbCore.DbAdmin
        
     }
 }
-
 

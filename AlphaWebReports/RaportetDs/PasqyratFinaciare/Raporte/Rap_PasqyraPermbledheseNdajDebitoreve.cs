@@ -28,7 +28,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             xrLabel55.Text = raport.Parameters[1].Description;
             parameter2.Value = raport.Parameters[1].Value;
             hapurgjitha = Convert.ToBoolean(raport.Parameters["Detajuar"].Value);
-           //EmrateLabelave(ci);
         }
         string[] shkronjevogel = { "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" };
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
@@ -659,21 +658,14 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                       System.Reflection.Assembly.Load("App_GlobalResources"));
 
 
-           // xrLabel12.Text = rm.GetString("lblRaportBurimeShpenzLidhurInvestime", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-          //  xrLabel9.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel7.Text = rm.GetString("labelLogoIMB", ci);
-           // xrLabel20.Text = rm.GetString("labelRaportiShenime", ci);
-          //  xrLabel21.Text = rm.GetString("labelRaportiVitiRaportues", ci);
-         //   xrLabel22.Text = rm.GetString("labelRaportiVitiParaardhes", ci);
           
             xrLabel1.Text = rm.GetString("labelRaportiNr", ci);
-            //xrLabel70.Text = rm.GetString("filterMonedha", ci);
             xrLabel12.Text = rm.GetString("lblRaportBurimeShpenzLidhurInvestime", ci);
             xrLabel107.Text = rm.GetString("lblRaportNrLlog", ci);
             xrLabel19.Text = rm.GetString("labelRaportiEmertimi", ci);
             xrLabel20.Text = rm.GetString("lblRaportTepricaCelje", ci);
-            //xrLabel23.Text = rm.GetString("lblRaportTransaksioneViti", ci);
             xrLabel21.Text = rm.GetString("labelRaportiDebi", ci);
             xrLabel22.Text = rm.GetString("labelRaportiKredi", ci);
             xrLabel16.Text = rm.GetString("lblRaportTepricaNeFund", ci);

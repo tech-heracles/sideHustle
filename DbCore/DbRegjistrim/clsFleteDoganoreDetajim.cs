@@ -24,7 +24,6 @@ namespace DbCore.DbRegjistrim
         private decimal vlTaksa;
         private colFleteDoganoreDetajimSub oColSub;
         private DataRow rreshti;
-        // private colFleteDoganoreTrupi oColTrupi;       
 
         #endregion
 
@@ -50,7 +49,6 @@ namespace DbCore.DbRegjistrim
             vlDoganim= vlDog;
             vlTaksa = vlTak;
             oColSub = new colFleteDoganoreDetajimSub();
-           // oColTrupi = new colFleteDoganoreTrupi();
         }
 
         /// <summary>

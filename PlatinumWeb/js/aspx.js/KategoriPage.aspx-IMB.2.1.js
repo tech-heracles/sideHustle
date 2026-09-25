@@ -215,22 +215,6 @@ function menu_click(s, e) {
     else if (grida == "gvKategoriPage3")
         myMenu.menu_click_celjevogel(s, e, hfRuaj, gvKategoriPage3, hfTeDrejta);
 
-//    if (e.item.name == 'Ruaj' && grida == "gvKategoriPage") {
-//        gvKategoriPage.UpdateEdit();
-//        e.processOnServer = false;
-
-//    }
-
-//    if (e.item.name == 'Ruaj' && grida == "gvKategoriPage2") {
-//        gvKategoriPage2.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-
-//    if (e.item.name == 'Ruaj' && grida == "gvKategoriPage3") {
-//        gvKategoriPage3.UpdateEdit();
-//        e.processOnServer = false;
-//    }
-
 
 }
 

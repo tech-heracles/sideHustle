@@ -334,8 +334,6 @@ namespace DbCore.DbProdhimi
         public clsMesazh ruaj(clsDatabazeProdhimi db)
         {
             clsMesazh mesazh = new clsMesazh();
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             int idtrupi = 0;
             mesazh = db.ruajAktiviteteTrupi(out idtrupi, idKoka, idBurimi, koha, dtNdryshimi);
             idTrupi = idtrupi;
@@ -370,8 +368,6 @@ namespace DbCore.DbProdhimi
         /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
         public clsMesazh fshi(clsDatabazeProdhimi db)
         {
-            //if (db == null)
-            //    db = new clsDatabazeProdhimi();
             clsMesazh u_fshi = db.fshiAktiviteteTrupi(idTrupi);
             return u_fshi;
         }

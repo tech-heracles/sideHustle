@@ -104,7 +104,6 @@ public partial class AppointmentCustomForm : SchedulerFormControl
         lblStatus.Text = "Statusi";
         lblAllDay.Text = "Gjithe Diten";
         lblResource.Text = "Veprimi";
-        //LlojDetyre.Text = "Lloj Detyre";
 
         if (CanShowReminders)
             lblReminder.Text = ASPxSchedulerLocalizer.GetString(ASPxSchedulerStringId.Form_Reminder);
@@ -116,11 +115,6 @@ public partial class AppointmentCustomForm : SchedulerFormControl
         btnDelete.Wrap = DefaultBoolean.False;
 
 
-
-
-
-
-        //clsFunksione.mbushComboKategoriDetyre(ddLlojDetyre);
         //kjo cmb do jete edhe per klient edhe per detyra
         ConfigureAspxComboBox.percaktoTemplateComboMeLupe(ddKlient);
         ConfigureAspxComboBox.shtoKolonaPerDetyraOseKlient(ddKlient);
@@ -140,7 +134,6 @@ public partial class AppointmentCustomForm : SchedulerFormControl
             DbCore.DbCRM.clsSkeduler sked = new DbCore.DbCRM.clsSkeduler();
             sked.mbushTakim(int.Parse(apt.Id.ToString()));
 
-            //ddLlojDetyre.Value=sked.Lloji;
             mbushComboVeprimi(sked.Lloji);
             ddKlient.Value = sked.IdKlienti;
 
@@ -159,11 +152,9 @@ public partial class AppointmentCustomForm : SchedulerFormControl
                 cbReminder.ClientEnabled = false;
             }
         
-        //btnOk.ClientSideEvents.Click = container.SaveHandler;
         btnCancel.ClientSideEvents.Click = container.CancelHandler;
         btnDelete.ClientSideEvents.Click = container.DeleteHandler;
         JSProperties.Add("cpHasExceptions", apt.HasExceptions);
-        //btnDelete.Enabled = !container.IsNewAppointment;
     }
 
     private void PopulateResourceEditors(Appointment apt, AppointmentFormTemplateContainer container)
@@ -291,39 +282,17 @@ public partial class AppointmentCustomForm : SchedulerFormControl
     protected void ddKlient_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
     {
         //if (ddLlojDetyre.Value.Equals("1"))//klient
-        //{
-        //    int idagjenti = int.Parse(mySessionObjects.merrObjectNgaSesioni(Session).ToString());
-        //    DbCore.DbAdmin.clsAgjentShitje agjenti = new DbCore.DbAdmin.clsAgjentShitje(idagjenti);
 
-        //    clsFunksione.mbushComboKlientFurnitori(agjenti.IdPerdoruesMobile, mySessionObjects.merrIdNdermarrjeSesioni(Session), ddKlient, 1, true);
-        //    //clsFunksione.shtoKolonaPerKF(ddKlient);
-        //}
         //else if (ddLlojDetyre.Value.Equals("2"))//detyre
-        //{
-        //    clsFunksione.mbushComboDetyra(mySessionObjects.merrIdNdermarrjeSesioni(Session), ddKlient);
-        //    // clsFunksione.shtoKolonaPerDetyra(ddLlojDetyre);
-        //}
     }
 
     protected void ddKlient_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
     {
         //if (ddLlojDetyre.Value.Equals("1"))//klient
-        //{
-        //    int idagjenti = int.Parse(mySessionObjects.merrObjectNgaSesioni(Session).ToString());
-        //    DbCore.DbAdmin.clsAgjentShitje agjenti = new DbCore.DbAdmin.clsAgjentShitje(idagjenti);
-        //    clsFunksione.shtoKolonaPerKF(ddKlient);
-        //    //clsFunksione.mbushComboKlientFurnitori(agjenti.IdPerdoruesMobile, mySessionObjects.merrIdNdermarrjeSesioni(Session), ddKlient, 1, true);
-        //    DbCore.DbKontabiliteti.colKlienteFurnitore.merrSipasKFNdermarrjesAndAutorizimeDTLupe(mySessionObjects.merrIdNdermarrjeSesioni(Session), agjenti.IdPerdoruesi, true);
 
-        //}
         //else if (ddLlojDetyre.Value.Equals("2"))//detyre
-        //{
-        //    //clsFunksione.mbushComboDetyra(mySessionObjects.merrIdNdermarrjeSesioni(Session), ddKlient);
-        //    clsFunksione.shtoKolonaPerDetyra(ddLlojDetyre);
-        //    DbCore.DbCRM.colDetyra.merrDetyratPerNdermarrje(mySessionObjects.merrIdNdermarrjeSesioni(Session));
 
 
-        //}
     }
     private void mbushComboVeprimi(int lloji)
     {

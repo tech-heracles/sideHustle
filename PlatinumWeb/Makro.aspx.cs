@@ -17,16 +17,13 @@ namespace PlatinumWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             //behet kontrolli nese perdoruesi eshte i loguar ne sistem
             //n.q.s jo, atehere ridrejtohet edhe njeher tek forma e loginit
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["LoggedIn"].Equals("No"))
             if (!DbCore.mySessionObjects.isLogedIn(Session))
             {
                 DbCore.clsFunksione.logout(Session,true,"FaqePaautorizuar");
             }
             int idPerd = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
-            //if (CacheLayer.GlobalCacheManager.MySessionCache["KodiNdermarrjes"] == null)
             if (DbCore.mySessionObjects.ktheKodNdermarrje(Session) == null)
             {
                 Response.Redirect("Login_Ndermarrje.aspx?id=" + idPerd);
@@ -59,7 +56,6 @@ namespace PlatinumWeb
         private void konfiguroVleraFillestare()
         {//mbush griden me te dhena
             DbCore.DbInventari.colKokatMakro col = new DbCore.DbInventari.colKokatMakro(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
-            //DbCore.DbInventari.colKokatMakro  col = dbInventari.merrMakroSipasNdermarrjesAndAutorizime(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
             this.gvMakro.DataSource = col;
             this.gvMakro.DataBind();
         }
@@ -88,7 +84,6 @@ namespace PlatinumWeb
         private void konfiguroGride()
         {           
             GridUtil.percaktoVisibleColumnsMeWidth(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvMakro, "gvMakro", "Makro.aspx");
-            //funk.konfiguroGrideListeMadhe(gvMakro, "IdKokaMakro");
             GridUtil.konfigGrideListeEMadhePaTheme(gvMakro, "IdKokaMakro");
         }
 
@@ -104,7 +99,6 @@ namespace PlatinumWeb
             if (e.Column.FieldName == "PershkrimiKokaMakro")
             {
                 e.Values.Clear();
-                //e.AddShowAll();
                 e.AddValue("(Te gjithe)", string.Empty, "true");
                 e.AddValue("Nga A-D ", string.Empty, e.Column.FieldName + ">'A     ' and " + e.Column.FieldName + " <'DDDDDDD'");
                 e.AddValue("Nga D-G ", string.Empty, e.Column.FieldName + ">'D     ' and " + e.Column.FieldName + "<'GGGGGGG'");
@@ -135,10 +129,7 @@ DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.cls
             {
                 
                 DbCore.DbInventari.clsKokaMakro cls = new DbCore.DbInventari.clsKokaMakro(id);
-                //DbCore.DbInventari.colKokatMakro col = dbInventari.ktheKokaMakro(id);
 
-                //foreach (DbCore.DbInventari.clsKokaMakro  k in col)
-                //{
                    
                     if (!dbInventari.kaVeprimeMakro(cls.IdKokaMakro))
                         {
@@ -149,7 +140,6 @@ DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.cls
                     {
                         lblPergjigja.Text = "Ka veprime me kete Makro";
                     }
-                //}
             }
             dbInventari.Dispose();
             if (lblPergjigja.Text == "")
@@ -192,13 +182,6 @@ DbCore.DbInventari.clsDatabaseInventari dbInventari = new DbCore.DbInventari.cls
 
         protected void gvMakro_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {
-            //if (e.Column.FieldName == "NiveliKPF")
-            //{
-            //    if (ImbUtil.ConvertToInt(e.Value) == -3)
-            //    {
-            //        e.Criteria = null;
-            //    }
-            //}
         }
 
     }

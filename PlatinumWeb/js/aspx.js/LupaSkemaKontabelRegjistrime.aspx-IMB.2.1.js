@@ -37,16 +37,11 @@ function OnGridSelectionChanged() {
 function OnGridSelectionComplete(values) {
     var s = new String();
     var sK = new String();
-    //s += values[0];
     s = s + values[0];
-    //sK += values[1];
     sK = sK + values[1];
     var vl = s.split(",");
     var vlSK = sK.split(",");
 
-    //   window.parent.btnSkemaKontabelRegjistrime.SetText(vlSK[0]);
-    //window.parent.getElementById('hfSkemaKontabelRegjistrime').Value = vl[0];
-    // document.parentWindow.parent.document.getElementById('ASPxCallbackPanel1$hfSkemaKontabelRegjistrime').value = vl[0];
     window.parent.$("input[id$='hfSkemaKontabelRegjistrime']").val(vl[0]);
     window.parent.editorGlobal.SetText(vlSK[0]);
     window.parent.editorGlobal.SetFocus(true);

@@ -122,21 +122,13 @@ namespace DbCore.DbKontabiliteti
         private bool mbushGrupeKontabilizime(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsGrupKontabilizimi grupKontabilizimi = new clsGrupKontabilizimi();
-                    //grupKontabilizimi.mbushGrupKontabilizime(rreshti);
                     Add(new clsGrupKontabilizimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

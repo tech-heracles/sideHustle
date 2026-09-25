@@ -2915,9 +2915,7 @@ namespace DbCore.DbAsete
 			dbManager.AddParameters(13, "@IDSTATUSDOK", idStatusDokumenti, ParameterDirection.Input);
 
 			dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "PRC_T_ASETE_AQTSERIALE_PERDITESO");
-			//idAQTSerial = int.Parse(dbManager.Parameters[0].Value.ToString());
 
-			// dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "PRC_T_ASETE_AQTSERIALE_UPDATEDELETE");
 			return new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
 		}
 		internal clsMesazh modifikoAQTSerialStatusSipasArtikullit(int idartikulli, int idPerdoruesi)
@@ -3532,8 +3530,6 @@ namespace DbCore.DbAsete
 		}
 
 
-
-
 		#endregion
 
 		#region Dokument magazine Serial
@@ -3945,8 +3941,6 @@ namespace DbCore.DbAsete
 				return -1;
 			if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
 				return -1;
-
-
 
 
 			double cmimi;

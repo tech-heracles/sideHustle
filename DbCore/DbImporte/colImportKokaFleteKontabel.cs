@@ -147,18 +147,10 @@ namespace DbCore.DbImporte
         private bool mbushKokaFleteKontabelPerImport(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsImportKokaFleteKontabel kokaFleteKontabelPerImport = new clsImportKokaFleteKontabel();
-                    //kokaFleteKontabelPerImport.mbushKokaFleteKontabelImport(rreshti);
                     Add(new clsImportKokaFleteKontabel(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

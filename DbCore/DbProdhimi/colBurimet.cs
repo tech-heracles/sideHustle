@@ -143,18 +143,10 @@ namespace DbCore.DbProdhimi
         private bool mbushBurim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsBurime burim = new clsBurime();
-                    //burim.mbushBurim(rreshti);
                     Add(new clsBurime(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

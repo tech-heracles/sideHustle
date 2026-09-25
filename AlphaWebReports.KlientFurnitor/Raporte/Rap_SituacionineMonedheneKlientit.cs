@@ -32,7 +32,6 @@ namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
         private void EmrateLabelave(CultureInfo ci)
         {
             ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-            //xrLabel12.Text = rm.GetString("RaportSituacioniKlientitTitulli", ci);
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
             xrLabel20.Text = rm.GetString("labelLogoIMB", ci);
             xrTableCell15.Text = rm.GetString("labelKodi", ci);

@@ -370,7 +370,6 @@ function selectFunc(event, ui, emerfushe) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     vendosTotalet();
-    //var ekziston = false;
     if (ui.item != null) {
         $(emerfushe).val(ui.item.label);
     }
@@ -402,7 +401,6 @@ function selectFunc(event, ui, emerfushe) {
 
 function changeFunc(event, ui, emerKodi, index) {
     var grida = $('#rowed5');
-    //var idRow = grida.getLastSel2();
 
     var lloji = grida.getTekstQelize(arrayIdKolonaGrides[1], index);
     var emerfushe = grida.getTekstQelize(arrayIdKolonaGrides[2], index);
@@ -817,7 +815,6 @@ function vendosKf(kfMonKurs, rresht) {
             resetRreshtKorent(idRreshti);
             furnitori_ComboBox.SetSelectedIndex(-1);
             nvFatura.CollapseAll();
-            //  grid_faturat.PerformCallback(0);
             return;
         }
     }
@@ -1703,7 +1700,6 @@ function SucceededCallbackKonfig(fullResult) {
             if (kushte[j].Vlera !== "0") {
                 infoKf = true;
                 idInfoKf = kushte[j].Vlera;
-                //$('#hfHapurMbyllur').val('True');
             }
             else
                 infoKf = false;
@@ -2023,7 +2019,6 @@ Function: TextChangedFurnitori
 Mbush griden e faturave me faturat sipas klientit/furnitorit te zgjedhur.
 */
 function TextChangedFurnitori() {
-    //nvFatura.ExpandAll();
     VendosTeDhenaFurnitoriNeTrup(false);
     FiltroGrideSipasKlientFurnitor();
 
@@ -2031,7 +2026,6 @@ function TextChangedFurnitori() {
 
 
 function TextChangedPunonjesi() {
-    //nvFatura.ExpandAll();
     VendosTeDhenaPunonjesiNeTrup(false);
     FiltroGrideSipasPunonjes();
 
@@ -2041,7 +2035,6 @@ function FiltroGrideSipasKlientFurnitor() {
     if (pageState.shtimModifikim == 'shtim')
         grid_faturat.PerformCallback("pastroKF");
 }
-
 
 
 function FiltroGrideSipasPunonjes() {
@@ -2105,7 +2098,6 @@ function LostFocusFurnitori(result) {
 }
 
 
-
 function LostFocusPunonjesi(result) {
     if (punonjesi_ComboBox.GetText() == "")
         FiltroGrideSipasPunonjes();
@@ -2123,8 +2115,6 @@ function LostFocusPunonjesi(result) {
 
 
 }
-
-
 
 
 /*
@@ -2153,7 +2143,6 @@ function SucceededCallbackNiveliNew(colModelet) {
             konfigurimi_ComboBox.AddItem([colModelet[i].KodKonfigAmbjente, colModelet[i].PershkrimKonfigAmbjente], colModelet[i].IdKonfigAmbjente); //AddItem(teksti, vlera);
         }
 
-        //konfigurimi_ComboBox.SelectIndex(0);
     }
     ndryshoKonfigurimin(false);
 }
@@ -2201,11 +2190,6 @@ function SucceededCallbackMonedhaBanka(result, resultFurnitori) {
     kursifundit = kursi_TextBox.GetText();
     var vleratxt = (vleraMonedhaBaze_TextBox.GetText() * kursiParafunidt) / kursifundit;
 
-    //var vlera_koka = (vleraMonedhaBaze_TextBox.GetText() / kursifundit);
-
-    //var mefatureNeGride = kaRreshtaMeFatureNeGride(grida, grida.getDataIDs());
-    //if (mefatureNeGride.gjendur)
-    //    vlera_TextBox.SetText(vlera_koka);
 
     vleraMonedhaBaze_TextBox.SetText(vleratxt);
     plotesoMeFjale();
@@ -2460,7 +2444,6 @@ function OnGridFaturat() {
         if (arrNiv[idERradhes] != undefined && arrNiv[idERradhes] != 0) {
             if (kursiParafunidt != kursss && first) {
                 myMesazh.ShtoPyetje('Deshironi te ringarkoni vlerat e palikujduara te faturave pas modifikimit te kursit?', false);
-                //myMesazh.ShtoMesazh({ type: "confirm", modal: true, cancelClick: JoClick, okClick: PoClick });
                 first = false;
             }
             vlera = grida.getVlereReale('txtVlera' + idERradhes); //grida.getTekstQelize('txtVlera', idERradhes);
@@ -2505,7 +2488,6 @@ function OnGridFaturat() {
     monedhaparafundit = monedhabanka;
     Totalet();
 }
-
 
 
 /*
@@ -2606,7 +2588,6 @@ function merrTeDhena() {
         var editorfaturattext = editorFatura;
         var fatura = editorfaturattext.split(',');
         arrFatura[counter4] = i.toString() + ":" + fatura[0] + "," + fatura[1] + "," + fatura[2]; //ne array shtohet nr i fatures dhe data e fatures
-        //counter4 += 1;
         counter4 = counter4 + 1;
         if (arrNiv[idTe[i]] != undefined) {
             niv[i] = arrNiv[idTe[i]];
@@ -3012,7 +2993,6 @@ function MerrVlerenRealeTeFaturave() {
 }
 
 
-
 /*
 Function: ekzistonNjeFurnitor
 
@@ -3374,7 +3354,6 @@ function llogaritTotaleDebiKredi() {
         return;
     }
     var diferenca = totalDebi - totalKredi;
-    //diferenca = Math.round(diferenca * 1000) / 1000;
     var kuadruar;
     if (pageState.llojDokumenti == "terheqje" && diferenca >= 0) {
         kuadruar = diferenca.toFixed(pageState.formatVleftaDB) == Math.abs(vleraBankes.toFixed(pageState.formatVleftaDB));
@@ -3774,7 +3753,6 @@ function llogaritVlereNeMonedheBaze() {
             vleraMonedhaBaze_TextBox.SetText(vleraMonBaze);
     }
 }
-
 
 
 /*
@@ -4253,7 +4231,6 @@ function ButtonClickPaPrintuar() {//po
     identifikuesPerPopupDokumentat = "VeprimeBankaPaprintuar";
     popupUniversal.SetContentUrl('LupaDokumenta.aspx?veprimi=VeprimeBankaPaprintuar&niveli=' + veprimi_ComboBox.GetValue() + '&lloji=' + pageState.llojDokumenti + '&idshop=' + cmbDegeAdministrative.GetValue());
     popupUniversal.SetSize(600, 600);
-    //  popupUniversal.AdjustSize();
     popupUniversal.Show();
 }
 

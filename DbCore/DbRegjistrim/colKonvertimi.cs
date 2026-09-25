@@ -29,7 +29,6 @@ namespace DbCore.DbRegjistrim
         }
 
     
-
         #endregion
 
         #region Metoda Private
@@ -37,19 +36,11 @@ namespace DbCore.DbRegjistrim
         private bool mbushKonvertim(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsKonvertimi konvertim = new clsKonvertimi();
-                    //konvertim.mbushKonvertim(rreshti);
                     Add(new clsKonvertimi(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

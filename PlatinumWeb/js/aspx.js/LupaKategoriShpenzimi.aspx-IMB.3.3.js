@@ -68,23 +68,15 @@ function OnGridSelectionChanged(index) {
 
 function OnGridSelectionComplete(values) {
     if (window.parent.pageState != undefined && window.parent.pageState.identifikuesPopUp == 'RegjistrimDokumentash') {
-        //var index = window.parent.lastsel2;
         var grida = window.parent.$('#rowed5');
         var idRow = grida.getLastSel2();
         var index = idRow;
         var idKontrolli = "#txtKategoriShpenzimi" + index;
         var idKontrollPershkrimni = '#txtPershkrimiKatShpenzimi' + index;
-        //var kodi;
-        //kodi = vl[0];
-        //var idArt = values[0][4];
-        //window.parent.selectFunc(null, null, idKontrolli, idArt, kodi);
        
         window.parent.$(idKontrolli).val(values[1]);
         window.parent.$(idKontrollPershkrimni).val(values[2]);
-      //  window.parent.$(idKontrolli).change();
         window.parent.$(idKontrolli).focus();
-        //window.parent.editorGlobal.SetText(values[1]);
-        //window.parent.editorGlobal.SetFocus(true);
     }
     else
     if (window.parent.identifikuesperKategoriShpenzimi == "Import") {
@@ -92,7 +84,6 @@ function OnGridSelectionComplete(values) {
         window.parent.editorGlobal.SetFocus(true);
     }
     else if (window.parent.identifikuesperKategoriShpenzimi == "KategoriShpenzimi") {
-        //window.parent.editorPrind.SetText(values[2]);
         Utils.SelectComboItem(window.parent.editorPrind, values[0], [values[1], values[2], values[3].toString()]);
         window.parent.editorNiveli.SetText(parseInt(values[3]) + 1);
         window.parent.editorPrind.SetValue(values[0]);

@@ -69,21 +69,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushShperndarjeShpenzimeshKoka(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsShperndarjeShpenzimeKoka koka = new clsShperndarjeShpenzimeKoka();
-                    //koka.mbushShperndarjeShpenzKok(rreshti);
                     Add(new clsShperndarjeShpenzimeKoka(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

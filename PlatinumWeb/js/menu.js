@@ -14,12 +14,9 @@ function imbMenu(menu, stringKonfig, menuType, idPerdoruesi, idNdermarrje, optio
     var _tmpFilterString = "";
 
     var _kerkoInput = null,_kerkoButton = null, intMenuJson = null, menuChanging = null,_kerkoTimeout;
-    //var menuSearching = [];
 
     var setGroupItemsVisibility = function (myTmpGroup, grupItem) {
         var grupVisibility = false;
-        //if (grupItem["Name"] && grupItem["Name"] == "settings")
-        //    return true;
         var nrItemsCount = myTmpGroup.GetItemCount ? myTmpGroup.GetItemCount() : 0;
         if (nrItemsCount == 0) {
             myTmpGroup.SetVisible(grupItem["Visible"]);
@@ -262,7 +259,6 @@ function imbMenu(menu, stringKonfig, menuType, idPerdoruesi, idNdermarrje, optio
         changeJson(menuChanging, $(".multiselect").val(), $(".multiselectCombo").val());
         applyJsonToMenuItems(menuChanging, menu);
         menuJson = menuChanging;
-        //console.debug("saving konfig in server //todo");
         saveOnServer(menuJson, idPerdoruesi, idNdermarrje);
         window.parent.hfState.Set("konfigMenuMajtas", JSON.stringify(menuJson));
         $(".dialog-select-menu").modal("hide");
@@ -317,7 +313,6 @@ function imbMenu(menu, stringKonfig, menuType, idPerdoruesi, idNdermarrje, optio
             console.warn("nuk jane dhene mesazhet sipas gjuhes per menune");
     };
     var init = function (menu) {
-        //checkLang(options);
         options = jQuery.extend({}, defaults, options);
         intMenuJson = parseStringKonfig(stringKonfig);
         if (window.parent && window.parent.hfState)

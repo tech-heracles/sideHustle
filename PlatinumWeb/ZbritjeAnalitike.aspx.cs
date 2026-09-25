@@ -112,7 +112,6 @@ namespace PlatinumWeb
                 idKonfigambjenti = int.Parse(cmbKonfigurimi.Value.ToString());
                 guidString = (string)hfState["guidString"];
 
-                // if (!this.EshteCallbackuIm(gvCmimArtikulli.ID)
                   MbushGrideNgaSession(idNdermarrje);
                 KonfiguroGriden(idNdermarrje, idKonfigambjenti, IdPerdoruesi, idGjuha);
             }
@@ -216,11 +215,8 @@ namespace PlatinumWeb
         /// <param name="ci"> kthen CultureInfo nga sesioni ne baze te gjuhes se perdoruesit</param>
         private void EmrateButonave(CultureInfo cultinf, ResourceManager rm)
         {
-            //btnKerko.Text = rm.GetString("ReportToolbarButtonSearch", cultinf);
             btnNdrysho.Text = rm.GetString("btnNdrysho", cultinf);
         }
-
-
 
 
         private void ShtoKomandButton()
@@ -387,12 +383,10 @@ namespace PlatinumWeb
                     }
 
 
-
                     if (datefillimi != DateTime.MinValue)
                         zbritjeAnalitike.DateFillimi = datefillimi;
                     if (datembarimi != DateTime.MinValue)
                         zbritjeAnalitike.DateMbarimi = datembarimi;
-
 
 
                 }
@@ -446,10 +440,6 @@ namespace PlatinumWeb
             }
             return mesazhi;
         }
-
-
-
-
 
 
         protected void gvZbritjeAnalitike_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
@@ -506,8 +496,6 @@ namespace PlatinumWeb
 
             e.Handled = true;
         }
-
-
 
 
     }

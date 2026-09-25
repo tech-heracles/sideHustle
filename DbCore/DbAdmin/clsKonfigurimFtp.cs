@@ -239,10 +239,6 @@ namespace DbCore.DbAdmin
             this.folderPath = folderPath;
         }
 
-        //public clsKonfigurimFtp(IDataRecord record)
-        //{
-        //    this.record = record;
-        //}
 
         #endregion
 

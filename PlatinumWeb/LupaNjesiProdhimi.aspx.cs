@@ -70,10 +70,8 @@ namespace PlatinumWeb
                     string[] idte = vleraQueryString.Split('-');
                     if (idte.Length > 1)
                     {
-                        //DbCore.DbShare.clsKonfigurimAmbjenti konfigLupa;
                         for (int i = 0; i < idte.Length; i++)
                         {
-                            //konfigLupa = new DbCore.DbShare.clsKonfigurimAmbjenti(Convert.ToInt32(idte[i]));
                             if (DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdNivel(Convert.ToInt32(idte[i])) == idNivel)
                             {
                                 idKonfigambjenti = Convert.ToInt32(idte[i]);
@@ -148,7 +146,6 @@ namespace PlatinumWeb
 
         private void konfiguroPopupGride()
         {//konfiguron popupgriden            
-            //gvLupaNjesiProdhimi.Columns["#"].VisibleIndex = 0;
         }
 
         /// <summary>
@@ -171,8 +168,6 @@ namespace PlatinumWeb
         private int merrKonfiguriminDefaultTeLupes(int idNdermarrje, int idNivel)
         {
             //do marr konfigurimin default per kete nivel regjistrimi i cili eshte i vetem per nje ndermarrje
-            //DbCore.DbShare.clsKonfigurimAmbjenti ambj = new DbCore.DbShare.clsKonfigurimAmbjenti(idNdermarrje, idNivel);
-            //return ambj.IdKonfigAmbjente;
             return DbCore.DbShare.clsKonfigurimAmbjenti.ktheIdKonfigurimi(idNdermarrje, idNivel);
         }
 
@@ -193,29 +188,15 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaNjesiProdhimi.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNjesiProdhimi", gvLupaNjesiProdhimi);
-            //System.Collections.ObjectModel.ReadOnlyCollection<GridViewDataColumn> kolona = gvLupaNjesiProdhimi.GetSortedColumns();
-            //if (kolona.Count > 0)
-            //{
-            //    filtri.KoloneRenditje = kolona[0].FieldName;
-            //    if (kolona[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending)
-            //        filtri.DrejtimRenditje = true;
             //    else
-            //        filtri.DrejtimRenditje = false;
-            //}
             //else
-            //{
-            //    filtri.KoloneRenditje = "IdNjesiProdhimi";
-            //    filtri.DrejtimRenditje = true;
-            //}
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;
             filtri.IdStatusDok = 1;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
             percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-            //mbushComboBoxFiltra(idNdermarrje);
             clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNjesiProdhimi", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNjesiProdhimi.aspx");
-            //percaktoTemplateMenu(ASPxMenu1);
             if (mesazh.Status == true)
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
             else clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
@@ -240,7 +221,6 @@ namespace PlatinumWeb
                 DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
                 mesazh = filtra.fshi();
                 percaktoTemplateMenu(ASPxMenu1, idViti, idPerdoruesi, idNdermarrje);
-                //mbushComboBoxFiltra(idNdermarrje);
                 clsToolbarConfig.mbushComboBoxFiltra(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, "gvLupaNjesiProdhimi", Convert.ToInt32(cmbKonfigurimi.Value), "LupaNjesiProdhimi.aspx");
                 if (mesazh.Status == true)
                     clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);

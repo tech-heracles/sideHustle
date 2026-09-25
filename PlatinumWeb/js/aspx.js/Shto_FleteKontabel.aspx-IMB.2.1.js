@@ -127,7 +127,6 @@ function inicializoGride() {
 
         //myJQGrid.inicializoGride("#rowed5", arrayPershkrime, arrayModel, lidhur,
         //    lastsel2, '#' + arrayIdKolonaGrides[1], null, null, null, null, null, $('#divgride2').width() - 5,
-        //    undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, $('#hfTeDrejtaKonfGride').val());
     }
     catch (e) {
     }
@@ -280,9 +279,6 @@ Function: renditKolonatGrides
 
 Therret metoden remapColumns te jqGrid per te renditur kolonat e grides sipas vlerave te array-t qe i kalohet kesaj metode si parameter
 */
-//function renditKolonatGrides() {
-//    myJQGrid.renditKolonatGrides("#rowed5", arrayRenditjeKolonaGrides);
-//}
 
 
 function SucceededCallbackMonedha(result) {
@@ -367,10 +363,7 @@ Function: myelemMonedha
 
 Nderton nje textbox ku vendoset monedha
 */
-//function myelemMonedha(value) {
-//    return myJQGrid.myElemEmertimi(value, arrayReadOnlyKolonaGrides[3], lastsel2, 'txtMonedha');
 
-//}
 var kursifundit = 0;
 
 /*
@@ -453,7 +446,6 @@ function myelemVldebi(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disabl, indexRow: idRresht, id: "txtVldebi", onKeyDown: textChangedDebiNew, onFocusout: lostFocusVlera });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disabl, idRresht, 'txtVldebi', textChangedDebiNew, hfFormatNumri, lostFocusVlera);
 }
 
 /*
@@ -470,7 +462,6 @@ function myelemVlkredi(value, options) {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disabled, indexRow: idRresht, id: "txtVlkredi", onKeyDown: textChangedKrediNew, onFocusout: lostFocusVlera });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disabled, idRresht, 'txtVlkredi', textChangedKrediNew, hfFormatNumri, lostFocusVlera);
 }
 
 /*
@@ -483,7 +474,6 @@ function myelemVlmondebi(value, options) {
     var idRresht = grida.getLastSel2();
     var disabl = arrayReadOnlyKolonaGrides[8];
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disabl, indexRow: idRresht, id: "txtVlmondebi", onKeyDown: textChangedDebiMonNew, onFocusout: lostFocusVlera });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disabl, idRresht, 'txtVlmondebi', textChangedDebiMonNew, hfFormatNumri, lostFocusVlera);
 }
 
 /*
@@ -496,7 +486,6 @@ function myelemVlmonkredi(value, options) {
     var idRresht = grida.getLastSel2();
     var disabl = arrayReadOnlyKolonaGrides[9];
     return grida.myElemTextBoxFormatNumri({ value: value, options: options, disabled: disabl, indexRow: idRresht, id: "txtVlmonkredi", onKeyDown: textChangedKrediMonNew, onFocusout: lostFocusVlera });
-    //return myJQGrid.myElemTextBoxVlefteSipasFormatNumri(grida, value, options, disabl, idRresht, 'txtVlmonkredi', textChangedKrediMonNew, hfFormatNumri, lostFocusVlera);
 }
 
 /*
@@ -605,7 +594,6 @@ function lostFocusKoloneFundit() {
 }
 
 function myvalue(elem, operation, value) {
-    // return $(elem).children()[0].val();
     return elem[0].firstChild.value;
 }
 
@@ -636,7 +624,6 @@ function textChangedDebiNew() {
     ASPxMenu1.GetItemByName('QendraKosto').SetVisible(false);
     $("#div1").hide();
     $("#divQk").hide();
-    //$("#div1")[0].style.visibility = 'hidden'; $("#div1")[0].style.display = 'none';
 
     var monedha = $('#txtMonedha' + idRresht + ' option:selected').text();
     for (var i = 0; i < arrFormati.length; i++) {
@@ -1011,7 +998,6 @@ function ButtonClickKerko(listUrl) {
 }
 
 function Init() {
-    // PatchJQuery.myPatchJQuery();
     if (typeof (isPostBack) == "undefined") {
         document.getElementById("kokeKonfigurimi").innerHTML = hfState.Get("MenuKokeDokumenti");
         document.getElementById("trupKonfigurimi").innerHTML = hfState.Get("MenuTrupDokumenti");
@@ -1020,7 +1006,6 @@ function Init() {
         if ($("input[id$='hfShtimModifikim']").val() == 'klonim')
             $("input[id$='hfId']").val('0');
         $('#kokeKonfigurimi').text(hfState.Get("MenuKokeDokumenti") + ': ' + hf.val().split(';')[1]);
-        // lblKonfigurimi.SetText(hf.val().split(';')[1]);
         callWebserviceKonfigurimi("116", konfigurimi_ComboBox.GetText());
         changeName();
         var prm = Sys.WebForms.PageRequestManager.getInstance();
@@ -1198,7 +1183,6 @@ function ruajKolonatEGrides(grida) {
 }
 
 
-
 //pastrimi i array te perdorura
 function pastro() {
     arrLlogari = new Array();
@@ -1318,13 +1302,11 @@ function Totalet() {
     var idTe = grida.jqGrid('getDataIDs');
     for (var i = 0; i < idTe.length; i++) {
         if (grida.getTekstQelize('txtNrllogarie', idTe[i]) != "") {
-            //  if (grida.getTekstQelize('txtVldebi', idTe[i]) != "") {
             shumadebi = mbledhje(parseFloat(shumadebi), grida.getTekstQelize('txtVldebi', idTe[i]));
             shumakredi = mbledhje(parseFloat(shumakredi), grida.getTekstQelize('txtVlkredi', idTe[i]));
             shumadebimonedha = mbledhje(parseFloat(shumadebimonedha), grida.getTekstQelize('txtVlmondebi', idTe[i]));
             shumakredimonedha = mbledhje(parseFloat(shumakredimonedha), grida.getTekstQelize('txtVlmonkredi', idTe[i]));
 
-            // }
         }
 
     }
@@ -1367,10 +1349,8 @@ function pershkrimi() {
     //vendoset magazina e zgjedhur te koka ne rreshtat e tjere te grides
     var rreshtaTeGrides = grida.getDataIDs();
     for (i = 0; i < rreshtaTeGrides.length; i++) {
-        //  if (i+1 != lastsel2) { 
         if (rreshtaTeGrides[i].txtPershkrimi == '')
             grida.setCell(rreshtaTeGrides[i], 'txtPershkrimi', per, 'clientArray', '');
-        //   }
     }
     grida.editRow(idRresht);
 }
@@ -1594,7 +1574,6 @@ function GotFocusKredi(editor, key) {
 }
 
 
-
 function getClientID(key) {
     return 'txtNrllogarie' + key;
 }
@@ -1654,7 +1633,6 @@ function formatDate(date, format) {
         c = format.charAt(i_format);
         token = "";
         while ((format.charAt(i_format) == c) && (i_format < format.length)) {
-            //token += format.charAt(i_format++);
             token = token + format.charAt(i_format++);
         }
         if (value[token] != null) { result = result + value[token]; }
@@ -1704,8 +1682,6 @@ function callWebserviceListeLlogarish() {
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     var vlera = $('#txtNrllogarie' + idRresht).val();
-    //            var tekstSelektuar = document.selection.createRange().text;
-    //            var vleraShkrojtur = vlera.substr(0, vlera.length - tekstSelektuar.length) + String.fromCharCode(event.keyCode); 
     try {
         $.ajax({
             pritPergjigje: true,
@@ -1766,11 +1742,8 @@ function selectFunc(event, ui, emerfushe, idLlog, kodLlog) {
     ASPxMenu1.GetItemByName('QendraKosto').SetVisible(false);
     $("#div1").hide();
     $("#divQk").hide();
-    //emerfushe = '#' + emerfushe;
-    //$("#div1")[0].style.visibility = 'hidden'; $("#div1")[0].style.display = 'none';
     if (idLlog != undefined && kodLlog != undefined && idLlog != "" && kodLlog != "" && $(emerfushe).val() !== undefined) {
         $(emerfushe).val(kodLlog);
-        //        if (!kontrolloRow(lastsel2))
         $.ajax({
             url: Utils.getServerApiUrl("Rregjistrime", "KtheVleraLlogMeIDRow"),
             data: JSON.stringify({ idja: idLlog, rreshti: idRow })
@@ -1779,7 +1752,6 @@ function selectFunc(event, ui, emerfushe, idLlog, kodLlog) {
     }
     if (ui !== null && ui.item != null) {
         $(emerfushe).val(ui.item.label);
-        //kontrollo();
         $.ajax({
             url: Utils.getServerApiUrl("Rregjistrime", "KtheVleraLlogMeIDRow"),
             data: JSON.stringify({ idja: ui.item.value, rreshti: idRow })
@@ -1790,19 +1762,13 @@ function selectFunc(event, ui, emerfushe, idLlog, kodLlog) {
 }
 
 function changeFunc(event, ui, emerKodi, index) {
-    //var index = -1;
-    //var idKod = arrayIdKolonaGrides[1];
-    //if (emerKodi === undefined || emerKodi === null)
-    //    index = myJQGrid.getIndexFromEvent(event, idKod);
     //else
-    //    index = emerKodi.split(idKod)[1];
     var grida = $('#rowed5');
     var idRow = grida.getLastSel2();
     if (index == idRow) {
         var emerfushe = '#' + emerKodi + index;
         if (ui == null || ui.item == null) {
             var kodi = $(emerfushe).val();
-            //kontrollo();
             if (typeof (kodi) != "undefined" && kodi != undefined && kodi != "") {
                 $.ajax({
                     url: Utils.getServerApiUrl("Rregjistrime", "ktheVleraLlogMeKodRow"),
@@ -1936,7 +1902,6 @@ function vendosLlog(result) {
         grida.formatoQelize('txtKursi', idRreshti);
 
 
-        //   $('#rowed5').jqGrid('setRowData', idRreshti, rreshti);
     }
 }
 
@@ -1993,7 +1958,6 @@ function ShfaqPeriudhen() {
 }
 
 function ruajClick(s, e) {
-    //pastro();
     var grida = $('#rowed5');
     var idRresht = grida.getLastSel2();
     grida.saveRow(idRresht, false, 'clientArray');
@@ -2014,7 +1978,6 @@ function EndRequestHandler(sender, args) {
     var statusRuajtjeQendra = $("input[id$='hfStatusQendra']")[0];
 
 
-    // Utils.hiqLoadingGif();;
     switch (statusRuajtjeQendra.value) {
         case "true":
             regjQK.initGridQK({ ngaThirret: 'fk', formatNr: formatNumriZgjedhur, konfigurimGride: null, PershkrimiKokes: "" }, "modifikim", { idKoka: 0, dteDtDok: Data_DateEdit.date.toDateString(), dteDtRegj: DateRegjistrimi_DateEdit.date.toDateString(), idKonfig: $('#hfIdKonfigAmbjenteQK').val() }, { idDokGjenerues: $('#hfId').val(), idKonfigGjenerues: konfigurimi_ComboBox.GetValue(), llogariFK: null });
@@ -2098,11 +2061,6 @@ function validoClientSide() {
     }
 
     //kontroll nqs date e dok eshte ne intervalin e periidhes kontabel aktuale qe ruhet ne sesion
-    //            var result = ValidoDateDokumenti();
-    //            if (!result) {
-    //                alert("Data e dokumentit nuk i perket periudhes aktuale!");
-    //                return false;
-    //            }
     else return true;
 }
 
@@ -2124,8 +2082,6 @@ function PastroClick() {
     $("#div1").hide();
     $("#divQk").hide();
 }
-//function callWebserviceNiveli(name) {
-//}
 function callWebserviceNiveliNew(lloji, tipi, mod) {
     try {
         $.ajax({
@@ -2322,9 +2278,6 @@ function InitArtPerb() {
     keyGlobal = -1;
     numerReshtashQeShtohen = 1;
 }
-
-
-
 
 
 var indeksiArtPerb;

@@ -58,7 +58,6 @@ function OnGridSelectionChanged() {
 }
 function OnGridSelectionComplete(values) {
     var s = new String();
-    //s += values[0];
     s = s + values[0];
     var vl = s.split(",");
     if (window.parent.identifikuesPerPopupKodifikimin == "Shto_KlientFurnitor") {
@@ -83,21 +82,12 @@ function OnGridSelectionComplete(values) {
         window.parent.cmbKategori.SetText(vl[1]);
         window.parent.cmbKategori.SetFocus(true);
     }
-    //else if (window.parent.identifikuesPerPopupKodifikimin == "ShtoKartaKlientiLupaKategoriZB") {
-    //    parent.UZgjodhKategoriaNGaLupa = true;
-    //    parent.IdKategoriZbritjeZGjedhurNgaLupa = vl[0];
-    //    parent.gvLimiti.BatchEditEndEditing.FireEvent(parent.gvLimiti);
-    //}
     
     window.parent.popupUniversal.Hide();
 }
 
 
 function menu_click(s, e) {
-//    if (e.item.name == 'Filtra')
-//        popZgjidhFiltrin.Show();
-//    if (e.item.name == 'Ruaj')
-//        popRuaj.Show();
     switch (e.item.name) {
         case "OK":
             e.processOnServer = false;

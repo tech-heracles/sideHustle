@@ -112,7 +112,6 @@ namespace DbCore.DbAdmin
                 return; //roliperdoruesi me id idrolperdoruesi nuk ekziston
             }
             data.Dispose();
-            //throw new Exception("ERROR: Gabim gjate leximit te roliperdoruesit " + idRolPerdoruesi + "nga databaza");
         }
 
         /// <summary>
@@ -243,7 +242,6 @@ namespace DbCore.DbAdmin
         public clsMesazh update()
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
-            //data.krijoManager();
 
             clsMesazh u_modifikua = data.modifikoRolPerdorues(this.idRolPerdorues, this.idRoli, this.idPerdorues);
             data.Dispose();
@@ -259,7 +257,6 @@ namespace DbCore.DbAdmin
         public int krijoRolPerdorues(int idRol, int idPerdorues)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
-            //data.krijoManager();
             int idRolPerdorues = data.krijoRolPerdorues(idRol, idPerdorues);
             if (idRolPerdorues <= 0)
             {

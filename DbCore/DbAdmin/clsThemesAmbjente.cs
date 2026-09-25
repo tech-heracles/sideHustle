@@ -15,7 +15,6 @@ namespace DbCore.DbAdmin
     public class clsThemesAmbjente : IDataBase
     {
         #region Atributet
-        //public const string mySessionKey = "clsThemesAmbjente";
         private int idThemeAmbjente;
         private string kodTheme;
         private string pershkrimTheme;
@@ -26,7 +25,6 @@ namespace DbCore.DbAdmin
         private int idThemeJQuery;
         private int idBgImage;
         private int idPerdorues;
-        //private int idNdermarrje;
         private int idStatusDok;
         private DateTime dtKrijimi;
         private DateTime dtModifikimi;
@@ -58,7 +56,6 @@ namespace DbCore.DbAdmin
             this.idThemeJQuery = idThemeJQuery;
             idBgImage = idbgimg;
             idPerdorues = idperd;
-            //this.idNdermarrje = idnderm;
             idStatusDok = idstatusdok;
             dtKrijimi = dtkrijimi;
             dtModifikimi = dtmodifikimi;
@@ -81,7 +78,6 @@ namespace DbCore.DbAdmin
                 }, this);
 
         }
-
 
 
         /// <summary>

@@ -53,18 +53,10 @@ namespace DbCore.DbAsete
         private bool mbushLlojeAmortizimiList(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsAseteLlojAmortizimi llojeAmortizimi = new clsAseteLlojAmortizimi();
-                    //llojeAmortizimi.mbushLlojAmortizimiObjekt(rreshti);
                     this.Add(new clsAseteLlojAmortizimi(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

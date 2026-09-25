@@ -22,7 +22,6 @@ namespace PlatinumWeb.Templates
         }
         public virtual void InstantiateIn(Control Container)
         {
-            //var text = new ASPxTextBox();
             GridViewDataItemTemplateContainer gridContainer = (GridViewDataItemTemplateContainer)Container;
             text.ID = "txtBox";
             if (!paformat)

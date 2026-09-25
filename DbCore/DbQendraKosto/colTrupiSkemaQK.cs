@@ -63,7 +63,6 @@ namespace DbCore.DbQendraKosto
         }
 
 
-
         #endregion
 
         #region Metoda Private
@@ -76,18 +75,10 @@ namespace DbCore.DbQendraKosto
         internal bool mbushTrupiSkema(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiSkemaQK skema = new clsTrupiSkemaQK();
-                    //skema.mbushTrupiSkema(rreshti);
                     Add(new clsTrupiSkemaQK(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
         internal void mbushTrupiSkema(colTrupiSkemaQK coltrupi)

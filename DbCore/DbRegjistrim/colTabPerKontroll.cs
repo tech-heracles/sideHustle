@@ -59,21 +59,13 @@ namespace DbCore.DbRegjistrim
         private bool mbushTabetperKontroll(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTabPerKontroll tab = new clsTabPerKontroll();
-                    //tab.mbushTabPerKontroll(rreshti);
                     Add(new clsTabPerKontroll(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
             //    //throw;
-            //}
             return true;
         }
 

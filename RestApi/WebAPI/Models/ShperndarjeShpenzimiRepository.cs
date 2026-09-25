@@ -320,7 +320,6 @@ namespace RestApi.WebAPI.Models
             if (clsAlternativaKushti.getAlternativa(konfmag.IdKonfigAmbjente, "GJKGJ") == "Po")
                 gjithmone = true;
 
-            //object[] result = ruajTrupin(kokaDokumentitShperndare, trupiDokumentitShperndare, Session);
             bool mekontabilizim = false;
 
             if (menyreKontabilizimi == 1 || menyreKontabilizimi == 2)

@@ -14,7 +14,6 @@ namespace DbCore.DbAdmin
     {
 
         #region Atributet
-        //public const string mySessionKey = "clsDrejtaTabi";
 
         private int idDrejta;
         private int idPeme; //id qe i vendoset te drejtave per krijimin e pemes

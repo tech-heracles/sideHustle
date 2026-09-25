@@ -30,11 +30,9 @@ namespace PlatinumWeb
         System.Globalization.CultureInfo ci => DbCore.mySessionObjects.ktheCultureInfo(Session);
 
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             String array = Request.QueryString["array"];
-
 
 
             if (!IsPostBack)
@@ -164,8 +162,6 @@ namespace PlatinumWeb
 
                 check.ShowSelectCheckbox = true;
             }
-            //if (gvLupaKerko.Columns["Status"] != null)
-            //    shtoKolonStatusi();
         }
 
         protected void gvLupaKerko_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)

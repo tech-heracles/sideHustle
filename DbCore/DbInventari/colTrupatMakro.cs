@@ -127,20 +127,12 @@ namespace DbCore.DbInventari
         private bool mbushTrupaMakrosh(DataTable dt)
         {
             //try
-            //{
 
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsTrupiMakro trupiMakro = new clsTrupiMakro();
-                    //trupiMakro.mbushTrupiMakro(rreshti);
                     this.Add(new clsTrupiMakro(rreshti));
                 }
 
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -167,11 +159,9 @@ namespace DbCore.DbInventari
                     art.mbushArtikull(trupiMakro.IdProdukti);
                     trupiMakro.KodProdukti = art.KodArtikulli;
 
-                    //trupiMakro.KodProdukti = new DbCore.DbInventari.clsDatabaseInventari().ktheArtikull(trupiMakro.IdProdukti)[0].KodArtikulli;
                 }
                 else if (trupiMakro.IdLlojMakro == 2)
                     trupiMakro.KodProdukti = new DbCore.DbInventari.clsKokaMakro(trupiMakro.IdProdukti).KodiKokaMakro;
-                //trupiMakro.KodProdukti = new DbCore.DbInventari.clsDatabaseInventari().ktheKokaMakro(trupiMakro.IdProdukti)[0].KodiKokaMakro;
                 else trupiMakro.KodProdukti = "";
                 trupiMakrot.Add(trupiMakro);
             }

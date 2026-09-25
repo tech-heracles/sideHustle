@@ -13,7 +13,6 @@ Array.prototype.ekzistonElementi = function (value) {
 };
 
 
-
 var varKonfig = {
     identifikuesPerLocalStorageKey: 'Amortizimi'
 };
@@ -76,12 +75,10 @@ function ButtonClickKerko(listUrl) {
 }
 
 function Init() {
-    // PatchJQuery.myPatchJQuery();
     if (typeof (isPostBack) == "undefined") {
         var hf = $("input[id$='hfKonffillestar']")[0];
         document.getElementById("kokeKonfigurimi").innerHTML = hfState.Get("MenuKokeDokumenti");
         document.getElementById("trupKonfigurimi").innerHTML = hfState.Get("MenuTrupDokumenti");
-       //document.getElementById("fundKonfigurimi").innerHTML = hfState.Get("MenuFundDokumenti");
 
         cmbKonfigurimi.SetText(hf.value.split(';')[0]);
         lblKonfigurimi.SetText(hf.value.split(';')[1]);
@@ -288,7 +285,6 @@ function EndRequestHandler(sender, args) {
         Utils.hapPopUp(hfState.Get("msgShperndarjeNeQendratEKostos"), $('#hfUrl'));
     }
     var statusRuajtjeQendra = $("input[id$='hfStatus']")[0];
-    // Utils.hiqLoadingGif();;
     if (statusRuajtjeQendra.value == "true") {
         ASPxMenu1.GetItemByName('Shto').SetVisible(true);
         myFaqeCelje.kontrolloTeDrejta('Shto_RegjistrimAmortizimi.aspx', true);

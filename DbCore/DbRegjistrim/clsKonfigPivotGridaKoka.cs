@@ -24,7 +24,6 @@ namespace DbCore.DbRegjistrim
         private DateTime dtModifikimi;
         private colKonfigPivotGridaTrupi konfigPivotGridaTrupi;
 
-        //private string layout;
         private string fieldStateLayout;
 
         private bool totalRreshta;
@@ -205,10 +204,8 @@ namespace DbCore.DbRegjistrim
         }
 
         //public string Layout
-        //{
         //    get { return layout; }
         //    set { layout = value; }
-        //}
         /// <summary>
         /// percakton nese do shfaqet ose je Totali per rreshta
         /// </summary>
@@ -302,7 +299,6 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
             clsMesazh mesazh;
-            //dbRegj.krijoManager();
             try
             {
                 dbRegj.beginTransaksion();
@@ -360,7 +356,6 @@ namespace DbCore.DbRegjistrim
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
             DbAdmin.colLidhjetAutorizim colLidhjetAutorizim = new DbAdmin.colLidhjetAutorizim(IdKonfPivotGridaKoka, "RaportePivotGrid");
             clsMesazh mesazh = new clsMesazh();
-            //dbRegj.krijoManager();
 
             try
             {
@@ -460,7 +455,6 @@ namespace DbCore.DbRegjistrim
         {
             DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegj = new DbCore.DbRegjistrim.clsDatabaseRegjistrim();
             clsMesazh mesazh = new clsMesazh();
-            //dbRegj.krijoManager();
             dbRegj.beginTransaksion();
             try
             {
@@ -491,8 +485,6 @@ namespace DbCore.DbRegjistrim
         #region Metoda Internal
 
 
-
-
         internal bool mbushKonfigPivotGridaKoka(int idGjuha, DataRow dbDataRowKonfigPGKoka)
         {
             if (dbDataRowKonfigPGKoka != null)
@@ -507,7 +499,6 @@ namespace DbCore.DbRegjistrim
                     int.TryParse(dbDataRowKonfigPGKoka["IDSTATUSDOK"].ToString(), out idStatusDok);
                     DateTime.TryParse(dbDataRowKonfigPGKoka["DTKRIJIMI"].ToString(), out dtKrijimi);
                     DateTime.TryParse(dbDataRowKonfigPGKoka["DTMODIFIKIMI"].ToString(), out dtModifikimi);
-                    //layout =Convert.ToString(dbDataRowKonfigPGKoka["LAYOUT"]);
                     fieldStateLayout = Convert.ToString(dbDataRowKonfigPGKoka["COLLAPSEDSTATELAYOUT"]);
 
                     bool.TryParse(Convert.ToString(dbDataRowKonfigPGKoka["GRANDTOTALRRESHTA"]), out grandTotalRreshta);

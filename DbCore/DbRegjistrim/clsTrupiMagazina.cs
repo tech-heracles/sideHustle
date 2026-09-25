@@ -215,7 +215,6 @@ namespace DbCore.DbRegjistrim
         }
       
 
-       
         public bool krijoTrupMagazinaNgaGrida(int idNdermarrje, DateTime date, double kursi, int lloji, int idkodi, string emertimi, int detajimi, int njesia, double sasia, double cmimi, double VleftaPaTVSH, int magazina, int shenja, int iddetajim2, string kodi, string kodDetajimi1, string kodDetajimi2, int idkonvertimifsh, int idkonvertimiush, int idkonvertimiud, string shenime, int idartikullset,clsDatabaseInventari db, int idBarkodi, int rreshti)
         {
             if (idkodi == 0 || idkodi == -1)
@@ -276,11 +275,6 @@ namespace DbCore.DbRegjistrim
                 throw new Exception("Kategoria nuk mund te jete e ndryshme nga Makro dhe Artikull te rregjistrim dokument magazine");
             idLlojVeprimi = DbShare.clsKonfLlojRreshtiVlere.ktheIdLlojRreshtiVlere(kategoria, "Shitje");
             clsArtikulli art = new clsArtikulli();
-            //if (!performante)
-            //    if (!clsArtikulli.ekziston(kodi, idNdermarrje))
-            //    {
-            //        throw new Exception("Artikulli me kod: " + kodi + " nuk ekziston!");
-            //    }
             art.ktheArtikullSipasKoditDheAutorizime(kodi, idNdermarrje, idPerdorues);
             if (art.IdArtikulli == 0)
             {
@@ -311,7 +305,6 @@ namespace DbCore.DbRegjistrim
                     throw new Exception("Artikulli me kod: " + artper.KodArtikulli + " nuk i perket klases se perbere!");
                 idArtikullSet = artper.IdArtikulli;
             }
-            //trupi.IdArtikulli = dbInventari.merrArtikullSipasKodit(art).IdArtikulli;
             kodArtikull = kodi;
             if (!klonim)
             {
@@ -338,8 +331,6 @@ namespace DbCore.DbRegjistrim
                 pershkrimArtikull = emertimi;
             if (detajimet != null && detajimet != "null" && detajimet != "*" && detajimet != "" && detajimet != "Pa detajime" && detajimet != "Pa detajim")
             {
-                //clsDetajimArtikulli detArtikulli = new clsDetajimArtikulli();
-                //detArtikulli.mbushDetajimArtikulli(detajimet, idNdermarrje);
 
                 this.idDetajimi = clsDetajimArtikulli.ktheIdDetajimi(detajimet, idNdermarrje);
                 if (idDetajimi > 0)
@@ -391,7 +382,6 @@ namespace DbCore.DbRegjistrim
                 idDetajimi2 = -1;
             if (njesia != null && njesia != "null" && njesia != "")
             {
-                //clsNjesiArtikulli njesi = new clsNjesiArtikulli();
                 //njesi.mbushNjesiArtikulliMeKod(njesia, idNdermarrje); //kevi ndryshim nga me pershk me kod                
                 idNjesia = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje); //njesi.IdNjesia;
                 if (art.Njesi1Artikulli == idNjesia)//nese njesia e zgjedhuer eshte njesia 1 e artikullit ath koeficienti vendoset 1
@@ -459,14 +449,11 @@ namespace DbCore.DbRegjistrim
                 return;
             }
             int idKodi = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdKodi"].ToString(), out idKodi);
             string artset = "";
         
             string emertimi = rreshtDokuKlient["name"].ToString();
-            // string detajimet = rreshtDokuKlient["txtDetajimi"].ToString();
             string detajimet = "";
             string detajimet2 ="";
-            // string detajimet2 = rreshtDokuKlient["txtDetajimi2t"].ToString();
             string njesia = rreshtDokuKlient["unit"].ToString();
             string sasia = rreshtDokuKlient["quantity"].ToString();
             string cmimi = rreshtDokuKlient["price"].ToString();
@@ -474,19 +461,12 @@ namespace DbCore.DbRegjistrim
             string magazina = startWarehouse;
             string magazina2 = destinationWarehouse;
             int idtrupirez = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupiRezervimi"].ToString(), out idtrupirez);
             int idtrupi = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupi"].ToString(), out idtrupi);
             int idtrupikonv = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimi"].ToString(), out idtrupikonv);
             int idtrupikonvush = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimiUSH"].ToString(), out idtrupikonvush);
             int idtrupikonvud = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupiKonvertimiUD"].ToString(), out idtrupikonvud);
             int idkthimi = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdKthimi"].ToString(), out idkthimi);
             int idTrupiShitjeGjenerimi = 0;
-            // int.TryParse(rreshtDokuKlient["txtIdTrupiShitjeGjenerimi"].ToString(), out idTrupiShitjeGjenerimi);
             string shenime = "";
             string barkodi = ruajBarkod ? rreshtDokuKlient["barcode"].ToString() : String.Empty; 
 
@@ -494,11 +474,6 @@ namespace DbCore.DbRegjistrim
                 throw new Exception("Kategoria nuk mund te jete e ndryshme nga Makro dhe Artikull te rregjistrim dokument magazine");
             idLlojVeprimi = DbShare.clsKonfLlojRreshtiVlere.ktheIdLlojRreshtiVlere(kategoria, "Shitje");
             clsArtikulli art = new clsArtikulli();
-            //if (!performante)
-            //    if (!clsArtikulli.ekziston(kodi, idNdermarrje))
-            //    {
-            //        throw new Exception("Artikulli me kod: " + kodi + " nuk ekziston!");
-            //    }
             art.ktheArtikullSipasKoditDheAutorizime(kodi, idNdermarrje, idPerdorues);
             if (art.IdArtikulli == 0)
             {
@@ -509,8 +484,6 @@ namespace DbCore.DbRegjistrim
                 throw new Exception("Artikulli me kod:" + art.KodArtikulli + " nuk eshte aktiv!");
             }
             
-            // if (idKodi != art.IdArtikulli)
-            //     throw new Exception("Artikulli me kod: " + art.KodArtikulli + " eshte marre gabimisht!");
             idArtikull = art.IdArtikulli;
 
             clsArtikulli artper = new clsArtikulli();
@@ -529,7 +502,6 @@ namespace DbCore.DbRegjistrim
                     throw new Exception("Artikulli me kod: " + artper.KodArtikulli + " nuk i perket klases se perbere!");
                 idArtikullSet = artper.IdArtikulli;
             }
-            //trupi.IdArtikulli = dbInventari.merrArtikullSipasKodit(art).IdArtikulli;
             kodArtikull = kodi;
             if (!klonim)
             {
@@ -556,8 +528,6 @@ namespace DbCore.DbRegjistrim
                 pershkrimArtikull = emertimi;
             if (detajimet != null && detajimet != "null" && detajimet != "*" && detajimet != "" && detajimet != "Pa detajime" && detajimet != "Pa detajim")
             {
-                //clsDetajimArtikulli detArtikulli = new clsDetajimArtikulli();
-                //detArtikulli.mbushDetajimArtikulli(detajimet, idNdermarrje);
 
                 this.idDetajimi = clsDetajimArtikulli.ktheIdDetajimi(detajimet, idNdermarrje);
                 if (idDetajimi > 0)
@@ -609,7 +579,6 @@ namespace DbCore.DbRegjistrim
                 idDetajimi2 = -1;
             if (njesia != null && njesia != "null" && njesia != "")
             {
-                //clsNjesiArtikulli njesi = new clsNjesiArtikulli();
                 //njesi.mbushNjesiArtikulliMeKod(njesia, idNdermarrje); //kevi ndryshim nga me pershk me kod                
                 idNjesia = clsNjesiArtikulli.ktheIdNjesiArtikulli(njesia, idNdermarrje); //njesi.IdNjesia;
                 if (art.Njesi1Artikulli == idNjesia)//nese njesia e zgjedhuer eshte njesia 1 e artikullit ath koeficienti vendoset 1
@@ -674,8 +643,6 @@ namespace DbCore.DbRegjistrim
         {
         }
 
-
-        
 
         #endregion
 
@@ -1493,31 +1460,10 @@ namespace DbCore.DbRegjistrim
             }
             double VleftaHyrjePerSS = 0;
             ktheVleftenPerSasineEMbetur(trupat, ref vleftatotale, ref sasidaljembetur, dbRegj, idArt, idmag, ref VleftaHyrjePerSS, gjendje, 0);
-            //if (sasidaljembetur != 0)
-            //{
-            //    if (trupat[0].Sasia != 0)
-            //        vleftatotale += sasidaljembetur * trupat[0].Vlefta / (trupat[0].Sasia * trupat[0].Koeficenti);
             //    else
-            //    {
             //        clsTrupiMagazina trupiGjenerues = clsTrupiMagazina.ktheRreshtMagazineGjeneruesFHSS(trupat[0].idTrupiMagazina, dbRegj);//per shperndarjet e shpenzimit
-            //        double sasishper = (trupiGjenerues.sasia * trupiGjenerues.koeficenti);
-            //        if (trupiGjenerues.idTrupiMagazina == 0)
             //        {//per fhnc
-            //            sasishper = dbRegj.ktheSasineTotaleSipasArtikullitHPD(idArt, idmag, trupat[0].data, trupat[0].idRenditjes);
-            //            if (sasishper == 0)
-            //            {
-            //                ktheVleftenPerSasineEMbetur(trupat, ref vleftatotale, ref sasidaljembetur, dbRegj, idArt, idmag, ref VleftaHyrjePerSS, gjendje, 1);
-            //            }
-            //        }
-            //        if (gjendje <= 0)
-            //            if (sasishper == 0)
-            //                VleftaHyrjePerSS = 0;
             //            else
-            //                VleftaHyrjePerSS = trupiGjenerues.Vlefta / sasishper;
-            //        if(sasishper!=0)
-            //            vleftatotale += sasidaljembetur * trupat[0].Vlefta / sasishper;
-            //    }
-            //}
             return vleftatotale / (sas * koefic)+ VleftaHyrjePerSS;
         }
 
@@ -1589,18 +1535,11 @@ namespace DbCore.DbRegjistrim
         {
             DbData dbData = new DbData();
             int maxRetry = 500;
-            //int i = 0;
-            //int fillim = 0;
             try
             {
                 clsMesazh mesazh;
                 colTrupiMagazina trupat = new colTrupiMagazina();
                 DbCore.DbQendraKosto.colKokaQendraKosto kokaQendra;
-                //System.Diagnostics.Stopwatch myWatchMulti = new System.Diagnostics.Stopwatch();
-                //myWatchMulti.Start();
-                //System.Threading.Tasks.Parallel.Invoke(() => kokaQendra = new DbCore.DbQendraKosto.colKokaQendraKosto(idartikulli, idmagazina, datanga, datanga, maxRetry, log), ()=> trupat.mbushReshtaPerRivleresimFifoArtikulli(idartikulli, idmagazina, datanga, datanga, maxRetry, log));
-                //myWatchMulti.Stop();
-                //System.Diagnostics.Trace.WriteLine("myWatchMulti: " + myWatchMulti.Elapsed);
                 System.Diagnostics.Stopwatch myWatchSingel = new System.Diagnostics.Stopwatch();
                 myWatchSingel.Start();
                 kokaQendra = new DbCore.DbQendraKosto.colKokaQendraKosto(idartikulli, idmagazina, datanga, datanga, maxRetry, log);
@@ -1609,7 +1548,6 @@ namespace DbCore.DbRegjistrim
                 System.Diagnostics.Trace.WriteLine("myWatchSingel: " + myWatchSingel.Elapsed);
                 if (trupat.Count == 0 && kokaQendra.Count == 0)
                     return new clsMesazh(true, "Rivleresimi i keti artikulli u be me sukses");
-                //trupat = merrReshtaPerRivleresimFifoArtikulli(idartikulli, idmagazina, datanga, dataderi);
                 IEnumerable<IGrouping<int, clsTrupiMagazina>> kokat = trupat.GroupBy(trupi => trupi.IdKokaMagazina);
                 for (int i = 0, count = kokat.Count(); i < count; i++)//hiqet thirrja e metodes count sepse te bredh elementet ne cdo iterim 
                 {              
@@ -1734,14 +1672,12 @@ namespace DbCore.DbRegjistrim
                         {
                             if (!retryTrans.checkRetry(ex,log,k))
                             {
-                                //log.logError(ex.Number, ex.Message);
                                 dbData.rollbackTransaksion();                                
                                 throw ex;
                             }
                         }
                         catch (Exception ex)
                         {
-                            //log.logError(ex.Message);
                             dbData.rollbackTransaksion();                            
                             throw ex;
                         }
@@ -1933,20 +1869,6 @@ namespace DbCore.DbRegjistrim
                 return merrSasiSipasDetajimit(artikulli, idmag, data, iddetajim, lloji, dbRegj);
             }
         }
-        //public static DataTable merrSasiSipasDetajimitTest(clsArtikulli artikulli, int idmag, DateTime data, int iddetajim, int lloji, string test)
-        //{
-        //    using (clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim())
-        //    {
-        //        return merrSasiSipasDetajimitTest(artikulli, idmag, data, iddetajim, lloji, dbRegj,test);
-        //    }
-        //}
-        //public static DataTable merrSasiSipasDetajimitTest2(clsArtikulli artikulli, int idmag, DateTime data, int iddetajim, int lloji, string test)
-        //{
-        //    using (clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim())
-        //    {
-        //        return merrSasiSipasDetajimitTest2(artikulli, idmag, data, iddetajim, lloji, dbRegj,test);
-        //    }
-        //}
 
         public static double merrSasiDetajimitDyteDheDetajimPare(clsArtikulli artikulli, int idmag, DateTime data, int idDetajimi1, int iddetajim2)
         {
@@ -2042,8 +1964,6 @@ namespace DbCore.DbRegjistrim
         }
 
  
-
-
         public static double merrSasineGjitheMagDetajimDyteSipasDetajimPare(clsArtikulli artikulli, DateTime data, int iddetajim, int idDetajim2, clsDatabaseRegjistrim dbRegj)
         {
             double gjendjaArtikullitNeMagazine = 0;

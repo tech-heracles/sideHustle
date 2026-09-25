@@ -277,10 +277,7 @@ namespace DbCore.DbListPagesat
         public clsKomponenteNr(DataRow rreshti)
         {
 
-            // mbushKomponenteNr(rreshti);
         }
-
-
 
 
         #endregion
@@ -418,7 +415,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-
         public static bool ekzistonKomponenteNr(int idkomponente, int idpunonjesi, string muaji, int viti, string muajilp, int vitilp)
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
@@ -427,12 +423,7 @@ namespace DbCore.DbListPagesat
             return sukses;
         }
         //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi, clsDatabazeListPagesa data)
-        //{
 
-        //    bool sukses = data.ekzistonOreShtese(date, idpunonjesi);
-
-        //    return sukses;
-        //}
 
         public static clsKomponenteNr Krijo(IDataRecord record)
         {

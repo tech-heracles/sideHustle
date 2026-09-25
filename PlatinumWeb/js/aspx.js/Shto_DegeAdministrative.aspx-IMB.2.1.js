@@ -109,7 +109,6 @@ e-eventi
 function menu_click(s, e) {
     hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     hfId = $('#hfId'); //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false);
     myMenu.menu_click(s, e, hfShtimModifikim, hfId, PageControl, false, undefined, indexModifiko, pastrofusha, SucceededCallbackKonfig, resultkonf, colKontrollet, aktivizoFusha, colAtrTrupi);
 }
 
@@ -217,55 +216,24 @@ function callWebserviceKonfigurimiInit(idKomp, kodKonf) {
 
 var resultkonf;
 var colKontrollet, colAtrTrupi;
-//        var colAlterKusht;
-//        var colKushte;
 function SucceededCallbackKonfig(result) {
     if (result != "" && result != null) {
         colKontrollet = result.colKontrollet;
         colAtrTrupi = result.colAtrTrupi;
-        //                var colGrida = result[2];
-        //                colKushte = result[3];
-        //                colAlterKusht = result[4];
-        //            var kodniveli = result[5];
-        //                var konfLlojRreshti = result[6];
         resultkonf = result;
         LupaKontrollet(colKontrollet, colAtrTrupi);
         var hf = $('#hfKontrollet');
         var hfMod = $('#hfShtimModifikim');
         var arrTabela = ['tblDegeAdministrative'];
-        //myFaqeCelje.SucceededCallbackKonfig(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-        //myFaqeCelje.SucceededCallbackKonfigSlim(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
         myFaqeCelje.SucceededCallbackKonfigurimPergjithshem(colKontrollet, colAtrTrupi, hf, hfMod, '', arrTabela, "ASPxPageControl1_C");
     }
 
-  //  $("#dvDega").show();//$("#dvDega")[0].style.visibility = 'visible';
 }
-//    function SucceededCallbackKonfigurimi(result) {
-//        if (result != "") {
-//            resultkonf = result;
-//            var vlerat = '';
-//            vlerat = result.split('*');
-//            var kontrollet = vlerat[0].split(';');
-//            Lupa(kontrollet);
-//            var hf = $('#hfKontrollet')[0];
-//            var hfLidhur = $("#hfLidhur")[0];
-//            var hfMod = $('#hfShtimModifikim')[0];
-//            var arrTabela = ['tblDegeAdministrative'];
-//            myFaqeCelje.SucceededCallbackKonfigurimi(result, hf, hfLidhur, hfMod, '', arrTabela, "#ASPxPageControl1_", "ASPxPageControl1_C");
-//            gvDegeAdministrative.PerformCallback("163" + ";" + cmbKonfigurimi.GetText());
-//        } $("#dvDega")[0].style.visibility = 'visible';
-//    }
 
 function LupaKontrollet(kontrollet, colAtrTrupi) {
-    //        var hf6 = $("#hfLupaAutorizimi")[0];
-    //        for (var i = 0; i < kontrollet.length - 1; i++) {
-    //            if (kontrollet[i].split(',')[0] == "cmbAutorizimi")
-    //                hf6.value = kontrollet[i].split(',')[11].toString();
-    //        }
 }
 function aktivizoFusha(colKontrollet, colAtrTrupi, isLidhur) {
     var hfMod = $('#hfShtimModifikim');
-    //        var hfLidhur = $("#hfLidhur")[0];
     myFaqeCelje.aktivFusha(colKontrollet, colAtrTrupi, hfMod, isLidhur, '#ASPxPageControl1_');
 }
 function ndryshoKonfigurimin() {
@@ -301,7 +269,6 @@ function EndRequestHandler(sender, args) {
     var hfKontrollet = $('#hfKontrollet');
     var hfShtimModifikim = $('#hfShtimModifikim'); //hidden fieldi qe ruan nese veprimi eshte shtim apo modifikim
     var hfId = $('#hfId');  //hidden fieldi qe ruan id  e rreshtit te selektuar
-    //        indexModifiko = myFaqeCelje.EndRequestHandler(sender, args, hf, hfKontrollet, hfShtimModifikim, hfId, indexModifiko, PageControl, gvDegeAdministrative, "163")
     indexModifiko = myFaqeCelje.EndRequestHandlerNew(sender, args, hf, colKontrollet, colAtrTrupi, hfShtimModifikim, hfId, indexModifiko, PageControl, gvDegeAdministrative, "163", pastrofusha, hfTeDrejta);
 }
 

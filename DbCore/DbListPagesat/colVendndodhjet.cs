@@ -132,18 +132,10 @@ namespace DbCore.DbListPagesat
         private bool mbushVendndodhjet(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsVendndodhjet vendndodhje = new clsVendndodhjet();
-                    //vendndodhje.mbushVendndodhjet(rreshti);
                     Add(new clsVendndodhjet(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

@@ -26,14 +26,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.SunPetrolium
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",
                        System.Reflection.Assembly.Load("App_GlobalResources"));
-           // xrLabel1.Text = rm.GetString("TitullRaportiFatureTatimoreShitje", ci);
-            //xrLabel6.Text = rm.GetString("labelRaportNumriFatures", ci);
-           // xrLabel7.Text = rm.GetString("lblRaportDataFatures", ci);
-          //  xrLabel8.Text = rm.GetString("labelFilterAvancuarNrSerial", ci);
-           // xrLabel2.Text = rm.GetString("labelRaportSubjektiShites", ci);
-           // xrLabel75.Text = rm.GetString("labelRaportAdresa", ci);
-            //xrLabel12.Text = rm.GetString("labelNIPT", ci);
-           // xrLabel74.Text = rm.GetString("labelRaportTel", ci);
             xrLabel3.Text = rm.GetString("labelRaportSubjektiBleres", ci);
             xrLabel48.Text = rm.GetString("labelRaportAdresa", ci);
             xrLabel13.Text = rm.GetString("labelNIPT", ci);
@@ -48,17 +40,13 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura.SunPetrolium
             xrTableCell8.Text = rm.GetString("labelVleftaPaTvshmePAKapitale", ci);
             xrTableCell11.Text = rm.GetString("labelVleftaeTVSH", ci);
             xrTableCell6.Text = rm.GetString("labelVLERA_ME_TVSH", ci);
-           // xrLabel41.Text = rm.GetString("lblRaportTotaliNe", ci);
             xrLabel30.Text = rm.GetString("labelRaportiTotali", ci);
-           // xrLabel40.Text = rm.GetString("labelKursi", ci);
             xrLabel42.Text = rm.GetString("labelBleresi", ci);
             xrLabel43.Text = rm.GetString("labelShitesi", ci);
-            //xrLabel37.Text = rm.GetString("lblRaportPikaEFurnizimit", ci);
             xrLabel69.Text = rm.GetString("labelTransportuesi", ci);
             xrTableCell4.Text = rm.GetString("labelCmimiNjesiPaTVSH", ci);
             xrTableCell3.Text = rm.GetString("label_SASIA", ci);
             xrTableCell10.Text = rm.GetString("labelNjesiaUpperCase", ci);
-            //xrTableCell17.Text = rm.GetString("labelRaportNRKARTELE", ci);
             xrLabel73.Text = rm.GetString("footerRaportPerdorimiFaturesLejuarNgaDPTatimeve", ci);
         }
 
