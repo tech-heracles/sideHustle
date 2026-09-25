@@ -15,6 +15,7 @@ using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using IDataBaseReader = AlphaWeb.Core.Interfaces.Data.IDataBaseReader;
 using DbCore.IMBUtils.Cache;
+using DbCore.IMBUtils.Security;
 
 namespace DbCore.DbAdmin
 {
@@ -1324,40 +1325,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0].Rows[0];
 
         }
-        internal bool krijoPerdoruesMeGmail(string email, string username, string name, string password, int roli)
-        {
-            string connectionString = dbManager.ConnectionString;
-            name = Regex.Replace(name, @"[^0-9a-zA-Z\._]", "");
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand($"INSERT INTO T_PERDORUESI ([PERDORUESEMRI],[PERDORUESMBIEMRI],[PERDORUESAKTIV],[PERDORUESUSERNAME],[PERDORUESPASSWORD],[PERDORUESEMAIL],[IDPERDORUESI],[IDSTATUSDOK]) VALUES ('{name}','{name}','True','{username}','{password}','{email}','{roli}','1')" +
-                    $"DECLARE @IDPERDORUESI INT = (SELECT top 1 IDPERDORUES FROM T_PERDORUESI WHERE PERDORUESUSERNAME = '{username}' and PERDORUESPASSWORD = '{password}' and PERDORUESEMAIL = '{email}' and IDSTATUSDOK = 1 and PERDORUESAKTIV = 1 order by IDPERDORUES desc)" +
-                    $"INSERT INTO T_ROLPERDORUES ([IDROLI],[IDPERDORUES])  SELECT RP.IDROLI,@IDPERDORUESI FROM  T_PERDORUESI P inner join  T_ROLPERDORUES RP on RP.IDPERDORUES = P.IDPERDORUES inner join T_ROLI R on R.IDROLI = RP.IDROLI where P.IDPERDORUES = {roli}" +
-                    $"INSERT INTO T_THEMESAMBJENTE VALUES('IMB09', 'Metropolis Blue', 1, 1, 42, 42, 22, 163, @IDPERDORUESI, 1, null, null)" +
-                    $"INSERT INTO T_AUTORIZIMTRUPI SELECT  IDAUTORIZIMKOKA, @IDPERDORUESI FROM T_AUTORIZIMTRUPI where IDPERDORUESI = '{roli}' " +
-                    $"update T_PERDORUESI SET SHENIME = '{email}' where IDPERDORUES = {roli}" +
-                    $"update T_PERDORUESI SET SHENIME = '{email}' where IDPERDORUES = @IDPERDORUESI", connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-
-                    }
-                }
-                finally
-                {
-                    // Always call Close when done reading.
-                    reader.Close();
-                    connection.Close();
-                }
-            }
-            return true;
-
-
-        }
 
         /// <summary>
         /// kyc perdoruesin te tabela T_PERDORUESI
@@ -2225,17 +2192,6 @@ namespace DbCore.DbAdmin
 
         //    finally
 
-        internal int Gjendet(String perdoruesUsername, String perdoruesPassword)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@PERDORUESUSERNAME", perdoruesUsername, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@PERDORUESPASSWORD", perdoruesPassword, ParameterDirection.Input);
-            return (int)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_selCount");
-
-        }
         //[Obsolete("Perdor: Gjendet(String perdoruesUsername, String perdoruesPassword)", true)]
         //    try
         //    finally
@@ -13838,21 +13794,20 @@ namespace DbCore.DbAdmin
         /// kontrollon nese eshte password i perdorur me pare
         /// </summary>
         /// <param name="idPerdorues"></param>
-        /// <param name="nr">numri i passwordeve qe rhen te fundit</param>
-        /// <param name="password">passwordi i cili do kontrollohet nese eshte perdorur me pare</param>
+        /// <param name="textPassword">passwordi ne text qe do kontrollohet nese eshte perdorur me pare</param>
         /// <returns></returns>
-        internal clsMesazh eshtePassVjeter(int idPerdorues, int nr, string password, ResourceManager rm, CultureInfo ci)
+        internal clsMesazh eshtePassVjeter(int idPerdorues, string textPassword, ResourceManager rm, CultureInfo ci)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDPEDORUES", idPerdorues, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@Nr", nr, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@PASSWORD", password, ParameterDirection.Input);
-            object nrPass = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PASSWORD_HISTORY_merrPasswordet");
-            if (Convert.ToInt32(nrPass) > 0) return new clsMesazh(false, rm.GetString("msgFjalekalimPerdorur", ci));
-            else return new clsMesazh(true);
-
+            // Hash-et e reja kane salt te ndryshem per cdo fjalekalim, prandaj krahasimi nuk mund te behet ne SQL.
+            // Historiku mbahet i shkurtuar ne numrin e konfiguruar (prc_T_PASSWORD_HISTORY_ins), keshtu qe kontrollohet i gjithi.
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text,
+                "SELECT p.PERDORUESUSERNAME, h.[PASSWORD] FROM T_PASSWORD_HISTORY h INNER JOIN T_PERDORUESI p ON p.IDPERDORUES = h.PERDORUESID WHERE h.PERDORUESID = @IDPERDORUES");
+            foreach (DataRow rreshti in ds.Tables[0].Rows)
+                if (PasswordHelper.Verifiko(rreshti["PERDORUESUSERNAME"].ToString(), textPassword, rreshti["PASSWORD"].ToString()))
+                    return new clsMesazh(false, rm.GetString("msgFjalekalimPerdorur", ci));
+            return new clsMesazh(true);
         }
         internal clsMesazh eshtePassVjeterPunonjes(int idPunonjes, int nr, string password, ResourceManager rm, CultureInfo ci)
         {

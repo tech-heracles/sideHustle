@@ -184,11 +184,11 @@ namespace PlatinumWeb
             }
             int idPerdoruesiloguar = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             DbCore.DbAdmin.clsPerdorues clsperd = new DbCore.DbAdmin.clsPerdorues(idPerdoruesiloguar);
-            if ((PasswordHelper.HashLogin(btnPerdorues.Text, pass_vjeter) == clsperd.PerdoruesPassword) || Convert.ToBoolean(hfResetimPass.Get("resetPass")))// rasti i dyte vlen kur resetohet passwordi dhe fjalekalimi i vjeter eshte bosh
+            if (PasswordHelper.Verifiko(btnPerdorues.Text, pass_vjeter, clsperd.PerdoruesPassword) || Convert.ToBoolean(hfResetimPass.Get("resetPass")))// rasti i dyte vlen kur resetohet passwordi dhe fjalekalimi i vjeter eshte bosh
             {
                 if (pass_ri == konfirmo_pass)
                 {
-                    password = PasswordHelper.HashLogin(btnPerdorues.Text, pass_ri);
+                    password = PasswordHelper.KrijoHash(pass_ri);
                     var konfigPass = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(clsperd.IdPerdorues);
                     var msg = konfigPass.isValidPassword(pass_ri, password, clsperd.IdPerdorues,ci,rm);
                     if (!msg.Status)

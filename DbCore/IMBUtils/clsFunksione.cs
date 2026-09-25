@@ -1918,7 +1918,7 @@ namespace DbCore
 				if (!webServise)
 				{
 					var domainName = clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.DOMAINNAME);
-					if (string.IsNullOrEmpty(domainName) && (user.Password.Equals(PasswordHelper.HashLogin(username, password)) || user.Password.Equals(PasswordHelper.HashLogin(char.ToUpper(username[0]) + username.Substring(1), password)) || user.Password.Equals(PasswordHelper.HashLogin(char.ToLower(username[0]) + username.Substring(1), password))))
+					if (string.IsNullOrEmpty(domainName) && PasswordHelper.ValidoPassword(username, password, user.Password))
 					{
 						mesazh = new clsMesazh(true);
 					}
@@ -2176,11 +2176,7 @@ namespace DbCore
 					return false;
 				}
 
-				if (PasswordHelper.ValidoPassword(username, password, user.PerdoruesPassword) ||
-					user.PerdoruesPassword.Equals(password))
-					return true;
-
-				return false;
+				return PasswordHelper.ValidoPassword(username, password, user.PerdoruesPassword);
 			}
 
 			return false;
@@ -11592,7 +11588,6 @@ namespace DbCore
 
 		public static string ktheUrlMobile(clsPerdorues perdorues, clsNdermarrje ndermarrje)
 		{
-			byte[] toEncodeAsBytes = Encoding.ASCII.GetBytes(perdorues.PerdoruesUsername + ":" + perdorues.PerdoruesPassword);
 			return $"{clsServerConfiguration.LexoKonfigurimSipasKey<string>(ServerKonfigKey.URL_MOBILE)}?param=";
 		}
 

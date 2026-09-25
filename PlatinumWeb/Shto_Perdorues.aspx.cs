@@ -671,7 +671,7 @@ namespace PlatinumWeb
         public DbCore.DbAdmin.clsPerdorues krijoPerdorues(string emri, string mbiemri, string username, string tel, string fax, string email, string adresa, int idQyteti, bool infoHapur, bool perdoruesAktiv, string password, int idPerdoruesi, int idStatusDok, int idStilRaporti, bool passwordIPerkohshem, bool perdoruesIKycur, int idAmbjent, int idgjuha, bool kontrollPassword, bool shfaqDtPrintimi, bool kycurMobile, bool shfaqPerdoruesMenu, bool shfaqNjoftime, colRolPerdorues rolet, int idAmbjentMobile, String shopcode, String shopname, String dealername, String usericrm, String userEtopuP, String iDEtopUp, String typeofDevice, String salesrepMobileNumber, String salesrepMPesaMSISDN, int gjini, DateTime salesrepStartDateVod, DateTime salesrepTrainingStart, DateTime salesrepStartDateShop, DateTime salesrepMaternityLeaveStart, DateTime leavedateVod, DateTime leavedateShop, DateTime maternityleaveEndDate, DateTime trainingendDate, string commentsretailSales, string accountexecutive, string idNumber, int isinsured, string commentsretailOpSpecialist, string regionalsupervisor, string retailsalesAccountExecutive, string retailsalesAreaManager, DateTime birthDate, string sitecode, string districti, string shopmainCode, string latitude, string longitude, int status, int leaveReason, int uniform, string shenime, int statusAprovimi, bool njoftimEmailAprovim, int idkonfigkase)
         {
             String pass;
-            pass = PasswordHelper.HashLogin(username, password);
+            pass = PasswordHelper.KrijoHash(password);
             DbCore.DbAdmin.clsPerdorues perdorues = new DbCore.DbAdmin.clsPerdorues(idPerdoruesi);
             perdorues.EmriPerdorues = emri;
             perdorues.MbiemriPerdorues = mbiemri;
@@ -874,7 +874,7 @@ namespace PlatinumWeb
                     if (konfigPass.GjeneroPassword)
                     {
                         passwordGjeneruar = PasswordHelper.GjeneroPassword(konfigPass.GjatesiaMinPassword, konfigPass.SpecialChars, konfigPass.UppercaseChars, konfigPass.NumbersChars);
-                        perdorues.PerdoruesPassword = PasswordHelper.HashLogin(perdorues.PerdoruesUsername, passwordGjeneruar);
+                        perdorues.PerdoruesPassword = PasswordHelper.KrijoHash(passwordGjeneruar);
                         perdorues.PasswordIPerkohshem = true;
                     }
                     else
@@ -920,11 +920,11 @@ namespace PlatinumWeb
                     if (konfigPass.GjeneroPassword && perdorues.PasswordIPerkohshem) //rasti kur behet shkycja e nje perdoruesi dhe eshte chekuar fjalekalim i perkohshem duhet te gjenerohet password nese te politikat e fjalekalimi eshte zgjedhur opsioni i gjenerimit te pass per perdoruesit.
                     {
                         passwordGjeneruar = PasswordHelper.GjeneroPassword(konfigPass.GjatesiaMinPassword, konfigPass.SpecialChars, konfigPass.UppercaseChars, konfigPass.NumbersChars);
-                        perdorues.PerdoruesPassword = PasswordHelper.HashLogin(username_TextBox.Text, passwordGjeneruar);
+                        perdorues.PerdoruesPassword = PasswordHelper.KrijoHash(passwordGjeneruar);
                     }
                     else
                     {
-                        password = PasswordHelper.HashLogin(username_TextBox.Text, pass_ri);
+                        password = PasswordHelper.KrijoHash(pass_ri);
                         if (pass_vjeter == "" && pass_ri == "" && konfirmo_pass == "")
                             perdorues.PerdoruesPassword = perd.PerdoruesPassword; //perdoruesit i lihet passwordi i vjeter prandaj nuk ruhet ne historik
                         else
@@ -943,7 +943,7 @@ namespace PlatinumWeb
                                     perdorues.PerdoruesPassword = password;
                                 }
                                 else
-                                    if (PasswordHelper.HashLogin(username_TextBox.Text, pass_vjeter) == perd.PerdoruesPassword) //modifikim pass
+                                    if (PasswordHelper.Verifiko(username_TextBox.Text, pass_vjeter, perd.PerdoruesPassword)) //modifikim pass
                                     {
                                         perdorues.PerdoruesPassword = password;
                                     }

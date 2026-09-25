@@ -1220,13 +1220,6 @@ namespace DbCore.DbAdmin
                 return db.merrQueryStringHashuar(queryStringHashuarKerkeseResetPass);
             }
         }
-        public static bool krijoPerdoruesMeGmail(string email, string username, string name, string password, int roli)
-        {
-            using (clsDatabaseAdmin db = new clsDatabaseAdmin())
-            {
-                return db.krijoPerdoruesMeGmail(email, username, name, password, roli);
-            }
-        }
 
         /// <summary>
         /// ruan stilin e raportit per perdoruesin(idstili-n ne baze te stylename dhe zoom-in)
@@ -1336,7 +1329,7 @@ namespace DbCore.DbAdmin
                         throw new Exception(error);
                     }
                     perdorues.DateKrijimiPassword = DateTime.Now;
-                    perdorues.PerdoruesPassword = PasswordHelper.HashLogin(perdoruesusername, perdoruespassword);
+                    perdorues.PerdoruesPassword = PasswordHelper.KrijoHash(perdoruespassword);
                     DbCore.DbAdmin.clsKonfigurimeFjalekalimi konfigPass = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(idperdoruesi);
 
 

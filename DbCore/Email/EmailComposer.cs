@@ -701,7 +701,7 @@ namespace DbCore
                 DbCore.DbAdmin.clsKonfigurimeFjalekalimi konfig = new DbCore.DbAdmin.clsKonfigurimeFjalekalimi(idPerdorues);
                 fjalekalimi = PasswordHelper.GjeneroPassword(konfig.GjatesiaMinPassword, konfig.SpecialChars, konfig.UppercaseChars, konfig.NumbersChars);
                 email = user.PerdoruesEmail;
-                fjalekalimiHashuar = PasswordHelper.HashLogin(user.PerdoruesUsername, fjalekalimi);
+                fjalekalimiHashuar = PasswordHelper.KrijoHash(fjalekalimi);
                 username = user.PerdoruesUsername;
                 PasswordIPerkohshem = user.PasswordIPerkohshem;
             }

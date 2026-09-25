@@ -90,34 +90,13 @@ namespace PlatinumWeb
                 obj[0] = lejuar; obj[1] = 0;
                 return obj;
             }
-            if (!user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
+            if (!PasswordHelper.Verifiko(username, password, user.PerdoruesPassword))
             {
                 obj[0] = lejuar; obj[1] = 0;
                 return obj;
             }
-
-            if (user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
-            {
-                user = colUsers.ElementAt(0);
-                if (user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
-                {
-                    lejuar = "po";
-                    {
-                        obj[0] = lejuar; obj[1] = 0;
-                        return obj;
-                    }                    
-                }
-                else
-                {
-                    obj[0] = lejuar; obj[1] = 0;
-                    return obj;
-                }
-            }
-            else
-            {
-                obj[0] = lejuar; obj[1] = 0;
-                return obj;
-            }
+            obj[0] = "po"; obj[1] = 0;
+            return obj;
         }
 
         [WebMethod]
@@ -143,21 +122,9 @@ namespace PlatinumWeb
                 user = colUsers.ElementAt(0);
             if (user.PerdoruesAktiv == false)
                 return lejuar;
-            if (!user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
+            if (!PasswordHelper.Verifiko(username, password, user.PerdoruesPassword))
                 return lejuar;
-
-            if (user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
-            {
-                user = colUsers.ElementAt(0);
-                if (user.PerdoruesPassword.Equals(PasswordHelper.HashLogin(username, password)))
-                {
-
-                    lejuar = "po";
-                }
-                else
-                    return lejuar;
-            }
-            return lejuar;
+            return "po";
         }
     }
 }

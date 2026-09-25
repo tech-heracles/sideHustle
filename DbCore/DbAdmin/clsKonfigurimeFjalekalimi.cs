@@ -444,13 +444,13 @@ namespace DbCore.DbAdmin
         /// kontrollon nese passwordi i perdoruesit eshte i perdorur me pare
         /// </summary>
         /// <param name="idPerdorues"></param>
-        /// <param name="password">pass i cili do kontrollohet nese eshte perdoret ne keto heret e fundit</param>
+        /// <param name="textPassword">passwordi ne text qe do kontrollohet nese eshte perdorur ne keto heret e fundit</param>
         /// <returns></returns>
-        public clsMesazh ekzistonKyPassPerdoruesi(int idPerdorues, string password,ResourceManager rm,CultureInfo ci)
+        public clsMesazh ekzistonKyPassPerdoruesi(int idPerdorues, string textPassword,ResourceManager rm,CultureInfo ci)
         {
             using (clsDatabaseAdmin dbAdm = new clsDatabaseAdmin())
             {
-                return dbAdm.eshtePassVjeter(idPerdorues, this.nrHereRuajHistorikPass, password,rm,ci);
+                return dbAdm.eshtePassVjeter(idPerdorues, textPassword, rm, ci);
             }
         }
         public clsMesazh ekzistonKyPassPunonjesi(int idPunonjes, string password, ResourceManager rm, CultureInfo ci)
@@ -585,7 +585,7 @@ namespace DbCore.DbAdmin
                 if (veprimiMbiPerdoruesin == "epayslip")
                       mesazhHistoriku = this.ekzistonKyPassPunonjesi(idPerdoruesi, passwordHashuar,rm,ci);
                 else
-                     mesazhHistoriku = this.ekzistonKyPassPerdoruesi(idPerdoruesi, passwordHashuar,rm,ci);
+                     mesazhHistoriku = this.ekzistonKyPassPerdoruesi(idPerdoruesi, textPassword,rm,ci);
                     if (!mesazhHistoriku.Status)
                         mesazh = mesazhHistoriku;
                 }
