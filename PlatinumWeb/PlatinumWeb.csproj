@@ -3194,6 +3194,7 @@
     <Content Include="js\aspx.js\LupaRegjistrimQendraKosto.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\LupaSeriale.aspx-IMB.4.1.js" />
     <Content Include="js\aspx.js\LupaSkemaKosto.aspx-IMB.3.1.js" />
+    <Content Include="js\aspx.js\LupaShopsHierarkiUniform.aspx-IMB.7.2 .js" />
     <Content Include="js\aspx.js\LupaTransportues.aspx-IMB.4.0.10.js" />
     <Content Include="js\aspx.js\LupaTransportuesShpejte.aspx-IMB.4.0.10.js" />
     <Content Include="js\aspx.js\PolitikaFjalekalimi.aspx-IMB.2.1.js" />
