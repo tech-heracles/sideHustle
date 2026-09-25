@@ -3044,11 +3044,15 @@ namespace DbCore.DbAdmin
 
         public int merrKonfigurimLupeSipasKonfigAmbjentiDheKodit(int idKonfigAmbjenti, string kodi)
         {
-            this.dbManager.Open();
-            this.dbManager.CreateParameters(2);
-            this.dbManager.AddParameters(0, "@IDKONFIGAMBJENTI", idKonfigAmbjenti, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@EMERFUSHE", kodi, ParameterDirection.Input);
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_MerrKonfigurimLupeSipasKonfigAmbjentiDheKodit"));
+            DataTable dt = KonfigGrideCache.Merr(dbManager, "prc_T_GRIDATRUPI_MerrKonfigurimLupeSipasKonfigAmbjentiDheKodit|" + idKonfigAmbjenti + "|" + kodi, () =>
+            {
+                this.dbManager.CreateParameters(2);
+                this.dbManager.AddParameters(0, "@IDKONFIGAMBJENTI", idKonfigAmbjenti, ParameterDirection.Input);
+                this.dbManager.AddParameters(1, "@EMERFUSHE", kodi, ParameterDirection.Input);
+                return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRIDATRUPI_MerrKonfigurimLupeSipasKonfigAmbjentiDheKodit").Tables[0];
+            });
+            // si ExecuteScalar: vlera e rreshtit te pare, ose 0 kur s'ka rresht
+            return Convert.ToInt32(dt.Rows.Count > 0 ? dt.Rows[0][0] : null);
         }
 
         /// <summary>
