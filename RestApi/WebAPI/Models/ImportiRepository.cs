@@ -97,38 +97,11 @@ namespace RestApi.WebAPI.Models
             if (string.IsNullOrEmpty(FileName))
                 return new Tuple<DataTable, object, clsMesazh>(null, null, new MesazhGabimi(MessagesResource.Messages["msgNukKeniZgjedhurAsnjeSkedar"]));
 
-            OleDbConnection oconn = new OleDbConnection();  //duhet te kete providerin        
-            DataTable table = new DataTable();
-            clsMesazh mesazh = new MesazhSuksesi();
-
-            string pathDir = HttpContext.Current.Server.MapPath(null);// + @"\Import\";
-            pathDir = pathDir.Substring(0, HttpContext.Current.Server.MapPath(null).IndexOf(@"\api\Importi", StringComparison.Ordinal)) + @"\Import\";
-
+            DataTable table;
             try
             {
-                if (FileName.EndsWith(".csv"))
-                    table = FileReader.CsvReaderMeHeader(FileContent);
-                else
-                {
-                    DirectoryExtension.CreateDirIfNotExists(pathDir);
-                    oconn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + pathDir + FileName + "';Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;ImportMixedTypes=Text\"");
-
-                    string emer;
-                    if (!string.IsNullOrEmpty(emerSheet))
-                        emer = emerSheet + "$";
-                    else
-                    {
-                        oconn.Open();
-                        var dtExcelSchema = oconn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-                        emer = dtExcelSchema.Rows[0]["TABLE_NAME"].ToString();
-                        oconn.Close();
-                    }
-                    var ocmd = new OleDbCommand("select * from [" + emer + "]", oconn);
-                    oconn.Open();
-                    var dba = new OleDbDataAdapter(ocmd);
-                    dba.Fill(table);
-
-                }
+                FileContent.Position = 0;
+                table = FileName.EndsWith(".csv") ? FileReader.CsvReaderMeHeader(FileContent) : LexoExcel(FileName, FileContent, emerSheet);
             }
             catch (OleDbException ex)
             {
@@ -140,21 +113,6 @@ namespace RestApi.WebAPI.Models
                 LogManager.GetCurrentClassLogger().Error(ex.Message);
                 return new Tuple<DataTable, object, clsMesazh>(null, null, new MesazhGabimi(ex.Message));
             }
-            finally
-            {
-                try
-                {
-                    oconn.Close();
-                    File.Delete(pathDir + FileName); //perdoret kur kemi OleDbConnection
-                }
-                catch (Exception ex)
-                {
-                    LogManager.GetCurrentClassLogger().Error(ex.Message, "Ndodhi nje gabim gjate fshirjes se file-t " + FileName + " ne folderin Import.");
-                    mesazh = new MesazhGabimi(MessagesResource.Messages["msgTeDhenatESkedaritTePasakta"]);
-                }
-            }
-            if(!mesazh)
-                return new Tuple<DataTable, object, clsMesazh>(null, null, mesazh);
 
             table.Columns.Add("Id", typeof(int));
             var i = 0;
@@ -302,6 +260,47 @@ namespace RestApi.WebAPI.Models
             }
 
             return new Tuple<DataTable, object, clsMesazh>(table, new { fushaKoke = fushat, fushaTrupi = new List<object>(), fushaRec = new List<object>() }, new MesazhSuksesi());
+        }
+
+        /// <summary>
+        /// Lexon sheet-in e zgjedhur (ose te parin) te nje skedari Excel me providerin ACE OLEDB.
+        /// Skedari shkruhet perkohesisht ne App_Data me emer unik, qe ngarkime te njekohshme me te njejtin emer
+        /// te mos ngaterrohen dhe skedari te mos jete i aksesueshem nga web-i; fshihet menjehere pas leximit.
+        /// </summary>
+        private static DataTable LexoExcel(string emerSkedari, Stream permbajtja, string emerSheet)
+        {
+            string dosja = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/Import");
+            DirectoryExtension.CreateDirIfNotExists(dosja);
+            string skedari = Path.Combine(dosja, Guid.NewGuid().ToString("N") + Path.GetExtension(emerSkedari));
+            try
+            {
+                using (var fs = File.Create(skedari))
+                    permbajtja.CopyTo(fs);
+
+                var table = new DataTable();
+                using (var oconn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + skedari + "';Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;ImportMixedTypes=Text\""))
+                {
+                    oconn.Open();
+                    string emer = !string.IsNullOrEmpty(emerSheet)
+                        ? emerSheet + "$"
+                        : oconn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null).Rows[0]["TABLE_NAME"].ToString();
+                    using (var ocmd = new OleDbCommand("select * from [" + emer.Replace("]", "]]") + "]", oconn))
+                    using (var dba = new OleDbDataAdapter(ocmd))
+                        dba.Fill(table);
+                }
+                return table;
+            }
+            finally
+            {
+                try
+                {
+                    File.Delete(skedari);
+                }
+                catch (Exception ex)
+                {
+                    LogManager.GetCurrentClassLogger().Error(ex, "Nuk u fshi skedari i perkohshem i importit " + skedari);
+                }
+            }
         }
 
         /// <summary>
@@ -853,6 +852,11 @@ namespace RestApi.WebAPI.Models
             var column = table.Columns[columnname];
             if (column.DataType == newtype && !forceRecreate)
                 return true;
+            // DataColumn nuk pranon tipe Nullable<>: kolona mbetet si eshte (me pare kjo ndodhte permes nje exception-i).
+            if (Nullable.GetUnderlyingType(newtype) != null)
+                return false;
+            // Qelizat bosh nuk konvertohen dot ne numer/bool dhe mbeten DBNull; i kalojme pa hedhur exception per secilen.
+            bool kaloBoshet = ore || (newtype != typeof(string) && newtype != typeof(DateTime));
 
             try
             {
@@ -860,6 +864,8 @@ namespace RestApi.WebAPI.Models
                 table.Columns.Add(newcolumn);
                 foreach (DataRow row in table.Rows)
                 {
+                    if (kaloBoshet && row[columnname].ToString().Length == 0)
+                        continue;
                     try
                     {
                         if (ore)

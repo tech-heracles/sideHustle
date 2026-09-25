@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -395,37 +396,18 @@ namespace PlatinumWeb
 				var primaryKeyEkzekutim = col.filtroFormatImportiPerPrimaryKey().KodKontrolli;
 				var rreshtaKoka = gvExport.GetSelectedFieldValues(primaryKeyEkzekutim);
 				var dt = (DataTable)gvExport.DataSource;
-				var rreshtaUnike = rreshtaKoka.Distinct().ToList();
-				var reshtatKokaFinal = new DataTable();
-
-				foreach (var oo in rreshtaUnike)
-				{
-					var rreshtatKokesPerId = dt.Select("[" + primaryKeyEkzekutim + "]=" + oo).GetDataTable(dt);
-					reshtatKokaFinal.Merge(rreshtatKokesPerId);//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
-				}
+				var reshtatKokaFinal = MerrRreshtatSipasCelesave(dt, primaryKeyEkzekutim, rreshtaKoka.Distinct());//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
 
 				var koka = clsFunksione.ktheDataTableMeKokeDokumentesh(col, reshtatKokaFinal, mySessionObjects.ktheKodNdermarrje(Session));
 				var primaryKeyProduktet = col.filtroFormatImportiPerPrimaryKeyProduktProdhimi().KodKontrolli;
 				var rreshtaKokaProdukt = gvExport.GetSelectedFieldValues(primaryKeyProduktet);
-				var rreshtaUnikeProdukt = rreshtaKokaProdukt.Distinct().ToList();
-				var reshtatKokaFinalProdukt = new DataTable();
-
-				foreach (var oo in rreshtaUnikeProdukt)
-				{
-					var rreshtatKokesPerIdProdukt = dt.Select("[" + primaryKeyProduktet + "]=" + oo).GetDataTable(dt);
-					reshtatKokaFinalProdukt.Merge(rreshtatKokesPerIdProdukt);//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
-				}
+				var reshtatKokaFinalProdukt = MerrRreshtatSipasCelesave(dt, primaryKeyProduktet, rreshtaKokaProdukt.Distinct());//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
 
 				var produktet = clsFunksione.ktheDataTableMeProdukteProdhimi(col, reshtatKokaFinalProdukt);
 				var kodKontrolliTrupi = KtheEmraFushashIdSipasKategorie(int.Parse(cmbKategoria.Value.ToString()));
 				var rreshtaTrupi = gvExport.GetSelectedFieldValues(kodKontrolliTrupi);
-				var rreshtaTrupiFinal = new DataTable();
 				dt = (DataTable)gvExport.DataSource;
-				foreach (var oo in rreshtaTrupi)
-				{
-					var rreshtatTrupi = dt.Select(kodKontrolliTrupi + " = " + oo).GetDataTable(dt);
-					rreshtaTrupiFinal.Merge(rreshtatTrupi);
-				}
+				var rreshtaTrupiFinal = MerrRreshtatSipasCelesave(dt, kodKontrolliTrupi, rreshtaTrupi);
 
 				var trupi = clsFunksione.ktheDataTableMeTrupaDokumentesh(col, rreshtaTrupiFinal, kodKontrolliTrupi, int.Parse(cmbKategoria.Value.ToString()));
 
@@ -461,12 +443,7 @@ namespace PlatinumWeb
 				var dt = (DataTable)gvExport.DataSource;
 				var primaryKey = MerrPrimaryKey(col, idSuperKategori);
 				var rreshtaKoka = gvExport.GetSelectedFieldValues(primaryKey);
-				var rreshtaUnike = rreshtaKoka.Distinct().ToList();
-				foreach (var oo in rreshtaUnike)
-				{
-					var rreshtatKokesPerId = dt.Select(string.Format("[{0}]={1}", primaryKey, oo)).GetDataTable(dt);
-					reshtatKokaFinal.Merge(rreshtatKokesPerId);//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
-				}
+				reshtatKokaFinal = MerrRreshtatSipasCelesave(dt, primaryKey, rreshtaKoka.Distinct());//Mbushim datatable me rreshtat e perzgjedhur ne gride per eksport.
 
 				var koka = clsFunksione.ktheDataTableMeKokeDokumentesh(col, reshtatKokaFinal, mySessionObjects.ktheKodNdermarrje(Session));
 
@@ -474,13 +451,8 @@ namespace PlatinumWeb
 				{
 					var kodKontrolliTrupi = KtheEmraFushashIdSipasKategorie(int.Parse(cmbKategoria.Value.ToString()));
 					var rreshtaTrupi = gvExport.GetSelectedFieldValues(kodKontrolliTrupi);
-					var rreshtaTrupiFinal = new DataTable();
 					dt = (DataTable)gvExport.DataSource;
-					foreach (var oo in rreshtaTrupi)
-					{
-						var rreshtatTrupi = dt.Select(string.Format("{0} = {1}", kodKontrolliTrupi, oo)).GetDataTable(dt);
-						rreshtaTrupiFinal.Merge(rreshtatTrupi);
-					}
+					var rreshtaTrupiFinal = MerrRreshtatSipasCelesave(dt, kodKontrolliTrupi, rreshtaTrupi);
 					trupi = clsFunksione.ktheDataTableMeTrupaDokumentesh(col, rreshtaTrupiFinal, kodKontrolliTrupi, int.Parse(cmbKategoria.Value.ToString()));
 				}
 
@@ -498,6 +470,19 @@ namespace PlatinumWeb
 				LogManager.GetCurrentClassLogger().Error(e.Message);
 				throw new MyException(MessagesResource.Messages["msgGabimGjateRuajtjesTabelatNdermjetese"], e);
 			}
+		}
+
+		/// <summary>
+		/// Kthen rreshtat e tabeles per secilin celes, sipas rendit te celesave dhe rendit ne tabele.
+		/// Njesoj si nje dt.Select per cdo celes, por me nje kalim te vetem ne tabele.
+		/// </summary>
+		private static DataTable MerrRreshtatSipasCelesave(DataTable dt, string kolona, IEnumerable<object> celesat)
+		{
+			var rreshtatSipasCelesit = dt.AsEnumerable().Where(r => r.RowState != DataRowState.Deleted).ToLookup(r => r[kolona]);
+			var rezultati = new DataTable();
+			foreach (var celesi in celesat)
+				rezultati.Merge(rreshtatSipasCelesit[celesi].GetDataTable(dt));
+			return rezultati;
 		}
 
 		private string MerrPrimaryKey(colTrupiFormatImporti col, int idSuperKategori)

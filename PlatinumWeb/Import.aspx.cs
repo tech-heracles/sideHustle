@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using AlphaWeb.Core.SharedKernel;
@@ -263,12 +264,9 @@ namespace PlatinumWeb
         {
             try
             {
+                // Kopje ne memorie, qe leximi i mevonshem ne api/Importi te mos varet nga stream-i i upload-it.
                 var f = ucEmerSkedari.UploadedFiles[0];
-                mySessionObjects.ruajFileUpload(Session, f.FileName, f.FileContent);
-                var pathDir = HttpContext.Current.Server.MapPath(null) + @"\Import\";
-                DirectoryExtension.CreateDirIfNotExists(pathDir);
-                if (f.FileName.EndsWith(".xls") || f.FileName.EndsWith(".xlsx")) //perdoret kur kemi OleDbConnection
-                    f.SaveAs(pathDir + f.FileName);
+                mySessionObjects.ruajFileUpload(Session, f.FileName, new MemoryStream(f.FileBytes));
             }
             catch (Exception err)
             {

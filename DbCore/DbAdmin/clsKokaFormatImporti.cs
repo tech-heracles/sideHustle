@@ -403,9 +403,10 @@ namespace DbCore.DbAdmin
                 string emerNjesia1 = vlerat.emerNjesia1, skema = vlerat.skema, vleradefaultnjesia = vlerat.vleradefaultnjesia, vleradefaultskema = vlerat.vleradefaultskema;
 
                 int i = 1;
+                var ekzistencat = new Dictionary<string, bool>();
                 foreach (DataRow dr in dt.Rows)
                 {
-                    mes = kontrolloDataRow(dr, error, rreshtaok, rreshtajoOk, importim, pozicionkodi, idKategori, col, i, emerNjesia1, skema, vleradefaultnjesia, vleradefaultskema, true, idndermarjes);
+                    mes = kontrolloDataRow(dr, error, rreshtaok, rreshtajoOk, importim, pozicionkodi, idKategori, col, i, emerNjesia1, skema, vleradefaultnjesia, vleradefaultskema, true, idndermarjes, ekzistencat);
                     if (!mes.Status)
                         break;
                     i++;
@@ -443,8 +444,20 @@ namespace DbCore.DbAdmin
             return (emerNjesia1, skema, vleradefaultnjesia, vleradefaultskema);
         }
 
-        public static clsMesazh kontrolloDataRow(DataRow dr, DataTable error, DataTable rreshtaok, DataTable rreshtajoOk, bool importim, int pozicionkodi, int idKategori, colTrupiFormatImporti col, int i, string emerNjesia1, string skema, string vleradefaultnjesia, string vleradefaultskema, bool removeRowsFromOkTable, int? idndermarjes = null)
+        /// <param name="ekzistencat">Cache per kontrollet e ekzistences (operator, proces, tip e-invoice) brenda nje kontrolli te vetem;
+        /// null = pa cache.</param>
+        public static clsMesazh kontrolloDataRow(DataRow dr, DataTable error, DataTable rreshtaok, DataTable rreshtajoOk, bool importim, int pozicionkodi, int idKategori, colTrupiFormatImporti col, int i, string emerNjesia1, string skema, string vleradefaultnjesia, string vleradefaultskema, bool removeRowsFromOkTable, int? idndermarjes = null, Dictionary<string, bool> ekzistencat = null)
         {
+            bool Ekziston(string lloji, string vlera, Func<bool> kontrollo)
+            {
+                if (ekzistencat == null)
+                    return kontrollo();
+                string celesi = lloji + "\u0001" + vlera;
+                if (!ekzistencat.TryGetValue(celesi, out bool ekziston))
+                    ekzistencat[celesi] = ekziston = kontrollo();
+                return ekziston;
+            }
+
             clsMesazh mes = null;
             foreach (clsTrupiFormatImporti trup in col)
             {
@@ -459,8 +472,7 @@ namespace DbCore.DbAdmin
                             var kodOperatori = dr[trup.EmerImporti].ToString();
                             if (String.IsNullOrEmpty(kodOperatori) is false)
                             {
-                                int rowFounded = clsOperator.MerrEmerMbiemerOperatoriSipasKodOperatori(kodOperatori, idndermarjes.Value);
-                                if (rowFounded == 0)
+                                if (!Ekziston("Operatori", kodOperatori, () => clsOperator.MerrEmerMbiemerOperatoriSipasKodOperatori(kodOperatori, idndermarjes.Value) != 0))
                                 {
                                     object[] err1 = { dr[pozicionkodi], $"Operatori {dr[trup.EmerImporti].ToString()} nuk ekziston", i };
                                     error.Rows.Add(err1);
@@ -472,8 +484,7 @@ namespace DbCore.DbAdmin
                             var Procesi = dr[trup.EmerImporti].ToString();
                             if (String.IsNullOrEmpty(Procesi) is false)
                             {
-                                var rowFoundedProcesi = clsKokaShitje.kthePershkrimProcesi(Procesi);
-                                if (rowFoundedProcesi.Rows.Count == 0)
+                                if (!Ekziston("Procesi", Procesi, () => clsKokaShitje.kthePershkrimProcesi(Procesi).Rows.Count != 0))
                                 {
                                     object[] err1 = { dr[pozicionkodi], $"Procesi {dr[trup.EmerImporti].ToString()} nuk ekziston", i };
                                     error.Rows.Add(err1);
@@ -485,8 +496,7 @@ namespace DbCore.DbAdmin
                             var eInvoiceType = dr[trup.EmerImporti].ToString();
                             if (String.IsNullOrEmpty(eInvoiceType) is false)
                             {
-                                var rowFoundedEinvoiceType = clsKokaShitje.kthePershkrimTipiEinvoice(eInvoiceType);
-                                if (rowFoundedEinvoiceType.Rows.Count == 0)
+                                if (!Ekziston("E-invoice Type", eInvoiceType, () => clsKokaShitje.kthePershkrimTipiEinvoice(eInvoiceType).Rows.Count != 0))
                                 {
                                     object[] err1 = { dr[pozicionkodi], $"E-invoice Type {dr[trup.EmerImporti].ToString()} nuk ekziston", i };
                                     error.Rows.Add(err1);
