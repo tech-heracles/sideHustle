@@ -1820,12 +1820,13 @@ namespace DbCore.DbRegjistrim
         }
         internal DataTable ktheIdProcesi(string kodProcesi)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@KODI", kodProcesi, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PROCESI_merrIdProcesi");
-            return ds.Tables[0];
-
+            return ImportCache.Merr<DataTable>(ImportCache.Procesi, kodProcesi, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@KODI", kodProcesi, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PROCESI_merrIdProcesi");
+                return ds.Tables[0];
+            }, t => t.Rows.Count > 0);
         }
         internal DataTable kthePershkrimProcesi(string kodProcesi)
         {
@@ -1865,12 +1866,13 @@ namespace DbCore.DbRegjistrim
         }
         internal DataTable ktheIdTipiEinvoice(string kodTipiEinvoice)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@KODI", kodTipiEinvoice, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TIPIEINVOICE_merrIdEINVOICE");
-            return ds.Tables[0];
-
+            return ImportCache.Merr<DataTable>(ImportCache.TipiEinvoice, kodTipiEinvoice, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@KODI", kodTipiEinvoice, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TIPIEINVOICE_merrIdEINVOICE");
+                return ds.Tables[0];
+            }, t => t.Rows.Count > 0);
         }
         /// <summary>
         /// kthen objektet koka dokumenti sipas idse

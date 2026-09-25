@@ -3205,20 +3205,22 @@ namespace DbCore.DbInventari
         }
         internal DataRow merrIdOperatoriSipasKodOperatori(string KodOperatori, int idndermarje)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", KodOperatori, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARRJE", idndermarje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_OPERATORE_merrIdOperatoriSipasKodOperatori");
-            if (ds.Tables[0].Rows.Count==0)
+            return ImportCache.Merr<DataRow>(ImportCache.Operatori, KodOperatori + "|" + idndermarje, () =>
             {
-                DataTable table = new DataTable();
-                DataRow row = table.NewRow();
-                
-                return row;
-            }
-            else 
-            return ds.Tables[0].Rows[0];
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", KodOperatori, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARRJE", idndermarje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_OPERATORE_merrIdOperatoriSipasKodOperatori");
+                if (ds.Tables[0].Rows.Count==0)
+                {
+                    DataTable table = new DataTable();
+                    DataRow row = table.NewRow();
+
+                    return row;
+                }
+                else 
+                return ds.Tables[0].Rows[0];
+            }, r => r.Table.Columns.Count > 0);
         }
         internal int merrEmerMbiemerOperatoriSipasKodOperatori(string KodOperatori, int idndermarje)
         {

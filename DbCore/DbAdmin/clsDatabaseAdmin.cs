@@ -63,10 +63,12 @@ namespace DbCore.DbAdmin
 
         internal object LexoKonfigurimSipasKeyNgaDb(string key)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddInputParameters("@key", key);
-            return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_SERVER_CONFIGURATION_selSipasKey");
+            return ImportCache.Merr<object>(ImportCache.KonfigServeri, key, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddInputParameters("@key", key);
+                return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_SERVER_CONFIGURATION_selSipasKey");
+            }, _ => true);
         }
 
 

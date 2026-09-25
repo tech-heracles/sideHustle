@@ -35,6 +35,10 @@ namespace DbCore.IMBUtils.Cache
         public const string Kodbar = "Kodbar";
         public const string Taksa = "Taksa";
         public const string Periudha = "Periudha";
+        public const string KonfigServeri = "KonfigServeri";
+        public const string Operatori = "Operatori";
+        public const string Procesi = "Procesi";
+        public const string TipiEinvoice = "TipiEinvoice";
 
         [ThreadStatic] private static ImportCache aktiv;
 
