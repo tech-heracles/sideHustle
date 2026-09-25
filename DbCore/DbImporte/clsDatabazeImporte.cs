@@ -317,26 +317,17 @@ VALUES (@ID_KOKA_IMPORT, @ID_DOKUMENTIMPORTUAR, @NRLLOGARI, @PERSHKRIMITRUPFLETE
             bool ekziston = false;
             try
             {
+                // Emri i tabeles vjen nga konfigurimi i importit qe shkruan perdoruesi: kalohet si parameter.
                 dbManager.Open();
-                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, "select case when exists((select * from information_schema.tables where table_name = '" + emerTabele + "')) then 1 else 0 end"));
-                dbManager.CloseReader();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@EMERTABELE", emerTabele, ParameterDirection.Input);
+                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, "select case when exists((select * from information_schema.tables where table_name = @EMERTABELE)) then 1 else 0 end"));
                 return ekziston;
             }
             catch
             {
-                try
-                {
-                    // Other RDBMS.  Graceful degradation
-                    dbManager.Open();
-                    ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, "select 1 from " + emerTabele + " where 1 = 0"));
-                    dbManager.CloseReader();
-                    return ekziston;
-                }
-                catch
-                {
-                    ekziston = false;
-                    return ekziston;
-                }
+                ekziston = false;
+                return ekziston;
             }
         }
 
@@ -345,9 +336,10 @@ VALUES (@ID_KOKA_IMPORT, @ID_DOKUMENTIMPORTUAR, @NRLLOGARI, @PERSHKRIMITRUPFLETE
             bool ekziston = false;
             try
             {
-                string query = "select COUNT(*) from sysobjects where type='P' and name='" + emerSP + "'";
                 dbManager.Open();
-                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, query));
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@EMERSP", emerSP, ParameterDirection.Input);
+                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, "select COUNT(*) from sysobjects where type='P' and name=@EMERSP"));
                 return ekziston;
             }
             catch

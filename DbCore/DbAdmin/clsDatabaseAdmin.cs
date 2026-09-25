@@ -4488,13 +4488,17 @@ namespace DbCore.DbAdmin
         {
             int nr;
             string sqlstr = "select COUNT(*) from T_KURSET " +
-                            " where LLOJIKURSIT = '" + llojkursi + "'" +
-                            " and IDMONEDHA = " + idmonedha +
-                            " and DATAKURSIT = convert(datetime,'" + datakursit + "', 103)" +
-                            " and VLERAKURSIT = " + vlerakursi;
-
+                            " where LLOJIKURSIT = @LLOJIKURSIT" +
+                            " and IDMONEDHA = @IDMONEDHA" +
+                            " and DATAKURSIT = @DATAKURSIT" +
+                            " and VLERAKURSIT = @VLERAKURSIT";
 
             dbManager.Open();
+            dbManager.CreateParameters(4);
+            dbManager.AddParameters(0, "@LLOJIKURSIT", llojkursi.ToString(), ParameterDirection.Input);
+            dbManager.AddParameters(1, "@IDMONEDHA", idmonedha, ParameterDirection.Input);
+            dbManager.AddParameters(2, "@DATAKURSIT", datakursit, ParameterDirection.Input);
+            dbManager.AddParameters(3, "@VLERAKURSIT", vlerakursi, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
             DataRow rreshti = ds.Tables[0].Rows[0];
             nr = int.Parse(rreshti[0].ToString());
@@ -5181,18 +5185,6 @@ namespace DbCore.DbAdmin
 
         //    try
         //    finally
-
-        internal DataSet ktheVitetNdermarrjes(String kodiNdermarrjes)
-        {
-
-
-            String sqlstr = "select IDNDERVITI, viti from T_NDERMARJEVITI nv, T_NDERMARJE n where nv.IDNDERMARJE = n.IDNDERMARJE and NDERMARJEKODI='" + kodiNdermarrjes + "'";
-
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sqlstr);
-            return ds;
-
-        }
 
         //internal string merrKodNdermarrje(int idndermarrjevit)
         //   
@@ -6884,27 +6876,6 @@ namespace DbCore.DbAdmin
 
         }
 
-        internal bool pastroMap()
-        {
-
-            string sql = "delete from t_raportet_sitemap where parentid>0";
-
-            dbManager.Open();
-
-            return bool.Parse(dbManager.ExecuteNonQuery(CommandType.Text, sql).ToString());
-
-
-        }
-
-        internal bool mapRaportetinsert(int id, int parentid, string navigateurl)
-        {
-
-            string sql = "insert into t_raportet_sitemap values (" + id + "," + parentid + ",'" + navigateurl + "','')";
-
-            dbManager.Open();
-            return bool.Parse(dbManager.ExecuteNonQuery(CommandType.Text, sql).ToString());
-
-        }
 
         internal int merrModulinAmbjentit(int IdAmbjentiModuli)
         {
@@ -9905,22 +9876,6 @@ namespace DbCore.DbAdmin
         //    try
         //    finally
 
-        public String ktheIdLlojDokumenti(String kodiLlojDokumenti)
-        {
-
-            String sql = "select IDLLOJDOK, KODI, PERSHKRIMI, MODULI, IDKOMPONENTE from T_LLOJDOKUMENTI where KODI = '" + kodiLlojDokumenti + "'";
-
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
-            if (ds.Tables[0].Rows.Count == 1)
-            {
-                DataRow rr = ds.Tables[0].Rows[0];
-                return rr[0].ToString();
-            }
-            else return "";
-
-        }
-
         internal DataTable ktheGjitheLlojetDokumentave()
         {
 
@@ -12105,9 +12060,10 @@ namespace DbCore.DbAdmin
             bool ekziston = false;
             try
             {
-                string query = "select COUNT(*) from sysobjects where type='P' and name='" + emerSP + "'";
                 dbManager.Open();
-                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, query));
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@EMERSP", emerSP, ParameterDirection.Input);
+                ekziston = Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.Text, "select COUNT(*) from sysobjects where type='P' and name=@EMERSP"));
                 return ekziston;
             }
             catch
@@ -13274,7 +13230,9 @@ namespace DbCore.DbAdmin
 
 
             dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, $"SELECT TOP 1 KOMPPERSHKRIMI_sq FROM T_KOMPONENTE WHERE KOMPONEMRI like '%{emerKomponente}%'");
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@EMERKOMPONENTE", emerKomponente, ParameterDirection.Input);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, "SELECT TOP 1 KOMPPERSHKRIMI_sq FROM T_KOMPONENTE WHERE KOMPONEMRI like '%' + @EMERKOMPONENTE + '%'");
             if (ds.Tables[0] == null)
                 return null;
             if (ds.Tables[0].Rows.Count == 0)

@@ -495,15 +495,18 @@ namespace DbCore.DbGIS
         internal DataTable getAllSkedareLloji(string lloji, int idPerdorues)
         {
             dbManager.Open();
-            string sql = " select * from T_GIS_App_SKEDARET where IDSTATUSDOK=1 AND LLOJI='" + lloji + "' AND IDKRIJUESI='" + idPerdorues + "'";
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
+            dbManager.CreateParameters(2);
+            dbManager.AddParameters(0, "@LLOJI", lloji, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@IDKRIJUESI", idPerdorues.ToString(), ParameterDirection.Input);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, " select * from T_GIS_App_SKEDARET where IDSTATUSDOK=1 AND LLOJI=@LLOJI AND IDKRIJUESI=@IDKRIJUESI");
             return ds.Tables[0];
         }
         internal DataTable getAllSkedareObjektGeo(string idDytesore)
         {
             dbManager.Open();
-            string sql = " select * from T_GIS_App_SKEDARET where IDSTATUSDOK=1 AND IDDYTESORE='" + idDytesore + "'";
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, sql);
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDDYTESORE", idDytesore, ParameterDirection.Input);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, " select * from T_GIS_App_SKEDARET where IDSTATUSDOK=1 AND IDDYTESORE=@IDDYTESORE");
             return ds.Tables[0];
         }
 
