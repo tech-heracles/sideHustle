@@ -49,7 +49,6 @@ RaporteUtils.IsForCustomExport = function () {
         case "labourOfficeReport":
         case "lejeVjetore":
         case "punonjesQenderKosto":
-        case "listeArketimeAnullimePostpaid":
             return true;
         default:
             return false;

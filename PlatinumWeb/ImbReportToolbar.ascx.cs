@@ -518,13 +518,8 @@ namespace PlatinumWeb
                     case "labourOfficeReport":
                     case "lejeVjetore":
                     case "punonjesQenderKosto":
-                    case "listeArketimeAnullimePostpaid":
-                    case "statusPorosiVFONE":
                     case "veprimeAparateEkspozitore":
                     case "gjendjaArtikujveIMEI":
-                    case "postPaidPayments":
-                    case "billPaymentsPerDay":
-                    case "dailyGuaranteePayment":
                     case "gjendjaMagazinesEkspozitor":
                     case "gjendjaArtikujveIMEIEkspozitor":
                     case "analizeStokuKrahasimShitje":
@@ -562,7 +557,6 @@ namespace PlatinumWeb
                     case "ecuriShitjesh":
                     case "VleratDitoreteArkes":
                     case "EksportimiFaturaBlerje":
-                    case "aparatetBleraNgaDealer":
                     case "raportiAgreguarShitjeve":
                     case "gjendjaAgreguarProdukteve":
                     case "HyrjetSipasDyqaneve":
@@ -741,15 +735,7 @@ namespace PlatinumWeb
 
         public void SetExportFormat(string RapEmriReal, int indexDefault)
         {
-            switch (RapEmriReal)
-            {
-                case "listeArketimeAnullimePostpaid":
-                    this.setExportFormat(ASPxComboBox_ExportFormat.Items.FindByValue("csv").Index);
-                    break;
-                default:
-                    this.setExportFormat(indexDefault);
-                    break;
-            }
+            this.setExportFormat(indexDefault);
         }
 
         /// <summary>

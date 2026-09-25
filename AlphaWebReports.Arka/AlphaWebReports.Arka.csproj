@@ -107,11 +107,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="DataSource\Ds_DailyGuaranteePayment.Designer.cs">
-      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="DataSource\Ds_LidhjaDokumentave.Designer.cs">
       <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -126,14 +121,6 @@
       <DependentUpon>Ds_LISTA_ARKETIME_ANULLIME.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.cs">
-      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSource\Ds_Post_Paid_Payments.Designer.cs">
       <DependentUpon>Ds_Post_Paid_Payments.xsd</DependentUpon>
@@ -301,12 +288,6 @@
     <Compile Include="Raporte\Rap_ArketimetSipasDiteve.Designer.cs">
       <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_DailyGuaranteePayment.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_DailyGuaranteePayment.Designer.cs">
-      <DependentUpon>Rap_DailyGuaranteePayment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_LevizjetELikujditeteve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -325,12 +306,6 @@
     <Compile Include="Raporte\Rap_LidhjaDokumentaveLidhes.Designer.cs">
       <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_ListaArketimeAnullimePostpaid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_ListaArketimeAnullimePostpaid.Designer.cs">
-      <DependentUpon>Rap_ListaArketimeAnullimePostpaid.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_ListaArketimeAnullime.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -348,12 +323,6 @@
     </Compile>
     <Compile Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.Designer.cs">
       <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_PostPaidPayments.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_PostPaidPayments.Designer.cs">
-      <DependentUpon>Rap_PostPaidPayments.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\RAP_UserKrediti.cs">
       <SubType>Component</SubType>
@@ -426,9 +395,6 @@
     <EmbeddedResource Include="Raporte\Rap_ArketimetSipasDiteve.resx">
       <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_DailyGuaranteePayment.resx">
-      <DependentUpon>Rap_DailyGuaranteePayment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_LevizjetELikujditeteve.resx">
       <DependentUpon>Rap_LevizjetELikujditeteve.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,9 +404,6 @@
     <EmbeddedResource Include="Raporte\Rap_LidhjaDokumentaveLidhes.resx">
       <DependentUpon>Rap_LidhjaDokumentaveLidhes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullimePostpaid.resx">
-      <DependentUpon>Rap_ListaArketimeAnullimePostpaid.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_ListaArketimeAnullime.resx">
       <DependentUpon>Rap_ListaArketimeAnullime.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,9 +412,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_PagesatPerMPesaSipasIntervaleve.resx">
       <DependentUpon>RAP_PagesatPerMPesaSipasIntervaleve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_PostPaidPayments.resx">
-      <DependentUpon>Rap_PostPaidPayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_UserKrediti.resx">
       <DependentUpon>RAP_UserKrediti.cs</DependentUpon>
@@ -553,17 +513,6 @@
     <None Include="DataSource\Ds_Bill_Payments_Per_Day.xss">
       <DependentUpon>Ds_Bill_Payments_Per_Day.xsd</DependentUpon>
     </None>
-    <None Include="DataSource\Ds_DailyGuaranteePayment.xsc">
-      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\Ds_DailyGuaranteePayment.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_DailyGuaranteePayment.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSource\Ds_DailyGuaranteePayment.xss">
-      <DependentUpon>Ds_DailyGuaranteePayment.xsd</DependentUpon>
-    </None>
     <None Include="DataSource\Ds_LidhjaDokumentave.xsc">
       <DependentUpon>Ds_LidhjaDokumentave.xsd</DependentUpon>
     </None>
@@ -596,17 +545,6 @@
     </None>
     <None Include="DataSource\Ds_LISTA_ARKETIME_ANULLIME.xss">
       <DependentUpon>Ds_LISTA_ARKETIME_ANULLIME.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsc">
-      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
-    </None>
-    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSource\DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xss">
-      <DependentUpon>DS_LISTA_ARKETIME_ANULLIME_POSTPAID.xsd</DependentUpon>
     </None>
     <None Include="DataSource\Ds_Post_Paid_Payments.xsc">
       <DependentUpon>Ds_Post_Paid_Payments.xsd</DependentUpon>

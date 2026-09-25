@@ -306,11 +306,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_Nivelet_e_Cmimeve.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_PorosiBazaar1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_PorosiBazaar.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_PRC_RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -705,20 +700,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_ShitjetSipasMuajve.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ds_Shitje_VFONE1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Shitje_VFONE.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_ShperndarjaKlienteve1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_ShperndarjaKlienteve.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_Statusi_porsosive_vfone1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Statusi_porsosive_vfone.xsd</DependentUpon>
     </Compile>
     <Compile Include="Ds_TeArdhuraShpenzimeFitimGraf.Designer.cs">
       <DependentUpon>Ds_TeArdhuraShpenzimeFitimGraf.xsd</DependentUpon>
@@ -3163,12 +3148,6 @@
     <Compile Include="Rap_Permbledhes_Urdher_Shitje.Designer.cs">
       <DependentUpon>Rap_Permbledhes_Urdher_Shitje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_PorosiBazaar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_PorosiBazaar.Designer.cs">
-      <DependentUpon>Rap_PorosiBazaar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_PorosiDealer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3589,23 +3568,11 @@
     <Compile Include="RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.Designer.cs">
       <DependentUpon>RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_Shitje_VFONE.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Shitje_VFONE.Designer.cs">
-      <DependentUpon>Rap_Shitje_VFONE.cs</DependentUpon>
-    </Compile>
     <Compile Include="RAP_ShperndarjaKlienteve.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RAP_ShperndarjaKlienteve.Designer.cs">
       <DependentUpon>RAP_ShperndarjaKlienteve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_StatusiIPorosive_VFONE.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_StatusiIPorosive_VFONE.Designer.cs">
-      <DependentUpon>Rap_StatusiIPorosive_VFONE.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_urdhershitjeSipasKlienteve.cs">
       <SubType>Component</SubType>
@@ -4119,17 +4086,6 @@
     </None>
     <None Include="Ds_Nivelet_e_Cmimeve.xss">
       <DependentUpon>Ds_Nivelet_e_Cmimeve.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_PorosiBazaar.xsc">
-      <DependentUpon>Ds_PorosiBazaar.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_PorosiBazaar.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_PorosiBazaar1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_PorosiBazaar.xss">
-      <DependentUpon>Ds_PorosiBazaar.xsd</DependentUpon>
     </None>
     <None Include="Ds_PRC_RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.xsc">
       <DependentUpon>Ds_PRC_RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.xsd</DependentUpon>
@@ -4954,17 +4910,6 @@
     <None Include="Ds_ShitjetSipasMuajve.xss">
       <DependentUpon>Ds_ShitjetSipasMuajve.xsd</DependentUpon>
     </None>
-    <None Include="Ds_Shitje_VFONE.xsc">
-      <DependentUpon>Ds_Shitje_VFONE.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Shitje_VFONE.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Shitje_VFONE1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Shitje_VFONE.xss">
-      <DependentUpon>Ds_Shitje_VFONE.xsd</DependentUpon>
-    </None>
     <None Include="Ds_ShperndarjaKlienteve.xsc">
       <DependentUpon>Ds_ShperndarjaKlienteve.xsd</DependentUpon>
     </None>
@@ -4975,17 +4920,6 @@
     </None>
     <None Include="Ds_ShperndarjaKlienteve.xss">
       <DependentUpon>Ds_ShperndarjaKlienteve.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Statusi_porsosive_vfone.xsc">
-      <DependentUpon>Ds_Statusi_porsosive_vfone.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_Statusi_porsosive_vfone.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Statusi_porsosive_vfone1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Ds_Statusi_porsosive_vfone.xss">
-      <DependentUpon>Ds_Statusi_porsosive_vfone.xsd</DependentUpon>
     </None>
     <None Include="Ds_TeArdhuraShpenzimeFitimGraf.xsc">
       <DependentUpon>Ds_TeArdhuraShpenzimeFitimGraf.xsd</DependentUpon>
@@ -6266,9 +6200,6 @@
     <EmbeddedResource Include="Rap_Permbledhes_Urdher_Shitje.resx">
       <DependentUpon>Rap_Permbledhes_Urdher_Shitje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_PorosiBazaar.resx">
-      <DependentUpon>Rap_PorosiBazaar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_PorosiDealer.resx">
       <DependentUpon>Rap_PorosiDealer.cs</DependentUpon>
     </EmbeddedResource>
@@ -6479,14 +6410,8 @@
     <EmbeddedResource Include="RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.resx">
       <DependentUpon>RAP_Shitje_kerkesat_ofertat_porosite_sipasautorizimeve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Shitje_VFONE.resx">
-      <DependentUpon>Rap_Shitje_VFONE.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RAP_ShperndarjaKlienteve.resx">
       <DependentUpon>RAP_ShperndarjaKlienteve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_StatusiIPorosive_VFONE.resx">
-      <DependentUpon>Rap_StatusiIPorosive_VFONE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_urdhershitjeSipasKlienteve.resx">
       <DependentUpon>Rap_urdhershitjeSipasKlienteve.cs</DependentUpon>

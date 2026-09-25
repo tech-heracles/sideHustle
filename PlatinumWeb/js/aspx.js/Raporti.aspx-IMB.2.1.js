@@ -436,8 +436,6 @@ function ButtonClickedLlojDok(editor) {
         case "gjendjaMagazineSipasAutorizimeve":
         case "regjistriPermbledhesMagazineAutorizime":
         case "regjistriAnalitikMagazineAutorizime":
-        case "hyrjeVodafone":
-        case "hyrjeVodafoneNdermarrjeBije":
         case "gjendjaMagazinesVlefte":
         case "gjendjaMagazineCmimeShitje":
             contentUrl = 'LupaKonfigurime.aspx?veprimi=6&vjenNgaRaporti=true';
@@ -500,8 +498,6 @@ function ButtonClickedLlojDokLidhes(editor) {
         case "gjendjaMagazineSipasAutorizimeve":
         case "regjistriPermbledhesMagazineAutorizime":
         case "regjistriAnalitikMagazineAutorizime":
-        case "hyrjeVodafone":
-        case "hyrjeVodafoneNdermarrjeBije":
         case "gjendjaMagazinesVlefte":
         case "gjendjaMagazineCmimeShitje":
             contentUrl = 'LupaKonfigurime.aspx?veprimi=6&vjenNgaRaporti=true';
@@ -614,9 +610,7 @@ function ButtonClickedArkaBanka(editor) {
             break;
         case "2"://ARKA
             contentUrl = 'LupaBanka.aspx?arkabanka=3&arka=false&vjenNgaRaporti=true';
-            if (RaportiEmerReal == "ArketimetOrare" || RaportiEmerReal == "pagesaDealer" || RaportiEmerReal == "listeArketimeAnullime" ||
-                RaportiEmerReal == "postPaidPayments" || RaportiEmerReal == "billPaymentsPerDay" || RaportiEmerReal == "dailyGuaranteePayment" ||
-                RaportiEmerReal == "arketimeDitore" || RaportiEmerReal == "listeArketimeAnullimePostpaid")
+            if (RaportiEmerReal == "ArketimetOrare" || RaportiEmerReal == "listeArketimeAnullime" || RaportiEmerReal == "arketimeDitore")
                 contentUrl += "&MerrNdemarrjeBija=true";
             if (RaportiEmerReal == "levizjetelikujditeteve")
                 contentUrl += "&PermbledhesArkeBanke=true";

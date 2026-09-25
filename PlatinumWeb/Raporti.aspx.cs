@@ -2664,12 +2664,11 @@ namespace PlatinumWeb
 					r.ExportOptions.Xls.RawDataMode = rawFormat;
 					hiqReportHeaderNgaRaporti(r, EmerRaporti);
 					break;
-				case "csv": //to do Per Vodafone ne raportin e shitjeve ditore
+				case "csv":
 					DevExpress.XtraPrinting.CsvExportOptions csvOptions = r.ExportOptions.Csv;
 					csvOptions.Encoding = Encoding.Unicode;
 					csvOptions.Separator = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator.ToString();
 					hiqReportHeaderNgaRaporti(r, EmerRaporti);
-					hiqPageFooterNgaRaporti(r, EmerRaporti);
 					break;
 			}
 		}
@@ -2687,7 +2686,6 @@ namespace PlatinumWeb
 					case "labourOfficeReport":
 					case "lejeVjetore":
 					case "punonjesQenderKosto":
-					case "listeArketimeAnullimePostpaid":
 						{
 							Band band = r.Bands.GetBandByType(typeof(ReportHeaderBand));
 							band.Visible = false;
@@ -2698,17 +2696,6 @@ namespace PlatinumWeb
 			catch (Exception err)
 			{
 				ImbLogger.Error(err.Message);
-			}
-		}
-
-		public void hiqPageFooterNgaRaporti(XtraReport r, string emri)
-		{
-			switch (emri)
-			{
-				case "listeArketimeAnullimePostpaid":
-					Band band = r.Bands.GetBandByType(typeof(PageFooterBand));
-					band.Visible = false;
-					break;
 			}
 		}
 
@@ -7744,7 +7731,7 @@ namespace PlatinumWeb
 
 
 
-			if (RaportiEmerReal == "ArketimetOrare" || RaportiEmerReal == "pagesaDealer" || RaportiEmerReal == "listeArketimeAnullime" || RaportiEmerReal == "postPaidPayments" || RaportiEmerReal == "billPaymentsPerDay" || RaportiEmerReal == "dailyGuaranteePayment" || RaportiEmerReal == "arketimeDitore" || RaportiEmerReal == "listeArketimeAnullimePostpaid")
+			if (RaportiEmerReal == "ArketimetOrare" || RaportiEmerReal == "listeArketimeAnullime" || RaportiEmerReal == "arketimeDitore")
 				((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblArkaBankaEmra")).Text = rm.GetString("labelFilterAvancuarDyqan", ci);
 
 			else if (RaportiEmerReal == "listepagesaBanka")
@@ -7934,9 +7921,6 @@ namespace PlatinumWeb
 					((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblKompania")).Text = rm.GetString("filterRaportIdNdermarje", ci);
 					break;
 
-				case "pagesaDealer":
-					((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblKompania")).Text = rm.GetString("koloneLoginNdermarrjeNdermarrja", ci);
-					break;
 				case "daljeNgaDyqani":
 				case "maturimFaturaPerTuPaguarFinanca":
 				case "shitjeAparatesh":
@@ -7945,7 +7929,6 @@ namespace PlatinumWeb
 				case "LargimetPerfaqesuesveTeShitjesVjetore":
 				case "LargimetPerfaqesuesveTeShitjesMujore":
 				case "HistorikuTeDhenaveTePerfaqesuesveTeShitjes":
-				case "listeArketimeAnullimePostpaid":
 					((ASPxLabel)navBarFiltrat.Groups[1].FindControl("lblKompania")).Text = "Dealer";
 					break;
 				default:
