@@ -10783,11 +10783,18 @@ namespace DbCore.DbRegjistrim
         internal void ktheTaksaSipasKodi(string kodi, int idNderm, IDataBase objekti)
         {
             ImbLogger.LogTraceShitje($"Filloi metoda ktheTaksaSipasKodi nga DB sipas kodi:{kodi} dhe idNderm:{idNderm}");
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERM", idNderm, ParameterDirection.Input);
-            dbManager.FillCollection("prc_T_TAKSAT_merrSipasKodi", objekti);
+            // gjate importit kerkohet per cdo rresht: rezultati ruhet si tabele dhe objekti mbushet prej saj,
+            // njesoj si nga reader-i i databazes
+            DataTable taksat = ImportCache.Merr<DataTable>(ImportCache.Taksa, "kodi|" + kodi + "|" + idNderm, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERM", idNderm, ParameterDirection.Input);
+                return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TAKSAT_merrSipasKodi").Tables[0];
+            }, dt => dt.Rows.Count > 0);
+            using (DataTableReader reader = taksat.CreateDataReader())
+                while (reader.Read())
+                    objekti.Mbush(reader);
             ImbLogger.LogTraceShitje($"Mbaroi metoda ktheTaksaSipasKodi nga DB sipas kodi:{kodi} dhe idNderm:{idNderm}");
 
 
