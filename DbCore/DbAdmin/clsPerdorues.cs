@@ -39,6 +39,7 @@ namespace DbCore.DbAdmin
         private int idStilRaporti;
         private string stilRaportiFileName;
         private colRolPerdorues oColRolPerdoruesi;
+        private bool ngarkoRoletKurKerkohen;
         private float zoomFactor;
         private int idAmbjent;
         private int idAmbjentMobile;
@@ -440,8 +441,24 @@ namespace DbCore.DbAdmin
         /// </summary>
         public colRolPerdorues OColRolPerdoruesi
         {
-            get { return oColRolPerdoruesi; }
-            set { oColRolPerdoruesi = value; }
+            get
+            {
+                // rolet e nje perdoruesi te lexuar nga databaza merren kur kerkohen: nje liste me perdorues
+                // nuk ben me nje query per secilin (112 per listen e perdoruesve)
+                if (ngarkoRoletKurKerkohen)
+                {
+                    ngarkoRoletKurKerkohen = false;
+                    var rolet = new colRolPerdorues();
+                    rolet.mbushRolePerdoruesSipasPerdoruesi(idPerdorues);
+                    oColRolPerdoruesi = rolet;
+                }
+                return oColRolPerdoruesi;
+            }
+            set
+            {
+                oColRolPerdoruesi = value;
+                ngarkoRoletKurKerkohen = false;
+            }
         }
 
         /// <summary>
@@ -1039,6 +1056,8 @@ namespace DbCore.DbAdmin
                 {
                     if (!dbAdmin.ekzistonPerdoruesMeKeteKod(perdorues.PerdoruesUsername))
                         return new MesazhGabimi("Nuk ekziston asnje perdorues me kete kod!");
+                    // rolet qe do ruhen merren tani, para se te fshihen ato ekzistuese me poshte
+                    colRolPerdorues roletPerTuRuajtur = perdorues.OColRolPerdoruesi;
 
                     mesazh = dbAdmin.modifikoPerdorues(perdorues.IdPerdorues, perdorues.IdQyteti, perdorues.IdGjuha, perdorues.EmriPerdorues, perdorues.MbiemriPerdorues, perdorues.PerdoruesAktiv, perdorues.PerdoruesUsername, perdorues.PerdoruesPassword, perdorues.PerdoruesTel, perdorues.PerdoruesFax, perdorues.PerdoruesEmail, perdorues.PerdoruesAdresa, perdorues.IdPerdoruesi, perdorues.idStilRaporti, perdorues.idStatusDok, perdorues.zoomFactor, perdorues.infoHapur, perdorues.idAmbjent, perdorues.kerkeseResetPass, perdorues.passwordIPerkohshem, perdorues.perdoruesIKycur, perdorues.dateKrijimiPassword, perdorues.KontrollPassword, perdorues.ExportFormat, perdorues.ExportMode, perdorues.ShfaqDtPrintimi, perdorues.KycurMobile, perdorues.ShfaqPerdoruesMenu, perdorues.ShfaqMesazhePopup, perdorues.idAmbjentMobile, perdorues.shopCode, perdorues.shopName, perdorues.dealerName, perdorues.useriCRM, perdorues.userEtopUP, perdorues.iDETopUp, perdorues.typeOfDevice, perdorues.salesRepMobileNumber, perdorues.salesRepMPesaMSISDN, perdorues.gjinia, perdorues.salesRepStartDateVod, perdorues.salesRepTrainingStart, perdorues.salesRepStartDateShop, perdorues.salesRepMaternityLeaveStart, perdorues.leaveDateVod, perdorues.leaveDateShop, perdorues.maternityLeaveEndDate, perdorues.trainingEndDate, perdorues.commentsRetailSales, perdorues.accountExecutive, perdorues.iDNumber, perdorues.isInsured, perdorues.commentsRetailOpSpecialist, perdorues.regionalSupervisor, perdorues.retailSalesAccountExecutive, perdorues.retailSalesAreaManager, perdorues.birthdate, perdorues.siteCode, perdorues.district, perdorues.shopMainCode, perdorues.latitude, perdorues.longitude, perdorues.status, perdorues.leaveReason, perdorues.uniform, perdorues.shenime, perdorues.statusAprovimi, perdorues.njoftimEmailAprovim, perdorues.idKonfigKasa);
                     if (!mesazh.Status)
@@ -1064,7 +1083,7 @@ namespace DbCore.DbAdmin
                                 return mesazh;
                         }
 
-                        foreach (clsRolPerdorues o in perdorues.OColRolPerdoruesi)
+                        foreach (clsRolPerdorues o in roletPerTuRuajtur)
                         {
                             int id = dbAdmin.krijoRolPerdorues(o.IdRoli, perdorues.IdPerdorues);
                             if (id == -1)
@@ -1622,8 +1641,8 @@ namespace DbCore.DbAdmin
                     int.TryParse(dbDataRowPerdorues["StatusAprovimi"].ToString(), out statusAprovimi);
                     if (dbDataRowPerdorues["NjoftimEmailAprovim"] != DBNull.Value)
                         njoftimEmailAprovim = Convert.ToBoolean(dbDataRowPerdorues["NjoftimEmailAprovim"]);
-                    oColRolPerdoruesi = new colRolPerdorues();
-                    oColRolPerdoruesi.mbushRolePerdoruesSipasPerdoruesi(idPerdorues);
+                    oColRolPerdoruesi = null;
+                    ngarkoRoletKurKerkohen = true;
                     int.TryParse(dbDataRowPerdorues["IDKONFIGKASA"].ToString(), out idKonfigKasa);
 
 
