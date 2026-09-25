@@ -79,12 +79,17 @@ namespace PlatinumWeb
 			response.Flush();
 		}
 
-		[Conditional("DEBUG")]
+		/// <summary>
+		/// Faqja e gabimit. Me pare ishte [Conditional("DEBUG")]: ne nje build Release perdoruesi merrte nje faqe bosh.
+		/// Detajet e plota (stack trace) shfaqen vetem per kerkesat nga vete serveri.
+		/// </summary>
 		public static void WriteErrorOnResponse(HttpResponse response, Exception ex)
 		{
+			bool lokale = HttpContext.Current?.Request.IsLocal == true;
 			response.Write("<h2>Global Page Error</h2>\n");
-			response.Write($"<p>{ex.Message}</p>\n");
-			response.Write($"<p>{ex}</p>\n");
+			response.Write($"<p>{HttpUtility.HtmlEncode(ex.Message)}</p>\n");
+			if (lokale)
+				response.Write($"<p>{HttpUtility.HtmlEncode(ex.ToString())}</p>\n");
 			response.Write("Return to the <a href='FaqeKryesore.aspx'>Default Page</a>\n");
 		}
 	}

@@ -66,6 +66,24 @@ namespace DbCore.IMBUtils.Logging
             }
         }
 
+        // Error/Fatal shkruhen ne log (me pare trupat ishin te komentuar dhe gabimet humbnin pa gjurme);
+        // Warn/Info/Trace mbeten te fikura: disa thirren per cdo rresht grideje.
+        private static readonly ILogger _logger = LogManager.GetLogger("ImbLogger");
+
+        private static void Shkruaj(LogLevel level, Exception ex, string message)
+        {
+            try
+            {
+                var ev = new LogEventInfo(level, _logger.Name, message ?? ex?.Message ?? "") { Exception = ex };
+                ev.Properties["DataBase"] = ServerName;
+                _logger.Log(typeof(ImbLogger), ev);
+            }
+            catch
+            {
+                // logimi nuk duhet te shkaktoje gabim te ri
+            }
+        }
+
         #region te pergjithshme
         [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Log(LogLevel level, StackFrame stackFrame, string message)
@@ -76,21 +94,21 @@ namespace DbCore.IMBUtils.Logging
 
 
 
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(Exception ex)
         {
+            Shkruaj(LogLevel.Error, ex, ex?.Message);
         }
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(Exception ex, string message)
         {
+            Shkruaj(LogLevel.Error, ex, message);
         }
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(string message, Exception ex)
         {
+            Shkruaj(LogLevel.Error, ex, message);
         }
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Error(string errorMesage)
         {
+            Shkruaj(LogLevel.Error, null, errorMesage);
         }
         [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Warn(Exception ex)
@@ -109,14 +127,14 @@ namespace DbCore.IMBUtils.Logging
         {
         }
 
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Fatal(Exception ex)
         {
+            Shkruaj(LogLevel.Fatal, ex, ex?.Message);
         }
 
-        [Conditional("IMB_LOG")] // trupi eshte i komentuar: thirrjet (dhe argumentat) hiqen nga kompilimi
         public static void Fatal(string fatalErrorMessage)
         {
+            Shkruaj(LogLevel.Fatal, null, fatalErrorMessage);
         }
         #endregion
 
