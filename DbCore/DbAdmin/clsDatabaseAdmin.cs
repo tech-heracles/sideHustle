@@ -13174,17 +13174,19 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         internal string merrAutorizimeArt(int idArtikulli) //TO CHECK SENADA - KJO NUK PUNON NUK I KTHEN NE RREGULL
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@idArtikulli", idArtikulli, ParameterDirection.Input);
-            object autorizimeObj = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizimeArt");
-            if (autorizimeObj == null)
-                return "";
-            else
+            return ImportCache.Merr<string>(ImportCache.Artikull, "autorizime|" + idArtikulli, () =>
             {
-                string autorizime = autorizimeObj.ToString();
-                return autorizime = autorizime.IndexOf(',') == -1 ? autorizime : autorizime.Substring(0, autorizime.Length - 1);
-            }
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@idArtikulli", idArtikulli, ParameterDirection.Input);
+                object autorizimeObj = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_AUTORIZIMIKOKA_ktheAutorizimeArt");
+                if (autorizimeObj == null)
+                    return "";
+                else
+                {
+                    string autorizime = autorizimeObj.ToString();
+                    return autorizime = autorizime.IndexOf(',') == -1 ? autorizime : autorizime.Substring(0, autorizime.Length - 1);
+                }
+            }, _ => true);
         }
 
         /// <summary>

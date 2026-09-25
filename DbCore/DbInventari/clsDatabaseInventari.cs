@@ -8817,15 +8817,15 @@ namespace DbCore.DbInventari
         /// <returns> nje datatable qe permban nje koleksion me te gjitha detajim artikulli te ketij artikulli SIPAS LLOJIT</returns>
         internal DataTable ktheDetajimArtSipasIdArtikulliDheLlojit(int idartikulli, int lloji)
         {
+            return ImportCache.Merr<DataTable>(ImportCache.Artikull, "detajim|" + idartikulli + "|" + lloji, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@LLOJDETAJIM", lloji, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMART_merrDetajimArtSipasArtikullitDheLlojit");
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@LLOJDETAJIM", lloji, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DETAJIMART_merrDetajimArtSipasArtikullitDheLlojit");
-
-            return ds.Tables[0];
-
+                return ds.Tables[0];
+            }, _ => true).Copy();
         }
         //[Obsolete("Perdor: DataTable ktheDetajimArtSipasIdArtikulli(int idartikulli)", true)]
         //{//metoda per te marre DetajimArt sipas id artikulli
