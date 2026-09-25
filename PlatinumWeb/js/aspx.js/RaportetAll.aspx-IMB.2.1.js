@@ -46,18 +46,13 @@ window.RaportetAll = (function () {
         splitpane2.Expand(splitpane3);
     };
 
-    var openHelpWindow = function (s, e, helpUrl) {
-        window.open(helpUrl, "_blank");
-    };
-
     return {
         hapRaportin: filtroButtonClick,
         hapKubin: hapKubin,
         filtroButtonClick: filtroButtonClick,
         klickselectedvaluedok: klickselectedvaluedok,
         expandAll: expandAll,
-        collapseAll: collapseAll,
-        openHelpWindow: openHelpWindow
+        collapseAll: collapseAll
     };
 })();
 

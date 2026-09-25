@@ -267,7 +267,7 @@ namespace PlatinumWeb
                         ASPxMenu1.Items[ASPxMenu1.Items.Count - 1].ClientVisible = true;
                         break;
                     case "ItemFrame":
-                        clsToolbarConfig.ShtoMenuItemPerFrame(this, ASPxMenu1, clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1);
+                        clsToolbarConfig.ShtoMenuItemPerFrame(this, ASPxMenu1);
                         break;
                 }
                 if (m.Name == "Shto" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemFilter" || m.Name == "ItemFrame")

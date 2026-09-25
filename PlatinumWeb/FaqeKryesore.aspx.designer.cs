@@ -10,7 +10,6 @@
 namespace PlatinumWeb
 {
 
-
     public partial class FaqeKryesore
     {
 
@@ -40,8 +39,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-
 
         /// <summary>
         /// ScriptManager1 control.
@@ -215,51 +212,6 @@ namespace PlatinumWeb
         protected global::DevExpress.Web.PanelContent PanelContent4;
 
         /// <summary>
-        /// popupRemoteSupport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl popupRemoteSupport;
-
-        /// <summary>
-        /// PopupControlContentControl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.PopupControlContentControl PopupControlContentControl1;
-
-        /// <summary>
-        /// ASPxPanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel ASPxPanel1;
-
-        /// <summary>
-        /// PanelContent1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.PanelContent PanelContent1;
-
-        /// <summary>
-        /// btnDownloadProgramKase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnDownloadProgramKase;
-
-        /// <summary>
         /// SessionTimeout control.
         /// </summary>
         /// <remarks>
@@ -267,15 +219,6 @@ namespace PlatinumWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PlatinumWeb.TimeoutControl SessionTimeout;
-
-        /// <summary>
-        /// hfUrlHelp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField hfUrlHelp;
 
         /// <summary>
         /// hfUsername control.

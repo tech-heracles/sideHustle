@@ -1446,7 +1446,7 @@ namespace PlatinumWeb
                 }
 
                 if (m.Name == "ItemFrame")
-                    clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1, clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1, idDokPara, idDokPas);
+                    clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1, idDokPara, idDokPas);
                 if (m.Name == "Shto" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemFilter" || m.Name == "ItemFrame" || m.Name == "AutoKonverto")// || m.Name == "Arkiva" || m.Name == "Konverto" || m.Name == "Pezullo" || m.Name == "AutoKonverto")
                     aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].BeginGroup = true;
                 var komponente = clsToolbarConfig.MerrEmerKomponenteSipasEmritTeMenuse(m.Name);

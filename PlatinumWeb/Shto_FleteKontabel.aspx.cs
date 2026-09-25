@@ -193,7 +193,7 @@ namespace PlatinumWeb
                 switch (m.Name)
                 {
                     case "ItemFrame":
-                        clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1, clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1);
+                        clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1);
                         break;
                     case "ItemFilter":
                         EventHandler handlerPerRuajFilter = Ruaj_ASPxButton_ClickSkema;

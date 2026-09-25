@@ -169,9 +169,6 @@ function collapseAll(s, e) {
         window.location.href = "FaqeKryesore.aspx";
     }
 }
-function openHelpWindow(s, e, helpUrl) {
-    window.open(helpUrl, "_blank");
-}
 function kerkoTextChanged(filterString) {
     krijoListen({ lista: pageState.myList, filterString: filterString?filterString:this.text(), fushaEmrit: pageState.fushaEmrit, fushaLinkut: pageState.fushaLinkut, selektorHomeMenu: pageState.selektorHomeMenu, fushaIdRaportit: pageState.idRaporti });
 }

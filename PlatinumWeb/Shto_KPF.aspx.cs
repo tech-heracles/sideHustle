@@ -1461,25 +1461,12 @@ namespace PlatinumWeb
                 listBoxLlogarite.Columns[i].Visible = grida.VisibleTrupi;
                 i++;
             }
-
-            percaktoAtributeTeListes();
         }
 
         protected void listBoxLlogarite_DataBound(object sender, EventArgs e)
         {// shton colonen # per selektim dhe disa karakteristika te grides
 
         }
-        /// <summary>
-        /// percakton atribute te listboxit te llogarive
-        /// </summary>
-        private void percaktoAtributeTeListes()
-        {
-
-            listBoxLlogarite.CssFilePath = "~/App_Themes/BlackGlass/{0}/styles.css";
-            listBoxLlogarite.CssPostfix = "BlackGlass";
-
-        }
-
         protected void cmbPrindi_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
         {
 

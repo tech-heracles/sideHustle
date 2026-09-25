@@ -66,14 +66,6 @@ namespace PlatinumWeb {
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField hfState;
         
-        /// <summary>
-        /// btnHelp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnHelp;
         
         /// <summary>
         /// btnCollapseAll control.

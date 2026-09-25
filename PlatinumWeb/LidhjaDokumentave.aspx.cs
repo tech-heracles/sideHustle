@@ -308,7 +308,7 @@ namespace PlatinumWeb
                         }
                         break;
                     case "ItemFrame":
-                        clsToolbarConfig.ShtoMenuItemPerFrame(this, ASPxMenu1, clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1);
+                        clsToolbarConfig.ShtoMenuItemPerFrame(this, ASPxMenu1);
                         break;
                 }
 

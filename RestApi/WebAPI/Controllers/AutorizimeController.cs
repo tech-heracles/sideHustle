@@ -87,23 +87,6 @@ namespace RestApi.WebAPI.Controllers
 			}
 		}
 		[HttpPost, HttpGet]
-		public HttpResponseMessage KtheLicence(JObject param)
-		{
-			try
-			{
-				int idNdermarrje = param.Value<int>("idNdermarrje");
-				int idPerdoruesi = param.Value<int>("idPerdoruesi");
-				clsLicenca licenca = new clsLicenca();
-				licenca.mbushLicencen(idPerdoruesi);
-				return Request.KthePergjigje(new { kodlicenca = licenca.KodLicenca, datelicenca = licenca.DateSkadimi, llojlicenca = licenca.IdLlojLicenca, nrperdorues = licenca.NrPerdoruesish, nrndermarrje = licenca.NrNdermarjesh });
-			}
-			catch (Exception ex)
-			{
-				return Request.KthePergjigjeGabim(param, ex);
-			}
-		}
-
-		[HttpPost, HttpGet]
 		public HttpResponseMessage ruajNeSessionURLART(JObject param)
 		{
 			try

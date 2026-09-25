@@ -676,7 +676,7 @@
                                                 <dx:ASPxGridView ID="gvBuxheti" runat="server" ClientInstanceName="gvBuxheti"
                                                     OnAfterPerformCallback="gvBuxheti_AfterPerformCallback"  
                                                       OnHtmlRowCreated="gvBuxheti_HtmlRowCreated">
-                                                    <Images ImageFolder="~/App_Themes/BlackGlass/{0}/">
+                                                    <Images>
                                                         <FilterRowButton Height="13px" Width="13px" />
                                                     </Images>
                                                     <Styles    >

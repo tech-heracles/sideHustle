@@ -75,7 +75,6 @@ namespace PlatinumWeb
 				Login1.Focus();
 				HtmlForm form = (HtmlForm)FindControl("form1");
 				ASPxButton LoginButton = (ASPxButton)Login1.FindControl("LoginButton");
-				string urlHelpi = clsFunksione.ktheUrlHelpi("").Item1;
 
 
 				if (form != null && LoginButton != null)

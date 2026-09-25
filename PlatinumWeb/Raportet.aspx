@@ -193,12 +193,6 @@
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server"></dx:ASPxHiddenField>
             <div class="reportFiltraHeader">
                 <div class="boxHeader" data-role="none" style="float: right;">
-                    <dx:ASPxButton ID="btnHelp" runat="server" Text="" ClientInstanceName="btnHelp" Width="40"
-                        Height="24" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"
-                        ImagePosition="Bottom" HorizontalAlign="Center" ToolTip="Ndihme" OnInit="btnHelp_Init">
-                        <Image Url="images/new/help_14.png" UrlHottracked="images/new/help_14_W.png">
-                        </Image>
-                    </dx:ASPxButton>
                     <dx:ASPxButton ID="btnCollapseAll" runat="server" Text="" ClientInstanceName="btnCollapseAll"
                         Width="40" Height="24" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"
                         Font-Bold="True">

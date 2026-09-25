@@ -44,35 +44,12 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         return;
     }
 
-    if (emrimenuse === "abonimi") {
-        myAbonim.ndertoAbonim({ idGjuha: parseInt(hfState.Get("idGjuha")) });
-        return;
-    }
-
     if (emrimenuse === "transferimDaljePopup") {
         TransferimSerialeUnike.ndertoPopupTransferimSerialeUnike({ idGjuha: parseInt(hfState.Get("idGjuha")), idNdermarrje: pageState.idNdermarrje });
         return;
     }
-    if (emrimenuse === "" || emrimenuse === "ikonaImazhPerdorues" || emrimenuse === "dalje" || emrimenuse === "manuali")
+    if (emrimenuse === "" || emrimenuse === "ikonaImazhPerdorues" || emrimenuse === "dalje")
         return;
-    if (emrimenuse.indexOf("alpha_web_help") !== -1)
-        return;
-    if (emrimenuse.indexOf("RemoteSupport") !== -1) {
-        popupRemoteSupport.Show();
-        return;
-    }
-    if (emrimenuse.indexOf("ProgramKaseNew") !== -1) {
-        downloadURL("Kase/KASA.exe");
-        return;
-    }
-    if (emrimenuse.indexOf("ProgramKase") !== -1) {
-        downloadURL('Kase/IMBKase.exe');
-        return;
-    }
-
-    if (emrimenuse === "Versioni") {
-        return;
-    }
 
     if (emrimenuse.indexOf("LupaPersonalizoPerdorues.aspx") !== -1) {
         emrimenuse = "LupaPersonalizoPerdorues.aspx";
@@ -93,46 +70,25 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         return;
     }
     myCookies.createCookie('adresa', emrimenuse, 1);
-    if (emrimenuse.indexOf("alpha_web_help") === -1 && emrimenuse.indexOf("RemoteSupport") === -1) {
+    var idTheme = Utils.getNumberOrDefaultFromUrl('idTheme') == 0 ? hfState.Get("idTheme") : 0;
 
-        var idTheme = Utils.getNumberOrDefaultFromUrl('idTheme') == 0 ? hfState.Get("idTheme") : 0;
+    if (isNaN(idTheme)) idTheme = 0;
 
-        if (isNaN(idTheme)) idTheme = 0;
+    if (idTheme > 0) emrimenuse = emrimenuse.indexOf('?') != -1 ? emrimenuse + '&idTheme=' + idTheme : emrimenuse + '?' + 'idTheme=' + idTheme;
 
-        if (idTheme > 0) emrimenuse = emrimenuse.indexOf('?') != -1 ? emrimenuse + '&idTheme=' + idTheme : emrimenuse + '?' + 'idTheme=' + idTheme;
-
-        if (emrimenuse.indexOf("ABPivotGrid") > -1) {
-            emrimenuse = emrimenuse + "&width=" + window.document.body.clientWidth;
-        }
-        emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
-
-
-        if (e.htmlEvent.ctrlKey) {
-            window.open(Utils.setUrlVar("newScopeId", "True", Utils.setUrlVar('ambienti', emrimenuse, window.location.origin + window.location.pathname)), '_blank');
-            return;
-        }
-        var paneKryesor = splitter.GetPaneByName('paneKryesor');
-        paneKryesor.SetContentUrl(emrimenuse);
-        paneKryesor.RefreshContentUrl();
+    if (emrimenuse.indexOf("ABPivotGrid") > -1) {
+        emrimenuse = emrimenuse + "&width=" + window.document.body.clientWidth;
     }
-}
+    emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
 
-var downloadURL = function downloadURL(url) {
-    var hiddenIFrameID = 'hiddenDownloader',
-        iframe = document.getElementById(hiddenIFrameID);
-    if (iframe === null) {
-        iframe = document.createElement('iframe');
-        iframe.id = hiddenIFrameID;
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
+
+    if (e.htmlEvent.ctrlKey) {
+        window.open(Utils.setUrlVar("newScopeId", "True", Utils.setUrlVar('ambienti', emrimenuse, window.location.origin + window.location.pathname)), '_blank');
+        return;
     }
-    iframe.src = url;
-    //  location.href = url;
-};
-
-function btnDownloadProgramKaseClick(s, e) {
-    e.processOnServer = false;
-    downloadURL('Kase/NodeJsKase.zip');
+    var paneKryesor = splitter.GetPaneByName('paneKryesor');
+    paneKryesor.SetContentUrl(emrimenuse);
+    paneKryesor.RefreshContentUrl();
 }
 
 function SuccededVendosPeriudha(result) {

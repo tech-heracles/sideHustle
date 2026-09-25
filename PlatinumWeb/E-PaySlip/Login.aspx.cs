@@ -39,8 +39,6 @@ namespace PlatinumWeb.E_PaySlip
 
                 HtmlForm form = (HtmlForm)this.FindControl("form1");
                 DevExpress.Web.ASPxButton LoginButton = (DevExpress.Web.ASPxButton)Login1.FindControl("LoginButton");
-                string urlHelpi = DbCore.clsFunksione.ktheUrlHelpi("").Item1;
-               // HelpLink.NavigateUrl = urlHelpi;
 
                 if (form != null && LoginButton != null)
                 {

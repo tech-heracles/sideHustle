@@ -96,11 +96,6 @@ namespace PlatinumWeb.E_PaySlip
             ASPxComboBox1.SelectedIndex = 0;
         }
 
-        protected void btnHelp_Init(object sender, EventArgs e)
-        {
-            DbCore.DbAdmin.clsKomponente kompRap = new DbCore.DbAdmin.clsKomponente("RaportetAll.aspx");
-            this.btnHelp.ClientSideEvents.Click = "function(s,e){openHelpWindow(s,e,\'" + DbCore.clsFunksione.ktheUrlHelpi(kompRap.UrlHelpSuffix).Item1 + "\');}";
-        }
 
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
@@ -118,7 +113,6 @@ namespace PlatinumWeb.E_PaySlip
             ASPxLabel1.Text = rm.GetString("labelRaportiNga", ci);
             ASPxLabel2.Text = rm.GetString("labelRaportDeri", ci);
             ASPxLabel3.Text = rm.GetString("labelFilterPersonalizuar", ci);
-            btnHelp.ToolTip = rm.GetString("tooltipBtnHelp", ci);
             btnCollapseAll.ToolTip = rm.GetString("tooltipBtnCollapseAll", ci);
             btnExpandAll.ToolTip = rm.GetString("tooltipBtnExpandAll", ci);
            filtroRaportTooltip = rm.GetString("tooltipHinkRaportHapPaFilter", ci);

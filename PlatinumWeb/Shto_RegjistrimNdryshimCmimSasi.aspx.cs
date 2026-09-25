@@ -428,7 +428,7 @@ namespace PlatinumWeb
                         aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].ClientVisible = false;
                 }
                 if (m.Name == "ItemFrame")
-                    clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1, DbCore.clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1);
+                    clsToolbarConfig.ShtoMenuItemPerFrame(this, aSPxMenu1);
                 if (m.Name == "Shto" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemFilter" || m.Name == "ItemFrame")
                     aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].BeginGroup = true;
             }

@@ -1151,46 +1151,6 @@ Utils.ndertoPopup = function (options) {
     return myPopup;
 };
 
-Utils.ndertoPopupAbonimi = function (options) {
-    var defaults = {
-        text: {
-            mbyll: "Mbyll",
-            ruaj: "Ruaj",
-            llogarit: "Llogarit riabonimin"
-        }
-    };
-
-    options = jQuery.extend({}, defaults, options);
-    var myPopup = $(options.prependSelector + " > ." + options.dialogClass);
-
-    if (!myPopup.length) { // Don't rebuild if it already exists
-        myPopup = $("<div class='modal " + options.dialogClass + "' role='dialog'>" +
-            "<div class='modal-dialog'>" +
-            "<div class='modal-content'>" +
-            "<div class='modal-header'>" +
-            "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>x</button>" +
-            "<h4 class='modal-title'>" + options.titulli + "</h4>" +
-            "</div>" +
-            "<div class='modal-body'><div class='" + options.contentClass + "'></div></div>" +
-            "<div class='modal-footer'>" +
-            "<button type='button' class='btn btn-default' data-dismiss='modal'>" + options.text.mbyll + "</button>" +
-            "<button type='button' class='btn btn-default' target='_blank' >" + options.text.llogarit + "</button>" +
-            (options.saveClick ? "<button type='button' class='btn btn-primary'>" + options.text.ruaj + "</button>" : " ") +
-            "</div></div></div></div>");
-
-        $(options.prependSelector).prepend(myPopup);
-
-        if (options.saveClick) {
-            $("." + options.dialogClass + " .btn-primary").on("click", options.saveClick);
-        }
-
-    }
-
-    return myPopup;
-};
-
-
-
 Utils.ndertoPopupCertifikata = function (options, dateSkadence) {
     var defaults = { text: { mbyll: "Mbyll" } };
     options = jQuery.extend({}, defaults, options);

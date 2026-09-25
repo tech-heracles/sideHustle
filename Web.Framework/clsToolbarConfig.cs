@@ -139,7 +139,7 @@ namespace PlatinumWeb
         /// <param name="m"></param>
         /// <param name="handlerRuaj"></param>
         /// <param name="handlerFshi"></param>
-        public static void ShtoMenuItemPerFrame(Page page, ASPxMenu m, String helpUrl, int idDokPara = 0, int idDokPas = 0)
+        public static void ShtoMenuItemPerFrame(Page page, ASPxMenu m, int idDokPara = 0, int idDokPas = 0)
         {
             DevExpress.Web.MenuItem item = m.Items.FindByName("TemplatedItemFrame");
             m.Items.Remove(item);
@@ -149,9 +149,6 @@ namespace PlatinumWeb
             Control itemTemplate = page.LoadControl("MenuFrame.ascx");
 
             item.Template = itemTemplate as ITemplate;
-            ASPxButton btnHelp = ((UserControl)(item.Template)).FindControl("btnHelp") as ASPxButton;
-            btnHelp.ClientSideEvents.Click = "function(s,e){openHelpWindow(s,e,\'" + helpUrl + "\');}";
-
             ASPxButton btnExpandAll = ((UserControl)(item.Template)).FindControl("btnExpandAll") as ASPxButton;
             btnExpandAll.ClientSideEvents.Click = "function(s,e){expandAll(s,e);}";
             ASPxButton btnCollapseAll = ((UserControl)(item.Template)).FindControl("btnCollapseAll") as ASPxButton;
@@ -354,8 +351,7 @@ namespace PlatinumWeb
                 }
                 else
                 {
-                    var obj = DbCore.clsFunksione.ktheUrlHelpi(m.UrlHelp);
-                    clsToolbarConfig.ShtoMenuItemPerFrame(page, aSPxMenu1, obj.Item1);
+                    clsToolbarConfig.ShtoMenuItemPerFrame(page, aSPxMenu1);
                 }
                 if (m.Name == "Shto" || m.Name == "Ndihme" || m.Name == "ItemFilter" || m.Name == "ItemFrame" || m.Name == "Grupo" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemExport" || m.Name == "Arkiva" || m.Name == "Konverto" || m.Name == "Pezullo" || m.Name == "AutoKonverto" || m.Name == "Posto")
                     aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].BeginGroup = true;

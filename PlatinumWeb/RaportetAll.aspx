@@ -132,14 +132,6 @@
                                     <table align="right" width="15%">
                                         <tr style="width: 15%">
                                             <td align="right" style="padding-bottom: 2px;">
-                                                <dx:ASPxButton ID="btnHelp" runat="server" Text="" ClientInstanceName="btnHelp" Width="40"
-                                                    Height="20" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"
-                                                    ImagePosition="Bottom" HorizontalAlign="Center" ToolTip="Ndihme" OnInit="btnHelp_Init">
-                                                    <Image Url="~/images/new/help_14.png">
-                                                    </Image>
-                                                </dx:ASPxButton>
-                                            </td>
-                                            <td align="right" style="padding-bottom: 2px;">
                                                 <dx:ASPxButton ID="btnCollapseAll" runat="server" Text="-" ClientInstanceName="btnCollapseAll"
                                                     Width="40" Height="25" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"
                                                     Font-Bold="True">

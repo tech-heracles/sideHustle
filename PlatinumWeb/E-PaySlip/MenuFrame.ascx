@@ -58,23 +58,11 @@
 
         }
     }
-    function openHelpWindow(s, e, helpUrl) {
-        window.open(helpUrl, "_blank");
-    }
 
 </script>
 <dx:ASPxHiddenField ID="hfIdGjuha" runat="server"></dx:ASPxHiddenField>
 <table align="right">
     <tr>
-        <td class="style2">
-            <dx:ASPxButton ID="btnHelp" runat="server" Text="" ClientInstanceName="btnHelp" Width="40"
-                Height="20" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"
-                ImagePosition="Bottom" HorizontalAlign="Center" ToolTip="Ndihme"
-                VerticalAlign="Middle">
-                <Image Url="~/images/new/help_14.png">
-                </Image>
-            </dx:ASPxButton>
-        </td>
         <td class="style2">
             <dx:ASPxButton ID="btnCollapseAll" runat="server" Text="-" ClientInstanceName="btnCollapseAll"
                 Width="40" Height="20" CausesValidation="False" ClientIDMode="AutoID" AutoPostBack="false"

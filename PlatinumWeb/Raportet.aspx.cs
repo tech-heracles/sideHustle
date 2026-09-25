@@ -71,18 +71,12 @@ namespace PlatinumWeb
             }
         }
 
-        protected void btnHelp_Init(object sender, EventArgs e)
-        {
-            var kompRap = new clsKomponente("RaportetAllNew.aspx");
-            btnHelp.ClientSideEvents.Click = "function(s,e){openHelpWindow(s,e,\'" + DbCore.clsFunksione.ktheUrlHelpi(kompRap.UrlHelpSuffix).Item1 + "\');}";
-        }
 
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
         /// </summary>
         private void EmrateLabelave()
         {
-            btnHelp.ToolTip = MessagesResource.Messages["tooltipBtnHelp"];
             btnCollapseAll.ToolTip = MessagesResource.Messages["tooltipBtnCollapseAll"];
             btnExpandAll.ToolTip = MessagesResource.Messages["tooltipBtnExpandAll"];
         }

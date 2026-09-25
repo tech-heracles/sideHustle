@@ -81,11 +81,6 @@ namespace PlatinumWeb
 
             return provider.CreateNode(dataRow["NavigateURL"].ToString(), dataRow["Text"].ToString(), "", null, new NameValueCollection());
         }
-        protected void btnHelp_Init(object sender, EventArgs e)
-        {
-            DbCore.DbAdmin.clsKomponente kompRap = new DbCore.DbAdmin.clsKomponente("RaportetAllNew.aspx");
-            this.btnHelp.ClientSideEvents.Click = "function(s,e){openHelpWindow(s,e,\'" + DbCore.clsFunksione.ktheUrlHelpi(kompRap.UrlHelpSuffix).Item1 + "\');}";
-        }
 
         /// <summary>
         /// Vendos emrat e labelave ne baze te gjuhes se perdoruesit
@@ -103,7 +98,6 @@ namespace PlatinumWeb
             ASPxLabel1.Text = rm.GetString("labelRaportiNga", ci);
             ASPxLabel2.Text = rm.GetString("labelRaportDeri", ci);
             lblpersonalizuara.Text = rm.GetString("labelRaportetePersonalizuar", ci);
-            btnHelp.ToolTip = rm.GetString("tooltipBtnHelp", ci);
             btnCollapseAll.ToolTip = rm.GetString("tooltipBtnCollapseAll", ci);
             btnExpandAll.ToolTip = rm.GetString("tooltipBtnExpandAll", ci);
 

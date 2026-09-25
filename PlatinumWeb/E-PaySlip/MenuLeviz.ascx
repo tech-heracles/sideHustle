@@ -25,8 +25,6 @@
             </dx:MenuItem>
            
             </Items>
-                <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
-                </LoadingPanelImage>
                 <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
                 <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" 
                     VerticalAlign="Middle" />
@@ -48,8 +46,6 @@
             </dx:MenuItem>
            
             </Items>
-                <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
-                </LoadingPanelImage>
                 <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
                 <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" 
                     VerticalAlign="Middle" />

@@ -138,14 +138,6 @@ namespace PlatinumWeb {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
-        /// <summary>
-        /// btnHelp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnHelp;
         
         /// <summary>
         /// btnCollapseAll control.

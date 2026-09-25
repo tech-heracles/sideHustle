@@ -137,7 +137,7 @@ namespace PlatinumWeb.E_PaySlip
         /// <param name="m"></param>
         /// <param name="handlerRuaj"></param>
         /// <param name="handlerFshi"></param>
-        public static void ShtoMenuItemPerFrame(Page page, ASPxMenu m, String helpUrl)
+        public static void ShtoMenuItemPerFrame(Page page, ASPxMenu m)
         {
             DevExpress.Web.MenuItem item = m.Items.FindByName("TemplatedItemFrame");
             m.Items.Remove(item);
@@ -147,9 +147,6 @@ namespace PlatinumWeb.E_PaySlip
             Control itemTemplate = page.LoadControl("MenuFrame.ascx");
 
             item.Template = itemTemplate as ITemplate;
-            ASPxButton btnHelp = ((PlatinumWeb.E_PaySlip.MenuFrame)(item.Template)).FindControl("btnHelp") as ASPxButton;
-            btnHelp.ClientSideEvents.Click = "function(s,e){openHelpWindow(s,e,\'" + helpUrl + "\');}";
-
             ASPxButton btnExpandAll = ((PlatinumWeb.E_PaySlip.MenuFrame)(item.Template)).FindControl("btnExpandAll") as ASPxButton;
             btnExpandAll.ClientSideEvents.Click = "function(s,e){expandAll(s,e);}";
             ASPxButton btnCollapseAll = ((PlatinumWeb.E_PaySlip.MenuFrame)(item.Template)).FindControl("btnCollapseAll") as ASPxButton;
@@ -317,7 +314,7 @@ namespace PlatinumWeb.E_PaySlip
                     }
                     else
                     {
-                        clsToolbarConfig.ShtoMenuItemPerFrame(page, aSPxMenu1, DbCore.clsFunksione.ktheUrlHelpi(m.UrlHelp).Item1);
+                        clsToolbarConfig.ShtoMenuItemPerFrame(page, aSPxMenu1);
                     }
                 if (m.Name == "Shto" || m.Name == "Ndihme" || m.Name == "ItemFilter" || m.Name == "ItemFrame" || m.Name == "Grupo" || m.Name == "Kerko" || m.Name == "Pastro" || m.Name == "ItemExport")
                     aSPxMenu1.Items[aSPxMenu1.Items.Count - 1].BeginGroup = true;

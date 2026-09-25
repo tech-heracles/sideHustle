@@ -48,7 +48,6 @@ namespace PlatinumWeb.E_PaySlip
         {
             ResourceManager rm = new ResourceManager("Resources.Strings",
                          System.Reflection.Assembly.Load("App_GlobalResources"));
-            btnHelp.ToolTip = rm.GetString("tooltipBtnHelp", ci);
             btnCollapseAll.ToolTip = rm.GetString("tooltipBtnCollapseAll", ci);
             btnExpandAll.ToolTip = rm.GetString("tooltipBtnExpandAll", ci);
         }

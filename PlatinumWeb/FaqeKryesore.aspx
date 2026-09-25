@@ -42,7 +42,7 @@
     <link rel="dx-theme" data-theme="generic.alphaweb" href="Content/dx.generic.alphaweb.css" data-active="true" />
     <link rel="dx-theme" data-theme="generic.alphaweb.compact" href="Content/dx.generic.alphaweb-compact.css" data-active="false" />
     
-    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myAbonim-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v76"> 
+    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v76"> 
     </script>
     <script src="/signalr/hubs"></script>
 <%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -354,14 +354,6 @@
                                                     <Items>
                                                         <dx:MenuItem Text="Asistenti" Name="Asistenti.aspx" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Backup/Restore" Name="backup-restore" Visible="false">
-                                                            <Items>
-                                                                <dx:MenuItem Text="Backup" Name="Backup.aspx" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Restore" Name="Restore.aspx" Visible="false">
-                                                                </dx:MenuItem>
-                                                            </Items>
-                                                        </dx:MenuItem>
                                                         
                                                         <dx:MenuItem Text="Dergo mesazh" Name="MessageToAll.html" Visible="false">
                                                         </dx:MenuItem>
@@ -445,7 +437,7 @@
                                                             <Image Height="10px">
                                                             </Image>
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Dokumenta" Name="" Visible="false">
+                                                        <dx:MenuItem Text="Dokumenta" Name="dokumenta" Visible="false">
                                                             <Items>
                                                                 <dx:MenuItem Text="Kategori dokumenti" Name="KonfigurimRegjistrimi.aspx" Visible="false">
                                                                 </dx:MenuItem>
@@ -468,14 +460,6 @@
                                                                 <dx:MenuItem Text="Import" Name="Import.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Import shitje Winline karta" Name="ImportWK.aspx?lloji=importwk" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import shitje Tollona" Name="ImportWK.aspx?lloji=importtollona" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import shitje Tollona Leter" Name="ImportWK.aspx?lloji=importtollonaleter" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import shitje Tollona Elektronik" Name="ImportWK.aspx?lloji=importtollonaelektronik" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import shitje Tollona Elektronik Specifik" Name="ImportWK.aspx?lloji=importtollonaelektronikspecifik" Visible="false">
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Import Flete Kontabel" Name="ImportWK.aspx?lloji=importfk" Visible="false">
                                                                 </dx:MenuItem>
@@ -649,7 +633,7 @@
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Artikujt afatgjatë" Name="Shto_Artikull.aspx?llojiart=aqt" Visible="false">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text="Atribute të artikujve" Visible="false">
+                                                                <dx:MenuItem Name="atribute-artikujsh" Text="Atribute të artikujve" Visible="false">
                                                                     <Items>
                                                                         <dx:MenuItem Text="Njësitë matëse" Name="NjesiArtikulli.aspx" Visible="false">
                                                                         </dx:MenuItem>
@@ -702,7 +686,7 @@
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Elemente prodhimi" Name="" Visible="false">
+                                                        <dx:MenuItem Text="Elemente prodhimi" Name="elemente-prodhimi" Visible="false">
                                                             <Items>
                                                                 <dx:MenuItem Text="Aktivitetet" Name="Shto_Aktivitete.aspx" Visible="false">
                                                                 </dx:MenuItem>
@@ -710,7 +694,7 @@
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Karta Klienti" Name="" Visible="false">
+                                                        <dx:MenuItem Text="Karta Klienti" Name="karta-klienti" Visible="false">
                                                             <Items>
                                                                 <dx:MenuItem Text="Karta Klienti" Name="Shto_KartaKlienti.aspx" Visible="false">
                                                                 </dx:MenuItem>
@@ -1243,20 +1227,6 @@
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
-                                                <dx:MenuItem Text="Help" Name="help">
-                   <%--                                 <Items>
-                                                        <dx:MenuItem Text="Manuali Perdoruesit" Name="manuali" Visible="false" Target="_blank">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="ProgramKase" Text="Program Kase" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="ProgramKaseNew" Text="Program Kase (E Re) " Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="RemoteSupport" Text="Remote Support" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="Versioni" Text="Versioni" Visible="false" Target="_blank">
-                                                        </dx:MenuItem>
-                                                    </Items>--%>
-                                                </dx:MenuItem>
                                                 <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
                                                     ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
                                                     <Items>
@@ -1268,8 +1238,6 @@
                                                         </dx:MenuItem>
                                                         <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
                                                         </dx:MenuItem>--%>
-                                                        <dx:MenuItem Text="Abonimi im" Name="abonimi">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Dalje" Name="dalje">
                                                         </dx:MenuItem>
                                                     </Items>
@@ -1667,19 +1635,6 @@
                                                         </dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="Help" Name="help" Expanded="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Text="Manuali Perdoruesit" Name="manuali" Visible="false" Target="_blank">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RemoteSupport" Text="Remote Support" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="ProgramKase" Text="Program Kase" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="ProgramKaseNew" Text="Program Kase (E Re)" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                    <ItemStyle CssClass="navItem"></ItemStyle>
-                                                </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Mobile" Name="Mobile" Expanded="False" Visible="False">
                                                 </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Personalizo" Name="settings" Expanded="False" Visible="true">
@@ -1753,52 +1708,7 @@
                     </dx:PopupControlContentControl>
                 </ContentCollection>
             </dx:ASPxPopupControl>
-            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupRemoteSupport" runat="server" AllowDragging="True"
-                ClientIDMode="AutoID" ClientInstanceName="popupRemoteSupport" CloseAction="CloseButton"
-                CssPostfix="Glass" EnableAnimation="False" EnableViewState="False" Font-Bold="true"
-                HeaderText="Kerko Support" Modal="True" PopupHorizontalAlign="WindowCenter"
-                PopupVerticalAlign="WindowCenter" Width="680px">
-                <HeaderStyle>
-                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-                </HeaderStyle>
-                <ContentCollection>
-                    <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server">
-                        <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel1" runat="server" ClientIDMode="AutoID" Width="680px">
-                            <PanelCollection>
-                                <dx:PanelContent ID="PanelContent1" runat="server" SupportsDisabledAttribute="True">
-                                    <dx:ASPxLabel runat="server" Text="Merrni tani online kursin për programin Alpha:"> </dx:ASPxLabel> <a href='http://www.udemy.com/course/kurs-per-programin-alpha-certifikohu-online' target="_blank">Kliko</a> <br> 
-                                        <dx:ASPxLabel runat="server" Text="Për të kërkuar support na shkruani në adresën e email:"> </dx:ASPxLabel> <a href='mailto:ndihma@avec.al'>ndihma@avec.al</a> <dx:ASPxLabel runat="server" Text="ose klikoni"> </dx:ASPxLabel> <a href='https://helpdesk.alpha.al' target="_blank">këtu.</a>
-                                       <dx:ASPxLabel ForeColor="#595959" ClientIDMode="AutoID" ID="lblMsgbox">
-                                            </dx:ASPxLabel>
-                                    <br />
-                                    <br />
-                                    <div>
-                                        <table style="margin: 0 auto;">
-                                            <tr>
-                                                <td colspan="2">
-                                                    </dx:ASPxLabel>
-                                                    <br />
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    </dx:ASPxButton>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </dx:PanelContent>
-                            </PanelCollection>
-                        </dx:ASPxPanel>
-                    </dx:PopupControlContentControl>
-                </ContentCollection>
-            </dx:ASPxPopupControl>
-            <dx:ASPxButton ID="btnDownloadProgramKase" runat="server" ClientSideEvents-Click="function(s,e){btnDownloadProgramKaseClick(s,e);}" CausesValidation="False" ClientInstanceName="btnDownloadProgramKase" ClientVisible="false"
-                Text="Ok" OnClick="btnDownloadProgramKase_Click">
-            </dx:ASPxButton>
             <uc1:TimeoutControl ID="SessionTimeout" runat="server" />
-            <dx:ASPxHiddenField ID="hfUrlHelp" runat="server"></dx:ASPxHiddenField>
             <dx:ASPxHiddenField ID="hfUsername" runat="server"></dx:ASPxHiddenField>
         </div>
 
