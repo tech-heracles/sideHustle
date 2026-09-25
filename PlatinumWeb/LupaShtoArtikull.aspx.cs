@@ -21,7 +21,7 @@ namespace PlatinumWeb
     {
         ASPxTextBox temptxt = null;
         ASPxComboBox tempcombo = null;
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         private int idKonfigambjenti;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         protected void Page_Load(object sender, EventArgs e)

@@ -16,7 +16,9 @@ namespace PlatinumWeb.E_PaySlip
         public const string ONETIMEPINFORM_TIMER_START_DATE = "ONETIMEPINFORM_TIMER_START_DATE";
         public static System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         System.Resources.ResourceManager rm => new System.Resources.ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-        private static int milisekonda = 180000;
+        private const int KohezgjatjaPin = 180000;
+        // Koha e mbetur per kete perdorues; llogaritet nga data e fillimit te ruajtur per sesionin.
+        private int milisekonda = KohezgjatjaPin;
         System.Globalization.CultureInfo ci => DbCore.mySessionObjects.ktheCultureInfo(Session);
 
         protected void Page_Load(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace PlatinumWeb.E_PaySlip
             if (date == null)
             {
 
-                milisekonda = 180000;
+                milisekonda = KohezgjatjaPin;
                 Label1.Text = "03:00";
 
 
@@ -65,7 +67,7 @@ namespace PlatinumWeb.E_PaySlip
             }
             else
             {
-                milisekonda = 180000 - Convert.ToInt32((DateTime.Now - (DateTime)date).TotalMilliseconds);
+                milisekonda = MerrMilisekondatEMbetura();
                 if (milisekonda <= 0)
                 {
                     var gjuha = ci.Name == "sq-AL" ? "AL" : "EN";
@@ -138,7 +140,7 @@ namespace PlatinumWeb.E_PaySlip
         {
             if (sw != null)
             {
-                milisekonda = milisekonda - 1000;
+                milisekonda = MerrMilisekondatEMbetura();
                 
                 if (milisekonda <= 0)
                 {
@@ -158,6 +160,17 @@ namespace PlatinumWeb.E_PaySlip
                 
 
             }
+        }
+
+        /// <summary>
+        /// Koha qe i ka mbetur ketij sesioni per te futur PIN-in (0 nese nuk ka date fillimi).
+        /// </summary>
+        private int MerrMilisekondatEMbetura()
+        {
+            object date = HttpRuntime.Cache[$"{Session.SessionID}_{ONETIMEPINFORM_TIMER_START_DATE}"];
+            if (date == null)
+                return 0;
+            return KohezgjatjaPin - Convert.ToInt32((DateTime.Now - (DateTime)date).TotalMilliseconds);
         }
 
         protected void tm1_Init(object sender, EventArgs e)

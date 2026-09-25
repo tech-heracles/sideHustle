@@ -21,11 +21,9 @@ namespace PlatinumWeb
     {
         private int idgjuha, idviti, idNdermarrje, idPerdoruesi;
 
-        public static bool isShtim = true;
-
         DbCore.DbKontabiliteti.clsLlogari oLlog = new DbCore.DbKontabiliteti.clsLlogari();
-        public static int id = 0;
-        public static DbCore.DbRegjistrim.clsDegeAdministrative njesia;
+        private int id;
+        private DbCore.DbRegjistrim.clsDegeAdministrative njesia;
         protected void Page_Init(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)

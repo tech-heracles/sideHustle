@@ -23,10 +23,8 @@ namespace PlatinumWeb
 {
     public partial class Shto_NjesiAdministrative : MyPageBase
     {
-        public static int idNderm = -1;
-        public static bool isShtim = true;
-        public static int id = 0;
-        public static DbCore.DbRegjistrim.clsNjesiAdministrative njesia;
+        private int id;
+        private DbCore.DbRegjistrim.clsNjesiAdministrative njesia;
         private int idgjuha, idPerdoruesi, idNdermarrje, idviti, idKonfigurim;
         private string komponente = "Shto_NjesiAdministrative.aspx";
         private string guidString;

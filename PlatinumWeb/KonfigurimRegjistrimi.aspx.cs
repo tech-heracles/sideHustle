@@ -19,7 +19,7 @@ namespace PlatinumWeb
     public partial class KonfigurimRegjistrimi : MyPageBase
     {
         private DbCore.DbRegjistrim.clsDatabaseRegjistrim dbRegjistrime;
-        public static int idNderm = -1;
+        private int idNderm = -1;
         private bool shto;
         private  string mesazhZgjidhniNje = "Ju lutem zgjidhni te pakten nje konfigurim!";
         private string komponente = "KonfigurimRegjistrimi.aspx";

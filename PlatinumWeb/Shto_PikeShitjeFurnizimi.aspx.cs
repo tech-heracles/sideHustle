@@ -24,13 +24,11 @@ namespace PlatinumWeb
 {
     public partial class Shto_PikeShitjeFurnizimi : MyPageBase
     {
-        public static int idNderm = -1;
-        public static bool isShtim = true;
         private int idgjuha, idPerdorues, idviti, idNdermarrje;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         DbCore.DbKontabiliteti.clsLlogari oLlog = new DbCore.DbKontabiliteti.clsLlogari();
-        public static int id = 0;
-        public static DbCore.DbRegjistrim.clsPikeShitjeFurnizimi njesia;
+        private int id;
+        private DbCore.DbRegjistrim.clsPikeShitjeFurnizimi njesia;
         protected void Page_Init(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)

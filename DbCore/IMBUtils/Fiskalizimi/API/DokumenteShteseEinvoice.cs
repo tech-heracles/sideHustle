@@ -44,9 +44,9 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
         }
 
-        public static int _id = 1;
+        private static int _id = 1;
 
-        public string ID { get; } = _id + DateTime.Now.ToString("dd-MM-yyyy");
+        public string ID { get; }
         public string Base64Data { get; private set; }
         public string FileName { get; private set; }
         public string FileExtension { get; private set; }
@@ -54,7 +54,8 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
 
         public DokumentShteseEinvoice()
         {
-            _id++;
+            // numri i radhes merret dhe rritet atomikisht, qe dokumente te krijuar njekohesisht te mos marrin te njejtin ID
+            ID = (System.Threading.Interlocked.Increment(ref _id) - 1) + DateTime.Now.ToString("dd-MM-yyyy");
         }
 
         public string ToXml()

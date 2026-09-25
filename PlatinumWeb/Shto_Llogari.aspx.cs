@@ -20,7 +20,7 @@ namespace PlatinumWeb
 {
     public partial class Shto_Llogari : MyPageBase
     {
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         private int idgjuha, idviti, idNdermarrje, idPerdoruesi;
         string komponente = "Shto_Llogari.aspx";
         string guidString;

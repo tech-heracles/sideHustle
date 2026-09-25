@@ -15,7 +15,7 @@ namespace PlatinumWeb
 {
     public partial class LupaKodifikimArtikulli : MyPageBase
     {
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
         protected void Page_Load(object sender, EventArgs e)
         {

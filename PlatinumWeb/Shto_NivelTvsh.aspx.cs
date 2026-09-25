@@ -23,10 +23,7 @@ namespace PlatinumWeb
         public static bool isShtim = true;
 
         DbCore.DbKontabiliteti.clsLlogari oLlog = new DbCore.DbKontabiliteti.clsLlogari();
-
-        public static int id = 0;
         private int idgjuha, idviti, idPerdoruesi, idNdermarrje;
-        public static DbCore.DbRegjistrim.clsTaksa taksa;
         private string komponente = "Shto_NivelTvsh.aspx";
         private string guidString;
 

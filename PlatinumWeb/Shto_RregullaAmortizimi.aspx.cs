@@ -24,7 +24,6 @@ namespace PlatinumWeb
        
 
         public static bool isShtim = true;
-        public static int id = 0;
         private int idgjuha, idPerdoruesi, idNdermarrje, idviti;
         protected void Page_Init(object sender, EventArgs e)
         {

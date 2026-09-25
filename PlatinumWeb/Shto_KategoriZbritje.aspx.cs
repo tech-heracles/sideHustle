@@ -39,7 +39,7 @@ namespace PlatinumWeb
         ASPxComboBox tempcombo = null;
         ASPxDateEdit tempcal = null;
 
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         private int idgjuha, idviti, idNdermarje, idPerdoruesi;
         private string komponente = "Shto_KategoriZbritje.aspx";
         private string guidString;

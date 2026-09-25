@@ -31,7 +31,7 @@ namespace PlatinumWeb
         private const string suffixMesazhShumesSuksesi = " u fshine me sukses!";
         private const string lidhesMesazhi = ". Kurse ";
         private const string mesazhZgjidhniNje = "Ju lutem zgjidhni te pakten nje nivel zbritje!";
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         private int idgjuha, idPerdoruesi, idviti, idNdermarrje;
         private string komponente = "Shto_NivelZbritje.aspx";
         private string guidString;

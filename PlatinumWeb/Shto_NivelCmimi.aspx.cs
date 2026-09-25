@@ -25,7 +25,7 @@ namespace PlatinumWeb
 {
     public partial class Shto_NivelCmimi : MyPageBase
     {
-        public static int idNdermVit = -1;
+        private int idNdermVit = -1;
         private int idviti, idgjuha, idNdermarrje, idPerdoruesi;
         private string komponente = "Shto_NivelCmimi.aspx";
         private string guidString;
