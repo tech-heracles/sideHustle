@@ -431,24 +431,32 @@ namespace DbCore.DbListPagesat
 
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
-            clsMesazh mesazhkont = kontrolloArtikull(out kaNdryshimNumri, db, hfNrAutoKF, false);
-            if (!mesazhkont.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return mesazhkont;
-            }
+                clsMesazh mesazhkont = kontrolloArtikull(out kaNdryshimNumri, db, hfNrAutoKF, false);
+                if (!mesazhkont.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazhkont;
+                }
 
-            clsMesazh mesazh = ruaj(db);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
+                clsMesazh mesazh = ruaj(db);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
+
+                if (kaNdryshimNumri)
+                    return mesazhkont;
                 return mesazh;
             }
-            db.commitTransaksion();
-
-            if (kaNdryshimNumri)
-                return mesazhkont;
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         private clsMesazh kontrolloArtikull(out bool kaNdryshimNrAuto, clsDatabazeListPagesa db, IDictionary<string, object> hfNrAutoKF, bool modifikim)
         {

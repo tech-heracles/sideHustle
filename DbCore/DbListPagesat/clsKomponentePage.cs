@@ -661,36 +661,44 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeListPagesa db = new clsDatabazeListPagesa(); ;
             db.beginTransaksion();
-            if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
+            try
             {
-                colKomponentePage col = new colKomponentePage(idndermarje, lloji, data);
-                foreach (clsKomponentePage komp in col)
+                if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
                 {
-                    komp.idPerdoruesi = idperdoruesi;
-                    mesazh = komp.fshi(db);
-                    if (!mesazh.Status)
+                    colKomponentePage col = new colKomponentePage(idndermarje, lloji, data);
+                    foreach (clsKomponentePage komp in col)
                     {
-                        db.rollbackTransaksion();
-                        return mesazh;
+                        komp.idPerdoruesi = idperdoruesi;
+                        mesazh = komp.fshi(db);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            return mesazh;
+                        }
                     }
                 }
-            }
-            mesazh = db.ruajDefaultKomponentePage(lloji, data, idperdoruesi, idndermarje, idndermnga);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
+                mesazh = db.ruajDefaultKomponentePage(lloji, data, idperdoruesi, idndermarje, idndermnga);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                mesazh = db.modifikoLegjendeListOrariSipasKomponenteveTeReja(idndermarje);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                if (mesazh.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
                 return mesazh;
             }
-            mesazh = db.modifikoLegjendeListOrariSipasKomponenteveTeReja(idndermarje);
-            if (!mesazh.Status)
+            catch
             {
-                db.rollbackTransaksion();
-                return mesazh;
+                db.rollbackNeseHapur();
+                throw;
             }
-            if (mesazh.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return mesazh;
         }
 
         /// <summary>
@@ -708,40 +716,48 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
-            if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
+            try
             {
-                colKomponentePage col = new colKomponentePage(idndermarje, lloji, data);
-                foreach (clsKomponentePage komp in col)
+                if (db.ekzistonDateKomponentePage(data, lloji, idndermarje))
                 {
-                    komp.idPerdoruesi = idperdoruesi;
-                    mesazh = komp.fshi(db);
+                    colKomponentePage col = new colKomponentePage(idndermarje, lloji, data);
+                    foreach (clsKomponentePage komp in col)
+                    {
+                        komp.idPerdoruesi = idperdoruesi;
+                        mesazh = komp.fshi(db);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            return mesazh;
+                        }
+                    }
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    mbushKomponenteNgaDT(dr);
+                    this.data = data;
+                    idPerdoruesi = idperdoruesi;
+                    mesazh = ruaj(db);
                     if (!mesazh.Status)
                     {
                         db.rollbackTransaksion();
                         return mesazh;
                     }
                 }
-            }
-            foreach (DataRow dr in dt.Rows)
-            {
-                mbushKomponenteNgaDT(dr);
-                this.data = data;
-                idPerdoruesi = idperdoruesi;
-                mesazh = ruaj(db);
+                mesazh = db.modifikoLegjendeListOrariSipasKomponenteveTeReja(idndermarje);
                 if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
                     return mesazh;
                 }
-            }
-            mesazh = db.modifikoLegjendeListOrariSipasKomponenteveTeReja(idndermarje);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
+                db.commitTransaksion();
                 return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

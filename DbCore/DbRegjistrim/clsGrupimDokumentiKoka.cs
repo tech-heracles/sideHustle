@@ -282,61 +282,69 @@ namespace DbCore.DbRegjistrim
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             int id;
             data.beginTransaksion();
-            clsMesazh u_ruajt = data.ruajGrup(out id, this.Kodi, this.Pershkrimi, this.Grupi, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_ruajt.Status)
+            try
             {
-                data.rollbackTransaksion();
-                return u_ruajt;
-            }
-            foreach (clsGrupimDokumentiTrupi t in colTrupi)
-            {
-                u_ruajt = data.ruajGrupimTrupi(0, id, t.IdKonfig);
+                clsMesazh u_ruajt = data.ruajGrup(out id, this.Kodi, this.Pershkrimi, this.Grupi, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
                 if (!u_ruajt.Status)
                 {
                     data.rollbackTransaksion();
                     return u_ruajt;
                 }
-            }
-            #region Ruajtja e autorizimeve te grupeve
-            colLidhjetAutorizim colLidhjet = new colLidhjetAutorizim();
-            if (autorizimet != "")
-            {
-                string[] pars1 = autorizimet.Split(',');
-                for (int i = 0; i < pars1.Length; i++)
+                foreach (clsGrupimDokumentiTrupi t in colTrupi)
                 {
-                    colLidhjet.Add(new clsLidhjeAutorizim() { IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]) });
+                    u_ruajt = data.ruajGrupimTrupi(0, id, t.IdKonfig);
+                    if (!u_ruajt.Status)
+                    {
+                        data.rollbackTransaksion();
+                        return u_ruajt;
+                    }
                 }
-            }
-            clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(data );
-            colLidhjetAutorizim colLidhjetAutorizim = new colLidhjetAutorizim(id, "GrupeDok", dbAdmin);
-            for (int i = 0; i < colLidhjet.Count; i++)
-            {
-                int idAutorizimKoka = colLidhjet[i].IdAutorizimeKoka;
-                if (idAutorizimKoka == -1)
-                    continue;
-                colLidhjet[i].IdLloji = DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("GrupeDok", new DbKontabiliteti.clsDatabaseKontabilitet(data ));
-                colLidhjet[i].IdLidhese = id;
-                clsLidhjeAutorizim lidhjeNjejte = colLidhjetAutorizim.Find(x => x.IdAutorizimeKoka == idAutorizimKoka);
-                if (lidhjeNjejte != null)
-                {   //i heqim nga collectioni autorizimet qe sjane ndryshuar sepse ne te do ngelen vetem autorizimet qe do te fshihen(vendosen status 2) 
-                    colLidhjetAutorizim.Remove(lidhjeNjejte);
-                    continue;
+                #region Ruajtja e autorizimeve te grupeve
+                colLidhjetAutorizim colLidhjet = new colLidhjetAutorizim();
+                if (autorizimet != "")
+                {
+                    string[] pars1 = autorizimet.Split(',');
+                    for (int i = 0; i < pars1.Length; i++)
+                    {
+                        colLidhjet.Add(new clsLidhjeAutorizim() { IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]) });
+                    }
                 }
-                u_ruajt = dbAdmin.ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka, 1);
-                if (!u_ruajt.Status)
-                    return u_ruajt;
-            }
-            //fshihen autorizimet e vjetra. Ps: Jo ato qe kane ngelur njesoj, ato do ngelen si jane
-            for (int j = 0; j < colLidhjetAutorizim.Count; j++)
-            {
-                u_ruajt = dbAdmin.fshiLidhjeAutorizim(colLidhjetAutorizim[j].IdLidhjeAutorizim);
-                if (!u_ruajt.Status)
-                    return u_ruajt;
-            }
+                clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(data );
+                colLidhjetAutorizim colLidhjetAutorizim = new colLidhjetAutorizim(id, "GrupeDok", dbAdmin);
+                for (int i = 0; i < colLidhjet.Count; i++)
+                {
+                    int idAutorizimKoka = colLidhjet[i].IdAutorizimeKoka;
+                    if (idAutorizimKoka == -1)
+                        continue;
+                    colLidhjet[i].IdLloji = DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("GrupeDok", new DbKontabiliteti.clsDatabaseKontabilitet(data ));
+                    colLidhjet[i].IdLidhese = id;
+                    clsLidhjeAutorizim lidhjeNjejte = colLidhjetAutorizim.Find(x => x.IdAutorizimeKoka == idAutorizimKoka);
+                    if (lidhjeNjejte != null)
+                    {   //i heqim nga collectioni autorizimet qe sjane ndryshuar sepse ne te do ngelen vetem autorizimet qe do te fshihen(vendosen status 2) 
+                        colLidhjetAutorizim.Remove(lidhjeNjejte);
+                        continue;
+                    }
+                    u_ruajt = dbAdmin.ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka, 1);
+                    if (!u_ruajt.Status)
+                        return u_ruajt;
+                }
+                //fshihen autorizimet e vjetra. Ps: Jo ato qe kane ngelur njesoj, ato do ngelen si jane
+                for (int j = 0; j < colLidhjetAutorizim.Count; j++)
+                {
+                    u_ruajt = dbAdmin.fshiLidhjeAutorizim(colLidhjetAutorizim[j].IdLidhjeAutorizim);
+                    if (!u_ruajt.Status)
+                        return u_ruajt;
+                }
 
-            #endregion
-            data.commitTransaksion();
-            return u_ruajt;
+                #endregion
+                data.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -348,70 +356,78 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_modifikua = data.modifikoGrup(this.IdGrupimKoka, this.Kodi, this.Pershkrimi, this.Grupi, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_modifikua.Status)
-            {
-                data.rollbackTransaksion();
-                return u_modifikua;
-            }
-            u_modifikua = data.fshiGrupimTrupiSipasIdKoka(this.idGrupimKoka);
-            if (!u_modifikua.Status)
-            {
-                data.rollbackTransaksion();
-                return u_modifikua;
-            }
-            foreach (clsGrupimDokumentiTrupi t in colTrupi)
-            {
-                u_modifikua = data.ruajGrupimTrupi(0, idGrupimKoka, t.IdKonfig);
+                clsMesazh u_modifikua = data.modifikoGrup(this.IdGrupimKoka, this.Kodi, this.Pershkrimi, this.Grupi, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
                 if (!u_modifikua.Status)
                 {
                     data.rollbackTransaksion();
-
                     return u_modifikua;
                 }
-            }
-            #region Ruajtja e autorizimeve te grupeve
-            colLidhjetAutorizim colLidhjet = new colLidhjetAutorizim();
-            if (autorizimet != "")
-            {
-                string[] pars1 = autorizimet.Split(',');
-                for (int i = 0; i < pars1.Length; i++)
-                {
-                    colLidhjet.Add(new clsLidhjeAutorizim() { IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]) });
-                }
-            }
-            clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(data );
-            colLidhjetAutorizim colLidhjetAutorizim = new colLidhjetAutorizim(this.IdGrupimKoka, "GrupeDok", dbAdmin);
-            for (int i = 0; i < colLidhjet.Count; i++)
-            {
-                int idAutorizimKoka = colLidhjet[i].IdAutorizimeKoka;
-                if (idAutorizimKoka == -1)
-                    continue;
-                colLidhjet[i].IdLloji = DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("GrupeDok", new DbKontabiliteti.clsDatabaseKontabilitet(data ));
-                colLidhjet[i].IdLidhese = this.IdGrupimKoka;
-                clsLidhjeAutorizim lidhjeNjejte = colLidhjetAutorizim.Find(x => x.IdAutorizimeKoka == idAutorizimKoka);
-                if (lidhjeNjejte != null)
-                {   //i heqim nga collectioni autorizimet qe sjane ndryshuar sepse ne te do ngelen vetem autorizimet qe do te fshihen(vendosen status 2) 
-                    colLidhjetAutorizim.Remove(lidhjeNjejte);
-                    continue;
-                }
-                u_modifikua = dbAdmin.ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka, 1);
+                u_modifikua = data.fshiGrupimTrupiSipasIdKoka(this.idGrupimKoka);
                 if (!u_modifikua.Status)
+                {
+                    data.rollbackTransaksion();
                     return u_modifikua;
-            }
-            //fshihen autorizimet e vjetra. Ps: Jo ato qe kane ngelur njesoj, ato do ngelen si jane
+                }
+                foreach (clsGrupimDokumentiTrupi t in colTrupi)
+                {
+                    u_modifikua = data.ruajGrupimTrupi(0, idGrupimKoka, t.IdKonfig);
+                    if (!u_modifikua.Status)
+                    {
+                        data.rollbackTransaksion();
+
+                        return u_modifikua;
+                    }
+                }
+                #region Ruajtja e autorizimeve te grupeve
+                colLidhjetAutorizim colLidhjet = new colLidhjetAutorizim();
+                if (autorizimet != "")
+                {
+                    string[] pars1 = autorizimet.Split(',');
+                    for (int i = 0; i < pars1.Length; i++)
+                    {
+                        colLidhjet.Add(new clsLidhjeAutorizim() { IdAutorizimeKoka = clsAutorizimKoka.ktheIDAutorizim(pars1[i]) });
+                    }
+                }
+                clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(data );
+                colLidhjetAutorizim colLidhjetAutorizim = new colLidhjetAutorizim(this.IdGrupimKoka, "GrupeDok", dbAdmin);
+                for (int i = 0; i < colLidhjet.Count; i++)
+                {
+                    int idAutorizimKoka = colLidhjet[i].IdAutorizimeKoka;
+                    if (idAutorizimKoka == -1)
+                        continue;
+                    colLidhjet[i].IdLloji = DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("GrupeDok", new DbKontabiliteti.clsDatabaseKontabilitet(data ));
+                    colLidhjet[i].IdLidhese = this.IdGrupimKoka;
+                    clsLidhjeAutorizim lidhjeNjejte = colLidhjetAutorizim.Find(x => x.IdAutorizimeKoka == idAutorizimKoka);
+                    if (lidhjeNjejte != null)
+                    {   //i heqim nga collectioni autorizimet qe sjane ndryshuar sepse ne te do ngelen vetem autorizimet qe do te fshihen(vendosen status 2) 
+                        colLidhjetAutorizim.Remove(lidhjeNjejte);
+                        continue;
+                    }
+                    u_modifikua = dbAdmin.ruajLidhjeAutorizim(colLidhjet[i].IdLidhjeAutorizim, colLidhjet[i].IdLidhese, colLidhjet[i].IdLloji, colLidhjet[i].IdAutorizimeKoka, 1);
+                    if (!u_modifikua.Status)
+                        return u_modifikua;
+                }
+                //fshihen autorizimet e vjetra. Ps: Jo ato qe kane ngelur njesoj, ato do ngelen si jane
             
-            u_modifikua = colLidhjetAutorizim.FshiLidhjeAutorizim(colLidhjetAutorizim, IdPerdoruesi, dbAdmin);
-            if (!u_modifikua.Status)
-            {
-                data.rollbackTransaksion();
+                u_modifikua = colLidhjetAutorizim.FshiLidhjeAutorizim(colLidhjetAutorizim, IdPerdoruesi, dbAdmin);
+                if (!u_modifikua.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_modifikua;
+                }
+                #endregion
+
+                data.commitTransaksion();
                 return u_modifikua;
             }
-            #endregion
-
-            data.commitTransaksion();
-            return u_modifikua;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -423,20 +439,28 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             data.beginTransaksion();
-            clsMesazh u_fshi = data.fshiGrup(this.IdGrupimKoka, this.idPerdoruesi);
-            if (!u_fshi.Status)
+            try
             {
-                data.rollbackTransaksion();
+                clsMesazh u_fshi = data.fshiGrup(this.IdGrupimKoka, this.idPerdoruesi);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+                u_fshi = data.fshiGrupimTrupiSipasIdKoka(this.idGrupimKoka);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+                data.commitTransaksion();
                 return u_fshi;
             }
-            u_fshi = data.fshiGrupimTrupiSipasIdKoka(this.idGrupimKoka);
-            if (!u_fshi.Status)
+            catch
             {
-                data.rollbackTransaksion();
-                return u_fshi;
+                data.rollbackNeseHapur();
+                throw;
             }
-            data.commitTransaksion();
-            return u_fshi;
         }
 
         public static bool kaVeprimeGrup(int id)

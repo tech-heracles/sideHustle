@@ -109,20 +109,28 @@ namespace DbCore.DbRegjistrim
             string shfaqmesazhapolupe = "";
             clsDatabaseRegjistrim dbregj = new clsDatabaseRegjistrim();
             dbregj.beginTransaksion();
-            string mesazhmevonshem = "";
-            foreach (clsKokaMagazina kok in this)
+            try
             {
-                DbAdmin.clsPeriudhaKontabel per = new DbAdmin.clsPeriudhaKontabel(kok.DtDok, kok.IdNdermarrje, new DbAdmin.clsDatabaseAdmin(dbregj));
-                mesazh = kok.ruaj(false, 1, null, per.IdPeriudha, "Nga ndryshimi i cmimit", 6, 0, dbregj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false,new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbShare.clsKonfigurimAmbjenti(),0,0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new colAmortizimiKoka(),1,false,false, new colTrupiMagazina(),new colAmortizimiKoka(),new int [0],false,false, out mesazhmevonshem, null, false, false);
-               
-                if (!mesazh.Status)
+                string mesazhmevonshem = "";
+                foreach (clsKokaMagazina kok in this)
                 {
-                    dbregj.rollbackTransaksion();
-                    return mesazh;
+                    DbAdmin.clsPeriudhaKontabel per = new DbAdmin.clsPeriudhaKontabel(kok.DtDok, kok.IdNdermarrje, new DbAdmin.clsDatabaseAdmin(dbregj));
+                    mesazh = kok.ruaj(false, 1, null, per.IdPeriudha, "Nga ndryshimi i cmimit", 6, 0, dbregj, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), false,new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbAsete.colSerialetMagazine(),new DbCore.DbShare.clsKonfigurimAmbjenti(), new DbCore.DbShare.clsKonfigurimAmbjenti(),0,0, new DbQendraKosto.colTrupiQendraKosto(), false, new clsKokaShitje(), false, false, new colAmortizimiKoka(),1,false,false, new colTrupiMagazina(),new colAmortizimiKoka(),new int [0],false,false, out mesazhmevonshem, null, false, false);
+               
+                    if (!mesazh.Status)
+                    {
+                        dbregj.rollbackTransaksion();
+                        return mesazh;
+                    }
                 }
+                dbregj.commitTransaksion();
+                return mesazh;
             }
-            dbregj.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                dbregj.rollbackNeseHapur();
+                throw;
+            }
         }
         public static DataTable ktheRreshtaMagazineArtikulliPerRiruajtje(int idnderm, List<object> idartikuj, DateTime datanga, DateTime dataderi)
         {

@@ -984,14 +984,22 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, idPeriudha, gjenerodokmagazine, out shfaqmesazhapolupemag, db, eshteOwn, rm, ci); //perdor ruajtjen me transaksion
-            if (!u_ruajt.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, idPeriudha, gjenerodokmagazine, out shfaqmesazhapolupemag, db, eshteOwn, rm, ci); //perdor ruajtjen me transaksion
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
                 return u_ruajt;
             }
-            db.commitTransaksion();
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -1234,10 +1242,18 @@ namespace DbCore.DbRegjistrim
             {
 
                 data.beginTransaksion();
-                u_modifikua = modifikoRiparim(IdKoka, IdNivel, IdKonfigAmbjente, IdGaranci, IdMagazina, DtDok, NrKontakti, IdDokNga, IdStatusDok, IdNdermarje, IdNdermarjeVit, IdPerdoruesi, DtRegj, Pershkrimi, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, IdStatusRiparimi, IdDifekti, aksesor, dorezuar, colTrupi, oKokaMagazina, oKokaMagazina2, idPeriudha, gjenerodokmag, out shfaqmesazhapolupemag, eshteOwn, data, rm, ci);
-                if (u_modifikua.Status)
-                    data.commitTransaksion();
-                else data.rollbackTransaksion();
+                try
+                {
+                    u_modifikua = modifikoRiparim(IdKoka, IdNivel, IdKonfigAmbjente, IdGaranci, IdMagazina, DtDok, NrKontakti, IdDokNga, IdStatusDok, IdNdermarje, IdNdermarjeVit, IdPerdoruesi, DtRegj, Pershkrimi, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, IdStatusRiparimi, IdDifekti, aksesor, dorezuar, colTrupi, oKokaMagazina, oKokaMagazina2, idPeriudha, gjenerodokmag, out shfaqmesazhapolupemag, eshteOwn, data, rm, ci);
+                    if (u_modifikua.Status)
+                        data.commitTransaksion();
+                    else data.rollbackTransaksion();
+                }
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
             else
             {
@@ -1311,11 +1327,19 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_fshi = fshiRiparim(IdKoka, idPerdoruesi, db);
-            if (u_fshi.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = fshiRiparim(IdKoka, idPerdoruesi, db);
+                if (u_fshi.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

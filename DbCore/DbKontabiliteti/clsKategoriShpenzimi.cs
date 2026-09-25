@@ -201,46 +201,54 @@ namespace DbCore.DbKontabiliteti
         {
             var db = new clsDatabaseKontabilitet();
             db.beginTransaksion();
-            int idKoka;
-            var mesazh = db.ruajKategoriShpenzimi(out idKoka, Kodi, Pershkrimi, Idkrijuesi, IdPerdoruesi, IdNdermarje, IdStatusDok, IdPrindi, NivelKategorie, KategoriAktive);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return new clsMesazh(false, StrAktivitetiNukURuajt);
-            }
-
-            Id = idKoka;
-            var idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("KategoriShpenzimi", db);
-
-            foreach (var o in OColBuxhetet)
-            {
-                o.IdLidhese = Id;
-                int idB;
-                mesazh = db.ruajBuxhet(out idB, idLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
+                int idKoka;
+                var mesazh = db.ruajKategoriShpenzimi(out idKoka, Kodi, Pershkrimi, Idkrijuesi, IdPerdoruesi, IdNdermarje, IdStatusDok, IdPrindi, NivelKategorie, KategoriAktive);
                 if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
-                    return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
+                    return new clsMesazh(false, StrAktivitetiNukURuajt);
                 }
-            }
 
-            if (mesazh.Status)
-            {
-                if (!eshteProjektBuxhet)
+                Id = idKoka;
+                var idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("KategoriShpenzimi", db);
+
+                foreach (var o in OColBuxhetet)
                 {
-                    mesazh = colBuxhetet.krijoBuxhetetPerGjitheVitetENdermPerKategorine(idLlojBuxheti, IdNdermarje, Id, db);
-                    if (mesazh.Status)
-                        db.commitTransaksion();
-                    else
+                    o.IdLidhese = Id;
+                    int idB;
+                    mesazh = db.ruajBuxhet(out idB, idLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
+                    if (!mesazh.Status)
+                    {
                         db.rollbackTransaksion();
+                        return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
+                    }
+                }
+
+                if (mesazh.Status)
+                {
+                    if (!eshteProjektBuxhet)
+                    {
+                        mesazh = colBuxhetet.krijoBuxhetetPerGjitheVitetENdermPerKategorine(idLlojBuxheti, IdNdermarje, Id, db);
+                        if (mesazh.Status)
+                            db.commitTransaksion();
+                        else
+                            db.rollbackTransaksion();
+                    }
+                    else
+                        db.commitTransaksion();
                 }
                 else
-                    db.commitTransaksion();
-            }
-            else
-                db.rollbackTransaksion();
+                    db.rollbackTransaksion();
 
-            return mesazh;
+                return mesazh;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -251,51 +259,59 @@ namespace DbCore.DbKontabiliteti
         {
             var db = new clsDatabaseKontabilitet();
             db.beginTransaksion();
+            try
+            {
 
-            var mesazh = db.modifikoKategoriShpenzimi(Id, Kodi, Pershkrimi, IdPerdoruesi, IdNdermarje, IdStatusDok, IdPrindi, NivelKategorie, KategoriAktive);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
-                return new clsMesazh(false, StrAktivitetiNukUModifikua);
-            }
-            int idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("KategoriShpenzimi", db);
-            if (OColBuxhetet.Count != 0)
-            {
-                if (!clsBuxheti.ekzistonProjektBuxhetiPerKategorine(Id, idLlojBuxheti, idNderVit, eshteProjektBuxhet, OColBuxhetet[0].DtAktivizimi))
+                var mesazh = db.modifikoKategoriShpenzimi(Id, Kodi, Pershkrimi, IdPerdoruesi, IdNdermarje, IdStatusDok, IdPrindi, NivelKategorie, KategoriAktive);
+                if (!mesazh.Status)
                 {
-                    foreach (var o in OColBuxhetet)
+                    db.rollbackTransaksion();
+                    return new clsMesazh(false, StrAktivitetiNukUModifikua);
+                }
+                int idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("KategoriShpenzimi", db);
+                if (OColBuxhetet.Count != 0)
+                {
+                    if (!clsBuxheti.ekzistonProjektBuxhetiPerKategorine(Id, idLlojBuxheti, idNderVit, eshteProjektBuxhet, OColBuxhetet[0].DtAktivizimi))
                     {
-                        o.IdLidhese = Id;
-                        o.IdLlojBuxheti = idLlojBuxheti;
-                        int idB;
-                        mesazh = db.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
-                        if (!mesazh.Status)
+                        foreach (var o in OColBuxhetet)
                         {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
+                            o.IdLidhese = Id;
+                            o.IdLlojBuxheti = idLlojBuxheti;
+                            int idB;
+                            mesazh = db.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
+                            if (!mesazh.Status)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var o in OColBuxhetet)
+                        {
+                            mesazh = db.modifikoBuxhet(o.IdBuxheti, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
+                            if (!mesazh.Status)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
+                            }
                         }
                     }
                 }
+
+                if (mesazh.Status)
+                    db.commitTransaksion();
                 else
-                {
-                    foreach (var o in OColBuxhetet)
-                    {
-                        mesazh = db.modifikoBuxhet(o.IdBuxheti, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, eshteProjektBuxhet, o.Shenime, o.DtAktivizimi, o.IdKonfigUrdherPagese);
-                        if (!mesazh.Status)
-                        {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(false, StrNjeNgaRreshtatETrupitNukURuajt);
-                        }
-                    }
-                }
+                    db.rollbackTransaksion();
+
+                return mesazh;
             }
-
-            if (mesazh.Status)
-                db.commitTransaksion();
-            else
-                db.rollbackTransaksion();
-
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

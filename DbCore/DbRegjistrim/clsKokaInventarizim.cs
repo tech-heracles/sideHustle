@@ -863,12 +863,20 @@ namespace DbCore.DbRegjistrim
             clsKokaInventarizim data = new clsKokaInventarizim();
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
             dbRegj.beginTransaksion();
-            clsMesazh u_fshi = data.fshiInventarizim(this.IdKoka, this.idPerdoruesi, dbRegj);
-            if (u_fshi.Status)
-                dbRegj.commitTransaksion();
-            else
-                dbRegj.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = data.fshiInventarizim(this.IdKoka, this.idPerdoruesi, dbRegj);
+                if (u_fshi.Status)
+                    dbRegj.commitTransaksion();
+                else
+                    dbRegj.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                dbRegj.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

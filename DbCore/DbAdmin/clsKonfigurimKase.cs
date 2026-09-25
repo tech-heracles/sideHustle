@@ -257,56 +257,72 @@ namespace DbCore.DbAdmin
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             data.beginTransaksion();
-            clsMesazh mesazh = new clsMesazh(true);
-            if (!eshteShtim)
-                mesazh = fshikonfigurimkaseStatus(idKonfigurimi, this.IdPerdoruesi);
-            if (!mesazh.Status)
+            try
             {
-                data.rollbackTransaksion();
-                return mesazh;
-            }
-            mesazh = eshteShtim ? this.ruajKonfigurimKase(data) : this.ruajKonfigurimKase(data, idKonfigurimi);
-            if (!mesazh.Status)
-            {
-                data.rollbackTransaksion();
-                return mesazh;
-            }
-            foreach (clsVleraKonfigurimiKasa v in oColVlerat)
-            {
-                v.IdKonfigurimi = this.idKonfigurimi;
-                mesazh = v.ruajVleraKonfigurimKase(data);
+                clsMesazh mesazh = new clsMesazh(true);
+                if (!eshteShtim)
+                    mesazh = fshikonfigurimkaseStatus(idKonfigurimi, this.IdPerdoruesi);
                 if (!mesazh.Status)
                 {
                     data.rollbackTransaksion();
                     return mesazh;
                 }
+                mesazh = eshteShtim ? this.ruajKonfigurimKase(data) : this.ruajKonfigurimKase(data, idKonfigurimi);
+                if (!mesazh.Status)
+                {
+                    data.rollbackTransaksion();
+                    return mesazh;
+                }
+                foreach (clsVleraKonfigurimiKasa v in oColVlerat)
+                {
+                    v.IdKonfigurimi = this.idKonfigurimi;
+                    mesazh = v.ruajVleraKonfigurimKase(data);
+                    if (!mesazh.Status)
+                    {
+                        data.rollbackTransaksion();
+                        return mesazh;
+                    }
+                }
+                data.commitTransaksion();
+                return mesazh;
             }
-            data.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public clsMesazh modifikoKonfigurim()
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();
             data.beginTransaksion();
-            clsMesazh mesazh = modifikoKonfigurimKase(data);
-            if (!mesazh.Status)
+            try
             {
-                data.rollbackTransaksion();
-                return mesazh;
-            }
-            foreach (clsVleraKonfigurimiKasa v in oColVlerat)
-            {
-                v.IdKonfigurimi = this.idKonfigurimi;
-                mesazh = v.ruajVleraKonfigurimKase(data);
+                clsMesazh mesazh = modifikoKonfigurimKase(data);
                 if (!mesazh.Status)
                 {
                     data.rollbackTransaksion();
                     return mesazh;
                 }
+                foreach (clsVleraKonfigurimiKasa v in oColVlerat)
+                {
+                    v.IdKonfigurimi = this.idKonfigurimi;
+                    mesazh = v.ruajVleraKonfigurimKase(data);
+                    if (!mesazh.Status)
+                    {
+                        data.rollbackTransaksion();
+                        return mesazh;
+                    }
+                }
+                data.commitTransaksion();
+                return mesazh;
             }
-            data.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

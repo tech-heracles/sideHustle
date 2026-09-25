@@ -48,27 +48,35 @@ namespace DbCore.DbShare
             clsMesazh msg = new clsMesazh(true);
             clsDatabaseShare db = new clsDatabaseShare();
             db.beginTransaksion();
-            foreach (clsArkiva arkiv in this)
+            try
             {
-                msg = arkiv.ruajArkiva(db);
-                if (!msg.Status)
+                foreach (clsArkiva arkiv in this)
                 {
-                    db.rollbackTransaksion();
-                    return msg;
+                    msg = arkiv.ruajArkiva(db);
+                    if (!msg.Status)
+                    {
+                        db.rollbackTransaksion();
+                        return msg;
+                    }
                 }
+                if (idKategoria == 13)
+                {
+                    DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin(db );
+                    msg = DbCore.DbInventari.clsArtikulli.updateDtModifikimi(iddok, idPerdoruesi, dbAdmin);
+                    if (!msg.Status)
+                    {
+                        db.rollbackTransaksion();
+                        return msg;
+                    }
+                }
+                db.commitTransaksion();
+                return msg;
             }
-            if (idKategoria == 13)
+            catch
             {
-                DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin(db );
-                msg = DbCore.DbInventari.clsArtikulli.updateDtModifikimi(iddok, idPerdoruesi, dbAdmin);
-                if (!msg.Status)
-                {
-                    db.rollbackTransaksion();
-                    return msg;
-                }
+                db.rollbackNeseHapur();
+                throw;
             }
-            db.commitTransaksion();
-            return msg;
         }
         private bool MbushArkiven(DataTable dt)
         {

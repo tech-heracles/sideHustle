@@ -266,16 +266,24 @@ namespace DbCore.DbShare
         {
             clsDatabaseShare data = new clsDatabaseShare();
             data.beginTransaksion();
-            colFilterTrupi filtratrupi = new colFilterTrupi(idKokaFilter);
-            bool uFshiTrupi = filtratrupi.fshi(data);
-            clsMesazh u_fshi = data.fshiFilterKoka(this.IdKokaFilter);
-            u_fshi.Status = u_fshi.Status && uFshiTrupi;
-            if (u_fshi.Status)
-                data.commitTransaksion();
-            else
-                data.rollbackTransaksion();
+            try
+            {
+                colFilterTrupi filtratrupi = new colFilterTrupi(idKokaFilter);
+                bool uFshiTrupi = filtratrupi.fshi(data);
+                clsMesazh u_fshi = data.fshiFilterKoka(this.IdKokaFilter);
+                u_fshi.Status = u_fshi.Status && uFshiTrupi;
+                if (u_fshi.Status)
+                    data.commitTransaksion();
+                else
+                    data.rollbackTransaksion();
             
-            return u_fshi ;
+                return u_fshi ;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         //duhet pare metoda merrTrupinFiltri

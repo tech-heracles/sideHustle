@@ -38,7 +38,15 @@ namespace DbCore.DbImporte
             {
                 moduliImporte = new clsDatabazeImporte();
                 moduliImporte.beginTransaksion();
-                transaksionIRi = true;
+                try
+                {
+                    transaksionIRi = true;
+                }
+                catch
+                {
+                    moduliImporte.rollbackNeseHapur();
+                    throw;
+                }
             }
             clsMesazh pergjigja = new clsMesazh(true, "Ruajtja u krye me sukses!");
             foreach (clsImportKokaFleteKontabel kokaPerInsert in this)
@@ -73,7 +81,15 @@ namespace DbCore.DbImporte
             {
                 moduliImporte = new clsDatabazeImporte();
                 moduliImporte.beginTransaksion();
-                transaksionIRi = true;
+                try
+                {
+                    transaksionIRi = true;
+                }
+                catch
+                {
+                    moduliImporte.rollbackNeseHapur();
+                    throw;
+                }
             }
             clsMesazh pergjigja = new clsMesazh(true, "Modifikimi u krye me sukses!");
             foreach (clsImportKokaFleteKontabel kokaModifikuar in this)

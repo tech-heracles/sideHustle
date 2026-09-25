@@ -451,24 +451,40 @@ namespace DbCore.DbProdhimi
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
             db.beginTransaksion();
-            clsMesazh ruajtur = ruaj(db);
-            if (!ruajtur.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return ruajtur;
+            try
+            {
+                clsMesazh ruajtur = ruaj(db);
+                if (!ruajtur.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return ruajtur;
 
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
       
         public clsMesazh modifiko()
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
             db.beginTransaksion();
-            clsMesazh ruajtur = modifiko(db);
-            if (!ruajtur.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return ruajtur;
+            try
+            {
+                clsMesazh ruajtur = modifiko(db);
+                if (!ruajtur.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return ruajtur;
 
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         
 

@@ -537,14 +537,22 @@ namespace DbCore.DbQendraKosto
         private clsMesazh modifiko(bool lidhur, int idstatusfshirje, clsDatabaseQendraKosto data)
         {
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_modifikua = modifikoQK(lidhur, idstatusfshirje, data);
-            if (u_modifikua.Status)
-                data.commitTransaksion();
-            else
-                data.rollbackTransaksion();
+                clsMesazh u_modifikua = modifikoQK(lidhur, idstatusfshirje, data);
+                if (u_modifikua.Status)
+                    data.commitTransaksion();
+                else
+                    data.rollbackTransaksion();
 
-            return u_modifikua;
+                return u_modifikua;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         private clsMesazh modifikoQK(bool lidhur, int idstatusfshirje, clsDatabaseQendraKosto data)
@@ -1425,16 +1433,24 @@ namespace DbCore.DbQendraKosto
         {
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-
-            clsMesazh u_ruajt = Ruaj(db, this.idGjenerues); //perdor ruajtjen me transaksion
-
-            if (!u_ruajt.Status)
+            try
             {
-                db.rollbackTransaksion();
+
+                clsMesazh u_ruajt = Ruaj(db, this.idGjenerues); //perdor ruajtjen me transaksion
+
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
                 return u_ruajt;
             }
-            db.commitTransaksion();
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

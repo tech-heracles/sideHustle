@@ -749,11 +749,19 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(db);
-            if (!u_ruajt.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return u_ruajt;
+            try
+            {
+                clsMesazh u_ruajt = ruaj(db);
+                if (!u_ruajt.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -771,12 +779,20 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_modifikua = modifiko(db);
-            if (!u_modifikua.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
+            try
+            {
+                clsMesazh u_modifikua = modifiko(db);
+                if (!u_modifikua.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
 
-            return u_modifikua;
+                return u_modifikua;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

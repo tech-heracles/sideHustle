@@ -309,28 +309,36 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh();
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
-            int idStruktura = 0;
-            clsMesazh mesazhkont = kontrolloStruktureAdministrative(out kaNdryshimNumri, db, hfNrAutoKF, false);
-            if (!mesazhkont.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return mesazhkont;
-            }
+                int idStruktura = 0;
+                clsMesazh mesazhkont = kontrolloStruktureAdministrative(out kaNdryshimNumri, db, hfNrAutoKF, false);
+                if (!mesazhkont.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazhkont;
+                }
 
-            mesazh = db.ruajStruktureAdm(out idStruktura, kodi, emri, idPrindi, personi, nrTel, shenime, idPerdoruesi, idNdermarje, idStatusDok, qenderKosto, idSkemaQendraKosto, llojQendre,Aktive);
-            mesazh = colArkiva.RuajArkiven(idStruktura, 105, idPerdoruesi, idNdermarje, HfArkiva);
-            idStukturaAdm = idStruktura;
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
+                mesazh = db.ruajStruktureAdm(out idStruktura, kodi, emri, idPrindi, personi, nrTel, shenime, idPerdoruesi, idNdermarje, idStatusDok, qenderKosto, idSkemaQendraKosto, llojQendre,Aktive);
+                mesazh = colArkiva.RuajArkiven(idStruktura, 105, idPerdoruesi, idNdermarje, HfArkiva);
+                idStukturaAdm = idStruktura;
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
+
+                if (kaNdryshimNumri)
+                    return mesazhkont;
                 return mesazh;
+
             }
-            db.commitTransaksion();
-
-            if (kaNdryshimNumri)
-                return mesazhkont;
-            return mesazh;
-
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         private clsMesazh kontrolloStruktureAdministrative(out bool kaNdryshimNrAuto, clsDatabazeListPagesa db, IDictionary<string, object> hfNrAutoKF, bool modifikim)
         {

@@ -903,11 +903,19 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
-            clsMesazh u_fshi = fshiListPagese(idKoka, idPerdoruesi, db);
-            if (u_fshi.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = fshiListPagese(idKoka, idPerdoruesi, db);
+                if (u_fshi.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

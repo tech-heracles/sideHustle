@@ -696,15 +696,23 @@ namespace DbCore.DbProdhimi
 
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, db); //perdor ruajtjen me transaksion
-
-            if (!u_ruajt.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, db); //perdor ruajtjen me transaksion
+
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
                 return u_ruajt;
             }
-            db.commitTransaksion();
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -843,10 +851,18 @@ namespace DbCore.DbProdhimi
             if (lidhur == false)
             {
                 data.beginTransaksion();
-                u_modifikua = modifikoSkedulim(IdKoka, IdNivel, IdKonfigAmbjente, IdPlanifikimi, IdBurimi, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues,  colTrupi, data);
-                if (u_modifikua.Status)
-                    data.commitTransaksion();
-                else data.rollbackTransaksion();
+                try
+                {
+                    u_modifikua = modifikoSkedulim(IdKoka, IdNivel, IdKonfigAmbjente, IdPlanifikimi, IdBurimi, DtDok, NrDok, IdDokNga, IdStatusDok, IdNdermarrje, IdNdermarrjeVit, IdPerdoruesi, DtRegj, Shenime, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues,  colTrupi, data);
+                    if (u_modifikua.Status)
+                        data.commitTransaksion();
+                    else data.rollbackTransaksion();
+                }
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
             else
             {
@@ -897,11 +913,19 @@ namespace DbCore.DbProdhimi
         {
             clsDatabazeProdhimi db = new clsDatabazeProdhimi();
             db.beginTransaksion();
-            clsMesazh u_fshi = fshiSkedulim(IdKoka, idPerdoruesi, db);
-            if (u_fshi.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = fshiSkedulim(IdKoka, idPerdoruesi, db);
+                if (u_fshi.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

@@ -269,7 +269,15 @@ namespace DbCore.DbImporte
             {
                 moduliImporte = new clsDatabazeImporte();
                 moduliImporte.beginTransaksion();
-                transaksionIRi = true;
+                try
+                {
+                    transaksionIRi = true;
+                }
+                catch
+                {
+                    moduliImporte.rollbackNeseHapur();
+                    throw;
+                }
             }            
             clsMesazh pergjigja = ruajKokaFleteKontabelPerImport(moduliImporte, idNdermarrje);
 
@@ -298,7 +306,15 @@ namespace DbCore.DbImporte
             {
                 moduliImporte = new clsDatabazeImporte();
                 moduliImporte.beginTransaksion();
-                transaksionIRi = true;
+                try
+                {
+                    transaksionIRi = true;
+                }
+                catch
+                {
+                    moduliImporte.rollbackNeseHapur();
+                    throw;
+                }
             }
 
             clsMesazh pergjigja = modifikoKokaFleteKontabelPasImport(moduliImporte);

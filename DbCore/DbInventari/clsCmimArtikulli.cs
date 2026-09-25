@@ -668,13 +668,21 @@ namespace DbCore.DbInventari
                 {
                     clsDatabaseInventari db = new clsDatabaseInventari();
                     db.beginTransaksion();
-                    mesazh = kontrollotransferim(cmimet[i], int.Parse(id.ToString()), db, idperdoruesi);
-                    if (!mesazh.Status)
+                    try
                     {
-                        db.rollbackTransaksion();
-                        sukses = false;
+                        mesazh = kontrollotransferim(cmimet[i], int.Parse(id.ToString()), db, idperdoruesi);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            sukses = false;
+                        }
+                        db.commitTransaksion();
                     }
-                    db.commitTransaksion();
+                    catch
+                    {
+                        db.rollbackNeseHapur();
+                        throw;
+                    }
                 }
             }
             if (sukses) { mesazh.PershkrimMesazhi = "Transferimi mbaroi me sukses!"; mesazh.Status = true; }

@@ -224,12 +224,20 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_ruajt = ruaj(data);
-            if (!u_ruajt.Status)
-                data.rollbackTransaksion();
-            else data.commitTransaksion();
-            return u_ruajt;
+                clsMesazh u_ruajt = ruaj(data);
+                if (!u_ruajt.Status)
+                    data.rollbackTransaksion();
+                else data.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh ruaj(clsDatabazeListPagesa data)
         {
@@ -243,12 +251,20 @@ namespace DbCore.DbListPagesat
             this.id = idbanda;
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_ruajt = modifiko(data);
-            if (!u_ruajt.Status)
-                data.rollbackTransaksion();
-            else data.commitTransaksion();
-            return u_ruajt;
+                clsMesazh u_ruajt = modifiko(data);
+                if (!u_ruajt.Status)
+                    data.rollbackTransaksion();
+                else data.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         /// <summary>
         /// Modifikon objektin e paga shtesa ne tabelen perkatese ne databaze.Therret funksionin

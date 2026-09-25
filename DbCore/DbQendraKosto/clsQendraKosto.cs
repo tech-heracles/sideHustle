@@ -470,114 +470,122 @@ namespace DbCore.DbQendraKosto
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-            mesazh = db.modifikoQenderKosto(id, kodi, pershkrimi, idPrindi, idMonedha, aktiv, idKonfig, idPerdoruesi, idNdermarje, idStatusDok, niveli);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
+                mesazh = db.modifikoQenderKosto(id, kodi, pershkrimi, idPrindi, idMonedha, aktiv, idKonfig, idPerdoruesi, idNdermarje, idStatusDok, niveli);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                if (idPrindi == 0)
+                {
+                    DataTable dt = db.ktheQendraKostoSipasPrindit(id);
+
+                    //Ndryshimi Fillon Ketu
+                    int fillimi = 0;
+                    int fundi = dt.Rows.Count - 1;
+                    if (dt.Rows.Count > 0)
+                    {
+                        while (fillimi != fundi)
+                        {
+                            DataRow r = dt.Rows[fillimi];
+                            clsQendraKosto qk = new clsQendraKosto();
+                            qk.mbushQendraKosto(r);
+                            DataTable dtTemp = db.ktheQendraKostoSipasPrindit(qk.id);
+                            foreach (DataRow rtmp in dtTemp.Rows)
+                            {
+                                dt.Rows.Add(rtmp.ItemArray);
+                                fundi++;
+                            }
+                            fillimi++;
+                        }
+                    }
+                    //end while
+                    //Ndryshim mbaron ketu
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        clsQendraKosto qk = new clsQendraKosto();
+                        qk.mbushQendraKosto(dr);
+                        mesazh = db.modifikoQenderKosto(qk.id, qk.kodi, qk.pershkrimi, qk.idPrindi, qk.idMonedha, aktiv, qk.idKonfig, idPerdoruesi, qk.idNdermarje, qk.idStatusDok, qk.niveli);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            return mesazh;
+                        }
+                    }
+                }
+                clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet(db );
+                int idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("QendraKosto", dbKont);
+                if (oColBuxhete.Count != 0)
+                {
+                    if (!clsBuxheti.ekzistonProjektBuxhetiPerKategorine(id, idLlojBuxheti, idNderVit, false, oColBuxhete[0].DtAktivizimi, dbKont))
+                    {
+                        foreach (clsBuxheti o in oColBuxhete)
+                        {
+                            o.IdLidhese = id;
+                            o.IdLlojBuxheti = idLlojBuxheti;
+                            int idB;
+                            mesazh = dbKont.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
+                            if (!mesazh.Status)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
+                            }
+                        }
+                    }
+                    else if (!clsBuxheti.ekzistonBuxhetPerDaten(id, idLlojBuxheti, idNderVit, oColBuxhete[0].DtAktivizimi,  dbKont))
+                    {
+                        foreach (clsBuxheti o in oColBuxhete)
+                        {
+                            o.IdLidhese = id;
+                            o.IdLlojBuxheti = idLlojBuxheti;
+                            int idB;
+                            mesazh = dbKont.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
+                            if (!mesazh.Status)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                        //duhet te behet kontrolli i buxhetit total te kesaj qk me buxhetin total te qk prind, nese eshte me i madh duhet afishuar nje mesazh per perdoruesin
+
+                        if (idPrindi != 0)
+                        {
+                            clsBuxheti buxhetTotal = oColBuxhete.KtheBuxhetinTotal();
+                            clsQendraKosto qkPrind = new clsQendraKosto(idPrindi);
+                            qkPrind.oColBuxhete = new colBuxhetet(idPrindi, idLlojBuxheti);
+                            if (tejkalohetBuxheti(buxhetTotal, qkPrind) && !pergjigje)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(TipMesazhi.Informim, "Buxhetit 1 e tejkalon buxhetin e zerit prind. Doni te vazhdoni?");
+                            }
+                        }
+                        foreach (clsBuxheti o in oColBuxhete)
+                        {
+
+                            mesazh = dbKont.modifikoBuxhet(o.IdBuxheti, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
+                            if (!mesazh.Status)
+                            {
+                                db.rollbackTransaksion();
+                                return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
+                            }
+                        }
+                    }
+                }
+                db.commitTransaksion();
                 return mesazh;
             }
-            if (idPrindi == 0)
+            catch
             {
-                DataTable dt = db.ktheQendraKostoSipasPrindit(id);
-
-                //Ndryshimi Fillon Ketu
-                int fillimi = 0;
-                int fundi = dt.Rows.Count - 1;
-                if (dt.Rows.Count > 0)
-                {
-                    while (fillimi != fundi)
-                    {
-                        DataRow r = dt.Rows[fillimi];
-                        clsQendraKosto qk = new clsQendraKosto();
-                        qk.mbushQendraKosto(r);
-                        DataTable dtTemp = db.ktheQendraKostoSipasPrindit(qk.id);
-                        foreach (DataRow rtmp in dtTemp.Rows)
-                        {
-                            dt.Rows.Add(rtmp.ItemArray);
-                            fundi++;
-                        }
-                        fillimi++;
-                    }
-                }
-                //end while
-                //Ndryshim mbaron ketu
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    clsQendraKosto qk = new clsQendraKosto();
-                    qk.mbushQendraKosto(dr);
-                    mesazh = db.modifikoQenderKosto(qk.id, qk.kodi, qk.pershkrimi, qk.idPrindi, qk.idMonedha, aktiv, qk.idKonfig, idPerdoruesi, qk.idNdermarje, qk.idStatusDok, qk.niveli);
-                    if (!mesazh.Status)
-                    {
-                        db.rollbackTransaksion();
-                        return mesazh;
-                    }
-                }
+                db.rollbackNeseHapur();
+                throw;
             }
-            clsDatabaseKontabilitet dbKont = new clsDatabaseKontabilitet(db );
-            int idLlojBuxheti = clsLlojBuxheti.mbushIDLlojBuxheti("QendraKosto", dbKont);
-            if (oColBuxhete.Count != 0)
-            {
-                if (!clsBuxheti.ekzistonProjektBuxhetiPerKategorine(id, idLlojBuxheti, idNderVit, false, oColBuxhete[0].DtAktivizimi, dbKont))
-                {
-                    foreach (clsBuxheti o in oColBuxhete)
-                    {
-                        o.IdLidhese = id;
-                        o.IdLlojBuxheti = idLlojBuxheti;
-                        int idB;
-                        mesazh = dbKont.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
-                        if (!mesazh.Status)
-                        {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
-                        }
-                    }
-                }
-                else if (!clsBuxheti.ekzistonBuxhetPerDaten(id, idLlojBuxheti, idNderVit, oColBuxhete[0].DtAktivizimi,  dbKont))
-                {
-                    foreach (clsBuxheti o in oColBuxhete)
-                    {
-                        o.IdLidhese = id;
-                        o.IdLlojBuxheti = idLlojBuxheti;
-                        int idB;
-                        mesazh = dbKont.ruajBuxhet(out idB, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
-                        if (!mesazh.Status)
-                        {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
-                        }
-                    }
-                }
-                else
-                {
-
-                    //duhet te behet kontrolli i buxhetit total te kesaj qk me buxhetin total te qk prind, nese eshte me i madh duhet afishuar nje mesazh per perdoruesin
-
-                    if (idPrindi != 0)
-                    {
-                        clsBuxheti buxhetTotal = oColBuxhete.KtheBuxhetinTotal();
-                        clsQendraKosto qkPrind = new clsQendraKosto(idPrindi);
-                        qkPrind.oColBuxhete = new colBuxhetet(idPrindi, idLlojBuxheti);
-                        if (tejkalohetBuxheti(buxhetTotal, qkPrind) && !pergjigje)
-                        {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(TipMesazhi.Informim, "Buxhetit 1 e tejkalon buxhetin e zerit prind. Doni te vazhdoni?");
-                        }
-                    }
-                    foreach (clsBuxheti o in oColBuxhete)
-                    {
-
-                        mesazh = dbKont.modifikoBuxhet(o.IdBuxheti, o.IdLlojBuxheti, o.IdLidhese, o.Muaj, o.Buxheti_1, o.Buxheti_2, idNderVit, o.DtAktivizimi, o.IdKonfigUrdherPagese, o.Shenime);
-                        if (!mesazh.Status)
-                        {
-                            db.rollbackTransaksion();
-                            return new clsMesazh(false, "Ndodhi nje gabim gjate modifikimit te buxheteve!");
-                        }
-                    }
-                }
-            }
-            db.commitTransaksion();
-            return mesazh;
         }
 
         public bool tejkalohetBuxheti(clsBuxheti buxheti, clsQendraKosto qkPrind)

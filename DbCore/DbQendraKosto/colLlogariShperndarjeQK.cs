@@ -99,25 +99,33 @@ namespace DbCore.DbQendraKosto
         {
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-            clsMesazh mesazh = new clsMesazh(true);
-            mesazh = clsLlogariShperndarjeQK.fshi(IdNdermarrje, db);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return mesazh;
-            }
-
-            foreach (clsLlogariShperndarjeQK llog in this)
-            {
-                mesazh = llog.ruaj(db);
+                clsMesazh mesazh = new clsMesazh(true);
+                mesazh = clsLlogariShperndarjeQK.fshi(IdNdermarrje, db);
                 if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
                     return mesazh;
                 }
+
+                foreach (clsLlogariShperndarjeQK llog in this)
+                {
+                    mesazh = llog.ruaj(db);
+                    if (!mesazh.Status)
+                    {
+                        db.rollbackTransaksion();
+                        return mesazh;
+                    }
+                }
+                db.commitTransaksion();
+                return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         #endregion

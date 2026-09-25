@@ -508,12 +508,20 @@ namespace DbCore.DbKontabiliteti
         {
             clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
             db.beginTransaksion();
-            clsMesazh ruajtur = ruaj(db);
-            if (!ruajtur.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return ruajtur;
+            try
+            {
+                clsMesazh ruajtur = ruaj(db);
+                if (!ruajtur.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return ruajtur;
 
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh ruaj(clsDatabaseKontabilitet db)
         {
@@ -524,12 +532,20 @@ namespace DbCore.DbKontabiliteti
         {
             clsDatabaseKontabilitet db = new clsDatabaseKontabilitet();
             db.beginTransaksion();
-            clsMesazh ruajtur = modifiko(db);
-            if (!ruajtur.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return ruajtur;
+            try
+            {
+                clsMesazh ruajtur = modifiko(db);
+                if (!ruajtur.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return ruajtur;
 
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh modifiko(clsDatabaseKontabilitet db)
         {

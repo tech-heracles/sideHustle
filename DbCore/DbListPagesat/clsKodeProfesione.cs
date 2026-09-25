@@ -363,18 +363,26 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
+            try
+            {
           
 
-            clsMesazh mesazh = ruaj(db);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
-                return mesazh;
-            }
-            db.commitTransaksion();
+                clsMesazh mesazh = ruaj(db);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
 
            
-            return mesazh;
+                return mesazh;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

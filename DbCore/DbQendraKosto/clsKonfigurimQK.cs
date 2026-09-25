@@ -272,32 +272,40 @@ namespace DbCore.DbQendraKosto
         {
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-            clsMesazh mesazh = new clsMesazh(true);
-            if (prioriteti1 == prioriteti2 || prioriteti1 == prioriteti3 || prioriteti1 == prioriteti4 || prioriteti2 == prioriteti3 || prioriteti2 == prioriteti4 || prioriteti3 == prioriteti4)
+            try
             {
-                mesazh = new clsMesazh(false, "Dy ose me shume prioritete kane te njejten vlere!");
-                db.rollbackTransaksion();
+                clsMesazh mesazh = new clsMesazh(true);
+                if (prioriteti1 == prioriteti2 || prioriteti1 == prioriteti3 || prioriteti1 == prioriteti4 || prioriteti2 == prioriteti3 || prioriteti2 == prioriteti4 || prioriteti3 == prioriteti4)
+                {
+                    mesazh = new clsMesazh(false, "Dy ose me shume prioritete kane te njejten vlere!");
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+
+                mesazh = fshi(this.idNdermarje, this.idPerdoruesi, db);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+
+                }
+
+                mesazh = ruaj(db);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+
+                }
+
+                db.commitTransaksion();
                 return mesazh;
             }
-
-            mesazh = fshi(this.idNdermarje, this.idPerdoruesi, db);
-            if (!mesazh.Status)
+            catch
             {
-                db.rollbackTransaksion();
-                return mesazh;
-
+                db.rollbackNeseHapur();
+                throw;
             }
-
-            mesazh = ruaj(db);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
-                return mesazh;
-
-            }
-
-            db.commitTransaksion();
-            return mesazh;
         }
 
         /// <summary>

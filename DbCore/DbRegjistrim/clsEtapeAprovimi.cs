@@ -519,19 +519,27 @@ namespace DbCore.DbRegjistrim
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
 
             dbRegj.beginTransaksion();
-            clsMesazh u_modifikua;
-
-
-            u_modifikua = modifiko(dbRegj);
-            if (!u_modifikua.Status)
+            try
             {
-                dbRegj.rollbackTransaksion();
+                clsMesazh u_modifikua;
+
+
+                u_modifikua = modifiko(dbRegj);
+                if (!u_modifikua.Status)
+                {
+                    dbRegj.rollbackTransaksion();
+                    return u_modifikua;
+                }
+
+
+                dbRegj.commitTransaksion();
                 return u_modifikua;
             }
-
-
-            dbRegj.commitTransaksion();
-            return u_modifikua;
+            catch
+            {
+                dbRegj.rollbackNeseHapur();
+                throw;
+            }
         }
         /// <summary>
         /// modifikon nje etape

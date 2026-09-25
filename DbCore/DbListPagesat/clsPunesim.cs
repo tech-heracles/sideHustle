@@ -803,11 +803,19 @@ namespace DbCore.DbListPagesat
             this.IdPunesim = idpunesimi;
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-            clsMesazh mesazh = modifiko(data);
-            if (mesazh.Status)
-                data.commitTransaksion();
-            else data.rollbackTransaksion();
-            return mesazh;
+            try
+            {
+                clsMesazh mesazh = modifiko(data);
+                if (mesazh.Status)
+                    data.commitTransaksion();
+                else data.rollbackTransaksion();
+                return mesazh;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         /// <summary>
         /// Modifikon objektin e paga shtesa ne tabelen perkatese ne databaze.Therret funksionin

@@ -467,28 +467,36 @@ namespace DbCore.DbRegjistrim
             bool kaNdryshimNumri;
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh mesazhKontrolli = kontrolloLidhje(out kaNdryshimNumri, db, hfNrAutoKF, false, idperdorues);
+            try
+            {
+                clsMesazh mesazhKontrolli = kontrolloLidhje(out kaNdryshimNumri, db, hfNrAutoKF, false, idperdorues);
 
-            if (!mesazhKontrolli.Status)
-            {
-                return mesazhKontrolli;
-            }
-            int idkoka = 0;
-            clsMesazh u_ruajt = ruajLidhjeDokumentash(out idkoka, this.NrLidhje, this.DateDokumenti, this.DateRegjistrimi, this.IdKlientFurnitor, this.IdGjenerues,
-                this.IdLlojDok, this.IdNdermarje, this.IdNderViti, this.IdNivel, this.IdKonfigAmbjente, this.IdDokNga, this.IdNivelGjenerues, this.IdKonfigGjenerues,
-                this.IdStatusDok, this.IdPerdorues, this.OColTrupi, this.OFleteKontabel, this.OGjendjeKF, meKontabilizim, db);
-            this.IdKoka = idkoka;
-            if (!u_ruajt.Status)
-            {
-                db.rollbackTransaksion();
+                if (!mesazhKontrolli.Status)
+                {
+                    return mesazhKontrolli;
+                }
+                int idkoka = 0;
+                clsMesazh u_ruajt = ruajLidhjeDokumentash(out idkoka, this.NrLidhje, this.DateDokumenti, this.DateRegjistrimi, this.IdKlientFurnitor, this.IdGjenerues,
+                    this.IdLlojDok, this.IdNdermarje, this.IdNderViti, this.IdNivel, this.IdKonfigAmbjente, this.IdDokNga, this.IdNivelGjenerues, this.IdKonfigGjenerues,
+                    this.IdStatusDok, this.IdPerdorues, this.OColTrupi, this.OFleteKontabel, this.OGjendjeKF, meKontabilizim, db);
+                this.IdKoka = idkoka;
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
+
+                if (kaNdryshimNumri)
+                    return mesazhKontrolli;
                 return u_ruajt;
+
             }
-            db.commitTransaksion();
-
-            if (kaNdryshimNumri)
-                return mesazhKontrolli;
-            return u_ruajt;
-
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         private clsMesazh kontrolloLidhje(out bool kaNdryshimNrAuto, clsDatabaseRegjistrim db, IDictionary<string, object> hfNrAutoKF, bool modifikim, int idperdorues)
         {
@@ -537,13 +545,21 @@ namespace DbCore.DbRegjistrim
         {
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_fshi = fshiDokumentDheKontabilitet(data);
-            if (u_fshi.Status)
-                data.commitTransaksion();
-            else
-                data.rollbackTransaksion();
-            return u_fshi;
+                clsMesazh u_fshi = fshiDokumentDheKontabilitet(data);
+                if (u_fshi.Status)
+                    data.commitTransaksion();
+                else
+                    data.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh fshiDokumentDheKontabilitet(clsDatabaseRegjistrim data)
         {

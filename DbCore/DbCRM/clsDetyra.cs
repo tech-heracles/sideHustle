@@ -205,12 +205,20 @@ namespace DbCore.DbCRM
         {
             clsDatabaseCRM data = new clsDatabaseCRM();
             data.beginTransaksion();
-            clsMesazh u_modifikua = modifiko(data,idperdoruesi );
-            if (u_modifikua.Status)
-                data.commitTransaksion();
-            else
-                data.rollbackTransaksion();
-            return u_modifikua;
+            try
+            {
+                clsMesazh u_modifikua = modifiko(data,idperdoruesi );
+                if (u_modifikua.Status)
+                    data.commitTransaksion();
+                else
+                    data.rollbackTransaksion();
+                return u_modifikua;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
                
        public static bool ekzistonDetyreSipasKodit(string kodi, int idNdermarrje)

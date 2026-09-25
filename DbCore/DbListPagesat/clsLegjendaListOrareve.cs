@@ -283,18 +283,26 @@ namespace DbCore.DbListPagesat
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             int id;
             data.beginTransaksion();
-
-            clsMesazh u_ruajt = data.ruajLegjendeListOrari(out id,this.kodi, this.OreFillimi,this.oreMbarimi, this.Pershkrimi, this.Koeficienti, this.idKomponente,this.IdPerdoruesi,this.idKrijuesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_ruajt.Status)
+            try
             {
-                data.rollbackTransaksion();
+
+                clsMesazh u_ruajt = data.ruajLegjendeListOrari(out id,this.kodi, this.OreFillimi,this.oreMbarimi, this.Pershkrimi, this.Koeficienti, this.idKomponente,this.IdPerdoruesi,this.idKrijuesi, this.IdNdermarje, this.idStatusDok);
+                if (!u_ruajt.Status)
+                {
+                    data.rollbackTransaksion();
+
+                    return u_ruajt;
+                }
+           
+                data.commitTransaksion();
 
                 return u_ruajt;
             }
-           
-            data.commitTransaksion();
-
-            return u_ruajt;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -307,16 +315,24 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-
-            clsMesazh u_modifikua = data.modifikoLegjendeListOrari(this.Id,this.kodi, this.OreFillimi,this.oreMbarimi, this.Pershkrimi, this.Koeficienti,this.idKomponente, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_modifikua.Status)
+            try
             {
-                data.rollbackTransaksion();
+
+                clsMesazh u_modifikua = data.modifikoLegjendeListOrari(this.Id,this.kodi, this.OreFillimi,this.oreMbarimi, this.Pershkrimi, this.Koeficienti,this.idKomponente, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
+                if (!u_modifikua.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_modifikua;
+                }
+          
+                data.commitTransaksion();
                 return u_modifikua;
             }
-          
-            data.commitTransaksion();
-            return u_modifikua;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -329,15 +345,23 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-            clsMesazh u_fshi = data.fshiLegjendeListOrari(this.Id, this.idPerdoruesi);
-            if (!u_fshi.Status)
+            try
             {
-                data.rollbackTransaksion();
+                clsMesazh u_fshi = data.fshiLegjendeListOrari(this.Id, this.idPerdoruesi);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+           
+                data.commitTransaksion();
                 return u_fshi;
             }
-           
-            data.commitTransaksion();
-            return u_fshi;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

@@ -172,6 +172,29 @@ namespace DbCore.IMBUtils.DataBase
         }
 
         /// <summary>
+        /// Perdoret kur nje exception nderpret punen para commit/rollback: kthen mbrapsht transaksionin nese
+        /// eshte ende i hapur dhe liron lidhjen, pa e fshehur exception-in origjinal me nje gabim te ri.
+        /// </summary>
+        public void rollbackNeseHapur()
+        {
+            // pa transaksion te hapur nga ky objekt (p.sh. brenda nje TransactionScope, ose pas commit/rollback) s'ka asgje per te bere
+            if (dbManager?.Transaction == null)
+                return;
+            try
+            {
+                dbManager.Transaction.Rollback();
+            }
+            catch (Exception)
+            {
+                // lidhja mund te jete tashme e mbyllur/prishur; exception-i origjinal eshte ai qe ka rendesi
+            }
+            finally
+            {
+                Dispose();
+            }
+        }
+
+        /// <summary>
         /// fillon nje transaksion
         /// </summary>
         /// <returns>True nese transaksioni krijohet me sukses, False perndryshe</returns>

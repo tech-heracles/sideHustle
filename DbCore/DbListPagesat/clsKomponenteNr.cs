@@ -381,16 +381,24 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-
-            clsMesazh u_modifikua = data.modifikoKomponenteNr(this.Id, this.idPunonjesi, this.vlera, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok, this.idKomponente, this.muaji, this.viti, this.muajiLP, this.vitiLP);
-            if (!u_modifikua.Status)
+            try
             {
-                data.rollbackTransaksion();
+
+                clsMesazh u_modifikua = data.modifikoKomponenteNr(this.Id, this.idPunonjesi, this.vlera, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok, this.idKomponente, this.muaji, this.viti, this.muajiLP, this.vitiLP);
+                if (!u_modifikua.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_modifikua;
+                }
+
+                data.commitTransaksion();
                 return u_modifikua;
             }
-
-            data.commitTransaksion();
-            return u_modifikua;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -403,15 +411,23 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-            clsMesazh u_fshi = data.fshiKomponenteNr(this.Id, this.idPerdoruesi);
-            if (!u_fshi.Status)
+            try
             {
-                data.rollbackTransaksion();
+                clsMesazh u_fshi = data.fshiKomponenteNr(this.Id, this.idPerdoruesi);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+
+                data.commitTransaksion();
                 return u_fshi;
             }
-
-            data.commitTransaksion();
-            return u_fshi;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

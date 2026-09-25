@@ -114,32 +114,40 @@ namespace DbCore.DbCRM
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseCRM db = new clsDatabaseCRM();
             db.beginTransaksion();
-            mesazh = db.fshiKlientAnketaStatusSipasKlientitAktive(idklienti, idperdoruesi);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return mesazh;
-            }
-            for (int i = 0; i < idanketa.Count; i++)
-            {
-                if (clsKlientAnketa.ekzistonKlientAnketa(idklienti, (int)idanketa[i], db))
-                    continue;
-                clsKokaAnketa kok = new DbCore.DbCRM.clsKokaAnketa((int)idanketa[i]);
-                if (DbCore.DbCRM.clsKokaAnketa.kaPrerjeAnketashKlienti(idndermarje, idklienti, kok.DtFillimi, kok.DtMbarimi, db))
-                {
-                    db.rollbackTransaksion();
-                    return new clsMesazh("Ka prerje te periudhave te anketes " + kok.Kodi + "  me anketat e tjera !");
-                }
-                DbCore.DbCRM.clsKlientAnketa klient = new DbCore.DbCRM.clsKlientAnketa(0, idklienti, (int)idanketa[i], 1, DateTime.Now, DateTime.Now, idperdoruesi, idperdoruesi, idndermarje);
-                mesazh = klient.ruaj(db);
+                mesazh = db.fshiKlientAnketaStatusSipasKlientitAktive(idklienti, idperdoruesi);
                 if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
                     return mesazh;
                 }
+                for (int i = 0; i < idanketa.Count; i++)
+                {
+                    if (clsKlientAnketa.ekzistonKlientAnketa(idklienti, (int)idanketa[i], db))
+                        continue;
+                    clsKokaAnketa kok = new DbCore.DbCRM.clsKokaAnketa((int)idanketa[i]);
+                    if (DbCore.DbCRM.clsKokaAnketa.kaPrerjeAnketashKlienti(idndermarje, idklienti, kok.DtFillimi, kok.DtMbarimi, db))
+                    {
+                        db.rollbackTransaksion();
+                        return new clsMesazh("Ka prerje te periudhave te anketes " + kok.Kodi + "  me anketat e tjera !");
+                    }
+                    DbCore.DbCRM.clsKlientAnketa klient = new DbCore.DbCRM.clsKlientAnketa(0, idklienti, (int)idanketa[i], 1, DateTime.Now, DateTime.Now, idperdoruesi, idperdoruesi, idndermarje);
+                    mesazh = klient.ruaj(db);
+                    if (!mesazh.Status)
+                    {
+                        db.rollbackTransaksion();
+                        return mesazh;
+                    }
+                }
+                db.commitTransaksion();
+                return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         
         #endregion

@@ -87,15 +87,23 @@ namespace DbCore.DbAdmin
         {
             var dbAdmin = new clsDatabaseAdmin();
             dbAdmin.beginTransaksion();
-            
-            if (!update(dbAdmin, idGjuha))
+            try
             {
-                dbAdmin.rollbackTransaksion();
-                return false;
-            }
+            
+                if (!update(dbAdmin, idGjuha))
+                {
+                    dbAdmin.rollbackTransaksion();
+                    return false;
+                }
 
-            dbAdmin.commitTransaksion();
-            return true;
+                dbAdmin.commitTransaksion();
+                return true;
+            }
+            catch
+            {
+                dbAdmin.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

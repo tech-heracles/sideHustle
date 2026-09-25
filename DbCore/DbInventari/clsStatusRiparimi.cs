@@ -295,12 +295,20 @@ namespace DbCore.DbInventari
         {
             clsDatabaseInventari data = new clsDatabaseInventari();
             data.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(data);
+            try
+            {
+                clsMesazh u_ruajt = ruaj(data);
 
-            if (!u_ruajt.Status)
-                data.rollbackTransaksion();
-            else data.commitTransaksion();
-            return u_ruajt;
+                if (!u_ruajt.Status)
+                    data.rollbackTransaksion();
+                else data.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         } 
         public clsMesazh ruaj( clsDatabaseInventari data )
         {

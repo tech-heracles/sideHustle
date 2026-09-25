@@ -387,30 +387,38 @@ namespace DbCore.DbQendraKosto
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-            int idKoka = 0;
+            try
+            {
+                int idKoka = 0;
             
-            mesazh = db.ruajKokaSkemaQK(out idKoka, kodi,  pershkrimi, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
-                return new clsMesazh(false, STR_AktivitetiNukURuajt);
-            }
-            IdKoka = idKoka;
-            foreach (clsTrupiSkemaQK trupi in colTrupi)
-            {
-                trupi.IdKoka = IdKoka;
-                mesazh = trupi.ruaj(db);
+                mesazh = db.ruajKokaSkemaQK(out idKoka, kodi,  pershkrimi, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
                 if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
-                    return new clsMesazh(false, STR_NjeNgaRreshtatETrupitNukURuajt);
+                    return new clsMesazh(false, STR_AktivitetiNukURuajt);
                 }
-            }
+                IdKoka = idKoka;
+                foreach (clsTrupiSkemaQK trupi in colTrupi)
+                {
+                    trupi.IdKoka = IdKoka;
+                    mesazh = trupi.ruaj(db);
+                    if (!mesazh.Status)
+                    {
+                        db.rollbackTransaksion();
+                        return new clsMesazh(false, STR_NjeNgaRreshtatETrupitNukURuajt);
+                    }
+                }
            
-            if (mesazh.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return mesazh;           
+                if (mesazh.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
+                return mesazh;           
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -422,38 +430,46 @@ namespace DbCore.DbQendraKosto
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseQendraKosto db = new clsDatabaseQendraKosto();
             db.beginTransaksion();
-            mesazh = db.modifikoKokaSkemaQK(idKoka, kodi,  pershkrimi, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
-                return new clsMesazh(false, STR_AktivitetiNukUModifikua);
-            }
+                mesazh = db.modifikoKokaSkemaQK(idKoka, kodi,  pershkrimi, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return new clsMesazh(false, STR_AktivitetiNukUModifikua);
+                }
              
                 
-                    mesazh = db.fshiTrupiSkemaQKSipasIdKoka(idKoka);
+                        mesazh = db.fshiTrupiSkemaQKSipasIdKoka(idKoka);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            return new clsMesazh(false, STR_NjeNgaRreshtatETrupitNukURuajt);
+                        }
+               
+            
+                foreach (clsTrupiSkemaQK trupi in colTrupi)
+                {
+                    trupi.IdKoka = IdKoka;
+                    mesazh = trupi.ruaj(db);
                     if (!mesazh.Status)
                     {
                         db.rollbackTransaksion();
                         return new clsMesazh(false, STR_NjeNgaRreshtatETrupitNukURuajt);
                     }
-               
-            
-            foreach (clsTrupiSkemaQK trupi in colTrupi)
-            {
-                trupi.IdKoka = IdKoka;
-                mesazh = trupi.ruaj(db);
-                if (!mesazh.Status)
-                {
-                    db.rollbackTransaksion();
-                    return new clsMesazh(false, STR_NjeNgaRreshtatETrupitNukURuajt);
                 }
+
+                if (mesazh.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
+                return mesazh;
+
             }
-
-            if (mesazh.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return mesazh;
-
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

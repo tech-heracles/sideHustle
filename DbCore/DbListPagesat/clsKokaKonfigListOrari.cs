@@ -263,27 +263,35 @@ namespace DbCore.DbListPagesat
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             int id;
             data.beginTransaksion();
-
-            clsMesazh u_ruajt = data.ruajKonfigurimListOrari(out id, this.OreFillimi, this.oreMbarimi, this.Shenime, this.Koeficienti, this.IdPerdoruesi, this.idKrijuesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_ruajt.Status)
+            try
             {
-                data.rollbackTransaksion();
 
-                return u_ruajt;
-            }
-            foreach (clsTrupiKonfigListOrari t in colTrupi)
-            {
-                u_ruajt = data.ruajTrupiKonfigurimListOrari(0, id, t.DiteJave, t.DiteJave_ENG);
+                clsMesazh u_ruajt = data.ruajKonfigurimListOrari(out id, this.OreFillimi, this.oreMbarimi, this.Shenime, this.Koeficienti, this.IdPerdoruesi, this.idKrijuesi, this.IdNdermarje, this.idStatusDok);
                 if (!u_ruajt.Status)
                 {
                     data.rollbackTransaksion();
 
                     return u_ruajt;
                 }
-            }
-            data.commitTransaksion();
+                foreach (clsTrupiKonfigListOrari t in colTrupi)
+                {
+                    u_ruajt = data.ruajTrupiKonfigurimListOrari(0, id, t.DiteJave, t.DiteJave_ENG);
+                    if (!u_ruajt.Status)
+                    {
+                        data.rollbackTransaksion();
 
-            return u_ruajt;
+                        return u_ruajt;
+                    }
+                }
+                data.commitTransaksion();
+
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -296,31 +304,39 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
+            try
+            {
 
-            clsMesazh u_modifikua = data.modifikoKonfigurimListOrari(this.IdKoka, this.OreFillimi, this.oreMbarimi, this.Shenime, this.Koeficienti, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
-            if (!u_modifikua.Status)
-            {
-                data.rollbackTransaksion();
-                return u_modifikua;
-            }
-            u_modifikua = data.fshiTrupiKonfigListOrariSipasIdKoka(this.idKoka);
-            if (!u_modifikua.Status)
-            {
-                data.rollbackTransaksion();
-                return u_modifikua;
-            }
-            foreach (clsTrupiKonfigListOrari t in colTrupi)
-            {
-                u_modifikua = data.ruajTrupiKonfigurimListOrari(0, idKoka, t.DiteJave, t.DiteJave_ENG);
+                clsMesazh u_modifikua = data.modifikoKonfigurimListOrari(this.IdKoka, this.OreFillimi, this.oreMbarimi, this.Shenime, this.Koeficienti, this.IdPerdoruesi, this.IdNdermarje, this.idStatusDok);
                 if (!u_modifikua.Status)
                 {
                     data.rollbackTransaksion();
-
                     return u_modifikua;
                 }
+                u_modifikua = data.fshiTrupiKonfigListOrariSipasIdKoka(this.idKoka);
+                if (!u_modifikua.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_modifikua;
+                }
+                foreach (clsTrupiKonfigListOrari t in colTrupi)
+                {
+                    u_modifikua = data.ruajTrupiKonfigurimListOrari(0, idKoka, t.DiteJave, t.DiteJave_ENG);
+                    if (!u_modifikua.Status)
+                    {
+                        data.rollbackTransaksion();
+
+                        return u_modifikua;
+                    }
+                }
+                data.commitTransaksion();
+                return u_modifikua;
             }
-            data.commitTransaksion();
-            return u_modifikua;
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -333,20 +349,28 @@ namespace DbCore.DbListPagesat
         {
             clsDatabazeListPagesa data = new clsDatabazeListPagesa();
             data.beginTransaksion();
-            clsMesazh u_fshi = data.fshiKonfigurimListOrari(this.IdKoka, this.idPerdoruesi);
-            if (!u_fshi.Status)
+            try
             {
-                data.rollbackTransaksion();
+                clsMesazh u_fshi = data.fshiKonfigurimListOrari(this.IdKoka, this.idPerdoruesi);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+                u_fshi = data.fshiTrupiKonfigListOrariSipasIdKoka(this.idKoka);
+                if (!u_fshi.Status)
+                {
+                    data.rollbackTransaksion();
+                    return u_fshi;
+                }
+                data.commitTransaksion();
                 return u_fshi;
             }
-            u_fshi = data.fshiTrupiKonfigListOrariSipasIdKoka(this.idKoka);
-            if (!u_fshi.Status)
+            catch
             {
-                data.rollbackTransaksion();
-                return u_fshi;
+                data.rollbackNeseHapur();
+                throw;
             }
-            data.commitTransaksion();
-            return u_fshi;
         }
 
 

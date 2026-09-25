@@ -81,35 +81,43 @@ namespace DbCore.DbInventari
             clsMesazh mes = new clsMesazh();
             clsDatabaseInventari db = new clsDatabaseInventari();
             db.beginTransaksion();
-            foreach (clsArtikulliPerberes art in this)
+            try
             {
-                if (clsArtikulliPerberes.ekzistonArtikullPerberesPerKeteDate(art.IdArtikulliKryesor, art.DtNdryshimi, art.IdLidhese, art.Lloji, db))
+                foreach (clsArtikulliPerberes art in this)
                 {
-                    mes = new clsMesazh(false, "Ekziston kjo recepture per kete artikull");
-                    db.rollbackTransaksion();
-                    return mes;
-                }
-                int id = 0;
-                mes = db.ruajArtikullPerbere(out id, art.Lloji, art.IdArtikulliKryesor, art.IdLidheseArt, art.Koeficienti, art.Scrap, art.IdLidheseAkt, art.GjithmoneNgaStoku, art.DtNdryshimi);
-                if (!mes.Status)
-                {
-                    db.rollbackTransaksion();
-                    return mes;
-                }
-                if (art.IdImportTAbSQL > 0)
-                {
-                    DbImporte.clsDatabazeImporte dbImport = new DbImporte.clsDatabazeImporte(db);
-                    mes = DbImporte.colImportSQL.updateDokTabeleTemportal(art.IdImportTAbSQL.ToString(), idndermarje, 1, emerTabKoka, "IDIMPORTSHITJE", emerFusheNdermarrje, dbImport);
-
+                    if (clsArtikulliPerberes.ekzistonArtikullPerberesPerKeteDate(art.IdArtikulliKryesor, art.DtNdryshimi, art.IdLidhese, art.Lloji, db))
+                    {
+                        mes = new clsMesazh(false, "Ekziston kjo recepture per kete artikull");
+                        db.rollbackTransaksion();
+                        return mes;
+                    }
+                    int id = 0;
+                    mes = db.ruajArtikullPerbere(out id, art.Lloji, art.IdArtikulliKryesor, art.IdLidheseArt, art.Koeficienti, art.Scrap, art.IdLidheseAkt, art.GjithmoneNgaStoku, art.DtNdryshimi);
                     if (!mes.Status)
                     {
                         db.rollbackTransaksion();
                         return mes;
                     }
+                    if (art.IdImportTAbSQL > 0)
+                    {
+                        DbImporte.clsDatabazeImporte dbImport = new DbImporte.clsDatabazeImporte(db);
+                        mes = DbImporte.colImportSQL.updateDokTabeleTemportal(art.IdImportTAbSQL.ToString(), idndermarje, 1, emerTabKoka, "IDIMPORTSHITJE", emerFusheNdermarrje, dbImport);
+
+                        if (!mes.Status)
+                        {
+                            db.rollbackTransaksion();
+                            return mes;
+                        }
+                    }
                 }
+                db.commitTransaksion();
+                return mes;
             }
-            db.commitTransaksion();
-            return mes;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public String merrKoeficentArtikullPerberes(int id)

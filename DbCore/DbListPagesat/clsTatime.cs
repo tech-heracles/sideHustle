@@ -311,31 +311,39 @@ namespace DbCore.DbListPagesat
             clsMesazh mesazh = new clsMesazh(true);
             clsDatabazeListPagesa db = new clsDatabazeListPagesa();
             db.beginTransaksion();
-            colTatimet col = new colTatimet(idNdermarje, data);
-            IEnumerable<clsTatime> tatimtjeter = (from c in col
-                                                  where c.Min > min
-                                                  orderby c.Min
-                                                  select c).Take(1);
-            foreach (clsTatime t in tatimtjeter)
-                if (t.Max <= Max && t.IdTatime != idTatime)
+            try
+            {
+                colTatimet col = new colTatimet(idNdermarje, data);
+                IEnumerable<clsTatime> tatimtjeter = (from c in col
+                                                      where c.Min > min
+                                                      orderby c.Min
+                                                      select c).Take(1);
+                foreach (clsTatime t in tatimtjeter)
+                    if (t.Max <= Max && t.IdTatime != idTatime)
+                    {
+                        db.rollbackTransaksion();
+                        mesazh.Status = false;
+                        mesazh.PershkrimMesazhi = vlerareshtitjeter;
+                        return mesazh;
+                    }
+                    else
+                        mesazh = db.modifikoTatim(t.idTatime, t.data, max + 1, t.max, t.norma, t.menyra, t.model, t.idKonfig, idPerdoruesi, t.idNdermarje, t.idStatusDok);
+                if (!mesazh.Status)
                 {
                     db.rollbackTransaksion();
-                    mesazh.Status = false;
-                    mesazh.PershkrimMesazhi = vlerareshtitjeter;
                     return mesazh;
                 }
-                else
-                    mesazh = db.modifikoTatim(t.idTatime, t.data, max + 1, t.max, t.norma, t.menyra, t.model, t.idKonfig, idPerdoruesi, t.idNdermarje, t.idStatusDok);
-            if (!mesazh.Status)
-            {
-                db.rollbackTransaksion();
+                mesazh = db.modifikoTatim(idTatime, data, min, max, norma, menyra, model, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
+                if (mesazh.Status)
+                    db.commitTransaksion();
+                else db.rollbackTransaksion();
                 return mesazh;
             }
-            mesazh = db.modifikoTatim(idTatime, data, min, max, norma, menyra, model, idKonfig, idPerdoruesi, idNdermarje, idStatusDok);
-            if (mesazh.Status)
-                db.commitTransaksion();
-            else db.rollbackTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

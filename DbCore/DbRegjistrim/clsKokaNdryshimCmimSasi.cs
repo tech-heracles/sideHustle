@@ -876,15 +876,23 @@ namespace DbCore.DbRegjistrim
             int idDokNgaFK = -1;
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(meKontabilizim, hfNrAutoregjistrime, idPeriudha, pershkrimFK, idLlojDokFK, idDokNgaFK, db, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, out shfaqmesazhapolupemag, gjenerodokmagazine, rm, ci); //perdor ruajtjen me transaksion
-
-            if (!u_ruajt.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh u_ruajt = ruaj(meKontabilizim, hfNrAutoregjistrime, idPeriudha, pershkrimFK, idLlojDokFK, idDokNgaFK, db, out shfaqmesazhapolupe, 0, new DbQendraKosto.colTrupiQendraKosto(), eshteOwn, out shfaqmesazhapolupemag, gjenerodokmagazine, rm, ci); //perdor ruajtjen me transaksion
+
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
                 return u_ruajt;
             }
-            db.commitTransaksion();
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -1260,12 +1268,20 @@ namespace DbCore.DbRegjistrim
             clsKokaNdryshimCmimSasi data = new clsKokaNdryshimCmimSasi();
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
             dbRegj.beginTransaksion();
-            clsMesazh u_fshi = data.fshiNdryshimCmimSasi(this.IdKoka, this.idPerdoruesi, dbRegj);
-            if (u_fshi.Status)
-                dbRegj.commitTransaksion();
-            else
-                dbRegj.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = data.fshiNdryshimCmimSasi(this.IdKoka, this.idPerdoruesi, dbRegj);
+                if (u_fshi.Status)
+                    dbRegj.commitTransaksion();
+                else
+                    dbRegj.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                dbRegj.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

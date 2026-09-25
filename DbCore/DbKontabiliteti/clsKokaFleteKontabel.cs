@@ -8049,17 +8049,25 @@ namespace DbCore.DbKontabiliteti
             if (lidhur == false)
             {
                 data.beginTransaksion();
-                var kokaFleKont = new clsKokaFleteKontabel(IdKokaFleteKontabel);
+                try
+                {
+                    var kokaFleKont = new clsKokaFleteKontabel(IdKokaFleteKontabel);
 
-                uModifikua = KontrolloFk(data, hfregjistrime, kokaFleKont);
-                if (!uModifikua.Status)
+                    uModifikua = KontrolloFk(data, hfregjistrime, kokaFleKont);
+                    if (!uModifikua.Status)
+                        return uModifikua;
+                    uModifikua = ModifikoFleteKontabel(regjistrim, data);
+                    if (uModifikua.Status)
+                        data.commitTransaksion();
+                    else
+                        data.rollbackTransaksion();
                     return uModifikua;
-                uModifikua = ModifikoFleteKontabel(regjistrim, data);
-                if (uModifikua.Status)
-                    data.commitTransaksion();
-                else
-                    data.rollbackTransaksion();
-                return uModifikua;
+                }
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
             uModifikua = kontrolloFk(data, hfregjistrime);
             if (!uModifikua.Status)

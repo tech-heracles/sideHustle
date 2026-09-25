@@ -449,7 +449,15 @@ namespace DbCore.DbRegjistrim
             if (lidhur == false)
             {
                 data.beginTransaksion();
-                mesazh = ModifikoVeprimKf(data);
+                try
+                {
+                    mesazh = ModifikoVeprimKf(data);
+                }
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
             else
             {

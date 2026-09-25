@@ -33,21 +33,29 @@ namespace DbCore.DbImporte
         {
             clsDatabazeImporte moduliImporte = new clsDatabazeImporte();
             moduliImporte.beginTransaksion();
-            clsMesazh mesazh;
-            mesazh = moduliImporte.shtoFaturaNeTabeleImporti(dtKoka, col, emerTabKoka, 1, kategoria, true);
-            if (!mesazh.Status)
+            try
             {
-                moduliImporte.rollbackTransaksion();
-                return mesazh;
+                clsMesazh mesazh;
+                mesazh = moduliImporte.shtoFaturaNeTabeleImporti(dtKoka, col, emerTabKoka, 1, kategoria, true);
+                if (!mesazh.Status)
+                {
+                    moduliImporte.rollbackTransaksion();
+                    return mesazh;
+                }
+                mesazh = moduliImporte.shtoFaturaNeTabeleImporti(dtTrupi, col, emerTabTrupi, 2, kategoria, true);
+                if (!mesazh.Status)
+                {
+                    moduliImporte.rollbackTransaksion();
+                    return mesazh;
+                }
+                moduliImporte.commitTransaksion();
+                return new clsMesazh(true, "Shkrimi ne tabelen e importit u krye me sukses!");
             }
-            mesazh = moduliImporte.shtoFaturaNeTabeleImporti(dtTrupi, col, emerTabTrupi, 2, kategoria, true);
-            if (!mesazh.Status)
+            catch
             {
-                moduliImporte.rollbackTransaksion();
-                return mesazh;
+                moduliImporte.rollbackNeseHapur();
+                throw;
             }
-            moduliImporte.commitTransaksion();
-            return new clsMesazh(true, "Shkrimi ne tabelen e importit u krye me sukses!");
         }
 
         public static clsMesazh transferoPolicaNeTabelaImporti(string emerTabeleKoka, string emerTabeleTrupi, int idNdermarrje, int idPerdoruesi, out int idKokaError)

@@ -320,16 +320,24 @@ namespace DbCore.DbShare
             clsMesazh msg = new clsMesazh(true);
             clsDatabaseShare db = new clsDatabaseShare();
             db.beginTransaksion();
-
-            msg = fshiArkivaUpdateStatus(db);
-
-            if (!msg.Status)
+            try
             {
-                db.rollbackTransaksion();
+
+                msg = fshiArkivaUpdateStatus(db);
+
+                if (!msg.Status)
+                {
+                    db.rollbackTransaksion();
+                    return msg;
+                }
+                db.commitTransaksion();
                 return msg;
             }
-            db.commitTransaksion();
-            return msg;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

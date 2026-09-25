@@ -170,11 +170,19 @@ namespace DbCore.DbAsete
         {
             clsDatabazeAsete dbasete = new clsDatabazeAsete();
             dbasete.beginTransaksion();
-            clsMesazh mesazh = ruaj(dbasete);
-            if (mesazh.Status)
-                dbasete.commitTransaksion();
-            else dbasete.rollbackTransaksion();
-            return mesazh;
+            try
+            {
+                clsMesazh mesazh = ruaj(dbasete);
+                if (mesazh.Status)
+                    dbasete.commitTransaksion();
+                else dbasete.rollbackTransaksion();
+                return mesazh;
+            }
+            catch
+            {
+                dbasete.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -186,11 +194,19 @@ namespace DbCore.DbAsete
         {
             clsDatabazeAsete dbasete = new clsDatabazeAsete();
             dbasete.beginTransaksion();
-            clsMesazh mesazh = modifiko(dbasete);
-            if (mesazh.Status)
-                dbasete.commitTransaksion();
-            else dbasete.rollbackTransaksion();
-            return mesazh;
+            try
+            {
+                clsMesazh mesazh = modifiko(dbasete);
+                if (mesazh.Status)
+                    dbasete.commitTransaksion();
+                else dbasete.rollbackTransaksion();
+                return mesazh;
+            }
+            catch
+            {
+                dbasete.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -202,11 +218,19 @@ namespace DbCore.DbAsete
         {
             clsDatabazeAsete dbasete = new clsDatabazeAsete();
             dbasete.beginTransaksion();
-            clsMesazh mesazh = fshi(dbasete);
-            if (mesazh.Status)
-                dbasete.commitTransaksion();
-            else dbasete.rollbackTransaksion();
-            return mesazh;
+            try
+            {
+                clsMesazh mesazh = fshi(dbasete);
+                if (mesazh.Status)
+                    dbasete.commitTransaksion();
+                else dbasete.rollbackTransaksion();
+                return mesazh;
+            }
+            catch
+            {
+                dbasete.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>

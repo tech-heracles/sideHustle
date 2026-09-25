@@ -582,12 +582,20 @@ namespace DbCore.DbArkaBanka
         {
             clsDatabaseArkaBanka db = new clsDatabaseArkaBanka();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, db);
-            if (!u_ruajt.Status)
-                db.rollbackTransaksion();
-            else
-                db.commitTransaksion();
-            return u_ruajt;
+            try
+            {
+                clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime, db);
+                if (!u_ruajt.Status)
+                    db.rollbackTransaksion();
+                else
+                    db.commitTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -747,12 +755,20 @@ namespace DbCore.DbArkaBanka
             if (!lidhur)
             {
                 data.beginTransaksion();
-                u_modifikua = clsKokaUrdherPagese.modifikoUrdherPagese(ref idKoka, IdNivel, IdKonfigAmbjente, nrKuponi, NrPunonjesve, DtDok, NrDok, EmriPerfituesit, Totali, Nipti, IdDokNga, EmriBankes, IdStatusDok, IdNdermarje, IdNderViti, IdPerdoruesi
-                          , DtDokNgjitur, NrLlogBankare, Adresa, LlojDokNgjitur, NrDokNgjitur, DtDokAprovimi, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, IdRaportDesing, Urdheruesi, Kontabilisti, NenpunesThesari, OColTrupi, data);
-                if (u_modifikua.Status)
-                    data.commitTransaksion();
-                else
-                    data.rollbackTransaksion();
+                try
+                {
+                    u_modifikua = clsKokaUrdherPagese.modifikoUrdherPagese(ref idKoka, IdNivel, IdKonfigAmbjente, nrKuponi, NrPunonjesve, DtDok, NrDok, EmriPerfituesit, Totali, Nipti, IdDokNga, EmriBankes, IdStatusDok, IdNdermarje, IdNderViti, IdPerdoruesi
+                              , DtDokNgjitur, NrLlogBankare, Adresa, LlojDokNgjitur, NrDokNgjitur, DtDokAprovimi, IdNivelGjenerues, IdKonfigGjenerues, IdGjenerues, IdRaportDesing, Urdheruesi, Kontabilisti, NenpunesThesari, OColTrupi, data);
+                    if (u_modifikua.Status)
+                        data.commitTransaksion();
+                    else
+                        data.rollbackTransaksion();
+                }
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
             else
             {
@@ -797,12 +813,20 @@ namespace DbCore.DbArkaBanka
         {
             clsDatabaseArkaBanka db = new clsDatabaseArkaBanka();
             db.beginTransaksion();
-            clsMesazh u_fshi = clsKokaUrdherPagese.fshiUrdherPagese(idKoka, db);
-            if (u_fshi.Status)
-                db.commitTransaksion();
-            else
-                db.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = clsKokaUrdherPagese.fshiUrdherPagese(idKoka, db);
+                if (u_fshi.Status)
+                    db.commitTransaksion();
+                else
+                    db.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

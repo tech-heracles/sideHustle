@@ -770,15 +770,23 @@ namespace DbCore.DbRegjistrim
 
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime,  db); //perdor ruajtjen me transaksion
-
-            if (!u_ruajt.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh u_ruajt = ruaj(hfNrAutoregjistrime,  db); //perdor ruajtjen me transaksion
+
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
                 return u_ruajt;
             }
-            db.commitTransaksion();
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public clsMesazh ruaj(IDictionary<string, object> hfNrAutoregjistrime, clsDatabaseRegjistrim db)
@@ -1225,12 +1233,20 @@ namespace DbCore.DbRegjistrim
             clsKokaRezervime data = new clsKokaRezervime();
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
             dbRegj.beginTransaksion();
-            clsMesazh u_fshi = data.fshiRezervim(this.idKokaRezervime, this.idPerdoruesi, dbRegj,false);
-            if (u_fshi.Status)
-                dbRegj.commitTransaksion();
-            else
-                dbRegj.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = data.fshiRezervim(this.idKokaRezervime, this.idPerdoruesi, dbRegj,false);
+                if (u_fshi.Status)
+                    dbRegj.commitTransaksion();
+                else
+                    dbRegj.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                dbRegj.rollbackNeseHapur();
+                throw;
+            }
         }
 
 

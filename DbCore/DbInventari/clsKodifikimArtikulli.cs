@@ -537,13 +537,21 @@ namespace DbCore.DbInventari
                         continue;
                     clsDatabaseInventari db = new clsDatabaseInventari();
                     db.beginTransaksion();
-                    mesazh = kontrollotransferim(kod, int.Parse(id.ToString()), db, idperdoruesi);
-                    if (!mesazh.Status)
+                    try
                     {
-                        db.rollbackTransaksion();
-                        sukses = false;
+                        mesazh = kontrollotransferim(kod, int.Parse(id.ToString()), db, idperdoruesi);
+                        if (!mesazh.Status)
+                        {
+                            db.rollbackTransaksion();
+                            sukses = false;
+                        }
+                        db.commitTransaksion();
                     }
-                    db.commitTransaksion();
+                    catch
+                    {
+                        db.rollbackNeseHapur();
+                        throw;
+                    }
                 }
             }
             if (sukses) { mesazh.PershkrimMesazhi = "Transferimi mbaroi me sukses!"; mesazh.Status = true; }
@@ -669,14 +677,22 @@ namespace DbCore.DbInventari
             {
                 clsDatabaseInventari data = new clsDatabaseInventari();
                 data.beginTransaksion();
-                clsMesazh u_modifikua = modifiko(data);
-                if (!u_modifikua.Status)
+                try
                 {
-                    return u_modifikua;
+                    clsMesazh u_modifikua = modifiko(data);
+                    if (!u_modifikua.Status)
+                    {
+                        return u_modifikua;
                     
+                    }
+                    scope.Complete();
+                    return u_modifikua;
                 }
-                scope.Complete();
-                return u_modifikua;
+                catch
+                {
+                    data.rollbackNeseHapur();
+                    throw;
+                }
             }
         }
 

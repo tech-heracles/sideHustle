@@ -199,12 +199,20 @@ namespace DbCore.DbCRM
         {
             clsDatabaseCRM data = new clsDatabaseCRM();
             data.beginTransaksion();
-            if (!string.IsNullOrWhiteSpace(Description))
-            Description = string.Format("{0}:{1}", DbCore.DbAdmin.clsPerdorues.ktheEmer(idKrijuesi), Description);
-            clsMesazh u_ruajt = ruaj(data);
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(Description))
+                Description = string.Format("{0}:{1}", DbCore.DbAdmin.clsPerdorues.ktheEmer(idKrijuesi), Description);
+                clsMesazh u_ruajt = ruaj(data);
           
-            if (u_ruajt.Status) data.commitTransaksion(); else data.rollbackTransaksion();
-            return u_ruajt;
+                if (u_ruajt.Status) data.commitTransaksion(); else data.rollbackTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public clsMesazh ruaj(clsDatabaseCRM data)
@@ -223,12 +231,20 @@ namespace DbCore.DbCRM
         {
             clsDatabaseCRM data = new clsDatabaseCRM();
             data.beginTransaksion();
-            clsMesazh u_modifikua = modifiko(data);
-            if (u_modifikua.Status)
-                data.commitTransaksion();
-            else
-                data.rollbackTransaksion();
-            return u_modifikua;
+            try
+            {
+                clsMesazh u_modifikua = modifiko(data);
+                if (u_modifikua.Status)
+                    data.commitTransaksion();
+                else
+                    data.rollbackTransaksion();
+                return u_modifikua;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public clsMesazh modifiko(clsDatabaseCRM data)

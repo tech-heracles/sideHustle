@@ -152,9 +152,17 @@ namespace DbCore.DbGIS
         {
             clsDatabaseGIS data = new clsDatabaseGIS();
             data.beginTransaksion();
-            clsMesazh u_ruajt = ruaj(data);
-            if (u_ruajt.Status) data.commitTransaksion(); else data.rollbackTransaksion();
-            return u_ruajt;
+            try
+            {
+                clsMesazh u_ruajt = ruaj(data);
+                if (u_ruajt.Status) data.commitTransaksion(); else data.rollbackTransaksion();
+                return u_ruajt;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh ruaj(clsDatabaseGIS data)
         {
@@ -167,9 +175,17 @@ namespace DbCore.DbGIS
         {
             clsDatabaseGIS data = new clsDatabaseGIS();
             data.beginTransaksion();
-            clsMesazh u_fshi = fshi(data);
-            if (u_fshi.Status) data.commitTransaksion(); else data.rollbackTransaksion();
-            return u_fshi;
+            try
+            {
+                clsMesazh u_fshi = fshi(data);
+                if (u_fshi.Status) data.commitTransaksion(); else data.rollbackTransaksion();
+                return u_fshi;
+            }
+            catch
+            {
+                data.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh fshi(clsDatabaseGIS data)
         {

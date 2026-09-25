@@ -335,21 +335,11 @@ namespace DbCore.DbAsete
             }
             clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
             moduliAsete.beginTransaksion();
-            clsMesazh pergjigja = new clsMesazh();
-            if (col.Count == 0)
+            try
             {
-                pergjigja = ruajKarakteristike(moduliAsete);
-                if (!pergjigja.Status)
+                clsMesazh pergjigja = new clsMesazh();
+                if (col.Count == 0)
                 {
-                    moduliAsete.rollbackTransaksion();
-                    return pergjigja;
-                }
-            }
-            else
-            {
-                foreach (DbInventari.clsKodifikimArtikulli kod in col)
-                {
-                    idKodifikimArtikulli = kod.IdKodifikimi;
                     pergjigja = ruajKarakteristike(moduliAsete);
                     if (!pergjigja.Status)
                     {
@@ -357,11 +347,29 @@ namespace DbCore.DbAsete
                         return pergjigja;
                     }
                 }
+                else
+                {
+                    foreach (DbInventari.clsKodifikimArtikulli kod in col)
+                    {
+                        idKodifikimArtikulli = kod.IdKodifikimi;
+                        pergjigja = ruajKarakteristike(moduliAsete);
+                        if (!pergjigja.Status)
+                        {
+                            moduliAsete.rollbackTransaksion();
+                            return pergjigja;
+                        }
+                    }
+                }
+
+                moduliAsete.commitTransaksion();
+
+                return pergjigja;
             }
-
-            moduliAsete.commitTransaksion();
-
-            return pergjigja;
+            catch
+            {
+                moduliAsete.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -375,12 +383,20 @@ namespace DbCore.DbAsete
             {
                 clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
                 moduliAsete.beginTransaksion();
-                clsMesazh pergjigja = modifikoKarakteristikaTransaksion(moduliAsete);
-                if (pergjigja.Status)
-                    moduliAsete.commitTransaksion();
-                else
-                    moduliAsete.rollbackTransaksion();
-                return pergjigja;
+                try
+                {
+                    clsMesazh pergjigja = modifikoKarakteristikaTransaksion(moduliAsete);
+                    if (pergjigja.Status)
+                        moduliAsete.commitTransaksion();
+                    else
+                        moduliAsete.rollbackTransaksion();
+                    return pergjigja;
+                }
+                catch
+                {
+                    moduliAsete.rollbackNeseHapur();
+                    throw;
+                }
             }
             return new clsMesazh(false, "Nuk ekziston nje rregull me kete standart dhe kete grup.");
         }
@@ -396,12 +412,20 @@ namespace DbCore.DbAsete
             {
                 clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
                 moduliAsete.beginTransaksion();
-                clsMesazh pergjigja = fshiKarakteristikaTransaksion(moduliAsete);
-                if (pergjigja.Status)
-                    moduliAsete.commitTransaksion();
-                else
-                    moduliAsete.rollbackTransaksion();
-                return pergjigja;
+                try
+                {
+                    clsMesazh pergjigja = fshiKarakteristikaTransaksion(moduliAsete);
+                    if (pergjigja.Status)
+                        moduliAsete.commitTransaksion();
+                    else
+                        moduliAsete.rollbackTransaksion();
+                    return pergjigja;
+                }
+                catch
+                {
+                    moduliAsete.rollbackNeseHapur();
+                    throw;
+                }
             }
             return new clsMesazh(false, "Nuk ekziston nje rregull me kete standart dhe kete grup."); ;
         }

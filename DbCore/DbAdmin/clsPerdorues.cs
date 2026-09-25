@@ -778,16 +778,24 @@ namespace DbCore.DbAdmin
         {
             clsDatabaseAdmin db = new clsDatabaseAdmin();
             db.beginTransaksion();
-            clsMesazh mesazh = modifikoPassword(idPerdorues, newPass, db, this.PasswordIPerkohshem, idPerdoruesiLoguar, false);
-            if (mesazh.Status)
+            try
             {
-                db.commitTransaksion();
-                return mesazh;
+                clsMesazh mesazh = modifikoPassword(idPerdorues, newPass, db, this.PasswordIPerkohshem, idPerdoruesiLoguar, false);
+                if (mesazh.Status)
+                {
+                    db.commitTransaksion();
+                    return mesazh;
+                }
+                else
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
             }
-            else
+            catch
             {
-                db.rollbackTransaksion();
-                return mesazh;
+                db.rollbackNeseHapur();
+                throw;
             }
         }
         /// <summary>

@@ -151,45 +151,69 @@ namespace DbCore.DbShare
         {
             clsDatabaseShare db = new clsDatabaseShare();
             db.beginTransaksion();
-
-            int id = 0;
-            clsMesazh mesazh = db.ruajKategoriArkive(out id, idNivel, kategoria, idNdermarrje, idKrijues);
-
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
+
+                int id = 0;
+                clsMesazh mesazh = db.ruajKategoriArkive(out id, idNivel, kategoria, idNdermarrje, idKrijues);
+
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
                 return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public static clsMesazh modifiko(int idKategoriArkive, string kategoria, int idModifikues)
         {
             clsDatabaseShare db = new clsDatabaseShare();
             db.beginTransaksion();            
-            clsMesazh mesazh = db.modifikoKategoriArkive(idKategoriArkive, kategoria, idModifikues);          
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh mesazh = db.modifikoKategoriArkive(idKategoriArkive, kategoria, idModifikues);          
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
                 return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public static clsMesazh fshi(int idKategoriArkive, int idModifikues)
         {
             clsDatabaseShare db = new clsDatabaseShare();
             db.beginTransaksion();
-            clsMesazh mesazh = db.fshiKategoriArkive(idKategoriArkive, idModifikues);
-            if (!mesazh.Status)
+            try
             {
-                db.rollbackTransaksion();
+                clsMesazh mesazh = db.fshiKategoriArkive(idKategoriArkive, idModifikues);
+                if (!mesazh.Status)
+                {
+                    db.rollbackTransaksion();
+                    return mesazh;
+                }
+                db.commitTransaksion();
                 return mesazh;
             }
-            db.commitTransaksion();
-            return mesazh;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         public static DataRow ktheKategoriArkiveSipasId(int idKategoriArkive)

@@ -345,23 +345,31 @@ namespace DbCore.DbRegjistrim
             bool kaNdryshimNumri;
             clsDatabaseRegjistrim db = new clsDatabaseRegjistrim();
             db.beginTransaksion();
-            clsMesazh mesazhKontrolli = kontrolloPikeShitjeFurnizimi(out kaNdryshimNumri, db, hfNrAutoKF, false);
+            try
+            {
+                clsMesazh mesazhKontrolli = kontrolloPikeShitjeFurnizimi(out kaNdryshimNumri, db, hfNrAutoKF, false);
 
-            if (!mesazhKontrolli.Status)
-            {
-                return mesazhKontrolli;
-            }
-            clsMesazh u_ruajt = ruaj(db);
-            if (!u_ruajt.Status)
-            {
-                db.rollbackTransaksion();
+                if (!mesazhKontrolli.Status)
+                {
+                    return mesazhKontrolli;
+                }
+                clsMesazh u_ruajt = ruaj(db);
+                if (!u_ruajt.Status)
+                {
+                    db.rollbackTransaksion();
+                    return u_ruajt;
+                }
+                db.commitTransaksion();
+
+                if (kaNdryshimNumri)
+                    return mesazhKontrolli;
                 return u_ruajt;
             }
-            db.commitTransaksion();
-
-            if (kaNdryshimNumri)
-                return mesazhKontrolli;
-            return u_ruajt;
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         private clsMesazh kontrolloPikeShitjeFurnizimi(out bool kaNdryshimNrAuto, clsDatabaseRegjistrim db, IDictionary<string, object> hfNrAutoKF, bool modifikim)

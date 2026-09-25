@@ -602,14 +602,22 @@ namespace DbCore.DbInventari
         {
             clsDatabaseInventari db = new clsDatabaseInventari();
             db.beginTransaksion();
+            try
+            {
 
-            clsMesazh mesazh = ruaj(db);
-            if (!mesazh.Status)
-                db.rollbackTransaksion();
-            else
-                db.commitTransaksion();
+                clsMesazh mesazh = ruaj(db);
+                if (!mesazh.Status)
+                    db.rollbackTransaksion();
+                else
+                    db.commitTransaksion();
 
-            return mesazh;
+                return mesazh;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
 
         /// <summary>
@@ -832,11 +840,19 @@ namespace DbCore.DbInventari
             clsMesazh mesazh = new clsMesazh();
             clsDatabaseInventari db = new clsDatabaseInventari();
             db.beginTransaksion();
-            mesazh = modifikoDetajim(idDetajimArtikulli, kodDetajimArtikulli, llojDetajimArtikulli, pershkrimDetajimArtikulli, idPerdoruesi, kategoriDetajimi, idNdermarje, idNivelAutorizimi, idStatusDok, loan, db);
-            if (!mesazh.Status)
-                db.rollbackTransaksion();
-            else db.commitTransaksion();
-            return mesazh;
+            try
+            {
+                mesazh = modifikoDetajim(idDetajimArtikulli, kodDetajimArtikulli, llojDetajimArtikulli, pershkrimDetajimArtikulli, idPerdoruesi, kategoriDetajimi, idNdermarje, idNivelAutorizimi, idStatusDok, loan, db);
+                if (!mesazh.Status)
+                    db.rollbackTransaksion();
+                else db.commitTransaksion();
+                return mesazh;
+            }
+            catch
+            {
+                db.rollbackNeseHapur();
+                throw;
+            }
         }
         public clsMesazh modifikoDetajim(int idDetajimArtikulli, string kodDetajimArtikulli, int llojDetajimArtikulli, string pershkrimDetajimArtikulli, int idPerdoruesi, int kategoriDetajimi, int idndermrje, string idnivelautorizimi, int idstatusdok, int loan, clsDatabaseInventari dbInv)
         {
