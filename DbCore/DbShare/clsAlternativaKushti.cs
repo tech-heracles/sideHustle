@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbShare
 {
@@ -99,10 +100,11 @@ namespace DbCore.DbShare
         /// <returns></returns>
         public static string getAlternativa(int idKonfigAmbjente, string kushtKod)
         {
-            using (clsDatabaseShare data = new clsDatabaseShare())
+            return ImportCache.Merr(ImportCache.Alternativa, idKonfigAmbjente + "|" + kushtKod, () =>
             {
-                return data.ktheAlternativeSipasKushtitDheIdKonfig(idKonfigAmbjente, kushtKod);
-            }
+                using (clsDatabaseShare data = new clsDatabaseShare())
+                    return data.ktheAlternativeSipasKushtitDheIdKonfig(idKonfigAmbjente, kushtKod);
+            }, _ => true);
         }
 
         public static double? getVleraSipasId(int idKonfigAmbjente, string kushtKod)
@@ -115,7 +117,8 @@ namespace DbCore.DbShare
 
         public static string getAlternativa(int idKonfigAmbjente, string kushtKod, clsDatabaseShare shareDB)
         {
-            return shareDB.TransCache.ktheAlternativeSipasKushtitDheIdKonfig(idKonfigAmbjente, kushtKod, shareDB);
+            return ImportCache.Merr(ImportCache.Alternativa, idKonfigAmbjente + "|" + kushtKod,
+                () => shareDB.TransCache.ktheAlternativeSipasKushtitDheIdKonfig(idKonfigAmbjente, kushtKod, shareDB), _ => true);
         }
 
         public static string getAlternativaSipasIdTrupiDok(int idTrupi, string kushtKod, clsDatabaseShare shareDB)

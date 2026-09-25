@@ -7,6 +7,7 @@ using DbCore.IMBUtils.Logging;
 using AlphaWeb.Core.Interfaces.Data;
 using DbCore.IMBUtils.Messages;
 using System.Data.SqlClient;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbInventari
 {
@@ -241,13 +242,14 @@ namespace DbCore.DbInventari
 
         internal int MerrIdBarkodiSipasPershkrimiDheIdArtikulli(string barkodi, int idArtikull)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@PERSHKRIMKODBAR", barkodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDARTIKULLI", idArtikull, ParameterDirection.Input);
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KODBARI_merrIdBarkodi"));
-
+            return ImportCache.Merr<int>(ImportCache.Kodbar, "id|" + barkodi + "|" + idArtikull, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@PERSHKRIMKODBAR", barkodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDARTIKULLI", idArtikull, ParameterDirection.Input);
+                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KODBARI_merrIdBarkodi"));
+            }, id => id > 0);
         }
         internal int MerrIdBarkodiSipasPershkrimit(string barkodi)
         {
@@ -765,19 +767,20 @@ namespace DbCore.DbInventari
         ///<returns>nje datarow qe mban skemen me kete id  </returns>
         internal DataRow ktheSkemaKontabilitetiArtikulli(int id)
         {
-            dbManager.Open();
-            //shtimi i parametrave
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", id, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_sel");
+            return ImportCache.Merr<DataRow>(ImportCache.Skema, "sel|" + id, () =>
+            {
+                dbManager.Open();
+                //shtimi i parametrave
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDSKEMAKONTABILITETIARTIKULLI", id, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_sel");
 
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
-
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         //[Obsolete("Perdor: DataRow merrSkemaKontabilitetiArtikulli(int id)", true)]
         //{// metoda per te marre nje skemaKontabilitetiArtikulli NE BAZE TE ID
@@ -883,21 +886,22 @@ namespace DbCore.DbInventari
         ///<returns>nje datarow qe mban skemen e kesaj ndermarje me kete kod  </returns>
         internal DataRow ktheSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm, bool llojart)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.Skema, "row|" + kodi + "|" + idnderm + "|" + llojart, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODISKEMAKONTABILITETIARTIKULLI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@LLOJIART", llojart, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKodit");
 
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODISKEMAKONTABILITETIARTIKULLI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@LLOJIART", llojart, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKodit");
 
-
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         /// <summary>
         /// kthen id e skema kontabiliteti artikulli sipas idse te ndermarjes me kete kod
@@ -907,22 +911,23 @@ namespace DbCore.DbInventari
         ///<returns>nje id te skemes te kesaj ndermarje me kete kod  </returns>
         internal int ktheIdSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm, bool llojart)
         {
+            return ImportCache.Merr<int>(ImportCache.Skema, "id|" + kodi + "|" + idnderm + "|" + llojart, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODISKEMAKONTABILITETIARTIKULLI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@LLOJIART", llojart, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKodit");
 
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODISKEMAKONTABILITETIARTIKULLI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@LLOJIART", llojart, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_SKEMAKONTABILITETIARTIKULLI_merrSipasKodit");
-
-            if (ds == null)
-                return -1;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return -1;
-            int idSkema;
-            int.TryParse(ds.Tables[0].Rows[0]["IDSKEMAKONTABILITETIARTIKULLI"].ToString(), out idSkema);
-            return idSkema;
-
+                if (ds == null)
+                    return -1;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return -1;
+                int idSkema;
+                int.TryParse(ds.Tables[0].Rows[0]["IDSKEMAKONTABILITETIARTIKULLI"].ToString(), out idSkema);
+                return idSkema;
+            }, id => id > 0);
         }
         //[Obsolete("Perdor: DataRow ktheSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm) ose int ktheIdSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm)", true)]
         //{//metoda per te marre te skemakontabilitetiartikulli sipas kodit
@@ -1512,27 +1517,30 @@ namespace DbCore.DbInventari
         /// <returns>Kthen nje DataRow me artikullin e kerkuar</returns>
         internal DataRow ktheArtikullSipasKodit(string kodArtikulli, int idNdermarje)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje}");
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kodArtikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
-            ImbLogger.LogTraceShitje($"Mbaroi metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje}");
-            if (ds == null)
+            return ImportCache.Merr<DataRow>(ImportCache.Artikull, "row|" + kodArtikulli + "|" + idNdermarje, () =>
             {
-                ImbLogger.LogTraceShitje($"Metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje} ktheu null ");
-                return null;
-            }
+                ImbLogger.LogTraceShitje($"Filloi metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje}");
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kodArtikulli, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
+                ImbLogger.LogTraceShitje($"Mbaroi metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje}");
+                if (ds == null)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje} ktheu null ");
+                    return null;
+                }
 
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-            {
-                ImbLogger.LogTraceShitje($"Metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje} ktheu null ");
-                return null;
-            }
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ktheArtikullSipasKodit sipas kodArtikulli:{kodArtikulli} dhe idNdermarje:{idNdermarje} ktheu null ");
+                    return null;
+                }
 
-            return ds.Tables[0].Rows[0];
+                return ds.Tables[0].Rows[0];
 
+            }, r => r != null);
         }
         internal decimal ktheKoeficentArtikulli(string kodartikulli, int idnder)
         {
@@ -1556,20 +1564,21 @@ namespace DbCore.DbInventari
 
         internal DataRow ktheArtikullSipasKoditDheAutorizime(string kodArtikulli, int idNdermarje, int idperdorues)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.Artikull, "aut|" + kodArtikulli + "|" + idNdermarje + "|" + idperdorues, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kodArtikulli, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@Idperdorues", idperdorues, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKoditDheAutorizime");
 
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kodArtikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@Idperdorues", idperdorues, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKoditDheAutorizime");
-
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         /// <summary>
@@ -2248,20 +2257,22 @@ namespace DbCore.DbInventari
         ///<returns>nje int id artikullit </returns>
         internal int merrIdArtikull(string kod, int idnderm)
         {
+            return ImportCache.Merr<int>(ImportCache.Artikull, "id|" + kod + "|" + idnderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
+                if (ds == null)
+                    return -1;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return -1;
+                int idArtikulli;
+                int.TryParse(ds.Tables[0].Rows[0]["IDARTIKULLI"].ToString(), out idArtikulli);
+                return idArtikulli;
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
-            if (ds == null)
-                return -1;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return -1;
-            int idArtikulli;
-            int.TryParse(ds.Tables[0].Rows[0]["IDARTIKULLI"].ToString(), out idArtikulli);
-            return idArtikulli;
-
+            }, id => id > 0);
         }
         /// <summary>
         /// kthen Datatable  artikuj sipas kodit dhe ndermarjes
@@ -2271,18 +2282,20 @@ namespace DbCore.DbInventari
         ///<returns>nje datatable qe permban nje koleksion me artikuj me kete kod te kesaj ndermarje  </returns>
         internal DataRow merrArtikull(string kod, int idnderm)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.Artikull, "row|" + kod + "|" + idnderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_merrArtikullSipasKodit");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            }, r => r != null);
         }
         internal DataTable merrArtikuj(string kode, int idnderm)
         {
@@ -2307,20 +2320,23 @@ namespace DbCore.DbInventari
         /// <returns>nje objeckt boolean qe tregon nese ekziston apo jo nje artikull me kete kod</returns>
         public bool ekzistonArtikull(String kod, int idnderm)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            ImbLogger.LogTraceShitje($"Mbaroi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_ekzistonArtikull");
-            if (ds.Tables[0].Rows.Count == 0)
+            return ImportCache.Merr<bool>(ImportCache.Artikull, "ekziston|" + kod + "|" + idnderm, () =>
             {
-                ImbLogger.LogTraceShitje("Nuk u gjet artikull ne Db");
-                return false;
-            }
-            ImbLogger.LogTraceShitje("U gjet artikull ne Db");
-            return true;
+                ImbLogger.LogTraceShitje($"Filloi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                ImbLogger.LogTraceShitje($"Mbaroi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLI_ekzistonArtikull");
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    ImbLogger.LogTraceShitje("Nuk u gjet artikull ne Db");
+                    return false;
+                }
+                ImbLogger.LogTraceShitje("U gjet artikull ne Db");
+                return true;
+            }, ekziston => ekziston);
         }
 
 
@@ -3253,18 +3269,18 @@ namespace DbCore.DbInventari
         /// <returns> nje datatable qe permban nje koleksion me te gjitha klasat e artikujve qe kane kete pershkrim</returns>
         internal DataRow ktheKlasaArtikulliSipasPershkrimit(string pershkrimi)
         {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@PERSHKRIMIKLASAARTIKULLI", pershkrimi, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLASAARTIKULLI _merrKlasaSipasPershkrimit");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.KlasaArtikulli, pershkrimi, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@PERSHKRIMIKLASAARTIKULLI", pershkrimi, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLASAARTIKULLI _merrKlasaSipasPershkrimit");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         //[Obsolete("Perdor: DataTable ktheKlasaArtikulliSipasPershkrimit(string pershkrimi)", false)]
         //    try
@@ -4547,18 +4563,19 @@ namespace DbCore.DbInventari
         ///<returns> nje objekt colNjesiteArtikulli qe permban nje koleksion me te gjithe njesite e artikujve me kete kod</returns>
         internal DataRow merrNjesiArtikulliMeKod(string kodnjesia, int idNderm)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODNJESIA", kodnjesia, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ktheNjesiArtikulliSipasKodit");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.Njesi, "row|" + kodnjesia + "|" + idNderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODNJESIA", kodnjesia, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ktheNjesiArtikulliSipasKodit");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         //[Obsolete("Perdor: DataTable ktheNjesiAritkulli(string  kodnjesia)", true)]
         //{//metoda per te marre NJESINE SIPAS kodit
@@ -4658,19 +4675,22 @@ namespace DbCore.DbInventari
         ///<param name="kod"> kodi i njesise se artikullit</param>
         /// <returns>nje objekt boolean qe tregon nese ekziston apo jo nje njesi artikulli me kete kod</returns>
         public bool ekzistonNjesiArtikulli(String kod, int id)
-        {//kontrollon nqs ekziston nje Njesi artikulli me kete kod
+        {
+            return ImportCache.Merr<bool>(ImportCache.Njesi, "ekziston|" + kod + "|" + id, () =>
+            {
+    //kontrollon nqs ekziston nje Njesi artikulli me kete kod
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODNJESIA", kod, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", id, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ekzistonNjesiArtikulli");
-            if (ds.Tables[0].Rows.Count == 1)
-                return true;
-            else if (ds.Tables[0].Rows.Count == 0)
-                return false;
-            else return true;
-
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODNJESIA", kod, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", id, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIARTIKULLI_ekzistonNjesiArtikulli");
+                if (ds.Tables[0].Rows.Count == 1)
+                    return true;
+                else if (ds.Tables[0].Rows.Count == 0)
+                    return false;
+                else return true;
+            }, ekziston => ekziston);
         }
 
         /// <summary>
@@ -6142,20 +6162,22 @@ namespace DbCore.DbInventari
         /// <returns> kthen nje objekt colNiveleZbritjesh qe permban nje koleksion me te gjithe nivelet e zbritjes me kete id</returns>
         internal DataRow ktheNivelZbritje(int idNivelZbritje)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.NivelZbritje, idNivelZbritje.ToString(), () =>
+            {
+                dbManager.Open();
+                //shtimi i parametrave
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNIVELZBRITJE", idNivelZbritje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_sel");
 
-            dbManager.Open();
-            //shtimi i parametrave
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNIVELZBRITJE", idNivelZbritje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELZBRITJE_sel");
 
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
 
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            }, r => r != null);
         }
         //[Obsolete("Perdor: DataRow merrNivelZbritje(int idNivelZbritje, int idNdermarje)", true)]
         //{// metoda per te marre nje nivelin e zbritje NE BAZE TE ID
@@ -7620,14 +7642,15 @@ namespace DbCore.DbInventari
         /// <returns> nje datatable qe permban nje koleksion me te gjithe metoda kostoje</returns>
         internal DataRow ktheMetodKostojeSipasKodit(string kodi)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.MetodeKostoje, kodi, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
 
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_METODEKOSTOJE_merrSipasKodit");
-            return ds.Tables[0].Rows[0];
-
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_METODEKOSTOJE_merrSipasKodit");
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
 
@@ -10235,18 +10258,19 @@ namespace DbCore.DbInventari
 
         internal string merrKodbarinSipasIdArtikulli(string kodartikulli, int idNdermarrje)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kodartikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODBARIPARE_merrSipasArt");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0]["PERSHKRIMI"].ToString();
-
+            return ImportCache.Merr<string>(ImportCache.Kodbar, "art|" + kodartikulli + "|" + idNdermarrje, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODARTIKULLI", kodartikulli, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KODBARIPARE_merrSipasArt");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0]["PERSHKRIMI"].ToString();
+            }, k => !string.IsNullOrEmpty(k));
         }
 
         internal int merrIdKodbarinSipasIdArtikulli(string kodartikulli, int idNdermarrje)

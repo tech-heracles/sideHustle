@@ -8,6 +8,7 @@ using DbCore.IMBUtils.Logging;
 using System.Linq;
 using AlphaWeb.Core.Interfaces.Data;
 using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbShare
 {
@@ -1407,12 +1408,15 @@ namespace DbCore.DbShare
 
         internal string merrVleredefaultSipasKontrollitKodKonfigDheNderm(string kodKonfigambjente, int idNdermarrje, string kodkontroll)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODKONTROLL", kodkontroll, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@KODKONFIGAMBJENTE", kodKonfigambjente, ParameterDirection.Input);
-            return Convert.ToString(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_merrVlereDefaultSipasKontrollitDheKodKonfigurimit"));
+            return ImportCache.Merr<string>(ImportCache.VlereDefault, kodKonfigambjente + "|" + idNdermarrje + "|" + kodkontroll, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODKONTROLL", kodkontroll, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@KODKONFIGAMBJENTE", kodKonfigambjente, ParameterDirection.Input);
+                return Convert.ToString(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_merrVlereDefaultSipasKontrollitDheKodKonfigurimit"));
+            }, _ => true);
         }
 
         internal clsMesazh fshiKonfigurimStatus(int idkonf, int idperdorues)

@@ -14,6 +14,7 @@ using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using IDataBaseReader = AlphaWeb.Core.Interfaces.Data.IDataBaseReader;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbAdmin
 {
@@ -5652,15 +5653,18 @@ namespace DbCore.DbAdmin
 
         internal DataRow merrNdermarrje(int id)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNDERMARJE", id, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NDERMARJE_ktheNdermarrje");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
+            return ImportCache.Merr<DataRow>(ImportCache.Ndermarrje, id.ToString(), () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNDERMARJE", id, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NDERMARJE_ktheNdermarrje");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal DataTable ktheNdermarjeTeRolit(int idRoli)
@@ -7259,17 +7263,19 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         internal DataRow kthePeriudhen(DateTime date, int idNdermarrje)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@DATE", date, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selSipasDateNderm");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.Periudha, date.Ticks + "|" + idNdermarrje, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@DATE", date, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selSipasDateNderm");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal int ktheIdPeriudheSipasDatesDheNdermarrjes(DateTime date, int idNdermarrje)

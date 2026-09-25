@@ -8,6 +8,7 @@ using DbCore.IMBUtils.Extensions;
 using LiquidEngine.Tools;
 using DbCore.IMBUtils.Messages;
 using DbCore.IMBUtils.Fiskalizimi.Controls;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbAdmin
 {
@@ -783,10 +784,11 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         public static int ktheIdMonedheNdermSipasID(int idNdermarrje)
         {
-            using (clsDatabaseAdmin dbadmin = new clsDatabaseAdmin())
+            return ImportCache.Merr(ImportCache.MonedhaNdermarrje, idNdermarrje.ToString(), () =>
             {
-                return ktheIdMonedheNdermSipasID(idNdermarrje, dbadmin);
-            }
+                using (clsDatabaseAdmin dbadmin = new clsDatabaseAdmin())
+                    return ktheIdMonedheNdermSipasID(idNdermarrje, dbadmin);
+            }, id => id > 0);
         }
 
         public static int ktheIdMonedheNdermSipasID(int idNdermarrje, clsDatabaseAdmin dbadmin)

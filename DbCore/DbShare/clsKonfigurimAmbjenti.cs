@@ -10,6 +10,7 @@ using DbCore.DbRegjistrim;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
 using Newtonsoft.Json;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbShare
 {
@@ -949,10 +950,11 @@ namespace DbCore.DbShare
         /// <returns></returns>
         public static int ktheIdKonfigurimiMeKod(string kodKonfig, int idndermarje)
         {
-            using (clsDatabaseShare data = new clsDatabaseShare())
+            return ImportCache.Merr(ImportCache.Konfigurim, kodKonfig + "|" + idndermarje, () =>
             {
-                return data.merrIdKonfigurimiMeKod(kodKonfig, idndermarje);
-            }
+                using (clsDatabaseShare data = new clsDatabaseShare())
+                    return data.merrIdKonfigurimiMeKod(kodKonfig, idndermarje);
+            }, id => id > 0);
         }
 
         /// <summary>

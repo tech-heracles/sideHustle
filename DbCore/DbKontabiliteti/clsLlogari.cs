@@ -7,6 +7,7 @@ using System.Resources;
 using DbCore.IMBUtils.Validation;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbKontabiliteti
 {
@@ -1505,10 +1506,11 @@ namespace DbCore.DbKontabiliteti
         /// <returns>id e llogarise</returns>
         public static int mbushIDLlogariSipasKodit(string nrLlogari, int idNdermarja)
         {
-            clsDatabaseKontabilitet dbLlogari = new clsDatabaseKontabilitet();
-            int id = (dbLlogari.ktheIDLlogariSipasKodit(nrLlogari, idNdermarja));
-            dbLlogari.Dispose();
-            return id;
+            return ImportCache.Merr(ImportCache.Llogari, "id|" + nrLlogari + "|" + idNdermarja, () =>
+            {
+                using (clsDatabaseKontabilitet dbLlogari = new clsDatabaseKontabilitet())
+                    return dbLlogari.ktheIDLlogariSipasKodit(nrLlogari, idNdermarja);
+            }, id => id > 0);
         }
 
         public static int ktheNivelTakse(int idLlogari)
@@ -1588,18 +1590,20 @@ namespace DbCore.DbKontabiliteti
         {
             if (nrLlog == null || nrLlog == string.Empty)
                 return false;
-            using (clsDatabaseKontabilitet dbKontab = new clsDatabaseKontabilitet())
+            return ImportCache.Merr(ImportCache.Llogari, "ekziston|" + nrLlog + "|" + idNdermarje, () =>
             {
-                return dbKontab.ekzistonLlogari(nrLlog, idNdermarje);
-            }
+                using (clsDatabaseKontabilitet dbKontab = new clsDatabaseKontabilitet())
+                    return dbKontab.ekzistonLlogari(nrLlog, idNdermarje);
+            }, ekziston => ekziston);
         }
 
         public static bool eshteLlogariAktive(string nrLlog, int idNdermarje)
         {
-            using (clsDatabaseKontabilitet dbKontab = new clsDatabaseKontabilitet())
+            return ImportCache.Merr(ImportCache.Llogari, "aktive|" + nrLlog + "|" + idNdermarje, () =>
             {
-                return dbKontab.eshteLlogariAktive(nrLlog, idNdermarje);
-            }
+                using (clsDatabaseKontabilitet dbKontab = new clsDatabaseKontabilitet())
+                    return dbKontab.eshteLlogariAktive(nrLlog, idNdermarje);
+            }, aktive => aktive);
         }
 
         public static bool ekzistonLlogari(string nrLlog, int idNdermarje, clsDatabaseKontabilitet dbKontab)

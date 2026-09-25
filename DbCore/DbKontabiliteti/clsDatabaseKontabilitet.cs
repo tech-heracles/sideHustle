@@ -7,6 +7,7 @@ using AlphaWeb.Core.SharedKernel;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbKontabiliteti
 {
@@ -255,20 +256,20 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         internal DataRow ktheLlogariSipasKodit(string nrLlogari, int idNdermarja)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.Llogari, "row|" + nrLlogari + "|" + idNdermarja, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@NRLLOGARI", nrLlogari, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarja, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOGARI_merrLlogariSipasKodit");
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@NRLLOGARI", nrLlogari, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarja, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOGARI_merrLlogariSipasKodit");
-
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
-
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         /// <summary>
@@ -5224,18 +5225,22 @@ namespace DbCore.DbKontabiliteti
         /// <returns>Kthen nje datarow</returns>
         /// </summary>
         internal DataRow ktheKlientFurnitorSipasKodit(string kodKF, int idNdermarrja)
-        {// metoda per te marre nje llogari ne baze te nr te saj
+        {
+            return ImportCache.Merr<DataRow>(ImportCache.KlientFurnitor, kodKF + "|" + idNdermarrja, () =>
+            {
+    // metoda per te marre nje llogari ne baze te nr te saj
 
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKF, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_merrKlientFurnitorSipasKodit");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKF, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_merrKlientFurnitorSipasKodit");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         internal DataRow ktheKlientFurnitorSipasNdermarjeBij(int idndermarjebij, int idNdermarrja, int llojporosie)
         {// metoda per te marre nje llogari ne baze te nr te saj

@@ -1424,6 +1424,7 @@
     <Compile Include="Raporte\CustomUntypedDataSetSerializer.cs" />
     <Compile Include="Raporte\ParametraRaporti.cs" />
     <Compile Include="Raporte\ReportFunctions.cs" />
+    <Compile Include="IMBUtils\Cache\ImportCache.cs" />
     <Compile Include="IMBUtils\Cache\StaticCache.cs" />
     <Compile Include="Raporte\VeprimtariaDitoreExporter.cs" />
     <Compile Include="Utility\DotSpatialEx.cs" />

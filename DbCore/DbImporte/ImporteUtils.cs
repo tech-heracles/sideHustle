@@ -18,6 +18,7 @@ using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Web.SessionState;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbImporte
 {
@@ -43,6 +44,36 @@ namespace DbCore.DbImporte
         public HttpSessionState Session { get; set; }
 
         public clsMesazh KontrolloImporto(bool mbishkruajVleratEMeparshme, out bool kaVleraTeImportuara, DataTable teDhenaImporti, ref DataTable rreshtaJoOk, bool importo)
+        {
+            // te dhenat reference kerkohen nje here per gjithe importin, jo per cdo rresht
+            using (ImportCache.Fillo(LlojetQeShkruanImporti(IdKategoria, importo)))
+                return KontrolloImportoPaCache(mbishkruajVleratEMeparshme, out kaVleraTeImportuara, teDhenaImporti, ref rreshtaJoOk, importo);
+        }
+
+        /// <summary>
+        /// Llojet e te dhenave reference qe mund te ndryshojne gjate ketij importi: per to cache nuk perdoret.
+        /// Kontrolli (pa import) nuk shkruan asgje, prandaj aty cache perdoret per gjithcka.
+        /// </summary>
+        private static string[] LlojetQeShkruanImporti(int idKategoria, bool importo)
+        {
+            if (!importo)
+                return new string[0];
+            // ruajtja e dokumenteve mund te rivleresoje artikujt (kosto), prandaj artikujt nuk ruhen kurre gjate importit
+            var llojet = new List<string> { ImportCache.Artikull };
+            switch (idKategoria)
+            {
+                case 12: case 147: case 148: llojet.Add(ImportCache.KlientFurnitor); break; // klient/furnitore
+                case 13: llojet.AddRange(new[] { ImportCache.Kodbar, ImportCache.Njesi }); break; // artikuj
+                case 164: llojet.Add(ImportCache.Kodbar); break;                            // kodbare
+                case 14: llojet.Add(ImportCache.Llogari); break;                            // llogari
+                case 18: llojet.Add(ImportCache.NivelZbritje); break;                       // zbritje analitike
+                case 23: llojet.Add(ImportCache.NjesiAdministrative); break;                // magazina
+                case 157: llojet.Add(ImportCache.Qyteti); break;                            // qytete
+            }
+            return llojet.ToArray();
+        }
+
+        private clsMesazh KontrolloImportoPaCache(bool mbishkruajVleratEMeparshme, out bool kaVleraTeImportuara, DataTable teDhenaImporti, ref DataTable rreshtaJoOk, bool importo)
         {
             kaVleraTeImportuara = false;
             try

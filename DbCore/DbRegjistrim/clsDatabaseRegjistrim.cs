@@ -9,6 +9,7 @@ using DbCore.DbAdmin;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Logging;
 using DbCore.IMBUtils.Messages;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbRegjistrim
 {
@@ -7931,44 +7932,47 @@ namespace DbCore.DbRegjistrim
         /// <returns>nje objekt datarow qe permban  njesine administrative   me kete kod te kesaj ndermarje   </returns>
         internal DataRow ktheNjesiAdministrativeSipasKodit(string kodi, int idNderm, int idPerd)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:" + kodi + $", idNderm:{idNderm}, idPerd:{idPerd}");
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDPERDORUES", idPerd, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_ktheNjesi");
-            ImbLogger.LogTraceShitje($"Filloi metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd}");
-
-            if (ds == null)
+            return ImportCache.Merr<DataRow>(ImportCache.NjesiAdministrative, "aut|" + kodi + "|" + idNderm + "|" + idPerd, () =>
             {
-                ImbLogger.LogTraceShitje($"Metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd} ktheu null");
-                return null;
-            }
+                ImbLogger.LogTraceShitje($"Filloi metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:" + kodi + $", idNderm:{idNderm}, idPerd:{idPerd}");
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDPERDORUES", idPerd, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_ktheNjesi");
+                ImbLogger.LogTraceShitje($"Filloi metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd}");
 
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-            {
-                ImbLogger.LogTraceShitje($"Metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd} ktheu null");
-                return null;
-            }
+                if (ds == null)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd} ktheu null");
+                    return null;
+                }
 
-            return ds.Tables[0].Rows[0];
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ktheNjesiAdministrativeSipasKodit nga DB sipas kodi:{kodi}, idNderm:{idNderm}, idPerd:{idPerd} ktheu null");
+                    return null;
+                }
 
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         internal DataRow ktheNjesiAdministrativeSipasKoditPaAutorizim(string kodi, int idNderm)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_ktheNjesiPaAutorizim");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.NjesiAdministrative, "kod|" + kodi + "|" + idNderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_ktheNjesiPaAutorizim");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
         /// <summary>
         /// pa autorizim
@@ -8071,22 +8075,24 @@ namespace DbCore.DbRegjistrim
         }
         internal string ktheKodiNjesiAdministrativeSipasiDPaAutorizime(int idNjesiAdm)
         {
+            return ImportCache.Merr<string>(ImportCache.NjesiAdministrative, idNjesiAdm.ToString(), () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
 
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
 
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
 
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
+                if (ds == null)
+                    return "";
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return "";
+                string kodiNjesiAdministrative;
+                kodiNjesiAdministrative = ds.Tables[0].Rows[0]["KODI"].ToString();
+                return kodiNjesiAdministrative;
 
-            if (ds == null)
-                return "";
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return "";
-            string kodiNjesiAdministrative;
-            kodiNjesiAdministrative = ds.Tables[0].Rows[0]["KODI"].ToString();
-            return kodiNjesiAdministrative;
-
+            }, kodi => kodi != "");
         }
 
         /// <summary>
@@ -10793,27 +10799,29 @@ namespace DbCore.DbRegjistrim
         /// <returns>nje boolean qe tregon nese ekziston apo jo nje takse tjeter me kete kod ne kete ndermarje</returns>
         public bool ekzistonTaksa(String kodi, int idNdermarje)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje}");
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERM", idNdermarje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TAKSAT_eksiston");
-            ImbLogger.LogTraceShitje($"Mbaroi metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje}");
-            if (ds.Tables[0].Rows.Count == 1)
+            return ImportCache.Merr<bool>(ImportCache.Taksa, kodi + "|" + idNdermarje, () =>
             {
-                ImbLogger.LogTraceShitje($"Metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje} ktheu true !");
-                return true;
-            }
+                ImbLogger.LogTraceShitje($"Filloi metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje}");
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERM", idNdermarje, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TAKSAT_eksiston");
+                ImbLogger.LogTraceShitje($"Mbaroi metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje}");
+                if (ds.Tables[0].Rows.Count == 1)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje} ktheu true !");
+                    return true;
+                }
 
-            else if (ds.Tables[0].Rows.Count == 0)
-            {
-                ImbLogger.LogTraceShitje($"Metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje} ktheu null !");
-                return false;
-            }
+                else if (ds.Tables[0].Rows.Count == 0)
+                {
+                    ImbLogger.LogTraceShitje($"Metoda ekziston taksa ne DB sipas kodi:{kodi}, idNdermarrje:{idNdermarje} ktheu null !");
+                    return false;
+                }
 
-            else return true;
-
+                else return true;
+            }, ekziston => ekziston);
         }
 
         /// <summary>

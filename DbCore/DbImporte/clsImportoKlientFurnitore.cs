@@ -26,9 +26,10 @@ namespace DbCore.DbImporte
             (string emerNjesia1, string skema, string vleradefaultnjesia, string vleradefaultskema) vlerat = clsKokaFormatImporti.ktheVleraDefaultKontrolli(col);
             string emerNjesia1 = vlerat.emerNjesia1, skema = vlerat.skema, vleradefaultnjesia = vlerat.vleradefaultnjesia, vleradefaultskema = vlerat.vleradefaultskema;
 
+            string colJson = Newtonsoft.Json.JsonConvert.SerializeObject(col);
             foreach (DataRow dr in dt.Rows)
             {
-                colTrupiFormatImporti colCopy = Newtonsoft.Json.JsonConvert.DeserializeObject<colTrupiFormatImporti>(Newtonsoft.Json.JsonConvert.SerializeObject(col));
+                colTrupiFormatImporti colCopy = Newtonsoft.Json.JsonConvert.DeserializeObject<colTrupiFormatImporti>(colJson);
                 string llojVeprimi = llojVeprimiTrupFormati == null ? "Shtim" : clsFunksione.vendosVlere(llojVeprimiTrupFormati, dr, out error);
                 if (string.IsNullOrEmpty(llojVeprimi) || (llojVeprimi != EnumLlojVeprimiImporti.Modifikim.ToString() && llojVeprimi != EnumLlojVeprimiImporti.Shtim.ToString()))
                 {

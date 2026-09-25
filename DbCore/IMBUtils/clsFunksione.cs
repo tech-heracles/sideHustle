@@ -54,6 +54,7 @@ using NLog;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Page = System.Web.UI.Page;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore
 {
@@ -8139,7 +8140,8 @@ namespace DbCore
 
 		public static (string nrAutom, Dictionary<string, object> hiddenFieldPerNrAuto) ktheNrAutoPerKonfigurim(int idKonfigAmbjenti, string nrDok, string emerFushe, string kodKontrolli, int idKomponente, DateTime dtDok, clsDatabaseShare dbshare)
 		{
-			var merrNrAutoImport = clsAlternativaKushti.getAlternativa(idKonfigAmbjenti, "MNRAI", dbshare) == "Po";
+			var merrNrAutoImport = ImportCache.Merr(ImportCache.Alternativa, idKonfigAmbjenti + "|MNRAI",
+				() => clsAlternativaKushti.getAlternativa(idKonfigAmbjenti, "MNRAI", dbshare), _ => true) == "Po";
 			var hiddenFieldPerNrAuto = new Dictionary<string, object>();
 			var nrAutom = nrDok;
 			if (merrNrAutoImport)

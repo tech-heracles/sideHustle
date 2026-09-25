@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using DbCore.DbAdmin;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbInventari
 {
@@ -762,10 +763,11 @@ namespace DbCore.DbInventari
 
         public static int ktheIdNivelCmimiNgaPershkrimi(string pershkrimi, int idndermarje)
         {
-            clsDatabaseInventari dbNivelCmimi = new clsDatabaseInventari();
-            int idNivelCmimi = (dbNivelCmimi.ktheIdNivelCmimiSipasPershkrimit(pershkrimi, idndermarje));
-            dbNivelCmimi.Dispose();
-            return idNivelCmimi;
+            return ImportCache.Merr(ImportCache.NivelCmimi, pershkrimi + "|" + idndermarje, () =>
+            {
+                using (clsDatabaseInventari dbNivelCmimi = new clsDatabaseInventari())
+                    return dbNivelCmimi.ktheIdNivelCmimiSipasPershkrimit(pershkrimi, idndermarje);
+            }, id => id > 0);
         }
 
         public static bool kaNivelCmimiBaze(int idNdermarrje, int lloji)

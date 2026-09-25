@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbAdmin
 {
@@ -96,9 +97,11 @@ namespace DbCore.DbAdmin
         ///<param name="pershkrimi"> pershkrimi</param>
         public clsQyteti(string pershkrimi, int idndermarje)
         {
-            clsDatabaseAdmin data = new clsDatabaseAdmin();
-            mbushQyteti(data.merrQytetSipasPershkrimit(pershkrimi,idndermarje));
-            data.Dispose();
+            mbushQyteti(ImportCache.Merr(ImportCache.Qyteti, pershkrimi + "|" + idndermarje, () =>
+            {
+                using (clsDatabaseAdmin data = new clsDatabaseAdmin())
+                    return data.merrQytetSipasPershkrimit(pershkrimi, idndermarje);
+            }, rreshti => rreshti != null));
         }
         /// <summary>
         /// Konstruktori default i klases.
