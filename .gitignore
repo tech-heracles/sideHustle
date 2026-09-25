@@ -28,3 +28,4 @@ PlatiniumWeb/.vs/
 *.playlist
 *.bak
 PlatinumWeb/connectionStrings.config
+PlatinumWeb/machineKey.config
