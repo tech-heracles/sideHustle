@@ -62,9 +62,24 @@ IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_T_KPF_NDERMARJE_STATUS
         ON dbo.T_KPF (IDNDERMARJE, IDSTATUSDOK)
         INCLUDE (KODIKPF, NIVELIKPF);
 
+-- 5. "document already exists" checks run once per imported document
+--    (prc_T_KOKASHITJE_ekzistonRegjistrimShitjeSipasIdentifikuese, prc_T_KOKAMAGAZINA_ekzistonRegjistrimMagazineSipasIdentifikuesi).
+--    Their WHERE uses "col = CASE WHEN ... THEN @x ELSE col END", which cannot seek, so each call reads all documents of the
+--    company. These narrow indexes make that read much smaller. Adding OPTION (RECOMPILE) to the two procedures would let
+--    SQL Server seek on NRDOK directly (a procedure change: left for the DB round).
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_T_KOKASHITJE_NDERM_NRDOK' AND object_id = OBJECT_ID('dbo.T_KOKASHITJE'))
+    CREATE NONCLUSTERED INDEX IX_T_KOKASHITJE_NDERM_NRDOK
+        ON dbo.T_KOKASHITJE (IDNDERM, NRDOK)
+        INCLUDE (IDSTATUSDOK, IDNIVEL, IDKONFIGAMBJENTE, DTDOK, IDKLIENTFURNITOR, NRSERIAL);
+
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_T_KOKAMAGAZINA_NDERM_NRDOK' AND object_id = OBJECT_ID('dbo.T_KOKAMAGAZINA'))
+    CREATE NONCLUSTERED INDEX IX_T_KOKAMAGAZINA_NDERM_NRDOK
+        ON dbo.T_KOKAMAGAZINA (IDNDERM, NRDOK)
+        INCLUDE (IDSTATUSDOK, IDNIVEL, IDKONFIGAMBJENTE, DTDOK, IDKLIENTFURNITOR, IDMAG);
+
 -- check
 SELECT OBJECT_NAME(object_id) AS tabela, name AS indeksi
 FROM sys.indexes
 WHERE name IN ('IX_T_GRIDATRUPI_GRIDAKOKAID', 'IX_T_LUPAMULTIPLE_GRIDATRUPIID', 'IX_T_GRIDAKOKA_EMRI_KONFIG',
                'IX_T_LLOGARI_NR_NDERMARJE', 'IX_T_ROLDREJTATRUPI_KOMPONENTE', 'IX_T_KONTROLLE_KOMPONENTE_KOD',
-               'IX_T_SKEMAKONTABILITETIARTIKULLI_KOD', 'IX_T_KPF_NDERMARJE_STATUS');
+               'IX_T_SKEMAKONTABILITETIARTIKULLI_KOD', 'IX_T_KPF_NDERMARJE_STATUS', 'IX_T_KOKASHITJE_NDERM_NRDOK', 'IX_T_KOKAMAGAZINA_NDERM_NRDOK');
