@@ -6164,6 +6164,9 @@ namespace DbCore.DbInventari
         /// <returns> kthen nje objekt colNiveleZbritjesh qe permban nje koleksion me te gjithe nivelet e zbritjes me kete id</returns>
         internal DataRow ktheNivelZbritje(int idNivelZbritje)
         {
+            // id-te jane numra automatike pozitive: 0 (fusha bosh) nuk gjen kurre rresht dhe s'ka nevoje per databaze
+            if (idNivelZbritje <= 0)
+                return null;
             return ImportCache.Merr<DataRow>(ImportCache.NivelZbritje, idNivelZbritje.ToString(), () =>
             {
                 dbManager.Open();

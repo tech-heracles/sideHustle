@@ -5258,14 +5258,16 @@ namespace DbCore.DbAdmin
 
         internal int merrKodVitiSipasIdNdermViti(int idNdermViti)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNDERVITI", idNdermViti, ParameterDirection.Input);
-            object kodViti = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_merrKodVitiSipasIdNderViti");
-            if (kodViti == null || kodViti == DBNull.Value)
-                return 0;
-            else
-                return Convert.ToInt32(kodViti);
+            return ImportCache.Merr<int>(ImportCache.Viti, "kod|" + idNdermViti, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNDERVITI", idNdermViti, ParameterDirection.Input);
+                object kodViti = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NDERMARJEVITI_merrKodVitiSipasIdNderViti");
+                if (kodViti == null || kodViti == DBNull.Value)
+                    return 0;
+                else
+                    return Convert.ToInt32(kodViti);
+            }, kod => kod > 0);
         }
 
         /// <summary>
@@ -7249,12 +7251,14 @@ namespace DbCore.DbAdmin
 
         internal int ktheIdPeriudheSipasDatesDheNdermarrjes(DateTime date, int idNdermarrje)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@DATE", date, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            ImbLogger.LogTraceShitje("Kthimi i periudhes me sukses sipas dates: " + Convert.ToString(date) + " dhe idndermarrjes: " + Convert.ToString(idNdermarrje));
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selIdSipasDateNderm"));
+            return ImportCache.Merr<int>(ImportCache.Periudha, "id|" + date.Ticks + "|" + idNdermarrje, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@DATE", date, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                ImbLogger.LogTraceShitje("Kthimi i periudhes me sukses sipas dates: " + Convert.ToString(date) + " dhe idndermarrjes: " + Convert.ToString(idNdermarrje));
+                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selIdSipasDateNderm"));
+            }, id => id > 0);
         }
 
         internal bool eshteKycurPeriudheSipasDateDheNdermarrjes(DateTime date, int idNdermarrje)
@@ -7414,20 +7418,21 @@ namespace DbCore.DbAdmin
         }
         public clsMesazh ekzistonVit(String kodiviti, int idNdermarje)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODIVITI", kodiviti, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            int nrRreshtash = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_VITET_eksiston_Vit"));
-            if (nrRreshtash == 0)
+            return ImportCache.Merr<clsMesazh>(ImportCache.Viti, "ekziston|" + kodiviti + "|" + idNdermarje, () =>
             {
-                return new clsMesazh(true);
-            }
-            else
-            {
-                return new clsMesazh(false, "Ekziston nje vit me kete kod");
-            }
-
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODIVITI", kodiviti, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
+                int nrRreshtash = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_VITET_eksiston_Vit"));
+                if (nrRreshtash == 0)
+                {
+                    return new clsMesazh(true);
+                }
+                else
+                {
+                    return new clsMesazh(false, "Ekziston nje vit me kete kod");
+                }
+            }, m => m != null && !m.Status); // ruhet vetem "viti ekziston" (Status false)
         }
 
 
@@ -13941,9 +13946,11 @@ namespace DbCore.DbAdmin
 
         internal int merrIdNdermarrjeOwn()
         {
-            dbManager.Open();
-            dbManager.CreateParameters(0);
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NDERMARJE_merrIdNdermarrjeOwn"));
+            return ImportCache.Merr<int>(ImportCache.Ndermarrje, "own", () =>
+            {
+                dbManager.CreateParameters(0);
+                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NDERMARJE_merrIdNdermarrjeOwn"));
+            }, _ => true);
         }
 
         /// <summary>

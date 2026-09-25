@@ -1172,12 +1172,14 @@ namespace DbCore.DbShare
 
         internal bool IsRequiredField(int idKonfigurimi, string kodKontrolli, int idKomponente)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddInputParameters("@IDKONFIGAMBJENTE", idKonfigurimi);
-            dbManager.AddInputParameters("@KODKONTROLL", kodKontrolli);
-            dbManager.AddInputParameters("@IDKOMPON", idKomponente);
-            return Convert.ToBoolean(Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_ktheDetyrueshmeSipasKontrolleveSipasKonfigurimitDheKontrollit")));
+            return ImportCache.Merr<bool>(ImportCache.Konfigurim, "detyrueshme|" + idKonfigurimi + "|" + kodKontrolli + "|" + idKomponente, () =>
+            {
+                dbManager.CreateParameters(3);
+                dbManager.AddInputParameters("@IDKONFIGAMBJENTE", idKonfigurimi);
+                dbManager.AddInputParameters("@KODKONTROLL", kodKontrolli);
+                dbManager.AddInputParameters("@IDKOMPON", idKomponente);
+                return Convert.ToBoolean(Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_ktheDetyrueshmeSipasKontrolleveSipasKonfigurimitDheKontrollit")));
+            }, _ => true);
         }
 
         internal DataTable merrKonfigurimSipasSuperKategori(int idKategori, int idndermarje, int idperdorues)
@@ -1396,14 +1398,16 @@ namespace DbCore.DbShare
         }
         internal string merrVleredefaultSipasKontrollitDheKonfigurimit(int idkonfigambjente, int idkomponente, string kodkontroll)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda merrVleredefaultSipasKontrollitDheKonfigurimit me idkonfigambjente:{idkonfigambjente}, me idkomponente; {idkomponente}, kodkontrroll :{kodkontroll}");
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@kodkontrolli", kodkontroll, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@idkomponente", idkomponente, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDkonfigambjente", idkonfigambjente, ParameterDirection.Input);
-            ImbLogger.LogTraceShitje($"Mbaroi metoda merrVleredefaultSipasKontrollitDheKonfigurimit me idkonfigambjente:{idkonfigambjente}, me idkomponente; {idkomponente}, kodkontrroll :{kodkontroll}");
-            return Convert.ToString(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_merrVlereDefaultSipasKontrollitDheKonfigurimit"));
+            return ImportCache.Merr<string>(ImportCache.VlereDefault, "kk|" + idkonfigambjente + "|" + idkomponente + "|" + kodkontroll, () =>
+            {
+                ImbLogger.LogTraceShitje($"Filloi metoda merrVleredefaultSipasKontrollitDheKonfigurimit me idkonfigambjente:{idkonfigambjente}, me idkomponente; {idkomponente}, kodkontrroll :{kodkontroll}");
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@kodkontrolli", kodkontroll, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@idkomponente", idkomponente, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDkonfigambjente", idkonfigambjente, ParameterDirection.Input);
+                ImbLogger.LogTraceShitje($"Mbaroi metoda merrVleredefaultSipasKontrollitDheKonfigurimit me idkonfigambjente:{idkonfigambjente}, me idkomponente; {idkomponente}, kodkontrroll :{kodkontroll}");
+                return Convert.ToString(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ATRIBUTETRUPI_merrVlereDefaultSipasKontrollitDheKonfigurimit"));
+            }, _ => true);
         }
 
         internal string merrVleredefaultSipasKontrollitKodKonfigDheNderm(string kodKonfigambjente, int idNdermarrje, string kodkontroll)
@@ -1748,14 +1752,16 @@ namespace DbCore.DbShare
         /// <returns></returns>
         internal DataTable ktheKonfigAmbjSipasIdKategoriIdNivelMeLloj(int idKategori, int idNivel, int idperdorues, bool meLloj = true)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@IDKATDOK", idKategori, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNIVEL", idNivel, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@MeLloji", meLloj, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KONFIGAMBJENTE_ktheKonfigPerIdKatIdNivel");
-            return ds.Tables[0];
+            return ImportCache.Merr<DataTable>(ImportCache.Konfigurim, "katNivel|" + idKategori + "|" + idNivel + "|" + idperdorues + "|" + meLloj, () =>
+            {
+                dbManager.CreateParameters(4);
+                dbManager.AddParameters(0, "@IDKATDOK", idKategori, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNIVEL", idNivel, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@MeLloji", meLloj, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KONFIGAMBJENTE_ktheKonfigPerIdKatIdNivel");
+                return ds.Tables[0];
+            }, _ => true).Copy();
         }
 
         /// <summary>
@@ -2534,15 +2540,17 @@ namespace DbCore.DbShare
         
         internal double? ktheVlereSipasKushtitDheIdKonfig(int idKonfigAmbjenti, string kodKushti)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDKONFIGURIM", idKonfigAmbjenti, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@kodkusht", kodKushti, ParameterDirection.Input);
-            object altObj = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ALTERNATIVAKUSHTI_merrVlereSipasIdKonfigDheKodKusht");
-            if (altObj == null|| altObj.ToString() == "")
-                return null;
-            else
-                return  Convert.ToDouble(altObj);
+            return ImportCache.Merr<double?>(ImportCache.Alternativa, "vlere|" + idKonfigAmbjenti + "|" + kodKushti, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@IDKONFIGURIM", idKonfigAmbjenti, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@kodkusht", kodKushti, ParameterDirection.Input);
+                object altObj = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_ALTERNATIVAKUSHTI_merrVlereSipasIdKonfigDheKodKusht");
+                if (altObj == null|| altObj.ToString() == "")
+                    return null;
+                else
+                    return  Convert.ToDouble(altObj);
+            }, _ => true);
         }
         internal int kthevlereSipasKushtitDheIdKonfig(int idKonfigAmbjenti, string kodKushti)
         {

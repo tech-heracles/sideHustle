@@ -68,6 +68,7 @@ namespace DbCore.DbImporte
                 case 14: llojet.Add(ImportCache.Llogari); break;                            // llogari
                 case 18: llojet.Add(ImportCache.NivelZbritje); break;                       // zbritje analitike
                 case 23: llojet.Add(ImportCache.NjesiAdministrative); break;                // magazina
+                case 32: llojet.Add(ImportCache.DegeAdministrative); break;                 // dege administrative
                 case 157: llojet.Add(ImportCache.Qyteti); break;                            // qytete
             }
             return llojet.ToArray();

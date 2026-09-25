@@ -921,18 +921,18 @@ namespace DbCore.DbRegjistrim
         ///<returns>nje datarow me te gjitha nivelet me kete id  </returns>
         internal DataRow ktheNivelRegjistrimiSipasKodi(string kodi, int idNderm)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERM", idNderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJISTRIMI_sipasKodi");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.Konfigurim, "nivel|" + kodi + "|" + idNderm, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERM", idNderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJISTRIMI_sipasKodi");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         /// <summary>
@@ -942,13 +942,13 @@ namespace DbCore.DbRegjistrim
         ///<returns>nje datatable qe permban nje koleksion me te gjitha nivelet ne te cilat konvertohet niveli i regjistrimit qe i kalojme si parameter</returns>
         internal DataTable ktheKonvertimeNiveli(int idNivel)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJKONVERTO_selSipasNivelId");
-            return ds.Tables[0];
-
+            return ImportCache.Merr<DataTable>(ImportCache.Konfigurim, "konvertime|" + idNivel, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJKONVERTO_selSipasNivelId");
+                return ds.Tables[0];
+            }, _ => true).Copy();
         }
         internal DataTable ktheKonvertimeNiveli(int idNivel, int idperdoruesi)
         {
@@ -968,13 +968,13 @@ namespace DbCore.DbRegjistrim
         ///<returns>nje datatable qe permban nje koleksion me te gjitha nivelet ne te cilat konvertohet niveli i regjistrimit qe i kalojme si parameter po pa marre nivelet ne te cilat konvertohen keto nivele</returns>
         internal DataTable ktheKonvertimeNiveliNew(int idNivel)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJKONVERTO_selSipasNivelId");
-            return ds.Tables[0];
-
+            return ImportCache.Merr<DataTable>(ImportCache.Konfigurim, "konvertime|" + idNivel, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NIVELREGJKONVERTO_selSipasNivelId");
+                return ds.Tables[0];
+            }, _ => true).Copy();
         }
 
         /// <summary>
@@ -8128,22 +8128,22 @@ namespace DbCore.DbRegjistrim
         /// <returns>Kthen float kohezgjatjen nga magazina qe po kerkojme.</returns>
         internal double ktheKohezgjatjeNjesiAdministrativeSipasiDPaAutorizime(int idNjesiAdm)
         {
+            return ImportCache.Merr<double>(ImportCache.NjesiAdministrative, "kohezgjatja|" + idNjesiAdm, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
 
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
 
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
 
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
-
-            if (ds == null)
-                return 0;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return 0;
-            double kohezgjatja;
-            double.TryParse(ds.Tables[0].Rows[0]["KOHEZGJATJA"].ToString(), out kohezgjatja);
-            return kohezgjatja;
-
+                if (ds == null)
+                    return 0;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return 0;
+                double kohezgjatja;
+                double.TryParse(ds.Tables[0].Rows[0]["KOHEZGJATJA"].ToString(), out kohezgjatja);
+                return kohezgjatja;
+            }, _ => true);
         }
 
         /// <summary>
@@ -8262,18 +8262,18 @@ namespace DbCore.DbRegjistrim
         }
         internal DataRow ktheNjesiAdministrativeSipasiDPaAutorizime(int idNjesiAdm)
         {
+            return ImportCache.Merr<DataRow>(ImportCache.NjesiAdministrative, "row|" + idNjesiAdm, () =>
+            {
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
 
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNJESIADMINISTRATIVE", idNjesiAdm, ParameterDirection.Input);
-
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NJESIADMINISTRATIVE_merrNjesiSipasIdPaAutorizime");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         /// <summary>
@@ -9066,18 +9066,18 @@ namespace DbCore.DbRegjistrim
         /// <returns>nje objekt datarow qe permban  njesine administrative   me kete kod te kesaj ndermarje   </returns>
         internal DataRow ktheDegeAdministrativeSipasKodit(string kodi, int idNderm)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DEGEADMINISTRATIVE_ktheNjesi");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
+            return ImportCache.Merr<DataRow>(ImportCache.DegeAdministrative, kodi + "|" + idNderm, () =>
+            {
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_DEGEADMINISTRATIVE_ktheNjesi");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         /// <summary>

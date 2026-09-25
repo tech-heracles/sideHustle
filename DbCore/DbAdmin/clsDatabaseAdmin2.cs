@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using AlphaWeb.Core.Interfaces.Data;
+using DbCore.IMBUtils.Cache;
 
 namespace DbCore.DbAdmin
 {
@@ -42,12 +43,14 @@ namespace DbCore.DbAdmin
 
         internal bool KaAutorizimPerdoruesi(int idPerdoruesi, int idLidhese, string llojBuxheti)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddInputParameters("@IDPERDORUESI", idPerdoruesi);
-            dbManager.AddInputParameters("@IDLIDHESE", idLidhese);
-            dbManager.AddInputParameters("@LLOJBUXHETI", llojBuxheti);
-            return (bool)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_KaAutorizimPerdoruesi");
+            return ImportCache.Merr<bool>(ImportCache.Autorizim, idPerdoruesi + "|" + idLidhese + "|" + llojBuxheti, () =>
+            {
+                dbManager.CreateParameters(3);
+                dbManager.AddInputParameters("@IDPERDORUESI", idPerdoruesi);
+                dbManager.AddInputParameters("@IDLIDHESE", idLidhese);
+                dbManager.AddInputParameters("@LLOJBUXHETI", llojBuxheti);
+                return (bool)dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_KaAutorizimPerdoruesi");
+            }, _ => true);
         }
 
         internal DataTable GetMonedhaLookupSimpleTable(int idNdermarrje, int idPerdoruesi)

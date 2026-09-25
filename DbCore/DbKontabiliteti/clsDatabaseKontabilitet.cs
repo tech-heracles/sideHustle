@@ -5243,19 +5243,22 @@ namespace DbCore.DbKontabiliteti
             }, r => r != null);
         }
         internal DataRow ktheKlientFurnitorSipasNdermarjeBij(int idndermarjebij, int idNdermarrja, int llojporosie)
-        {// metoda per te marre nje llogari ne baze te nr te saj
+        {
+            return ImportCache.Merr<DataRow>(ImportCache.KlientFurnitor, "bij|" + idndermarjebij + "|" + idNdermarrja + "|" + llojporosie, () =>
+            {
+    // metoda per te marre nje llogari ne baze te nr te saj
 
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@idndermarjebij", idndermarjebij, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@llojporosie", llojporosie, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorSipasNdermarjeBij");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0)
-                return null;
-            return ds.Tables[0].Rows[0];
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@idndermarjebij", idndermarjebij, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@llojporosie", llojporosie, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorSipasNdermarjeBij");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal bool eshteNdermarrjeKlientiOwn(int idKlientFurnitor)
@@ -5618,19 +5621,21 @@ namespace DbCore.DbKontabiliteti
         }
         internal DataRow merrKlientFurnitor(string kodKf, int idnderm, int idperdorues)
         {
-            //kthen klient furnitorin sipas nr
+            return ImportCache.Merr<DataRow>(ImportCache.KlientFurnitor, "aut|" + kodKf + "|" + idnderm + "|" + idperdorues, () =>
+            {
+                //kthen klient furnitorin sipas nr
 
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKf, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorMeAutorizim");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKf, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKlientFurnitorMeAutorizim");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal string merrKodKlientFurnitorSipasId(int idKlientFurnitor)

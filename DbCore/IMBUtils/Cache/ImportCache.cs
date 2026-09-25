@@ -39,6 +39,9 @@ namespace DbCore.IMBUtils.Cache
         public const string Operatori = "Operatori";
         public const string Procesi = "Procesi";
         public const string TipiEinvoice = "TipiEinvoice";
+        public const string Viti = "Viti";
+        public const string Autorizim = "Autorizim";
+        public const string DegeAdministrative = "DegeAdministrative";
 
         [ThreadStatic] private static ImportCache aktiv;
 
