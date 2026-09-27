@@ -38,6 +38,16 @@ if (-not (Same "$repo\machineKey.config" "$site\machineKey.config")) {
     Copy-Item "$repo\machineKey.config" "$site\machineKey.config" -Force
     "Copied machineKey.config"
 }
+# licence settings of this server (AvecLicenseUrl/AvecInstallationId/AvecInstallationKey): never overwritten,
+# only copied when the site has none yet
+if (-not (Test-Path "$site\avecLicense.config") -and (Test-Path "$repo\avecLicense.config")) {
+    Copy-Item "$repo\avecLicense.config" "$site\avecLicense.config"
+    "Copied avecLicense.config"
+}
+if (-not (Test-Path "$site\avecLicense.config")) {
+    Write-Warning "$site\avecLicense.config is missing: the login page will have no companies. See PlatinumWeb\avecLicense.example.config."
+}
+
 if (-not (Same "$repo\Web.config" "$site\Web.config")) {
     Copy-Item "$site\Web.config" "C:\Sites\AlphaWeb.Web.config.bak" -Force   # outside the web root
     Copy-Item "$repo\Web.config" "$site\Web.config" -Force

@@ -19,7 +19,6 @@ namespace DbCore.IMBUtils.DataBase
     {
         public const string ConStringNameCacheKey = "conStringName";
         public const string ConnStringNameDefault = "connStringAlpha";
-        public const string ServeraCacheKey = "servera";
 
 
 
@@ -49,19 +48,6 @@ namespace DbCore.IMBUtils.DataBase
             if (string.IsNullOrWhiteSpace(connStringClaim?.Value))
                 throw new MyException("CONNSTRING NOT FOUND in claims!!!!");
             return connStringClaim.Value;
-        }
-        /// <summary>
-        /// ruan ne cache listen me te gjithe db serverat e vlefshem
-        /// </summary>
-        /// <param name="sessionId"></param>
-        /// <param name="dt"></param>
-        public static void SetListServera(string sessionId, DataTable dt)
-        {
-            GlobalCacheManager.GetSessionCacheByKey(sessionId)[ServeraCacheKey] = dt;
-        }
-        public static DataTable GetListServera(string sessionId)
-        {
-            return GlobalCacheManager.GetSessionCacheByKey(sessionId).Get<DataTable>(ServeraCacheKey);
         }
 
         public static void SetSelectedConNameServer(string conName)
@@ -107,10 +93,6 @@ namespace DbCore.IMBUtils.DataBase
             return ConnectionStringsManager.Instance.GetConnectionStrings().Keys;
         }
 
-        public static void RefreshConnectionStringsPool(IDictionary<string, string> connectionStringsFromDb, string connStringNameDefault)
-        {
-            ConnectionStringsManager.Instance.RefreshConnectionStrings(connectionStringsFromDb, connStringNameDefault);
-        }
 
         /// <summary>
         /// merr constrName nga SessionCache sipas sessionit

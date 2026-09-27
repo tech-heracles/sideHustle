@@ -13777,37 +13777,6 @@ namespace DbCore.DbAdmin
                 return -1;
             return Convert.ToInt32(idPerdoruesiAdminLicenca);
         }
-        /// <summary>
-        /// kthen nje datatable me db dhe licencat perkatese (aktive)
-        /// </summary>
-        /// <returns></returns>
-        public DataTable merrLicencaMeDb()
-        {
-
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "T_LICENCA_merrLicencatMeDb");
-            return ds.Tables[0];
-        }
-        public DataTable merrLicencaMeDb(string filter, long start, long end)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@Filter", filter, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@startIndex", start, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@endIndex", end, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "T_LICENCA_merrLicencatMeDbMeFilter");
-            return ds.Tables[0];
-        }
-        public DataTable merrLicencaMeDb(int kodi)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@value", kodi, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "T_LICENCA_merrLicencatMeDbSipasKodit");
-            return ds.Tables[0];
-        }
 
         #region T_PASSWORD_HISTORY
         /// <summary>

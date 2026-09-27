@@ -36,6 +36,12 @@ namespace PlatinumWeb.Providers
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
+            if (serverName == null)
+            {
+                context.SetError("invalid_grant", "Kompania nuk ekziston ose licenca e saj nuk eshte e vlefshme.");
+                return;
+            }
+
             var user = new clsPerdorues(context.UserName, serverName);
 
             var isValid = !string.IsNullOrWhiteSpace(user.PerdoruesUsername) && PasswordHelper.ValidoPassword(context.UserName, context.Password, user.PerdoruesPassword);

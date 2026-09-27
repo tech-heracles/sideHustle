@@ -12980,13 +12980,6 @@ namespace DbCore
 			httpWebRequest.Method = "POST";
 			return httpWebRequest;
 		}
-		public static HttpWebRequest CreateGetWebRequestLicence(string url, string cllientDbName)
-		{
-			HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-			httpWebRequest.Method = "GET";
-			httpWebRequest.Headers.Add("client", cllientDbName);
-			return httpWebRequest;
-		}
 		public static byte[] encrypt(byte[] data, RSAParameters RSAKey, bool Do0AEPadding)
 		{
 			try

@@ -95,48 +95,24 @@
             var input = s.GetInputElement();
 
             input.placeholder = loginHiddenField.Get("srvlbl");
-            var lastSelectedItem = localStorage.getItem("server_key");
             if (IsNotNullOrEmpty(getUrlVar('organizata')) && IsNotNullOrEmpty(getUrlVar('gjuha'))) {
                 document.getElementById("Login1_OrganisationSwitch").style.display = "block";
-                //document.getElementById("comboBox").style.display = "none";
-                if (cmbServerat.FindItemByText(getUrlVar('organizata')) === null)
-                    cmbServerat.SetSelectedItem(null);
-                else {
-                    cmbServerat.SetSelectedItem(cmbServerat.FindItemByText(getUrlVar('organizata')));
-                    localStorage.setItem("server_key", JSON.stringify({ value: cmbServerat.GetValue(), text: cmbServerat.GetText() }));
-                }
+                var sipasEmrit = cmbServerat.FindItemByText(getUrlVar('organizata'));
+                cmbServerat.SetSelectedItem(sipasEmrit);
+                if (sipasEmrit)
+                    localStorage.setItem("server_key", JSON.stringify({ value: sipasEmrit.value, text: sipasEmrit.text }));
+                return;
             }
-            else {
-                if (IsNotNullOrEmpty(getUrlVar('arsye')) || IsNotNullOrEmpty(getUrlVar('ReturnUrl'))) {
-                    document.getElementById("Login1_OrganisationSwitch").style.display = "block";
-                    //    document.getElementById("comboBox").style.display = "none";
-                }
-                if (lastSelectedItem != null) {
-                    try {
-                        lastSelectedItem = JSON.parse(lastSelectedItem);
-                    }
-                    catch (e) {
-                        lastSelectedItem = { text: 'Kryesor', value: 0 };
-                        localStorage.setItem("server_key", lastSelectedItem);
-                    }
-                    var item = lastSelectedItem.value != undefined && cmbServerat.FindItemByValue(lastSelectedItem.value);
-                    if (!lastSelectedItem.value) {
-                        if (cmbServerat.FindItemByText('Kryesor'))
-                            cmbServerat.SetSelectedItem(cmbServerat.FindItemByText('Kryesor')); //kryesori eshte default nga sp T_LICENCA_merrLicencatMeDbMeFilter
-                        else
-                            cmbServerat.SetSelectedIndex(cmbServerat.AddItem('Kryesor', '0'));
-
-                        return;
-                    }
-                    else {
-                        if (!cmbServerat.FindItemByValue(lastSelectedItem.value))//kur ka last selected item por nuk eshte ne dt filestar, e shtojme 
-                            cmbServerat.SetSelectedIndex(cmbServerat.AddItem(lastSelectedItem.text, lastSelectedItem.value));
-                        else
-                            cmbServerat.SetSelectedItem(item);
-                        return;
-                    }
-                }
-            }
+            if (IsNotNullOrEmpty(getUrlVar('arsye')) || IsNotNullOrEmpty(getUrlVar('ReturnUrl')))
+                document.getElementById("Login1_OrganisationSwitch").style.display = "block";
+            // kompania e zgjedhur here te fundit ne kete browser, nese eshte ende ne listen e licencave;
+            // kur instalimi ka vetem nje kompani, zgjidhet ajo
+            var eFundit = null;
+            try { eFundit = JSON.parse(localStorage.getItem("server_key")); } catch (err) { eFundit = null; }
+            var item = eFundit && eFundit.value ? cmbServerat.FindItemByValue(eFundit.value) : null;
+            if (!item && cmbServerat.GetItemCount() === 1)
+                item = cmbServerat.GetItem(0);
+            cmbServerat.SetSelectedItem(item);
         }
 
         function cmbServerSelectedChanged(s, e) {

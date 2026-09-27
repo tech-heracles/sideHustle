@@ -68,7 +68,9 @@ namespace PlatinumWeb
 						return;
 				}
 				var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
-				clsLogin.mbushServerCombo(Session.SessionID, combo);
+				string gabimLicence = clsLogin.mbushServerCombo(Session.SessionID, combo);
+				if (gabimLicence != null)
+					LabelInfo.Text = gabimLicence;
 
 				Login1.Focus();
 				HtmlForm form = (HtmlForm)FindControl("form1");
@@ -130,13 +132,17 @@ namespace PlatinumWeb
 					{
 						LabelInfo.Text = mesazhErrori;
 						clsFunksione.logout(Session, true, true, true);
-						clsLogin.mbushServerCombo(Session.SessionID, combo);
+						gabimLicence = clsLogin.mbushServerCombo(Session.SessionID, combo);
+						if (gabimLicence != null)
+							LabelInfo.Text = gabimLicence;
 						return;
 					}
 				}
 
 				VendosInfoSipasArsyes(arsye, idGjuha);
-				clsLogin.mbushServerCombo(Session.SessionID, combo);
+				gabimLicence = clsLogin.mbushServerCombo(Session.SessionID, combo);
+				if (gabimLicence != null)
+					LabelInfo.Text = gabimLicence;
 			}
 
 
@@ -269,20 +275,14 @@ namespace PlatinumWeb
 			ASPxLabel PasswordRecoveryLink = Login1.FindControl("PasswordRecoveryLink") as ASPxLabel;
 
 			emertoKontrolletSipasGjuhes(rm, ci, PasswordRecoveryLink, LoginButton);
+			// kompania (dhe databaza e saj) vjen nga licencat ne Firebase; pa licence te vlefshme sot nuk ka hyrje
 			var combo = Login1.FindControl("cmbServerat") as ASPxComboBox;
-			if (combo?.Value == null)
+			clsMesazh mesazhServeri = clsLogin.setServer(Session.SessionID, combo?.Value as string);
+			if (!mesazhServeri.Status)
 			{
-				clsLogin.setServer(Session.SessionID, 0);
-			}
-			else
-			{
-				clsMesazh mesazh = clsLogin.setServer(Session.SessionID, Convert.ToInt32(combo.Value));
-				if (!mesazh.Status)
-				{
-					Login1.FailureText = mesazh.PershkrimMesazhi;
-					e.Authenticated = false;
-					return;
-				}
+				Login1.FailureText = mesazhServeri.PershkrimMesazhi;
+				e.Authenticated = false;
+				return;
 			}
 			var user = new clsPerdorues(Login1.UserName);
 

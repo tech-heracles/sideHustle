@@ -6,15 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Licencimi;
 
 namespace RestApi.WebAPI.Models
 {
     public class AccessRepository
     {
-        public static DataTable GetAllConnections()
+        /// <summary>
+        /// Kompanite e ketij instalimi (vetem id dhe emri, si ne listen e login-it; pa databaza dhe lidhje).
+        /// </summary>
+        public static object GetAllConnections()
         {
-           
-            return clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
+            return LicencatAvec.Merr().Where(l => l.Aktive).OrderBy(l => l.Emri).Select(l => new { l.Id, l.Emri }).ToList();
         }
     }
 }

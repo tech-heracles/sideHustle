@@ -13,6 +13,7 @@ using System.Linq;
 using System.Web;
 using System.Web.SessionState;
 using DbCore.IMBUtils.DataBase;
+using DbCore.IMBUtils.Licencimi;
 using DbCore.IMBUtils.Logging;
 using System.Resources;
 
@@ -20,80 +21,70 @@ namespace PlatinumWeb
 {
     public class clsLogin
     {
-        public static void mbushServerCombo(string session, ASPxComboBox combo)
+        /// <summary>
+        /// Mbush listen e kompanive ne login nga licencat ne Firebase (<see cref="LicencatAvec"/>).
+        /// Kthen null, ose mesazhin per perdoruesin kur lista nuk mund te merret.
+        /// </summary>
+        public static string mbushServerCombo(string session, ASPxComboBox combo)
         {
-            DataTable data = DbCore.DbAdmin.clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
-
-            MyConnectionsManager.SetListServera(session, data);
-
-            combo.DataSource = data;
-            combo.TextField = "KODLICENCA";
-            combo.ValueField = "IDLICENCA";
+            combo.TextField = "Emri";
+            combo.ValueField = "Id";
+            combo.ValueType = typeof(string);
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            combo.DataBind();
-        }
-        public static void mbushServerComboID(string session, ASPxComboBox combo, int value)
-        {
-
-
-            DataTable data = DbCore.DbAdmin.clsLicenca.MerrLicencatMeDBMeID(MyConnectionsManager.ConnStringNameDefault, value);
-
-            MyConnectionsManager.SetListServera(session, data);
-
-            combo.DataSource = data;
-            combo.TextField = "KODLICENCA";
-            combo.ValueField = "IDLICENCA";
-            combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            combo.DataBind();
-        }
-
-
-        public static clsMesazh setServer(string session, int idLicenca)
-        {
-            var dtServera = MyConnectionsManager.GetListServera(session);
-            if (dtServera == null)
+            try
             {
-                dtServera = clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
-                MyConnectionsManager.SetListServera(session, dtServera);
+                combo.DataSource = LicencatAvec.Merr().Where(l => l.Aktive).OrderBy(l => l.Emri).ToList();
+                combo.DataBind();
+                return null;
             }
-            var lic = dtServera.Select("IDLICENCA = " + idLicenca).FirstOrDefault();
-            if (lic == null)
+            catch (LicencaAvecException ex)
             {
-                dtServera = clsLicenca.MerrLicencatMeDBMeID(MyConnectionsManager.ConnStringNameDefault, idLicenca);//licenca mund te mos jete ne dt fillestar qe mbush combon, por eshte zgjedhur duke filtruar
-                lic = dtServera.Select("IDLICENCA = " + idLicenca).FirstOrDefault();
-                if (lic == null)
-                    return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            } 
-            var conName = lic["DATABASE"] as string;
-            if (conName == null)
-                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            if (!MyConnectionsManager.IsConnectionAvailable(conName))
-                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            MyConnectionsManager.SetSelectedConNameServer(session, conName);
-            return new clsMesazh(true, "u vendos me sukses");
+                combo.DataSource = new List<LicencaAvec>();
+                combo.DataBind();
+                return ex.Message;
+            }
         }
+
+        /// <summary>
+        /// Vendos per sesionin lidhjen me databazen e kompanise se zgjedhur, nese licenca e saj e lejon sot.
+        /// </summary>
+        public static clsMesazh setServer(string session, string idKompanie)
+        {
+            if (string.IsNullOrWhiteSpace(idKompanie))
+                return new clsMesazh(false, "Zgjidhni kompanine.");
+            try
+            {
+                return vendosLidhjen(session, LicencatAvec.Gjej(idKompanie));
+            }
+            catch (LicencaAvecException ex)
+            {
+                return new clsMesazh(false, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Si <see cref="setServer"/>, per sherbimet qe e dergojne kompanine me emer ("organization") ose me id.
+        /// </summary>
         public static clsMesazh setServerFromOrgName(string session, string orgName)
         {
-            var dtServera = MyConnectionsManager.GetListServera(session);
-            if (dtServera == null)
+            try
             {
-                dtServera = clsLicenca.MerrLicencatMeDB(MyConnectionsManager.ConnStringNameDefault);
-                MyConnectionsManager.SetListServera(session, dtServera);
+                return vendosLidhjen(session, LicencatAvec.GjejSipasIdOseEmrit(orgName));
             }
-            var lic = dtServera.Select("KODLICENCA = '" +  orgName+"'").FirstOrDefault();
-            if (lic == null)
+            catch (LicencaAvecException ex)
             {
-                dtServera = clsLicenca.MerrLicencatMeDB(orgName);//licenca mund te mos jete ne dt fillestar qe mbush combon, por eshte zgjedhur duke filtruar
-                lic = dtServera.Select("KODLICENCA = " + orgName).FirstOrDefault();
-                if (lic == null)
-                    return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            } 
-            var conName = lic["DATABASE"] as string;
-            if (conName == null)
-                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            if (!MyConnectionsManager.IsConnectionAvailable(conName))
-                return new clsMesazh(false, "Ju lutem, vendosni lidhjen per kete server!");
-            MyConnectionsManager.SetSelectedConNameServer(session, conName);
+                return new clsMesazh(false, ex.Message);
+            }
+        }
+
+        private static clsMesazh vendosLidhjen(string session, LicencaAvec licenca)
+        {
+            if (licenca == null)
+                return new clsMesazh(false, "Kjo kompani nuk ekziston ne kete server.");
+            string gabimi = licenca.Kontrollo(DateTime.Now);
+            if (gabimi != null)
+                return new clsMesazh(false, gabimi);
+            MyConnectionsManager.SetSelectedConNameServer(session, licenca.EmriLidhjes);
             return new clsMesazh(true, "u vendos me sukses");
         }
 

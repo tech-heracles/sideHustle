@@ -411,15 +411,18 @@
         var input = s.GetInputElement();
 
         input.placeholder = loginHiddenField.Get("srvlbl");
-        var value = localStorage.getItem("server_key");
-        if (value != null) {
-            var item = cmbServerat.FindItemByValue(value);
-            cmbServerat.SetSelectedItem(item);
-        }
+        // i njejti format si faqja kryesore e login-it: { value, text }
+        var eFundit = null;
+        try { eFundit = JSON.parse(localStorage.getItem("server_key")); } catch (err) { eFundit = null; }
+        var item = eFundit && eFundit.value ? cmbServerat.FindItemByValue(eFundit.value) : null;
+        if (!item && cmbServerat.GetItemCount() === 1)
+            item = cmbServerat.GetItem(0);
+        cmbServerat.SetSelectedItem(item);
     }
     function cmbServerSelectedChanged(s, e) {
-        var item = cmbServerat.GetValue();
-        localStorage.setItem("server_key", item);
+        var item = cmbServerat.GetSelectedItem();
+        if (item)
+            localStorage.setItem("server_key", JSON.stringify({ value: item.value, text: item.text }));
     }
     function initLabelInfo(s, e) {
         if (s.GetText().length > 0)

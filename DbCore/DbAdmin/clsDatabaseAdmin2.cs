@@ -35,11 +35,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        internal void MerrGjitheConnectionStrings(IDataBaseReader colServerConnectionStrings)
-        {
-            dbManager.Open();
-            dbManager.FillCollection("prc_T_SERVER_CONNECTIONSTRINGS_selAll", colServerConnectionStrings);
-        }
 
         internal bool KaAutorizimPerdoruesi(int idPerdoruesi, int idLidhese, string llojBuxheti)
         {

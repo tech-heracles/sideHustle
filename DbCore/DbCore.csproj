@@ -440,7 +440,6 @@
     <Compile Include="DbAdmin\clsKonfigurimEmailKI.cs" />
     <Compile Include="DbAdmin\clsKonfigurimFtp.cs" />
     <Compile Include="DbAdmin\clsSerialeunikeKategoriXKonfigurimeftp.cs" />
-    <Compile Include="DbAdmin\clsServerConnectionString.cs" />
     <Compile Include="DbAdmin\clsShopsHierarkiLeaveReason.cs" />
     <Compile Include="DbAdmin\clsShopsHierarkiStatus.cs" />
     <Compile Include="DbAdmin\clsShopsHierarkiUniform.cs" />
@@ -448,7 +447,6 @@
     <Compile Include="DbAdmin\colKonfigurimEmailKI.cs" />
     <Compile Include="DbAdmin\colSerialeunikeKategoriXKonfigurimeftp.cs" />
     <Compile Include="DbAdmin\colKonfigurimFtp.cs" />
-    <Compile Include="DbAdmin\colServerConnectionStrings.cs" />
     <Compile Include="DbAdmin\colShopsHierarkiLeaveReason.cs" />
     <Compile Include="DbAdmin\colShopsHierarkiStatus.cs" />
     <Compile Include="DbAdmin\colShopsHierarkiUniform.cs" />

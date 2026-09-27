@@ -29,3 +29,5 @@ PlatiniumWeb/.vs/
 *.bak
 PlatinumWeb/connectionStrings.config
 PlatinumWeb/machineKey.config
+PlatinumWeb/avecLicense.config
+PlatinumWeb/App_Data/licencat-avec.dat

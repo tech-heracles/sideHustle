@@ -30,8 +30,12 @@ namespace PlatinumWeb.E_PaySlip
                 ASPxLabel8.Text = string.Format(@"© {0} IMB", DateTime.Now.Year);
                 LabelInfo.ClientVisible = false;
                 var combo = Login1.FindControl("cmbServerat") as DevExpress.Web.ASPxComboBox;
-                CacheLayer.GlobalCacheManager.MySessionCache["conStringName"] = "connStringAlpha";
-                clsLogin.mbushServerCombo(Session.SessionID , combo);
+                string gabimLicence = clsLogin.mbushServerCombo(Session.SessionID, combo);
+                if (gabimLicence != null)
+                {
+                    LabelInfo.Text = gabimLicence;
+                    LabelInfo.ClientVisible = true;
+                }
 
            
                 Login1.Focus();
@@ -124,20 +128,12 @@ namespace PlatinumWeb.E_PaySlip
             mySessionObjects.ruajGjuhe(Session, idGjuha);
 
             var combo = Login1.FindControl("cmbServerat") as DevExpress.Web.ASPxComboBox;
-            string connName;
-            if (combo.SelectedItem != null)
+            clsMesazh mesazhServeri = clsLogin.setServer(Session.SessionID, combo?.Value as string);
+            if (!mesazhServeri.Status)
             {
-                if (combo.SelectedItem.Text == "Kryesor" || combo.SelectedItem.Text == "Main Server")
-                    connName = "connStringAlpha";
-                else
-                    connName = combo.SelectedItem.Text;
-                if (System.Configuration.ConfigurationManager.ConnectionStrings[connName] == null)
-                {
-                    Login1.FailureText = "Ju lutem, vendosni lidhjen per kete server!";
-                    e.Authenticated = false;
-                    return;
-                }
-                CacheLayer.GlobalCacheManager.MySessionCache["conStringName"] = connName;
+                Login1.FailureText = mesazhServeri.PershkrimMesazhi;
+                e.Authenticated = false;
+                return;
             }
             clsPunonjes user = new clsPunonjes(this.Login1.UserName);
             if (clsLogin.loginAutentification(HttpContext.Current, this.Login1.UserName, this.Login1.Password, clientDate.Get("clientDate").ToString(), false, rm, ci, this.Login1, true, "", "", "", "", user))

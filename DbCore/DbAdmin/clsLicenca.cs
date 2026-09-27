@@ -14,6 +14,8 @@ using System.IO;
 using System.Net;
 using System.Web.Configuration;
 using DevExpress.CodeParser;
+using DbCore.IMBUtils.Licencimi;
+using DbCore.IMBUtils.DataBase;
 
 namespace DbCore.DbAdmin
 {
@@ -362,80 +364,24 @@ namespace DbCore.DbAdmin
             return mesazhi;
         }
 
-
         /// <summary>
-        /// kontrollon nese licenca ka skaduar
+        /// Licenca AVEC (Firebase) e kompanise se zgjedhur ne kete sesion: jashte datave, e caktivizuar ose e pa
+        /// verifikuar per me shume se 7 dite = pa hyrje. Zevendeson kontrollin e vjeter te afatit ne serverin e prodhuesit.
         /// </summary>
-        /// <param name="idPerdoruesi">idPerodruesi per te cilin po kontrollojme nese i ka skaduar licenca perkatese</param>
-        /// <param name="rm"></param>
-        /// <param name="ci"></param>
-        /// <returns>kthen false nepermjet objektit clsMesazh ne rastin kur licenca ka skaduar; kthen true me mesazhin perkates nqs i skadon per disa dite; kthen true pa mesazh kur nuk eshte ne ditet e fundit te licences</returns>
         public static clsMesazh KontrolloSkadiminLicences(int idPerdoruesi, ResourceManager rm, CultureInfo ci)
         {
-            //if (limitDiteTeMbetura != -1)   //kontrollon nqs DataMbarimit dhe limitDiteTeMbetura nuk jane null ne Db
-            
             try
             {
-                string dtSkadence = "";
-                bool superUser = false;
-                clsPerdorues perdorues = new clsPerdorues(idPerdoruesi);
-                foreach (var role in perdorues.OColRolPerdoruesi)
-                {
-                    clsRoli rol = new clsRoli(role.IdRoli);
-                    if (rol.KodRoli == "RSU")
-                    {
-                        superUser = true;
-                        break;
-                    }
-                }
-                if(superUser) return new clsMesazh(true, String.Empty);
-                string orgEndDateURL = WebConfigurationManager.AppSettings["orgEndDateUrl"];
-                var webRequest = clsFunksione.CreateGetWebRequestLicence(orgEndDateURL, clsKontrollePerFiskalizimin.ktheInitialCatalogTeLoguar()); 
-                using (WebResponse webResponse = webRequest.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
-                    {
-                        string ServiceResult = rd.ReadToEnd();
-                        var dbObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(ServiceResult);
-                        dbObject.TryGetValue("endDate", out dtSkadence);
-                    }
-
-                }
-                if (DateTime.Parse(dtSkadence) < DateTime.Now && !superUser) return new clsMesazh(false, "Ka mbaruar afati bashke me tolerance!!!");
+                LicencaAvec licenca = LicencatAvec.GjejSipasLidhjes(MyConnectionsManager.GetSelectedConNameServer());
+                if (licenca == null)
+                    return new clsMesazh(false, "Kjo databaze nuk ka licence AVEC Accounting.");
+                string gabimi = licenca.Kontrollo(DateTime.Now);
+                return gabimi == null ? new clsMesazh(true, string.Empty) : new clsMesazh(false, gabimi);
             }
-            catch(Exception ex)
+            catch (LicencaAvecException ex)
             {
-                return new clsMesazh(true, String.Empty);
-            }
-            return new clsMesazh(true, String.Empty);
-        }
-
-        /// <summary>
-        /// kthen datatable me databazat dhe licencen perkatese
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable MerrLicencatMeDB(string connectionName)
-        {
-            using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(connectionName))
-            {
-                return dbAdmin.merrLicencaMeDb();
+                return new clsMesazh(false, ex.Message);
             }
         }
-        public static DataTable MerrLicencatMeDBMeFilter(string connectionName,string e,long start,long end )
-        {
-            using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(connectionName))
-            {
-                return dbAdmin.merrLicencaMeDb(e,start,end);
-            }
-        }
-        public static DataTable MerrLicencatMeDBMeID(string connectionName, int value )
-        {
-            using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin(connectionName))
-            {
-                return dbAdmin.merrLicencaMeDb(value);
-            }
-        }
-        
-
     }
 }

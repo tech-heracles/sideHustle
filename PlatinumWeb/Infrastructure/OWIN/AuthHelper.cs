@@ -14,6 +14,7 @@ using Microsoft.Owin;
 using DbCore.IMBUtils.DataBase;
 using DbCore.IMBUtils.Security;
 using DbCore.IMBUtils.Logging;
+using DbCore.IMBUtils.Licencimi;
 
 namespace PlatinumWeb.OWIN.Helpers
 {
@@ -75,13 +76,30 @@ namespace PlatinumWeb.OWIN.Helpers
             return null;
         }
 
+        /// <summary>
+        /// Lidhja per token-in: "serverName" eshte id-ja e kompanise ne licencat AVEC (ose emri i saj).
+        /// Pa kompani perdoret e vetmja kompani e instalimit, nese ka vetem nje. Kthen null kur kompania
+        /// nuk gjendet ose licenca e saj nuk lejon hyrjen sot.
+        /// </summary>
         public static string GetServerName(IOwinContext context)
         {
             var serverName = context.Get<string>("serverName");
-
-            if (serverName == "Kryesor" || string.IsNullOrWhiteSpace(serverName))
-                serverName = MyConnectionsManager.ConnStringNameDefault;
-            return serverName;
+            try
+            {
+                LicencaAvec licenca;
+                if (string.IsNullOrWhiteSpace(serverName) || serverName == "Kryesor")
+                {
+                    var aktive = LicencatAvec.Merr().Where(l => l.Aktive).ToList();
+                    licenca = aktive.Count == 1 ? aktive[0] : null;
+                }
+                else
+                    licenca = LicencatAvec.GjejSipasIdOseEmrit(serverName);
+                return licenca != null && licenca.Kontrollo(DateTime.Now) == null ? licenca.EmriLidhjes : null;
+            }
+            catch (LicencaAvecException)
+            {
+                return null;
+            }
         }
         public static AuthenticationTicket CreateAuthTicket(AuthenticationTokenCreateContext context)
         {

@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace AlphaWeb.Infrastructure.Data.AdoNet
 {
     public class ConnectionStringsManager
     {
-        private static readonly Dictionary<string, string> ConnectionStrings;
+        // lexohet ne cdo query dhe ndryshohet kur rifreskohen licencat: duhet te jete i sigurt per shume thread-e
+        private static readonly ConcurrentDictionary<string, string> ConnectionStrings;
         public static readonly ConnectionStringsManager Instance;
         static ConnectionStringsManager()
         {
-            ConnectionStrings = new Dictionary<string, string>();
+            ConnectionStrings = new ConcurrentDictionary<string, string>();
             Instance = new ConnectionStringsManager();
         }
 
@@ -36,12 +38,5 @@ namespace AlphaWeb.Infrastructure.Data.AdoNet
             ConnectionStrings[connectionName] = connectionString;
         }
 
-        public void RefreshConnectionStrings(IDictionary<string, string> connStrings, string connStringNameDefault)
-        {
-            string connectionStringDefault = ConnectionStrings[connStringNameDefault];
-            ConnectionStrings.Clear();
-            SetConnectionstring(connStringNameDefault, connectionStringDefault);
-            SetConnectionStrings(connStrings);
-        }
     }
 }

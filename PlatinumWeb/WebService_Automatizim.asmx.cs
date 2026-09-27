@@ -39,6 +39,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestApi.WebAPI.Models;
+using DbCore.IMBUtils.Licencimi;
 
 namespace PlatinumWeb
 {
@@ -470,13 +471,13 @@ namespace PlatinumWeb
 		{
 			try
 			{
-				MyConnectionsManager.RefreshConnectionStringsPool(DbCore.DbAdmin.colServerConnectionStrings.GetAllConnectionStringsAsDictionary(), MyConnectionsManager.ConnStringNameDefault);
-				logu.Info($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > Server list refreshed successfully");
+				LicencatAvec.Merr(true);
+				logu.Info($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > LicencatAvec > Server list refreshed successfully");
 				return new clsMesazh(true, "Server list refreshed successfully.");
 			}
 			catch (Exception ex)
 			{
-				logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > MyConnectionsManager.RefreshConnectionStringsPool > {ex.ToString()}");
+				logu.Error($"{HttpContext.Current.Request.UserHostAddress} : RefreshServerList > LicencatAvec > {ex.ToString()}");
 				return new clsMesazh(false, ex.ToString());
 			}
 		}

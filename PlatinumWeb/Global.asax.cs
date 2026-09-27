@@ -53,6 +53,7 @@ using RestApi.WebAPI;
 using Web.Framework;
 using Web.Framework.Infrastructure;
 using static DbCore.mySessionObjects;
+using DbCore.IMBUtils.Licencimi;
 
 namespace PlatinumWeb
 {
@@ -92,7 +93,15 @@ namespace PlatinumWeb
 				var sessionSection = (SessionStateSection)webConfig.GetSection("system.web/sessionState");
 				//vendos ne connectrionString pool gjithe connection stringet 
 				MyConnectionsManager.SetConnectionStringDefault(webConfig.ConnectionStrings.ConnectionStrings);
-				MyConnectionsManager.InitializeConnectionStringsPool(colServerConnectionStrings.GetAllConnectionStringsAsDictionary());
+				// kompanite dhe lidhjet me databazat e tyre vijne nga licencat ne Firebase (jo me nga T_SERVER_CONNECTIONSTRINGS)
+				try
+				{
+					LicencatAvec.Merr();
+				}
+				catch (LicencaAvecException ex)
+				{
+					ImbLogger.Error(ex, "Licencat nuk u lexuan ne nisje te aplikacionit");
+				}
 				InitializeObjects();
 				RouteTable.Routes.MapOwinPath("/External", app => new Startup().Configuration(app));
 
