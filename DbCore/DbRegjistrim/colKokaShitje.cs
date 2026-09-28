@@ -168,10 +168,10 @@ namespace DbCore.DbRegjistrim
           
         }
 
-        public static DataTable merrShitjePerEksport(int idnderm, int idperdorues, int idKatDok, int idNdermViti, int lloji, string emerTabKoka, string emerFusheID, string idDokPerEksport, bool merrDokTeModifikuar, bool merrDokTeFshire, bool hiqRreshtaKomisioni, bool artikujSet, bool serialeUnike, string filterString, bool ekspAutomatik)
+        public static DataTable merrShitjePerEksport(int idnderm, int idperdorues, int idKatDok, int idNdermViti, int lloji, string emerTabKoka, string emerFusheID, string idDokPerEksport, bool merrDokTeModifikuar, bool merrDokTeFshire, bool hiqRreshtaKomisioni, bool artikujSet, bool serialeUnike, string filterString, bool ekspAutomatik, string kolonat = null)
         {
             using (var dbImportShitje = new clsDatabaseRegjistrim())
-                return dbImportShitje.ktheShitjePerExport(idnderm, idperdorues, idKatDok, idNdermViti, lloji, emerTabKoka, emerFusheID, idDokPerEksport, merrDokTeModifikuar, merrDokTeFshire, hiqRreshtaKomisioni, artikujSet, serialeUnike, filterString, ekspAutomatik);
+                return dbImportShitje.ktheShitjePerExport(idnderm, idperdorues, idKatDok, idNdermViti, lloji, emerTabKoka, emerFusheID, idDokPerEksport, merrDokTeModifikuar, merrDokTeFshire, hiqRreshtaKomisioni, artikujSet, serialeUnike, filterString, ekspAutomatik, kolonat);
            
         }
 

@@ -4904,6 +4904,7 @@
       <DependentUpon>GjendjeArkeDitore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CombineScripts.cs" />
+    <Compile Include="Helpers\EksportRapid.cs" />
     <Compile Include="Helpers\ScriptDeferFilter.cs" />
     <Compile Include="HistorikuEmail.aspx.cs">
       <DependentUpon>HistorikuEmail.aspx</DependentUpon>

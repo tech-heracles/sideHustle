@@ -273,6 +273,27 @@ namespace PlatinumWeb
 				return;
 			}
 
+			DataTable tabelaNeSesion;
+			mySessionObjects.merrGrideNgaSessioni(Komponente, Session, out tabelaNeSesion);
+			if (rbTipi.Value.ToString() == "XLS" && tabelaNeSesion != null && gvExport.Selection.Count > 65535)
+			{
+				// formati XLS mban deri ne 65 536 rreshta: skedari do dilte i cunguar
+				clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Formati XLS mban deri ne 65 536 rreshta. Per " + gvExport.Selection.Count.ToString("N0") + " rreshta zgjidhni XLSX ose CSV.", pnlMesazhi);
+				return;
+			}
+			try
+			{
+				if (EksportRapid.Provo(gvExport, tabelaNeSesion, rbTipi.Value.ToString(), txtEmerSkedari.Text, txtEmerSheet.Text, Response))
+				{
+					Response.End();
+					return;
+				}
+			}
+			catch (ThreadAbortException)
+			{
+				return;
+			}
+
 			switch (rbTipi.Value.ToString())
 			{
 				case "CSV":
@@ -648,7 +669,8 @@ namespace PlatinumWeb
 					var filterString = CriteriaToWhereClauseHelper.GetMsSqlWhere(op);
 					var artikujSet = idKategoria.ToString().EqualsAnyIgnoreCase("1", "2", "6") && col.FirstOrDefault(x => x.KodKontrolli == "Artikulli Set").Visible;
 					var serialeUnike = idKategoria.ToString().EqualsAnyIgnoreCase("1", "2", "6") && col.FirstOrDefault(x => x.KodKontrolli.EqualsAnyIgnoreCase("Seriali Unik Kryesor", "Seriali unik dytesor")).Visible;
-					table = colKokaShitje.merrShitjePerEksport(IdNdermarrja, IdPerdoruesi, idKategoria, IdNdermarrjeVit, lloji, txtEmerTabKoka.Text, primaryKey.EmerImporti, hfState["idQueryString"].ToString(), cbMerrDokTeMod.Checked, cbMerrDokTeFshire.Checked, false, artikujSet, serialeUnike, filterString, false);
+					table = colKokaShitje.merrShitjePerEksport(IdNdermarrja, IdPerdoruesi, idKategoria, IdNdermarrjeVit, lloji, txtEmerTabKoka.Text, primaryKey.EmerImporti, hfState["idQueryString"].ToString(), cbMerrDokTeMod.Checked, cbMerrDokTeFshire.Checked, false, artikujSet, serialeUnike, filterString, false,
+						sql ? null : KolonatPerEksport(col, emraFushash, kontrolle.Item2));
 					break;
 				case 3:
 				case 4:
@@ -853,6 +875,29 @@ namespace PlatinumWeb
 
 			gvExport.Columns["#"].VisibleIndex = 0;
 			gvExport.Columns["#"].Width = 20;
+		}
+
+		/// <summary>
+		/// Kolonat qe gridi i perdor per kete format: te dukshmet, celesi, dhe ato qe permendin filtrat e ruajtur
+		/// te formatit dhe filtri aktual (ne formen [Kolona]). Procedura e eksportit llogarit vetem keto
+		/// (~15 nga 125), qe per nje vit shitjesh e con ngarkimin nga ~2 minuta ne pak sekonda.
+		/// </summary>
+		private string KolonatPerEksport(colTrupiFormatImporti col, string emraFushash, int idFormati)
+		{
+			var kolonat = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+			foreach (var trup in col)
+				if (trup.Shfaq && trup.Visible && !string.IsNullOrEmpty(trup.KodKontrolli))
+					kolonat.Add(trup.KodKontrolli);
+			if (!string.IsNullOrEmpty(emraFushash))
+				kolonat.Add(emraFushash);
+
+			var filtrat = new List<string> { gvExport.FilterExpression };
+			filtrat.AddRange(new colFiltraExporti(idFormati, IdNdermarrja).Select(f => f.Pershkrimi));
+			foreach (var filtri in filtrat.Where(f => !string.IsNullOrEmpty(f)))
+				foreach (System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(filtri, @"\[([^\]]+)\]"))
+					kolonat.Add(m.Groups[1].Value);
+
+			return string.Join("|", kolonat);
 		}
 
 		private void KonfiguroKolonaGridePasNgarkimit(bool sql, colTrupiFormatImporti col, string kodKontrolli, ref DataTable table, int idKategoria)
