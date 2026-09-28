@@ -20,15 +20,19 @@ namespace PlatinumWeb
 	/// ASPxGridViewExporter-i ndertonte te gjithe dokumentin ne memorie dhe per nje vit shitjesh
 	/// (~550 mije rreshta) nuk mbaronte as pas 30 minutash. Ketu memoria mbetet e vogel dhe koha lineare.
 	///
+	/// Skedari eshte i njejte me ate te exporter-it (u krahasua qelize per qelize): XLSX me tekst si "@",
+	/// data si date Excel "dd/MM/yyyy", numrat si numra "#,##0.00", kufij, rreshti i pare i ngrire dhe autofilter;
+	/// CSV me "," (Windows-1252, CRLF), data dd/MM/yyyy dhe numrat #,##0.00.
+	///
 	/// Perdoret vetem kur rezultati eshte i njejte me ate te exporter-it: pa filter, renditje apo grupim ne gride
 	/// (ne ato raste rreshtat/rradha i vendos gridi). Perndryshe kthen false dhe perdoret exporter-i si me pare.
-	/// Vlerat shkruhen si tekst (si TextExportMode.Text i exporter-it), kolonat jane ato te dukshme te grides,
-	/// me titullin dhe rradhen e tyre.
 	/// </summary>
 	public static class EksportRapid
 	{
 		/// <summary>Nen kete numer rreshtash te zgjedhur exporter-i i DevExpress eshte mjaft i shpejte dhe perdoret si me pare.</summary>
 		public const int PragRreshtash = 20000;
+
+		private enum Lloji { Tekst, Date, Numer, Bool }
 
 		public static bool Provo(ASPxGridView grid, DataTable table, string tipi, string emerSkedari, string emerSheet, HttpResponse response)
 		{
@@ -42,7 +46,7 @@ namespace PlatinumWeb
 			var kolonat = grid.VisibleColumns.OfType<GridViewDataColumn>()
 				.Where(c => !string.IsNullOrEmpty(c.FieldName) && table.Columns.Contains(c.FieldName))
 				.OrderBy(c => c.VisibleIndex)
-				.Select(c => new { Indeksi = table.Columns.IndexOf(c.FieldName), Titulli = string.IsNullOrEmpty(c.Caption) ? c.FieldName : c.Caption })
+				.Select(c => new { Kolona = table.Columns[c.FieldName], Titulli = string.IsNullOrEmpty(c.Caption) ? c.FieldName : c.Caption })
 				.ToList();
 			if (kolonat.Count == 0)
 				return false;
@@ -54,12 +58,13 @@ namespace PlatinumWeb
 			string skedar = Path.Combine(Path.GetTempPath(), "avec-eksport-" + Guid.NewGuid().ToString("N"));
 			try
 			{
-				var indekset = kolonat.Select(k => k.Indeksi).ToArray();
+				var indekset = kolonat.Select(k => k.Kolona.Ordinal).ToArray();
+				var llojet = kolonat.Select(k => LlojiKolones(k.Kolona.DataType)).ToArray();
 				var titujt = kolonat.Select(k => k.Titulli).ToArray();
 				if (tipi == "CSV")
-					ShkruajCsv(skedar, table, rreshtat, indekset, titujt);
+					ShkruajCsv(skedar, rreshtat, indekset, llojet, titujt);
 				else
-					ShkruajXlsx(skedar, table, rreshtat, indekset, titujt, string.IsNullOrWhiteSpace(emerSheet) ? "Sheet1" : emerSheet);
+					ShkruajXlsx(skedar, rreshtat, indekset, llojet, titujt, string.IsNullOrWhiteSpace(emerSheet) ? "Sheet1" : emerSheet);
 
 				string prapashtesa = tipi == "CSV" ? ".csv" : ".xlsx";
 				response.Clear();
@@ -100,26 +105,50 @@ namespace PlatinumWeb
 			return rezultati;
 		}
 
-		private static string Teksti(object vlera)
+		private static Lloji LlojiKolones(Type t)
 		{
-			if (vlera == null || vlera == DBNull.Value)
-				return "";
-			return Convert.ToString(vlera, CultureInfo.CurrentCulture);
+			if (t == typeof(DateTime))
+				return Lloji.Date;
+			if (t == typeof(bool))
+				return Lloji.Bool;
+			if (t == typeof(decimal) || t == typeof(double) || t == typeof(float) || t == typeof(int) || t == typeof(long)
+				|| t == typeof(short) || t == typeof(byte))
+				return Lloji.Numer;
+			return Lloji.Tekst;
 		}
 
-		private static void ShkruajCsv(string skedar, DataTable table, List<DataRow> rreshtat, int[] indekset, string[] titujt)
+		#region CSV
+
+		private static void ShkruajCsv(string skedar, List<DataRow> rreshtat, int[] indekset, Lloji[] llojet, string[] titujt)
 		{
-			string ndares = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
-			using (var w = new StreamWriter(skedar, false, new UTF8Encoding(true), 1 << 16))
+			var kultura = CultureInfo.CurrentCulture;
+			string ndares = kultura.TextInfo.ListSeparator;
+			using (var w = new StreamWriter(skedar, false, Encoding.Default, 1 << 16))
 			{
-				w.WriteLine(string.Join(ndares, titujt.Select(t => CsvFushe(t, ndares))));
+				w.Write(string.Join(ndares, titujt.Select(t => CsvFushe(t, ndares))));
 				var rresht = new string[indekset.Length];
 				foreach (var r in rreshtat)
 				{
 					for (int i = 0; i < indekset.Length; i++)
-						rresht[i] = CsvFushe(Teksti(r[indekset[i]]), ndares);
-					w.WriteLine(string.Join(ndares, rresht));
+						rresht[i] = CsvFushe(TekstiCsv(r[indekset[i]], llojet[i], kultura), ndares);
+					w.Write("\r\n");
+					w.Write(string.Join(ndares, rresht));
 				}
+			}
+		}
+
+		private static string TekstiCsv(object vlera, Lloji lloji, CultureInfo kultura)
+		{
+			if (vlera == null || vlera == DBNull.Value)
+				return "";
+			switch (lloji)
+			{
+				case Lloji.Date:
+					return ((DateTime)vlera).ToString("dd/MM/yyyy", kultura);
+				case Lloji.Numer:
+					return Convert.ToDecimal(vlera, CultureInfo.InvariantCulture).ToString("#,##0.00", kultura);
+				default:
+					return Convert.ToString(vlera, kultura);
 			}
 		}
 
@@ -130,49 +159,192 @@ namespace PlatinumWeb
 			return s;
 		}
 
-		private static void ShkruajXlsx(string skedar, DataTable table, List<DataRow> rreshtat, int[] indekset, string[] titujt, string emerSheet)
+		#endregion
+
+		#region XLSX
+
+		// stilet (si ne skedarin e exporter-it): 1 = i pergjithshem me kufi, 2 = date dd/MM/yyyy,
+		// 3 = numer #,##0.00, 4 = tekst "@" (titujt dhe vlerat tekst)
+		private const string StiliBosh = "1", StiliDate = "2", StiliNumer = "3", StiliTekst = "4";
+
+		private static void ShkruajXlsx(string skedar, List<DataRow> rreshtat, int[] indekset, Lloji[] llojet, string[] titujt, string emerSheet)
 		{
+			var fjalet = new Dictionary<string, int>(StringComparer.Ordinal);
+			var listaFjaleve = new List<string>();
+			int IndeksiFjales(string s)
+			{
+				if (!fjalet.TryGetValue(s, out int i))
+				{
+					i = listaFjaleve.Count;
+					fjalet.Add(s, i);
+					listaFjaleve.Add(s);
+				}
+				return i;
+			}
+
+			int nrKolonash = indekset.Length;
+			int nrRreshtash = rreshtat.Count + 1;
+			var shkronjat = Enumerable.Range(0, nrKolonash).Select(ShkronjaKolones).ToArray();
+			string zona = "A1:" + shkronjat[nrKolonash - 1] + nrRreshtash.ToString(CultureInfo.InvariantCulture);
+
+			var emri = emerSheet.Length > 31 ? emerSheet.Substring(0, 31) : emerSheet;
+			foreach (var c in new[] { '\\', '/', '?', '*', '[', ']', ':' })
+				emri = emri.Replace(c, ' ');
+
 			using (var doc = SpreadsheetDocument.Create(skedar, SpreadsheetDocumentType.Workbook))
 			{
 				var wbPart = doc.AddWorkbookPart();
-				wbPart.Workbook = new Workbook();
 
-				// stili 1: tekst (@) si o_customizeCell; stili 2: tekst i trashe per titujt
 				var stilet = wbPart.AddNewPart<WorkbookStylesPart>();
-				stilet.Stylesheet = new Stylesheet(
-					new Fonts(new DocumentFormat.OpenXml.Spreadsheet.Font(), new DocumentFormat.OpenXml.Spreadsheet.Font(new Bold())) { Count = 2 },
-					new Fills(new Fill(new PatternFill { PatternType = PatternValues.None }), new Fill(new PatternFill { PatternType = PatternValues.Gray125 })) { Count = 2 },
-					new Borders(new DocumentFormat.OpenXml.Spreadsheet.Border()) { Count = 1 },
-					new CellFormats(
-						new CellFormat(),
-						new CellFormat { NumberFormatId = 49, ApplyNumberFormat = true },
-						new CellFormat { NumberFormatId = 49, FontId = 1, ApplyNumberFormat = true, ApplyFont = true }) { Count = 3 });
+				stilet.Stylesheet = Stilet();
 				stilet.Stylesheet.Save();
 
 				var wsPart = wbPart.AddNewPart<WorksheetPart>();
 				using (var w = OpenXmlWriter.Create(wsPart))
 				{
 					w.WriteStartElement(new Worksheet());
+					w.WriteElement(new SheetProperties(new OutlineProperties { SummaryBelow = false, SummaryRight = false }));
+					w.WriteElement(new SheetViews(new SheetView(
+						new Pane { TopLeftCell = "A2", VerticalSplit = 1D, ActivePane = PaneValues.BottomLeft, State = PaneStateValues.Frozen },
+						new Selection { Pane = PaneValues.BottomLeft, ActiveCell = "A1", SequenceOfReferences = new ListValue<StringValue> { InnerText = "A1" } })
+					{ WorkbookViewId = 0U }));
+					var cols = new Columns();
+					for (int i = 0; i < nrKolonash; i++)
+						cols.Append(new Column
+						{
+							Min = (uint)(i + 1), Max = (uint)(i + 1), Width = 28.57D, CustomWidth = true,
+							Style = uint.Parse(llojet[i] == Lloji.Date ? StiliDate : llojet[i] == Lloji.Numer ? StiliNumer : StiliBosh, CultureInfo.InvariantCulture)
+						});
+					w.WriteElement(cols);
+
 					w.WriteStartElement(new SheetData());
-					ShkruajRresht(w, titujt, 2);
-					var vlerat = new string[indekset.Length];
+					ShkruajRreshtTitujsh(w, 1, shkronjat, titujt, IndeksiFjales);
+					int nr = 1;
 					foreach (var r in rreshtat)
 					{
-						for (int i = 0; i < indekset.Length; i++)
-							vlerat[i] = PaKaraktereKontrolli(Teksti(r[indekset[i]]));
-						ShkruajRresht(w, vlerat, 1);
+						nr++;
+						string nrTekst = nr.ToString(CultureInfo.InvariantCulture);
+						w.WriteStartElement(new Row(), new[] { new OpenXmlAttribute("r", null, nrTekst) });
+						for (int i = 0; i < nrKolonash; i++)
+							ShkruajQelize(w, shkronjat[i] + nrTekst, r[indekset[i]], llojet[i], IndeksiFjales);
+						w.WriteEndElement();
 					}
 					w.WriteEndElement();
+
+					w.WriteElement(new AutoFilter { Reference = zona });
+					w.WriteElement(new IgnoredErrors(new IgnoredError { SequenceOfReferences = new ListValue<StringValue> { InnerText = zona }, NumberStoredAsText = true }));
 					w.WriteEndElement();
 				}
 
-				var emri = emerSheet.Length > 31 ? emerSheet.Substring(0, 31) : emerSheet;
-				foreach (var c in new[] { '\\', '/', '?', '*', '[', ']', ':' })
-					emri = emri.Replace(c, ' ');
-				wbPart.Workbook.AppendChild(new Sheets(new Sheet { Id = wbPart.GetIdOfPart(wsPart), SheetId = 1, Name = emri }));
+				var sstPart = wbPart.AddNewPart<SharedStringTablePart>();
+				using (var w = OpenXmlWriter.Create(sstPart))
+				{
+					w.WriteStartElement(new SharedStringTable(), new[]
+					{
+						new OpenXmlAttribute("count", null, listaFjaleve.Count.ToString(CultureInfo.InvariantCulture)),
+						new OpenXmlAttribute("uniqueCount", null, listaFjaleve.Count.ToString(CultureInfo.InvariantCulture))
+					});
+					foreach (var s in listaFjaleve)
+						w.WriteElement(new SharedStringItem(new Text(s) { Space = SpaceProcessingModeValues.Preserve }));
+					w.WriteEndElement();
+				}
+
+				wbPart.Workbook = new Workbook(
+					new Sheets(new Sheet { Id = wbPart.GetIdOfPart(wsPart), SheetId = 1U, Name = emri }),
+					new DefinedNames(new DefinedName("'" + emri.Replace("'", "''") + "'!" + AbsoluteRef(zona)) { Name = "_xlnm._FilterDatabase", Hidden = true, LocalSheetId = 0U }));
 				wbPart.Workbook.Save();
 			}
 		}
+
+		private static void ShkruajRreshtTitujsh(OpenXmlWriter w, int nr, string[] shkronjat, string[] titujt, Func<string, int> indeksi)
+		{
+			string nrTekst = nr.ToString(CultureInfo.InvariantCulture);
+			w.WriteStartElement(new Row(), new[] { new OpenXmlAttribute("r", null, nrTekst) });
+			for (int i = 0; i < titujt.Length; i++)
+				ShkruajTekst(w, shkronjat[i] + nrTekst, PaKaraktereKontrolli(titujt[i]), StiliTekst, indeksi);
+			w.WriteEndElement();
+		}
+
+		private static void ShkruajQelize(OpenXmlWriter w, string ref_, object vlera, Lloji lloji, Func<string, int> indeksi)
+		{
+			if (vlera == null || vlera == DBNull.Value)
+			{
+				ShkruajTekst(w, ref_, "", StiliBosh, indeksi);
+				return;
+			}
+			switch (lloji)
+			{
+				case Lloji.Date:
+					ShkruajVlere(w, ref_, null, StiliDate, ((DateTime)vlera).ToOADate().ToString("R", CultureInfo.InvariantCulture));
+					break;
+				case Lloji.Numer:
+					ShkruajVlere(w, ref_, null, StiliNumer, Convert.ToDouble(vlera, CultureInfo.InvariantCulture).ToString("R", CultureInfo.InvariantCulture));
+					break;
+				case Lloji.Bool:
+					ShkruajVlere(w, ref_, "b", StiliBosh, (bool)vlera ? "1" : "0");
+					break;
+				default:
+					var s = PaKaraktereKontrolli(Convert.ToString(vlera, CultureInfo.CurrentCulture));
+					ShkruajTekst(w, ref_, s, s.Length == 0 ? StiliBosh : StiliTekst, indeksi);
+					break;
+			}
+		}
+
+		private static void ShkruajTekst(OpenXmlWriter w, string ref_, string s, string stili, Func<string, int> indeksi) =>
+			ShkruajVlere(w, ref_, "s", stili, indeksi(s).ToString(CultureInfo.InvariantCulture));
+
+		private static void ShkruajVlere(OpenXmlWriter w, string ref_, string tipi, string stili, string vlera)
+		{
+			var atr = new List<OpenXmlAttribute>(3) { new OpenXmlAttribute("r", null, ref_), new OpenXmlAttribute("s", null, stili) };
+			if (tipi != null)
+				atr.Add(new OpenXmlAttribute("t", null, tipi));
+			w.WriteStartElement(new Cell(), atr);
+			w.WriteElement(new CellValue(vlera));
+			w.WriteEndElement();
+		}
+
+		private static Stylesheet Stilet()
+		{
+			var kufi = new DocumentFormat.OpenXml.Spreadsheet.Border(
+				new LeftBorder(new Color { Rgb = "FF000000" }) { Style = BorderStyleValues.Thin },
+				new RightBorder(new Color { Rgb = "FF000000" }) { Style = BorderStyleValues.Thin },
+				new TopBorder(new Color { Rgb = "FF000000" }) { Style = BorderStyleValues.Thin },
+				new BottomBorder(new Color { Rgb = "FF000000" }) { Style = BorderStyleValues.Thin },
+				new DiagonalBorder());
+			return new Stylesheet(
+				new NumberingFormats(new NumberingFormat { NumberFormatId = 164U, FormatCode = "dd/MM/yyyy" }) { Count = 1U },
+				new Fonts(
+					new DocumentFormat.OpenXml.Spreadsheet.Font(new FontSize { Val = 11D }, new Color { Theme = 1U }, new FontName { Val = "Calibri" }, new FontFamilyNumbering { Val = 2 }, new FontScheme { Val = FontSchemeValues.Minor }),
+					new DocumentFormat.OpenXml.Spreadsheet.Font(new FontSize { Val = 11D }, new Color { Rgb = "FF000000" }, new FontName { Val = "Calibri" }, new FontFamilyNumbering { Val = 0 }))
+				{ Count = 2U },
+				new Fills(new Fill(new PatternFill { PatternType = PatternValues.None }), new Fill(new PatternFill { PatternType = PatternValues.Gray125 })) { Count = 2U },
+				new Borders(new DocumentFormat.OpenXml.Spreadsheet.Border(), kufi) { Count = 2U },
+				new CellStyleFormats(new CellFormat { NumberFormatId = 0U, FontId = 0U, FillId = 0U, BorderId = 0U }) { Count = 1U },
+				new CellFormats(
+					new CellFormat { NumberFormatId = 0U, FontId = 0U, FillId = 0U, BorderId = 0U, FormatId = 0U },
+					new CellFormat { NumberFormatId = 0U, FontId = 0U, FillId = 0U, BorderId = 1U, FormatId = 0U, ApplyFont = true, ApplyAlignment = true },
+					new CellFormat { NumberFormatId = 164U, FontId = 0U, FillId = 0U, BorderId = 1U, FormatId = 0U, ApplyNumberFormat = true, ApplyFont = true, ApplyAlignment = true },
+					new CellFormat { NumberFormatId = 4U, FontId = 0U, FillId = 0U, BorderId = 1U, FormatId = 0U, ApplyNumberFormat = true, ApplyFont = true, ApplyAlignment = true },
+					new CellFormat { NumberFormatId = 49U, FontId = 1U, FillId = 0U, BorderId = 1U, FormatId = 0U, ApplyNumberFormat = true, ApplyFont = true })
+				{ Count = 5U },
+				new CellStyles(new CellStyle { Name = "Normal", FormatId = 0U, BuiltinId = 0U }) { Count = 1U });
+		}
+
+		private static string ShkronjaKolones(int i)
+		{
+			var s = "";
+			for (i++; i > 0; i = (i - 1) / 26)
+				s = (char)('A' + (i - 1) % 26) + s;
+			return s;
+		}
+
+		private static string AbsoluteRef(string zona) =>
+			string.Join(":", zona.Split(':').Select(r =>
+			{
+				int j = 0;
+				while (j < r.Length && char.IsLetter(r[j])) j++;
+				return "$" + r.Substring(0, j) + "$" + r.Substring(j);
+			}));
 
 		/// <summary>XML nuk lejon karakteret e kontrollit (pervec tab/rresht i ri); ato do prishnin skedarin.</summary>
 		private static string PaKaraktereKontrolli(string s)
@@ -183,19 +355,6 @@ namespace PlatinumWeb
 			return s;
 		}
 
-		private static void ShkruajRresht(OpenXmlWriter w, string[] vlerat, uint stili)
-		{
-			w.WriteStartElement(new Row());
-			var atributet = new List<OpenXmlAttribute> { new OpenXmlAttribute("t", null, "inlineStr"), new OpenXmlAttribute("s", null, stili.ToString(CultureInfo.InvariantCulture)) };
-			foreach (var v in vlerat)
-			{
-				w.WriteStartElement(new Cell(), atributet);
-				w.WriteStartElement(new InlineString());
-				w.WriteElement(new Text(v) { Space = SpaceProcessingModeValues.Preserve });
-				w.WriteEndElement();
-				w.WriteEndElement();
-			}
-			w.WriteEndElement();
-		}
+		#endregion
 	}
 }

@@ -96,10 +96,10 @@ namespace DbCore.DbRegjistrim
             get { return ((clsKokaMagazina)base[index]); }
         }
 
-        public static DataTable merrDokMagazinePerEksport(int idnderm, int idperdorues, int idNdermViti, int lloji, string emerTabKoka, string emerFusheId, string idPerEksport, bool serialeUnike)
+        public static DataTable merrDokMagazinePerEksport(int idnderm, int idperdorues, int idNdermViti, int lloji, string emerTabKoka, string emerFusheId, string idPerEksport, bool serialeUnike, string kolonat = null)
         {
             clsDatabaseRegjistrim dbRegj = new clsDatabaseRegjistrim();
-            DataTable tabela = dbRegj.ktheDokMagazinePerExport(idnderm, idperdorues, idNdermViti, lloji, emerTabKoka, emerFusheId, idPerEksport, serialeUnike);
+            DataTable tabela = dbRegj.ktheDokMagazinePerExport(idnderm, idperdorues, idNdermViti, lloji, emerTabKoka, emerFusheId, idPerEksport, serialeUnike, kolonat);
             dbRegj.Dispose();
             return tabela;
         }

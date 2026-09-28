@@ -681,7 +681,8 @@ namespace PlatinumWeb
 					break;
 				case 6:
 					var serialeUnik = idKategoria.ToString().EqualsAnyIgnoreCase("1", "2", "6") && col.FirstOrDefault(x => x.KodKontrolli.EqualsAnyIgnoreCase("Seriali Unik Kryesor", "Seriali unik dytesor")).Visible;
-					table = colKokaMagazina.merrDokMagazinePerEksport(IdNdermarrja, IdPerdoruesi, IdNdermarrjeVit, lloji, txtEmerTabKoka.Text, primaryKey.EmerImporti, hfState["idQueryString"].ToString(), serialeUnik);
+					table = colKokaMagazina.merrDokMagazinePerEksport(IdNdermarrja, IdPerdoruesi, IdNdermarrjeVit, lloji, txtEmerTabKoka.Text, primaryKey.EmerImporti, hfState["idQueryString"].ToString(), serialeUnik,
+						sql ? null : KolonatPerEksport(col, emraFushash, kontrolle.Item2));
 					break;
 				case 7:
 					table = colShperndarjeShpenzimeKoka.ktheDokShperndarjeShpenzimiPerEksport(IdNdermarrja, kontrolle.Item2);

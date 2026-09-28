@@ -2551,24 +2551,29 @@ namespace DbCore.DbRegjistrim
         }
 
         /// <summary>
-        /// Databazat (sipas connection string-ut) ku procedura e eksportit te shitjeve e ka parametrin @KOLONAT
-        /// (docs/sql/optimisation/04-eksport-shitje.sql). Pa te parametri nuk dergohet, qe AVEC te punoje
-        /// edhe para se skripti te jete ekzekutuar ne databazen e klientit.
+        /// Procedurat e eksportit qe e kane parametrin opsional @KOLONAT (docs/sql/optimisation/04, 05), sipas
+        /// databazes (connection string-ut). Pa te parametri nuk dergohet, qe AVEC te punoje edhe para se
+        /// skriptet te jene ekzekutuar ne databazen e klientit.
         /// </summary>
-        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, bool> eksportShitjeMeKolona =
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, bool> proceduraMeKolona =
             new System.Collections.Concurrent.ConcurrentDictionary<string, bool>();
+
+        private bool kaParametrinKolonat(string procedura)
+        {
+            return proceduraMeKolona.GetOrAdd(dbManager.ConnectionString + "|" + procedura, _ =>
+            {
+                dbManager.CreateParameters(0);
+                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.Text,
+                    "SELECT COUNT(*) FROM sys.parameters WHERE object_id = OBJECT_ID('dbo." + procedura + "') AND name = '@KOLONAT'")) > 0;
+            });
+        }
 
         /// <param name="kolonat">Vetem keto kolona ('Kolona 1|Kolona 2'); null = te gjitha.</param>
         internal DataTable ktheShitjePerExport(int idnderm, int idperdorues, int idKatDok, int idNderViti, int lloji, string emerTabKoka, string emerFusheID, string idDokPerEksport, bool merrDokTeModifikuar, bool merrDokTeFshire, bool hiqRreshtaKomisioni, bool artikujSet, bool serialeUnike, string filterString, bool ekspAutomatik, string kolonat = null)
         {
 
             dbManager.Open();
-            bool meKolona = kolonat != null && eksportShitjeMeKolona.GetOrAdd(dbManager.ConnectionString, _ =>
-            {
-                dbManager.CreateParameters(0);
-                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.Text,
-                    "SELECT COUNT(*) FROM sys.parameters WHERE object_id = OBJECT_ID('dbo.prc_T_KOKASHITJE_merrShitjeBlerjeSipasNdermarrjePerEksport') AND name = '@KOLONAT'")) > 0;
-            });
+            bool meKolona = kolonat != null && kaParametrinKolonat("prc_T_KOKASHITJE_merrShitjeBlerjeSipasNdermarrjePerEksport");
             dbManager.CreateParameters(meKolona ? 16 : 15);
             dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
@@ -6235,10 +6240,12 @@ namespace DbCore.DbRegjistrim
 
         }
 
-        internal DataTable ktheDokMagazinePerExport(int idnderm, int idperdorues, int idNderViti, int lloji, string emerTabKoka, string emerFusheId, string idPerEksport, bool serialeUnike)
+        /// <param name="kolonat">Vetem keto kolona ('Kolona 1|Kolona 2'); null = te gjitha.</param>
+        internal DataTable ktheDokMagazinePerExport(int idnderm, int idperdorues, int idNderViti, int lloji, string emerTabKoka, string emerFusheId, string idPerEksport, bool serialeUnike, string kolonat = null)
         {
             dbManager.Open();
-            dbManager.CreateParameters(8);
+            bool meKolona = kolonat != null && kaParametrinKolonat("prc_T_KOKAMAGAZINA_merrDokMagazineSipasNdermarrjePerEksport");
+            dbManager.CreateParameters(meKolona ? 9 : 8);
             dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
@@ -6247,6 +6254,8 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(5, "@EMERFUSHEID", emerFusheId, ParameterDirection.Input);
             dbManager.AddParameters(6, "@IDPEREKSPORT", idPerEksport, ParameterDirection.Input);
             dbManager.AddParameters(7, "@SERIALEUNIKE", serialeUnike, ParameterDirection.Input);
+            if (meKolona)
+                dbManager.AddParameters(8, "@KOLONAT", kolonat, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAGAZINA_merrDokMagazineSipasNdermarrjePerEksport");
             return ds.Tables[0];
         }
