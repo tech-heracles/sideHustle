@@ -100,8 +100,13 @@ namespace RestApi.WebAPI.Models
             DataTable table;
             try
             {
+                // lexuesit e mbyllin stream-in qe marrin: u jepet nje kopje, qe skedari ne sesion te mund te lexohet
+                // perseri (p.sh. "Ngarko" e dyte pa ngarkuar skedarin rishtas; me pare: "Cannot access a closed Stream")
                 FileContent.Position = 0;
-                table = FileName.EndsWith(".csv") ? FileReader.CsvReaderMeHeader(FileContent) : LexoExcel(FileName, FileContent, emerSheet);
+                var kopje = new MemoryStream();
+                FileContent.CopyTo(kopje);
+                kopje.Position = 0;
+                table = FileName.EndsWith(".csv") ? FileReader.CsvReaderMeHeader(kopje) : LexoExcel(FileName, kopje, emerSheet);
             }
             catch (OleDbException ex)
             {
@@ -807,7 +812,11 @@ namespace RestApi.WebAPI.Models
             foreach (clsTrupiFormatImporti column in col)
                 ChangeColumnDataType(teDhenaImporti, column.EmerImporti, KtheTipKoloneSipasFormatitPerDataTable(column.FusheType.ToLower()), false, true);
             ChangeColumnDataType(teDhenaImporti, "Id", typeof(int), false, true);
-            rreshtaDeserialized.ForEach(r => teDhenaImporti.Rows.Add(r.Select(c => c.Value).Cast<object>().ToArray()));
+            // qelize bosh ne nje kolone jo-tekst (p.sh. "Kursi" opsional) = pa vlere; me pare hidhte
+            // "Couldn't store <> in Kursi Column" dhe rrezonte te gjithe importin me gabim 500
+            var joTekst = teDhenaImporti.Columns.Cast<DataColumn>().Select(k => k.DataType != typeof(string)).ToArray();
+            rreshtaDeserialized.ForEach(r => teDhenaImporti.Rows.Add(r.Select((c, i) =>
+                i < joTekst.Length && joTekst[i] && (c.Value == null || c.Value is string s && s.Trim().Length == 0) ? DBNull.Value : c.Value).ToArray()));
 
             return teDhenaImporti;
         }
