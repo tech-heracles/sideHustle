@@ -1564,7 +1564,7 @@ namespace DbCore.DbInventari
 
         internal DataRow ktheArtikullSipasKoditDheAutorizime(string kodArtikulli, int idNdermarje, int idperdorues)
         {
-            return ImportCache.Merr<DataRow>(ImportCache.Artikull, "aut|" + kodArtikulli + "|" + idNdermarje + "|" + idperdorues, () =>
+            return ImportCache.Merr<DataRow>(ImportCache.ArtikullKod, "aut|" + kodArtikulli + "|" + idNdermarje + "|" + idperdorues, () =>
             {
                 dbManager.Open();
                 dbManager.CreateParameters(3);
@@ -2320,7 +2320,7 @@ namespace DbCore.DbInventari
         /// <returns>nje objeckt boolean qe tregon nese ekziston apo jo nje artikull me kete kod</returns>
         public bool ekzistonArtikull(String kod, int idnderm)
         {
-            return ImportCache.Merr<bool>(ImportCache.Artikull, "ekziston|" + kod + "|" + idnderm, () =>
+            return ImportCache.Merr<bool>(ImportCache.ArtikullKod, "ekziston|" + kod + "|" + idnderm, () =>
             {
                 ImbLogger.LogTraceShitje($"Filloi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
                 dbManager.Open();
@@ -10275,7 +10275,8 @@ namespace DbCore.DbInventari
                 if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                     return null;
                 return ds.Tables[0].Rows[0]["PERSHKRIMI"].ToString();
-            }, k => !string.IsNullOrEmpty(k));
+            }, k => true);   // edhe "pa kodbar": shumica e artikujve s'kane kodbar dhe pa kete kerkohej ne SQL per cdo rresht;
+                             // kodbaret i krijojne vetem importet e artikujve/kodbareve, qe e perjashtojne Kodbar nga cache
         }
 
         internal int merrIdKodbarinSipasIdArtikulli(string kodartikulli, int idNdermarrje)

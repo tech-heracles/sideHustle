@@ -5240,7 +5240,7 @@ namespace DbCore.DbKontabiliteti
                 if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                     return null;
                 return ds.Tables[0].Rows[0];
-            }, r => r != null);
+            }, r => r != null || string.IsNullOrEmpty(kodKF));   // kodi bosh (formate pa kolone klienti): kerkohej per cdo dokument
         }
         internal DataRow ktheKlientFurnitorSipasNdermarjeBij(int idndermarjebij, int idNdermarrja, int llojporosie)
         {

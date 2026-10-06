@@ -24,6 +24,12 @@ namespace DbCore.IMBUtils.Cache
         public const string Alternativa = "Alternativa";
         public const string KlientFurnitor = "KlientFurnitor";
         public const string Artikull = "Artikull";
+        /// <summary>
+        /// Te dhenat baze te artikullit sipas kodit (ekziston; rreshti me autorizime: njesite, klasa, aktiv, llogarite).
+        /// Ruajtja e dokumenteve nuk i ndryshon (rivleresimi i kostos nuk shkruan ne T_ARTIKULLI), prandaj ndryshe nga
+        /// <see cref="Artikull"/> ruhen edhe gjate importit te dokumenteve; i perjashtojne vetem importet e artikujve.
+        /// </summary>
+        public const string ArtikullKod = "ArtikullKod";
         public const string NivelZbritje = "NivelZbritje";
         public const string VlereDefault = "VlereDefault";
         public const string Ndermarrje = "Ndermarrje";

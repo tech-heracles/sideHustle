@@ -58,12 +58,14 @@ namespace DbCore.DbImporte
         {
             if (!importo)
                 return new string[0];
-            // ruajtja e dokumenteve mund te rivleresoje artikujt (kosto), prandaj artikujt nuk ruhen kurre gjate importit
+            // ruajtja e dokumenteve mund te rivleresoje artikujt (kosto), prandaj artikujt nuk ruhen kurre gjate importit;
+            // perjashtim: te dhenat baze sipas kodit (ImportCache.ArtikullKod), qe ruajtja e dokumenteve nuk i ndryshon
             var llojet = new List<string> { ImportCache.Artikull };
             switch (idKategoria)
             {
                 case 12: case 147: case 148: llojet.Add(ImportCache.KlientFurnitor); break; // klient/furnitore
-                case 13: llojet.AddRange(new[] { ImportCache.Kodbar, ImportCache.Njesi }); break; // artikuj
+                case 13: llojet.AddRange(new[] { ImportCache.ArtikullKod, ImportCache.Kodbar, ImportCache.Njesi }); break; // artikuj
+                case 71: llojet.Add(ImportCache.ArtikullKod); break;                         // detajime artikulli
                 case 164: llojet.Add(ImportCache.Kodbar); break;                            // kodbare
                 case 14: llojet.Add(ImportCache.Llogari); break;                            // llogari
                 case 18: llojet.Add(ImportCache.NivelZbritje); break;                       // zbritje analitike

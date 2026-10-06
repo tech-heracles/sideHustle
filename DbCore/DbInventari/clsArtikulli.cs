@@ -4699,26 +4699,17 @@ namespace DbCore.DbInventari
 
         public bool ktheArtikullSipasKoditDheAutorizime(string kodArtikulli, int idnderm, int idperdorues)
         {
-            clsDatabaseInventari dbInventari = new clsDatabaseInventari();
+            // vetem lexim: pa transaksion (me pare BEGIN + COMMIT ne server per cdo artikull, edhe kur artikulli vinte nga
+            // cache e importit: dy udhetime te kota per cdo rresht importi)
             try
             {
-
-                dbInventari.beginTransaksion();
-                bool sukses = ktheArtikullSipasKoditDheAutorizime(kodArtikulli, idnderm, idperdorues, dbInventari);
-                if (!sukses)
-                {
-                    dbInventari.rollbackTransaksion();
-                    return sukses;
-                }
-                dbInventari.commitTransaksion();
-                return sukses;
+                using (clsDatabaseInventari dbInventari = new clsDatabaseInventari())
+                    return ktheArtikullSipasKoditDheAutorizime(kodArtikulli, idnderm, idperdorues, dbInventari);
             }
             catch (Exception)
             {
-                dbInventari.rollbackTransaksion();
                 return false;
             }
-
         }
 
         public bool merrSipasKodbarit(string kodbari, int idnderm)
