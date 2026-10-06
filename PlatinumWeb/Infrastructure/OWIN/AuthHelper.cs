@@ -87,9 +87,11 @@ namespace PlatinumWeb.OWIN.Helpers
             try
             {
                 LicencaAvec licenca;
+                // marrja/rifreskimi i token-it eshte hyrje: licencat lexohen nga Firebase (pergjigja e fundit vetem pa internet)
+                var licencat = LicencatAvec.MerrPerHyrje();
                 if (string.IsNullOrWhiteSpace(serverName) || serverName == "Kryesor")
                 {
-                    var aktive = LicencatAvec.Merr().Where(l => l.Aktive).ToList();
+                    var aktive = licencat.Where(l => l.Aktive).ToList();
                     licenca = aktive.Count == 1 ? aktive[0] : null;
                 }
                 else

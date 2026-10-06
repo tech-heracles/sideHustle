@@ -62,14 +62,17 @@ namespace DbCore.IMBUtils.Licencimi
     /// Lista e kompanive te ketij instalimi, nga funksioni avecLicenses ne Firebase (projekti i menaxherit).
     /// Zevendeson T_SERVER_CONNECTIONSTRINGS / T_LICENCA te databazes kryesore si burim i kompanive ne login.
     /// <para>Konfigurimi (appSettings, ne avecLicense.config qe nuk hyn ne git): AvecLicenseUrl, AvecInstallationId, AvecInstallationKey.</para>
-    /// <para>Lista rifreskohet cdo 5 minuta. Kur Firebase nuk arrihet perdoret lista e fundit (ne memorie ose e ruajtur e
-    /// enkriptuar ne App_Data) per 7 dite nga rifreskimi i fundit i suksesshem; pas kesaj hyrja bllokohet.</para>
+    /// <para>Ne hyrje (<see cref="MerrPerHyrje"/>) lista lexohet gjithmone nga Firebase; gjate punes rifreskohet cdo 5 minuta.
+    /// Vetem kur Firebase nuk arrihet perdoret pergjigja e fundit (ne memorie ose e ruajtur e enkriptuar ne App_Data), per
+    /// 2 dite nga rifreskimi i fundit i suksesshem; pas kesaj hyrja bllokohet.</para>
     /// </summary>
     public static class LicencatAvec
     {
         private static readonly TimeSpan RifreskoPas = TimeSpan.FromMinutes(5);
+        // hapat e nje hyrjeje (lista e kompanive, zgjedhja e kompanise) ndodhin brenda pak sekondash: nje lexim per hyrje
+        private static readonly TimeSpan FreskiPerHyrje = TimeSpan.FromSeconds(30);
         private static readonly TimeSpan PritPasDeshtimit = TimeSpan.FromMinutes(1);
-        public static readonly TimeSpan MaxPaLidhje = TimeSpan.FromDays(7);
+        public static readonly TimeSpan MaxPaLidhje = TimeSpan.FromDays(2);
         private static readonly byte[] Entropia = Encoding.UTF8.GetBytes("AVEC.Licencat.v1");
         private static readonly HttpClient klienti = new HttpClient { Timeout = TimeSpan.FromSeconds(10) };
         private static readonly object bllokimi = new object();
@@ -91,14 +94,22 @@ namespace DbCore.IMBUtils.Licencimi
         }
 
         /// <summary>Kompanite e ketij instalimi. Hedh <see cref="LicencaAvecException"/> kur lista nuk mund te merret.</summary>
-        public static IReadOnlyList<LicencaAvec> Merr(bool rifresko = false)
+        public static IReadOnlyList<LicencaAvec> Merr(bool rifresko = false) => Merr(RifreskoPas, rifresko);
+
+        /// <summary>
+        /// Per hyrjen: lista lexohet nga Firebase (jo nga lista 5-minuteshe ne memorie). Vetem kur Firebase nuk arrihet
+        /// perdoret pergjigja e fundit, deri ne 2 dite (<see cref="MaxPaLidhje"/>).
+        /// </summary>
+        public static IReadOnlyList<LicencaAvec> MerrPerHyrje() => Merr(FreskiPerHyrje, false);
+
+        private static IReadOnlyList<LicencaAvec> Merr(TimeSpan moshaMax, bool rifresko)
         {
             lock (bllokimi)
             {
                 DateTime tani = DateTime.UtcNow;
                 if (licencat == null)
                     NgarkoNgaDisku();
-                bool eFreskete = licencat != null && rifreskuarMe.HasValue && tani - rifreskuarMe.Value < RifreskoPas;
+                bool eFreskete = licencat != null && rifreskuarMe.HasValue && tani - rifreskuarMe.Value < moshaMax;
                 bool sapoDeshtoi = tani - deshtuarMe < PritPasDeshtimit;
                 if (eFreskete && !rifresko)
                     return licencat;
@@ -123,7 +134,7 @@ namespace DbCore.IMBUtils.Licencimi
                     }
                     catch (Exception ex)
                     {
-                        // Firebase nuk arrihet: vazhdohet me listen e fundit brenda kufirit 7-ditor
+                        // Firebase nuk arrihet: vazhdohet me listen e fundit brenda kufirit 2-ditor
                         deshtuarMe = tani;
                         log.Error(ex, "Lista e licencave nuk u mor nga Firebase");
                     }

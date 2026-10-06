@@ -33,7 +33,7 @@ namespace PlatinumWeb
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             try
             {
-                combo.DataSource = LicencatAvec.Merr().Where(l => l.Aktive).OrderBy(l => l.Emri).ToList();
+                combo.DataSource = LicencatAvec.MerrPerHyrje().Where(l => l.Aktive).OrderBy(l => l.Emri).ToList();
                 combo.DataBind();
                 return null;
             }
@@ -54,6 +54,7 @@ namespace PlatinumWeb
                 return new clsMesazh(false, "Zgjidhni kompanine.");
             try
             {
+                LicencatAvec.MerrPerHyrje();   // licenca lexohet nga Firebase ne hyrje (pergjigja e fundit vetem pa internet)
                 return vendosLidhjen(session, LicencatAvec.Gjej(idKompanie));
             }
             catch (LicencaAvecException ex)
@@ -69,6 +70,7 @@ namespace PlatinumWeb
         {
             try
             {
+                LicencatAvec.MerrPerHyrje();
                 return vendosLidhjen(session, LicencatAvec.GjejSipasIdOseEmrit(orgName));
             }
             catch (LicencaAvecException ex)

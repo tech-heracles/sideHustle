@@ -366,7 +366,7 @@ namespace DbCore.DbAdmin
 
         /// <summary>
         /// Licenca AVEC (Firebase) e kompanise se zgjedhur ne kete sesion: jashte datave, e caktivizuar ose e pa
-        /// verifikuar per me shume se 7 dite = pa hyrje. Zevendeson kontrollin e vjeter te afatit ne serverin e prodhuesit.
+        /// verifikuar per me shume se 2 dite = pa hyrje. Zevendeson kontrollin e vjeter te afatit ne serverin e prodhuesit.
         /// </summary>
         public static clsMesazh KontrolloSkadiminLicences(int idPerdoruesi, ResourceManager rm, CultureInfo ci)
         {
