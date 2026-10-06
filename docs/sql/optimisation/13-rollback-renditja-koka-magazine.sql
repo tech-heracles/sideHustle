@@ -1,0 +1,4 @@
+-- Rikthen indeksin para 13-renditja-koka-magazine.sql.
+CREATE NONCLUSTERED INDEX IX_T_KOKAMAGAZINA_DTDOK ON dbo.T_KOKAMAGAZINA (DTDOK)
+    WITH (DROP_EXISTING = ON);
+GO
