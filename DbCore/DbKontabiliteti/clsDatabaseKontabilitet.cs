@@ -6018,7 +6018,8 @@ namespace DbCore.DbKontabiliteti
      
         internal DataRow merrKodifikimKFSipasKodLloj(string kodgrupi, int idndermarje, int llojkodifikimi, int llojkf)
         {
-
+            return ImportCache.Merr<DataRow>(ImportCache.GrupKF, "kod|" + kodgrupi + "|" + idndermarje + "|" + llojkodifikimi + "|" + llojkf, () =>
+            {
             dbManager.Open();
             dbManager.CreateParameters(4);
             dbManager.AddParameters(0, "@KODGRUPI", kodgrupi, ParameterDirection.Input);
@@ -6032,8 +6033,7 @@ namespace DbCore.DbKontabiliteti
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                 return null;
             return ds.Tables[0].Rows[0];
-
-
+            }, r => r != null);
         }
         /// <summary>
         /// ekzekuton prc_T_GRUPEKF_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -6201,28 +6201,29 @@ namespace DbCore.DbKontabiliteti
         
         public bool eshtePrindKF(int idgrupi, int idNdermarje)
         {
-
-            int nrbijsh = 0;
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDGRUPI", idgrupi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
-            nrbijsh = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_GRUPEKF_eshtePrind"));
-            return Convert.ToBoolean(nrbijsh);
+            // grupet nuk ndryshojne gjate importit te klienteve (importi i grupeve e perjashton GrupKF nga cache)
+            return ImportCache.Merr<bool>(ImportCache.GrupKF, "prind|" + idgrupi + "|" + idNdermarje, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@IDGRUPI", idgrupi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarje, ParameterDirection.Input);
+                return Convert.ToBoolean(Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_GRUPEKF_eshtePrind")));
+            }, _ => true);
         }
 
         public bool ekzistonGrupKFSipasKodLloje(String kod, int idndermarje, int llojkodifikimi, int llojkf)
         {//kontrollon nqs ekziston nje kodifikim artikulli me kete kod
-
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@KODGRUPI", kod, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@LLOJKODIFIKIMI", llojkodifikimi, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@LLOJKF", llojkf, ParameterDirection.Input);
-            int pergjigje = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_GRUPEKF_ekzistonGrupKFSipasKodLloji"));
-            return Convert.ToBoolean(pergjigje);
+            return ImportCache.Merr<bool>(ImportCache.GrupKF, "ekziston|" + kod + "|" + idndermarje + "|" + llojkodifikimi + "|" + llojkf, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(4);
+                dbManager.AddParameters(0, "@KODGRUPI", kod, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@LLOJKODIFIKIMI", llojkodifikimi, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@LLOJKF", llojkf, ParameterDirection.Input);
+                return Convert.ToBoolean(Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_GRUPEKF_ekzistonGrupKFSipasKodLloji")));
+            }, ekziston => ekziston);
         }
 
         public bool ekzistonGrupKFSipasKodGrupi( String kodGrupi, int idNdermarje, int llojKodifikimi)

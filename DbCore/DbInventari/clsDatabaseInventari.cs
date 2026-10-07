@@ -3571,7 +3571,8 @@ namespace DbCore.DbInventari
         /// <returns> kthen datarow qe permban nivelin e cmimit me kete id</returns>
         internal DataRow ktheNivelCmimi(int idNivelCmimi)
         {
-
+            return ImportCache.Merr<DataRow>(ImportCache.NivelCmimi, "id|" + idNivelCmimi, () =>
+            {
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDNIVELCMIMI", idNivelCmimi, ParameterDirection.Input);
@@ -3582,7 +3583,7 @@ namespace DbCore.DbInventari
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                 return null;
             return ds.Tables[0].Rows[0];
-
+            }, r => r != null);
         }
 
         /// <summary>

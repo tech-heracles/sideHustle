@@ -46,7 +46,7 @@ namespace DbCore.DbImporte
         public clsMesazh KontrolloImporto(bool mbishkruajVleratEMeparshme, out bool kaVleraTeImportuara, DataTable teDhenaImporti, ref DataTable rreshtaJoOk, bool importo)
         {
             // te dhenat reference kerkohen nje here per gjithe importin, jo per cdo rresht
-            using (ImportCache.Fillo(LlojetQeShkruanImporti(IdKategoria, importo)))
+            using (ImportCache.Fillo(!importo, LlojetQeShkruanImporti(IdKategoria, importo)))
                 return KontrolloImportoPaCache(mbishkruajVleratEMeparshme, out kaVleraTeImportuara, teDhenaImporti, ref rreshtaJoOk, importo);
         }
 
@@ -72,6 +72,7 @@ namespace DbCore.DbImporte
                 case 23: llojet.Add(ImportCache.NjesiAdministrative); break;                // magazina
                 case 32: llojet.Add(ImportCache.DegeAdministrative); break;                 // dege administrative
                 case 157: llojet.Add(ImportCache.Qyteti); break;                            // qytete
+                case 163: llojet.Add(ImportCache.GrupKF); break;                            // grupet e klient/furnitoreve
             }
             return llojet.ToArray();
         }

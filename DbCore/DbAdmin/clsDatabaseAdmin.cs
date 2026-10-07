@@ -6229,8 +6229,8 @@ namespace DbCore.DbAdmin
 
         internal DataRow ktheAgjentShitjeSipasKodit(string kodi, int idnderm)
         {
-
-
+            return ImportCache.Merr<DataRow>(ImportCache.AgjentShitje, "kod|" + kodi + "|" + idnderm, () =>
+            {
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODI", kodi, ParameterDirection.Input);
@@ -6241,7 +6241,7 @@ namespace DbCore.DbAdmin
             if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                 return null;
             return ds.Tables[0].Rows[0];
-
+            }, r => r != null);
         }
 
         internal DataTable ktheGjitheAgjentetShitjesNdermarrjeAutorizimDT(int idndermarje, int idperdorues)
@@ -6313,18 +6313,15 @@ namespace DbCore.DbAdmin
         }
         internal bool ekzistonAgjentShitjeMeKeteKod(string kodi, int idnderm)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODIAGJENTSHITJE", kodi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AGJENTSHITJE_EkzistonAgjentShitjeMeKeteKod");
-            if (ds.Tables[0].Rows.Count == 1)
-                return true;
-            else if (ds.Tables[0].Rows.Count == 0)
-                return false;
-            else return true;
-
+            return ImportCache.Merr<bool>(ImportCache.AgjentShitje, "ekziston|" + kodi + "|" + idnderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODIAGJENTSHITJE", kodi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AGJENTSHITJE_EkzistonAgjentShitjeMeKeteKod");
+                return ds.Tables[0].Rows.Count != 0;
+            }, ekziston => ekziston);
         }
 
         /// <summary>
