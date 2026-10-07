@@ -29,6 +29,8 @@ namespace DbCore.IMBUtils.Licencimi
         [JsonProperty("connectionString")] public string ConnectionString { get; set; }
         /// <summary>Si vjen nga serveri i licencave: i enkriptuar me celesin e ketij instalimi.</summary>
         [JsonProperty("connectionStringEnc")] public string ConnectionStringEnc { get; set; }
+        /// <summary>Kodi i ndermarrjes (NDERMARJEKODI) per te dhenat baze, nga Manager; null = ajo ku hyjne perdoruesit.</summary>
+        [JsonProperty("companyCode")] public string KodiNdermarrjes { get; set; }
 
         /// <summary>Emri me te cilin lidhja regjistrohet ne ConnectionStringsManager.</summary>
         [JsonIgnore] public string EmriLidhjes => PrefiksiLidhjes + Id;

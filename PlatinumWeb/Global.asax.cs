@@ -102,6 +102,8 @@ namespace PlatinumWeb
 				{
 					ImbLogger.Error(ex, "Licencat nuk u lexuan ne nisje te aplikacionit");
 				}
+				// te dhenat baze te kompanive (artikuj, kliente, magazina) drejt Firebase, cdo 5 minuta
+				MasterDataAvec.Fillo();
 				InitializeObjects();
 				RouteTable.Routes.MapOwinPath("/External", app => new Startup().Configuration(app));
 
@@ -338,6 +340,7 @@ namespace PlatinumWeb
 
 		protected void Application_End(object sender, EventArgs e)
 		{
+			MasterDataAvec.Ndalo();
 			ShkruajArsyenEMbylljes();
 		}
 
