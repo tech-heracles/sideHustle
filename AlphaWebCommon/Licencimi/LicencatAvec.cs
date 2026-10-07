@@ -25,7 +25,10 @@ namespace DbCore.IMBUtils.Licencimi
         /// <summary>onPremise ose cloud</summary>
         [JsonProperty("clientType")] public string Lloji { get; set; }
         [JsonProperty("active")] public bool Aktive { get; set; } = true;
+        /// <summary>I dekriptuar nga <see cref="ConnectionStringEnc"/>; ruhet vetem ne kopjen lokale (DPAPI).</summary>
         [JsonProperty("connectionString")] public string ConnectionString { get; set; }
+        /// <summary>Si vjen nga serveri i licencave: i enkriptuar me celesin e ketij instalimi.</summary>
+        [JsonProperty("connectionStringEnc")] public string ConnectionStringEnc { get; set; }
 
         /// <summary>Emri me te cilin lidhja regjistrohet ne ConnectionStringsManager.</summary>
         [JsonIgnore] public string EmriLidhjes => PrefiksiLidhjes + Id;
@@ -183,9 +186,76 @@ namespace DbCore.IMBUtils.Licencimi
                         throw new LicencaAvecException("Ky server nuk njihet nga serveri i licencave (celes ose instalim i gabuar).");
                     if (!pergjigja.IsSuccessStatusCode)
                         throw new InvalidOperationException($"avecLicenses ktheu {(int)pergjigja.StatusCode}");
-                    return JsonConvert.DeserializeObject<Pergjigja>(trupi)?.Kompanite ?? new List<LicencaAvec>();
+                    List<LicencaAvec> kompanite = JsonConvert.DeserializeObject<Pergjigja>(trupi)?.Kompanite ?? new List<LicencaAvec>();
+                    foreach (LicencaAvec l in kompanite)
+                    {
+                        // vetem lidhja e enkriptuar pranohet nga rrjeti; nje e pa enkriptuar injorohet
+                        l.ConnectionString = Dekripto(l.ConnectionStringEnc, celesi);
+                        l.ConnectionStringEnc = null;
+                    }
+                    return kompanite;
                 }
             }
+        }
+
+        /// <summary>
+        /// Pale e encrypt() te avecLicenses: "v1:" + base64(iv[16] | AES-256-CBC | HMAC-SHA256(iv | shifra)).
+        /// Celesat nxirren nga SHA256 i celesit te instalimit (keyHash qe serveri i licencave ruan).
+        /// Kthen null kur mungon ose kur nuk verifikohet (kompania del pa databaze, si para konfigurimit).
+        /// </summary>
+        internal static string Dekripto(string teDhenat, string celesiInstalimit)
+        {
+            if (string.IsNullOrEmpty(teDhenat) || !teDhenat.StartsWith("v1:", StringComparison.Ordinal))
+                return null;
+            try
+            {
+                byte[] paketa = Convert.FromBase64String(teDhenat.Substring(3));
+                if (paketa.Length < 16 + 16 + 32)
+                    return null;
+                string keyHash;
+                using (var sha = SHA256.Create())
+                    keyHash = Hex(sha.ComputeHash(Encoding.UTF8.GetBytes(celesiInstalimit)));
+                byte[] encKey, macKey;
+                using (var sha = SHA256.Create())
+                {
+                    encKey = sha.ComputeHash(Encoding.UTF8.GetBytes("AVEC.conn.enc|" + keyHash));
+                    macKey = sha.ComputeHash(Encoding.UTF8.GetBytes("AVEC.conn.mac|" + keyHash));
+                }
+                int gjatesia = paketa.Length - 32;
+                byte[] mac;
+                using (var hmac = new HMACSHA256(macKey))
+                    mac = hmac.ComputeHash(paketa, 0, gjatesia);
+                int ndryshim = 0;   // krahasim ne kohe konstante
+                for (int i = 0; i < 32; i++)
+                    ndryshim |= mac[i] ^ paketa[gjatesia + i];
+                if (ndryshim != 0)
+                {
+                    log.Error("Lidhja e enkriptuar e nje kompanie nuk u verifikua (celes instalimi i ndryshem?)");
+                    return null;
+                }
+                using (var aes = Aes.Create())
+                {
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+                    aes.Key = encKey;
+                    aes.IV = paketa.Take(16).ToArray();
+                    using (ICryptoTransform dekriptuesi = aes.CreateDecryptor())
+                        return Encoding.UTF8.GetString(dekriptuesi.TransformFinalBlock(paketa, 16, gjatesia - 16));
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Lidhja e enkriptuar e nje kompanie nuk u lexua");
+                return null;
+            }
+        }
+
+        private static string Hex(byte[] b)
+        {
+            var sb = new StringBuilder(b.Length * 2);
+            foreach (byte x in b)
+                sb.Append(x.ToString("x2"));
+            return sb.ToString();
         }
 
         private static void Vendos(List<LicencaAvec> reja, DateTime koha)
