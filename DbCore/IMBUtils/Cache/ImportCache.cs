@@ -30,6 +30,11 @@ namespace DbCore.IMBUtils.Cache
         /// <see cref="Artikull"/> ruhen edhe gjate importit te dokumenteve; i perjashtojne vetem importet e artikujve.
         /// </summary>
         public const string ArtikullKod = "ArtikullKod";
+        /// <summary>
+        /// Levizjet e artikullit ne magazine per kontrollin e gjendjes (KontrollGjendjeMesatare). Vetem ne kontroll:
+        /// ruajtja i shton levizje, prandaj ne import perjashtohet gjithmone.
+        /// </summary>
+        public const string Gjendje = "Gjendje";
         public const string NivelZbritje = "NivelZbritje";
         public const string VlereDefault = "VlereDefault";
         public const string Ndermarrje = "Ndermarrje";
@@ -70,6 +75,9 @@ namespace DbCore.IMBUtils.Cache
             if (aktiv == this)
                 aktiv = paraardhesi;
         }
+
+        /// <summary>True kur ka nje import/kontroll aktiv ne kete thread dhe ky lloj ruhet ne cache.</summary>
+        public static bool Perdoret(string lloji) => aktiv != null && !aktiv.tePerjashtuara.Contains(lloji);
 
         /// <summary>
         /// Kthen vleren nga cache ose e llogarit; e ruan vetem kur <paramref name="ruaj"/> e pranon rezultatin.

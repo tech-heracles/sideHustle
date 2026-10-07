@@ -5528,6 +5528,18 @@ namespace DbCore.DbRegjistrim
 
         internal clsMesazh kontrolloTeTeraModifikim(int idArt, string artKod, int metodeKosto, int idNderm, int idmag, bool meDyData, DateTime data1, DateTime data2, bool kapDokMesDatave, int idKokaDokument, bool eshteDalje, double sasiArtikulli, int meDetajim, int idDet, string kodDet, int llojVeprimi, double sasiArtikulliOld)
         {
+            // kontrolli i importit (pa shkrime): levizjet e artikullit lexohen nje here per artikull/magazine dhe
+            // llogaritet si dega mesatare e procedures; dokumente ekzistuese (modifikim) dhe FIFO shkojne ne SQL
+            if (idKokaDokument == 0 && (metodeKosto == 1 || metodeKosto == 2 || metodeKosto == 5 || metodeKosto == 6)
+                && ImportCache.Perdoret(ImportCache.Gjendje))
+            {
+                var levizjet = ImportCache.Merr(ImportCache.Gjendje, idNderm + "|" + idmag + "|" + idArt + "|" + meDetajim + "|" + idDet,
+                    () => levizjetPerKontrollGjendje(idNderm, idmag, idArt, meDetajim, idDet), _ => true);
+                var rez = KontrollGjendjeMesatare.Llogarit(levizjet, meDyData, data1, data2, kapDokMesDatave, eshteDalje, sasiArtikulli, llojVeprimi);
+                return rez == null
+                    ? new clsMesazh(true, "Artikulli kaloi me sukses kontrollin e gjendjeve")
+                    : mesazhGjendjeNegative(rez.Value.Gjendje.ToString(), rez.Value.DataDok, data1, eshteDalje, artKod, meDetajim, kodDet);
+            }
 
             dbManager.Open();
             dbManager.CreateParameters(15);
@@ -5553,21 +5565,65 @@ namespace DbCore.DbRegjistrim
                 string gjendje = ds.Tables[0].Rows[0]["GJENDJE"].ToString();
                 DateTime dtVep;
                 DateTime.TryParse(ds.Tables[0].Rows[0]["DATADOK"].ToString(), out dtVep);
-                int result = DateTime.Compare(data1, dtVep);
-
-                if (result == 0)
-                {
-                    string veprimi = eshteDalje ? "daljes" : "hyrjes";
-                    string mesazhi = (meDetajim == 0) ? String.Format("Sasia e {0} është më e madhe se gjendja e artikullit: {1} ne daten {2}. Artikulli shkon ne gjendje negative :{3}!", veprimi, artKod, dtVep.ToShortDateString(), gjendje) : String.Format("Sasia e {0} është më e madhe se gjendja e artikullit: {1} me detajim {2} ne daten {3}. Artikulli shkon ne gjendje negative :{4}!", veprimi, artKod, kodDet, dtVep.ToShortDateString(), gjendje);
-                    return new clsMesazh(false, mesazhi);
-                }
-                else
-                {
-                    string mesazhi = (meDetajim == 0) ? String.Format("Per artikullin: {0} gjenerohet gjendje negative ne daten{1}. Gjendja ne kete date shkon {2}!", artKod, dtVep.ToShortDateString(), gjendje) : String.Format("Per artikullin: {0} me detajim: {1} gjenerohet gjendje negative ne daten {2}. Gjendja ne kete date shkon {3}!", artKod, kodDet, dtVep.ToShortDateString(), gjendje);
-                    return new clsMesazh(false, mesazhi);
-                }
+                return mesazhGjendjeNegative(gjendje, dtVep, data1, eshteDalje, artKod, meDetajim, kodDet);
             }
             return new clsMesazh(true, "Artikulli kaloi me sukses kontrollin e gjendjeve");
+        }
+
+        private static clsMesazh mesazhGjendjeNegative(string gjendje, DateTime dtVep, DateTime data1, bool eshteDalje, string artKod, int meDetajim, string kodDet)
+        {
+            if (DateTime.Compare(data1, dtVep) == 0)
+            {
+                string veprimi = eshteDalje ? "daljes" : "hyrjes";
+                string mesazhi = (meDetajim == 0) ? String.Format("Sasia e {0} është më e madhe se gjendja e artikullit: {1} ne daten {2}. Artikulli shkon ne gjendje negative :{3}!", veprimi, artKod, dtVep.ToShortDateString(), gjendje) : String.Format("Sasia e {0} është më e madhe se gjendja e artikullit: {1} me detajim {2} ne daten {3}. Artikulli shkon ne gjendje negative :{4}!", veprimi, artKod, kodDet, dtVep.ToShortDateString(), gjendje);
+                return new clsMesazh(false, mesazhi);
+            }
+            else
+            {
+                string mesazhi = (meDetajim == 0) ? String.Format("Per artikullin: {0} gjenerohet gjendje negative ne daten{1}. Gjendja ne kete date shkon {2}!", artKod, dtVep.ToShortDateString(), gjendje) : String.Format("Per artikullin: {0} me detajim: {1} gjenerohet gjendje negative ne daten {2}. Gjendja ne kete date shkon {3}!", artKod, kodDet, dtVep.ToShortDateString(), gjendje);
+                return new clsMesazh(false, mesazhi);
+            }
+        }
+
+        /// <summary>
+        /// Levizjet e artikullit ne magazine qe numerohen ne gjendje (si #lv i degese mesatare te
+        /// prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullit_Modifikim, per nje dokument te ri: @pKoka = 0).
+        /// </summary>
+        private List<KontrollGjendjeMesatare.Levizje> levizjetPerKontrollGjendje(int idNderm, int idmag, int idArt, int meDetajim, int idDet)
+        {
+            string detajimi = meDetajim == 1 ? " AND tm.IDDETAJIMI = @pDet" : meDetajim == 2 ? " AND tm.IDDETAJIMI2 = @pDet" : "";
+            dbManager.Open();
+            dbManager.CreateParameters(4);
+            dbManager.AddParameters(0, "@pNderm", idNderm, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@pMag", idmag, ParameterDirection.Input);
+            dbManager.AddParameters(2, "@pArt", idArt, ParameterDirection.Input);
+            dbManager.AddParameters(3, "@pDet", idDet, ParameterDirection.Input);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SET NOCOUNT ON;
+CREATE TABLE #KONFIGAMB (IDKONFIGAMBJENTE NUMERIC(18, 0) PRIMARY KEY);
+INSERT INTO #KONFIGAMB
+SELECT DISTINCT T_KONFIGAMBJENTE.IDKONFIGAMBJENTE FROM T_KONFIGAMBJENTE
+JOIN T_KUSHTEMPLATE on T_KONFIGAMBJENTE.IDKONFIGAMBJENTE = T_KUSHTEMPLATE.IDKONFIGAMBJENTE
+JOIN T_KUSHTE on T_KUSHTE.IDKUSHT = T_KUSHTEMPLATE.IDKUSHT and T_KUSHTE.KODI = 'PM'
+WHERE T_KONFIGAMBJENTE.IDNDERMARJE = @pNderm AND T_KONFIGAMBJENTE.IDSTATUSDOK = 1
+  AND T_KUSHTEMPLATE.vlera IN (SELECT IDALTERNATIVEKUSHTI FROM T_ALTERNATIVAKUSHTI WHERE ALTERNATIVA = 'Po');
+SELECT tm.DATA, tk.DTDOK, SASIA*KOEFICENTI*SHENJA AS q
+FROM T_TRUPIMAGAZINA tm
+INNER JOIN T_KOKAMAGAZINA tk ON tm.IDKOKAMAGAZINA = tk.IDKOKAMAGAZINA
+INNER JOIN #KONFIGAMB KONFIGAMB ON KONFIGAMB.IDKONFIGAMBJENTE = tk.IDKONFIGAMBJENTE
+LEFT OUTER JOIN t_kokamagazina mg2 ON mg2.idkokamagazina = tk.IDGJENERUES AND mg2.IDKONFIGAMBJENTE = tk.IDKONFIGGJENERUES
+LEFT OUTER JOIN t_konfigambjente tk2 ON tk.IDKONFIGGJENERUES = tk2.IDKONFIGAMBJENTE AND tk2.IDKATDOK = 6
+WHERE tk.IDNDERM = @pNderm AND tk.IDSTATUSDOK = 1 AND tm.IDMAG = @pMag AND tm.IDARTIKULL = @pArt" + detajimi + @"
+  AND tk.IDKOKAMAGAZINA <> 0 AND (mg2.IDKOKAMAGAZINA <> 0 OR tk2.IDKONFIGAMBJENTE IS NULL)
+OPTION (LOOP JOIN);");
+            var levizjet = new List<KontrollGjendjeMesatare.Levizje>(ds.Tables[0].Rows.Count);
+            foreach (DataRow r in ds.Tables[0].Rows)
+                levizjet.Add(new KontrollGjendjeMesatare.Levizje
+                {
+                    Data = Convert.ToDateTime(r[0]),
+                    DtDok = Convert.ToDateTime(r[1]),
+                    Q = r[2] == DBNull.Value ? 0 : Convert.ToDouble(r[2]),
+                });
+            return levizjet;
         }
 
         /// <summary>

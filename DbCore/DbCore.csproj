@@ -552,6 +552,7 @@
     <Compile Include="DbRegjistrim\clsAzhornimKFKoka.cs" />
     <Compile Include="DbRegjistrim\clsAzhornimKFTrupi.cs" />
     <Compile Include="DbRegjistrim\clsDatabaseRegjistrim.cs" />
+    <Compile Include="DbRegjistrim\KontrollGjendjeMesatare.cs" />
     <Compile Include="DbRegjistrim\clsDegeAdministrative.cs" />
     <Compile Include="DbRegjistrim\clsDetajimArtikulliRegjistrim.cs" />
     <Compile Include="DbRegjistrim\Dhurata.cs" />
