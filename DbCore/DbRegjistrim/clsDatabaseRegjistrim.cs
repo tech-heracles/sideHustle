@@ -5589,9 +5589,36 @@ namespace DbCore.DbRegjistrim
         /// Levizjet e artikullit ne magazine qe numerohen ne gjendje (si #lv i degese mesatare te
         /// prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullit_Modifikim, per nje dokument te ri: @pKoka = 0).
         /// </summary>
+        /// <summary>
+        /// Id-te e konfigurimeve me kushtin PM = Po (si #KONFIGAMB ne prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullit_Modifikim),
+        /// te ndara me presje; "NULL" kur nuk ka asnje (IN (NULL) nuk kthen rreshta, si join-i me tabele bosh).
+        /// </summary>
+        private string konfigurimetPMPerKontrollGjendje(int idNderm)
+        {
+            return ImportCache.Merr<string>(ImportCache.Konfigurim, "pm|" + idNderm, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@pNderm", idNderm, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SET NOCOUNT ON;
+SELECT DISTINCT T_KONFIGAMBJENTE.IDKONFIGAMBJENTE FROM T_KONFIGAMBJENTE
+JOIN T_KUSHTEMPLATE on T_KONFIGAMBJENTE.IDKONFIGAMBJENTE = T_KUSHTEMPLATE.IDKONFIGAMBJENTE
+JOIN T_KUSHTE on T_KUSHTE.IDKUSHT = T_KUSHTEMPLATE.IDKUSHT and T_KUSHTE.KODI = 'PM'
+WHERE T_KONFIGAMBJENTE.IDNDERMARJE = @pNderm AND T_KONFIGAMBJENTE.IDSTATUSDOK = 1
+  AND T_KUSHTEMPLATE.vlera IN (SELECT IDALTERNATIVEKUSHTI FROM T_ALTERNATIVAKUSHTI WHERE ALTERNATIVA = 'Po');");
+                var idet = new List<string>(ds.Tables[0].Rows.Count);
+                foreach (DataRow r in ds.Tables[0].Rows)
+                    idet.Add(Convert.ToDecimal(r[0]).ToString("0", CultureInfo.InvariantCulture));
+                return idet.Count == 0 ? "NULL" : string.Join(",", idet);
+            }, _ => true);
+        }
+
         private List<KontrollGjendjeMesatare.Levizje> levizjetPerKontrollGjendje(int idNderm, int idmag, int idArt, int meDetajim, int idDet)
         {
             string detajimi = meDetajim == 1 ? " AND tm.IDDETAJIMI = @pDet" : meDetajim == 2 ? " AND tm.IDDETAJIMI2 = @pDet" : "";
+            // konfigurimet qe prekin magazinen (#KONFIGAMB e procedures) jane te njejta per gjithe importin: lexohen nje here
+            // dhe jepen si liste id-sh (numra nga databaza), ne vend qe tabela e perkohshme te krijohej per cdo artikull (~3 ms)
+            string konfigPM = konfigurimetPMPerKontrollGjendje(idNderm);
             dbManager.Open();
             dbManager.CreateParameters(4);
             dbManager.AddParameters(0, "@pNderm", idNderm, ParameterDirection.Input);
@@ -5599,17 +5626,9 @@ namespace DbCore.DbRegjistrim
             dbManager.AddParameters(2, "@pArt", idArt, ParameterDirection.Input);
             dbManager.AddParameters(3, "@pDet", idDet, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SET NOCOUNT ON;
-CREATE TABLE #KONFIGAMB (IDKONFIGAMBJENTE NUMERIC(18, 0) PRIMARY KEY);
-INSERT INTO #KONFIGAMB
-SELECT DISTINCT T_KONFIGAMBJENTE.IDKONFIGAMBJENTE FROM T_KONFIGAMBJENTE
-JOIN T_KUSHTEMPLATE on T_KONFIGAMBJENTE.IDKONFIGAMBJENTE = T_KUSHTEMPLATE.IDKONFIGAMBJENTE
-JOIN T_KUSHTE on T_KUSHTE.IDKUSHT = T_KUSHTEMPLATE.IDKUSHT and T_KUSHTE.KODI = 'PM'
-WHERE T_KONFIGAMBJENTE.IDNDERMARJE = @pNderm AND T_KONFIGAMBJENTE.IDSTATUSDOK = 1
-  AND T_KUSHTEMPLATE.vlera IN (SELECT IDALTERNATIVEKUSHTI FROM T_ALTERNATIVAKUSHTI WHERE ALTERNATIVA = 'Po');
 SELECT tm.DATA, tk.DTDOK, SASIA*KOEFICENTI*SHENJA AS q
 FROM T_TRUPIMAGAZINA tm
-INNER JOIN T_KOKAMAGAZINA tk ON tm.IDKOKAMAGAZINA = tk.IDKOKAMAGAZINA
-INNER JOIN #KONFIGAMB KONFIGAMB ON KONFIGAMB.IDKONFIGAMBJENTE = tk.IDKONFIGAMBJENTE
+INNER JOIN T_KOKAMAGAZINA tk ON tm.IDKOKAMAGAZINA = tk.IDKOKAMAGAZINA AND tk.IDKONFIGAMBJENTE IN (" + konfigPM + @")
 LEFT OUTER JOIN t_kokamagazina mg2 ON mg2.idkokamagazina = tk.IDGJENERUES AND mg2.IDKONFIGAMBJENTE = tk.IDKONFIGGJENERUES
 LEFT OUTER JOIN t_konfigambjente tk2 ON tk.IDKONFIGGJENERUES = tk2.IDKONFIGAMBJENTE AND tk2.IDKATDOK = 6
 WHERE tk.IDNDERM = @pNderm AND tk.IDSTATUSDOK = 1 AND tm.IDMAG = @pMag AND tm.IDARTIKULL = @pArt" + detajimi + @"
@@ -10806,15 +10825,15 @@ OPTION (LOOP JOIN);");
         }
         internal DataTable ktheGjitheTaksaSipasNdermarjesAndLlojitDT(int idNderm, LlojTakse idllojtakse, int idperdorues, IDataBaseReader objekti)
         {
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDNDERM", idNderm, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDLLOJTAKSE", idllojtakse, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-
-            return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TAKSAT_merrSipasNdermAndLlojit").Tables[0];
-
+            return ImportCache.Merr<DataTable>(ImportCache.Taksa, "lloji|" + idNderm + "|" + (int)idllojtakse + "|" + idperdorues, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(3);
+                dbManager.AddParameters(0, "@IDNDERM", idNderm, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDLLOJTAKSE", idllojtakse, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
+                return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TAKSAT_merrSipasNdermAndLlojit").Tables[0];
+            }, _ => true).Copy();
         }
         /// <summary>
         /// kthen objektin datarow sipas id

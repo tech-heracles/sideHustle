@@ -50,6 +50,7 @@ namespace DbCore.IMBUtils.Cache
         public const string KlasaArtikulli = "KlasaArtikulli";
         public const string Kodbar = "Kodbar";
         public const string Taksa = "Taksa";
+        public const string Kurset = "Kurset";
         public const string Periudha = "Periudha";
         public const string KonfigServeri = "KonfigServeri";
         public const string Operatori = "Operatori";

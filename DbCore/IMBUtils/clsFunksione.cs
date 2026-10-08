@@ -6466,11 +6466,15 @@ namespace DbCore
 			else id = "Id";
 
 			if (importo || drRreshti == null)
+			{
+				// me pare: tePaImportuara.Select("id = 'x'") per cdo rresht, qe ndertonte nje indeks te ri mbi tabelen ne rritje
+				IdetETabeles idet = IdetETabeles.Merr(tePaImportuara, id);
 				foreach (DataRow dr in dokKoka.Rows)
 				{
-					if (tePaImportuara.Select(String.Format("{0} = '{1}'", id, dr[id])).Count() == 0)
+					if (idet.Shto(dr[id]))
 						tePaImportuara.ImportRow(dr);
 				}
+			}
 			else
 				tePaImportuara.ImportRow(drRreshti);
 

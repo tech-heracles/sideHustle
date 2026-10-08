@@ -2246,15 +2246,19 @@ namespace DbCore.DbShare
 
         internal DataRow ktheFormatNrKonfigSipasIdKonfigAmbjente(int idKonfigAmbjente)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDKONFIGURIMI", idKonfigAmbjente, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FORMATNRKONFIG_selFormatPerKonfigurimin");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0)
-                return null;
-            return ds.Tables[0].Rows[0];
+            // vetem pershkrimi i formatit te numrit (pa numeruesin), qe nuk ndryshon gjate importit
+            return ImportCache.Merr<DataRow>(ImportCache.Konfigurim, "formatNr|" + idKonfigAmbjente, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(1);
+                dbManager.AddParameters(0, "@IDKONFIGURIMI", idKonfigAmbjente, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FORMATNRKONFIG_selFormatPerKonfigurimin");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal DataRow ktheFormatNrKonfigTrupSipasIdTrupi(int idTrupi)
@@ -2384,18 +2388,19 @@ namespace DbCore.DbShare
 
         internal DataRow ktheKushtTemplateSipasIDkonfigurimdheKodKushti(int idkonfigurim, string kodkusht)
         {
-            ImbLogger.LogTraceShitje($"Filloi metoda theKushtTemplateSipasIDkonfigurimdheKodKushti me idKonfigurimi:{idkonfigurim} dhe kodKusht:{kodkusht}");
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDKONFIGURIM", idkonfigurim, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@kodkusht", kodkusht, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEMPLATE_ktheKushtSipasIdKonfigurimDheKodKushti");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            ImbLogger.LogTraceShitje($"Mbaroi metoda theKushtTemplateSipasIDkonfigurimdheKodKushti me idKonfigurimi:{idkonfigurim} dhe kodKusht:{kodkusht}");
-            return ds.Tables[0].Rows[0];
+            return ImportCache.Merr<DataRow>(ImportCache.Konfigurim, "kusht|" + idkonfigurim + "|" + kodkusht, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@IDKONFIGURIM", idkonfigurim, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@kodkusht", kodkusht, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEMPLATE_ktheKushtSipasIdKonfigurimDheKodKushti");
+                if (ds == null)
+                    return null;
+                if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
+                    return null;
+                return ds.Tables[0].Rows[0];
+            }, r => r != null);
         }
 
         internal bool krijoKushtTemplate(int idkonfigurim, string kodkusht, int vlera)

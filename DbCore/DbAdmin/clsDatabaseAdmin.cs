@@ -4821,11 +4821,15 @@ namespace DbCore.DbAdmin
 
         internal DataTable ktheGjitheKurset(int idNdermarrje, DateTime data)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@idNdermarrje", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@data", data, ParameterDirection.Input);
-            return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KURSET_merrGjitheKursetShitjes").Tables[0];
+            // kurset shkruhen vetem nga monedhat/ndermarrja, jo nga dokumentet: gjate importit lexohen nje here per date
+            return ImportCache.Merr<DataTable>(ImportCache.Kurset, idNdermarrje + "|" + data.Ticks, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@idNdermarrje", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@data", data, ParameterDirection.Input);
+                return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KURSET_merrGjitheKursetShitjes").Tables[0];
+            }, _ => true).Copy();
         }
 
         public bool ekzistonMonedha(string kodi, int idNdermarrja)
