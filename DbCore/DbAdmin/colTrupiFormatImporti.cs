@@ -12,6 +12,19 @@ namespace DbCore.DbAdmin
         public new clsTrupiFormatImporti this[int index] => base[index];
 
         /// <summary>
+        /// Kopje e pavarur e formatit (importet e ndryshojne fushat e trupit per cdo rresht). E njejte me kopjen me
+        /// JSON qe perdorej me pare, por pa serializim: te gjitha fushat jane vlera ose stringje.
+        /// </summary>
+        public colTrupiFormatImporti Kopjo()
+        {
+            colTrupiFormatImporti kopja = new colTrupiFormatImporti();
+            kopja.Capacity = Count;
+            foreach (clsTrupiFormatImporti trupi in this)
+                kopja.Add(trupi?.Kopjo());
+            return kopja;
+        }
+
+        /// <summary>
         /// Kthen trupin e format importi sipas idkoka
         /// </summary>
         /// <param name="idKoka"></param>

@@ -13171,7 +13171,7 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         internal string merrAutorizimeArt(int idArtikulli) //TO CHECK SENADA - KJO NUK PUNON NUK I KTHEN NE RREGULL
         {
-            return ImportCache.Merr<string>(ImportCache.Artikull, "autorizime|" + idArtikulli, () =>
+            return ImportCache.Merr<string>(ImportCache.LlojiArtikullit(idArtikulli), "autorizime|" + idArtikulli, () =>
             {
                 dbManager.CreateParameters(1);
                 dbManager.AddParameters(0, "@idArtikulli", idArtikulli, ParameterDirection.Input);

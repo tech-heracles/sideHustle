@@ -29,7 +29,7 @@ namespace DbCore.DbImporte
 
             foreach (DataRow dr in dt.Rows)
             {
-                colTrupiFormatImporti colCopy = Newtonsoft.Json.JsonConvert.DeserializeObject<colTrupiFormatImporti>(Newtonsoft.Json.JsonConvert.SerializeObject(col));
+                colTrupiFormatImporti colCopy = col.Kopjo();
                 string llojVeprimi = llojVeprimiTrupFormati == null ? "Shtim" : clsFunksione.vendosVlere(llojVeprimiTrupFormati, dr, out error);
                 if (string.IsNullOrEmpty(llojVeprimi) || (llojVeprimi != EnumLlojVeprimiImporti.Modifikim.ToString() && llojVeprimi != EnumLlojVeprimiImporti.Shtim.ToString()))
                 {

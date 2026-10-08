@@ -901,7 +901,7 @@ namespace DbCore.DbInventari
                 if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                     return null;
                 return ds.Tables[0].Rows[0];
-            }, r => r != null);
+            }, _ => true); // asnje import nuk krijon skema, keshtu qe edhe "nuk u gjet" mbetet i vertete
         }
         /// <summary>
         /// kthen id e skema kontabiliteti artikulli sipas idse te ndermarjes me kete kod
@@ -927,7 +927,7 @@ namespace DbCore.DbInventari
                 int idSkema;
                 int.TryParse(ds.Tables[0].Rows[0]["IDSKEMAKONTABILITETIARTIKULLI"].ToString(), out idSkema);
                 return idSkema;
-            }, id => id > 0);
+            }, _ => true); // asnje import nuk krijon skema
         }
         //[Obsolete("Perdor: DataRow ktheSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm) ose int ktheIdSkemaKontabilitetiArtikulliSipasKodit(String kodi, int idnderm)", true)]
         //{//metoda per te marre te skemakontabilitetiartikulli sipas kodit
@@ -3705,11 +3705,14 @@ namespace DbCore.DbInventari
 
         internal int ktheIdNivelCmimiSipasPershkrimit(string pershkrimi, int idnder)
         {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@PERSHKRIMNIVELCMIMI", pershkrimi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idnder, ParameterDirection.Input);
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_merrIdNivelCmimiSipasPershkrimit"));
+            return ImportCache.Merr<int>(ImportCache.NivelCmimi, "pershkrim|" + pershkrimi + "|" + idnder, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@PERSHKRIMNIVELCMIMI", pershkrimi, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idnder, ParameterDirection.Input);
+                return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NIVELCMIMI_merrIdNivelCmimiSipasPershkrimit"));
+            }, _ => true); // asnje import nuk krijon nivele cmimi, keshtu qe edhe "nuk u gjet" mbetet i vertete
         }
 
         internal DataRow ktheNivelCmimiSipasKodit(string kodi, int idnder)
@@ -8818,7 +8821,7 @@ namespace DbCore.DbInventari
         /// <returns> nje datatable qe permban nje koleksion me te gjitha detajim artikulli te ketij artikulli SIPAS LLOJIT</returns>
         internal DataTable ktheDetajimArtSipasIdArtikulliDheLlojit(int idartikulli, int lloji)
         {
-            return ImportCache.Merr<DataTable>(ImportCache.Artikull, "detajim|" + idartikulli + "|" + lloji, () =>
+            return ImportCache.Merr<DataTable>(ImportCache.LlojiArtikullit(idartikulli), "detajim|" + idartikulli + "|" + lloji, () =>
             {
                 dbManager.CreateParameters(2);
                 dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);

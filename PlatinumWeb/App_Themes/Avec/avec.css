@@ -346,6 +346,27 @@ td.dxtlHeader_Material {
     border-color: var(--avec-border);
 }
 
+/* ---- DevExtreme grid rows coloured from JS (onRowPrepared: rowElement.css("background", ...)), e.g. the Import grid.
+        jQuery writes the colour inline as rgb()/rgba(), so it is matched on that form. ---- */
+.dx-datagrid .dx-row[style*="rgb(245, 245, 245)"],
+.dx-datagrid .dx-row[style*="rgb(255, 255, 255)"] {
+    background: var(--avec-surface) !important;
+    color: var(--avec-text);
+}
+
+/* rows with errors (#ffcccc / #ffe6e6) */
+.dx-datagrid .dx-row[style*="rgb(255, 204, 204)"],
+.dx-datagrid .dx-row[style*="rgb(255, 230, 230)"] {
+    background: rgba(229, 72, 77, 0.22) !important;
+    color: var(--avec-text);
+}
+
+/* modified rows (light yellow) */
+.dx-datagrid .dx-row[style*="rgba(255, 255, 125"] {
+    background: rgba(232, 190, 58, 0.18) !important;
+    color: var(--avec-text);
+}
+
 #toolbar {
     background-color: var(--avec-surface-high);
 }

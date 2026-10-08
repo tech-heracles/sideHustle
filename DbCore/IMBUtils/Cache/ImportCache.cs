@@ -25,6 +25,11 @@ namespace DbCore.IMBUtils.Cache
         public const string KlientFurnitor = "KlientFurnitor";
         public const string Artikull = "Artikull";
         /// <summary>
+        /// Te dhenat e lidhura me artikullin me id 0 (artikull i ri, ende pa id): asnje import nuk shkruan me id 0,
+        /// keshtu qe ndryshe nga <see cref="Artikull"/> ruhen gjithmone.
+        /// </summary>
+        public const string ArtikullIRi = "ArtikullIRi";
+        /// <summary>
         /// Te dhenat baze te artikullit sipas kodit (ekziston; rreshti me autorizime: njesite, klasa, aktiv, llogarite).
         /// Ruajtja e dokumenteve nuk i ndryshon (rivleresimi i kostos nuk shkruan ne T_ARTIKULLI), prandaj ndryshe nga
         /// <see cref="Artikull"/> ruhen edhe gjate importit te dokumenteve; i perjashtojne vetem importet e artikujve.
@@ -80,6 +85,9 @@ namespace DbCore.IMBUtils.Cache
             if (aktiv == this)
                 aktiv = paraardhesi;
         }
+
+        /// <summary>Lloji i cache-it per te dhena sipas id se artikullit: <see cref="ArtikullIRi"/> per id &lt;= 0, perndryshe <see cref="Artikull"/>.</summary>
+        public static string LlojiArtikullit(int idArtikulli) => idArtikulli <= 0 ? ArtikullIRi : Artikull;
 
         /// <summary>True kur ka nje import/kontroll aktiv ne kete thread dhe ky lloj ruhet ne cache.</summary>
         public static bool Perdoret(string lloji) => aktiv != null && !aktiv.tePerjashtuara.Contains(lloji);

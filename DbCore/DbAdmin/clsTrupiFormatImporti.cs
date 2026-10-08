@@ -274,6 +274,9 @@ namespace DbCore.DbAdmin
 
         #region Metodat publike
 
+        /// <summary>Kopje e ceket (te gjitha fushat jane vlera ose stringje).</summary>
+        public clsTrupiFormatImporti Kopjo() => (clsTrupiFormatImporti)MemberwiseClone();
+
         #endregion
 
         #region Metodat internal

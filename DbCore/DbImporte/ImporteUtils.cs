@@ -64,7 +64,7 @@ namespace DbCore.DbImporte
             switch (idKategoria)
             {
                 case 12: case 147: case 148: llojet.Add(ImportCache.KlientFurnitor); break; // klient/furnitore
-                case 13: llojet.AddRange(new[] { ImportCache.ArtikullKod, ImportCache.Kodbar, ImportCache.Njesi }); break; // artikuj
+                case 13: llojet.AddRange(new[] { ImportCache.ArtikullKod, ImportCache.Kodbar }); break;  // artikuj (njesite nuk i krijon)
                 case 71: llojet.Add(ImportCache.ArtikullKod); break;                         // detajime artikulli
                 case 164: llojet.Add(ImportCache.Kodbar); break;                            // kodbare
                 case 14: llojet.Add(ImportCache.Llogari); break;                            // llogari

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Data;
 using System.Data.SqlClient;
 using AlphaWeb.Core.Interfaces.Data;
@@ -58,192 +59,68 @@ namespace DbCore.IMBUtils.Fiskalizimi.Controls
             }
 
         }
+        // Kontrollet e meposhtme pyesin nese databaza e klientit ka nje kolone / procedure (versioni i skemes). Therriten
+        // per cdo rresht ne importe dhe dokumente (p.sh. 7 386 here ne importin e klienteve), secila me lidhje te re, por
+        // pergjigjja ndryshon vetem kur perditesohet databaza. Ruhen per cdo databaze per 10 minuta.
+        private static readonly ConcurrentDictionary<string, Tuple<bool, DateTime>> skemaDb = new ConcurrentDictionary<string, Tuple<bool, DateTime>>();
+        private static readonly TimeSpan JetegjatesiaSkemes = TimeSpan.FromMinutes(10);
+
+        /// <summary>
+        /// Connection string-u i databazes aktive. Brenda nje transaksioni merret nga lidhja e transaksionit (si me pare);
+        /// jashte tij vetem lexohet, pa hapur lidhje (me pare hapej nje lidhje qe nuk mbyllej).
+        /// </summary>
+        private static string ConnectionStringAktiv()
+        {
+            if (!string.IsNullOrEmpty(MyTransactionScope.TransactionKey))
+                return MyScopeDbManager.ConnectionString;
+            return NewDbManager(DataProviderType.SqlServer, MyConnectionsManager.GetSelectedConNameServer()).ConnectionString;
+        }
+
+        /// <summary>Ekzekuton <paramref name="pyetja"/> dhe kthen <paramref name="kontrollo"/> mbi rreshtin e pare (false pa rreshta); rezultati ruhet.</summary>
+        private static bool KontrolloSkemen(string connectionString, string pyetja, Func<SqlDataReader, bool> kontrollo)
+        {
+            string celesi = connectionString + "|" + pyetja;
+            if (skemaDb.TryGetValue(celesi, out var ruajtur) && DateTime.UtcNow - ruajtur.Item2 < JetegjatesiaSkemes)
+                return ruajtur.Item1;
+
+            bool rezultati;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(pyetja, connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                    rezultati = reader.Read() && kontrollo(reader);
+            }
+            skemaDb[celesi] = Tuple.Create(rezultati, DateTime.UtcNow);
+            return rezultati;
+        }
+
+        private static bool KaKolone(string tabela, string kolona)
+        {
+            return KontrolloSkemen(ConnectionStringAktiv(),
+                "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tabela + "' AND COLUMN_NAME = '" + kolona + "'",
+                r => r["TABLE_NAME"].ToString() == tabela && r["COLUMN_NAME"].ToString() == kolona);
+        }
+
+        private static bool KaProcedure(string emri)
+        {
+            return KontrolloSkemen(ConnectionStringAktiv(),
+                "SELECT * FROM sys.objects WHERE type = 'P' AND name = '" + emri + "'",
+                r => r["name"].ToString() == emri);
+        }
+
         public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizim()
         {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = \'T_KOKASHITJE\' AND COLUMN_NAME = \'eInvoice\'";
-            string connectionString = dbManager.ConnectionString;
-            if (connectionString.ToString().Contains("alpha-conn-strings") || connectionString.ToString().Contains("10.48.244.153"))
-            {
+            string connectionString = ConnectionStringAktiv();
+            if (connectionString.Contains("alpha-conn-strings") || connectionString.Contains("10.48.244.153"))
                 return true;
-            }
-            else
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand command = new SqlCommand(queryString, connection);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    try
-                    {
-                        while (reader.Read())
-                        {
-                            Console.WriteLine(String.Format("{0}, {1}",
-                            reader["TABLE_NAME"], reader["COLUMN_NAME"]));
-                            if (reader["TABLE_NAME"].ToString() == "T_KOKASHITJE" && reader["COLUMN_NAME"].ToString() == "eInvoice")
-                                return true;
-                            else
-                                return false;
-                        }
-                    }
-                    finally
-                    {
-                        // Always call Close when done reading.
-                        reader.Close();
-                        connection.Close();
-                    }
-                }
-            }
-            return false;
+            return KaKolone("T_KOKASHITJE", "eInvoice");
         }
-        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV3()
-        {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = \'T_KOKASHITJE\' AND COLUMN_NAME = \'TIPIIVETEFATURIMIT\'";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                        reader["TABLE_NAME"], reader["COLUMN_NAME"]));
-                        if (reader["TABLE_NAME"].ToString() == "T_KOKASHITJE" && reader["COLUMN_NAME"].ToString() == "TIPIIVETEFATURIMIT")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-                finally
-                {
-                    // Always call Close when done reading.
-                    reader.Close();
-                    connection.Close();
-
-                }
-            }
-            return false;
-        }
-        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV4()
-        {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = \'T_TAKSAT\' AND COLUMN_NAME = \'TIPIIPERJASHTIMIT\'";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                        reader["TABLE_NAME"], reader["COLUMN_NAME"]));
-                        if (reader["TABLE_NAME"].ToString() == "T_TAKSAT" && reader["COLUMN_NAME"].ToString() == "TIPIIPERJASHTIMIT")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-                finally
-                {
-                    reader.Close();
-                    connection.Close();
-                }
-            }
-            return false;
-        }
-        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV5()
-        {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = \'T_BANKA\' AND COLUMN_NAME = \'SHFAQNEEINVOICE\'";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                        reader["TABLE_NAME"], reader["COLUMN_NAME"]));
-                        if (reader["TABLE_NAME"].ToString() == "T_BANKA" && reader["COLUMN_NAME"].ToString() == "SHFAQNEEINVOICE")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-                finally
-                {
-                    reader.Close();
-                    connection.Close();
-                }
-            }
-            return false;
-        }
-        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV6()
-        {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM sys.objects WHERE type = \'P\' AND name = \'prc_T_GJENDJEARKEDITORE_selSipasIdArke\'";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        if (reader["name"].ToString() == "prc_T_GJENDJEARKEDITORE_selSipasIdArke")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-                finally
-                {
-                    reader.Close();
-                    connection.Close();
-                }
-            }
-            return false;
-        }
-        public static bool ktheNeseKlientiEshteAzhornuarPerDetajime()
-        {
-            var dbManager = MyScopeDbManager;
-            string queryString = "SELECT * FROM sys.objects WHERE type = \'P\' AND name = \'prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullitHPDDetajime\'";
-            string connectionString = dbManager.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        if (reader["name"].ToString() == "prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullitHPDDetajime")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-                finally
-                {
-                    reader.Close();
-                    connection.Close();
-                }
-            }
-            return false;
-        }
+        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV3() => KaKolone("T_KOKASHITJE", "TIPIIVETEFATURIMIT");
+        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV4() => KaKolone("T_TAKSAT", "TIPIIPERJASHTIMIT");
+        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV5() => KaKolone("T_BANKA", "SHFAQNEEINVOICE");
+        public static bool ktheNeseKlientiEshteAzhornuarPerFiskalizimV6() => KaProcedure("prc_T_GJENDJEARKEDITORE_selSipasIdArke");
+        public static bool ktheNeseKlientiEshteAzhornuarPerDetajime() => KaProcedure("prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullitHPDDetajime");
         public static string ktheDatenEServeritOffset()
         {
             var dbManager = MyScopeDbManager;

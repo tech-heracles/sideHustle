@@ -312,6 +312,9 @@ namespace DbCore.DbInventari
             
             try
             {
+                // pa cmime MERGE nuk ndryshon asgje, por parametri tabele kushton ~2,5 ms ne server (p.sh. cdo artikull i importuar)
+                if (cmimetPerTuRuajtur == null || !cmimetPerTuRuajtur.Any())
+                    return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
                 
                 var dt = cmimetPerTuRuajtur.ToDataTable("IdCmimArtikulli", "IdArtikulli", "IdNivelCmimi", "IdNjesia", "IdMonedha", "DateFillimi", "DateMbarimi", "SasiMin", "SasiMax", "Cmimi", "IdPerdoruesi", "IdNdermarje", "IdKonfig", "IdStatusDok", "IdNjesia2", "Cmimi2", "KoheFillimi", "KoheMbarimi","IdTvsh","IdDetajim");
                    
