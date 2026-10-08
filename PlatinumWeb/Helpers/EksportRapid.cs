@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -167,6 +168,16 @@ namespace PlatinumWeb
 		// 3 = numer #,##0.00, 4 = tekst "@" (titujt dhe vlerat tekst)
 		private const string StiliBosh = "1", StiliDate = "2", StiliNumer = "3", StiliTekst = "4";
 
+		private const string NsMain = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+		private const string NsRel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+		private const string NsPkgRel = "http://schemas.openxmlformats.org/package/2006/relationships";
+		private const string XmlKoka = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>";
+
+		/// <summary>
+		/// Shkruan skedarin XLSX direkt si zip me XML-in e fletes te shkruar me dore (pa objektet e OpenXML SDK per cdo
+		/// qelize dhe pa System.IO.Packaging, qe per nje vit shitjesh, 8 milion qeliza, merrnin ~30 s). Permbajtja eshte
+		/// e njejta: te njejtat stile, vlera, tituj, rreshti i ngrire, autofiltri dhe emri i fletes.
+		/// </summary>
 		private static void ShkruajXlsx(string skedar, List<DataRow> rreshtat, int[] indekset, Lloji[] llojet, string[] titujt, string emerSheet)
 		{
 			var fjalet = new Dictionary<string, int>(StringComparer.Ordinal);
@@ -191,116 +202,147 @@ namespace PlatinumWeb
 			foreach (var c in new[] { '\\', '/', '?', '*', '[', ']', ':' })
 				emri = emri.Replace(c, ' ');
 
-			using (var doc = SpreadsheetDocument.Create(skedar, SpreadsheetDocumentType.Workbook))
+			var utf8 = new UTF8Encoding(false);
+			using (var zip = new ZipArchive(File.Create(skedar), ZipArchiveMode.Create))
 			{
-				var wbPart = doc.AddWorkbookPart();
-
-				var stilet = wbPart.AddNewPart<WorkbookStylesPart>();
-				stilet.Stylesheet = Stilet();
-				stilet.Stylesheet.Save();
-
-				var wsPart = wbPart.AddNewPart<WorksheetPart>();
-				using (var w = OpenXmlWriter.Create(wsPart))
+				void Pjese(string emriPjeses, string xml)
 				{
-					w.WriteStartElement(new Worksheet());
-					w.WriteElement(new SheetProperties(new OutlineProperties { SummaryBelow = false, SummaryRight = false }));
-					w.WriteElement(new SheetViews(new SheetView(
-						new Pane { TopLeftCell = "A2", VerticalSplit = 1D, ActivePane = PaneValues.BottomLeft, State = PaneStateValues.Frozen },
-						new Selection { Pane = PaneValues.BottomLeft, ActiveCell = "A1", SequenceOfReferences = new ListValue<StringValue> { InnerText = "A1" } })
-					{ WorkbookViewId = 0U }));
-					var cols = new Columns();
-					for (int i = 0; i < nrKolonash; i++)
-						cols.Append(new Column
-						{
-							Min = (uint)(i + 1), Max = (uint)(i + 1), Width = 28.57D, CustomWidth = true,
-							Style = uint.Parse(llojet[i] == Lloji.Date ? StiliDate : llojet[i] == Lloji.Numer ? StiliNumer : StiliBosh, CultureInfo.InvariantCulture)
-						});
-					w.WriteElement(cols);
+					using (var w = new StreamWriter(zip.CreateEntry(emriPjeses, CompressionLevel.Optimal).Open(), utf8))
+						w.Write(xml);
+				}
 
-					w.WriteStartElement(new SheetData());
-					ShkruajRreshtTitujsh(w, 1, shkronjat, titujt, IndeksiFjales);
+				Pjese("[Content_Types].xml", XmlKoka +
+					"<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">" +
+					"<Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>" +
+					"<Default Extension=\"xml\" ContentType=\"application/xml\"/>" +
+					"<Override PartName=\"/xl/workbook.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml\"/>" +
+					"<Override PartName=\"/xl/worksheets/sheet1.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml\"/>" +
+					"<Override PartName=\"/xl/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml\"/>" +
+					"<Override PartName=\"/xl/sharedStrings.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml\"/>" +
+					"</Types>");
+				Pjese("_rels/.rels", XmlKoka + "<Relationships xmlns=\"" + NsPkgRel + "\">" +
+					"<Relationship Id=\"rId1\" Type=\"" + NsRel + "/officeDocument\" Target=\"xl/workbook.xml\"/></Relationships>");
+				Pjese("xl/_rels/workbook.xml.rels", XmlKoka + "<Relationships xmlns=\"" + NsPkgRel + "\">" +
+					"<Relationship Id=\"rId1\" Type=\"" + NsRel + "/worksheet\" Target=\"worksheets/sheet1.xml\"/>" +
+					"<Relationship Id=\"rId2\" Type=\"" + NsRel + "/styles\" Target=\"styles.xml\"/>" +
+					"<Relationship Id=\"rId3\" Type=\"" + NsRel + "/sharedStrings\" Target=\"sharedStrings.xml\"/></Relationships>");
+				Pjese("xl/styles.xml", XmlKoka + Stilet().OuterXml);
+				Pjese("xl/workbook.xml", XmlKoka + "<workbook xmlns=\"" + NsMain + "\" xmlns:r=\"" + NsRel + "\"><sheets>" +
+					"<sheet name=\"" + XmlTekst(emri, true) + "\" sheetId=\"1\" r:id=\"rId1\"/></sheets><definedNames>" +
+					"<definedName name=\"_xlnm._FilterDatabase\" localSheetId=\"0\" hidden=\"1\">" +
+					XmlTekst("'" + emri.Replace("'", "''") + "'!" + AbsoluteRef(zona), false) + "</definedName></definedNames></workbook>");
+
+				using (var w = new StreamWriter(zip.CreateEntry("xl/worksheets/sheet1.xml", CompressionLevel.Optimal).Open(), utf8, 1 << 16))
+				{
+					w.Write(XmlKoka);
+					w.Write("<worksheet xmlns=\"" + NsMain + "\"><sheetPr><outlinePr summaryBelow=\"0\" summaryRight=\"0\"/></sheetPr>");
+					w.Write("<sheetViews><sheetView workbookViewId=\"0\"><pane ySplit=\"1\" topLeftCell=\"A2\" activePane=\"bottomLeft\" state=\"frozen\"/>" +
+						"<selection pane=\"bottomLeft\" activeCell=\"A1\" sqref=\"A1\"/></sheetView></sheetViews><cols>");
+					for (int i = 0; i < nrKolonash; i++)
+						w.Write("<col min=\"" + (i + 1) + "\" max=\"" + (i + 1) + "\" width=\"28.57\" style=\"" +
+							(llojet[i] == Lloji.Date ? StiliDate : llojet[i] == Lloji.Numer ? StiliNumer : StiliBosh) + "\" customWidth=\"1\"/>");
+					w.Write("</cols><sheetData>");
+
+					w.Write("<row r=\"1\">");
+					for (int i = 0; i < nrKolonash; i++)
+						ShkruajQelizeTekst(w, shkronjat[i], "1", StiliTekst, IndeksiFjales(PaKaraktereKontrolli(titujt[i])));
+					w.Write("</row>");
+
 					int nr = 1;
 					foreach (var r in rreshtat)
 					{
 						nr++;
 						string nrTekst = nr.ToString(CultureInfo.InvariantCulture);
-						w.WriteStartElement(new Row(), new[] { new OpenXmlAttribute("r", null, nrTekst) });
+						w.Write("<row r=\"");
+						w.Write(nrTekst);
+						w.Write("\">");
 						for (int i = 0; i < nrKolonash; i++)
-							ShkruajQelize(w, shkronjat[i] + nrTekst, r[indekset[i]], llojet[i], IndeksiFjales);
-						w.WriteEndElement();
+						{
+							object vlera = r[indekset[i]];
+							if (vlera == null || vlera == DBNull.Value)
+							{
+								ShkruajQelizeTekst(w, shkronjat[i], nrTekst, StiliBosh, IndeksiFjales(""));
+								continue;
+							}
+							switch (llojet[i])
+							{
+								case Lloji.Date:
+									ShkruajQelizeVlere(w, shkronjat[i], nrTekst, null, StiliDate, ((DateTime)vlera).ToOADate().ToString("R", CultureInfo.InvariantCulture));
+									break;
+								case Lloji.Numer:
+									ShkruajQelizeVlere(w, shkronjat[i], nrTekst, null, StiliNumer, Convert.ToDouble(vlera, CultureInfo.InvariantCulture).ToString("R", CultureInfo.InvariantCulture));
+									break;
+								case Lloji.Bool:
+									ShkruajQelizeVlere(w, shkronjat[i], nrTekst, "b", StiliBosh, (bool)vlera ? "1" : "0");
+									break;
+								default:
+									var s = PaKaraktereKontrolli(Convert.ToString(vlera, CultureInfo.CurrentCulture));
+									ShkruajQelizeTekst(w, shkronjat[i], nrTekst, s.Length == 0 ? StiliBosh : StiliTekst, IndeksiFjales(s));
+									break;
+							}
+						}
+						w.Write("</row>");
 					}
-					w.WriteEndElement();
-
-					w.WriteElement(new AutoFilter { Reference = zona });
-					w.WriteElement(new IgnoredErrors(new IgnoredError { SequenceOfReferences = new ListValue<StringValue> { InnerText = zona }, NumberStoredAsText = true }));
-					w.WriteEndElement();
+					w.Write("</sheetData><autoFilter ref=\"" + zona + "\"/><ignoredErrors><ignoredError sqref=\"" + zona +
+						"\" numberStoredAsText=\"1\"/></ignoredErrors></worksheet>");
 				}
 
-				var sstPart = wbPart.AddNewPart<SharedStringTablePart>();
-				using (var w = OpenXmlWriter.Create(sstPart))
+				using (var w = new StreamWriter(zip.CreateEntry("xl/sharedStrings.xml", CompressionLevel.Optimal).Open(), utf8, 1 << 16))
 				{
-					w.WriteStartElement(new SharedStringTable(), new[]
-					{
-						new OpenXmlAttribute("count", null, listaFjaleve.Count.ToString(CultureInfo.InvariantCulture)),
-						new OpenXmlAttribute("uniqueCount", null, listaFjaleve.Count.ToString(CultureInfo.InvariantCulture))
-					});
+					string n = listaFjaleve.Count.ToString(CultureInfo.InvariantCulture);
+					w.Write(XmlKoka + "<sst xmlns=\"" + NsMain + "\" count=\"" + n + "\" uniqueCount=\"" + n + "\">");
 					foreach (var s in listaFjaleve)
-						w.WriteElement(new SharedStringItem(new Text(s) { Space = SpaceProcessingModeValues.Preserve }));
-					w.WriteEndElement();
+					{
+						w.Write("<si><t xml:space=\"preserve\">");
+						w.Write(XmlTekst(s, false));
+						w.Write("</t></si>");
+					}
+					w.Write("</sst>");
 				}
-
-				wbPart.Workbook = new Workbook(
-					new Sheets(new Sheet { Id = wbPart.GetIdOfPart(wsPart), SheetId = 1U, Name = emri }),
-					new DefinedNames(new DefinedName("'" + emri.Replace("'", "''") + "'!" + AbsoluteRef(zona)) { Name = "_xlnm._FilterDatabase", Hidden = true, LocalSheetId = 0U }));
-				wbPart.Workbook.Save();
 			}
 		}
 
-		private static void ShkruajRreshtTitujsh(OpenXmlWriter w, int nr, string[] shkronjat, string[] titujt, Func<string, int> indeksi)
-		{
-			string nrTekst = nr.ToString(CultureInfo.InvariantCulture);
-			w.WriteStartElement(new Row(), new[] { new OpenXmlAttribute("r", null, nrTekst) });
-			for (int i = 0; i < titujt.Length; i++)
-				ShkruajTekst(w, shkronjat[i] + nrTekst, PaKaraktereKontrolli(titujt[i]), StiliTekst, indeksi);
-			w.WriteEndElement();
-		}
+		private static void ShkruajQelizeTekst(StreamWriter w, string kolona, string nr, string stili, int indeksi) =>
+			ShkruajQelizeVlere(w, kolona, nr, "s", stili, indeksi.ToString(CultureInfo.InvariantCulture));
 
-		private static void ShkruajQelize(OpenXmlWriter w, string ref_, object vlera, Lloji lloji, Func<string, int> indeksi)
+		private static void ShkruajQelizeVlere(StreamWriter w, string kolona, string nr, string tipi, string stili, string vlera)
 		{
-			if (vlera == null || vlera == DBNull.Value)
-			{
-				ShkruajTekst(w, ref_, "", StiliBosh, indeksi);
-				return;
-			}
-			switch (lloji)
-			{
-				case Lloji.Date:
-					ShkruajVlere(w, ref_, null, StiliDate, ((DateTime)vlera).ToOADate().ToString("R", CultureInfo.InvariantCulture));
-					break;
-				case Lloji.Numer:
-					ShkruajVlere(w, ref_, null, StiliNumer, Convert.ToDouble(vlera, CultureInfo.InvariantCulture).ToString("R", CultureInfo.InvariantCulture));
-					break;
-				case Lloji.Bool:
-					ShkruajVlere(w, ref_, "b", StiliBosh, (bool)vlera ? "1" : "0");
-					break;
-				default:
-					var s = PaKaraktereKontrolli(Convert.ToString(vlera, CultureInfo.CurrentCulture));
-					ShkruajTekst(w, ref_, s, s.Length == 0 ? StiliBosh : StiliTekst, indeksi);
-					break;
-			}
-		}
-
-		private static void ShkruajTekst(OpenXmlWriter w, string ref_, string s, string stili, Func<string, int> indeksi) =>
-			ShkruajVlere(w, ref_, "s", stili, indeksi(s).ToString(CultureInfo.InvariantCulture));
-
-		private static void ShkruajVlere(OpenXmlWriter w, string ref_, string tipi, string stili, string vlera)
-		{
-			var atr = new List<OpenXmlAttribute>(3) { new OpenXmlAttribute("r", null, ref_), new OpenXmlAttribute("s", null, stili) };
+			w.Write("<c r=\"");
+			w.Write(kolona);
+			w.Write(nr);
+			w.Write("\" s=\"");
+			w.Write(stili);
 			if (tipi != null)
-				atr.Add(new OpenXmlAttribute("t", null, tipi));
-			w.WriteStartElement(new Cell(), atr);
-			w.WriteElement(new CellValue(vlera));
-			w.WriteEndElement();
+			{
+				w.Write("\" t=\"");
+				w.Write(tipi);
+			}
+			w.Write("\"><v>");
+			w.Write(vlera);
+			w.Write("</v></c>");
+		}
+
+		/// <summary>Escape per XML (tekst ose vlere atributi); karakteret e kontrollit jane hequr me pare.</summary>
+		private static string XmlTekst(string s, bool atribut)
+		{
+			int i = 0;
+			while (i < s.Length && s[i] != '&' && s[i] != '<' && s[i] != '>' && !(atribut && s[i] == '"'))
+				i++;
+			if (i == s.Length)
+				return s;
+			var sb = new StringBuilder(s.Length + 16);
+			foreach (char c in s)
+			{
+				switch (c)
+				{
+					case '&': sb.Append("&amp;"); break;
+					case '<': sb.Append("&lt;"); break;
+					case '>': sb.Append("&gt;"); break;
+					case '"': sb.Append(atribut ? "&quot;" : "\""); break;
+					default: sb.Append(c); break;
+				}
+			}
+			return sb.ToString();
 		}
 
 		private static Stylesheet Stilet()

@@ -35,6 +35,10 @@ namespace PlatinumWeb
 	public partial class Eksport : MyPageBase
 	{
 		private const string Komponente = "Eksport.aspx";
+		/// <summary>Ne sesion: lloji|kategoria|formati per te cilat jane ngarkuar te dhenat e grides.</summary>
+		private const string CelesiNgarkimit = "Eksport.aspx.ngarkimi";
+
+		private string NgarkimiAktual() => cmbLlojEksporti.Text + "|" + cmbKategoria.Value + "|" + cmbFormati.Value;
 
 		/// <summary>
 		/// mbush te dhenat kur faqja ben loadim
@@ -69,6 +73,7 @@ namespace PlatinumWeb
 				KonfiguroVleraFillestareShto(idKategoriaPerSel);
 				PercaktoTemplateMenu();
 				DbCore.mySessionObjects.ruajGrideNeSession(Komponente, Session, (object)new DataTable());
+				Session.Remove(CelesiNgarkimit);
 				hfState.Set("idQueryString", idQueryString);
 				if (idKategoriaPerSel > 0)
 					NgarkoGride(false);
@@ -242,6 +247,7 @@ namespace PlatinumWeb
 			if (pastro)
 			{
 				DbCore.mySessionObjects.ruajGrideNeSession(Komponente, Session, (object)tb);
+				Session.Remove(CelesiNgarkimit);
 				status1.Value = "pastro";
 				gvExport.FilterExpression = "";
 			}
@@ -869,6 +875,7 @@ namespace PlatinumWeb
 			gvExport.KeyFieldName = emraFushash;
 
 			DbCore.mySessionObjects.ruajGrideNeSession(Komponente, Session, (object)table);
+			Session[CelesiNgarkimit] = NgarkimiAktual();
 			gvExport.DataSource = table;
 			gvExport.DataBind();
 			table.Dispose();
@@ -1126,7 +1133,14 @@ namespace PlatinumWeb
 		{
 			if (e.CallbackName == "APPLYFILTER" && e.Args[0] == "" && gvExport.FilterExpression == "")
 			{
-				NgarkoGride(cmbLlojEksporti.Text == "SQL", true);
+				// Faqja therret ClearFilter() edhe kur ndryshon llojin, kategorine ose listen e formateve. Me pare kjo
+				// lexonte gjithmone te gjitha te dhenat me formatin e pare te kategorise (p.sh. nje vit shitjesh, 10-20 s)
+				// dhe gridi mbetej bosh; perdoruesi pastaj zgjidhte formatin dhe i lexonte perseri me Ngarko.
+				// Tani rilexohet vetem kur gridi ka te dhena te ngarkuara per te njejtin lloj/kategori/format.
+				if (Session[CelesiNgarkimit] as string == NgarkimiAktual())
+					NgarkoGride(cmbLlojEksporti.Text == "SQL", true);
+				else
+					Pastrogride(true);
 				return;
 			}
 			DataTable table;
