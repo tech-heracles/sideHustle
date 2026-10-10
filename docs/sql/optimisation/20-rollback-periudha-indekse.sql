@@ -1,0 +1,7 @@
+-- Rikthen gjendjen para 20-periudha-indekse.sql.
+IF EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_VITET') AND name = N'IX_T_VITET_IDNDERMARJE')
+    DROP INDEX IX_T_VITET_IDNDERMARJE ON dbo.T_VITET;
+GO
+IF EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_PERIUDHAT') AND name = N'IX_T_PERIUDHAT_IDVITI')
+    DROP INDEX IX_T_PERIUDHAT_IDVITI ON dbo.T_PERIUDHAT;
+GO
