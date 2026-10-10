@@ -5010,6 +5010,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(79, "@MEDOGANE", meDogane, ParameterDirection.Input);
             if(klientFiskalizimi)
                 dbManager.AddParameters(80, "@TIPIID", tipiId, ParameterDirection.Input);
+            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ins");
             
             idKlientFurnitor = int.Parse(dbManager.Parameters[0].Value.ToString());
@@ -5184,6 +5185,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(77, "@MEDOGANE", meDogane, ParameterDirection.Input);
             if(klientFiskalizimi)
                 dbManager.AddParameters(78, "@TIPIID", tipiId, ParameterDirection.Input);
+            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_upd");
             idKlientFurnitor = int.Parse(dbManager.Parameters[0].Value.ToString());
             clsMesazh mesazh = new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
@@ -5202,6 +5204,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKLIENTFURNITOR", idKlientFurnitor, ParameterDirection.Input);
+            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_del");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -5213,6 +5216,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDKLIENTFURNITOR", idKlientFurnitor, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
+            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_upddel");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -5819,15 +5823,15 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         internal bool ekzistonKlientFurnitor(string kodKF, int idNdermarrja)
         {//kontrollon nqs ekziston nje klientfurnitor me kete numer
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKF, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ekzistonKlientFurnitor");
-            if (ds.Tables[0].Rows.Count >= 1)
-                return true;
-            return false;
+            return ImportCache.Ekziston(ImportCache.KlientFurnitor, "ekziston|" + kodKF + "|" + idNdermarrja, () =>
+            {
+                dbManager.Open();
+                dbManager.CreateParameters(2);
+                dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKF, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrja, ParameterDirection.Input);
+                // ExecuteScalar kthen null vetem kur nuk ka rreshta (pa DataSet)
+                return dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ekzistonKlientFurnitor") != null;
+            });
         }
         internal bool ekzistonKlientFurnitorPerKeteNdermarjeBij(int idndermarjebij, int idNdermarrja)
         {//kontrollon nqs ekziston nje klientfurnitor me kete numer

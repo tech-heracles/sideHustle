@@ -111,5 +111,39 @@ namespace DbCore.IMBUtils.Cache
                 cache.vlerat[k] = rezultati;
             return rezultati;
         }
+
+        /// <summary>
+        /// Kontroll ekzistence (p.sh. "ekziston artikulli me kete kod"). Si <see cref="Merr{T}"/> me ruajtje te "ekziston";
+        /// por edhe kur importi e shkruan kete lloj, pergjigjja "nuk ekziston" mbahet derisa te behet shkrimi i radhes i
+        /// llojit (<see cref="Shkruar"/> i fshin te gjitha). Keshtu kontrolli i dyte i te njejtit rresht (ne krijim dhe
+        /// perseri ne ruajtje, para insert-it) nuk shkon me ne databaze.
+        /// </summary>
+        public static bool Ekziston(string lloji, string celesi, Func<bool> lexo)
+        {
+            var cache = aktiv;
+            if (cache == null)
+                return lexo();
+            if (cache.vetemLexim || !cache.tePerjashtuara.Contains(lloji))
+                return Merr(lloji, celesi, lexo, ekziston => ekziston);
+
+            if (cache.mungesat.TryGetValue(lloji, out HashSet<string> mungojne) && mungojne.Contains(celesi))
+                return false;
+            bool rezultati = lexo();
+            if (!rezultati)
+            {
+                if (mungojne == null)
+                    cache.mungesat[lloji] = mungojne = new HashSet<string>(StringComparer.Ordinal);
+                mungojne.Add(celesi);
+            }
+            return rezultati;
+        }
+
+        /// <summary>Thirret para cdo shkrimi (insert/update/fshirje) te llojit: harron pergjigjet "nuk ekziston" te tij.</summary>
+        public static void Shkruar(string lloji)
+        {
+            aktiv?.mungesat.Remove(lloji);
+        }
+
+        private readonly Dictionary<string, HashSet<string>> mungesat = new Dictionary<string, HashSet<string>>();
     }
 }
