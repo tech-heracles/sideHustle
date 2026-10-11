@@ -43,6 +43,15 @@ namespace DbCore.DbInventari
             Artikulli = lista;
         }
 
+        /// <summary>Vlera e nje parametri te artikullit (null kur nuk eshte kapur).</summary>
+        internal object Vlera(string emri)
+        {
+            foreach (var p in Artikulli ?? new List<SqlParameter>())
+                if (string.Equals(p.ParameterName.TrimStart('@'), emri.TrimStart('@'), StringComparison.OrdinalIgnoreCase))
+                    return p.Value;
+            return null;
+        }
+
         internal void KapKodbarin(IList<IDbDataParameter> parametrat)
         {
             object Vlera(string emri)

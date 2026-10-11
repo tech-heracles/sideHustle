@@ -44,8 +44,8 @@ namespace DbCore.DbImporte
         }
 
         private readonly List<Hyrja> pritja = new List<Hyrja>();
-        private readonly HashSet<string> kodetNePritje = new HashSet<string>(Krahasuesi.Instanca);
-        private readonly HashSet<string> kodbaretNePritje = new HashSet<string>(Krahasuesi.Instanca);
+        private readonly HashSet<string> kodetNePritje = new HashSet<string>(KrahasuesiKodeve.Instanca);
+        private readonly HashSet<string> kodbaretNePritje = new HashSet<string>(KrahasuesiKodeve.Instanca);
         private readonly DataTable gabime, tePaImportuara;
         private readonly int pozicionkodi;
         private Hyrja eFundit;
@@ -227,8 +227,12 @@ namespace DbCore.DbImporte
             if (artikujt.Length > 0)
             {
                 RuajNeDatabaze(artikujt);
-                ImportCache.Shkruar(ImportCache.ArtikullKod);
-                ImportCache.Shkruar(ImportCache.Kodbar);
+                foreach (var h in artikujt)
+                {
+                    ImportCache.Shtuar(ImportCache.ArtikullKod, h.Kapja.Vlera("@KODARTIKULLI") as string);
+                    foreach (var kb in h.Kapja.Kodbare)
+                        ImportCache.Shtuar(ImportCache.Kodbar, kb[0] as string);
+                }
             }
 
             foreach (var h in hyrjet)
@@ -329,20 +333,6 @@ namespace DbCore.DbImporte
         private static object Vlera(object[] kodbari, int i, Func<object, object> konverto)
         {
             return kodbari == null || kodbari[i] == null || kodbari[i] == DBNull.Value ? DBNull.Value : konverto(kodbari[i]);
-        }
-
-        /// <summary>
-        /// Krahasim me i gjere se ai i kolonave te SQL-it (pa dallim germash, theksash, gjeresie, simbolesh dhe hapesirash ne
-        /// fund): nese SQL-i i quan dy kode te njejte, edhe ky; e kunderta vetem shkakton nje ruajtje te parakohshme te pritjes.
-        /// </summary>
-        private sealed class Krahasuesi : IEqualityComparer<string>
-        {
-            internal static readonly Krahasuesi Instanca = new Krahasuesi();
-            private const CompareOptions Opsionet = CompareOptions.IgnoreCase | CompareOptions.IgnoreKanaType | CompareOptions.IgnoreWidth
-                                                    | CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreSymbols;
-            private static readonly CompareInfo Info = CultureInfo.InvariantCulture.CompareInfo;
-            public bool Equals(string x, string y) => Info.Compare((x ?? "").TrimEnd(), (y ?? "").TrimEnd(), Opsionet) == 0;
-            public int GetHashCode(string s) => Info.GetHashCode((s ?? "").TrimEnd(), Opsionet);
         }
     }
 }

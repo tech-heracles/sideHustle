@@ -5010,7 +5010,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(79, "@MEDOGANE", meDogane, ParameterDirection.Input);
             if(klientFiskalizimi)
                 dbManager.AddParameters(80, "@TIPIID", tipiId, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Shtuar(ImportCache.KlientFurnitor, kodKliFurn); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ins");
             
             idKlientFurnitor = int.Parse(dbManager.Parameters[0].Value.ToString());
@@ -5185,7 +5185,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.AddParameters(77, "@MEDOGANE", meDogane, ParameterDirection.Input);
             if(klientFiskalizimi)
                 dbManager.AddParameters(78, "@TIPIID", tipiId, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Shtuar(ImportCache.KlientFurnitor, kodKliFurn); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_upd");
             idKlientFurnitor = int.Parse(dbManager.Parameters[0].Value.ToString());
             clsMesazh mesazh = new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
@@ -5204,7 +5204,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.Open();
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKLIENTFURNITOR", idKlientFurnitor, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Fshire(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_del");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -5216,7 +5216,7 @@ namespace DbCore.DbKontabiliteti
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDKLIENTFURNITOR", idKlientFurnitor, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERDORUESI", idperdorues, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Fshire(ImportCache.KlientFurnitor); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_upddel");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -5821,10 +5821,27 @@ namespace DbCore.DbKontabiliteti
         /// <param name="idNdermarrja">id e ndermarrjes</param>
         /// <returns>Kthen true nese ekziston nje objekt qe ploteson kushtet</returns>
         /// </summary>
+        /// <summary>Kolona e pare e nje pyetjeje me parameter @IDNDERMARJE (vlerat per indekset e ImportCache.Mungon).</summary>
+        private List<string> lexoVleratSipasNdermarrjes(string sql, int idndermarje)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
+            DataTable dt = dbManager.ExecuteDataSet(CommandType.Text, sql).Tables[0];
+            var vlerat = new List<string>(dt.Rows.Count);
+            foreach (DataRow r in dt.Rows)
+                vlerat.Add(r[0] as string);
+            return vlerat;
+        }
+
         internal bool ekzistonKlientFurnitor(string kodKF, int idNdermarrja)
         {//kontrollon nqs ekziston nje klientfurnitor me kete numer
             return ImportCache.Ekziston(ImportCache.KlientFurnitor, "ekziston|" + kodKF + "|" + idNdermarrja, () =>
             {
+                // @KODKLIENTFURNITOR T_PERSHKRIM = varchar(100); i njejti filter si procedura
+                if (ImportCache.Mungon(ImportCache.KlientFurnitor, idNdermarrja.ToString(), kodKF, 100, () => lexoVleratSipasNdermarrjes(
+                        "SELECT KODKLIENTFURNITOR FROM T_KLIENTFURNITOR WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK <> 2", idNdermarrja)))
+                    return false;
                 dbManager.Open();
                 dbManager.CreateParameters(2);
                 dbManager.AddParameters(0, "@KODKLIENTFURNITOR", kodKF, ParameterDirection.Input);

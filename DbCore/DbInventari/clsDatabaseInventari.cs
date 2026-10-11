@@ -62,7 +62,7 @@ namespace DbCore.DbInventari
                 KapjaRuajtjes.Aktive.KapKodbarin(dbManager.Parameters);
                 return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
             }
-            ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Shtuar(ImportCache.Kodbar, pershkrimi); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODBARI_ins");
             return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
 
@@ -130,7 +130,7 @@ namespace DbCore.DbInventari
             if (iddetajim2 > 0)
                 dbManager.AddParameters(5, "@DETAJIM2", iddetajim2, ParameterDirection.Input);
             else dbManager.AddParameters(5, "@DETAJIM2", DBNull.Value, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Shtuar(ImportCache.Kodbar, pershkrimi); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODBARI_upd");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
             return mesazh;
@@ -149,7 +149,7 @@ namespace DbCore.DbInventari
             //shtimi i parametrave
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKODBARI", idKodbari, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Fshire(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODBARI_del");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -316,10 +316,28 @@ namespace DbCore.DbInventari
         ///<param name="pershkrim"> pershkrimi i kodbarit</param>
         ///<param name="idndermarje"> id e ndermarjes</param>
         /// <returns>nje objeckt boolean qe tregon nese ekziston apo jo nje kodbar me kete pershkrim</returns>
+        /// <summary>Kolona e pare e nje pyetjeje me parameter @IDNDERMARJE (vlerat per indekset e ImportCache.Mungon).</summary>
+        private List<string> lexoVleratSipasNdermarrjes(string sql, int idndermarje)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDNDERMARJE", idndermarje, ParameterDirection.Input);
+            DataTable dt = dbManager.ExecuteDataSet(CommandType.Text, sql).Tables[0];
+            var vlerat = new List<string>(dt.Rows.Count);
+            foreach (DataRow r in dt.Rows)
+                vlerat.Add(r[0] as string);
+            return vlerat;
+        }
+
         public bool ekzistonKodbar(String pershkrim, int idndermarje)
         {
             return ImportCache.Ekziston(ImportCache.Kodbar, "ekziston|" + pershkrim + "|" + idndermarje, () =>
             {
+                // @PERSHKRIMI T_PERSHKRIM = varchar(100); i njejti filter si procedura
+                if (ImportCache.Mungon(ImportCache.Kodbar, idndermarje.ToString(), pershkrim, 100, () => lexoVleratSipasNdermarrjes(
+                        "SELECT PERSHKRIMI FROM T_KODBARI WHERE IDARTIKULLI IN (SELECT IDARTIKULLI FROM T_ARTIKULLI WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK <> 2)",
+                        idndermarje)))
+                    return false;
                 dbManager.Open();
                 dbManager.CreateParameters(2);
                 dbManager.AddParameters(0, "@PERSHKRIMI", pershkrim, ParameterDirection.Input);
@@ -1219,7 +1237,7 @@ namespace DbCore.DbInventari
                 return 1;
             }
             // artikulli i ri nuk ka ende kodbare, keshtu qe pergjigjet per kodbaret mbeten te vlefshme
-            ImportCache.Shkruar(ImportCache.ArtikullKod); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Shtuar(ImportCache.ArtikullKod, kodArtikulli); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLI_ins");
             idArtikulli = int.Parse(dbManager.Parameters[0].Value.ToString());
             return idArtikulli;
@@ -1470,7 +1488,8 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(86, "@STOKUMAXVFONE", stokumaxvfone, ParameterDirection.Input);
             dbManager.AddParameters(87, "@KODIIBARIT", kodiibarit, ParameterDirection.Input);
             dbManager.AddParameters(88, "@IRIMBURSUESHEM", irimbursueshem, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.ArtikullKod); ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            // statusi i artikullit mund te ndryshoje, e me te edhe ekzistenca e kodbareve te tij
+            ImportCache.Shtuar(ImportCache.ArtikullKod, kodArtikulli); ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLI_upd");
             idArtikulli = int.Parse(dbManager.Parameters[0].Value.ToString());
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
@@ -1519,7 +1538,7 @@ namespace DbCore.DbInventari
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@IDARTIKULLI", idArtikulli, ParameterDirection.Input);
             dbManager.AddParameters(1, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-            ImportCache.Shkruar(ImportCache.ArtikullKod); ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
+            ImportCache.Fshire(ImportCache.ArtikullKod); ImportCache.Fshire(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLI_upddel");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;
@@ -2340,6 +2359,10 @@ namespace DbCore.DbInventari
             return ImportCache.Ekziston(ImportCache.ArtikullKod, "ekziston|" + kod + "|" + idnderm, () =>
             {
                 ImbLogger.LogTraceShitje($"Filloi metoda ekzistonArtikull me kod:{kod} dhe idnderm:{idnderm}");
+                // @KODARTIKULLI varchar(50); i njejti filter si procedura
+                if (ImportCache.Mungon(ImportCache.ArtikullKod, idnderm.ToString(), kod, 50, () => lexoVleratSipasNdermarrjes(
+                        "SELECT KODARTIKULLI FROM T_ARTIKULLI WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK <> 2", idnderm)))
+                    return false;
                 dbManager.Open();
                 dbManager.CreateParameters(2);
                 dbManager.AddParameters(0, "@KODARTIKULLI", kod, ParameterDirection.Input);
