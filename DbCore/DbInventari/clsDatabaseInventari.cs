@@ -57,6 +57,11 @@ namespace DbCore.DbInventari
             if (iddetajim2 > 0)
                 dbManager.AddParameters(4, "@DETAJIM2", iddetajim2, ParameterDirection.Input);
             else dbManager.AddParameters(4, "@DETAJIM2", DBNull.Value, ParameterDirection.Input);
+            if (KapjaRuajtjes.Aktive != null)
+            {
+                KapjaRuajtjes.Aktive.KapKodbarin(dbManager.Parameters);
+                return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
+            }
             ImportCache.Shkruar(ImportCache.Kodbar); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_KODBARI_ins");
             return new clsMesazh(true, IMBUtils.Messages.MessagesResource.Messages["labelRaportMesazhRuajtjaPerfundoiSukses"]);
@@ -1207,6 +1212,12 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(86, "@STOKUMAXVFONE", stokumaxvfone, ParameterDirection.Input);
             dbManager.AddParameters(87, "@KODIIBARIT", kodiibarit, ParameterDirection.Input);
             dbManager.AddParameters(88, "@IRIMBURSUESHEM", irimbursueshem, ParameterDirection.Input);
+            if (KapjaRuajtjes.Aktive != null)
+            {
+                // ruajtje ne grup (importi i artikujve): parametrat ruhen, insert-i behet nga prc_T_ARTIKULLI_ruajImport
+                KapjaRuajtjes.Aktive.KapArtikullin(dbManager.Parameters);
+                return 1;
+            }
             // artikulli i ri nuk ka ende kodbare, keshtu qe pergjigjet per kodbaret mbeten te vlefshme
             ImportCache.Shkruar(ImportCache.ArtikullKod); // pergjigjet "nuk ekziston" te importit nuk vlejne me
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLI_ins");

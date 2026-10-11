@@ -553,6 +553,8 @@
     <Compile Include="DbRegjistrim\clsAzhornimKFTrupi.cs" />
     <Compile Include="DbRegjistrim\clsDatabaseRegjistrim.cs" />
     <Compile Include="DbRegjistrim\KontrollGjendjeMesatare.cs" />
+    <Compile Include="DbInventari\KapjaRuajtjes.cs" />
+    <Compile Include="DbImporte\RuajtjeArtikujshNeGrup.cs" />
     <Compile Include="DbRegjistrim\clsDegeAdministrative.cs" />
     <Compile Include="DbRegjistrim\clsDetajimArtikulliRegjistrim.cs" />
     <Compile Include="DbRegjistrim\Dhurata.cs" />

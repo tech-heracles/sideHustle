@@ -3412,6 +3412,46 @@ namespace DbCore.DbInventari
             }
         }
 
+        /// <summary>
+        /// True kur ruajtja e ketij artikulli te ri (ruaj) shkruan vetem artikullin dhe kodbaret e tij: pa numer automatik,
+        /// arkive, template, cmime, buxhete, autorizime, furnitore, detajime, zevendesues, fusha shtese, perberes,
+        /// gjendje sipas magazinave, VFONE apo norma. Vetem keta artikuj importi i ruan ne grup (prc_T_ARTIKULLI_ruajImport).
+        /// </summary>
+        internal bool MundTeRuhetNeGrup(IDictionary<string, object> hfNrAutoKF, clsArtikullPerberesTemplateKoka template, colCmimeArtikujsh colCmime)
+        {
+            bool Bosh(System.Collections.ICollection c) => c == null || c.Count == 0;
+            return !string.IsNullOrEmpty(kodArtikulli)
+                && (hfNrAutoKF == null || hfNrAutoKF.Count == 0)
+                && (HfArkiva == null || !HfArkiva.ContainsKey("rootFolder"))
+                && template != null && string.IsNullOrEmpty(template.Kodi)
+                && Bosh(colCmime)
+                && Bosh(OColBuxhetet)
+                && autorizimet == ""
+                && Bosh(OColFurnitoreArtikujsh)
+                && Bosh(OColDetajime) && Bosh(OColDetajime2)
+                && Bosh(OColArtikujtZevendesues)
+                && Bosh(OColVleraFushaShtese)
+                && Bosh(ColArtikujPerberes)
+                && Bosh(colGjendjeArtikulliMag)
+                && Bosh(colArtikujVfone)
+                && Bosh(colNorma) && Bosh(colNormaRezerva);
+        }
+
+        /// <summary>
+        /// Kalon neper ruajArtikull me te njejtat argumente si ruaj (pa transaksion dhe pa kontrollin e kodit, qe i ben
+        /// prc_T_ARTIKULLI_ruajImport), por me <paramref name="kapja"/> aktive: parametrat e prc_T_ARTIKULLI_ins dhe te
+        /// kodbareve ruhen ne kapje ne vend qe te ekzekutohen.
+        /// </summary>
+        internal clsMesazh KapRuajtjenNeGrup(KapjaRuajtjes kapja, colCmimeArtikujsh colCmime, clsArtikullPerberesTemplateKoka template)
+        {
+            int idart;
+            using (clsDatabaseInventari db = new clsDatabaseInventari())
+            using (kapja.Fillo())
+            {
+                return ruajArtikull(out idart, this.KodArtikulli, this.PershkrimArtikulli, this.PershkrimiAngArtikulli, this.KodiDoganorArtikulli, this.VendodhjeArtikulli, this.Kodifikimi1Artikulli, this.Kodifikimi2Artikulli, this.OrigjineArtikulli, this.Njesi1Artikulli, this.Njesi2Artikulli, this.KoeficientArtikulli, this.IdFurnitoriKryesor, this.PeshaBrutoArtikulli, this.PeshaNetoArtikulli, this.DetajimArtikulli, this.Klasa, this.IdSkemaKontabilitetiArtikulli, this.IdLlogariInventari, this.IdLlogariBlerje, this.IdLlogariShitje, this.IdLlogariTeTrete, this.idLlogariPakesim, this.IdLlogariShpenzime, this.IdLlogariAmortizimi, this.IdLlogRez, this.IdLlogPakRez, this.MinimumArtikulli, this.MaximumArtikulli, this.MetodeKostojeArtikulli, this.LlogaritjaKMSHArtikulli, this.ZevendesimAutomatikArtikulli, this.IdPerdoruesi, this.Aktiv, this.ColArtikujPerberes, this.colGjendjeArtikulliMag, template.IdKoka, template.Kodi, template.Pershkrimi, this.OColFurnitoreArtikujsh, this.OColArtikujtZevendesues, this.OColVleraFushaShtese, this.OColBuxhetet, this.OColDetajime, this.IdStatusDok, this.LlojiArt, colCmime, this.SasiNjesi, this.Scrap, this.ProdhimMePorosi, this.IdKategoriDetajimi, this.idKonfig, this.idTvsh, this.KontrollGjendje, this.KontrollCmimi, this.kontrollGjendjeArtikulli, this.idNdermarje, this.idPerdoruesi, this.IdKategoriDetajimi2, this.OColDetajime2, this.KontrollGjendjeDetajim2, this.idObjektivaKosto, this.idllojGarancie, this.garancia, db, idmagazina, this.iRezervueshem, this.perTransferim, this.loan, this.Dhurate, this.AplikimDhurate, this.Pike, this.Vlere, this.kodVFOne, this.meSerial, this.colNorma, this.iShitshem, this.mbetjeShitshme, this.oColKodbare, this.idArtRaportuesi, this.perPeshore, this.PershkrimFurnitori, this.SiperfaqjaM2, this.NrKontrate, this.NrPasurie, this.ZonaKadastrale, this.Shasia, this.Marka, this.Modeli, this.VitProdhimi, this.TeDhenaTeknika, this.MeBarkodLogjik, this.SkemaBarkodit, this.kodifikimi3Artikulli, aparatBazaar, kodOferte, this.artikullIVjeter, this.idFormatSeriali, this.colArtikujVfone, this.MeRezerveRivleresimi, this.colNormaRezerva, this.nrKaraktereTAC, this.idNdermarje, this.llogaritKomision, this.idLlogariKomision, this.stokuMaxVfOne, this.kodiiBarit, this.iRimbursueshem);
+            }
+        }
+
         public clsMesazh ruaj(colCmimeArtikujsh colCmime, clsArtikullPerberesTemplateKoka template, clsDatabaseInventari db, int idNdermOrigjine)
         {
             int idart = -1;

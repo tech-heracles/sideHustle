@@ -27,37 +27,55 @@ namespace DbCore.DbImporte
             (string emerNjesia1, string skema, string vleradefaultnjesia, string vleradefaultskema) vlerat = clsKokaFormatImporti.ktheVleraDefaultKontrolli(col);
             string emerNjesia1 = vlerat.emerNjesia1, skema = vlerat.skema, vleradefaultnjesia = vlerat.vleradefaultnjesia, vleradefaultskema = vlerat.vleradefaultskema;
 
-            foreach (DataRow dr in dt.Rows)
+            // artikujt e rinj te thjeshte ruhen ne grup (shiko RuajtjeArtikujshNeGrup); rezultati eshte i njejte
+            RuajtjeArtikujshNeGrup grupi = RuajtjeArtikujshNeGrup.Krijo(importo, vjenNgaImportSQL, gabime, tePaImportuara, pozicionkodi);
+            DataTable gabimeT = gabime, tePaImportuaraT = tePaImportuara;
+            void PerpunoRreshtin(DataRow dr)
             {
                 colTrupiFormatImporti colCopy = col.Kopjo();
                 string llojVeprimi = llojVeprimiTrupFormati == null ? "Shtim" : clsFunksione.vendosVlere(llojVeprimiTrupFormati, dr, out error);
                 if (string.IsNullOrEmpty(llojVeprimi) || (llojVeprimi != EnumLlojVeprimiImporti.Modifikim.ToString() && llojVeprimi != EnumLlojVeprimiImporti.Shtim.ToString()))
                 {
                     object[] arr = { dr[pozicionkodi], $"Lloji i veprimit nuk ekziston.", i };
-                    gabime.Rows.Add(arr);
+                    gabimeT.Rows.Add(arr);
                     if (importo)
                     {
-                        tePaImportuara.ImportRow(dr);
-                        gabime.Rows[gabime.Rows.Count - 1][2] = tePaImportuara.Rows.Count;
+                        tePaImportuaraT.ImportRow(dr);
+                        gabimeT.Rows[gabimeT.Rows.Count - 1][2] = tePaImportuaraT.Rows.Count;
                     }
-                    continue;
+                    return;
                 }
                 bool shtim = (llojVeprimi != EnumLlojVeprimiImporti.Modifikim.ToString());
 
                 if (shtim)
-                    mesazh = ImportoArtikujShtim(ref dt, ref gabime, ref tePaImportuara, importo, pozicionkodi, rm, ci, idPerdorues, idndermarje, colCopy, vjenNgaImportSQL, emerTab, dr, out error, i, vlerat.emerNjesia1, vlerat.skema, vlerat.vleradefaultnjesia, vlerat.vleradefaultskema);
+                    mesazh = ImportoArtikujShtim(ref dt, ref gabimeT, ref tePaImportuaraT, importo, pozicionkodi, rm, ci, idPerdorues, idndermarje, colCopy, vjenNgaImportSQL, emerTab, dr, out error, i, vlerat.emerNjesia1, vlerat.skema, vlerat.vleradefaultnjesia, vlerat.vleradefaultskema, grupi);
                 else
-                    mesazh = ImportoArtikujModifikim(ref gabime, ref tePaImportuara, importo, pozicionkodi, rm, ci, idPerdorues, idndermarje, colCopy, vjenNgaImportSQL, emerTab, dr, out error, i);
-                if (error != "")
-                    continue;
-
+                {
+                    grupi?.Zbraz();   // modifikimi mund te kerkoje artikuj te krijuar me lart ne skedar
+                    mesazh = ImportoArtikujModifikim(ref gabimeT, ref tePaImportuaraT, importo, pozicionkodi, rm, ci, idPerdorues, idndermarje, colCopy, vjenNgaImportSQL, emerTab, dr, out error, i);
+                }
             }
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                int gabimePara = gabimeT.Rows.Count, paImportuaraPara = tePaImportuaraT.Rows.Count;
+                grupi?.FilloRreshtin();
+                PerpunoRreshtin(dr);
+                grupi?.PasRreshtit(gabimePara, paImportuaraPara);
+            }
+            if (grupi != null)
+            {
+                grupi.Zbraz();
+                mesazh = grupi.MesazhiIFundit() ?? mesazh;
+            }
+            gabime = gabimeT;
+            tePaImportuara = tePaImportuaraT;
             if (!mesazh.Status)
                 return new clsMesazh(false, rm.GetString("msgGabimNeImportim", ci));
             return new clsMesazh(true, rm.GetString("msgImportimMeSukses", ci));
         }
 
-        private static clsMesazh ImportoArtikujShtim(ref DataTable dt, ref DataTable gabime, ref DataTable tePaImportuara, bool importo, int pozicionkodi, ResourceManager rm, CultureInfo ci, int idPerdorues, int idndermarje, colTrupiFormatImporti col, bool vjenNgaImportSQL, string emerTab, DataRow dr, out string error, int i, string emerNjesia1, string skemaFormat, string vleraDefaultNjesia, string vleraDefaultSkema)
+        private static clsMesazh ImportoArtikujShtim(ref DataTable dt, ref DataTable gabime, ref DataTable tePaImportuara, bool importo, int pozicionkodi, ResourceManager rm, CultureInfo ci, int idPerdorues, int idndermarje, colTrupiFormatImporti col, bool vjenNgaImportSQL, string emerTab, DataRow dr, out string error, int i, string emerNjesia1, string skemaFormat, string vleraDefaultNjesia, string vleraDefaultSkema, RuajtjeArtikujshNeGrup grupi = null)
         {
             clsMesazh mesazh = new clsMesazh();
             clsArtikulli art = new clsArtikulli();
@@ -376,11 +394,17 @@ namespace DbCore.DbImporte
                 string nrAutom = nrAutoObject.nrAutom;
                 Dictionary<string, object> hfNrAuto = nrAutoObject.hiddenFieldPerNrAuto;
 
+                // nje artikull ne pritje me te njejtin kod/kodbar duhet te jete ne databaze para kontrolleve te ketij rreshti
+                if (grupi != null && grupi.Perplaset(clsFunksione.ktheStringunPaHapesira(nrAutom, true), new[] { kodbar.Pershkrimi }))
+                    grupi.Zbraz();
+
                 art = art.krijoArtikullPerImport(new clsArtikulli(), clsFunksione.ktheStringunPaHapesira(nrAutom, true), clsFunksione.ktheStringunPaHapesira(pershkrimi, false), clsFunksione.ktheStringunPaHapesira(pershkrimi2, false), kodidoganor, vendodhje, kodkodifikim1, kodkodifikim2, origjine, njesiart1, njesiaart2, koeficenti, furnitor, peshabruto, peshaneto, medatajim, klasa, skema, lloginv, llogblerje, llogshitje, llogtrete, llogshpenzimi, llogamor, llogpak, nrLlogPakRez, nrLlogRez, minimum, maksimum, metodekostoje, llogaritjaKMSHArtikulli, zevendesimAutomatikArtikulli, idPerdorues, aktiv, kontrollGjendjeDet1, kontrollCmimi, kontrollgjendje, new colArtikulliPerberes(), new colFurnitoreArtikujsh(), new colArtikujtZevendesues(), new colVleraFushaShtese(), new DbKontabiliteti.colBuxhetet(), detajim1, llojart, idndermarje, niveltvsh, idkonfig, autorizimet, shtim, sasinjesi, scrap, prodhimmeporosi, kategoridet, true, kategoridet2, kontrollGjendjeDet2, objektiva, detajim2, magazina, irezervueshem, llojgarancie, garancia, iShitshem, meserial, false, rm, ci, colKodbare, perpeshore, pershkrimifurnitori, siperfaqjam2, nrkontrate, nrpasurie, zonakadastrale, shasia, marka, modeli, vitprodhimi, tedhenateknike, false, "", kodkodifikim3, false, new colArtikullVfone(), formatSeriali, merezerveriv, nrKaraktereTAC, llogaritKomision, llogariKomisioni, stokuMaxVfOne, "", false);
                 if (importo)
                 {
                     if (vjenNgaImportSQL)
                         mesazh = art.ruaj(hfNrAuto, new colCmimeArtikujsh(), new clsArtikullPerberesTemplateKoka(), vjenNgaImportSQL, dr[primaryKey].ToString(), emerTab, primaryKey, ndermarrjeKey);
+                    else if (grupi != null && grupi.Shto(art, hfNrAuto, dr, i, primaryKey, ndermarrjeKey))
+                        mesazh = new clsMesazh(true);   // ruhet ne grup; gabimet (nese ka) i shton grupi ne rradhen e duhur
                     else
                         mesazh = art.ruaj(hfNrAuto, new colCmimeArtikujsh(), new clsArtikullPerberesTemplateKoka(), vjenNgaImportSQL, "0", "", primaryKey, ndermarrjeKey);
 
