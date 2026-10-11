@@ -1838,6 +1838,16 @@ namespace DbCore.DbInventari
 
         }
 
+        /// <summary>Numri i artikujve aktive te ndermarrjes (lupa e artikujve vendos nese ngarkon listen e plote).</summary>
+        internal int numeroArtikujAktive(int idnderm)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.Text,
+                "SELECT COUNT(*) FROM T_ARTIKULLI WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK = 1 AND AKTIV = 1"));
+        }
+
         internal DataTable ktheArtikujNdermarrjesAndAutorizimePerLupeArtikulli(int idnderm, int idperdorues, bool kostoSasi, int idMag, bool cmime, bool cmimeMeTvsh, string postStringTvsh, bool iShitshem, string dategjendje, int kodifikim1, int kodifikim2, int kodifikim3, bool dhurataVFOne)
         {
 

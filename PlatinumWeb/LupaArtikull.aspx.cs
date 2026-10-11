@@ -18,6 +18,11 @@ namespace PlatinumWeb
     public partial class LupaArtikull : MyPageBase
     {
         private const string Komponente = "LupaArtikull.aspx";
+        /// <summary>
+        /// Mbi kete numer artikujsh lupa punon si me alternativen SHVF ("vetem me filter"): hapet bosh dhe cdo filter
+        /// merr nga databaza vetem artikujt qe e plotesojne; lista e plote (qindra mijera rreshta ne sesion) nuk ngarkohet.
+        /// </summary>
+        private const int KufiriListesSePlote = 20000;
         private string _guidString;
         private int IdNdermarrjePerListe;
         protected void Page_Load(object sender, EventArgs e)
@@ -54,7 +59,8 @@ namespace PlatinumWeb
                 PercaktoTemplateMenu();
                 clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "gvLupaArtikull", (int)hfState["idKonfigambjenti"], Komponente);
                 mySessionObjects.ruajMosMerrNgaDbNeSesion(Session, false);
-                hfState.Add("MerrDB", clsAlternativaKushti.getAlternativa(idKonfigambjenti, "SHVF") == "Po");
+                hfState.Add("MerrDB", clsAlternativaKushti.getAlternativa(idKonfigambjenti, "SHVF") == "Po"
+                                      || colArtikujt.numeroArtikujAktive(IdNdermarrjePerListe) > KufiriListesSePlote);
                 hfState.Add("KSSH", clsAlternativaKushti.getAlternativa(idKonfigambjenti, "KSSH") == "Po");
                 hfState.Add("ES", clsAlternativaKushti.getAlternativa(idKonfigambjenti, "ES") == "Po");
 
@@ -164,6 +170,8 @@ namespace PlatinumWeb
             gridaSelectButtons.Visible = (Request.QueryString["vjenNgaRaporti"] == "true");
             gvLupaArtikull.Columns["Gjendje"].Visible = cbGjendje.Checked;
             gvLupaArtikull.Columns["Kosto"].Visible = cbKosto.Checked;
+            if ((bool)hfState["MerrDB"])
+                gvLupaArtikull.SettingsText.EmptyDataRow = "Vendosni nje filter (p.sh. kodin ose pershkrimin) per te shfaqur artikujt";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaArtikull, "IdArtikulli", (bool)hfState["KSSH"], (bool)hfState["ES"]);
             gridaSelectFaqe.ToolTip = rm.GetString("btnZgjidhTeGjitheFaqen", ci);
             gridaSelectTeGjitha.ToolTip = rm.GetString("btnZgjidhTeGjithe", ci);
@@ -218,6 +226,16 @@ namespace PlatinumWeb
             ASPxMenu1.Items.FindByName("Anullo").Text = rm.GetString("MenuItemMbyll", ci);
         }
 
+        /// <summary>
+        /// Lista "vetem me filter" (SHVF ose shume artikuj) pa asnje filter (as te grides, as kodifikim): mbetet bosh ne vend
+        /// qe te ngarkohen te gjithe artikujt.
+        /// </summary>
+        private bool VetemMeFilter(int idKodifikimi1, int idKodifikimi2, int idKodifikimi3)
+        {
+            return (bool)hfState["MerrDB"] && string.IsNullOrEmpty(gvLupaArtikull.FilterExpression)
+                   && idKodifikimi1 == -1 && idKodifikimi2 == -1 && idKodifikimi3 == -1;
+        }
+
         private void MbushPopUpListeArtikujshNgaSession()
         {
             object tmpObject;
@@ -233,7 +251,7 @@ namespace PlatinumWeb
                     idKodifikimi2 = clsKodifikimArtikulli.ktheIdKodifikimi(btneKodifikimi1.Text, IdNdermarrja, 2, false);
                 if (!string.IsNullOrEmpty(btneKodifikimi3.Text))
                     idKodifikimi3 = clsKodifikimArtikulli.ktheIdKodifikimi(btneKodifikimi1.Text, IdNdermarrja, 3, false);
-                MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], false, dtDataGjendje.Value.ToString(), idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
+                MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], VetemMeFilter(idKodifikimi1, idKodifikimi2, idKodifikimi3), dtDataGjendje.Value.ToString(), idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
             }
             else
             {
@@ -486,7 +504,7 @@ namespace PlatinumWeb
                     idKodifikimi3 = clsKodifikimArtikulli.ktheIdKodifikimi(btneKodifikimi1.Text, IdNdermarrja, 3, false);
                 var idKonfigambjenti = (int)hfState["idKonfigambjenti"];
                 //else
-                MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], false, dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
+                MbushPopUpListeArtikujshNgaDb(IdPerdoruesi, IdNdermarrjePerListe, cbKosto.Checked || cbGjendje.Checked, idMagazina, cbCmime.Checked, cbCmimeMeTvsh.Checked, (bool)hfState["artikujTeShitshem"], VetemMeFilter(idKodifikimi1, idKodifikimi2, idKodifikimi3), dtgjendje, idKodifikimi1, idKodifikimi2, idKodifikimi3, false);
                 KonfiguroPopupGride(IdNdermarrjePerListe, null, cbCmime.Checked, cbCmimeMeTvsh.Checked, postStringTvsh);
                 GridUtil.percaktoVisibleColumnsSipasKonfigurimit(gvLupaArtikull, "gvLupaArtikull", Komponente, idKonfigambjenti, true, (int)hfState["idGjuha"]);
                 gvLupaArtikull.Columns["Gjendje"].Visible = cbGjendje.Checked;

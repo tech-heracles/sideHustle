@@ -149,6 +149,13 @@ namespace DbCore.DbInventari
         /// <param name="idperdorues">Id e perdoruesit</param>
         /// <param name="iShitshem">true per te marre vetem artikujt e shitshem, false per t'i marre te gjithe</param>
         /// <returns></returns>
+        /// <summary>Numri i artikujve aktive te ndermarrjes.</summary>
+        public static int numeroArtikujAktive(int idnderm)
+        {
+            using (var dbartikuj = new clsDatabaseInventari())
+                return dbartikuj.numeroArtikujAktive(idnderm);
+        }
+
         public static DataTable merrSipasArtikujNdermarrjesAndAutorizimePerLupeArtikulli(int idnderm, int idperdorues, bool kostoSasi, int idMag, bool cmime, bool cmimeMeTvsh, string postStringTvsh, bool iShitshem, bool filtro, string filter, string dategjendje, int kodifikim1, int kodifikim2, int kodifikim3, bool dhurataVFOne)
         {
             using (var dbartikuj = new clsDatabaseInventari())
