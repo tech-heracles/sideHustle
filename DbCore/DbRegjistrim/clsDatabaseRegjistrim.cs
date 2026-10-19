@@ -5528,10 +5528,11 @@ namespace DbCore.DbRegjistrim
 
         internal clsMesazh kontrolloTeTeraModifikim(int idArt, string artKod, int metodeKosto, int idNderm, int idmag, bool meDyData, DateTime data1, DateTime data2, bool kapDokMesDatave, int idKokaDokument, bool eshteDalje, double sasiArtikulli, int meDetajim, int idDet, string kodDet, int llojVeprimi, double sasiArtikulliOld)
         {
-            // kontrolli i importit (pa shkrime): levizjet e artikullit lexohen nje here per artikull/magazine dhe
-            // llogaritet si dega mesatare e procedures; dokumente ekzistuese (modifikim) dhe FIFO shkojne ne SQL
+            // importi: llogaritet si dega mesatare e procedures mbi levizjet e artikullit. Ne kontroll (pa shkrime) levizjet
+            // lexohen nje here per artikull/magazine; ne ruajtje (dokumentet e importit ndryshojne gjendjen) lexohen per cdo
+            // rresht me nje pyetje, pa proceduren (~5 ms per rresht). Dokumente ekzistuese (modifikim) dhe FIFO shkojne ne SQL.
             if (idKokaDokument == 0 && (metodeKosto == 1 || metodeKosto == 2 || metodeKosto == 5 || metodeKosto == 6)
-                && ImportCache.Perdoret(ImportCache.Gjendje))
+                && ImportCache.Aktiv)
             {
                 var levizjet = ImportCache.Merr(ImportCache.Gjendje, idNderm + "|" + idmag + "|" + idArt + "|" + meDetajim + "|" + idDet,
                     () => levizjetPerKontrollGjendje(idNderm, idmag, idArt, meDetajim, idDet), _ => true);

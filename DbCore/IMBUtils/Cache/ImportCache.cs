@@ -91,6 +91,9 @@ namespace DbCore.IMBUtils.Cache
         /// <summary>Lloji i cache-it per te dhena sipas id se artikullit: <see cref="ArtikullIRi"/> per id &lt;= 0, perndryshe <see cref="Artikull"/>.</summary>
         public static string LlojiArtikullit(int idArtikulli) => idArtikulli <= 0 ? ArtikullIRi : Artikull;
 
+        /// <summary>True kur ka nje import/kontroll aktiv ne kete thread.</summary>
+        public static bool Aktiv => aktiv != null;
+
         /// <summary>True kur ka nje import/kontroll aktiv ne kete thread dhe ky lloj ruhet ne cache.</summary>
         public static bool Perdoret(string lloji) => aktiv != null && !aktiv.tePerjashtuara.Contains(lloji);
 

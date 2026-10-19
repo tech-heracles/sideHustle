@@ -5217,10 +5217,25 @@ namespace DbCore
 							EIC = vendosVlere(trup, dokTable.Rows[0], out error);
 							break;
 						case "Procesi":
-							Procesi = Convert.ToInt32(new clsKokaShitje().ktheIdProcesi(vendosVlere(trup, dokTable.Rows[0], out error)).Rows[0].ItemArray[0].ToString());
+							{
+								// kod i panjohur: gabim i qarte ne vend te "There is no row at position 0"
+								string kodProcesi = vendosVlere(trup, dokTable.Rows[0], out error);
+								var procesi = new clsKokaShitje().ktheIdProcesi(kodProcesi);
+								if (procesi.Rows.Count == 0)
+									error = "Procesi me kod " + kodProcesi + " nuk ekziston";
+								else
+									Procesi = Convert.ToInt32(procesi.Rows[0].ItemArray[0].ToString());
+							}
 							break;
 						case "E-invoice Type":
-							eInvoiceType = Convert.ToInt32(new clsKokaShitje().ktheIdTipiEinvoice(vendosVlere(trup, dokTable.Rows[0], out error)).Rows[0].ItemArray[0].ToString());
+							{
+								string kodTipi = vendosVlere(trup, dokTable.Rows[0], out error);
+								var tipiEinvoice = new clsKokaShitje().ktheIdTipiEinvoice(kodTipi);
+								if (tipiEinvoice.Rows.Count == 0)
+									error = "E-invoice Type me kod " + kodTipi + " nuk ekziston";
+								else
+									eInvoiceType = Convert.ToInt32(tipiEinvoice.Rows[0].ItemArray[0].ToString());
+							}
 							break;
 						case "Tipi i vetefaturimit":
 							TipiVetefaturimit = vendosVlere(trup, dokTable.Rows[0], out error);
@@ -7959,7 +7974,12 @@ namespace DbCore
 							break;
 						case "Operatori":
 							string operatori = vendosVlere(trup, dokTable.Rows[0], out error);
-							int.TryParse(clsOperator.MerrIdOperatoriSipasKodOperatori(operatori, idNdermarrje).ItemArray[0].ToString(), out idOperatori);
+							// si ne importin e shitjeve: operator i panjohur = 0 (me pare ItemArray[0] i nje rreshti bosh:
+							// "Index was outside the bounds of the array" per cdo dokument)
+							var rreshtiOperatorit = clsOperator.MerrIdOperatoriSipasKodOperatori(operatori, idNdermarrje);
+							idOperatori = 0;
+							if (rreshtiOperatorit.ItemArray.Length > 0)
+								int.TryParse(rreshtiOperatorit.ItemArray[0].ToString(), out idOperatori);
 							break;
 						case "Tipi":
 							tipi = vendosVlere(trup, dokTable.Rows[0], out error);
