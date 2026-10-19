@@ -1,4 +1,4 @@
-﻿# Apliko skriptet e optimizimit (01, 02, 04-25) ne nje databaze, me rradhe; ndalon te gabimi i pare.
+﻿# Apliko skriptet e optimizimit (01, 02, 04-26) ne nje databaze, me rradhe; ndalon te gabimi i pare.
 # Perdorimi (PowerShell, nga kjo dosje ose me rrugen e plote):
 #   .\apply-optimisation.ps1 -Server 'localhost\HERACLES' -Database 'web_vg'
 # Kerkon sqlcmd. Lidhja me Windows authentication (-E).
@@ -31,7 +31,8 @@ $scripts = @(
     '22-artikuj-import-grup.sql',
     '23-lupa-artikull-pa-gjendje-kur-bosh.sql',
     '24-ruajtje-magazine-progresivi.sql',
-    '25-cmim-mesatar-shuma-direkte.sql'
+    '25-cmim-mesatar-shuma-direkte.sql',
+    '26-cmim-mesatar-konfigurime.sql'
 )
 foreach ($s in $scripts) {
     $path = Join-Path $PSScriptRoot $s
