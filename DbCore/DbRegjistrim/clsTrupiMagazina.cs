@@ -1629,12 +1629,14 @@ namespace DbCore.DbRegjistrim
                         }
                         catch (System.Data.SqlClient.SqlException ex)
                         {
+                            // para pritjes/riprovimit lirohet transaksioni dhe lidhja (me pare mbetej e hapur gjate pritjes
+                            // dhe nuk kthehej me ne pool, sepse cdo tentative hap nje lidhje te re)
+                            dbData.rollbackNeseHapur();
                             if(!retryTrans.checkRetry(ex, log, i))
                             {
-                                dbData.rollbackTransaksion();
                                 log.logError(ex.Number, ex.Message);
                                 throw ex;
-                            }                                                        
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -1670,9 +1672,9 @@ namespace DbCore.DbRegjistrim
                         }
                         catch (System.Data.SqlClient.SqlException ex)
                         {
+                            dbData.rollbackNeseHapur(); // lirohet lidhja para pritjes/riprovimit
                             if (!retryTrans.checkRetry(ex,log,k))
-                            {
-                                dbData.rollbackTransaksion();                                
+                            {                                
                                 throw ex;
                             }
                         }

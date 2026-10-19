@@ -2,6 +2,7 @@
 using DbCore.DbShare;
 using NLog;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -27,7 +28,8 @@ namespace DbCore
         private string _passw;
         private string _emerEmali;
         private bool _enableSsl;
-        public Dictionary<string, MailMessage> listEmail = new Dictionary<string, MailMessage>();
+        // perdoret nga disa thread-e njeheresh (dergimet ne sfond)
+        public ConcurrentDictionary<string, MailMessage> listEmail = new ConcurrentDictionary<string, MailMessage>();
 
         ///' <summary>
         ///' The starting function of console application.
@@ -102,65 +104,91 @@ namespace DbCore
             smtp.Send(mail);
 
         }
+        /// <summary>
+        /// Ekzekuton dergimin ne nje thread te sfondit. Nje gabim i pakapur ne thread-in e sfondit mbyll gjithe procesin e IIS
+        /// (w3wp) per te gjithe perdoruesit, prandaj ketu kapet dhe vetem regjistrohet.
+        /// </summary>
+        private static void NeSfond(Action veprimi)
+        {
+            ThreadPool.QueueUserWorkItem(o =>
+            {
+                try
+                {
+                    veprimi();
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex, "Dergim email-i ne sfond");
+                }
+            });
+        }
+
         public void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
             SendCompletedCallback(sender, e, "");
         }
         public void SendCompletedCallback(object sender, AsyncCompletedEventArgs e, string userResetPassword)
         {
-            // Get the unique identifier for this asynchronous operation.
-            int idEmail = Convert.ToInt32(e.UserState);
-            if (e.Cancelled)
+            try
             {
-                if (idEmail != -1)
+                // Get the unique identifier for this asynchronous operation.
+                int idEmail = Convert.ToInt32(e.UserState);
+                if (e.Cancelled)
                 {
-                    DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.gabim, e.Error.Message);
+                    if (idEmail != -1)
+                    {
+                        DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.gabim, e.Error?.Message ?? "Dergimi u anullua");
+                    }
+                }
+                if (e.Error != null)
+                {
+                    try
+                    {
+                        if (idEmail == -1 && e.Error.Message.Contains("timed out")) //rasti kur serveri nuk eshte i disponueshem, te ridergohet email-i per resetim passwordi 
+                        {
+                            SmtpClient smtp = sender as SmtpClient;
+                            MailMessage email = null;
+                            listEmail.TryGetValue(idEmail.ToString(), out email);
+                            smtp.SendAsync(email, idEmail.ToString());
+                        }
+                        else
+                        {
+                            DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.gabim, e.Error.Message + Environment.NewLine + ((e.Error.InnerException != null) ? Convert.ToString(e.Error.InnerException) : ""));
+                        }
+                        log.Error(e.Error, Environment.NewLine + (userResetPassword == "" ? "SendCompletedCallback" : "Error nga resetimi i fjalekalimit per userin : " + userResetPassword) + Environment.NewLine);
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex);
+                    }
+
+                }
+                else if (idEmail != -1)
+                {
+                    try
+                    {
+                        Trace.WriteLine(String.Format("[{0}] Message sent.", idEmail));
+
+                        DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.derguar, "");
+                        string fullPath = DbCore.DbRegjistrim.clsEmail.merrPathRaport(idEmail);
+                        if (!String.IsNullOrEmpty(fullPath))
+                        {
+                            MailMessage email = null;
+                            listEmail.TryGetValue(fullPath, out email);
+                            if (email != null)
+                                email.Dispose();
+                            System.IO.File.Delete(fullPath);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex, "SendCompletedCallback");
+                    }
                 }
             }
-            if (e.Error != null)
+            catch (Exception ex)
             {
-                try
-                {
-                    if (idEmail == -1 && e.Error.Message.Contains("timed out")) //rasti kur serveri nuk eshte i disponueshem, te ridergohet email-i per resetim passwordi 
-                    {
-                        SmtpClient smtp = sender as SmtpClient;
-                        MailMessage email = null;
-                        listEmail.TryGetValue(idEmail.ToString(), out email);
-                        smtp.SendAsync(email, idEmail.ToString());
-                    }
-                    else
-                    {
-                        DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.gabim, e.Error.Message + Environment.NewLine + ((e.Error.InnerException != null) ? Convert.ToString(e.Error.InnerException) : ""));
-                    }
-                    log.Error(e.Error, Environment.NewLine + (userResetPassword == "" ? "SendCompletedCallback" : "Error nga resetimi i fjalekalimit per userin : " + userResetPassword) + Environment.NewLine);
-                }
-                catch (Exception ex)
-                {
-                    log.Error(ex);
-                }
-
-            }
-            else if (idEmail != -1)
-            {
-                try
-                {
-                    Trace.WriteLine(String.Format("[{0}] Message sent.", idEmail));
-
-                    DbCore.DbRegjistrim.clsEmail.ndryshoStatus(idEmail, DbRegjistrim.statusEmail.derguar, "");
-                    string fullPath = DbCore.DbRegjistrim.clsEmail.merrPathRaport(idEmail);
-                    if (!String.IsNullOrEmpty(fullPath))
-                    {
-                        MailMessage email = null;
-                        listEmail.TryGetValue(fullPath, out email);
-                        if (email != null)
-                            email.Dispose();
-                        System.IO.File.Delete(fullPath);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    log.Error(ex, "SendCompletedCallback");
-                }
+                log.Error(ex, "SendCompletedCallback");
             }
         }
         public bool SendPlainAsyncEmailMultiple(string[] toEmails, string subjekt, string body, int idNdermarrje, int idPerdorues, bool isBodyHtml)
@@ -169,7 +197,7 @@ namespace DbCore
             {
                 DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje,0, String.Join(";", toEmails), DateTime.Now, subjekt, body, idPerdorues);
                 
-                ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMailMultiple(toEmails, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
+                NeSfond(() => SendPlainAsyncMailMultiple(toEmails, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
                 return true;
             }
             catch (MyException)
@@ -183,7 +211,7 @@ namespace DbCore
             {
                
                 DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje,0, String.Join(";", toEmails), DateTime.Now, subjekt, body,idPerdorues);
-                ThreadPool.QueueUserWorkItem(o => SendHtmlMailMeAttach(toEmails, subjekt, body, email.IdEmail.ToString(), atachements));
+                NeSfond(() => SendHtmlMailMeAttach(toEmails, subjekt, body, email.IdEmail.ToString(), atachements));
                 return true;
             }
             catch (MyException)
@@ -213,16 +241,15 @@ namespace DbCore
 
                         //create the mail message
                         MailMessage mail = new MailMessage(_mail, toEmail);
-                        if (!listEmail.ContainsKey(Pathi))
-                            listEmail.Add(Pathi, mail);
+                        listEmail.TryAdd(Pathi, mail);
 
-                        ThreadPool.QueueUserWorkItem(o => SendHtmlMailMeAttach(mail, toEmail, subjekt, body, email.IdEmail.ToString(), Pathi));
+                        NeSfond(() => SendHtmlMailMeAttach(mail, toEmail, subjekt, body, email.IdEmail.ToString(), Pathi));
                     }
                 }
                 else
                 {
                     var email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, String.Join(";", toEmails), DateTime.Now, subjekt, body, idPerdoruesi);
-                    ThreadPool.QueueUserWorkItem(o => SendHtmlMailMeAttach(toEmails, subjekt, body, email.IdEmail.ToString(), attachments));
+                    NeSfond(() => SendHtmlMailMeAttach(toEmails, subjekt, body, email.IdEmail.ToString(), attachments));
                 }
                 return true;
             }
@@ -236,7 +263,7 @@ namespace DbCore
             try
             {
                 DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, String.Join(";", toEmails), DateTime.Now, subjekt, body, Pathi, idPerdoruesi);
-                ThreadPool.QueueUserWorkItem(o => SendHtmlMailMeAttachZip(toEmails, subjekt, body, email.IdEmail.ToString(), Pathi, arkiva, idNdermarrje, virtualPath));
+                NeSfond(() => SendHtmlMailMeAttachZip(toEmails, subjekt, body, email.IdEmail.ToString(), Pathi, arkiva, idNdermarrje, virtualPath));
                 return true;
             }
             catch (MyException)
@@ -248,7 +275,7 @@ namespace DbCore
         {
             try
             {
-                ThreadPool.QueueUserWorkItem(o => SendHtmlMailMeAttachZip(toEmails, subjekt, body, idEmail.ToString(), Pathi, arkiva, idNdermarrje, virtualPath));
+                NeSfond(() => SendHtmlMailMeAttachZip(toEmails, subjekt, body, idEmail.ToString(), Pathi, arkiva, idNdermarrje, virtualPath));
                 return true;
             }
             catch (MyException)
@@ -263,7 +290,7 @@ namespace DbCore
                 for (int i = 0; i < toEmails.Length; i++)
                 {
                     string toEmail = toEmails[i];
-                    ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body, "-1", usernameResetPassword, true, Convert.ToBoolean(System.Web.Configuration.WebConfigurationManager.AppSettings["MailServerWithCredentials"])));
+                    NeSfond(() => SendPlainAsyncMail(toEmail, subjekt, body, "-1", usernameResetPassword, true, Convert.ToBoolean(System.Web.Configuration.WebConfigurationManager.AppSettings["MailServerWithCredentials"])));
                 }
                 return true;
             }
@@ -289,7 +316,7 @@ namespace DbCore
                 {
                     string toEmail = toEmails[i];
                     DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, nrProcesi, toEmail, DateTime.Now, subjekt, body, idPerdoruesi);
-                    ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString()));
+                    NeSfond(() => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString()));
                 }
                 return true;
             }
@@ -314,7 +341,7 @@ namespace DbCore
                 {
                     string toEmail = toEmails[i];
                     DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, toEmail, DateTime.Now, subjekt, body, idPerdoruesi);
-                    ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
+                    NeSfond(() => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
                 }
                 return true;
             }
@@ -335,7 +362,7 @@ namespace DbCore
                 foreach (var email in emailet)
                 {
 
-                    ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(email.MarresEmail, email.SubjektEmail, email.TrupEmail, email.IdEmail.ToString(), true));
+                    NeSfond(() => SendPlainAsyncMail(email.MarresEmail, email.SubjektEmail, email.TrupEmail, email.IdEmail.ToString(), true));
                 }
                 return true;
             }
@@ -358,7 +385,7 @@ namespace DbCore
                 for (int i = 0; i < toEmails.Length; i++)
                 {
                     string toEmail = toEmails[i];
-                    ThreadPool.QueueUserWorkItem(o => SendPlainAsyncMail(toEmail, subjekt, body));
+                    NeSfond(() => SendPlainAsyncMail(toEmail, subjekt, body));
                 }
                 return true;
             }
@@ -420,7 +447,7 @@ namespace DbCore
                 else
                     smtp.UseDefaultCredentials = Convert.ToBoolean(System.Web.Configuration.WebConfigurationManager.AppSettings["UseDefaultCredentials"]);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                listEmail.Add(idEmail + toemail, mail);
+                listEmail[idEmail + toemail] = mail;
                 smtp.SendCompleted += new SendCompletedEventHandler((s, e) => SendCompletedCallback(s, e, usernametoResetPass));
                 //mail Server IP or NAME 
 
@@ -447,7 +474,7 @@ namespace DbCore
             else
                 smtp.UseDefaultCredentials = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            listEmail.Add(idEmail + toemail, mail);
+            listEmail[idEmail + toemail] = mail;
             smtp.SendCompleted += SendCompletedCallback;
             try
             {
@@ -472,7 +499,7 @@ namespace DbCore
             smtp.EnableSsl = _enableSsl;
             smtp.Credentials = new System.Net.NetworkCredential(mail.From.Address, _passw);
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            listEmail.Add(idEmail + toemail, mail);
+            listEmail[idEmail + toemail] = mail;
             smtp.SendCompleted += SendCompletedCallback;
             //mail Server IP or NAME 
             try
@@ -631,8 +658,7 @@ namespace DbCore
             {
                 Attachment attach = new Attachment(pathi);
                 mail.Attachments.Add(attach);
-                if (!listEmail.ContainsKey(pathi))
-                    listEmail.Add(pathi, mail);
+                listEmail.TryAdd(pathi, mail);
                 smtp.SendCompleted += SendCompletedCallback;
                 //mail Server IP or NAME 
                 try

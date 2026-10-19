@@ -1,57 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Linq;
-using System.Web.SessionState;
-using AutoMapper;
-using DbCore.DbAdmin;
+using DbCore.IMBUtils.DataBase;
 using DbCore.DbListPagesat;
 
 namespace DbCore
 {
     public static class StaticCache
     {
-        public const string KomponentePageKey = "kompPageKey";
-
-        private static Dictionary<string, object> _cacheData;
-        public static Dictionary<string, object> CacheData => _cacheData ?? (_cacheData = new Dictionary<string, object>());
-
-
+        // Komponentet e pages lexohen nga disa thread-e njeheresh (llogaritja e pages ne paralel, disa perdorues), prandaj
+        // ruhen ne nje ConcurrentDictionary. Me pare ishte Dictionary + List qe shtoheshin pa sinkronizim: dy shtime njeheresh
+        // mund te prishnin listen (gabime ose thread qe rrotullohet pa fund ne 100% CPU). Celesi perfshin databazen, sepse
+        // id-te e komponenteve perseriten ne databaza te ndryshme.
+        private static readonly ConcurrentDictionary<string, clsKomponentePage> komponentet = new ConcurrentDictionary<string, clsKomponentePage>();
 
         public static void ClearCache()
         {
-            _cacheData = null;
+            komponentet.Clear();
         }
 
         public static clsKomponentePage GetKomponentePage(int idKomponentePage, clsDatabazeListPagesa data)
         {
-            clsKomponentePage kompPage = null;
-            colKomponentePage myColKompPage;
-            object cachedData;
-            if (CacheData.TryGetValue(KomponentePageKey, out cachedData))
+            var celesi = Databaza() + "|" + idKomponentePage;
+            if (komponentet.TryGetValue(celesi, out var ruajtur))
             {
-                myColKompPage = cachedData as colKomponentePage;
-                kompPage = myColKompPage?.FirstOrDefault(x => (x.IdKomponentePage == idKomponentePage));
+                Debug.WriteLine($"Cache - Mbush komponente page me id: {idKomponentePage}");
+                return ruajtur.Clone();
             }
-            else
-            {
-                myColKompPage = new colKomponentePage();
-            }
-            if (kompPage == null)
-            {
-                kompPage = new clsKomponentePage();
-                data.ktheKomponentePage(idKomponentePage, kompPage);
-                Debug.WriteLine($"DB - Mbush komponenten nga id: {idKomponentePage}");
-                if (kompPage.IdKomponentePage == 0)
-                    throw new MyException($"komponentePage me id: {idKomponentePage} nuk ekziston");
-                myColKompPage.Add(kompPage);
-                _cacheData[KomponentePageKey] = myColKompPage;
-                return kompPage;
-            }
-            Debug.WriteLine($"Cache - Mbush komponente page me id: {idKomponentePage}");
-            return kompPage.Clone();
+
+            var kompPage = new clsKomponentePage();
+            data.ktheKomponentePage(idKomponentePage, kompPage);
+            Debug.WriteLine($"DB - Mbush komponenten nga id: {idKomponentePage}");
+            if (kompPage.IdKomponentePage == 0)
+                throw new MyException($"komponentePage me id: {idKomponentePage} nuk ekziston");
+            komponentet[celesi] = kompPage.Clone();
+            return kompPage;
         }
 
-        
+        private static string Databaza()
+        {
+            try
+            {
+                return MyConnectionsManager.GetSelectedConNameServer();
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
     }
 }
