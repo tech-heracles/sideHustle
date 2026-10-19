@@ -6,6 +6,8 @@
 -- kerkim TOP(1) per artikull ne indeksin ekzistues IX_TRUPIMAGAZINA_PROGRESIV. Rreshti i zgjedhur eshte i njejti.
 -- Gjithashtu: lidhja e konvertimeve (IDTRUPIKONVERTIMUD) me kyce rreshti. Dy importe njeheresh benin deadlock ne
 -- faqen e fundit te indeksit te saj ne pothuajse cdo dokument (dokumentet viktima nuk importoheshin: "provoni perseri").
+-- Dhe: dokumentet e se njejtes magazine radhiten me nje kyc aplikacioni (sp_getapplock) nga futja e rreshtave deri ne
+-- commit, ne vend qe te benin deadlock duke lexuar rreshtat e pa-ruajtur te njeri-tjetrit.
 -- Kerkon skriptin 21. Rikthimi: 24-rollback-ruajtje-magazine-progresivi.sql (versioni i skriptit 21)
 SET ANSI_NULLS ON
 GO
@@ -26,6 +28,26 @@ set @koefHyrje = 10
 
 DECLARE @TIMESTAMPFILLO datetime = GETDATE(); 
 DECLARE @EXECTIME		datetime = GETDATE(); 
+
+-- Dokumentet e se njejtes magazine radhiten ketu deri ne commit (kyc aplikacioni per magazine, ne rend rrites).
+-- Pa kete, dy importe/ruajtje njeheresh ne te njejten magazine futnin rreshtat e tyre dhe pastaj lexonin rreshtat e
+-- te njejtes date te njeri-tjetrit (#idmax, progresivi): deadlock. Tani i dyti pret sa te mbaroje i pari (si ne fakt
+-- priste edhe me pare per kycet e rreshtave). Vetem brenda nje transaksioni; rezultati nuk ndryshon.
+IF @@TRANCOUNT > 0
+BEGIN
+	DECLARE @magKyc numeric(18, 0) = (SELECT MIN(IDMAG) FROM @TRUPIMAG), @kyci nvarchar(100), @kycRez int
+	WHILE @magKyc IS NOT NULL
+	BEGIN
+		SET @kyci = N'prc_T_TRUPIMAGAZINA_ins_Dt|' + CONVERT(nvarchar(30), @magKyc)
+		EXEC @kycRez = sp_getapplock @Resource = @kyci, @LockMode = 'Exclusive', @LockOwner = 'Transaction'
+		IF @kycRez < 0
+		BEGIN
+			RAISERROR('Magazina eshte e zene nga nje ruajtje tjeter (sp_getapplock %d).', 16, 1, @kycRez)
+			RETURN
+		END
+		SET @magKyc = (SELECT MIN(IDMAG) FROM @TRUPIMAG WHERE IDMAG > @magKyc)
+	END
+END
 
 CREATE TABLE #TempTrupiIns(IDTRUPIMAGAZINA NUMERIC(18, 0) primary key, IDTRUPIMAGAZINA_OLD NUMERIC(18, 0), IDRENDITJES NUMERIC(18, 0), IDKOKAMAGAZINA NUMERIC(18, 0), idtrupikonvertimud NUMERIC(18, 0), IDTRUPIREZERVIMI NUMERIC(18, 0), idartikull NUMERIC(18, 0), idmag NUMERIC(18, 0), sasia float, shenja int, koeficenti float, data DATETIME, iddetajimi NUMERIC(18, 0), vlefta float, IDARTIKULLSET NUMERIC(18,0));
 
