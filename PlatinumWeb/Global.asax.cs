@@ -20,7 +20,6 @@ using AlphaWeb.Core.Interfaces.Infrastructure;
 using AlphaWeb.Core.Logging;
 using AlphaWeb.Infrastructure.Data.AdoNet;
 using AlphaWeb.Infrastructure.Logging;
-using AlphaWeb.Services;
 using AlphaWebReports;
 using Autofac;
 using Autofac.Integration.Web;
@@ -243,7 +242,6 @@ namespace PlatinumWeb
 			//nese kerkesa eshte per te hapur login page ose login_ndermarrje nuk ka nevoj per kontroll scope
 			if (HttpApplicationHelper.EshteUrlPaScopeID(Request.Url.AbsolutePath, Request.Url.Query) || HttpApplicationHelper.EshteUrlLogini(Request.Url.AbsolutePath) || Request.Url.AbsolutePath.ContainsAnyIgnoreCase(ScopeManager.LoginNdermarrjePath))
 				return;
-			if (Request.Url.AbsolutePath.Contains("TestDI.aspx")) return;
 			//marrim vlerat e vendosur ne querystring per kete kerkese
 			var nameValuesCurrent = HttpUtility.ParseQueryString(Request.QueryString.ToString());
 			var currentKey = nameValuesCurrent.Get(ScopeManager.ScopeIdKey);

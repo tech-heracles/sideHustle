@@ -117,7 +117,6 @@
     <Compile Include="Security\LdapAuthentication.cs" />
     <Compile Include="Security\PasswordHelper.cs" />
     <Compile Include="Security\RijndaelSimple.cs" />
-    <Compile Include="SpeedTest.cs" />
     <Compile Include="TreeStructure\GenericHelpers.cs" />
     <Compile Include="TreeStructure\TreeStructure.cs" />
     <Compile Include="Types\Converter.cs" />

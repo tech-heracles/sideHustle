@@ -1703,14 +1703,10 @@
     <Content Include="Scripts\devextreme-localization\dx.messages.en.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.ja.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.ru.js" />
-    <Content Include="Scripts\dx.all.debug.js" />
     <Content Include="Scripts\dx.all.js" />
     <Content Include="Scripts\dx.aspnet.mvc.js" />
-    <Content Include="Scripts\dx.viz-web.debug.js" />
     <Content Include="Scripts\dx.viz-web.js" />
-    <Content Include="Scripts\dx.viz.debug.js" />
     <Content Include="Scripts\dx.viz.js" />
-    <Content Include="Scripts\dx.web.debug.js" />
     <Content Include="Scripts\dx.web.js" />
     <Content Include="Scripts\globalize.js" />
     <Content Include="Scripts\globalize\currency.js" />
@@ -1736,7 +1732,6 @@
     <Content Include="Scripts\vectormap-data\europe.js" />
     <Content Include="Scripts\vectormap-data\usa.js" />
     <Content Include="Scripts\vectormap-data\world.js" />
-    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
     <Content Include="Shto_FormatSeriali.aspx" />
@@ -1745,7 +1740,6 @@
     <Content Include="Shto_SerialeUnike.aspx" />
     <Content Include="RecetaOptike.aspx" />
     <Content Include="Shto_RecetaOptike.aspx" />
-    <Content Include="Test\TestDI.aspx" />
     <Content Include="ThankYou.html" />
     <Content Include="ucPopUpEinvoice.ascx" />
     <Content Include="ucPopUpKlonimi.ascx" />
@@ -2034,9 +2028,7 @@
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-plus.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder-open.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder-open_old.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder_old.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\leaf.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\loading.gif" />
     <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\s.gif" />
@@ -2922,7 +2914,6 @@
     <Content Include="js\srcCRM\js\addons\jquery.mmenu.searchfield.min.js" />
     <Content Include="js\srcCRM\js\addons\jquery.mmenu.toggles.js" />
     <Content Include="js\srcCRM\js\addons\jquery.mmenu.toggles.min.js" />
-    <Content Include="js\srcCRM\js\jquery.mmenu.debugger.js" />
     <Content Include="js\srcCRM\js\jquery.mmenu.min.all.js" />
     <Content Include="js\srcCRM\js\jquery.mmenu.min.js" />
     <Content Include="js\srcCRM\js\jquery.mmenu.oncanvas.js" />
@@ -2948,19 +2939,10 @@
     <Content Include="LupaArtikull.aspx" />
     <Content Include="js\aspx.js\RaporteGrida.aspx-IMB.4.3.js" />
     <Content Include="js\aspx.js\LupaHarta.aspx-IMB.4.3.js" />
-    <Content Include="js\OpenLayers-2.13.1\OpenLayers.debug.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="js\OpenLayers-2.13.1\OpenLayers.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\OpenLayers-2.13.1\OpenLayers.light.debug.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="js\OpenLayers-2.13.1\OpenLayers.light.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\OpenLayers-2.13.1\OpenLayers.mobile.debug.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="js\OpenLayers-2.13.1\OpenLayers.mobile.js">
@@ -5406,13 +5388,6 @@
     <Compile Include="LupaProfesioneTitujPune.aspx.designer.cs">
       <DependentUpon>LupaProfesioneTitujPune.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Test\TestDI.aspx.cs">
-      <DependentUpon>TestDI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test\TestDI.aspx.designer.cs">
-      <DependentUpon>TestDI.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ucFushatShtese.ascx.cs">
       <DependentUpon>ucFushatShtese.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7468,10 +7443,6 @@
     <ProjectReference Include="..\AlphaWeb.Infrastructure\AlphaWeb.Infrastructure.csproj">
       <Project>{d54a477a-5b5f-4a1a-bf7f-60245dd95e54}</Project>
       <Name>AlphaWeb.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AlphaWeb.Services\AlphaWeb.Services.csproj">
-      <Project>{7f6cc276-a4a1-4f3e-b7c5-2a16ee0ec495}</Project>
-      <Name>AlphaWeb.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
       <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>

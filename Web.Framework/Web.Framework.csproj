@@ -207,10 +207,6 @@
       <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
       <Name>AlphaWeb.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AlphaWeb.Services\AlphaWeb.Services.csproj">
-      <Project>{7f6cc276-a4a1-4f3e-b7c5-2a16ee0ec495}</Project>
-      <Name>AlphaWeb.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
       <Project>{1c0b2f20-ca7a-4b26-9cca-bd6a32660988}</Project>
       <Name>AlphaWebCommon</Name>

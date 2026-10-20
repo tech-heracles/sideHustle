@@ -197,7 +197,6 @@
     <Compile Include="WebAPI\Controllers\NodeApiController.cs" />
     <Compile Include="WebAPI\Controllers\RregjistrimeController.cs" />
     <Compile Include="WebAPI\Controllers\ShperndarjeShpenzimiController.cs" />
-    <Compile Include="WebAPI\Controllers\TestController.cs" />
     <Compile Include="WebAPI\Formatters\DateTimeLocalTimeConverter.cs" />
     <Compile Include="WebAPI\Formatters\FeatureCollectionConverter.cs" />
     <Compile Include="WebAPI\Formatters\FeatureCollectionFormatter.cs" />
@@ -232,10 +231,6 @@
     <ProjectReference Include="..\AlphaWeb.Core\AlphaWeb.Core.csproj">
       <Project>{33651fc1-c3f6-4fc3-8c7a-2b50bd966537}</Project>
       <Name>AlphaWeb.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AlphaWeb.Services\AlphaWeb.Services.csproj">
-      <Project>{7F6CC276-A4A1-4F3E-B7C5-2A16EE0EC495}</Project>
-      <Name>AlphaWeb.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\AlphaWebCommon\AlphaWebCommon.csproj">
       <Project>{1C0B2F20-CA7A-4B26-9CCA-BD6A32660988}</Project>

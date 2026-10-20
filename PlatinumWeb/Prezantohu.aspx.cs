@@ -22,7 +22,6 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using AlphaWeb.Services;
 using CacheLayer;
 using DbCore;
 using DbCore.DbAdmin;
@@ -43,15 +42,10 @@ namespace PlatinumWeb
 {
 	public partial class login : MyPageBase
 	{
-		public ITestService TestService { get; set; }
 		private DataTable dtServera;
 		private const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 		protected void Page_Load(object sender, EventArgs e)
 		{
-#if DEBUG
-            var test = TestService.GetTestData();
-#endif
-
 			//return the control to the calling method
 			if (!IsPostBack)
 			{
