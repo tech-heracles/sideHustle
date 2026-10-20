@@ -156,6 +156,12 @@ namespace DbCore.DbInventari
                 return dbartikuj.numeroArtikujAktive(idnderm);
         }
 
+        public static long numeroRreshtaGjendjeMagazinash(int idnderm)
+        {
+            using (var dbartikuj = new clsDatabaseInventari())
+                return dbartikuj.numeroRreshtaGjendjeMagazinash(idnderm);
+        }
+
         public static DataTable merrSipasArtikujNdermarrjesAndAutorizimePerLupeArtikulli(int idnderm, int idperdorues, bool kostoSasi, int idMag, bool cmime, bool cmimeMeTvsh, string postStringTvsh, bool iShitshem, bool filtro, string filter, string dategjendje, int kodifikim1, int kodifikim2, int kodifikim3, bool dhurataVFOne)
         {
             using (var dbartikuj = new clsDatabaseInventari())

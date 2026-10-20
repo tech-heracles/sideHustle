@@ -1848,6 +1848,17 @@ namespace DbCore.DbInventari
                 "SELECT COUNT(*) FROM T_ARTIKULLI WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK = 1 AND AKTIV = 1"));
         }
 
+        /// <summary>Numri i rreshtave te raportit "Gjendja e magazines" pa filtra: artikujt (klasat 1, 5, 6) x njesite administrative.</summary>
+        internal long numeroRreshtaGjendjeMagazinash(int idnderm)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
+            return Convert.ToInt64(dbManager.ExecuteScalar(CommandType.Text,
+                "SELECT CONVERT(bigint, (SELECT COUNT(*) FROM T_ARTIKULLI WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK = 1 AND KLASA IN (1, 5, 6)))" +
+                " * (SELECT COUNT(*) FROM T_NJESIADMINISTRATIVE WHERE IDNDERMARJE = @IDNDERMARJE AND IDSTATUSDOK = 1)"));
+        }
+
         internal DataTable ktheArtikujNdermarrjesAndAutorizimePerLupeArtikulli(int idnderm, int idperdorues, bool kostoSasi, int idMag, bool cmime, bool cmimeMeTvsh, string postStringTvsh, bool iShitshem, string dategjendje, int kodifikim1, int kodifikim2, int kodifikim3, bool dhurataVFOne)
         {
 

@@ -205,13 +205,21 @@ namespace PlatinumWeb
         /// <summary>
         /// mbush griden me te dhena nga db
         /// </summary>
+        /// <summary>Mbi kete numer rreshtash (artikuj x njesi administrative) "Gjendja e magazines" shfaq vetem rreshtat jo-zero.</summary>
+        private const long KufiriRreshtaveGjendje = 200000;
+
         private void MbushGridNgaDb(DateTime dtfillimi, DateTime dtmbarimi, DateTime dtfillimiexe, DateTime dtmbarimiexe)
         {
             DataTable dt;
             switch (Request.QueryString["lloji"])
             {
                 case "GjendjaEMagazines":
-                    dt = DbCore.DbInventari.colSerialeUnikeMagazina.MerrRaportinGjendjaEMagazines("", dtfillimi.ToString(), dtmbarimi.ToString(), "", "", "", "", "", "", "", "", IdNdermarrja.ToString(), "", "", "", "", "", "", "", "", "", "", IdPerdoruesi.ToString());
+                    // Pa filtra raporti kthen cdo artikull x cdo njesi administrative, edhe ato pa asnje levizje e pa gjendje
+                    // (p.sh. 14 000 artikuj x 82 njesi = 1,1 milion rreshta ne memorien e IIS dhe ne sesion; ne databazen e
+                    // testit 21,7 milion rreshta, 547 s, dhe faqja binte ne timeout). Mbi kufirin merren vetem rreshtat me
+                    // levizje ne periudhe ose me gjendje (filtri '3' i procedures); te tjeret jane te gjithe zero.
+                    string sipasGjendjes = colArtikujt.numeroRreshtaGjendjeMagazinash(IdNdermarrja) > KufiriRreshtaveGjendje ? "3" : "";
+                    dt = DbCore.DbInventari.colSerialeUnikeMagazina.MerrRaportinGjendjaEMagazines("", dtfillimi.ToString(), dtmbarimi.ToString(), "", "", "", "", "", "", "", "", IdNdermarrja.ToString(), "", "", "", "", sipasGjendjes, "", "", "", "", "", IdPerdoruesi.ToString());
                     break;
                 case "gjendjaArtikujveIMEI":
                 case "gjendjaArtikujveIMEIEkspozitor":
