@@ -9,6 +9,14 @@
 -- Skripti ndryshon vetem kushtin IF(@KOSTOSASI = 1) ne definicionin ekzistues te seciles procedure ne kete databaze;
 -- procedurat qe nuk e kane ate tekst sakte nje here (ose jane ndryshuar tashme) lihen sic jane.
 -- Rikthimi: 23-rollback-lupa-artikull-pa-gjendje-kur-bosh.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliFilter';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliJoPerbProdhimFilter';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliPerbereFilter';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliPerProdhimFilter';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliProdhimiFilter';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '23', N'dbo.prc_T_ARTIKULLI_merrArtikullSipasNdermarjesAndAutorizimPerLupeArtikulliProdhimiFilterPlanifikim';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

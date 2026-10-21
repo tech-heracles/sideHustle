@@ -11,6 +11,10 @@
 --   magazine: NIVEL/KONFIGURIM/DATE/NR: aktive -> kolona = vlera; joaktive -> kolona IS NOT NULL
 --             (si "kolona = CASE ... ELSE kolona END"); fushat e tjera: aktive -> kolona = vlera; joaktive -> pa filter.
 -- Rikthimi: 12-rollback-kontroll-dublikate-plan.sql (versionet e 07/08)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '12', N'dbo.prc_T_KOKASHITJE_ekzistonRegjistrimShitjeSipasIdentifikuese';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '12', N'dbo.prc_T_KOKAMAGAZINA_ekzistonRegjistrimMagazineSipasIdentifikuesi';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

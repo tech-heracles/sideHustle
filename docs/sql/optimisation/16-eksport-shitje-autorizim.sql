@@ -5,6 +5,9 @@
 -- ~3 s. Tani vetem per konfigurimet e ndermarrjes dhe ato qe perdorin dokumentet e saj (747): 0,26 s.
 -- Rezultati identik: asnje konfigurim i perdorur nga dokumentet nuk mbetet jashte (krahasuar ne web_vg).
 -- Kerkon skriptin 04. Rikthimi: 16-rollback-eksport-shitje-autorizim.sql (versioni i skriptit 04)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '16', N'dbo.prc_T_KOKASHITJE_merrShitjeBlerjeSipasNdermarrjePerEksport';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

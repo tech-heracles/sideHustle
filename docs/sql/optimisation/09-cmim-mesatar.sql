@@ -3,6 +3,9 @@
 -- Kerkimi i daljeve/kthimeve te lidhura (#DOKKTHYERA) kushtonte ~25 ms per thirrje, edhe pse kthimet jane te rralla.
 -- Tani behet vetem kur artikulli ka te pakten nje rresht te kthyer ne ate date; ndryshe rezultati eshte i njejti (bosh).
 -- Rikthimi: 09-rollback-cmim-mesatar.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '09', N'dbo.prc_T_TRUPIMAGAZINA_llogaritCmimMesatarMeTotalHPD';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

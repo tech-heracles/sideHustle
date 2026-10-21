@@ -8,6 +8,9 @@
 --    duke lexuar te gjitha levizjet e artikullit ne te gjitha magazinat);
 --  - pa PRINT-et diagnostikuese (dhjete mesazhe per thirrje drejt aplikacionit).
 -- Kerkon skriptin 17. Rikthimi: 25-rollback-cmim-mesatar-shuma-direkte.sql (versioni i skriptit 17)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '25', N'dbo.prc_T_TRUPIMAGAZINA_llogaritCmimMesatarMeTotalHPD';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

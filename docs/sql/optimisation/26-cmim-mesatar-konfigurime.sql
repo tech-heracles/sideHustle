@@ -5,6 +5,9 @@
 --  - shuma e dates kerkon artikull/magazine/date ne indeks kur jepet magazina (filtri CASE lexonte te gjitha levizjet
 --    e artikullit ne te gjitha magazinat: ~20 ms per artikujt me histori te gjate).
 -- Kerkon skriptin 25. Rikthimi: 26-rollback-cmim-mesatar-konfigurime.sql (versioni i skriptit 25)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '26', N'dbo.prc_T_TRUPIMAGAZINA_llogaritCmimMesatarMeTotalHPD';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

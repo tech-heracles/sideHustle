@@ -12,6 +12,9 @@
 -- AVEC e kontrollon vete nese procedura e ka parametrin, keshtu qe radha e perditesimit (SQL/aplikacion) s'ka rendesi.
 --
 -- Rikthimi: 04-rollback-eksport-shitje.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '04', N'dbo.prc_T_KOKASHITJE_merrShitjeBlerjeSipasNdermarrjePerEksport';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

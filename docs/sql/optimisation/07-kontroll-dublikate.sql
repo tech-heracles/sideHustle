@@ -4,6 +4,10 @@
 -- me nje plan te ruajtur per te gjitha rastet SQL Server-i skanonte T_KOKASHITJE (~50 ms per dokument).
 -- OPTION (RECOMPILE) + indeks (IDNDERM, NRDOK): ~20 ms, i njejti rezultat.
 -- Rikthimi: 07-rollback-kontroll-dublikate.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '07', N'dbo.prc_T_KOKASHITJE_ekzistonRegjistrimShitjeSipasIdentifikuese';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '07', N'dbo.T_KOKASHITJE', N'IX_T_KOKASHITJE_IDNDERM_NRDOK';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

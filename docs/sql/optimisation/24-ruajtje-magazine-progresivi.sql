@@ -9,6 +9,9 @@
 -- Dhe: dokumentet e se njejtes magazine radhiten me nje kyc aplikacioni (sp_getapplock) nga futja e rreshtave deri ne
 -- commit, ne vend qe te benin deadlock duke lexuar rreshtat e pa-ruajtur te njeri-tjetrit.
 -- Kerkon skriptin 21. Rikthimi: 24-rollback-ruajtje-magazine-progresivi.sql (versioni i skriptit 21)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '24', N'dbo.prc_T_TRUPIMAGAZINA_ins_Dt';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

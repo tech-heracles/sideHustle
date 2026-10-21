@@ -1,4 +1,15 @@
 -- Rikthen procedurat para 14-adresa-klienti.sql.
+-- Nese 14 u ekzekutua pasi ekzistonte 00-ruajtje.sql, rikthehet pikerisht gjendja e ruajtur atehere dhe pjesa
+-- me poshte (rikthimi sipas databazes ku u pergatiten skriptet) anashkalohet.
+SET NOEXEC OFF;
+GO
+IF OBJECT_ID(N'dbo.prc_OPTIMIZIM_Rikthe', N'P') IS NOT NULL
+BEGIN
+    DECLARE @uRikthye bit;
+    EXEC dbo.prc_OPTIMIZIM_Rikthe '14', @uRikthye OUTPUT;
+    IF @uRikthye = 1 SET NOEXEC ON;
+END
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -594,4 +605,6 @@ BEGIN
 	SET @Err = @@Error
     RETURN @Err
 END
+GO
+SET NOEXEC OFF;
 GO

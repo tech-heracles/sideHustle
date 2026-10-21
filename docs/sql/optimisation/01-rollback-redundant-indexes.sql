@@ -1,4 +1,15 @@
 -- Rikthen indekset qe heq 01-drop-redundant-indexes.sql (me te njejtat kolona).
+-- Nese 01 u ekzekutua pasi ekzistonte 00-ruajtje.sql, rikthehet pikerisht gjendja e ruajtur atehere dhe pjesa
+-- me poshte (rikthimi sipas databazes ku u pergatiten skriptet) anashkalohet.
+SET NOEXEC OFF;
+GO
+IF OBJECT_ID(N'dbo.prc_OPTIMIZIM_Rikthe', N'P') IS NOT NULL
+BEGIN
+    DECLARE @uRikthye bit;
+    EXEC dbo.prc_OPTIMIZIM_Rikthe '01', @uRikthye OUTPUT;
+    IF @uRikthye = 1 SET NOEXEC ON;
+END
+GO
 SET NOCOUNT ON;
 GO
 
@@ -91,3 +102,6 @@ IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_TRU
 
 IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_TRUPISHITJE') AND name = N'idx_ttrupishitje_IDSHITJEKOKA')
     CREATE NONCLUSTERED INDEX [idx_ttrupishitje_IDSHITJEKOKA] ON dbo.[T_TRUPISHITJE] ([IDSHITJEKOKA]);
+GO
+SET NOEXEC OFF;
+GO

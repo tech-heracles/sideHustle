@@ -10,6 +10,9 @@
 -- @GABIMI: 0 u ruajt, 1 ekziston kodi, 2 ekziston kodbari, 3 gabim tjeter (@KODBARIGABIM = mesazhi;
 -- aplikacioni e ruan ate artikull perseri me rrugen e zakonshme).
 -- Rikthimi: 22-rollback-artikuj-import-grup.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '22', N'dbo.prc_T_ARTIKULLI_ruajImport';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

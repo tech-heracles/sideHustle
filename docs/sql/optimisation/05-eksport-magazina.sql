@@ -14,6 +14,9 @@
 -- LLOJI = 2 (eksporti ne tabela SQL) mbetet si me pare, vetem me DESTINACION te pa-dublikuar (GROUP BY e tij jep te njejtin rezultat).
 -- AVEC e kontrollon vete nese procedura e ka @KOLONAT, keshtu qe radha e perditesimit (SQL/aplikacion) s'ka rendesi.
 -- Rikthimi: 05-rollback-eksport-magazina.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '05', N'dbo.prc_T_KOKAMAGAZINA_merrDokMagazineSipasNdermarrjePerEksport';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

@@ -7,8 +7,9 @@ Everything referred to here is in this repository:
 
 | What | Where |
 |---|---|
-| Database scripts 01, 02, 04–26 (each has a `NN-rollback-...sql` next to it) | `docs/sql/optimisation/` |
-| Runs all of them in order, stops at the first error, safe to run again | `docs/sql/optimisation/apply-optimisation.ps1` |
+| Database scripts 00, 01, 02, 04–26 (each has a `NN-rollback-...sql` next to it) | `docs/sql/optimisation/` |
+| Runs all of them in order, stops at the first error, safe to run again, writes a `.log` next to it | `docs/sql/optimisation/apply-optimisation.ps1` |
+| Undoes all of them in reverse order, back to exactly how that database was | `docs/sql/optimisation/rollback-optimisation.ps1` |
 | Index usage report (read only) | `docs/sql/diagnostics/index-usage-trupimagazina.sql` |
 | IIS app-pool settings | `tools/iis-keep-warm.ps1` |
 | AVEC installation key rotation | `tools/rotate-avec-key.ps1` |
@@ -42,6 +43,7 @@ Everything referred to here is in this repository:
    ```
    - **Express edition:** the database cannot grow past **10 GB** (data file) and SQL uses at most ~1.4 GB of memory.
      If the database is near 10 GB, plan the move to Standard edition before anything else.
+   - **SQL Server 2016 SP1 or newer** is required (script 22 uses `CREATE OR ALTER`).
    - Install the latest **cumulative update** for their SQL Server version (an unpatched SQL Server 2025 crashed
      internally on our test machine).
 2. **Disk space**: at least the size of the database free for the backup, plus ~2 GB for index rebuilds.
@@ -51,11 +53,26 @@ Everything referred to here is in this repository:
 
 Do this on a test server or a second database on their server, **not** on the live database.
 
-1. Restore last night's backup of their database as e.g. `<db>_test`.
+1. Restore last night's backup of their database as e.g. `<db>_test`. Check whether an earlier version of the
+   scripts was already run on it (any row while `T_OPTIMIZIM_RUAJTJE` does not exist yet = yes; then see section 8 before applying):
+   ```sql
+   SELECT name FROM sys.indexes WHERE name IN ('IX_T_KOKASHITJE_IDNDERM_NRDOK', 'IX_T_KODBARI_PERSHKRIMI', 'IX_T_VITET_IDNDERMARJE')
+   UNION ALL SELECT name FROM sys.procedures WHERE name = 'prc_T_ARTIKULLI_ruajImport';
+   ```
 2. Run the scripts: `.\apply-optimisation.ps1 -Server '<server\instance>' -Database '<db>_test'`.
    - Check: every script prints `ok`, then `Te gjitha skriptet u aplikuan`. Note how long the first run takes: it
      drops and builds indexes, so on a large database it can take several minutes and locks those tables while it
      runs. That is the time to plan for in step 4 (a second run only takes seconds).
+   - Script 00 first saves, in `dbo.T_OPTIMIZIM_RUAJTJE`, the definition of every procedure and index the other
+     scripts change, exactly as it is in **their** database. Their database may have other versions of these
+     procedures or other indexes than ours; the rollback puts back theirs, not ours. **Never delete that table**
+     while the optimisations are in place.
+   - Script 01 only drops an index when another index in their database covers it. The log lists each one as
+     `u hoq` (dropped) or `u la` (kept).
+   - Then test the way back on the copy: `.\rollback-optimisation.ps1 -Server '<server\instance>' -Database
+     '<db>_test'` must end with `Te gjitha skriptet u rikthyen`; then run `apply-optimisation.ps1` again. (Tested on
+     a copy of AVEC and on our test database: after the rollback every procedure and index was identical to before,
+     and applying again gave the same result as the first time.)
 3. Point a copy of the site at `<db>_test` and check **with their real files**:
    - Sales, purchases, warehouse exits/transfers (FDT), production entries (FHTT), items: run **Kontrollo**, then **Importo**.
    - Their **"dev post"** file (columns `barcode, produkti, kosto, sasia, dataSkadences`) and their own format for
@@ -70,7 +87,7 @@ Do this on a test server or a second database on their server, **not** on the li
 1. Tell users to log out; everyone is logged out by the deploy anyway.
 2. **Full backup** of the live database (`BACKUP DATABASE ... WITH COPY_ONLY, CHECKSUM`) and a copy of the current
    site folder. **STOP** until both exist and the backup verifies (`RESTORE VERIFYONLY`).
-3. Run `apply-optimisation.ps1` on the live database. **STOP** if any script fails.
+3. Run `apply-optimisation.ps1` on the live database. **STOP** if any script fails. Keep the `.log` it writes.
 
 ## 5. Deploy the site
 
@@ -85,6 +102,7 @@ Do this on a test server or a second database on their server, **not** on the li
      `Scripts\vectormap-utils\dx.vectormaputils.debug.js`
    - `js\OpenLayers-2.13.1\OpenLayers.debug.js`, `OpenLayers.light.debug.js`, `OpenLayers.mobile.debug.js`,
      `js\srcCRM\js\jquery.mmenu.debugger.js`
+   - the same three `OpenLayers*.debug.js` files under `bin\js\OpenLayers-2.13.1\`
 4. App pool: 64-bit (32-bit applications **off**). Run `tools\iis-keep-warm.ps1` as administrator (pool name in
    the script is `AlphaWebPool`; change it if theirs differs): idle timeout 0, AlwaysRunning, recycle at 03:00.
 5. Start the app pool and open the login page once. The first load compiles the site and takes 1–3 minutes.
@@ -121,8 +139,12 @@ Do this on a test server or a second database on their server, **not** on the li
 
 ## 8. Rollback
 
-- **Database scripts only**: run the matching `NN-rollback-...sql` files in reverse order (26 down to 01; 02 only changes file growth
-  settings and has no rollback). Each restores
-  the previous procedure or index exactly.
+- **Database scripts only**: `.\rollback-optimisation.ps1 -Server '<server\instance>' -Database '<db>'`. It runs
+  the `NN-rollback-...sql` files from 26 down to 01, then 00, and stops at the first error. Each one puts back exactly
+  what script 00 saved for it in that database. (02 only changes file-growth settings and is not undone.)
+  00 saves the state at the first run of this version. If an earlier version of these scripts had already been run
+  on that database (see the check in step 3), what 00 saves is the already optimised state; in that case run
+  `rollback-optimisation.ps1` once **before** the first `apply-optimisation.ps1`: with nothing saved yet, each
+  rollback uses its old text and returns the database to the original state first.
 - **Everything**: stop the app pool, restore the site folder copy and the backup from step 4.2, start the app pool.
   Documents entered after the go-live would be lost with a full restore, so decide quickly.

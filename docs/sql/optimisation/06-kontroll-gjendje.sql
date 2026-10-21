@@ -9,6 +9,9 @@
 -- Rezultati u krahasua me versionin e vjeter per qindra thirrje reale (dalje, dalje pa gjendje, hyrje,
 -- modifikim, me dy data): asnje ndryshim. Dega FIFO nuk ndryshon; hiqet edhe print(@SqlSelect).
 -- Rikthimi: 06-rollback-kontroll-gjendje.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '06', N'dbo.prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullit_Modifikim';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

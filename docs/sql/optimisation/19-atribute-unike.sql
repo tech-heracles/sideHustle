@@ -6,6 +6,9 @@
 -- IDKONFIGAMBJENTE, keshtu qe per ~400 atributet e konfigurimit lexohej rreshti i plote per te pare UNIKE
 -- (~800 lexime, 1,3 ms per thirrje). Me UNIKE ne indeks (i njejti emer, e njejta kolone e pare): kerkim i drejtperdrejte.
 -- Rikthimi: 19-rollback-atribute-unike.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '19', N'dbo.T_ATRIBUTETRUPI', N'I_t_atribute_trupi_konfigAmbjenti';
+GO
 IF EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_ATRIBUTETRUPI') AND name = N'I_t_atribute_trupi_konfigAmbjenti')
     CREATE NONCLUSTERED INDEX I_t_atribute_trupi_konfigAmbjenti ON dbo.T_ATRIBUTETRUPI (IDKONFIGAMBJENTE, UNIKE)
         WITH (DROP_EXISTING = ON);

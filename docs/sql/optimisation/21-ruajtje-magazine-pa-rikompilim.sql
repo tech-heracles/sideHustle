@@ -5,6 +5,9 @@
 -- secila me optimizim te plote te CTE-ve mbi T_TRUPIMAGAZINA. OPTION (KEEPFIXED PLAN) mban planin; pyetjet dhe
 -- rezultatet jane te njejta (renditjet perfundojne me IDTRUPIMAGAZINA, pra jane te percaktuara).
 -- Kerkon skriptin 11. Rikthimi: 21-rollback-ruajtje-magazine-pa-rikompilim.sql (versioni i skriptit 11)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '21', N'dbo.prc_T_TRUPIMAGAZINA_ins_Dt';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

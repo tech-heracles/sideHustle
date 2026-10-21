@@ -6,6 +6,11 @@
 -- 2. prc_T_TRUPIMAGAZINA_ins_Dt: UPDATE qe rilidh IDTRUPIKONVERTIMUD te rreshtave te rinj skanonte te gjithe indeksin
 --    e asaj kolone (~290 ms per dokument). OPTION (LOOP JOIN): kerkim me indeks per rreshtat e dokumentit. E njejta logjike.
 -- Rikthimi: 08-rollback-ruajtje-magazine.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '08', N'dbo.prc_T_KOKAMAGAZINA_ekzistonRegjistrimMagazineSipasIdentifikuesi';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '08', N'dbo.prc_T_TRUPIMAGAZINA_ins_Dt';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '08', N'dbo.T_KOKAMAGAZINA', N'IX_T_KOKAMAGAZINA_IDNDERM_NRDOK';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

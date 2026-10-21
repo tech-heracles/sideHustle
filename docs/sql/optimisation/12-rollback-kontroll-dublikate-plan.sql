@@ -1,4 +1,15 @@
 -- Rikthen versionet para 12-kontroll-dublikate-plan.sql (ato te skripteve 07 dhe 08).
+-- Nese 12 u ekzekutua pasi ekzistonte 00-ruajtje.sql, rikthehet pikerisht gjendja e ruajtur atehere dhe pjesa
+-- me poshte (rikthimi sipas databazes ku u pergatiten skriptet) anashkalohet.
+SET NOEXEC OFF;
+GO
+IF OBJECT_ID(N'dbo.prc_OPTIMIZIM_Rikthe', N'P') IS NOT NULL
+BEGIN
+    DECLARE @uRikthye bit;
+    EXEC dbo.prc_OPTIMIZIM_Rikthe '12', @uRikthye OUTPUT;
+    IF @uRikthye = 1 SET NOEXEC ON;
+END
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -232,4 +243,6 @@ select 1;
 	RETURN @Err
 	
 END
+GO
+SET NOEXEC OFF;
 GO

@@ -6,6 +6,13 @@
 -- (IDKLIENTFURNITOR, IDTIPADRESE, ADRESA) qe ekziston. E njejta adrese (e para sipas llojit te adreses).
 -- merrKlientFurnitorSipasKodit therritet per cdo klient ne importin e shitjeve/blerjeve dhe ne regjistrimin e dokumenteve.
 -- Rikthimi: 14-rollback-adresa-klienti.sql
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '14', N'dbo.prc_T_KLIENTFURNITOR_merrKlientFurnitorSipasKodit';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '14', N'dbo.prc_T_KLIENTFURNITOR_MerrSipasIdve';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '14', N'dbo.prc_T_KLIENTFURNITOR_MerrSipasKodeve';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '14', N'dbo.prc_T_KLIENTFURNITOR_KtheKlienteFurnitoreSipasAutorizimeveLike';
+EXEC dbo.prc_OPTIMIZIM_Ruaj '14', N'dbo.prc_T_KLIENTFURNITOR_KtheSipasIdShitjeKoka';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

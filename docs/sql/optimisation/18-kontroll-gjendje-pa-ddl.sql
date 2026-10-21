@@ -5,6 +5,9 @@
 -- (te njejtat per ndermarrjen, keshtu qe plani riperdoret) dhe levizjet mbahen ne nje variabel tabele.
 -- 300 thirrje reale (dalje/hyrje, te reja dhe me modifikim/dy data): rezultat identik, 25,5 -> 18,8 ms. Kerkon skriptin 06.
 -- Rikthimi: 18-rollback-kontroll-gjendje-pa-ddl.sql (versioni i skriptit 06)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '18', N'dbo.prc_T_TRUPIMAGAZINA_ktheSasineTotaleSipasArtikullit_Modifikim';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

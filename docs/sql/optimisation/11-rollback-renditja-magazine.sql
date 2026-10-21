@@ -1,11 +1,23 @@
 -- Rikthen gjendjen para 11-renditja-magazine.sql.
+-- Nese 11 u ekzekutua pasi ekzistonte 00-ruajtje.sql, rikthehet pikerisht gjendja e ruajtur atehere dhe pjesa
+-- me poshte (rikthimi sipas databazes ku u pergatiten skriptet) anashkalohet.
+SET NOEXEC OFF;
+GO
+IF OBJECT_ID(N'dbo.prc_OPTIMIZIM_Rikthe', N'P') IS NOT NULL
+BEGIN
+    DECLARE @uRikthye bit;
+    EXEC dbo.prc_OPTIMIZIM_Rikthe '11', @uRikthye OUTPUT;
+    IF @uRikthye = 1 SET NOEXEC ON;
+END
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE NONCLUSTERED INDEX IX_T_TRUPIMAGAZINA__DATA ON dbo.T_TRUPIMAGAZINA (DATA)
-    INCLUDE (IDKOKAMAGAZINA, IDARTIKULL, SASIA, VLEFTA, KOEFICENTI, IDMAG)
-    WITH (DROP_EXISTING = ON);
+IF EXISTS (SELECT 1 FROM sys.indexes WHERE object_id = OBJECT_ID(N'dbo.T_TRUPIMAGAZINA') AND name = N'IX_T_TRUPIMAGAZINA__DATA')
+    CREATE NONCLUSTERED INDEX IX_T_TRUPIMAGAZINA__DATA ON dbo.T_TRUPIMAGAZINA (DATA)
+        INCLUDE (IDKOKAMAGAZINA, IDARTIKULL, SASIA, VLEFTA, KOEFICENTI, IDMAG)
+        WITH (DROP_EXISTING = ON);
 GO
 ALTER PROCEDURE [dbo].[prc_T_TRUPIMAGAZINA_ins_Dt]
 (
@@ -189,4 +201,6 @@ PRINT 'trupi vlera progresive  : ms(' + CAST(DATEDIFF (millisecond, @EXECTIME, G
 	PRINT 'KOHA TOTAL: ms(' + CAST(DATEDIFF (millisecond, @TIMESTAMPFILLO, GETDATE()) AS VARCHAR(200)) +')'
 
 END;
+GO
+SET NOEXEC OFF;
 GO

@@ -8,6 +8,9 @@
 -- 400 thirrje reale: 59 -> 14 ms. Cmimi i njejte ne 4 shifra pas presjes ne te gjitha; ndryshimet jane vetem
 -- nga rradha e mbledhjes se numrave float (maksimumi 1,8e-10), si edhe mes dy planeve te ndryshme te versionit te vjeter.
 -- Kerkon skriptin 09. Rikthimi: 17-rollback-cmim-mesatar-indekse.sql (versioni i skriptit 09)
+-- Ruhet gjendja para ndryshimit (00-ruajtje.sql); rikthimi e perdor ate.
+EXEC dbo.prc_OPTIMIZIM_Ruaj '17', N'dbo.prc_T_TRUPIMAGAZINA_llogaritCmimMesatarMeTotalHPD';
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
