@@ -29,8 +29,10 @@ namespace CacheLayer
             var configuration = new ConfigurationBuilder(configs.CacheName)
                          .WithSystemRuntimeCacheHandle()
                          .WithExpiration(configs.ExpirationMode, configs.ExpirationTime)
-                         .EnablePerformanceCounters()
-                         .EnableStatistics()
+                         // statistikat dhe performance counters nuk lexohen askund; me sesionin si region mbaheshin
+                         // numerues per cdo sesion dhe perditesoheshin ne cdo lexim/shkrim te cache
+                         .DisablePerformanceCounters()
+                         .DisableStatistics()
                          .Build();
             var myAppCache = CacheFactory.FromConfiguration<object>(configuration);
             GlobalCacheManager.Initialize(myAppCache,configs);
