@@ -27,8 +27,9 @@ Everything referred to here is in this repository:
 2. **Build the release** from a clean checkout of `main`:
    `MSBuild.exe PlatinumWeb.sln -p:Configuration=Release -m`. It must finish with 0 errors.
 3. **Prepare the site package**: copy `C:\Sites\AlphaWeb` (the local site, already on this build) to a USB drive or
-   share, **without** `log\`, `App_Data\`, `connectionStrings.config`, `avecLicense.config` and `machineKey.config`.
-   Those are server-specific and are created or kept at the client (step 5).
+   share, **without** `log\`, `App_Data\`, `Arkiva\`, `CUSTOMREPORTS\`, `Import\`, `connectionStrings.config`,
+   `avecLicense.config` and `machineKey.config`. Those are server-specific or hold the client's own files (photo
+   archive, reports they designed, uploaded imports) and are kept at the client (step 5).
 4. **Licence.** In the Firebase console, check the client's company: `avecAccounting.active = true` and
    `endDate` well in the future. (Locally "Tona F" had expired and blocked every login.) Note the installation id
    and key you will put in the client's `avecLicense.config`.
@@ -87,14 +88,24 @@ Do this on a test server or a second database on their server, **not** on the li
 1. Tell users to log out; everyone is logged out by the deploy anyway.
 2. **Full backup** of the live database (`BACKUP DATABASE ... WITH COPY_ONLY, CHECKSUM`) and a copy of the current
    site folder. **STOP** until both exist and the backup verifies (`RESTORE VERIFYONLY`).
-3. Run `apply-optimisation.ps1` on the live database. **STOP** if any script fails. Keep the `.log` it writes.
+3. **Their production settings.** Our `Web.config` points fiscalization to the tax authority's **test** services
+   (`einvoice-test`, `efiskalizimi-test`) and has our software/maintainer codes. Their current `Web.config` has their
+   production values, and the package overwrites it. Before copying anything, put these six keys, with the values
+   from **their current** `Web.config`, into their `avecLicense.config` (values there take precedence over
+   `Web.config`; see the commented block in `avecLicense.example.config`): `urlEinvoice`, `urlFiskalizimi`,
+   `urlFiskalizimiApp`, `kodSoftueri`, `kodMirembajtesi`, `webhookAuthToken`. Also compare their `Web.config` with ours
+   and carry over any other `appSettings` value that differs (e.g. mail settings) the same way. **STOP** if any of
+   their URLs still contains `test` and they fiscalize for real.
+4. Run `apply-optimisation.ps1` on the live database. **STOP** if any script fails. Keep the `.log` it writes.
 
 ## 5. Deploy the site
 
 1. Stop the app pool.
 2. Copy the package over the site folder. Keep the server's own `connectionStrings.config` (connection string
-   must keep `Max pool size=200`), `machineKey.config` and `avecLicense.config`. If the site has no
-   `avecLicense.config` yet, create it from `avecLicense.example.config` with the installation id/key from step 1.4.
+   must keep `Max pool size=200`), `machineKey.config`, `avecLicense.config` (with the production settings from
+   step 4.3) and the folders `Arkiva`, `CUSTOMREPORTS`, `Import`, `log`, `App_Data`. If the site has no
+   `avecLicense.config` yet, create it from `avecLicense.example.config` with the installation id/key from step 1.4
+   and the production settings from step 4.3.
 3. **Delete files removed from the product** (the copy does not delete):
    - `bin\AlphaWeb.Services.dll`, `bin\AlphaWeb.Services.pdb`, `bin\AlphaWeb.Services.dll.config`
    - `Test\TestDI.aspx` (and the empty `Test` folder)
@@ -115,7 +126,9 @@ Do this on a test server or a second database on their server, **not** on the li
 3. Open the sales list, a purchase, a warehouse document; save one manual sales document and one warehouse document.
 4. Import one small real file of each type the client uses.
 5. **Fiscalization** (not testable on our side): issue one e-invoice and, if they use them, one transport document
-   (`Tipi = WTN`); check they reach the tax authority.
+   (`Tipi = WTN`); check they reach the tax authority's **production** system and that the verification link / QR
+   code on the printed invoice opens `efiskalizimi-app.tatime.gov.al` (not `...-test`). **STOP** and fix
+   `avecLicense.config` (step 4.3) if not.
 6. **Passwords**: change a user's password, log out and back in with the new one; if password history is on, reusing
    an old password must be refused; an existing user with an old password must still log in.
 7. **Employees / payroll**: open an employee and the payroll list. Their data is encrypted with keys protected by the
