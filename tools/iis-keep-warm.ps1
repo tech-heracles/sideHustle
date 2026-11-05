@@ -5,7 +5,7 @@
 #   - daily recycle 03:00 : replaces the default "every 29 hours" recycle, which can land in working hours
 # Undo: set idleTimeout back to 00:20:00, startMode OnDemand, periodicRestart.time 1.05:00:00, clear schedule.
 Import-Module WebAdministration
-$pool = "AlphaWebPool"
+$pool = "AVEC"
 
 Set-ItemProperty "IIS:\AppPools\$pool" -Name processModel.idleTimeout -Value ([TimeSpan]::Zero)
 Set-ItemProperty "IIS:\AppPools\$pool" -Name startMode -Value "AlwaysRunning"

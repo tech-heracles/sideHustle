@@ -86,7 +86,7 @@ Do this on a test server or a second database on their server, **not** on the li
    - `js\OpenLayers-2.13.1\OpenLayers.debug.js`, `OpenLayers.light.debug.js`, `OpenLayers.mobile.debug.js`,
      `js\srcCRM\js\jquery.mmenu.debugger.js`
 4. App pool: 64-bit (32-bit applications **off**). Run `tools\iis-keep-warm.ps1` as administrator (pool name in
-   the script is `AlphaWebPool`; change it if theirs differs): idle timeout 0, AlwaysRunning, recycle at 03:00.
+   the script is `AVEC`; change it if theirs differs): idle timeout 0, AlwaysRunning, recycle at 03:00.
 5. Start the app pool and open the login page once. The first load compiles the site and takes 1–3 minutes.
 
 ## 6. Checks after the deploy
