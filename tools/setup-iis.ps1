@@ -2,7 +2,7 @@
 # Prepares IIS on a fresh client PC/server for AVEC Accounting. Safe to run more than once.
 # Run in an elevated PowerShell:
 #   Set-ExecutionPolicy -Scope Process Bypass -Force
-#   .\setup-iis.ps1                      # defaults: C:\Sites\AlphaWeb, site AlphaWeb, pool AlphaWebPool, port 80
+#   .\setup-iis.ps1                      # defaults: C:\Sites\AVEC-Accounting-2026-10-21\site, site AlphaWeb, pool AlphaWebPool, port 80
 #
 # What it does:
 #   1. Installs IIS + ASP.NET 4.x (Windows 10/11 or Windows Server)
@@ -15,7 +15,7 @@
 #   8. Opens the port in Windows Firewall (Domain/Private networks)
 # It does NOT copy the build or touch SQL Server.
 param(
-    [string] $SitePath = 'C:\Sites\AlphaWeb',
+    [string] $SitePath = 'C:\Sites\AVEC-Accounting-2026-10-21\site',
     [string] $SiteName = 'AlphaWeb',
     [string] $PoolName = 'AlphaWebPool',
     [int]    $Port     = 80
