@@ -25,7 +25,7 @@ Everything referred to here is in this repository:
    - Check: the old keys show as deleted in the Google Cloud console; login on the local site still works.
 2. **Build the release** from a clean checkout of `main`:
    `MSBuild.exe PlatinumWeb.sln -p:Configuration=Release -m`. It must finish with 0 errors.
-3. **Prepare the site package**: copy `C:\Sites\AlphaWeb` (the local site, already on this build) to a USB drive or
+3. **Prepare the site package**: copy `C:\Sites\AVEC` (the local site, already on this build) to a USB drive or
    share, **without** `log\`, `App_Data\`, `connectionStrings.config`, `avecLicense.config` and `machineKey.config`.
    Those are server-specific and are created or kept at the client (step 5).
 4. **Licence.** In the Firebase console, check the client's company: `avecAccounting.active = true` and

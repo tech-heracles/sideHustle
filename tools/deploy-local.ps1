@@ -1,12 +1,12 @@
 # Build first:  MSBuild.exe PlatinumWeb.sln -p:Configuration=Release -m
-# Deploys the local build to C:\Sites\AlphaWeb:
+# Deploys the local build to C:\Sites\AVEC:
 #  - DLL/PDB files in bin that differ from the live site
 #  - pages and scripts (.aspx/.ascx/.master/.asmx/.ashx/.js/.css) that differ and already exist on the site
 #  - machineKey.config first, then the Web.config that points to it
 #  - pages removed from the project
 # Restarts the app (everyone is logged out). First page load afterwards takes a few minutes.
 $repo = "C:\Users\CTS\Documents\PosiLagur\alpha\PlatinumWeb"
-$site = "C:\Sites\AlphaWeb"
+$site = "C:\Sites\AVEC"
 
 function Same($a, $b) { (Test-Path $b) -and ((Get-FileHash $a).Hash -eq (Get-FileHash $b).Hash) }
 
@@ -49,9 +49,9 @@ if (-not (Test-Path "$site\avecLicense.config")) {
 }
 
 if (-not (Same "$repo\Web.config" "$site\Web.config")) {
-    Copy-Item "$site\Web.config" "C:\Sites\AlphaWeb.Web.config.bak" -Force   # outside the web root
+    Copy-Item "$site\Web.config" "C:\Sites\AVEC.Web.config.bak" -Force   # outside the web root
     Copy-Item "$repo\Web.config" "$site\Web.config" -Force
-    "Copied Web.config (previous one saved as C:\Sites\AlphaWeb.Web.config.bak)"
+    "Copied Web.config (previous one saved as C:\Sites\AVEC.Web.config.bak)"
 }
 
 # pages removed from the project

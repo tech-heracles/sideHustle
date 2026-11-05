@@ -6,8 +6,8 @@ param(
     [Parameter(Mandatory = $true)] [string] $ServiceAccount,
     [string] $InstallationId = 'avec-local',
     [string] $Name = 'AVEC Accounting - server lokal',
-    [string[]] $Configs = @('C:\Sites\AlphaWeb\avecLicense.config', "$PSScriptRoot\..\PlatinumWeb\avecLicense.config"),
-    [string] $Site = 'C:\Sites\AlphaWeb'
+    [string[]] $Configs = @('C:\Sites\AVEC\avecLicense.config', "$PSScriptRoot\..\PlatinumWeb\avecLicense.config"),
+    [string] $Site = 'C:\Sites\AVEC'
 )
 $ErrorActionPreference = 'Stop'
 $functions = Join-Path $PSScriptRoot '..\..\manager-backend\functions'
