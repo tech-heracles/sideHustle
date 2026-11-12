@@ -1,29 +1,8 @@
-﻿; var identifikuesPerPopupMagazina = "Rivleresim";
-var identikuesPerPopupArtikulli = "Rivleresim";
+﻿; // Rivleresimi i inventarit: zgjidhen magazina + periudha, shfaqen artikujt me levizje,
+// zgjidhen artikujt dhe ProgressBar1 (RunTask ne server) i rivlereson dite pas dite.
 var pageState = false;
-window.parent.open("https://rivleresimi.alpha.al/Prezantohu.aspx", "_blank");
-window.parent.location.reload();
-function ButtonClickMagazina() {
-    myButtonClickLupa.ButtonClickMagazina(hfState.Get("msgZgjidhMagazinen"), '', 720, 650);
-}
-function ButtonClickArtikuj() {
-    myButtonClickLupa.ButtonClickArtikulli(hfState.Get("headerPopUpZgjidhArtikullin"), 0, 800, 600);
-}
-function LostFocus() {
-    gvRivleresim.PerformCallback('mag');
-    gvRivleresim2.PerformCallback();
-    pastro();
-}
-jQuery(document).ready(function () {
-    $(window).on('resize', function () {//po
-        try {
-            if (Utils.isGridResized())//if (!Utils.resizeSplitter(165))
-                return;
-        }
-        catch (ee) {
-        }
 
-    }).trigger('resize');
+jQuery(document).ready(function () {
     $(document).keydown(function (e) {
         switch (e.which) {
             case 13:
@@ -35,195 +14,141 @@ jQuery(document).ready(function () {
             case 82:
                 if (e.ctrlKey) //ctrl+r
                     window.parent.rifresko = true;
+                break;
             default:
                 break;
         }
     });
     $(window).on('load', function () {
         Init();
-        Utils.resizeSplitter();
     });
-    
 });
-
-function menuClick(s, e) {
-    switch ((e.item.name)) {
-        case 'Rivleresim':
-            e.processOnServer = false;
-            if (gvRivleresim2.GetVisibleRowsOnPage() == 0) {
-                myMesazh.ShtoMesazhInformues(hfState.Get("msgRivleresimMagDuhetTeKaloniArtikujtQeDoniTeRivleresoniTekGridaPoshte"));
-                return;
-            }
-            s.GetItemByName('Rivleresim').SetVisible(false);
-            if (s.GetItemByName('Riruaj'))
-                s.GetItemByName('Riruaj').SetVisible(false);
-            s.GetItemByName('Stop').SetVisible(true);
-            Utils.shfaqLoadingGif("#ASPxSplitter1");
-            hfState.Set("Veprimi", 'Rivleresim');
-            ProgressBar1.startTask();
-            break;
-        case 'Riruaj':
-            e.processOnServer = false;
-            if (gvRivleresim2.GetVisibleRowsOnPage() == 0) {
-                myMesazh.ShtoMesazhInformues(hfState.Get("msgRivleresimMagDuhetTeKaloniArtikujtQeDoniTeRivleresoniTekGridaPoshte"));
-                return;
-            }
-            s.GetItemByName('Rivleresim').SetVisible(false);
-            s.GetItemByName('Riruaj').SetVisible(false);
-            s.GetItemByName('Stop').SetVisible(true);
-            Utils.shfaqLoadingGif("#ASPxSplitter1");
-            hfState.Set("Veprimi", 'Riruaj');
-            ProgressBar1.startTask();
-            break;
-        case 'Stop':
-            e.processOnServer = false;
-            s.GetItemByName('Rivleresim').SetVisible(true);
-            s.GetItemByName('Riruaj').SetVisible(true);
-            s.GetItemByName('Stop').SetVisible(false);
-            ProgressBar1.stopTask();
-            gvRivleresim.PerformCallback();
-            gvRivleresim2.PerformCallback();
-            var extraData = ProgressBar1.getExtraData();
-            if (extraData)
-                myMesazh.ShtoMesazhInformues(hfState.Get("msgRivleresimMagazineUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' %' + extraData);
-            else
-                myMesazh.ShtoMesazhInformues(hfState.Get("msgRivleresimMagazineUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' %');
-            Utils.hiqLoadingGif("#ASPxSplitter1");
-            break;
-    }
-}
-function menuInit(s, e) {
-    s.GetItemByName('Stop').SetVisible(false);
-}
-function onTaskRunning() {
-    window.parent.SessionTimeout.sendKeepAlive();
-}
-function onTaskDone() {
-    if (ProgressBar1.getValue() == 100) {
-        myMesazh.ShtoMesazhSuksesi(hfState.Get("msgRivleresimMagazinePerfundoiMeSukses"));
-        Utils.hiqLoadingGif("#ASPxSplitter1");
-        gvRivleresim.PerformCallback();
-        gvRivleresim2.PerformCallback();
-    }
-    else {
-        var extraData = ProgressBar1.getExtraData();
-        var today = new Date();
-        if (today.getHours() < 18)
-            myMesazh.ShtoMesazhInformues("Ju lutem provoni pas ores 18: 00");
-        else {
-            var mesazhInformues = hfState.Get("msgRivleresimMagazineUNdaluaTek") + ' ' + ProgressBar1.getValue() + ' % ';
-            if (extraData)
-                mesazhInformues = mesazhInformues + extraData;
-            myMesazh.ShtoMesazhInformues(mesazhInformues);
-        }
-        
-        Utils.hiqLoadingGif("#ASPxSplitter1");
-        gvRivleresim.PerformCallback();
-        gvRivleresim2.PerformCallback();
-    }
-    ASPxMenu1.GetItemByName('Rivleresim').SetVisible(true);
-    ASPxMenu1.GetItemByName('Riruaj').SetVisible(true);
-    ASPxMenu1.GetItemByName('Stop').SetVisible(false);
-
-}
-
-function onTaskError() {
-    myMesazh.ShtoMesazhGabimi(hfState.Get("msgRivleresimMagazineNdodhi1Gabim"));
-    Utils.hiqLoadingGif("#ASPxSplitter1");
-    gvRivleresim.PerformCallback();
-    gvRivleresim2.PerformCallback()
-}
-
 
 function Init() {
     myMesazh.shtoHandler(); myFaqeCelje.shtoHandlerSession();
     var prm = Sys.WebForms.PageRequestManager.getInstance();
     prm.add_endRequest(EndRequestHandler); changeName();
 }
-
 function changeName() {
     myFaqeCelje.shtoHandlerSession();
     try { window.parent.callWebServiceKtheInfoLart('RivleresimMagazine.aspx', 0); } catch (e) { }
     myCookies.createCookie('adresa', window.location.href, 1);
 }
-
 function EndRequestHandler(sender, args) {
 }
 
-var arrSel = new Array();
-var arrUnSel = new Array();
-var count = 0;
-var count1 = 0;
-function pastro() {
-    arrSel = new Array();
-    arrUnSel = new Array();
-    count = 0;
-    count1 = 0;
+function shfaqItem(s, emer, vizibel) {
+    var item = s.GetItemByName(emer);
+    if (item)
+        item.SetVisible(vizibel);
 }
 
-function gvRivleresimRowDblClick(s, e) {
-    
+function menuInit(s, e) {
+    shfaqItem(s, 'Stop', false);
+    shfaqItem(s, 'Riruaj', false); // veprim i vjeter qe kjo faqe nuk e ka
 }
 
-function kundert() {
-
-    if (gvRivleresim.cpNoRows > 10 * (gvRivleresim.cpNoPage + 1)) {
-        for (l = 10 * gvRivleresim.cpNoPage; l < 10 * (gvRivleresim.cpNoPage + 1); l++) {
-
-            gvRivleresim.SelectRowOnPage(l, !gvRivleresim.IsRowSelectedOnPage(l));
-
-        }
-    }
-    else {
-        for (l = 10 * gvRivleresim.cpNoPage; l < gvRivleresim.cpNoRows; l++) {
-
-            gvRivleresim.SelectRowOnPage(l, !gvRivleresim.IsRowSelectedOnPage(l));
-
-
-        }
-    }
-}
-function KlikoTeGjitha() {
-    gvRivleresim.SelectAllRowsOnPage();
-
-}
-function HiqTeGjitha() {
-    gvRivleresim.UnselectRows();
-
-
-}
-var arrSel2 = new Array();
-var arrUnSel2 = new Array();
-var count2 = 0;
-var count21 = 0;
-function SelectionChange2(s, e) {
-
-
-}
-function kundert2() {
-    if (gvRivleresim2.cpNoRows > 10 * (gvRivleresim2.cpNoPage + 1)) {
-        for (l = 10 * gvRivleresim2.cpNoPage; l < 10 * (gvRivleresim2.cpNoPage + 1); l++) {
-            gvRivleresim2.SelectRowOnPage(l, !gvRivleresim2.IsRowSelectedOnPage(l));
-        }
-    }
-    else {
-        for (l = 10 * gvRivleresim2.cpNoPage; l < gvRivleresim2.cpNoRows; l++) {
-            gvRivleresim2.SelectRowOnPage(l, !gvRivleresim2.IsRowSelectedOnPage(l));
-        }
+function menuClick(s, e) {
+    switch (e.item.name) {
+        case 'Rivleresim':
+            e.processOnServer = false;
+            nisRivleresimin();
+            break;
+        case 'Stop':
+            e.processOnServer = false;
+            ndalRivleresimin();
+            break;
     }
 }
 
-function KlikoTeGjitha2() {
-    gvRivleresim2.SelectAllRowsOnPage();
+function shfaqArtikujt() {
+    if (!dtePeriudhaNga.GetDate() || !dtePeriudhaDeri.GetDate()) {
+        myMesazh.ShtoMesazhInformues(hfState.Get("msgZgjidhPeriudhen"));
+        return;
+    }
+    gvRivleresim.PerformCallback('shfaq');
 }
 
-function HiqTeGjitha2() {
-    gvRivleresim2.UnselectRows();
+function filtriNdryshoi() {
+    // lista e shfaqur i perket filtrit te meparshem: pastrohet qe te mos rivleresohet periudha e gabuar
+    if (gvRivleresim.GetVisibleRowsOnPage() > 0)
+        gvRivleresim.PerformCallback('pastro');
 }
 
 function dtePeriudhaChanged(s, e) {
-    if (dtePeriudhaDeri.GetDate() < dtePeriudhaNga.GetDate()) {
+    if (dtePeriudhaNga.GetDate() && dtePeriudhaDeri.GetDate() && dtePeriudhaDeri.GetDate() < dtePeriudhaNga.GetDate()) {
         myMesazh.ShtoMesazhInformues(hfState.Get("MsgDataGabim"));
         dtePeriudhaDeri.SetDate(dtePeriudhaNga.GetDate());
     }
+    filtriNdryshoi();
+}
+
+function gvRivleresimEndCallback(s, e) {
+    if (s.cpMesazh) {
+        myMesazh.ShtoMesazhInformues(s.cpMesazh);
+        s.cpMesazh = null;
+    }
+}
+
+var rivleresimNePune = false;
+function nisRivleresimin() {
+    if (rivleresimNePune)
+        return;
+    if (gvRivleresim.GetSelectedRowCount() == 0) {
+        myMesazh.ShtoMesazhInformues(hfState.Get("msgZgjidhArtikujt"));
+        return;
+    }
+    if (!confirm(hfState.Get("msgKonfirmoRivleresimin").replace('{0}', gvRivleresim.GetSelectedRowCount())))
+        return;
+    rivleresimNePune = true;
+    shfaqItem(ASPxMenu1, 'Rivleresim', false);
+    shfaqItem(ASPxMenu1, 'Stop', true);
+    lblProgresi.SetText('');
+    Utils.shfaqLoadingGif();
+    ProgressBar1.startTask();
+}
+
+function ndalRivleresimin() {
+    // ndalimi behet ne server pasi mbaron dita qe po rivleresohet; onTaskDone jep mesazhin
+    shfaqItem(ASPxMenu1, 'Stop', false);
+    ProgressBar1.stopTask();
+}
+
+function lexoExtraData() {
+    var extra = ProgressBar1.getExtraData();
+    if (!extra)
+        return null;
+    try { return JSON.parse(extra); } catch (ex) { return { Status: null, Mesazh: extra }; }
+}
+
+function onTaskRunning() {
+    try { window.parent.SessionTimeout.sendKeepAlive(); } catch (e) { }
+    var extra = lexoExtraData();
+    if (extra && extra.Mesazh)
+        lblProgresi.SetText(extra.Mesazh);
+}
+
+function perfundoUI() {
+    rivleresimNePune = false;
+    Utils.hiqLoadingGif();
+    shfaqItem(ASPxMenu1, 'Rivleresim', true);
+    shfaqItem(ASPxMenu1, 'Stop', false);
+}
+
+function onTaskDone() {
+    var extra = lexoExtraData();
+    var mesazh = extra && extra.Mesazh ? extra.Mesazh : '';
+    if (extra && extra.Status === true)
+        myMesazh.ShtoMesazhSuksesi(mesazh);
+    else if (extra && extra.Status === false)
+        myMesazh.ShtoMesazhGabimi(mesazh);
+    else
+        myMesazh.ShtoMesazhInformues(hfState.Get("msgRivleresimiUNdal") + ' ' + ProgressBar1.getValue() + ' % ' + mesazh);
+    lblProgresi.SetText(mesazh);
+    perfundoUI();
+}
+
+function onTaskError() {
+    myMesazh.ShtoMesazhGabimi(hfState.Get("msgRivleresimiGabim"));
+    perfundoUI();
 }
