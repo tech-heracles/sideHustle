@@ -1,0 +1,81 @@
+# Compiles the whole solution on every push, so compile errors show up on GitHub instead of on the server.
+# DevExpress 18.2.7 is not on GitHub's machines and is not in the repository (paid licence): it comes from the
+# release asset "devexpress-18.2.7.zip" under the tag "build-deps", made with tools/pack-devexpress-for-ci.ps1.
+# Only upload that asset while the repository is PRIVATE. See docs/build-check.md.
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+      - 'tools/**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 60
+    env:
+      DX_DIR: ${{ github.workspace }}\..\devexpress
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: .NET Framework 4.7.1 targeting pack
+        shell: pwsh
+        run: |
+          $pack = "${env:ProgramFiles(x86)}\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1"
+          if (Test-Path $pack) { "already installed"; exit 0 }
+          choco install netfx-4.7.1-devpack -y --no-progress
+          if (-not (Test-Path $pack)) { throw "the 4.7.1 targeting pack did not install" }
+
+      - uses: microsoft/setup-msbuild@v2
+      - uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore PlatinumWeb.sln -NonInteractive
+
+      - name: DevExpress 18.2.7 assemblies
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          New-Item -ItemType Directory -Force -Path $env:DX_DIR | Out-Null
+          $zip = Join-Path $env:RUNNER_TEMP 'devexpress-18.2.7.zip'
+          gh release download build-deps --repo $env:GITHUB_REPOSITORY --pattern devexpress-18.2.7.zip --output $zip --clobber
+          if ($LASTEXITCODE -ne 0 -or -not (Test-Path $zip)) {
+            "::error::DevExpress 18.2.7 is missing: run tools\pack-devexpress-for-ci.ps1 -Upload on a PC with DevExpress 18.2 (repository must be private). See docs/build-check.md."
+            exit 1
+          }
+          Expand-Archive $zip -DestinationPath $env:DX_DIR -Force
+          "{0} DevExpress assemblies" -f (Get-ChildItem $env:DX_DIR -Filter *.dll -Recurse).Count
+
+      - name: Build (Release)
+        shell: pwsh
+        run: |
+          msbuild PlatinumWeb.sln /m /nologo /v:minimal /clp:Summary `
+            /p:Configuration=Release "/p:ReferencePath=$env:DX_DIR"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      # Compiles every .aspx/.ascx/.master the way IIS does on first request, so markup errors
+      # (e.g. an event handler the code-behind does not have) are caught too.
+      # continue-on-error until it has been green once; then remove that line.
+      - name: Compile pages (aspnet_compiler)
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          Set-Location PlatinumWeb
+          foreach ($f in 'connectionStrings', 'machineKey', 'avecLicense') {
+            if (-not (Test-Path "$f.config")) { Copy-Item "$f.example.config" "$f.config" }
+          }
+          $out = Join-Path $env:RUNNER_TEMP 'precompiled'
+          & "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe" -v / -p . -errorstack $out
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
