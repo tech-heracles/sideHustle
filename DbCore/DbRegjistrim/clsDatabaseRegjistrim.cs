@@ -5262,6 +5262,62 @@ namespace DbCore.DbRegjistrim
         ///<param name="idartikulli">id e artikullit</param>
         ///<param name="idmagazina">id e magazines</param>
         /// <returns> trupat e magazines per fifo</returns>
+        // Filtri i perbashket i faqes "Rivleresimi i inventarit": rreshtat aktive te magazines se ndermarrjes,
+        // ne periudhen [@pNga, @pDeri] (ditet e plota) dhe, kur @pMag <> 0, vetem ne ate magazine.
+        private const string FiltriLevizjevePerRivleresim = @"
+            FROM   T_TRUPIMAGAZINA tm
+                   JOIN T_KOKAMAGAZINA tk ON tk.IDKOKAMAGAZINA = tm.IDKOKAMAGAZINA
+            WHERE  tk.IDNDERM = @pNderm
+              AND  tm.IDSTATUSDOK = 1
+              AND  tm.DATA >= @pNga AND tm.DATA < DATEADD(day, 1, @pDeri)
+              AND  (@pMag = 0 OR tm.IDMAG = @pMag)";
+
+        private void shtoParametraLevizjePerRivleresim(int idNderm, int idMag, DateTime dataNga, DateTime dataDeri)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(4);
+            dbManager.AddParameters(0, "@pNderm", idNderm, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@pMag", idMag, ParameterDirection.Input);
+            dbManager.AddParameters(2, "@pNga", dataNga.Date, ParameterDirection.Input);
+            dbManager.AddParameters(3, "@pDeri", dataDeri.Date, ParameterDirection.Input);
+        }
+
+        /// <summary>
+        /// Artikujt qe kane levizje magazine ne periudhe (per griden e faqes se rivleresimit):
+        /// IdArtikulli, Kodi, Pershkrimi, NrMagazinash, DataEPare, NrDitesh.
+        /// </summary>
+        internal DataTable ktheArtikujMeLevizjePerRivleresim(int idNderm, int idMag, DateTime dataNga, DateTime dataDeri)
+        {
+            shtoParametraLevizjePerRivleresim(idNderm, idMag, dataNga, dataDeri);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SET NOCOUNT ON;
+            SELECT a.IDARTIKULLI AS IdArtikulli, a.KODARTIKULLI AS Kodi, a.PERSHKRIMARTIKULLI AS Pershkrimi,
+                   x.NrMagazinash, x.DataEPare, x.NrDitesh
+            FROM  (SELECT tm.IDARTIKULL,
+                          COUNT(DISTINCT tm.IDMAG)                 AS NrMagazinash,
+                          MIN(CONVERT(date, tm.DATA))              AS DataEPare,
+                          COUNT(DISTINCT CONVERT(date, tm.DATA))   AS NrDitesh" + FiltriLevizjevePerRivleresim + @"
+                   GROUP BY tm.IDARTIKULL) x
+                   JOIN T_ARTIKULLI a ON a.IDARTIKULLI = x.IDARTIKULL
+            ORDER BY a.KODARTIKULLI
+            OPTION (RECOMPILE);");
+            return ds.Tables[0];
+        }
+
+        /// <summary>
+        /// Ditet me levizje magazine ne periudhe, nje rresht per artikull/magazine/dite (IdArtikulli, IdMag, Dita),
+        /// renditur sipas artikullit, dites dhe magazines. Ditet pa levizje nuk kane cfare te rivleresohet.
+        /// </summary>
+        internal DataTable ktheDitetMeLevizjePerRivleresim(int idNderm, int idMag, DateTime dataNga, DateTime dataDeri)
+        {
+            shtoParametraLevizjePerRivleresim(idNderm, idMag, dataNga, dataDeri);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.Text, @"SET NOCOUNT ON;
+            SELECT tm.IDARTIKULL AS IdArtikulli, tm.IDMAG AS IdMag, CONVERT(date, tm.DATA) AS Dita" + FiltriLevizjevePerRivleresim + @"
+            GROUP BY tm.IDARTIKULL, tm.IDMAG, CONVERT(date, tm.DATA)
+            ORDER BY tm.IDARTIKULL, Dita, tm.IDMAG
+            OPTION (RECOMPILE);");
+            return ds.Tables[0];
+        }
+
         internal DataTable ktheReshtaPerRivleresimFifoArtikulli(int idartikulli, int idmagazina, DateTime datanga, DateTime dataderi)
         {
             dbManager.Open();

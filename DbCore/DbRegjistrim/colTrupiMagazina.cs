@@ -404,6 +404,26 @@ namespace DbCore.DbRegjistrim
         /// <param name="datanga">data nga </param>
         /// <param name="dataderi">data deri</param>
         /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert kthen false</returns>
+        /// <summary>
+        /// Artikujt me levizje magazine ne periudhe, per faqen "Rivleresimi i inventarit".
+        /// idMag = 0 per te gjitha magazinat.
+        /// </summary>
+        public static DataTable merrArtikujMeLevizjePerRivleresim(int idNderm, int idMag, DateTime dataNga, DateTime dataDeri)
+        {
+            using (clsDatabaseRegjistrim db = new clsDatabaseRegjistrim())
+                return db.ktheArtikujMeLevizjePerRivleresim(idNderm, idMag, dataNga, dataDeri);
+        }
+
+        /// <summary>
+        /// Ditet me levizje (IdArtikulli, IdMag, Dita) ne periudhe, per faqen "Rivleresimi i inventarit".
+        /// idMag = 0 per te gjitha magazinat.
+        /// </summary>
+        public static DataTable merrDitetMeLevizjePerRivleresim(int idNderm, int idMag, DateTime dataNga, DateTime dataDeri)
+        {
+            using (clsDatabaseRegjistrim db = new clsDatabaseRegjistrim())
+                return db.ktheDitetMeLevizjePerRivleresim(idNderm, idMag, dataNga, dataDeri);
+        }
+
         public bool mbushReshtaPerRivleresimFifoArtikulli(int idartikulli, int idmagazina, DateTime datanga, DateTime dataderi)
         {
             using (clsDatabaseRegjistrim dbtrupMagazine = new clsDatabaseRegjistrim()) {
