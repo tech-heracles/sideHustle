@@ -290,7 +290,7 @@
     </style>
 </head>
 
-<body class="">
+<body class="avec-shell">
     <div class="loader-overlay"></div>
     <div class="loader">
         <div class="lds-grid">

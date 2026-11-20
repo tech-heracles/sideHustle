@@ -1,0 +1,886 @@
+/*
+ * AVEC Accounting - layout layer for the inner screens.
+ * Loaded on every page with the "Avec" theme, after avec.css and zz-avec-dark-devexpress.css.
+ * The login (Prezantohu), the home cards (Default) and the main frame (FaqeKryesore) are the reference
+ * design and are excluded by the body selector below; every rule here starts with it.
+ *
+ * What it changes on the other screens:
+ *  - toolbars: one card-like bar, buttons with a small icon beside the label instead of 32px icons on top
+ *  - grids: a rounded card, quiet headers, row lines instead of cell borders, pill pager
+ *  - editors: rounded filled fields like the login form, orange focus ring
+ *  - buttons, panels, tabs and pop-ups: same corners, borders and type as the home cards
+ */
+
+/* ------------------------------------------------------------------ page */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) {
+    font-size: 13px;
+}
+
+/* ------------------------------------------------------------------ toolbars (ASPxMenu used as a page toolbar) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+    padding: 5px !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-spacing {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item {
+    float: none !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 9px !important;
+    margin: 0 !important;
+    height: auto !important;
+    transition: background-color .15s ease, border-color .15s ease;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item .dxm-content {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px 6px 10px !important;
+    min-height: 22px;
+    text-align: left !important;
+    white-space: nowrap;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item .dxm-content br {
+    display: none;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item img.dxm-image {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+    display: block !important;
+    float: none !important;
+    flex: none;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item a.dx,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item .dxm-content > span {
+    color: var(--avec-text) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 18px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-hovered {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-selected,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-checked {
+    background: var(--avec-orange-tint) !important;
+    border-color: var(--avec-orange-muted) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-selected .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-checked .dx-vam {
+    color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-disabled {
+    opacity: .38;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-item.dxm-disabled .dx-vam {
+    color: var(--avec-text-secondary) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-separator {
+    float: none !important;
+    align-self: stretch;
+    width: 1px !important;
+    min-height: 22px;
+    margin: 4px 6px !important;
+    padding: 0 !important;
+    background: var(--avec-border) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-separator b {
+    display: none;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-popOut {
+    padding: 0 !important;
+    margin-left: -2px;
+    opacity: .7;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal .dxm-dropDownMode .dxm-popOut {
+    border-left: 1px solid var(--avec-border) !important;
+    padding: 0 6px !important;
+}
+
+/* the message strip under the toolbar keeps a plain look */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) #dvMenu .dxm-main.dxm-horizontal {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 2px 0 !important;
+}
+
+/* drop-down part of any menu */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxmLite_Material .dxm-popup {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .55) !important;
+    padding: 4px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-shadow {
+    border-radius: 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-gutter {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item .dxm-content {
+    padding: 7px 12px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item a.dx {
+    color: var(--avec-text) !important;
+    font-size: 13px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item.dxm-hovered {
+    background: var(--avec-surface-high) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-item.dxm-hovered .dx-vam {
+    color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-popup .dxm-separator b {
+    background: var(--avec-border) !important;
+}
+
+/* ------------------------------------------------------------------ grids (ASPxGridView, ASPxTreeList) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxtlControl_Material {
+    border-collapse: separate !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+    background: var(--avec-surface) !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material table.dxgvTable_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxtlControl_Material table {
+    border: 0 !important;
+    background: transparent !important;
+}
+
+/* panels around the data area sit on the card itself */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvHeaderPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvPagerTopPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvPagerBottomPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvStatusBar_Material {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material {
+    padding: 8px 10px 4px !important;
+    text-align: left !important;
+    color: var(--avec-text) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material {
+    padding: 8px 10px 4px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material {
+    margin: 6px 10px 2px;
+    padding: 7px 12px !important;
+    border: 1px dashed var(--avec-border) !important;
+    border-radius: 9px;
+    color: var(--avec-text-muted) !important;
+    font-size: 12px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material td.dxgvHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material .dxgvHeader_Material {
+    background: var(--avec-surface-high) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 7px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* column headers: quiet, uppercase, one line under them */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxtlHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvHeader_Material {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    color: var(--avec-text-secondary) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 10px 10px 9px !important;
+    white-space: nowrap;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvHeader_Material:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxtlHeader_Material:hover {
+    color: var(--avec-text) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvHeader_Material table td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvHeader_Material .dx-wrap {
+    color: inherit !important;
+    font: inherit !important;
+    letter-spacing: inherit;
+}
+
+/* rows: no cell grid, a hairline between rows */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowAlt_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFocusedGroupRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvInlineEditRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlNode_Material td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlAltNode_Material td {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 1px solid #262626 !important;
+    color: var(--avec-text);
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowAlt_Material td.dxgv {
+    padding: 7px 10px !important;
+    background-color: transparent;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowAlt_Material td.dxgv {
+    background-color: rgba(255, 255, 255, .015);
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material:hover td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowHover_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlNode_Material:hover td {
+    background-color: #202020;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFocusedGroupRow_Material td.dxgv {
+    background: var(--avec-surface-high) !important;
+    color: var(--avec-text) !important;
+    font-weight: 600;
+}
+
+/* footer / summaries */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFooter_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupFooter_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlFooter_Material td {
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 1px solid var(--avec-border) !important;
+    color: var(--avec-text) !important;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 9px 10px !important;
+}
+
+/* filter row */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterRow_Material td.dxgv {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+}
+
+/* filter bar under the grid */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material {
+    border-top: 1px solid var(--avec-border) !important;
+    padding: 6px 10px !important;
+}
+
+/* empty grid */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEmptyDataRow_Material td.dxgv {
+    color: var(--avec-text-muted) !important;
+    border: 0 !important;
+    padding: 36px 10px !important;
+    text-align: center;
+}
+
+/* edit form inside a grid */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEditForm_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEditFormDisplayRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvEditForm_Material {
+    background: var(--avec-surface-high) !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEditForm_Material {
+    padding: 14px 16px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEditForm_Material > table td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvEditFormTable_Material td {
+    padding: 4px 6px;
+}
+
+/* detail rows */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDetailCell_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDetailRow_Material td.dxgvDetailCell_Material {
+    background: #161616 !important;
+    border: 0 !important;
+    padding: 12px 14px !important;
+}
+
+/* command column links / buttons */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvCommandColumn_Material a,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) a.dxgvCommandColumnItem_Material {
+    color: var(--avec-orange) !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* pager: pills */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvPagerBottomPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvPagerTopPanel_Material {
+    padding: 8px 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material {
+    color: var(--avec-text-secondary) !important;
+    font-size: 12px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-num,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-current,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-button {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px !important;
+    padding: 0 8px !important;
+    margin: 0 2px !important;
+    border-radius: 8px !important;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: var(--avec-text) !important;
+    text-align: center;
+    text-decoration: none !important;
+    box-sizing: border-box;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material a.dxp-num:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material a.dxp-button:hover {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+    color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-current {
+    background: var(--avec-orange) !important;
+    border-color: var(--avec-orange) !important;
+    color: var(--avec-orange-on) !important;
+    font-weight: 700;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-summary,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-ellip,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpLite_Material .dxp-pageSizeItem {
+    color: var(--avec-text-muted) !important;
+}
+
+/* ------------------------------------------------------------------ editors: filled and rounded like the login form */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeMemo_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBoxSys,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEditSys,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeMemoSys,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxeTextBox_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxeButtonEdit_Material {
+    background: var(--avec-surface-high) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    border-collapse: separate !important;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeMemo_Material:hover {
+    border-color: #4a4a48 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeFocused_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeFocused_Material.dxeTextBox_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeFocused_Material.dxeButtonEdit_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeFocused_Material.dxeMemo_Material {
+    border-color: var(--avec-orange) !important;
+    box-shadow: 0 0 0 1px var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeMemo_Material td {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input.dxeEditArea_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) textarea.dxeEditArea_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeEditArea_Material {
+    background: transparent !important;
+    color: var(--avec-text) !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material input.dxeEditArea_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material input.dxeEditArea_Material {
+    padding-left: 10px !important;
+    padding-right: 6px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxeButtonEditButton_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxeButton.dxeButtonEditButton_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material td.dxeButton {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 7px 7px 0;
+    color: var(--avec-text-secondary) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxeButtonEditButton_Material:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material td.dxeButton:hover {
+    background: var(--avec-surface-highest) !important;
+}
+
+/* disabled / read-only fields stay readable but flat */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeDisabled_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeReadOnly_Material {
+    background: var(--avec-surface) !important;
+    border-style: dashed !important;
+    border-color: var(--avec-surface-highest) !important;
+}
+
+/* plain html fields used on some pages */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="text"]:not(.dxeEditArea_Material):not([class*="dx"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="number"]:not([class*="dx"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="date"]:not([class*="dx"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="password"]:not([class*="dx"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) select:not([class*="dx"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) textarea:not([class*="dx"]) {
+    border: 1px solid var(--avec-border);
+    border-radius: 8px;
+    padding: 5px 9px;
+    outline: none;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="text"]:not([class*="dx"]):focus,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) input[type="number"]:not([class*="dx"]):focus,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) select:not([class*="dx"]):focus,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) textarea:not([class*="dx"]):focus {
+    border-color: var(--avec-orange);
+    box-shadow: 0 0 0 1px var(--avec-orange);
+}
+
+/* drop-down lists and calendars */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcDropDown_Material .dxpc-mainDiv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBox_Material {
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .55) !important;
+    background: var(--avec-surface) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcDropDown_Material .dxeListBox_Material {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItem_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItemRow_Material td {
+    padding: 6px 10px !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItemHover_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItemHover_Material td {
+    background: var(--avec-surface-high) !important;
+    color: var(--avec-text) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItemSelected_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeListBoxItemSelected_Material td {
+    background: var(--avec-orange-tint) !important;
+    color: var(--avec-orange) !important;
+}
+
+/* labels next to fields */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeBase_Material.dxeCaption_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxflCaption_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) label.dxflCaption_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeCaptionCell_Material {
+    color: var(--avec-text-secondary) !important;
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+/* ------------------------------------------------------------------ buttons: same shape as the login button */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material {
+    border-radius: 9px !important;
+    box-shadow: none !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    transition: background-color .15s ease, border-color .15s ease;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material .dxb {
+    padding: 7px 16px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material .dx-vam {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
+    background: var(--avec-orange) !important;
+    border: 1px solid var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
+    background: var(--avec-orange-hover) !important;
+    border-color: var(--avec-orange-hover) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-secondary,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-outline {
+    background: var(--avec-surface-high) !important;
+    border: 1px solid var(--avec-border) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-secondary:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-outline:hover {
+    border-color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-secondary .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxb-outline .dx-vam {
+    color: var(--avec-text) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.dxbDisabled_Material {
+    opacity: .55;
+}
+
+/* ------------------------------------------------------------------ round panels: cards with a quiet caption */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControlGB_Material {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+    border-collapse: separate !important;
+    box-shadow: none !important;
+    overflow: visible;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material td.dxrpHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material .dxrpHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControlGB_Material .dxrpHeader_Material {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    padding: 10px 14px !important;
+    color: var(--avec-text-secondary) !important;
+    border-radius: 12px 12px 0 0;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpHeader_Material .dxrpHT,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpHeader_Material .dxrp-headerText,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpHeader_Material span {
+    color: var(--avec-text-secondary) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material td.dxrp,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material .dxrpcontent,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControl_Material .dxrp-content {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxrpControlGB_Material .dxrpHeader_Material {
+    background: var(--avec-surface) !important;
+    border: 0 !important;
+}
+
+/* ------------------------------------------------------------------ tabs (ASPxPageControl / ASPxTabControl): segmented pills */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 0 8px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-strip {
+    display: inline-flex !important;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 3px !important;
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 11px;
+    height: auto !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-spacer,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-leftIndent,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-rightIndent,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-lineBreak {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab {
+    float: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab a,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dx-vam {
+    color: var(--avec-text-secondary) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tabHover {
+    background: var(--avec-surface-high) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab:hover .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab:hover .dxtc-link {
+    color: var(--avec-text) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab {
+    background: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab a,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dx-vam {
+    color: var(--avec-orange-on) !important;
+    font-weight: 600 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dxtc-link {
+    padding: 7px 16px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dxtc-link {
+    padding: 7px 16px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-content {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+/* ------------------------------------------------------------------ pop-up windows: a card like the login box */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-mainDiv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material.dxpc-mainDiv {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .55) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-header {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    padding: 12px 14px 12px 18px !important;
+    border-radius: 12px 12px 0 0;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-headerText,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-header .dxpc-headerContent span {
+    color: var(--avec-text) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: -.005em;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-closeBtn {
+    border-radius: 8px;
+    padding: 4px !important;
+    opacity: .7;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-closeBtn:hover {
+    background: var(--avec-surface-high) !important;
+    opacity: 1;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-content {
+    background: transparent !important;
+    color: var(--avec-text) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcLite_Material .dxpc-footer {
+    background: transparent !important;
+    border-top: 1px solid var(--avec-border) !important;
+    border-radius: 0 0 12px 12px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcModalBackLite_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxpcModalBackLite_Material.dxpc-modalBack {
+    background-color: rgba(0, 0, 0, .6) !important;
+    opacity: 1 !important;
+}
+
+/* loading panel */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxlpLoadingPanel_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxlpLoadingPanelWithContent_Material {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .5) !important;
+    color: var(--avec-text) !important;
+}
+
+/* ------------------------------------------------------------------ form layout (ASPxFormLayout) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxflGroupBox_Material {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 12px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxflGroupBoxCaption_Material {
+    background: var(--avec-bg) !important;
+    color: var(--avec-text-secondary) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 0 8px !important;
+}
+
+/* ------------------------------------------------------------------ DevExtreme grids and toolbars (dx-datagrid) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid-headers,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid-header-panel {
+    background: transparent !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid-headers .dx-header-row > td {
+    color: var(--avec-text-secondary) !important;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid-rowsview .dx-row > td {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-datagrid-rowsview .dx-data-row > td {
+    border-bottom: 1px solid #262626 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-button {
+    border-radius: 9px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-texteditor.dx-editor-outlined {
+    border-radius: 8px !important;
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dx-texteditor.dx-editor-outlined.dx-state-focused {
+    border-color: var(--avec-orange) !important;
+}
+
+/* ------------------------------------------------------------------ jqGrid (older list pages) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .ui-jqgrid {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .ui-jqgrid .ui-jqgrid-htable th {
+    background: var(--avec-surface) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .ui-jqgrid tr.jqgrow td {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #262626 !important;
+    padding: 6px 8px !important;
+}
+
+/* avec.css tints both the focused row and its cells; keep the tint on the cells only so it is not doubled */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr.dxgvFocusedRow_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr.dxgvSelectedRow_Material {
+    background-color: transparent !important;
+}

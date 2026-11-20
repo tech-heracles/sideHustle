@@ -1,7 +1,8 @@
 # Build first:  MSBuild.exe PlatinumWeb.sln -p:Configuration=Release -m
 # Deploys the local build to C:\Sites\AlphaWeb:
 #  - DLL/PDB files in bin that differ from the live site
-#  - pages and scripts (.aspx/.ascx/.master/.asmx/.ashx/.js/.css) that differ and already exist on the site
+#  - pages and scripts (.aspx/.ascx/.master/.asmx/.ashx/.js/.css) that differ and already exist on the site,
+#    plus new .css files under App_Themes (the theme loads every stylesheet in its folder)
 #  - machineKey.config first, then the Web.config that points to it
 #  - pages removed from the project
 # Restarts the app (everyone is logged out). First page load afterwards takes a few minutes.
@@ -26,7 +27,9 @@ Get-ChildItem $repo -Recurse -File | Where-Object {
     $_.Extension -in $ext -and $_.FullName -notmatch '\\(bin|obj)\\'
 } | ForEach-Object {
     $target = $site + $_.FullName.Substring($repo.Length)
-    if ((Test-Path $target) -and -not (Same $_.FullName $target)) {
+    # theme files are picked up from the folder, so a new one there must be copied too
+    $isTheme = $_.FullName -match '\\App_Themes\\'
+    if (($isTheme -or (Test-Path $target)) -and -not (Same $_.FullName $target)) {
         Copy-Item $_.FullName $target -Force
         "  updated " + $_.FullName.Substring($repo.Length + 1)
         $n++
