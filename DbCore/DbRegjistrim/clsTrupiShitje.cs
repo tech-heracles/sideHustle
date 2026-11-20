@@ -1455,6 +1455,7 @@ namespace DbCore.DbRegjistrim
             else if (llojzbritje == 2 && zbr == 0 && zbritjevlere != 0)
                 zbr = Math.Round(zbritjevlere * 100 / (sas * cm), 10);
             clsArtikulli art = new clsArtikulli();
+            clsArtikulli artSipasKodit = null; // artikulli i rreshtit kur eshte marre sipas kodit (si ne KtheColKomision)
             clsLlogari llog = new clsLlogari();
             object elem = new object();
             clsDatabaseRegjistrim dbR = new clsDatabaseRegjistrim(dbData);
@@ -1501,6 +1502,7 @@ namespace DbCore.DbRegjistrim
                         if (!String.IsNullOrEmpty(kod))
                         {
                             art = new clsArtikulli(kod, idndermarje, dbI);
+                            artSipasKodit = art;
                             idkodi = art.IdArtikulli;
                             pershkr = art.PershkrimArtikulli;
                             if (!String.IsNullOrEmpty(kodbari))
@@ -1665,7 +1667,7 @@ namespace DbCore.DbRegjistrim
                         if (String.IsNullOrEmpty(magazina))
                             return new clsMesazh(false, "Magazina nuk duhet te jete bosh!");
                         if (shtoRreshtKomisioni)
-                            KtheColKomision(ref colTrupiKomision, trupiurdher, idndermarje, klientKomisionPerColTrupiKomision, VleraKomisionit, kod, idperdoruesi, ref ruajKomision);
+                            KtheColKomision(ref colTrupiKomision, trupiurdher, idndermarje, klientKomisionPerColTrupiKomision, VleraKomisionit, kod, idperdoruesi, ref ruajKomision, artSipasKodit);
                         elem = art;
                         break;
                     }
@@ -1720,12 +1722,20 @@ namespace DbCore.DbRegjistrim
             return krijoTrupShitje(idShiTrup, idShiKoka, idLlojVep, kod, pershkr, !String.IsNullOrEmpty(serialiUnikKryesor) ? idSerialiUnikKryesor : idDetaj1, idNjesia, sas, cm, zbr, vlMeTvsh, taksa.IdTaksa, vlPaTvsh, idkodi, mag.IdNjesiAdministrative, gjeresi, gjatesi, sasipermasa, shenime, dtfill, dtmb, idTrupiKonvertim, sasirez, 0, idtrupitransferim, idTrupiKthimi, idndermarje, idLlogshpenz, idDetaj2, elem, 0, shenime2trupi, llojzbritje, zbritjevlere, idKategoriShpenzimi, idBarkodi, dbK, idTrupiTransferimNga, VleraKomisionit, klientKomision, sasiambetur);
         }
 
-        public static void KtheColKomision(ref colTrupiShitje colTrupiKomision, clsTrupiShitje trupiurdher, int idNdermarrje, bool klientKomision, double vleraKomisionit, string kodi, int idPerdorues, ref bool ruajKomision)
+        public static void KtheColKomision(ref colTrupiShitje colTrupiKomision, clsTrupiShitje trupiurdher, int idNdermarrje, bool klientKomision, double vleraKomisionit, string kodi, int idPerdorues, ref bool ruajKomision, clsArtikulli artikulliIRreshtit = null)
         {
+            // artikulliIRreshtit: artikulli me kodin 'kodi', i marre nga thirresi me te njejten metode; perdoret ne vend qe te
+            // ngarkohet perseri per cdo rresht me DbData te ri. Pa klient komisioni artikulli nuk duhet fare.
+            if (trupiurdher == null && artikulliIRreshtit != null && !klientKomision)
+            {
+                ruajKomision = false;
+                return;
+            }
             clsTrupiShitje clsKomision = new clsTrupiShitje();
             clsMesazh mesazh = new clsMesazh();
             colSerialetMagazine ser = new colSerialetMagazine();
-            clsArtikulli artikulli = new clsArtikulli(trupiurdher != null ? trupiurdher.Kodi : kodi, idNdermarrje, new clsDatabaseInventari(new DbData()));
+            clsArtikulli artikulli = trupiurdher == null && artikulliIRreshtit != null ? artikulliIRreshtit
+                : new clsArtikulli(trupiurdher != null ? trupiurdher.Kodi : kodi, idNdermarrje, new clsDatabaseInventari(new DbData()));
             if (klientKomision && artikulli.LlogaritKomision)
             {
                 ruajKomision = true;

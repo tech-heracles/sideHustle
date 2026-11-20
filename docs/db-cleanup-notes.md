@@ -87,8 +87,18 @@ Delete these rows first, then the classes can be removed from `AlphaWebReports.*
 
 (The full list with file names can be produced with `SELECT IDRAPORTDESING, FILENAME FROM T_RAPORTDESING WHERE IDRAPORTDESING IN (...)`.)
 
-## Not a cleanup item, but blocking
+## Alpha Bank FlexCube export
 
-The employees page needs the database master key: it is encrypted by the original IMB server's service master key.
-Someone with the master key password must run
-`OPEN MASTER KEY DECRYPTION BY PASSWORD = '...'; ALTER MASTER KEY ADD ENCRYPTION BY SERVICE MASTER KEY;`.
+Export category 92 ("Format Eksport Flex Cube", "Format Eksport Prepaid Expenses", `T_KOKAFORMATIMPORTI`
+57-63, 76-82, 31386, 31389, 31428, 31431) exists only for IMB demo/template companies. Its code
+(`Eksport.aspx` `EksportoFlexCube`, case 92, `merrTeDhenaPerExportFlexCubeAlphaBank`,
+`merrTeDhenaPerPrepaidExpensesAlphaBank`) can be removed after the category and these formats are deleted.
+
+## Employees (Burime Njerezore) encryption keys
+
+Employee data is encrypted with `Employee_key` -> certificate `EncryptEmp` -> database master key, and the master key
+was encrypted by IMB's old server, so every payroll procedure fails at `OPEN SYMMETRIC KEY`. Without IMB's master key
+password, `sql/recreate-employee-keys.sql` replaces the three keys with new ones under the same names (no procedure
+changes). The 28 existing employee records all belong to IMB demo/trial companies and become unreadable; a full backup
+taken on 2026-09-25 before the change keeps them recoverable
+(`...\MSSQL\Backup\AVEC_before_new_employee_keys_2026-09-25.bak`).
