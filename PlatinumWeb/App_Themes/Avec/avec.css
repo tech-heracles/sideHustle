@@ -1536,3 +1536,159 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_
     padding-left: 6px !important;
     padding-right: 2px !important;
 }
+
+/* ==================================================================
+   List screens: compact, data-dense look (proposal 4, chosen 2026-11-21)
+   Toolbar items become separate small buttons, the first one is the
+   primary action; grids get a solid header strip, 36px zebra rows and
+   filter chips.
+   ================================================================== */
+
+/* ---- toolbar: no frame, separate buttons */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 0 8px !important;
+    border-radius: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul {
+    gap: 6px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul > li.dxm-separator {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul > li.dxm-item:not(.dxm-tmpl) {
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul > li.dxm-item:not(.dxm-tmpl) .dxm-content {
+    padding: 0 12px 0 10px !important;
+    height: 34px;
+    gap: 7px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul > li.dxm-item:not(.dxm-tmpl) img.dxm-image {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal:not([id$="MenuInfo"]) > ul > li.dxm-item:not(.dxm-tmpl).dxm-hovered {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-orange) !important;
+}
+
+/* the first visible button of the page toolbar (Shto / E re) is the primary action; hidden items carry an inline display: none */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:not(.dxm-tmpl):not([style*="display: none"]):not(li.dxm-item:not([style*="display: none"]) ~ li):not(.dxm-disabled) {
+    background: var(--avec-orange) !important;
+    border-color: var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:not(.dxm-tmpl):not([style*="display: none"]):not(li.dxm-item:not([style*="display: none"]) ~ li):not(.dxm-disabled).dxm-hovered {
+    background: var(--avec-orange-hover) !important;
+    border-color: var(--avec-orange-hover) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:not(.dxm-tmpl):not([style*="display: none"]):not(li.dxm-item:not([style*="display: none"]) ~ li):not(.dxm-disabled) .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:not(.dxm-tmpl):not([style*="display: none"]):not(li.dxm-item:not([style*="display: none"]) ~ li):not(.dxm-disabled) .dxm-content > span {
+    color: var(--avec-orange-on) !important;
+    font-weight: 600 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:not(.dxm-tmpl):not([style*="display: none"]):not(li.dxm-item:not([style*="display: none"]) ~ li):not(.dxm-disabled) img.dxm-image {
+    filter: brightness(0) saturate(100%) opacity(.85);
+}
+
+/* ---- grids: solid header strip, sentence case */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxgvHeader_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxtlHeader_Material {
+    background: var(--avec-surface-high) !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    color: var(--avec-text-secondary) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    padding: 0 10px !important;
+    height: 38px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material td.dxgvHeader_Material {
+    height: auto;
+    padding: 4px 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr[id$="DXHeadersRow0"] > td:first-child {
+    border-top-left-radius: 11px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr[id$="DXHeadersRow0"] > td:last-child {
+    border-top-right-radius: 11px;
+}
+
+/* ---- rows: 36px, zebra, numbers aligned */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowAlt_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlNode_Material td,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlAltNode_Material td {
+    padding: 0 10px !important;
+    height: 36px;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    border-bottom: 1px solid #232323 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material:nth-child(even) td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowAlt_Material td.dxgv {
+    background-color: #1d1d1d;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRow_Material:hover td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvDataRowHover_Material td.dxgv,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtlNode_Material:hover td {
+    background-color: #262626;
+}
+
+/* filter row: slim fields */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterRow_Material td.dxgv {
+    padding: 4px 6px !important;
+    background: #161616 !important;
+}
+
+/* ---- filter bar: the active filter shows as an orange chip */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material {
+    padding: 8px 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material a.dxgvFilterBarLink_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material td.dxgvFilterBarExpressionCell_Material a {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #2a1d16;
+    color: #f3a77f !important;
+    text-decoration: none !important;
+    font-size: 12px;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFilterBar_Material td.dxgvFilterBarClearButtonCell_Material a {
+    color: var(--avec-text-secondary) !important;
+    font-size: 12px;
+}
+
+/* ---- grid search box: a slim rounded field */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material table.dxeButtonEdit_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material table.dxeTextBox_Material {
+    max-width: 360px;
+    border-radius: 10px !important;
+}
+
+/* ---- footer line under the grid */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFooter_Material td.dxgv {
+    background: var(--avec-surface-high) !important;
+    font-size: 12px;
+}
