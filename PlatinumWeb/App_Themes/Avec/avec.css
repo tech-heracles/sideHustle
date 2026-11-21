@@ -1817,3 +1817,18 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Ma
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material {
     padding: 8px 10px !important;
 }
+
+/* group-by area of the grids is hidden (user's request, 2026-11-21) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvGroupPanel_Material {
+    display: none !important;
+}
+
+/* txtLlog is a helper field that scripts write to; it was meant to be invisible (white on white, width 0) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id$="txtLlog"] {
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
