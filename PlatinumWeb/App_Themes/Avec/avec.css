@@ -1832,3 +1832,9 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id$="txtLlog"]
     opacity: 0;
     pointer-events: none;
 }
+
+/* list view (first tab active): the record tabs (Informacion, Kontabilitet...) belong to one record only,
+   so they are hidden until a record is opened (Shto / Modifiko or a row) - user's request, 2026-11-21 */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip:has(> li.dxtc-tab.dxtc-lead:is([style*="display:none"], [style*="display: none"])) > li.dxtc-tab:not(.dxtc-lead) {
+    display: none !important;
+}
