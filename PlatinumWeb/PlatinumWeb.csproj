@@ -611,7 +611,6 @@
     <Content Include="App_Themes\Avec\sprites\Web.sprite.svg" />
     <Content Include="App_Themes\Avec\sprites\XtraReports.sprite.svg" />
     <Content Include="App_Themes\Avec\zz-avec-dark-devexpress.css" />
-    <Content Include="App_Themes\Avec\zzz-avec-layout.css" />
     <Content Include="css\avec-dashboard.css" />
     <Content Include="css\avec-shell.css" />
     <Content Include="images\brand\avec-favicon.png" />
