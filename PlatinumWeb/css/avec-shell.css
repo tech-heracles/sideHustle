@@ -206,3 +206,10 @@ html, body, #form1, #backDiv {
     border-color: #383838 !important;
     color: #f2f2f0;
 }
+
+/* the old navigation pane stays in the page (the home cards are built from its navbar) but takes no room */
+#ASPxSplitter1_1i0 {
+    width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}

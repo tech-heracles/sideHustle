@@ -1838,3 +1838,76 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id$="txtLlog"]
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip:has(> li.dxtc-tab.dxtc-lead:is([style*="display:none"], [style*="display: none"])) > li.dxtc-tab:not(.dxtc-lead) {
     display: none !important;
 }
+
+/* ---- grid filter row: hidden until the funnel button turns it on (js/avec-inner.js adds the button) */
+body.avec-filters-off table.dxgvControl_Material:has(.avec-filter-toggle) .dxgvFilterRow_Material {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .avec-filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--avec-orange);
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .avec-filter-toggle:hover {
+    background: var(--avec-surface-high);
+    border-color: var(--avec-border);
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .avec-filter-toggle[aria-pressed="true"] {
+    background: var(--avec-orange-tint);
+    border-color: var(--avec-orange-muted);
+}
+
+/* ---- Arkiva is hidden while it is disabled */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item.dxm-disabled:has(img[src*="/menu/Arkiva"]) {
+    display: none !important;
+}
+
+/* ---- footer (FooterPanelInfo.aspx): "Ndermarrja: Alpha WEB ⋯ · © AVEC Accounting · Periudha: Nentor (2026) ⋯" */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table:has(> tbody > tr > td [id="lblEmriNdermarrje"]) > tbody > tr {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table:has(> tbody > tr > td [id="lblEmriNdermarrje"]) > tbody > tr > td {
+    width: auto !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id="lblNdermarrje"]) { order: 1; padding-left: 14px !important; }
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id="lblEmriNdermarrje"]) { order: 2; }
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id="txtNdermarrja"]) { order: 3; }
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> .copyright) { order: 4; flex: 1; text-align: center; }
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id="lblPeriudha"]) { order: 5; }
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id="btnPeriudha"]) { order: 6; padding-right: 14px !important; }
+
+/* the company field only keeps its "⋯" button (the name is shown beside it) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id="txtNdermarrja"] {
+    width: auto !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id="txtNdermarrja"] td.dxic {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) [id="lblEmriNdermarrje"] {
+    font-weight: 600;
+    color: var(--avec-text) !important;
+}

@@ -50,7 +50,7 @@
 
 <%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <link href="css/avec-shell.css" rel="stylesheet" />
+    <link href="css/avec-shell.css?v=2" rel="stylesheet" />
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -1886,5 +1886,20 @@
                 transform:  translate(-30rem, 0.5rem) !important;
             }
     </style>
+    <%-- AVEC theme: helpers for the pages opened in the main frame (js/avec-inner.js) --%>
+    <script type="text/javascript">
+        document.addEventListener('load', function (e) {
+            var f = e.target;
+            if (!f || f.tagName !== 'IFRAME' || f.name !== 'frameKryesor') return;
+            try {
+                var d = f.contentDocument;
+                if (!d || !d.body || d.getElementById('avec-inner-js')) return;
+                var s = d.createElement('script');
+                s.id = 'avec-inner-js';
+                s.src = 'js/avec-inner.js?v=2';
+                d.body.appendChild(s);
+            } catch (err) { /* page from another origin */ }
+        }, true);
+    </script>
 </body>
 </html>
