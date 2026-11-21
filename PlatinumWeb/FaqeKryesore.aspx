@@ -348,7 +348,9 @@
                                         <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
                                             <%--                                            <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />
                                             <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />--%>
-                                            <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />
+                                            <%-- the top menu is no longer shown: its pages are on the home cards (Default.aspx), only the user menu stays --%>
+                                            <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}"
+                                                Init="function(s, e) { var r = s.GetRootItem(); for (var i = 0; i < r.GetItemCount(); i++) { if (r.GetItem(i).name !== 'ikonaImazhPerdorues') r.GetItem(i).SetVisible(false); } }" />
                                             <Items>
                                                 <dx:MenuItem Text="Administrimi" Name="administrimi">
                                                     <Items>

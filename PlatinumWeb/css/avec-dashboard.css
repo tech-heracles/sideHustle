@@ -219,3 +219,18 @@ html, body.avec-dashboard {
 .dash-empty[hidden] {
     display: none;
 }
+
+/* section headings inside a module (Çelje, Konfigurime, Regjistrime, Raporte) */
+.dash-section {
+    grid-column: 1 / -1;
+    margin: 14px 0 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a3a3a0;
+}
+
+.dash-section:first-child {
+    margin-top: 0;
+}
