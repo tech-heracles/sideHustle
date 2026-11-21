@@ -4243,6 +4243,7 @@
     <Content Include="js\myJQGrid-IMB.2.1.js" />
     <Content Include="js\MyJQGridFushat-IMB.2.1.js" />
     <Content Include="js\myJQGridPivot-IMB.2.1.js" />
+    <Content Include="js\avec-inner.js" />
     <Content Include="js\myMesazh-IMB.2.1.js" />
     <Content Include="js\myNrAuto-IMB.2.1.js" />
     <Content Include="js\Utils-IMB.2.1.js" />
