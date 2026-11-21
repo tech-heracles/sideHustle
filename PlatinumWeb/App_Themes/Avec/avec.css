@@ -1692,3 +1692,10 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFooter_Material
     background: var(--avec-surface-high) !important;
     font-size: 12px;
 }
+
+/* saved-filter picker (with its apply / clear buttons) and expand / collapse all are hidden from the page toolbar (user's request, 2026-11-21) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnFiltra"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnCollapseAll"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnExpandAll"]) {
+    display: none !important;
+}
