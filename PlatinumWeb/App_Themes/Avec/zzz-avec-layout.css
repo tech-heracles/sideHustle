@@ -467,12 +467,6 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeEditArea_Materia
     border: 0 !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material input.dxeEditArea_Material,
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material input.dxeEditArea_Material {
-    padding-left: 10px !important;
-    padding-right: 6px !important;
-}
-
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxeButtonEditButton_Material,
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.dxeButton.dxeButtonEditButton_Material,
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material td.dxeButton {
@@ -883,4 +877,100 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .ui-jqgrid tr.jqgrow
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr.dxgvFocusedRow_Material,
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr.dxgvSelectedRow_Material {
     background-color: transparent !important;
+}
+
+/* ---- adjustments for the real page markup (checked on the running app) ---- */
+/* toolbar items come with width:12.5% and 64px separators (auto-width menu); let them size to their label */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal {
+    min-width: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-item:not(.dxm-tmpl) {
+    width: auto !important;
+    min-width: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-item.dxm-tmpl {
+    width: auto !important;
+    padding: 0 4px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-separator {
+    height: auto !important;
+}
+
+/* the filter / template part of the toolbar sits on the right */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-item:not(.dxm-tmpl) + li.dxm-separator:has(+ li.dxm-tmpl) {
+    margin-left: auto !important;
+}
+
+/* tab strips rendered as one flex list (ul.dxtc-strip.dxtc-stripContainer) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > ul.dxtc-strip {
+    display: inline-flex !important;
+    align-self: flex-start;
+    width: auto !important;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 3px !important;
+    margin: 0 0 10px !important;
+    background: var(--avec-surface) !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 11px;
+    box-sizing: border-box;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dx-vam,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dx-vam {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab {
+    height: auto !important;
+}
+
+/* the message strip under the toolbar (MenuInfo) has no frame of its own */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="MenuInfo"] {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="MenuInfo"] > ul > li.dxm-item.dxm-tmpl {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+/* buttons in a grid's title panel (choose / save columns, export...) are quiet, not primary */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
+    background: var(--avec-surface-high) !important;
+    border-color: var(--avec-border) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material .dx-vam {
+    color: var(--avec-text) !important;
+    font-weight: 500 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material .dxb {
+    padding: 5px 10px !important;
+}
+
+/* many document fields are narrow; keep the text inset small */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeTextBox_Material input.dxeEditArea_Material,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxeButtonEdit_Material input.dxeEditArea_Material {
+    padding-left: 6px !important;
+    padding-right: 2px !important;
 }
