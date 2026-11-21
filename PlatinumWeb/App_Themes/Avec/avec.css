@@ -1699,3 +1699,121 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnExpandAll"]) {
     display: none !important;
 }
+
+/* ==================================================================
+   Whole-screen layout A, chosen 2026-11-21: one command row
+   (underline tabs on the left, the page toolbar on the right), the
+   grid's tool icons in one group beside the search box.
+   Model picker and Importo are hidden at the user's request.
+   ================================================================== */
+
+/* ---- hidden: Model picker (cmbKonfigurimi row) and Importo */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="konfigurimi_Label"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblKonfigurimi"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblModeli"]),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> table[id$="cmbKonfigurimi"]) {
+    display: none !important;
+}
+
+/* a row that holds nothing but the Model picker (and its caption) goes away entirely */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr:has(> td > table[id$="cmbKonfigurimi"]):not(:has(input:not([id*="cmbKonfigurimi"]))) {
+    display: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:has(img[src*="/menu/Import."]) {
+    display: none !important;
+}
+
+/* ---- page toolbar moves up onto the tab row (only on pages with tabs) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) div:has(> table div.dxm-main[id$="ASPxMenu1"]) {
+    position: absolute !important;
+    top: 6px;
+    right: 14px;
+    z-index: 50;
+    width: auto !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) div:has(> table div.dxm-main[id$="ASPxMenu1"]) > table {
+    width: auto !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] {
+    padding: 0 !important;
+}
+
+/* ---- tabs: plain text with an orange underline, one line under the row */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > ul.dxtc-strip,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top > .dxtc-stripContainer .dxtc-strip {
+    display: flex !important;
+    width: 100% !important;
+    max-width: none;
+    gap: 22px;
+    padding: 0 !important;
+    margin: 0 0 12px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-surface-high) !important;
+    border-radius: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxm-main[id$="ASPxMenu1"]) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip {
+    padding-right: 500px !important;
+    box-sizing: border-box;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab:hover,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tabHover {
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dxtc-link {
+    padding: 0 !important;
+    height: 46px;
+    display: flex !important;
+    align-items: center;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab {
+    box-shadow: inset 0 -2px 0 var(--avec-orange) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab a,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-activeTab .dx-vam {
+    color: var(--avec-text) !important;
+    font-size: 14px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dxtc-link,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer .dxtc-tab .dx-vam {
+    font-size: 14px !important;
+}
+
+/* ---- grid tools (title panel icons) sit in one group on the right of the search box */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) {
+    position: relative;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 5;
+    padding: 3px !important;
+    width: auto !important;
+    border: 1px solid var(--avec-border) !important;
+    border-radius: 10px;
+    background: var(--avec-surface) !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material div.dxbButton_Material .dxb {
+    padding: 5px 8px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvSearchPanel_Material {
+    padding: 8px 10px !important;
+}
